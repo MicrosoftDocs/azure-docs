@@ -4,8 +4,9 @@ description: This PowerShell script sends a data share invitation.
 author: joannapea
 ms.service: data-share
 ms.topic: article
-ms.date: 07/07/2019
-ms.author: joanpo
+ms.date: 12/19/2023
+ms.author: joanpo 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use a PowerShell script to monitor the usage of a sent data share
@@ -41,4 +42,4 @@ This script uses the following commands:
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
-Additional Azure Data Share PowerShell script samples can be found in the [Azure Data Share PowerShell samples](../../samples-powershell.md).
+Other Azure Data Share PowerShell script samples can be found in the [Azure Data Share PowerShell samples](../../samples-powershell.md).

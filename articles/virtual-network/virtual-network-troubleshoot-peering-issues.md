@@ -2,20 +2,13 @@
 title: Troubleshoot virtual network peering issues
 description: Steps to help resolve most virtual network peering issues.
 services: virtual-network
-documentationcenter: na
-author: v-miegge
+author: asudbring
 manager: dcscontentpm
-editor: ''
-tags: virtual-network
 ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 08/28/2019
-ms.author: kaushika
-
+ms.author: allensu
 ---
 
 # Troubleshoot virtual network peering issues
@@ -40,19 +33,19 @@ To configure virtual network peering for the virtual networks that are in the sa
 >
 > * Virtual machines (VMs) behind Basic internal load balancer (ILB) SKU
 > * Redis cache (uses Basic ILB SKU)
-> * Application gateway (uses Basic ILB SKU)
+> * Application gateway v1 (uses Basic ILB SKU)
 > * Virtual machine scale sets (uses Basic ILB SKU)
 > * Azure Service Fabric clusters (uses Basic ILB SKU)
 > * SQL Server Always On (uses Basic ILB SKU)
-> * Azure App Service Environment for PowerApps (uses Basic ILB SKU)
+> * Azure App Service Environment for Power Apps (uses Basic ILB SKU)
 > * Azure API Management (uses Basic ILB SKU)
-> * Azure Active Directory Domain Services (Azure AD DS) (uses Basic ILB SKU)
+> * Microsoft Entra Domain Services (uses Basic ILB SKU)
 
 For more information, see the [requirements and constraints](./virtual-network-peering-overview.md#requirements-and-constraints) of global peering.
 
 ### The virtual networks are in different subscriptions or Active Directory tenants
 
-To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, see [Create peering in different subscriptions for Azure CLI](./create-peering-different-subscriptions.md#cli).
+To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, see [Create a virtual network peering between different subscriptions](./create-peering-different-subscriptions.md).
 
 > [!Note]
 > To configure network peering, you must have **Network Contributor** permissions in both subscriptions. For more information, see [Peering permissions](virtual-network-manage-peering.md#permissions).
@@ -99,13 +92,13 @@ Transit over global virtual network peering is now supported. Connectivity does 
 * SQL Server Always On (uses Basic ILB SKU)
 * App Service Environment (uses Basic ILB SKU)
 * API Management (uses Basic ILB SKU)
-* Azure AD DS (uses Basic ILB SKU)
+* Microsoft Entra Domain Services (uses Basic ILB SKU)
 
 To learn more about global peering requirements and restraints, see [Virtual network peering](./virtual-network-peering-overview.md#requirements-and-constraints).
 
 ## Troubleshoot a connectivity issue between two peered virtual networks
 
-Sign in to the [Azure portal](https://portal.azure.com/) with an account that has the necessary [roles and permissions](virtual-network-manage-peering.md#permissions). Select the virtual network, select **Peering**, and then check the **Status** field. What is the status?
+Sign in to the [Azure portal](https://portal.azure.com) with an account that has the necessary [roles and permissions](virtual-network-manage-peering.md#permissions). Select the virtual network, select **Peering**, and then check the **Status** field. What is the status?
 
 ### The peering status is "Connected"
 
@@ -139,7 +132,7 @@ To troubleshoot this issue:
    > * SQL Server Always On (uses Basic ILB SKU)
    > * App Service Environment (uses Basic ILB SKU)
    > * API Management (uses Basic ILB SKU)
-   > * Azure AD DS (uses Basic ILB SKU)
+   > * Microsoft Entra Domain Services (uses Basic ILB SKU)
 
 For more information, see the [requirements and constraints](./virtual-network-peering-overview.md#requirements-and-constraints) of global peering.
 
@@ -200,7 +193,7 @@ Transit over global virtual network peering is now supported. Connectivity doesn
 * SQL Server Always On (uses Basic ILB SKU)
 * App Service Environment (uses Basic ILB SKU)
 * API Management (uses Basic ILB SKU)
-* Azure AD DS (uses Basic ILB SKU)
+* Microsoft Entra Domain Services (uses Basic ILB SKU)
 
 For more information, see the [requirements and constraints](./virtual-network-peering-overview.md#requirements-and-constraints) of global peering and [Different VPN Topologies](/archive/blogs/igorpag/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2).
 
@@ -214,14 +207,14 @@ To troubleshoot this issue:
 
 For more information, see the following articles:
 
-* [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md)
+* [Integrate your app with an Azure virtual network](../app-service/overview-vnet-integration.md)
 * [About Point-to-Site VPN routing](../vpn-gateway/vpn-gateway-about-point-to-site-routing.md)
 
 ## Troubleshoot a virtual network peering configuration error message 
 
 ### Current tenant `<TENANT ID>` isn't authorized to access linked subscription
 
-To resolve this issue, see [Create peering - Azure CLI](./create-peering-different-subscriptions.md#cli).
+To resolve this issue, see [Create a virtual network peering between different subscriptions](./create-peering-different-subscriptions.md).
 
 ### Not connected
 
@@ -229,7 +222,7 @@ To resolve this issue, delete the peering from both virtual networks, and then r
 
 ### Failed to peer a Databricks virtual network
 
-To resolve this issue, configure the virtual network peering under **Azure Databricks**, and then specify the target virtual network by using **Resource ID**. For more information, see [Peer a Databricks virtual network to a remote virtual network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+To resolve this issue, configure the virtual network peering under **Azure Databricks**, and then specify the target virtual network by using **Resource ID**. For more information, see [Peer a Databricks virtual network to a remote virtual network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering#id2).
 
 ### The remote virtual network lacks a gateway
 

@@ -2,16 +2,20 @@
 title: Define a SAML technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a SAML technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
-author: msmimart
-manager: celestedg
+
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 12/01/2020
-ms.author: mimart
+ms.date: 01/11/2024
+ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C with a SAML-based identity provider, I want to understand how to define a SAML identity provider technical profile, so that I can configure the necessary metadata and certificates for the integration.
+
 ---
 
 # Define a SAML identity provider technical profile in an Azure Active Directory B2C custom policy
@@ -31,7 +35,7 @@ Each SAML identity provider has different steps to expose and set the service pr
 The following example shows a URL address to the SAML metadata of an Azure AD B2C technical profile:
 
 ```
-https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Replace the following values:
@@ -152,7 +156,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| PartnerEntity | Yes | URL of the metadata of the SAML identity provider. Copy the identity provider metadata and add it inside the CDATA element `<![CDATA[Your IDP metadata]]>` |
+| PartnerEntity | Yes | URL of the metadata of the SAML identity provider. Or copy the identity provider metadata and embed it inside the CDATA element `<![CDATA[Your IDP metadata]]>`. Embedding the identity provider metadata is not recommended. The identity provider may change the settings, or update the certificate. If the identity provider metadata has been changed, get the new metadata and update your policy with the new one. |
 | WantsSignedRequests | No | Indicates whether the technical profile requires all of the outgoing authentication requests to be signed. Possible values: `true` or `false`. The default value is `true`. When the value is set to `true`, the **SamlMessageSigning** cryptographic key needs to be specified and all of the outgoing authentication requests are signed. If the value is set to `false`, the **SigAlg** and **Signature** parameters (query string or post parameter) are omitted from the request. This metadata also controls the metadata **AuthnRequestsSigned** attribute, which is output in the metadata of the Azure AD B2C technical profile that is shared with the identity provider. Azure AD B2C doesn't sign the request if the value of **WantsSignedRequests** in the technical profile metadata is set to `false` and the identity provider metadata **WantAuthnRequestsSigned** is set to `false` or not specified. |
 | XmlSignatureAlgorithm | No | The method that Azure AD B2C uses to sign the SAML request. This metadata controls the value of the  **SigAlg** parameter (query string or post parameter) in the SAML request. Possible values: `Sha256`, `Sha384`, `Sha512`, or `Sha1` (default). Make sure you configure the signature algorithm on both sides with same value. Use only the algorithm that your certificate supports. |
 | WantsSignedAssertions | No | Indicates whether the technical profile requires all incoming assertions to be signed. Possible values: `true` or `false`. The default value is `true`. If the value is set to `true`, all assertions section `saml:Assertion` sent by the identity provider to Azure AD B2C must be signed. If the value is set to `false`,  the identity provider shouldn’t sign the assertions, but even if it does, Azure AD B2C won’t validate the signature. This metadata also controls the metadata flag **WantsAssertionsSigned**, which is output in the metadata of the Azure AD B2C technical profile that is shared with the identity provider. If you disable the assertions validation, you also may want to disable the response signature validation (for more information, see **ResponsesSigned**). |
@@ -160,11 +164,14 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 | WantsEncryptedAssertions | No | Indicates whether the technical profile requires all incoming assertions to be encrypted. Possible values: `true` or `false`. The default value is `false`. If the value is set to `true`, assertions sent by the identity provider to Azure AD B2C must be signed and the **SamlAssertionDecryption** cryptographic key needs to be specified. If the value is set to `true`, the metadata of the Azure AD B2C technical profile includes the **encryption** section. The identity provider reads the metadata and encrypts the SAML response assertion with the public key that is provided in the metadata of the Azure AD B2C technical profile. If you enable the assertions encryption, you also may need to disable the response signature validation (for more information, see **ResponsesSigned**). |
 | NameIdPolicyFormat | No | Specifies constraints on the name identifier to be used to represent the requested subject. If omitted, any type of identifier supported by the identity provider for the requested subject can be used. For example,  `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** can be used with **NameIdPolicyAllowCreate**. Look at your identity provider’s documentation for guidance about which name ID policies are supported. |
 | NameIdPolicyAllowCreate | No | When using **NameIdPolicyFormat**, you can also specify the `AllowCreate` property of **NameIDPolicy**. The value of this metadata is `true` or `false` to indicate whether the identity provider is allowed to create a new account during the sign-in flow. Look at your identity provider’s documentation for guidance on how to do so. |
-| AuthenticationRequestExtensions | No | Optional protocol message extension elements that are agreed on between Azure AD BC and the identity provider. The extension is presented in XML format. You add the XML data inside the CDATA element `<![CDATA[Your IDP metadata]]>`. Check your identity provider’s documentation to see if the extensions element is supported. |
+| AuthenticationRequestExtensions | No | Optional protocol message extension elements that are agreed on between Azure AD B2C and the identity provider. The extension is presented in XML format. You add the XML data inside the CDATA element `<![CDATA[Your IDP metadata]]>`. Check your identity provider’s documentation to see if the extensions element is supported. |
 | IncludeAuthnContextClassReferences | No | Specifies one or more URI references identifying authentication context classes. For example, to allow a user to sign in with username and password only, set the value to `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. To allow sign-in through username and password over a protected session (SSL/TLS), specify `PasswordProtectedTransport`. Look at your identity provider’s documentation for guidance about the **AuthnContextClassRef** URIs that are supported. Specify multiple URIs as a comma-delimited list. |
 | IncludeKeyInfo | No | Indicates whether the SAML authentication request contains the public key of the certificate when the binding is set to `HTTP-POST`. Possible values: `true` or `false`. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 |SingleLogoutEnabled| No| Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-behavior.md#sign-out).  Possible values: `true` (default), or `false`.|
+|ForceAuthN| No| Passes the ForceAuthN value in the SAML authentication request to determine if the external SAML IDP will be forced to prompt the user for authentication. By default, Azure AD B2C sets the ForceAuthN value to false on initial login. If the session is then reset (for example by using the `prompt=login` in OIDC) then the ForceAuthN value will be set to `true`. Setting the metadata item as shown below will force the value for all requests to the external IDP.  Possible values: `true` or `false`.|
+|ProviderName| No| Passes the ProviderName value in the SAML authentication request.|
+
 
 ## Cryptographic keys
 
@@ -173,40 +180,8 @@ The **CryptographicKeys** element contains the following attributes:
 | Attribute |Required | Description |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Yes | The X509 certificate (RSA key set) to use to sign SAML messages. Azure AD B2C uses this key to sign the requests and send them to the identity provider. |
-| SamlAssertionDecryption |No | The X509 certificate (RSA key set). A SAML identity provider uses the public portion of the certificate to encrypt the assertion of the SAML response. Azure AD B2C uses the private portion of the certificate to decrypt the assertion. |
+| SamlAssertionDecryption |No* | The X509 certificate (RSA key set). A SAML identity provider uses the public portion of the certificate to encrypt the assertion of the SAML response. Azure AD B2C uses the private portion of the certificate to decrypt the assertion. <br/><br/> * Required if the external IDP encrypts SAML assertions.|
 | MetadataSigning |No | The X509 certificate (RSA key set) to use to sign SAML metadata. Azure AD B2C uses this key to sign the metadata.  |
-
-## SAML entityID customization
-
-If you have multiple SAML applications that depend on different entityID values, you can override the `issueruri` value in your relying party file. To do this, copy the technical profile with the "Saml2AssertionIssuer" ID from the base file and override the `issueruri` value.
-
-> [!TIP]
-> Copy the `<ClaimsProviders>` section from the base and preserve these elements within the claims provider: `<DisplayName>Token Issuer</DisplayName>`, `<TechnicalProfile Id="Saml2AssertionIssuer">`, and `<DisplayName>Token Issuer</DisplayName>`.
- 
-Example:
-
-```xml
-   <ClaimsProviders>   
-    <ClaimsProvider>
-      <DisplayName>Token Issuer</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="Saml2AssertionIssuer">
-          <DisplayName>Token Issuer</DisplayName>
-          <Metadata>
-            <Item Key="IssuerUri">customURI</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
-  </ClaimsProviders>
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpInSAML" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="SAML2" />
-      <Metadata>
-     …
-```
 
 ## Next steps
 

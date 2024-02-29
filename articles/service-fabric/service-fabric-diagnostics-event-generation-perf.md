@@ -1,11 +1,13 @@
 ---
 title: Azure Service Fabric Performance Monitoring 
 description: Learn about performance counters for monitoring and diagnostics of Azure Service Fabric clusters.
-author: srrengar
-
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.author: srrengar
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-dotnet
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Performance metrics

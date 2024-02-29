@@ -1,30 +1,43 @@
 ---
-title: Pipeline execution and triggers in Azure Data Factory 
-description: This article provides information about how to execute a pipeline in Azure Data Factory, either on-demand or by creating a trigger.
-services: data-factory
-documentationcenter: ''
+title: Pipeline execution and triggers
+titleSuffix: Azure Data Factory & Azure Synapse
+description: This article provides information about how to execute a pipeline in Azure Data Factory or Azure Synapse Analytics, either on-demand or by creating a trigger.
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 01/05/2024
+ms.custom: synapse
 ---
 
-# Pipeline execution and triggers in Azure Data Factory
+# Pipeline execution and triggers in Azure Data Factory or Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Version 1](v1/data-factory-scheduling-and-execution.md)
-> * [Current version](concepts-pipeline-execution-triggers.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A _pipeline run_ in Azure Data Factory defines an instance of a pipeline execution. For example, say you have a pipeline that executes at 8:00 AM, 9:00 AM, and 10:00 AM. In this case, there are three separate runs of the pipeline or pipeline runs. Each pipeline run has a unique pipeline run ID. A run ID is a GUID that uniquely defines that particular pipeline run.
+A _pipeline run_ in Azure Data Factory and Azure Synapse defines an instance of a pipeline execution. For example, say you have a pipeline that executes at 8:00 AM, 9:00 AM, and 10:00 AM. In this case, there are three separate runs of the pipeline or pipeline runs. Each pipeline run has a unique pipeline run ID. A run ID is a GUID that uniquely defines that particular pipeline run.
 
 Pipeline runs are typically instantiated by passing arguments to parameters that you define in the pipeline. You can execute a pipeline either manually or by using a _trigger_. This article provides details about both ways of executing a pipeline.
 
-## Manual execution (on-demand)
+## Create triggers with UI
+
+To manually trigger a pipeline or configure a new scheduled, tumbling window, storage event, or custom event trigger, select Add trigger at the top of the pipeline editor.
+
+:::image type="content" source="media/concepts-pipeline-execution-triggers/manual-trigger.png" alt-text="Shows how to add a new trigger with UI from the pipeline editor.":::
+
+If you choose to manually trigger the pipeline, it will execute immediately.  Otherwise if you choose New/Edit, you will be prompted with the add triggers window to either choose an existing trigger to edit, or create a new trigger.
+
+:::image type="content" source="media/concepts-pipeline-execution-triggers/new-trigger.png" alt-text="Shows the add triggers window highlighting where to create a new trigger.":::
+
+You will see the trigger configuration window, allowing you to choose the trigger type.  
+
+:::image type="content" source="media/concepts-pipeline-execution-triggers/new-trigger-configuration.png" alt-text="Shows the new trigger configuration window with the type dropdown showing the various types of triggers you can create.":::
+
+Read more about [scheduled](#schedule-trigger-with-json), [tumbling window](#tumbling-window-trigger), [storage event](#event-based-trigger), and [custom event](#event-based-trigger) triggers below.
+
+
+## Manual execution (on-demand) with JSON
 
 The manual execution of a pipeline is also referred to as _on-demand_ execution.
 
@@ -98,7 +111,7 @@ For a complete sample, see [Quickstart: Create a data factory by using the REST 
 The following sample command shows you how to manually run your pipeline by using Azure PowerShell:
 
 ```powershell
-Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json -ResourceGroupName "myResourceGroup"
 ```
 
 You pass parameters in the body of the request payload. In the .NET SDK, Azure PowerShell, and the Python SDK, you pass values in a dictionary that's passed as an argument to the call:
@@ -131,11 +144,11 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 For a complete sample, see [Quickstart: Create a data factory by using the .NET SDK](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
-> You can use the .NET SDK to invoke Data Factory pipelines from Azure Functions, from your web services, and so on.
+> You can use the .NET SDK to invoke pipelines from Azure Functions, from your web services, and so on.
 
-## Trigger execution
+## Trigger execution with JSON
 
-Triggers are another way that you can execute a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Data Factory supports three types of triggers:
+Triggers are another way that you can execute a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, the service supports three types of triggers:
 
 - Schedule trigger: A trigger that invokes a pipeline on a wall-clock schedule.
 
@@ -143,7 +156,7 @@ Triggers are another way that you can execute a pipeline run. Triggers represent
 
 - Event-based trigger: A trigger that responds to an event.
 
-Pipelines and triggers have a many-to-many relationship (except for the tumbling window trigger).Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
+Pipelines and triggers have a many-to-many relationship (except for the tumbling window trigger). Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
 ### Basic trigger definition
 
 ```json
@@ -171,7 +184,7 @@ Pipelines and triggers have a many-to-many relationship (except for the tumbling
 }
 ```
 
-## Schedule trigger
+## Schedule trigger with JSON
 A schedule trigger runs pipelines on a wall-clock schedule. This trigger supports periodic and advanced calendar options. For example, the trigger supports intervals like "weekly" or "Monday at 5:00 PM and Thursday at 9:00 PM." The schedule trigger is flexible because the dataset pattern is agnostic, and the trigger doesn't discern between time-series and non-time-series data.
 
 For more information about schedule triggers and, for examples, see [Create a trigger that runs a pipeline on a schedule](how-to-create-schedule-trigger.md).
@@ -322,13 +335,8 @@ Tumbling window triggers are a type of trigger that fires at a periodic time int
 
 For more information about tumbling window triggers and, for examples, see [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
 
-## Event-based trigger
-
-An event-based trigger runs pipelines in response to an event, such as the arrival of a file, or the deletion of a file, in Azure Blob Storage.
-
-For more information about event-based triggers, see [Create a trigger that runs a pipeline in response to an event](how-to-create-event-trigger.md).
-
 ## Examples of trigger recurrence schedules
+
 This section provides examples of recurrence schedules. It focuses on the **schedule** object and its elements.
 
 The examples assume that the **interval** value is 1 and that the **frequency** value is correct according to the schedule definition. For example, you can't have a **frequency** value of "day" and also have a **monthDays** modification in the **schedule** object. These kinds of restrictions are described in the table in the preceding section.
@@ -363,6 +371,7 @@ The examples assume that the **interval** value is 1 and that the **frequency** 
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Run at 5:15 AM, 5:45 AM, 5:15 PM, and 5:45 PM on the third Wednesday of every month. |
 
 ## Trigger type comparison
+
 The tumbling window trigger and the schedule trigger both operate on time heartbeats. How are they different?
 
 > [!NOTE]
@@ -379,7 +388,17 @@ The following table provides a comparison of the tumbling window trigger and sch
 | **System variables** | Along with @trigger().scheduledTime and @trigger().startTime, it also supports the use of the **WindowStart** and **WindowEnd** system variables. Users can access `trigger().outputs.windowStartTime` and `trigger().outputs.windowEndTime` as trigger system variables in the trigger definition. The values are used as the window start time and window end time, respectively. For example, for a tumbling window trigger that runs every hour, for the window 1:00 AM to 2:00 AM, the definition is `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` and `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Only supports default @trigger().scheduledTime and @trigger().startTime variables. |
 | **Pipeline-to-trigger relationship** | Supports a one-to-one relationship. Only one pipeline can be triggered. | Supports many-to-many relationships. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines. |
 
-## Next steps
+## Event-based trigger
+
+An event-based trigger runs pipelines in response to an event. There are two flavors of event-based triggers.
+
+* _Storage event trigger_ runs a pipeline against events happening in a Storage account, such as the arrival of a file, or the deletion of a file in Azure Blob Storage account.
+* _Custom event trigger_ processes and handles [custom articles](../event-grid/custom-topics.md) in Event Grid
+
+For more information about event-based triggers, see [Storage Event Trigger](how-to-create-event-trigger.md) and [Custom Event Trigger](how-to-create-custom-event-trigger.md).
+
+## Related content
+
 See the following tutorials:
 
 - [Quickstart: Create a data factory by using the .NET SDK](quickstart-create-data-factory-dot-net.md)

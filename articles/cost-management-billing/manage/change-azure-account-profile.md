@@ -1,22 +1,20 @@
 ---
 title: Change contact information for an Azure billing account
 description: Describes how to change the contact information of your Azure billing account
-author: genlin
-ms.reviewer: dcscontentpm
-tags: billing
+author: bandersmsft
+ms.reviewer: judupont
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 03/04/2023
 ms.author: banders
-ms.custom: contperf-fy21q2
 ---
 
 # Change contact information for an Azure billing account
 
 This article helps you update contact information for a *billing account* in the Azure portal. The instructions to update the contact information vary by the billing account type. To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md). An Azure billing account is separate from your Azure user account and [Microsoft account](https://account.microsoft.com/).
 
-If you want to update your Azure Active Directory user profile information, only a user administrator can make the changes. If you're not assigned the user administrator role, contact your user administrator. For more information about changing a user's profile, see [Add or update a user's profile information using Azure Active Directory](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+If you want to update your Microsoft Entra user profile information, only a user administrator can make the changes. If you're not assigned the user administrator role, contact your user administrator. For more information about changing a user's profile, see [Add or update a user's profile information using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 *Sold-to address* - The sold-to address is the address and the contact information of the organization or the individual, who is responsible for a billing account. It's displayed in all the invoices generated for the billing account.
 
@@ -59,6 +57,35 @@ If you want to update your Azure Active Directory user profile information, only
     ![Screenshot that shows where to update the address](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. Enter the new address and then select **Save**.  
     ![Screenshot that shows updating the address](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+
+## Update a PO number
+
+By default, an invoice for billing profile doesn't have an associated PO number. After you add a PO number for a billing profile, it appears on invoices for the billing profile.
+
+To add or change the PO number for a billing profile, use the following steps.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for **Cost Management + Billing** and then select **Billing scopes**.
+1. Select your billing scope.
+1. In the left menu under **Billing**, select **Billing profiles**.
+1. Select the appropriate billing profile.
+1. In the left menu under **Settings**, select **Properties**.
+1. Select **Update PO number**.
+1. Enter a PO number and then select **Update**.
+
+## Update your tax ID
+
+Ensure you update your tax ID after moving your subscriptions. The tax ID is used for tax exemption calculations and appears on your invoice.
+
+**To update billing account information**
+
+1. Sign in to the [Microsoft Store for Business](https://businessstore.microsoft.com/) or [Microsoft Store for Education](https://educationstore.microsoft.com/).
+1. Select **Manage**, and then select **Billing accounts**.
+1. On **Overview**, select **Edit billing account information**.
+1. Make your updates, and then select **Save**.
+
+[Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
+
 
 ## Service and marketing emails
 

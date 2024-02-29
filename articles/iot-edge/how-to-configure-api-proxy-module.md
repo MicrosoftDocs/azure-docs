@@ -1,31 +1,35 @@
 ---
-title: Configure API proxy module - Azure IoT Edge | Microsoft Docs
+title: Configure API proxy module
+titlesuffix: Azure IoT Edge
 description: Learn how to customize the API proxy module for IoT Edge gateway hierarchies.
-author: kgremban
-manager: philmea
-ms.author: kgremban
-ms.date: 11/10/2020
+author: PatAltimore
+
+ms.author: patricka
+ms.date: 07/06/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
-monikerRange: ">=iotedge-2020-11"
 ---
 
-# Configure the API proxy module for your gateway hierarchy scenario (Preview)
+# Configure the API proxy module for your gateway hierarchy scenario
 
-The API proxy module enables IoT Edge devices to send HTTP requests through gateways instead of making direct connections to cloud services. This article walks through the configuration options so that you can customize the module to support your gateway hierarchy requirements.
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+
+This article walks through the configuration options for the API proxy module, so you can customize the module to support your gateway hierarchy requirements.
+
+The API proxy module simplifies communication for IoT Edge devices when multiple services are deployed that all support HTTPS protocol and bind to port 443. This is especially relevant in hierarchical deployments of IoT Edge devices in ISA-95-based network-isolated architectures like those described in [Network isolate downstream devices](how-to-connect-downstream-iot-edge-device.md#network-isolate-downstream-devices) because the clients on the downstream devices can't connect directly to the cloud.
+
+For example, to allow downstream IoT Edge devices to pull Docker images requires deploying a Docker registry module. To allow uploading blobs requires deploying an Azure Blob Storage module on the same IoT Edge device. Both these services use HTTPS for communication. The API proxy enables such deployments on an IoT Edge device. Instead of each service, the API proxy module binds to port 443 on the host device and routes the request to the correct service module running on that device per user-configurable rules. The individual services are still responsible for handling the requests, including authenticating and authorizing the clients.
+
+Without the API proxy, each service module would have to bind to a separate port on the host device, requiring a tedious and error-prone configuration change on each child device that connects to the parent IoT Edge device.
 
 >[!NOTE]
->This feature requires IoT Edge version 1.2, which is in public preview, running Linux containers.
-
-In some network architectures, IoT Edge devices behind gateways don't have direct access to the cloud. Any modules that attempt to connect to cloud services will fail. The API proxy module supports downstream IoT Edge devices in this configuration by re-routing module connections to go through the layers of a gateway hierarchy, instead. It provides a secure way for clients to communicate to multiple services over HTTPS without tunneling, but by terminating the connections at each layer. The API proxy module acts as a proxy module between the IoT Edge devices in a gateway hierarchy until they reach the IoT Edge device at the top layer. At that point, services running on the top layer IoT Edge device handle these requests, and the API proxy module proxies all the HTTP traffic from local services to the cloud through a single port.
-
-The API proxy module can enable many scenarios for gateway hierarchies, including allowing lower layer devices to pull container images or push blobs to storage. The configuration of the proxy rules defines how data is routed. This article discusses several common configuration options.
+>A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
 
 ## Deploy the proxy module
 
-The API proxy module is available from the Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:latest`.
+The API proxy module is available from the Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:1.1`.
 
 You can also deploy the API proxy module directly from the Azure Marketplace: [IoT Edge API Proxy](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview).
 
@@ -45,8 +49,9 @@ Currently, the default environment variables include:
 
 | Environment variable | Description |
 | -------------------- | ----------- |
-| `PROXY_CONFIG_ENV_VAR_LIST` | List all the variables that you intend to update in a comma-separated list. This step prevents accidentally modifying the wrong configuration settings.
-| `NGINX_DEFAULT_PORT` | Changes the port that the nginx proxy listens to. If you update this environment variable, make sure the port you select is also exposed in the module dockerfile and declared as a port binding in the deployment manifest.<br><br>Default is 443.<br><br>When deployed from the Azure Marketplace, the default port is updated to 8000, to prevent conflicts with the edgeHub module. For more information, see [Minimize open ports](#minimize-open-ports). |
+| `PROXY_CONFIG_ENV_VAR_LIST` | List all the variables that you intend to update in a comma-separated list. This step prevents accidentally modifying the wrong configuration settings. |
+| `NGINX_DEFAULT_TLS` | Specifies the list of TLS protocols to be enabled. See NGINX's [ssl_protocols](https://nginx.org/docs/http/ngx_http_ssl_module.html#ssl_protocols).<br><br>Default is 'TLSv1.2'. |
+| `NGINX_DEFAULT_PORT` | Changes the port that the nginx proxy listens to. If you update this environment variable, you must expose the port in the module dockerfile and declare the port binding in the deployment manifest. For more information, see [Expose proxy port](#expose-proxy-port).<br><br>Default is 443.<br><br>When deployed from the Azure Marketplace, the default port is updated to 8000, to prevent conflicts with the edgeHub module. For more information, see [Minimize open ports](#minimize-open-ports). |
 | `DOCKER_REQUEST_ROUTE_ADDRESS` | Address to route docker requests. Modify this variable on the top layer device to point to the registry module.<br><br>Default is the parent hostname. |
 | `BLOB_UPLOAD_ROUTE_ADDRESS` | Address to route blob registry requests. Modify this variable on the top layer device to point to the blob storage module.<br><br>Default is the parent hostname. |
 
@@ -102,7 +107,7 @@ If you don't need to minimize open ports, then you can let the edgeHub module us
 
 A common use case for the API proxy module is to enable IoT Edge devices in lower layers to pull container images. This scenario uses the [Docker registry module](https://hub.docker.com/_/registry) to retrieve container images from the cloud and cache them at the top layer. The API proxy relays all HTTPS requests to download a container image from the lower layers to be served by the registry module in the top layer.
 
-This scenario requires that downstream IoT Edge devices point to the domain name `$upstream` followed by the API Proxy module port number instead of the container registry of an image. For example: `$upstream:8000/azureiotedge-api-proxy:1.0`.
+This scenario requires that downstream IoT Edge devices point to the domain name `$upstream` followed by the API Proxy module port number instead of the container registry of an image. For example: `$upstream:8000/azureiotedge-api-proxy:1.1`.
 
 This use case is demonstrated in the tutorial [Create a hierarchy of IoT Edge devices using gateways](tutorial-nested-iot-edge.md).
 
@@ -137,7 +142,7 @@ Configure the following modules at the **top layer**:
 
 Configure the following module on any **lower layer** for this scenario:
 
-* An API proxy module
+* API proxy module. The API proxy module is required on all lower layer devices except the bottom layer device.
   * Configure the following environment variables:
 
     | Name | Value |
@@ -160,11 +165,32 @@ Configure the following module on any **lower layer** for this scenario:
     }
     ```  
 
+## Expose proxy port
+
+Port 8000 is exposed by default from the docker image. If a different nginx proxy port is used, add the **ExposedPorts** section declaring the port in the deployment manifest. For example, if you change the nginx proxy port to 8001, add the following to the deployment manifest:
+
+```json
+{
+   "ExposedPorts": {
+      "8001/tcp": {}
+   },
+   "HostConfig": {
+      "PortBindings": {
+            "8001/tcp": [
+               {
+                  "HostPort": "8001"
+               }
+            ]
+      }
+   }
+}
+```
+
 ## Enable blob upload
 
 Another use case for the API proxy module is to enable IoT Edge devices in lower layers to upload blobs. This use case enables troubleshooting functionality on lower layer devices like uploading module logs or uploading the support bundle.
 
-This scenario uses the [Azure Blob Storage on IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/azure-blob-storage.edge-azure-blob-storage) module at the top layer to handle blob creation and upload.
+This scenario uses the [Azure Blob Storage on IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/azure-blob-storage.edge-azure-blob-storage) module at the top layer to handle blob creation and upload. In a nested scenario, up to five layers are supported. The *Azure Blob Storage on IoT Edge* module is required on the top layer device and optional for lower layer devices. For a sample multi-layer deployment, see the [Azure IoT Edge for Industrial IoT](https://github.com/Azure-Samples/iot-edge-for-iiot) sample.
 
 Configure the following modules at the **top layer**:
 
@@ -174,7 +200,7 @@ Configure the following modules at the **top layer**:
 
     | Name | Value |
     | ---- | ----- |
-    | `BLOB_UPLOAD_ROUTE_ADDRESS` | The blob storage module name and open port. For example, `azureblobstorageoniotedge:1102`. |
+    | `BLOB_UPLOAD_ROUTE_ADDRESS` | The blob storage module name and open port. For example, `azureblobstorageoniotedge:11002`. |
     | `NGINX_DEFAULT_PORT` | The port that the nginx proxy listens on for requests from downstream devices. For example, `8000`. |
 
   * Configure the following createOptions:
@@ -260,7 +286,7 @@ To update the proxy configuration dynamically, use the following steps:
 1. Copy the text of the configuration file and convert it to base64.
 1. Paste the encoded configuration file as the value of the `proxy_config` desired property in the module twin.
 
-   ![Paste encoded config file as value of proxy_config property](./media/how-to-configure-api-proxy-module/change-config.png)
+   :::image type="content" source="./media/how-to-configure-api-proxy-module/change-config.png" alt-text="Screenshot that shows how to paste encoded config file as value of proxy_config property.":::
 
 ## Next steps
 

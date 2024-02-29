@@ -1,22 +1,16 @@
 ---
 title: Diagnose a VM network routing problem - Azure CLI
 titleSuffix: Azure Network Watcher
-description: In this article, you learn how use Azure CLI to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
+description: In this article, you learn how to use Azure CLI to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
 services: network-watcher
-documentationcenter: network-watcher
-author: damendo
-editor: ''
-tags: azure-resource-manager
-Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
-ms.assetid: 
+author: halkazwini
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
-ms.workload: infrastructure
-ms.date: 01/07/2021
-ms.author: damendo
-ms.custom:
+ms.date: 03/18/2022
+ms.author: halkazwini
+ms.custom: engagement-fy23, devx-track-azurecli
+# Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 ---
 
 # Diagnose a virtual machine network routing problem - Azure CLI
@@ -25,7 +19,7 @@ In this article, you deploy a virtual machine (VM), and then check communication
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
@@ -45,7 +39,7 @@ Create a VM with [az vm create](/cli/azure/vm#az-vm-create). If SSH keys do not 
 az vm create \
   --resource-group myResourceGroup \
   --name myVm \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --generate-ssh-keys
 ```
 
@@ -68,7 +62,7 @@ az network watcher configure \
 
 ### Use next hop
 
-Azure automatically creates routes to default destinations. You may create custom routes that override the default routes. Sometimes, custom routes can cause communication to fail. To test routing from a VM, use [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) to determine the next routing hop when traffic is destined for a specific address.
+Azure automatically creates routes to default destinations. You may create custom routes that override the default routes. Sometimes, custom routes can cause communication to fail. To test routing from a VM, use [az network watcher show-next-hop](/cli/azure/network/watcher#az-network-watcher-show-next-hop) to determine the next routing hop when traffic is destined for a specific address.
 
 Test outbound communication from the VM to one of the IP addresses for www.bing.com:
 
@@ -160,4 +154,4 @@ az group delete --name myResourceGroup --yes
 
 In this article, you created a VM and diagnosed network routing from the VM. You learned that Azure creates several default routes and tested routing to two different destinations. Learn more about [routing in Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create custom routes](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
-For outbound VM connections, you can also determine the latency and allowed and denied network traffic between the VM and an endpoint using Network Watcher's [connection troubleshoot](network-watcher-connectivity-cli.md) capability. You can monitor communication between a VM and an endpoint, such as an IP address or URL, over time using the Network Watcher connection monitor capability. To learn how, see [Monitor a network connection](connection-monitor.md).
+For outbound VM connections, you can also determine the latency and allowed and denied network traffic between the VM and an endpoint using Network Watcher's [connection troubleshoot](network-watcher-connectivity-cli.md) capability. You can monitor communication between a VM and an endpoint, such as an IP address or URL over time using the Network Watcher connection monitor capability. For more information, see [Monitor a network connection](monitor-vm-communication.md).

@@ -1,97 +1,137 @@
 ---
-title: Set up a connection to a Cosmos DB account using a managed identity
-titleSuffix: Azure Cognitive Search
-description: Learn how to set up an indexer connection to a Cosmos DB account using a managed identity
+title: Set up an indexer connection to Azure Cosmos DB via a managed identity
+titleSuffix: Azure AI Search
+description: Learn how to set up an indexer connection to an Azure Cosmos DB account via a managed identity.
+author: gmndrg
+ms.author: gimondra
 
-manager: luisca
-author: markheff
-ms.author: maheff
-ms.devlang: rest-api
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 09/22/2020
+ms.topic: how-to
+ms.date: 02/22/2024
+ms.custom:
+  - subject-rbac-steps
+  - ignite-2023
 ---
 
-# Set up an indexer connection to a Cosmos DB database using a managed identity
+# Set up an indexer connection to Azure Cosmos DB via a managed identity
 
-This page describes how to set up an indexer connection to an Azure Cosmos DB database using a managed identity instead of providing credentials in the data source object connection string.
+This article explains how to set up an indexer connection to an Azure Cosmos DB database using a managed identity instead of providing credentials in the connection string.'
 
-Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer for your data source. More information can be found at the following links:
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Microsoft Entra logins and require Azure role assignments to access data in Azure Cosmos DB. 
 
-* [Indexer overview](search-indexer-overview.md)
-* [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
+## Prerequisites
 
-## Set up a connection using a managed identity
+* [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-### 1 - Turn on system-assigned managed identity
+* Assign the **Cosmos DB Account Reader** role to the search service managed identity. This role grants the ability to read Azure Cosmos DB account data. For more information about role assignments in Cosmos DB, see [Configure role-based access control to data](search-howto-managed-identities-data-sources.md#assign-a-role).
 
-When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in Azure role-based access control (Azure RBAC) assignments that allow access to data during indexing.
+* Data Plane Role assignment: Follow [Data plane Role assignment](../cosmos-db/how-to-setup-rbac.md)
+to know more.
 
-![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
-
-After selecting **Save** you will see an Object ID that has been assigned to your search service.
-
-![Object ID](./media/search-managed-identities/system-assigned-identity-object-id.png "Object ID")
- 
-### 2 - Add a role assignment
-
-In this step you will give your Azure Cognitive Search service permission to read data from your Cosmos DB database.
-
-1. In the Azure portal, navigate to the Cosmos DB account that contains the data that you would like to index.
-2. Select **Access control (IAM)**
-3. Select **Add** then **Add role assignment**
-
-    ![Add role assignment](./media/search-managed-identities/add-role-assignment-cosmos-db.png "Add role assignment")
-
-4. Select the **Cosmos DB Account Reader Role**
-5. Leave **Assign access to** as **Azure AD user, group or service principal**
-6. Search for your search service, select it, then select **Save**
-
-    ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-cosmos-db-account-reader-role.png "Add reader and data access role assignment")
-
-### 3 - Create the data source
-
-The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) support the managed identity connection string. Below is an example of how to create a data source to index data from Cosmos DB using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
-
-When using managed identities to authenticate, the **credentials** will not include an account key.
-
+* Example for a read-only data plane role assignment:
+```azurepowershell
+$cosmosdb_acc_name = <cosmos db account name>
+$resource_group = <resource group name>
+$subsciption = <subscription id>
+$system_assigned_principal = <principal id for system assigned identity>
+$readOnlyRoleDefinitionId = "00000000-0000-0000-0000-000000000001"
+$scope=$(az cosmosdb show --name $cosmosdbname --resource-group $resourcegroup --query id --output tsv)
 ```
+
+Role assignment for system-assigned identity:
+
+```azurepowershell
+az cosmosdb sql role assignment create --account-name $cosmosdbname --resource-group $resourcegroup --role-definition-id $readOnlyRoleDefinitionId --principal-id $sys_principal --scope $scope
+```
+
+* For Cosmos DB for NoSQL, you can optionally [enforce role-based access as the only authentication method](../cosmos-db/how-to-setup-rbac.md#disable-local-auth)
+for data connections by setting `disableLocalAuth` to `true` for your Cosmos DB account.
+
+* *For Gremlin and MongoDB Collections*: 
+   Indexer support is currently in preview. At this time, a preview limitation exists that requires Azure AI Search to connect using keys. You can still set up a managed identity and role assignment, but Azure AI Search will only use the role assignment to get keys for the connection. This limitation means that you can't configure a [role-based approach](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) if your indexers are connecting to Gremlin or MongoDB using Search with managed identities to connect to Azure Cosmos DB.
+
+* You should be familiar with [indexer concepts](search-indexer-overview.md) and [configuration](search-howto-index-cosmosdb.md).
+
+## Create the data source
+
+Create the data source and provide either a system-assigned managed identity or a user-assigned managed identity (preview) in the connection string. 
+
+### System-assigned managed identity
+
+The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) support using a system-assigned managed identity. 
+
+When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure Cosmos DB, the resource group, and the Azure Cosmos DB account name.
+
+* For SQL collections, the connection string doesn't require "ApiKind". 
+* For SQL collections, add "IdentityAuthType=AccessToken" if role-based access is enforced as the only authentication method. It isn't applicable for MongoDB and Gremlin collections.
+* For MongoDB collections, add "ApiKind=MongoDb" to the connection string and use a preview REST API.
+* For Gremlin graphs, add "ApiKind=Gremlin" to the connection string and use a preview REST API.
+
+Here's an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+
+```http
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [Search service admin key]
 
 {
-    "name": "cosmos-db-datasource",
+    "name": "[my-cosmosdb-ds]",
     "type": "cosmosdb",
     "credentials": {
-        "connectionString": "Database=sql-test-db;ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cosmos-db-resource-group/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmos-db-account/;"
+        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];IdentityAuthType=[AccessToken | AccountKey]"
     },
-    "container": { "name": "myCollection", "query": null },
-    "dataChangeDetectionPolicy": {
-        "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-        "highWaterMarkColumnName": "_ts"
-    }
+    "container": { "name": "[my-cosmos-collection]", "query": null },
+    "dataChangeDetectionPolicy": null
+
+ 
 }
-```    
+```
 
-The body of the request contains the data source definition, which should include the following fields:
+### User-assigned managed identity (preview)
 
-| Field   | Description |
-|---------|-------------|
-| **name** | Required. Choose any name to represent your data source object. |
-|**type**| Required. Must be `cosmosdb`. |
-|**credentials** | Required. <br/><br/>When connecting using a managed identity, the **credentials** format should be: *Database=[database-name];ResourceId=[resource-id-string];(ApiKind=[api-kind];)*<br/> <br/>The ResourceId format: *ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.DocumentDB/databaseAccounts/**your cosmos db account name**/;*<br/><br/>For SQL collections, the connection string does not require an ApiKind.<br/><br/>For MongoDB collections, add **ApiKind=MongoDb** to the connection string. <br/><br/>For Gremlin graphs and Cassandra tables, sign up for the [gated indexer preview](https://aka.ms/azure-cognitive-search/indexer-preview) to get access to the preview and information about how to format the credentials.<br/>|
-| **container** | Contains the following elements: <br/>**name**: Required. Specify the ID of the database collection to be indexed.<br/>**query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Cognitive Search can index.<br/>For the MongoDB API, Gremlin API, and Cassandra API, queries are not supported. |
-| **dataChangeDetectionPolicy** | Recommended |
-|**dataDeletionDetectionPolicy** | Optional |
+The 2021-04-30-preview REST API supports connections based on a user-assigned managed identity. When you're connecting with a user-assigned managed identity, there are two changes to the data source definition:
 
-### 4 - Create the index
+* First, the format of the "credentials" property is the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure Cosmos DB, the resource group, and the Azure Cosmos DB account name.
+
+  * For SQL collections, the connection string doesn't require "ApiKind". 
+  * For SQL collections, add "IdentityAuthType=AccessToken" if role-based access is enforced as the only authentication method. It isn't applicable for MongoDB and Gremlin collections.
+  * For MongoDB collections, add "ApiKind=MongoDb" to the connection string
+  * For Gremlin graphs, add "ApiKind=Gremlin" to the connection string.
+
+* Second, you add an "identity" property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set it to type "userAssignedIdentities".
+
+Here's an example of how to create an indexer data source object using the [preview Create or Update Data Source](/rest/api/searchservice/preview-api/create-or-update-data-source) REST API:
+
+
+```http
+POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-preview
+Content-Type: application/json
+api-key: [Search service admin key]
+
+{
+    "name": "[my-cosmosdb-ds]",
+    "type": "cosmosdb",
+    "credentials": {
+        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];IdentityAuthType=[AccessToken | AccountKey]"
+    },
+    "container": { 
+        "name": "[my-cosmos-collection]", "query": null 
+    },
+    "identity" : { 
+        "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+        "userAssignedIdentity": "/subscriptions/[subscription-id]/resourcegroups/[rg-name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[my-user-managed-identity-name]" 
+    },
+    "dataChangeDetectionPolicy": null
+}
+```
+
+## Create the index
 
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
 
-Here's how to create an index with a searchable `booktitle` field:
+Here's a [Create Index](/rest/api/searchservice/create-index) REST API call with a searchable `booktitle` field:
 
-```
+```http
 POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
@@ -105,15 +145,11 @@ api-key: [admin key]
 }
 ```
 
-For more on creating indexes, see [Create Index](/rest/api/searchservice/create-index)
+## Create the indexer
 
-### 5 - Create the indexer
+An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create and run the indexer. If the indexer is successful, the connection syntax and role assignments are valid.
 
-An indexer connects a data source with a target search index and provides a schedule to automate the data refresh.
-
-Once the index and data source have been created, you're ready to create the indexer.
-
-Example indexer definition:
+Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call with an Azure Cosmos DB indexer definition. The indexer runs when you submit the request.
 
 ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -123,25 +159,18 @@ Example indexer definition:
     {
       "name" : "cosmos-db-indexer",
       "dataSourceName" : "cosmos-db-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" }
+      "targetIndexName" : "my-target-index"
     }
 ```
 
-This indexer will run every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
-
-For more details on the Create Indexer API, check out [Create Indexer](/rest/api/searchservice/create-indexer).
-
-For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
-
 ## Troubleshooting
 
-If you find that you are not able to index data from Cosmos DB consider the following:
+If you recently rotated your Azure Cosmos DB account keys, you need to wait up to 15 minutes for the managed identity connection string to work.
 
-1. If you recently rotated your Cosmos DB account keys you will need to wait up to 15 minutes for the managed identity connection string to work.
+Check to see if the Azure Cosmos DB account has its access restricted to select networks. You can rule out any firewall issues by trying the connection without restrictions in place.
 
-1. Check to see if the Cosmos DB account has its access restricted to select networks. If it does, refer to [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md).
+## See also
 
-## Next steps
-
-* [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
+* [Indexing via an Azure Cosmos DB for NoSQL](search-howto-index-cosmosdb.md)
+* [Indexing via an Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md)
+* [Indexing via an Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md)

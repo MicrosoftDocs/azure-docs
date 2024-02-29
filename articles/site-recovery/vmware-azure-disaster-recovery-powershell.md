@@ -1,16 +1,20 @@
 ---
 title: Set up VMware disaster recovery using PowerShell in Azure Site Revoery
 description: Learn how to set up replication and failover to Azure for disaster recovery of VMware VMs using PowerShell in Azure Site Recovery.
-author: sujayt
-manager: rochakm
+author: ankitaduttaMSFT
+manager: gaggupta
 ms.service: site-recovery
-ms.date: 01/10/2020
 ms.topic: conceptual
-ms.author: sutalasi
+ms.author: ankitadutta
+ms.date: 05/27/2021 
+ms.custom: devx-track-azurepowershell
 
 
 ---
 # Set up disaster recovery of VMware VMs to Azure with PowerShell
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 In this article, you see how to replicate and failover VMware virtual machines to Azure using Azure PowerShell.
 
@@ -33,7 +37,7 @@ Before you start:
 
 - Make sure that you understand the [scenario architecture and components](vmware-azure-architecture.md).
 - Review the [support requirements](./vmware-physical-azure-support-matrix.md) for all components.
-- You have the Azure PowerShell `Az`  module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+- You have the Azure PowerShell `Az`  module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Log into Azure
 
@@ -312,7 +316,7 @@ Errors           : {}
 
 ## Create storage accounts for replication
 
-**To write to managed disk, use [Powershell Az.RecoveryServices module 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) onwards.** It only requires creation of a log storage account. It is recommended to use a standard account type and LRS redundancy since it is used to store only temporary logs. Ensure that the storage account is created in the same Azure region as the vault.
+**To write to managed disk, use [PowerShell Az.RecoveryServices module 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) onwards.** It only requires creation of a log storage account. It is recommended to use a standard account type and LRS redundancy since it is used to store only temporary logs. Ensure that the storage account is created in the same Azure region as the vault.
 
 If you are using a version of Az.RecoveryServices module older than 2.0.0, use the following steps to create storage accounts. These storage accounts are used later to replicate virtual machines. Ensure that the storage accounts are created in the same Azure region as the vault. You can skip this step if you plan to use an existing storage account for replication.
 

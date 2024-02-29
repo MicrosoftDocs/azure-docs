@@ -2,24 +2,13 @@
 title: Create volume replication for Azure NetApp Files | Microsoft Docs
 description: Describes how to create volume replication peering for Azure NetApp Files to set up cross-region replication.
 services: azure-netapp-files
-documentationcenter: ''
-author: b-juche
-manager: ''
-editor: ''
-
-ms.assetid:
+author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
-ms.author: b-juche
+ms.date: 02/23/2023
+ms.author: anfdocs
 ---
 # Create volume replication for Azure NetApp Files
-
-> [!IMPORTANT]
-> The cross-region replication feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
 
 This article shows you how to set up cross-region replication by creating replication peering. 
 
@@ -34,18 +23,18 @@ Before you begin, ensure that you have reviewed the [requirements and considerat
 You need to obtain the resource ID of the source volume that you want to replicate. 
 
 1. Go to the source volume, and select **Properties** under Settings to display the source volume resource ID.   
-    ![Locate source volume resource ID](../media/azure-netapp-files/cross-region-replication-source-volume-resource-id.png)
+    ![Locate source volume resource ID](./media/cross-region-replication-create-peering/cross-region-replication-source-volume-resource-id.png)
  
 2. Copy the resource ID to the clipboard.  You will need it later.
 
 ## Create the data replication volume (the destination volume)
 
-You need to create a destination volume where you want the data from the source volume to be replicated to.  Before you can create a destination volume, you need to have a NetApp account and a capacity pool in the destination region. 
+You need to create a destination volume where you want the data from the source volume to be replicated to. Before you can create a destination volume, you need to have a NetApp account and a capacity pool in the destination region. 
 
 1. The destination account must be in a different region from the source volume region. If necessary, create a NetApp account in the Azure region to be used for replication by following the steps in [Create a NetApp account](azure-netapp-files-create-netapp-account.md).   
 You can also select an existing NetApp account in a different region.  
 
-2. If necessary, create a capacity pool in the newly created NetApp account by following the steps in [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
+2. If necessary, create a capacity pool in the newly created NetApp account by following the steps in [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 
     You can also select an existing capacity pool to host the replication destination volume.  
 
@@ -53,16 +42,16 @@ You can also select an existing NetApp account in a different region.
 
 3. Delegate a subnet in the region to be used for replication by following the steps in [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
-4. Create the data replication volume by selecting **Volumes** under Storage Service in the destination NetApp account. Then click the **+ Add data replication** button.  
+4. Create the data replication volume by selecting **Volumes** under Storage Service in the destination NetApp account. Then select the **+ Add data replication** button.  
 
-    ![Add data replication](../media/azure-netapp-files/cross-region-replication-add-data-replication.png)
+    ![Add data replication](./media/cross-region-replication-create-peering/cross-region-replication-add-data-replication.png)
  
 5. In the Create a Volume page that appears, complete the following fields under the **Basics** tab:
     * Volume name
     * Capacity pool
     * Volume quota
         > [!NOTE] 
-        > It is recommended that the volume quota size mirror that of the source volume.
+        > The volume quota (size) for the destination volume should mirror that of the source volume. If you specify a size that is smaller than the source volume, the destination volume is automatically resized to the source volume size. 
     * Virtual network 
     * Subnet
 
@@ -73,13 +62,13 @@ For the NFS protocol, ensure that the export policy rules satisfy the requiremen
 
 7. Under the **Tags** tab, create key/value pairs as necessary.  
 
-8. Under the **Replication** tab, paste in the source volume resource ID that you obtained in [Locate the source volume resource ID](#locate-the-source-volume-resource-id), and then select the desired replication schedule. Options for replication schedule include: every 10 minutes, hourly, daily, weekly and monthly.  
+8. Under the **Replication** tab, paste in the source volume resource ID that you obtained in [Locate the source volume resource ID](#locate-the-source-volume-resource-id), and then select the desired replication schedule. There are three options for the replication schedule: every 10 minutes, hourly, and daily.
 
-    ![Create volume replication](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
+    ![Create volume replication](./media/cross-region-replication-create-peering/cross-region-replication-create-volume-replication.png)
 
-9. Click **Review + Create**, then click **Create** to create the data replication volume.   
+9. Select **Review + Create**, then select **Create** to create the data replication volume.   
 
-    ![Review and create replication](../media/azure-netapp-files/cross-region-replication-review-create-replication.png)
+    ![Review and create replication](./media/cross-region-replication-create-peering/cross-region-replication-review-create-replication.png)
 
 ## Authorize replication from the source volume  
 
@@ -91,15 +80,18 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 
 3. Select the replication destination volume, go to **Properties** under Settings, and locate the **Resource ID** of the destination volume. Copy the destination volume resource ID to the clipboard.
 
-    ![Properties resource ID](../media/azure-netapp-files/cross-region-replication-properties-resource-id.png) 
+    ![Properties resource ID](./media/cross-region-replication-create-peering/cross-region-replication-properties-resource-id.png) 
  
 4. In Azure NetApp Files, go to the replication source account and source capacity pool. 
 
-5. Locate the replication source volume and select it. Go to **Replication** under Storage Service and click **Authorize**.
+5. Locate the replication source volume and select it. Navigate to **Replication** under Storage Service then select **Authorize**.
 
-    ![Authorize replication](../media/azure-netapp-files/cross-region-replication-authorize.png) 
+    ![Authorize replication](./media/cross-region-replication-create-peering/cross-region-replication-authorize.png) 
 
-6. In the Authorize field, paste the destination replication volume resource ID that you obtained in Step 3, then click **OK**.
+6. In the Authorize field, paste the destination replication volume resource ID that you obtained in Step 3, then select **OK**.
+
+    > [!NOTE]
+    > Due to various factors, like the state of the destination storage at a given time, there’s likely a difference between the used space of the source volume and the used space of the destination volume. <!-- ANF-14038 --> 
 
 ## Next steps  
 
@@ -110,4 +102,5 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region-replication](troubleshoot-cross-region-replication.md)
-
+* [Manage default and individual user and group quotas for a volume](manage-default-individual-user-group-quotas.md)
+* [Manage Azure NetApp Files volume replication with the CLI](/cli/azure/netappfiles/volume/replication)

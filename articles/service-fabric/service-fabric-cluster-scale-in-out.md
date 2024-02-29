@@ -1,16 +1,21 @@
 ---
 title: Scale a Service Fabric cluster in or out 
 description: Scale a Service Fabric cluster in or out to match demand by setting auto-scale rules for each node type/virtual machine scale set. Add or remove nodes to a Service Fabric cluster
-
-ms.topic: conceptual
-ms.date: 03/12/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-azurepowershell
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Scale a cluster in or out
 
 > [!WARNING]
 > Read this section before you scale
 
-Scaling compute resources to source your application work load requires intentional planning, will nearly always take longer than an hour to complete for a production environment, and does require you to understand your workload and business context; in fact if you have never done this activity before, it's recommended you start by reading and understanding [Service Fabric cluster capacity planning considerations](service-fabric-cluster-capacity.md), before continuing the remainder of this document. This recommendation is to avoid unintended LiveSite issues, and it's also recommended you successfully test the operations you decide to perform against a non-production environment. At any time you can [report production issues or request paid support for Azure](service-fabric-support.md#report-production-issues-or-request-paid-support-for-azure). For engineers allocated to perform these operations that possess appropriate context, this article will describe scaling operations, but you must decide and understand which operations are appropriate for your use case; such as what resources to scale (CPU, Storage, Memory), what direction to scale (Vertically or Horizontally), and what operations to perform (Resource Template deployment, Portal, PowerShell/CLI).
+Scaling compute resources to source your application work load requires intentional planning, will nearly always take longer than an hour to complete for a production environment, and does require you to understand your workload and business context; in fact if you have never done this activity before, it's recommended you start by reading and understanding [Service Fabric cluster capacity planning considerations](service-fabric-cluster-capacity.md), before continuing the remainder of this document. This recommendation is to avoid unintended LiveSite issues, and it's also recommended you successfully test the operations you decide to perform against a non-production environment. At any time you can [report production issues or request paid support for Azure](service-fabric-support.md#create-an-azure-support-request). For engineers allocated to perform these operations that possess appropriate context, this article will describe scaling operations, but you must decide and understand which operations are appropriate for your use case; such as what resources to scale (CPU, Storage, Memory), what direction to scale (Vertically or Horizontally), and what operations to perform (Resource Template deployment, Portal, PowerShell/CLI).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -19,14 +24,19 @@ Scaling compute resources to source your application work load requires intentio
 Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate virtual machine scale set. Each node type can then be scaled in or out independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [Service Fabric node types](service-fabric-cluster-nodetypes.md) document. Since the Service Fabric node types in your cluster are made of virtual machine scale sets at the backend, you need to set up auto-scale rules for each node type/virtual machine scale set.
 
 > [!NOTE]
-> Your subscription must have enough cores to add the new VMs that make up this cluster. There is no model validation currently, so you get a deployment time failure, if any of the quota limits are hit. Also a single node type can not simply exceed 100 nodes per VMSS. You may need to add VMSS's to achieve the targeted scale, and auto-scaling can not automagically add VMSS's. Adding VMSS's in-place to a live cluster is a challenging task, and commonly this results in users provisioning new clusters with the appropriate node types provisioned at creation time; [plan cluster capacity](./service-fabric-cluster-capacity.md) accordingly. 
-> 
-> 
+> Your subscription must have enough cores to add the new VMs that make up this cluster. There is no model validation currently, so you get a deployment time failure, if any of the quota limits are hit. 
+>
+>
+> [!NOTE]
+> If using Windows OS image with Hyper-V role enabled, ie. the VM will be configured for nested virtualization, the Available Memory Metric will not be available, since the dynamic memory driver within the VM will be in a stopped state.
+>
+>
+
 
 ## Choose the node type/Virtual Machine scale set to scale
 Currently, you are not able to specify the auto-scale rules for virtual machine scale sets using the portal to create a Service Fabric Cluster, so let us use Azure PowerShell (1.0+) to list the node types and then add auto-scale rules to them.
 
-To get the list of virtual machine scale set that make up your cluster, run the following cmdlets:
+To get the list of virtual machine scale sets that make up your cluster, run the following cmdlets:
 
 ```powershell
 Get-AzResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
@@ -47,7 +57,7 @@ Currently the auto-scale feature is not driven by the loads that your applicatio
 Follow these instructions [to set up auto-scale for each virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> In a scale in scenario, unless your node type has a [durability level][durability] of Gold or Silver you need to call the [Remove-ServiceFabricNodeState cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate) with the appropriate node name. For the Bronze durability, it’s not recommended to scale in more than one node at a time.
+> In a scale in scenario, unless your node type has a [durability level][durability] of Gold or Silver you need to call the [Remove-ServiceFabricNodeState cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate) with the appropriate node name. For the Bronze durability, it's not recommended to scale in more than one node at a time.
 > 
 
 ## Manually add VMs to a node type/virtual machine scale set
@@ -59,7 +69,7 @@ When you scale out, you add more virtual machine instances to the scale set. The
 > 
 
 ### Add VMs using a template
-Follow the sample/instructions in the [quickstart template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) to change the number of VMs in each node type. 
+Follow the sample/instructions in the [quickstart template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-scale-existing) to change the number of VMs in each node type. 
 
 ### Add VMs using PowerShell or CLI commands
 The following code gets a scale set by name and increases the **capacity** of the scale set by 1.
@@ -230,11 +240,11 @@ When you scale out a cluster the Service Fabric Explorer will reflect the number
 
 Here is the explanation for this behavior.
 
-The nodes listed in Service Fabric Explorer are a reflection of what the Service Fabric system services (FM specifically) knows about the number of nodes the cluster had/has. When you scale the virtual machine scale set in, the VM was deleted but FM system service still thinks that the node (that was mapped to the VM that was deleted) will come back. So Service Fabric Explorer continues to display that node (though the health state may be error or unknown).
+The nodes listed in Service Fabric Explorer are a reflection of what the Service Fabric system services (FM specifically) know about the number of nodes the cluster had/has. When you scale the virtual machine scale set in, the VM was deleted but FM system service still thinks that the node (that was mapped to the VM that was deleted) will come back. So Service Fabric Explorer continues to display that node (though the health state may be error or unknown).
 
 In order to make sure that a node is removed when a VM is removed, you have two options:
 
-1. Choose a durability level of Gold or Silver for the node types in your cluster, which gives you the infrastructure integration. Which will then automatically remove the nodes from our system services (FM) state when you scale in.
+1. Choose a durability level of Gold or Silver for the node types in your cluster, which gives you the infrastructure integration. When you scale in, nodes will be automatically removed from our system services (FM) state.
 Refer to [the details on durability levels here](service-fabric-cluster-capacity.md)
 
 > [!NOTE]

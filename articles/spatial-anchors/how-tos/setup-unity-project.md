@@ -1,12 +1,12 @@
 ---
 title: Install Azure Spatial Anchors for Unity
 description: Configure a Unity project to use Azure Spatial Anchors
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
-ms.date: 11/20/2020
+ms.author: pamistel
+ms.date: 11/12/2021
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ---
@@ -15,40 +15,46 @@ ms.service: azure-spatial-anchors
 
 This guide will show you how to get started with the Azure Spatial Anchors SDK in your Unity project.
 
-## Requirements
+## Project requirements
 
-Azure Spatial Anchors currently supports Unity 2019.4 (LTS) with the following configurations.
-
-* Unity 2019.4 with AR Foundation 3.1 is supported in Azure Spatial Anchors 2.4.0+.
+[!INCLUDE [Unity Project Requirements](../../../includes/spatial-anchors-unity-project-requirements.md)]
 
 ## Configuring a project
 
-### [Add the Unity Package Manager packages to your project](#tab/UPMPackage)
+Before including the Azure Spatial Anchors SDK in your Unity project, be sure to install the [required](#project-requirements) packages through the Unity Package Manager.
 
-Azure Spatial Anchors for Unity is currently distributed using Unity Package Manager (UPM) Packages. These packages can be found in our [NPM registry](https://bintray.com/microsoft/AzureMixedReality-NPM). To learn more about working with scoped package registries in a Unity project, see the official Unity documentation [here](https://docs.unity3d.com/Manual/upm-scoped.html).
+### Choose ASA version
+[!INCLUDE [Choose SDK Version](../../../includes/spatial-anchors-unity-choose-sdk-version.md)]
 
-#### Add the registry to your Unity project
+### Download ASA packages
+[!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 
-1. In a file explorer, navigate to your Unity project's `Packages` folder. Open the project manifest file, `manifest.json`, in a text editor.
-2. At the top of the file, at the same level as the `dependencies` section, add the following entry to include the Azure Spatial Anchors registry to your project. The `scopedRegistries` entry tells Unity where to look for the Azure Spatial Anchors SDK packages.
+### Import ASA packages
+[!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
+### Extra Configurations
+If you are developing for HoloLens or Android please follow the additional setup steps below
 
-#### Add the SDK package(s) to your Unity project
+# [HoloLens](#tab/ExtraConfigurationsHoloLens)
 
-| Platform | Package name                                    |
-|----------|-------------------------------------------------|
-| Android  | com.microsoft.azure.spatial-anchors-sdk.android |
-| iOS      | com.microsoft.azure.spatial-anchors-sdk.ios     |
-| HoloLens | com.microsoft.azure.spatial-anchors-sdk.windows |
+#### Configure your Unity project XR settings
+When developing MixedReality apps on HoloLens, you need to set the XR configuration in Unity. For more information, see [Setting up your XR configuration - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/new-openxr-project-without-mrtk) and [Choosing a Unity version and XR plugin - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/choosing-unity-version).
 
-1. For each platform (Android/iOS/HoloLens) that you would like to support in your project, add an entry with the package name and package version to the `dependencies` section in your project manifest. See below for an example.
+Azure Spatial Anchors SDK versions 2.9.0 or earlier only provide support for the Windows XR plugin (`com.unity.xr.windowsmr`), so the Azure Spatial Anchors windows package has an explicit dependency on the Windows XR Plugin.
 
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-22&highlight=12-14)]
+Azure Spatial Anchors SDK versions 2.10.0 or later provide support for both the Mixed Reality OpenXR plugin ([com.microsoft.mixedreality.openxr](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging?_a=package&feed=Unity-packages&view=overview&package=com.microsoft.mixedreality.openxr&protocolType=Npm)) and the Windows XR plugin  `com.unity.xr.windowsmr`. You need to include either the `com.microsoft.mixedreality.openxr` package or the `com.unity.xr.windowsmr` package in your project depending on your choice.
 
-2. Save and close the `manifest.json` file. When you return to Unity, Unity should automatically detect the project manifest change and retrieve the specified packages. You can expand the `Packages` folder in your Project view to verify that the right packages have been imported.
+#### Configure your Unity project capabilities
 
-#### Android only: Configure the mainTemplate.gradle file
+Be sure to enable the following capabilities in your Unity project:
+- SpatialPerception
+- InternetClient
+- PrivateNetworkClientServer
+
+> [!WARNING]
+> Failure to enable the PrivateNetworkClientServer capability may lead to a failure to query anchors when the device is using a network that is configured to be private.
+# [Android](#tab/ExtraConfigurationsAndroid)
+Configure the mainTemplate.gradle file
 
 1. Go to **Edit** > **Project Settings** > **Player**.
 2. In the **Inspector Panel** for **Player Settings**, select the **Android** icon.
@@ -64,16 +70,6 @@ Azure Spatial Anchors for Unity is currently distributed using Unity Package Man
 When it's all done, your `dependencies` section should look something like this:
 
 [!code-gradle[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-android-gradle-setup.md?range=9-13&highlight=3-4)]
-
-### [Import the asset package](#tab/UnityAssetPackage)
-
-> [!WARNING]
-> The Unity Asset Package distribution of the Azure Spatial Anchors SDK was deprecated in version 2.5.0 and is no longer available as of 2.6.0.
-
-1. Download the `AzureSpatialAnchors.unitypackage` file for the version you want to target from the [GitHub releases](https://github.com/Azure/azure-spatial-anchors-samples/releases).
-2. Follow the instructions [here](https://docs.unity3d.com/Manual/AssetPackagesImport.html) to import the Unity asset package into your project.
-
----
 
 ## Next steps
 

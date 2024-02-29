@@ -2,14 +2,12 @@
 title: Plan to manage Azure costs
 description: Learn how to plan to manage Azure costs and use cost-tracking and management features for your Azure account.
 author: bandersmsft
-ms.reviewer: amberb
-tags: billing
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/14/2024
 ms.author: banders
-ms.custom: contperf-fy21q1
 ---
 
 # Plan to manage Azure costs
@@ -78,19 +76,19 @@ After you have your Azure services running, regularly check costs to track your 
 
 Visit the [Cost Management + Billing page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade).
 
-Click **Cost analysis** from the left side of the screen to see the current cost broken down by various pivots such as service, location, and subscription. After you add a service or make a purchase, wait 24 hours for the data to display. By default, cost analysis shows the cost for the scope that you are in. For example, in the screenshot below, cost for Contoso billing account is displayed. Use the Scope pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](../costs/understand-work-scopes.md#scopes)
+Select **Cost analysis** from the left side of the screen to see the current cost broken down by various pivots such as service, location, and subscription. After you add a service or make a purchase, wait 24 hours for the data to display. By default, cost analysis shows the cost for the scope that you are in. For example, in the screenshot below, cost for Contoso billing account is displayed. Use the Scope pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](../costs/understand-work-scopes.md#scopes)
 
 ![Screenshot of the cost analysis view in Azure portal](./media/plan-manage-costs/cost-analysis.png)
 
-You can filter by various properties such as tags, resource type, and time span. Click **Add filter** to add the filter for a property and select the values to filter. Select **Export** to export the view to a comma-separated values (.csv) file.
+You can filter by various properties such as tags, resource type, and time span. Select **Add filter** to add the filter for a property and select the values to filter. Select **Export** to export the view to a comma-separated values (.csv) file.
 
-Additionally, you can click the labels of the chart to see the daily spend history for that label. For example, in the screenshot below, selecting a virtual machine displays the daily cost of running your VMs.
+Additionally, you can select the labels of the chart to see the daily spend history for that label. For example, in the screenshot below, selecting a virtual machine displays the daily cost of running your VMs.
 
 :::image type="content" source="./media/plan-manage-costs/cost-history.png" alt-text="Screenshot of the spend history view in Azure portal" lightbox="./media/plan-manage-costs/cost-history.png" :::
 
 ## Optimize and reduce costs
 
-If you're unfamiliar with the principles of cost management, read [How to optimize your cloud investment with Azure Cost Management](../costs/cost-mgt-best-practices.md).
+If you're unfamiliar with the principles of cost management, read [How to optimize your cloud investment with Cost Management](../costs/cost-mgt-best-practices.md).
 
 In the Azure portal, you can also optimize and reduce Azure costs with auto shutdown for VMs and Advisor recommendations.
 
@@ -118,18 +116,17 @@ The mentioned prices are for example purposes only. They are not intended to imp
 
 Review the [Optimize costs from recommendations](../costs/tutorial-acm-opt-recommendations.md) tutorial for a guided tutorial about cost-saving Advisor recommendations.
 
-## Integrate with billing and consumption APIs
+## Integrate with billing and Cost Management APIs
 
-Use the Azure [billing](/rest/api/billing/) and [consumption](/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../manage/consumption-api-overview.md#usage-details-api).
+Use the Azure [billing](/rest/api/billing/) and [Cost Management automation APIs](../automate/automation-overview.md) to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage.
 
 ## <a name="other-offers"></a> Additional resources and special cases
 
-### EA, CSP, and Sponsorship customers
+### CSP and Sponsorship customers
 Talk to your account manager or Azure partner to get started.
 
 | Offer | Resources |
 |-------------------------------|-----------------------------------------------------------------------------------|
-| Enterprise Agreement (EA) | [EA portal](https://ea.azure.com/), [help docs](https://ea.azure.com/helpdocs), and [Power BI report](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | Cloud Solution Provider (CSP) | Talk to your provider |
 | Azure Sponsorship | [Sponsorship portal](https://www.microsoftazuresponsorships.com/) |
 
@@ -140,13 +137,12 @@ If you're managing IT for a large organization, we recommend reading [Azure ente
 Enterprise cost views are currently in Public Preview. Items to note:
 
 - Subscription costs are based on usage and don't include prepaid amounts, overages, included quantities, adjustments, and taxes. Actual charges are computed at the Enrollment level.
-- Amounts shown in the Azure portal might be different than what's in the Enterprise portal. Updates in the Enterprise portal may take a few minutes before the changes are shown in the Azure portal.
 - If you aren't seeing costs, it might be for one of the following reasons:
     - You don't have permissions at the subscription level. To see enterprise cost views, you must be a Billing Reader, Reader, Contributor, or Owner at the subscription level.
     - You're an Account Owner and your Enrollment Administrator has disabled the "AO view charges" setting.  Contact your Enrollment Administrator to get access to costs.
     - You're a Department Administrator and your Enrollment Administrator has disabled the **DA view charges** setting.  Contact your Enrollment Administrator to get access.
     - You bought Azure through a channel partner, and the partner didn't release pricing information.  
-- If you update settings related to cost,  access in the Enterprise portal, there's a delay of a few minutes before the changes are shown in the Azure portal.
+- Direct EA customers can update cost-related settings in the [Azure portal](https://portal.azure.com/). Navigate to the Policies menu to change settings.
 - Spending limit, and invoice guidance don't apply to EA Subscriptions.
 
 ### Check your subscription and access

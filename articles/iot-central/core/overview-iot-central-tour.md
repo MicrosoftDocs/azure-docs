@@ -1,185 +1,175 @@
 ---
-title: Take a tour of the Azure IoT Central UI | Microsoft Docs
-description: Become familiar with the key areas of the Azure IoT Central UI that you use to create, manage and use your IoT solution.
-author: lmasieri
-ms.author: lmasieri
-ms.date: 12/09/2019
+title: Take a tour of the Azure IoT Central UI
+description: Become familiar with the key areas of the Azure IoT Central UI that you use to create, manage, and use your IoT solution.
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/12/2023
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: corywink
 ---
 
 # Take a tour of the Azure IoT Central UI
 
-This article introduces you to the Microsoft Azure IoT Central UI. You can use the UI to create, manage, and use an Azure IoT Central solution and its connected devices.
-
-As a _solution builder_, you use the Azure IoT Central UI to define your Azure IoT Central solution. You can use the UI to:
-
-* Define the types of device that connect to your solution.
-* Configure the rules and actions for your devices. 
-* Customize the UI for an _operator_ who uses your solution.
-
-As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Central solution. You can use the UI to:
-
-* Monitor your devices.
-* Configure your devices.
-* Troubleshoot and remediate issues with your devices.
-* Provision new devices.
+This article introduces you to Azure IoT Central UI. You can use the UI to create, administer, and use an IoT Central application and its connected devices.
 
 ## IoT Central homepage
 
-The [IoT Central homepage](https://aka.ms/iotcentral-get-started) page is the place where you can learn more about the latest news and features available on IoT Central, create new applications, and see and launch your existing application.
+The [IoT Central homepage](https://apps.azureiotcentral.com/) page is the place to learn more about the latest news and features available on IoT Central and see and launch your existing applications.
 
-> [!div class="mx-imgBorder"]
-> ![IoT Central homepage](media/overview-iot-central-tour/iot-central-homepage-pnp.png)
-
-### Create an application
-
-In the Build section you can browse the list of industry-relevant IoT Central templates to help you get started quickly, or start from scratch using a Custom app template.  
-> [!div class="mx-imgBorder"]
-> ![IoT Central build page](media/overview-iot-central-tour/iot-central-build-pnp.png)
-
-To learn more, see the [Create an Azure IoT Central application](quick-deploy-iot-central.md) quickstart.
+:::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="Screenshot that shows the IoT Central homepage where you can see the IoT Central applications you have access to.":::
 
 ### Launch your application
 
-You can launch your IoT Central application by going to the URL that you or your solution builder choose during app creation. You can also see a list of all the applications you have access to in the [IoT Central app manager](https://aka.ms/iotcentral-apps).
+You launch your IoT Central application by navigating to the URL you chose during app creation. You can see a list of all the applications you have access to in the [IoT Central app manager](https://apps.azureiotcentral.com/myapps).
 
-> [!div class="mx-imgBorder"]
-> ![IoT Central app manager](media/overview-iot-central-tour/app-manager-pnp.png)
+:::image type="content" source="media/overview-iot-central-tour/app-manager.png" alt-text="Screenshot of the IoT Central app manager that shows a list of the applications you can access.":::
 
 ## Navigate your application
 
-Once you're inside your IoT application, use the left pane to access the different areas. You can expand or collapse the left pane by selecting the three-lined icon on top of the pane:
+Once you're inside your IoT application, use the left pane to access various features. You can expand or collapse the left pane by selecting the three-lined icon on top of the pane:
 
 > [!NOTE]
-> The items you see in the left pane depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles.md). 
+> The items you see in the left pane depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles.md).
 
 :::row:::
   :::column span="":::
-      > [!div class="mx-imgBorder"]
-      > ![left pane](media/overview-iot-central-tour/navigationbar-pnp.png)
+
+    :::image type="content" source="media/overview-iot-central-tour/navigation-bar.png" alt-text="Screenshot that shows the IoT Central left navigation pane.":::
+
   :::column-end:::
   :::column span="2":::
-     **Dashboard** displays your application dashboard. As a *solution builder*, you can customize the global dashboard for your operators. Depending on their user role, operators can also create their own personal dashboards.
-     
-     **Devices** enables you to manage your connected devices - real and simulated.
 
-     **Device groups** lets you view and create logical collections of devices specified by a query. You can save this query and use device groups through the application to perform bulk operations.
+    **Devices** lets you manage all your devices.
 
-     **Rules** enables you to create and edit rules to monitor your devices. Rules are evaluated based on device telemetry and trigger customizable actions.
+    **Device groups** lets you view and create collections of devices specified by a query. Device groups are used through the application to perform bulk operations.
 
-     **Analytics** lets you create custom views on top of device data to derive insights from your application.
+    **Device templates** lets you create and manage the characteristics of devices that connect to your application.
 
-     **Jobs** enables you to manage your devices at scale by running bulk operations.
+    **Edge manifests** lets you import and manage deployment manifests for the IoT Edge devices that connect to your application.
 
-     **Device templates** is where you create and manage the characteristics of the devices that connect to your application.
+    **Data explorer** exposes rich capabilities to analyze historical trends and correlate various telemetry types from your devices.
 
-     **Data export** enables you to configure a continuous export to external services - such as storage and queues.
+    **Dashboards** displays all application and personal dashboards. 
 
-     **Administration** is where you can manage your application's settings, customization, billing, users, and roles.
+    **Jobs** lets you manage your devices at scale by running bulk operations.
 
-     **IoT Central** lets *administrators* to jump back to IoT Central's app manager.
-     
-   :::column-end:::
+    **Rules** lets you create and edit rules to monitor your devices. Rules are evaluated based on device data and trigger customizable actions.
+
+    **Data export** lets you configure a continuous export to external services such as storage and queues.
+
+    **Audit logs** lets you view changes made to entities in your application.
+
+    **Permissions** lets you manage an organization's users, devices and data.
+
+    **Application** lets you manage your application's settings, billing, users, and roles.
+    
+    **Customization** lets you customize your application appearance.
+
+    **IoT Central Home** lets you jump back to the IoT Central app manager.
+
+  :::column-end:::
 :::row-end:::
 
 ### Search, help, theme, and support
 
 The top menu appears on every page:
 
-> [!div class="mx-imgBorder"]
-> ![Toolbar](media/overview-iot-central-tour/toolbar-pnp.png)
+:::image type="content" source="media/overview-iot-central-tour/toolbar.png" alt-text="Screenshot that shows the IoT Central Toolbar with access to utilities such as search.":::
 
-* To search for device templates and devices, enter a **Search** value.
+* To search for devices, enter a **Search** value.
 * To change the UI language or theme, choose the **Settings** icon. Learn more about [managing your application preferences](howto-manage-preferences.md)
+* To get help and support, choose the **Help** drop-down for a list of resources. You can [get information about your application](howto-faq.yml#how-do-i-get-information-about-my-application-) from the **About your app** link.
 * To sign out of the application, choose the **Account** icon.
-* To get help and support, choose the **Help** drop-down for a list of resources. You can [get information about your application](./howto-get-app-info.md) from the **About your app** link. In an application on the free pricing plan, the support resources include access to [live chat](howto-show-hide-chat.md).
 
 You can choose between a light theme or a dark theme for the UI:
 
 > [!NOTE]
 > The option to choose between light and dark themes isn't available if your administrator has configured a custom theme for the application.
 
-> [!div class="mx-imgBorder"]
-> ![Choose a theme for the UI](media/overview-iot-central-tour/themes-pnp.png)
-
-### Dashboard
-> [!div class="mx-imgBorder"]
-> ![Dashboard](media/overview-iot-central-tour/dashboard-pnp.png)
-
-* The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a *solution builder*, you can create and customize multiple global application dashboards for other users. Learn more about [adding tiles to your dashboard](howto-add-tiles-to-your-dashboard.md)
-
-* As an *operator*, if your user role allows it, you can create personal dashboards to monitor what you care about. To learn more, see the [Create Azure IoT Central personal dashboards](howto-create-personal-dashboards.md) how-to article.
+:::image type="content" source="media/overview-iot-central-tour/themes.png" alt-text="Screenshot of IoT Central Choose a Theme.":::
 
 ### Devices
 
-> [!div class="mx-imgBorder"]
-> ![Devices page](media/overview-iot-central-tour/devices-pnp.png)
+:::image type="content" source="Media/overview-iot-central-tour/devices.png" alt-text="Screenshot of the Devices page that list your devices.":::
 
-The explorer page shows the _devices_ in your Azure IoT Central application grouped by _device template_. 
+This page shows the devices in your IoT Central application grouped by _device template_.
 
 * A device template defines a type of device that can connect to your application.
 * A device represents either a real or simulated device in your application.
 
-To learn more, see the [Monitor your devices](./quick-monitor-devices.md) quickstart. 
-
 ### Device groups
 
-> [!div class="mx-imgBorder"]
-> ![Device groups page](media/overview-iot-central-tour/device-groups-pnp.png)
+:::image type="content" source="Media/overview-iot-central-tour/device-groups.png" alt-text="Screenshot of the Device Group page that shows device groupings.":::
 
-Device group are a collection of related devices. A *solution builder* defines a query to identify the devices that are included in a device group. You use device groups to perform bulk operations in your application. To learn more, see the [Use device groups in your Azure IoT Central application](tutorial-use-device-groups.md) article.
-
-### Rules
-> [!div class="mx-imgBorder"]
-> ![Rules page](media/overview-iot-central-tour/rules-pnp.png)
-
-The rules page lets you define rules based on devices' telemetry, state, or events. When a rule fires, it can trigger one or more actions - such as sending an email, notify an external system via webhook alerts, etc. To learn, see the [Configuring rules](tutorial-create-telemetry-rules.md) tutorial. 
-
-### Analytics
-
-> [!div class="mx-imgBorder"]
-> ![Analytics page](media/overview-iot-central-tour/analytics-pnp.png)
-
-The analytics lets you create custom views on top of device data to derive insights from your application. To learn more, see the [Create analytics for your Azure IoT Central application](howto-create-analytics.md) article.
-
-### Jobs
-
-> [!div class="mx-imgBorder"]
-> ![Jobs page](media/overview-iot-central-tour/jobs-pnp.png)
-
-The jobs page lets you run bulk device management operations on your devices. You can update device properties, settings, and execute commands against device groups. To learn more, see the [Run a job](howto-run-a-job.md) article.
+This page lets you create and view device groups in your IoT Central application. You can use device groups to do bulk operations in your application or to analyze data. To learn more, see the [Use device groups in your Azure IoT Central application](tutorial-use-device-groups.md) article.
 
 ### Device templates
 
-> [!div class="mx-imgBorder"]
-> ![Device templates page](media/overview-iot-central-tour/templates-pnp.png)
+:::image type="content" source="Media/overview-iot-central-tour/templates.png" alt-text="Screenshot of Device templates page where you can manage device templates.":::
 
-The device templates page is where a builder creates and manages the device templates in the application. A device template specifies devices characteristics such as:
+The device templates page is where you can view and create device templates in the application. To learn more, see [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md).
 
-* Telemetry, state, and event measurements
-* Properties
-* Commands
-* Views
+### Edge manifests
 
-The *solution builder* can also create forms and dashboards for operators to use to manage devices.
+:::image type="content" source="Media/overview-iot-central-tour/manifests.png" alt-text="Screenshot of IoT Edge manifests page where you can manage IoT Edge deployment manifests.":::
 
-To learn more, see the [Define a new device type in your Azure IoT Central application](howto-set-up-template.md) tutorial. 
+The edge manifests page is where you can import and manage IoT Edge deployment manifests in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](howto-set-up-template.md) tutorial.
+
+### Data Explorer
+
+:::image type="content" source="Media/overview-iot-central-tour/analytics.png" alt-text="Screenshot of data analytics page where you can build custom queries and charts.":::
+
+Data explorer exposes rich capabilities to analyze historical trends and correlate various telemetry types from your devices. To learn more, see the [Create analytics for your Azure IoT Central application](howto-create-analytics.md) article.
+
+### Dashboards
+
+:::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Screenshot of IoT Central Dashboard, a customizable UI for your application.":::
+
+* Personal dashboards can also be created to monitor what you care about. To learn more, see the [Create Azure IoT Central personal dashboards](howto-manage-dashboards.md) how-to article.
+
+### Jobs
+
+:::image type="content" source="Media/overview-iot-central-tour/jobs.png" alt-text="Screenshot that shows the Jobs page where you can manage your application's jobs.":::
+
+This page lets you view and create jobs that can be used for bulk device management operations on your devices. You can update device properties, settings, and execute commands against device groups. To learn more, see the [Run a job](howto-manage-devices-in-bulk.md) article.
+
+### Rules
+
+:::image type="content" source="Media/overview-iot-central-tour/rules.png" alt-text="Screenshot of Rules page where you manage your rules.":::
+
+This page lets you view and create rules based on device data. When a rule fires, it can trigger one or more actions such as sending an email or invoking a webhook. To learn, see the [Configuring rules](tutorial-create-telemetry-rules.md) tutorial.
 
 ### Data export
-> [!div class="mx-imgBorder"]
-> ![Data export page](media/overview-iot-central-tour/export-pnp.png)
 
-Data export enables you to set up streams of data, such as telemetry, from the application to external systems. To learn more, see the [Export your data in Azure IoT Central](./howto-export-data.md) article.
+:::image type="content" source="Media/overview-iot-central-tour/export.png" alt-text="Screenshot that shows the Data export page where you configure data exports to various destinations.":::
 
-### Administration
-> [!div class="mx-imgBorder"]
-> ![Administration page](media/overview-iot-central-tour/administration-pnp.png)
+Data export enables you to set up streams of data to external systems. To learn more, see the [Export your data in Azure IoT Central](./howto-export-to-blob-storage.md) article.
 
-The administration page allows you to configure and customize your IoT Central application. Here you can change your application name, URL, theming, manage users and roles, create API tokens, and export your application. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
+### Audit logs
+
+:::image type="content" source="Media/overview-iot-central-tour/audit.png" alt-text="Screenshot of audit logs page where you can track activity in the application.":::
+
+Audit logs enable you to view a list of recent changes made in your IoT Central application. To learn more, see the [Use audit logs to track activity in your IoT Central application](howto-use-audit-logs.md) article.
+
+### Permissions
+
+:::image type="content" source="Media/overview-iot-central-tour/permissions.png" alt-text="Screenshot of Permissions page where you can manage access to your application.":::
+
+This page let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. To learn, see the [Manage IoT Central organizations](howto-create-organizations.md).
+
+### Application
+
+:::image type="content" source="media/overview-iot-central-tour/administration.png" alt-text="Screenshot of IoT application page where can access various configuration settings for the application.":::
+
+The application page allows you to configure your IoT Central application. Here you can change your application name, URL, theming, manage users and roles, create API tokens, and export your application. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
+
+### Customization
+
+:::image type="content" source="media/overview-iot-central-tour/customization.png" alt-text="Screenshot of customization page where you can customize the application's UI.":::
+
+The customization page allows you to customize your IoT Central application. Here you can change your masthead logo, browser icon, and browser colors. To learn more, see the [How to customize the Azure IoT Central UI](howto-customize-ui.md) article.
 
 ## Next steps
 

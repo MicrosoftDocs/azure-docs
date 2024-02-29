@@ -2,16 +2,19 @@
 title: Run tasks under user accounts
 description: Learn the types of user accounts and how to configure them.
 ms.topic: how-to
-ms.date: 08/20/2020
-ms.custom: seodec18
+ms.date: 05/16/2023
+ms.custom: linux-related-content
+ms.devlang: csharp
+# ms.devlang: csharp, java, python
 ---
 # Run tasks under user accounts in Batch
 
 > [!NOTE]
 > The user accounts discussed in this article are different from user accounts used for Remote Desktop Protocol (RDP) or Secure Shell (SSH), for security reasons.
 >
-> To connect to a node running the Linux virtual machine configuration via SSH, see [Use Remote Desktop to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). To connect to nodes running Windows via RDP, see [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
-> To connect to a node running the cloud service configuration via RDP, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+> To connect to a node running the Linux virtual machine configuration via SSH, see [Install and configure xrdp to use Remote Desktop with Ubuntu](../virtual-machines/linux/use-remote-desktop.md). To connect to nodes running Windows via RDP, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
+>
+> To connect to a node running the  via RDP, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 A task in Azure Batch always runs under a user account. By default, tasks run under standard user accounts, without administrator permissions. For certain scenarios, you may want to configure the user account under which you want a task to run. This article discusses the types of user accounts and how to configure them for your scenario.
 
@@ -24,7 +27,7 @@ Azure Batch provides two types of user accounts for running tasks:
 - **A named user account.** You can specify one or more named user accounts for a pool when you create the pool. Each user account is created on each node of the pool. In addition to the account name, you specify the user account password, elevation level, and, for Linux pools, the SSH private key. When you add a task, you can specify the named user account under which that task should run.
 
 > [!IMPORTANT]
-> The Batch service version 2017-01-01.4.0 introduces a breaking change that requires that you update your code to call that version. If you are migrating code from an older version of Batch, note that the **runElevated** property is no longer supported in the REST API or Batch client libraries. Use the new **userIdentity** property of a task to specify elevation level. See [Update your code to the latest Batch client library](#update-your-code-to-the-latest-batch-client-library) for quick guidelines for updating your Batch code if you are using one of the client libraries.
+> The Batch service version 2017-01-01.4.0 introduced a breaking change that requires that you update your code to call that version or later. See [Update your code to the latest Batch client library](#update-your-code-to-the-latest-batch-client-library) for quick guidelines for updating your Batch code from an older version.
 
 ## User account access to files and directories
 
@@ -71,6 +74,7 @@ The following code snippets show how to configure the auto-user specification. T
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
 ```
+
 #### Batch Java
 
 ```java
@@ -125,13 +129,13 @@ A named user account exists on all nodes in the pool and is available to all tas
 
 A named user account is useful when you want to run all tasks in a job under the same user account, but isolate them from tasks running in other jobs at the same time. For example, you can create a named user for each job, and run each job's tasks under that named user account. Each job can then share a secret with its own tasks, but not with tasks running in other jobs.
 
-You can also use a named user account to run a task that sets permissions on external resources such as file shares. With a named user account, you control the user identity and can use that user identity to set permissions.  
+You can also use a named user account to run a task that sets permissions on external resources such as file shares. With a named user account, you control the user identity and can use that user identity to set permissions.
 
 Named user accounts enable password-less SSH between Linux nodes. You can use a named user account with Linux nodes that need to run multi-instance tasks. Each node in the pool can run tasks under a user account defined on the whole pool. For more information about multi-instance tasks, see [Use multi\-instance tasks to run MPI applications](batch-mpi.md).
 
 ### Create named user accounts
 
-To create named user accounts in Batch, add a collection of user accounts to the pool. The following code snippets show how to create named user accounts in .NET, Java, and Python. These code snippets show how to create both admin and non-admin named accounts on a pool. The examples create pools using the cloud service configuration, but you use the same approach when creating a Windows or Linux pool using the virtual machine configuration.
+To create named user accounts in Batch, add a collection of user accounts to the pool. The following code snippets show how to create named user accounts in .NET, Java, and Python. These code snippets show how to create both admin and non-admin named accounts on a pool.
 
 #### Batch .NET example (Windows)
 
@@ -139,12 +143,18 @@ To create named user accounts in Batch, add a collection of user accounts to the
 CloudPool pool = null;
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
-// Create a pool using the cloud service configuration.
+// Create a pool using Virtual Machine Configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: 3,
     virtualMachineSize: "standard_d1_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+    VirtualMachineConfiguration: new VirtualMachineConfiguration(
+    imageReference: new ImageReference(
+                        publisher: "MicrosoftWindowsServer",
+                        offer: "WindowsServer",
+                        sku: "2019-datacenter-core",
+                        version: "latest"),
+    nodeAgentSkuId: "batch.node.windows amd64");
 
 // Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
@@ -167,19 +177,19 @@ List<NodeAgentSku> nodeAgentSkus =
     batchClient.PoolOperations.ListNodeAgentSkus().ToList();
 
 // Define a delegate specifying properties of the VM image to use.
-Func<ImageReference, bool> isUbuntu1404 = imageRef =>
+Func<ImageReference, bool> isUbuntu1804 = imageRef =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "UbuntuServer" &&
-    imageRef.Sku.Contains("14.04");
+    imageRef.Sku.Contains("20.04-LTS");
 
 // Obtain the first node agent SKU in the collection that matches
-// Ubuntu Server 14.04. 
+// Ubuntu Server 20.04.
 NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
-    sku.VerifiedImageReferences.Any(isUbuntu1404));
+    sku.VerifiedImageReferences.Any(isUbuntu2004));
 
 // Select an ImageReference from those available for node agent.
 ImageReference imageReference =
-    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu1404);
+    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu2004);
 
 // Create the virtual machine configuration to use to create the pool.
 VirtualMachineConfiguration virtualMachineConfiguration =
@@ -230,7 +240,7 @@ PoolAddParameter addParameter = new PoolAddParameter()
         .withId(poolId)
         .withTargetDedicatedNodes(POOL_VM_COUNT)
         .withVmSize(POOL_VM_SIZE)
-        .withCloudServiceConfiguration(configuration)
+        .withVirtualMachineConfiguration(configuration)
         .withUserAccounts(userList);
 batchClient.poolOperations().createPool(addParameter);
 ```
@@ -272,7 +282,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## Update your code to the latest Batch client library
 
-The Batch service version 2017-01-01.4.0 introduces a breaking change, replacing the **runElevated** property available in earlier versions with the **userIdentity** property. The following tables provide a simple mapping that you can use to update your code from earlier versions of the client libraries.
+The Batch service version 2017-01-01.4.0 introduced a breaking change, replacing the **runElevated** property available in earlier versions with the **userIdentity** property. The following tables provide a simple mapping that you can use to update your code from earlier versions of the client libraries.
 
 ### Batch .NET
 

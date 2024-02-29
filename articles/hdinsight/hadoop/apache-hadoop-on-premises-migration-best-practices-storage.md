@@ -1,11 +1,10 @@
 ---
 title: 'Storage: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn storage best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/10/2019
+ms.date: 01/04/2024
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight
@@ -70,11 +69,11 @@ For more information, see the following articles:
 - [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md)
 - [Microsoft Azure Storage Performance and Scalability Checklist](../../storage/blobs/storage-performance-checklist.md)
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
-- [Monitor a storage account in the Azure portal](../../storage/common/storage-monitor-storage-account.md)
+- [Monitor a storage account in the Azure portal](../../storage/common/manage-storage-analytics-logs.md)
 
 ### Azure Data Lake Storage Gen1
 
-Azure Data Lake Storage Gen1 implements HDFS and POSIX style access control model. It provides first class integration with Azure AD for fine grained access control. There are no limits to the size of data that it can store, or its ability to run massively parallel analytics.
+Azure Data Lake Storage Gen1 implements HDFS and POSIX style access control model. It provides first class integration with Microsoft Entra ID for fine grained access control. There are no limits to the size of data that it can store, or its ability to run massively parallel analytics.
 
 For more information, see the following articles:
 
@@ -95,15 +94,18 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 - **A superset of POSIX permissions**: The security model for Data Lake Gen2 fully supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through admin tools or through frameworks like Hive and Spark.
 
-- **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through its complete life-cycle, billing rates change to minimize costs via built-in features such as [Azure Blob storage life cycle](../../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through its complete life-cycle, billing rates change to minimize costs via built-in features such as [Azure Blob storage life cycle](../../storage/blobs/lifecycle-management-overview.md).
 
 - **Works with Blob storage tools, frameworks, and apps**: Data Lake Storage Gen2 continues to work with a wide array of tools, frameworks, and applications that exist today for Blob storage.
 
-- **Optimized driver**: The Azure Blob Filesystem driver (ABFS) is [optimized specifically](../../storage/blobs/data-lake-storage-abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the dfs endpoint, dfs.core.windows.net.
+- **Optimized driver**: The Azure Blob Filesystem driver (ABFS) is [optimized specifically](../../storage/blobs/data-lake-storage-abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the `dfs` endpoint, dfs.core.windows.net.
 
 One of the following formats can be used to access data that is stored in ADLS Gen2:
 - `abfs:///`: Access the default Data Lake Storage for the cluster.
 - `abfs://file_system@account_name.dfs.core.windows.net`: Used when communicating with a non-default Data Lake Storage.
+
+>[!NOTE]
+> Upgrading the primary or secondary storage account of a running cluster with Azure Data Lake Storage Gen2 capabilities is not supported. To change the storage type of an existing HDInsight cluster to Data Lake Storage Gen2, you will need to recreate the cluster and select an hierarchical namespace enabled storage account.
 
 For more information, see the following articles:
 

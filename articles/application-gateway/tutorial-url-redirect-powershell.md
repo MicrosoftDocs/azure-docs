@@ -2,11 +2,12 @@
 title: URL path-based redirection using PowerShell - Azure Application Gateway
 description: Learn how to create an application gateway with URL path-based redirected traffic using Azure PowerShell.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
-ms.date: 03/19/2020
-ms.author: victorh
-ms.topic: how-to
+ms.date: 03/24/2021
+ms.author: greglin
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
 ---
 
@@ -33,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this procedure requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this procedure requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -388,6 +389,8 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 In this example, you create three virtual machine scale sets that support the three backend pools that you created. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS. You assign the scale set to the backend pool when you configure the IP settings.
 
+Replace \<username> and \<password> with your own values before you run the script.
+
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
@@ -443,8 +446,8 @@ for ($i=1; $i -le 3; $i++)
     -OsDiskCreateOption FromImage
 
   Set-AzVmssOsProfile $vmssConfig `
-    -AdminUsername azureuser `
-    -AdminPassword "Azure123456!" `
+    -AdminUsername <username> `
+    -AdminPassword "<password>" `
     -ComputerNamePrefix myvmss$i
 
   Add-AzVmssNetworkInterfaceConfiguration `

@@ -3,201 +3,273 @@ title: 'Quickstart: Create a PHP web app'
 description: Deploy your first PHP Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
-ms.date: 08/01/2020
+author: msangapu-msft
+ms.author: msangapu
+ms.date: 01/26/2024
+ms.devlang: php
+ms.custom: mode-other, devdivchpfy22, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
 # Create a PHP web app in Azure App Service
 
 ::: zone pivot="platform-windows"  
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Windows.
+[!INCLUDE [quickstart-php-windows-](./includes/quickstart-php/quickstart-php-windows-pivot.md)]
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux.
-::: zone-end  
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy a PHP app to Azure App Service on Linux.
 
-You create the web app using the [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
-
-![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
+![Screenshot of the sample app running in Azure.](media/quickstart-php/hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+To complete this quickstart, you need:
 
-## Prerequisites
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+* [Git](https://git-scm.com/)
+* [PHP](https://php.net/manual/install.php)
+* [Azure CLI](/cli/azure/install-azure-cli) to run commands in any shell to create and configure Azure resources.
 
-To complete this quickstart:
+## 1 - Get the sample repository
 
-* <a href="https://git-scm.com/" target="_blank">Install Git</a>
-* <a href="https://php.net/manual/install.php" target="_blank">Install PHP</a>
+### [Azure CLI](#tab/cli)
 
-## Download the sample locally
+You can create the web app using the [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
 
-In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code. 
+1. In a terminal window, run the following commands to clone the sample application to your local machine and navigate to the project root.
 
-```bash
-git clone https://github.com/Azure-Samples/php-docs-hello-world
-cd php-docs-hello-world
+    ```bash
+    git clone https://github.com/Azure-Samples/php-docs-hello-world
+    cd php-docs-hello-world
+    ```
+
+1. To run the application locally, use the `php` command to launch the built-in PHP web server.
+
+    ```bash
+    php -S localhost:8080
+    ```
+    
+1. Browse to the sample application at `http://localhost:8080` in a web browser.
+    
+    ![Screenshot of the sample app running locally.](media/quickstart-php/localhost-hello-world-in-browser.png)
+    
+1. In your terminal window, press **Ctrl+C** to exit the web server.
+
+### [Portal](#tab/portal)
+
+1. In your browser, navigate to the repository containing [the sample code](https://github.com/Azure-Samples/php-docs-hello-world).
+
+1. In the upper right corner, select **Fork**.
+
+    ![Screenshot of the Azure-Samples/php-docs-hello-world repo in GitHub, with the Fork option highlighted.](media/quickstart-php/fork-php-docs-hello-world-repo.png)
+
+1. On the **Create a new fork** screen, confirm the **Owner** and **Repository name** fields. Select **Create fork**.
+
+    ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/php-docs-hello-world.](media/quickstart-php/fork-details-php-docs-hello-world-repo.png)
+
+>[!NOTE]
+> This should take you to the new fork. Your fork URL will look something like this: `https://github.com/YOUR_GITHUB_ACCOUNT_NAME/php-docs-hello-world`
+
+---
+
+## 2 - Deploy your application code to Azure
+
+### [Azure CLI](#tab/cli)
+
+Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az-webapp-up) that creates the necessary resources and deploys your application in a single step.
+
+In the terminal, deploy the code in your local folder using the  [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
+
+```azurecli
+az webapp up --runtime "PHP:8.2" --os-type=linux
 ```
 
-## Run the app locally
+- If the `az` command isn't recognized, be sure you have [Azure CLI](/cli/azure/install-azure-cli) installed.
+- The `--runtime "PHP:8.2"` argument creates the web app with PHP version 8.2.
+- The `--os-type=linux` argument creates the web app on App Service on Linux.
+- You can optionally specify a name with the argument `--name <app-name>`. If you don't provide one, then a name is automatically generated.
+- You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
+- If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the code directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
 
-Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the `php` command to launch the built-in PHP web server.
-
-```bash
-php -S localhost:8080
-```
-
-Open a web browser, and navigate to the sample app at `http://localhost:8080`.
-
-You see the **Hello World!** message from the sample app displayed in the page.
-
-![Sample app running locally](media/quickstart-php/localhost-hello-world-in-browser.png)
-
-In your terminal window, press **Ctrl+C** to exit the web server.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
-
-::: zone pivot="platform-windows"  
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
-::: zone-end  
-
-::: zone pivot="platform-linux"
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
-::: zone-end
-
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
-
-## Create a web app
-
-In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command. 
-
-In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.4`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp#az-webapp-list-runtimes). 
-
-```azurecli-interactive
-# Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-git
-# PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-git
-```
-
-> [!NOTE]
-> The stop-parsing symbol `(--%)`, introduced in PowerShell 3.0, directs PowerShell to refrain from interpreting input as PowerShell commands or expressions.
->
-
-When the web app has been created, the Azure CLI shows output similar to the following example:
+The command can take a few minutes to complete. While it's running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
 
 <pre>
-Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
+The webapp '&lt;app-name>' doesn't exist
+Creating Resource group '&lt;group-name>' ...
+Resource group creation complete
+Creating AppServicePlan '&lt;app-service-plan-name>' ...
+Creating webapp '&lt;app-name>' ...
+Configuring default logging for the app, if not already enabled
+Creating zip with contents of dir /home/msangapu/myPhpApp ...
+Getting scm site credentials for zip deployment
+Starting zip deployment. This operation can take a while to complete ...
+Deployment endpoint responded with status code 202
+You can launch the app at http://&lt;app-name>.azurewebsites.net
 {
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
-  "enabled": true,
-  &lt; JSON data removed for brevity. &gt;
+  "URL": "http://&lt;app-name>.azurewebsites.net",
+  "appserviceplan": "&lt;app-service-plan-name>",
+  "location": "centralus",
+  "name": "&lt;app-name>",
+  "os": "linux",
+  "resourcegroup": "&lt;group-name>",
+  "runtime_version": "php|8.2",
+  "runtime_version_detected": "0.0",
+  "sku": "FREE",
+  "src_path": "//home//msangapu//myPhpApp"
 }
 </pre>
 
-You've created an empty new web app, with git deployment enabled.
+[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
-> [!NOTE]
-> The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
->
+Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
-Browse to your newly created web app. Replace _&lt;app-name>_ with your unique app name created in the prior step.
+### [Portal](#tab/portal)
 
-```bash
-http://<app-name>.azurewebsites.net
+1. Sign into the Azure portal.
+   
+1. At the top of the portal, type **app services** in the search box. Under **Services**, select **App Services**.
+
+    ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](media/quickstart-php/azure-portal-search-for-app-services.png)
+
+1. In the **App Services** page, select **+ Create**.
+
+1. In the **Basics** tab:
+
+    - Under **Resource group**, select **Create new**. Type *myResourceGroup* for the name.
+    - Under **Name**, type a globally unique name for your web app.
+    - Under **Publish**, select *Code*.
+    - Under **Runtime stack** select *PHP 8.2*.
+    - Under **Operating System**, select *Linux*.
+    - Under **Region**, select an Azure region close to you.
+    - Under **App Service Plan**, create an app service plan named *myAppServicePlan*.
+    - Under **Pricing plan**, select **Free F1**.
+    
+    :::image type="content" source="./media/quickstart-php/app-service-details-php.png" lightbox="./media/quickstart-php/app-service-details-php.png" alt-text="Screenshot of new App Service app configuration for PHP in the Azure portal.":::
+
+1. Select the **Deployment** tab at the top of the page.
+
+1. Under **GitHub Actions settings**, set **Continuous deployment** to *Enable*.
+
+1. Under **GitHub Actions details**, authenticate with your GitHub account, and select the following options:
+
+    - For **Organization** select the organization where you forked the demo project.
+    - For **Repository** select the *php-docs-hello-world* project.
+    - For **Branch** select *master*.
+
+    :::image type="content" source="media/quickstart-php/app-service-deploy-php.png" lightbox="media/quickstart-php/app-service-deploy-php.png" border="true" alt-text="Screenshot of the deployment options for a PHP app.":::
+        
+    > [!NOTE]
+    > By default, the creation wizard [disables basic authentication](configure-basic-auth-disable.md) and GitHub Actions deployment is created [using a user-assigned identity](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions). If you get a permissions error during resource creation, your Azure account might not have [enough permissions](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials). You can [configure GitHub Actions deployment later](deploy-continuous-deployment.md) with an identity generated for you by an Azure administrator, or you can also enable basic authentication instead.
+
+1. Select the **Review + create** button at the bottom of the page.
+
+1. After validation runs, select the **Create** button at the bottom of the page.
+
+1. After deployment is completed, select **Go to resource**.
+  
+1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
+
+---
+
+The PHP sample code is running in an Azure App Service.
+
+![Screenshot of the sample app running in Azure, showing 'Hello World!'.](media/quickstart-php/php-8-hello-world-in-browser.png)
+
+**Congratulations!** You deployed your first PHP app to App Service using the Azure portal.
+
+## 3 - Update and redeploy the app
+
+### [Azure CLI](#tab/cli)
+
+1. Using a local text editor, open the `index.php` file within the PHP app, and make a small change to the text within the string next to `echo`:
+
+    ```php
+    echo "Hello Azure!";
+    ```
+
+1. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with these arguments:
+
+    ```azurecli
+    az webapp up --runtime "PHP:8.2" --os-type=linux
+    ```
+
+1. Once deployment is completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
+
+    ![Screenshot of the updated sample app running in Azure.](media/quickstart-php/hello-azure-in-browser.png)
+
+### [Portal](#tab/portal)
+
+1. Browse to your GitHub fork of php-docs-hello-world.
+
+1. On your repo page, press `.` to start Visual Studio Code within your browser.
+
+    ![Screenshot of the forked php-docs-hello-world repo in GitHub with instructions to press the period key on this screen.](media/quickstart-php/forked-github-repo-press-period.png)
+
+    > [!NOTE]
+    > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
+
+1. Edit **index.php** so that it shows "Hello Azure!" instead of "Hello World!"
+
+    ```php
+    <?php
+        echo "Hello Azure!";
+    ?>
+    ```
+
+1. From the **Source Control** menu, select the **Stage Changes** button to stage the change.
+
+    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-php/visual-studio-code-in-browser-stage-changes.png)
+
+1. Enter a commit message such as `Hello Azure`. Then, select **Commit and Push**.
+    
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted.](media/quickstart-php/visual-studio-code-in-browser-commit-push.png)
+
+1. Once deployment is completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
+
+    ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'.](media/quickstart-php/php-8-hello-azure-in-browser.png)
+
+---
+
+## 4 - Manage your new Azure app
+
+1. Go to the Azure portal to manage the web app you created. Search for and select **App Services**.
+
+    ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](media/quickstart-php/azure-portal-search-for-app-services.png)
+
+1. Select the name of your Azure app.
+
+    ![Screenshot of the App Services list in Azure. The name of the demo app service is highlighted.](media/quickstart-php/app-service-list.png)
+
+    Your web app's **Overview** page should be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
+
+    ![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](media/quickstart-php/app-service-detail.png)
+
+    The web app menu provides different options for configuring your app.
+
+## 5 - Clean up resources
+
+When you're finished with the sample app, you can remove all of the resources for the app from Azure. It helps you avoid extra charges and keeps your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
+
+### [Azure CLI](#tab/cli)
+
+Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
-Here is what your new web app should look like:
+This command takes a minute to run.
 
-![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
+### [Portal](#tab/portal)
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+1. From your App Service **Overview** page, select the resource group you created.
 
-<pre>
-Counting objects: 2, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-Total 2 (delta 1), reused 0 (delta 0)
-remote: Updating branch 'main'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id '25f18051e9'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.php'
-remote: Ignoring: .git
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
-   cc39b1e..25f1805  main -> main
-</pre>
+1. From the resource group page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
 
-## Browse to the app
+---
 
-Browse to the deployed application using your web browser.
-
-```
-http://<app-name>.azurewebsites.net
-```
-
-The PHP sample code is running in an Azure App Service web app.
-
-![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
-
-**Congratulations!** You've deployed your first PHP app to App Service.
-
-## Update locally and redeploy the code
-
-Using a local text editor, open the `index.php` file within the PHP app, and make a small change to the text within the string next to `echo`:
-
-```php
-echo "Hello Azure!";
-```
-
-In the local terminal window, commit your changes in Git, and then push the code changes to Azure.
-
-```bash
-git commit -am "updated output"
-git push azure main
-```
-
-Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
-
-![Updated sample app running in Azure](media/quickstart-php/hello-azure-in-browser.png)
-
-## Manage your new Azure app
-
-1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created. Search for and select **App Services**.
-
-    ![Search for App Services, Azure portal, create PHP web app](media/quickstart-php/navigate-to-app-services-in-the-azure-portal.png)
-
-2. Select the name of your Azure app.
-
-    ![Portal navigation to Azure app](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
-
-    Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
-
-    ![App Service page in Azure portal](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
-
-    The web app menu provides different options for configuring your app. 
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+::: zone-end
 
 ## Next steps
 
@@ -206,3 +278,6 @@ Once deployment has completed, return to the browser window that opened during t
 
 > [!div class="nextstepaction"]
 > [Configure PHP app](configure-language-php.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

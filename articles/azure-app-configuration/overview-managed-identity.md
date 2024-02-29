@@ -1,18 +1,18 @@
 ---
 title: Configure managed identities with Azure App Configuration
 description: Learn how managed identities work in Azure App Configuration and how to configure a managed identity
-author: barbkess
+author: maud-lv
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: barbkess
+ms.author: malev
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-
+ms.custom: devx-track-azurecli
 ---
 
 # How to use managed identities for Azure App Configuration
 
-This topic shows you how to create a managed identity for Azure App Configuration. A managed identity from Azure Active Directory (AAD) allows Azure App Configuration to easily access other AAD-protected resources, such as Azure Key Vault. The identity is managed by the Azure platform. It does not require you to provision or rotate any secrets. For more about managed identities in AAD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+This topic shows you how to create a managed identity for Azure App Configuration. A managed identity from Microsoft Entra ID allows Azure App Configuration to easily access other Microsoft Entra protected resources. The identity is managed by the Azure platform. It does not require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities:
 
@@ -56,6 +56,9 @@ The following steps will walk you through creating an App Configuration store an
 
 Creating an App Configuration store with a user-assigned identity requires that you create the identity and then assign its resource identifier to your store.
 
+> [!NOTE]
+> You can add up to 10 user-assigned managed identities to an App Configuration store.
+
 ### Using the Azure CLI
 
 To set up a managed identity using the Azure CLI, use the [az appconfig identity assign] command against an existing configuration store. You have three options for running the examples in this section:
@@ -95,12 +98,12 @@ The following steps will walk you through creating a user-assigned identity and 
 
 ## Removing an identity
 
-A system-assigned identity can be removed by disabling the feature by using the [az appconfig identity remove](/cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-remove) command in the Azure CLI. User-assigned identities can be removed individually. Removing a system-assigned identity in this way will also delete it from AAD. System-assigned identities are also automatically removed from AAD when the app resource is deleted.
+A system-assigned identity can be removed by disabling the feature by using the [az appconfig identity remove](/cli/azure/appconfig/identity#az-appconfig-identity-remove) command in the Azure CLI. User-assigned identities can be removed individually. Removing a system-assigned identity in this way will also delete it from Microsoft Entra ID. System-assigned identities are also automatically removed from Microsoft Entra ID when the app resource is deleted.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
 
-[az appconfig identity assign]: /cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-assign
-[az login]: /cli/azure/reference-index#az-login
+[az appconfig identity assign]: /cli/azure/appconfig/identity#az_appconfig_identity_assign
+[az login]: /cli/azure/reference-index#az_login

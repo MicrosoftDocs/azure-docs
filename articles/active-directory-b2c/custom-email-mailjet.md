@@ -2,40 +2,56 @@
 title: Custom email verification with Mailjet
 titleSuffix: Azure AD B2C
 description: Learn how to integrate with Mailjet to customize the verification email sent to your customers when they sign up to use your Azure AD B2C-enabled applications.
-services: active-directory-b2c
-author: msmimart
-manager: celestedg
+
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 10/15/2020
-ms.author: mimart
+ms.date: 01/11/2024
+ms.author: kengaderdus
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to send customized email to users that sign up for my applications using a third-party email provider like Mailjet, so that I can use my own email template and customize the email address, subject, and support localization and custom one-time password settings.
+
 ---
 
 # Custom email verification with Mailjet
 
-Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using [DisplayControls](display-controls.md) (currently in preview) and the third-party email provider Mailjet, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Custom email verification requires the use of a third-party email provider like [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
+Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using the third-party email provider Mailjet, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Custom email verification requires the use of a third-party email provider like [Mailjet](https://www.mailjet.com/), [SendGrid](./custom-email-sendgrid.md), or [SparkPost](https://messagebird.com/email/cloud-sending?sp=true), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
 
 ## Create a Mailjet account
 
-If you don't already have one, start by setting up a Mailjet account (Azure customers can unlock 6,000 emails with a limit of 200 emails/day). 
+If you don't already have one, start by setting up a Mailjet account (Azure customers can unlock 6,000 emails with a limit of 200 emails/day).
 
-1. Follow the setup instructions at [Create a Mailjet Account](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
-1. To be able to send email, [register and validate](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) your Sender email address or domain.
-2. Navigate to the [API Key Management page](https://app.mailjet.com/account/api_keys). Record the **API Key** and **Secret Key** for use in a later step. Both keys are generated automatically when your account is created.  
+1. Follow the setup instructions at [Create a Mailjet Account](https://dev.mailjet.com/email/guides/getting-started/).
+1. To be able to send email, [register and validate](https://dev.mailjet.com/email/guides/verify-your-domain) your Sender email address or domain.
+2. Navigate to the [API Key Management page](https://dev.mailjet.com/email/guides/senders-and-domains/#use-a-sender-on-all-api-keys-(metasender)). Record the **API Key** and **Secret Key** for use in a later step. Both keys are generated automatically when your account is created.
+
+> [!IMPORTANT]
+> Mailjet offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [How do I warm up my IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
 
 ## Create Azure AD B2C policy key
 
 Next, store the Mailjet API key in an Azure AD B2C policy key for your policies to reference.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose your Azure AD B2C directory.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the **Overview** page, select **Identity Experience Framework**.
 1. Select **Policy Keys**, and then select **Add**.
@@ -53,7 +69,7 @@ Next, store the Mailjet API key in an Azure AD B2C policy key for your policies 
 
 ## Create a Mailjet template
 
-With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C policy key, create a Mailjet [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C policy key, create a Mailjet [dynamic transactional template](https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-templates).
 
 1. On the Mailjet site, open the [transactional templates](https://app.mailjet.com/templates/transactional) page and select **Create a new template**.
 1. Select **By coding it in HTML**, and then select **Code from scratch**.
@@ -138,7 +154,6 @@ With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C
                        <td width="24" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
                        <td id="PageFooterContainer" width="585" valign="top" colspan="6" style="border-bottom:1px solid #e3e3e3;padding:0px;">
 
-
                        </td>
 
                        <td width="29" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
@@ -150,7 +165,7 @@ With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C
                <td valign="top" width="50%"></td>
            </tr>
        </table>
-    <img src="https://mucp.api.account.microsoft.com/m/v2/v?d=AIAACWEPFYXYIUTJIJVV4ST7XLBHVI5MLLYBKJAVXHBDTBHUM5VBSVVPTTVRWDFIXJ5JQTHYOH5TUYIPO4ZAFRFK52UAMIS3UNIPPI7ZJNDZPRXD5VEJBN4H6RO3SPTBS6AJEEAJOUYL4APQX5RJUJOWGPKUABY&amp;i=AIAACL23GD2PFRFEY5YVM2XQLM5YYWMHFDZOCDXUI2B4LM7ETZQO473CVF22PT6WPGR5IIE6TCS6VGEKO5OZIONJWCDMRKWQQVNP5VBYAINF3S7STKYOVDJ4JF2XEW4QQVNHMAPQNHFV3KMR3V3BA4I36B6BO7L4VQUHQOI64EOWPLMG5RB3SIMEDEHPILXTF73ZYD3JT6MYOLAZJG7PJJCAXCZCQOEFVH5VCW2KBQOKRYISWQLRWAT7IINZ3EFGQI2CY2EMK3FQOXM7UI3R7CZ6D73IKDI" width="1" height="1"></body>
+    </body>
     </html>
     ```
 
@@ -162,6 +177,7 @@ With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C
 1. From the right-top select **Save & Publish**, and then **Yes, publish changes**
 1. Record the **Template ID** of template you created for use in a later step. You specify this ID when you [add the claims transformation](#add-the-claims-transformation).
 
+[!INCLUDE [active-directory-b2c-important-for-custom-email-provider](../../includes/active-directory-b2c-important-for-custom-email-provider.md)]
 
 ## Add Azure AD B2C claim types
 
@@ -169,21 +185,27 @@ In your policy, add the following claim types to the `<ClaimsSchema>` element wi
 
 These claims types are necessary to generate and verify the email address using a one-time password (OTP) code.
 
-```XML
-<ClaimType Id="Otp">
-  <DisplayName>Secondary One-time password</DisplayName>
-  <DataType>string</DataType>
-</ClaimType>
-<ClaimType Id="emailRequestBody">
-  <DisplayName>Mailjet request body</DisplayName>
-  <DataType>string</DataType>
-</ClaimType>
-<ClaimType Id="VerificationCode">
-  <DisplayName>Secondary Verification Code</DisplayName>
-  <DataType>string</DataType>
-  <UserHelpText>Enter your email verification code</UserHelpText>
-  <UserInputType>TextBox</UserInputType>
-</ClaimType>
+```xml
+<!--
+<BuildingBlocks>
+  <ClaimsSchema> -->
+    <ClaimType Id="Otp">
+      <DisplayName>Secondary One-time password</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    <ClaimType Id="emailRequestBody">
+      <DisplayName>Mailjet request body</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    <ClaimType Id="VerificationCode">
+      <DisplayName>Secondary Verification Code</DisplayName>
+      <DataType>string</DataType>
+      <UserHelpText>Enter your email verification code</UserHelpText>
+      <UserInputType>TextBox</UserInputType>
+    </ClaimType>
+  <!-- 
+  </ClaimsSchema>
+</BuildingBlocks> -->
 ```
 
 ## Add the claims transformation
@@ -198,43 +220,53 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 * Update the `Messages.0.From.Email` address value. Use a valid email address to help prevent the verification email from being marked as spam.
 * Update the value of the `Messages.0.Subject` subject line input parameter with a subject line appropriate for your organization.
 
-```XML
-<ClaimsTransformation Id="GenerateEmailRequestBody" TransformationMethod="GenerateJson">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.To.0.Email" />
-    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="Messages.0.Variables.otp" />
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.Variables.email" />
-  </InputClaims>
-  <InputParameters>
-    <!-- Update the template_id value with the ID of your Mailjet template. -->
-    <InputParameter Id="Messages.0.TemplateID" DataType="int" Value="1234567"/>
-    <InputParameter Id="Messages.0.TemplateLanguage" DataType="boolean" Value="true"/>
+```xml
+<!-- 
+<BuildingBlocks>
+  <ClaimsTransformations> -->
+    <ClaimsTransformation Id="GenerateEmailRequestBody" TransformationMethod="GenerateJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.To.0.Email" />
+        <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="Messages.0.Variables.otp" />
+        <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.Variables.email" />
+      </InputClaims>
+      <InputParameters>
+        <!-- Update the template_id value with the ID of your Mailjet template. -->
+        <InputParameter Id="Messages.0.TemplateID" DataType="int" Value="1234567"/>
+        <InputParameter Id="Messages.0.TemplateLanguage" DataType="boolean" Value="true"/>
 
-    <!-- Update with an email appropriate for your organization. -->
-    <InputParameter Id="Messages.0.From.Email" DataType="string" Value="my_email@mydomain.com"/>
+        <!-- Update with an email appropriate for your organization. -->
+        <InputParameter Id="Messages.0.From.Email" DataType="string" Value="my_email@mydomain.com"/>
 
-    <!-- Update with a subject line appropriate for your organization. -->
-    <InputParameter Id="Messages.0.Subject" DataType="string" Value="Contoso account email verification code"/>
-  </InputParameters>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="emailRequestBody" TransformationClaimType="outputClaim"/>
-  </OutputClaims>
-</ClaimsTransformation>
+        <!-- Update with a subject line appropriate for your organization. -->
+        <InputParameter Id="Messages.0.Subject" DataType="string" Value="Contoso account email verification code"/>
+      </InputParameters>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="emailRequestBody" TransformationClaimType="outputClaim"/>
+      </OutputClaims>
+    </ClaimsTransformation>
+  <!--
+  </ClaimsTransformations>
+</BuildingBlocks> -->
 ```
 
 ## Add DataUri content definition
 
-Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.0 data URI:
+Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.2 data URI:
 
-```XML
-<ContentDefinitions>
- <ContentDefinition Id="api.localaccountsignup">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-  </ContentDefinition>
-  <ContentDefinition Id="api.localaccountpasswordreset">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-  </ContentDefinition>
-</ContentDefinitions>
+```xml
+<!--
+<BuildingBlocks> -->
+  <ContentDefinitions>
+   <ContentDefinition Id="api.localaccountsignup">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+    </ContentDefinition>
+    <ContentDefinition Id="api.localaccountpasswordreset">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+    </ContentDefinition>
+  </ContentDefinitions>
+<!--
+</BuildingBlocks> -->
 ```
 
 ## Create a DisplayControl
@@ -244,83 +276,96 @@ A verification display control is used to verify the email address with a verifi
 This example display control is configured to:
 
 1. Collect the `email` address claim type from the user.
-1. Wait for the user to provide the `verificationCode` claim type with the code sent to the user.
-1. Return the `email` to the self-asserted technical profile that has a reference to this display control.
 1. Using the `SendCode` action, generate an OTP code and send an email with the OTP code to the user.
 
    ![Send verification code email action](media/custom-email-mailjet/display-control-verification-email-action-01.png)
+   
+1. Wait for the user to provide the `verificationCode` claim type with the code sent to the user.
+1. Return the `email` to the self-asserted technical profile that has a reference to this display control.
 
 Under content definitions, still within `<BuildingBlocks>`, add the following [DisplayControl](display-controls.md) of type [VerificationControl](display-control-verification.md) to your policy.
 
-```XML
-<DisplayControls>
-  <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
-    <DisplayClaims>
-      <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
-      <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
-    </DisplayClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="email" />
-    </OutputClaims>
-    <Actions>
-      <Action Id="SendCode">
-        <ValidationClaimsExchange>
-          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="GenerateOtp" />
-          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="SendOtp" />
-        </ValidationClaimsExchange>
-      </Action>
-      <Action Id="VerifyCode">
-        <ValidationClaimsExchange>
-          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="VerifyOtp" />
-        </ValidationClaimsExchange>
-      </Action>
-    </Actions>
-  </DisplayControl>
-</DisplayControls>
+```xml
+<!--
+<BuildingBlocks> -->
+  <DisplayControls>
+    <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+      <DisplayClaims>
+        <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+        <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+      </DisplayClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="email" />
+      </OutputClaims>
+      <Actions>
+        <Action Id="SendCode">
+          <ValidationClaimsExchange>
+            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="GenerateOtp" />
+            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="SendOtp" />
+          </ValidationClaimsExchange>
+        </Action>
+        <Action Id="VerifyCode">
+          <ValidationClaimsExchange>
+            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="VerifyOtp" />
+          </ValidationClaimsExchange>
+        </Action>
+      </Actions>
+    </DisplayControl>
+  </DisplayControls>
+<!--
+</BuildingBlocks> -->
 ```
 
 ## Add OTP technical profiles
 
 The `GenerateOtp` technical profile generates a code for the email address. The `VerifyOtp` technical profile verifies the code associated with the email address. You can change the configuration of the format and the expiration of the one-time password. For more information about OTP technical profiles, see [Define a one-time password technical profile](one-time-password-technical-profile.md).
 
+> [!NOTE]
+> OTP codes that are generated by the Web.TPEngine.Providers.OneTimePasswordProtocolProvider protocol are tied to the browser session. This means a user can generate unique OTP codes in different browser sessions that are each valid for their corresponding sessions. By contrast, an OTP code generated by the built-in email provider is independent of the browser session, so if a user generates a new OTP code in a new browser session, it replaces the previous OTP code.
+
 Add the following technical profiles to the `<ClaimsProviders>` element.
 
-```XML
-<ClaimsProvider>
-  <DisplayName>One time password technical profiles</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="GenerateOtp">
-      <DisplayName>Generate one time password</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <Metadata>
-        <Item Key="Operation">GenerateCode</Item>
-        <Item Key="CodeExpirationInSeconds">1200</Item>
-        <Item Key="CodeLength">6</Item>
-        <Item Key="CharacterSet">0-9</Item>
-        <Item Key="ReuseSameCode">true</Item>
-        <Item Key="MaxNumAttempts">5</Item>
-      </Metadata>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
-      </InputClaims>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="otp" PartnerClaimType="otpGenerated" />
-      </OutputClaims>
-    </TechnicalProfile>
+```xml
+<!--
+<ClaimsProviders> -->
+  <ClaimsProvider>
+    <DisplayName>One time password technical profiles</DisplayName>
+    <TechnicalProfiles>
+      <TechnicalProfile Id="GenerateOtp">
+        <DisplayName>Generate one time password</DisplayName>
+        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Metadata>
+          <Item Key="Operation">GenerateCode</Item>
+          <Item Key="CodeExpirationInSeconds">600</Item>
+          <Item Key="CodeLength">6</Item>
+          <Item Key="CharacterSet">0-9</Item>
+          <Item Key="NumRetryAttempts">5</Item>
+          <Item Key="NumCodeGenerationAttempts">10</Item>
+          <Item Key="ReuseSameCode">false</Item>
+        </Metadata>
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
+        </InputClaims>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="otp" PartnerClaimType="otpGenerated" />
+        </OutputClaims>
+      </TechnicalProfile>
 
-    <TechnicalProfile Id="VerifyOtp">
-      <DisplayName>Verify one time password</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <Metadata>
-        <Item Key="Operation">VerifyCode</Item>
-      </Metadata>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
-        <InputClaim ClaimTypeReferenceId="verificationCode" PartnerClaimType="otpToVerify" />
-      </InputClaims>
-    </TechnicalProfile>
-   </TechnicalProfiles>
-</ClaimsProvider>
+      <TechnicalProfile Id="VerifyOtp">
+        <DisplayName>Verify one time password</DisplayName>
+        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Metadata>
+          <Item Key="Operation">VerifyCode</Item>
+        </Metadata>
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
+          <InputClaim ClaimTypeReferenceId="verificationCode" PartnerClaimType="otpToVerify" />
+        </InputClaims>
+      </TechnicalProfile>
+     </TechnicalProfiles>
+  </ClaimsProvider>
+<!--
+</ClaimsProviders> -->
 ```
 
 ## Add a REST API technical profile
@@ -329,12 +374,12 @@ This REST API technical profile generates the email content (using the Mailjet f
 
 As with the OTP technical profiles, add the following technical profiles to the `<ClaimsProviders>` element.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="sendOtp">
-      <DisplayName>Use email API to send the code the the user</DisplayName>
+      <DisplayName>Use email API to send the code to the user</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://api.mailjet.com/v3.1/send</Item>
@@ -359,22 +404,15 @@ As with the OTP technical profiles, add the following technical profiles to the 
 
 ## Make a reference to the DisplayControl
 
-In the final step, add a reference to the DisplayControl you created. Replace your existing `LocalAccountSignUpWithLogonEmail` and `LocalAccountDiscoveryUsingEmailAddress` self-asserted technical profiles with the following. If you used an earlier version of Azure AD B2C policy. These technical profiles use `DisplayClaims` with a reference to the DisplayControl..
+In the final step, add a reference to the DisplayControl you created. Override your existing `LocalAccountSignUpWithLogonEmail` and `LocalAccountDiscoveryUsingEmailAddress` self-asserted technical profiles that are configured in the base policy with the following XML snippet. If you used an earlier version of Azure AD B2C policy, these technical profiles use `DisplayClaims` with a reference to the `DisplayControl`.
 
 For more information, see [Self-asserted technical profile](restful-technical-profile.md) and [DisplayControl](display-controls.md).
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-      <Metadata>
-        <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
-        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
-        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
-      </Metadata>
       <DisplayClaims>
         <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
         <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
@@ -385,13 +423,6 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
       </DisplayClaims>
     </TechnicalProfile>
     <TechnicalProfile Id="LocalAccountDiscoveryUsingEmailAddress">
-      <Metadata>
-        <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
-        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
-        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
-      </Metadata>
       <DisplayClaims>
         <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
       </DisplayClaims>
@@ -409,7 +440,7 @@ To localize the email, you must send localized strings to Mailjet, or your email
 1. Change the `GenerateEmailRequestBody` claims transformation to use input claims with the following XML snippet.
 1. Update your Mailjet template to use dynamic parameters in place of all the strings that will be localized by Azure AD B2C.
 
-    ```XML
+    ```xml
     <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
@@ -445,50 +476,57 @@ To localize the email, you must send localized strings to Mailjet, or your email
 1. Add the following [Localization](localization.md) element.
 
     ```xml
-    <Localization Enabled="true">
-      <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
-        <SupportedLanguage>en</SupportedLanguage>
-        <SupportedLanguage>es</SupportedLanguage>
-      </SupportedLanguages>
-      <LocalizedResources Id="api.custom-email.en">
-        <LocalizedStrings>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for validating the account</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
-        </LocalizedStrings>
-        </LocalizedStrings>
-      </LocalizedResources>
-      <LocalizedResources Id="api.custom-email.es">
-        <LocalizedStrings>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sinceramente</LocalizedString>
-        </LocalizedStrings>
-      </LocalizedResources>
-    </Localization>
+    <!--
+    <BuildingBlocks> -->
+      <Localization Enabled="true">
+        <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
+          <SupportedLanguage>en</SupportedLanguage>
+          <SupportedLanguage>es</SupportedLanguage>
+        </SupportedLanguages>
+        <LocalizedResources Id="api.custom-email.en">
+          <LocalizedStrings>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for validating the account</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+          </LocalizedStrings>
+        </LocalizedResources>
+        <LocalizedResources Id="api.custom-email.es">
+          <LocalizedStrings>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sinceramente</LocalizedString>
+          </LocalizedStrings>
+        </LocalizedResources>
+      </Localization>
+    <!--
+    </BuildingBlocks> -->
     ```
 
 1. Add references to the LocalizedResources elements by updating the [ContentDefinitions](contentdefinitions.md) element.
 
     ```xml
-    <ContentDefinitions>
-      <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-        <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
-          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
-        </LocalizedResourcesReferences>
-      </ContentDefinition>
-      <ContentDefinition Id="api.localaccountpasswordreset">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-        <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
-          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
-        </LocalizedResourcesReferences>
-      </ContentDefinition>
-    </ContentDefinitions>
+    <!--
+    <BuildingBlocks> -->
+      <ContentDefinitions>
+        <ContentDefinition Id="api.localaccountsignup">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+          <LocalizedResourcesReferences MergeBehavior="Prepend">
+            <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
+            <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
+          </LocalizedResourcesReferences>
+        </ContentDefinition>
+        <ContentDefinition Id="api.localaccountpasswordreset">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+          <LocalizedResourcesReferences MergeBehavior="Prepend">
+            <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
+            <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
+          </LocalizedResourcesReferences>
+        </ContentDefinition>
+      </ContentDefinitions>
+    <!--
+    </BuildingBlocks> -->
     ```
 
 1. Finally, add following input claims transformation to the `LocalAccountSignUpWithLogonEmail` and `LocalAccountDiscoveryUsingEmailAddress` technical profiles.
@@ -498,12 +536,12 @@ To localize the email, you must send localized strings to Mailjet, or your email
       <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
     </InputClaimsTransformations>
     ```
-    
+
 ## [Optional] Localize the UI
 
-The Localization element allows you to support multiple locales or languages in the policy for the user journeys. The localization support in policies allows you to provide language-specific strings for both [Verification display control user interface elements](localization-string-ids.md#verification-display-control-user-interface-elements), and [One time password error messages](localization-string-ids.md#one-time-password-error-messages). Add the following LocalizedString to your LocalizedResources. 
+The Localization element allows you to support multiple locales or languages in the policy for the user journeys. The localization support in policies allows you to provide language-specific strings for both [Verification display control user interface elements](localization-string-ids.md#verification-display-control-user-interface-elements), and [One time password error messages](localization-string-ids.md#one-time-password-error-messages). Add the following LocalizedString to your LocalizedResources.
 
-```XML
+```xml
 <LocalizedResources Id="api.custom-email.en">
   <LocalizedStrings>
     ...
@@ -521,10 +559,11 @@ The Localization element allows you to support multiple locales or languages in 
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="DisplayName">Verification Code</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="UserHelpText">Verification code received in the email.</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="AdminHelpText">Verification code received in the email.</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Eamil</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
     <!-- Email validation error messages-->
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of code generation attempts allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again.</LocalizedString>
@@ -532,11 +571,10 @@ The Localization element allows you to support multiple locales or languages in 
 </LocalizedResources>
 ```
 
-After you add the localized strings, remove the OTP validation error messages metadata from the LocalAccountSignUpWithLogonEmail and LocalAccountDiscoveryUsingEmailAddress technical profiles.
 
 ## Next steps
 
-You can find an example of a custom email verification policy on GitHub:
-
-- [Custom email verification - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
+- You can find an example of a [Custom email verification - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/Mailjet) custom policy on GitHub.
 - For information about using a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
+
+::: zone-end

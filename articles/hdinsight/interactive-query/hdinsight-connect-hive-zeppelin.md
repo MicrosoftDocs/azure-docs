@@ -3,8 +3,8 @@ title: 'Quickstart: Apache Hive in Azure HDInsight with Apache Zeppelin'
 description: In this quickstart, you learn how to use Apache Zeppelin to run Apache Hive queries.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: hdinsightactive
-ms.date: 12/03/2019
+ms.custom: hdinsightactive, mode-other
+ms.date: 04/25/2023
 #Customer intent: As a Hive user, I want learn Zeppelin so that I can run queries.
 ---
 
@@ -24,7 +24,7 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
 
 2. Enter your cluster login username and password. From the Zeppelin page, you can either create a new note or open existing notes. **HiveSample** contains some sample Hive queries.  
 
-    ![HDInsight Interactive Query zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png" alt-text="HDInsight Interactive Query zeppelin" border="true":::
 
 3. Select **Create new note**.
 
@@ -42,7 +42,7 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
     show tables
     ```
 
-    ![HDInsight Interactive Query zeppelin runs query](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png" alt-text="HDInsight Interactive Query zeppelin runs query" border="true":::
 
     The **%jdbc(hive)** statement in the first line tells the notebook to use the Hive JDBC interpreter.
 

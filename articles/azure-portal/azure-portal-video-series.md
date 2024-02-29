@@ -1,28 +1,27 @@
 ---
 title: Azure portal how-to video series
 description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
-keywords: 
-ms.date: 10/05/2020
-ms.topic: conceptual
+ms.date: 12/06/2023
+ms.topic: how-to
 ---
 
 # Azure portal how-to video series
 
-The Azure portal how-to video series showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
+The [Azure portal how-to video series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) showcases how to work with Azure services in the Azure portal. These interactive demos can help you be more efficient and productive.
 
 ## Featured video
 
-In this featured video, we show you how to get started in Azure using the Azure Quickstart Center.
+In this featured video, we show you how to create a storage account in the Azure portal.
 
-> [!VIDEO https://www.youtube.com/embed/mb5k9nXMtBM]
+> [!VIDEO https://www.youtube.com/embed/AhuNgBafmUo]
 
-[How to get started in Azure using the Azure Quickstart Center](https://www.youtube.com/watch?v=mb5k9nXMtBM)
+[How to create a storage account](https://www.youtube.com/watch?v=AhuNgBafmUo)
 
-Catch up on these recent videos you may have missed:
+Catch up on these videos you may have missed:
 
-| [How to manage applications in Azure Kubernetes Service](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [How to build Azure Workbooks using logs and parameters](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [How to add and secure a custom domain on your App Service web app](https://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [How to use search in the Azure portal](https://www.youtube.com/watch?v=PcHF_DzsETA) | [How to check your subscription's secure score](https://www.youtube.com/watch?v=yqb3qvsjqXY)  | [How to find and use Translator](https://www.youtube.com/watch?v=6xBHkHkFmZ4) |
 | ------| ------ | ------ |
-| [![Image of YouTube video about how to manage applications in Azure Kubernetes Service](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg)](https://www.youtube.com/watch?YfARHb52Bp4) | [![Image of YouTube video about how to build Azure Workbooks using logs and parameters](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) | [![Image of YouTube video about how to add and secure a custom domain on your App Service web app](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [![Image of YouTube video about how to use search in the Azure portal](https://i.ytimg.com/vi/PcHF_DzsETA/hqdefault.jpg)](http://www.youtube.com/watch?v=PcHF_DzsETA) | [![Image of YouTube video about how to check your subscription's secure score](https://i.ytimg.com/vi/yqb3qvsjqXY/hqdefault.jpg)](https://www.youtube.com/watch?v=yqb3qvsjqXY) | [![Image of YouTube video about how to find and use Translator](https://i.ytimg.com/vi/6xBHkHkFmZ4/hqdefault.jpg)](http://www.youtube.com/watch?v=6xBHkHkFmZ4) |
 
 ## Video playlist
 
@@ -30,4 +29,5 @@ Explore the [Azure portal how-to series](https://www.youtube.com/playlist?list=P
 
 ## Next steps
 
-Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal).
+- Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal).
+- Get an [overview of the Azure portal](azure-portal-overview.md).

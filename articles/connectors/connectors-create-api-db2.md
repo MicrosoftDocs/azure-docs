@@ -1,15 +1,16 @@
 ---
 title: Access and manage IBM DB2 resources
-description: Read, edit, update, and manage IBM DB2 resources by building automated workflows using Azure Logic Apps
+description: Read, edit, update, and manage IBM DB2 resources by building automated workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: plarsen, logicappspm
-ms.topic: conceptual
-ms.date: 11/19/2020
-tags: connectors
+ms.reviewer: haroldcampos, azla
+ms.topic: how-to
+ms.date: 01/04/2024
 ---
 
 # Access and manage IBM DB2 resources by using Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
 [IBM DB2 connector](/connectors/db2/), you can create automated 
@@ -60,13 +61,12 @@ which map to the corresponding actions in the connector:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An IBM DB2 database, either cloud-based or on-premises
 
-* Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about how to create logic apps. For more information, see [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
 
 * The logic app where you want to access your DB2 database. 
 This connector provides only actions, so to start your logic app, 
@@ -437,5 +437,6 @@ For more technical details about this connector, such as triggers, actions, and 
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

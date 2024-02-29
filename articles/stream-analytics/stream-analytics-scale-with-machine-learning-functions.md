@@ -1,25 +1,25 @@
 ---
 title: Scale Machine Learning Studio (classic) functions in Azure Stream Analytics
 description: This article describes how to scale Stream Analytics jobs that use Machine Learning Studio (classic) functions, by configuring partitioning and stream units.
-author: jseb225
-ms.author: jeanb
 
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/16/2020
+ms.date: 01/15/2021
 ---
-# Scale your Stream Analytics job with Azure Machine Learning Studio (classic) functions
+# Scale your Stream Analytics job with Machine Learning Studio (classic) functions
 
 > [!TIP]
-> It is highly recommended to use [Azure Machine Learning UDFs](machine-learning-udf.md) instead of Azure Machine Learning Studio (classic) UDF for improved performance and reliability.
+> It is highly recommended to use [Azure Machine Learning UDFs](machine-learning-udf.md) instead of Machine Learning Studio (classic) UDF for improved performance and reliability.
 
-This article discusses how to efficiently scale Azure Stream Analytics jobs that use Azure Machine Learning Studio (classic) functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+
+This article discusses how to efficiently scale Azure Stream Analytics jobs that use Machine Learning Studio (classic) functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
 
 ## What is a Studio (classic) function in Stream Analytics?
 
 A Machine Learning Studio (classic) function in Stream Analytics can be used like a regular function call in the Stream Analytics query language. Behind the scenes, however, these function calls are actually Studio (classic) Web Service requests.
 
-You can improve the throughput of Studio (classic) web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Azure Machine Learning Studio (classic) Web Services](../machine-learning/classic/consume-web-services.md). Support for Studio (classic) in Stream Analytics is in preview.
+You can improve the throughput of Studio (classic) web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Machine Learning Studio (classic) Web Services](../machine-learning/classic/consume-web-services.md). Support for Studio (classic) in Stream Analytics.
 
 ## Configure a Stream Analytics job with Studio (classic) functions
 
@@ -135,7 +135,7 @@ To scale a Stream Analytics job with Studio (classic) functions, consider the fo
 2. The tolerated latency for the running Stream Analytics job (and thus the batch size of the Studio (classic) web service requests).
 3. The provisioned Stream Analytics SUs and the number of Studio (classic) web service requests (the additional function-related costs).
 
-A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed, the [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html) is a great resource for getting additional help from the Stream Analytics team.
+A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed, the [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics) is a great resource for getting additional help from the Stream Analytics team.
 
 ## Next steps
 To learn more about Stream Analytics, see:

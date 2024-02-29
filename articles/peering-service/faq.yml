@@ -1,0 +1,59 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Peering Service FAQ
+  description: Answers to frequently asked questions about Microsoft Azure Peering Service.
+  author: halkazwini
+  ms.author: halkazwini
+  ms.service: peering-service
+  ms.topic: faq
+  ms.date: 09/27/2023
+title: Azure Peering Service frequently asked questions (FAQ)
+summary: |
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          What type of customer can benefit from Peering Service?
+        answer: |
+          Enterprise customers that connect to Microsoft online services using the internet. Peering Service offers high availability, predictable performance, and optimized routing over the Microsoft network directly to an internet provider chosen by the customer. Customers must have their own ASN if connecting to an IX partner or must have their own IP ranges if connecting with an ISP partner.
+
+      - question: |
+          How is Peering Service different from normal internet access?
+        answer: |
+          Peering Service optimizes routing on the Microsoft network and guarantees that customer traffic is only handed off to the peering service provider chosen by the customer at a preferred location. This ensures that customer traffic stays on the Microsoft network rather than routing through various other networks before returning to the customer’s last mile network. With Peering Service, the end users have more control and performance assurance with how their traffic will be handled compared to normal internet routing.
+
+      - question: |
+          How is Peering Service different from ExpressRoute?
+        answer: |
+          Azure ExpressRoute is a private, dedicated connection from one or multiple customer locations. While Peering Service offers optimized public connectivity and doesn't support any private connectivity, it also offers optimized connectivity for local internet breakouts.
+
+      - question: |
+          What Microsoft routes will be advertised over Peering Service connections?
+        answer: |
+          Microsoft advertises all of Microsoft's public service prefixes over the Peering Service connections. This will ensure not only communications, but other cloud services are accessible from the same connection.
+   
+      - question: |
+          Can customers sign up for Peering Service with multiple providers?
+        answer: |
+          Yes, customers can sign up for Peering Service with multiple providers in the same region or different regions. Different prefixes must be registered with each partner. 
+
+      - question: |
+          I have smaller subnets (</24) for my regional offices. Are smaller subnets supported with this service?
+        answer: |
+          Yes, Peering Service supports smaller prefix routing. Prefixes smaller than a /24 must be registered by the Peering Service Partner in the Peering resource to receive a service key and then activated by the customer in the Peering Service resource using the service key.
+
+      - question: |
+          Can I move Peering Service resources across resource groups or subscriptions?
+        answer: |
+          For a list of resources that can be moved, see [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md#microsoftpeering).
+      
+
+additionalContent: |
+
+  ## Related content
+  
+  - To learn about Peering Service, see [Azure Peering Service overview](about.md).
+  - To find a service provider, see [Peering Service partners](location-partners.md).
+  - To register a Peering Service connection, see [Create, change, or delete a Peering Service connection using the Azure portal](azure-portal.md).

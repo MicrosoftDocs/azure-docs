@@ -1,15 +1,14 @@
 ---
 title: Azure PowerShell Samples for Azure Data Factory 
 description: Azure PowerShell Samples - Scripts to help you create and manage data factories. 
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
-author: dcstwh
-ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.subservice: tutorials
+ms.custom: devx-track-azurepowershell
+author: ssabat
+ms.author: susabat
+ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 07/20/2023
 ---
 
 # Azure PowerShell samples for Azure Data Factory
@@ -29,6 +28,3 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |[Transform data using a Spark cluster](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script transforms data by running a program on a Spark cluster. |
 |**Lift and shift SSIS packages to Azure**||
 |[Create Azure-SSIS integration runtime](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script provisions an Azure-SSIS integration runtime that runs SQL Server Integration Services (SSIS) packages in Azure. |
-
-
-

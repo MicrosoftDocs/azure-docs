@@ -1,326 +1,475 @@
 ---
-title: High-performance model serving with Triton (preview)
+title: High-performance model serving with Triton
 titleSuffix: Azure Machine Learning
 description: 'Learn to deploy your model with NVIDIA Triton Inference Server in Azure Machine Learning.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
-ms.date: 09/23/2020
-ms.topic: conceptual
-ms.reviewer: larryfr
-ms.custom: deploy
+ms.subservice: inferencing
+ms.date: 11/09/2023
+ms.topic: how-to
+author: tinaem
+ms.author: timanghn
+ms.reviewer: mopeakande
+ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, sdkv2
+ms.devlang: azurecli
 ---
 
-# High-performance serving with Triton Inference Server (Preview) 
+# High-performance serving with Triton Inference Server
 
-Learn how to use [NVIDIA Triton Inference Server](https://developer.nvidia.com/nvidia-triton-inference-server) to improve the performance of the web service used for model inference.
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-One of the ways to deploy a model for inference is as a web service. For example, a deployment to Azure Kubernetes Service or Azure Container Instances. By default, Azure Machine Learning uses a single-threaded, *general purpose* web framework for web service deployments.
+Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) in Azure Machine Learning with [online endpoints](concept-endpoints-online.md).
 
-Triton is a framework that is *optimized for inference*. It provides better utilization of GPUs and more cost-effective inference. On the server-side, it batches incoming requests and submits these batches for inference. Batching better utilizes GPU resources, and is a key part of Triton's performance.
+Triton is multi-framework, open-source software that is optimized for inference. It supports popular machine learning frameworks like TensorFlow, ONNX Runtime, PyTorch, NVIDIA TensorRT, and more. It can be used for your CPU or GPU workloads. No-code deployment for Triton models is supported in both [managed online endpoints and Kubernetes online endpoints](concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
-> [!IMPORTANT]
-> Using Triton for deployment from Azure Machine Learning is currently in __preview__. Preview functionality may not be covered by customer support. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+In this article, you will learn how to deploy Triton and a model to a [managed online endpoint](concept-endpoints-online.md#online-endpoints). Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio. 
 
-> [!TIP]
-> The code snippets in this document are for illustrative purposes and may not show a complete solution. For working example code, see the [end-to-end samples of Triton in Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/tutorials).
+> [!NOTE]
+> Use of the NVIDIA Triton Inference Server container is governed by the [NVIDIA AI Enterprise Software license agreement](https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/) and can be used for 90 days without an enterprise product subscription. For more information, see [NVIDIA AI Enterprise on Azure Machine Learning](https://www.nvidia.com/en-us/data-center/azure-ml).
 
 ## Prerequisites
 
-* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
-* Familiarity with [how and where to deploy a model](how-to-deploy-and-where.md) with Azure Machine Learning.
-* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py) **or** the [Azure CLI](/cli/azure/?view=azure-cli-latest) and [machine learning extension](reference-azure-machine-learning-cli.md).
-* A working installation of Docker for local testing. For information on installing and validating Docker, see [Orientation and setup](https://docs.docker.com/get-started/) in the docker documentation.
+# [Azure CLI](#tab/azure-cli)
 
-## Architectural overview
+[!INCLUDE [basic prereqs](includes/machine-learning-cli-prereqs.md)]
 
-Before attempting to use Triton for your own model, it's important to understand how it works with Azure Machine Learning and how it compares to a default deployment.
+* A working Python 3.8 (or higher) environment. 
 
-**Default deployment without Triton**
+* You must have additional Python packages installed for scoring and may install them with the code below. They include:
+    * Numpy - An array and numerical computing library 
+    * [Triton Inference Server Client](https://github.com/triton-inference-server/client) - Facilitates requests to the Triton Inference Server
+    * Pillow - A library for image operations
+    * Gevent - A networking library used when connecting to the Triton Server
 
-* Multiple [Gunicorn](https://gunicorn.org/) workers are started to concurrently handle incoming requests.
-* These workers handle pre-processing, calling the model, and post-processing. 
-* Inference requests use the __scoring URI__. For example, `https://myserevice.azureml.net/score`.
-
-:::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Normal, non-triton, deployment architecture diagram":::
-
-### Setting the number of workers
-
-To set the number of workers in your deployment, set the environment variable `WORKER_COUNT`. Given you have an [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) object called `env`, you can do the following:
-
-```{py}
-env.environment_variables["WORKER_COUNT"] = "1"
+```azurecli
+pip install numpy
+pip install tritonclient[http]
+pip install pillow
+pip install gevent
 ```
 
-This will tell Azure ML to spin up the number of workers you specify.
-
-
-**Inference configuration deployment with Triton**
-
-* Multiple [Gunicorn](https://gunicorn.org/) workers are started to concurrently handle incoming requests.
-* The requests are forwarded to the **Triton server**. 
-* Triton processes requests in batches to maximize GPU utilization.
-* The client uses the __scoring URI__ to make requests. For example, `https://myserevice.azureml.net/score`.
-
-:::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Inferenceconfig deployment with Triton":::
-
-The workflow to use Triton for your model deployment is:
-
-1. Verify that Triton can serve your model.
-1. Verify you can send requests to your Triton-deployed model.
-1. Incorporate your Triton-specific code into your AML deployment.
-
-## Verify that Triton can serve your model
-
-First, follow the steps below to verify that the Triton Inference Server can serve your model.
-
-### (Optional) Define a model config file
-
-The model configuration file tells Triton how many inputs to expects and of what dimensions those inputs will be. For more information on creating the configuration file, see [Model configuration](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html) in the NVIDIA documentation.
-
-> [!TIP]
-> We use the `--strict-model-config=false` option when starting the Triton Inference Server, which means you do not need to provide a `config.pbtxt` file for ONNX or TensorFlow models.
-> 
-> For more information on this option, see [Generated model configuration](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html#generated-model-configuration) in the NVIDIA documentation.
-
-### Use the correct directory structure
-
-When registering a model with Azure Machine Learning, you can register either individual files or a directory structure. To use Triton, the model registration must be for a directory structure that contains a directory named `triton`. The general structure of this directory is:
-
-```bash
-models
-    - triton
-        - model_1
-            - model_version
-                - model_file
-                - config_file
-        - model_2
-            ...
-```
-
-> [!IMPORTANT]
-> This directory structure is a Triton Model Repository and is required for your model(s) to work with Triton. For more information, see [Triton Model Repositories](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) in the NVIDIA documentation.
-
-### Test with Triton and Docker
-
-To test your model to make sure it runs with Triton, you can use Docker. The following commands pull the Triton container to your local computer, and then start the Triton Server:
-
-1. To pull the image for the Triton server to your local computer, use the following command:
-
-    ```bash
-    docker pull nvcr.io/nvidia/tritonserver:20.09-py3
-    ```
-
-1. To start the Triton server, use the following command. Replace `<path-to-models/triton>` with the path to the Triton model repository that contains your models:
-
-    ```bash
-    docker run --rm -ti -v<path-to-models/triton>:/models nvcr.io/nvidia/tritonserver:20.09-py3 tritonserver --model-repository=/models --strict-model-config=false
-    ```
+* Access to NCv3-series VMs for your Azure subscription.
 
     > [!IMPORTANT]
-    > If you are using Windows, you may be prompted to allow network connections to this process the first time you run the command. If so, select to enable access.
+    > You may need to request a quota increase for your subscription before you can use this series of VMs. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
 
-    Once started, information similar to the following text is logged to the command line:
+NVIDIA Triton Inference Server requires a specific model repository structure, where there is a directory for each model and subdirectories for the model version. The contents of each model version subdirectory is determined by the type of the model and the requirements of the backend that supports the model. To see all the model repository structure [https://github.com/triton-inference-server/server/blob/main/docs/user_guide/model_repository.md#model-files](https://github.com/triton-inference-server/server/blob/main/docs/user_guide/model_repository.md#model-files)
 
-    ```bash
-    I0923 19:21:30.582866 1 http_server.cc:2705] Started HTTPService at 0.0.0.0:8000
-    I0923 19:21:30.626081 1 http_server.cc:2724] Started Metrics Service at 0.0.0.0:8002
-    ```
+The information in this document is based on using a model stored in ONNX format, so the directory structure of the model repository is `<model-repository>/<model-name>/1/model.onnx`. Specifically, this model performs image identification.
 
-    The first line indicates the address of the web service. In this case, `0.0.0.0:8000`, which is the same as `localhost:8000`.
-
-1. Use a utility such as curl to access the health endpoint.
-
-    ```bash
-    curl -L -v -i localhost:8000/v2/health/ready
-    ```
-
-    This command returns information similar to the following. Note the `200 OK`; this status means the web server is running.
-
-    ```bash
-    *   Trying 127.0.0.1:8000...
-    * Connected to localhost (127.0.0.1) port 8000 (#0)
-    > GET /v2/health/ready HTTP/1.1
-    > Host: localhost:8000
-    > User-Agent: curl/7.71.1
-    > Accept: */*
-    >
-    * Mark bundle as not supporting multiuse
-    < HTTP/1.1 200 OK
-    HTTP/1.1 200 OK
-    ```
-
-Beyond a basic health check, you can create a client to send data to Triton for inference. For more information on creating a client, see the [client examples](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/client_example.html) in the NVIDIA documentation. There are also [Python samples at the Triton GitHub](https://github.com/triton-inference-server/server/tree/master/src/clients/python/examples).
-
-For more information on running Triton using Docker, see [Running Triton on a system with a GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-with-a-gpu) and [Running Triton on a system without a GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-without-a-gpu).
-
-### Register your model
-
-Now that you've verified that your model works with Triton, register it with Azure Machine Learning. Model registration stores your model files in the Azure Machine Learning workspace, and are used when deploying with the Python SDK and Azure CLI.
-
-The following examples demonstrate how to register the model(s):
+[!INCLUDE [clone repo & set defaults](includes/machine-learning-cli-prepare.md)]
 
 # [Python](#tab/python)
 
-```python
-from azureml.core.model import Model
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-model = Model.register(
-    model_path=os.path.join("..", "triton"),
-    model_name="bidaf_onnx",
-    tags={'area': "Natural language processing", 'type': "Question answering"},
-    description="Question answering model from ONNX model zoo",
-    workspace=ws
+[!INCLUDE [sdk](includes/machine-learning-sdk-v2-prereqs.md)]
+
+* A working Python 3.8 (or higher) environment.
+
+* You must have additional Python packages installed for scoring and may install them with the code below. They include:
+    * Numpy - An array and numerical computing library 
+    * [Triton Inference Server Client](https://github.com/triton-inference-server/client) - Facilitates requests to the Triton Inference Server
+    * Pillow - A library for image operations
+    * Gevent - A networking library used when connecting to the Triton Server
+
+    ```azurecli
+    pip install numpy
+    pip install tritonclient[http]
+    pip install pillow
+    pip install gevent
+    ```
+
+* Access to NCv3-series VMs for your Azure subscription.
+
+    > [!IMPORTANT]
+    > You may need to request a quota increase for your subscription before you can use this series of VMs. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
+
+The information in this article is based on the [online-endpoints-triton.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/triton/single-model/online-endpoints-triton.ipynb) notebook contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste files, clone the repo, and then change directories to the `sdk/endpoints/online/triton/single-model/` directory in the repo:
+
+```azurecli
+git clone https://github.com/Azure/azureml-examples --depth 1
+cd azureml-examples/sdk/python/endpoints/online/triton/single-model/
 ```
+
+# [Studio](#tab/azure-studio)
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+
+* An Azure Machine Learning workspace. If you don't have one, use the steps in [Manage Azure Machine Learning workspaces in the portal, or with the Python SDK](how-to-manage-workspace.md) to create one.
+
+--- 
+
+## Define the deployment configuration
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
-az ml model register --model-path='triton' \
---name='bidaf_onnx' \
---workspace-name='<my_workspace>'
-```
----
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-<a id="processing"></a>
-
-## Verify you can call into your model
-
-After verifying that the Triton is able to serve your model, you can add pre and post-processing code by defining an _entry script_. This file is named `score.py`. For more information on entry scripts, see [Define an entry script](how-to-deploy-and-where.md#define-an-entry-script).
-
-The two main steps are to initialize a Triton HTTP client in your `init()` method, and to call into that client in your `run()` function.
-
-### Initialize the Triton Client
-
-Include code like the following example in your `score.py` file. Triton in Azure Machine Learning expects to be addressed on localhost, port 8000. In this case, localhost is inside the Docker image for this deployment, not a port on your local machine:
-
-> [!TIP]
-> The `tritonhttpclient` pip package is included in the curated `AzureML-Triton` environment, so there's no need to specify it as a pip dependency.
-
-```python
-import tritonhttpclient
-
-def init():
-    global triton_client
-    triton_client = tritonhttpclient.InferenceServerClient(url="localhost:8000")
-```
-
-### Modify your scoring script to call into Triton
-
-The following example demonstrates how to dynamically request the metadata for the model:
-
-> [!TIP]
-> You can dynamically request the metadata of models that have been loaded with Triton by using the `.get_model_metadata` method of the Triton client. See the [sample notebook](https://aka.ms/triton-aml-sample) for an example of its use.
-
-```python
-input = tritonhttpclient.InferInput(input_name, data.shape, datatype)
-input.set_data_from_numpy(data, binary_data=binary_data)
-
-output = tritonhttpclient.InferRequestedOutput(
-         output_name, binary_data=binary_data, class_count=class_count)
-
-# Run inference
-res = triton_client.infer(model_name,
-                          [input]
-                          request_id='0',
-                          outputs=[output])
-
-```
-
-<a id="redeploy"></a>
-
-## Redeploy with an inference configuration
-
-An inference configuration allows you use an entry script, as well as the Azure Machine Learning deployment process using the Python SDK or Azure CLI.
+This section shows how you can deploy to a managed online endpoint using the Azure CLI with the Machine Learning extension (v2).
 
 > [!IMPORTANT]
-> You must specify the `AzureML-Triton` [curated environment](./resource-curated-environments.md).
->
-> The Python code example clones `AzureML-Triton` into another environment called `My-Triton`. The Azure CLI code also uses this environment. For more information on cloning an environment, see the [Environment.Clone()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) reference.
+> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
+
+1. To avoid typing in a path for multiple commands, use the following command to set a `BASE_PATH` environment variable. This variable points to the directory where the model and associated YAML configuration files are located:
+
+    ```azurecli
+    BASE_PATH=endpoints/online/triton/single-model
+    ```
+
+1. Use the following command to set the name of the endpoint that will be created. In this example, a random name is created for the endpoint:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="set_endpoint_name":::
+
+1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint. The one used in the following commands is located at `/cli/endpoints/online/triton/single-model/create-managed-endpoint.yml` in the azureml-examples repo you cloned earlier:
+
+    __create-managed-endpoint.yaml__
+
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-endpoint.yaml":::
+
+1. Create a YAML configuration file for the deployment. The following example configures a deployment named __blue__ to the endpoint defined in the previous step. The one used in the following commands is located at `/cli/endpoints/online/triton/single-model/create-managed-deployment.yml` in the azureml-examples repo you cloned earlier:
+
+    > [!IMPORTANT]
+    > For Triton no-code-deployment (NCD) to work, setting **`type`** to **`triton_model​`** is required, `type: triton_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
+    >
+    > This deployment uses a Standard_NC6s_v3 VM. You may need to request a quota increase for your subscription before you can use this VM. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
+
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-deployment.yaml":::
 
 # [Python](#tab/python)
 
-```python
-from azureml.core.webservice import LocalWebservice
-from azureml.core import Environment
-from azureml.core.model import InferenceConfig
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+
+This section shows how you can define a Triton deployment to deploy to a managed online endpoint using the Azure Machine Learning Python SDK (v2).
+
+> [!IMPORTANT]
+> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
 
 
-local_service_name = "triton-bidaf-onnx"
-env = Environment.get(ws, "AzureML-Triton").clone("My-Triton")
+1. To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. 
 
-for pip_package in ["nltk"]:
-    env.python.conda_dependencies.add_pip_package(pip_package)
+    ```python 
+    subscription_id = "<SUBSCRIPTION_ID>"
+    resource_group = "<RESOURCE_GROUP>"
+    workspace_name = "<AML_WORKSPACE_NAME>"
+    ```
 
-inference_config = InferenceConfig(
-    entry_script="score_bidaf.py",  # This entry script is where we dispatch a call to the Triton server
-    source_directory=os.path.join("..", "scripts"),
-    environment=env
-)
+1. Use the following command to set the name of the endpoint that will be created. In this example, a random name is created for the endpoint:
 
-local_config = LocalWebservice.deploy_configuration(
-    port=6789
-)
+    ```python
+    import random
 
-local_service = Model.deploy(
-    workspace=ws,
-    name=local_service_name,
-    models=[model],
-    inference_config=inference_config,
-    deployment_config=local_config,
-    overwrite=True)
+    endpoint_name = f"endpoint-{random.randint(0, 10000)}"
+    ```
 
-local_service.wait_for_deployment(show_output = True)
-print(local_service.state)
-# Print the URI you can use to call the local deployment
-print(local_service.scoring_uri)
-```
+1. We use these details above in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. Check the [configuration notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
+
+    ```python 
+    from azure.ai.ml import MLClient
+    from azure.identity import DefaultAzureCredential
+
+    ml_client = MLClient(
+        DefaultAzureCredential(),
+        subscription_id,
+        resource_group,
+        workspace_name,
+    )
+    ```
+
+1. Create a `ManagedOnlineEndpoint` object to configure the endpoint. The following example configures the name and authentication mode of the endpoint. 
+
+    ```python 
+    from azure.ai.ml.entities import ManagedOnlineEndpoint
+
+    endpoint = ManagedOnlineEndpoint(name=endpoint_name, auth_mode="key")
+    ```
+
+1. Create a `ManagedOnlineDeployment` object to configure the deployment. The following example configures a deployment named __blue__ to the endpoint defined in the previous step and defines a local model inline.
+
+    ```python
+    from azure.ai.ml.entities import ManagedOnlineDeployment, Model
+    
+    model_name = "densenet-onnx-model"
+    model_version = 1
+    
+    deployment = ManagedOnlineDeployment(
+        name="blue",
+        endpoint_name=endpoint_name,
+        model=Model(
+            name=model_name, 
+            version=model_version,
+            path="./models",
+            type="triton_model"
+        ),
+        instance_type="Standard_NC6s_v3",
+        instance_count=1,
+    )
+    ``` 
+
+# [Studio](#tab/azure-studio)
+
+This section shows how you can define a Triton deployment on a managed online endpoint using [Azure Machine Learning studio](https://ml.azure.com).
+
+1. Register your model in Triton format using the following YAML and CLI command. The YAML uses a densenet-onnx model from [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton/single-model](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton/single-model)
+
+    __create-triton-model.yaml__
+
+    ```yml
+    name: densenet-onnx-model
+    version: 1
+    path: ./models
+    type: triton_model​
+    description: Registering my Triton format model.
+    ```
+
+    ```azurecli
+    az ml model create -f create-triton-model.yaml
+    ```
+
+    The following screenshot shows how your registered model will look on the __Models page__ of Azure Machine Learning studio.
+
+    :::image type="content" source="media/how-to-deploy-with-triton/triton-model-format.png" lightbox="media/how-to-deploy-with-triton/triton-model-format.png" alt-text="Screenshot showing Triton model format on Models page.":::
+
+1. From [studio](https://ml.azure.com), select your workspace and then use either the __endpoints__ or __models__ page to create the endpoint deployment:
+
+    # [Endpoints page](#tab/endpoint)
+
+    1. From the __Endpoints__ page, select **Create**.
+
+        :::image type="content" source="media/how-to-deploy-with-triton/create-option-from-endpoints-page.png" lightbox="media/how-to-deploy-with-triton/create-option-from-endpoints-page.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
+
+    1. Provide a name and authentication type for the endpoint, and then select __Next__.
+    1. When selecting a model, select the Triton model registered previously. Select __Next__ to continue.
+
+    1. When you select a model registered in Triton format, in the Environment step of the wizard, you don't need scoring script and environment.
+
+        :::image type="content" source="media/how-to-deploy-with-triton/ncd-triton.png" lightbox="media/how-to-deploy-with-triton/ncd-triton.png" alt-text="Screenshot showing no code and environment needed for Triton models":::
+
+    # [Models page](#tab/models)
+
+    1. Select the Triton model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint__.
+
+        :::image type="content" source="media/how-to-deploy-with-triton/deploy-from-models-page.png" lightbox="media/how-to-deploy-with-triton/deploy-from-models-page.png" alt-text="Screenshot showing how to deploy model from Models UI.":::
+
+    ---
+---
+
+
+## Deploy to Azure
 
 # [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+
+1. To create a new endpoint using the YAML configuration, use the following command:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
+
+
+1. To create the deployment using the YAML configuration, use the following command:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_deployment":::
+
+
+# [Python](#tab/python)
+
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+
+1. To create a new endpoint using the `ManagedOnlineEndpoint` object, use the following command:
+
+    ```python 
+    endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
+    ``` 
+
+1. To create the deployment using the `ManagedOnlineDeployment` object, use the following command:
+
+    ```python 
+    ml_client.online_deployments.begin_create_or_update(deployment)
+    ```
+
+1. Once the deployment completes, its traffic value will be set to `0%`. Update the traffic to 100%. 
+
+    ```python 
+    endpoint.traffic = {"blue": 100}
+    ml_client.online_endpoints.begin_create_or_update(endpoint)
+    ```
+
+
+# [Studio](#tab/azure-studio)
+1. Complete the wizard to deploy to the endpoint.
+
+    :::image type="content" source="media/how-to-deploy-with-triton/review-screen-triton.png" lightbox="media/how-to-deploy-with-triton/review-screen-triton.png" alt-text="Screenshot showing NCD review screen":::
+
+1. Once the deployment completes, its traffic value will be set to `0%`. Update the traffic to 100% from the Endpoint page by clicking `Update Traffic` on the second menu row. 
+
+---
+
+## Test the endpoint
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+
+Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. 
 
 > [!TIP]
-> For more information on creating an inference configuration, see the [inference configuration schema](./reference-azure-machine-learning-cli.md#inference-configuration-schema).
+> The file `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azureml-examples repo is used for scoring. The image passed to the endpoint needs pre-processing to meet the size, type, and format requirements, and post-processing to show the predicted label. The `triton_densenet_scoring.py` uses the `tritonclient.http` library to communicate with the Triton inference server.
 
-```azurecli
-az ml model deploy -n triton-densenet-onnx \
--m densenet_onnx:1 \
---ic inference-config.json \
--e My-Triton --dc deploymentconfig.json \
---overwrite --compute-target=aks-gpu
-```
+1. To get the endpoint scoring uri, use the following command:
 
----
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_scoring_uri":::
 
-After deployment completes, the scoring URI is displayed. For this local deployment, it will be `http://localhost:6789/score`. If you deploy to the cloud, you can use the [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI command to get the scoring URI.
+1. To get an authentication key, use the following command:
 
-For information on how to create a client that sends inference requests to the scoring URI, see [consume a model deployed as a web service](how-to-consume-web-service.md).
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_token":::
 
-## Clean up resources
+1. To score data with the endpoint, use the following command. It submits the image of a peacock (https://aka.ms/peacock-pic) to the endpoint:
 
-If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the deployed service, use one of the following options:
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="check_scoring_of_model":::
+
+    The response from the script is similar to the following text:
+
+    ```
+    Is server ready - True
+    Is model ready - True
+    /azureml-examples/cli/endpoints/online/triton/single-model/densenet_labels.txt
+    84 : PEACOCK
+    ```
 
 # [Python](#tab/python)
 
-```python
-local_service.delete()
-```
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
+1. To get the endpoint scoring uri, use the following command:
+
+    ```python 
+    endpoint = ml_client.online_endpoints.get(endpoint_name)
+    scoring_uri = endpoint.scoring_uri
+    ```
+
+1. To get an authentication key, use the following command:
+    keys = ml_client.online_endpoints.list_keys(endpoint_name)
+    auth_key = keys.primary_key
+
+1. The following scoring code uses the [Triton Inference Server Client](https://github.com/triton-inference-server/client) to submit the image of a peacock to the endpoint. This script is available in the companion notebook to this example - [Deploy a model to online endpoints using Triton](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/triton/single-model/online-endpoints-triton.ipynb).
+
+    ```python
+    # Test the blue deployment with some sample data
+    import requests
+    import gevent.ssl
+    import numpy as np
+    import tritonclient.http as tritonhttpclient
+    from pathlib import Path
+    import prepost
+
+    img_uri = "http://aka.ms/peacock-pic"
+
+    # We remove the scheme from the url
+    url = scoring_uri[8:]
+
+    # Initialize client handler
+    triton_client = tritonhttpclient.InferenceServerClient(
+        url=url,
+        ssl=True,
+        ssl_context_factory=gevent.ssl._create_default_https_context,
+    )
+
+    # Create headers
+    headers = {}
+    headers["Authorization"] = f"Bearer {auth_key}"
+
+    # Check status of triton server
+    health_ctx = triton_client.is_server_ready(headers=headers)
+    print("Is server ready - {}".format(health_ctx))
+
+    # Check status of model
+    model_name = "model_1"
+    status_ctx = triton_client.is_model_ready(model_name, "1", headers)
+    print("Is model ready - {}".format(status_ctx))
+
+    if Path(img_uri).exists():
+        img_content = open(img_uri, "rb").read()
+    else:
+        agent = f"Python Requests/{requests.__version__} (https://github.com/Azure/azureml-examples)"
+        img_content = requests.get(img_uri, headers={"User-Agent": agent}).content
+
+    img_data = prepost.preprocess(img_content)
+
+    # Populate inputs and outputs
+    input = tritonhttpclient.InferInput("data_0", img_data.shape, "FP32")
+    input.set_data_from_numpy(img_data)
+    inputs = [input]
+    output = tritonhttpclient.InferRequestedOutput("fc6_1")
+    outputs = [output]
+
+    result = triton_client.infer(model_name, inputs, outputs=outputs, headers=headers)
+    max_label = np.argmax(result.as_numpy("fc6_1"))
+    label_name = prepost.postprocess(max_label)
+    print(label_name)
+    ``` 
+
+1. The response from the script is similar to the following text:
+
+    ```
+    Is server ready - True
+    Is model ready - True
+    /azureml-examples/sdk/endpoints/online/triton/single-model/densenet_labels.txt
+    84 : PEACOCK
+    ```
+
+# [Studio](#tab/azure-studio)
+
+Triton Inference Server requires using Triton Client for inference, and it supports tensor-typed input. Azure Machine Learning studio doesn't currently support this. Instead, use CLI or SDK to invoke endpoints with Triton.
+
+--- 
+
+### Delete the endpoint and model
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
-az ml service delete -n triton-densenet-onnx
-```
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
+1. Once you're done with the endpoint, use the following command to delete it:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="delete_endpoint":::
+
+1. Use the following command to archive your model:
+
+    ```azurecli
+    az ml model archive --name $MODEL_NAME --version $MODEL_VERSION
+    ```
+
+# [Python](#tab/python)
+
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+
+1. Delete the endpoint. Deleting the endpoint also deletes any child deployments, however it will not archive associated Environments or Models. 
+
+    ```python
+    ml_client.online_endpoints.begin_delete(name=endpoint_name)
+    ```
+
+1. Archive the model with the following code.
+
+    ```python 
+    ml_client.models.archive(name=model_name, version=model_version)
+    ```
+
+# [Studio](#tab/azure-studio)
+
+1. From the endpoint's page, click `Delete` in the second row below the endpoint's name. 
+
+1. From the model's page, click `Delete` in the first row below the model's name. 
 ---
+
 
 ## Next steps
 
-* [See end-to-end samples of Triton in Azure Machine Learning](https://aka.ms/aml-triton-sample)
-* Check out [Triton client examples](https://github.com/triton-inference-server/server/tree/master/src/clients/python/examples)
-* Read the [Triton Inference Server documentation](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html)
-* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
-* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
-* [Update web service](how-to-deploy-update-web-service.md)
-* [Collect data for models in production](how-to-enable-data-collection.md)
+To learn more, review these articles:
+
+- [Deploy models with REST](how-to-deploy-with-rest.md)
+- [Create and use managed online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Safe rollout for online endpoints ](how-to-safely-rollout-online-endpoints.md)
+- [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
+- [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
+- [Access Azure resources with a managed online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
+- [Troubleshoot managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)

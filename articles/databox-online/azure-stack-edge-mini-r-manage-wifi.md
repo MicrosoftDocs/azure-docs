@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 11/10/2023
 ms.author: alkohli
 ---
 
@@ -16,6 +16,9 @@ ms.author: alkohli
 This article describes how to manage wireless network connectivity on your Azure Stack Edge Mini R device. You can use the local web UI on your Azure Stack Edge Mini R device via to add, connect to, and delete Wi-Fi profiles.
 
 ## About Wi-Fi
+
+> [!NOTE]
+> On Azure Stack Edge 2309 and later, Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. Wi-Fi is no longer supported on the Azure Stack Edge Mini R device.
 
 Your Azure Stack Edge Mini R device can operate both when wired to the network or via a wireless network. The device has a Wi-Fi port that must be enabled to allow the device to connect to a wireless network. 
 
@@ -51,6 +54,8 @@ Do the following steps in the local UI of your device to add and connect to a Wi
     ![Local web UI "Port WiFi Network settings" 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
     
     A wireless network profile contains the SSID (network name), password key, and security information to be able to connect to a wireless network. You can get the Wi-Fi profile for your environment from your network administrator.
+
+    For information about preparing your Wi-Fi profiles, see [Use Wi-Fi profiles with Azure Stack Edge Mini R devices](azure-stack-edge-mini-r-use-wifi-profiles.md).
 
     ![Local web UI "Port WiFi Network settings" 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
 

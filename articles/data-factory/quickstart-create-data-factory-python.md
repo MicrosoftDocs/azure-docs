@@ -1,25 +1,19 @@
 ---
 title: 'Quickstart: Create an Azure Data Factory using Python'
 description: Use a data factory to copy data from one location in Azure Blob storage to another location.
-services: data-factory
-documentationcenter: ''
-author: dcstwh
-ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+author: ssabat
+ms.author: susabat
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/15/2021
-ms.custom: seo-python-october2019, devx-track-python
+ms.date: 07/20/2023
+ms.custom: devx-track-python, mode-api
 ---
 
 # Quickstart: Create a data factory and pipeline using Python
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-python.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -33,13 +27,13 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4+](https://www.python.org/downloads/).
+* [Python 3.6+](https://www.python.org/downloads/).
 
 * [An Azure Storage account](../storage/common/storage-account-create.md).
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (optional).
 
-* [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Make note of the following values to use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to the **Contributor** role by following instructions in the same article.
+* [An application in Microsoft Entra ID](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, using Authentication Option 2 (application secret), and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **Application (client) ID, client secret value, and tenant ID.**
 
 ## Create and upload an input file
 
@@ -65,7 +59,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     pip install azure-mgmt-datafactory
     ```
 
-    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5, 3.6 and 3.7.
+    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7 and 3.6+.
 
 4. To install the Python package for Azure Identity authentication, run the following command:
 
@@ -74,9 +68,12 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     ```
     > [!NOTE] 
     > The "azure-identity" package might have conflicts with "azure-cli" on some common dependencies. If you meet any authentication issue, remove "azure-cli" and its dependencies, or use a clean machine without installing "azure-cli" package to make it work.
+    > For Sovereign clouds, you must use the appropriate cloud-specific constants.  Please refer to [Connect to all regions using Azure libraries for Python Multi-cloud | Microsoft Docs for instructions to connect with Python in Sovereign clouds.](/azure/developer/python/sdk/azure-sdk-sovereign-domain)
+    
     
 ## Create a data factory client
 
+  
 1. Create a file named **datafactory.py**. Add the following statements to add references to namespaces.
 
     ```python
@@ -121,6 +118,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     ```
 3. Add the following code to the **Main** method that creates an instance of DataFactoryManagementClient class. You use this object to create the data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details. Set **subscription_id** variable to the ID of your Azure subscription. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
+        
     ```python
     def main():
 
@@ -134,7 +132,12 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
         df_name = '<factory name>'
 
         # Specify your Active Directory client ID, client secret, and tenant ID
-        credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
+        credentials = ClientSecretCredential(client_id='<Application (client) ID>', client_secret='<client secret value>', tenant_id='<tenant ID>') 
+        
+        # Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
+        # from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD
+        # credentials = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
+        
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
 
@@ -190,7 +193,7 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
 ```python
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(reference_name=ls_name)
+    ds_ls = LinkedServiceReference(type="LinkedServiceReference",reference_name=ls_name)
     blob_path = '<container>/<folder path>'
     blob_filename = '<file name>'
     ds_azure_blob = DatasetResource(properties=AzureBlobDataset(
@@ -216,6 +219,7 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
     print_item(dsOut)
 ```
 
+
 ## Create a pipeline
 
 Add the following code to the **Main** method that creates a **pipeline with a copy activity**.
@@ -230,6 +234,13 @@ Add the following code to the **Main** method that creates a **pipeline with a c
     copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
+    
+    #Note1: To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format { “ParameterName1” : “ParameterValue1” } for each of the parameters needed in the pipeline.
+    #Note2: To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format @pipeline().parameters.parametername.
+    
+    p_name = 'copyPipeline'
+    params_for_pipeline = {}
+
     p_name = 'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)
@@ -356,7 +367,7 @@ def main():
 
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(reference_name=ls_name)
+    ds_ls = LinkedServiceReference(type="LinkedServiceReference",reference_name=ls_name)
     blob_path = '<container>/<folder path>'
     blob_filename = '<file name>'
     ds_azure_blob = DatasetResource(properties=AzureBlobDataset(
@@ -455,6 +466,6 @@ To delete the data factory, add the following code to the program:
 adf_client.factories.delete(rg_name, df_name)
 ```
 
-## Next steps
+## Related content
 
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios.

@@ -1,7 +1,7 @@
 ---
 title: How to monitor Apache Spark applications in Synapse Studio
 description: Learn how to monitor your Apache Spark applications by using Synapse Studio.
-services: synapse-analytics 
+ 
 author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
@@ -11,9 +11,9 @@ ms.author: mahi
 ms.reviewer: mahi
 ---
 
-# How to use Synapse Studio to monitor your Apache Spark applications
+# Monitor your Apache Spark applications in Synapse Studio
 
-With Azure Synapse Analytics, you can use Spark to run notebooks, jobs, and other kinds of applications on your Spark pools in your workspace.
+With Azure Synapse Analytics, you can use Apache Spark to run notebooks, jobs, and other kinds of applications on your Apache Spark pools in your workspace.
 
 This article explains how to monitor your Apache Spark applications, allowing you to keep an eye on the latest status, issues, and progress.
 

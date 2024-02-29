@@ -4,7 +4,7 @@ description: Learn how to use Apache Hive and Apache Hadoop on HDInsight to tran
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.date: 12/16/2019
+ms.date: 05/09/2023
 ---
 
 # Analyze Twitter data using Apache Hive and Apache Hadoop on HDInsight
@@ -20,7 +20,7 @@ Twitter allows you to retrieve the data for each tweet as a JavaScript Object No
 
 ### Create a Twitter application
 
-1. From a web browser, sign in to [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/). Select the **Sign-up now** link if you don't have a Twitter account.
+1. From a web browser, sign in to [https://developer.twitter.com](https://developer.twitter.com). Select the **Sign-up now** link if you don't have a Twitter account.
 
 2. Select **Create New App**.
 

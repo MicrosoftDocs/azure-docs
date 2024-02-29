@@ -2,7 +2,11 @@
 title: Troubleshoot slow backup of files and folders
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
 ms.topic: troubleshooting
-ms.date: 07/05/2019
+ms.date: 12/28/2022
+ms.service: backup
+ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Troubleshoot slow backup of files and folders in Azure Backup
 
@@ -16,7 +20,7 @@ This article provides troubleshooting guidance to help you diagnose the cause of
 Before you start troubleshooting issues, we recommend that you download and install the [latest Azure Backup agent](https://aka.ms/azurebackup_agent). We make frequent
 updates to the Backup agent to fix various issues, add features, and improve performance.
 
-We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.md) to make sure you're not experiencing any of the common configuration issues.
+We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.yml) to make sure you're not experiencing any of the common configuration issues.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -26,7 +30,7 @@ We also strongly recommend that you review the [Azure Backup service FAQ](backup
 * Unoptimized mode is slow because the agent has to scan each and every file on the volume and compare against the metadata to determine the changed files.
 * To verify this, open **Job Details** from the MARS agent console  and check the status to see if it says **Transferring data (unoptimized, may take more time)** as shown below:
 
-    ![Running in unoptimized mode](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+    ![Screenshot shows backup jobs running in unoptimized mode.](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
 
 * The following conditions can cause the backup job to run in unoptimized mode:
   * First backup (also known as Initial Replication) will always run in unoptimized mode
@@ -65,11 +69,7 @@ We've seen several instances where other processes in the Windows system have ne
 
 The best recommendation in this scenario is to turn off the other backup program to see whether the backup time for the Azure Backup agent changes. Usually, making sure that multiple backup jobs are not running at the same time is sufficient to prevent them from affecting each other.
 
-For antivirus programs, we recommend that you exclude the following files and locations:
-
-* C:\Program Files\Microsoft Azure Recovery Services Agent\bin\cbengine.exe as a process
-* C:\Program Files\Microsoft Azure Recovery Services Agent\ folders
-* Scratch location (if you're not using the standard location)
+[!INCLUDE [antivirus-scan-exclusion-rules](../../includes/backup-azure-antivirus-scan-exclusion-rules.md)]
 
 <a id="cause3"></a>
 
@@ -94,4 +94,4 @@ If you're trying to back up large disks, then it's recommended to use [Azure Dat
 
 ## Next steps
 
-* [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.md)
+* [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.yml)

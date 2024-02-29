@@ -1,14 +1,16 @@
 ---
 title: Selecting the right deployment type - Azure Database for MariaDB
 description: This article describes what factors to consider before you deploy Azure Database for MariaDB as either infrastructure as a service (IaaS) or platform as a service (PaaS).
+ms.service: mariadb
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 06/24/2022
 ---
 
 # Choose the right MariaDB Server option in Azure
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 With Azure, your MariaDB server workloads can run in a hosted virtual machine infrastructure as a service (IaaS) or as a hosted platform as a service (PaaS). PaaS has multiple deployment options, and there are service tiers within each deployment option. When you choose between IaaS and PaaS, you must decide if you want to manage your database, apply patches, and make backups, or if you want to delegate these operations to Azure.
 
@@ -36,7 +38,7 @@ The main differences between these options are listed in the following table:
 | Hybrid scenarios | With [Data-in Replication](concepts-data-in-replication.md), you can synchronize data from an external MariaDB server into the Azure Database for MariaDB service. The external server can be on-premises, in virtual machines, or a database service hosted by other cloud providers.<br/><br/> With the [read replica](concepts-read-replicas.md) feature, you can replicate data from an Azure Database for MariaDB source server to up to five read-only replica servers. The replicas are either within the same Azure region or across regions. Read-only replicas are asynchronously updated using binlog replication technology.<br/><br/>Cross-region read replication is currently in public preview.| Managed by customers
 | Backup and restoration | Automatically creates [server backups](concepts-backup.md#backups) and stores them in user-configured storage that is either locally redundant or geo-redundant. The service takes full, differential, and transaction log backups | Managed by customers |
 | Monitoring database operations | Offers customers the ability to [set alerts](concepts-monitoring.md) on the database operation and act upon reaching thresholds. | Managed by customers |
-| Advanced Threat Protection | Provides [Advanced Threat Protection](howto-database-threat-protection-portal.md). This protection detects anomalous activities that indicate unusual and potentially harmful attempts to access or exploit databases.<br/><br/>Advanced Threat Protection is currently in public preview.| Customers must build this protection for themselves.
+| Advanced Threat Protection | Provides Advanced Threat Protection. This protection detects anomalous activities that indicate unusual and potentially harmful attempts to access or exploit databases.<br/><br/>Advanced Threat Protection is currently in public preview.| Customers must build this protection for themselves.
 | Disaster recovery | Stores automated backups in user-configured [locally redundant or geo-redundant storage](howto-restore-server-portal.md). Backups can also restore a server to a point in time. The retention period is anywhere from 7 to 35 days. Restoration is accomplished by using the Azure portal. | Fully managed by customers. Responsibilities include but aren't limited to scheduling, testing, archiving, storage, and retention. An additional option is to use an Azure Recovery Services vault to back up Azure VMs and databases on VMs. This option is in preview. |
 | Performance recommendations | Provides customers with [performance recommendations](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) based on system-generated usage log files. The recommendations help to optimize workloads.<br/><br/>Performance recommendations are currently in public preview. | Managed by customers |
 

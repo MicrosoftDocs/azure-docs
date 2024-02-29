@@ -1,17 +1,12 @@
 ---
 title: 'REST API: Filesystem operations on Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Use WebHDFS REST APIs to perform filesystem operations on Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
 
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Filesystem operations on Azure Data Lake Storage Gen1 using REST API
@@ -32,8 +27,10 @@ In this article, you learn how to use WebHDFS REST APIs and Data Lake Storage Ge
 
 * **[cURL](https://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Storage Gen1 account.
 
-## How do I authenticate using Azure Active Directory?
-You can use two approaches to authenticate using Azure Active Directory.
+<a name='how-do-i-authenticate-using-azure-active-directory'></a>
+
+## How do I authenticate using Microsoft Entra ID?
+You can use two approaches to authenticate using Microsoft Entra ID.
 
 * For end-user authentication for your application (interactive), see [End-user authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-end-user-authenticate-rest-api.md).
 * For service-to-service authentication for your application (non-interactive), see [Service-to-service authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-service-to-service-authenticate-rest-api.md).

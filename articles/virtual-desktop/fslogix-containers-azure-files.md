@@ -1,19 +1,18 @@
 ---
-title: Windows Virtual Desktop FSLogix profile containers files - Azure
-description: This article describes FSLogix profile containers within Windows Virtual Desktop and Azure files.
+title: Azure Virtual Desktop FSLogix profile containers files - Azure
+description: This article describes FSLogix profile containers within Azure Virtual Desktop and Azure Files.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
-manager: lizross
 ---
 
 # FSLogix profile containers and Azure files
 
-The Windows Virtual Desktop service recommends FSLogix profile containers as a user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. It stores a complete user profile in a single container. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile. This article describes how FSLogix profile containers used with Azure Files function in Windows Virtual Desktop.
+The Azure Virtual Desktop service recommends FSLogix profile containers as a user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Azure Virtual Desktop. It stores a complete user profile in a single container. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile. This article describes how FSLogix profile containers used with Azure Files function in Azure Virtual Desktop.
 
->[!NOTE]
->If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
+> [!NOTE]
+> If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
 
 ## User profiles
 
@@ -46,7 +45,7 @@ The following table shows benefits and limitations of previous user profile tech
 | **Roaming User Profile (RUP), maintenance mode** | No | Yes | Yes | Yes | Yes| No | Yes | Win 7+ | No | |
 | **Enterprise State Roaming (ESR)** | Yes | No | Yes | No | See notes | Yes | No | Win 10 | No | Functions on server SKU but no supporting user interface |
 | **User Experience Virtualization (UE-V)** | Yes | Yes | Yes | No | Yes | No | Yes | Win 7+ | No |  |
-| **OneDrive cloud files** | No | No | No | Yes | See notes | See notes  | See Notes | Win 10 RS3 | No | Not tested on server SKU. Back-end storage on Azure depends on sync client. Back-end storage on-prem needs a sync client. |
+| **OneDrive cloud files** | No | No | No | Yes | See notes | See notes  | See Notes | Win 10 RS3 | No | Not tested on server SKU. Back-end storage on Azure depends on sync client. Back-end storage on-premises needs a sync client. |
 
 #### Performance
 
@@ -70,15 +69,11 @@ On November 19, 2018, [Microsoft acquired FSLogix](https://blogs.microsoft.com/b
 
 Since the acquisition, Microsoft started replacing existing user profile solutions, like UPD, with FSLogix profile containers.
 
-## Azure Files integration with Azure Active Directory Domain Service
+## Best practices for Azure Virtual Desktop
 
-FSLogix profile containers' performance and features take advantage of the cloud. On August 7th, 2019, Microsoft Azure Files announced the general availability of [Azure Files authentication with Azure Active Directory Domain Service (AD DS)](../storage/files/storage-files-active-directory-overview.md). By addressing both cost and administrative overhead, Azure Files with Azure AD DS Authentication is a premium solution for user profiles in the Windows Virtual Desktop service.
+Azure Virtual Desktop offers full control over size, type, and count of VMs that are being used by customers. For more information, see [What is Azure Virtual Desktop?](overview.md).
 
-## Best practices for Windows Virtual Desktop
-
-Windows Virtual Desktop offers full control over size, type, and count of VMs that are being used by customers. For more information, see [What is Windows Virtual Desktop?](overview.md).
-
-To ensure your Windows Virtual Desktop environment follows best practices:
+To ensure your Azure Virtual Desktop environment follows best practices:
 
 - Azure Files storage account must be in the same region as the session host VMs.
 - Azure Files permissions should match permissions described in [Requirements - Profile Containers](/fslogix/fslogix-storage-config-ht).
@@ -87,13 +82,11 @@ To ensure your Windows Virtual Desktop environment follows best practices:
 - For optimal performance, the storage solution and the FSLogix profile container should be in the same data center location.
 - The storage account containing the master image must be in the same region and subscription where the VMs are being provisioned.
 
+Azure Files has limits on the number of open handles per root directory, directory, and file. For more information on the limits and sizing guidance, see [Azure Files scalability and performance targets](../storage/files/storage-files-scale-targets.md#file-scale-targets) and [Azure Files sizing guidance for Azure Virtual Desktop](../storage/files/storage-files-scale-targets.md#azure-files-sizing-guidance-for-azure-virtual-desktop).
+
 ## Next steps
 
-Use the following guides to set up a Windows Virtual Desktop environment.
-
-- To start building out your desktop virtualization solution, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
-- To create a host pool within your Windows Virtual Desktop tenant, see [Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md).
-- To set up fully managed file shares in the cloud, see [Set up Azure Files share](/azure/storage/files/storage-files-active-directory-enable/).
-- To configure FSLogix profile containers, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
-- To assign users to a host pool, see [Manage app groups for Windows Virtual Desktop](manage-app-groups.md).
-- To access your Windows Virtual Desktop resources from a web browser, see [Connect to Windows Virtual Desktop](connect-web.md).
+- Learn more about storage options for FSLogix profile containers, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
+- [Set up FSLogix Profile Container with Azure Files and Active Directory](fslogix-profile-container-configure-azure-files-active-directory.md)
+- [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.md)
+- [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)

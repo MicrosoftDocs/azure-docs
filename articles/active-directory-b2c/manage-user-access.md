@@ -1,16 +1,20 @@
 ---
-title: Manage user access in Azure Active Directory B2C | Microsoft Docs
+title: Manage user access in Azure Active Directory B2C  
 description: Learn how to identify minors, collect date of birth and country/region data, and get acceptance of terms of use in your application by using Azure AD B2C.
-services: active-directory-b2c
-author: msmimart
-manager: celestedg
+
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 10/15/2020
-ms.author: mimart
+ms.date: 01/11/2024
+ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an application developer using Azure Active Directory B2C, I want to manage user access to my application by identifying minors, requiring parental consent, gathering birth and country/region data, and capturing a terms-of-use agreement, so that I can comply with regulatory standards and provide appropriate experiences for different user groups.
+
 ---
 
 # Manage user access in Azure Active Directory B2C
@@ -46,7 +50,7 @@ The following is an example of a user flow for gathering parental consent:
 
 2. The application processes the JSON token and shows a screen to the minor, notifying them that parental consent is required and requesting the consent of a parent online.
 
-3. Azure AD B2C shows a sign-in journey that the user can sign in to normally and issues a token to the application that is set to include **legalAgeGroupClassification = "minorWithParentalConsent"**. The application collects the email address of the parent and verifies that the parent is an adult. To do so, it uses a trusted source, such as a national ID office, license verification, or credit card proof. If verification is successful, the application prompts the minor to sign in by using the Azure AD B2C user flow. If consent is denied (for example, if **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C returns a JSON token (not a login) to the application to restart the consent process. It is optionally possible to customize the user flow so that a minor or an adult can regain access to a minor's account by sending a registration code to the minor's email address or the adult's email address on record.
+3. Azure AD B2C shows a sign-in journey that the user can sign in to normally and issues a token to the application that is set to include **legalAgeGroupClassification = "minorWithParentalConsent"**. The application collects the email address of the parent and verifies that the parent is an adult. To do so, it uses a trusted source, such as a national/regional ID office, license verification, or credit card proof. If verification is successful, the application prompts the minor to sign in by using the Azure AD B2C user flow. If consent is denied (for example, if **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C returns a JSON token (not a login) to the application to restart the consent process. It is optionally possible to customize the user flow so that a minor or an adult can regain access to a minor's account by sending a registration code to the minor's email address or the adult's email address on record.
 
 4. The application offers an option to the minor to revoke consent.
 
@@ -79,7 +83,53 @@ If an application has reliably gathered DOB or country/region data by other meth
 - If a user is known to be an adult, update the directory attribute **ageGroup** with a value of **Adult**.
 - If a user is known to be a minor, update the directory attribute **ageGroup** with a  value of **Minor** and set **consentProvidedForMinor**, as appropriate.
 
-For more information about gathering DOB data, see [Use age gating in Azure AD B2C](basic-age-gating.md).
+## Minor calculation rules
+
+Age gating involves two age values: the age that someone is no longer considered a minor, and the age at which a minor must have parental consent. The following table lists the age rules that are used for defining a minor and a minor requiring consent.
+
+| Country/Region | Country/Region name | Minor consent age | Minor age |
+| -------------- | ------------------- | ----------------- | --------- |
+| Default | None | None | 18 |
+| AE | United Arab Emirates | None | 21 |
+| AT | Austria | 14 | 18 |
+| BE | Belgium | 14 | 18 |
+| BG | Bulgaria | 16 | 18 |
+| BH | Bahrain | None | 21 |
+| CM | Cameroon | None | 21 |
+| CY | Cyprus | 16 | 18 |
+| CZ | Czech Republic | 16 | 18 |
+| DE | Germany | 16 | 18 |
+| DK | Denmark | 16 | 18 |
+| EE | Estonia | 16 | 18 |
+| EG | Egypt | None | 21 |
+| ES | Spain | 13 | 18 |
+| FR | France | 16 | 18 |
+| GB | United Kingdom | 13 | 18 |
+| GR | Greece | 16 | 18 |
+| HR | Croatia | 16 | 18 |
+| HU | Hungary | 16 | 18 |
+| IE | Ireland | 13 | 18 |
+| IT | Italy | 16 | 18 |
+| KR | Korea, Republic of | 14 | 18 |
+| LT | Lithuania | 16 | 18 |
+| LU | Luxembourg | 16 | 18 |
+| LV | Latvia | 16 | 18 |
+| MT | Malta | 16 | 18 |
+| NA | Namibia | None | 21 |
+| NL | Netherlands | 16 | 18 |
+| PL | Poland | 13 | 18 |
+| PT | Portugal | 16 | 18 |
+| RO | Romania | 16 | 18 |
+| SE | Sweden | 13 | 18 |
+| SG | Singapore | None | 21 |
+| SI | Slovenia | 16 | 18 |
+| SK | Slovakia | 16 | 18 |
+| TD | Chad | None | 21 |
+| TH | Thailand | None | 20 |
+| TW | Taiwan | None | 20 |
+| US | United States | 13 | 18 |
+
+
 
 ## Capture terms of use agreement
 
@@ -89,11 +139,11 @@ When you develop your application, you ordinarily capture users' acceptance of t
 
 The following steps describe how you can manage terms of use:
 
-1. Record the acceptance of the terms of use and the date of acceptance by using the Graph API and extended attributes. You can do so by using both built-in and custom user flows. We recommend that you create and use the **extension_termsOfUseConsentDateTime** and **extension_termsOfUseConsentVersion** attributes.
+1. Record the acceptance of the terms of use and the date of acceptance by using the Graph API and extended attributes. You can do so by using both built-in user flows and custom policies. We recommend that you create and use the **extension_termsOfUseConsentDateTime** and **extension_termsOfUseConsentVersion** attributes.
 
-2. Create a required check box labeled "Accept Terms of Use," and record the result during signup. You can do so by using both built-in and custom user flows.
+2. Create a required check box labeled "Accept Terms of Use," and record the result during sign-up. You can do so by using both built-in user flows and custom policies.
 
-3. Azure AD B2C stores the terms of use agreement and the user's acceptance. You can use the Graph API to query for the status of any user by reading the extension attribute that's used to record the response (for example, read **termsOfUseTestUpdateDateTime**). You can do so by using both built-in and custom user flows.
+3. Azure AD B2C stores the terms of use agreement and the user's acceptance. You can use the Graph API to query for the status of any user by reading the extension attribute that's used to record the response (for example, read **termsOfUseTestUpdateDateTime**). You can do so by using both built-in user flows and custom policies.
 
 4. Require acceptance of updated terms of use by comparing the date of acceptance to the date of the latest version of the terms of use. You can compare the dates only by using a custom user flow. Use the extended attribute **extension_termsOfUseConsentDateTime**, and compare the value to the claim of **termsOfUseTextUpdateDateTime**. If the acceptance is old, force a new acceptance by displaying a self-asserted screen. Otherwise, block access by using policy logic.
 
@@ -171,5 +221,6 @@ The following is an example of a version-based terms of use consent in a claim. 
 
 ## Next steps
 
+- [Enable Age Gating in Azure AD B2C](age-gating.md).
 - To learn how to delete and export user data, see [Manage user data](manage-user-data.md).
 - For an example custom policy that implements a terms of use prompt, see [A B2C IEF Custom Policy - Sign Up and Sign In with 'Terms of Use' prompt](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).

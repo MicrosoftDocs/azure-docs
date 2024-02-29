@@ -1,11 +1,10 @@
 ---
 title: Create an Azure function app with Java and Eclipse 
 description: How-to guide to create and publish a simple HTTP triggered serverless app using Java and Eclipse to Azure Functions.
-author: jeffhollan
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 07/01/2018
-ms.author: jehollan
-ms.custom: mvc, devcenter, devx-track-java
+ms.devlang: java
+ms.custom: mvc, devcenter, devx-track-java, devx-track-extended-java
 ---
 
 # Create your first function with Java and Eclipse 
@@ -20,7 +19,7 @@ This article shows you how to create a [serverless](https://azure.microsoft.com/
 
 To develop a functions app with Java and Eclipse, you must have the following installed:
 
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
+-  [Java Developer Kit](/java/openjdk/download#openjdk-17), version 8, 11, 17 or 21. (Java 21 is currently supported in preview only on Linux)
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 -  [Eclipse](https://www.eclipse.org/downloads/packages/), with Java and Maven support.
 -  [Azure CLI](/cli/azure)
@@ -46,7 +45,7 @@ Maven creates the project files in a new folder with a name of _artifactId_. The
 > [Azure Functions Core Tools, version 2](functions-run-local.md#v2) must be installed to run and debug functions locally.
 
 1. Right-click on the generated project, then choose **Run As** and **Maven build**.
-1. In the **Edit Configuration** dialog, Enter `package` in the **Goals** and **Name** fields, then select **Run**. This will build and package the function code.
+1. In the **Edit Configuration** dialog, Enter `package` in the **Goals**, then select **Run**. This will build and package the function code.
 1. Once the build is complete, create another Run configuration as above, using `azure-functions:run` as the goal and name. Select **Run** to run the function in the IDE.
 
 Terminate the runtime in the console window when you're done testing your function. Only one function host can be active and running locally at a time.
@@ -63,7 +62,7 @@ Set breakpoints and inspect objects in your function using the IDE. When finishe
 
 ## Deploy the function to Azure
 
-The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing using your computer's command prompt.
+The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing using your computer's command prompt.
 
 ```azurecli
 az login

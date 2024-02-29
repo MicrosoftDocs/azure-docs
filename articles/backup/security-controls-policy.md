@@ -1,12 +1,12 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Backup
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Backup. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 01/29/2021
+ms.date: 02/06/2024
 ms.topic: sample
-author: dcurwin
-ms.author: dacurwin
 ms.service: backup
 ms.custom: subject-policy-compliancecontrols
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Azure Policy Regulatory Compliance controls for Azure Backup
 

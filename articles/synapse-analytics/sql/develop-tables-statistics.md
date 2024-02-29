@@ -1,16 +1,13 @@
 ---
 title: Create and update statistics using Azure Synapse SQL resources
-description: Recommendations and examples for creating and updating query-optimization statistics in Synapse SQL.
-services: synapse-analytics
+description: Recommendations and examples for creating and updating query-optimization statistics in Azure Synapse SQL.
 author: filippopovic
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql
-ms.date: 04/19/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
-ms.custom: 
+ms.reviewer: sngun, wiassaf
+ms.date: 10/11/2022
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: conceptual
 ---
 # Statistics in Synapse SQL
 
@@ -66,9 +63,9 @@ Automatic creation of statistics is done synchronously. So, you may incur slight
 To avoid measurable performance degradation, you should ensure stats have been created first by executing the benchmark workload before profiling the system.
 
 > [!NOTE]
-> The creation of stats is logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) under a different user context.
+> The creation of stats is logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true) under a different user context.
 
-When automatic statistics are created, they'll take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view already created stats by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) command:
+When automatic statistics are created, they'll take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view already created stats by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) command:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -84,9 +81,9 @@ Statistics on a country or region column in a customer table might never need to
 
 However, when your data warehouse only contains one country or region and you bring in data from a new country or region, then you need to update statistics on the country or region column.
 
-The following are recommendations updating statistics:
+The following are recommendations for updating statistics:
 
-|||
+|Type|Recommendation|
 |-|-|
 | **Frequency of stats updates**  | Conservative: Daily </br> After loading or transforming your data |
 | **Sampling** |  Less than 1 billion rows, use default sampling (20 percent). </br> With more than 1 billion rows, use sampling of two percent. |
@@ -199,7 +196,7 @@ Another option you have is to specify the sample size as a percent:
 ```sql
 CREATE STATISTICS col1_stats
     ON dbo.table1 (col1)
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
 #### Create single-column statistics on only some of the rows
@@ -227,10 +224,10 @@ You can also combine the options together. The following example creates a filte
 CREATE STATISTICS stats_col1
     ON table1 (col1)
     WHERE col1 > '2000101' AND col1 < '20001231'
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
-For the full reference, see [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+For the full reference, see [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 #### Create multi-column statistics
 
@@ -245,10 +242,10 @@ In this example, the histogram is on *product\_category*. Cross-column statistic
 CREATE STATISTICS stats_2cols
     ON table1 (product_category, product_sub_category)
     WHERE product_category > '2000101' AND product_category < '20001231'
-    WITH SAMPLE = 50 PERCENT;
+    WITH SAMPLE 50 PERCENT;
 ```
 
-Because a correlation exists between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time.
+Because a correlation exists between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time. When querying this table, the multi-column statistics will improve cardinality estimations for joins, GROUP BY aggregations, distinct counts, and WHERE filters (so long as the primary statistics column is a part of the filter).
 
 #### Create statistics on all columns in a table
 
@@ -274,7 +271,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 #### Use a stored procedure to create statistics on all columns in a database
 
-SQL pool doesn't have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
+SQL pool doesn't have a system stored procedure equivalent to `sp_create_stats` in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
 
 The following example will help you get started with your database design. Feel free to adapt it to your needs:
 
@@ -427,7 +424,7 @@ If performance isn't an issue, this method is the easiest and most complete way 
 > When updating all statistics on a table, dedicated SQL pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
 
 For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary tables](develop-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
-For the full syntax, see [Update statistics](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+For the full syntax, see [Update statistics](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ### Statistics metadata
 
@@ -439,13 +436,13 @@ These system views provide information about statistics:
 
 | Catalog view | Description |
 |:--- |:--- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each column. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each object in the database. |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each schema in the database. |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each statistics object. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each column in the statistics object. Links back to sys.columns. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each table (includes external tables). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each data type. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?view=azure-sqldw-latest&preserve-view=true) |One row for each column. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=azure-sqldw-latest&preserve-view=true) |One row for each object in the database. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=azure-sqldw-latest&preserve-view=true) |One row for each schema in the database. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) |One row for each statistics object. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?view=azure-sqldw-latest&preserve-view=true) |One row for each column in the statistics object. Links back to sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?view=azure-sqldw-latest&preserve-view=true) |One row for each table (includes external tables). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?view=azure-sqldw-latest&preserve-view=true) |One row for each data type. |
 
 #### System functions for statistics
 
@@ -453,8 +450,8 @@ These system functions are useful for working with statistics:
 
 | System function | Description |
 |:--- |:--- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Date the statistics object was last updated. |
-| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Summary level and detailed information about the distribution of values as understood by the statistics object. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Date the statistics object was last updated. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Summary level and detailed information about the distribution of values as understood by the statistics object. |
 
 #### Combine statistics columns and functions into one view
 
@@ -519,7 +516,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 For example:
 
 ```sql
-DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
+DBCC SHOW_STATISTICS ('dbo.table1', 'stats_col1');
 ```
 
 #### Show one or more parts of DBCC SHOW_STATISTICS()
@@ -534,7 +531,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 For example:
 
 ```sql
-DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
+DBCC SHOW_STATISTICS ('dbo.table1', 'stats_col1')
     WITH histogram, density_vector
 ```
 
@@ -564,7 +561,7 @@ The more serverless SQL pool knows about your data, the faster it can execute qu
 
 The serverless SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
 
-For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will pick a different plan.
 
 ### Automatic creation of statistics
 
@@ -573,13 +570,13 @@ Serverless SQL pool analyzes incoming user queries for missing statistics. If st
 The SELECT statement will trigger automatic creation of statistics.
 
 > [!NOTE]
-> Automatic creation of statistics is turned on for Parquet files. For CSV files,  you need to create statistics manually until automatic creation of CSV files statistics is supported.
+> For automatic creation of statistics sampling is used and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling is not supported and automatic creation of statistics will not happen with sampling percentage less than 100%. For small tables with estimated low cardinality (number of rows) automatic statistics creation will be triggered with sampling percentage of 100%. That basically means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0.
 
 Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the files targeted.
 
 ### Manual creation of statistics
 
-Serverless SQL pool lets you create statistics manually. For CSV files,  you have to create statistics manually because automatic creation of statistics isn't turned on for CSV files. 
+Serverless SQL pool lets you create statistics manually. In case you are using parser version 1.0 with CSV, you will probably have to create statistics manually, because this parser version does not support sampling. Automatic creation of statistics in case of parser version 1.0 will not happen, unless the sampling percent is 100%.
 
 See the following examples for instructions on how to manually create statistics.
 
@@ -594,7 +591,7 @@ When statistics are stale, new ones will be created. The algorithm goes through 
 Manual stats are never declared stale.
 
 > [!NOTE]
-> Automatic recreation of statistics is turned on for Parquet files. For CSV files, you need to drop and create statistics manually until automatic creation of CSV files statistics is supported. Check the examples below on how to drop and create statistics.
+> For automatic recreation of statistics sampling is used and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling is not supported and automatic recreation of statistics will not happen with sampling percentage less than 100%. In that case you need to drop and recreate statistics manually. Check the examples below on how to drop and create statistics. For small tables with estimated low cardinality (number of rows) automatic statistics recreation will be triggered with sampling percentage of 100%. That basically means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0.
 
 One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
 
@@ -616,14 +613,14 @@ The following guiding principles are provided for updating your statistics:
 
 For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-### Examples: Create statistics for column in OPENROWSET path
+### Examples: Create statistics for column in OPENROWSET path 
 
-The following examples show you how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
+The following examples show you how to use various options for creating statistics in Azure Synapse serverless SQL pools. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries. For more information on the stored procedures used in these examples, review [sys.sp_create_openrowset_statistics](/sql/relational-databases/system-stored-procedures/sp-create-openrowset-statistics) and [sys.sp_drop_openrowset_statistics](/sql/relational-databases/system-stored-procedures/sp-drop-openrowset-statistics), which apply to serverless SQL pools only.
 
 > [!NOTE]
 > You can create single-column statistics only at this moment.
 >
-> Following permissions are required to execute sp_create_openrowset_statistics and sp_drop_openrowset_statistics: ADMINISTER BULK OPERATIONS or ADMINISTER DATABASE BULK OPERATIONS.
+> Following permissions are required to execute `sp_create_openrowset_statistics` and `sp_drop_openrowset_statistics`: ADMINISTER BULK OPERATIONS or ADMINISTER DATABASE BULK OPERATIONS.
 
 The following stored procedure is used to create statistics:
 
@@ -640,42 +637,27 @@ Specifies a Transact-SQL statement that will return column values to be used for
 ```
 
 > [!NOTE]
-> CSV sampling does not work at this time, only FULLSCAN is supported for CSV.
+> CSV sampling does not work if you are using parser version 1.0, only FULLSCAN is supported for CSV with parser version 1.0.
 
 #### Create single-column statistics by examining every row
 
 To create statistics on a column, provide a query that returns the column for which you need statistics.
 
-By default, if you don't specify otherwise, serverless SQL pool uses 100% of the data provided in the dataset when it creates statistics.
+By default, if you don't specify otherwise when manually creating statistics, serverless SQL pool uses 100% of the data provided in the dataset when it creates statistics.
 
-For example, to create statistics with default options (FULLSCAN) for a year column of the dataset based on the population.csv file:
+For example, to create statistics with default options (FULLSCAN) for a population column of the dataset based on the us_population.csv file:
 
 ```sql
-/* make sure you have credentials for storage account access created
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-GO
 
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = ''
-GO
-*/
-
-EXEC sys.sp_create_openrowset_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT 
+    population
 FROM OPENROWSET(
-        BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
-        FORMAT = ''CSV'',
-        FIELDTERMINATOR ='','',
-        ROWTERMINATOR = ''\n''
-    )
-WITH (
-    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-    [year] smallint,
-    [population] bigint
-) AS [r]
-'
+    BULK ''Https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/raw_us_population_county/us_population.csv'',
+    FORMAT = ''CSV'',
+    PARSER_VERSION = ''2.0'',
+    HEADER_ROW = TRUE)
+AS [r]'
+
 ```
 
 #### Create single-column statistics by specifying the sample size
@@ -705,20 +687,22 @@ FROM OPENROWSET(
 
 ### Examples: Update statistics
 
-To update statistics, you need to drop and create statistics. The following stored procedure is used to drop statistics:
+To update statistics, you need to drop and create statistics. For more information, review [sys.sp_create_openrowset_statistics](/sql/relational-databases/system-stored-procedures/sp-create-openrowset-statistics) and [sys.sp_drop_openrowset_statistics](/sql/relational-databases/system-stored-procedures/sp-drop-openrowset-statistics). 
+
+The `sys.sp_drop_openrowset_statistics` stored procedure is used to drop statistics:
 
 ```sql
 sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> Following permissions are required to execute sp_create_openrowset_statistics and sp_drop_openrowset_statistics: ADMINISTER BULK OPERATIONS or ADMINISTER DATABASE BULK OPERATIONS.
+> Following permissions are required to execute `sp_create_openrowset_statistics` and `sp_drop_openrowset_statistics`: ADMINISTER BULK OPERATIONS or ADMINISTER DATABASE BULK OPERATIONS.
 
 Arguments:
 [ @stmt = ] N'statement_text' -
 Specifies the same Transact-SQL statement used when the statistics were created.
 
-To update the statistics for the year column in the dataset, which is based on the population.csv file, you need to drop and create statistics:
+To update the statistics for the year column in the dataset, which is based on the `population.csv` file, you need to drop and create statistics:
 
 ```sql
 EXEC sys.sp_drop_openrowset_statistics N'SELECT payment_type
@@ -781,7 +765,7 @@ Specifies the approximate percentage or number of rows in the table or indexed v
 SAMPLE can't be used with the FULLSCAN option.
 
 > [!NOTE]
-> CSV sampling does not work at this time, only FULLSCAN is supported for CSV.
+> CSV sampling does not work if you are using parser version 1.0, only FULLSCAN is supported for CSV with parser version 1.0.
 
 #### Create single-column statistics by examining every row
 
@@ -794,7 +778,7 @@ CREATE STATISTICS sState
 #### Create single-column statistics by specifying the sample size
 
 ```sql
--- following sample creates statistics with sampling 20%
+-- following sample creates statistics with sampling 5%
 CREATE STATISTICS sState
     on census_external_table (STATENAME)
     WITH SAMPLE 5 percent, NORECOMPUTE
@@ -829,13 +813,13 @@ These system views provide information about statistics:
 
 | Catalog view                                                 | Description                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | One row for each column.                                     |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | One row for each object in the database.                     |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | One row for each schema in the database.                     |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | One row for each statistics object.                          |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | One row for each column in the statistics object. Links back to sys.columns. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | One row for each table (includes external tables).           |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | One row for each data type.                                  |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?view=azure-sqldw-latest&preserve-view=true) | One row for each column.                                     |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=azure-sqldw-latest&preserve-view=true) | One row for each object in the database.                     |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=azure-sqldw-latest&preserve-view=true) | One row for each schema in the database.                     |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) | One row for each statistics object.                          |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?view=azure-sqldw-latest&preserve-view=true) | One row for each column in the statistics object. Links back to sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?view=azure-sqldw-latest&preserve-view=true) | One row for each table (includes external tables).           |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?view=azure-sqldw-latest&preserve-view=true) | One row for each data type.                                  |
 
 #### System functions for statistics
 
@@ -843,7 +827,7 @@ These system functions are useful for working with statistics:
 
 | System function                                              | Description                                  |
 | :----------------------------------------------------------- | :------------------------------------------- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Date the statistics object was last updated. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Date the statistics object was last updated. |
 
 #### Combine statistics columns and functions into one view
 
@@ -886,6 +870,6 @@ WHERE   st.[user_created] = 1
 
 ## Next steps
 
-To further improve query performance for dedicated SQL pool, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and [Best practices for dedicated SQL pool](best-practices-sql-pool.md#maintain-statistics).
+To further improve query performance for dedicated SQL pool, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context) and [Best practices for dedicated SQL pool](best-practices-dedicated-sql-pool.md#maintain-statistics).
 
-To further improve query performance for serverless SQL pool see [Best practices for serverless SQL pool](best-practices-sql-on-demand.md)
+To further improve query performance for serverless SQL pool, see [Best practices for serverless SQL pool](best-practices-serverless-sql-pool.md).

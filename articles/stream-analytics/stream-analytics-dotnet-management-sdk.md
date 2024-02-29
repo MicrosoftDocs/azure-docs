@@ -1,13 +1,10 @@
 ---
 title: Management .NET SDK for Azure Stream Analytics
 description: Get started with Stream Analytics Management .NET SDK. Learn how to set up and run analytics jobs. Create a project, inputs, outputs, and transformations.
-author: jseb225
-ms.author: jeanb
-
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/06/2018
-ms.custom: "seodec18, devx-track-csharp"
+ms.date: 3/12/2021
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # Management .NET SDK: Set up and run analytics jobs using the Azure Stream Analytics API for .NET
 Learn how to set up and run analytics jobs using the Stream Analytics API for .NET using the Management .NET SDK. Set up a project, create input and output sources, transformations, and start and stop jobs. For your analytics jobs, you can stream data from Blob storage or from an event hub.
@@ -202,6 +199,12 @@ The **TestConnection** method tests whether the Stream Analytics job is able to 
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
+The result of the TestConnection call is a *ResourceTestResult* object that contains two properties:
+
+- *status*: It can be one of the following strings: ["TestNotAttempted", "TestSucceeded", "TestFailed"]
+- *error*: It's of type ErrorResponse containing the following properties:
+   - *code*: a required property of type string. The value is standard System.Net.HttpStatusCode received while testing.
+   - *message*: a required property of type string representing the error. 
 
 ## Create a Stream Analytics output target
 Creating an output target is similar to creating a Stream Analytics input source. Like input sources, output targets are tied to a specific job. To use the same output target for different jobs, you must call the method again and specify a different job name.
@@ -279,7 +282,7 @@ The **Delete** method will delete the job as well as the underlying sub-resource
    ```
 
 ## Get support
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 You've learned the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following articles:
@@ -298,7 +301,7 @@ You've learned the basics of using a .NET SDK to create and run analytics jobs. 
 
 
 <!--Link references-->
-[azure.blob.storage]: https://azure.microsoft.com/documentation/services/storage/
+[azure.blob.storage]: ../storage/index.yml
 [azure.blob.storage.use]: ../storage/blobs/storage-quickstart-blobs-dotnet.md
 
 [azure.event.hubs]: https://azure.microsoft.com/services/event-hubs/

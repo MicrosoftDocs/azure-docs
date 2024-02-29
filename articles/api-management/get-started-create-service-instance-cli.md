@@ -1,29 +1,30 @@
 ---
-title: Quickstart - Create Azure API Management instance using CLI (preview)
-description: Create a new Azure API Management service instance by using the Azure CLI.
+title: Quickstart - Create Azure API Management instance - CLI
+description: Use this quickstart to create a new Azure API Management instance by using the Azure CLI.
 author: dlepow
 ms.service: api-management
 ms.topic: quickstart
-ms.custom: 
-ms.date: 09/10/2020
-ms.author: apimpm
+ms.custom: mode-api, devx-track-azurecli, devdivchpfy22
+ms.date: 12/11/2023
+ms.author: danlep 
+ms.devlang: azurecli
 ---
 
-# Quickstart: Create a new Azure API Management service instance by using the Azure CLI (preview)
+# Quickstart: Create a new Azure API Management instance by using the Azure CLI
 
-Azure API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md).
+This quickstart describes the steps for creating a new API Management instance by using Azure CLI commands. After creating an instance, you can use the Azure CLI for common management tasks such as importing APIs in your API Management instance.
 
-This quickstart describes the steps for creating a new API Management instance using [az apim](/cli/azure/apim) commands in the Azure CLI. The commands in the `az apim` command group are currently in preview and may be changed or removed in a future release.
+[!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.11.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
-Azure API Management instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
+Azure API Management instances, like all Azure resources, must be deployed into a resource group. Resource groups let you organize and manage related Azure resources.
 
 First, create a resource group named *myResourceGroup* in the Central US location with the following [az group create](/cli/azure/group#az-group-create) command:
 
@@ -31,11 +32,11 @@ First, create a resource group named *myResourceGroup* in the Central US locatio
 az group create --name myResourceGroup --location centralus
 ```
 
-## Create a new service
+## Create an API Management instance
 
-Now that you have a resource group, you can create an API Management service instance. Create one by using the [az apim create](/cli/azure/apim#az-apim-create) command and provide a service name and publisher details. The service name must be unique within Azure. 
+Now that you have a resource group, you can create an API Management instance. Create one by using the [az apim create](/cli/azure/apim#az-apim-create) command and provide a service name and publisher details. The service name must be unique within Azure.
 
-In the following example, *myapim* is used for the service name. Update the name to a unique value. Also update the name of the API publisher's organization and the email address to receive notifications. 
+In the following example, *myapim* is used for the service name. Update the name to a unique value. Also update the name of the API publisher's organization and the email address to receive notifications.
 
 ```azurecli-interactive
 az apim create --name myapim --resource-group myResourceGroup \
@@ -74,7 +75,7 @@ When your API Management service instance is online, you're ready to use it. Sta
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and the API Management service instance.
+You can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and the API Management service instance when they aren't needed.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

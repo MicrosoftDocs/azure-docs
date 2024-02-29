@@ -1,11 +1,9 @@
 ---
 title: Use Azure Key Vault in templates
 description: Learn how to use Azure Key Vault to pass secure parameter values during Azure Resource Manager template (ARM template) deployment.
-author: mumian
-ms.date: 04/23/2020
+ms.date: 06/23/2023
 ms.topic: tutorial
-ms.author: jgao
-ms.custom: seodec18
+ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Integrate Azure Key Vault in your ARM template deployment
@@ -28,20 +26,22 @@ This tutorial covers the following tasks:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-For a Microsoft Learn module that uses a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+For a Learn module that uses a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
 
 ## Prerequisites
 
 To complete this article, you need:
 
 * Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
-* To increase security, use a generated password for the VM administrator account. Here's a sample for generating a password:
+* To increase security, use a generated password for the VM administrator account. You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to run the following command in PowerShell or Bash:
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
 
-    Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+    To learn more, run `man openssl rand` to open the manual page.
+
+    Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
 ## Prepare a key vault
 
@@ -53,7 +53,7 @@ In this section, you create a key vault and add a secret to it, so that you can 
 > [!NOTE]
 > As the user who's deploying the virtual machine template, if you're not the Owner of or a Contributor to the key vault, the Owner or a Contributor must grant you access to the `Microsoft.KeyVault/vaults/deploy/action` permission for the key vault. For more information, see [Use Azure Key Vault to pass a secure parameter value during deployment](./key-vault-parameter.md).
 
-To run the following Azure PowerShell script, select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell pane, and then select **Paste**.
+To run the following Azure PowerShell script, select **Try it** to open Cloud Shell. To paste the script, right-click the shell pane, and then select **Paste**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -88,21 +88,28 @@ When you copy and paste the ID, it might be broken into multiple lines. Merge th
 To validate the deployment, run the following PowerShell command in the same shell pane to retrieve the secret in clear text. The command works only in the same shell session, because it uses the variable `$keyVaultName`, which is defined in the preceding PowerShell script.
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
+$secret = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword"
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 Now you've prepared a key vault and a secret. The following sections show you how to customize an existing template to retrieve the secret during the deployment.
 
 ## Open a quickstart template
 
-Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template that's used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template that's used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/vm-simple-windows/).
 
 1. In Visual Studio Code, select **File** > **Open File**.
 
 1. In the **File name** box, paste the following URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json
     ```
 
 1. Select **Open** to open the file. The scenario is the same as the one that's used in [Tutorial: Create ARM templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md).
@@ -122,7 +129,7 @@ Azure Quickstart Templates is a repository for ARM templates. Instead of creatin
 1. Repeat steps 1-3 to open the following URL, and then save the file as *azuredeploy.parameters.json*.
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.parameters.json
     ```
 
 ## Edit the parameters file
@@ -134,12 +141,12 @@ By using the static ID method, you don't need to make any changes to the templat
 
     ```json
     "adminPassword": {
-        "reference": {
-            "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
-            },
-            "secretName": "vmAdminPassword"
-        }
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+        },
+        "secretName": "vmAdminPassword"
+      }
     },
     ```
 
@@ -159,7 +166,7 @@ By using the static ID method, you don't need to make any changes to the templat
 
 ## Deploy the template
 
-1. Sign in to the [Azure Cloud Shell](https://shell.azure.com)
+1. Sign in to [Cloud Shell](https://shell.azure.com).
 
 1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper left corner.  Restarting the shell is required when you switch.
 

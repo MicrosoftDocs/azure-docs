@@ -3,21 +3,20 @@ title: Scalability and performance targets for VM disks
 description: Learn about scalability and performance targets for virtual machine disks attached to VMs.
 author: roygara
 ms.author: rogarana
-ms.date: 01/15/2021
+ms.date: 05/23/2023
 ms.topic: conceptual
-ms.service: virtual-machines
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 
 # Scalability and performance targets for VM disks
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-See [VM sizes](sizes.md) for additional details.
+See [VM sizes](sizes.md) for more details.
 
 ## Managed virtual machine disks
-
-Sizes denoted with an asterisk are currently in preview. See our [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../includes/azure-storage-limits-vm-disks-managed.md)]
 

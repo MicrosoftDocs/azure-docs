@@ -3,20 +3,18 @@ title: Tutorial - Updating certificate auto-rotation frequency in Key Vault | Mi
 description: Tutorial showing how to update a certificate's auto-rotation frequency in Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/16/2020
-ms.author: sebansal
+ms.date: 01/30/2024
+ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
 # Tutorial: Configure certificate auto-rotation in Key Vault
 
-You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management. In this tutorial, you will update a certificate's validity period, auto-rotation frequency, and CA attributes.
+You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management. In this tutorial, you'll update a certificate's validity period, auto-rotation frequency, and CA attributes.
 
 The tutorial shows you how to:
 
@@ -33,21 +31,23 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a vault
 
-Create an Azure Key Vault using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md). In the example, the key vault name is **Example-Vault**.
+Create a key vault using one of these three methods:
 
-![Output after key vault creation finishes](../media/certificates/tutorial-import-cert/vault-properties.png)
+- [Create a key vault using the Azure portal](../general/quick-create-portal.md)
+- [Create a key vault using the Azure CLI](../general/quick-create-cli.md)
+- [Create a key vault using Azure PowerShell](../general/quick-create-powershell.md)
 
 ## Create a certificate in Key Vault
 
-Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../secrets/quick-create-portal.md)). In this case, you'll work on a certificate called **ExampleCertificate**.
+Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../certificates/quick-create-portal.md). In this case, you'll work on a certificate called **ExampleCertificate**.
 
 ## Update certificate lifecycle attributes
 
-In Azure Key Vault, you can update a certificate's lifecycle attributes both before and after the time of certificate creation.
+In Azure Key Vault, you can update a certificate's lifecycle attributes both at the time of certificate creation or after.
 
 A certificate created in Key Vault can be:
 
@@ -57,10 +57,10 @@ A certificate created in Key Vault can be:
 
 The following CAs are currently partnered providers with Key Vault:
 
-- DigiCert: Key Vault offers OV TLS/SSL certificates.
-- GlobalSign: Key Vault offers OV TLS/SSL certificates.
+- DigiCert: Key Vault offers OV or EV TLS/SSL certificates.
+- GlobalSign: Key Vault offers OV or EV TLS/SSL certificates.
 
-Key Vault auto-rotates certificates through established partnerships with CAs. Because Key Vault automatically requests and renews certificates through the partnership, auto-rotation capability is not applicable for certificates created with CAs that are not partnered with Key Vault.
+Key Vault auto-rotates certificates through established partnerships with CAs. Because Key Vault automatically requests and renews certificates through the partnership, auto-rotation capability isn't applicable for certificates created with CAs that aren't partnered with Key Vault.
 
 > [!NOTE]
 > An account admin for a CA provider creates credentials that Key Vault uses to create, renew, and use TLS/SSL certificates.
@@ -76,9 +76,11 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
    - **Validity Period**: Enter the value (in  months). Creating short-lived certificates is a recommended security practice. By default, the validity value of a newly created certificate is 12 months.
    - **Lifetime Action Type**: Select the certificate's auto-renewal and alerting action and then update **percentage lifetime** or **Number of days before expiry**. By default, a certificate's auto-renewal is set at 80 percent of its lifetime. From the drop-down menu, select one of the following options.
 
-        |  Automatically renew at a given time| Email all contacts at a given time |
-        |-----------|------|
-        |Selecting this option will *turn on* autorotation. | Selecting this option will *not* auto-rotate but will only alert the contacts.|
+      |  Automatically renew at a given time| Email all contacts at a given time |
+      |-----------|------|
+      |Selecting this option will *turn on* autorotation. | Selecting this option will *not* auto-rotate but will only alert the contacts.|
+      
+      You can learn about [setting up Email contact here](./overview-renew-certificate.md#get-notified-about-certificate-expiration)
 
 1. Select **Create**.
 
@@ -131,7 +133,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
+To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
 
 ## Clean up resources
 

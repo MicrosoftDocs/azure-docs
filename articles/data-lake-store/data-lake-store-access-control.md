@@ -1,18 +1,12 @@
 ---
 title: Overview of access control in Data Lake Storage Gen1 | Microsoft Docs
 description: Learn about the basics of the access control model of Azure Data Lake Storage Gen1, which derives from HDFS.
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
 
-ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Access control in Azure Data Lake Storage Gen1
@@ -92,7 +86,7 @@ Every file and folder has distinct permissions for these identities:
 * Named groups
 * All other users
 
-The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen1, can either mean an Azure AD user or an Azure AD security group.
+The identities of users and groups are Microsoft Entra identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen1, can either mean a Microsoft Entra user or a Microsoft Entra security group.
 
 ### The super-user
 
@@ -270,30 +264,33 @@ The owning user can change the permissions of the file to give themselves any RW
 
 ### When I look at ACLs in the Azure portal I see user names but through APIs, I see GUIDs, why is that?
 
-Entries in the ACLs are stored as GUIDs that correspond to users in Azure AD. The APIs return the GUIDs as is. The Azure portal tries to make ACLs easier to use by translating the GUIDs into friendly names when possible.
+Entries in the ACLs are stored as GUIDs that correspond to users in Microsoft Entra ID. The APIs return the GUIDs as is. The Azure portal tries to make ACLs easier to use by translating the GUIDs into friendly names when possible.
 
 ### Why do I sometimes see GUIDs in the ACLs when I'm using the Azure portal?
 
-A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Also, ensure that you're using the right ID for setting ACLs (details in question below).
+A GUID is shown when the user doesn't exist in Microsoft Entra anymore. Usually this happens when the user has left the company or if their account has been deleted in Microsoft Entra ID. Also, ensure that you're using the right ID for setting ACLs (details in question below).
 
 ### When using service principal, what ID should I use to set ACLs?
 
-On the Azure Portal, go to **Azure Active Directory -> Enterprise applications** and select your application. The **Overview** tab should display an Object ID and this is what should be used when adding ACLs for data access (and not Application Id).
+On the Azure Portal, go to **Microsoft Entra ID -> Enterprise applications** and select your application. The **Overview** tab should display an Object ID and this is what should be used when adding ACLs for data access (and not Application Id).
 
 ### Does Data Lake Storage Gen1 support inheritance of ACLs?
 
-No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
+No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.
+
+### What are the limits for ACL entries on files and folders?
+
+32 ACLs can be set per file and per directory. Access and default ACLs each have their own 32 ACL entry limit. Use security groups for ACL assignments if possible. By using groups, you're less likely to exceed the maximum number of ACL entries per file or directory.
 
 ### Where can I learn more about POSIX access control model?
 
 * [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
 * [HDFS permission guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 * [POSIX FAQ](https://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/wp-content/uploads/import/documents/interpretations/1003.1-2008_interp.pdf)
 * [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 * [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL using access control lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## See also
 

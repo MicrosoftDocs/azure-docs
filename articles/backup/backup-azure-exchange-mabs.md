@@ -4,6 +4,8 @@ description: Learn how to back up an Exchange server to Azure Backup using Azure
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Back up an Exchange server to Azure with Azure Backup Server
 
@@ -101,4 +103,4 @@ For online recovery points, there are five recovery types:
 
 ## Next steps
 
-* [Azure Backup FAQ](backup-azure-backup-faq.md)
+* [Azure Backup FAQ](backup-azure-backup-faq.yml)

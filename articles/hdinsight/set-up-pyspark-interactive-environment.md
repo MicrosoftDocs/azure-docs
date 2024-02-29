@@ -4,8 +4,7 @@ description: Learn how to use the Azure HDInsight Tools for Visual Studio Code t
 keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-python
-ms.date: 04/23/2020
+ms.date: 04/24/2023
 ---
 
 # Set up the PySpark interactive environment for Visual Studio Code
@@ -33,7 +32,7 @@ We use **python/pip** command to build virtual environment in your Home path. If
 
 On Linux, if you come across the error message below, then install the required packages by running the following two commands.
 
-   ![Install libkrb5 package for python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+   :::image type="content" source="./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png" alt-text="Install libkrb5 package for python" border="true":::
 
 ```bash
 sudo apt-get install libkrb5-dev

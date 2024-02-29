@@ -2,11 +2,11 @@
 title: Tutorial - Use IoT Hub events to trigger Azure Logic Apps
 description: This tutorial shows how to use the event routing service of Azure Event Grid, create automated processes to perform Azure Logic Apps actions based on IoT Hub events.
 services: iot-hub, event-grid
-author: philmea
+author: kgremban
 ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.author: philmea 
+ms.author: kgremban
 ms.custom: devx-track-azurecli
 ---
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 Azure Event Grid enables you to react to events in IoT Hub by triggering actions in your downstream business applications.
 
-This article walks through a sample configuration that uses IoT Hub and Event Grid. At the end, you have an Azure logic app set up to send a notification email every time a device connects or disconnects to your IoT hub. Event Grid can be used to get timely notification about critical devices disconnecting. Metrics and Diagnostics can take several (i.e. 20 or more -- though we don't want to put a number on it) minutes to show up in logs/alerts. That might be unacceptable for critical infrastructure.
+This article walks through a sample configuration that uses IoT Hub and Event Grid. At the end, you have an Azure logic app set up to send a notification email every time a device connects or disconnects to your IoT hub. Event Grid can be used to get timely notification about critical devices disconnecting. Metrics and Diagnostics can take several minutes (such as 20 minutes or more) to show up in logs / alerts. Longer processing times might be unacceptable for critical infrastructure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -22,17 +22,17 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 * An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. This email account is used to send the event notifications.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create an IoT hub
 
 You can quickly create a new IoT hub using the Azure Cloud Shell terminal in the portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the upper right of the page, select the Cloud Shell button.
 
-   ![Cloud Shell button](./media/publish-iot-hub-events-to-logic-apps/portal-cloud-shell.png)
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/portal-cloud-shell.png" alt-text="Screenshot of how to open the Azure Cloud Shell from the Azure portal." lightbox="./media/publish-iot-hub-events-to-logic-apps/portal-cloud-shell.png":::
 
 1. Run the following command to create a new resource group:
 
@@ -46,23 +46,23 @@ You can quickly create a new IoT hub using the Azure Cloud Shell terminal in the
    az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1 
    ```
 
-1. Minimize the Cloud Shell terminal. You will return to the shell later in the tutorial.
+1. Minimize the Cloud Shell terminal. You'll return to the shell later in the tutorial.
 
 ## Create a logic app
 
-Next, create a logic app and add an HTTP event grid trigger that processes requests from IoT hub. 
+Next, create a logic app and add an HTTP Event Grid trigger that processes requests from IoT hub. 
 
 ### Create a logic app resource
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**, then type "logic app" in the search box and select return. Select **Logic App** from the results.
 
-   ![Create logic app](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png" alt-text="Screenshot of how to select the logic app from a list of resources." lightbox="./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png":::
 
 1. On the next screen, select **Create**. 
 
-1. Give your logic app a name that's unique in your subscription, then select the same subscription, resource group, and location as your IoT hub. 
+1. Give your logic app a unique name in your subscription, then select the same subscription, resource group, and location as your IoT hub. Choose the **Consumption** plan type.
 
-   ![Fields for create logic app](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png" alt-text="Screenshot of how to configure your logic app." lightbox="./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png":::
 
 1. Select **Review + create**.
 
@@ -71,6 +71,8 @@ Next, create a logic app and add an HTTP event grid trigger that processes reque
 1. Once the resource is created, select **Go to resource**. 
 
 1. In the Logic Apps Designer, page down to see **Templates**. Choose **Blank Logic App** so that you can build your logic app from scratch.
+
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/logic-app-designer-template.png" alt-text="Screenshot of the Logic App Designer templates." lightbox="./media/publish-iot-hub-events-to-logic-apps/logic-app-designer-template.png":::
 
 ### Select a trigger
 
@@ -86,12 +88,14 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
    ![Use sample payload](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
 
+1. Copy the `json` below and replace the placeholder values `<>` with your own.
+
 1. Paste the *Device connected event schema* JSON into the text box, then select **Done**:
 
    ```json
      [{  
       "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8",
-      "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+      "topic": "/SUBSCRIPTIONS/<azure subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
       "subject": "devices/LogicAppTestDevice",
       "eventType": "Microsoft.Devices.DeviceConnected",
       "eventTime": "2018-06-02T19:17:44.4383997Z",
@@ -100,7 +104,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
             "sequenceNumber":
               "000000000000000001D4132452F67CE200000002000000000000000000000001"
           },
-        "hubName": "egtesthub1",
+        "hubName": "<hub name>",
         "deviceId": "LogicAppTestDevice",
         "moduleId" : "DeviceModuleID"
       }, 
@@ -108,6 +112,9 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
       "metadataVersion": "1"
     }]
    ```
+ 
+   > [!IMPORTANT]
+   > Be sure to paste the JSON snippet into the box provided by the **Use sample payload to generate schema** link and not directly into the **Request Body JSON Schema** box. The sample payload link provides a way to generate the JSON content based on the JSON snippet. The final JSON that ends up in the request body is different than the JSON snippet.
 
    This event publishes when a device is connected to an IoT hub.
 
@@ -118,11 +125,11 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
 Actions are any steps that occur after the trigger starts the logic app workflow. For this tutorial, the action is to send an email notification from your email provider. 
 
-1. Select **New step**. This opens a window to **Choose an action**.
+1. Select **New step**. A window appears, prompting you to **Choose an action**.
 
 1. Search for **Outlook**.
 
-1. Based on your email provider, find and select the matching connector. This tutorial uses **Outlook.com**. The steps for other email providers are similar. 
+1. Based on your email provider, find and select the matching connector. This tutorial uses **Outlook.com**. The steps for other email providers are similar. Alternatively, use Office 365 Outlook to skip the sign-in step.
 
    ![Select email provider connector](./media/publish-iot-hub-events-to-logic-apps/outlook-step.png)
 
@@ -134,19 +141,23 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
    * **To**: Enter the email address to receive the notification emails. For this tutorial, use an email account that you can access for testing. 
 
-   * **Subject**: Fill in the text for the subject. When you click on the Subject text box, you can select dynamic content to include. For example, this tutorial uses `IoT Hub alert: {eventType}`. If you can't see Dynamic content, select the **Add dynamic content** hyperlink -- this toggles it on and off.
+   * **Subject**: Fill in the text for the subject. When you click on the Subject text box, you can select dynamic content to include. For example, this tutorial uses `IoT Hub alert: {eventType}`. If you can't see **Dynamic content**, select the **Add dynamic content** hyperlink to toggle the **Dynamic content** view on or off.
+
+   After selecting `eventType`, you'll see the email form output so far. Select the **Send and email (V2)** to edit the body of your email.
+
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/send-email.png" alt-text="Screenshot of the condensed body output form." lightbox="./media/publish-iot-hub-events-to-logic-apps/send-email.png":::
 
    * **Body**: Write the text for your email. Select JSON properties from the selector tool to include dynamic content based on event data. If you can't see the Dynamic content, select the **Add dynamic content** hyperlink under the **Body** text box. If it doesn't show you the fields you want, click *more* in the Dynamic content screen to include the fields from the previous action.
 
    Your email template may look like this example:
 
-   ![Fill out email information](./media/publish-iot-hub-events-to-logic-apps/email-content.png)
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/email-content.png" alt-text="Screenshot of how to create an event email in the template." lightbox="./media/publish-iot-hub-events-to-logic-apps/email-content.png":::
 
 1. Select **Save** in the Logic Apps Designer.  
 
 ### Copy the HTTP URL
 
-Before you leave the Logic Apps Designer, copy the URL that your logic apps is listening to for a trigger. You use this URL to configure Event Grid. 
+Before you leave the Logic Apps Designer, copy the URL that your logic app is listening to for a trigger. You use this URL to configure Event Grid. 
 
 1. Expand the **When a HTTP request is received** trigger configuration box by clicking on it. 
 
@@ -160,11 +171,11 @@ Before you leave the Logic Apps Designer, copy the URL that your logic apps is l
 
 In this section, you configure your IoT Hub to publish events as they occur. 
 
-1. In the Azure portal, navigate to your IoT hub. You can do this by selecting **Resource groups**, then select the resource group for this tutorial, and then select your IoT hub from the list of resources.
+1. In the Azure portal, navigate to your IoT hub. You can find your IoT hub by selecting **IoT Hub** from your Azure dashboard, then  select your IoT hub instance from the list of resources.
 
 1. Select **Events**.
 
-   ![Open the Event Grid details](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
+   ![Open the Event Grid details](./media/publish-iot-hub-events-to-logic-apps/select-events.png)
 
 1. Select **Event subscription**. 
 
@@ -193,7 +204,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
          When you're done, the pane should look like the following example: 
 
-         ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+      :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/subscription-form.png" alt-text="Screenshot of your 'Create Event Subscription' page in the Azure portal." lightbox="./media/publish-iot-hub-events-to-logic-apps/subscription-form.png":::
 
 1.  Select **Create**.
 
@@ -201,13 +212,15 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 Test your logic app by quickly simulating a device connection using the Azure CLI. 
 
-1. Select the Cloud Shell button to re-open your terminal.
+1. Select the Cloud Shell button to reopen your terminal.
 
 1. Run the following command to create a simulated device identity:
-    
-     ```azurecli 
+
+    ```azurecli 
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName}
     ```
+
+   The processing could take a minute. You'll see a JSON printout in your console once it's created.
 
 1. Run the following command to simulate connecting your device to IoT Hub and sending telemetry:
 
@@ -215,11 +228,11 @@ Test your logic app by quickly simulating a device connection using the Azure CL
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. When the simulated device connects to IoT Hub, you will receive an email notifying you of a "DeviceConnected" event.
+1. When the simulated device connects to IoT Hub, you'll receive an email notifying you of a "DeviceConnected" event.
 
-1. When the simulation completes, you will receive an email notifying you of a "DeviceDisconnected" event. 
+1. When the simulation completes, you'll receive an email notifying you of a "DeviceDisconnected" event. 
 
-    ![Example alert mail](./media/publish-iot-hub-events-to-logic-apps/alert-mail.png)
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/alert-mail.png" alt-text="Screenshot of the email you should receive." lightbox="./media/publish-iot-hub-events-to-logic-apps/alert-mail.png":::
 
 ## Clean up resources
 
@@ -229,7 +242,7 @@ To delete all of the resources created in this tutorial, delete the resource gro
 
 1. Select **Resource groups**, then select the resource group you created for this tutorial.
 
-2. On the Resource group pane, select **Delete resource group**. You are prompted to enter the resource group name, and then you can delete it. All of the resources contained therein are also removed.
+2. On the Resource group pane, select **Delete resource group**. You're prompted to enter the resource group name, and then you can delete it. All of the resources contained therein are also removed.
 
 ## Next steps
 

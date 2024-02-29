@@ -1,12 +1,11 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Change the RDP port range | Microsoft Docs
 description: Azure PowerShell Script Sample - Changes the RDP port range of a deployed cluster.
 services: service-fabric
-tags: azure-service-management
+ms.custom: devx-track-azurepowershell
 author: athinanthny
 ms.author: atsenthi
 ms.service: service-fabric
-ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
 ---
@@ -36,4 +35,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional Azure Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
+Additional Azure PowerShell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).

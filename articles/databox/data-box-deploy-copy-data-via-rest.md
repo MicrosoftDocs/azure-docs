@@ -3,17 +3,21 @@ title: "Tutorial: Copy to Blob storage via REST APIs"
 titleSuffix: Azure Data Box
 description: In this tutorial, learn how to connect to Azure Data Box Blob storage by using REST APIs over http or https, then copy data from Azure Data Box.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/02/2020
-ms.author: alkohli
+ms.date: 12/29/2022
+ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
+
 ---
 
-# Tutorial: Use REST APIs to Copy data to Azure Data Box Blob storage  
+# Tutorial: Use REST APIs to Copy data to Azure Data Box Blob storage
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 This tutorial describes procedures to connect to Azure Data Box Blob storage via REST APIs over *http* or *https*. Once connected, the steps required to copy the data to Data Box Blob storage and prepare the Data Box to ship, are also described.
 
@@ -35,7 +39,7 @@ Before you begin, make sure that:
 4. You've access to a host computer that has the data that you want to copy over to Data Box. Your host computer must
     * Run a [Supported operating system](data-box-system-requirements.md).
     * Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds will be impacted.
-5. [Download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) on your host computer. You'll use AzCopy to copy data to Azure Data Box Blob storage from your host computer.
+5. [Download AzCopy V10](../storage/common/storage-use-azcopy-v10.md) on your host computer. You'll use AzCopy to copy data to Azure Data Box Blob storage from your host computer.
 
 ## Connect via http or https
 
@@ -69,7 +73,7 @@ Each of these steps is described in the following sections.
 
 Connection to Azure Blob storage REST APIs over https requires the following steps:
 
-* Download the certificate from Azure portal
+* Download the certificate from Azure portal. This certificate is used for connecting to the web UI and Azure Blob storage REST APIs.
 * Import the certificate on the client or remote host
 * Add the device IP and blob service endpoint to the client or remote host
 * Configure third-party software and verify the connection
@@ -122,7 +126,7 @@ Follow these steps to import the `.cer` file into the root store of a Windows or
 
 The method to import a certificate varies by distribution.
 
-Several, such as Ubuntu and Debian, use the `update-ca-certificates` command.  
+Several, such as Ubuntu and Debian, use the `update-ca-certificates` command.
 
 * Rename the Base64-encoded certificate file to have a `.crt` extension and copy it into the `/usr/local/share/ca-certificates directory`.
 * Run the command `update-ca-certificates`.
@@ -134,7 +138,7 @@ Recent versions of RHEL, Fedora, and CentOS use the `update-ca-trust` command.
 
 Consult the documentation specific to your distribution for details.
 
-### Add device IP address and blob service endpoint 
+### Add device IP address and blob service endpoint
 
 Follow the same steps to [add device IP address and blob service endpoint when connecting over *http*](#add-device-ip-address-and-blob-service-endpoint).
 

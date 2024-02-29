@@ -1,0 +1,106 @@
+- name: Azure BareMetal Infrastructure
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is BareMetal Infrastructure?
+    href: concepts-baremetal-infrastructure-overview.md
+  - name: Know the terms
+    href: know-baremetal-terms.md
+  - name: Connect BareMetal instances in Azure
+    displayName: Azure CLI, az baremetalinstance, az baremetalinstance restart
+    href: connect-baremetal-infrastructure.md
+- name: Workloads
+  items: 
+  
+  - name: SAP HANA on Azure (Large Instances)
+    items:
+    - name: Overview
+      href: ../virtual-machines/workloads/sap/hana-overview-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: Certification
+      href: ../virtual-machines/workloads/sap/hana-certification.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: Available SKUs for HLI
+      href: ../virtual-machines/workloads/sap/hana-available-skus.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: Sizing
+      href: ../virtual-machines/workloads/sap/hana-sizing.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: Onboarding requirements
+      href: ../virtual-machines/workloads/sap/hana-onboarding-requirements.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: SAP HANA data tiering and extension nodes
+      href: ../virtual-machines/workloads/sap/hana-data-tiering-extension-nodes.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: Operations model and responsibilities
+      href: ../virtual-machines/workloads/sap/hana-operations-model.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: Compatible Operating Systems
+      href: ../virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: HLI supported scenarios
+      href: ../virtual-machines/workloads/sap/hana-supported-scenario.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: Architecture
+      items:
+      - name: General architecture
+        href: ../virtual-machines/workloads/sap/hana-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Network architecture
+        href: ../virtual-machines/workloads/sap/hana-network-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Storage architecture
+        href: ../virtual-machines/workloads/sap/hana-storage-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: Infrastructure and connectivity
+      items:
+      - name: HLI deployment
+        href: ../virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Connecting Azure VMs to HANA Large Instances
+        href: ../virtual-machines/workloads/sap/hana-connect-azure-vm-large-instances.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Connecting a VNet to HANA Large Instance ExpressRoute
+        href: ../virtual-machines/workloads/sap/hana-connect-vnet-express-route.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Additional network requirements
+        href: ../virtual-machines/workloads/sap/hana-additional-network-requirements.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: Install SAP HANA
+      items:
+      - name: Validate the configuration
+        href: ../virtual-machines/workloads/sap/hana-installation.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Sample HANA Installation
+        href: ../virtual-machines/workloads/sap/hana-example-installation.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: High availability and disaster recovery
+      items:
+      - name: Options and considerations
+        href: ../virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Backup and restore
+        href: ../virtual-machines/workloads/sap/hana-backup-restore.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Principles and preparation
+        href: ../virtual-machines/workloads/sap/hana-concept-preparation.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Disaster recovery failover procedure
+        href: ../virtual-machines/workloads/sap/hana-failover-procedure.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: Troubleshoot and monitor
+      items:
+      - name: Monitoring HLI
+        href: ../virtual-machines/workloads/sap/troubleshooting-monitoring.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Monitoring and troubleshooting from HANA side
+        href: ../virtual-machines/workloads/sap/hana-monitor-troubleshoot.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Monitor SAP on Azure
+        href: ../sap/monitor/about-azure-monitor-sap-solutions.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Azure Monitor for SAP solutions providers
+        href: ../sap/monitor/providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Deploy Azure Monitor for SAP solutions - Azure portal
+        href: ../sap/monitor/quickstart-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Configure Alerts in Azure Monitor for SAP solutions
+        href: ../sap/monitor/get-alerts-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Deploy Azure Monitor for SAP solutions - Azure PowerShell
+        href: ../sap/monitor/quickstart-powershell.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Monitor data reference
+        href: ../sap/monitor/data-reference.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Azure Monitor for SAP solutions FAQ
+        href: ../sap/monitor/faq.yml?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+    - name: How to
+      items:
+      - name: HA Setup with STONITH
+        href: ../virtual-machines/workloads/sap/ha-setup-with-fencing-device.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: OS Backup
+        href: ../virtual-machines/workloads/sap/large-instance-os-backup.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Enable Kdump for HANA Large Instances
+        href: ../virtual-machines/workloads/sap/hana-large-instance-enable-kdump.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: OS Upgrade for HANA Large Instances
+        href: ../virtual-machines/workloads/sap/os-upgrade-hana-large-instance.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Setting up SMT server for SUSE Linux
+        href: ../virtual-machines/workloads/sap/hana-setup-smt.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Buy an SAP HANA Large Instances reservation
+        href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
+  - name: Nutanix Cloud Clusters on Azure
+    items: 
+    href: ./workloads/nc2-on-azure/toc.yml
+  

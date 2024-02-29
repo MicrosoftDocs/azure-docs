@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 11/14/2020
+ms.date: 08/15/2023
 ---
 
 # Resource types that extend capabilities of other resources
@@ -11,218 +11,368 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Advisor
 
-- Microsoft.Advisor/configurations
-- Microsoft.Advisor/recommendations
-- Microsoft.Advisor/suppressions
+* advisorScore
+* configurations
+* predict
+* recommendations
+* suppressions
 
 ## Microsoft.AlertsManagement
 
-- Microsoft.AlertsManagement/alerts
+* alertRuleRecommendations
+* alerts
+* investigations
+* tenantActivityLogAlerts
 
 ## Microsoft.Authorization
 
-- Microsoft.Authorization/denyAssignments
-- Microsoft.Authorization/locks
-- Microsoft.Authorization/policyAssignments
-- Microsoft.Authorization/policyDefinitions
-- Microsoft.Authorization/policyExemptions
-- Microsoft.Authorization/policySetDefinitions
-- Microsoft.Authorization/privateLinkAssociations
-- Microsoft.Authorization/roleAssignments
-- Microsoft.Authorization/roleDefinitions
+* accessReviewHistoryDefinitions
+* denyAssignments
+* eligibleChildResources
+* locks
+* policyAssignments
+* policyDefinitions
+* policyExemptions
+* policySetDefinitions
+* privateLinkAssociations
+* roleAssignmentApprovals
+* roleAssignments
+* roleAssignmentScheduleInstances
+* roleAssignmentScheduleRequests
+* roleAssignmentSchedules
+* roleDefinitions
+* roleEligibilityScheduleInstances
+* roleEligibilityScheduleRequests
+* roleEligibilitySchedules
+* roleManagementAlertConfigurations
+* roleManagementAlertDefinitions
+* roleManagementAlerts
+* roleManagementPolicies
+* roleManagementPolicyAssignments
 
 ## Microsoft.Automanage
 
-- Microsoft.Automanage/configurationProfileAssignments
+* configurationProfileAssignments
+
+## Microsoft.AwsConnector
+
+* ec2Instances
+
+## Microsoft.AzureCIS
+
+* plannedQuotas
+
+## Microsoft.AzureStackHCI
+
+* virtualMachineInstances
 
 ## Microsoft.Billing
 
-- Microsoft.Billing/billingPeriods
-- Microsoft.Billing/billingPermissions
-- Microsoft.Billing/billingRoleAssignments
-- Microsoft.Billing/billingRoleDefinitions
-- Microsoft.Billing/createBillingRoleAssignment
+* billingPeriods
+* billingPermissions
+* billingRoleAssignments
+* billingRoleDefinitions
+* createBillingRoleAssignment
 
 ## Microsoft.Blueprint
 
-- Microsoft.Blueprint/blueprintAssignments
-- Microsoft.Blueprint/blueprints
+* blueprintAssignments
+* blueprints
+
+## Microsoft.ChangeAnalysis
+
+* changes
+* changeSnapshots
+* computeChanges
+
+## Microsoft.Chaos
+
+* artifactSetDefinitions
+* artifactSetSnapshots
+* targets
+
+## Microsoft.ConnectedVMwarevSphere
+
+* virtualmachineinstances
 
 ## Microsoft.Consumption
 
-- Microsoft.Consumption/AggregatedCost
-- Microsoft.Consumption/Balances
-- Microsoft.Consumption/Budgets
-- Microsoft.Consumption/Charges
-- Microsoft.Consumption/CostTags
-- Microsoft.Consumption/credits
-- Microsoft.Consumption/events
-- Microsoft.Consumption/Forecasts
-- Microsoft.Consumption/lots
-- Microsoft.Consumption/Marketplaces
-- Microsoft.Consumption/Pricesheets
-- Microsoft.Consumption/products
-- Microsoft.Consumption/ReservationDetails
-- Microsoft.Consumption/ReservationRecommendationDetails
-- Microsoft.Consumption/ReservationRecommendations
-- Microsoft.Consumption/ReservationSummaries
-- Microsoft.Consumption/ReservationTransactions
+* AggregatedCost
+* Balances
+* Budgets
+* Charges
+* CostTags
+* credits
+* events
+* Forecasts
+* lots
+* Marketplaces
+* Pricesheets
+* products
+* ReservationDetails
+* ReservationRecommendationDetails
+* ReservationRecommendations
+* ReservationSummaries
+* ReservationTransactions
 
 ## Microsoft.ContainerInstance
 
-- Microsoft.ContainerInstance/serviceAssociationLinks
+* serviceAssociationLinks
+
+## Microsoft.ContainerService
+
+* fleetMemberships
 
 ## Microsoft.CostManagement
 
-- Microsoft.CostManagement/Alerts
-- Microsoft.CostManagement/Budgets
-- Microsoft.CostManagement/Dimensions
-- Microsoft.CostManagement/Exports
-- Microsoft.CostManagement/ExternalSubscriptions
-- Microsoft.CostManagement/Forecast
-- Microsoft.CostManagement/Insights
-- Microsoft.CostManagement/Query
-- Microsoft.CostManagement/Reportconfigs
-- Microsoft.CostManagement/Reports
-- Microsoft.CostManagement/Views
+* Alerts
+* BenefitRecommendations
+* BenefitUtilizationSummaries
+* Budgets
+* CalculateCost
+* Dimensions
+* Exports
+* ExternalSubscriptions
+* Forecast
+* GenerateBenefitUtilizationSummariesReport
+* GenerateCostDetailsReport
+* GenerateDetailedCostReport
+* Insights
+* MarkupRules
+* Pricesheets
+* Publish
+* Query
+* Reportconfigs
+* Reports
+* ScheduledActions
+* SendMessage
+* Settings
+* StartConversation
+* Views
 
 ## Microsoft.CustomProviders
 
-- Microsoft.CustomProviders/associations
+* associations
+
+## Microsoft.DataMigration
+
+* DatabaseMigrations
+
+## Microsoft.DataProtection
+
+* backupInstances
 
 ## Microsoft.EventGrid
 
-- Microsoft.EventGrid/eventSubscriptions
-- Microsoft.EventGrid/extensionTopics
+* eventSubscriptions
+* extensionTopics
 
 ## Microsoft.GuestConfiguration
 
-- Microsoft.GuestConfiguration/configurationProfileAssignments
-- Microsoft.GuestConfiguration/guestConfigurationAssignments
-- Microsoft.GuestConfiguration/software
+* guestConfigurationAssignments
+
+## Microsoft.Help
+
+* diagnostics
+* discoverySolutions
+* solutions
+* troubleshooters
+
+## Microsoft.HybridConnectivity
+
+* endpoints
+* solutionConfigurations
 
 ## microsoft.insights
 
-- microsoft.insights/baseline
-- microsoft.insights/dataCollectionRuleAssociations
-- microsoft.insights/diagnosticSettings
-- microsoft.insights/diagnosticSettingsCategories
-- microsoft.insights/eventtypes
-- microsoft.insights/extendedDiagnosticSettings
-- microsoft.insights/guestDiagnosticSettingsAssociation
-- microsoft.insights/logDefinitions
-- microsoft.insights/logs
-- microsoft.insights/metricbaselines
-- microsoft.insights/metricDefinitions
-- microsoft.insights/metricNamespaces
-- microsoft.insights/metrics
-- microsoft.insights/myWorkbooks
-- microsoft.insights/topology
-- microsoft.insights/transactions
+* dataCollectionRuleAssociations
+* diagnosticSettings
+* diagnosticSettingsCategories
+* eventtypes
+* extendedDiagnosticSettings
+* guestDiagnosticSettingsAssociation
+* logDefinitions
+* logs
+* metricbaselines
+* metricDefinitions
+* metricNamespaces
+* metrics
+* myWorkbooks
+* tenantactiongroups
+* topology
+* transactions
+
+## Microsoft.IoTSecurity
+
+* sensors
+* sites
 
 ## Microsoft.KubernetesConfiguration
 
-- Microsoft.KubernetesConfiguration/extensions
-- Microsoft.KubernetesConfiguration/sourceControlConfigurations
+* extensions
+* extensionTypes
+* fluxConfigurations
+* namespaces
+* sourceControlConfigurations
 
 ## Microsoft.Maintenance
 
-- Microsoft.Maintenance/applyUpdates
-- Microsoft.Maintenance/configurationAssignments
-- Microsoft.Maintenance/updates
+* applyUpdates
+* configurationAssignments
+* updates
 
 ## Microsoft.ManagedIdentity
 
-- Microsoft.ManagedIdentity/Identities
+* Identities
 
 ## Microsoft.ManagedServices
 
-- Microsoft.ManagedServices/registrationAssignments
-- Microsoft.ManagedServices/registrationDefinitions
+* registrationAssignments
+* registrationDefinitions
+
+## Microsoft.Management
+
+* managementGroups
+
+## Microsoft.Network
+
+* cloudServiceNetworkInterfaces
+* cloudServicePublicIPAddresses
+* cloudServiceSlots
 
 ## Microsoft.OperationalInsights
 
-- Microsoft.OperationalInsights/storageInsightConfigs
-
-## Microsoft.OperationsManagement
-
-- Microsoft.OperationsManagement/managementassociations
+* storageInsightConfigs
 
 ## Microsoft.PolicyInsights
 
-- Microsoft.PolicyInsights/attestations
-- Microsoft.PolicyInsights/policyEvents
-- Microsoft.PolicyInsights/policyStates
-- Microsoft.PolicyInsights/policyTrackedResources
-- Microsoft.PolicyInsights/remediations
+* attestations
+* componentPolicyStates
+* eventGridFilters
+* policyEvents
+* policyStates
+* policyTrackedResources
+* remediations
+
+## Microsoft.Purview
+
+* consents
+* policies
+
+## Microsoft.Quota
+
+* quotaRequests
+* quotas
+* usages
 
 ## Microsoft.RecoveryServices
 
-- Microsoft.RecoveryServices/backupProtectedItems
-- Microsoft.RecoveryServices/replicationEligibilityResults
+* backupProtectedItems
 
 ## Microsoft.ResourceHealth
 
-- Microsoft.ResourceHealth/childResources
-- Microsoft.ResourceHealth/events
-- Microsoft.ResourceHealth/impactedResources
-- Microsoft.ResourceHealth/notifications
+* childResources
+* events
+* impactedResources
 
 ## Microsoft.Resources
 
-- Microsoft.Resources/links
-- Microsoft.Resources/tags
+* links
+* snapshots
+* tags
+
+## Microsoft.ScVmm
+
+* VirtualMachineInstances
 
 ## Microsoft.Security
 
-- Microsoft.Security/adaptiveNetworkHardenings
-- Microsoft.Security/advancedThreatProtectionSettings
-- Microsoft.Security/assessmentMetadata
-- Microsoft.Security/assessments
-- Microsoft.Security/Compliances
-- Microsoft.Security/dataCollectionAgents
-- Microsoft.Security/devices
-- Microsoft.Security/deviceSecurityGroups
-- Microsoft.Security/InformationProtectionPolicies
-- Microsoft.Security/iotSensors
-- Microsoft.Security/jitPolicies
-- Microsoft.Security/serverVulnerabilityAssessments
-- Microsoft.Security/sqlVulnerabilityAssessments
+* adaptiveNetworkHardenings
+* advancedThreatProtectionSettings
+* antiMalwareSettings
+* apiCollections
+* applications
+* assessmentMetadata
+* assessments
+* Compliances
+* customRecommendations
+* dataCollectionAgents
+* dataSensitivitySettings
+* defenderForStorageSettings
+* deviceSecurityGroups
+* governanceRules
+* healthReports
+* InformationProtectionPolicies
+* integrations
+* jitPolicies
+* secureScoreControls
+* secureScores
+* securityStandards
+* serverVulnerabilityAssessments
+* sqlVulnerabilityAssessments
+* standardAssignments
 
 ## Microsoft.SecurityInsights
 
-- Microsoft.SecurityInsights/aggregations
-- Microsoft.SecurityInsights/alertRules
-- Microsoft.SecurityInsights/alertRuleTemplates
-- Microsoft.SecurityInsights/automationRules
-- Microsoft.SecurityInsights/bookmarks
-- Microsoft.SecurityInsights/cases
-- Microsoft.SecurityInsights/dataConnectors
-- Microsoft.SecurityInsights/dataConnectorsCheckRequirements
-- Microsoft.SecurityInsights/entities
-- Microsoft.SecurityInsights/incidents
-- Microsoft.SecurityInsights/settings
-- Microsoft.SecurityInsights/threatIntelligence
-- Microsoft.SecurityInsights/watchlists
+* aggregations
+* alertRules
+* alertRuleTemplates
+* automationRules
+* billingStatistics
+* bookmarks
+* cases
+* contentPackages
+* contentProductPackages
+* contentProductTemplates
+* contentTemplates
+* dataConnectorDefinitions
+* dataConnectors
+* dynamicSummaries
+* enrichment
+* entities
+* entityQueryTemplates
+* exportConnections
+* fileImports
+* hunts
+* huntsessions
+* incidents
+* metadata
+* MitreCoverageRecords
+* onboardingStates
+* overview
+* recommendations
+* securityMLAnalyticsSettings
+* settings
+* sourceControls
+* threatIntelligence
+* triggeredAnalyticsRuleRuns
+* workspaceManagerAssignments
+* workspaceManagerConfigurations
+* workspaceManagerGroups
+* workspaceManagerMembers
 
-## Microsoft.SerialConsole.PPE
+## Microsoft.SerialConsole
 
-- Microsoft.SerialConsole.PPE/serialPorts
+* serialPorts
+
+## Microsoft.ServiceLinker
+
+* daprConfigurations
+* dryruns
+* linkers
 
 ## Microsoft.SoftwarePlan
 
-- Microsoft.SoftwarePlan/hybridUseBenefits
+* hybridUseBenefits
+
+## Microsoft.Subscription
+
+* aliases
+* policies
 
 ## microsoft.support
 
-- microsoft.support/supporttickets
-
-## Microsoft.WorkloadMonitor
-
-- Microsoft.WorkloadMonitor/components
-- Microsoft.WorkloadMonitor/monitorInstances
-- Microsoft.WorkloadMonitor/monitors
-- Microsoft.WorkloadMonitor/notificationSettings
+* supporttickets
 
 ## Next steps
 

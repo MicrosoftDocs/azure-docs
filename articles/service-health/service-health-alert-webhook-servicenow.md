@@ -3,11 +3,11 @@ title: Send Azure service health alerts with ServiceNow
 description: Get personalized notifications about service health events to your ServiceNow instance.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.custom: devx-track-js
+ms.custom:
 ---
 # Send Azure service health alerts with ServiceNow using webhooks
 
-This article shows you how to integrate Azure service health alerts with ServiceNow using a webhook. After setting up webhook integration with your ServiceNow instance, you get alerts through your existing notification infrastructure when Azure service issues affect you. Every time an Azure Service Health alert fires, it calls a webhook through ServiceNow's Scripted REST API.
+This article shows you how to integrate Azure service health alerts with ServiceNow using a webhook. After setting up webhook integration with your ServiceNow instance, you get alerts through your existing notification infrastructure when Azure service issues affect you. Every time an Azure Service Health alert fires, it calls a webhook through the ServiceNow Scripted REST API.
 
 ## Creating a scripted REST API in ServiceNow
 
@@ -172,7 +172,7 @@ This article shows you how to integrate Azure service health alerts with Service
 1. Select **Save** when done to update the action group.
 
 ## Testing your webhook integration via an HTTP POST request
-1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 1. Create an HTTP POST request as follows:
 
@@ -189,6 +189,6 @@ This article shows you how to integrate Azure service health alerts with Service
 
 ## Next steps
 - Learn how to [configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md).
-- Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
 - Learn about [service health notifications](./service-notifications.md).
-- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
+- Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

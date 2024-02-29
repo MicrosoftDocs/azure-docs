@@ -1,0 +1,57 @@
+- name: Azure API Center Documentation
+  href: index.yml
+- name: Get started
+  expanded: true
+  items:
+    - name: Overview
+      items:
+      - name: What is API Center?
+        displayName: Overview
+        href: overview.md
+      - name: Key concepts
+        href: key-concepts.md  
+      - name: Service limits
+        href: ../azure-resource-manager/management/azure-subscription-service-limits.md#api-center-preview-limits
+    - name: Quickstarts
+      items:
+          - name: Create an API center
+            href: set-up-api-center.md
+    - name: Tutorials
+      items:
+          - name: 1 - Customize metadata properties
+            href: add-metadata-properties.md
+          - name: 2 - Add APIs to the inventory
+            href: register-apis.md
+          - name: 3 - Add environments and deployments
+            href: configure-environments-deployments.md
+- name: API inventory
+  items:
+      - name: Manage inventory - Azure CLI
+        href: manage-apis-azure-cli.md
+      - name: Import APIs from API Management
+        href: import-api-management-apis.md
+#- name: API governance
+- name: API discovery and consumption
+  items:
+      - name: Enable API Center portal
+        href: enable-api-center-portal.md
+      - name: Use VS Code extension
+        href: use-vscode-extension.md
+      - name: Discover APIs with GitHub Copilot Chat
+        href: use-vscode-extension-copilot.md
+- name: Reference
+  items:
+      - name: Azure CLI
+        href: /cli/azure/apic
+      - name: REST API
+        href: /rest/api/apicenter/
+      - name: REST API SDKs
+        items:
+          - name: JavaScript
+            href: /javascript/api/overview/azure/apicenter
+          - name: Java
+            href: /java/api/overview/azure/apicenter
+          - name: Python
+            href: https://pypi.org/project/azure-mgmt-apicenter
+      - name: Resource Manager template
+        href: /azure/templates/microsoft.apicenter/allversions

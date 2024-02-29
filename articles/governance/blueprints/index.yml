@@ -8,9 +8,8 @@ metadata:
   description: Simplify deployments by packaging artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition.
   ms.service: blueprints
   ms.topic: landing-page
-  ms.collection: collection
-  author: DCtheGeek
-  ms.author: dacoulte
+  author: mumian
+  ms.author: jgao
   ms.date: 08/27/2020
 
 landingContent:
@@ -27,7 +26,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure Friday - Azure Blueprints Overview
-            url: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+            url: /Shows/Azure-Friday/An-overview-of-Azure-Blueprints
 
   - title: Get started
     linkLists:
@@ -89,7 +88,7 @@ landingContent:
           - text: Azure Governance YouTube channel
             url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
           - text: Request product feature
-            url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345058
+            url: https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0?c=775ae472-f324-ec11-b6e6-000d3a4f0da0
           - text: Tech Community for Azure Governance
             url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
 
@@ -102,10 +101,10 @@ landingContent:
           - text: PowerShell module (PSGallery)
             url: https://www.powershellgallery.com/packages/Az.Blueprint
           - text: Azure CLI
-            url: /cli/azure/ext/blueprint/blueprint
+            url: /cli/azure/blueprint
           - text: Azure PowerShell
             url: /powershell/module/az.blueprint/#blueprint
           - text: Azure SDK for .NET
-            url: /dotnet/api/overview/azure/blueprints/management
+            url: /dotnet/api/microsoft.azure.management.blueprint
           - text: REST
             url: /rest/api/blueprints/

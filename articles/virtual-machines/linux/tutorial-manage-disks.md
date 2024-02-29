@@ -1,19 +1,18 @@
 ---
-title: Tutorial - Manage Azure disks with the Azure CLI 
+title: Tutorial - Manage Azure disks with the Azure CLI
 description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure disks for virtual machines
-author: cynthn
-ms.service: virtual-machines-linux
+author: roygara
+ms.author: rogarana
+ms.service: azure-disk-storage
 ms.topic: tutorial
-ms.workload: infrastructure
 ms.date: 08/20/2020
-ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.subservice: disks
-
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Linux VMs in Azure.
 ---
 
 # Tutorial - Manage Azure disks with the Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Azure virtual machines (VMs) use disks to store the operating system, applications, and data. When you create a VM, it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial shows you how to deploy and manage VM disks. You learn about:
 
@@ -79,8 +78,9 @@ Create a VM using the [az vm create](/cli/azure/vm#az-vm-create) command. The fo
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --size Standard_DS2_v2 \
+  --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 128 128
 ```
@@ -107,7 +107,7 @@ Once a disk has been attached to the virtual machine, the operating system needs
 Create an SSH connection with the virtual machine. Replace the example IP address with the public IP of the virtual machine.
 
 ```console
-ssh 10.101.10.10
+ssh azureuser@10.101.10.10
 ```
 
 Partition the disk with `parted`.
@@ -186,7 +186,7 @@ When you take a disk snapshot, Azure creates a read only, point-in-time copy of 
 
 ### Create snapshot
 
-Before you create a snapshot, you need the ID or name of the disk. Use [az vm show](/cli/azure/vm#az-vm-show) to shot the disk ID. In this example, the disk ID is stored in a variable so that it can be used in a later step.
+Before you create a snapshot, you need the ID or name of the disk. Use [az vm show](/cli/azure/vm#az-vm-show) to show the disk ID. In this example, the disk ID is stored in a variable so that it can be used in a later step.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \

@@ -1,8 +1,8 @@
 ---
 title: Use Azure Blob Storage for model conversion
 description: Describes common steps to set up and use blob storage for model conversion.
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ---
@@ -23,7 +23,7 @@ The [model conversion](model-conversion.md) service requires access to Azure Blo
 The creation of the storage account and the blob containers can be done with one of the following tools:
 
 - [Azure portal](https://portal.azure.com)
-- [az command line](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [az command line](/cli/azure/install-azure-cli)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
@@ -45,27 +45,39 @@ Details about SAS can be found at the [SAS documentation](../../../storage/commo
 
 A SAS URI can be generated using one of:
 
-- az PowerShell module
+- Az PowerShell module
   - see the [example PowerShell scripts](../../samples/powershell-example-scripts.md)
-- [az command line](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [az command line](/cli/azure/install-azure-cli)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
   - right click on container "Get Shared Access Signature" (read, list access for input container, write access for output container)
 - SDKs (C#, Python ... )
 
-An example of using Shared Access Signatures in asset conversion is shown in Conversion.ps1 of the [Powershell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
+An example of using Shared Access Signatures in asset conversion is shown in Conversion.ps1 of the [PowerShell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
+
+> [!IMPORTANT]
+> When configuring the storage account, do **not** specify an allowed IP address range, even when it allow-lists all IP addresses:
+>
+> ![Screenshot of blob storage settings in Azure portal that show how to configure an allowed IP address range.](./media/blob-storage-ip-allowlist.png)
+>
+> With any IP range being specified, the SAS token may not work with ARR and model loading might fail.
 
 ## Upload an input model
 
 To start converting a model, you need to upload it, using one of the following options:
 
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) - a convenient UI to upload/download/manage files on azure blob storage
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) - a convenient UI to upload/download/manage files on Azure blob storage
 - [Azure command line](../../../storage/blobs/storage-quickstart-blobs-cli.md)
-- [Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Azure PowerShell module](/powershell/azure/install-azure-powershell)
   - see the [Example PowerShell scripts](../../samples/powershell-example-scripts.md)
 - [Using a storage SDK (Python, C# ... )](../../../storage/index.yml)
 - [Using the Azure Storage REST APIs](/rest/api/storageservices/blob-service-rest-api)
+- [Using the Azure Remote Rendering Toolkit (ARRT)](../../samples/azure-remote-rendering-asset-tool.md)
 
-For an example of how to upload data for conversion refer to Conversion.ps1 of the [Powershell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
+For an example of how to upload data for conversion refer to Conversion.ps1 of the [PowerShell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
+
+> [!NOTE]
+>
+> When uploading an input model take care to avoid long file names and/or folder structures in order to avoid [Windows path length limit](/windows/win32/fileio/maximum-file-path-limitation) issues on the service. 
 
 ## Get a SAS URI for the converted model
 

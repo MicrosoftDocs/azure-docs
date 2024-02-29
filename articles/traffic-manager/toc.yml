@@ -12,9 +12,14 @@
     href: quickstart-create-traffic-manager-profile-powershell.md
   - name: Create a Traffic Manager profile - Azure CLI
     href: quickstart-create-traffic-manager-profile-cli.md
+  - name: Create a Traffic Manager profile - Bicep
+    displayName: ARM , Resource Manager, Template
+    href: quickstart-create-traffic-manager-profile-bicep.md
   - name: Create a Traffic Manager profile - ARM Template
     displayName: Resource Manager
     href: quickstart-create-traffic-manager-profile-template.md
+  - name: Create a Traffic Manager profile - Terraform
+    href: quickstart-create-traffic-manager-profile-terraform.md
   expanded: true
 - name: Tutorials
   items:
@@ -32,12 +37,6 @@
     href: tutorial-traffic-manager-subnet-routing.md
   - name: Alias records for Traffic Manager
     href: ../dns/tutorial-alias-tm.md?toc=%2fazure%2ftraffic-manager%2ftoc.json
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: cli-samples.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
 - name: Concepts
   items:
   - name: Routing methods
@@ -48,7 +47,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/traffic-manager-security-baseline?toc=/azure/traffic-manager/toc.json
   - name: Nested Traffic Manager profiles
     href: traffic-manager-nested-profiles.md
   - name: Endpoint types
@@ -72,7 +71,11 @@
   - name: Configure performance routing in Traffic Manager
     href: traffic-manager-configure-performance-routing-method.md
   - name: Configure multivalue routing in Traffic Manager
-    href: traffic-manager-configure-multivalue-routing-method.md
+    items: 
+    - name: Portal
+      href: traffic-manager-configure-multivalue-routing-method.md
+    - name: ARM template
+      href: configure-multivalue-routing-method-template.md
   - name: Configure subnet routing in Traffic Manager
     href: traffic-manager-configure-subnet-routing-method.md
   - name: Send Real User Measurements to Traffic Manager
@@ -81,6 +84,8 @@
       href: traffic-manager-create-rum-visual-studio.md
     - name: Using web pages
       href: traffic-manager-create-rum-web-pages.md
+  - name: Add an endpoint to an existing profile - ARM Template
+    href: how-to-add-endpoint-existing-profile-template.md
   - name: Manage endpoints
     href: traffic-manager-manage-endpoints.md
   - name: Manage profiles
@@ -117,8 +122,6 @@
     href: /cli/azure/network/traffic-manager
   - name: Java
     href: /java/api/com.microsoft.azure.management.trafficmanager
-  - name: Node.js
-    href: https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
   - name: Ruby
     href: https://www.rubydoc.info/gems/azure_mgmt_traffic_manager
   - name: Python

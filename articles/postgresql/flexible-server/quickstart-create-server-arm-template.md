@@ -1,20 +1,20 @@
 ---
-title: 'Quickstart: Create an Azure DB for PostgresSQL Flexible Server - ARM template'
-description: In this Quickstart, learn how to create an Azure Database for PostgresSQL Flexible server using ARM template.
+title: 'Quickstart: Create with ARM template'
+description: In this Quickstart, learn how to create an Azure Database for PostgreSQL - Flexible Server instance by using an ARM template.
 author: mksuni
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: sumuth
-ms.date: 10/23/2020
+ms.date: 01/04/2024
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server
+# Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server instance
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use an Azure Resource Manager template (ARM template) to provision a PostgreSQL Flexible Server to deploy multiple servers or multiple databases on a server.
+Azure Database for PostgreSQL flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use an Azure Resource Manager template (ARM template) to provision an Azure Database for PostgreSQL flexible server instance to deploy multiple servers or multiple databases on a server.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,121 +26,95 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Review the template
 
-An Azure Database for PostgresSQL Server is the parent resource for one or more databases within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, and configurations.
+An Azure Database for PostgreSQL flexible server instance is the parent resource for one or more databases within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, and configurations.
 
 Create a _postgres-flexible-server-template.json_ file and copy the following JSON script into it.
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "administratorLogin": {
-      "type": "String"
-    },
-    "administratorLoginPassword": {
-      "type": "SecureString"
-    },
-    "location": {
-      "type": "String"
-    },
-    "serverName": {
-      "type": "String"
-    },
-    "serverEdition": {
-      "type": "String"
-    },
-    "storageSizeMB": {
-      "type": "Int"
-    },
-    "haEnabled": {
       "type": "string"
     },
+    "administratorLoginPassword": {
+      "type": "secureString"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "serverName": {
+      "type": "string"
+    },
+    "serverEdition": {
+      "type": "string",
+      "defaultValue": "GeneralPurpose"
+    },
+    "skuSizeGB": {
+      "type": "int",
+      "defaultValue": 128
+    },
+    "dbInstanceType": {
+      "type": "string",
+      "defaultValue": "Standard_D4ds_v4"
+    },
+    "haMode": {
+      "type": "string",
+      "defaultValue": "ZoneRedundant"
+    },
     "availabilityZone": {
-      "type": "String"
+      "type": "string",
+      "defaultValue": "1"
     },
     "version": {
-      "type": "String"
+      "type": "string",
+      "defaultValue": "16"
     },
-    "tags": {
-      "defaultValue": {},
-      "type": "Object"
+    "virtualNetworkExternalId": {
+      "type": "string",
+      "defaultValue": ""
     },
-    "firewallRules": {
-      "defaultValue": {},
-      "type": "Object"
+    "subnetName": {
+      "type": "string",
+      "defaultValue": ""
     },
-    "vnetData": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "backupRetentionDays": {
-      "type": "Int"
+    "privateDnsZoneArmResourceId": {
+      "type": "string",
+      "defaultValue": ""
     }
-  },
-  "variables": {
-    "api": "2020-02-14-privatepreview",
-    "firewallRules": "[parameters('firewallRules').rules]",
-    "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
-    "finalVnetData": "[json(concat('{ \"subnetArmResourceId\": \"', variables('vnetDataSet').subnetArmResourceId, '\"}'))]"
   },
   "resources": [
     {
       "type": "Microsoft.DBforPostgreSQL/flexibleServers",
-      "apiVersion": "[variables('api')]",
+      "apiVersion": "2022-12-01",
       "name": "[parameters('serverName')]",
       "location": "[parameters('location')]",
       "sku": {
-        "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]"        
+        "name": "[parameters('dbInstanceType')]",
+        "tier": "[parameters('serverEdition')]"
       },
-      "tags": "[parameters('tags')]",
       "properties": {
         "version": "[parameters('version')]",
         "administratorLogin": "[parameters('administratorLogin')]",
         "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-        "DelegatedSubnetArguments": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-        "haEnabled": "[parameters('haEnabled')]",
-        "storageProfile": {
-          "storageMB": "[parameters('storageSizeMB')]",
-          "backupRetentionDays": "[parameters('backupRetentionDays')]"
+        "network": {
+          "delegatedSubnetResourceId": "[if(empty(parameters('virtualNetworkExternalId')), json('null'), json(format('{0}/subnets/{1}', parameters('virtualNetworkExternalId'), parameters('subnetName'))))]",
+          "privateDnsZoneArmResourceId": "[if(empty(parameters('virtualNetworkExternalId')), json('null'), parameters('privateDnsZoneArmResourceId'))]"
+        },
+        "highAvailability": {
+          "mode": "[parameters('haMode')]"
+        },
+        "storage": {
+          "storageSizeGB": "[parameters('skuSizeGB')]"
+        },
+        "backup": {
+          "backupRetentionDays": 7,
+          "geoRedundantBackup": "Disabled"
         },
         "availabilityZone": "[parameters('availabilityZone')]"
       }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-08-01",
-      "name": "[concat('firewallRules-', copyIndex())]",
-      "dependsOn": [
-        "[concat('Microsoft.DBforPostgreSQL/flexibleServers/', parameters('serverName'))]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
-              "name": "[concat(parameters('serverName'),'/',variables('firewallRules')[copyIndex()].name)]",
-              "apiVersion": "[variables('api')]",
-              "properties": {
-                "StartIpAddress": "[variables('firewallRules')[copyIndex()].startIPAddress]",
-                "EndIpAddress": "[variables('firewallRules')[copyIndex()].endIPAddress]"
-              }
-            }
-          ]
-        }
-      },
-      "copy": {
-        "name": "firewallRulesIterator",
-        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
-        "mode": "Serial"
-      },
-      "condition": "[greater(length(variables('firewallRules')), 0)]"
     }
   ]
 }
@@ -148,29 +122,28 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
 
 These resources are defined in the template:
 
-- Microsoft.DBforPostgreSQL/flexibleServers
+- [Microsoft.DBforPostgreSQL/flexibleServers](/azure/templates/microsoft.dbforpostgresql/flexibleservers?tabs=json)
 
 ## Deploy the template
 
 Select **Try it** from the following PowerShell code block to open Azure Cloud Shell.
 
 ```azurepowershell-interactive
-$serverName = Read-Host -Prompt "Enter a name for the new Azure Database for PostgreSQL server"
+$serverName = Read-Host -Prompt "Enter a name for the new Azure Database for PostgreSQL flexible server instance"
 $resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group where the server will exist"
 $location = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
-$adminUser = Read-Host -Prompt "Enter the Azure Database for PostgreSQL server's administrator account name"
+$adminUser = Read-Host -Prompt "Enter the Azure Database for PostgreSQL flexible server instance's administrator account name"
 $adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureString
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location # Use this command when you need to create a new resource group for your deployment
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateFile "D:\Azure\Templates\EngineeringSite.json
+    -TemplateFile "postgres-flexible-server-template.json" `
     -serverName $serverName `
     -administratorLogin $adminUser `
     -administratorLoginPassword $adminPassword
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
----
 
 ## Review deployed resources
 
@@ -178,12 +151,16 @@ Follow these steps to verify if your server was created in Azure.
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL Flexible Servers (Preview)**.
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL Flexible Servers**.
 1. In the database list, select your new server to view the **Overview** page to manage the server.
 
 # [PowerShell](#tab/PowerShell)
 
-You'll have to enter the name of the new server to view the details of your Azure Database for PostgreSQL Flexible server.
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+You have to enter the name of the new server to view the details of your Azure Database for PostgreSQL flexible server instance.
 
 ```azurepowershell-interactive
 $serverName = Read-Host -Prompt "Enter the name of your Azure Database for PostgreSQL server"
@@ -193,12 +170,14 @@ Write-Host "Press [ENTER] to continue..."
 
 # [CLI](#tab/CLI)
 
-You'll have to enter the name and the resource group of the new server to view details about your Azure Database for PostgreSQL Flexible Server.
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+You have to enter the name and the resource group of the new server to view details about your Azure Database for PostgreSQL flexible server instance.
 
 ```azurecli-interactive
-echo "Enter your Azure Database for PostgreSQL Flexible Server name:" &&
+echo "Enter your Azure Database for PostgreSQL flexible server instance name:" &&
 read serverName &&
-echo "Enter the resource group where the Azure Database for PostgreSQL Flexible Server exists:" &&
+echo "Enter the resource group where the Azure Database for PostgreSQL flexible server instance exists:" &&
 read resourcegroupName &&
 az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DBforPostgreSQL/flexibleServers"
 ```
@@ -213,23 +192,33 @@ To delete the resource group:
 
 # [Portal](#tab/azure-portal)
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 In the [portal](https://portal.azure.com), select the resource group you want to delete.
 
 1. Select **Delete resource group**.
-1. To confirm the deletion, type the name of the resource group
+1. To confirm the deletion, type the name of the resource group.
 
 # [PowerShell](#tab/azure-powershell)
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name ExampleResourceGroup
+$serverName = Read-Host -Prompt "Enter the resource group where the Azure Database for PostgreSQL Flexible Server exists:"
+Remove-AzResourceGroup -Name $serverName
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 ```azurecli-interactive
-az group delete --name ExampleResourceGroup
+echo "Enter the resource group where the Azure Database for PostgreSQL Flexible Server exists:" &&
+read resourcegroupName &&
+az group delete --name $resourcegroupName
 ```
-----
+
+---
 
 ## Next steps
 

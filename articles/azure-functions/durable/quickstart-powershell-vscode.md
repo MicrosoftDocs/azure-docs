@@ -2,10 +2,11 @@
 title: Create your first durable function in Azure Functions using PowerShell
 description: Create and publish an Azure Durable Function in PowerShell using Visual Studio Code.
 author: anthonychu
-
 ms.topic: quickstart
-ms.date: 08/10/2020
+ms.date: 06/22/2022
 ms.reviewer: azfuncdf, antchu
+ms.devlang: powershell
+ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
 # Create your first durable function in PowerShell
@@ -45,11 +46,11 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | PowerShell | Create a local PowerShell Functions project. |
-    | Select a version | Azure Functions v3 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
 
-Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files.
+Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
 A package.json file is also created in the root folder.
 
@@ -86,7 +87,7 @@ You use a template to create the durable function code in your project.
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions orchestrator (preview) | Create a Durable Functions orchestration |
+    | Select a template for your function | Durable Functions orchestrator | Create a Durable Functions orchestration |
     | Provide a function name | HelloOrchestrator | Name of your durable function |
 
 You've added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/run.ps1* to see the orchestrator function. Each call to the `Invoke-ActivityFunction` cmdlet invokes an activity function named `Hello`.
@@ -101,7 +102,7 @@ Next, you'll add the referenced `Hello` activity function.
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions activity (preview) | Create an activity function |
+    | Select a template for your function | Durable Functions activity | Create an activity function |
     | Provide a function name | Hello | Name of your activity function |
 
 You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/run.ps1* to see that it's taking a name as input and returning a greeting. An activity function is where you'll perform actions such as making a database call or performing a computation.
@@ -116,13 +117,18 @@ Finally, you'll add an HTTP triggered function that starts the orchestration.
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions HTTP starter (preview) | Create an HTTP starter function |
+    | Select a template for your function | Durable Functions HTTP starter | Create an HTTP starter function |
     | Provide a function name | HttpStart | Name of your activity function |
     | Authorization level | Anonymous | For demo purposes, allow the function to be called without authentication |
 
 You've added an HTTP triggered function that starts an orchestration. Open *HttpStart/run.ps1* to see that it uses the `Start-NewOrchestration` cmdlet to start a new orchestration. Then it uses the `New-OrchestrationCheckStatusResponse` cmdlet to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
 
 You now have a Durable Functions app that can be run locally and deployed to Azure.
+
+> [!NOTE]
+> The next version of the DF PowerShell is now in preview and may be downloaded from the PowerShell Gallery.
+> Learn about it and how to try it out in the [guide to the standalone PowerShell SDK](./durable-functions-powershell-v2-sdk-migration-guide.md).
+> You may follow the guide's [installation section](./durable-functions-powershell-v2-sdk-migration-guide.md#install-and-enable-the-sdk) for instructions compatible with this quickstart on how to enable it.
 
 ## Test the function locally
 
@@ -180,53 +186,9 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
-[!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-sign-in-vs-code.md)]
+[!INCLUDE [functions-sign-in-vs-code](../../../includes/functions-sign-in-vs-code.md)]
 
-## Publish the project to Azure
-
-In this section, you create a function app and related resources in your Azure subscription and then deploy your code. 
-
-> [!IMPORTANT]
-> Publishing to an existing function app overwrites the content of that app in Azure. 
-
-
-1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app...** button.
-
-    ![Publish your project to Azure](../../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
-
-1. Provide the following information at the prompts:
-
-    + **Select folder**: Choose a folder from your workspace or browse to one that contains your function app. You won't see this if you already have a valid function app opened.
-
-    + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
-
-    + **Select Function App in Azure**: Choose `+ Create new Function App`. (Don't choose the `Advanced` option, which isn't covered in this article.)
-      
-    + **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. 
-
-    + **Select a runtime**: Choose the version of PowerShell you've been running on locally. You can use the `pwsh -version` command to check your version.
-
-        > [!NOTE]
-        > The Azure Functions VS Code extension may not support PowerShell 7 yet. If PowerShell 7 is not available as an option, select PowerShell 6.x for now and [update the version manually](#update-function-app-ps7) after the function app has been created.
-
-    + **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. 
-    
-1.  When completed, the following Azure resources are created in your subscription, using names based on your function app name:
-    
-    + A resource group, which is a logical container for related resources.
-    + A standard Azure Storage account, which maintains state and other information about your projects.
-    + A consumption plan, which defines the underlying host for your serverless function app. 
-    + A function app, which provides the environment for executing your function code. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources within the same hosting plan.
-    + An Application Insights instance connected to the function app, which tracks usage of your serverless function.
-
-    A notification is displayed after your function app is created and the deployment package is applied.
-
-1. <a name="update-function-app-ps7"></a>If you were unable to select *PowerShell 7* earlier when creating the function app, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Upload Local Settings...`. Follow the prompts to select the function app you created. If prompted to overwrite existing settings, select *No to all*.
-    
-1. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
-
-    ![Create complete notification](../../../includes/media/functions-publish-project-vscode/function-create-notifications.png)
-
+[!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
 ## Test your function in Azure
 

@@ -1,18 +1,14 @@
 ---
 title: IBM workloads on Azure | Microsoft Docs
 description: Use a mainframe emulator and other services from Microsoft partners to rehost your IBM z/OS workloads using Microsoft Azure.
-services: virtual-machines-linux
-ms.service: virtual-machines-linux
-ms.subservice: workloads
-documentationcenter:
-author: njray
-ms.author: edprice
-manager: edprice
-editor: edprice
+services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+author: swread
+ms.author: sread
+manager: mamccrea 
 ms.topic: conceptual
 ms.date: 02/22/2019
-tags:
-keywords:
 ---
 # IBM workloads on Azure
 

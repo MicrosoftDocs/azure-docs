@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Prepare for an Azure Stack Edge Pro GPU device failure
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 This article helps you prepare for a device failure by detailing how to save and back up the device configuration and data on your Azure Stack Edge Pro GPU device. 
 
@@ -63,7 +65,7 @@ The following third-party data protection solutions can provide a backup solutio
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> For details, contact Cohesity.          |
 | Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault.          |
-| Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> For details, contact Veritas.   |
+| Veritas                        | [https://www.veritas.com/partners/microsoft-azure](https://www.veritas.com/partners/microsoft-azure) <br> For details, contact Veritas.   |
 | Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 

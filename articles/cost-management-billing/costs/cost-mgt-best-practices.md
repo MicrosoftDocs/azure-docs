@@ -1,19 +1,19 @@
 ---
-title: Optimize your cloud investment with Azure Cost Management
+title: Optimize your cloud investment with Cost Management
+titleSuffix: Microsoft Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/27/2020
+ms.date: 12/06/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18
 ---
 
-# How to optimize your cloud investment with Azure Cost Management
+# How to optimize your cloud investment with Cost Management
 
-Azure Cost Management gives you the tools to plan for, analyze and reduce your spending to maximize your cloud investment. This document provides you with a methodical approach to cost management and highlights the tools available to you as you address your organization's cost challenges. Azure makes it easy to build and deploy cloud solutions. However, it's important that those solutions are optimized to minimize the cost to your organization. Following the principles outlined in this document and using our tools will help to make sure your organization is prepared for success.
+Cost Management gives you the tools to plan for, analyze and reduce your spending to maximize your cloud investment. This document provides you with a methodical approach to cost management and highlights the tools available to you as you address your organization's cost challenges. Azure makes it easy to build and deploy cloud solutions. However, it's important that those solutions are optimized to minimize the cost to your organization. Following the principles outlined in this document and using our tools will help to make sure your organization is prepared for success.
 
 ## Methodology
 
@@ -86,7 +86,7 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 #### [Free](https://azure.microsoft.com/free/)
 
 - 12 months of popular free services
-- $200 in credit to explore services for 30 days
+- $200 credit in your billing currency to explore services for 30 days
 - 25+ services are always free
 
 #### [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p)
@@ -157,7 +157,7 @@ Tags are a effective way to understand costs that span across multiple teams and
 
 Similarly, you might also have web apps or environments, such as Test or Production, that use resources across multiple subscriptions owned by different teams. To better understand the full cost of the workloads, tag the resources that they use. When tags are applied properly, you can apply them as a filter in cost analysis to better understand trends.
 
-After you plan for resource tagging, you can configure an Azure policy to enforce tagging on resources. Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to understand the tools available that help you enforce scalable resource tagging. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+After you plan for resource tagging, you can configure an Azure Policy definition to enforce tagging on resources. Watch the [How to review tag policies with Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to understand the tools available that help you enforce scalable resource tagging. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 
@@ -180,9 +180,9 @@ For more information about exporting billing data, see [Create and manage export
 
 ### Create budgets
 
-After you've identified and analyzed your spending patterns, it's important to begin setting limits for yourself and your teams. Azure budgets give you the ability to set either a cost or usage-based budget with many thresholds and alerts. Make sure to review the budgets that you create regularly to see your budget burn-down progress and make changes as needed. Azure budgets also allow you to configure an automation trigger when a given budget threshold is reached. For example, you can configure your service to shut down VMs. Or you can move your infrastructure to a different pricing tier in response to a budget trigger.
+After you've identified and analyzed your spending patterns, it's important to begin setting limits for yourself and your teams. Budgets give you the ability to set either a cost or usage-based budget with many thresholds and alerts. Make sure to review the budgets that you create regularly to see your budget burn-down progress and make changes as needed. Budgets also allow you to configure an automation trigger when a given budget threshold is reached. For example, you can configure your service to shut down VMs. Or you can move your infrastructure to a different pricing tier in response to a budget trigger.
 
-For more information, see [Azure Budgets](tutorial-acm-create-budgets.md).
+For more information, see [Create budgets](tutorial-acm-create-budgets.md).
 
 For more information about budget-based automation, see [Budget Based Automation](../manage/cost-management-budget-scenario.md).
 
@@ -208,6 +208,11 @@ For more information, see [Azure IaaS: proper sizing and cost](https://azure.mic
 ### Use purchase discounts
 
 Azure has many discounts that your organization should take advantage of to save money.
+#### Azure savings plan for compute
+
+Azure savings plan for compute is our most flexible savings plan. It lets you save up to 65 percent on pay-as-you-go prices and applies to a broad range of compute services across subscriptions, resource groups, management groups or entire Azure accounts. You select an hourly compute commitment for a one-year or three-year term. The longer the commitment, the more savings you earn. You can pay monthly for no additional cost, and Azure automatically applies the largest savings to your account. 
+
+For more information, see [Azure savings plan for compute](../savings-plan/savings-plan-compute-overview.md).
 
 #### Azure Reservations
 
@@ -226,4 +231,4 @@ For more information, see [Azure Hybrid Benefit savings calculator](https://azur
 Azure also has a service that allows you to build services that take advantage of surplus capacity in Azure for reduced rates. For more information, see [Use low priority VMs with Batch](../../batch/batch-low-pri-vms.md).
 
 ## Next steps
-- If you're new to Cost Management, read [What is Azure Cost Management?](../cost-management-billing-overview.md) to learn how it helps monitor and control Azure spending and to optimize resource use.
+- If you're new to Cost Management, read [What is Cost Management?](../cost-management-billing-overview.md) to learn how it helps monitor and control Azure spending and to optimize resource use.

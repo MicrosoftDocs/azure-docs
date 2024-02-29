@@ -1,20 +1,13 @@
 ---
 title: Manage resources - Azure CLI
 description: Use Azure CLI and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
-author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: jgao 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 # Manage Azure resources by using Azure CLI
 
 Learn how to use Azure CLI with [Azure Resource Manager](overview.md) to manage your Azure resources. For managing resource groups, see [Manage Azure resource groups by using Azure CLI](manage-resource-groups-cli.md).
-
-Other articles about managing resources:
-
-- [Manage Azure resources by using the Azure portal](manage-resources-portal.md)
-- [Manage Azure resources by using Azure PowerShell](manage-resources-powershell.md)
 
 ## Deploy resources to an existing resource group
 
@@ -44,7 +37,7 @@ echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
-az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
 ```
 
 For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../templates/deploy-cli.md).
@@ -127,7 +120,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resources
 
-Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources.md#azure-cli).
+Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources-cli.md).
 
 ## Manage access to resources
 
@@ -136,6 +129,6 @@ Tagging helps organizing your resource group and resources logically. For inform
 ## Next steps
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

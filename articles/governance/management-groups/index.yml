@@ -8,9 +8,8 @@ metadata:
   description: Azure management groups help you organize your resources and subscriptions.
   ms.service: governance
   ms.topic: landing-page
-  ms.collection: collection
-  author: DCtheGeek
-  ms.author: dacoulte
+  author: tfitzmac
+  ms.author: tomfitz
   ms.date: 09/30/2020
 
 landingContent:
@@ -19,7 +18,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Overview of management services in Azure
-            url: ../azure-management.md
+            url: ./azure-management.md
 
   - title: About Azure management groups
     linkLists:
@@ -40,8 +39,12 @@ landingContent:
             url: ./create-management-group-powershell.md
           - text: Create a management group (.NET)
             url: ./create-management-group-dotnet.md
+          - text: Create a management group (Go)
+            url: ./create-management-group-go.md
           - text: Create a management group (JavaScript)
             url: ./create-management-group-javascript.md
+          - text: Create a management group (Python)
+            url: ./create-management-group-python.md
           - text: Create a management group (REST)
             url: ./create-management-group-rest-api.md
           - text: Deploy resources to management group (ARM templates)
@@ -62,10 +65,14 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.resources/#resources
           - text: Azure SDK for .NET
-            url: /dotnet/api/overview/azure/managementgroups
+            url: /dotnet/api/overview/azure/management-groups
+          - text: Azure SDK for Go
+            url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
           - text: Azure SDK for JavaScript
             url: /javascript/api/@azure/arm-managementgroups/managementgroups
+          - text: Azure SDK for Python
+            url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
           - text: REST
-            url: /rest/api/resources/managementgroups
+            url: /rest/api/managementgroups
           - text: Resource Manager templates
             url: /azure/templates/microsoft.management/managementgroups

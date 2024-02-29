@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box Blob storage requirements| Microsoft Docs
 description: Learn about the supported versions for APIs, SDKs, and client libraries for Azure Data Box Blob storage
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
 ms.date: 10/05/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 # Azure Data Box Blob storage requirements
 
@@ -21,13 +21,13 @@ We recommend that you review the information carefully before you connect to the
 
 |     Feature                                             |     Azure Storage                                     |     Data Box Blob storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Azure File storage                                   |    Cloud-based SMB file shares supported              |    Not supported      |
+|    Azure Files                                   |    Cloud-based SMB and NFS file shares supported               |    Not supported      |
 |    Service encryption for data at Rest                  |    256-bit AES encryption                             |    256-bit AES encryption |
-|    Storage account type                                 |    General-purpose and Azure blob storage accounts    |    General-purpose v1 only|
+|    Storage account type                                 |    General-purpose and Azure Blob storage accounts    |    General-purpose v1 only|
 |    Blob name                                            |    1,024 characters (2,048 bytes)                     |    880 characters (1,760 bytes)|
-|    Block blob maximum size                              |    4.75 TB (100 MB X 50,000 blocks)                   |    4.75 TB (100 MB x 50,000 blocks) for Azure Data Box v 3.0 onwards.|
-|    Page blob maximum size                               |    8 TB                                               |    1 TB                   |
-|    Page blob page size                                  |    512 bytes                                          |    4 KB                   |
+|    Block blob maximum size                              |    4.75 TiB (100 MB X 50,000 blocks)                   |    4.75 TiB (100 MB x 50,000 blocks) for Azure Data Box v 3.0 onwards.|
+|    Page blob maximum size                               |    8 TiB                                               |    1 TiB                   |
+|    Page blob page size                                  |    512 bytes                                          |    4 KiB                   |
 
 ## Supported API versions
 

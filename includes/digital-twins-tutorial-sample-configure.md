@@ -11,25 +11,18 @@ ms.author: baanders
 
 Next, set up a sample client application that will interact with your Azure Digital Twins instance.
 
-Navigate on your machine to file you downloaded earlier from [*Azure Digital Twins end-to-end samples*](/samples/azure-samples/digital-twins-samples/digital-twins-samples) (and unzip it if you haven't already).
+Navigate on your machine to the folder you downloaded earlier from [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples) (and unzip it if you haven't already).
 
-Once inside the folder, navigate into _AdtSampleApp_. Open _**AdtE2ESample.sln**_ in Visual Studio 2019. 
+Once inside the folder, navigate into *digital-twins-samples-main\AdtSampleApp\SampleClientApp* and open the *appsettings.json* file. This JSON file contains a configuration variable that's necessary to run the project.
 
-In Visual Studio, select the _SampleClientApp > **appsettings.json**_ file to open it in the editing window. This will serve as a pre-set JSON file with the necessary configuration variables to run the project.
-
-In the file body, change the `instanceUrl` to your Azure Digital Twins instance *hostName* URL (with *https://* in front of it as shown below).
+In the file body, change the `instanceUrl` to your Azure Digital Twins instance host name URL (by adding *https://* in front of the host name, as shown below).
 
 ```json
 {
-  "instanceUrl": "https://<your-Azure-Digital-Twins-instance-hostName>"
+  "instanceUrl": "https://<your-Azure-Digital-Twins-instance-host-name>"
 }
 ```
 
 Save and close the file. 
 
-Next, configure the *appsettings.json* file to be copied to the output directory when you build the *SampleClientApp*. To do this, right-select the *appsettings.json* file, and choose *Properties.* In the *Properties* inspector, change the value of the *Copy to Output Directory* property to *Copy if newer*.
-
-:::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Excerpt from Visual Studio window showing the Solution Explorer pane with appsettings.json highlighted, and the Properties pane with 'Copy to Output Directory' property set to 'Copy if newer'" border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
-
-Keep the _**AdtE2ESample**_ project open in Visual Studio to continue using it in the tutorial.
-
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]

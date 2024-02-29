@@ -1,11 +1,14 @@
 ---
 title: Monitor and diagnose Windows containers
 description: In this tutorial, you configure Azure Monitor logs for monitoring and diagnostics of Windows containers on Azure Service Fabric.
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Monitor Windows containers on Service Fabric using Azure Monitor logs
 
 This is part three of a tutorial, and walks you through configuring Azure Monitor logs to monitor your Windows containers orchestrated on Service Fabric.
@@ -225,6 +228,6 @@ In this tutorial, you learned how to:
 Now that you have configured monitoring for your containerized application, try:
 
 * Configuring Azure Monitor logs for a Linux cluster, following similar steps as this tutorial. Reference [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) to make changes in your Resource Manager template.
-* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/platform/alerts-overview.md) to aid in detecting and diagnostics.
+* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/alerts/alerts-overview.md) to aid in detecting and diagnostics.
 * Explore Service Fabric's list of [recommended performance counters](service-fabric-diagnostics-event-generation-perf.md) to configure for your clusters.
-* Get familiarized with the [log search and querying](../azure-monitor/log-query/log-query-overview.md) features offered as part of Azure Monitor logs.
+* Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs.

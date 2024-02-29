@@ -1,23 +1,17 @@
 ---
 title: Store credentials in Azure Key Vault 
 description: Learn how to store credentials for data stores used in an Azure key vault that Azure Data Factory can automatically retrieve at runtime. 
-services: data-factory
-author: linda33wj
-manager: shwang
-editor: ''
-
+author: nabhishek
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: security
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.author: jingwang
+ms.date: 08/10/2023
+ms.author: abnarain
 ---
 
-# Store credential in Azure Key Vault
+# Store credentials in Azure Key Vault
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can store credentials for data stores and computes in an [Azure Key Vault](../key-vault/general/overview.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store/compute.
 
@@ -32,9 +26,9 @@ This feature relies on the data factory managed identity. Learn how it works fro
 To reference a credential stored in Azure Key Vault, you need to:
 
 1. **Retrieve data factory managed identity** by copying the value of "Managed Identity Object ID" generated along with your factory. If you use ADF authoring UI, the managed identity object ID will be shown on the Azure Key Vault linked service creation window; you can also retrieve it from Azure portal, refer to [Retrieve data factory managed identity](data-factory-service-identity.md#retrieve-managed-identity).
-2. **Grant the managed identity access to your Azure Key Vault.** In your key vault -> Access policies -> Add Access Policy, search this managed identity to grant **Get** permission in Secret permissions dropdown. It allows this designated factory to access secret in key vault.
+2. **Grant the managed identity access to your Azure Key Vault.** In your key vault -> Access policies -> Add Access Policy, search this managed identity to grant **Get** and **List** permissions in the Secret permissions dropdown. It allows this designated factory to access secret in key vault.
 3. **Create a linked service pointing to your Azure Key Vault.** Refer to [Azure Key Vault linked service](#azure-key-vault-linked-service).
-4. **Create data store linked service, inside which reference the corresponding secret stored in key vault.** Refer to [reference secret stored in key vault](#reference-secret-stored-in-key-vault).
+4. **Create the data store linked service. In its configuration, reference the corresponding secret stored in Azure Key Vault.** Refer to [Reference a secret stored in Azure Key Vault](#reference-secret-stored-in-key-vault).
 
 ## Azure Key Vault linked service
 
@@ -49,11 +43,11 @@ The following properties are supported for Azure Key Vault linked service:
 
 Select **Connections** -> **Linked Services** -> **New**. In New linked service, search for and select "Azure Key Vault":
 
-![Search Azure Key Vault](media/store-credentials-in-key-vault/search-akv.png)
+:::image type="content" source="media/store-credentials-in-key-vault/search-azure-key-vault.png" alt-text="Search Azure Key Vault":::
 
 Select the provisioned Azure Key Vault where your credentials are stored. You can do **Test Connection** to make sure your AKV connection is valid. 
 
-![Configure Azure Key Vault](media/store-credentials-in-key-vault/configure-akv.png)
+:::image type="content" source="media/store-credentials-in-key-vault/configure-azure-key-vault.png" alt-text="Configure Azure Key Vault":::
 
 **JSON example:**
 
@@ -87,7 +81,7 @@ Select **Azure Key Vault** for secret fields while creating the connection to yo
 >[!TIP]
 >For connectors using connection string in linked service like SQL Server, Blob storage, etc., you can choose either to store only the secret field e.g. password in AKV, or to store the entire connection string in AKV. You can find both options on the UI.
 
-![Configure Azure Key Vault secret](media/store-credentials-in-key-vault/configure-akv-secret.png)
+:::image type="content" source="media/store-credentials-in-key-vault/configure-azure-key-vault-secret.png" alt-text="Configure Azure Key Vault secret":::
 
 **JSON example: (see the "password" section)**
 
@@ -114,5 +108,5 @@ Select **Azure Key Vault** for secret fields while creating the connection to yo
 }
 ```
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

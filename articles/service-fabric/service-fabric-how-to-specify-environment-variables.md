@@ -1,9 +1,14 @@
 ---
 title: Specify environment variables for services
 description: Shows you how to use environment variables for applications in Service Fabric
-ms.topic: conceptual
-ms.date: 12/06/2017
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # How to specify environment variables for services in Service Fabric
 
 This article shows you how to specify environment variables for a service or container in Service Fabric.
@@ -31,7 +36,7 @@ In this example, you set an environment variable for a container. The article as
 
     ```xml
       <ServiceManifestImport>
-        <ServiceManifestVersion="1.0.0" />
+        <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
         <EnvironmentOverrides CodePackageRef="MyCode">
           <EnvironmentVariable Name="MyEnvVariable" Value="OverrideValue"/>
         </EnvironmentOverrides>
@@ -48,6 +53,6 @@ environment:
 ```
 
 ## Next steps
-To learn more about some of the core concepts that are discussed in this article, see the [Manage applications for multiple environments articles](service-fabric-manage-multiple-environment-app-configuration.md).
+To learn more about some of the core concepts that are discussed in this article, see the [Manage applications for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 
 For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).

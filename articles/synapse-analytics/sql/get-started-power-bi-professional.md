@@ -1,14 +1,13 @@
 ---
 title: Connect to Synapse SQL with Power BI Professional
 description: In this tutorial, we will go through steps how to connect Power BI desktop to serverless SQL pool.
-services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 
 
@@ -18,7 +17,7 @@ ms.reviewer: jrasnick
 >
 > - [Azure Data Studio](get-started-azure-data-studio.md)
 > - [Power BI](get-started-power-bi-professional.md)
-> - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> - [Visual Studio](../sql/get-started-visual-studio.md)
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
@@ -78,7 +77,7 @@ IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastor
 DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
 GO
 
--- Create credentials for Census Data container which resides in a azure open data storage account
+-- Create credentials for Census Data container which resides in an azure open data storage account
 -- There is no secret. We are using public storage account which doesn't need secret
 CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
@@ -92,12 +91,12 @@ Open the Power BI desktop application and select the **Get data** option.
 
 ![Open Power BI desktop application and select get data.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
-### Step 1 - Select data source
+### Step 1: Select data source
 
 Select **Azure** in the menu and then **Azure SQL Database**.
 ![Select data source.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
-### Step 2 - Select database
+### Step 2: Select database
 
 Write the URL for the database and the name of the database where the view resides.
 ![Select database on the endpoint.](./media/get-started-power-bi-professional/step-2-db.png)

@@ -2,7 +2,9 @@
 title: About Azure VM backup
 description: In this article, learn how the Azure Backup service backs up Azure Virtual machines, and how to follow best practices.
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/27/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # An overview of Azure VM backup
@@ -19,26 +21,7 @@ Azure Backup also has specialized offerings for database workloads like [SQL Ser
 
 Here's how Azure Backup completes a backup for Azure VMs:
 
-1. For Azure VMs that are selected for backup, Azure Backup starts a backup job according to the backup schedule you specify.
-1. During the first backup, a backup extension is installed on the VM if the VM is running.
-    - For Windows VMs, the [VMSnapshot extension](../virtual-machines/extensions/vmsnapshot-windows.md) is installed.
-    - For Linux VMs, the [VMSnapshotLinux extension](../virtual-machines/extensions/vmsnapshot-linux.md) is installed.
-1. For Windows VMs that are running, Backup coordinates with Windows Volume Shadow Copy Service (VSS) to take an app-consistent snapshot of the VM.
-    - By default, Backup takes full VSS backups.
-    - If Backup can't take an app-consistent snapshot, then it takes a file-consistent snapshot of the underlying storage (because no application writes occur while the VM is stopped).
-1. For Linux VMs, Backup takes a file-consistent backup. For app-consistent snapshots, you need to manually customize pre/post scripts.
-1. After Backup takes the snapshot, it transfers the data to the vault.
-    - The backup is optimized by backing up each VM disk in parallel.
-    - For each disk that's being backed up, Azure Backup reads the blocks on the disk and identifies and transfers only the data blocks that changed (the delta) since the previous backup.
-    - Snapshot data might not be immediately copied to the vault. It might take some hours at peak times. Total backup time for a VM will be less than 24 hours for daily backup policies.
-1. Changes made to a Windows VM after Azure Backup is enabled on it are:
-    - Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 is installed in the VM
-    - Startup type of Volume Shadow Copy service (VSS) changed to automatic from manual
-    - IaaSVmProvider Windows service is added
-
-1. When the data transfer is complete, the snapshot is removed, and a recovery point is created.
-
-![Azure virtual machine backup architecture](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
+[!INCLUDE [azure-vm-backup-process.md](../../includes/azure-vm-backup-process.md)]
 
 ## Encryption of Azure VM backups
 
@@ -91,6 +74,9 @@ The following table explains the different types of snapshot consistency:
 **Initial backup** | Although the total backup time for incremental backups is less than 24 hours, that might not be the case for the first backup. The time needed for the initial backup will depend on the size of the data and when the backup is processed.
 **Restore queue** | Azure Backup processes restore jobs from multiple storage accounts at the same time, and it puts restore requests in a queue.
 **Restore copy** | During the restore process, data is copied from the vault to the storage account.<br/><br/> The total restore time depends on the I/O operations per second (IOPS) and the throughput of the storage account.<br/><br/> To reduce the copy time, select a storage account that isn't loaded with other application writes and reads.
+
+> [!Note]
+> Azure Backup now enables you to back up your Azure VMs multiple times a day using the Enhanced policy. With this capability, you can also define the duration in which your backup jobs would trigger and align your backup schedule with the working hours when there are frequent updates to Azure Virtual Machines. [Learn more](backup-azure-vms-enhanced-policy.md).
 
 ### Backup performance
 

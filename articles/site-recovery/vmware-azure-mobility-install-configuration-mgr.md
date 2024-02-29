@@ -1,13 +1,19 @@
 ---
 title: Automate Mobility Service for disaster recovery of installation in Azure Site Recovery
 description: How to automatically install the Mobility Service for VMware /physical server disaster recovery with Azure Site Recovery.
-author: Rajeswari-Mamilla
+services: site-recovery
+author: ankitaduttaMSFT
+manager: gaggupta
+ms.service: site-recovery
 ms.topic: how-to
-ms.date: 2/5/2020
-ms.author: ramamill
+ms.author: ankitadutta
+ms.date: 05/02/2022
 ---
 
 # Automate Mobility Service installation
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 This article describes how to automate installation and updates for the Mobility Service agent in [Azure Site Recovery](site-recovery-overview.md).
 
@@ -15,7 +21,7 @@ When you deploy Site Recovery for disaster recovery of on-premises VMware VMs an
 
 - **Push installation**: Let Site Recovery install  the Mobility service agent when you enable replication for a machine in the Azure portal.
 - **Manual installation**: Install the Mobility service manually on each machine. [Learn more](vmware-physical-mobility-service-overview.md) about push and manual installation.
-- **Automated deployment**: Automate installation with software deployment tools such as Microsoft Endpoint Configuration Manager, or third-party tools such as JetPatch.
+- **Automated deployment**: Automate installation with software deployment tools such as Microsoft Configuration Manager, or third-party tools such as JetPatch. [Learn more](vmware-physical-mobility-service-overview.md)
 
 Automated installation and updating provides a solution if:
 
@@ -267,7 +273,7 @@ fi
 Install()
 {
     echo "Perform Installation." >> /tmp/MobSvc/sccm.log
-    ./install -q -d ${INSTALL_DIR} -r MS -v VmWare
+    ./install -q -d ${INSTALL_DIR} -r Agent -v VmWare
     RET_VAL=$?
     echo "Installation Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
     if [ $RET_VAL -eq 0 ]; then

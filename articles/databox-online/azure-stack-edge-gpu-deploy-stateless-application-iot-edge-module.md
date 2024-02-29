@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Use IoT Edge module to run a Kubernetes stateless application on your Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how you can use an IoT Edge module to deploy a stateless application on your Azure Stack Edge Pro device.
 
@@ -50,7 +52,7 @@ Take the following steps to add a webserver app module on your Azure Stack Edge 
 1. In the **Add IoT Edge module**:
 
     1. Specify a **Name** for your webserver app module that you want to deploy.
-    2. Under **Module settings** tab, provide an **Image URI** for your module image. A module matching the provided name and tags is retrieved. In this case, `nginx:stable` will pull a stable nginx image (tagged as stable) from the public [Docker repository](https://hub.docker.com/_/nginx/).
+    2. Under **Module settings** tab, provide an **Image URI** for your module image. A module matching the provided name and tags is retrieved. In this case, `mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine` will pull an nginx image (tagged as 1.15.5-alpine) from the public `mcr.microsoft.com` registry.
 
         ![Add IoT Edge module](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/set-module-settings-1.png)    
 

@@ -7,12 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 01/19/2024
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device by using APIs, so that I can efficiently manage my VMs.
+#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device by using APIs, so that I can efficiently manage my VMs. 
 ---
 
 # VM sizes and types for Azure Stack Edge Pro 
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes the supported sizes for the virtual machines running on your Azure Stack Edge Pro devices. Use this article before you deploy virtual machines on your Azure Stack Edge Pro devices.
 
@@ -27,4 +29,4 @@ Scale sets, availability sets, and snapshots aren't supported.
 
 ## Next steps
 
-[Deploy VMs on your Azure Stack Edge Pro GPU device via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
+- [Deploy VMs on your Azure Stack Edge Pro GPU device via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).

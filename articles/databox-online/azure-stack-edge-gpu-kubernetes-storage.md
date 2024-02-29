@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 10/25/2021
 ms.author: alkohli
 ---
 # Kubernetes storage management on your Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 On your Azure Stack Edge Pro device, a Kubernetes cluster is created when you configure compute role. Once the Kubernetes cluster is created, then containerized applications can be deployed on the Kubernetes cluster in pods. There are distinct ways to provide storage to pods in your Kubernetes cluster. 
 
@@ -97,6 +99,8 @@ spec:
   volumeName: <nfs-or-smb-share-name-here> 
   storageClassName: ""
 ```
+
+To get the value of the `volumeName` field, select the Local mount point for Edge compute modules when you select the SMB or NFS share after creation. This is the same as the share name. 
 
 For more information, see [Deploy a stateful application via static provisioning on your Azure Stack Edge Pro via kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
 

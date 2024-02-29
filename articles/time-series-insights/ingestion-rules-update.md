@@ -2,17 +2,18 @@
 title: 'Upcoming changes to the ingestion and flattening rules in Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Ingestion rule changes
 ms.service: time-series-insights
-services: time-series-insights
-author: lyrana
-ms.author: lyhughes
-manager: dpalled
-ms.workload: big-data
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
 ---
 
 # Upcoming changes to JSON flattening and escaping rules for new environments
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 > [!IMPORTANT]
 > These changes will be applied to *newly created* Microsoft Azure Time Series Insights Gen2 environments only. The changes don't apply to Gen1 environments.

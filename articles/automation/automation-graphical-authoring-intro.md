@@ -3,15 +3,22 @@ title: Author graphical runbooks in Azure Automation
 description: This article tells how to author a graphical runbook without working with code.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2018
-ms.topic: conceptual
+ms.date: 10/03/2023
+ms.topic: conceptual 
+ms.custom:
 ---
 
 # Author graphical runbooks in Azure Automation
 
+> [!IMPORTANT]
+> Azure Automation Run as accounts, including  Classic Run as accounts have retired on **30 September 2023** and replaced with [Managed Identities](automation-security-overview.md#managed-identities). You would no longer be able to create or renew Run as accounts through the Azure portal. For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#sample-scripts).
+
 All runbooks in Azure Automation are Windows PowerShell workflows. Graphical runbooks and graphical PowerShell Workflow runbooks generate PowerShell code that the Automation workers run but that you cannot view or modify. You can convert a graphical runbook to a graphical PowerShell Workflow runbook, and vice versa. However, you can't convert these runbooks to a textual runbook. Additionally, the Automation graphical editor can't import a textual runbook.
 
 Graphical authoring allows you to create runbooks for Azure Automation without the complexities of the underlying Windows PowerShell or PowerShell Workflow code. You can add activities to the canvas from a library of cmdlets and runbooks, link them together, and configure them to form a workflow. If you have ever worked with System Center Orchestrator or Service Management Automation (SMA), graphical authoring should look familiar. This article provides an introduction to the concepts you need to get started creating a graphical runbook.
+
+> [!NOTE]
+> You can't add a digital signature to a Graphical runbook. This feature is not supported in Azure Automation.
 
 ## Overview of graphical editor
 
@@ -56,7 +63,8 @@ Select an activity on the canvas to configure its properties and parameters in t
 
 A parameter set defines the mandatory and optional parameters that accept values for a particular cmdlet. All cmdlets have at least one parameter set, and some have several sets. If a cmdlet has multiple parameter sets, you must select the one to use before you can configure parameters. You can change the parameter set used by an activity by selecting **Parameter Set** and choosing another set. In this case, any parameter values that you have already configured are lost.
 
-In the following example, the [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) cmdlet has three parameter sets. The example uses one set called **ListVirtualMachineInResourceGroupParamSet**, with a single optional parameter, for returning all virtual machines in a resource group. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
+In the following example, the [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet has three parameter sets. The example uses one set called **ListLocationVirtualMachinesParamSet**, with a single optional parameter, to return the location for the virtual machines to be listed. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
+
 
 ![Parameter set](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -323,19 +331,19 @@ Use [comparison operators](/powershell/module/microsoft.powershell.core/about/ab
 For example, the following condition determines if the virtual machine from an activity named `Get-AzureVM` is currently stopped.
 
 ```powershell-interactive
-$ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+$ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped"
 ```
 
 The following condition determines if the same virtual machine is in any state other than stopped.
 
 ```powershell-interactive
-$ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+$ActivityOutput["Get-AzureVM"].PowerState -ne "Stopped"
 ```
 
 You can join multiple conditions in your runbook using a [logical operator](/powershell/module/microsoft.powershell.core/about/about_logical_operators), such as `-and` or `-or`. For example, the following condition checks to see if the virtual machine in the previous example is in a state of Stopped or Stopping.
 
 ```powershell-interactive
-($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
+($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopping")
 ```
 
 ### Use hashtables
@@ -368,32 +376,11 @@ The following example uses output from an activity called `Get Twitter Connectio
 
 ## Authenticate to Azure resources
 
-Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](./automation-security-overview.md), also referred to as a service principal, is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a graphical runbook by adding the `AzureRunAsConnection` connection asset, which uses the PowerShell [Get-AutomationConnection](/system-center/sma/manage-global-assets) cmdlet, to the canvas. You can also add the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. This scenario is illustrated in the following example.
+Runbooks in Azure Automation that manage Azure resources require authentication to Azure. [Managed Identities](enable-managed-identity-for-automation.md) is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a graphical runbook by importing the following runbook into the automation account, which leverages the system-assigned Managed Identity of the automation account to authenticate and access Azure resources.
 
-![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
-
-The `Get Run As Connection` activity, or `Get-AutomationConnection`, is configured with a constant value data source named `AzureRunAsConnection`.
-
-![Run As Connection Configuration](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)
-
-The next activity, `Connect-AzAccount`, adds the authenticated Run As account for use in the runbook.
-
-![Connect-AzAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
-
->[!NOTE]
->For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. Note that these aliases are not available for your graphical runbooks. A graphical runbook can only use `Connect-AzAccount` itself.
-
-For the parameter fields **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID**, specify the name of the property for the field path, since the activity outputs an object with multiple properties. Otherwise, when the runbook executes, it fails while attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
-
-Some subscribers create an Automation account using an [Azure AD user account](./shared-resources/credentials.md) to manage Azure classic deployment or for Azure Resource Manager resources. To maintain backward compatibility for these subscribers, the authentication mechanism to use in your runbook is the `Add-AzureAccount` cmdlet with a [credential asset](./shared-resources/credentials.md). The asset represents an Active Directory user with access to the Azure account.
-
-You can enable this functionality for your graphical runbook by adding a credential asset to the canvas, followed by an `Add-AzureAccount` activity that uses the credential asset for its input. See the following example.
-
-![Authentication activities](media/automation-graphical-authoring-intro/authentication-activities.png)
-
-The runbook must authenticate at its start and after each checkpoint. Thus you must use an `Add-AzureAccount` activity after any `Checkpoint-Workflow` activity. You do not need to use an additional credential activity.
-
-![Activity output](media/automation-graphical-authoring-intro/authentication-activity-output.png)
+```powershell-interactive
+wget https://raw.githubusercontent.com/azureautomation/runbooks/master/Utility/AzMI/AzureAutomationTutorialWithIdentityGraphical.graphrunbook -outfile AzureAutomationTutorialWithIdentityGraphical.graphrunbook
+```
 
 ## Export a graphical runbook
 
@@ -427,7 +414,6 @@ You have the option to revert to the Published version of a runbook. This operat
 
 ## Next steps
 
-* To get started with graphical runbooks, see [Tutorial: Create a graphical runbook](learn/automation-tutorial-runbook-graphical.md).
+* To get started with graphical runbooks, see [Tutorial: Create a graphical runbook](./learn/powershell-runbook-managed-identity.md).
 * To know more about runbook types and their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md).
-* To understand how to authenticate using the Automation Run As account, see [Run As account](automation-security-overview.md#run-as-account).
-* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/#automation).

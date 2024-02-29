@@ -1,19 +1,17 @@
 ---
 title: Using IDENTITY to create surrogate keys
 description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in dedicated SQL pool.
-services: synapse-analytics
-author:  XiaoyuMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
+author: mstehrani
+ms.author: emtehran
+ms.reviewer: wiassaf
 ms.date: 07/20/2020
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom: azure-synapse
 ---
 
-# Using IDENTITY to create surrogate keys using dedicated SQL pool in AzureSynapse Analytics
+# Using IDENTITY to create surrogate keys using dedicated SQL pool in Azure Synapse Analytics
 
 In this article, you'll find recommendations and examples for using the IDENTITY property to create surrogate keys on tables in dedicated SQL pool.
 
@@ -21,7 +19,9 @@ In this article, you'll find recommendations and examples for using the IDENTITY
 
 A surrogate key on a table is a column with a unique identifier for each row. The key is not generated from the table data. Data modelers like to create surrogate keys on their tables when they design data warehouse models. You can use the IDENTITY property to achieve this goal simply and effectively without affecting load performance.
 > [!NOTE]
-> In Azure Synapse Analytics, the IDENTITY value increases on its own in each distribution and does not overlap with IDENTITY values in other distributions.  The IDENTITY value in Synapse is not guaranteed to be unique if the user explicitly inserts a duplicate value with “SET IDENTITY_INSERT ON” or reseeds IDENTITY. For details, see [CREATE TABLE (Transact-SQL) IDENTITY (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true). 
+> In Azure Synapse Analytics: 
+> - The IDENTITY value increases on its own in each distribution and does not overlap with IDENTITY values in other distributions.  The IDENTITY value in Synapse is not guaranteed to be unique if the user explicitly inserts a duplicate value with “SET IDENTITY_INSERT ON” or reseeds IDENTITY. For details, see [CREATE TABLE (Transact-SQL) IDENTITY (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true). 
+> - UPDATE on distribution column does not guarantee IDENTITY value to be unique. Use [DBCC CHECKIDENT (Transact-SQL)](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?view=azure-sqldw-latest&preserve-view=true) after UPDATE on distribution column to verify uniqueness.
 
 
 ## Creating a table with an IDENTITY column
@@ -159,7 +159,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > It's not possible to use `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.
 >
 
-For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for dedicated SQL pool](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
+For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for dedicated SQL pool](design-elt-data-loading.md) and  [Loading best practices](../sql/data-loading-best-practices.md).
 
 ## System views
 
@@ -241,4 +241,4 @@ AND     tb.name = 'T1'
 
 - [Table overview](sql-data-warehouse-tables-overview.md)
 - [CREATE TABLE (Transact-SQL) IDENTITY (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [DBCC CHECKIDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)

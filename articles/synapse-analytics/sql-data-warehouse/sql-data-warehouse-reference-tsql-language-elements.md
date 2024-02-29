@@ -1,16 +1,15 @@
 ---
 title: T-SQL language elements for dedicated SQL pool
 description: Links to the documentation for T-SQL language elements supported for dedicated SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
-author: XiaoyuMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
+author: mstehrani
+ms.author: emtehran
+ms.reviewer: wiassaf
 ms.date: 06/13/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - azure-synapse
 ---
 
 # T-SQL language elements for dedicated SQL pool in Azure Synapse Analytics 

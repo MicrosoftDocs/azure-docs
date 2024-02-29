@@ -1,11 +1,14 @@
 ---
 title: Azure Service Fabric deployment with FabricClient 
 description: Use the FabricClient APIs to deploy and remove applications in Service Fabric.
-
-ms.topic: conceptual
-ms.date: 01/19/2018
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Deploy and remove applications using FabricClient
 > [!div class="op_single_selector"]
 > * [Resource Manager](service-fabric-application-arm-resource.md)
@@ -32,7 +35,7 @@ After you deploy an application and run an instance in the cluster, you can dele
 If you use Visual Studio for deploying and debugging applications on your local development cluster, all the preceding steps are handled automatically through a PowerShell script.  This script is found in the *Scripts* folder of the application project. This article provides background on what that script is doing so that you can do the same operations outside of Visual Studio. 
  
 ## Connect to the cluster
-Connect to the cluster by creating a [FabricClient](/dotnet/api/system.fabric.fabricclient) instance before you run any of the code examples in this article. For examples of connecting to a local development cluster or a remote cluster or cluster secured using Azure Active Directory, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). To connect to the local development cluster, run the following example:
+Connect to the cluster by creating a [FabricClient](/dotnet/api/system.fabric.fabricclient) instance before you run any of the code examples in this article. For examples of connecting to a local development cluster or a remote cluster or cluster secured using Microsoft Entra ID, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). To connect to the local development cluster, run the following example:
 
 ```csharp
 // Connect to the local cluster.

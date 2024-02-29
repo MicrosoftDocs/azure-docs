@@ -4,7 +4,7 @@ description: Get answers to common questions about working with Apache Hive and 
 keywords: Azure HDInsight, Hive, FAQ, troubleshooting guide, common questions
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/15/2019
+ms.date: 10/16/2023
 ---
 
 # Troubleshoot Apache Hive by using Azure HDInsight
@@ -155,4 +155,4 @@ There are two ways to collect the Tez DAG data:
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]

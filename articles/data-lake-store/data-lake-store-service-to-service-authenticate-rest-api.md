@@ -1,12 +1,12 @@
 ---
 title: REST - Service-to-service authentication - Data Lake Storage Gen1 - Azure
-description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 and Azure Active Directory using the REST API.
+description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 and Microsoft Entra ID using the REST API.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Service-to-service authentication with Azure Data Lake Storage Gen1 using REST API
@@ -24,7 +24,7 @@ In this article, you learn how to use the REST API to do service-to-service auth
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Create an Azure Active Directory "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Create a Microsoft Entra ID "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Storage Gen1 using Microsoft Entra ID](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## Service-to-service authentication
 

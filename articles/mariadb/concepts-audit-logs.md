@@ -1,14 +1,16 @@
 ---
 title: Audit logs - Azure Database for MariaDB
 description: Describes the audit logs available in Azure Database for MariaDB, and the available parameters for enabling logging levels.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
-ms.date: 6/24/2020
+ms.date: 06/24/2022
 ---
 
 # Audit Logs in Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 In Azure Database for MariaDB, the audit log is available to users. The audit log can be used to track database-level activity and is commonly used for compliance.
 
@@ -157,7 +159,7 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
     | where Category == 'MySqlAuditLogs'
     | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
     | order by TimeGenerated asc nulls last
-    ``` 
+    ```
 
 ## Next steps
 

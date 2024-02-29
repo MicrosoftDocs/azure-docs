@@ -1,23 +1,23 @@
 ---
 title: TypingDNA with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
-description: Learn how to integrate Azure AD B2C authentication with TypingDNA to help with Identity verification and proofing based on user typing pattern, provides ID verification solutions forcing multi-factor authentication and helps to comply with SCA requirements for Payment Services Directive 2 (PSD2).
+description: Learn how to integrate Azure AD B2C authentication with TypingDNA to help with Identity verification and proofing based on user typing pattern, provides ID verification solutions forcing multifactor authentication and helps to comply with SCA requirements for Payment Services Directive 2 (PSD2).
 author: gargi-sinha
-manager: celestedg
-
+manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
 ms.topic: reference
-ms.date: 06/25/2020
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: I'm an Azure AD B2C administrator, and I want to integrate TypingDNA with Azure AD B2C. I need to comply with Payment Services Directive 2 (PSD2) transaction requirements through keystroke dynamics and strong customer authentication.
 ---
 
 # Tutorial for configuring TypingDNA with Azure Active Directory B2C
 
 In this walkthrough, learn how to integrate a sample online payment app in Azure Active Directory B2C with the TypingDNA  APP. By using TypingDNA App, Azure AD B2C customers can comply with [Payment Services Directive 2](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) (PSD2) transaction requirements through keystroke dynamics and strong customer authentication. Find more about TypingDNA [here](https://www.typingdna.com/).
 
- Azure AD B2C uses TypingDNA's technologies to capture the users typing characteristics and have them recorded and analyzed for familiarity on each authentication. This adds a layer of protection related to the riskiness of an authentication and  evaluates the risk levels. Azure AD B2C can invoke other mechanisms to provide further confidence the user is who they claim to be by invoking Azure AD MFA, forcing email verification, or any other custom logic for your scenario.
+ Azure AD B2C uses TypingDNA's technologies to capture the users typing characteristics and have them recorded and analyzed for familiarity on each authentication. This adds a layer of protection related to the riskiness of an authentication and  evaluates the risk levels. Azure AD B2C can invoke other mechanisms to provide further confidence the user is who they claim to be by invoking Microsoft Entra multifactor authentication, forcing email verification, or any other custom logic for your scenario.
 
 >[!NOTE]
 > This sample policy is based on [SocialAndLocalAccountsWithMfa](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) starter pack.
@@ -57,7 +57,7 @@ The REST API calls are modeled with `validationTechnicalProfiles` within `LocalA
 
 ### Sign-in
 
-At subsequent sign-in's, the user's typing pattern is computed in the same manner as at sign up using the [custom HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml). Once the typing profile is within the Azure AD B2C claim bag, Azure AD B2C will call your API to call TypingDNA's REST API endpoint. The [check user](https://api.typingdna.com/index.html#api-API_Services-GetUser) endpoint is called to confirm the user exists. Next, [verify pattern](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) endpoint is called to return the `net_score`. This `net_score` is an indication of how close the typing pattern was to the original at sign up.
+At subsequent sign-in's, the user's typing pattern is computed in the same manner as at sign up using the [custom HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml). Once the typing profile is within the Azure AD B2C claim bag, Azure AD B2C will call your API to call the TypingDNA REST API endpoint. The [check user](https://api.typingdna.com/index.html#api-API_Services-GetUser) endpoint is called to confirm the user exists. Next, [verify pattern](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) endpoint is called to return the `net_score`. This `net_score` is an indication of how close the typing pattern was to the original at sign up.
 
 This typing pattern is modeled with `validationTechnicalProfiles` within `SelfAsserted-LocalAccountSignin-Email-TDNA`:
 
@@ -109,7 +109,7 @@ These thresholds should be adjusted on your use case.
 
 - After your API has evaluated the `net_score`, it should return a boolean claim to B2C - `promptMFA`.
 
-- The `promptMFA` claim is used within a pre-condition to conditionally execute Azure AD MFA.
+- The `promptMFA` claim is used within a pre-condition to conditionally execute Microsoft Entra multifactor authentication.
 
 ```xml
 
@@ -158,7 +158,8 @@ These thresholds should be adjusted on your use case.
 2. Replace all instances of `apiKey` and `apiSecret` in [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) solution with the credentials from your TypingDNA dashboard
 3. Host the HTML files at your provider of choice following the CORS requirements [here](./customize-ui-with-html.md#3-configure-cors)
 4. Replace the LoadURI elements for the `api.selfasserted.tdnasignup` and `api.selfasserted.tdnasignin` content definitions in the `TrustFrameworkExtensions.xml` file to the URI of your hosted HTML files respectively.
-5. Create a B2C policy key under identity experience framework in the Azure AD blade in the **Azure portal**. Use the `Generate` option and name this key `tdnaHashedId`.
+5. Create a B2C policy key under identity experience framework in the Microsoft Entra blade in the Azure portal. Use the `Generate` option and name this key `tdnaHashedId`.
+
 6. Replace the TenantId's in the policy files
 7. Replace the ServiceURLs in all TypingDNA REST API technical profiles (REST-TDNA-VerifyUser, REST-TDNA-SaveUser, REST-TDNA-CheckUser) with the endpoint for your [TypingDNA-API-Interface API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
 8. Upload [policy files](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/policy) to your tenant.
@@ -190,6 +191,6 @@ These thresholds should be adjusted on your use case.
 
 For additional information, review the following articles:
 
-- [Custom policies in AAD B2C](./custom-policy-overview.md)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in AAD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

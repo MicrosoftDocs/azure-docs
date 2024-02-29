@@ -4,7 +4,7 @@ description: Index of Hadoop stack trace error messages in Azure HDInsight. Find
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.date: 01/03/2020
+ms.date: 07/25/2023
 ---
 
 # Index of Apache Hadoop in HDInsight troubleshooting articles

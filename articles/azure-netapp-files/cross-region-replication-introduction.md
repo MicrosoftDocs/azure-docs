@@ -1,68 +1,86 @@
 ---
 title: Cross-region replication of Azure NetApp Files volumes | Microsoft Docs
-description: Describes what Azure NetApp Files cross-region replication does, supported region pairs, service-level objectives, data durability, and cost model.  
+description: Describes what Azure NetApp Files cross-region replication does, supported region pairs, service-level objectives, data durability, and cost model.
 services: azure-netapp-files
-documentationcenter: ''
-author: b-juche
-manager: ''
-editor: ''
-
-ms.assetid:
+author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.author: b-juche
+ms.date: 05/08/2023
+ms.author: anfdocs
 ms.custom: references_regions
 ---
 # Cross-region replication of Azure NetApp Files volumes
 
-The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  This capability enables you to failover your critical application in case of a region-wide outage or disaster.
-
-> [!IMPORTANT]
-> The cross-region replication feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
+The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
-Azure NetApp Files volume replication is supported between various [Azure regional pairs](/azure/best-practices-availability-paired-regions#azure-regional-pairs) and non-pairs. Azure NetApp Files volume replication is currently available between the following regions:  
+Azure NetApp Files volume replication is supported between various [Azure regional pairs](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) and non-standard pairs. Azure NetApp Files volume replication is currently available between the following regions. You can replicate Azure NetApp Files volumes from Regional Pair A to Regional Pair B, and vice versa.  
 
 ### Azure regional pairs
 
-* East US and West US
-* East US 2 and Central US
-* Australia East and Australia Southeast
-* Canada Central and Canada East
-* South India and Central India 
-* Germany West Central and Germany North
-* Japan East and Japan West
-* North Europe and West Europe
-* UK South and UK West
+| Geography | Regional Pair A | Regional Pair B  |
+|:--- |:--- |:--- |
+| Australia | Australia Central | Australia Central 2 |
+| Australia | Australia East | Australia Southeast |
+| Asia-Pacific | East Asia | Southeast Asia | 
+| Brazil | Brazil South | Brazil Southeast |
+| Brazil/North America | Brazil South | South Central US |
+| Canada | Canada Central | Canada East |
+| Europe | North Europe | West Europe |
+| Germany | Germany West Central | Germany North |
+| India | Central India |South India |
+| Japan | Japan East | Japan West |
+| Korea | Korea Central | Korea South |
+| North America | East US | West US |
+| North America | East US 2 | Central US |
+| North America | North Central US | South Central US|
+| North America | West US 3 | East US |
+| Norway | Norway East | Norway West |
+| Switzerland | Switzerland North | Switzerland West |
+| UK | UK South | UK West |
+| United Arab Emirates | UAE North | UAE Central |
+| US Government | US Gov Arizona | US Gov Texas |
+| US Government | US Gov Virginia | US Gov Texas |
 
-### Azure regional non-pairs
+### Azure regional non-standard pairs
 
-*	West US 2 and East US
-*	South Central US and Central US
-*	South Central US and East US
-*	South Central US and East US 2
-*	East US and East US 2
-*	Australia East and Southeast Asia 
-*	Germany West Central and UK South
+| Geography | Regional Pair A | Regional Pair B  |
+|:--- |:--- |:--- |
+| Australia/Southeast Asia | Australia East | Southeast Asia |
+| France/Europe | France Central | West Europe |
+| Germany/UK | Germany West Central | UK South |
+| Germany/Europe | Germany West Central | West Europe | 
+| Germany/France | Germany West Central | France Central |
+| Qatar/Europe | Qatar Central | West Europe |
+| North America | East US | East US 2 |
+| North America | East US 2| West US 2 |
+| North America | North Central US | East US 2|
+| North America | South Central US | East US |
+| North America | South Central US | East US 2 |
+| North America | South Central US | Central US |
+| North America | West US 2 | East US |
+| North America | West US 2 | West US 3 |
+| US Government | US Gov Arizona | US Gov Virginia |
+
+>[!NOTE]
+>There may be a discrepancy in the size and number of snapshots between source and destination. This discrepancy is expected. Snapshot policies and replication schedules will influence the number of snapshots. Snapshot policies and replication schedules, combined with the amount of data changed between snapshots, will influence the size of snapshots. To learn more about snapshots, refer to [How Azure NetApp Files snapshots work](snapshots-introduction.md).
 
 ## Service-level objectives
 
-Recovery Point Objectives (RPO), or the maximum tolerable data loss, is defined as twice the replication schedule.  The actual RPO observed might vary based on factors such as the total dataset size along with the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.   
+Recovery Point Objective (RPO) indicates the point in time to which data can be recovered. The RPO target is typically less than twice the replication schedule, but it can vary. In some cases, it can go beyond the target RPO based on factors such as the total dataset size, the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.   
 
-* For the replication schedule of 10 minutes, the maximum RPO is 20 minutes.  
-* For the hourly replication schedule, the maximum RPO is two hours.  
-* For the daily replication schedule, the maximum RPO is two days.  
+Cross-region replication supports three replication schedules: 10 minutes, hourly, and daily. 
+
+* For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes.  
+* For the hourly replication schedule, the typical RPO is less than two hours.  
+* For the daily replication schedule, the typical RPO is less than two days.  
 
 Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute.
 
 ## Cost model for cross-region replication  
 
-With Azure NetApp Files cross-region replication, you pay only for the amount of data you replicate. There is no setup charges or minimum usage fee. The replication price is based on the replication frequency and the region of the *destination* volume you choose during the initial replication configuration. See the [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/) page for more information.  
+With Azure NetApp Files cross-region replication, you pay only for the amount of data you replicate. There's no setup charge or minimum usage fee. The replication price is based on the replication frequency and the region of the *destination* volume you choose during the initial replication configuration. For more information, see the [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/) page.  
 
 Regular Azure NetApp Files storage capacity charge applies to the replication destination volume (also called the *data protection* volume). 
 
@@ -77,7 +95,7 @@ Assume the following situations:
 * Your *source* volume is from the Azure NetApp Files *Premium* service level. It has a volume quota size of 1000 GiB and a volume consumed size of 500 GiB at the beginning of the first day of a month. The volume is in the *US South Central* region.
 * Your *destination* volume is from the Azure NetApp Files *Standard* service level. It is in the *US East 2* region.
 * You’ve configured an *hourly* based cross-region replication between the two volumes above. Therefore, the price of replication is $0.12 per GiB.
-* For simplicity, assume your source volume has a constant 0.5-GiB data change every hour, but the total volume consumed size does not grow (remains at 500 GiB). 
+* For simplicity, assume your source volume has a constant 0.5-GiB data change every hour, but the total volume consumed size doesn't grow (remains at 500 GiB). 
 
 After the initial setup, the baseline replication happens immediately.  
 
@@ -97,7 +115,7 @@ Regular Azure NetApp Files storage capacity charge applies to the destination vo
 
 #### Example 2: Month 2 incremental replications and resync replications  
 
-Assume you have a source volume, a destination volume, and a replication relationship between the two set up as described in Example 1. For 29 days of the second month (a 30-day month), the hourly replications occurred as expected.
+Assume you have a source volume, a destination volume, and a replication relationship between the two setups as described in Example 1. For 29 days of the second month (a 30-day month), the hourly replications occurred as expected.
 
 * Sum of data amount replicated across incremental replications for 29 days: `0.5 GiB * 24 hours * 29 days = 348 GiB`
 
@@ -113,12 +131,13 @@ Therefore, by the end of Month 2, the total cross-region replication charge is a
 Regular Azure NetApp Files storage capacity charge for Month 2 applies to the destination volume.
 
 ## Next steps
+
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
-
-
+* [Test disaster recovery for Azure NetApp Files](test-disaster-recovery.md)

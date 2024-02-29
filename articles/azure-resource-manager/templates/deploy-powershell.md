@@ -2,16 +2,20 @@
 title: Deploy resources with PowerShell and template
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 05/22/2023
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Deploy resources with ARM templates and Azure PowerShell
 
 This article explains how to use Azure PowerShell with Azure Resource Manager templates (ARM templates) to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [Deploy resources with Bicep and Azure PowerShell](../bicep/deploy-powershell.md).
+
 ## Prerequisites
 
-You need a template to deploy. If you don't already have one, download and save an [example template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) from the Azure Quickstart templates repo. The local file name used in this article is _C:\MyTemplates\azuredeploy.json_.
+You need a template to deploy. If you don't already have one, download and save an [example template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json) from the Azure Quickstart templates repo. The local file name used in this article is _C:\MyTemplates\azuredeploy.json_.
 
 You need to install Azure PowerShell and connect to Azure:
 
@@ -19,6 +23,8 @@ You need to install Azure PowerShell and connect to Azure:
 - **Connect to Azure by using [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. If you have multiple Azure subscriptions, you might also need to run [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). For more information, see [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps).
 
 If you don't have PowerShell installed, you can use Azure Cloud Shell. For more information, see [Deploy ARM templates from Azure Cloud Shell](deploy-cloud-shell.md).
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Deployment scope
 
@@ -100,7 +106,7 @@ To deploy a local template, use the `-TemplateFile` parameter in the deployment 
 New-AzResourceGroupDeployment `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json
+  -TemplateFile <path-to-template>
 ```
 
 The deployment can take several minutes to complete.
@@ -108,6 +114,8 @@ The deployment can take several minutes to complete.
 ## Deploy remote template
 
 Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
+
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. The name can't end in a period.
 
@@ -121,7 +129,7 @@ To deploy an external template, use the `-TemplateUri` parameter.
 New-AzResourceGroupDeployment `
   -Name remoteTemplateDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
 ```
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you want to manage access to the template, consider using [template specs](#deploy-template-spec).
@@ -133,7 +141,7 @@ New-AzResourceGroupDeployment `
   -Name linkedTemplateWithRelativePath `
   -ResourceGroupName "myResourceGroup" `
   -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
-  -QueryString $sasToken
+  -QueryString "$sasToken"
 ```
 
 For more information, see [Use relative path for linked templates](./linked-templates.md#linked-template).
@@ -158,22 +166,22 @@ New-AzTemplateSpec `
 Then, get the ID for template spec and deploy it.
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `
   -TemplateSpecId $id
 ```
 
-For more information, see [Azure Resource Manager template specs (Preview)](template-specs.md).
+For more information, see [Azure Resource Manager template specs](template-specs.md).
 
 ## Preview changes
 
-Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](template-deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
+Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
 
 ## Pass parameter values
 
-To pass parameter values, you can use either inline parameters or a parameter file.
+To pass parameter values, you can use either inline parameters or a parameters file. The parameter file can be either a [Bicep parameters file](#bicep-parameter-files) or a [JSON parameters file](#json-parameter-files).
 
 ### Inline parameters
 
@@ -182,7 +190,7 @@ To pass inline parameters, provide the names of the parameter with the `New-AzRe
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template> `
   -exampleString "inline string" `
   -exampleArray $arrayParam
 ```
@@ -192,7 +200,7 @@ You can also get the contents of file and provide that content as an inline para
 ```powershell
 $arrayParam = "value1", "value2"
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template> `
   -exampleString $(Get-Content -Path c:\MyTemplates\stringcontent.txt -Raw) `
   -exampleArray $arrayParam
 ```
@@ -206,11 +214,11 @@ $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
 $hash2 = @{ Name = "secondSubnet"; AddressPrefix = "10.0.1.0/24"}
 $subnetArray = $hash1, $hash2
 New-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -TemplateFile <path-to-template> `
   -exampleArray $subnetArray
 ```
 
-### Parameter files
+### JSON parameter files
 
 Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file can be a local file or an external file with an accessible URI.
 
@@ -219,22 +227,43 @@ For more information about the parameter file, see [Create Resource Manager para
 To pass a local parameter file, use the `TemplateParameterFile` parameter:
 
 ```powershell
-New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile <path-to-template> `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
 To pass an external parameter file, use the `TemplateParameterUri` parameter:
 
 ```powershell
-New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
-  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json
 ```
+
+For more information about parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
+
+### Bicep parameter files
+
+With Azure PowerShell version 10.4.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy an ARM template file by utilizing a [Bicep parameter file](../bicep/parameter-files.md). With the `using` statement within the Bicep parameters file, there is no need to provide the `-TemplateFile` switch when specifying a Bicep parameter file for the `-TemplateParameterFile` switch. 
+
+The following example shows a parameters file named _storage.bicepparam_. The file is in the same directory where the command is run.
+
+```powershell
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
+  -TemplateParameterFile storage.bicepparam
+```
+
+For more information about Bicep parameters file, see [Bicep parameters file](../bicep/parameter-files.md).
 
 ## Next steps
 
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
 - To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
-- To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+- To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 - For information about deploying a template that requires a SAS token, see [Deploy private ARM template with SAS token](secure-template-with-sas-token.md).

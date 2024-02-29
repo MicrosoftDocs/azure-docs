@@ -1,24 +1,29 @@
 ---
 title: Manage an Azure support request
-description: Describes how to view support requests, send messages, change the request severity level, share diagnostic information with Azure support, reopen a closed support request, and upload files.
+description: Learn about viewing support requests and how to send messages, upload files, and manage options.
 tags: billing
-ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 12/14/2020
-# To add: close and reopen, review request status, update contact info
+ms.date: 12/15/2023
 ---
 
 # Manage an Azure support request
 
-After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support).
+After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com).
+
+> [!TIP]
+> You can create and manage requests programmatically by using the [Azure support ticket REST API](/rest/api/support) or [Azure CLI](/cli/azure/azure-cli-support-request). Additionally, you can view open requests, reply to your support engineer, or edit the severity of your ticket in the [Azure mobile app](https://azure.microsoft.com/get-started/azure-portal/mobile-app/).
+
+To manage a support request, you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To manage a support request that was created without a subscription, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 ## View support requests
 
-View the details and status of support requests by going to **Help + support** >  **All support requests**.
+View the details and status of support requests by going to **Help + support** >  **All support requests** in the Azure portal.
 
 :::image type="content" source="media/how-to-manage-azure-support-request/all-requests-lower.png" alt-text="All support requests":::
 
-On this page, you can search, filter, and sort support requests. Select a support request to view details, including its severity and any messages associated with the request.
+On this page, you can search, filter, and sort support requests. By default, you might only see recent open requests. Change the filter options to select a longer period of time or to include support requests that were closed.
+
+To view details about a support request to view details, including its severity and any messages associated with the request, select it from the list.
 
 ## Send a message
 
@@ -32,103 +37,73 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
 > [!NOTE]
 > The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
->
 
 1. On the **All support requests** page, select the support request.
 
-1. On the **Support Request** page, select **Change**.
-
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Change support request severity":::
+1. On the **Support Request** page, select **Change severity**.
 
 1. The Azure portal shows one of two screens, depending on whether your request is already assigned to a support engineer:
 
-    - If your request hasn't been assigned, you see a screen like the following. Select a new severity level, then select **Change**.
+    - If your request isn't assigned, you see a screen like the following. Select a new severity level, then select **Change**.
 
         :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Select a new severity level":::
 
-    - If your request has been assigned, you see a screen like the following. Select **OK**, then create a [new message](#send-a-message) to request a change in severity level.
+    - If your request is assigned, you see a screen like the following. Select **OK**, then create a [new message](#send-a-message) to request a change in severity level.
 
         :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Can't select a new severity level":::
 
-## Share diagnostic information with Azure support
+## Allow collection of advanced diagnostic information
 
-When you create a support request, by default the **Share diagnostic information** option is selected. This allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources:
+When you create a support request, you can select **Yes** or **No** in the **Advanced diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) such as [log files](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) from your Azure resources that can potentially help resolve your issue. Azure support can only access advanced diagnostic information if your case was created through the Azure portal and you granted permission to allow it.
 
-* You can't clear this option after a request is created.
-
-* If you cleared the option when creating a request, you can select it after the request is created.
-
-    1. On the **All support requests** page, select the support request.
-    
-    1. On the **Support Request** page, select **Grant permission**, then select **Yes** and **OK**.
-    
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Grant permissions for diagnostic information":::
-
-## Upload files
-
-You can use the file upload option to upload diagnostic files or any other files that you think are relevant to a support request.
+To change your **Advanced diagnostic information** selection after the request is created:
 
 1. On the **All support requests** page, select the support request.
 
-1. On the **Support Request** page, browse to find your file, then select **Upload**. Repeat the process if you have multiple files.
+1. On the **Support Request** page, select **Advanced diagnostic information** near the top of the screen.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Upload file":::
+1. Select **Yes** or **No**, then select **Submit**.
+
+    :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Grant permissions for diagnostic information":::
+
+## Upload files
+
+You can use the file upload option to upload a diagnostic file, such as a [browser trace](../capture-browser-trace.md) or any other files that you think are relevant to a support request.
+
+1. On the **All support requests** page, select the support request.
+
+1. On the **Support Request** page, select the **Upload file** box, then browse to find your file and select **Upload**.
 
 ### File upload guidelines
 
 Follow these guidelines when you use the file upload option:
 
-* To protect your privacy, do not include any personal information in your upload.
-* The file name must be no longer than 110 characters.
-* You can't upload more than one file.
-* Files can't be larger than 4 MB.
-* All files must have a file name extension, such as *.docx* or *.xlsx*. The following table shows the filename extensions that are allowed for upload.
-
-| 0-9, A-C     | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
-|-------------|-------|-------------|-------|----------|------------|---------|
-| .7z         | .dat  | .har        | .odx  | .rar     | .tdb       | .xlam   |
-| .a          | .db   | .hwl        | .oft  | .rdl     | .tdf       | .xlr    |
-| .abc        | .DMP  | .ics        | .old  | .rdlc    | .text      | .xls    |
-| .adm        | .do_  | .ini        | .one  | .re_     | .thmx      | .xlsb   |
-| .aspx       | .doc  | .java       | .osd  | .reg     | .tif       | .xlsm   |
-| .ATF        | .docm | .jpg        | .OUT  | .remove  | .trc       | .xlsx   |
-| .b          | .docx | .LDF        | .p1   | .ren     | .TTD       | .xlt    |
-| .ba_        | .dotm | .letterhead | .pcap | .rename  | .tx_       | .xltx   |
-| .bak        | .dotx | .lnk        | .pdb  | .rft     | .txt       | .xml    |
-| .bat        | .dtsx | .lo_        | .pdf  | .rpt     | .uccapilog | .xmla   |
-| .blg        | .eds  | .log        | .piz  | .rte     | .uccplog   | .xps    |
-| .CA_        | .emf  | .lpk        | .pmls | .rtf     | .udcx      | .xsd    |
-| .CAB        | .eml  | .manifest   | .png  | .run     | .vb_       | .xsn    |
-| .cap        | .emz  | .master     | .potx | .saz     | .vbs_      | .xxx    |
-| .catx       | .err  | .mdmp       | .ppt  | .sql     | .vcf       | .z_     |
-| .CFG        | .etl  | .mof        | .pptm | .sqlplan | .vsd       | .z01    |
-| .compressed | .evt  | .mp3        | .pptx | .stp     | .wdb       | .z02    |
-| .Config     | .evtx | .mpg        | .prn  | .svclog  | .wks       | .zi     |
-| .cpk        | .EX   | .ms_        | .psf  | -        | .wma       | .zi_    |
-| .cpp        | .ex_  | .msg        | .pst  | -        | .wmv       | .zip    |
-| .cs         | .ex0  | .msi        | .pub  | -        | .wmz       | .zip_   |
-| .CSV        | .FRD  | .mso        | -     | -        | .wps       | .zipp   |
-| .cvr        | .gif  | .msu        | -     | -        | .wpt       | .zipped |
-| -           | .guid | .nfo        | -     | -        | .wsdl      | .zippy  |
-| -           | .gz   | -           | -     | -        | .wsp       | .zipx   |
-| -           | -     | -           | -     | -        | .wtl       | .zit    |
-| -           | -     | -           | -     | -        | -          | .zix    |
-| -           | -     | -           | -     | -        | -          | .zzz    |
+- To protect your privacy, don't include personal information in your upload.
+- The file name must be no longer than 110 characters.
+- You can't upload more than one file. To include multiple different files, package them together in a compressed format such as .zip.
+- Files can't be larger than 4 MB.
+- All files must have a valid file name extension, such as `.docx` or `.xlsx`. Most file name extensions are supported, but you can't upload files with these extensions: `.bat, .cmd, .exe, .ps1, .js, .vbs, .com, .lnk, .reg, .bin,. cpl, .inf, .ins, .isu, .job, .jse, .msi, .msp, .paf, .pif, .rgs, .scr, .sct, .vbe, .vb, .ws, .wsf, .wsh`
 
 ## Close a support request
 
-If you need to close a support request, [send a message](#send-a-message) asking that the request be closed.
+To close a support request, select the **Close request** option near the top of the screen. When prompted to confirm, select **Close**. You'll receive a confirmation email when your request is closed.
 
 ## Reopen a closed request
 
-If you need to reopen a closed support request, create a [new message](#send-a-message), which automatically reopens the request.
+To reopen a closed support request, select **Reopen request** near the top of the screen. When prompted to confirm, select **Reopen request.** Your support request will then be active again.
+
+> [!NOTE]
+> Closed support requests can generally be viewed and reopened for a period of 13 months. After that time, they may be removed, making them unavailable to view or reopen.
 
 ## Cancel a support plan
 
-If you need to cancel a support plan, see [Cancel a support plan](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
+To cancel a support plan, see [Cancel a support plan](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-subscription-in-the-azure-portal).
+
+## Get help with a support request
+
+If you need assistance managing a support request, [create another support request](how-to-create-azure-support-request.md) to get help. For the **Issue type**, select **Technical**, then select **All Services**. For **Service type**, select **Portal** and for **Problem type** select **Issue with Support Ticket Experience**.
 
 ## Next steps
 
-[How to create an Azure support request](how-to-create-azure-support-request.md)
-
-[Azure support ticket REST API](/rest/api/support)
+- Review the process to [create an Azure support request](how-to-create-azure-support-request.md).
+- Learn about the [Azure support ticket REST API](/rest/api/support).

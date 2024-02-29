@@ -1,25 +1,22 @@
 ---
-title: 'Tutorial: Scale and protect a web app by using Azure Front Door and Azure Web Application Firewall (WAF)' 
-description: This tutorial will show you how to use Azure Web Application Firewall with the Azure Front Door service.
+title: 'Tutorial: Scale and protect a web app by using Azure Front Door and Azure Web Application Firewall (WAF)'
+description: This tutorial shows you how to use Azure Web Application Firewall with the Azure Front Door service.
 services: frontdoor
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/01/2020
+ms.custom: devx-track-azurecli
+ms.date: 12/28/2023
 ms.author: duau
 ---
 
 # Tutorial: Quickly scale and protect a web application by using Azure Front Door and Azure Web Application Firewall (WAF)
 
-Many web applications have experienced a rapid increase of traffic in recent weeks because of COVID-19. These web applications are also experiencing a surge in malicious traffic, including denial-of-service attacks. There's an effective way to both scale out your application for traffic surges and protect yourself from attacks: configure Azure Front Door with Azure WAF as an acceleration, caching, and security layer in front of your web app. This article provides guidance on how to get Azure Front Door with Azure WAF configured for any web app that runs inside or outside of Azure. 
+Many web applications experience a rapid increase of traffic over time. These web applications are also experiencing a surge in malicious traffic, including denial-of-service attacks. There's an effective way to both scale out your application for traffic surges and protect yourself from attacks: configure Azure Front Door with Azure WAF as an acceleration, caching, and security layer in front of your web app. This article provides guidance on how to get Azure Front Door with Azure WAF configured for any web app that runs inside or outside of Azure. 
 
-We'll be using the Azure CLI to configure the WAF in this tutorial. You can accomplish the same thing by using the Azure portal, Azure PowerShell, Azure Resource Manager, or the Azure REST APIs. 
+We're using the Azure CLI to configure the WAF in this tutorial. You can accomplish the same thing by using the Azure portal, Azure PowerShell, Azure Resource Manager, or the Azure REST APIs. 
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Create a Front Door.
 > - Create an Azure WAF policy.
@@ -31,7 +28,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- The instructions in this tutorial use the Azure CLI. [View this guide](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) to get started with the Azure CLI.
+- The instructions in this tutorial use the Azure CLI. [View this guide](/cli/azure/get-started-with-azure-cli) to get started with the Azure CLI.
 
   > [!TIP] 
   > An easy and quick way to get started on the Azure CLI is with [Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
@@ -43,7 +40,7 @@ In this tutorial, you'll learn how to:
    ```
 
 > [!NOTE] 
-> For more information about the commands used in this tutorial, see [Azure CLI reference for Front Door](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest).
+> For more information about the commands used in this tutorial, see [Azure CLI reference for Front Door](/cli/azure/).
 
 ## Create an Azure Front Door resource
 
@@ -59,7 +56,7 @@ az network front-door create --backend-address <>  --accepted-protocols <> --nam
 
 `--resource-group`: The resource group you want to place this Azure Front Door resource in. To learn more about resource groups, see [Manage resource groups in Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
-In the response you get when you run this command, look for the key `hostName`. You'll need this value in a later step. The `hostName` is the DNS name of the Azure Front Door resource you created.
+In the response you get when you run this command, look for the key `hostName`. You need this value in a later step. The `hostName` is the DNS name of the Azure Front Door resource you created.
 
 ## Create an Azure WAF profile to use with Azure Front Door resources
 
@@ -71,12 +68,12 @@ az network front-door waf-policy create --name <>  --resource-group <>  --disabl
 
 `--resource-group`: The resource group you want to place this WAF resource in. 
 
-The preceding CLI code will create a WAF policy that's enabled and that's in prevention mode. 
+The preceding CLI code creates a WAF policy in prevention mode. 
 
 > [!NOTE] 
 > You might want to create the WAF policy in detection mode and observe how it detects and logs malicious requests (without blocking them) before you decide to use protection mode.
 
-In the response you get when you run this command, look for the key `ID`. You'll need this value in a later step. 
+In the response you get when you run this command, look for the key `ID`. You need this value in a later step. 
 
 The `ID` field should be in this format:
 
@@ -106,7 +103,7 @@ Add the bot protection rule set:
 
 ## Associate the WAF policy with the Azure Front Door resource
 
-In this step, we'll associate the WAF policy we created with the Azure Front Door resource that's in front of your web application:
+In this step, we associate the WAF policy we created with the Azure Front Door resource that's in front of your web application:
 
 ```azurecli-interactive 
 az network front-door update --name <> --resource-group <> --set frontendEndpoints[0].webApplicationFirewallPolicyLink='{"id":"<>"}'
@@ -125,7 +122,7 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 The custom domain name of your web application is the one that customers use to refer to your application. For example, www.contoso.com. Initially, this custom domain name was pointing to the location where it was running before you introduced Azure Front Door. After you add Azure Front Door and WAF to front the application, the DNS entry that corresponds to that custom domain should point to the Azure Front Door resource. You can make this change by remapping the entry in your DNS server to the Azure Front Door `hostName` you noted when you created the Azure Front Door resource.
 
-Specific steps to update your DNS records will depend on your DNS service provider. If you use Azure DNS to host your DNS name, you can refer to the documentation for [steps to update a DNS record](../dns/dns-operations-recordsets-cli.md) and point to the Azure Front Door `hostName`. 
+Specific steps to update your DNS records depend on your DNS service provider. If you use Azure DNS to host your DNS name, you can refer to the documentation for [steps to update a DNS record](../dns/dns-operations-recordsets-cli.md) and point to the Azure Front Door `hostName`. 
 
 There's one important thing to note if you need your customers to get to your website using the zone apex (for example, contoso.com). In this case, you have to use Azure DNS and its [alias record type](../dns/dns-alias.md) to host your DNS name. 
 
@@ -135,11 +132,11 @@ Finally, if you're using a custom domain to reach your web application and want 
 
 ## Lock down your web application
 
-We recommend you ensure only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+We recommend you ensure only Azure Front Door edges can communicate with your web application. Doing so ensures no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](./front-door-faq.yml#what-are-the-steps-to-restrict-the-access-to-my-backend-to-only-azure-front-door-).
 
 ## Clean up resources
 
-When you no longer need the resources used in this tutorial, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command to remove the resource group, Front Door, and WAF policy:
+When you no longer need the resources used in this tutorial, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, Front Door, and WAF policy:
 
 ```azurecli-interactive
   az group delete \

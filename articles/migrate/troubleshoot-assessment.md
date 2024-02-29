@@ -1,220 +1,553 @@
 ---
-title: Troubleshoot assessment and dependency visualization in Azure Migrate
-description: Get help with assessment and dependency visualization in Azure Migrate.
+title: Common issues in Azure Migrate assessments
+description: Get help with assessment issues in Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
-ms.date: 01/02/2020
+ms.service: azure-migrate
+ms.date: 02/20/2024
+ms.custom: engagement-fy24
 ---
 
-# Troubleshoot assessment/dependency visualization
+# Common issues in Azure Migrate assessments
 
-This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool).
+This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool). See articles [Supported Scenarios](troubleshoot-assessment-supported-scenarios.md) for troubleshooting assessments scenarios and [FAQ](troubleshoot-assessment-faq.md) for commonly questions about troubleshoot issues with assessment.
 
+## Common assessment errors
 
-## Assessment readiness issues
+Assessment service uses the [configuration data](discovered-metadata.md) and the [performance data](concepts-assessment-calculation.md#how-does-the-appliance-calculate-performance-data) for calculating the assessments. The data is fetched by the Azure Migrate appliance at specific intervals in case of appliance-based discovery and assessments.
+The following table summarizes the errors encountered while fetching the data by the assessment service. 
 
-Fix assessment readiness issues as follows:
+### Error Code: 60001:UnableToConnectToPhysicalServer	
 
-**Issue** | **Fix**
---- | ---
-Unsupported boot type | Azure doesn't support VMs with an EFI boot type. We recommend that you convert the boot type to BIOS before you run a migration. <br/><br/>You can use Azure Migrate Server Migration to handle the migration of such VMs. It will convert the boot type of the VM to BIOS during the migration.
-Conditionally supported Windows operating system | The operating system has passed its end-of-support date, and needs a Custom Support Agreement (CSA) for [support in Azure](/troubleshoot/azure/virtual-machines/server-software-support). Consider upgrading before you migrate to Azure. [Review]() information about [preparing machines running Windows Server 2003](prepare-windows-server-2003-migration.md) for migration to Azure.
-Unsupported Windows operating system | Azure supports only [selected Windows OS versions](/troubleshoot/azure/virtual-machines/server-software-support). Consider upgrading the machine before you migrate to Azure.
-Conditionally endorsed Linux OS | Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the machine before you migrate to Azure. Also refer [here](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) for more details.
-Unendorsed Linux OS | The machine might start in Azure, but Azure provides no operating system support. Consider upgrading to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before you migrate to Azure.
-Unknown operating system | The operating system of the VM was specified as "Other" in vCenter Server. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Make sure that the operating system is [supported](./migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the machine.
-Unsupported bit version | VMs with a 32-bit operating systems might boot in Azure, but we recommended that you upgrade to 64-bit before you migrate to Azure.
-Requires a Microsoft Visual Studio subscription | The machine is running a Windows client operating system, which is supported only through a Visual Studio subscription.
-VM not found for the required storage performance | The storage performance (input/output operations per second [IOPS] and throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
-VM not found for the required network performance | The network performance (in/out) required for the machine exceeds Azure VM support. Reduce the networking requirements for the machine.
-VM not found in the specified location | Use a different target location before migration.
-One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements.A<br/><br/> Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on the disk limits for premium managed disks (32 TB).<br/><br/> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br/><br/> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits).
-One or more unsuitable network adapters. | Remove unused network adapters from the machine before migration.
-Disk count exceeds limit | Remove unused disks from the machine before migration.
-Disk size exceeds limit | Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on premium disk limits (32 TB).<br/><br/> However, Azure supports disks with up to 64-TB size (supported by Ultra SSD disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits.
-Disk unavailable in the specified location | Make sure the disk is in your target location before you migrate.
-Disk unavailable for the specified redundancy | The disk should use the redundancy storage type defined in the assessment settings (LRS by default).
-Could not determine disk suitability because of an internal error | Try creating a new assessment for the group.
-VM with required cores and memory not found | Azure couldn't find a suitable VM type. Reduce the memory and number of cores of the on-premises machine before you migrate.
-Could not determine VM suitability because of an internal error | Try creating a new assessment for the group.
-Could not determine suitability for one or more disks because of an internal error | Try creating a new assessment for the group.
-Could not determine suitability for one or more network adapters because of an internal error | Try creating a new assessment for the group.
-No VM size found for offer currency Reserved Instance | Machine marked Not suitable because the VM size was not found for the selected combination of RI, offer and currency. Edit the assessment properties to choose the valid combinations and recalculate the assessment. 
-Conditionally ready Internet Protocol | Only applicable to Azure VMware Solution (AVS) assessments. AVS does not support IPv6 internet addresses factor. Contact the AVS team for remediation guidance if your machine is detected with IPv6.
+#### Cause
 
-## Suggested migration tool in import-based AVS assessment marked as unknown
+Either the prerequisites to connect to the server have not been met or there are network issues in connecting to the server, for instance some proxy settings.
 
-For machines imported via a CSV file, the default migration tool in and AVS assessment is unknown. Though, for VMware machines, its is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+#### Recommended Action
 
-## Linux VMs are "conditionally ready" in an Azure VM assessment
+- Ensure that the server meets the prerequisites and port access requirements.
+- Add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the Azure Migrate appliance and retry the operation. This is to allow remote inbound connections on servers: *Windows: WinRM port 5985 (HTTP) and Linux: SSH port 22 (TCP)*.
+- Ensure that you have chosen the correct authentication method on the appliance to connect to the server. <br/><br/> - If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).
 
-In the case of VMware and Hyper-V VMs, Server Assessment marks Linux VMs as "Conditionally ready" due to a known gap in Server Assessment. 
+### Error Code: 60002: InvalidServerCredentials
 
-- The gap prevents it from detecting the minor version of the Linux OS installed on the on-premises VMs.
-- For example, for RHEL 6.10, currently Server Assessment detects only RHEL 6 as the OS version. This is because the vCenter Server ar the Hyper-V host do not provide the kernel version for Linux VM operating systems.
--  Because Azure endorses only specific versions of Linux, the Linux VMs are currently marked as conditionally ready in Server Assessment.
-- You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing [Azure Linux support](../virtual-machines/linux/endorsed-distros.md).
--  After you've verified the endorsed distribution, you can ignore this warning.
+#### Cause
 
-This gap can be addressed by enabling [application discovery](./how-to-discover-applications.md) on the VMware VMs. Server Assessment uses the operating system detected from the VM using the guest credentials provided. This operating system data identifies the right OS information in the case of both Windows and Linux VMs.
+Unable to connect to server due to incorrect credentials on the appliance, or the credentials previously provided have expired or the server credentials have changed.
 
-## Operating system version not available
-
-For physical servers, the operating system minor version information should be available. If not available, contact Microsoft Support. For VMware machines, Server Assessment uses the operating system information specified for the VM in vCenter Server. However, vCenter Server doesn't provide the minor version for operating systems. To discover the minor version, you need to set up [application discovery](./how-to-discover-applications.md). For Hyper-V VMs, operating system minor version discovery is not supported. 
-
-## Azure SKUs bigger than on-premises in an Azure VM assessment
-
-Azure Migrate Server Assessment might recommend Azure VM SKUs with more cores and memory than current on-premises allocation based on the type of assessment:
-
-- The VM SKU recommendation depends on the assessment properties.
-- This is affected by the type of assessment you perform in Server Assessment: *Performance-based*, or *As on-premises*.
-- For performance-based assessments, Server Assessment considers the utilization data of the on-premises VMs (CPU, memory, disk, and network utilization) to determine the right target VM SKU for your on-premises VMs. It also adds a comfort factor when determining effective utilization.
-- For on-premises sizing, performance data is not considered, and the target SKU is recommended based on-premises allocation.
-
-To show how this can affect recommendations, let's take an example:
-
-We have an on-premises VM with four cores and eight GB of memory, with 50% CPU utilization and 50% memory utilization, and a specified comfort factor of 1.3.
-
--  If the assessment is **As on-premises**, an Azure VM SKU with four cores and 8 GB of memory is recommended.
-- If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended.
-- [Learn more](concepts-assessment-calculation.md#types-of-assessments) about assessment sizing.
-
-## Why is the recommended Azure disk SKUs bigger than on-premises in an Azure VM assessment?
-
-Azure Migrate Server Assessment might recommend a bigger disk based on the type of assessment.
-- Disk sizing in Server Assessment depends on two assessment properties: sizing criteria and storage type.
-- If the sizing criteria is **Performance-based**, and the storage type is set to **Automatic**, the IOPS, and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, or Premium). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
-- If the sizing criteria is **Performance-based**, and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, or **Premium**.
-
-As an example, if you have an on-premises disk with 32 GB of memory, but the aggregated read and write IOPS for the disk is 800 IOPS, Server Assessment recommends a premium disk (because of the higher IOPS requirements), and then recommends a disk SKU that can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). Even though the size required by the on-premises disk was 32 GB, Server Assessment recommends a larger disk because of the high IOPS requirement of the on-premises disk.
-
-## Why is performance data missing for some/all VMs in my assessment report?
-
-For "Performance-based" assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance cannot collect performance data for the on-premises VMs. Please check:
-
-- If the VMs are powered on for the duration for which you are creating the assessment
-- If only memory counters are missing and you are trying to assess Hyper-V VMs, check if you have dynamic memory enabled on these VMs. There is a known issue currently due to which Azure Migrate appliance cannot collect memory utilization for such VMs.
-- If all of the performance counters are missing, ensure the port access requirements for assessment are met. Learn more about the port access requirements for [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [Hyper-V](./migrate-support-matrix-hyper-v.md#port-access) and [physical](./migrate-support-matrix-physical.md#port-access) server assessment.
-Note- If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
-
-## Why is the confidence rating of my assessment low?
-
-The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](./concepts-assessment-calculation.md#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
-
-- You did not profile your environment for the duration for which you are creating the assessment. For example, if you are creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you cannot wait for the duration, please change the performance duration to a smaller period and 'Recalculate' the assessment.
+#### Recommended Action
  
-- Server Assessment is not be able to collect the performance data for some or all the VMs in the assessment period. Please check if the VMs were powered on for the duration of the assessment, outbound connections on ports 443 are allowed. For Hyper-V VMs, if dynamic memory is enabled, memory counters will be missing leading to a low confidence rating. Please 'Recalculate' the assessment to reflect the latest changes in confidence rating. 
+- Ensure that you have provided the correct credentials for the server on the appliance. You can check that by trying to connect to the server using those credentials.
 
-- Few VMs were created after discovery in Server Assessment had started. For example, if you are creating an assessment for the performance history of last one month, but few VMs were created in the environment only a week ago. In this case, the performance data for the new VMs will not be available for the entire duration and the confidence rating would be low.
+- If the credentials added are incorrect or have expired, edit the credentials on the appliance and revalidate the added servers. If the validation succeeds, the issue is resolved.
 
-[Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence rating.
+- If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).
 
-## Is the operating system license included in an Azure VM assessment?
+### Error Code: 60004: NoPerfDataAvailableForServers
 
-Azure Migrate Server Assessment currently considers the operating system license cost only for Windows machines. License costs for Linux machines aren't currently considered.
+#### Cause
 
-## How does performance-based sizing work in an Azure VM assessment?
+The appliance is unable to fetch the required performance data from the server due to network issues or the credentials provided on the appliance do not have enough permissions to fetch the metadata.
 
-Server Assessment continuously collects performance data of on-premises machines and uses it to recommend the VM SKU and disk SKU in Azure. [Learn how](concepts-assessment-calculation.md#calculate-sizing-performance-based) performance-based data is collected.
+#### Recommended Action
+ 
+- Ensure that the guest credentials provided on the appliance have [required permissions](migrate-support-matrix-physical.md#physical-server-requirements).
+- If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).
 
-## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime and Discount (%)?
-When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable. As your assessment was created with an invalid combination of these properties, the edit and recalculate buttons are disabled. Please create a new assessment. [Learn more](./concepts-assessment-calculation.md#whats-an-assessment).
+### Error Code: 60005: SSHOperationTimeout
 
-## I do not see performance data for some network adapters on my physical servers
+#### Cause
 
-This can happen if the physical server has Hyper-V virtualization enabled. On these servers, due to a product gap, Azure Migrate currently discovers both the physical and virtual network adapters. The network throughput is captured only on the virtual network adapters discovered.
+The operation took longer than expected either due to network latency issues or due to the lack of latest updates on Linux server.
 
-## Recommended Azure VM SKU for my physical server is oversized
+#### Recommended Action
 
-This can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual network adapters. Hence, the no. of network adapters discovered is higher than actual. As Server Assessment picks an Azure VM that can support the required number of network adapters, this can potentially result in an oversized VM. [Learn more](./concepts-assessment-calculation.md#calculating-sizing) about the impact of no. of network adapters on sizing. This is a product gap that will be addressed going forward.
+- Ensure that the impacted server has the latest kernel and OS updates installed.
 
-## Readiness category "Not ready" for my physical server
+- Ensure that there is no network latency between the appliance and the server. It is recommended to have the appliance and source server on the same domain to avoid latency issues.
 
-Readiness category may be incorrectly marked as "Not Ready" in the case of a physical server that has Hyper-V virtualization enabled. On these servers, due to a product gap, Azure Migrate currently discovers both the physical and virtual adapters. Hence, the no. of network adapters discovered is higher than actual. In both as-on-premises and performance-based assessments, Server Assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be being higher than 32, the maximum no. of NICs supported on Azure VMs, the machine will be marked “Not ready”.  [Learn more](./concepts-assessment-calculation.md#calculating-sizing) about the impact of no. of NICs on sizing.
+- Connect to the impacted server from the appliance and run the commands documented here to check if they return null or empty data.
 
+- If the issue persists, submit a Microsoft support case providing the appliance machine ID (available in the footer of the appliance configuration manager).
 
-## Number of discovered NICs higher than actual for physical servers
+### Error Code: 60006: ServerAccessDenied
 
-This can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual adapters. Hence, the no. of NICs discovered is higher than actual.
+#### Cause
 
-## Dependency visualization in Azure Government
+The operation could not be completed due to forbidden access on the server. The guest credentials provided do not have enough permissions to access the servers.
 
-Agent-based dependency analysis is not supported in Azure Government. Please use agentless dependency analysis.
+### Error Code: 60011: ServerWindowsWMICallFailed
 
+#### Cause
 
-## Dependencies don't show after agent install
+WMI call failed due to WMI service failure. This might be a transient error, if the server is unreachable due to network issue or in case of physical sever the server might be switched off.
 
-After you've installed the dependency visualization agents on on-premises VMs, Azure Migrate typically takes 15-30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the Microsoft Monitoring Agent (MMA) can connect to the Log Analytics workspace.
+#### Recommended Action
 
-For Windows VMs:
-1. In the Control Panel, start MMA.
-2. In the **Microsoft Monitoring Agent properties** > **Azure Log Analytics (OMS)**, make sure that the **Status** for the workspace is green.
-3. If the status isn't green, try removing the workspace and adding it again to MMA.
+- Ensure WinRM is running and the server is reachable from the appliance VM.
+- Ensure that the server is switched on.
+- For troubleshooting with physical servers, follow the [instructions](migrate-support-matrix-physical.md#physical-server-requirements).
+- If the issue persists, submit a Microsoft support case providing the appliance machine ID (available in the footer of the appliance configuration manager).
 
-    ![MMA status](./media/troubleshoot-assessment/mma-properties.png)
+### Error Code: 10004: CredentialNotProvidedForGuestOSType
 
-For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance [here](../azure-monitor/insights/service-map.md#post-installation-issues).
+#### Cause
 
-## Supported operating systems
+The credentials for the server OS type weren't added on the appliance.
 
-- **MMS agent**: Review the supported [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems), and [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) operating systems.
-- **Dependency agent**: the supported [Windows and Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) operating systems.
+#### Recommended Action
 
-## Visualize dependencies for > hour
+- Ensure that you add the credentials for the OS type of the affected server on the appliance.
+- You can now add multiple server credentials on the appliance.
 
-With agentless dependency analysis, you can visualize dependencies or export them in a map for a duration of up to 30 days.
+### Error Code: 751: Unable to connect to Server
 
-With agent-based dependency analysis, Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for a one-hour period only. However, you can use Azure Monitor logs to [query the dependency data](./how-to-create-group-machine-dependencies.md) over a longer duration.
+#### Cause
 
-## Visualized dependencies for > 10 machines
+Unable to connect to the server due to connectivity issues.
 
-In Azure Migrate Server Assessment, with agent-based dependency analysis, you can [visualize dependencies for groups](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
+#### Recommended Action
 
+Resolve the connectivity issue mentioned in the error message.
 
-## Machines show "Install agent"
+### Error Code: 754: Performance Data not available
 
-After migrating machines with dependency visualization enabled to Azure, machines might show "Install agent" action instead of "View dependencies" due to the following behavior:
+#### Cause
 
-- After migration to Azure, on-premises machines are turned off and equivalent VMs are spun up in Azure. These machines acquire a different MAC address.
-- Machines might also have a different IP address, based on whether you've retained the on-premises IP address or not.
-- If both MAC and IP addresses are different from on-premises, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data. In this case, it will show the option to install the agent rather than to view dependencies.
-- After a test migration to Azure, on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and might acquire different IP addresses. Unless you block outgoing Azure Monitor log traffic from these machines, Azure Migrate won't associate the on-premises machines with any Service Map dependency data, and thus will show the option to install agents, rather than to view dependencies.
+Azure Migrate is unable to collect performance data if the vCentre is not configured to give out the performance data.
 
-## Dependencies export CSV shows "Unknown process"
-In agentless dependency analysis, the process names are captured on a best-effort basis. In certain scenarios, although the source and destination server names and the destination port are captured, it is not feasible to determine the process names at both ends of the dependency. In such cases, the process is marked as "Unknown process".
+#### Recommended Action
 
-## My Log Analytics workspace is not listed when trying to configure the workspace in Server Assessment
-Azure Migrate currently supports creation of OMS workspace in East US, Southeast Asia and West Europe regions. If the workspace is created outside of Azure Migrate in any other region, it currently cannot be associated with an Azure Migrate project.
+Configure the statistics level on VCentre server to 3 to make the performance data available. Wait for a day before running the assessment for the data to populate.
 
+### Error Code: 757: Virtual Machine not found
 
-## Capture network traffic
+#### Cause
 
-Collect network traffic logs as follows:
+The Azure Migrate service is unable to locate the specified virtual machine. This may occur if the virtual machine has been deleted by the administrator on the VMware environment.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Press F12 to start Developer Tools. If needed, clear the  **Clear entries on navigation** setting.
-3. Select the **Network** tab, and start capturing network traffic:
-   - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being captured. If the red circle doesn't appear, select the black circle to start.
-   - In Microsoft Edge and Internet Explorer, recording should start automatically. If it doesn't, select the green play button.
-4. Try to reproduce the error.
-5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
-   - In Chrome, right-click and select **Save as HAR with content**. This action compresses and exports the logs as a .har file.
-   - In Microsoft Edge or Internet Explorer, select the **Export captured traffic** option. This action compresses and exports the log.
-6. Select the **Console** tab to check for any warnings or errors. To save the console log:
-   - In Chrome, right-click anywhere in the console log. Select **Save as**, to export, and zip the log.
-   - In Microsoft Edge or Internet Explorer, right-click the errors and select **Copy all**.
-7. Close Developer Tools.
+#### Recommended Action
 
+Verify that the virtual machine still exists in the VMware environment.
 
-## Where is the operating system data in my assessment discovered from?
+### Error Code: 758: Request timeout while fetching Performance data
 
-- For VMware VMs, by default, it is the operating system data provided by the vCenter. 
-   - For VMware linux VMs, if application discovery is enabled, the OS details are fetched from the guest VM. To check which OS details in the assessment, go to the Discovered servers view, and mouse over the value in the "Operating system" column. In the text that pops up, you would be able to see whether the OS data you see is gathered from vCenter server or from the guest VM using the VM credentials. 
-   - For Windows VMs, the operating system details are always fetched from the vCenter Server.
-- For Hyper-V VMs, the operating system data is gathered from the Hyper-V host
-- For physical servers, it is fetched from the server.
+#### Cause
+
+Azure Migrate assessment service is unable to retrieve performance data. This could happen if the vCenter server is not reachable.
+
+#### Recommended Action
+
+- Verify the vCenter server credentials are correct.
+- Ensure that the server is reachable before attempting to retrieve performance data again.
+- If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).
+
+### Error Code: 760: Unable to get Performance counters
+
+#### Cause
+
+Azure Migrate assessment service is unable to retrieve performance counters. This can happen due to multiple reasons. Check the error message to find the exact reason.
+
+#### Recommended Action
+
+- Ensure that you resolve the error flagged in the error message.
+- If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).
+
+### Error Code: 8002: Virtual Machine could not be found
+
+#### Cause
+Azure Migrate discovery service could not find the virtual machine. This could happen if the virtual machine is deleted or its UUID has changed.
+
+#### Recommended Action
+
+- Ensure that the on-premises virtual machine exists and then restart the job.
+- If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).
+
+### Error Code: 9003: Operating system type running on the server isn't supported.
+
+#### Cause
+
+The operating system running on the server isn't Windows or Linux.
+
+#### Recommended Action
+
+Only Windows and Linux OS types are supported. If the server is running Windows or Linux OS, check the operating system type specified in vCenter Server.
+
+### Error Code: 9004: Server isn't in a running state.
+
+#### Cause
+
+The server is in a powered-off state.
+
+#### Recommended Action
+
+Ensure that the server is in a running state.
+
+### Error Code: 9010: The server is powered off.
+
+#### Cause
+
+The server is in a powered-off state.
+
+#### Recommended Action
+
+Ensure that the server is in a running state.
+
+### Error Code: 9014: Unable to retrieve the file containing the discovered metadata because of an error encountered on the ESXi host
+
+#### Cause
+
+The error details will be mentioned with the error.
+
+#### Recommended Action
+
+Ensure that port 443 is open on the ESXi host on which the server is running. Learn more on how to remediate the issue.
+
+### Error Code: 9015: The vCenter Server user account provided for server discovery doesn't have guest operations privileges enabled.
+
+#### Cause
+
+The required privileges of guest operations haven't been enabled on the vCenter Server user account.
+
+#### Recommended Action
+
+Ensure that the vCenter Server user account has privileges enabled for **Virtual Machines** > **Guest Operations** to interact with the server and pull the required data. Learn more on how to set up the vCenter Server account with required privileges.
+
+### Error Code: 9022: The access is denied to run the Get-WmiObject cmdlet on the server.
+
+#### Cause
+
+The role associated with the credentials provided on the appliance or a group policy on-premises is restricting access to the WMI object. You encounter this issue when you try the following credentials on the server: `FriendlyNameOfCredentials`.
+
+#### Recommended Action
+
+Check if the credentials provided on the appliance have created file administrator privileges and have WMI enabled.<br/><br/> If the credentials on the appliance don't have the required permissions, either provide another set of credentials or edit an existing one. (Find the friendly name of the credentials tried by Azure Migrate in the possible causes.) <br/><br/> [Learn more](tutorial-discover-vmware.md#prepare-vmware) on how to remediate the issue.
+
+## Azure VM assessment readiness issues
+
+This section helps on fixing the following assessment readiness issues.
+
+### Issue: Unsupported boot type
+
+#### Fix
+
+Azure does not support UEFI boot type for VMs with the Windows Server 2003/Windows Server 2003 R2/Windows Server 2008/Windows Server 2008 R2 operating systems. Check the list of operating systems that support UEFI-based machines [here](./common-questions-server-migration.md#which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure).
+
+### Issue: Conditionally supported Windows operating system
+
+#### Fix
+
+The operating system has passed its end-of-support date and needs a Custom Support Agreement for [support in Azure](/troubleshoot/azure/virtual-machines/server-software-support). Consider upgrading before you migrate to Azure. Review information about [preparing servers running Windows Server 2003](prepare-windows-server-2003-migration.md) for migration to Azure.
+
+### Issue: Unsupported Windows operating system
+
+#### Fix
+
+Azure supports only [selected Windows OS versions](/troubleshoot/azure/virtual-machines/server-software-support). Consider upgrading the server before you migrate to Azure. 
+
+### Issue: Conditionally endorsed Linux OS
+
+#### Fix
+
+Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the server before you migrate to Azure.
+
+### Issue: Unendorsed Linux OS
+
+#### Fix
+
+The server might start in Azure, but Azure provides no operating system support. Consider upgrading to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before you migrate to Azure.
+
+### Issue: Unknown operating system
+
+#### Fix
+
+The operating system of the VM was specified as **Other** in vCenter Server or could not be identified as a known OS in Azure Migrate. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Ensure that the operating system is [supported](./migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the server.
+
+### Issue: Unsupported bit version
+
+#### Fix
+
+VMs with a 32-bit operating system might boot in Azure, but we recommend that you upgrade to 64-bit before you migrate to Azure.
+
+### Issue: Requires a Microsoft Visual Studio subscription
+
+#### Fix
+
+The server is running a Windows client operating system, which is supported only through a Visual Studio subscription.
+
+### Issue: VM not found for the required storage performance
+
+#### Fix
+
+The storage performance (input/output operations per second (IOPS) and throughput) required for the server exceeds Azure VM support. Reduce storage requirements for the server before migration.
+
+### Issue: VM not found for the required network performance
+
+#### Fix
+
+The network performance (in/out) required for the server exceeds Azure VM support. Reduce the networking requirements for the server.
+
+### Issue: VM not found in the specified location
+
+#### Fix
+
+Use a different target location before migration.
+
+### Issue: One or more unsuitable disks
+
+#### Fix
+
+One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assess the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
+
+### Issue: One or more unsuitable network adapters
+
+#### Fix
+
+Remove unused network adapters from the server before migration.
+
+### Issue: Disk count exceeds limit
+
+#### Fix
+
+Remove unused disks from the server before migration.
+
+### Issue: Disk size exceeds limit
+
+#### Fix
+
+Azure Migrate: Discovery and assessment support disks with up to 64 TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits.
+
+### Issue: Disk unavailable in the specified location
+
+#### Fix
+
+Make sure the disk is in your target location before you migrate.
+
+### Issue: Disk unavailable for the specified redundancy
+
+#### Fix
+
+The disk should use the redundancy storage type defined in the assessment settings (LRS by default).
+
+### Issue: Couldn't determine disk suitability because of an internal error
+
+#### Fix
+
+Try creating a new assessment for the group.
+
+### Issue: VM with required cores and memory not found
+
+#### Fix
+
+Azure couldn't find a suitable VM type. Reduce the memory and number of cores of the on-premises server before you migrate.
+
+### Issue: Couldn't determine VM suitability because of an internal error
+
+#### Fix
+
+Try creating a new assessment for the group.
+
+### Issue: Couldn't determine suitability for one or more disks because of an internal error
+
+#### Fix
+
+Try creating a new assessment for the group.
+
+### Issue: Couldn't determine suitability for one or more network adapters because of an internal error
+
+#### Fix
+
+Try creating a new assessment for the group.
+
+### Issue: No VM size found for offer currency Reserved Instance (RI)
+
+#### Fix
+
+Server marked not suitable because the VM size wasn't found for the selected combination of RI, offer, and currency. Edit the assessment properties to choose the valid combinations and recalculate the assessment.
+
+## Azure VMware Solution (AVS) assessment readiness issues
+
+This section provides help for fixing the following assessment readiness issues.
+
+### Issue: Unsupported IPv6
+
+#### Fix
+
+Only applicable to Azure VMware Solution assessments. Azure VMware Solution doesn't support IPv6 internet addresses. Contact the Azure VMware Solution team for remediation guidance if your server is detected with IPv6.
+
+### Issue: Unsupported OS
+
+#### Fix
+
+Support for certain Operating System versions has been deprecated by VMware and the assessment recommends you to upgrade the operating system before migrating to Azure VMware Solution. [Learn more](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software).
+
+## Common web apps discovery errors
+
+Azure Migrate provides options to assess discovered ASP.NET web apps for migration to Azure App Service by using the Azure Migrate: Discovery and assessment tool. Refer to the [assessment](tutorial-assess-webapps.md) tutorial to get started.
+
+Here, typical App Service assessment errors are summarized.
+
+### Error: Application pool check
+
+#### Cause
+
+The IIS site is using the following application pools: {0}.
+
+#### Recommended Action
+
+Azure App Service doesn't support more than one application pool configuration per App Service application. Move the workloads to a single application pool and remove other application pools.
+
+### Error: Application pool identity check
+
+#### Cause
+
+The site's application pool is running as an unsupported user identity type: {0}.
+
+#### Recommended Action
+
+App Service doesn't support using the LocalSystem or SpecificUser application pool identity types. Set the application pool to run as ApplicationPoolIdentity.
+
+### Error: Authorization check 
+
+#### Cause
+
+The following unsupported authentication types were found: {0}.
+
+#### Recommended Action
+
+App Service supported authentication types and configuration are different from on-premises IIS. Disable the unsupported authentication types on the site. After the migration is complete, it will be possible to configure the site by using one of the App Services supported authentication types.
+
+### Error: Authorization check unknown
+
+#### Cause
+
+Unable to determine enabled authentication types for all of the site configuration.
+
+#### Recommended Action
+
+Unable to determine authentication types. Fix all configuration errors and confirm that all site content locations are accessible to the administrator's group.
+
+### Error: Configuration error check
+
+#### Cause
+
+The following configuration errors were found: {0}.
+
+#### Recommended Action
+
+Migration readiness can't be determined without reading all applicable configuration. Fix all configuration errors. Make sure configuration is valid and accessible.
+
+### Error: Content size check
+
+#### Cause
+
+The site content appears to be greater than the maximum allowed of 2 GB for successful migration.
+
+#### Recommended Action
+
+For successful migration, site content should be less than 2 GB. Evaluate if the site could switch to using non-file-system-based storage options for static content, such as Azure Storage.
+
+### Error: Content size check unknown
+
+#### Cause
+
+File content size couldn't be determined, which usually indicates an access issue.
+
+#### Recommended Action
+
+Content must be accessible to migrate the site. Confirm that the site isn't using UNC shares for content and that all site content locations are accessible to the administrator's group.
+
+### Error: Global module check
+
+#### Cause
+
+The following unsupported global modules were detected: {0}.
+
+#### Recommended Action
+
+App Service supports limited global modules. Remove the unsupported modules from the GlobalModules section, along with all associated configuration.
+
+### Error: ISAPI filter check
+
+#### Cause
+
+The following unsupported ISAPI filters were detected: {0}.
+
+#### Recommended Action
+
+Automatic configuration of custom ISAPI filters isn't supported. Remove the unsupported ISAPI filters.
+
+### Error: ISAPI filter check unknown
+
+#### Cause
+
+Unable to determine ISAPI filters present for all of the site configuration.
+
+#### Recommended Action
+
+Automatic configuration of custom ISAPI filters isn't supported. Fix all configuration errors and confirm that all site content locations are accessible to the administrator's group.
+
+### Error: Location tag check
+
+#### Cause
+
+The following location paths were found in the applicationHost.config file: {0}.
+
+#### Recommended Action
+
+The migration method doesn't support moving location path configuration in applicationHost.config. Move the location path configuration to either the site's root web.config file or to a web.config file associated with the specific application to which it applies.
+
+### Error: Protocol check
+
+#### Cause
+
+Bindings were found by using the following unsupported protocols: {0}.
+
+#### Recommended Action
+
+App Service only supports the HTTP and HTTPS protocols. Remove the bindings with protocols that aren't HTTP or HTTPS.
+
+### Error: Virtual directory check
+
+#### Cause
+
+The following virtual directories are hosted on UNC shares: {0}.
+
+#### Recommended Action
+
+Migration doesn't support migrating site content hosted on UNC shares. Move content to a local file path or consider changing to a non-file-system-based storage option, such as Azure Storage. If you use shared configuration, disable shared configuration for the server before you modify the content paths.
+
+### Error: HTTPS binding check
+
+#### Cause
+
+The application uses HTTPS.
+
+#### Recommended Action
+
+More manual steps are required for HTTPS configuration in App Service. Other post-migration steps are required to associate certificates with the App Service site.
+
+### Error: TCP port check
+
+#### Cause
+
+Bindings were found on the following unsupported ports: {0}.
+
+#### Recommended Action
+
+App Service supports only ports 80 and 443. Clients making requests to the site should update the port in their requests to use 80 or 443.
+
+### Error: Framework check
+
+#### Cause
+
+The following non-.NET frameworks or unsupported .NET framework versions were detected as possibly in use by this site: {0}.
+
+#### Recommended Action
+
+Migration doesn't validate the framework for non-.NET sites. App Service supports multiple frameworks, but these have different migration options. Confirm that the non-.NET frameworks aren't being used by the site, or consider using an alternate migration option.
 
 ## Next steps
 

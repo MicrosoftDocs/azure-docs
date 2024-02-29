@@ -1,13 +1,10 @@
 ---
 title: Configure development environment for deployment scripts in templates | Microsoft Docs
 description: Configure development environment for deployment scripts in Azure Resource Manager templates (ARM templates).
-services: azure-resource-manager
-author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.author: jgao
-
+ms.date: 05/23/2023
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.devlang: azurecli
 ---
 
 # Configure development environment for deployment scripts in ARM templates
@@ -33,15 +30,15 @@ $DeploymentScriptOutputs['text'] = $output
 For an Azure CLI container image, you can create a *hello.sh* file by using the following content:
 
 ```bash
-firstname=$1
-lastname=$2
-output="{\"name\":{\"displayName\":\"$firstname $lastname\",\"firstName\":\"$firstname\",\"lastName\":\"$lastname\"}}"
+FIRSTNAME=$1
+LASTNAME=$2
+OUTPUT="{\"name\":{\"displayName\":\"$FIRSTNAME $LASTNAME\",\"firstName\":\"$FIRSTNAME\",\"lastName\":\"$LASTNAME\"}}"
 echo -n "Hello "
-echo $output | jq -r '.name.displayName'
+echo $OUTPUT | jq -r '.name.displayName'
 ```
 
 > [!NOTE]
-> When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-script).
+> When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-scripts).
 
 ## Use Azure PowerShell container instance
 
@@ -65,9 +62,16 @@ The following Azure Resource Manager template (ARM template) creates a container
         "description": "Specify a project name that is used for generating resource names."
       }
     },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Specify the resource location."
+      }
+    },
     "containerImage": {
       "type": "string",
-      "defaultValue": "mcr.microsoft.com/azuredeploymentscripts-powershell:az5.2",
+      "defaultValue": "mcr.microsoft.com/azuredeploymentscripts-powershell:az9.7",
       "metadata": {
         "description": "Specify the container image."
       }
@@ -81,20 +85,19 @@ The following Azure Resource Manager template (ARM template) creates a container
     }
   },
   "variables": {
-    "storageAccountName": "[tolower(concat(parameters('projectName'), 'store'))]",
-    "fileShareName": "[concat(parameters('projectName'), 'share')]",
-    "containerGroupName": "[concat(parameters('projectName'), 'cg')]",
-    "containerName": "[concat(parameters('projectName'), 'container')]"
+    "storageAccountName": "[toLower(format('{0}store', parameters('projectName')))]",
+    "fileShareName": "[format('{0}share', parameters('projectName'))]",
+    "containerGroupName": "[format('{0}cg', parameters('projectName'))]",
+    "containerName": "[format('{0}container', parameters('projectName'))]"
   },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
+      "apiVersion": "2023-01-01",
       "name": "[variables('storageAccountName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "sku": {
-        "name": "Standard_LRS",
-        "tier": "Standard"
+        "name": "Standard_LRS"
       },
       "kind": "StorageV2",
       "properties": {
@@ -103,20 +106,17 @@ The following Azure Resource Manager template (ARM template) creates a container
     },
     {
       "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
-      "apiVersion": "2019-06-01",
-      "name": "[concat(variables('storageAccountName'), '/default/', variables('fileShareName'))]",
+      "apiVersion": "2023-01-01",
+      "name": "[format('{0}/default/{1}', variables('storageAccountName'), variables('fileShareName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ]
     },
     {
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2019-12-01",
+      "apiVersion": "2023-05-01",
       "name": "[variables('containerGroupName')]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-      ],
+      "location": "[parameters('location')]",
       "properties": {
         "containers": [
           {
@@ -126,7 +126,7 @@ The following Azure Resource Manager template (ARM template) creates a container
               "resources": {
                 "requests": {
                   "cpu": 1,
-                  "memoryInGb": 1.5
+                  "memoryInGB": "[json('1.5')]"
                 }
               },
               "ports": [
@@ -157,11 +157,14 @@ The following Azure Resource Manager template (ARM template) creates a container
               "readOnly": false,
               "shareName": "[variables('fileShareName')]",
               "storageAccountName": "[variables('storageAccountName')]",
-              "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+              "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value]"
             }
           }
         ]
-      }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+      ]
     }
   ]
 }
@@ -169,7 +172,7 @@ The following Azure Resource Manager template (ARM template) creates a container
 
 The default value for the mount path is `/mnt/azscripts/azscriptinput`. This is the path in the container instance where it's mounted to the file share.
 
-The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az5.2**. See a list of all [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az9.7**. See a list of all [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
 
 The template suspends the container instance after 1,800 seconds. You have 30 minutes before the container instance goes into a terminated state and the session ends.
 
@@ -209,7 +212,7 @@ You also can upload the file by using the Azure portal or the Azure CLI.
 2. Open the container group. The default container group name is the project name appended with *cg*. The container instance is in the **Running** state.
 3. In the resource menu, select **Containers**. The container instance name is the project name appended with *container*.
 
-    ![Screenshot of the deployment script connect container instance in the Azure portal.](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png" alt-text="Screenshot of the deployment script connect container instance option in the Azure portal.":::
 
 4. Select **Connect**, and then select **Connect**. If you can't connect to the container instance, restart the container group and try again.
 5. In the console pane, run the following commands:
@@ -222,7 +225,7 @@ You also can upload the file by using the Azure portal or the Azure CLI.
 
     The output is **Hello John Dole**.
 
-    ![Screenshot of the deployment script connect container instance test output in the console.](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png" alt-text="Screenshot of the deployment script connect container instance test output displayed in the console.":::
 
 ## Use an Azure CLI container instance
 
@@ -246,6 +249,13 @@ The following ARM template creates a container instance and a file share, and th
         "description": "Specify a project name that is used for generating resource names."
       }
     },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Specify the resource location."
+      }
+    },
     "containerImage": {
       "type": "string",
       "defaultValue": "mcr.microsoft.com/azure-cli:2.9.1",
@@ -262,20 +272,19 @@ The following ARM template creates a container instance and a file share, and th
     }
   },
   "variables": {
-    "storageAccountName": "[tolower(concat(parameters('projectName'), 'store'))]",
-    "fileShareName": "[concat(parameters('projectName'), 'share')]",
-    "containerGroupName": "[concat(parameters('projectName'), 'cg')]",
-    "containerName": "[concat(parameters('projectName'), 'container')]"
+    "storageAccountName": "[toLower(format('{0}store', parameters('projectName')))]",
+    "fileShareName": "[format('{0}share', parameters('projectName'))]",
+    "containerGroupName": "[format('{0}cg', parameters('projectName'))]",
+    "containerName": "[format('{0}container', parameters('projectName'))]"
   },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
+      "apiVersion": "2022-09-01",
       "name": "[variables('storageAccountName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "sku": {
-        "name": "Standard_LRS",
-        "tier": "Standard"
+        "name": "Standard_LRS"
       },
       "kind": "StorageV2",
       "properties": {
@@ -284,20 +293,17 @@ The following ARM template creates a container instance and a file share, and th
     },
     {
       "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
-      "apiVersion": "2019-06-01",
-      "name": "[concat(variables('storageAccountName'), '/default/', variables('fileShareName'))]",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}/default/{1}', variables('storageAccountName'), variables('fileShareName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ]
     },
     {
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2019-12-01",
+      "apiVersion": "2023-05-01",
       "name": "[variables('containerGroupName')]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-      ],
+      "location": "[parameters('location')]",
       "properties": {
         "containers": [
           {
@@ -307,7 +313,7 @@ The following ARM template creates a container instance and a file share, and th
               "resources": {
                 "requests": {
                   "cpu": 1,
-                  "memoryInGb": 1.5
+                  "memoryInGB": "[json('1.5')]"
                 }
               },
               "ports": [
@@ -338,11 +344,14 @@ The following ARM template creates a container instance and a file share, and th
               "readOnly": false,
               "shareName": "[variables('fileShareName')]",
               "storageAccountName": "[variables('storageAccountName')]",
-              "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+              "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-09-01').keys[0].value]"
             }
           }
         ]
-      }
+      },
+      "dependsOn": [
+        "storageAccount"
+      ]
     }
   ]
 }
@@ -353,7 +362,7 @@ The default value for the mount path is `/mnt/azscripts/azscriptinput`. This is 
 The default container image specified in the template is **mcr.microsoft.com/azure-cli:2.9.1**. See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
 > [!IMPORTANT]
-> The deployment script uses the available CLI images from Microsoft Container Registry (MCR). It takes about one month to certify a CLI image for a deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). If you use an unsupported version, the error message lists the supported versions.
+> The deployment script uses the available CLI images from Microsoft Container Registry (MCR). It takes about one month to certify a CLI image for a deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If you use an unsupported version, the error message lists the supported versions.
 
 The template suspends the container instance after 1,800 seconds. You have 30 minutes before the container instance goes into a terminal state and the session ends.
 
@@ -393,7 +402,7 @@ You also can upload the file by using the Azure portal or the Azure CLI.
 1. Open the container group. The default container group name is the project name appended with *cg*. The container instance is shown in the **Running** state.
 1. In the resource menu, select **Containers**. The container instance name is the project name appended with *container*.
 
-    ![deployment script connect container instance](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png" alt-text="Screenshot of the deployment script connect container instance option in the Azure portal.":::
 
 1. Select **Connect**, and then select **Connect**. If you can't connect to the container instance, restart the container group and try again.
 1. In the console pane, run the following commands:
@@ -406,7 +415,7 @@ You also can upload the file by using the Azure portal or the Azure CLI.
 
     The output is **Hello John Dole**.
 
-    ![deployment script container instance test](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test-cli.png)
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-test-cli.png" alt-text="Screenshot of the deployment script container instance test output displayed in the console.":::
 
 ## Use Docker
 
@@ -451,7 +460,7 @@ You also need to configure file sharing to mount the directory, which contains t
 
 1. The following screenshot shows how to run a PowerShell script, given that you have a *helloworld.ps1* file in the shared drive.
 
-    ![Resource Manager template deployment script docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
+    :::image type="content" source="./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png" alt-text="Screenshot of the Resource Manager template deployment script using Docker command.":::
 
 After the script is tested successfully, you can use it as a deployment script in your templates.
 

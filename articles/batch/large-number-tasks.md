@@ -2,8 +2,10 @@
 title: Submit a large number of tasks to a Batch job
 description: Learn how to efficiently submit a very large number of tasks in a single Azure Batch job.
 ms.topic: how-to
-ms.date: 12/30/2020
-ms.custom: "devx-track-python, devx-track-csharp"
+ms.date: 08/25/2021
+ms.devlang: csharp
+# ms.devlang: csharp, python
+ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
 ---
 # Submit a large number of tasks to a Batch job
 
@@ -72,8 +74,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 
-Add a task collection to the job using the appropriate overload of the [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync) or [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask
-) method. For example:
+Add a task collection to the job using the appropriate overload of the [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync) or [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask) method. For example:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -135,7 +136,7 @@ pip install azure-batch
 pip install azure-batch-extensions
 ```
 
-Set up a `BatchExtensionsClient` that uses the SDK extension:
+After importing the package using `import azext.batch as batch`, set up a `BatchExtensionsClient` that uses the SDK extension:
 
 ```python
 

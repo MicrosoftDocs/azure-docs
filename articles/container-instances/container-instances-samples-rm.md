@@ -1,8 +1,13 @@
 ---
 title: Azure Resource Manager template samples
 description: Find Azure Resource Manager template samples to deploy Azure Container Instances in different configurations
-ms.topic: article
-ms.date: 03/07/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+ms.custom: devx-track-arm-template
+services: container-instances
+ms.topic: sample
+ms.date: 06/17/2022
 ---
 
 # Azure Resource Manager templates for Azure Container Instances
@@ -12,6 +17,8 @@ The following sample templates deploy container instances in various configurati
 For deployment options, see the [Deployment](#deployment) section. If you'd like to create your own templates, the Azure Container Instances [Resource Manager template reference][ref] details template format and available properties.
 
 ## Sample templates
+
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
 | Template | Description |
 |-|-|
@@ -42,16 +49,16 @@ You have several options for deploying resources with Resource Manager templates
 [REST API][deploy-rest]
 
 <!-- LINKS - External -->
-[app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav
-[app-wp]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress
-[az-files]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-storage-file-share
-[net-publicip]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip
-[net-udp]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-udp
-[net-vnet]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+[app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/demos/
+[app-wp]: https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress
+[az-files]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-storage-file-share
+[net-publicip]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-linuxcontainer-public-ip
+[net-udp]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-udp
+[net-vnet]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 [repo]: https://github.com/Azure/azure-quickstart-templates
-[vol-emptydir]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-emptydir
-[vol-gitrepo]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-gitrepo
-[vol-secret]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-secret
+[vol-emptydir]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-linuxcontainer-volume-emptydir
+[vol-gitrepo]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-linuxcontainer-volume-gitrepo
+[vol-secret]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-linuxcontainer-volume-secret
 
 <!-- LINKS - Internal -->
 [deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md

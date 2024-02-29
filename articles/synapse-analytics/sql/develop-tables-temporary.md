@@ -1,15 +1,12 @@
 ---
 title: Use temporary tables in Synapse SQL
-description: Essential guidance for using temporary tables in Synapse SQL. 
-services: synapse-analytics
-author: XiaoyuMSFT
-manager: craigg
+description: Essential guidance for using temporary tables in Synapse SQL.
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.date: 11/02/2021
 ms.service: synapse-analytics
-ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.topic: conceptual
 ---
 
 # Temporary tables in Synapse SQL
@@ -20,7 +17,7 @@ Both the dedicated SQL pool and serverless SQL pool resources can utilize tempor
 
 ## Temporary tables
 
-Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. With Synapse SQL, temporary tables exist at the session level.  They're only visible to the session in which they were created. As such, they're automatically dropped when that session logs off. 
+Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. With Synapse SQL, temporary tables exist at the session level.  They're only visible to the session in which they were created. As such, they're automatically dropped when that session ends. 
 
 ## Temporary tables in dedicated SQL pool
 
@@ -90,8 +87,7 @@ GROUP BY
 
 > [!NOTE]
 > `CTAS` is a powerful command and has the added advantage of being efficient in its use of transaction log space. 
-> 
-> 
+
 
 ### Drop temporary tables
 
@@ -183,7 +179,7 @@ SELECT
     THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+') WITH RESAMPLE;'
     END AS [update_stats_ddl]
 ,   [seq_nmbr]
-FROM    t1
+FROM    #stats_ddl
 ;
 GO
 ```
@@ -225,7 +221,7 @@ Dedicated SQL pool does have a few implementation limitations for temporary tabl
 
 Temporary tables in serverless SQL pool are supported but their usage is limited. They can't be used in queries which target files. 
 
-For example, you can't join a temporary table with data from files in storage. The number of temporary tables is limited to 100, and their total size is limited to 100MB.
+For example, you can't join a temporary table with data from files in storage. The number of temporary tables is limited to 100, and their total size is limited to 100 MB.
 
 ## Next steps
 

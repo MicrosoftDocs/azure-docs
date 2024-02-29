@@ -1,19 +1,19 @@
 ---
 title: Conditional cognitive skill
-titleSuffix: Azure Cognitive Search
-description: The conditional skill in Azure Cognitive Search enables filtering, creating defaults, and merging values in a skillset definition.
-
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+titleSuffix: Azure AI Search
+description: The conditional skill in Azure AI Search enables filtering, creating defaults, and merging values in a skillset definition.
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.custom:
+  - ignite-2023
+ms.topic: reference
+ms.date: 08/12/2021
 ---
 
 # Conditional cognitive skill
 
-The **Conditional** skill enables Azure Cognitive Search scenarios that require a Boolean operation to determine the data to assign to an output. These scenarios include filtering, assigning a default value, and merging data based on a condition.
+The **Conditional** skill enables Azure AI Search scenarios that require a Boolean operation to determine the data to assign to an output. These scenarios include filtering, assigning a default value, and merging data based on a condition.
 
 The following pseudocode demonstrates what the conditional skill accomplishes:
 
@@ -25,7 +25,7 @@ else
 ```
 
 > [!NOTE]
-> This skill isn't bound to an Azure Cognitive Services API, and you aren't charged for using it. However, you should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to override the "Free" resource option that limits you to a small number of enrichments per day.
+> This skill isn't bound to Azure AI services. It is non-billable and has no Azure AI services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Util.ConditionalSkill
@@ -130,7 +130,7 @@ The following output creates an annotation ("/document/languageWithDefault") tha
 
 ###	Sample skill definition 3: Merge values from two fields into one
 
-In this example, some sentences have a *frenchSentiment* property. Whenever the *frenchSentiment* property is null, we want to use the *englishSentiment* value. We assign the output to a member that's called *sentiment* ("/document/sentiment/*/sentiment").
+In this example, some sentences have a *frenchSentiment* property. Whenever the *frenchSentiment* property is null, we want to use the *englishSentiment* value. We assign the output to a member that's called *sentiment* ("/document/sentences/*/sentiment").
 
 ```json
 {

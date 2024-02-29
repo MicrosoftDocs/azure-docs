@@ -4,7 +4,7 @@ description: include file
 author: alkohli
 services: storage
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
 ms.date: 04/08/2019
 ms.author: alkohli
@@ -19,4 +19,4 @@ FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. If you w
     * A DHL account number is preferred for shipping drives back from Asia and Australia locations.
     * If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](http://www.dhl.com/) carrier account.
 * When shipping your packages, you must follow the [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
-* Properly package yours disks to avoid potential damage and delays in processing.
+* Properly package your disks to avoid potential damage and delays in processing.

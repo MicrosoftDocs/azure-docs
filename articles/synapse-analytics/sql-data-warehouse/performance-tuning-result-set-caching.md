@@ -1,21 +1,22 @@
 ---
-title: Performance tuning with result set caching 
-description: Result set caching feature overview for dedicated SQL pool in Azure Synapse Analytics 
-services: synapse-analytics
+title: Performance tuning with result set caching
+description: Result set caching feature overview for dedicated SQL pool in Azure Synapse Analytics
 author: XiaoyuMSFT
-manager: craigg 
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
+ms.date: 10/10/2019
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 
 # Performance tuning with result set caching
 
-When result set caching is enabled, dedicated SQL pool automatically caches query results in the user database for repetitive use.  This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed.   Result set caching improves query performance and reduces compute resource usage.  In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results.  
+When result set caching is enabled, dedicated SQL pool automatically caches query results in the user database for repetitive use.  This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed.   Result set caching improves query performance and reduces compute resource usage.  In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results.  Result set caching is OFF by default at the database and session levels. 
+
+>[!NOTE]
+> Result set caching should not be used in conjunction with [DECRYPTBYKEY](/sql/t-sql/functions/decryptbykey-transact-sql). If this cryptographic function must be used, ensure you have result set caching disabled (either at [session-level](/sql/t-sql/statements/set-result-set-caching-transact-sql) or [database-level](/sql/t-sql/statements/alter-database-transact-sql-set-options)) at the time of execution.
 
 ## Key commands
 
@@ -33,13 +34,13 @@ Once result set caching is turned ON for a database, results are cached for all 
 
 - Queries with built-in functions or runtime expressions that are non-deterministic even when there’s no change in base tables’ data or query. For example, DateTime.Now(), GetDate().
 - Queries using user defined functions
-- Queries using tables with row level security or column level security enabled
+- Queries using tables with row level security
 - Queries returning data with row size larger than 64KB
 - Queries returning large data in size (>10GB) 
 >[!NOTE]
 > - Some non-deterministic functions and runtime expressions can be deterministic to repetitive queries against the same data. For example, ROW_NUMBER().  
 > - Use ORDER BY in your query if the order/sequence of rows in the query result set is important to your application logic.
-> - If data in the ORDER BY columns are not unique, there's no garanteed row order for rows with the same values in the ORDER BY columns, regardless if result set caching is enabled or disabled.
+> - If data in the ORDER BY columns are not unique, there's no guaranteed row order for rows with the same values in the ORDER BY columns, regardless if result set caching is enabled or disabled.
 
 > [!IMPORTANT]
 > The operations to create result set cache and retrieve data from the cache happen on the control node of a dedicated SQL pool instance.

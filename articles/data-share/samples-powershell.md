@@ -2,17 +2,18 @@
 title: Azure PowerShell Samples for Azure Data Share
 description: Learn about Azure PowerShell Sample scripts to help you create and manage data shares in Azure Data Share. 
 ms.service: data-share
-author: joannapea
-ms.author: joanpo
+ms.custom: devx-track-azurepowershell
+author: sidontha
+ms.author: sidontha
 ms.topic: conceptual
-ms.date: 07/06/2019
+ms.date: 12/19/2023
 ---
 
 # Azure PowerShell samples for Azure Data Share
 
 The following table includes links to sample Azure PowerShell scripts for Azure Data Share.
 
-|Powershell Samples|Description|
+|PowerShell Samples|Description|
 |---|---|
 |[Create a new data share account](scripts/powershell/create-new-share-account-powershell.md)| This PowerShell script creates a new data share account. |
 |[Create a new data share](scripts/powershell/create-new-share-powershell.md)| This PowerShell script creates a new data share. |
@@ -24,9 +25,3 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |[View details of a data shares](scripts/powershell/view-share-details-powershell.md)| This sample PowerShell script lists and retrieves details of data shares. |
 |[Monitor usage of shared data](scripts/powershell/monitor-usage-powershell.md)| This sample PowerShell script monitors the usage of sent shared data. |
 |[Create and view snapshot triggers](scripts/powershell/create-view-trigger-powershell.md)| This sample PowerShell script creates snapshot triggers of a share.
-
-
-
-
-
-

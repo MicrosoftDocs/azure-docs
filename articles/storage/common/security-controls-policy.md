@@ -1,17 +1,19 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Storage
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Storage. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 01/29/2021
+ms.date: 02/06/2024
 ms.topic: sample
-author: twooley
-ms.author: twooley
-ms.service: storage
+author: akashdubey-ms
+ms.author: akashdubey
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.custom: subject-policy-compliancecontrols
 ---
+
 # Azure Policy Regulatory Compliance controls for Azure Storage
 
 [Regulatory Compliance in Azure Policy](../../governance/policy/concepts/regulatory-compliance.md)
-provides Microsoft created and managed initiative definitions, known as _built-ins_, for the
+provides Microsoft created and managed initiative definitions, known as *built-ins*, for the
 **compliance domains** and **security controls** related to different compliance standards. This
 page lists the **compliance domains** and **security controls** for Azure Storage. You
 can assign the built-ins for a **security control** individually to help make your Azure resources

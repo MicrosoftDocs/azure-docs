@@ -3,8 +3,8 @@ title: What is Apache Hadoop and MapReduce - Azure HDInsight
 description: An introduction to HDInsight, and the Apache Hadoop technology stack and components.
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
-ms.date: 02/27/2020
+ms.custom: hdinsightactive, mvc
+ms.date: 04/24/2023
 #Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on premises clusters.
 ---
 
@@ -26,7 +26,7 @@ To see available Hadoop technology stack components on HDInsight, see [Component
 
 A basic word count MapReduce job example is illustrated in the following diagram:
 
- ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
+ :::image type="content" source="./media/apache-hadoop-introduction/hdi-word-count-diagram.gif" alt-text="HDI.WordCountDiagram" border="true":::
 
 The output of this job is a count of how many times each word occurred in the text.
 

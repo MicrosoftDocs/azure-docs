@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
+ms.custom: mode-other
 ---
 
 # Quickstart: Render a model with Unity
@@ -27,15 +28,13 @@ To get access to the Azure Remote Rendering service, you first need to [create a
 The following software must be installed:
 
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* The latest version of Visual Studio 2022 [(download)](https://visualstudio.microsoft.com/vs/)
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development**
-* GIT [(download)](https://git-scm.com/downloads)
-* Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
-  * Install these modules in Unity:
-    * **UWP** - Universal Windows Platform Build Support
-    * **IL2CPP** - Windows Build Support (IL2CPP)
+* Git [(download)](https://git-scm.com/downloads)
+* Git LFS plugin [(download)](https://git-lfs.github.com/)
+* Unity (see [system requirements](../overview/system-requirements.md#unity) for supported versions)
 
 ## Clone the sample app
 
@@ -47,6 +46,7 @@ Run the following commands:
 mkdir ARR
 cd ARR
 git clone https://github.com/Azure/azure-remote-rendering
+powershell -ExecutionPolicy RemoteSigned -File azure-remote-rendering\Scripts\DownloadUnityPackages.ps1
 ```
 
 The last command creates a subdirectory in the ARR directory containing the various sample projects for Azure Remote Rendering.
@@ -69,8 +69,8 @@ The default model we render is a [built-in sample model](../samples/sample-model
 ![ARR Account Info](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> Set **AccountDomain** to `<region>.mixedreality.azure.com`, where `<region>` is [one of the available regions near you](../reference/regions.md).\
-> Set **AccountAuthenticationDomain** to [account domain](../how-tos/create-an-account.md#retrieve-the-account-information) as displayed in Azure Portal.
+> Set **RemoteRenderingDomain** to `<region>.mixedreality.azure.com`, where `<region>` is [one of the available regions near you](../reference/regions.md).\
+> Set **AccountDomain** to [account domain](../how-tos/create-an-account.md#retrieve-the-account-information) as displayed in Azure Portal.
 
 Later we want to deploy this project to a HoloLens and connect to the Remote Rendering service from that device. Since we have no easy way to enter the credentials on the device, the quickstart sample will **save the credentials in the Unity scene**.
 
@@ -94,7 +94,7 @@ You can now explore the scene graph by selecting the new node and clicking **Sho
 
 ![Unity Hierarchy](./media/unity-hierarchy.png)
 
-There is a [cut plane](../overview/features/cut-planes.md) object in the scene. Try enabling it in its properties and moving it around:
+There is a [cut plane](../overview/features/cut-planes.md) object in the scene. Try enabling it by checking the box in front of **CutPlane** under Inspector pane and move around:
 
 ![Changing the cut plane](media/arr-sample-unity-cutplane.png)
 

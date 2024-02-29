@@ -2,8 +2,11 @@
 title: Tutorial - Use Docker Compose to deploy multi-container group
 description: Use Docker Compose to build and run a multi-container application and then bring up the application in to Azure Container Instances
 ms.topic: tutorial
-ms.date: 10/28/2020
-ms.custom: 
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Tutorial: Deploy a multi-container group using Docker Compose 
@@ -11,6 +14,9 @@ ms.custom:
 In this tutorial, you use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally and then deploy it as a [container group](container-instances-container-groups.md) in Azure Container Instances. 
 
 Run containers in Azure Container Instances on-demand when you develop cloud-native apps with Docker and you want to switch seamlessly from local development to cloud deployment. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/). You can use native Docker commands to run either [a single container instance](quickstart-docker-cli.md) or multi-container group in Azure.
+
+> [!IMPORTANT]
+> Docker Compose's integration for ACI has been retired in November 2023. See also: [Retirement Date Pending](https://github.com/docker/compose-cli?tab=readme-ov-file#warning-retirement-date-pending).  
 
 > [!IMPORTANT]
 > Not all features of Azure Container Instances are supported. Provide feedback about the Docker-Azure integration by creating an issue in the [Docker ACI Integration](https://github.com/docker/aci-integration-beta) GitHub repository.
@@ -164,12 +170,12 @@ It can take a few minutes to push to the registry.
 To verify the image is stored in your registry, run the [az acr repository show](/cli/azure/acr/repository#az-acr-repository-show) command:
 
 ```azurecli
-az acr repository show --name <acrName> --repository azure-vote-front
+az acr repository show --name <acrName> --repository azuredocs/azure-vote-front
 ```
 
 [!INCLUDE [container-instances-create-docker-context](../../includes/container-instances-create-docker-context.md)]
 
-## Deploy application to Azure Container instances
+## Deploy application to Azure Container Instances
 
 Next, change to the ACI context. Subsequent Docker commands run in this context.
 

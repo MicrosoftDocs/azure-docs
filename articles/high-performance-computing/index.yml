@@ -1,0 +1,283 @@
+### YamlMime:Hub
+
+title: Azure HPC documentation
+summary: Azure high-performance computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads.
+brand: azure
+
+metadata:
+  title: Azure HPC documentation
+  description: Azure high-performance computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads.
+  imageSrc: ../high-performance-computing/media/hpc-logo.png
+  subject: high-performance-computing
+  ms.service: hpc-fundamentals
+  ms.topic: hub-page
+  author: padmalathas
+  ms.author: padmalathas
+  ms.reviewer: mattmcinnes
+  ms.date: 09/20/2023
+
+# Main Items (Icons)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Azure HPC?
+      itemType: overview
+      url: /azure/architecture/topics/high-performance-computing
+    # Card
+    - title: Getting started with HPC VMs
+      itemType: get-started
+      url: ../virtual-machines/set-up-hpc-vms.md?context=/azure/virtual-machines/context/context
+    # Card
+    - title: Azure HPC Architecture
+      itemType: architecture
+      url: /azure/architecture/browse/?terms=HPC
+    # Card
+    - title: Azure HPC Learn Paths
+      itemType: learn
+      url: /training/paths/run-high-performance-computing-applications-azure/
+    # Card
+    - title: Azure HPC Technical Blog
+      itemType: whats-new
+      url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
+
+conceptualContent:
+  # Supports up to 3 subsections
+  sections:
+    - title: Azure HPC Solution Components # < 60 chars (Optional; Remove if not applicable.)
+      items:
+      # Card
+        - title: Azure HPC Scenarios and Architectures
+          links:
+            - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
+              itemType: overview
+              text: 3D Video Rendering
+            - url: /azure/architecture/example-scenario/apps/hpc-saas
+              itemType: overview
+              text: Computer-aided Engineering
+            - url: /azure/architecture/example-scenario/infrastructure/image-modeling/
+              itemType: overview
+              text: Digital image-based modeling on Azure
+            - url: /azure/architecture/guide/hpc/hpc-deployments/
+              itemType: overview
+              text: HPC Deployments              
+        # Card
+        - title: Azure HPC Compute
+          links:
+            - url: ../virtual-machines/sizes-hpc.md
+              itemType: concept
+              text: High Performance VMs 
+            - url: ../virtual-machines/sizes-gpu.md
+              itemType: concept
+              text: GPU Accelarated VMs
+            - url: ../virtual-machines/hx-series.md
+              itemType: concept
+              text: Memory Optimized VMs
+        # Card
+        - title: Azure HPC Storage
+          links:
+            - url: ../azure-netapp-files/azure-netapp-files-introduction.md
+              itemType: concept
+              text: Azure NetApp Files
+            - url: /azure/azure-managed-lustre/blob-integration
+              itemType: concept
+              text: Azure Blob Storage               
+        # Card
+        - title: Azure HPC Workload Orchestration
+          links:
+            - url: ../batch/batch-technical-overview.md
+              itemType: overview
+              text: Azure Batch
+            - url: /azure/cyclecloud/overview
+              itemType: overview
+              text: Azure CycleCloud
+            - url: /azure/logic-apps/logic-apps-overview
+              itemType: overview
+              text: Azure Logic Apps
+        # Card
+        - title: Azure HPC Optimization
+          links:
+            - url: ../hpc-cache/hpc-cache-overview.md
+              itemType: overview
+              text: Azure HPC Cache
+            - url: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+              itemType: overview
+              text: Autoscaling
+            - url: /azure/virtual-machines/spot-vms
+              itemType: overview
+              text: Spot VMs             
+        # Card
+        - title: Manage, Monitor and Control
+          links:
+            - url: /azure/azure-monitor/
+              itemType: reference
+              text: Azure Monitor
+            - url: /azure/databox/
+              itemType: reference
+              text: Azure Databox
+            - url: /azure/confidential-ledger/
+              itemType: reference
+              text: Azure Confidential Ledger 
+            - url: /azure/open-datasets/
+              itemType: reference
+              text: Azure Open Datasets
+
+
+# Azure HPC Resourcess
+additionalContent:
+  sections:
+    - title: Take the next step # < 60 chars (Optional; Remove if not applicable.)
+      summary: See Azure HPC solutions, tutorials, guides and resources. # < 160 chars (Optional; Remove if not applicable.)
+      items:
+      # Card
+      - title: Landing Zone Accelerators
+        links:
+          - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
+            text: Infra Landing Zone 
+          - url: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone
+            text: Data Landing Zone
+          - url: https://azure.github.io/az-hop/
+            text: HPC OnDemand Platform Zone
+      # Card
+      - title: Cloud Adoption
+        links:
+          - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
+            text: Cloud Adoption Scenarios
+          - url: /azure/cloud-adoption-framework/migrate/
+            text: Cloud Migration Overview          
+      # Card
+      - title: Azure HPC Support
+        links:
+          - url: https://learn.microsoft.com/azure/fasttrack/
+            text: Get expert help with Azure FastTrack
+      # Card
+      - title: Tutorials
+        links:
+          - url: /training/modules/intro-to-hpc/2-azure-batch
+            text: Run HPC applications on Azure
+          - url: /training/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli/
+            text: Run Parallel Tasks in Azure Batch
+          - url: /training/modules/azure-cyclecloud-high-performance-computing/
+            text: Create, customize and manage HPC Cluster using CycleCloud
+          - url: /azure/virtual-machines/extensions/enable-infiniband
+            text: Enable Inifiniband
+         
+    - title: HPC Channels and Written Thought Leadership # < 60 chars (optional)
+      summary: Explore our marketplace, innovate with our partners to accelerate your HPC workloads with cloud flexibility, capability, and scalability. # < 160 chars (optional)
+      items:
+        # Card
+        - title: Azure HPC Channels
+          links:
+            - url: https://azure.microsoft.com/blog/tag/high-performance-computing/?s=HPC
+              text: HPC Blog Posts on Azure.com
+            - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
+              text: HPC TechCommunity Blog Reads
+        # Card
+        - title: Azure HPC Content on Sites
+          links:
+            - url: https://www.aka.ms/Microsoft-NVIDIA/HPCwire
+              text: Microsoft - NVIDIA
+            - url: https://www.aka.ms/VentureBeat/MakeAIYourReality
+              text: Microsoft - NVIDIA 
+            - url: https://insidehpc.com/2023/03/manufacturing-repatriation-how-hpc-class-technologies-from-microsoft-azure-and-amd-support-manufacturers-reshoring-strategies/
+              text: Microsoft - AMD
+            - url: https://insidehpc.com/2022/10/staying-at-the-cutting-edge-of-automotive-design-technology-with-azure-cloud-platform-and-amd/
+              text: Azure Cloud and AMD for Manufacturing
+            - url: https://insidehpc.com/2023/03/azure-amd-and-the-power-of-cloud-based-hpc-for-sustainability-rd-projects/
+              text: Azure and AMD for Sustainability    
+        # Card
+        - title: Explore Other Azure HPC Content
+          links:
+            - url: https://www.aka.ms/hpc-saves-the-day
+              text: HPC saves the day!
+            - url: https://busenq.com/article/microsoft-azure/
+              text: HPC Powers Word-Record Simulation
+            - url: https://bigcompute.org/blog/high-performance-computing-for-rd/
+              text: HPC for Innovation in R&D          
+            - url: https://idcdocserv.com/US50583623
+              text: HPC for Product Modeling
+
+
+# Video Playlists and other links
+    - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
+      summary: Learn more about Azure HPC with various video content and events. # < 160 chars (Optional; Remove if not applicable.)
+      items:
+        # Card
+        - title: Azure HPC Business Strategy
+          #summary:
+          links:
+            - text: "Azure HPC+AI Platform Overview"
+              url: https://www.youtube.com/watch?v=V0-laXwBI7I
+            - text: "What is High Performance Computing - HPC?"
+              url: https://www.youtube.com/watch?v=0biElmaDfFs
+            - text: "The benefits of HPC, AI, and the Cloud with Steve Scott"
+              url: https://www.youtube.com/watch?v=GmimOVxFSRY  
+            - text: "Want to learn more? Check out the 'HPC Business Strategy' playlist!"
+              url: https://aka.ms/HPCBusinessStrategy
+        # Card
+        - title: Azure HPC Deep Dives
+          #summary:
+          links:
+            - text: "Comparing cloud platform performance for HPC+AI workloads"
+              url: https://www.youtube.com/watch?v=4-0TYA7Po2A
+            - text: "Leveraging EESSI for WRF simulations at scale on Azure HPC"
+              url: https://www.youtube.com/watch?v=LGkQi7BDf6w
+            - text: "Day 1 - (3) UCX on Azure HPC and AI Clusters"
+              url: https://www.youtube.com/watch?v=L4aGCOEvRJQ
+            - text: "Want to learn more? Check out the 'HPC Deep Dives' playlist!"
+              url: https://aka.ms/HPCDeepDives
+          # Card
+        - title: Azure HPC Partners
+          #summary:
+          links:
+            - text: "Deploying, Benchmarking & Visualising Workflows in a AMD HPC cluster in Azure"
+              url: https://www.youtube.com/watch?v=qUQFWbVnbsU
+            - text: "HPC Technical Capabilities and Solutions for the Energy Industry Powered by Microsoft Azure Cloud"
+              url: https://www.youtube.com/watch?v=NXOFG4aoD4g
+            - text: "How to Migrate HPC environments to Microsoft Azure Part One"
+              url: https://www.youtube.com/watch?v=1GjWhGrPI_A
+            - text: "Want to learn more? Check out the 'HPC Partners' playlist!"
+              url: https://aka.ms/HPCPartners
+          # Card
+        - title: Azure HPC Events
+          #summary:
+          links:
+            - text: "Azure HPC+Al Day Keynote"
+              url: https://www.youtube.com/watch?v=YeCHFabuBMo
+            - text: "Leading performance for cloud HPC+AI workloads with Microsoft Azure"
+              url: https://www.youtube.com/watch?v=x8foF0fuxgo
+            - text: "The Cloud HPC+AI Journey to Microsoft Azure"
+              url: https://www.youtube.com/watch?v=tXLnV6MDsVc
+            - text: "Want to learn more? Check out the 'HPC Events' playlist!"
+              url: https://aka.ms/HPCEvents
+            - text: "Azure Announcements"
+              url:  https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
+
+              
+    - title: HPC Conferences # < 60 chars (optional)
+      summary: Learn more about product updates, event information and technology offers and more. # < 160 chars (optional)
+      items:
+        # Card
+        - title: Microsoft HPC at Supercomputing 2022
+          links:
+            - text: Microsoft at at SC22!
+              url: https://www.aka.ms/SC22
+            - text: Supercomputing 22 Website
+              url: https://sc22.supercomputing.org/
+        # Card
+        - title: NVIDIA GTC (GPU Technology Conference)
+          links:
+            - text: Microsoft at GTC
+              url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/we-ll-see-you-at-nvidia-s-spring-gtc-conference/ba-p/3194882
+            - text: GTC Website
+              url: https://www.nvidia.com/gtc/
+        # Card
+        - title: ISC23 (ISC High Performance Event) 
+          links:
+            - text: Microsoft at ISC!
+              url: https://www.aka.ms/ISC
+            - text: Microsoft at ISC23 Blog
+              url: https://www.aka.ms/ISC23
+            - text: ISC High Performance Event Website!
+              url: https://www.isc-hpc.com/

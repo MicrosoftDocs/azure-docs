@@ -2,7 +2,10 @@
 title: Troubleshoot System Center Data Protection Manager
 description: In this article, discover solutions for issues that you might encounter while using System Center Data Protection Manager.
 ms.topic: troubleshooting
-ms.date: 01/30/2019
+ms.date: 10/21/2022
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot System Center Data Protection Manager
@@ -86,3 +89,11 @@ This error occurs during the encryption process when recovering Data Protection 
 >
 > When you're recovering data, always provide the same encryption passphrase that's associated with the Data Protection Manager/Azure Backup server.
 >
+
+## Error: The server registration status could not be verified with Microsoft Azure Backup. Verify that you are connected to the internet and that the proxy settings are configured correctly.
+
+To resolve this issue:
+
+- Ensure network connectivity and proxy settings.
+- Ensure that you are running the latest MARS agent.
+- [Ensure your server is running on TLS 1.2](transport-layer-security.md).

@@ -1,15 +1,13 @@
 ---
 title: Incrementally load data using PowerShell
 description: This PowerShell script shows how to use Azure Data Factory to copy data incrementally from an Azure SQL Database to an Azure Blob Storage.
-services: data-factory
-ms.author: jingwang
-author: linda33wj
-manager: shwang
+ms.author: yexu
+author: dearandyxu
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: article
-ms.custom: seo-lt-2019
-ms.date: 03/12/2020
+ms.custom: devx-track-azurepowershell
+ms.date: 01/05/2024
 ---
 
 # PowerShell script - Incrementally load data by using Azure Data Factory
@@ -58,7 +56,7 @@ This script uses the following commands:
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
-## Next steps
+## Related content
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 

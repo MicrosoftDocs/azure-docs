@@ -5,18 +5,19 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
+ms.devlang: golang
 ---
 
 # Azure Functions custom handlers
 
-Every Functions app is executed by a language-specific handler. While Azure Functions supports many [language handlers](./supported-languages.md) by default, there are cases where you may want to use other languages or runtimes.
+Every Functions app is executed by a language-specific handler. While Azure Functions features many [language handlers](./supported-languages.md) by default, there are cases where you may want to use other languages or runtimes.
 
 Custom handlers are lightweight web servers that receive events from the Functions host. Any language that supports HTTP primitives can implement a custom handler.
 
 Custom handlers are best suited for situations where you want to:
 
-- Implement a function app in a language that's not currently supported, such as Go or Rust.
-- Implement a function app in a runtime that's not currently supported, such as Deno.
+- Implement a function app in a language that's not currently offered out-of-the box, such as Go or Rust.
+- Implement a function app in a runtime that's not currently featured by default, such as Deno.
 
 With custom handlers, you can use [triggers and input and output bindings](./functions-triggers-bindings.md) via [extension bundles](./functions-bindings-register.md).
 
@@ -44,7 +45,7 @@ To implement a custom handler, you need the following aspects to your applicatio
 - A *function.json* file for each function (inside a folder that matches the function name)
 - A command, script, or executable, which runs a web server
 
-The following diagram shows how these files look on the file system for a function named "MyQueueFunction" and an custom handler executable named *handler.exe*.
+The following diagram shows how these files look on the file system for a function named "MyQueueFunction" and a custom handler executable named *handler.exe*.
 
 ```bash
 | /MyQueueFunction
@@ -116,9 +117,6 @@ For custom handlers, set `FUNCTIONS_WORKER_RUNTIME` to `Custom` in *local.settin
   }
 }
 ```
-
-> [!NOTE]
-> `Custom` may not be recognized as a valid runtime on the Linux Premium or App Service plans. If that is your deployment target, set `FUNCTIONS_WORKER_RUNTIME` to an empty string.
 
 ### Function metadata
 
@@ -514,9 +512,9 @@ The route for the order function here is `/api/hello`, same as the original requ
 
 ## Deploying
 
-A custom handler can be deployed to every Azure Functions hosting option. If your handler requires operating system or platform dependencies (such as a language runtime), you may need to use a [custom container](./functions-create-function-linux-custom-image.md).
+A custom handler can be deployed to every Azure Functions hosting option. If your handler requires operating system or platform dependencies (such as a language runtime), you may need to use a [custom container](./functions-how-to-custom-container.md).
 
-When creating a function app in Azure for custom handlers, we recommend you select .NET Core as the stack. A "Custom" stack for custom handlers will be added in the future.
+When creating a function app in Azure for custom handlers, we recommend you select .NET Core as the stack. 
 
 To deploy a custom handler app using Azure Functions Core Tools, run the following command.
 
@@ -573,7 +571,7 @@ You can also use this strategy in your CI/CD pipelines to run automated tests on
 
 ### Execution environment
 
-Custom handlers run in the same environment as a typical Azure Functions app. Test your handler to ensure the environment contains all the dependencies it needs to run. For apps that require additional dependencies, you may need to run them using a [custom container image](functions-create-function-linux-custom-image.md) hosted on Azure Functions [Premium plan](functions-premium-plan.md).
+Custom handlers run in the same environment as a typical Azure Functions app. Test your handler to ensure the environment contains all the dependencies it needs to run. For apps that require additional dependencies, you may need to run them using a [custom container image](./functions-how-to-custom-container.md) hosted on Azure Functions [Premium plan](functions-premium-plan.md).
 
 ### Get support
 

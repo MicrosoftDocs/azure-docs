@@ -2,17 +2,19 @@
 title: 'Create a Custom Endpoint  | Microsoft Docs'
 description: In this article, learn how to configure a custom endpoint to measure with your Internet Analyzer resource. 
 services: internet-analyzer
-author: mattcalder
+author: KumudD
 
 ms.service: internet-analyzer
 ms.topic: how-to
 ms.date: 10/16/2019
-ms.author: mebeatty
+ms.author: kumud
 # Customer intent: (1) As someone interested in migrating to Azure from on-prem/ other cloud, I want to configure a custom endpoint to measure. (2) As someone interested in comparing my custom Azure configuration to on-prem/other cloud/ Azure, I want to configure a custom endpoint to measure. 
 
 ---
 
 # Measure custom endpoints to evaluate in your Internet Analyzer tests 
+
+[!INCLUDE [Azure Internet Analyzer retirement notice](../../includes/internet-analyzer-retirement.md)]
 
 This article demonstrates how to set up a custom endpoint to measure as part of your Internet Analyzer tests. Custom endpoints help evaluate on-premises workloads, workloads running on other cloud providers, and custom Azure configurations.  Comparing two custom endpoints in one test is possible if one endpoint is an Azure resource. For more information on Internet Analyzer, see the [overview](internet-analyzer-overview.md). 
 

@@ -1,10 +1,14 @@
 ---
 title: Add a node type to an Azure Service Fabric cluster 
 description: Learn how to scale out a Service Fabric cluster by adding a Virtual Machine Scale Set.
-
-ms.topic: article
-ms.date: 02/13/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Scale a Service Fabric cluster out by adding a virtual machine scale set
 This article describes how to scale an Azure Service Fabric cluster by adding a new node type to an existing cluster. A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Virtual machine scale sets are an Azure compute resource that you use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. After creating a Service Fabric cluster, you can scale a cluster horizontally by adding a new node type (virtual machine scale set) to an existing cluster.  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
 

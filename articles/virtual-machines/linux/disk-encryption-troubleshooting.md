@@ -2,15 +2,17 @@
 title: Troubleshooting Azure Disk Encryption for Linux VMs
 description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: security
+ms.collection: linux
 ms.topic: troubleshooting
 ms.author: mbaldwin
-ms.date: 08/06/2019
-ms.custom: seodec18
-
+ms.date: 02/20/2024
+ms.custom: devx-track-azurepowershell
 ---
 # Azure Disk Encryption for Linux VMs troubleshooting guide
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This guide is for IT professionals, information security analysts, and cloud administrators whose organizations use Azure Disk Encryption. This article is to help with troubleshooting disk-encryption-related problems.
 
@@ -20,7 +22,6 @@ Before taking any of the steps below, first ensure that the VMs you are attempti
 - [Networking requirements](disk-encryption-overview.md#networking-requirements)
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
- 
 
 ## Troubleshooting Linux OS disk encryption
 
@@ -130,5 +131,5 @@ To disable Azure Disk Encryption with CLI, use [az vm encryption disable](/cli/a
 
 In this document, you learned more about some common problems in Azure Disk Encryption and how to troubleshoot those problems. For more information about this service and its capabilities, see the following articles:
 
-- [Apply disk encryption in Azure Security Center](../../security-center/asset-inventory.md)
+- [Apply disk encryption in Microsoft Defender for Cloud](../../security-center/asset-inventory.md)
 - [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md)

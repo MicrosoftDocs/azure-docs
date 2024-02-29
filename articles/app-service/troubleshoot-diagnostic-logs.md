@@ -3,19 +3,27 @@ title: Enable diagnostics logging
 description: Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
-ms.date: 09/17/2019
-ms.custom: "devx-track-csharp, seodec18"
-
+ms.date: 06/29/2023
+ms.author: msangapu
+author: msangapu-msft
+ms.custom: devx-track-csharp, ai-video-demo
+ai-usage: ai-assisted
 ---
+
 # Enable diagnostics logging for apps in Azure App Service
+
+This video shows you how to enable diagnostics logging for apps.
+> [!VIDEO 62f2edbe-1063-4ec3-a76f-faa0bd783f2f]
+
+The steps in the video are also described in the following sections.
+
 ## Overview
 Azure provides built-in diagnostics to assist with debugging an [App Service app](overview.md). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
 This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> In addition to the logging instructions in this article, there's new, integrated logging capability with Azure Monitoring. You'll find more on this capability in the [Send logs to Azure Monitor (preview)](#send-logs-to-azure-monitor-preview) section. 
->
+> In addition to the logging instructions in this article, there's new, integrated logging capability with Azure Monitoring. You'll find more on this capability in the [Send logs to Azure Monitor](#send-logs-to-azure-monitor) section. 
 >
 
 |Type|Platform|Location|Description|
@@ -26,6 +34,8 @@ This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to 
 | Failed request tracing | Windows | App Service file system | Detailed tracing information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. It's useful if you want to improve site performance or isolate a specific HTTP error. One folder is generated for each failed request, which contains the XML log file, and the XSL stylesheet to view the log file with. |
 | Deployment logging | Windows, Linux | App Service file system | Logs for when you publish content to an app. Deployment logging happens automatically and there are no configurable settings for deployment logging. It helps you determine why a deployment failed. For example, if you use a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), you might use deployment logging to determine why the script is failing. |
 
+When stored in the App Service file system, logs are subject to the available storage for your pricing tier (see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)).
+
 > [!NOTE]
 > App Service provides a dedicated, interactive diagnostics tool to help you troubleshoot your application. For more information, see [Azure App Service diagnostics overview](overview-diagnostics.md).
 >
@@ -33,9 +43,6 @@ This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to 
 >
 
 ## Enable application logging (Windows)
-
-> [!NOTE]
-> Application logging for blob storage can only use storage accounts in the same region as the App Service
 
 To enable application logging for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
@@ -65,9 +72,13 @@ Select the **Level**, or the level of details to log. The following table shows 
 
 When finished, select **Save**.
 
+> [!NOTE]
+> If you write logs to blobs, the retention policy no longer applies if you delete the app but keep the logs in the blobs. For more information, see [Costs that might accrue after resource deletion](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion).
+>
+
 ## Enable application logging (Linux/Container)
 
-To enable application logging for Linux apps or custom container apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
+To enable application logging for Linux apps or custom containers in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
 In **Application logging**, select **File System**.
 
@@ -93,13 +104,19 @@ In **Retention Period (Days)**, set the number of days the logs should be retain
 
 When finished, select **Save**.
 
+> [!NOTE]
+> If you write logs to blobs, the retention policy no longer applies if you delete the app but keep the logs in the blobs. For more information, see [Costs that might accrue after resource deletion](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion).
+>
+
 ## Log detailed errors
 
 To save the error page or failed request tracing for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
 Under **Detailed Error Logging** or **Failed Request Tracing**, select **On**, then select **Save**.
 
-Both types of logs are stored in the App Service file system. Up to 50 errors (files/folders) are retained. When the number of HTML files exceed 50, the oldest 26 errors are automatically deleted.
+Both types of logs are stored in the App Service file system. Up to 50 errors (files/folders) are retained. When the number of HTML files exceeds 50, the oldest error files are automatically deleted.
+
+The Failed Request Tracing feature by default captures a log of requests that failed with HTTP status codes between 400 and 600. To specify custom rules, you can override the `<traceFailedRequests>` section in the *web.config* file.
 
 ## Add log messages in code
 
@@ -111,11 +128,13 @@ In your application code, you use the usual logging facilities to send log messa
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/).
+    By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/). For information about WebJobs SDK logging, see [Get started with the Azure WebJobs SDK](./webjobs-sdk-get-started.md#enable-console-logging)
+- Python applications can use the [OpenCensus package](/previous-versions/azure/azure-monitor/app/opencensus-python) to send logs to the application diagnostics log.
+
 
 ## Stream logs
 
-Before you stream logs in real time, enable the log type that you want. Any information written to files ending in .txt, .log, or .htm that are stored in the */LogFiles* directory (d:/home/logfiles) is streamed by App Service.
+Before you stream logs in real time, enable the log type that you want. Any information written to the console output or files ending in .txt, .log, or .htm that are stored in the */home/LogFiles* directory (D:\home\LogFiles) is streamed by App Service.
 
 > [!NOTE]
 > Some types of logging buffer write to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
@@ -129,19 +148,17 @@ To stream logs in the [Azure portal](https://portal.azure.com), navigate to your
 
 To stream logs live in [Cloud Shell](../cloud-shell/overview.md), use the following command:
 
+> [!IMPORTANT]
+> This command may not work with web apps hosted in a Linux app service plan.
+
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-To filter specific events, such as errors, use the **--Filter** parameter. For example:
+To filter specific log types, such as HTTP, use the **--Provider** parameter. For example:
 
 ```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-```
-To filter specific log types, such as HTTP, use the **--Path** parameter. For example:
-
-```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --path http
+az webapp log tail --name appname --resource-group myResourceGroup --provider http
 ```
 
 ### In local terminal
@@ -154,10 +171,10 @@ If you configure the Azure Storage blobs option for a log type, you need a clien
 
 For logs stored in the App Service file system, the easiest way is to download the ZIP file in the browser at:
 
-- Linux/container apps: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Linux/custom containers: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
 - Windows apps: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
-For Linux/container apps, the ZIP file contains console output logs for both the docker host and the docker container. For a scaled-out app, the ZIP file contains one set of logs for each instance. In the App Service file system, these log files are the contents of the */home/LogFiles* directory.
+For Linux/custom containers, the ZIP file contains console output logs for both the docker host and the docker container. For a scaled-out app, the ZIP file contains one set of logs for each instance. In the App Service file system, these log files are the contents of the */home/LogFiles* directory.
 
 For Windows apps, the ZIP file contains the contents of the *D:\Home\LogFiles* directory in the App Service file system. It has the following structure:
 
@@ -166,35 +183,46 @@ For Windows apps, the ZIP file contains the contents of the *D:\Home\LogFiles* d
 | **Application logs** |*/LogFiles/Application/* | Contains one or more text files. The format of the log messages depends on the logging provider you use. |
 | **Failed Request Traces** | */LogFiles/W3SVC#########/* | Contains XML files, and an XSL file. You can view the formatted XML files in the browser. |
 | **Detailed Error Logs** | */LogFiles/DetailedErrors/* | Contains HTM error files. You can view the HTM files in the browser.<br/>Another way to view the failed request traces is to navigate to your app page in the portal. From the left menu, select **Diagnose and solve problems**, then search for **Failed Request Tracing Logs**, then click the icon to browse and view the trace you want. |
-| **Web Server Logs** | */LogFiles/http/RawLogs/* | Contains text files formatted using the [W3C extended log file format](/windows/desktop/Http/w3c-logging). This information can be read using a text editor or a utility like [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service doesn't support the `s-computername`, `s-ip`, or `cs-version` fields. |
+| **Web Server Logs** | */LogFiles/http/RawLogs/* | Contains text files formatted using the [W3C extended log file format](/windows/desktop/Http/w3c-logging). This information can be read using a text editor or a utility like [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22).<br/>App Service doesn't support the `s-computername`, `s-ip`, or `cs-version` fields. |
 | **Deployment logs** | */LogFiles/Git/* and */deployments/* | Contain logs generated by the internal deployment processes, as well as logs for Git deployments. |
 
-## Send logs to Azure Monitor (preview)
+## Send logs to Azure Monitor
 
-With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create Diagnostic Settings (preview)](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to Storage Accounts, Event Hubs and Log Analytics. 
+With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create Diagnostic Settings](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to Storage Accounts, Event Hubs and Log Analytics. 
 
 > [!div class="mx-imgBorder"]
-> ![Diagnostic Settings (preview)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
+> ![Diagnostic Settings](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
 
 ### Supported log types
 
 The following table shows the supported log types and descriptions: 
 
-| Log type | Windows | Windows Container | Linux | Linux Container | Description |
-|-|-|-|-|-|-|
-| AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error |
-| AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
-| AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
-| AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
-| AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; only available for Premium tier and above |
-| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Blessed Images <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>1</sup> | Application logs |
-| AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
-| AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
+| Log Name| Log type | Windows | Windows Container | Linux | Linux Container | Description |
+|-|-|-|-|-|-|-|
+| App Service Console Logs | AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error <sup>3</sup> |
+| HTTP logs | AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
+| App Service Environment Platform Logs | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
+| Access Audit Logs | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
+| Site Content Change Audit Logs | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
+| App Service Application Logs | AppServiceAppLogs | ASP.NET, .NET Core, & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | .NET Core, Java, SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs <sup>3</sup> |
+| IPSecurity Audit logs | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
+| App Service Platform logs | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
+| Report Antivirus Audit Logs | AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
 
-<sup>1</sup> For Java SE apps, add "$WEBSITE_AZMON_PREVIEW_ENABLED" to the app settings and set it to 1 or to true.
+<sup>1</sup> For Tomcat apps, add `TOMCAT_USE_STARTUP_BAT` to the app settings and set it to `false` or `0`. Need to be on the *latest* Tomcat version and use *java.util.logging*.
+
+<sup>2</sup> For Java SE apps, add `WEBSITE_AZMON_PREVIEW_ENABLED` to the app settings and set it to `true` or to `1`.
+
+<sup>3</sup> Current logging limit is set to 100 logs per minute.
+
+<sup>4</sup> AppServiceAntivirusScanAuditLogs log type is still currently in Preview
+
+## Networking considerations
+
+For Diagnostic Settings restrictions, refer to the [official Diagnostic Settings documentation regarding destination limits](../azure-monitor/essentials/diagnostic-settings.md#destination-limitations).
 
 ## <a name="nextsteps"></a> Next steps
-* [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [How to Monitor Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

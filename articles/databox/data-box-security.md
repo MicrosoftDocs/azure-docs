@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box security overview | Microsoft Docs in data 
 description: Describes Azure Data Box security features in the device, service, and data that resides on Data Box.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 12/16/2020
-ms.author: alkohli
+ms.date: 04/13/2022
+ms.author: shaas
 ---
 # Azure Data Box security and data protection
 
@@ -48,6 +48,7 @@ The Data Box device is protected by the following features:
 
 - A rugged device casing that withstands shocks, adverse transportation, and environmental conditions. 
 - Hardware and software tampering detection that prevents further device operations.
+- A Trusted Platform Module (TPM) that performs hardware-based, security-related functions. Specifically, the TPM manages and protects secrets and data that needs to be persisted on the device.
 - Runs only Data Box-specific software.
 - Boots up in a locked state.
 - Controls device access via a device unlock passkey. This passkey is protected by an encryption key. You can use your own customer-managed key to protect the passkey. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
@@ -99,7 +100,7 @@ Azure Data Box collects and displays personal information in the following key i
 
 - **Shipping address** – After the order is placed, Data Box service provides the shipping address to third-party carriers such as UPS or DHL. 
 
-For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trust-center).
 
 
 ## Security guidelines reference

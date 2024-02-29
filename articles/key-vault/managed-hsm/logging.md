@@ -3,19 +3,18 @@ title: Azure Managed HSM logging
 description: Use this tutorial to help you get started with Managed HSM logging.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 01/30/2024
 ms.author: mbaldwin
 #Customer intent: As a Managed HSM administrator, I want to enable logging so I can monitor how my HSM is accessed.
 ---
 
 # Managed HSM logging 
 
-After you create one or more Managed HSMs, you'll likely want to monitor how and when your HSMss are accessed, and by who. You can do this by enabling logging, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple Managed HSMs.
+After you create one or more Managed HSMs, you'll likely want to monitor how and when your HSMs are accessed, and by who. You can do this by enabling logging, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple Managed HSMs.
 
 You can access your logging information 10 minutes (at most) after the Managed HSM operation. In most cases, it will be quicker than this.  It's up to you to manage your logs in your storage account:
 
@@ -32,7 +31,7 @@ Use this tutorial to help you get started with Managed HSM logging. You'll creat
 To complete the steps in this article, you must have the following items:
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+* The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -45,7 +44,7 @@ The first step in setting up key logging is to point Azure CLI to the Managed HS
 az login
 ```
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
 
 You might have to specify the subscription that you used to create your Managed HSM. Enter the following command to see the subscriptions for your account:
 
@@ -70,15 +69,17 @@ az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource 
 
 What's logged:
 
-* All authenticated REST API requests, including failed requests as a result of access permissions, system errors, or bad requests.
-* Operations on the Managed HSM itself, including creation, deletion, and updating attributes such as tags.
+* All authenticated REST API requests, including failed requests as a result of access permissions, system errors, firewall blocks, or bad requests.
+* Managed plane operations on the Managed HSM resource itself, including creation, deletion, and updating attributes such as tags.
 * Security Domain related operations such as initialize & download, initialize recovery, upload
 * Full HSM backup, restore and selective restore operations
+* Role management operations such as create/view/delete role assignments and create/view/delete custom role definitions
 * Operations on keys, including:
   * Creating, modifying, or deleting the keys.
   * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, listing keys.
   * Key backup, restore, purge
-* Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.  
+  * Key release
+* Invalid paths that result in a 404 response. 
 
 ## Access your logs
 
@@ -118,30 +119,13 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
 ]
 ```
 
-The following table lists the field names and descriptions:
 
-| Field name | Description |
-| --- | --- |
-| **TenantId** | Azure Active Directory tenant ID of subscription where the managed HSM is created |
-| **time** |Date and time in UTC. |
-| **resourceId** |Azure Resource Manager resource ID. For Managed HSM logs, this is always the Managed HSM resource ID. |
-| **operationName** |Name of the operation, as documented in the next table. |
-| **operationVersion** |REST API version requested by the client. |
-| **category** |Type of result. For Managed HSM logs, **AuditEvent** is the single, available value. |
-| **resultType** |Result of the REST API request. |
-| **properties** |Information that varies based on the operation (**operationName**)|
-| **resultSignature** |HTTP status. |
-| **resultDescription** |Additional description about the result, when available. |
-| **durationMs** |Time it took to service the REST API request, in milliseconds. This does not include the network latency, so the time you measure on the client side might not match this time. |
-| **callerIpAddress** |IP address of the client that made the request. |
-| **correlationId** |An optional GUID that the client can pass to correlate client-side logs with service-side logs. |
-| **identity** |Identity from the token that was presented in the REST API request. This is usually a "user," a "service principal". |
-| **requestUri** | The REST API request URI |
-| **clientInfo** | 
 
 ## Use Azure Monitor logs
 
-You can use the Key Vault solution in Azure Monitor logs to review Managed HSM **AuditEvent** logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. 
+You can use the Key Vault solution in Azure Monitor logs to review Managed HSM **AuditEvent** logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need.
+
+For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../key-vault-insights-overview.md).
 
 ## Next steps
 

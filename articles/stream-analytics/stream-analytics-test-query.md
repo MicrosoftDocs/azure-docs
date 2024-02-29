@@ -5,13 +5,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 3/6/2020
-ms.custom: seodec18
+ms.date: 01/03/2022
 ---
 
 # Test an Azure Stream Analytics job in the portal
 
-In Azure Stream Analytics, you can test your query without starting or stopping your job. You can test queries on incoming data from your streaming sources or upload sample data from a local file on Azure Portal. You can also test queries locally from your local sample data or live data in [Visual Studio](stream-analytics-live-data-local-testing.md) and [Visual Studio Code](visual-studio-code-local-run-live-input.md).
+In Azure Stream Analytics, you can test your query without starting or stopping your job. You can test queries on incoming data from your streaming sources or upload sample data from a local file on Azure portal. You can also test queries locally from your local sample data or live data in [Visual Studio](stream-analytics-live-data-local-testing.md) and [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
 ## Automatically sample incoming data from input
 
@@ -109,12 +108,7 @@ Instead of using live data, you can use sample data from a local file to test yo
 6. The sample data API is throttled after five requests in a 15-minute window. After the end of the 15-minute window, you can do more sample data requests. This limitation is applied at the subscription level.
 
 ## Troubleshooting
-
-1.	If you get this error “There was a network connectivity issue when fetching the results. Please check your network and firewall settings.”, follow the steps below:
-
-  * To check the connection to the service, open [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) in a browser. If you cannot open this link, then update your firewall settings.
-  
-2. If you get this error "The request size is too big. Please reduce the input data size and try again.", follow the steps below:
+If you get this error "The request size is too big. Please reduce the input data size and try again.", follow the steps below:
 
   * Reduce input size – Test your query with smaller size sample file or with a smaller time range.
   * Reduce query size – To test a selection of query, select a portion of query then click **Test selected query**.

@@ -2,101 +2,90 @@
 title: Tutorial - Back up Windows Server to Azure
 description: This tutorial details backing up on-premises Windows Servers to a Recovery Services vault.
 ms.topic: tutorial
-ms.date: 08/22/2018
-ms.custom: mvc
+ms.date: 12/15/2022
+ms.custom: mvc, engagement-fy23
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Back up Windows Server to Azure
 
-You can use Azure Backup to protect your Windows Server from corruptions, attacks, and disasters. Azure Backup provides a lightweight tool known as the Microsoft Azure Recovery Services (MARS) agent. The MARS agent is installed on the Windows Server to protect files and folders, and server configuration info via Windows Server System State. This tutorial explains how you can use MARS Agent to back up your Windows Server to Azure. In this tutorial you learn how to:
+This tutorial describes how to back up on-premises Windows Server to Azure using the Microsoft Azure Recovery Services (MARS) agent.
 
-> [!div class="checklist"]
->
-> * Download and set up the MARS Agent
-> * Configure back up times and retention schedule for your server’s backups
-> * Perform an on-demand back up
+Azure Backup helps you to protect a Windows Server from corruptions, attacks, and disasters. Azure Backup provides a lightweight tool called the Microsoft Azure Recovery Services (MARS) agent. The MARS agent is installed on the Windows Server to protect files and folders, and server configuration info via Windows Server System State. This tutorial explains how you can use MARS Agent to back up your Windows Server to Azure. 
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com>.
+Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a Recovery Services vault
-
-Before you can back up Windows Server, you must create a place for the backups, or restore points, to be stored. A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a container in Azure that stores the backups from your Windows Server. Follow the steps below to create a Recovery Services vault in the Azure portal.
-
-1. On the left-hand menu, select **All services** and in the services list, type **Recovery Services**. Select **Recovery Services vaults**.
-
-   ![Open Recovery Services vault](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
-
-2. On the **Recovery Services vaults** menu, select **Add**.
-
-   ![Provide information for vault](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
-
-3. In the **Recovery Services vault** menu,
-
-    * Type *myRecoveryServicesVault* in **Name**.
-    * The current subscription ID appears in **Subscription**.
-    * For **Resource group**, select **Use existing** and choose *myResourceGroup*. If *myResourceGroup* doesn't exist, select **Create New** and type *myResourceGroup*.
-    * From the **Location** drop-down menu, choose *West Europe*.
-    * Select **Create** to create your Recovery Services vault.
-
-Once your vault is created, it appears in the list of Recovery Services vaults.
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Download Recovery Services agent
 
-The Microsoft Azure Recovery Services (MARS) agent creates an association between Windows Server and your Recovery Services vault. The following procedure explains how to download the agent to your server.
+The Microsoft Azure Recovery Services (MARS) agent creates an association between Windows Server and your Recovery Services vault.
+
+To download the agent to your server, follow these steps:
 
 1. From the list of Recovery Services vaults, select **myRecoveryServicesVault** to open its dashboard.
 
-   ![Select the vault to open the dashboard](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
+   ![Screenshot shows how to select the vault to open the dashboard.](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
 2. On the vault dashboard menu, select **Backup**.
 
 3. On the **Backup Goal** menu:
 
-   * for **Where is your workload running?**, select **On-premises**
-   * for **What do you want to backup?**, select **Files and folders** and **System State**
+   * For **Where is your workload running?**, select **On-premises**
+   * For **What do you want to backup?**, select **Files and folders** and **System State**
 
-   ![Backup Goal menu](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+   ![Screenshot shows the Backup Goal menu.](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
 
 4. Select **Prepare Infrastructure** to open the **Prepare infrastructure** menu.
 
 5. On the **Prepare infrastructure** menu, select **Download Agent for Windows Server or Windows Client** to download the *MARSAgentInstaller.exe*.
 
-    ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
+    ![Screenshot shows how to download MARS agent for Windows Server or Windows Client.](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     The installer opens a separate browser and downloads **MARSAgentInstaller.exe**.
 
-6. Before you run the downloaded file, on the Prepare infrastructure menu select **Download** and save the **Vault Credentials** file. Vault credentials are required to connect the MARS Agent with the Recovery Services vault.
+6. Before you run the downloaded file, on the **Prepare infrastructure** menu select **Download** and save the **Vault Credentials** file. Vault credentials are required to connect the MARS Agent with the Recovery Services vault.
 
-    ![Download vault credentials](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
+    ![Screenshot shows how to download the vault credentials file.](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
 
 ## Install and register the agent
 
+To install and register the agent, follow these steps:
+
 1. Locate and double-click the downloaded **MARSagentinstaller.exe**.
-2. The **Microsoft Azure Recovery Services Agent Setup Wizard** appears. As you go through the wizard, provide the following information when prompted and select **Register**.
+
+   The **Microsoft Azure Recovery Services Agent Setup Wizard** appears.
+
+2.  On the wizard, enter the following details when prompted:
    * Location for the installation and cache folder.
-   * Proxy server info if you use a proxy server to connect to the internet.
+   * Proxy server details, if you use a proxy server to connect to the internet.
    * Your user name and password details if you use an authenticated proxy.
 
-     ![Microsoft Azure Recovery Services Agent Setup Wizard](./media/tutorial-backup-windows-server-to-azure/mars-installer.png)
+     ![Screenshot shows the Microsoft Azure Recovery Services Agent setup wizard.](./media/tutorial-backup-windows-server-to-azure/mars-installer.png)
 
-3. At the end of the wizard, select **Proceed to Registration** and provide the **Vault Credentials** file you downloaded in the previous procedure.
+4.  Select **Register**.
+5. At the end of the wizard, select **Proceed to Registration** and provide the **Vault Credentials** file you downloaded in the previous procedure.
 
-4. When prompted, provide an encryption passphrase to encrypt backups from Windows Server. Save the passphrase in a secure location since Microsoft can't recover the passphrase if it's lost.
+6. When prompted, enter an encryption passphrase to encrypt backups from Windows Server. Save the passphrase in a secure location since Microsoft can't recover the passphrase if it's lost.
 
-5. Select **Finish**.
+7. Select **Finish**.
 
-## Configure Backup and Retention
+## Configure backup and retention
 
-You use the Microsoft Azure Recovery Services agent to schedule when backups to Azure, occur on Windows Server. Execute the following steps on the server where you downloaded the agent.
+You use the Microsoft Azure Recovery Services agent to schedule when backups to Azure, occur on Windows Server.
+
+To configure backup and retention on the server where you downloaded the agent, follow these steps:
 
 1. Open the Microsoft Azure Recovery Services agent. You can find it by searching your machine for **Microsoft Azure Backup**.
 
-2. In the Recovery Services agent console, select **Schedule Backup** under the **Actions Pane**.
+2. On the Recovery Services agent console, select **Schedule Backup** under the **Actions Pane**.
 
-    ![Schedule Backup](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Screenshot shows tbe Schedule Backup option.](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-3. Select **Next** to navigate to the **Select Items to Back up** page.
+3. Select **Next** to go to the **Select Items to Back up** page.
 
 4. Select **Add Items** and from the dialog box that opens, select **System State** and files or folders that you want to back up. Then select **OK**.
 
@@ -114,18 +103,19 @@ You use the Microsoft Azure Recovery Services agent to schedule when backups to 
 
 11. After the wizard finishes creating the backup schedule, select **Close**.
 
-## Perform an on-demand backup
+## Run an on-demand backup
 
 You've established the schedule when backup jobs run. However, you haven't backed up the server. It's a disaster recovery best practice to run an on-demand backup to ensure data resiliency for your server.
 
-1. In the Microsoft Azure Recovery Services agent console, select **Back Up Now**.
+1. On the Microsoft Azure Recovery Services agent console, select **Back Up Now**.
 
-    ![Back Up Now](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
+    ![Screenshot shows how to select Back Up Now.](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2. On the **Back Up Now** wizard, select one from **Files and Folders** or **System State** that you want to back up and select **Next**
 3. On the **Confirmation** page, review the settings that the **Back Up Now** wizard uses to back up your server. Then select **Back Up**.
 4. Select **Close** to close the wizard. If you close the wizard before the backup process finishes, the wizard continues to run in the background.
-5. After the initial backup is completed, **Job completed** status appears in **Jobs** pane of the MARS agent console.
+
+After the initial backup is complete, **Job completed** status appears on **Jobs** pane of the MARS agent console.
 
 ## Next steps
 

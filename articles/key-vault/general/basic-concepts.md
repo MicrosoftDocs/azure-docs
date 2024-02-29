@@ -3,19 +3,18 @@ title: What is Azure Key Vault? | Microsoft Docs
 description: Learn how Azure Key Vault safeguards cryptographic keys and secrets that cloud applications and services use.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 01/30/2024
 ms.author: mbaldwin
+
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---
 # Azure Key Vault basic concepts
 
-Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. Key Vault service supports two types of containers: vaults and managed HSM pools. Vaults support storing software and HSM-backed keys, secrets, and certificates. Managed HSM pools only support HSM-backed keys. See [Azure Key Vault REST API overview](about-keys-secrets-certificates.md) for complete details.
+Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. Key Vault service supports two types of containers: vaults and managed hardware security module(HSM) pools. Vaults support storing software and HSM-backed keys, secrets, and certificates. Managed HSM pools only support HSM-backed keys. See [Azure Key Vault REST API overview](about-keys-secrets-certificates.md) for complete details.
 
 Here are other important terms:
 
@@ -27,21 +26,21 @@ Here are other important terms:
 
 - **Managed HSM Administrators**: Users who are assigned the Administrator role have complete control over a Managed HSM pool. They can create more role assignments to delegate controlled access to other users.
 
-- **Managed HSM Crypto Officer/User**: Built-in roles that are usually assigned to users or service principals that will perform cryptographic operations using keys in Managed HSM. Crypto User can create new keys, but cannot delete keys.
+- **Managed HSM Crypto Officer/User**: Built-in roles that are usually assigned to users or service principals that will perform cryptographic operations using keys in Managed HSM. Crypto User can create new keys, but can't delete keys.
 
-- **Managed HSM Crypto Service Encryption**: Built-in role that is usually assigned to a service accounts managed service identity (e.g. Storage account) for encryption of data at rest with customer managed key.
+- **Managed HSM Crypto Service Encryption User**: Built-in role that is usually assigned to a service accounts managed service identity (for example, Storage account) for encryption of data at rest with customer managed key.
 
 - **Resource**: A resource is a manageable item that's available through Azure. Common examples are virtual machine, storage account, web app, database, and virtual network. There are many more.
 
 - **Resource group**: A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups, based on what makes the most sense for your organization.
 
-- **Security principal**: An Azure security principal is a security identity that user-created apps, services, and automation tools use to access specific Azure resources. Think of it as a "user identity" (username and password or certificate) with a specific role, and tightly controlled permissions. A security principal should only need to do specific things, unlike a general user identity. It improves security if you grant it only the minimum permission level that it needs to perform its management tasks. A security principal used with an application or service is specifically called a **service principal**.
+- **Security principal**: An Azure security principal is a security identity that user-created apps, services, and automation tools use to access specific Azure resources. Think of it as a "user identity" (username and password or certificate) with a specific role, and tightly controlled permissions. A security principal should only need to do specific things, unlike a general user identity. It improves security if you grant it only the minimum permission level that it needs to perform its management tasks. A security principal used with an application or service is called a **service principal**.
 
-- [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md): Azure AD is the Active Directory service for a tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant.
+- [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md): Microsoft Entra ID is the Active Directory service for a tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant.
 
-- **Azure tenant ID**: A tenant ID is a unique way to identify an Azure AD instance within an Azure subscription.
+- **Azure tenant ID**: A tenant ID is a unique way to identify a Microsoft Entra instance within an Azure subscription.
 
-- **Managed identities**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Using a managed identity makes solving this problem simpler by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. For more information, see the following image and the [overview of managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+- **Managed identities**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Using a managed identity makes solving this problem simpler by giving Azure services an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to Key Vault or any service that supports Microsoft Entra authentication, without having any credentials in your code. For more information, see the following image and the [overview of managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Authentication
 To do any operations with Key Vault, you first need to authenticate to it. There are three ways to authenticate to Key Vault:
@@ -50,6 +49,11 @@ To do any operations with Key Vault, you first need to authenticate to it. There
 - **Service principal and certificate**: You can use a service principal and an associated certificate that has access to Key Vault. We don't recommend this approach because the application owner or developer must rotate the certificate.
 - **Service principal and secret**: Although you can use a service principal and a secret to authenticate to Key Vault, we don't recommend it. It's hard to automatically rotate the bootstrap secret that's used to authenticate to Key Vault.
 
+## Encryption of data in transit
+
+Azure Key Vault enforces [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) protocol to protect data when it’s traveling between Azure Key vault and clients. Clients negotiate a TLS connection with Azure Key Vault. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
+
+[Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also use RSA-based 2,048-bit encryption key lengths. This combination makes it difficult for someone to intercept and access data that is in transit.
 
 ## Key Vault roles
 
@@ -77,7 +81,7 @@ Developers can also manage the keys directly, by using APIs. For more informatio
 
 ## Next steps
 
-- Learn how to [secure your vault](secure-your-key-vault.md).
+- Learn about [Azure Key Vault security features](security-features.md).
 - Learn how to [secure your managed HSM pools](../managed-hsm/access-control.md)
 
 <!--Image references-->

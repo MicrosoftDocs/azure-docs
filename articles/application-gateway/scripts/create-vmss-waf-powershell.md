@@ -2,18 +2,12 @@
 title: Azure PowerShell Script Sample - Restrict web traffic | Microsoft Docs
 description: Azure PowerShell Script Sample - Create an application gateway with a web application firewall and a virtual machine scale set that uses OWASP rules to restrict traffic.
 services: application-gateway
-documentationcenter: networking
-author: vhorne
-
-
-tags: azure-resource-manager
-
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 01/29/2018
-ms.author: victorh
+ms.author: greglin
 ms.custom: mvc, devx-track-azurepowershell
 ---
 

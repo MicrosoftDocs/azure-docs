@@ -7,9 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/18/2020
+ms.date: 10/14/2022
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Configure the device settings for Azure Stack Edge Pro R
 
@@ -62,7 +62,7 @@ Follow these steps to configure device related settings:
 
     5. After the settings are applied, select **Next: Update server**.
 
-        ![Local web UI "Device" page 3](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/device-4.png)
+        ![Local web UI "Device" page 3](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/device-6.png)
 
 ## Configure update
 
@@ -70,14 +70,14 @@ Follow these steps to configure device related settings:
 
     - You can get the updates directly from the **Microsoft Update server**.
 
-        ![Local web UI "Update Server" page](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/update-2.png)
+        ![Local web UI "Update Server" page](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/device-7.png)
 
         You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
         
         ![Local web UI "Update Server" page 2](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
-        > If a separate Windows Update server is configured and if you choose to connect over *https* (instead of *http*), then signing chain certificates required to connect to the update server are needed. For information on how to create and upload certificates, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md).         
+        > If a separate Windows Update server is configured and if you choose to connect over *https* (instead of *http*), then signing chain certificates required to connect to the update server are needed. For information on how to create and upload certificates, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).         
         > For working in a disconnected mode such as your Azure Stack Edge device tiering to Modular Data Center, enable WSUS option. During activation, the device scans for updates and if the server is not set up, then the activation will fail. 
 
 

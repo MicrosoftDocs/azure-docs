@@ -3,7 +3,7 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 ms.date: 10/18/2020
-ms.author: glenga
+ms.author: glenga 
 ---
 
 ## Clean up resources

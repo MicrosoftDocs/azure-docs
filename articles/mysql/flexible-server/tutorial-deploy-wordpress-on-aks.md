@@ -1,26 +1,28 @@
 ---
-title: 'Tutorial: Deploy WordPress on AKS cluster with MySQL Flexible Server by using Azure CLI'
-description: Learn how to quickly build and deploy WordPress  on AKS with Azure Database for MySQL - Flexible Server.
+title: 'Tutorial: Deploy WordPress on AKS cluster by using Azure CLI'
+description: Learn how to quickly build and deploy WordPress on AKS with Azure Database for MySQL - Flexible Server.
 ms.service: mysql
+ms.subservice: flexible-server
 author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.custom: mvc
+ms.custom: vc, devx-track-azurecli
 ---
 
 # Tutorial: Deploy WordPress app on AKS with Azure Database for MySQL - Flexible Server
 
-In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI. 
-**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL - Flexible Server (Preview)](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. Currently Flexible server is in Preview.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL flexible server using the Azure CLI.
+**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL flexible server](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
 
 > [!NOTE]
-> - Azure Database for MySQL Flexible Server is currently in public preview
-> - This quickstart assumes a basic understanding of Kubernetes concepts, WordPress and MySQL.
+> This quickstart assumes a basic understanding of Kubernetes concepts, WordPress and MySQL.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -55,7 +57,7 @@ The following example output shows the resource group created successfully:
 
 ## Create AKS cluster
 
-Use the [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
 az aks create --resource-group wordpress-project --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -68,13 +70,13 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-install-cli) command:
+To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command:
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group wordpress-project --name myAKSCluster
@@ -96,145 +98,100 @@ NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
-## Create an Azure Database for MySQL - Flexible Server
-Create a flexible server with the [az mysql flexible-server create](/cli/azure/mysql/flexible-server?view=azure-cli-latest&preserve-view=true)command. The following command creates a server using service defaults and values from your Azure CLI's local context:
+## Create an Azure Database for MySQL flexible server instance
+
+Create an Azure Database for MySQL flexible server instance with the [az mysql flexible-server create](/cli/azure/mysql/flexible-server) command. The following command creates a server using service defaults and values from your Azure CLI's local context:
 
 ```azurecli-interactive
 az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
 ```
 
 The server created has the below attributes:
-- A new empty database, ```flexibleserverdb``` is created when the server is first provisioned. In this quickstart we will use this database.
-- Autogenerated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group
-- Service defaults for remaining server configurations: compute tier (Burstable), compute size/SKU (B1MS), backup retention period (7 days), and MySQL version (5.7)
+
+- A new empty database, `flexibleserverdb` is created when the server is first provisioned. In this quickstart we will use this database.
+- Autogenerated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group.
+- Service defaults for remaining server configurations: compute tier (Burstable), compute size/SKU (B1MS), backup retention period (7 days), and MySQL version (5.7).
 - Using public-access argument allow you to create a server with public access protected by firewall rules. By providing your IP address to add the firewall rule to allow access from your client machine.
-- Since the command is using Local context it will create the server in the resource group ```wordpress-project``` and in the region ```eastus```.
+- Since the command is using Local context it will create the server in the resource group `wordpress-project` and in the region `eastus`.
 
+## Container definitions
 
-### Build your WordPress docker image
+In the following example, we're creating two containers, a Nginx web server and a PHP FastCGI processor, based on official Docker images `nginx` and `wordpress` ( `fpm` version with FastCGI support), published on Docker Hub.
 
-Download the [latest WordPress](https://wordpress.org/download/) version. Create new directory ```my-wordpress-app``` for your project and use this simple folder structure
-
-```
-└───my-wordpress-app
-    └───public
-        ├───wp-admin
-        │   ├───css
-      	. . . . . . .
-        ├───wp-content
-        │   ├───plugins
-        . . . . . . .
-        └───wp-includes
-        . . . . . . .
-        ├───wp-config-sample.php
-        ├───index.php
-        . . . . . . .
-    └─── Dockerfile
-
-```
-
-
-Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines 21 to 32 with this code snippet. The code snippet below is reading the database host , username and password from the Kubernetes manifest file.
-
-```php
-//Using environment variables for DB connection information
-
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-
-$connectstr_dbhost = getenv('DATABASE_HOST');
-$connectstr_dbusername = getenv('DATABASE_USERNAME');
-$connectstr_dbpassword = getenv('DATABASE_PASSWORD');
-
-/** MySQL database name */
-define('DB_NAME', 'flexibleserverdb');
-
-/** MySQL database username */
-define('DB_USER', $connectstr_dbusername);
-
-/** MySQL database password */
-define('DB_PASSWORD',$connectstr_dbpassword);
-
-/** MySQL hostname */
-define('DB_HOST', $connectstr_dbhost);
-
-/** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
-
-/** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
-
-
-/** SSL*/
-define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
-```
-
-### Create a Dockerfile
-Create a new Dockerfile and copy this code snippet. This Dockerfile in setting up Apache web server with PHP and enabling mysqli extension.
-
-```docker
-FROM php:7.2-apache
-COPY public/ /var/www/html/
-RUN docker-php-ext-install mysqli
-RUN docker-php-ext-enable mysqli
-```
-
-### Build your docker image
-Make sure you're in the directory ```my-wordpress-app``` in a terminal using the ```cd``` command. Run the following command to build the image:
-
-``` bash
-
-docker build --tag myblog:latest .
-
-```
-
-Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) or [Azure Container registry](../../container-registry/container-registry-get-started-azure-cli.md).
+Alternatively you can build custom docker image(s) and deploy image(s) into [Docker hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) or [Azure Container registry](../../container-registry/container-registry-get-started-azure-cli.md).
 
 > [!IMPORTANT]
->If you are using Azure container regdistry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
+> If you are using Azure container regdistry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
 >
->```azurecli-interactive
->az aks update -n myAKSCluster -g wordpress-project --attach-acr <your-acr-name>
+> ```azurecli-interactive
+> az aks update -n myAKSCluster -g wordpress-project --attach-acr <your-acr-name>
 > ```
->
+
 
 ## Create Kubernetes manifest file
 
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. Let's create a manifest file named `mywordpress.yaml` and copy in the following YAML definition.
 
->[!IMPORTANT]
-> - Replace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` with your actual WordPress docker image name and tag, for example ```docker-hub-user/myblog:latest```.
+> [!IMPORTANT]
+>
 > - Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your MySQL flexible server.
 
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress-blog
+  name: wp-blog
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wordpress-blog
+      app: wp-blog
   template:
     metadata:
       labels:
-        app: wordpress-blog
+        app: wp-blog
     spec:
       containers:
-      - name: wordpress-blog
-        image: [DOCKER-HUB-USER-OR-ACR-ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]
+      - name: wp-blog-nginx
+        image: nginx
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: config
+          mountPath: /etc/nginx/conf.d
+        - name: wp-persistent-storage
+          mountPath: /var/www/html
+
+      - name: wp-blog-php
+        image: wordpress:fpm
+        ports:
+        - containerPort: 9000
+        volumeMounts:
+        - name: wp-persistent-storage
+          mountPath: /var/www/html
         env:
-        - name: DATABASE_HOST
-          value: "SERVERNAME.mysql.database.azure.com"
-        - name: DATABASE_USERNAME
-          value: "YOUR-DATABASE-USERNAME"
-        - name: DATABASE_PASSWORD
-          value: "YOUR-DATABASE-PASSWORD"
-        - name: DATABASE_NAME
-          value: "flexibleserverdb"
+        - name: WORDPRESS_DB_HOST
+          value: "<<SERVERNAME.mysql.database.azure.com>>" #Update here
+        - name: WORDPRESS_DB_USER
+          value: "<<YOUR-DATABASE-USERNAME>>"  #Update here
+        - name: WORDPRESS_DB_PASSWORD
+          value: "<<YOUR-DATABASE-PASSWORD>>"  #Update here
+        - name: WORDPRESS_DB_NAME
+          value: "<<flexibleserverdb>>"
+        - name: WORDPRESS_CONFIG_EXTRA # enable SSL connection for MySQL
+          value: | 
+            define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+      volumes:
+      - name: config
+        configMap:
+          name: wp-nginx-config
+          items:
+          - key: config
+            path: site.conf
+
+      - name: wp-persistent-storage
+        persistentVolumeClaim:
+          claimName: wp-pv-claim
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -243,22 +200,82 @@ spec:
                   - key: "app"
                     operator: In
                     values:
-                    - wordpress-blog
+                    - wp-blog
               topologyKey: "kubernetes.io/hostname"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wp-pv-claim
+  labels:
+    app: wp-blog
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: php-svc
+  name: blog-nginx-service
 spec:
   type: LoadBalancer
   ports:
     - port: 80
   selector:
-    app: wordpress-blog
+    app: wp-blog
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wp-nginx-config
+data:
+  config : |
+    server {
+         listen       80;
+         server_name  localhost;
+         root         /var/www/html/;
+
+         access_log /var/log/nginx/wp-blog-access.log;
+         error_log  /var/log/nginx/wp-blog-error.log error;
+         index index.html index.htm index.php;
+
+         
+        location ~* .(ogg|ogv|svg|svgz|eot|otf|woff|mp4|ttf|css|rss|atom|js|jpg|jpeg|gif|png|ico|zip|tgz|gz|rar|bz2|doc|xls|exe|ppt|tar|mid|midi|wav|bmp|rtf)$ {
+           expires max;
+           index index.php index.html index.htm;
+           try_files $uri =404;
+        }
+
+        location / {
+          index index.php index.html index.htm;
+          
+          if (-f $request_filename) {
+            expires max;
+            break;
+          }
+          
+          if (!-e $request_filename) {
+            rewrite ^(.+)$ /index.php?q=$1 last;
+          }
+        }
+
+        location ~ \.php$ {
+           fastcgi_split_path_info ^(.+\.php)(/.+)$;
+           fastcgi_pass localhost:9000;
+           fastcgi_index index.php;
+           include fastcgi_params;
+           fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+           fastcgi_param SCRIPT_NAME $fastcgi_script_name;
+           fastcgi_param PATH_INFO $fastcgi_path_info;
+        }
+      }
 ```
 
 ## Deploy WordPress to AKS cluster
+
 Deploy the application using the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command and specify the name of your YAML manifest:
 
 ```console
@@ -269,7 +286,7 @@ The following example output shows the Deployments and Services created successf
 
 ```output
 deployment "wordpress-blog" created
-service "php-svc" created
+service "blog-nginx-service" created
 ```
 
 ## Test the application
@@ -279,47 +296,46 @@ When the application runs, a Kubernetes service exposes the application front en
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli-interactive
-kubectl get service wordpress-blog --watch
+kubectl get service blog-nginx-service --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *wordpress-blog* service is shown as *pending*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-wordpress-blog   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
+blog-nginx-service  LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
 ```output
-wordpress-blog  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
+ blog-nginx-service  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 ### Browse WordPress
 
 Open a web browser to the external IP address of your service to see your WordPress installation page.
 
-   :::image type="content" source="./media/tutorial-deploy-wordpress-on-aks/wordpress-aks-installed-success.png" alt-text="Wordpress installation success on AKS and MySQL flexible server":::
+   :::image type="content" source="./media/tutorial-deploy-wordpress-on-aks/wordpress-aks-installed-success.png" alt-text="Wordpress installation success on AKS and Azure Database for MySQL flexible server.":::
 
->[!NOTE]
-> - Currently the WordPress site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
-> - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster.
+> [!NOTE]
+>
+> - WordPress site isn't configured to use HTTPS. For more information about HTTPS and how to configure application routing for AKS, see [Managed NGINX ingress with the application routing add-on](../../aks/app-routing.md).
 
 ## Clean up the resources
 
-To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete) command to remove the resource group, container service, and all related resources.
+To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name wordpress-project --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#additional-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
+> When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#other-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
 - Learn how to [access the Kubernetes web dashboard](../../aks/kubernetes-dashboard.md) for your AKS cluster
 - Learn how to [scale your cluster](../../aks/tutorial-kubernetes-scale.md)
-- Learn how to manage your [MySQL flexible server](./quickstart-create-server-cli.md)
+- Learn how to manage your [Azure Database for MySQL flexible server instance](./quickstart-create-server-cli.md)
 - Learn how to [configure server parameters](./how-to-configure-server-parameters-cli.md) for your database server.
-

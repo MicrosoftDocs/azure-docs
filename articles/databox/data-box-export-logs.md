@@ -1,14 +1,14 @@
 ---
-title: Track and log Azure Data Box, Azure Data Box Heavy events for export order| Microsoft Docs 
+title: Track and log Azure Data Box, Azure Data Box Heavy events for export order| Microsoft Docs
 description: Describes how to track and log events at the various stages of your Azure Data Box and Azure Data Box Heavy export order.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Tracking and event logging for your Azure Data Box and Azure Data Box Heavy export orders
@@ -35,7 +35,7 @@ You can control who can access your order when the order is first created. Set u
 The two roles that can be defined for the Azure Data Box service are:
 
 - **Data Box Reader** - have read-only access to an order(s) as defined by the scope. They can only view details of an order. They can’t access any other details related to storage accounts or edit the order details such as address and so on.
-- **Data Box Contributor** - can only create an order to transfer data to a given storage account *if they already have write access to a storage account*. If they do not have access to a storage account, they can't even create a Data Box order to copy data to the account. This role does not define any Storage account related permissions nor grants access to storage accounts.  
+- **Data Box Contributor** - can only create an order to transfer data to a given storage account *if they already have write access to a storage account*. If they do not have access to a storage account, they can't even create a Data Box order to copy data to the account. This role does not define any Storage account related permissions nor grants access to storage accounts.
 
 To restrict access to an order, you can:
 
@@ -67,7 +67,7 @@ You can track your order through the Azure portal and through the shipping carri
 
 ## Query activity logs during setup
 
-- Your Data Box arrives on your premises in a locked state. You can use the device credentials available in the Azure portal for your order.  
+- Your Data Box arrives on your premises in a locked state. You can use the device credentials available in the Azure portal for your order.
 
     When a Data Box is set up, you may need to know who all accessed the device credentials. To figure out who accessed the **Device credentials** blade, you can query the Activity logs.  Any action that involves accessing **Device details > Credentials** blade is logged into the activity logs as `ListCredentials` action.
 
@@ -77,7 +77,7 @@ You can track your order through the Azure portal and through the shipping carri
 
 ## View logs during data copy
 
-Before you copy data from your Data Box, you can download and review *copy log* and *verbose log* for the data that was copied to the Data Box. These logs are generated when the data is copied from your Storage account in Azure to your Data Box. 
+Before you copy data from your Data Box, you can download and review *copy log* and *verbose log* for the data that was copied to the Data Box. These logs are generated when the data is copied from your Storage account in Azure to your Data Box.
 
 ### Copy log
 
@@ -91,8 +91,8 @@ Here is a sample output of *copy log* when there were no errors and all the file
   <TotalFiles_Blobs>5521</TotalFiles_Blobs>
   <FilesErrored>0</FilesErrored>
 </CopyLog>
-``` 
-    
+```
+
 Here is a sample output when the *copy log* has errors and some of the files failed to copy from Azure.
 
 ```output
@@ -115,12 +115,12 @@ Here is a sample output when the *copy log* has errors and some of the files fai
   <Status>Failed</Status>
   <TotalFiles_Blobs>4</TotalFiles_Blobs>
   <FilesErrored>3</FilesErrored>
-</CopyLog>    
+</CopyLog>
 ```
 
-You have the following options to export those files: 
+You have the following options to export those files:
 
-- You can transfer the files that could not be copied over the network. 
+- You can transfer the files that could not be copied over the network.
 - If your data size was larger than the usable device capacity, then a partial copy occurs and all the files that were not copied are listed in this log. You can use this log as an input XML to create a new Data Box order and then copy over these files.
 
 ### Verbose log
@@ -131,7 +131,7 @@ The verbose log has the information in the following format:
 
 `<file size = "file-size-in-bytes" crc64="cyclic-redundancy-check-string">\folder-path-on-data-box\name-of-file-copied.md</file>`
 
-Here is a sample output of the verbose log. 
+Here is a sample output of the verbose log.
 
 ```powershell
   <File CloudFormat="BlockBlob" Path="validblobdata/test1.2.3.4" Size="1024" crc64="7573843669953104266">
@@ -171,13 +171,13 @@ The copy log path is also displayed on the **Overview** blade for the portal.
 
 <!-- add a screenshot-->
 
-You can use these logs to verify that files copied from Azure match the data that was copied to your on-premises server. 
+You can use these logs to verify that files copied from Azure match the data that was copied to your on-premises server.
 
 Use your verbose log file:
 
 - To verify against the actual names and the number of files that were copied from the Data Box.
 - To verify against the actual sizes of the files.
-- To verify that the *crc64* corresponds to a non-zero string. A Cyclic Redundancy Check (CRC) computation is done during the export from Azure. The CRCs from the export and after the data is copied from Data Box to on-premise server can be compared. A CRC mismatch indicates that the corresponding files failed to copy properly.
+- To verify that the *crc64* corresponds to a non-zero string. A Cyclic Redundancy Check (CRC) computation is done during the export from Azure. The CRCs from the export and after the data is copied from Data Box to on-premises server can be compared. A CRC mismatch indicates that the corresponding files failed to copy properly.
 
 
 ## Get chain of custody logs after data erasure
@@ -215,7 +215,7 @@ New Logon:
 	Logon GUID:		{00000000-0000-0000-0000-000000000000}
 Process Information:
 	Process ID:		0x4
-	Process Name:		
+	Process Name:
 Network Information:
 	Workstation Name:	-
 	Source Network Address:	-
@@ -226,8 +226,8 @@ Detailed Authentication Information:
 	Transited Services:	-
 	Package Name (NTLM only):	-
 	Key Length:		0
-This event is generated when a logon session is created. It is generated on the computer that was accessed. 
-The subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe. 
+This event is generated when a logon session is created. It is generated on the computer that was accessed.
+The subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
 The logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).
 The New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.
 The network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
@@ -256,9 +256,9 @@ Here is a sample of the order history log from Azure portal:
 -------------------------------
 Microsoft Data Box Order Report
 -------------------------------
-Name                                               : gus-poland                              
-StartTime(UTC)                              : 9/19/2018 8:49:23 AM +00:00                       
-DeviceType                                     : DataBox                                           
+Name                                               : gus-poland
+StartTime(UTC)                              : 9/19/2018 8:49:23 AM +00:00
+DeviceType                                     : DataBox
 -------------------
 Data Box Activities
 -------------------
@@ -266,21 +266,21 @@ Time(UTC)                 | Activity                       | Status          | D
 
 9/19/2018 8:49:26 AM      | OrderCreated                   | Completed       |
 10/2/2018 7:32:53 AM      | DevicePrepared                 | Completed       |
-10/3/2018 1:36:43 PM      | ShippingToCustomer             | InProgress      | Shipment picked up. Local Time : 10/3/2018 1:36:43 PM at AMSTERDAM-NLD                                                                                
-10/4/2018 8:23:30 PM      | ShippingToCustomer             | InProgress      | Processed at AMSTERDAM-NLD. Local Time : 10/4/2018 8:23:30 PM at AMSTERDAM-NLD                                                                        
+10/3/2018 1:36:43 PM      | ShippingToCustomer             | InProgress      | Shipment picked up. Local Time : 10/3/2018 1:36:43 PM at AMSTERDAM-NLD
+10/4/2018 8:23:30 PM      | ShippingToCustomer             | InProgress      | Processed at AMSTERDAM-NLD. Local Time : 10/4/2018 8:23:30 PM at AMSTERDAM-NLD
 10/4/2018 11:43:34 PM     | ShippingToCustomer             | InProgress      | Departed Facility in AMSTERDAM-NLD. Local Time : 10/4/2018 11:43:34 PM at AMSTERDAM-NLD
-10/5/2018 8:13:49 AM      | ShippingToCustomer             | InProgress      | Arrived at Delivery Facility in BRIGHTON-GBR. Local Time : 10/5/2018 8:13:49 AM at LAMBETH-GBR                                                         
-10/5/2018 9:13:24 AM      | ShippingToCustomer             | InProgress      | With delivery courier. Local Time : 10/5/2018 9:13:24 AM at BRIGHTON-GBR                                                                               
-10/5/2018 12:03:04 PM     | ShippingToCustomer             | Completed       | Delivered - Signed for by. Local Time : 10/5/2018 12:03:04 PM at BRIGHTON-GBR                                                                          
-1/25/2019 3:19:25 PM      | ShippingToDataCenter           | InProgress      | Shipment picked up. Local Time : 1/25/2019 3:19:25 PM at BRIGHTON-GBR                                                                                       
-1/25/2019 8:03:55 PM      | ShippingToDataCenter           | InProgress      | Processed at BRIGHTON-GBR. Local Time : 1/25/2019 8:03:55 PM at LAMBETH-GBR                                                                            
-1/25/2019 8:04:58 PM      | ShippingToDataCenter           | InProgress      | Departed Facility in BRIGHTON-GBR. Local Time : 1/25/2019 8:04:58 PM at BRIGHTON-GBR                                                                    
-1/25/2019 9:06:09 PM      | ShippingToDataCenter           | InProgress      | Arrived at Sort Facility LONDON-HEATHROW-GBR. Local Time : 1/25/2019 9:06:09 PM at LONDON-HEATHROW-GBR                                                
-1/25/2019 9:48:54 PM      | ShippingToDataCenter           | InProgress      | Processed at LONDON-HEATHROW-GBR. Local Time : 1/25/2019 9:48:54 PM at LONDON-HEATHROW-GBR                                                            
+10/5/2018 8:13:49 AM      | ShippingToCustomer             | InProgress      | Arrived at Delivery Facility in BRIGHTON-GBR. Local Time : 10/5/2018 8:13:49 AM at LAMBETH-GBR
+10/5/2018 9:13:24 AM      | ShippingToCustomer             | InProgress      | With delivery courier. Local Time : 10/5/2018 9:13:24 AM at BRIGHTON-GBR
+10/5/2018 12:03:04 PM     | ShippingToCustomer             | Completed       | Delivered - Signed for by. Local Time : 10/5/2018 12:03:04 PM at BRIGHTON-GBR
+1/25/2019 3:19:25 PM      | ShippingToDataCenter           | InProgress      | Shipment picked up. Local Time : 1/25/2019 3:19:25 PM at BRIGHTON-GBR
+1/25/2019 8:03:55 PM      | ShippingToDataCenter           | InProgress      | Processed at BRIGHTON-GBR. Local Time : 1/25/2019 8:03:55 PM at LAMBETH-GBR
+1/25/2019 8:04:58 PM      | ShippingToDataCenter           | InProgress      | Departed Facility in BRIGHTON-GBR. Local Time : 1/25/2019 8:04:58 PM at BRIGHTON-GBR
+1/25/2019 9:06:09 PM      | ShippingToDataCenter           | InProgress      | Arrived at Sort Facility LONDON-HEATHROW-GBR. Local Time : 1/25/2019 9:06:09 PM at LONDON-HEATHROW-GBR
+1/25/2019 9:48:54 PM      | ShippingToDataCenter           | InProgress      | Processed at LONDON-HEATHROW-GBR. Local Time : 1/25/2019 9:48:54 PM at LONDON-HEATHROW-GBR
 1/25/2019 10:30:20 PM     | ShippingToDataCenter           | InProgress      | Departed Facility in LONDON-HEATHROW-GBR. Local Time : 1/25/2019 10:30:20 PM at LONDON-HEATHROW-GBR
-1/28/2019 7:11:35 AM      | ShippingToDataCenter           | InProgress      | Arrived at Delivery Facility in AMSTERDAM-NLD. Local Time : 1/28/2019 7:11:35 AM at AMSTERDAM-NLD                                                     
-1/28/2019 9:07:57 AM      | ShippingToDataCenter           | InProgress      | With delivery courier. Local Time : 1/28/2019 9:07:57 AM at AMSTERDAM-NLD                                                                             
-1/28/2019 1:35:56 PM      | ShippingToDataCenter           | InProgress      | Scheduled for delivery. Local Time : 1/28/2019 1:35:56 PM at AMSTERDAM-NLD                                                                            
+1/28/2019 7:11:35 AM      | ShippingToDataCenter           | InProgress      | Arrived at Delivery Facility in AMSTERDAM-NLD. Local Time : 1/28/2019 7:11:35 AM at AMSTERDAM-NLD
+1/28/2019 9:07:57 AM      | ShippingToDataCenter           | InProgress      | With delivery courier. Local Time : 1/28/2019 9:07:57 AM at AMSTERDAM-NLD
+1/28/2019 1:35:56 PM      | ShippingToDataCenter           | InProgress      | Scheduled for delivery. Local Time : 1/28/2019 1:35:56 PM at AMSTERDAM-NLD
 1/28/2019 2:57:48 PM      | ShippingToDataCenter           | Completed       | Delivered - Signed for by. Local Time : 1/28/2019 2:57:48 PM at AMSTERDAM-NLD
 1/29/2019 2:18:43 PM      | PhysicalVerification           | Completed       |
 1/29/2019 3:49:50 PM      | DeviceBoot                     | Completed       | Appliance booted up successfully.

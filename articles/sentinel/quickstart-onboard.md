@@ -1,98 +1,145 @@
 ---
-title: 'Quickstart: Onboard in Azure Sentinel'
-description: In this quickstart, learn how to on-board Azure Sentinel by first enabling Sentinel, and then connecting data sources.
-services: sentinel
+title: 'Quickstart: Onboard in Microsoft Sentinel'
+description: In this quickstart, you enable Microsoft Sentinel, and set up data connectors to monitor and protect your environment.
 author: yelevin
 ms.author: yelevin
-ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 10/14/2020
-ms.custom: references_regions
-#As a security operator, connect all my data sources in one place so I can monitor and protect my environment
+ms.date: 06/14/2023
+ms.custom: references_regions, mode-other
+#Customer intent: As a security operator, set up data connectors in one place so I can monitor and protect my environment.
 ---
-# Quickstart: On-board Azure Sentinel
 
-In this quickstart, learn how to on-board Azure Sentinel. 
+# Quickstart: Onboard Microsoft Sentinel
 
-To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then connect your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft 365 Defender (formerly Microsoft Threat Protection) solutions, Microsoft 365 sources (including Office 365), Azure AD, Microsoft Defender for Identity (formerly Azure ATP), Microsoft Cloud App Security, Azure Defender alerts from Azure Security Center, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format (CEF), Syslog or REST-API to connect your data sources with Azure Sentinel. 
+In this quickstart, you'll enable Microsoft Sentinel and install a solution from the content hub. Then, you'll set up a data connector to start ingesting data into Microsoft Sentinel.
 
-After you connect your data sources, choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
+Microsoft Sentinel comes with many data connectors for Microsoft products such as the Microsoft Defender XDR service-to-service connector. You can also enable built-in connectors for non-Microsoft products such as Syslog or Common Event Format (CEF). For this quickstart, you'll use the Azure Activity data connector that's available in the Azure Activity solution for Microsoft Sentinel.
 
->[!IMPORTANT] 
-> For information about the charges incurred when using Azure Sentinel, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+## Prerequisites
 
-## Global prerequisites
+- **Active Azure Subscription**. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Active Azure Subscription, if you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- **Log Analytics workspace**. Learn how to [create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/workspace-design.md).
 
-- Log Analytics workspace. Learn how to [create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../azure-monitor/platform/design-logs-deployment.md).
+    You may have a default of [30 days retention](../azure-monitor/logs/cost-logs.md#legacy-pricing-tiers) in the Log Analytics workspace used for Microsoft Sentinel. To make sure that you can use all Microsoft Sentinel functionality and features, raise the retention to 90 days. [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
 
-- To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. 
-- To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
-- Additional permissions may be needed to connect specific data sources.
-- Azure Sentinel is a paid service. For pricing information see [About Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
+- **Permissions**:
 
-### Geographical availability and data residency
+    - To enable Microsoft Sentinel, you need **contributor** permissions to the subscription in which the Microsoft Sentinel workspace resides.
 
-- Azure Sentinel can run on workspaces in most [GA regions of Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) except the China and Germany (Sovereign) regions. Sometimes New Log Analytics regions may take some time to onboard Sentinel service. 
+    - To use Microsoft Sentinel, you need either **Microsoft Sentinel Contributor** or **Microsoft Sentinel Reader** permissions on the resource group that the workspace belongs to.
+    - To install or manage solutions in the content hub, you need the **Microsoft Sentinel Contributor** role on the resource group that the workspace belongs to.
 
-- Data generated by Azure Sentinel, such as incidents, bookmarks, and analytics rules, may contain some customer data sourced from the customer's Log Analytics workspaces. This Azure Sentinel-generated data is saved in the geography listed in the following table, according to the geography in which the workspace is located:
+- **Microsoft Sentinel is a paid service**. Review the [pricing options](https://go.microsoft.com/fwlink/?linkid=2104058) and the [Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 
-    | Workspace geography | Azure Sentinel-generated data geography |
-    | --- | --- |
-    | United States<br>India<br>Brazil<br>Africa<br>Korea | United States |
-    | Europe<br>France<br>Switzerland | Europe |
-    | Australia | Australia |
-    | United Kingdom | United Kingdom |
-    | Canada | Canada |
-    | Japan | Japan |
-    |
+- Before deploying Microsoft Sentinel to a production environment, review the [predeployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md).
 
-## Enable Azure Sentinel <a name="enable"></a>
+## Enable Microsoft Sentinel <a name="enable"></a>
 
-1. Sign in to the Azure portal. Make sure that the subscription in which Azure Sentinel is created is selected.
+To get started, add Microsoft Sentinel to an existing workspace or create a new one.
 
-1. Search for and select **Azure Sentinel**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-   ![Services search](./media/quickstart-onboard/search-product.png)
+1. Search for and select **Microsoft Sentinel**.
+
+    :::image type="content" source="media/quickstart-onboard/search-product.png" alt-text="Screenshot of searching for a service while enabling Microsoft Sentinel.":::   
 
 1. Select **Add**.
 
-1. Select the workspace you want to use or create a new one. You can run Azure Sentinel on more than one workspace, but the data is isolated to a single workspace.
+1. Select the workspace you want to use or create a new one. You can run Microsoft Sentinel on more than one workspace, but the data is isolated to a single workspace.
 
-   ![Choose a workspace](./media/quickstart-onboard/choose-workspace.png)
-
-   >[!NOTE] 
-   > - Default workspaces created by Azure Security Center will not appear in the list; you can't install Azure Sentinel on them.
-   >
-
-   >[!IMPORTANT]
-   >
-   > - Once deployed on a workspace, Azure Sentinel **does not currently support** the moving of that workspace to other resource groups or subscriptions. 
-   >
-   >   If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be effective in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
-
-1. Select **Add Azure Sentinel**.
-
-## Connect data sources
-
-Azure Sentinel ingests data from services and apps by connecting to the service and forwarding the events and logs to Azure Sentinel. For physical and virtual machines, you can install the Log Analytics agent that collects the logs and forwards them to Azure Sentinel. For Firewalls and proxies, Azure Sentinel installs the Log Analytics agent on a Linux Syslog server, from which the agent collects the log files and forwards them to Azure Sentinel. 
+    :::image type="content" source="media/quickstart-onboard/choose-workspace.png" alt-text="Screenshot of choosing a workspace while enabling Microsoft Sentinel.":::      
  
-1. From the main menu, select **Data connectors**. This opens the data connectors gallery.
+   - The default workspaces created by Microsoft Defender for Cloud aren't shown in the list. You can't install Microsoft Sentinel on these workspaces.
+   - Once deployed on a workspace, Microsoft Sentinel **doesn't currently support** moving that workspace to another resource group or subscription.
 
-1. The gallery is a list of all the data sources you can connect. Select a data source and then the **Open connector page** button.
+1. Select **Add Microsoft Sentinel**.
 
-1. The connector page shows instructions for configuring the connector, and any additional instructions that may be necessary.<br>
-For example, if you select the **Azure Active Directory** data source, which lets you stream logs from Azure AD into Azure Sentinel, you can select what type of logs you wan to get - sign-in logs and/or audit logs. <br> Follow the installation instructions or [refer to the relevant connection guide](connect-data-sources.md) for more information. For information about data connectors, see [Connect Microsoft services](connect-data-sources.md).
+## Install a solution from the content hub
 
-1. The **Next steps** tab on the connector page shows relevant built-in workbooks, sample queries, and analytics rule templates that accompany the data connector. You can use these as-is or modify them - either way you can immediately get interesting insights across your data. <br>
+The content hub in Microsoft Sentinel is the centralized location to discover and manage out-of-the-box content including data connectors. For this quickstart, install the solution for Azure Activity.
 
-After your data sources are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](quickstart-get-visibility.md) and start building queries in Log Analytics to [investigate the data](tutorial-investigate-cases.md).
+1. In Microsoft Sentinel, select **Content hub**.
+
+1. Find and select the **Azure Activity** solution.
+
+   :::image type="content" source="media/quickstart-onboard/content-hub-azure-activity.png" alt-text="Screenshot of the content hub with the solution for Azure Activity selected.":::
+
+1. On the toolbar at the top of the page, select :::image type="icon" source="media/quickstart-onboard/install-update-button.png"::: **Install/Update**.
+
+## Set up the data connector
+
+Microsoft Sentinel ingests data from services and apps by connecting to the service and forwarding the events and logs to Microsoft Sentinel. For this quickstart, install the data connector to forward data for Azure Activity to Microsoft Sentinel.
+ 
+1. In Microsoft Sentinel, select **Data connectors**.
+
+1. Search for and select the **Azure Activity** data connector.
+
+1. In the details pane for the connector, select **Open connector page**.
+
+1. Review the instructions to configure the connector.
+
+1. Select **Launch Azure Policy Assignment Wizard**.
+
+1. On the **Basics** tab, set the **Scope** to the subscription and resource group that has activity to send to Microsoft Sentinel. For example, select the subscription that contains your Microsoft Sentinel instance.
+
+1. Select the **Parameters** tab.
+
+1. Set the **Primary Log Analytics workspace**. This should be the workspace where Microsoft Sentinel is installed.
+
+1. Select **Review + create** and **Create**.
+
+## Generate activity data
+
+Let's generate some activity data by enabling a rule that was included in the Azure Activity solution for Microsoft Sentinel. This step also shows you how to manage content in the content hub.
+
+1. In Microsoft Sentinel, select **Content hub**.
+
+1. Find and select the **Azure Activity** solution.
+
+1. From the right-hand side pane, select **Manage**.
+
+1. Find and select the rule template **Suspicious Resource deployment**.
+
+1. Select **Configuration**.
+
+1. Select the rule and **Create rule**.
+
+1. On the **General** tab, change the **Status** to enabled. Leave the rest of the default values.
+
+1. Accept the defaults on the other tabs.
+
+1. On the **Review and create** tab, select **Create**.
+
+## View data ingested into Microsoft Sentinel
+
+Now that you've enabled the Azure Activity data connector and generated some activity data let's view the activity data added to the workspace.
+
+1. In Microsoft Sentinel, select **Data connectors**.
+
+1. Search for and select the **Azure Activity** data connector.
+
+1. In the details pane for the connector, select **Open connector page**.
+
+1. Review the **Status** of the data connector. It should be **Connected**.
+
+   :::image type="content" source="media/quickstart-onboard/azure-activity-connected-status.png" alt-text="Screenshot of data connector for Azure Activity with the status showing as connected.":::
+
+1. In the left-hand side pane above the chart, select **Go to log analytics**.
+
+1. On the top of the pane, next to the **New query 1** tab, select the **+** to add a new query tab.
+
+1. In the query pane, run the following query to view the activity date ingested into the workspace.
+
+   ```kusto
+    AzureActivity
+   ```
+
+   :::image type="content" source="media/quickstart-onboard/azure-activity-logs-query.png" alt-text="Screenshot of the log query window with results returned for the Azure Activity query.":::
 
 ## Next steps
-In this document, you learned about onboarding and connecting data sources to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Stream data from [Common Event Format appliances](connect-common-event-format.md) into Azure Sentinel.
+
+In this quickstart, you enabled Microsoft Sentinel and installed a solution from the content hub. Then, you set up a data connector to start ingesting data into Microsoft Sentinel. You also verified that data is being ingested by viewing the data in the workspace.
+
+- To visualize the data you've collected by using the dashboards and workbooks, see [Visualize collected data](get-visibility.md).
+- To detect threats by using analytics rules, see [Tutorial: Detect threats by using analytics rules in Microsoft Sentinel](tutorial-log4j-detection.md).

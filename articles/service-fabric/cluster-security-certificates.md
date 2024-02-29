@@ -2,8 +2,13 @@
 title: X.509 Certificate-based Authentication in a Service Fabric Cluster 
 description: Learn about certificate-based authentication in Service Fabric clusters, and how to detect, mitigate and fix certificate-related problems.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # X.509 Certificate-based authentication in Service Fabric clusters
 
 This article complements the introduction to [Service Fabric cluster security](service-fabric-cluster-security.md), and goes into the details of certificate-based authentication in Service Fabric clusters. We assume the reader is familiar with fundamental security concepts, and also with the controls that Service Fabric exposes to control the security of a cluster.  
@@ -34,7 +39,7 @@ Before diving into the details of authentication or securing communication chann
 - clients: entities allowed to connect to, and execute functionality in a cluster, according to the cluster configuration. We distinguish between two levels of privileges - 'user' and 'admin', respectively. A 'user' client is restricted primarily to read-only operations (but not all read-only functionality), whereas an 'admin' client has unrestricted access to the cluster's functionality. (For more details, refer to [Security roles in a Service Fabric cluster](service-fabric-cluster-security-roles.md).)
 - (Azure-only) the Service Fabric services which orchestrate and expose controls for operation and management of Service Fabric clusters, referred to as simply 'service'. Depending on the environment, the 'service' may refer to the Azure Service Fabric Resource Provider, or other Resource Providers owned and operated by the Service Fabric team.
 
-In a secure cluster, each of these roles can be configured with their own, distinct identity, declared as the pairing of a predefined role name and its corresponding credential. Service Fabric supports declaring credentials as certificates or domain-based service principal. (Windows-/Kerberos-based identities are also supported, but are beyond the scope of this article; refer to [Windows-based security in Service Fabric clusters](service-fabric-windows-cluster-windows-security.md).) In Azure clusters, client roles may also be declared as [Azure Active Directory-based identities](service-fabric-cluster-creation-setup-aad.md).
+In a secure cluster, each of these roles can be configured with their own, distinct identity, declared as the pairing of a predefined role name and its corresponding credential. Service Fabric supports declaring credentials as certificates or domain-based service principal. (Windows-/Kerberos-based identities are also supported, but are beyond the scope of this article; refer to [Windows-based security in Service Fabric clusters](service-fabric-windows-cluster-windows-security.md).) In Azure clusters, client roles may also be declared as [Microsoft Entra ID-based identities](service-fabric-cluster-creation-setup-aad.md).
 
 As alluded to above, the Service Fabric runtime defines two levels of privilege in a cluster: 'admin' and 'user'. An administrator client and a 'system' component would both operate with 'admin' privileges, and so are undistinguishable from each other. Upon establishing a connection in/to the cluster, an authenticated caller will be granted by the Service Fabric runtime one of the two roles as the base for the subsequent authorization. We'll examine authentication in depth in the following sections.
 
@@ -43,7 +48,7 @@ As alluded to above, the Service Fabric runtime defines two levels of privilege 
 The security settings of a Service Fabric cluster describe, in principle, the following aspects:
 - the authentication type; this is a creation-time, immutable characteristic of the cluster. Examples of such settings are 'ClusterCredentialType', 'ServerCredentialType', and allowed values are 'none', 'x509' or 'windows'. This article focuses on the x509-type authentication.
 - the (authentication) validation rules; these settings are set by the cluster owner and describe which credentials shall be accepted for a given role. Examples will be examined in depth immediately below.
-- settings used to tweak or subtly alter the result of authentication; examples here include flags (de-)restricting enforcement of certificate revocation lists etc.
+- settings used to tweak or subtly alter the result of authentication; examples here include flags restricting or unrestricting enforcement of certificate revocation lists, etc.
 
 > [!NOTE]
 > Cluster configuration examples provided below are excerpts from the cluster manifest in XML format, as the most-digested format which supports directly the Service Fabric functionality described in this article. The same settings can be expressed directly in the JSON representations of a cluster definition, whether a standalone json cluster manifest, or an Azure Resource Mangement template.
@@ -133,7 +138,7 @@ The declarations above correspond to the admin and user identities, respectively
 Tying it all together, upon receiving a request for a connection in a cluster secured with X.509 certificates, the Service Fabric runtime will use the cluster's security settings to validate the credentials of the remote party as described above; if successful, the caller/remote party is considered to be authenticated. If the credential matches multiple validation rules, the runtime will grant the caller the highest-privileged role of any of the matched rules. 
 
 ### Presentation rules
-The previous section described how authentication works in a certificate-secured cluster; this section will explain how the Service Fabric runtime itself discovers and loads the certificates it uses for in-cluster communication; we call these the "presentation" rules.
+The previous section described how authentication works in a certificate-secured cluster; this section will explain how the Service Fabric runtime itself discovers and loads the certificates it uses for in-cluster communication; we call these "presentation" rules.
 
 As with the validation rules, the presentation rules specify a role and the associated credential declaration, expressed either by thumbprint or common name. Unlike the validation rules, common name-based declarations do not have provisions for issuer pinning; this allows for greater flexibility as well as improved performance. The presentation rules are declared in the 'NodeType' section(s) of the cluster manifest, for each distinct node type; the settings are split from the Security sections of the cluster to allow each node type to have its full configuration in a single section. In Azure Service Fabric clusters, the node type certificate declarations default to their corresponding settings in the Security section of the definition of the cluster.
 
@@ -177,9 +182,9 @@ Note that, for common-name based presentation declarations, a certificate is con
 ### Miscellaneous certificate configuration settings
 It was mentioned previously that the security settings of a Service Fabric cluster also allow for subtly changing the behavior of the authentication code. While the article on [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md) represents the comprehensive and most up to date list of settings, we'll expand on the meaning of a select few of the security settings here, to complete the full expose on certificate-based authentication. For each setting, we'll explain the intent, default value/behavior, how it affects authentication and which values are acceptable.
 
-As mentioned, certificate validation always implies building and evaluating the certificate's chain. For CA-issued certificates, this apparently-simple OS API call typically entails several outbound calls to various endpoints of the issuing PKI, caching of responses and so on. Given the prevalence of certificate validation calls in a Service Fabric cluster, any issues in the PKI's endpoints can result in reduced availability of the cluster, or outright breakdown. While the outbound calls cannot be suppressed (see below in the FAQ section for more on this), the following settings can be used to mask out validation errors caused by failing CRL calls.
+As mentioned, certificate validation always implies building and evaluating the certificate's chain. For CA-issued certificates, this apparently simple OS API call typically entails several outbound calls to various endpoints of the issuing PKI, caching of responses and so on. Given the prevalence of certificate validation calls in a Service Fabric cluster, any issues in the PKI's endpoints can result in reduced availability of the cluster, or outright breakdown. While the outbound calls cannot be suppressed (see below in the FAQ section for more on this), the following settings can be used to mask out validation errors caused by failing CRL calls.
 
-  * CrlCheckingFlag - under the 'Security' section, string converted to UINT. The value of this setting is used by Service Fabric to mask out certificate chain status errors by changing the behavior of chain building; it is passed in to the Win32 CryptoAPI [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) call as the 'dwFlags' parameter, and can be set to any valid combination of flags accepted by the function. A value of 0 forces the Service Fabric runtime to ignore any trust status errors - this is not recommended, as its use would constitute a significant security exposure. The default value is 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
+  * CrlCheckingFlag - under the "Security" section, string converted to UINT. The value of this setting is used by Service Fabric to mask out certificate chain status errors by changing the behavior of chain building; it is passed in to the Win32 CryptoAPI [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) call as the 'dwFlags' parameter, and can be set to any valid combination of flags accepted by the function. A value of 0 forces the Service Fabric runtime to ignore any trust status errors - this is not recommended, as its use would constitute a significant security exposure. The default value is 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
 
   When to use: for local testing, with self-signed certificates or developer certificates which aren't fully formed/do not have a proper public key infrastructure to support the certificates. May also use as mitigation in air-gapped environments during transition between PKIs.
 
@@ -194,7 +199,7 @@ As mentioned, certificate validation always implies building and evaluating the 
     </Section>
   ```
 
-  * IgnoreCrlOfflineError - under the 'Security' section, boolean with a default value of 'false'. Represents a shortcut for suppressing a 'revocation offline' chain building error status (or a subsequent chain policy validation error status).
+  * IgnoreCrlOfflineError - under the "Security" section, boolean with a default value of 'false'. Represents a shortcut for suppressing a 'revocation offline' chain building error status (or a subsequent chain policy validation error status).
 
   When to use: local testing, or with developer certificates not backed by a proper PKI. Use as mitigation in air-gapped environments or when the PKI is known to be inaccessible.
 
@@ -205,7 +210,7 @@ As mentioned, certificate validation always implies building and evaluating the 
     </Section>
   ```
 
-  Other notable settings (all under the 'Security' section):
+  Other notable settings (all under the "Security" section):
   * AcceptExpiredPinnedClusterCertificate - discussed in the section dedicated to thumbprint-based certificate validation; allows accepting expired self-signed cluster certificates. 
   * CertificateExpirySafetyMargin - interval, expressed in minutes prior to the certificate's NotAfter timestamp, and during which the certificate is considered at risk for expiration. Service Fabric monitors cluster certificate(s) and periodically emits health reports on their remaining availability. Inside the 'safety' interval, these health reports are elevated to 'warning' status. The default is 30 days.
   * CertificateHealthReportingInterval - controls the frequency of health reports concerning the remaining time validity of cluster certificates. Reports will only be emitted once per this interval. The value is expressed in seconds, with a default of 8 hours.
@@ -263,9 +268,9 @@ Typical symptoms that manifest themselves in a cluster experiencing authenticati
   - connection attempts are rejected
   - connection attempts are timing out
 
-Each of the symptoms may be caused by different problems, and the same root cause may show different manifestations; as such, we'll just list a small sample of typical problems, with recommendations for fixing them. 
+Each of the symptoms may be caused by different problems, and the same root cause may show different manifestations; as such, we'll just list a small sample of typical problems, with recommendations for fixing them.
 
-* Nodes can exchange messages but cannot connect. A possible cause for connection attempts to be terminated is the 'certificate not matched' error - one of the parties in a Service Fabric-to- Service Fabric connections is presenting a certificate which fails the recipient's validation rules. May be accompanied by either of the following errors: 
+* Nodes can exchange messages but cannot connect. A possible cause for connection attempts to be terminated is the 'certificate not matched' error - one of the parties in a Service Fabric-to-Service Fabric connection is presenting a certificate which fails the recipient's validation rules. May be accompanied by either of the following errors: 
   ```C++
   0x80071c44	-2147017660	FABRIC_E_SERVER_AUTHENTICATION_FAILED
   ```

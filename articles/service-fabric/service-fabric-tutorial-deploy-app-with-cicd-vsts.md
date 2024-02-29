@@ -1,11 +1,14 @@
 ---
 title: Deploy an app with CI and Azure Pipelines
 description: In this tutorial, you learn how to set up continuous integration and deployment for a Service Fabric application using Azure Pipelines.
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Deploy an application with CI/CD to a Service Fabric cluster
 
 This tutorial is part four of a series and describes how to set up continuous integration and deployment for an Azure Service Fabric application using Azure Pipelines.  An existing Service Fabric application is needed, the application created in [Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
@@ -110,11 +113,11 @@ Select **Tasks**->**Environment 1** and then **+New** to add a new cluster conne
 
 ![Add cluster connection][add-cluster-connection]
 
-In the **Add new Service Fabric Connection** view select **Certificate Based** or **Azure Active Directory** authentication.  Specify a connection name of "mysftestcluster" and a cluster endpoint of "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (or the endpoint of the cluster you are deploying to).
+In the **Add new Service Fabric Connection** view select **Certificate Based** or **Microsoft Entra ID** authentication.  Specify a connection name of "mysftestcluster" and a cluster endpoint of "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (or the endpoint of the cluster you are deploying to).
 
 For certificate-based authentication, add the **Server certificate thumbprint** of the server certificate used to create the cluster.  In **Client certificate**, add the base-64 encoding of the client certificate file. See the help pop-up on that field for info on how to get that base-64 encoded representation of the certificate. Also add the **Password** for the certificate.  You can use the cluster or server certificate if you don't have a separate client certificate.
 
-For Azure Active Directory credentials, add the **Server certificate thumbprint** of the server certificate used to create the cluster and the credentials you want to use to connect to the cluster in the **Username** and **Password** fields.
+For Microsoft Entra credentials, add the **Server certificate thumbprint** of the server certificate used to create the cluster and the credentials you want to use to connect to the cluster in the **Username** and **Password** fields.
 
 Click **Add** to save the cluster connection.
 

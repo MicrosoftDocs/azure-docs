@@ -1,46 +1,53 @@
 ---
 title: Optimize cost for multi-region deployments in Azure Cosmos DB
 description: This article explains how to manage costs of multi-region deployments in Azure Cosmos DB.
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 02/22/2024
 ---
 
 # Optimize multi-region cost in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-You can add and remove regions to your Azure Cosmos account at any time. The throughput that you configure for various Azure Cosmos databases and containers is reserved in each region associated with your account. If the throughput provisioned per hour, that is the sum of RU/s configured across all the databases and containers for your Azure Cosmos account is `T` and the number of Azure regions associated with your database account is `N`, then the total provisioned throughput for your Cosmos account, for a given hour is equal to `T x N RU/s`.
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-Provisioned throughput with single write region costs $0.008/hour per 100 RU/s and provisioned throughput with multiple writable regions costs $0.016/per hour per 100 RU/s. To learn more, see Azure Cosmos DB [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
+You can add and remove regions to your Azure Cosmos DB account at any time. The throughput that you configure for various Azure Cosmos DB databases and containers is reserved in each region associated with your account. If the throughput provisioned per hour that is the sum of request units per second (RU/s) configured across all the databases and containers for your Azure Cosmos DB account is `T` and the number of Azure regions associated with your database account is `N`, then the total provisioned throughput for your Azure Cosmos DB account, for a given hour is equal to `T x N` RU/s.
+
+Provisioned throughput with single write region and provisioned throughput with multiple writable regions can vary in cost. For more information, see [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## Costs for multiple write regions
 
-In a multi-region writes system, the net available RUs for write operations increases `N` times where `N` is the number of write regions. Unlike single region writes, every region is now writable and supports conflict resolution. From the cost planning point of view, to perform `M` RU/s worth of writes worldwide, you will need to provision M `RUs` at a container or database level. You can then add as many regions as you would like and use them for writes to perform `M` RU worth of worldwide writes.
+In a multi-region writes system, the net available RU/s for write operations increases `N` times where `N` is the number of write regions. Unlike single region writes, every region is now writable and supports conflict resolution. From the cost planning point of view, to perform `M` RU/s worth of writes worldwide, you need to configure `M` RU/s at a container or database level. You can then add as many regions as you would like and use them for writes to perform `M` RU/s worth of worldwide writes.
 
 ### Example
 
-Consider that you have a container in West US configured for single-region writes, provisioned with throughput of 10K RU/s, storing 0.5 TB of data this month. Let’s assume you add a region, East US, with the same storage and throughput and you want the ability to write to the containers in both the regions from your app. Your new total monthly bill (assuming 730 hours in a month) will be as follows:
+Consider that you have a container in a single-region write scenario. That container is provisioned with throughput of `10K` RU/s and is storing `0.5` TB of data this month. Now, let’s assume you add another region with the same storage and throughput and you want the ability to write to the containers in both regions from your app.
 
-|**Item**|**Usage (monthly)**|**Rate**|**Monthly Cost**|
-|----|----|----|----|
-|Throughput bill for container in West US (single write region) |10K RU/s * 730 hours |$0.008 per 100 RU/s per hour |$584 |
-|Throughput bill for container in 2 regions - West US & East US (multiple write regions) |2 * 10K RU/s * 730 hours |$0.016 per 100 RU/s per hour |$2,336 |
-|Storage bill for container in West US |0.5 TB (or 512 GB) |$0.25/GB |$128 |
-|Storage bill for container in 2 regions - West US & East US |2 * 0.5 TB (or 1,024 GB) |$0.25/GB |$256 |
+This example details your new total monthly consumption:
+
+| | Monthly usage |
+| --- | --- | --- |
+| **Throughput bill for container in a single write region** | `10K RU/s * 730 hours` |
+| **Throughput bill for container in multiple write regions (two)** | `2 * 10K RU/s * 730 hours` |
+| **Storage bill for container in a single write region** | `0.5 TB (or 512 GB)` |
+| **Storage bill for container in two write regions** | `2 * 0.5 TB (or 1,024 GB)` |
+
+> [!NOTE]
+> This example assumes 730 hours in a month.
 
 ## Improve throughput utilization on a per region-basis
 
-If you have inefficient utilization, for example, one or more under-utilized read regions you can take steps to make the maximum use of the RUs in read regions by using change feed from the read-region or move it to another secondary if over-utilized. You will need to ensure you optimize provisioned throughput (RUs) in the write region first. Writes cost more than reads unless very large queries so maintaining even utilization can be challenging. Overall, monitor the consumed throughput in your regions and add or remove regions on demand to scale your read and write throughput, making to sure understand the impact to latency for any apps that are deployed in the same region.
+If you have inefficient utilization, you can take steps to make the maximum use of the RU/s in read regions by using change feed from the read-region. Or, you can move to another secondary if over-utilized. For example, one or more under-utilized read regions is considered inefficient. You need to ensure you optimize provisioned throughput (RU/s) in the write region first.
 
-## Next steps
+Writes cost more than reads for most cases excluding large queries. Maintaining even utilization can be challenging. Overall, monitor the consumed throughput in your regions and add or remove regions on demand to scale your read and write throughput. Make sure to understand the effect to latency for any apps that are deployed in the same region.
 
-Next you can proceed to learn more about cost optimization in Azure Cosmos DB with the following articles:
+## Related content
 
-* Learn more about [Optimizing for development and testing](optimize-dev-test.md)
-* Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
-* Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
-* Learn more about [Optimizing storage cost](optimize-cost-storage.md)
-* Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
+- Learn more about [Optimizing for development and testing](optimize-dev-test.md)
+- Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
+- Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
+- Learn more about [Optimizing storage cost](optimize-cost-storage.md)
+- Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
+- Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)

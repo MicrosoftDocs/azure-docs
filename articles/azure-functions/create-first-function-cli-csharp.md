@@ -1,72 +1,50 @@
 ---
-title: Create a C# function from the command line - Azure Functions
-description: Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 10/03/2020
+title: "Create a C# function from the command line - Azure Functions"
+description: "Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions."
+ms.date: 11/08/2022
 ms.topic: quickstart
-ms.custom: [devx-track-csharp, devx-track-azurecli]
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-cli-csharp-ieux
 ---
 
 # Quickstart: Create a C# function in Azure from the command line
 
-[!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
+In this article, you use command-line tools to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
 
-In this article, you use command-line tools to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
+This article creates an HTTP triggered function that runs on .NET 8 in an isolated worker process. For information about .NET versions supported for C# functions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions). There's also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
-
-There is also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
 ## Configure your local environment
 
 Before you begin, you must have the following:
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-+ The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
-
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
 
 + One of the following tools for creating Azure resources:
 
-    + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
+    + [Azure CLI](/cli/azure/install-azure-cli) [version 2.4](/cli/azure/release-notes-azure-cli#april-21-2020) or later.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 5.9.0 or later.
 
-### Prerequisite check
+You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-Verify your prerequisites, which depend on whether you are using Azure CLI or Azure PowerShell for creating Azure resources:
-
-# [Azure CLI](#tab/azure-cli)
-
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
-
-+ Run `az --version` to check that the Azure CLI version is 2.4 or later.
-
-+ Run `az login` to sign in to Azure and verify an active subscription.
-
-+ Run `dotnet --list-sdks` to check that .NET Core SDK version 3.1.x is installed
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
-
-+ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later. 
-
-+ Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
-
-+ Run `dotnet --list-sdks` to check that .NET Core SDK version 3.1.x is installed
-
----
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ## Create a local function project
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:  
+1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
-    ```csharp
-    func init LocalFunctionProj --dotnet
+    ```console
+    func init LocalFunctionProj --worker-runtime dotnet-isolated --target-framework net8.0
     ```
+ 
 
 1. Navigate into the project folder:
 
@@ -74,59 +52,122 @@ In Azure Functions, a function project is a container for one or more individual
     cd LocalFunctionProj
     ```
 
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
-    ``` 
+    ```
 
-    `func new` creates a HttpExample.cs code file.
+    `func new` creates an HttpExample.cs code file.
 
 ### (Optional) Examine the file contents
 
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
 #### HttpExample.cs
+    
+*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable as an [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) object. That parameter is decorated with the **HttpTriggerAttribute**, to define the trigger behavior.
+    
+```csharp
+using System.Net;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
-*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior.
+namespace Company.Function
+{
+    public class HttpExample
+    {
+        private readonly ILogger<HttpExample> _logger;
 
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
+        public HttpExample(ILogger<HttpExample> logger)
+        {
+            _logger = logger;
+        }
 
-The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) that returns a response message as either an [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) or a [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bindings-http-webhook.md?tabs=csharp).
+        [Function("HttpExample")]
+        public IActionResult Run([HttpTrigger(AuthorizationLevel.AuthLevelValue, "get", "post")] HttpRequest req)
+        {            
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
 
-[!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
+            return new OkObjectResult("Welcome to Azure Functions!");
+        }
+    }
+}
+```
+    
+The return object is an [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) object that contains the data that's handed back to the HTTP response.
+
+To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bindings-http-webhook.md?tabs=csharp).
+
+## Run the function locally
+
+1. Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
+
+    ```
+    func start
+    ```
+
+    Toward the end of the output, the following lines should appear:
+
+    <pre>
+    ...
+
+    Now listening on: http://0.0.0.0:7071
+    Application started. Press Ctrl+C to shut down.
+
+    Http Functions:
+
+            HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
+    ...
+
+    </pre>
+
+    >[!NOTE]
+    > If HttpExample doesn't appear as shown above, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
+
+1. Copy the URL of your `HttpExample` function from this output to a browser and browse to the function URL and you should receive a _Welcome to Azure Functions_ message.
+
+1. When you're done, use **Ctrl**+**C** and choose `y` to stop the functions host.
 
 [!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-cli.md)]
 
 4. Create the function app in Azure:
 
     # [Azure CLI](#tab/azure-cli)
-        
+
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
-    
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. 
-    
+
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
+
     # [Azure PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet-isolated -FunctionsVersion 4 -Location '<REGION>'
     ```
-    
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. 
-    
+
+    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure.
+
     ---
-    
-    In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
-    
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+
+    In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
+
+    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
-[!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
+## Invoke the function on Azure
+
+Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL. It's easiest to do this in a browser.
+
+Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar. When you navigate to this URL, the browser should display similar output as when you ran the function locally.
+
+---
 
 [!INCLUDE [functions-streaming-logs-cli-qs](../../includes/functions-streaming-logs-cli-qs.md)]
 
@@ -135,6 +176,6 @@ The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.acti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to an Azure Storage queue]
-
-[Connect to an Azure Storage queue]: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp
+> [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
+> [!div class="nextstepaction"]
+> [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp&tabs=isolated-process)

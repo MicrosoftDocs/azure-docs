@@ -2,8 +2,13 @@
 title: Run an Azure Service Fabric service under a gMSA account 
 description: Learn how to run a service as a group-Managed Service Account (gMSA) on a Service Fabric Windows standalone cluster.
 ms.topic: how-to
-ms.date: 03/29/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Run a service as a group Managed Service Account
 
 On a Windows Server standalone cluster, you can run a service as a *group managed service account* (gMSA) using a *RunAs* policy.  By default, Service Fabric applications run under the account that the `Fabric.exe` process runs under. Running applications under different accounts, even in a shared hosted environment, makes them more secure from one another. By using a gMSA, there is no password or encrypted password stored in the application manifest.  You can also run a service as an [Active Directory user or group](service-fabric-run-service-as-ad-user-or-group.md).
@@ -11,7 +16,7 @@ On a Windows Server standalone cluster, you can run a service as a *group manage
 The following example shows how to create a gMSA account called *svc-Test$*, how to deploy that managed service account to the cluster nodes, and how to configure the user principal.
 
 > [!NOTE]
-> Using a gMSA with a standalone Service Fabric cluster requires Active Directory on-premises within your domain (rather than Azure Active Directory (Azure AD)).
+> Using a gMSA with a standalone Service Fabric cluster requires Active Directory on-premises within your domain (rather than Microsoft Entra ID).
 
 Pre-requisites:
 

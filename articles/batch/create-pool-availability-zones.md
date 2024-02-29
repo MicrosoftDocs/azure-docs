@@ -2,7 +2,9 @@
 title: Create a pool across availability zones
 description: Learn how to create a Batch pool with zonal policy to help protect against failures.
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 05/25/2023
+ms.devlang: csharp
+ms.custom: linux-related-content
 ---
 
 # Create an Azure Batch pool across Availability Zones
@@ -17,9 +19,9 @@ Batch maintains parity with Azure on supporting Availability Zones. To use the z
 
 In order for your Batch pool to be allocated across availability zones, the Azure region in which the pool is created must support the requested VM SKU in more than one zone. You can validate this by calling the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the **locationInfo** field of [resourceSku](/rest/api/compute/resourceskus/list#resourcesku). Be sure that more than one zone is supported for the requested VM SKU.
 
-For [user subscription mode Batch accounts](accounts.md#batch-accounts), make sure that the subscription in which you're creating your pool doesn't have a zone offer restriction on the requested VM SKU. To confirm this, call the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). If a zone restriction exists, you can submit a [support ticket](../azure-portal/supportability/sku-series-unavailable.md) to remove the zone restriction.
+For [user subscription mode Batch accounts](accounts.md#batch-accounts), make sure that the subscription in which you're creating your pool doesn't have a zone offer restriction on the requested VM SKU. To confirm this, call the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). If a zone restriction exists, you can submit a [support ticket](/troubleshoot/azure/general/region-access-request-process) to remove the zone restriction.
 
-Also note that you can't create a pool with a zonal policy if it has inter-node communication enabled and uses a [VM SKU that supports InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
+Also note that you can't create a pool with a zonal policy if it has inter-node communication enabled and uses a [VM SKU that supports InfiniBand](../virtual-machines/extensions/enable-infiniband.md).
 
 ## Create a Batch pool across Availability Zones
 
@@ -57,12 +59,12 @@ Request body
         "imageReference": {
             "publisher": "Canonical",
             "offer": "UbuntuServer",
-            "sku": "16.040-LTS"
+            "sku": "20.04-lts"
         },
         "nodePlacementConfiguration": {
             "policy": "Zonal"
         }
-        "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+        "nodeAgentSKUId": "batch.node.ubuntu 20.04"
     },
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
@@ -77,5 +79,4 @@ Request body
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - Learn about [creating a pool in a subnet of an Azure virtual network](batch-virtual-network.md).
-- Learn about [creating an Azure Batch pool without public IP addresses](./batch-pool-no-public-ip-address.md).
-
+- Learn about [creating an Azure Batch pool without public IP addresses](./simplified-node-communication-pool-no-public-ip.md).

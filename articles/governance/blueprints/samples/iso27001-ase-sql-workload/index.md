@@ -1,10 +1,12 @@
 ---
 title: ISO 27001 ASE/SQL workload blueprint sample overview
 description: Overview and architecture of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
-ms.date: 11/02/2020
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Overview of the ISO 27001 App Service Environment/SQL Database workload blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
 
 The ISO 27001 App Service Environment/SQL Database workload blueprint sample provides additional
 infrastructure to the [ISO 27001 Shared Services](../iso27001-shared/index.md) blueprint sample.
@@ -21,7 +23,7 @@ Services](../iso27001-shared/index.md) blueprint sample.
 ## Architecture
 
 The ISO 27001 App Service Environment/SQL Database workload blueprint sample deploys a platform as
-a service based web environment. The environment can be used to host multiple web applications, web
+a service-based web environment. The environment can be used to host multiple web applications, web
 APIs, and SQL Database instances that follow the ISO 27001 standards. This blueprint sample depends
 on the [ISO 27001 Shared Services](../iso27001-shared/index.md) blueprint sample.
 
@@ -45,7 +47,7 @@ composed of:
     used to host one or more web applications, web APIs, or functions
   - An [Azure Key Vault](../../../../key-vault/general/overview.md) instance using a VNet service
     endpoint, for storing secrets used by applications running in the workload environment
-  - An [Azure SQL Database](../../../../azure-sql/database/sql-database-paas-overview.md) server
+  - An [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) server
     instance using a VNet service endpoint, for hosting databases used for applications in the
     workload environment
 

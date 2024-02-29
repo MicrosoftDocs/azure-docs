@@ -3,7 +3,7 @@ title: Troubleshoot Apache Oozie in Azure HDInsight
 description: Troubleshoot certain Apache Oozie errors in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 04/27/2020
+ms.date: 02/20/2024
 ---
 
 # Troubleshoot Apache Oozie in Azure HDInsight
@@ -99,4 +99,4 @@ For example, for the job example from [Use Hadoop Oozie workflows](hdinsight-use
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]

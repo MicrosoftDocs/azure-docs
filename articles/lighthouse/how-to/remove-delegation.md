@@ -1,30 +1,33 @@
 ---
 title: Remove access to a delegation
-description: Learn how to remove access to resources that had been delegated to a service provider for Azure Lighthouse.
-ms.date: 12/03/2020
-ms.topic: how-to
+description: Learn how to remove access to resources that were delegated to a service provider for Azure Lighthouse.
+ms.date: 03/02/2023
+ms.topic: how-to 
 ---
 
 # Remove access to a delegation
 
-After a customer's subscription or resource group has been delegated to a service provider for [Azure Lighthouse](../overview.md), the delegation can be removed if needed. Once a delegation is removed, the [Azure delegated resource management](../concepts/azure-delegated-resource-management.md) access that was previously granted to users in the service provider tenant will no longer apply.
+After a customer's subscription or resource group has been delegated to a service provider for [Azure Lighthouse](../overview.md), the delegation can be removed if needed. Once a delegation is removed, the [Azure delegated resource management](../concepts/architecture.md) access that was previously granted to users in the service provider tenant will no longer apply.
 
 Removing a delegation can be done by a user in either the customer tenant or the service provider tenant, as long as the user has the appropriate permissions.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same processes.
 
+> [!IMPORTANT]
+> When a customer subscription has multiple delegations from the same service provider, removing one delegation could cause users to lose access granted via the other delegations. This only occurs when the same `principalId` and `roleDefinitionId` combination is included in multiple delegations and then one of the delegations is removed. To fix this, repeat the [onboarding process](onboard-customer.md) for the delegations that you aren't removing.
+
 ## Customers
 
-Users in the customer's tenant who have the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for a subscription can remove service provider access to that subscription (or to resource groups in that subscription). To do so, a user in the customer's tenant can go to the [Service providers page](view-manage-service-providers.md#add-or-remove-service-provider-offers) of the Azure portal, find the offer on the **Service provider offers** screen, and select the trash can icon in the row for that offer.
+Users in the customer's tenant who have a role with the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), can remove service provider access to that subscription (or to resource groups in that subscription). To do so, the user can go to the [Service providers page](view-manage-service-providers.md#remove-service-provider-offers) of the Azure portal, find the offer on the **Service provider offers** screen, and select the trash can icon in the row for that offer.
 
 After confirming the deletion, no users in the service provider's tenant will be able to access the resources that had been previously delegated.
 
 ## Service providers
 
-Users in a managing tenant can remove access to delegated resources if they were granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) for the customer's resources. If this role was not assigned to any service provider users, the delegation can only be removed by a user in the customer's tenant.
+Users in a managing tenant can remove access to delegated resources if they were granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) for the customer's resources. If this role isn't assigned to any service provider users, the delegation can only be removed by a user in the customer's tenant.
 
-The example below shows an assignment granting the **Managed Services Registration Assignment Delete Role** that can be included in a parameter file during the [onboarding process](onboard-customer.md):
+This example shows an assignment granting the **Managed Services Registration Assignment Delete Role** that can be included in a parameter file during the [onboarding process](onboard-customer.md):
 
 ```json
     "authorizations": [ 
@@ -65,7 +68,7 @@ Get-AzManagedServicesAssignment -Scope "/subscriptions/{delegatedSubscriptionId}
 
 # Delete the registration assignment
 
-Remove-AzManagedServicesAssignment -ResourceId "/subscriptions/{delegatedSubscriptionId}/providers/Microsoft.ManagedServices/registrationAssignments/{assignmentGuid}"
+Remove-AzManagedServicesAssignment -Name "<Assignmentname>" -Scope "/subscriptions/{delegatedSubscriptionId}"
 ```
 
 ### Azure CLI
@@ -92,6 +95,6 @@ az managedservices assignment delete --assignment <id or full resourceId>
 
 ## Next steps
 
-- Learn about [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+- Learn about [Azure Lighthouse architecture](../concepts/architecture.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
 - Learn how to [update a previous delegation](update-delegation.md).

@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Configure peering for Expressroute circuit - Azure CLI'
-description: This tutorial shows you how to create and provision the private, public, and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
+title: 'Configure peering for Expressroute circuit - Azure CLI'
+description: This article shows you how to create and provision the private, public, and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
-ms.topic: tutorial
-ms.date: 10/09/2020
+ms.topic: how-to
+ms.date: 09/15/2023
 ms.author: duau
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
-# Tutorial: Create and modify peering for an ExpressRoute circuit using CLI
 
-This tutorial shows you how to create and manage routing configuration/peering for an ExpressRoute circuit in the Resource Manager deployment model using CLI. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
+# Create and modify peering for an ExpressRoute circuit using CLI
+
+This article shows you how to create and manage routing configuration/peering for an ExpressRoute circuit in the Resource Manager deployment model using CLI. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
@@ -24,10 +24,7 @@ This tutorial shows you how to create and manage routing configuration/peering f
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Configure, update, and delete Microsoft peering for a circuit
-> - Configure, update, and delete Azure private peering for a circuit
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit.":::
 
 ## Prerequisites
 
@@ -45,12 +42,10 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 > [!IMPORTANT]
 > Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through the Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. For more information, see [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md).
-> 
-
 
 ### To create Microsoft peering
 
-1. Install the latest version of Azure CLI. Use the latest version of the Azure Command-line Interface (CLI).
+1. Install and use the latest version of the Azure CLI.
 
    ```azurecli
    az login
@@ -187,7 +182,7 @@ This section helps you create, get, update, and delete the Azure private peering
 ### To create Azure private peering
 
 1. Install the latest version of Azure CLI.
-1. 
+
    ```azurecli
    az login
    ```
@@ -238,8 +233,10 @@ This section helps you create, get, update, and delete the Azure private peering
 
 1. Configure Azure private peering for the circuit. Make sure that you have the following items before you continue with the next steps:
 
-   * A /30 subnet for the primary link. The subnet must not be part of any address space reserved for virtual networks.
-   * A /30 subnet for the secondary link. The subnet must not be part of any address space reserved for virtual networks.
+   * A pair of subnets that are not part of any address space reserved for virtual networks. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+       * IPv4: Two /30 subnets.
+       * IPv6: Two /126 subnets.
+       * Both: Two /30 subnets and two /126 subnets.
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you aren't using 65515.
    * **Optional -** An MD5 hash if you choose to use one.
@@ -273,26 +270,32 @@ The output is similar to the following example:
 
 ```output
 {
-  "azureAsn": 12076,
-  "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
-  "gatewayManagerEtag": "18",
-  "id": "/subscriptions/9a0c2943-e0c2-4608-876c-e0ddffd1211b/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePrivatePeering",
-  "ipv6PeeringConfig": null,
+  "azureASN": 12076,
+  "connections": [],
+  "etag": "W/\"abcdef12-3456-7890-abcd-ef1234567890\"",
+  "gatewayManagerEtag": "",
+  "id": "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePrivatePeering",
   "lastModifiedBy": "Customer",
-  "microsoftPeeringConfig": null,
+  "microsoftPeeringConfig": {
+    "advertisedCommunities": [],
+    "advertisedPublicPrefixes": [],
+    "advertisedPublicPrefixesState": "NotConfigured",
+    "customerASN": 0,
+    "legacyMode": 0,
+    "routingRegistryName": "NONE"
+  },
   "name": "AzurePrivatePeering",
-  "peerAsn": 7671,
+  "peerASN": 65020,
+  "peeredConnections": [],
   "peeringType": "AzurePrivatePeering",
   "primaryAzurePort": "",
-  "primaryPeerAddressPrefix": "",
+  "primaryPeerAddressPrefix": "192.168.17.16/30",
   "provisioningState": "Succeeded",
   "resourceGroup": "ExpressRouteResourceGroup",
-  "routeFilter": null,
   "secondaryAzurePort": "",
-  "secondaryPeerAddressPrefix": "",
-  "sharedKey": null,
+  "secondaryPeerAddressPrefix": "192.168.17.20/30",
   "state": "Enabled",
-  "stats": null,
+  "type": "Microsoft.Network/expressRouteCircuits/peerings",
   "vlanId": 100
 }
 ```
@@ -333,4 +336,4 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 After you've configured Azure private peering, you can link virtual networks to the circuit, see: 
 
 > [!div class="nextstepaction"]
-> [Link a VNet to an ExpressRoute circuit](howto-linkvnet-cli.md)
+> [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-cli.md)

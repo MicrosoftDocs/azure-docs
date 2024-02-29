@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro FPGA manage users | Microsoft Docs 
+title: Azure Stack Edge Pro FPGA user management 
 description: Describes how to use the Azure portal to manage users on your Azure Stack Edge Pro.
 services: databox
 author: alkohli
@@ -7,12 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 # Use the Azure portal to manage users on your Azure Stack Edge Pro FPGA
 
-This article describes how to manage users on your Azure Stack Edge Pro FPGA device. You can manage the Azure Stack Edge Pro via the Azure portal or via the local web UI. Use the Azure portal to add, modify, or delete users.
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
+
+This article describes how to manage users on your Azure Stack Edge Pro FPGA device. You can manage the Azure Stack Edge Pro FPGA via the Azure portal or via the local web UI. Use the Azure portal to add, modify, or delete users.
 
 In this article, you learn how to:
 

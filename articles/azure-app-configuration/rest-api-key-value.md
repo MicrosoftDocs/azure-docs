@@ -1,8 +1,8 @@
 ﻿---
 title: Azure App Configuration REST API - key-value
 description: Reference pages for working with key-values by using the Azure App Configuration REST API
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
@@ -311,7 +311,7 @@ Content-Type: application/problem+json; charset="utf-8"
     "title": "Modifing key '{key}' is not allowed",
     "name": "{key}",
     "detail": "The key is read-only. To allow modification unlock it first.",
-    "status": "409"
+    "status": 409
 }
 ```
 

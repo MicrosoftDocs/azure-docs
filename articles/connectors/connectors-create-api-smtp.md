@@ -1,15 +1,16 @@
 ---
 title: Connect to SMTP from Azure Logic Apps
-description: Automate tasks and workflows that send email through your SMTP (Simple Mail Transfer Protocol) account by using Azure Logic Apps
+description: Automate tasks and workflows that send email through your SMTP (Simple Mail Transfer Protocol) account using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 08/25/2018
-tags: connectors
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 01/04/2024
 ---
 
-# Send email from your SMTP account with Azure Logic Apps
+# Connect to your SMTP account from Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 With Azure Logic Apps and the Simple Mail Transfer Protocol (SMTP) connector, 
 you can create automated tasks and workflows that send email from your SMTP account. 
@@ -19,16 +20,15 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure account and subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Your SMTP account and user credentials
 
   Your credentials authorize your logic app to create 
   a connection and access your SMTP account.
 
-* Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about how to create logic apps
 
 * The logic app where you want to access your SMTP account. 
 To use an SMTP action, start your logic app with a trigger, 
@@ -87,4 +87,6 @@ For more technical details about this connector, such as triggers, actions, and 
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

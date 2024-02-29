@@ -1,11 +1,10 @@
 ---
 title: What's new in Azure Automation
 description: Significant updates to Azure Automation updated each month.
-ms.subservice: 
+services: automation
+ms.subservice:
 ms.topic: overview
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/21/2021
+ms.date: 01/26/2024
 ms.custom: references_regions
 ---
 
@@ -14,211 +13,279 @@ ms.custom: references_regions
 Azure Automation receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
+- New features
+- Improvements to existing features
 - Known issues
 - Bug fixes
 
-This page is updated monthly, so revisit it regularly.
 
-## January 2021
+This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
-### Azure Automation runbooks moved from TechNet Script Center to GitHub
+## January 2024
+
+### Public Preview: Azure Automation Runtime environment & support for Azure CLI commands in runbooks
+
+Azure Automation introduces [Runtime environment](runtime-environment-overview.md) (preview) that provides a simple and hassle-free experience for [updating scripts](quickstart-update-runbook-in-runtime-environment.md) to the latest language versions. It also provides complete control to configure the script execution environment, without worrying about conflicting module versions in a single Automation account. All existing runbooks are automatically available in the new Runtime environment experience with zero manual effort. You can navigate seamlessly between the old and new experience with a single click. [Learn more](manage-runtime-environment.md).
+
+Additionally, this feature enables support for [Azure CLI commands](quickstart-cli-support-powershell-runbook-runtime-environment.md) (preview) in PowerShell 7.2 runbooks. Now reap combined benefits of the rich command set of Azure CLI in Azure Automation runbooks to streamline management of Azure resources.
+
+
+## December 2023
+
+### Restore deleted Automation runbooks
+
+**Type: New change**
+
+You can now restore Runbooks deleted in the past 29 days. [Learn more](manage-runbooks.md#restore-deleted-runbook)
+
+
+### Retirement of Azure Update Management and Change Tracking using Log Analytics 
+
+**Type: Retirement**
+
+On **31 August 2024**, Azure Automation will  retire [Automation Update management](/answers/questions/1459053/retirement-announcement-azure-automation-update-ma) and [Change Tracking using Log Analytics](/answers/questions/1459059/retirement-announcement-azure-automation-change-tr). You must migrate to [Azure Update Manager](../update-manager/overview.md) and [Change tracking and inventory using Azure Monitoring Agent](change-tracking/overview-monitoring-agent.md) respectively before the deprecation date. 
+
+## November 2023
+
+### General Availability: Azure Automation supports PowerShell 7.2 runbooks
+
+Azure Automation announces General Availability of PowerShell 7.2 runbooks. This enables you to author runbooks in the long-term supported version of PowerShell using [Azure Automation extension for VS code](how-to/runbook-authoring-extension-for-vscode.md) and execute them on a secure and reliable platform. [Learn more](automation-runbook-types.md).
+
+## October 2023
+
+### General Availability: Automation extension for Visual Studio Code
+
+ Azure Automation now provides an advanced editing experience for PowerShell and Python scripts along with [runbook management operations](how-to/runbook-authoring-extension-for-vscode.md). For more information, see the [Key features and limitations](automation-runbook-authoring.md).
+
+
+### General Availability: Change Tracking using Azure Monitoring Agent
+
+Azure Automation announces General Availability of Change Tracking using Azure Monitoring Agent. [Learn more](change-tracking/guidance-migration-log-analytics-monitoring-agent.md).
+
+
+### Retirement of Run As accounts
+
+**Type: Retirement**
+
+Azure Automation Run As Accounts, including Classic Run as accounts have retired on **30 September 2023** and replaced with Managed Identities. You would no longer be able to create or renew Run as accounts through the Azure portal. For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md).
+
+## May 2023
+
+### General Availability: Python 3.8 runbooks
+
+Azure Automation announces General Availability of Python 3.8 runbooks. Learn more about Azure Automation [Runbooks](automation-runbook-types.md) and [Python packages](python-3-packages.md).
+
+## April 2023
+
+### Public preview update: Azure Automation supports PowerShell 7.2 and Python 3.10 runbooks
+
+Azure Automation has expanded Public preview support for PowerShell 7.2 and Python 3.10 runbooks in almost all [Public regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=automation) except Australia Central2, Korea South, Sweden South, Jio India Central, Brazil Southeast, Central India, West India, UAE Central and Gov clouds. These new runtimes are now supported for both Cloud and Hybrid jobs. Learn more about [PowerShell 7.2 and Python 3.10 runbooks](automation-runbook-types.md) and [execution of Hybrid jobs](automation-hrw-run-runbooks.md#service-accounts) on new runtime versions.
+
+## March 2023
+
+### Retirement of Azure Automation Agent-based User Hybrid Runbook Worker 
 
 **Type:** Plan for change
 
-The TechNet Script Center is retiring and all runbooks hosted in the Runbook gallery have been moved to our [Automation GitHub organization](https://github.com/azureautomation). For more information, read [Azure Automation Runbooks moving to GitHub](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-automation-runbooks-moving-to-github/ba-p/2039337).
+On **31 August 2024**, Azure Automation will [retire](https://azure.microsoft.com/updates/retirement-azure-automation-agent-user-hybrid-worker/) Agent-based User Hybrid Runbook Worker ([Windows](automation-windows-hrw-install.md) and [Linux](automation-linux-hrw-install.md)). You must migrate all Agent-based User Hybrid Workers to [Extension-based User Hybrid Runbook Worker](extension-based-hybrid-runbook-worker-install.md) (Windows and Linux) before the deprecation date. Moreover, starting **1 November 2023**, creating **new** Agent-based User Hybrid Runbook Worker will not be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
-## December 2020
 
-### Azure Automation and Update Management Private Link GA
+## January 2023
 
-**Type:** New feature
+### Public Preview of Automation extension for Visual Studio Code
 
-Azure Automation and Update Management support announced as GA for Azure global and Government clouds. Azure Automation enabled Private Link support to secure execution of a runbook on a hybrid worker role, using Update Management to patch machines, invoking a runbook through a webhook, and using State Configuration service to keep your machines complaint. For more information, read [Azure Automation Private Link support](https://azure.microsoft.com/updates/azure-automation-private-link)
+ Azure Automation now provides an [extension from VS Code](https://marketplace.visualstudio.com/items?itemName=azure-automation.vscode-azureautomation&ssr=false#overview) that allows you to create and manage runbooks. For more information, see the [Key features and limitations](automation-runbook-authoring.md) and [runbook management operations](how-to/runbook-authoring-extension-for-vscode.md).
 
-### Azure Automation classified as Grade-C certified on Accessibility
 
-**Type:** New feature
+## November 2022
 
-Accessibility features of Microsoft products help agencies address global accessibility requirements. On the [blog announcement](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/) page, search for **Azure Automation** to read the Accessibility conformance report for the Automation service.
+### General Availability: Azure Automation User Hybrid Runbook Worker Extension 
 
-### Support for Automation and State Configuration GA in UAE North
+User Hybrid Worker enables execution of the scripts directly on the machines for managing guest workloads or as a gateway to environments that are not accessible from Azure. Azure Automation announces **General Availability of User Hybrid Worker extension**, that is based on Virtual Machine extensions framework and provides a **seamless and integrated** installation experience. It is supported for Windows & Linux Azure VMs and [Azure Arc-enabled Servers](../azure-arc/servers/overview.md). It is also available for [Azure Arc-enabled VMware vSphere VMs](../azure-arc/vmware-vsphere/overview.md) in preview.
 
-**Type:** New feature
 
-Automation account and State Configuration availability in the UAE North region. For more information, read [announcement](https://azure.microsoft.com/updates/azure-automation-in-uae-north-region/).
+## October 2022
 
-### Support for Automation and State Configuration GA in Germany West Central
+### Public preview of PowerShell 7.2 and Python 3.10
 
-**Type:** New feature
+Azure Automation now supports runbooks in latest Runtime versions - PowerShell 7.2 and Python 3.10 in public preview. This enables creation and execution of runbooks for orchestration of management tasks. These new runtimes are currently supported only for Cloud jobs in five regions - West Central US, East US, South Africa North, North Europe, Australia, and Southeast. [Learn more](automation-runbook-types.md).
 
-Automation account and State Configuration availability in Germany West region. For more information, read [announcement](https://azure.microsoft.com/updates/azure-automation-in-germany-west-central-region/).
+### Guidance for Disaster Recovery of Azure Automation account
 
-### DSC support for Oracle 6 and 7
+Set up disaster recovery for your Automation accounts to handle a region-wide or zone-wide failure. [Learn more](automation-disaster-recovery.md).
 
-**Type:** New feature
 
-Manage Oracle Linux 6 and 7 machines with Automation State Configuration. See [Supported Linux distros](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions) for updates to the documentation to reflect these changes.
+## September 2022
 
-### Public Preview for Python3 runbooks in Automation
+### Availability zones support for Azure Automation
 
-**Type:** New feature
+Azure Automation now supports [Azure availability zones](../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](automation-availability-zones.md).
 
-Azure Automation now supports Python 3 cloud & hybrid runbook execution in public preview in all regions in Azure global cloud. See the [announcement]((https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/) for more details.
 
-## November 2020
+## July 2022
 
-### DSC support for Ubuntu 18.04
-
-**Type:** New feature
-
-See [Supported Linux Distros](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions) for updates to the documentation reflecting these changes.
-
-## October 2020
-
-### Support for Automation and State Configuration GA in Switzerland North
-
-**Type:** New feature
-
-Automation account and State Configuration availability in Switzerland North. For more information, read [announcement](https://azure.microsoft.com/updates/azure-automation-in-switzerland-north-region/).
-
-### Support for Automation and State Configuration GA in Brazil South East
-
-**Type:** New feature
-
-Automation account and State Configuration availability in Brazil South East. For more information, read [announcement](https://azure.microsoft.com/updates/azure-automation-in-brazil-southeast-region/).
-
-### Update Management availability in South Central US
-
-**Type:** New feature
-
-Azure Automation region mapping updated to support Update Management feature in South Central US region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings) for updates to the documentation to reflect this change.
-
-## September 2020
-
-### Start/Stop VMs during off-hours runbooks updated to use Azure Az modules
-
-**Type:** New feature
-
-Start/Stop VM runbooks have been updated to use Az modules in place of Azure Resource Manager modules. See [Start/Stop VMs during off-hours](automation-solution-vm-management.md) overview for updates to the documentation to reflect these changes.
-
-## August 2020
-
-### Published the DSC extension to support Azure Arc
-
-**Type:** New feature
-
-Use Azure Automation State Configuration to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the Azure Arc enabled servers DSC VM extension. For more information, read [Arc enabled servers VM extensions overview](../azure-arc/servers/manage-vm-extensions.md).
-
-### July 2020
-
-### Introduced Public Preview of Private Link support in Automation
-
-**Type:** New feature
-
-Use Azure Private Link to securely connect virtual networks to Azure Automation using private endpoints. For more information, read the [announcement](https://azure.microsoft.com/updates/public-preview-private-link-azure-automation-is-now-available/).
-
-### Hybrid Runbook Worker support for Windows Server 2008 R2
-
-**Type:** New feature
-
-Automation Hybrid Runbook Worker supports the Windows Server 2008 R2 operating system. See [Supported operating systems](automation-windows-hrw-install.md#supported-windows-operating-system) for updates to the documentation to reflect these changes.
-
-### Update Management support for Windows Server 2008 R2
-
-**Type:** New feature
-
-Update Management supports assessing and patching the Windows Server 2008 R2 operating system. See [Supported operating systems](update-management/overview.md#clients) for updates to the documentation to reflect these changes.
-
-### Automation diagnostic logs schema update
-
-**Type:** New feature
-
-Changed the schema of Azure Automation log data in the Log Analytics service. To learn more, see [Forward Azure Automation job data to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md#filter-job-status-output-converted-into-a-json-object).
-
-### Azure Lighthouse supports Automation Update Management
-
-**Type:** New feature
-
-Azure Lighthouse enables delegated resource management with Update Management for service providers and customers. Read more [here](https://azure.microsoft.com/blog/how-azure-lighthouse-enables-management-at-scale-for-service-providers/).
-
-## June 2020
-
-### Automation and Update Management availability in the US Gov Arizona region
-
-**Type:** New feature
-
-Automation account and Update Management are available in US Gov Arizona. For more information, see [announcement](https://azure.microsoft.com/updates/azure-automation-generally-available-in-usgov-arizona-region/).
-
-### Hybrid Runbook Worker onboarding script updated to use Az modules
-
-**Type:** New feature
-
-The New-OnPremiseHybridWorker runbook has been updated to support Az modules. For more information, see the package in the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.7).
-
-### Update Management availability in China East 2
-
-**Type:** New feature
-
-Azure Automation region mapping updated to support Update Management feature in China East 2 region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings) for updates to the documentation to reflect this change.
-
-## May 2020
-
-### Updated Automation service DNS records from region-specific to Automation account-specific URLs
-
-**Type:** New feature
-
-Azure Automation DNS records have been updated to support Private Links. For more information, read the [announcement](https://azure.microsoft.com/updates/azure-automation-updateddns-records/).
-
-### Added capability to keep Automation runbooks & DSC scripts encrypted by default
-
-**Type:** New feature
-
-In addition to improve security of assets, runbooks & DSC scripts are also encrypted to enhance Azure Automation security.
-
-## April 2020
-
-### Retirement of the Automation watcher task
+### Support for Run As accounts
 
 **Type:** Plan for change
 
-Azure Logic Apps is now the recommended and supported way to monitor for events, schedule recurring tasks, and trigger actions. There will be no further investments in Watcher task functionality. To learn more, see [Schedule and run recurring automated tasks with Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-## March 2020
+Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities.Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
 
-### Support for Impact Level 5 (IL5) compute isolation in Azure commercial and Government cloud
+## August 2022
 
-**Type:**
+### Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs
 
-Azure Automation Hybrid Runbook Worker can be used in Azure Government to support Impact Level 5 workloads. To learn more, see our [documentation](automation-hybrid-runbook-worker.md#support-for-impact-level-5-il5).
+**Type:** Enhancement to an existing feature
 
-## February 2020
+In addition to the support for Azure VMs and Arc-enabled Servers, Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs as a target. You can now orchestrate management tasks using PowerShell and Python runbooks on Azure VMs, Arc-enabled Servers, and Arc-enabled VMware VMs with an identical experience. Read [here](extension-based-hybrid-runbook-worker-install.md) for more information.
 
-### Introduced support for Azure virtual network service tags
+
+## March 2022
+
+###  Forward diagnostic audit data to Azure Monitor logs
 
 **Type:** New feature
 
-Automation support of service tags allow or deny the traffic for the Automation service, for a subset of scenarios. To learn more, see the [documentation](automation-hybrid-runbook-worker.md#service-tags).
+Azure Automation can send diagnostic audit logs in addition to runbook job status and job streams to your Log Analytics workspace. Read [here](automation-manage-send-joblogs-log-analytics.md) for more information.
 
-### Enable TLS 1.2 support for Azure Automation service
+## February 2022
+
+### Permissions change in the built-in Reader role for the Automation Account.
+
+**Type:** New change
+
+To strengthen the overall Azure Automation security posture, the built-in RBAC Reader role would not have access to Automation account keys through the API call - `GET /automationAccounts/agentRegistrationInformation`. Read [here](./automation-role-based-access-control.md#reader) for more information.
+
+
+### Restore deleted Automation Accounts
+
+**Type:** New change
+
+Users can now restore an Automation account deleted within 30 days. Read [here](./delete-account.md?tabs=azure-portal#restore-a-deleted-automation-account) for more information.
+
+
+## December 2021
+
+### New scripts added for Azure VM management based on Azure Monitor Alert
+
+**Type:** New feature
+
+New scripts are added to the Azure Automation [GitHub organization](https://github.com/azureautomation) to address one of Azure Automation's key scenarios of VM management based on Azure Monitor alert. For more information, see [Trigger runbook from Azure alert](./automation-create-alert-triggered-runbook.md#common-azure-vm-management-operations).
+
+- [Stop-Azure-VM-On-Alert](https://github.com/azureautomation/Stop-Azure-VM-On-Alert)
+- [Restart-Azure-VM-On-Alert](https://github.com/azureautomation/Restart-Azure-VM-On-Alert)
+- [Delete-Azure-VM-On-Alert](https://github.com/azureautomation/Delete-Azure-VM-On-Alert)
+- [ScaleDown-Azure-VM-On-Alert](https://github.com/azureautomation/ScaleDown-Azure-VM-On-Alert)
+- [ScaleUp-Azure-VM-On-Alert](https://github.com/azureautomation/ScaleUp-Azure-VM-On-Alert)
+
+## November 2021
+
+### General Availability of Managed Identity for Azure Automation
+
+**Type:** New feature
+
+Azure Automation now supports Managed Identities in Azure public, Azure Gov, and Microsoft Azure operated by 21Vianet. [System Assigned Managed Identities](./enable-managed-identity-for-automation.md) is supported for cloud as well as hybrid jobs, while  [User Assigned Managed Identities](./automation-security-overview.md) is supported only for cloud jobs. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-managed-identities-ga/) for more information.
+
+### Preview support for PowerShell 7.1
+
+**Type:** New feature
+
+Azure Automation support for PowerShell 7.1 runbooks is available as public preview in Azure public, Azure Gov, and  Azure operated by 21Vianet clouds. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-powershell-7/) for more information.
+
+
+
+## October 2021
+
+### Preview support for Hybrid Runbook Worker extension for Azure VMs and Arc-enabled servers
+
+**Type:** New feature
+
+Azure Automation released native integration of User Hybrid Runbook Worker for Azure VMs, and for non-Azure machines through Arc-enabled servers. Read the [announcement](https://azure.microsoft.com/updates/automation-user-hybrid-extension-support) for more information.
+
+### Preview support for Azure Active Directory authentication
+
+**Type:** New feature
+
+Azure Automation added a critical security feature with Azure AD authentication support for all Automation service public endpoints. The feature has been implemented through Hybrid Runbook Worker extension support for Azure VMs and Arc-enabled servers.
+
+This removes the dependency on certificates and enables you to meet your stringent audit and compliance requirements by not using local authentication methods. Read the [announcement](https://azure.microsoft.com/updates/automation-user-hybrid-extension-support) for more information.
+
+### Source control enabled to use managed identities
+
+**Type:** New feature
+
+Source control integration in Azure Automation can now use [managed identities](automation-security-overview.md#managed-identities) instead of a Run As account. For more information, see [source control integration prerequisites](source-control-integration.md#prerequisites).
+
+## September
+
+### Support for Az modules by default
+
+**Type:** New Feature
+
+Azure Automation now supports Az modules by default. New Automation accounts created include the latest version of Az modules - 6.4.0 by default. Automation also includes an option in the Azure portal - **Update Az Modules** enabling you to update Az modules in your existing Automation accounts. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-az-module-support) for more information.
+
+## August 2021
+
+### Azure Policy Guest Configuration
 
 **Type:** Plan for change
 
-Azure Automation fully supports TLS 1.2 and all client calls (through webhooks, DSC nodes, and hybrid worker). TLS 1.1 and TLS 1.0 are still supported for backward compatibility with older clients until customers standardize and fully migrate to TLS 1.2.
+Customers should evaluate and plan for migration from Azure Automation State Configuration to Azure Policy guest configuration. For more information, see [Azure Policy guest configuration](../governance/machine-configuration/overview.md).
 
-## January 2020
+## July 2021
 
-### Introduced Public Preview of customer-managed keys for Azure Automation
+### Preview support for user-assigned managed identity
 
 **Type:** New feature
 
-Customers can manage and secure encryption of Azure Automation assets using their own managed keys. For more information, see [Use of customer-managed keys](automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account).
+Azure Automation now supports [user-assigned Managed Identities](automation-secure-asset-encryption.md) for cloud jobs in Azure global, Azure Government, and  Azure operated by 21Vianet regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/) for more information.
 
-### Retirement of Azure Service Management (ASM) REST APIs for Azure Automation
+### General Availability of customer-managed keys for Azure Automation
 
-**Type:** Retire
+**Type:** New feature
 
-Azure Service Management (ASM) REST APIs for Azure Automation will be retired and no longer supported after 30th January 2020. To learn more, see the [announcement](https://azure.microsoft.com/updates/azure-automation-service-management-rest-apis-are-being-retired-april-30-2019/).
+Customers can manage and secure encryption of Azure Automation assets using their own managed keys. With the introduction of customer-managed keys, you can supplement default encryption with an extra encryption layer using keys that you create and manage in Azure Key Vault. This additional level of encryption should help you meet your organization’s regulatory or compliance needs.
+
+For more information, see [Use of customer-managed keys](automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account).
+
+## June 2021
+
+### Security update for Log Analytics Contributor role
+
+**Type:** Plan for change
+
+Microsoft intends to remove the Automation account rights from the Log Analytics Contributor role. Currently, the built-in [Log Analytics Contributor](./automation-role-based-access-control.md#log-analytics-contributor) role can escalate privileges to the subscription [Contributor](./../role-based-access-control/built-in-roles.md#contributor) role. Since Automation account Run As accounts are initially configured with Contributor rights on the subscription, it can be used by an attacker to create new runbooks and execute code as a Contributor on the subscription.
+
+As a result of this security risk, we recommend you don't use the Log Analytics Contributor role to execute Automation jobs. Instead, create the Azure Automation Contributor custom role and use it for actions related to the Automation account.
+
+### Support for Automation and State Configuration available in West US 3
+
+**Type:** New feature
+
+For more information, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/) and select your geography from the drop-down list.
+
+## May 2021
+
+### Start/Stop VMs during off-hours (v1)
+
+**Type:** Plan for change
+
+Start/Stop VMs during off-hours (v1) will deprecate on May 21, 2022. Customers should evaluate and plan for migration to the Start/Stop VMs v2 (preview). For more information, see [Start/Stop v2 overview](../azure-functions/start-stop-vms/overview.md) (preview).
+
+## April 2021
+
+### Support for Update Management and Change Tracking
+
+**Type:** New feature
+
+Region mapping has been updated to support Update Management and Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation).
+
+### Support for system-assigned Managed Identities
+
+**Type:** New feature
+
+Azure Automation now supports [system-assigned managed identities](./automation-security-overview.md#managed-identities) for cloud and hybrid jobs in Azure global and Azure Government regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/) for more information.
 
 ## Next steps
 
-If you'd like to contribute to Azure Automation documentation, see the [Docs Contributor Guide](/contribute/).
+If you'd like to contribute to Azure Automation documentation, see our [contributor guide](/contribute/).

@@ -1,19 +1,18 @@
 ---
-title: 'Remote work with P2S: Azure VPN Gateway'
-description: This page describes how you can leverage VPN Gateway to enable working remotely due to the COVID-19 pandemic.
-services: vpn-gateway
+title: 'Remote work and Point-to-Site VPN gateways'
+titleSuffix: Azure VPN Gateway
+description: Learn how you can use VPN Gateway point-to-site connections in order to work remotely due to the COVID-19 pandemic.
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
-ms.author: alzam
+ms.date: 02/13/2023
+ms.author: cherylmc
 
 ---
 # Remote work using Azure VPN Gateway Point-to-site
 
 >[!NOTE]
->This article describes how you can leverage Azure VPN Gateway, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of COVID-19 crisis.
+>This article describes how you can leverage Azure VPN Gateway, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and mitigate network issues that you are facing because of COVID-19 crisis.
 >
 
 This article describes the options that are available to organizations to set up remote access for their users or to supplement their existing solutions with additional capacity during the COVID-19 epidemic.
@@ -26,7 +25,7 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 The table below shows the client operating systems and the authentication options that are available to them. It would be helpful to select the authentication method based on the client OS that is already in use. For example, select OpenVPN with Certificate-based authentication if you have a mixture of client operating systems that need to connect. Also, please note that point-to-site VPN is only supported on route-based VPN gateways.
 
-![Screenshot that shows client operating systems and available authentication options.](./media/working-remotely-support/ostable.png "OS")
+![Screenshot that shows client operating systems and available authentication options.](./media/working-remotely-support/os-table.png "OS")
 
 ## <a name="scenario1"></a>Scenario 1 - Users need access to resources in Azure only
 
@@ -41,7 +40,7 @@ At a high level, the following steps are needed to enable users to connect to Az
 
    * For certificate authentication, follow [this link](vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw).
    * For OpenVPN, follow [this link](vpn-gateway-howto-openvpn.md).
-   * For Azure AD authentication, follow [this link](openvpn-azure-ad-tenant.md).
+   * For Microsoft Entra authentication, follow [this link](openvpn-azure-ad-tenant.md).
    * For troubleshooting point-to-site connections, follow [this link](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 3. Download and distribute the VPN client configuration.
 4. Distribute the certificates (if certificate authentication is selected) to the clients.
@@ -73,7 +72,7 @@ To learn how to set up a site-to-site VPN tunnel, see [this link](./tutorial-sit
 
 ## Next Steps
 
-* [Configure a P2S connection - Azure AD authentication](openvpn-azure-ad-tenant.md)
+* [Configure a P2S connection - Microsoft Entra authentication](openvpn-azure-ad-tenant.md)
 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 

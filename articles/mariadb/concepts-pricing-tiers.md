@@ -1,14 +1,16 @@
 ---
 title: Pricing tiers - Azure Database for MariaDB
 description: Learn about the various pricing tiers for Azure Database for MariaDB including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 06/24/2022
 ---
 
 # Azure Database for MariaDB pricing tiers
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 You can create an Azure Database for MariaDB server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MariaDB server level. A server can have one or many databases.
 
@@ -17,7 +19,7 @@ You can create an Azure Database for MariaDB server in one of three different pr
 | Compute generation | Gen 5 |Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memory per vCore | 2 GB | 5 GB | 10 GB |
-| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
+| Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
 
 To choose a pricing tier, use the following table as a starting point.
@@ -41,9 +43,13 @@ The storage you provision is the amount of storage capacity available to your Az
 | Storage attributes   | Basic | General Purpose | Memory Optimized |
 |:---|:----------|:--------------------|:---------------------|
 | Storage type | Basic Storage | General Purpose Storage | General Purpose Storage |
-| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
+| Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
 | IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
+
+>[!IMPORTANT]
+> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Central US, Brazil South, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East, West US 2, West Central US, Canada East, and Canada Central.
+> All other regions support up to 4TB of storage and up to 6000 IOPS.
 
 You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload.
 
@@ -53,23 +59,6 @@ You can add additional storage capacity during and after the creation of the ser
 The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
-
-### Large storage (Preview)
-
-We are increasing the storage limits in our General Purpose and Memory Optimized tiers. Newly created servers that opt-in to the preview can provision up to 16 TB of storage. The IOPS scale at a 3:1 ratio up to 20,000 IOPS. As with the current generally available storage, you can add additional storage capacity after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload.
-
-| Storage attributes | General Purpose | Memory Optimized |
-|:-------------|:--------------------|:---------------------|
-| Storage type | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 32 GB to 16 TB| 32 to 16 TB |
-| Storage increment size | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
-
-> [!IMPORTANT]
-> Large storage is currently in public preview in the following regions: East US, East US 2, Brazil South, Central US, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East, West US 2, West Central US, Canada East, and Canada Central.
->
-> All other regions support up to 4TB of storage and up to 6000 IOPS.
->
 
 ### Reaching the storage limit
 
@@ -95,7 +84,7 @@ Azure Database for MariaDB provides up to 100% of your provisioned server storag
 
 ## Scale resources
 
-After you create your server, you can independently change the vCores, the pricing tier (except to and from Basic), the amount of storage, and the backup retention period. You can't change the backup storage type after a server is created. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI. 
+After you create your server, you can independently change the vCores, the pricing tier (except to and from Basic), the amount of storage, and the backup retention period. You can't change the backup storage type after a server is created. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI.
 
 When you change the number of vCores, or the pricing tier, a copy of the original server is created with the new compute allocation. After the new server is up and running, connections are switched over to the new server. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is less than a minute.
 
@@ -106,5 +95,6 @@ Scaling storage and changing the backup retention period are true online operati
 For the most up-to-date pricing information, see the service [pricing page](https://azure.microsoft.com/pricing/details/mariadb/). To see the cost for the configuration you want, the [Azure portal](https://portal.azure.com/#create/Microsoft.MariaDBServer) shows the monthly cost on the **Pricing tier** tab based on the options you select. If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, select **Add items**, expand the **Databases** category, and choose **Azure Database for MariaDB** to customize the options.
 
 ## Next steps
+
 - Learn about the [service limitations](concepts-limits.md).
 - Learn how to [create a MariaDB server in the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md).

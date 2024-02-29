@@ -1,20 +1,20 @@
 ---
-title: Connect to Windows Virtual Desktop (classic) from macOS - Azure
-description: How to connect to Windows Virtual Desktop (classic) using the macOS client.
+title: Connect to Azure Virtual Desktop (classic) from macOS - Azure
+description: How to connect to Azure Virtual Desktop (classic) using the macOS client.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Connect to Windows Virtual Desktop (classic) with the macOS client
+# Connect to Azure Virtual Desktop (classic) with the macOS client
 
 > Applies to: macOS 10.12 or later
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../connect-macos.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../users/connect-macos.md).
 
-You can access Windows Virtual Desktop resources from your macOS devices with our downloadable client. This guide will tell you how to set up the client.
+You can access Azure Virtual Desktop resources from your macOS devices with our downloadable client. This guide will tell you how to set up the client.
 
 ## Install the client
 
@@ -28,7 +28,7 @@ To subscribe to a feed:
 
 1. Select **Add Workspace** on the main page to connect to the service and retrieve your resources.
 2. Enter the Feed URL. This can be a URL or email address:
-   - If you use a URL, use the one your admin gave you. Normally, the URL is <https://rdweb.wvd.microsoft.com>.
+   - If you use a URL, use the one your admin gave you. Normally, the URL is `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`.
    - To use email, enter your email address. This tells the client to search for a URL associated with your email address if your admin configured the server that way.
 3. Select **Add**.
 4. Sign in with your user account when prompted.

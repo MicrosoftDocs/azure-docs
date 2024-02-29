@@ -1,14 +1,16 @@
 ---
 title: Virtual machine and disk performance
 description: Learn more about how virtual machines and their attached disks work in combination for performance.
-author: albecker1
-ms.author: albecker
-ms.date: 10/12/2020
+author: roygara
+ms.author: rogarana
+ms.date: 05/31/2023
 ms.topic: conceptual
-ms.service: virtual-machines
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 # Virtual machine and disk performance
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 [!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance.md)]
 
 ## Virtual machine uncached vs cached limits
@@ -16,6 +18,3 @@ Virtual machines that are enabled for both premium storage and premium storage c
 
 [!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance-2.md)]
 
-Let's run a benchmarking test on this virtual machine and disk combination that creates IO activity. To learn how to benchmark storage IO on Azure, see [Benchmark your application on Azure Disk Storage](disks-benchmarks.md). From the benchmarking tool, you can see that the VM and disk combination can achieve 22,800 IOPS:
-
-[!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance-3.md)]

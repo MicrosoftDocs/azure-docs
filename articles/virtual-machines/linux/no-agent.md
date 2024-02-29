@@ -1,39 +1,42 @@
 ---
-title: Create Linux images without a provisioning agent 
+title: Create Linux images without a provisioning agent
 description: Create generalized Linux images without a provisioning agent in Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: how-to
-ms.workload: infrastructure
-ms.date: 09/01/2020
+ms.custom: devx-track-azurecli, linux-related-content
+ms.date: 04/11/2023
 ms.author: danis
-ms.reviewer: cynthn
+ms.reviewer: mattmcinnes
 ---
 
 
 # Creating generalized images without a provisioning agent
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
+
 Microsoft Azure provides provisioning agents for Linux VMs in the form of the [walinuxagent](https://github.com/Azure/WALinuxAgent) or [cloud-init](https://github.com/canonical/cloud-init) (recommended). But there could be a scenario when you don't want to use either of these applications for your provisioning agent, such as:
 
-- Your Linux distro/version does not support cloud-init/Linux Agent.
+- Your Linux distro/version doesn't support cloud-init/Linux Agent.
 - You require specific VM properties to be set, such as hostname.
 
-> [!NOTE] 
+> [!NOTE]
 >
 > If you do not require any properties to be set or any form of provisioning to happen you should consider creating a specialized image.
 
-This article shows how you can setup your VM image to satisfy the Azure platform requirements and set the hostname, without installing a provisioning agent.
+This article shows how you can set up your VM image to satisfy the Azure platform requirements and set the hostname, without installing a provisioning agent.
 
 ## Networking and reporting ready
 
-In order to have your Linux VM communicating with Azure components, you will require a DHCP client to retrieve a host IP from the virtual network, as well as DNS resolution and route management. Most distros ship with these utilities out-of-the-box. Tools that have been tested on Azure by Linux distro vendors include `dhclient`, `network-manager`, `systemd-networkd` and others.
+In order to have your Linux VM communicate with Azure components, a DHCP client is required. The client is used to retrieve a host IP, DNS resolution, and route management from the virtual network. Most distros ship with these utilities out-of-the-box. Tools that are tested on Azure by Linux distro vendors include `dhclient`, `network-manager`, `systemd-networkd` and others.
 
 > [!NOTE]
 >
 > Currently creating generalized images without a provisioning agent only supports DHCP-enabled VMs.
 
-After networking has been setup and configured, you must "report ready". This will tell Azure that the VM has been successfully provisioning.
+After networking has been set up and configured, select "report ready". This tells Azure that the VM has been successfully provisioned.
 
 > [!IMPORTANT]
 >
@@ -41,17 +44,17 @@ After networking has been setup and configured, you must "report ready". This wi
 
 ## Demo/sample
 
-This demo will show how you can take an existing Marketplace image (in this case, a Debian Buster VM) and remove the Linux Agent (walinuxagent), but also creating the most basic process to report to Azure that the VM is "ready".
+An existing Marketplace image (in this case, a Debian Buster VM) with the Linux Agent (walinuxagent) removed and a custom python script added is the easiest way to tell Azure that the VM is "ready".
 
 ### Create the resource group and base VM:
 
-```bash
+```azurecli
 $ az group create --location eastus --name demo1
 ```
 
 Create the base VM:
 
-```bash
+```azurecli
 $ az vm create \
     --resource-group demo1 \
     --name demo1 \
@@ -63,7 +66,7 @@ $ az vm create \
 
 ### Remove the image provisioning Agent
 
-Once the VM is provisioning, you can SSH into it and remove the Linux Agent:
+Once the VM is provisioning, you can connect to it via SSH and remove the Linux Agent:
 
 ```bash
 $ sudo apt purge -y waagent
@@ -72,7 +75,7 @@ $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 
 ### Add required code to the VM
 
-Also inside the VM, because we've removed the Azure Linux Agent we need to provide a mechanism to report ready. 
+Also inside the VM, because we've removed the Azure Linux Agent we need to provide a mechanism to report ready.
 
 #### Python script
 
@@ -103,13 +106,15 @@ xml_el = ElementTree.fromstring(wireserver_goalstate)
 
 container_id = xml_el.findtext('Container/ContainerId')
 instance_id = xml_el.findtext('Container/RoleInstanceList/RoleInstance/InstanceId')
+incarnation = xml_el.findtext('Incarnation')
 print(f'ContainerId: {container_id}')
 print(f'InstanceId: {instance_id}')
+print(f'Incarnation: {incarnation}')
 
 # Construct the XML response we need to send to Wireserver to report ready.
 health = ElementTree.Element('Health')
 goalstate_incarnation = ElementTree.SubElement(health, 'GoalStateIncarnation')
-goalstate_incarnation.text = '1'
+goalstate_incarnation.text = incarnation
 container = ElementTree.SubElement(health, 'Container')
 container_id_el = ElementTree.SubElement(container, 'ContainerId')
 container_id_el.text = container_id
@@ -146,16 +151,85 @@ print(f'Response: {resp.status} {resp.reason}')
 wireserver_conn.close()
 ```
 
-#### Generic steps (without using Python)
+#### Bash script
+
+```
+#!/bin/bash
+
+attempts=1
+until [ "$attempts" -gt 5 ]
+do
+    echo "obtaining goal state - attempt $attempts"
+    goalstate=$(curl --fail -v -X 'GET' -H "x-ms-agent-name: azure-vm-register" \
+                                        -H "Content-Type: text/xml;charset=utf-8" \
+                                        -H "x-ms-version: 2012-11-30" \
+                                           "http://168.63.129.16/machine/?comp=goalstate")
+    if [ $? -eq 0 ]
+    then
+       echo "successfully retrieved goal state"
+       retrieved_goal_state=true
+       break
+    fi
+    sleep 5
+    attempts=$((attempts+1))
+done
+
+if [ "$retrieved_goal_state" != "true" ]
+then
+    echo "failed to obtain goal state - cannot register this VM"
+    exit 1
+fi
+
+container_id=$(grep ContainerId <<< "$goalstate" | sed 's/\s*<\/*ContainerId>//g' | sed 's/\r$//')
+instance_id=$(grep InstanceId <<< "$goalstate" | sed 's/\s*<\/*InstanceId>//g' | sed 's/\r$//')
+
+ready_doc=$(cat << EOF
+<?xml version="1.0" encoding="utf-8"?>
+<Health xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <GoalStateIncarnation>1</GoalStateIncarnation>
+  <Container>
+    <ContainerId>$container_id</ContainerId>
+    <RoleInstanceList>
+      <Role>
+        <InstanceId>$instance_id</InstanceId>
+        <Health>
+          <State>Ready</State>
+        </Health>
+      </Role>
+    </RoleInstanceList>
+  </Container>
+</Health>
+EOF
+)
+
+attempts=1
+until [ "$attempts" -gt 5 ]
+do
+    echo "registering with Azure - attempt $attempts"
+    curl --fail -v -X 'POST' -H "x-ms-agent-name: azure-vm-register" \
+                             -H "Content-Type: text/xml;charset=utf-8" \
+                             -H "x-ms-version: 2012-11-30" \
+                             -d "$ready_doc" \
+                             "http://168.63.129.16/machine?comp=health"
+    if [ $? -eq 0 ]
+    then
+       echo "successfully register with Azure"
+       break
+    fi
+    sleep 5 # sleep to prevent throttling from wire server
+done
+```
+
+#### Generic steps (if not using Python or Bash)
 
 If your VM doesn't have Python installed or available, you can programmatically reproduce this above script logic with the following steps:
 
-1. Retrieve the `ContainerId` and `InstanceId` by parsing the response from the WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`.
+1. Retrieve the `ContainerId`, `InstanceId`, and `Incarnation` by parsing the response from the WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`.
 
-2. Construct the following XML data, injecting the parsed `ContainerId` and `InstanceId` from the above step:
+2. Construct the following XML data, injecting the parsed `ContainerId`, `InstanceId`, and `Incarnation` from the above step:
    ```xml
    <Health>
-     <GoalStateIncarnation>1</GoalStateIncarnation>
+     <GoalStateIncarnation>INCARNATION</GoalStateIncarnation>
      <Container>
        <ContainerId>CONTAINER_ID</ContainerId>
        <RoleInstanceList>
@@ -204,20 +278,20 @@ With the unit on the filesystem, run the following to enable it:
 $ sudo systemctl enable azure-provisioning.service
 ```
 
-Now the VM is ready to be generalized and have an image created from it. 
+Now the VM is ready to be generalized and have an image created from it.
 
 #### Completing the preparation of the image
 
 Back on your development machine, run the following to prepare for image creation from the base VM:
 
-```bash
+```azurecli
 $ az vm deallocate --resource-group demo1 --name demo1
 $ az vm generalize --resource-group demo1 --name demo1
 ```
 
 And create the image from this VM:
 
-```bash
+```azurecli
 $ az image create \
     --resource-group demo1 \
     --source demo1 \
@@ -225,9 +299,9 @@ $ az image create \
     --name demo1img
 ```
 
-Now we are ready to create a new VM (or multiple VMs) from the image:
+Now we're ready to create a new VM from the image. This can also be used to create multiple VMs:
 
-```bash
+```azurecli
 $ IMAGE_ID=$(az image show -g demo1 -n demo1img --query id -o tsv)
 $ az vm create \
     --resource-group demo12 \
@@ -235,7 +309,7 @@ $ az vm create \
     --location eastus \
     --ssh-key-value <ssh_pub_key_path> \
     --public-ip-address-dns-name demo12 \
-    --image "$IMAGE_ID" 
+    --image "$IMAGE_ID"
     --enable-agent false
 ```
 
@@ -243,7 +317,7 @@ $ az vm create \
 >
 > It is important to set `--enable-agent` to `false` because walinuxagent doesn't exist on this VM that is going to be created from the image.
 
-This VM should provisioning successfully. Logging into the newly-provisioning VM, you should be able to see the output of the report ready systemd service:
+The VM should be provisioned successfully. After Logging into the newly provisioning VM, you should be able to see the output of the report ready systemd service:
 
 ```bash
 $ sudo journalctl -u azure-provisioning.service
@@ -265,7 +339,7 @@ Jun 11 20:28:56 thstringnopa2 systemd[1]: Started Azure Provisioning.
 
 ## Support
 
-If you implement your own provisioning code/agent, then you own the support of this code, Microsoft support will only investigate issues relating to the provisioning interfaces not being available. We are continually making improvements and changes in this area, so you must monitor for changes in cloud-init and Azure Linux Agent for provisioning API changes.
+If you implement your own provisioning code/agent, then you own the support of this code, Microsoft support will only investigate issues relating to the provisioning interfaces not being available. We're continually making improvements and changes in this area, so you must monitor for changes in cloud-init and Azure Linux Agent for provisioning API changes.
 
 ## Next steps
 

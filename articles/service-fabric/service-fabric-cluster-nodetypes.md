@@ -2,9 +2,13 @@
 title: Node types and virtual machine scale sets 
 description: Learn how Azure Service Fabric node types relate to virtual machine scale sets and how to remotely connect to a scale set instance or cluster node.
 ms.topic: conceptual
-ms.date: 03/23/2018
-ms.author: pepogors
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Azure Service Fabric node types and virtual machine scale sets
 
 [Virtual machine scale sets](../virtual-machine-scale-sets/index.yml) are an Azure compute resource. You can use scale sets to deploy and manage a collection of virtual machines as a set. Each node type that you define in an Azure Service Fabric cluster sets up exactly one scale set: multiple node types cannot be backed by the same scale set and one node type should not be backed by multiple scale sets.
@@ -40,6 +44,7 @@ The following is a snippet of Service Fabric Virtual Machine extension:
     "properties": {
       "type": "ServiceFabricLinuxNode",
       "autoUpgradeMinorVersion": true,
+      "enableAutomaticUpgrade": true,
       "protectedSettings": {
         "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
        },
@@ -58,7 +63,7 @@ The following is a snippet of Service Fabric Virtual Machine extension:
            "x509StoreName": "[parameters('certificateStoreValue')]"
          }
        },
-       "typeHandlerVersion": "1.1"
+       "typeHandlerVersion": "2.0"
      }
    },
 ```
@@ -68,17 +73,18 @@ The following are the property descriptions:
 | **Name** | **Allowed Values** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 | name | string | Unique name for extension |
-| type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode" | Identifies OS Service Fabric is bootstrapping to |
-| autoUpgradeMinorVersion | true or false | Enable Auto Upgrade of SF Runtime Minor Versions |
+| type | "ServiceFabricLinuxNode" or "ServiceFabricNode" | Identifies OS Service Fabric is bootstrapping to |
+| autoUpgradeMinorVersion | true or false | Use newest minor version of extension at deployment time |
+| enableAutomaticUpgrade | true or false | Automatically upgrade extension once a non-major version is available. Only available for type ServiceFabricLinuxNode |
 | publisher | Microsoft.Azure.ServiceFabric | Name of the Service Fabric extension publisher |
-| clusterEndpont | string | URI:PORT to Management endpoint |
+| clusterEndpoint | string | URI:PORT to Management endpoint |
 | nodeTypeRef | string | Name of nodeType |
 | durabilityLevel | bronze, silver, gold, platinum | Time allowed to pause immutable Azure Infrastructure |
 | enableParallelJobs | true or false | Enable Compute ParallelJobs like remove VM and reboot VM in the same scale set in parallel |
 | nicPrefixOverride | string | Subnet Prefix like "10.0.0.0/24" |
 | commonNames | string[] | Common Names of installed cluster certificates |
 | x509StoreName | string | Name of Store where installed cluster certificate is located |
-| typeHandlerVersion | 1.1 | Version of Extension. 1.0 classic version of extension are recommended to upgrade to 1.1 |
+| typeHandlerVersion | 1.1 | Version of Extension. 1.0 classic versions of extension are recommended to upgrade to 1.1 |
 | dataPath | string | Path to the drive used to save state for Service Fabric system services and application data.
 
 ## Next steps

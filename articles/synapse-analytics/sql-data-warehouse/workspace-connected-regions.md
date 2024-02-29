@@ -1,15 +1,13 @@
 ---
 title: Enable Synapse Workspace feature region availability 
 description: This document details the regions where the Synapse workspace feature is not available.   
-services: synapse-analytics
-author: antvgski
-manager: igorstan
+author: sowmi93
+ms.author: sosivara
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 11/11/2020
-ms.author: anvang
-ms.reviewer: jrasnick
+ms.date: 02/15/2022
+ms.reviewer: sngun
 ms.custom: references_regions
 ---
 
@@ -24,13 +22,13 @@ The following table summarizes by region where the ability to enable the Synapse
 |:--- |:--- |:--- |
 | Australia Central 1 |\* |
 | Australia Central 2 |\* |
-| China East 2 |March 31, 2021 |
-| China North 2 |March 31, 2021 |
-| India South |March 31, 2021 |
-| India West |March 31, 2021 |
-| Korea South |March 31, 2021 |
-| Switzerland West |March 31, 2021 |
-| UAE North |March 31, 2021 |
+| China East 2 |\* |
+| China North 2 |\* |
+| India South |\*|
+| India West |\*|
+| Korea South |\* |
+| Switzerland West |\* |
+| UAE North |\*|
  
  
 > [!NOTE]

@@ -1,9 +1,14 @@
 ---
 title: Upgrade the version of a standalone cluster 
 description: Upgrade the Azure Service Fabric code that runs a standalone Service Fabric cluster.
-ms.topic: conceptual
-ms.date: 11/09/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Upgrade the Service Fabric version that runs on your cluster 
 
 For any modern system, the ability to upgrade is key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how to upgrade the version of Service Fabric running on your standalone cluster.
@@ -112,7 +117,7 @@ For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](/pow
     ```powershell
     ###### Get list of all upgrade compatible packages  
     Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
-	```
+    ```
 
 3. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on doesn't have to be part of the cluster.
 

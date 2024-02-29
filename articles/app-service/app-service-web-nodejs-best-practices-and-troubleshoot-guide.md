@@ -4,11 +4,11 @@ description: Learn the best practices and troubleshooting steps for Node.js appl
 author: msangapu-msft
 
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
-ms.custom: seodec18
+ms.custom: devx-track-js
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
 
@@ -51,7 +51,7 @@ This setting controls the directory where iisnode logs stdout/stderr. The defaul
 
 ### debuggerExtensionDll
 
-This setting controls what version of node-inspector iisnode uses when debugging your node application. Currently, iisnode-inspector-0.7.3.dll and iisnode-inspector.dll are the only two valid values for this setting. The default value is iisnode-inspector-0.7.3.dll. The iisnode-inspector-0.7.3.dll version uses node-inspector-0.7.3 and uses web sockets. Enable web sockets on your Azure webapp to use this version. See <https://ranjithblogs.azurewebsites.net/?p=98> for more details on how to configure iisnode to use the new node-inspector.
+This setting controls what version of node-inspector iisnode uses when debugging your node application. Currently, iisnode-inspector-0.7.3.dll and iisnode-inspector.dll are the only two valid values for this setting. The default value is iisnode-inspector-0.7.3.dll. The iisnode-inspector-0.7.3.dll version uses node-inspector-0.7.3 and uses web sockets. Enable web sockets on your Azure webapp to use this version. 
 
 ### flushResponse
 
@@ -108,7 +108,7 @@ The default value is false. When set to true, iisnode displays the HTTP status c
 
 This setting controls debugging feature. Iisnode is integrated with node-inspector. By enabling this setting, you enable debugging of your node application. Upon enabling this setting, iisnode creates node-inspector files in ‘debuggerVirtualDir’ directory on the first debug request to your node application. You can load the node-inspector by sending a request to `http://yoursite/server.js/debug`. You can control the debug URL segment with ‘debuggerPathSegment’ setting. By default, debuggerPathSegment=’debug’. You can set `debuggerPathSegment` to a GUID, for example, so that it is more difficult to be discovered by others.
 
-Read [Debug node.js applications on Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) for more details on debugging.
+Read [Debug Node.js applications on Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) for more details on debugging.
 
 ## Scenarios and recommendations/troubleshooting
 
@@ -135,7 +135,7 @@ let keepaliveAgent = new Agent({
 
 #### My node application is consuming too much CPU
 
-You may receive a recommendation from Azure App Service on your portal about high cpu consumption. You can also set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the CPU usage on the [Azure portal Dashboard](../azure-monitor/platform/metrics-charts.md), check the MAX values for CPU so you don’t miss the peak values.
+You may receive a recommendation from Azure App Service on your portal about high cpu consumption. You can also set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the CPU usage on the [Azure portal Dashboard](../azure-monitor/essentials/metrics-charts.md), check the MAX values for CPU so you don’t miss the peak values.
 If you believe your application is consuming too much CPU and you cannot explain why, you can profile your node application to find out.
 
 #### Profiling your node application on Azure App Service with V8-Profiler
@@ -208,9 +208,9 @@ You can see that 95% of the time was consumed by the WriteConsoleLog function. T
 
 ### My node application is consuming too much memory
 
-If your application is consuming too much memory, you see a notice from Azure App Service on your portal about high memory consumption. You can set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the memory usage on the [Azure portal Dashboard](../azure-monitor/platform/metrics-charts.md), be sure to check the MAX values for memory so you don’t miss the peak values.
+If your application is consuming too much memory, you see a notice from Azure App Service on your portal about high memory consumption. You can set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the memory usage on the [Azure portal Dashboard](../azure-monitor/essentials/metrics-charts.md), be sure to check the MAX values for memory so you don’t miss the peak values.
 
-#### Leak detection and Heap Diff for node.js
+#### Leak detection and Heap Diff for Node.js
 
 You could use [node-memwatch](https://github.com/lloyd/node-memwatch) to help you identify memory leaks.
 You can install `memwatch` just like v8-profiler and edit your code to capture and diff heaps to identify the memory leaks in your application.
@@ -265,11 +265,11 @@ NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. On Azure App Servic
 
 ## More resources
 
-Follow these links to learn more about node.js applications on Azure App Service.
+Follow these links to learn more about Node.js applications on Azure App Service.
 
 * [Get started with Node.js web apps in Azure App Service](quickstart-nodejs.md)
 * [How to debug a Node.js web app in Azure App Service](/archive/blogs/azureossds/debugging-node-js-apps-on-azure-app-services)
-* [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
+* [Using Node.js Modules with Azure applications](/training/modules/create-nodejs-project-dependencies/)
 * [Azure App Service Web Apps: Node.js](/archive/blogs/silverlining/windows-azure-websites-node-js)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

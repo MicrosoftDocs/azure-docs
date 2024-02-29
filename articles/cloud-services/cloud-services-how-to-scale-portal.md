@@ -1,24 +1,24 @@
 ---
 title: Auto scale a cloud service (classic) in the portal | Microsoft Docs
-description: Learn how to use the portal to configure auto scale rules for a cloud service web role or worker role in Azure.
+description: Learn how to use the portal to configure auto scale rules for a cloud service (classic) roles in Azure.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+ms.subservice: autoscale
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # How to configure auto scaling for a Cloud Service (classic) in the portal
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Conditions can be set for a cloud service worker role that trigger a scale in or out operation. The conditions for the role can be based on the CPU, disk, or network load of the role. You can also set a condition based on a message queue or the metric of some other Azure resource associated with your subscription.
 
 > [!NOTE]
-> This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. You can scale a standard virtual machine by associating it with an [availability set](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) and manually turn them on or off.
+> This article focuses on Cloud Service (classic). When you create a virtual machine (classic) directly, it is hosted in a cloud service. You can scale a standard virtual machine by associating it with an [availability set](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) and manually turn them on or off.
 
 ## Considerations
 You should consider the following information before you configure scaling for your application:
@@ -27,7 +27,7 @@ You should consider the following information before you configure scaling for y
 
     Larger role instances use more cores. You can scale an application only within the limit of cores for your subscription. For example, say your subscription has a limit of 20 cores. If you run an application with two medium-sized cloud services (a total of 4 cores), you can only scale up other cloud service deployments in your subscription by the remaining 16 cores. For more information about sizes, see [Cloud Service Sizes](cloud-services-sizes-specs.md).
 
-* You can scale based on a queue message threshold. For more information about how to use queues, see [How to use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md).
+* You can scale based on a queue message threshold. For more information about how to use queues, see [How to use the Queue Storage Service](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli).
 
 * You can also scale other resources associated with your subscription.
 

@@ -1,16 +1,15 @@
 ---
-title: Primary, foreign, and unique keys  
+title: Primary, foreign, and unique keys
 description: Table constraints support using dedicated SQL pool in Azure Synapse Analytics
-services: synapse-analytics
 author: mstehrani
-manager: craigg 
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
+ms.author: emtehran
+ms.reviewer: nibruno; wiassaf
 ms.date: 09/05/2019
-ms.author: emtehran 
-ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019, azure-synapse
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - azure-synapse
 ---
 
 # Primary key, foreign key, and unique key using dedicated SQL pool in Azure Synapse Analytics
@@ -21,7 +20,7 @@ Learn about table constraints in dedicated SQL pool, including primary key, fore
 
 Dedicated SQL pool supports these table constraints: 
 - PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.    
-- UNIQUE constraint is only supported with NOT ENFORCED is used.
+- UNIQUE constraint is only supported when NOT ENFORCED is used.
 
 For syntax, check [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) and [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
@@ -32,7 +31,11 @@ FOREIGN KEY constraint is not supported in dedicated SQL pool.
 
 Having primary key and/or unique key allows dedicated SQL pool engine to generate an optimal execution plan for a query.  All values in a primary key column or a unique constraint column should be unique.
 
-After creating a table with primary key or unique constraint in dedicated SQL pool, users need to make sure all values in those columns are unique.  A violation of that may cause the query to return inaccurate result.  This example shows how a query may return inaccurate result if the primary key or unique constraint column includes duplicate values.  
+> [!IMPORTANT]  
+> After creating a table with primary key or unique constraint in dedicated SQL pool, users need to make sure all values in those columns are unique.
+> A violation of that may cause the query to return inaccurate result. 
+
+This example shows how a query may return inaccurate result if the primary key or unique constraint column includes duplicate values.  
 
 ```sql
  -- Create table t1

@@ -2,8 +2,12 @@
 title: Troubleshoot Agent and extension issues
 description: Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.
 ms.topic: troubleshooting
-ms.date: 07/05/2019
+ms.date: 05/05/2022
 ms.service: backup
+ms.custom: linux-related-content
+ms.reviewer: geg
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension
@@ -18,7 +22,7 @@ Most common backup failures can be self-resolved by following the troubleshootin
 
 ### Step 1: Check Azure VM health
 
-- **Ensure Azure VM provisioning state is 'Running'**: If the [VM provisioning state](../virtual-machines/states-lifecycle.md#provisioning-states) is in the **Stopped/Deallocated/Updating** state, then it will interfere with the backup operation. Open *Azure portal > VM > Overview >* and check the VM status to ensure it's **Running**  and retry the backup operation.
+- **Ensure Azure VM provisioning state is 'Running'**: If the [VM provisioning state](../virtual-machines/states-billing.md) is in the **Stopped/Deallocated/Updating** state, then it will interfere with the backup operation. Open *Azure portal > VM > Overview >* and check the VM status to ensure it's **Running**  and retry the backup operation.
 - **Review pending OS updates or reboots**: Ensure there are no pending OS update or pending reboots on the VM.
 
 ### Step 2: Check Azure VM Guest Agent service health
@@ -29,7 +33,7 @@ Most common backup failures can be self-resolved by following the troubleshootin
     - The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that's deployed to Azure.
     - Review the support matrix to check if VM runs on the [supported Windows operating system](backup-support-matrix-iaas.md#operating-system-support-windows).
   - On Linux VM,
-    - Ensure the Azure VM Guest Agent service is running by executing the command `ps-e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. To learn more, see [Linux VM guest agent issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
+    - Ensure the Azure VM Guest Agent service is running by executing the command `ps -e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. To learn more, see [Linux VM guest agent issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
     - Ensure the [Linux VM agent dependencies on system packages](../virtual-machines/extensions/agent-linux.md#requirements) have the supported configuration. For example: Supported Python version is 2.6 and above.
     - Review the support matrix to check if VM runs on the [supported Linux operating system.](backup-support-matrix-iaas.md#operating-system-support-linux)
 
@@ -41,14 +45,14 @@ Most common backup failures can be self-resolved by following the troubleshootin
 - Ensure all [extension issues](../virtual-machines/extensions/overview.md#troubleshoot-extensions) are resolved and retry the backup operation.
 - **Ensure COM+ System Application** is up and running. Also, the **Distributed Transaction Coordinator service** should be running as **Network Service account**. Follow the steps in this article to [troubleshoot COM+ and MSDTC issues](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error).
 
-### Step 4: Check Azure Backup VM Extension health
+### Step 4: Check Azure Backup Extension health
 
 Azure Backup uses the VM Snapshot Extension to take an application consistent backup of the Azure virtual machine. Azure Backup will install the extension as part of the first scheduled backup triggered after enabling backup.
 
 - **Ensure VMSnapshot extension isn't in a failed state**: Follow the steps listed in this [section](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to verify and ensure the Azure Backup extension is healthy.
 
 - **Check if antivirus is blocking the extension**: Certain antivirus software can prevent extensions from executing.
-  
+
   At the time of the backup failure, verify if there are log entries in ***Event Viewer Application logs*** with ***faulting application name: IaaSBcdrExtension.exe***. If you see entries, then it could be the antivirus configured in the VM  is restricting the execution of the backup extension. Test by excluding the following directories in the antivirus configuration and retry the backup operation.
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
@@ -80,9 +84,9 @@ The Azure VM agent might be stopped, outdated, in an inconsistent state, or not 
 **Error code**: GuestAgentSnapshotTaskStatusError<br>
 **Error message**: Could not communicate with the VM agent for snapshot status <br>
 
-After you register and schedule a VM for the Azure Backup service, Backup starts the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
+After you register and schedule a VM for the Azure Backup service, Backup starts the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:
 
-**Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**
 
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
@@ -97,7 +101,7 @@ After you register and schedule a VM for the Azure Backup service, Backup starts
 **Error code**: UserErrorVmProvisioningStateFailed<br>
 **Error message**: The VM is in failed provisioning state<br>
 
-This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state. To learn more, see [Provisioning states](../virtual-machines/states-lifecycle.md#provisioning-states).
+This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state. To learn more, see [Provisioning states](../virtual-machines/states-billing.md).
 
 - If any extension is in a failed state, then it can interfere with the backup. Ensure those extension issues are resolved and retry the backup operation.
 - If the VM provisioning state is in an updating state, it can interfere with the backup. Ensure that it's healthy and retry the backup operation.
@@ -124,7 +128,10 @@ To resolve this issue, remove the lock on the resource group of the VM, and retr
 **Error code**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Error message**: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. <br>
 
-For a backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. Permissions can be set through the [Azure portal](./backup-azure-vms-encryption.md) or through [PowerShell](./backup-azure-vms-automation.md#enable-protection).
+For a backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. Permissions can be set through the [Azure portal](./backup-azure-vms-encryption.md)/ [PowerShell](./backup-azure-vms-automation.md#enable-protection)/ [CLI](./quick-backup-vm-cli.md#prerequisites-to-backup-encrypted-vms).
+
+>[!Note]
+>If the required permissions to access the key vault have already been set, retry the operation after a little while.
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Snapshot operation failed due to no network connectivity on the virtual machine
 
@@ -133,16 +140,16 @@ For a backup operation to succeed on encrypted VMs, it must have permissions to 
 
 After you register and schedule a VM for the Azure Backup service, Backup starts the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting step, and then retry your operation:
 
-**[The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**[The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 ## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks - VMSnapshot extension operation failed
 
 **Error code**: ExtensionOperationFailedForManagedDisks <br>
 **Error message**: VMSnapshot extension operation failed<br>
 
-After you register and schedule a VM for the Azure Backup service, Backup starts the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
-**Cause 1: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Cause 2: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+After you register and schedule a VM for the Azure Backup service, Backup starts the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:
+**Cause 1: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
+**Cause 2: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**
 **Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## BackUpOperationFailed / BackUpOperationFailedV2 - Backup fails, with an internal error
@@ -150,11 +157,21 @@ After you register and schedule a VM for the Azure Backup service, Backup starts
 **Error code**: BackUpOperationFailed / BackUpOperationFailedV2 <br>
 **Error message**: Backup failed with an internal error - Please retry the operation in a few minutes <br>
 
-After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
-**Cause 1: [The agent installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Cause 4: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#remove_lock_from_the_recovery_point_resource_group)**<br>
+After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:
+
+- **Cause 1: [The agent installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**
+- **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+- **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
+- **Cause 4: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#remove_lock_from_the_recovery_point_resource_group)**
+- **Cause 5**: There's an extension version/bits mismatch with the Windows version you're running or the following module is corrupt:
+  **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\\<extension version\>\iaasvmprovider.dll** <br>   To resolve this issue, check if the module is compatible with x86 (32-bit)/x64 (64-bit) version of _regsvr32.exe_, and then follow these steps:
+
+  1. In the affected VM, go to **Control panel** -> **Program and features**.
+  1. Uninstall **Visual C++ Redistributable x64** for **Visual Studio 2013**.
+  1. Reinstall **Visual C++ Redistributable** for **Visual Studio 2013** in the VM. To install, follow these steps:
+     1. Go to the folder: **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\\<LatestVersion\>**
+     1. Search and run the **vcredist2013_x64** file to install.
+  1. Retry the backup operation.
 
 ## UserErrorUnsupportedDiskSize - The configured disk size(s) is currently not supported by Azure Backup
 
@@ -228,8 +245,15 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
    If the process isn't running, restart it by using the following commands:
 
-   - For Ubuntu: `service walinuxagent start`
-   - For other distributions: `service waagent start`
+   - For Ubuntu/Debian:
+     ```bash
+        sudo systemctl restart walinuxagent
+     ```
+
+   - For other distributions:
+     ```bash
+        sudo systemctl restart waagent
+     ```
 
 3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Run a new test backup. If the failure persists, collect the following logs from the VM:
@@ -268,7 +292,7 @@ The following conditions might cause the snapshot task to fail:
 | Cause | Solution |
 | --- | --- |
 | The VM status is reported incorrectly because the VM is shut down in Remote Desktop Protocol (RDP). | If you shut down the VM in RDP, check the portal to determine whether the VM status is correct. If it's not correct, shut down the VM in the portal by using the **Shutdown** option on the VM dashboard. |
-| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, you should configure it through the **Azure portal** or **PowerShell** and make sure the DHCP option inside the VM is enabled. [Learn more](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) about setting up a static IP address with PowerShell.
+| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, you should configure it through the **Azure portal** or **PowerShell** and make sure the DHCP option inside the VM is enabled. [Learn more](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md) about setting up a static IP address with PowerShell.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remove lock from the recovery point resource group
 

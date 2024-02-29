@@ -1,125 +1,162 @@
 ---
-title: Start and Stop an Azure Kubernetes Service (AKS)
-description: Learn how to stop or start an Azure Kubernetes Service (AKS) cluster.
-services: container-service
+title: Stop and start an Azure Kubernetes Service (AKS) cluster
+description: Learn how to stop and start an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 03/14/2023
 author: palma21
-
 ---
 
-# Stop and Start an Azure Kubernetes Service (AKS) cluster (preview)
+# Stop and start an Azure Kubernetes Service (AKS) cluster
 
-Your AKS workloads may not need to run continuously, for example a development cluster that is used only during business hours. This leads to times where your Azure Kubernetes Service (AKS) cluster might be idle, running no more than the system components. You can reduce the cluster footprint by [scaling all the `User` node pools to 0](scale-cluster.md#scale-user-node-pools-to-0), but your [`System` pool](use-system-pools.md) is still required to run the system components while the cluster is running. 
-To optimize your costs further during these periods, you can completely turn off (stop) your cluster. This action will stop your control plane and agent nodes altogether, allowing you to save on all the compute costs, while maintaining all your objects and cluster state stored for when you start it again. You can then pick up right where you left of after a weekend or to have your cluster running only while you run your batch jobs.
+You may not need to continuously run your Azure Kubernetes Service (AKS) workloads. For example, you may have a development cluster that you only use during business hours. This means there are times where your cluster might be idle, running nothing more than the system components. You can reduce the cluster footprint by [scaling all `User` node pools to 0](scale-cluster.md#scale-user-node-pools-to-0), but your [`System` pool](use-system-pools.md) is still required to run the system components while the cluster is running.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+To better optimize your costs during these periods, you can turn off, or stop, your cluster. This action stops your control plane and agent nodes, allowing you to save on all the compute costs, while maintaining all objects except standalone pods. The cluster state is stored for when you start it again, allowing you to pick up where you left off.
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes you have an existing AKS cluster. If you need an AKS cluster, you can create one using [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
 
+### About the cluster stop/start feature
 
-### Limitations
+When using the cluster stop/start feature, the following conditions apply:
 
-When using the cluster start/stop feature, the following restrictions apply:
+- This feature is only supported for Virtual Machine Scale Set backed clusters.
+- You can't stop clusters which use the [Node Autoprovisioning (NAP)](node-autoprovision.md) feature.
+- The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months, you can't recover the state. For more information, see the [AKS support policies](support-policies.md).
+- You can only perform start or delete operations on a stopped AKS cluster. To perform other operations, like scaling or upgrading, you need to start your cluster first.
+- If you provisioned PrivateEndpoints linked to private clusters, they need to be deleted and recreated again when starting a stopped AKS cluster.
+- Because the stop process drains all nodes, any standalone pods (i.e. pods not managed by a Deployment, StatefulSet, DaemonSet, Job, etc.) will be deleted.
+- When you start your cluster back up, the following behavior is expected:
+  - The IP address of your API server may change.
+  - If you're using cluster autoscaler, when you start your cluster, your current node count may not be between the min and max range values you set. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count, and your cluster will eventually enter and remain in that desired range until you stop your cluster.
 
-- This feature is only supported for Virtual Machine Scale Sets backed clusters.
-- The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months, the cluster state cannot be recovered. For more information, see the [AKS Support Policies](support-policies.md).
-- During preview, you need to stop the cluster autoscaler (CA) before attempting to stop the cluster.
-- You can only start or delete a stopped AKS cluster. To perform any operation like scale or upgrade, start your cluster first.
+## Stop an AKS cluster
 
-### Install the `aks-preview` Azure CLI 
+### [Azure CLI](#tab/azure-cli)
 
-You also need the *aks-preview* Azure CLI extension version 0.4.64 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+1. Use the [`az aks stop`][az-aks-stop] command to stop a running AKS cluster, including the nodes and control plane. The following example stops a cluster named *myAKSCluster*:
 
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
+    ```azurecli-interactive
+    az aks stop --name myAKSCluster --resource-group myResourceGroup
+    ```
 
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-``` 
+2. Verify your cluster has stopped using the [`az aks show`][az-aks-show] command and confirming the `powerState` shows as `Stopped`.
 
-### Register the `StartStopPreview` preview feature
+    ```azurecli-interactive
+    az aks show --name myAKSCluster --resource-group myResourceGroup
+    ```
 
-To use the start/stop cluster feature, you must enable the `StartStopPreview` feature flag on your subscription.
+    Your output should look similar to the following condensed example output:
 
-Register the `StartStopPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+    ```json
+    {
+    [...]
+      "nodeResourceGroup": "MC_myResourceGroup_myAKSCluster_westus2",
+      "powerState":{
+        "code":"Stopped"
+      },
+      "privateFqdn": null,
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup",
+    [...]
+    }
+    ```
 
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "StartStopPreview"
-```
+    If the `provisioningState` shows `Stopping`, your cluster hasn't fully stopped yet.
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+### [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/StartStopPreview')].{Name:name,State:properties.state}"
-```
+1. Use the [`Stop-AzAksCluster`][stop-azakscluster] cmdlet to stop a running AKS cluster, including the nodes and control plane. The following example stops a cluster named *myAKSCluster*:
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+    ```azurepowershell-interactive
+    Stop-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
+    ```
 
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+2. Verify your cluster has stopped using the [`Get-AzAksCluster`][get-azakscluster] cmdlet and confirming the `ProvisioningState` shows as `Succeeded`.
 
-## Stop an AKS Cluster
+    ```azurepowershell-interactive
+    Get-AzAKSCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
+    ```
 
-You can use the `az aks stop` command to stop a running AKS cluster's nodes and control plane. The following example stops a cluster named *myAKSCluster*:
+    Your output should look similar to the following condensed example output:
 
-```azurecli-interactive
-az aks stop --name myAKSCluster --resource-group myResourceGroup
-```
+    ```Output
+    ProvisioningState       : Succeeded
+    MaxAgentPools           : 100
+    KubernetesVersion       : 1.20.7
+    ...
+    ```
 
-You can verify when your cluster is stopped by using the [az aks show][az-aks-show] command and confirming the `powerState` shows as `Stopped` as on the below output:
+    If the `ProvisioningState` shows `Stopping`, your cluster hasn't fully stopped yet.
 
-```json
-{
-[...]
-  "nodeResourceGroup": "MC_myResourceGroup_myAKSCluster_westus2",
-  "powerState":{
-    "code":"Stopped"
-  },
-  "privateFqdn": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-[...]
-}
-```
-
-If the `provisioningState` shows `Stopping` that means your cluster hasn't fully stopped yet.
+---
 
 > [!IMPORTANT]
-> If you are using [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) the stop operation can take longer as the drain process will take more time to complete.
+> If you're using [pod disruption budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/), the stop operation can take longer, as the drain process will take more time to complete.
 
+## Start an AKS cluster
 
-## Start an AKS Cluster
+> [!CAUTION]
+> Don't repeatedly stop and start your clusters. This can result in errors. Once your cluster is stopped, you should wait at least 15-30 minutes before starting it again.
 
-You can use the `az aks start` command to start a stopped AKS cluster's nodes and control plane. The cluster is restarted with the previous control plane state and number of agent nodes.  
-The following example starts a cluster named *myAKSCluster*:
+### [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
-az aks start --name myAKSCluster --resource-group myResourceGroup
-```
+1. Use the [`az aks start`][az-aks-start] command to start a stopped AKS cluster. The cluster restarts with the previous control plane state and number of agent nodes. The following example starts a cluster named *myAKSCluster*:
 
-You can verify when your cluster has started by using the [az aks show][az-aks-show] command and confirming the `powerState` shows `Running` as on the below output:
+    ```azurecli-interactive
+    az aks start --name myAKSCluster --resource-group myResourceGroup
+    ```
 
-```json
-{
-[...]
-  "nodeResourceGroup": "MC_myResourceGroup_myAKSCluster_westus2",
-  "powerState":{
-    "code":"Running"
-  },
-  "privateFqdn": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-[...]
-}
-```
+2. Verify your cluster has started using the [`az aks show`][az-aks-show] command and confirming the `powerState` shows `Running`.
 
-If the `provisioningState` shows `Starting` that means your cluster hasn't fully started yet.
+    ```azurecli-interactive
+    az aks show --name myAKSCluster --resource-group myResourceGroup
+    ```
 
+    Your output should look similar to the following condensed example output:
+
+    ```json
+    {
+    [...]
+      "nodeResourceGroup": "MC_myResourceGroup_myAKSCluster_westus2",
+      "powerState":{
+        "code":"Running"
+     },
+     "privateFqdn": null,
+     "provisioningState": "Succeeded",
+     "resourceGroup": "myResourceGroup",
+    [...]
+    }
+    ```
+
+    If the `provisioningState` shows `Starting`, your cluster hasn't fully started yet.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+1. Use the [`Start-AzAksCluster`][start-azakscluster] cmdlet to start a stopped AKS cluster. The cluster restarts with the previous control plane state and number of agent nodes. The following example starts a cluster named *myAKSCluster*:
+
+    ```azurepowershell-interactive
+    Start-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
+    ```
+
+2. Verify your cluster has started using the [`Get-AzAksCluster`][get-azakscluster] cmdlet and confirming the `ProvisioningState` shows `Succeeded`.
+
+    ```azurepowershell-interactive
+    Get-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
+    ```
+
+    Your output should look similar to the following condensed example output:
+
+    ```Output
+    ProvisioningState       : Succeeded
+    MaxAgentPools           : 100
+    KubernetesVersion       : 1.20.7
+    ...
+    ```
+
+    If the `ProvisioningState` shows `Starting`, your cluster hasn't fully started yet.
+
+---
 
 ## Next steps
 
@@ -130,12 +167,12 @@ If the `provisioningState` shows `Starting` that means your cluster hasn't fully
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: /cli/azure/install-azure-cli&preserve-view=true
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
-[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az_aks_show
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[stop-azakscluster]: /powershell/module/az.aks/stop-azakscluster
+[get-azakscluster]: /powershell/module/az.aks/get-azakscluster
+[start-azakscluster]: /powershell/module/az.aks/start-azakscluster
+[az-aks-stop]: /cli/azure/aks#az_aks_stop
+[az-aks-start]: /cli/azure/aks#az_aks_start

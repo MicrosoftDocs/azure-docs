@@ -4,7 +4,7 @@ description: Set up Backup and replication for Apache HBase and Apache Phoenix i
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/19/2019
+ms.date: 01/04/2024
 ---
 
 # Set up backup and replication for Apache HBase and Apache Phoenix on HDInsight
@@ -30,7 +30,7 @@ HBase in HDInsight uses the default storage selected when creating the cluster, 
 
 `/hbase`
 
-* In an Azure Storage account the `hbase` folder resides at the root of the blob container:
+* In an Azure Storage account' the `hbase` folder resides at the root of the blob container:
 
   `wasbs://<containername>@<accountname>.blob.core.windows.net/hbase`
 
@@ -84,7 +84,7 @@ This approach offers table-level granularity. You can also specify a date range 
 hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>" <numberOfVersions> <startTimeInMS> <endTimeInMS>
 ```
 
-Note that you have to specify the number of versions of each row to export. To include all versions in the date range, set `<numberOfVersions>` to a value greater than your maximum possible row versions, such as 100000.
+You have to specify the number of versions of each row to export. To include all versions in the date range, set `<numberOfVersions>` to a value greater than your maximum possible row versions, such as 100000.
 
 ## Copy tables
 
@@ -106,13 +106,13 @@ The destination address is composed of the following three parts:
 
 `<destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>`
 
-* `<ZooKeeperQuorum>` is a comma-separated list of Apache ZooKeeper nodes, for example:
+* `<ZooKeeperQuorum>` is a comma-separated list of Apache ZooKeeper nodes FQDN names, for example:
 
-    zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
+    \<zookeepername1>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,\<zookeepername2>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,\<zookeepername3>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
 * `<Port>` on HDInsight defaults to 2181, and `<ZnodeParent>` is `/hbase-unsecure`, so the complete `<destinationAddress>` would be:
 
-    zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
+    \<zookeepername1>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,\<zookeepername2>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,\<zookeepername3>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
 
 See [Manually Collecting the Apache ZooKeeper Quorum List](#manually-collect-the-apache-zookeeper-quorum-list) in this article for details on how to retrieve these values for your HDInsight cluster.
 
@@ -137,10 +137,10 @@ To acquire the quorum host names, run the following curl command:
 curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/configurations?type=hbase-site&tag=TOPOLOGY_RESOLVED" | grep "hbase.zookeeper.quorum"
 ```
 
-The curl command retrieves a JSON document with HBase configuration information, and the grep command returns only the "hbase.zookeeper.quorum" entry, for example:
+The curl command retrieves a JSON document with HBase configuration information, and the `grep` command returns only the "hbase.zookeeper.quorum" entry, for example:
 
 ```output
-"hbase.zookeeper.quorum" : "zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
+"hbase.zookeeper.quorum" : "<zookeepername1>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,<zookeepername2>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,<zookeepername3>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
 ```
 
 The quorum host names value is the entire string to the right of the colon.
@@ -151,7 +151,7 @@ To retrieve the IP addresses for these hosts, use the following curl command for
 curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/hosts/<zookeeperHostFullName>" | grep "ip"
 ```
 
-In this curl command, `<zookeeperHostFullName>` is the full DNS name of a ZooKeeper host, such as the example `zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net`. The output of the command contains the IP address for the specified host, for example:
+In this curl command, `<zookeeperHostFullName>` is the full DNS name of a ZooKeeper host, such as the example `<zookeepername1>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net`. The output of the command contains the IP address for the specified host, for example:
 
 `100    "ip" : "10.0.0.9",`
 
@@ -217,7 +217,7 @@ If your destination cluster is an ADLS Gen 2 cluster, change the preceding comma
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.<account_name>.dfs.core.windows.net=<key> -Dfs.azure.account.auth.type.<account_name>.dfs.core.windows.net=SharedKey -Dfs.azure.always.use.https.<account_name>.dfs.core.windows.net=false -Dfs.azure.account.keyprovider.<account_name>.dfs.core.windows.net=org.apache.hadoop.fs.azurebfs.services.SimpleKeyProvider -snapshot 'Snapshot1' -copy-to 'abfs://<container>@<account_name>.dfs.core.windows.net/hbase'
 ```
 
-After the snapshot is exported, SSH into the head node of the destination cluster and restore the snapshot by using the `restore_snapshot` command as described earlier.
+After the snapshot is exported, SSH into the head node of the destination cluster and restore the snapshot by using the `clone_snapshot` command as described earlier.
 
 Snapshots provide a complete backup of a table at the time of the `snapshot` command. Snapshots don't provide the ability to perform incremental snapshots by windows of time, nor to specify subsets of columns families to include in the snapshot.
 
@@ -238,7 +238,7 @@ The general steps to set up replication are:
 5. Copy existing data from the source tables to the destination tables.
 6. Replication automatically copies new data modifications to the source tables into the destination tables.
 
-To enable replication on HDInsight, apply a Script Action to your running source HDInsight cluster. For a walkthrough of enabling replication in your cluster, or to experiment with replication on sample clusters created in virtual networks using Azure Resource Management templates, see [Configure Apache HBase replication](apache-hbase-replication.md). That article also includes instructions for enabling replication of Phoenix metadata.
+To enable replication on HDInsight, apply a Script Action to your running source HDInsight cluster. For a walkthrough of enabling replication in your cluster, or to experiment with replication on sample clusters created in virtual networks using Azure Resource Manager templates, see [Configure Apache HBase replication](apache-hbase-replication.md). That article also includes instructions for enabling replication of Phoenix metadata.
 
 ## Next steps
 

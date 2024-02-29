@@ -1,9 +1,13 @@
 ---
 title: Get container instance logs & events
 description: Learn how to retrieve container logs and events in Azure Container Instances to help troubleshoot container issues
-ms.topic: article
-ms.date: 12/30/2019
-ms.custom: mvc, devx-track-azurecli
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
+ms.custom: mvc
 ---
 
 # Retrieve container logs and events in Azure Container Instances
@@ -149,6 +153,6 @@ Learn how to [troubleshoot common container and deployment issues](container-ins
 Learn how to send log and event data for container groups to [Azure Monitor logs](container-instances-log-analytics.md).
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show

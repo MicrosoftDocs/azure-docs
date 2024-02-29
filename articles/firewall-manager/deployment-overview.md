@@ -5,13 +5,15 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 05/02/2023
 ms.author: victorh
 ---
 
 # Azure Firewall Manager deployment overview
 
-There's more than one way to deploy Azure Firewall Manager, but the following general process is recommended.
+There's more than one way to use Azure Firewall Manager to deploy Azure Firewall, but the following general process is recommended.
+
+To review network architecture options, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md)
 
 ## General deployment process
 
@@ -57,10 +59,7 @@ There's more than one way to deploy Azure Firewall Manager, but the following ge
    - Easily route traffic to your secured hub for filtering and logging without User Defined Routes (UDR) on spoke Virtual Networks using the Secured Virtual Hub Route Setting page.
 
 > [!NOTE]
-> - You can't have more than one hub per virtual wan per region. But you can add multiple virtual WANs in the region to achieve this.
 > - You can't have overlapping IP spaces for hubs in a vWAN.
-> - Your hub VNet connections must be in the same region as the hub.
->
 > For more known issues, see [What is Azure Firewall Manager?](overview.md#known-issues)
 
 ## Convert virtual networks
@@ -73,3 +72,5 @@ The following information applies if you convert an existing virtual network to 
 ## Next steps
 
 - [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md)
+- [Learn more about Azure network security](../networking/security/index.yml)
+

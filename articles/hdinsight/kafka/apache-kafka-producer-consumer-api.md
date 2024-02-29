@@ -2,9 +2,9 @@
 title: 'Tutorial: Apache Kafka Producer & Consumer APIs - Azure HDInsight'
 description: Learn how to use the Apache Kafka Producer and Consumer APIs with Kafka on HDInsight. In this tutorial, you learn how to use these APIs with Kafka on HDInsight from a Java application.
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-extended-java
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 04/24/2023
 #Customer intent: As a developer, I need to create an application that uses the Kafka consumer/producer API with Kafka on HDInsight
 ---
 
@@ -27,7 +27,7 @@ For more information on the APIs, see Apache documentation on the [Producer API]
 ## Prerequisites
 
 * Apache Kafka on HDInsight cluster. To learn how to create the cluster, see [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md).
-* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) or an equivalent, such as OpenJDK.
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-support-on-azure) or an equivalent, such as OpenJDK.
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 * An SSH client like Putty. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -148,9 +148,9 @@ If you would like to skip this step, prebuilt jars can be downloaded from the `P
 
     ```bash
     sudo apt -y install jq
-    export clusterName='<clustername>'
-    export password='<password>'
-    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
+    export CLUSTER_NAME='<clustername>'
+    export PASSWORD='<password>'
+    export KAFKABROKERS=$(curl -sS -u admin:$PASSWORD -G https://$CLUSTER_NAME.azurehdinsight.net/api/v1/clusters/$CLUSTER_NAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
     > [!Note]  

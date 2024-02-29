@@ -1,18 +1,19 @@
 ---
-title: Azure Hybrid Benefit for Windows Server 
+title: Explore Azure Hybrid Benefit for Windows VMs
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure.
-author: xujing-ms
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: billing
+ms.collection: windows
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 4/22/2018
-ms.author: xujing
-
+ms.date: 4/18/2023
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.devlang: azurecli
 ---
-# Azure Hybrid Benefit for Windows Server
-For customers with Software Assurance, Azure Hybrid Benefit for Windows Server allows you to use your on-premises Windows Server licenses and run Windows virtual machines on Azure at a reduced cost. You can use Azure Hybrid Benefit for Windows Server to deploy new virtual machines with Windows OS. This article goes over the steps on how to deploy new VMs with Azure Hybrid Benefit for Windows Server and how you can update existing running VMs. For more information about Azure Hybrid Benefit for Windows Server licensing and cost savings, see the [Azure Hybrid Benefit for Windows Server licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+# Explore Azure Hybrid Benefit for Windows VMs
 
-Each 2-processor license or each set of 16-core licenses are entitled to two instances of up to 8 cores, or one instance of up to 16 cores. The Azure Hybrid Benefit for Standard Edition licenses can only be used once either on-premises or in Azure. Datacenter Edition benefits allow for simultaneous usage both on-premises and in Azure.
+For customers with Software Assurance or subscription licenses, Azure Hybrid Benefit for Windows Server allows you to use your on-premises Windows Server licenses to get Windows virtual machines on Azure at a reduced cost. You can use Azure Hybrid Benefit for Windows Server to deploy new virtual machines with Windows OS. This article goes over the steps on how to deploy new VMs with Azure Hybrid Benefit for Windows Server and how you can update existing running VMs. For more information about Azure Hybrid Benefit for Windows Server licensing and cost savings, see the [Azure Hybrid Benefit for Windows Server licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+
+You'll need a minimum of 8 core licenses (Datacenter or Standard edition) per virtual machine. You may also run instances larger than 8 cores by allocating licenses equal to the core-size of the instance. For example, 12 core licenses are required for a 12-core instance, however 8 core licenses are still required if you run a 4-core instance. For customers with processor licenses, each two core processor license is equivalent to 16 core licenses.
 
 Using Azure Hybrid Benefit for Windows Server with any VMs running Windows Server OS are now supported in all regions, including VMs with additional software such as SQL Server or third-party marketplace software. 
 
@@ -60,13 +61,15 @@ az vm create \
 ```
 
 ### Template
-Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md)
+Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
+
 ```json
 "properties": {
     "licenseType": "Windows_Server",
     "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
     }
+}    
 ```
 
 ## Convert an existing VM using Azure Hybrid Benefit for Windows Server
@@ -104,7 +107,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
     ```
 
 ### How to verify your VM is utilizing the licensing benefit
-Once you have deployed your VM through either PowerShell, Resource Manager template or portal, you can verify the setting in the following methods.
+Once you've deployed your VM through either PowerShell, Resource Manager template or portal, you can verify the setting in the following methods.
 
 ### Portal
 From portal VM blade, you can view the toggle for Azure Hybrid Benefit for Windows Server by selecting "Configuration" tab.
@@ -138,27 +141,39 @@ az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Wind
 > Changing the license type on the VM does not cause the system to reboot or cause a service interuption. It is a metadata licensing flag only.
 >
 
-## List all VMs with Azure Hybrid Benefit for Windows Server in a subscription
-To see and count all virtual machines deployed with Azure Hybrid Benefit for Windows Server, you can run the following command from your subscription:
+## List all VMs and virtual machine scale sets with Azure Hybrid Benefit for Windows Server in a subscription
+To see and count all virtual machines and virtual machine scale sets deployed with Azure Hybrid Benefit for Windows Server, you can run the following command from your subscription:
 
 ### Portal
-From the Virtual Machine or Virtual machine scale sets resource blade, you can view a list of all your VM(s) and licensing type by configuring the table column to include "Azure Hybrid Benefit". The VM setting can either be in "Enabled", "Not enabled" or "Not supported" state.
+From the Virtual Machine or Virtual machine scale sets resource blade, you can view a list of all your VM(s) and licensing type by configuring the table column to include "OS licensing benefit". The VM setting can either be in **Azure Hybrid Benefit for Windows**, **Not enabled**, or **Windows client with multi-tenant hosting** state.
 
 ### PowerShell
+For virtual machines:
 ```powershell
-$vms = Get-AzVM
-$vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
+Get-AzVM | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
+```
+
+For virtual machine scale sets:
+```powershell
+Get-AzVmss | Select * -ExpandProperty VirtualMachineProfile | ? LicenseType -eq 'Windows_Server' | select ResourceGroupName, Name, LicenseType
 ```
 
 ### CLI
+For virtual machines:
 ```azurecli
 az vm list --query "[?licenseType=='Windows_Server']" -o table
+```
+
+For virtual machine scale sets:
+```azurecli
+az vmss list --query "[?virtualMachineProfile.licenseType=='Windows_Server']" -o table
 ```
 
 ## Deploy a Virtual Machine Scale Set with Azure Hybrid Benefit for Windows Server
 Within your virtual machine scale set Resource Manager templates, an additional parameter `licenseType` must be specified within your VirtualMachineProfile property. You can do this during create or update for your scale set through ARM template, PowerShell, Azure CLI or REST.
 
 The following example uses ARM template with a Windows Server 2016 Datacenter image:
+
 ```json
 "virtualMachineProfile": {
     "storageProfile": {
@@ -178,6 +193,7 @@ The following example uses ARM template with a Windows Server 2016 Datacenter im
             "adminUsername": "[parameters('adminUsername')]",
             "adminPassword": "[parameters('adminPassword')]"
     }
+}    
 ```
 You can also learn more about how to [Modify a virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) for more ways to update your scale set.
 

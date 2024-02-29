@@ -1,0 +1,32 @@
+items:
+- name: Logz.io Azure Integration Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Logz.io?
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create Logz.io resource
+    href: create.md
+- name: How to
+  items:
+  - name: Manage
+    href: manage.md
+  - name: Set up single sign-on
+    href: setup-sso.md
+  - name: Troubleshoot
+    href: troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/logz
+  - name: Azure PowerShell
+    href: /powershell/module/az.logz/get-azlogzmonitor
+  - name: Java
+    href: /java/api/overview/azure/resourcemanager-logz-readme
+  - name: Python
+    href: /python/api/overview/azure/mgmt-logz-readme
+  - name: REST API
+    href: /rest/api/logz

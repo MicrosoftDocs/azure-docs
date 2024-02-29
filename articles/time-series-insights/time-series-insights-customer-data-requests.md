@@ -1,27 +1,28 @@
 ---
 title: 'Customer data request features​ - Azure Time Series Insights | Microsoft Docs'
 description: Learn about customer data request features in Azure Time Series Insights.
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: conceptual
 ms.service: time-series-insights
-services: time-series-insights
 ms.date: 10/02/2020
-ms.custom: seodec18
 ---
 
 # Summary of customer data request features
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 Azure Time Series Insights is a managed cloud service with storage, analytics, and visualization components that make it easy to ingest, store, explore, and analyze billions of events simultaneously.
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
-To view, export, and delete personal data that may be subject to a data subject request, an Azure Time Series Insights tenant administrator can use either the Azure portal or the REST APIs. Using the Azure  portal to service data subject requests, provides a less complex method to perform these operations that most users prefer.
+To view, export, and delete personal data that may be subject to a data subject request, an Azure Time Series Insights tenant administrator can use either the Azure portal or the REST APIs. Using the Azure portal to service data subject requests, provides a less complex method to perform these operations that most users prefer.
 
 ## Identifying customer data
 
-Azure Time Series Insights considers personal data to be data associated with administrators and users of Time Series Insights. Time Series Insights stores the Azure Active Directory object-ID of users with access to the environment. The Azure portal displays user email addresses, but these email addresses are not stored within Time Series Insights, they are dynamically looked up using the Azure Active Directory object-ID in Azure Active Directory.
+Azure Time Series Insights considers personal data to be data associated with administrators and users of Time Series Insights. Time Series Insights stores the Microsoft Entra object-ID of users with access to the environment. The Azure portal displays user email addresses, but these email addresses are not stored within Time Series Insights, they are dynamically looked up using the Microsoft Entra object-ID in Microsoft Entra ID.
 
 ## Deleting customer data
 

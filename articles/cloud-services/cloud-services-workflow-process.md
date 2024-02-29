@@ -3,17 +3,16 @@ title: Workflow of Windows Azure VM Architecture | Microsoft Docs
 description: This article provides overview of the workflow processes when you deploy a service.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Workflow of Windows Azure classic VM Architecture 
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 This article provides an overview of the workflow processes that occur when you deploy or update an Azure resource such as a virtual machine. 
 
@@ -75,7 +74,7 @@ The following diagram presents the architecture of Azure resources.
 5. WindowsAzureGuestAgent sets up the guest OS (firewall, ACLs, LocalStorage, and so on), copies a new XML configuration file to c:\Config, and then starts the WaHostBootstrapper process.
 6. For Full IIS web roles, WaHostBootstrapper starts IISConfigurator and tells it to delete any existing AppPools for the web role from IIS.
 7. WaHostBootstrapper reads the **Startup** tasks from E:\RoleModel.xml and begins executing startup tasks. WaHostBootstrapper waits until all Simple startup tasks have finished and returned a “success” message.
-8. For Full IIS web roles, WaHostBootstrapper tells IISConfigurator to configure the IIS AppPool and points the site to `E:\Sitesroot\<index>`, where `<index>` is a 0 based index into the number of `<Sites>` elements defined for the service.
+8. For Full IIS web roles, WaHostBootstrapper tells IISConfigurator to configure the IIS AppPool and points the site to `E:\Sitesroot\<index>`, where `<index>` is a zero-based index into the number of `<Sites>` elements defined for the service.
 9. WaHostBootstrapper will start the host process depending on the role type:
     1. **Worker Role**: WaWorkerHost.exe is started. WaHostBootstrapper executes the OnStart() method. After it returns,  WaHostBootstrapper starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation (if InputEndpoints are defined). WaHostBootsrapper then goes into a loop of checking the role status.
     2. **Full IIS Web Role**: aIISHost is started. WaHostBootstrapper executes the OnStart() method. After it returns, it starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation. WaHostBootsrapper then goes into a loop of checking the role status.

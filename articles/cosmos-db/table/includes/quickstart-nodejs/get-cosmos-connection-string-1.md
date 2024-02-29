@@ -1,0 +1,1 @@
+On the left hand side of the Azure Cosmos DB account page, locate the menu item named **Connection String** under the *Settings* header and select it. You will be taken to a page where you can retrieve the connection string for the Azure Cosmos DB account.

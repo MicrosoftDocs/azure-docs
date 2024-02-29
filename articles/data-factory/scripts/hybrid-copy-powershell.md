@@ -1,15 +1,13 @@
 ---
 title: Copy data from on-premises to Azure using PowerShell
 description: This PowerShell script copies data from a SQL Server database to another an Azure Blob Storage.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
 ms.topic: article
-ms.author: jingwang
-author: linda33wj
-manager: shwang
-ms.custom: seo-lt-2019
-ms.date: 10/31/2017
+ms.author: jianleishen
+author: jianleishen
+ms.custom: devx-track-azurepowershell
+ms.date: 01/05/2024
 ---
 
 # Use PowerShell to create a data factory pipeline to copy data from SQL Server to Azure
@@ -85,7 +83,7 @@ This script uses the following commands:
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
-## Next steps
+## Related content
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 

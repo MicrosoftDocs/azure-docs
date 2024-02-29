@@ -1,8 +1,11 @@
 ---
-title: Activity logs in Azure DevTest Labs | Microsoft Docs
+title: Activity logs
 description: This article provides steps to view activity logs for Azure DevTest Labs. 
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 07/10/2020
+ms.custom: UpdateFrequency2
 ---
 
 # View activity logs for labs in Azure DevTest Labs 
@@ -36,10 +39,9 @@ This article explains how to view  activity logs for a lab in Azure DevTest Labs
 
     :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Stop VM event - Change details":::             
 
-For more information about activity logs, see [Azure Activity Log](../azure-monitor/platform/activity-log.md).
+For more information about activity logs, see [Azure Activity Log](../azure-monitor/essentials/activity-log.md).
 
 ## Next steps
 
 - To learn about setting **alerts** on activity logs, see [Create alerts](create-alerts.md).
-- To learn more about activity logs, see  [Azure Activity Log](../azure-monitor/platform/activity-log.md).
-
+- To learn more about activity logs, see  [Azure Activity Log](../azure-monitor/essentials/activity-log.md).

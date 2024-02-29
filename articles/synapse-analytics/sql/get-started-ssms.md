@@ -1,21 +1,20 @@
 ---
 title: Connect to Synapse SQL with SQL Server Management Studio (SSMS)
 description: Use SQL Server Management Studio (SSMS) to connect to and query Synapse SQL in Azure Synapse Analytics. 
-services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: overview 
-ms.subservice: 
+ms.subservice: sql 
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Connect to Synapse SQL with SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> * [Visual Studio](../sql/get-started-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 > 
@@ -25,12 +24,8 @@ You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-
 
 ### Supported tools for serverless SQL pool
 
-[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
+[Azure Data Studio](/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
 
-> [!NOTE]
-> If AAD login has connection open for more than 1 hour at time of query execution, any query that relies on AAD will fail. This includes querying storage using AAD pass-through and statements that interact with AAD (like CREATE EXTERNAL PROVIDER). This affects every tool that keeps connection open, like in query editor in SSMS and ADS. Tools that open new connection to execute query are not affected, like Synapse Studio.
-> You can restart SSMS or connect and disconnect in ADS to mitigate this issue. 
-.
 ## Prerequisites
 
 Before you begin, make sure you have the following prerequisites:  
@@ -123,5 +118,4 @@ Now that you've established a database connection, you can query the data.
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
 
-To configure your environment for Azure Active Directory authentication, see [Authenticate to Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-
+To configure your environment for Microsoft Entra authentication, see [Authenticate to Synapse SQL](../sql/sql-authentication.md).

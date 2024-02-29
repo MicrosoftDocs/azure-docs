@@ -1,10 +1,10 @@
 ---
 title: Generate maps
 description: This article describes how to generate maps in Azure FarmBeats.
-author: uhabiba04
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: v-umha
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Generate maps
@@ -14,6 +14,11 @@ Using Azure FarmBeats, you can generate the following maps by using satellite im
   - **Sensor Placement map**: Provides recommendations on how many sensors to use and where to place them on a farm.
   - **Satellite Indices map**: Shows the vegetation index and water index for a farm.
   - **Soil Moisture heatmap**: Shows soil moisture distribution by fusing satellite data and sensor data.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 ## Sensor Placement map
 
@@ -38,7 +43,7 @@ The following dependencies pertain to Sentinel:
 
 - We depend on Sentinel performance for downloading satellite images. Check Sentinel performance status and maintenance [activities](https://scihub.copernicus.eu/twiki/do/view/SciHubNews/WebHome).
 - Sentinel allows only two concurrent [downloads threads](https://sentinels.copernicus.eu/web/sentinel/sentinel-data-access/typologies-and-services) per user.
-- Precision map generation is affected by [Sentinel coverage and revisit frequency]( https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage).
+- Precision map generation is affected by [Sentinel coverage and revisit frequency](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage).
 
 ## Create a Sensor Placement map
 This section details the procedures for creating Sensor Placement maps.

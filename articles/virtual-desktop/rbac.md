@@ -1,154 +1,170 @@
 ---
-title: Built-in roles Windows Virtual Desktop - Azure
-description: An overview of built-in roles for Windows Virtual Desktop available for Azure RBAC.
-services: virtual-desktop
-author: Heidilohr
-
-ms.service: virtual-desktop
+title: Built-in Azure RBAC roles Azure Virtual Desktop
+description: An overview of built-in Azure RBAC roles for Azure Virtual Desktop available.
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.author: helohr
-manager: lizross
+author: dknappettmsft
+ms.author: daknappe
+ms.date: 01/25/2024
 ---
-# Built-in roles for Windows Virtual Desktop
 
-Windows Virtual Desktop uses Azure role-based access controls (RBAC) to assign roles to users and admins. These roles give admins permission to carry out certain tasks. To learn more about built-in roles for Azure RBAC, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
+# Built-in Azure RBAC roles for Azure Virtual Desktop
 
-The standard built-in roles for Azure are Owner, Contributor, and Reader. However, Windows Virtual Desktop has additional roles that let you separate management roles for host pools, app groups, and workspaces. This separation lets you have more granular control over administrative tasks. These roles are named in compliance with Azure's standard roles and least-privilege methodology.
+Azure Virtual Desktop uses Azure role-based access control (RBAC) to control access to resources. There are many built-in roles for use with Azure Virtual Desktop  that are a collection of permissions. You assign roles to users and admins and these roles give permission to carry out certain tasks. To learn more about Azure RBAC, see [What is Azure RBAC?](../role-based-access-control/overview.md).
 
-Windows Virtual Desktop doesn't have a specific Owner role. However, you can use a standard Owner role for the service objects.
+The standard built-in roles for Azure are *Owner*, *Contributor*, and *Reader*. However, Azure Virtual Desktop has more roles that let you separate management roles for host pools, application groups, and workspaces. This separation lets you have more granular control over administrative tasks. These roles are named in compliance with Azure's standard roles and least-privilege methodology. Azure Virtual Desktop doesn't have a specific Owner role, but you can use the general Owner role for the service objects.
+
+The built-in roles for Azure Virtual Desktop and the permissions for each one are detailed in this article. You can assign each role to the scope you need. Some Azure Desktop features have specific requirements for the assigned scope, which you can find in the documentation for the relevant feature. For more information, see [Understand Azure role definitions](../role-based-access-control/role-definitions.md) and [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
 
 ## Desktop Virtualization Contributor
 
-The Desktop Virtualization Contributor role lets you manage all aspects of the deployment. However, it doesn't grant you access to compute resources. You'll also need the User Access Administrator role to publish app groups to users or user groups.
+The Desktop Virtualization Contributor role allows managing all your Azure Virtual Desktop resources. You also need the *User Access Administrator* role to assign application groups to user accounts or user groups. This role doesn't grant users access to compute resources.
 
-
-- Microsoft.DesktopVirtualization/\* 
-- Microsoft.Resources/subscriptions/resourceGroups/read
-- Microsoft.Resources/deployments/\*
-- Microsoft.Authorization/\*/read
-- Microsoft.Insights/alertRules/\*
-- Microsoft.Support/\*
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Support/\*</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
 
 ## Desktop Virtualization Reader
 
-The Desktop Virtualization Reader role lets you view everything in the deployment but doesn't let you make any changes.
+The Desktop Virtualization Reader role allows viewing all your Azure Virtual Desktop resources, but doesn't allow changes.
 
-- Microsoft.DesktopVirtualization/\*/read
-- Microsoft.Resources/subscriptions/resourceGroups/read
-- Microsoft.Resources/deployments/read
-- Microsoft.Authorization/\*/read
-- Microsoft.Insights/alertRules/\*
-- Microsoft.Support/\*
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/\*/read</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.Resources/deployments/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/read</li><li>Microsoft.Support/\*</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
 
-## Host Pool Contributor
+## Desktop Virtualization User
 
-The Host Pool Contributor role lets you manage all aspects of host pools, including access to resources. You'll need an extra contributor role, Virtual Machine Contributor, to create virtual machines. You will need AppGroup and Workspace contributor roles to create host pool using the portal or you can use Desktop Virtualization Contributor role.
+The Desktop Virtualization User role allows users to use an application on a session host from an application group as a non-administrative user.
 
-The following list describes which permissions this role can access:
+| Action type | Permissions |
+|--|--|
+| actions | None |
+| notActions | None |
+| dataActions | <ul><li>Microsoft.DesktopVirtualization/applicationGroups/useApplications/action</li></ul> |
+| notDataActions | None |
 
-- Microsoft.DesktopVirtualization/hostpools/\*
-- Microsoft.Resources/subscriptions/resourceGroups/read
-- Microsoft.Resources/deployments/\*
-- Microsoft.Authorization/\*/read
-- Microsoft.Insights/alertRules/\*
-- Microsoft.Support/\*
+## Desktop Virtualization Host Pool Contributor
 
-## Host Pool Reader
+The Desktop Virtualization Host Pool Contributor role allows managing all aspects of a host pool. You also need the *Virtual Machine Contributor* role to create virtual machines and the *Desktop Virtualization Application Group Contributor* and *Desktop Virtualization Workspace Contributor* roles to deploy Azure Virtual Desktop using the portal, or you can use the *Desktop Virtualization Contributor* role.
 
-The Host Pool Reader role lets you view everything in the host pool, but won't allow you to make any changes.
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/hostpools/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Support/\*</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
 
-- Microsoft.DesktopVirtualization/hostpools/\*/read
-- Microsoft.Resources/subscriptions/resourceGroups/read
-- Microsoft.Resources/deployments/read
-- Microsoft.Authorization/\*/read
-- Microsoft.Insights/alertRules/\*
-- Microsoft.Support/\*
+## Desktop Virtualization Host Pool Reader
 
-## Application Group Contributor
+The Desktop Virtualization Host Pool Reader role allows viewing all aspects of a host pool, but doesn't allow changes.
 
-The Application Group Contributor role lets you manage all aspects of app groups. If you want to publish app groups to users or user groups, you'll need the User Access Administrator role.
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/hostpools/\*/read</li><li>Microsoft.DesktopVirtualization/hostpools/read</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.Resources/deployments/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/read</li><li>Microsoft.Support/\*</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
 
-The following list describes which permissions this role can access:
+## Desktop Virtualization Application Group Contributor
 
-- Microsoft.DesktopVirtualization/applicationgroups/\*
-- Microsoft.DesktopVirtualization/hostpools/read
-- Microsoft.DesktopVirtualization/hostpools/sessionhosts/read
-- Microsoft.Resources/subscriptions/resourceGroups/read
-- Microsoft.Resources/deployments/\*
-- Microsoft.Authorization/\*/read
-- Microsoft.Insights/alertRules/\*
-- Microsoft.Support/\*
+The Desktop Virtualization Application Group Contributor role allows managing all aspects of an application group. If you want to assign user accounts or user groups to application groups too, you also need the *User Access Administrator* role.
 
-## Application Group Reader
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/applicationgroups/\*</li><li>Microsoft.DesktopVirtualization/hostpools/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/read</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Support/\*</ul></li> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
 
-The Application Group Reader role lets you view everything in the app group and will not allow you to make any changes.
+## Desktop Virtualization Application Group Reader
 
-The following list describes which permissions this role can access:
+The Desktop Virtualization Application Group Reader role allows viewing all aspects of an application group, but doesn't allow changes.
 
-- Microsoft.DesktopVirtualization/applicationgroups/\*/read
-- Microsoft.DesktopVirtualization/applicationgroups/read
-- Microsoft.DesktopVirtualization/hostpools/read
-- Microsoft.DesktopVirtualization/hostpools/sessionhosts/read
-- Microsoft.Resources/subscriptions/resourceGroups/read
-- Microsoft.Resources/deployments/read
-- Microsoft.Authorization/\*/read
-- Microsoft.Insights/alertRules/\*
-- Microsoft.Support/\*
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/applicationgroups/\*/read</li><li>Microsoft.DesktopVirtualization/applicationgroups/read</li><li>Microsoft.DesktopVirtualization/hostpools/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/read</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.Resources/deployments/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/read</li><li>Microsoft.Support/\*</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
 
-## Workspace Contributor
+## Desktop Virtualization Workspace Contributor
 
-The Workspace Contributor role lets you manage all aspects of workspaces. To get information on applications added to the app groups, you'll also need to be assigned the Application Group Reader role.
+The Desktop Virtualization Workspace Contributor role allows managing all aspects of workspaces. To get information on applications added to a related application group, you also need the *Desktop Virtualization Application Group Reader* role.
 
-The following list describes which permissions this role can access:
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/workspaces/\*</li><li>Microsoft.DesktopVirtualization/applicationgroups/read</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Support/\*</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
 
-- Microsoft.DesktopVirtualization/workspaces/\*
-- Microsoft.DesktopVirtualization/applicationgroups/read
-- Microsoft.Resources/subscriptions/resourceGroups/read
-- Microsoft.Resources/deployments/\*
-- Microsoft.Authorization/\*/read
-- Microsoft.Insights/alertRules/\*
-- Microsoft.Support/\*
+## Desktop Virtualization Workspace Reader
 
-## Workspace Reader
+The Desktop Virtualization Workspace Reader role allows users to viewing all aspects of a workspace, but doesn't allow changes.
 
-The Workspace Reader role lets you view everything in the workspace, but won't allow you to make any changes.
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/workspaces/read</li><li>Microsoft.DesktopVirtualization/applicationgroups/read</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.Resources/deployments/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/read</li><li>Microsoft.Support/\*</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
 
-The following list describes which permissions this role can access:
+## Desktop Virtualization User Session Operator
 
-- Microsoft.DesktopVirtualization/workspaces/read
-- Microsoft.DesktopVirtualization/applicationgroups/read
-- Microsoft.Resources/subscriptions/resourceGroups/read
-- Microsoft.Resources/deployments/read
-- Microsoft.Authorization/\*/read
-- Microsoft.Insights/alertRules/\*
-- Microsoft.Support/\*
+The Desktop Virtualization User Session Operator role allows sending messages, disconnecting sessions, and using the *logoff* function to sign users out of a session host. However, this role doesn't allow host pool or session host management like removing a session host, changing drain mode, and so on. This role can see assignments, but can't modify members. We recommend you assign this role to specific host pools. If you assign this role at a resource group level, it provides read permission on all host pools under a resource group.
 
-## User Session Operator
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/hostpools/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Support/\*</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
 
-The User Session Operator role lets you send messages, disconnect sessions, and use the "logoff" function to sign sessions out of the session host. However, this role doesn't let you perform session host management like removing session host, changing drain mode, and so on. This role can see assignments, but can't modify admins. We recommend you assign this role to specific host pools. If you give this permission at a resource group level, the admin will have read permission on all host pools under a resource group.
+## Desktop Virtualization Session Host Operator
 
-The following list describes which permissions this role can access:
+The Desktop Virtualization Session Host Operator role allows viewing and removing session hosts, and changing drain mode. This role can't add session hosts using the Azure portal because it doesn't have write permission for host pool objects. For adding session hosts outside of the Azure portal, if the registration token is valid (generated and not expired), this role can add session hosts to the host pool if the *Virtual Machine Contributor* role is also assigned.
 
-- Microsoft.DesktopVirtualization/hostpools/read
-- Microsoft.DesktopVirtualization/hostpools/sessionhosts/read
-- Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/\*
-- Microsoft.Resources/subscriptions/resourceGroups/read
-- Microsoft.Resources/deployments/read
-- Microsoft.Authorization/\*/read
-- Microsoft.Insights/alertRules/\*
-- Microsoft.Support/\*
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/hostpools/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Support/\*</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
 
-## Session Host Operator
+## Desktop Virtualization Power On Contributor
 
-The Session Host Contributor role lets you view and remove session hosts, as well as change drain mode. They can't add session hosts using the Azure portal because they don't have write permission for host pool objects. If the registration token is valid (generated and not expired), you can use this role to add session hosts to the host pool outside of Azure portal if the admin has compute permissions  through the Virtual Machine Contributor role.
+The Desktop Virtualization Power On Contributor role is used to allow the Azure Virtual Desktop Resource Provider to start virtual machines.
 
-The following list describes which permissions this role can access:
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/instanceView/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/read</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/start/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/stop/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/restart/action</li><li>Microsoft.HybridCompute/machines/read</li><li>Microsoft.HybridCompute/operations/read</li><li>Microsoft.HybridCompute/locations/operationresults/read</li><li>Microsoft.HybridCompute/locations/operationstatus/read</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
 
-- Microsoft.DesktopVirtualization/hostpools/read
-- Microsoft.DesktopVirtualization/hostpools/sessionhosts/\*
-- Microsoft.Resources/subscriptions/resourceGroups/read
-- Microsoft.Resources/deployments/read
-- Microsoft.Authorization/\*/read
-- Microsoft.Insights/alertRules/\*
-- Microsoft.Support/\*
+## Desktop Virtualization Power On Off Contributor
+
+The Desktop Virtualization Power On Off Contributor role is used to allow the Azure Virtual Desktop Resource Provider to start and stop virtual machines.
+
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/instanceView/read</li><li>Microsoft.Compute/virtualMachines/deallocate/action</li><li>Microsoft.Compute/virtualMachines/restart/action</li><li>Microsoft.Compute/virtualMachines/powerOff/action</li><li>Microsoft.Insights/eventtypes/values/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.DesktopVirtualization/hostpools/read</li><li>Microsoft.DesktopVirtualization/hostpools/write</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/write</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/read</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/start/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/stop/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/restart/action</li><li>Microsoft.HybridCompute/machines/read</li><li>Microsoft.HybridCompute/operations/read</li><li>Microsoft.HybridCompute/locations/operationresults/read</li><li>Microsoft.HybridCompute/locations/operationstatus/read</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
+
+## Desktop Virtualization Virtual Machine Contributor
+
+The Desktop Virtualization Virtual Machine Contributor role is used to allow the Azure Virtual Desktop Resource Provider to create, delete, update, start, and stop virtual machines.
+
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/hostpools/read</li><li>Microsoft.DesktopVirtualization/hostpools/write</li><li>Microsoft.DesktopVirtualization/hostpools/retrieveRegistrationToken/action</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/write</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/delete</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/disconnect/action</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action</li><li>Microsoft.DesktopVirtualization/hostpools/sessionHostConfigurations/read</li><li>Microsoft.Compute/availabilitySets/read</li><li>Microsoft.Compute/availabilitySets/write</li><li>Microsoft.Compute/availabilitySets/vmSizes/read</li><li>Microsoft.Compute/disks/read</li><li>Microsoft.Compute/disks/write</li><li>Microsoft.Compute/disks/delete</li><li>Microsoft.Compute/galleries/read</li><li>Microsoft.Compute/galleries/images/read</li><li>Microsoft.Compute/galleries/images/versions/read</li><li>Microsoft.Compute/images/read</li><li>Microsoft.Compute/locations/usages/read</li><li>Microsoft.Compute/locations/vmSizes/read</li><li>Microsoft.Compute/operations/read</li><li>Microsoft.Compute/skus/read</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/write</li><li>Microsoft.Compute/virtualMachines/delete</li><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/powerOff/action</li><li>Microsoft.Compute/virtualMachines/restart/action</li><li>Microsoft.Compute/virtualMachines/deallocate/action</li><li>Microsoft.Compute/virtualMachines/runCommand/action</li><li>Microsoft.Compute/virtualMachines/extensions/read</li><li>Microsoft.Compute/virtualMachines/extensions/write</li><li>Microsoft.Compute/virtualMachines/extensions/delete</li><li>Microsoft.Compute/virtualMachines/runCommands/read</li><li>Microsoft.Compute/virtualMachines/runCommands/write</li><li>Microsoft.Compute/virtualMachines/vmSizes/read</li><li>Microsoft.Network/networkSecurityGroups/read</li><li>Microsoft.Network/networkInterfaces/write</li><li>Microsoft.Network/networkInterfaces/read</li><li>Microsoft.Network/networkInterfaces/join/action</li><li>Microsoft.Network/networkInterfaces/delete</li><li>Microsoft.Network/virtualNetworks/subnets/read</li><li>Microsoft.Network/virtualNetworks/subnets/join/action</li><li>Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read</li><li>Microsoft.KeyVault/vaults/deploy/action</li><li>Microsoft.Storage/storageAccounts/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |

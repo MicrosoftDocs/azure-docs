@@ -2,17 +2,19 @@
 title: 'Embed Internet Analyzer Client  | Microsoft Docs'
 description: In this article, learn how to embed the Internet Analyzer JavaScript client in your application. 
 services: internet-analyzer
-author: mattcalder
+author: KumudD
 
 ms.service: internet-analyzer
+ms.custom: devx-track-js
 ms.topic: how-to
 ms.date: 10/16/2019
-ms.author: mebeatty
-# Customer intent: As someone interested in creating an Internet Analyzer resource, I want to learn how to install the JavaScript client, which is necessary to run tests. 
-
+ms.author: kumud
+# Customer intent: As someone interested in creating an Internet Analyzer resource, I want to learn how to install the JavaScript client, which is necessary to run tests.
 ---
 
 # Embed the Internet Analyzer client
+
+[!INCLUDE [Azure Internet Analyzer retirement notice](../../includes/internet-analyzer-retirement.md)]
 
 This article shows you how to embed the JavaScript client in your application. Installation of this client is necessary to run tests and receive scorecard analytics. **The profile-specific JavaScript client is provided after the first test has been configured.** From there, you may continue to add or remove tests to that profile without having to embed a new script. For more information on Internet Analyzer, see the [overview](internet-analyzer-overview.md). 
 

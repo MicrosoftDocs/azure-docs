@@ -1,15 +1,14 @@
 ---
 title: Mainframe rehosting on Azure virtual machines
 description: Rehost your mainframe workloads such as IBM Z-based systems using virtual machines (VMs) on Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter:
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 author: njray
 manager: edprice
 editor: edprice
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
 ---
 
 # Mainframe rehosting on Azure virtual machines
@@ -48,7 +47,6 @@ TmaxSoft OpenFrame is a popular mainframe rehosting solution used in lift-and-sh
 To get started:
 
 - [Get started with TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
-- [Download the ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
 
 ## IBM zD&T 12.0
 
@@ -81,7 +79,7 @@ Learn how to [move mainframe compute to Azure](./concepts/mainframe-compute-azur
 
 Azure offers commitment-based service-level agreements (SLAs). Multiple-nines availability is the default, and SLAs can be optimized with local or geo-based replication of services. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
-With Azure IaaS such as a VM, specific system functions provide failover support—for example, failover clustering instances and availability sets. When you use Azure platform as a service (PaaS) resources, the platform handles failover automatically. Examples include [Azure SQL Database](../../../azure-sql/database/sql-database-paas-overview.md) and [Azure Cosmos DB](../../../cosmos-db/introduction.md).
+With Azure IaaS such as a VM, specific system functions provide failover support—for example, failover clustering instances and availability sets. When you use Azure platform as a service (PaaS) resources, the platform handles failover automatically. Examples include [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](../../../cosmos-db/introduction.md).
 
 ### Scalability
 
@@ -106,8 +104,6 @@ Many public sector entities would love to move their mainframe applications to a
 
 Azure Government earned a Provisional Authority to Operate (P-ATO) for FedRAMP High Impact for systems that need this type of environment.
 
-To get started, download [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
-
 ## Next steps
 
 Ask our [partners](partner-workloads.md) to help you migrate or rehost your mainframe applications. 
@@ -116,8 +112,7 @@ See also:
 
 - [White papers about mainframe topics](mainframe-white-papers.md)
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Troubleshooting](../../troubleshooting/index.yml)
-- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

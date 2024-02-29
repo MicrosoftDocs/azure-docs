@@ -1,16 +1,19 @@
 ---
-title: Create or modify a Direct peering by using the Azure portal
-titleSuffix: Azure
-description: Create or modify a Direct peering by using the Azure portal
-services: internet-peering
-author: derekolo
+title: Create or modify a Direct peering - Azure portal
+titleSuffix: Internet Peering
+description: Learn how to create or modify a Direct peering using the Azure portal.
+ms.author: halkazwini
+author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 5/19/2020
-ms.author: derekol
+ms.date: 10/04/2023
 ---
 
-# Create or modify a Direct peering by using the Azure portal
+# Create or modify a Direct peering using the Azure portal
+
+> [!div class="op_single_selector"]
+> - [Azure portal](howto-direct-portal.md)
+> - [PowerShell](howto-direct-powershell.md)
 
 This article describes how to create a Microsoft Direct peering for an Internet Service Provider or Internet Exchange Provider by using the Azure portal. This article also shows how to check the status of the resource, update it, or delete and de-provision it.
 
@@ -52,8 +55,6 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 
 7. Select **Next: Configuration** to continue.
 
-
-
     ![Screenshot shows the Create a Peering page Basics tab with all values entered.](./media/setup-direct-basics-filled-tab.png)
 
 
@@ -69,11 +70,8 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 ## <a name="delete"></a>Deprovision a Direct peering
 [!INCLUDE [peering-direct-delete-portal](./includes/delete.md)]
 
-## Next steps
+## Related content
 
-* [Create or modify Exchange peering by using the portal](howto-exchange-portal.md)
-* [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md)
-
-## Additional resources
-
-For more information, see [Internet peering FAQs](faqs.md).
+- [Create or modify Exchange peering by using the portal](howto-exchange-portal.md).
+- [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

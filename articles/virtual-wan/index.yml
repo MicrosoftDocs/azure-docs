@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Virtual WAN documentation
-summary: Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.
+summary: Learn how to configure, create, and manage an Azure Virtual WAN. Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface.
 
 metadata:
   title: Virtual WAN documentation 
   description: Learn about Virtual WAN
-  services: virtual-wan
   ms.service: virtual-wan
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 01/15/2020
+  ms.date: 01/09/2024
+  ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Virtual WAN?
             url: virtual-wan-about.md
+          - text: What's new?
+            url: whats-new.md
       - linkListType: concept
         links:
           - text: Migrate to Virtual WAN
@@ -33,6 +35,17 @@ landingContent:
             url: virtual-wan-locations-partners.md
           - text: FAQ
             url: virtual-wan-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual WAN
+            url: /training/modules/introduction-azure-virtual-wan/
+      - linkListType: video
+        links:
+          - text: Remote user connectivity with Azure Virtual WAN
+            url: https://www.youtube.com/watch?v=nP5XntjA7OQ
+          - text: Architect hybrid networking with Azure Virtual WAN and SD-WAN 
+            url: https://www.youtube.com/watch?v=2g-_empU0GU&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=6
+
   # Card
   - title: Get started
     linkLists:
@@ -59,18 +72,24 @@ landingContent:
           - text: Connect a VPN Gateway to Virtual WAN
             url: connect-virtual-network-gateway-vwan.md
   # Card
-  - title: Architecture
+  - title: Learn about Virtual WAN architecture
     linkLists:
       - linkListType: concept
         links:
           - text: Migrate to Virtual WAN
             url: migrate-from-hub-spoke-topology.md
+          - text: Disaster recovery design
+            url: disaster-recovery-design.md
       - linkListType: architecture
         links:
           - text: Global transit network architecture
             url: virtual-wan-global-transit-network-architecture.md
           - text: SD-WAN connectivity architecture
             url: sd-wan-connectivity-architecture.md
+          - text: Private Link and DNS architecture for Virtual WAN
+            url: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide?toc=%2fazure%2fvirtual-wan%2ftoc.json
+          - text: Virtual WAN architecture optimized for department-specific requirements
+            url: /azure/architecture/example-scenario/infrastructure/performance-security-optimized-vwan?toc=%2fazure%2fvirtual-wan%2ftoc.json
   # Card
   - title: Routing
     linkLists:
@@ -78,6 +97,8 @@ landingContent:
         links:
           - text: About virtual hub routing
             url: about-virtual-hub-routing.md
+          - text: About Route-maps
+            url: route-maps-about.md
           - text: Scenario - Route traffic through an NVA
             url: scenario-route-through-nva.md
           - text: Scenario - Any spoke to any spoke
@@ -95,13 +116,11 @@ landingContent:
   # Card
   - title: Monitoring
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Monitor using Azure Monitor Insights
-            url: azure-monitor-insights.md
       - linkListType: how-to-guide
         links:
-          - text: Configure Azure Monitor logs and metrics
+          - text: Monitoring Virtual WAN with Azure Monitor
+            url: monitor-virtual-wan.md
+          - text: Monitor using Azure Monitor Insights
             url: azure-monitor-insights.md
  # Card
   - title: Reference
@@ -109,7 +128,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/ext/virtual-wan/network
+            url: /cli/azure/
           - text: Azure PowerShell
             url: /powershell/module/az.network#networking
           - text: REST

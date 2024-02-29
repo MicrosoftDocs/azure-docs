@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 
 # Query CSV files
@@ -28,7 +28,7 @@ All of the above variations will be covered below.
 
 ### Read a csv file
 
-The easiest way to see to the content of your `CSV` file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and 2.0 `PARSER_VERSION`. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
+The easiest way to see to the content of your `CSV` file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and 2.0 `PARSER_VERSION`. If the file is publicly available or if your Microsoft Entra identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
 
 ```sql
 select top 10 *
@@ -39,7 +39,7 @@ from openrowset(
     firstrow = 2 ) as rows
 ```
 
-Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
 
 > [!IMPORTANT]
 > If your CSV file contains UTF-8 characters, make sure that you are using a UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`).
@@ -173,22 +173,15 @@ File preview:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'csv/population-unix-hdr/population.csv',
-        DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV', PARSER_VERSION = '2.0',
-        FIELDTERMINATOR =',',
-        FIRSTROW = 2
-    )
-    WITH (
-        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-        [year] smallint,
-        [population] bigint
+    BULK 'csv/population-unix-hdr/population.csv',
+    DATA_SOURCE = 'SqlOnDemandDemo',
+    FORMAT = 'CSV', PARSER_VERSION = '2.0',
+    FIELDTERMINATOR =',',
+    HEADER_ROW = TRUE
     ) AS [r]
-WHERE
-    country_name = 'Luxembourg'
-    AND year = 2017;
 ```
+
+Option `HEADER_ROW = TRUE` will result in reading column names from the header row in file. It is great for exploration purposes when you are not familiar with file content. For best performance see [Use appropriate data types section in Best practices](best-practices-serverless-sql-pool.md#use-appropriate-data-types). Also, you can read more about [OPENROWSET syntax here](develop-openrowset.md#syntax).
 
 ## Custom quote character
 
@@ -341,6 +334,24 @@ WITH (
     --[population] bigint
 ) AS [r]
 ```
+
+## Querying appendable files
+
+The CSV files that are used in the query should not be changed while the query is running. In the long-running query, SQL pool may retry reads, read parts of the files, or even read the file multiple times. Changes of the file content would cause wrong results. Therefore, SQL pool fails the query if detects that modification time of any file is changed during the query execution.
+
+In some scenarios you might want to read the files that are constantly appended. To avoid the query failures due to constantly appended files, you can allow the `OPENROWSET` function to ignore potentially inconsistent reads using the `ROWSET_OPTIONS` setting.
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    format = 'csv',
+    parser_version = '2.0',
+    firstrow = 2,
+    ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}') as rows
+```
+
+The `ALLOW_INCONSISTENT_READS` read option will disable the file modification time check during the query lifecycle and read whatever is available in the file. In the appendable files, the existing content is not updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors. Im most of the scenarios, SQL pool will just ignore some rows that are appended to the files during the query execution.
 
 ## Next steps
 

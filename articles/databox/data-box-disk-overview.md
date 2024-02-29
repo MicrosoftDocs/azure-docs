@@ -2,14 +2,14 @@
 title: Microsoft Azure Data Box Disk overview | Microsoft Docs in data 
 description: Describes Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 06/18/2019
-ms.author: alkohli
-Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
+ms.date: 09/09/2022
+ms.author: shaas
+# Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
 
 # What is Azure Data Box Disk?
@@ -18,9 +18,11 @@ The Microsoft Azure Data Box Disk solution lets you send terabytes of on-premise
 
 You can quickly configure, connect, and unlock the disks through the Data Box service in Azure portal. Copy your data to disks and ship the disks back to Azure. In the Azure datacenter, your data is automatically uploaded from drives to the cloud using a fast, private network upload link.
 
+If you want to import data to Azure Blob storage and Azure Files, you can use Azure Import/Export service. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files. You can supply your own disk drives and transfer data with the Azure Import/Export service, or you can also use disk drives supplied by Microsoft. For more information, go to [Azure Import/Export service](../import-export/storage-import-export-service.md).
+
 ## Use cases
 
-Use Data Box Disk to transfer TBs of data in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers.
+Use Data Box Disk to transfer TBs of data in scenarios with limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers.
 
 - **One time migration** - when large amount of on-premises data is moved to Azure. For example, moving data from offline tapes to archival data in Azure cool storage.
 - **Incremental transfer** - when an initial bulk transfer is done using Data Box Disk (seed) followed by incremental transfers over the network. For example, Commvault and Data Box Disk are used to move backup copies to Azure. This migration is followed by copying incremental data using network to Azure Storage.
@@ -32,7 +34,7 @@ Azure providers and non-Azure providers can ingest data from Azure Data Box. The
 
 - **SharePoint Online** - use Azure Data Box and the SharePoint Migration Tool (SPMT) to migrate your file share content to SharePoint Online. Using Data Box, you remove the dependency on your WAN link to transfer the data. For more information, see [Use the Azure Data Box Heavy to migrate your file share content to SharePoint Online](data-box-heavy-migrate-spo.md).
 
-- **Azure File Sync** -  replicates files from your Data Box to an Azure file share, enabling you to centralize your file services in Azure while maintaining local access to your data. For more information, see [Deploy Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md).
+- **Azure File Sync** -  replicates files from your Data Box to an Azure file share, enabling you to centralize your file services in Azure while maintaining local access to your data. For more information, see [Deploy Azure File Sync](../storage/file-sync/file-sync-deployment-guide.md).
 
 - **HDFS stores** - migrate data from an on-premises Hadoop Distributed File System (HDFS) store of your Hadoop cluster into Azure Storage using Data Box. For more information, see [Migrate from on-prem HDFS store to Azure Storage with Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
@@ -40,7 +42,6 @@ Azure providers and non-Azure providers can ingest data from Azure Data Box. The
 
 You can use your Data Box data with many non-Azure service providers. For instance:
 
-- **[Commvault](http://documentation.commvault.com/commvault/v11/article?p=97276.htm)** - allows you to migrate large volumes of data to Microsoft Azure using the Azure Data Box.
 - **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to backup and replicated large amounts of data from your Hyper-V machine to your Data Box.
 
 For a list of other non-Azure service providers that integrate with Data Box, see [Azure Data Box Partners](https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf).
@@ -60,6 +61,9 @@ A typical flow includes the following steps:
 5. **Upload** - Data is automatically copied from the disks to Azure. The disks are securely erased as per the National Institute of Standards and Technology (NIST) guidelines.
 
 Throughout this process, you are notified through email on all status changes. For more information about the detailed flow, go to [Deploy Data Box Disks in Azure portal](data-box-disk-quickstart-portal.md).
+
+> [!NOTE]
+> Only import is supported for Data Box Disk. Export functionality is not available. If you want to export data from Azure, you can use [Azure Data Box](data-box-overview.md).
 
 ## Benefits
 

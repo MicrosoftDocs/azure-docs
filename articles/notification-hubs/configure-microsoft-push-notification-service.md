@@ -1,20 +1,22 @@
 ---
 title: Configure Microsoft Push Notification Service in Azure Notification Hubs | Microsoft Docs
-description: Learn how to configure Microsoft Push Notification Service settings for an Azure notification hub. 
+description: Learn how to configure Microsoft Push Notification Service settings for an Azure notification hub.
 services: notification-hubs
 author: sethmanheim
 manager: femila
 
 ms.service: notification-hubs
-ms.workload: mobile
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
 ---
 
 # Configure Microsoft Push Notification Service (MPNS) settings in the Azure portal
+
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
 
 This article shows you how to configure Microsoft Push Notification Service (MPNS) settings for an Azure notification hub by using the Azure portal.
 

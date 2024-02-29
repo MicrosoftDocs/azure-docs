@@ -2,8 +2,12 @@
 title: Quickstart - Deploy Docker container to container instance - Azure CLI
 description: In this quickstart, you use the Azure CLI to quickly deploy a containerized web app that runs in an isolated Azure container instance
 ms.topic: quickstart
-ms.date: 03/21/2019
-ms.custom: [seo-python-october2019, seodec18, mvc, devx-track-js, devx-track-azurecli]
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
+ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Deploy a container instance in Azure using the Azure CLI
@@ -16,9 +20,12 @@ In this quickstart, you use the Azure CLI to deploy an isolated Docker container
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.0.55 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+  > [!WARNING]
+  > Best practice: User’s credentials passed via command line interface (CLI) are stored as plain text in the backend. Storing credentials in plain text is a security risk; Microsoft advises customers to store user credentials in CLI environment variables to ensure they are encrypted/transformed when stored in the backend.     
 
 ## Create a resource group
 
@@ -150,13 +157,13 @@ To try out options for running containers in an orchestration system on Azure, s
 [node-js]: https://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-delete]: /cli/azure/container#az-container-delete
-[az-container-list]: /cli/azure/container#az-container-list
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-container-list]: /cli/azure/container#az_container_list
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[container-service]: ../aks/kubernetes-walkthrough.md
+[container-service]: ../aks/intro-kubernetes.md

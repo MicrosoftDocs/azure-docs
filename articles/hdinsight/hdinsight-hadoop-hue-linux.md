@@ -1,15 +1,18 @@
 ---
-title: Hue with Hadoop on HDInsight Linux-based clusters - Azure 
+title: Hue with Hadoop on HDInsight Linux-based clusters - Azure
 description: Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue. Use Hue to browse storage and run Hive or Pig.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 03/31/2020
+ms.custom: hdinsightactive
+ms.date: 12/05/2023
 ---
 
 # Install and use Hue on HDInsight Hadoop clusters
 
 Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue.
+
+> [!NOTE]
+> Hue is not supported in HDInsight 4.0 and later. 
 
 ## What is Hue?
 
@@ -41,51 +44,15 @@ Use the information in the table below for your Script Action. See [Customize HD
 |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`|
 |Node type(s):|Head|
 
-## Use Hue with HDInsight clusters
-
-You can only have one user account with Hue on regular clusters. For multi-user access, enable [Enterprise Security Package](./domain-joined/hdinsight-security-overview.md) on the cluster. SSH Tunneling is the only way to access Hue on the cluster once it's running. Tunneling via SSH allows the traffic to go directly to the headnode of the cluster where Hue is running. After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight cluster.
-
-> [!NOTE]  
-> We recommend using Firefox web browser to follow the instructions below.
-
-1. Use the information in [Use SSH Tunneling to access Apache Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) to create an SSH tunnel from your client system to the HDInsight cluster, and then configure your Web browser to use the SSH tunnel as a proxy.
-
-1. Use [ssh command](./hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
-
-    ```cmd
-    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
-    ```
-
-1. Once connected, use the following command to obtain the fully qualified domain name of the primary headnode:
-
-    ```bash
-    hostname -f
-    ```
-
-    This will return a name similar to the following:
-
-    ```output
-    myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
-    ```
-
-    This is the hostname of the primary headnode where the Hue website is located.
-
-1. Use the browser to open the Hue portal at `http://HOSTNAME:8888`. Replace HOSTNAME with the name you obtained in the previous step.
-
-   > [!NOTE]  
-   > When you log in for the first time, you will be prompted to create an account to log in to the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
-
-    ![HDInsight hue portal login window](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Specify credentials for Hue portal")
-
 ### Run a Hive query
 
 1. From the Hue portal, select **Query Editors**, and then select **Hive** to open the Hive editor.
 
-    ![HDInsight hue portal use hive editor](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Use Hive")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png" alt-text="HDInsight hue portal use hive editor":::
 
 2. On the **Assist** tab, under **Database**, you should see **hivesampletable**. This is a sample table that is shipped with all Hadoop clusters on HDInsight. Enter a sample query in the right pane and see the output on the **Results** tab in the pane below, as shown in the screen capture.
 
-    ![HDInsight hue portal hive query](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Run Hive query")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png" alt-text="HDInsight hue portal hive query":::
 
     You can also use the **Chart** tab to see a visual representation of the result.
 
@@ -94,7 +61,7 @@ You can only have one user account with Hue on regular clusters. For multi-user 
 1. From the Hue portal, select **File Browser** in the top-right corner of the menu bar.
 2. By default the file browser opens at the **/user/myuser** directory. Select the forward slash right before the user directory in the path to go to the root of the Azure storage container associated with the cluster.
 
-    ![HDInsight hue portal file browser](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Use file browser")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png" alt-text="HDInsight hue portal file browser":::
 
 3. Right-click on a file or folder to see the available operations. Use the **Upload** button in the right corner to upload files to the current directory. Use the **New** button to create new files or directories.
 
@@ -113,7 +80,7 @@ You can only have one user account with Hue on regular clusters. For multi-user 
 
 1. With Linux clusters, you can have a scenario where your services are running on the primary headnode while the Resource Manager could be running on the secondary. Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster. However, you can view the job details when the job has completed.
 
-   ![Hue portal error sample message](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Hue portal error")
+   :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png" alt-text="Hue portal error sample message":::
 
    This is due to a known issue. As a workaround, modify Ambari so that the active Resource Manager also runs on the primary headnode.
 
@@ -121,4 +88,4 @@ You can only have one user account with Hue on regular clusters. For multi-user 
 
 ## Next steps
 
-[Install R on HDInsight clusters](./r-server/r-server-overview.md). Use cluster customization to install R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
+[Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) 

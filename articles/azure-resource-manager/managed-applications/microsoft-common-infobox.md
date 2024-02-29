@@ -1,12 +1,8 @@
 ---
 title: InfoBox UI element
 description: Describes the Microsoft.Common.InfoBox UI element for Azure portal. Use to add text or warnings when deploying managed application.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: tomfitz
-
 ---
 
 # Microsoft.Common.InfoBox UI element
@@ -15,7 +11,7 @@ A control that adds an information box. The box contains important text or warni
 
 ## UI sample
 
-![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft-common-infobox.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-infobox.png" alt-text="Screenshot of Microsoft.Common.InfoBox UI element displaying important text or warnings.":::
 
 
 ## Schema

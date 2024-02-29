@@ -1,13 +1,14 @@
 ---
 title: Azure Backup for SQL Server running in Azure VM
 description: In this article, learn how to register Azure Backup in SQL Server running in an Azure virtual machine.
-author: dcurwin
-manager: carmonm
+ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: dacurwin
+ms.author: gabsta
+ms.reviewer: jushiman
+author: GabstaMSFT
+ms.collection: windows
+ms.date: 03/13/2023
 ---
 
 # Azure Backup for SQL Server running in Azure VM
@@ -93,11 +94,11 @@ statusBlobUri | <https://seapod01coord1exsapk732.blob.core.windows.net/bcdrexten
 
 ## Template deployment
 
-We recommended adding AzureBackupWindowsWorkload extension to a virtual machine is by enabling SQL Server backup on the virtual machine. This can be achieved through the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) designed for automating backup on a SQL Server VM.
+We recommended adding AzureBackupWindowsWorkload extension to a virtual machine is by enabling SQL Server backup on the virtual machine. This can be achieved through the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-vm-workload-backup) designed for automating backup on a SQL Server VM.
 
 ## PowerShell deployment
 
-You need to 'register' the Azure VM that contains the SQL application with a Recovery services vault. During registration, AzureBackupWindowsWorkload extension gets installed on the VM. Use [Register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) cmdlet to register the VM.
+You need to 'register' the Azure VM that contains the SQL application with a Recovery services vault. During registration, AzureBackupWindowsWorkload extension gets installed on the VM. Use [Register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) cmdlet to register the VM. Replace `VMRG Name` and `VMName` with the target resource group name and VM name.
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
@@ -109,4 +110,4 @@ The command will return a **backup container** of this resource and the status w
 ## Next steps
 
 - [Learn More](../../backup/backup-sql-server-azure-troubleshoot.md) about Azure SQL Server VM backup troubleshooting guidelines
-- [Common questions](../../backup/faq-backup-sql-server.md) about backing up SQL Server databases that run on Azure virtual machines (VMs) and that use the Azure Backup service.
+- [Common questions](../../backup/faq-backup-sql-server.yml) about backing up SQL Server databases that run on Azure virtual machines (VMs) and that use the Azure Backup service.

@@ -14,6 +14,9 @@ The shell state of the [Hierarchical state override component](../../overview/fe
 
 You can configure the appearance of shell-rendered objects via the `ShellRenderingSettings` global state. All objects that use shell rendering will use the same setting. There are no per object parameters.
 
+> [!NOTE]
+> The shell rendering effect can't be applied to point clouds.
+
 ## ShellRenderingSettings parameters
 
 Class `ShellRenderingSettings` holds the settings related to global shell rendering properties:
@@ -37,18 +40,18 @@ The shell effect is applied on the final opaque color the scene would be rendere
 The following code shows an example usage of the `ShellRenderingSettings` state via the API:
 
 ```cs
-void SetShellSettings(AzureSession session)
+void SetShellSettings(RenderingSession session)
 {
-    ShellRenderingSettings shellRenderingSettings = session.Actions.ShellRenderingSettings;
+    ShellRenderingSettings shellRenderingSettings = session.Connection.ShellRenderingSettings;
     shellRenderingSettings.Desaturation = 0.5f;
     shellRenderingSettings.Opacity = 0.1f;
 }
 ```
 
 ```cpp
-void SetShellSettings(ApiHandle<AzureSession> session)
+void SetShellSettings(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<ShellRenderingSettings> shellRenderingSettings = session->Actions()->GetShellRenderingSettings();
+    ApiHandle<ShellRenderingSettings> shellRenderingSettings = session->Connection()->GetShellRenderingSettings();
     shellRenderingSettings->SetDesaturation(0.5f);
     shellRenderingSettings->SetOpacity(0.1f);
 }

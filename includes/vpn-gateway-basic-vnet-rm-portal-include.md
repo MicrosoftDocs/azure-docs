@@ -1,45 +1,33 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
- author: cherylmc
- ms.service: vpn-gateway
- ms.topic: include
- ms.date: 10/20/2020
- ms.author: cherylmc
- ms.custom: include file
+author: cherylmc
+ms.author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 08/08/2023
 ---
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In **Search resources, service, and docs (G+/)**, type *virtual network*.
+1. In **Search resources, service, and docs (G+/)** at the top of the portal page, enter **virtual network**. Select **Virtual network** from the **Marketplace** search results to open the **Virtual network** page.
+1. On the **Virtual network** page, select **Create** to open the **Create virtual network** page.
+1. On the **Basics** tab, configure the virtual network settings for **Project details** and **Instance details**. You see a green check mark when the values you enter are validated. You can adjust the values shown in the example according to the settings that you require.
 
-   ![Locate Virtual Network resource page](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace.png "Locate virtual network resource page")
-1. Select **Virtual Network** from the **Marketplace** results.
+   :::image type="content" source="./media/vpn-gateway-basic-vnet-rm-portal-include/basics.png" alt-text="Screenshot that shows the Basics tab." lightbox="./media/vpn-gateway-basic-vnet-rm-portal-include/basics.png":::
 
-   ![Select virtual network](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace-results.png "Locate virtual network resource page")
-1. On the **Virtual Network** page, select **Create**.
+   * **Subscription**: Verify that the subscription listed is the correct one. You can change subscriptions by using the dropdown box.
+   * **Resource group**: Select an existing resource group or select **Create new** to create a new one. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md#resource-groups).
+   * **Name**: Enter the name for your virtual network.
+   * **Region**: Select the location for your virtual network. The location determines where the resources that you deploy to this virtual network will live.
 
-   ![virtual network page](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet-click-create.png "Select Create")
-1. Once you select **Create**, the **Create virtual network** page opens.
-1. On the **Basics** tab, configure **Project details** and **Instance details** VNet settings.
+1. Select **Next** or **Security** to go to the **Security** tab. For this exercise, leave the default values for all the services on this page.
 
-   ![Basics tab](./media/vpn-gateway-basic-vnet-rm-portal-include/basics.png "Basics tab") When you fill in the fields, you see a green check mark when the characters you enter in the field are validated. Some values are autofilled, which you can replace with your own values:
+1. Select **IP Addresses** to go to the **IP Addresses** tab. On the **IP Addresses** tab, configure the settings.
 
-   - **Subscription**: Verify that the subscription listed is the correct one. You can change subscriptions by using the drop-down.
-   - **Resource group**: Select an existing resource group, or click **Create new** to create a new one. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md#resource-groups).
-   - **Name**: Enter the name for your virtual network.
-   - **Region**: Select the location for your VNet. The location determines where the resources that you deploy to this VNet will live.
+   * **IPv4 address space**: By default, an address space is automatically created. You can select the address space and adjust it to reflect your own values. You can also add a different address space and remove the default that was automatically created. For example, you can specify the starting address as **10.1.0.0** and specify the address space size as **/16**. Then select **Add** to add that address space.
+   * **+ Add subnet**: If you use the default address space, a default subnet is created automatically. If you change the address space, add a new subnet within that address space. Select **+ Add subnet** to open the **Add subnet** window. Configure the following settings, and then select **Add** at the bottom of the page to add the values.
 
-1. On the **IP Addresses** tab, configure the values. The values shown in the examples below are for demonstration purposes. Adjust these values according to the settings that you require.
+     * **Subnet name**: An example is **FrontEnd**.
+     * **Subnet address range**: The address range for this subnet. Examples are **10.1.0.0** and **/24**.
 
-   ![IP addresses tab](./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png "IP addresses tab")  
-   - **IPv4 address space**: By default, an address space is automatically created. You can click the address space to adjust it to reflect your own values. You can also add additional address spaces.
-   - **Subnet**: If you use the default address space, a default subnet is created automatically. If you change the address space, you need to add a subnet. Select **+ Add subnet** to open the **Add subnet** window. Configure the following settings and then select **Add** to add the values:
-      - **Subnet name**: In this example, we named the subnet "FrontEnd".
-      - **Subnet address range**: The address range for this subnet.
-
-1. On the **Security** tab, at this time, leave the default values:
-
-   - **DDos protection**: Basic
-   - **Firewall**: Disabled
+1. Review the **IP addresses** page and remove any address spaces or subnets that you don't need.
 1. Select **Review + create** to validate the virtual network settings.
-1. After the settings have been validated, select **Create**.
+1. After the settings are validated, select **Create** to create the virtual network.

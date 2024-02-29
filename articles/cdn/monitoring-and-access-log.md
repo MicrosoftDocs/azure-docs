@@ -2,23 +2,23 @@
 title: Monitoring, metrics, and raw logs for Azure CDN
 description: This article describes how to set up and use Azure CDN monitoring, metrics, and raw logs.
 services: cdn
-author: asudbring
+author: duongau
 manager: KumudD
 ms.service: azure-cdn
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 11/23/2020
-ms.author: yuajia
+ms.date: 12/19/2023
+ms.author: yuajia 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Real-time Monitoring, metrics, and access Logs for Azure CDN
+
 With Azure CDN from Microsoft, you can monitor resources in the following ways to help you troubleshoot, track, and debug issues. 
 
 * Raw logs provide rich information about every request that CDN receives. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources.
 * Metrics, which display four key metrics on CDN, including Byte Hit Ratio, Request Count, Response Size and Total Latency. It also provides different dimensions to break down metrics.
 * Alert, which allows customer to set up alert for key metrics
-* Additional metrics, which allow customers to use Azure Log Analytics to enable additional metrics of value. We also provide query samples for a few other metrics under Azure Log Analytics.
+* More metrics, which allow customers to use Azure Log Analytics to enable more metrics of value. We also provide query samples for a few other metrics under Azure Log Analytics.
 
 > [!IMPORTANT]
 > The HTTP raw logs feature is available for Azure CDN from Microsoft.
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Configuration - Azure portal
 
@@ -87,7 +87,7 @@ Retention data is defined by the **-RetentionInDays** option in the command.
     $diagname = <your-diagnostic-setting-name>
     $days = '30'
 
-    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+    $cdn = Get-AzCdnProfile -ResourceGroupName $rsg -ProfileName $cdnprofile
 
     $storage = Get-AzStorageAccount -ResourceGroupName $rsg -Name $storageacct
 
@@ -148,12 +148,12 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 
 | Property  | Description |
 | ------------- | ------------- |
-| BackendHostname | If the request is being forwarded to a backend, this field represents the hostname of the backend. This field will be blank if the request gets redirected or forwarded to a regional cache (when caching gets enabled for the routing rule). |
+| BackendHostname | If the request is being forwarded to a backend, this field represents the hostname of the backend. This field is blank if the request gets redirected or forwarded to a regional cache (when caching gets enabled for the routing rule). |
 | CacheStatus | For caching scenarios, this field defines the cache hit/miss at the POP |
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
 | ClientPort | The IP port of the client that made the request. |
 | HttpMethod | HTTP method used by the request. |
-| HttpStatusCode | The HTTP status code returned from the proxy. |
+| HttpStatusCode | The HTTP status code returned from the proxy. If a request to the origin timeouts the value for HttpStatusCode is set to **0**.|
 | HttpStatusDetails | Resulting status on the request. Meaning of this string value can be found at a Status reference table. |
 | HttpVersion | Type of the request or connection. |
 | POP | Short name of the edge where the request landed. |
@@ -170,6 +170,9 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 | UserAgent | The browser type that the client used. |
 | ErrorInfo | This field contains the specific type of error to narrow down troubleshooting area. </br> Possible values include: </br> **NoError**: Indicates no errors were found. </br> **CertificateError**: Generic SSL certificate error.</br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. </br> **ClientDisconnected**: Request failure because of client network connection. </br> **UnspecifiedClientError**: Generic client error. </br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. </br> **DNSFailure**: DNS Failure. </br> **DNSNameNotResolved**: The server name or address couldn't be resolved. </br> **OriginConnectionAborted**: The connection with the origin was stopped abruptly. </br> **OriginConnectionError**: Generic origin connection error. </br> **OriginConnectionRefused**: The connection with the origin wasn't able to established. </br> **OriginError**: Generic origin error. </br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. </br> **OriginTimeout**: The timeout period for origin request expired. </br> **ResponseHeaderTooBig**: The origin returned too large of a response header. </br> **RestrictedIP**: The request was blocked because of restricted IP. </br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. </br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. |
 | TimeToFirstByte | The length of time in milliseconds from when Microsoft CDN receives the request to the time the first byte gets sent to the client. The time is measured only from the Microsoft side. Client-side data isn't measured. |
+| Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the SNI and the host header. This status code implies domain fronting, a technique that violates Azure Front Door’s terms of service. Requests with `SSLMismatchedSNI` will be rejected after January 22, 2024.|
+| Sni | This field specifies the Server Name Indication (SNI) that is sent during the TLS/SSL handshake. It can be used to identify the exact SNI value if there was a `SSLMismatchedSNI` status code. Additionally, it can be compared with the host value in the `requestUri` field to detect and resolve the mismatch issue. |
+
 > [!NOTE]
 > The logs can be viewed under your Log Analytics profile by running a query. A sample query would look like:
     ```
@@ -177,11 +180,11 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
     ```
 
 ### Sent to origin shield deprecation
-The raw log property **isSentToOriginShield** has been deprecated and replaced by a new field **isReceivedFromClient**. Use the new field if you're already using the deprecated field. 
+The raw log property **isSentToOriginShield** is deprecated and replaced by a new field **isReceivedFromClient**. Use the new field if you're already using the deprecated field. 
 
 Raw logs include logs generated from both CDN edge (child POP) and origin shield. Origin shield refers to parent nodes that are strategically located across the globe. These nodes communicate with origin servers and reduce the traffic load on origin. 
 
-For every request that goes to origin shield, there are 2-log entries:
+For every request that goes to origin shield, there are two log entries:
 
 * One for edge nodes
 * One for origin shield. 
@@ -210,7 +213,7 @@ The Metrics are displayed in charts and accessible via PowerShell, CLI, and API.
 
 Azure CDN from Microsoft measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal. 
 
-For more information, see [Azure Monitor metrics](../azure-monitor/platform/data-platform-metrics.md).
+For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
 
 **Metrics supported by Azure CDN from Microsoft**
 
@@ -221,7 +224,10 @@ For more information, see [Azure Monitor metrics](../azure-monitor/platform/data
 | ResponseSize | The number of bytes sent as responses from CDN edge to clients. |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
 | TotalLatency | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
 
-***Bytes Hit Ration = (egress from edge - egress from origin)/egress from edge**
+> [!NOTE]
+> If a request to the origin timeout, the value for HttpStatusCode is set to **0**.
+
+***Bytes Hit Ratio = (egress from edge - egress from origin)/egress from edge**
 
 Scenarios excluded in bytes hit ratio calculation:
 
@@ -260,12 +266,13 @@ Select **New alert rule** for metrics listed in Metrics section:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure alerts for CDN endpoint." border="true":::
 
-Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/platform/alerts-overview.md).
+Alert is charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md).
 
-### Additional Metrics
-You can enable additional metrics using Azure Log Analytics and raw logs for an additional cost.
+### More Metrics
 
-1. Follow steps above in enabling diagnostics to send raw log to log analytics.
+You can enable more metrics using Azure Log Analytics and raw logs for an extra cost.
+
+1. Follow steps in the previous section to enable diagnostics to send raw log to log analytics.
 
 2. Select the Log Analytics workspace you created:
 
@@ -294,4 +301,4 @@ For more information on Azure CDN and the other Azure services mentioned in this
 
 * Learn more about [Azure Monitor](../azure-monitor/overview.md).
 
-* Configure [Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+* Configure [Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).

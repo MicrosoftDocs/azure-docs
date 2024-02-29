@@ -1,7 +1,7 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-ms.date: 01/27/2021
+ms.date: 11/04/2022
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -16,7 +16,7 @@ For guidance on working with queries at a high frequency, see
 
 ## Data set result size
 
-By default, Resource Graph limits any query to returning only **100** records. This control protects
+By default, Resource Graph limits any query to returning only **1000** records. This control protects
 both the user and the service from unintentional queries that would result in large data sets. This
 event most often happens as a customer is experimenting with queries to find and filter resources in
 the way that suits their particular needs. This control is different than using the
@@ -38,7 +38,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), the
 control is **$top** and is part of **QueryRequestOptions**.
 
 The control that is _most restrictive_ will win. For example, if your query uses the **top** or
@@ -46,13 +46,15 @@ The control that is _most restrictive_ will win. For example, if your query uses
 would be equal to **First**. Likewise, if **top** or **limit** is smaller than **First**, the record
 set returned would be the smaller value configured by **top** or **limit**.
 
-**First** currently has a maximum allowed value of _5000_, which it achieves by
-[paging results](#paging-results) _1000_ records at a time.
+The **First** parameter has a maximum allowed value of _1000_.
 
-> [!IMPORTANT]
-> When **First** is configured to be greater than _1000_ records, the query must **project** the
-> **id** field in order for pagination to work. If it's missing from the query, the response won't
-> get [paged](#paging-results) and the results are limited to _1000_ records.
+## CSV export result size limitation
+
+When using the comma-separated value (CSV) export functionality of Azure Resource Graph Explorer, the
+result set is limited to 55,000 records. This is a platform limit that cannot be overridden by filing an Azure support ticket.
+
+To download CSV results from the Azure portal, browse to the Azure Resource Graph Explorer and run a
+query. On the toolbar, click **Download as CSV**.
 
 ## Skipping records
 
@@ -71,7 +73,7 @@ of the data set instead.
 The following examples show how to skip the first _10_ records a query would result in, instead
 starting the returned result set with the 11th record:
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
@@ -79,28 +81,31 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), the
 control is **$skip** and is part of **QueryRequestOptions**.
 
 ## Paging results
 
 When it's necessary to break a result set into smaller sets of records for processing or because a
 result set would exceed the maximum allowed value of _1000_ returned records, use paging. The
-[REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
+[REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources)
 **QueryResponse** provides values to indicate of a results set has been broken up:
-**resultTruncated** and **$skipToken**. **resultTruncated** is a boolean value that informs the
+**resultTruncated** and **$skipToken**. **resultTruncated** is a Boolean value that informs the
 consumer if there are more records not returned in the response. This condition can also be
 identified when the **count** property is less than the **totalRecords** property. **totalRecords**
 defines how many records that match the query.
 
- **resultTruncated** is **true** when either paging is disabled or not possible because no `id`
- column or when there are less resources available than a query is requesting. When
- **resultTruncated** is **true**, the **$skipToken** property isn't set.
+**resultTruncated** is **true** when there are less resources available than a query is requesting or when paging is disabled or when paging is not possible because:
 
-The following examples show how to **skip** the first 3000 records and return the **first** 1000
+- The query contains a `limit` or `sample`/`take` operator.
+- **All** output columns are either `dynamic` or `null` type.
+
+When **resultTruncated** is **true**, the **$skipToken** property isn't set.
+
+The following examples show how to **skip** the first 3,000 records and return the **first** 1,000
 records after those records skipped with Azure CLI and Azure PowerShell:
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
@@ -109,11 +114,12 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 ```
 
 > [!IMPORTANT]
-> The query must **project** the **id** field in order for pagination to work. If it's missing from
-> the query, the response won't include the **$skipToken**.
+> The response won't include the **$skipToken** if:
+> - The query contains a `limit` or `sample`/`take` operator.
+> - **All** output columns are either `dynamic` or `null` type.
 
 For an example, see
-[Next page query](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#next-page-query)
+[Next page query](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#next-page-query)
 in the REST API docs.
 
 ## Formatting results
@@ -123,8 +129,9 @@ is configured with the **resultFormat** parameter as part of the request options
 is the default value for **resultFormat**.
 
 Results from Azure CLI are provided in JSON by default. Results in Azure PowerShell are a
-**PSCustomObject** by default, but they can quickly be converted to JSON using the `ConvertTo-Json`
-cmdlet. For other SDKs, the query results can be configured to output the _ObjectArray_ format.
+**PSResourceGraphResponse** object, but they can quickly be converted to JSON using the
+`ConvertTo-Json` cmdlet on the **Data** property. For other SDKs, the query results can be
+configured to output the _ObjectArray_ format.
 
 ### Format - Table
 
@@ -192,21 +199,6 @@ Here's a sample of a query result with the _ObjectArray_ formatting:
     "facets": [],
     "resultTruncated": "true"
 }
-```
-
-Here are some examples of setting **resultFormat** to use the _ObjectArray_ format:
-
-```csharp
-var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
-var request = new QueryRequest(subscriptions, "Resources | limit 1", options: requestOptions);
-```
-
-```python
-request_options = QueryRequestOptions(
-    result_format=ResultFormat.object_array
-)
-request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, options=request_options)
-response = client.resources(request)
 ```
 
 ## Next steps

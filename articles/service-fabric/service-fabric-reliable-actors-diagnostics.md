@@ -1,19 +1,21 @@
 ---
-title: Actors diagnostics and monitoring 
+title: Actors diagnostics and monitoring
 description: This article describes the diagnostics and performance monitoring features in the Service Fabric Reliable Actors runtime, including the events and performance counters emitted by it.
-author: abhishekram
-
 ms.topic: conceptual
-ms.date: 10/26/2017
-ms.author: abhisram
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Diagnostics and performance monitoring for Reliable Actors
 The Reliable Actors runtime emits [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) events and [performance counters](/dotnet/api/system.diagnostics.performancecounter). These provide insights into how the runtime is operating and help with troubleshooting and performance monitoring.
 
 ## EventSource events
 The EventSource provider name for the Reliable Actors runtime is "Microsoft-ServiceFabric-Actors". Events from this event source appear in the [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the actor application is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
-Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](/previous-versions/msp-n-p/dn774980(v=pandp.10)), and the [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://github.com/Microsoft/perfview/releases), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](/previous-versions/msp-n-p/dn774980(v=pandp.10)), and the [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Keywords
 All events that belong to the Reliable Actors EventSource are associated with one or more keywords. This enables filtering of events that are collected. The following keyword bits are defined.

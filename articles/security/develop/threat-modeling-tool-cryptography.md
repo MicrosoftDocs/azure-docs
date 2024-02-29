@@ -1,25 +1,16 @@
 ---
 title: Cryptography - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Learn about cryptography mitigation for threats exposed in the Threat Modeling Tool. See mitigation information and view code examples.
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
 editor: jegeib
-
-ms.assetid: na
-ms.service: security
-ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
 ---
 
-# Security Frame: Cryptography | Mitigations 
+# Security Frame: Cryptography | Mitigation
 
 | Product/Service | Article |
 | --------------- | ------- |
@@ -161,18 +152,18 @@ ms.author: jegeib
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | SQL Version - V12, MsSQL2016 |
 | **References**              | [Always Encrypted (Database Engine)](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |
-| **Steps** | Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (e.g. U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access) |
+| **Steps** | Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national/regional identification numbers (e.g. U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access) |
 
 ## <a id="keys-iot"></a>Store Cryptographic Keys securely on IoT Device
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | IoT Device | 
+| **Component**               | IoT Device |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Device OS - Windows IoT Core, Device Connectivity - Azure IoT device SDKs |
 | **References**              | [TPM on Windows IoT Core](/windows/iot-core/secure-your-device/TPM), [Set up TPM on Windows IoT Core](/windows/iot-core/secure-your-device/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **Steps** | Symmetric or Certificate Private keys securely in a hardware protected storage like TPM or Smart Card chips. Windows 10 IoT Core supports the user of a TPM and there are several compatible TPMs that can be used: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. It is recommended to use a Firmware or Discrete TPM. A Software TPM should only be used for development and testing purposes. Once a TPM is available and the keys are provisioned in it, the code that generates the token should be written without hard coding any sensitive information in it. | 
+| **Steps** | Symmetric or Certificate Private keys securely in a hardware protected storage like TPM or Smart Card chips. Windows 10 IoT Core supports the user of a TPM and there are several compatible TPMs that can be used: [Discrete TPM (dTPM)](/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm). It is recommended to use a Firmware or Discrete TPM. A Software TPM should only be used for development and testing purposes. Once a TPM is available and the keys are provisioned in it, the code that generates the token should be written without hard coding any sensitive information in it. |
 
 ### Example
 ```

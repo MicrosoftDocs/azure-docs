@@ -2,7 +2,11 @@
 title: Quick task run with template
 description: Queue an ACR task run to build an image using an Azure Resource Manager template
 ms.topic: article
-ms.date: 04/22/2020
+ms.custom: devx-track-azurecli, devx-track-arm-template
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Run ACR Tasks using Resource Manager templates
@@ -44,6 +48,8 @@ For this example, provide values for the following template parameters:
 ### Deploy the template
 
 Deploy the template with the [az deployment group create][az-deployment-group-create] command. This example builds and pushes the *helloworld-node:testrun* image to a registry named *mycontainerregistry*.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
 az deployment group create \
@@ -236,13 +242,13 @@ To view the run log, see steps in the [preceding section](#view-run-log).
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-logs]: /cli/azure/acr/task#az-acr-task-logs
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
-[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-logs]: /cli/azure/acr/task#az_acr_task_logs
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
+[az-acr-task-list-runs]: /cli/azure/acr/task#az_acr_task_list_runs
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-show]: /cli/azure/identity#az_identity_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

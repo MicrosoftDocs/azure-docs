@@ -2,30 +2,25 @@
 title: Create, change, or delete a VNet TAP - Azure CLI
 description: Learn how to create, change, or delete a virtual network TAP using the Azure CLI.
 services: virtual-network
-documentationcenter: na
-author: karthikananth
+author: asudbring
 manager: ganesr
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/18/2018
-ms.author: kaanan 
+ms.author: allensu
 ms.custom: devx-track-azurecli
 ---
 
 # Work with a virtual network TAP using the Azure CLI
 
+> [!IMPORTANT]
+> Virtual network TAP Preview is currently on hold in all Azure regions. You can email us at <azurevnettap@microsoft.com> with your subscription ID and we will notify you with future updates about the preview. In the interim, you can use agent based or NVA solutions that provide TAP/Network Visibility functionality through our [Packet Broker partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) available in [Azure Marketplace Offerings](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
+
 Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. For a list of partner solutions that are validated to work with virtual network TAP, see [partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions). 
 
 ## Create a virtual network TAP resource
 
-Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you create a virtual network TAP resource. You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the Azure command-line interface (CLI) from your computer. The Azure Cloud Shell is a free interactive shell, that doesn't require installing the Azure CLI on your computer. You must sign in to Azure with an account that has the appropriate [permissions](virtual-network-tap-overview.md#permissions). This article requires the Azure CLI version 2.0.46 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). Virtual network TAP is currently available as an extension. To install the extension you need to run `az extension add -n virtual-network-tap`. If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
+Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you create a virtual network TAP resource. You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the Azure CLI from your computer. The Azure Cloud Shell is a free interactive shell that doesn't require installing the Azure CLI on your computer. You must sign in to Azure with an account that has the appropriate [permissions](virtual-network-tap-overview.md#permissions). This article requires the Azure CLI version 2.0.46 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). Virtual network TAP is currently available as an extension. To install the extension you need to run `az extension add -n virtual-network-tap`. If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 
 1. Retrieve the ID of your subscription into a variable that is used in a later step:
 
@@ -60,18 +55,17 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
        --out tsv)
       ```
 
-   - Create the virtual network TAP in westcentralus azure region using the ID of the IP configuration as the destination and an optional port property. The port specifies the destination port on network interface IP configuration where the TAP traffic will be received :  
+   - Create the virtual network TAP in the *westcentralus* Azure region using the ID of the IP configuration as the destination. The traffic mirror destination must allow traffic to port 4789:
 
       ```azurecli-interactive
        az network vnet tap create \
        --resource-group myResourceGroup \
        --name myTap \
        --destination $IpConfigId \
-       --port 4789 \
        --location westcentralus
       ```
 
-5. If the destination for the virtual network TAP is an azure internal load balancer:
+5. If the destination for the virtual network TAP is an Azure internal load balancer:
   
    - Retrieve the front end IP configuration of the Azure internal load balancer into a variable that is used in a later step. The ID is the end point that will aggregate the TAP traffic. The following example retrieves the ID of the *frontendipconfig1* front end IP configuration for a load balancer named *myInternalLoadBalancer*, in a resource group named *myResourceGroup*:
 

@@ -2,11 +2,12 @@
 title: PowerShell - HDInsight with Data Lake Storage Gen1 - add-on storage - Azure
 description: Learn how to use Azure PowerShell to configure an HDInsight cluster with Azure Data Lake Storage Gen1 as additional storage.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
-ms.date: 05/29/2018
-ms.author: twooley
+ms.date: 12/06/2021
+ms.author: normesta
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use Azure PowerShell to create an HDInsight cluster with Azure Data Lake Storage Gen1 (as additional storage)
@@ -35,7 +36,7 @@ Here are some important considerations for using HDInsight with Data Lake Storag
 
 Configuring HDInsight to work with Data Lake Storage Gen1 using PowerShell involves the following steps:
 
-* Create a Data Lake Storage Gen1 account 
+* Create a Data Lake Storage Gen1 account
 * Set up authentication for role-based access to Data Lake Storage Gen1
 * Create HDInsight cluster with authentication to Data Lake Storage Gen1
 * Run a test job on the cluster
@@ -49,11 +50,11 @@ Before you begin this tutorial, you must have the following:
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](/powershell/azure/).
 * **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate.
-* **Azure Active Directory Service Principal**. Steps in this tutorial provide instructions on how to create a service principal in Azure AD. However, you must be an Azure AD administrator to be able to create a service principal. If you are an Azure AD administrator, you can skip this prerequisite and proceed with the tutorial.
+* **Microsoft Entra service principal**. Steps in this tutorial provide instructions on how to create a service principal in Microsoft Entra ID. However, you must be a Microsoft Entra administrator to be able to create a service principal. If you are a Microsoft Entra administrator, you can skip this prerequisite and proceed with the tutorial.
 
-    **If you are not an Azure AD administrator**, you will not be able to perform the steps required to create a service principal. In such a case, your Azure AD administrator must first create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. Also, the service principal must be created using a certificate, as described at [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
+    **If you are not a Microsoft Entra administrator**, you will not be able to perform the steps required to create a service principal. In such a case, your Microsoft Entra administrator must first create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. Also, the service principal must be created using a certificate, as described at [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 
-## Create a Data Lake Storage Gen1 account 
+## Create a Data Lake Storage Gen1 account
 Follow these steps to create a Data Lake Storage Gen1 account.
 
 1. From your desktop, open a new Azure PowerShell window, and enter the following snippet. When prompted to log in, make sure you log in as one of the subscription administrator/owner:
@@ -128,12 +129,12 @@ Follow these steps to create a Data Lake Storage Gen1 account.
 
 ## Set up authentication for role-based access to Data Lake Storage Gen1
 
-Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (Azure AD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the storage account with Data Lake Storage Gen1 you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
+Every Azure subscription is associated with a Microsoft Entra ID. Users and services that access resources of the subscription using the Azure portal or Azure Resource Manager API must first authenticate with that Microsoft Entra ID. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Microsoft Entra ID. This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the storage account with Data Lake Storage Gen1 you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
 
 To set up Active Directory authentication for Data Lake Storage Gen1, you must perform the following tasks.
 
 * Create a self-signed certificate
-* Create an application in Azure Active Directory and a Service Principal
+* Create an application in Microsoft Entra ID and a Service Principal
 
 ### Create a self-signed certificate
 
@@ -157,9 +158,11 @@ Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) instal
 
     When prompted enter the private key password you specified earlier. The value you specify for the **-po** parameter is the password that is associated with the .pfx file. After the command successfully completes, you should also see a CertFile.pfx in the certificate directory you specified.
 
-### Create an Azure Active Directory and a service principal
+<a name='create-an-azure-active-directory-and-a-service-principal'></a>
 
-In this section, you perform the steps to create a service principal for an Azure Active Directory application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. Run the following commands to create an application in Azure Active Directory.
+### Create a Microsoft Entra ID and a service principal
+
+In this section, you perform the steps to create a service principal for a Microsoft Entra application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. Run the following commands to create an application in Microsoft Entra ID.
 
 1. Paste the following cmdlets in the PowerShell console window. Make sure the value you specify for the **-DisplayName** property is unique. Also, the values for **-HomePage** and **-IdentiferUris** are placeholder values and are not verified.
 
@@ -177,7 +180,7 @@ In this section, you perform the steps to create a service principal for an Azur
     $application = New-AzADApplication `
         -DisplayName "HDIADL" `
         -HomePage "https://contoso.com" `
-        -IdentifierUris "https://mycontoso.com" `
+        -IdentifierUris "https://contoso.com" `
         -CertValue $credential  `
         -StartDate $certificatePFX.NotBefore  `
         -EndDate $certificatePFX.NotAfter
@@ -188,7 +191,7 @@ In this section, you perform the steps to create a service principal for an Azur
 2. Create a service principal using the application ID.
 
     ```azurepowershell
-    $servicePrincipal = New-AzADServicePrincipal -ApplicationId $applicationId
+    $servicePrincipal = New-AzADServicePrincipal -ApplicationId $applicationId -Role Contributor
 
      $objectId = $servicePrincipal.Id
     ```

@@ -1,8 +1,12 @@
 ---
 title: Mount Azure Files volume to container group
 description: Learn how to mount an Azure Files volume to persist state with Azure Container Instances
-ms.topic: article
-ms.date: 07/02/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -10,10 +14,14 @@ ms.custom: mvc, devx-track-azurecli
 
 By default, Azure Container Instances are stateless. If the container is restarted, crashes, or stops, all of its state is lost. To persist state beyond the lifetime of the container, you must mount a volume from an external store. As shown in this article, Azure Container Instances can mount an Azure file share created with [Azure Files](../storage/files/storage-files-introduction.md). Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via the industry standard Server Message Block (SMB) protocol. Using an Azure file share with Azure Container Instances provides file-sharing features similar to using an Azure file share with Azure virtual machines.
 
+## Limitations
+
+* You can only mount Azure Files shares to Linux containers. Review more about the differences in feature support  for Linux and Windows container groups in the [overview](container-instances-overview.md#linux-and-windows-containers).
+* Azure file share volume mount requires the Linux container run as *root* .
+* Azure File share volume mounts are limited to CIFS support.
+
 > [!NOTE]
-> Mounting an Azure Files share is currently restricted to Linux containers. Find current platform differences in the [overview](container-instances-overview.md#linux-and-windows-containers).
->
-> Mounting an Azure Files share to a container instance is similar to a Docker [bind mount](https://docs.docker.com/storage/bind-mounts/). Be aware that if you mount a share into a container directory in which files or directories exist, these files or directories are obscured by the mount and are not accessible while the container runs.
+> Mounting an Azure Files share to a container instance is similar to a Docker [bind mount](https://docs.docker.com/storage/bind-mounts/). If you mount a share into a container directory in which files or directories exist, the mount obscures files or directories, making them inaccessible while the container runs.
 >
 
 > [!IMPORTANT]
@@ -90,7 +98,7 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP \
   --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-After saving text using the app, you can use the [Azure portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] to retrieve and inspect the file or files written to the file share.
+After saving text using the app, you can use the [Azure portal](https://portal.azure.com) or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] to retrieve and inspect the file or files written to the file share.
 
 ## Deploy container and mount volume - YAML
 
@@ -277,10 +285,9 @@ Learn how to mount other volume types in Azure Container Instances:
 
 <!-- LINKS - External -->
 [aci-hellofiles]: https://hub.docker.com/_/microsoft-azuredocs-aci-hellofiles 
-[portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

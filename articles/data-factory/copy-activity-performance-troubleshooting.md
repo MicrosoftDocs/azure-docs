@@ -1,17 +1,14 @@
 ---
 title: Troubleshoot copy activity performance
-description: Learn about how to troubleshoot copy activity performance in Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-ms.author: jingwang
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about how to troubleshoot copy activity performance in Azure Data Factory and Azure Synapse Analytics.
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 01/07/2021
+ms.custom: synapse
+ms.date: 01/05/2024
 ---
 
 # Troubleshoot copy activity performance
@@ -22,11 +19,11 @@ This article outlines how to troubleshoot copy activity performance issue in Azu
 
 After you run a copy activity, you can collect the run result and performance statistics in [copy activity monitoring](copy-activity-monitoring.md) view. The following is an example.
 
-![Monitor copy activity run details](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run-details.png" alt-text="Monitor copy activity run details":::
 
 ## Performance tuning tips
 
-In some scenarios, when you run a copy activity in Data Factory, you'll see **"Performance tuning tips"** at the top as shown in the above example. The tips tell you the bottleneck identified by ADF for this particular copy run, along with suggestion on how to boost copy throughput. Try making the recommanded change, then run the copy again.
+In some scenarios, when you run a copy activity, you'll see **"Performance tuning tips"** at the top as shown in the above example. The tips tell you the bottleneck identified by the service for this particular copy run, along with suggestion on how to boost copy throughput. Try making the recommended change, then run the copy again.
 
 As a reference, currently the performance tuning tips provide suggestions for the following cases:
 
@@ -52,7 +49,7 @@ The execution details and durations at the bottom of the copy activity monitorin
 | --------------- | ------------------------------------------------------------ |
 | Queue           | The elapsed time until the copy activity actually starts on the integration runtime. |
 | Pre-copy script | The elapsed time between copy activity starting on IR and copy activity finishing executing the pre-copy script in sink data store. Apply when you configure the pre-copy script for database sinks, e.g. when writing data into Azure SQL Database do clean up before copy new data. |
-| Transfer        | The elapsed time between the end of the previous step and the IR transferring all the data from source to sink. <br/>Note the sub-steps under transfer run in parallel, and some operations are not shown now e.g. parsing/generating file format.<br><br/>- **Time to first byte:** The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources.<br>- **Listing source:** The amount of time spent on enumerating source files or data partitions. The latter applies when you configure partition options for database sources, e.g. when copy data from databases like Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Reading from source:** The amount of time spent on retrieving data from source data store.<br/>- **Writing to sink:** The amount of time spent on writing data to sink data store. Note some connectors do not have this metric at the moment, including Azure Cognitive Search, Azure Data Explorer, Azure Table storage, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce/Salesforce Service Cloud. |
+| Transfer        | The elapsed time between the end of the previous step and the IR transferring all the data from source to sink. <br/>Note the sub-steps under transfer run in parallel, and some operations are not shown now e.g. parsing/generating file format.<br><br/>- **Time to first byte:** The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources.<br>- **Listing source:** The amount of time spent on enumerating source files or data partitions. The latter applies when you configure partition options for database sources, e.g. when copy data from databases like Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Reading from source:** The amount of time spent on retrieving data from source data store.<br/>- **Writing to sink:** The amount of time spent on writing data to sink data store. Note some connectors do not have this metric at the moment, including Azure AI Search, Azure Data Explorer, Azure Table storage, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce/Salesforce Service Cloud. |
 
 ## Troubleshoot copy activity on Azure IR
 
@@ -69,11 +66,11 @@ When the copy activity performance doesn't meet your expectation, to troubleshoo
 
     - Check whether you can [copy files based on datetime partitioned file path or name](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Such way doesn't bring burden on listing source side.
 
-    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob/Azure File Storage and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
+    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob storage/Azure Files and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
 
     - Consider to split single large data set into several smaller data sets, and let those copy jobs run concurrently each tackles portion of data. You can do this with Lookup/GetMetadata + ForEach + Copy. Refer to [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md) or [Migrate data from Amazon S3 to ADLS Gen2](solution-template-migration-s3-azure.md) solution templates as general example.
 
-  - Check if ADF reports any throttling error on source or if your data store is under high utilization state. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
+  - Check if the service reports any throttling error on source or if your data store is under high utilization state. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
 
   - Use Azure IR in the same or close to your source data store region.
 
@@ -81,7 +78,7 @@ When the copy activity performance doesn't meet your expectation, to troubleshoo
 
   - Adopt connector-specific data loading best practice if applies. For example, when copying data from [Amazon Redshift](connector-amazon-redshift.md), configure to use Redshift UNLOAD.
 
-  - Check if ADF reports any throttling error on source or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
+  - Check if the service reports any throttling error on source or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
 
   - Check your copy source and sink pattern: 
 
@@ -95,7 +92,7 @@ When the copy activity performance doesn't meet your expectation, to troubleshoo
 
   - Adopt connector-specific data loading best practice if applies. For example, when copying data into [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md), use PolyBase or COPY statement. 
 
-  - Check if ADF reports any throttling error on sink or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
+  - Check if the service reports any throttling error on sink or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
 
   - Check your copy source and sink pattern: 
 
@@ -123,11 +120,11 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
     - Check whether you can [copy files based on datetime partitioned file path or name](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Such way doesn't bring burden on listing source side.
 
-    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob/Azure File Storage and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
+    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob storage/Azure Files and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
 
     - Consider to split single large data set into several smaller data sets, and let those copy jobs run concurrently each tackles portion of data. You can do this with Lookup/GetMetadata + ForEach + Copy. Refer to [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md) or [Migrate data from Amazon S3 to ADLS Gen2](solution-template-migration-s3-azure.md) solution templates as general example.
 
-  - Check if ADF reports any throttling error on source or if your data store is under high utilization state. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
+  - Check if the service reports any throttling error on source or if your data store is under high utilization state. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
 
 - **"Transfer - reading from source" experienced long working duration**: 
 
@@ -135,7 +132,7 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
   - Check if the Self-hosted IR machine has enough inbound bandwidth to read and transfer the data efficiently. If your source data store is in Azure, you can use [this tool](https://www.azurespeed.com/Azure/Download) to check the download speed.
 
-  - Check the Self-hosted IR's CPU and memory usage trend in Azure portal -> your data factory -> overview page. Consider to [scale up/out IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) if the CPU usage is high or available memory is low.
+  - Check the Self-hosted IR's CPU and memory usage trend in Azure portal -> your data factory or Synapse workspace -> overview page. Consider to [scale up/out IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) if the CPU usage is high or available memory is low.
 
   - Adopt connector-specific data loading best practice if applies. For example:
 
@@ -145,7 +142,7 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
     - When copying data from [Amazon Redshift](connector-amazon-redshift.md), configure to use Redshift UNLOAD.
 
-  - Check if ADF reports any throttling error on source or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
+  - Check if the service reports any throttling error on source or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
 
   - Check your copy source and sink pattern: 
 
@@ -161,14 +158,14 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
   - Check if the Self-hosted IR machine has enough outbound bandwidth to transfer and write the data efficiently. If your sink data store is in Azure, you can use [this tool](https://www.azurespeed.com/Azure/UploadLargeFile) to check the upload speed.
 
-  - Check if the Self-hosted IR's CPU and memory usage trend in Azure portal -> your data factory -> overview page. Consider to [scale up/out IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) if the CPU usage is high or available memory is low.
+  - Check if the Self-hosted IR's CPU and memory usage trend in Azure portal -> your data factory or Synapse workspace -> overview page. Consider to [scale up/out IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) if the CPU usage is high or available memory is low.
 
-  - Check if ADF reports any throttling error on sink or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
+  - Check if the service reports any throttling error on sink or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
 
   - Consider to gradually tune the [parallel copies](copy-activity-performance-features.md), note that too many parallel copies may even hurt the performance.
 
 
-## Connector and IR performance
+## Connector and IR performance 
 
 This section explores some performance troubleshooting guides for particular connector type or integration runtime.
 
@@ -176,9 +173,9 @@ This section explores some performance troubleshooting guides for particular con
 
 Activity execution time varies when the dataset is based on different Integration Runtime.
 
-- **Symptoms**: Simply toggling the Linked Service dropdown in the dataset performs the same pipeline activities, but has drastically different run-times. When the dataset is based on the Managed Virtual Network Integration Runtime, it takes more than 2 minutes on average to complete the run, but it takes approximately 20 seconds to complete when based on the Default Integration Runtime.
+- **Symptoms**: Simply toggling the Linked Service dropdown in the dataset performs the same pipeline activities, but has drastically different run-times. When the dataset is based on the Managed Virtual Network Integration Runtime, it takes more time on average than the run when based on the Default Integration Runtime.  
 
-- **Cause**: Checking the details of pipeline runs, you can see that the slow pipeline is running on Managed VNet (Virtual Network) IR while the normal one is running on Azure IR. By design, Managed VNet IR takes longer queue time than Azure IR as we are not reserving one compute node per data factory, so there is a warm up around 2 minutes for each copy activity to start, and it occurs primarily on VNet join rather than Azure IR.
+- **Cause**: Checking the details of pipeline runs, you can see that the slow pipeline is running on Managed VNet (Virtual Network) IR while the normal one is running on Azure IR. By design, Managed VNet IR takes longer queue time than Azure IR as we are not reserving one compute node per service instance, so there is a warm up for each copy activity to start, and it occurs primarily on VNet join rather than Azure IR. 
 
     
 ### Low performance when loading data into Azure SQL Database
@@ -189,13 +186,13 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - Azure SQL Database tier is not high enough.
 
-    - Azure SQL Database DTU usage is close to 100%. You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and consider to upgrade the Azure SQL Database tier.
+    - Azure SQL Database DTU usage is close to 100%. You can [monitor the performance](/azure/azure-sql/database/monitor-tune-overview) and consider to upgrade the Azure SQL Database tier.
 
     - Indexes are not set properly. Remove all the indexes before data load and recreate them after load complete.
 
     - WriteBatchSize is not large enough to fit schema row size. Try to enlarge the property for the issue.
 
-    - Instead of bulk inset, stored procedure is being used, which is expected to have worse performance. 
+    - Instead of bulk insert, stored procedure is being used, which is expected to have worse performance. 
 
 
 ### Timeout or slow performance when parsing large Excel file
@@ -210,7 +207,7 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - For operations like importing schema, previewing data, and listing worksheets on excel dataset, the timeout is 100 s and static. For large Excel file, these operations may not finish within the timeout value.
 
-    - ADF copy activity reads the whole Excel file into memory then locate the specified worksheet and cells to read data. This behavior is due to the underlying SDK ADF uses.
+    - The copy activity reads the whole Excel file into memory then locate the specified worksheet and cells to read data. This behavior is due to the underlying SDK the service uses.
 
 - **Resolution**: 
 
@@ -220,23 +217,48 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - To copy large excel file (>100 MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
     
+
+### The OOM Issue of reading large JSON/Excel/XML files
+
+- **Symptoms**: When you read large JSON/Excel/XML files, you meet the out of memory (OOM) issue during the activity execution.
+
+- **Cause**:
+
+    - **For large XML files**:
+    The OOM issue of reading large XML files is by design. The cause is that the whole XML file must be read into memory as it is a single object, then the schema is inferred, and the data is retrieved.
+    - **For large Excel files**:
+    The OOM issue of reading large Excel files is by design. The cause is that the SDK (POI/NPOI) used must read the whole excel file into memory, then infer the schema and get data.
+    - **For large JSON files**:
+    The OOM issue of reading large JSON files is by design when the JSON file is a single object.
+
+- **Recommendation**: Apply one of the following options to solve your issue.
+
+    - **Option-1**: Register an online self-hosted integration runtime with powerful machine (high CPU/memory) to read data from your large file through your copy activity.
+    - **Option-2**: Use optimized memory and big size cluster (for example, 48 cores) to read data from your large file through the mapping data flow activity.
+    - **Option-3**: Split the large file into small ones, then use copy or mapping data flow activity to read the folder.
+    - **Option-4**: If you are stuck or meet the OOM issue during copy the XML/Excel/JSON folder, use the foreach activity + copy/mapping data flow activity in your pipeline to handle each file or subfolder.
+    - **Option-5**: Others:
+        - For XML, use Notebook activity with memory optimized cluster to read data from files if each file has the same schema. Currently, Spark has different implementations to handle XML.
+        - For JSON, use different document forms (for example, **Single document**, **Document per line** and **Array of documents**) in [JSON settings](format-json.md#source-format-options) under mapping data flow source. If the JSON file content is **Document per line**, it consumes very little memory.
+
+
 ## Other references
 
 Here is performance monitoring and tuning references for some of the supported data stores:
 
 * Azure Blob storage: [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table storage: [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database: You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and check the Database Transaction Unit (DTU) percentage.
+* Azure SQL Database: You can [monitor the performance](/azure/azure-sql/database/monitor-tune-overview) and check the Database Transaction Unit (DTU) percentage.
 * Azure Synapse Analytics: Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure Synapse Analytics (Overview)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md).
 * SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance).
 * On-premises file server: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85)).
 
-## Next steps
+## Related content
 See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Copy activity performance and scalability guide](copy-activity-performance.md)
 - [Copy activity performance optimization features](copy-activity-performance-features.md)
-- [Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md)
+- [Migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md)
 - [Migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md)

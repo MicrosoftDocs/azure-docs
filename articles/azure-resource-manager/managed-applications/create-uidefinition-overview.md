@@ -1,13 +1,10 @@
 ---
 title: CreateUiDefinition.json file for portal pane
 description: Describes how to create user interface definitions for the Azure portal. Used when defining Azure Managed Applications.
-author: tfitzmac
-
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.author: tomfitz
-
+ms.date: 03/26/2021
 ---
+
 # CreateUiDefinition.json for Azure managed application's create experience
 
 This document introduces the core concepts of the **createUiDefinition.json** file. The Azure portal uses this file to define the user interface when creating a managed application.
@@ -59,25 +56,29 @@ The `config` property is optional. Use it to either override the default behavio
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid subscription."
+                        "isValid": "[not(contains(subscription().displayName, 'Test'))]",
+                        "message": "Can't use test subscription."
                     },
                     {
-                        "permission": "<Resource Provider>/<Action>",
-                        "message": "Must have correct permission to complete this step."
+                        "permission": "Microsoft.Compute/virtualmachines/write",
+                        "message": "Must have write permission for the virtual machine."
+                    },
+                    {
+                        "permission": "Microsoft.Compute/virtualMachines/extensions/write",
+                        "message": "Must have write permission for the extension."
                     }
                 ]
             },
             "resourceProviders": [
-                "<Resource Provider>"
+                "Microsoft.Compute"
             ]
         },
         "resourceGroup": {
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid resource group."
+                        "isValid": "[not(contains(resourceGroup().name, 'test'))]",
+                        "message": "Resource group name can't contain 'test'."
                     }
                 ]
             },
@@ -99,11 +100,13 @@ The `config` property is optional. Use it to either override the default behavio
 },
 ```
 
+For the `isValid` property, write an expression that resolves to either true or false. For the `permission` property, specify one of the [resource provider actions](../../role-based-access-control/resource-provider-operations.md).
+
 ### Wizard
 
 The `isWizard` property enables you to require successful validation of each step before proceeding to the next step. When the `isWizard` property isn't specified, the default is **false**, and step-by-step validation isn't required.
 
-When `isWizard` is enabled, set to **true**, the **Basics** tab is available and all other tabs are disabled. When the **Next** button is selected the tab's icon indicates if a tab's validation passed or failed. After a tab's required fields are completed and validated the **Next** button allows navigation to the next tab. When all tabs pass validation, you can go to the **Review and Create** page and select the **Create** button to begin the deployment.
+When `isWizard` is enabled, set to **true**, the **Basics** tab is available and all other tabs are disabled. When the **Next** button is selected the tab's icon indicates if a tab's validation passed or failed. After a tab's required fields are completed and validated, the **Next** button allows navigation to the next tab. When all tabs pass validation, you can go to the **Review and Create** page and select the **Create** button to begin the deployment.
 
 :::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Tab wizard":::
 
@@ -113,13 +116,13 @@ The basics config lets you customize the basics step.
 
 For `description`, provide a markdown-enabled string that describes your resource. Multi-line format and links are supported.
 
-The `subscription` and `resourceGroup` elements enable you to specify additional validations. The syntax for specifying validations is identical to the custom validation for [text box](microsoft-common-textbox.md). You can also specify `permission` validations on the subscription or resource group.  
+The `subscription` and `resourceGroup` elements enable you to specify more validations. The syntax for specifying validations is identical to the custom validation for [text box](microsoft-common-textbox.md). You can also specify `permission` validations on the subscription or resource group.
 
-The subscription control accepts a list of resource provider namespaces. For example, you can specify **Microsoft.Compute**. It shows an error message when the user selects a subscription that doesn't support the resource provider. The error occurs when the resource provider isn't registered on that subscription, and the user doesn't have permission to register the resource provider.  
+The subscription control accepts a list of resource provider namespaces. For example, you can specify **Microsoft.Compute**. It shows an error message when the user selects a subscription that doesn't support the resource provider. The error occurs when the resource provider isn't registered on that subscription, and the user doesn't have permission to register the resource provider.
 
-The resource group control has an option for `allowExisting`. When `true`, the users can select resource groups that already have resources. This flag is most applicable to solution templates, where default behavior mandates users must select a new or empty resource group. In most other scenarios, specifying this property isn't necessary.  
+The resource group control has an option for `allowExisting`. When `true`, the users can select resource groups that already have resources. This flag is most applicable to solution templates, where default behavior mandates users must select a new or empty resource group. In most other scenarios, specifying this property isn't necessary.
 
-For `location`, specify the properties for the location control you wish to override. Any properties not overridden are set to their default values. `resourceTypes` accepts an array of strings containing fully qualified resource type names. The location options are restricted to only regions that support the resource types. `allowedValues` accepts an array of region strings. Only those regions appear in the dropdown. You can set both `allowedValues` and `resourceTypes`. The result is the intersection of both lists. Lastly, the `visible` property can be used to conditionally or completely disable the location dropdown.  
+For `location`, specify the properties for the location control you wish to override. Any properties not overridden are set to their default values. `resourceTypes` accepts an array of strings containing fully qualified resource type names. The location options are restricted to only regions that support the resource types. `allowedValues` accepts an array of region strings. Only those regions appear in the dropdown. You can set both `allowedValues` and `resourceTypes`. The result is the intersection of both lists. Lastly, the `visible` property can be used to conditionally or completely disable the location dropdown. 
 
 ## Basics
 
@@ -146,7 +149,7 @@ The following example shows a text box that has been added to the default elemen
 
 ## Steps
 
-The steps property contains zero or more additional steps to display after basics. Each step contains one or more elements. Consider adding steps per role or tier of the application being deployed. For example, add a step for master node inputs, and a step for the worker nodes in a cluster.
+The steps property contains zero or more steps to display after basics. Each step contains one or more elements. Consider adding steps per role or tier of the application being deployed. For example, add a step for primary node inputs, and a step for the worker nodes in a cluster.
 
 ```json
 "steps": [
@@ -189,7 +192,7 @@ To filter the available locations to only those locations that support the resou
         "resourceTypes": ["Microsoft.Compute/disks"],
         "basics": [
           ...
-```  
+```
 
 ## Functions
 

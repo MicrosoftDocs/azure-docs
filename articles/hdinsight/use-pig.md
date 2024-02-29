@@ -5,7 +5,7 @@ description: Learn how to use Pig with Apache Hadoop on HDInsight.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 01/28/2020
+ms.date: 10/16/2023
 ---
 # Use Apache Pig with Apache Hadoop on HDInsight
 
@@ -64,11 +64,11 @@ DUMP RESULT;
 
 The following image shows a summary of what each transformation does to the data.
 
-![Graphical representation of the transformations][image-hdi-pig-data-transformation]
+:::image type="content" source="./media/use-pig/hdi-data-transformation.gif" alt-text="Graphical representation of the transformations" border="false":::
 
 ## <a id="run"></a>Run the Pig Latin job
 
-HDInsight can run Pig Latin jobs by using a variety of methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
+HDInsight can run Pig Latin jobs by using various methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
 ## Pig and SQL Server Integration Services
 
@@ -107,4 +107,3 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
-[image-hdi-pig-data-transformation]: ./media/use-pig/hdi-data-transformation.gif

@@ -1,11 +1,12 @@
 ---
-title: Automate migration machine migration in Azure Migrate
+title: Automate migration of machines in Azure Migrate
 description: Describes how to use scripts to migrate a large number of machines in Azure Migrate
-author: anvar-ms 
-ms.author: anvar
-ms.manager: bsiva
+author: sunishvohra-ms 
+ms.author: sunishvohra
+ms.service: azure-migrate
+ms.manager: vijain
 ms.topic: how-to
-ms.date: 04/01/2019
+ms.date: 5/02/2022
 ---
 
 
@@ -16,18 +17,18 @@ This article helps you understand how to use scripts to migrate large number of 
 Site Recovery scripts are available for your download at [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repo on GitHub. The scripts can be used to migrate VMware, AWS, GCP VMs, and physical servers to managed disks in Azure. You can also use these scripts to migrate Hyper-V VMs if you migrate the VMs as physical servers. The scripts that leverage Azure Site Recovery PowerShell are documented [here](../site-recovery/vmware-azure-disaster-recovery-powershell.md).
 
 ## Current limitations
-- Support specifying the static IP address only for the primary NIC of the target VM
-- The scripts do not take Azure Hybrid Benefit related inputs, you need to manually update the properties of the replicated VM in the portal
+- Supports specifying the static IP address only for the primary NIC of the target VM.
+- The scripts do not take Azure Hybrid Benefit related inputs; you need to manually update the properties of the replicated VM in the portal.
 
 ## How does it work?
 
 ### Prerequisites
 Before you get started, you need to do the following steps:
-- Ensure that the Site Recovery vault is created in your Azure subscription
-- Ensure that the Configuration Server and Process Server are installed in the source environment and the vault is able to discover the environment
-- Ensure that a Replication Policy is created and associated with the Configuration Server
-- Ensure that you have added the VM admin account to the config server (that will be used to replicate the on premises VMs)
-- Ensure that the target artifacts in Azure are created
+- Ensure that the Site Recovery vault is created in your Azure subscription.
+- Ensure that the Configuration Server and Process Server are installed in the source environment and the vault can discover the environment.
+- Ensure that a Replication Policy is created and associated with the Configuration Server.
+- Ensure that you have added the VM admin account to the config server (that will be used to replicate the on premises VMs).
+- Ensure that the following target artifacts in Azure are created:
     - Target Resource Group
     - Target Storage Account (and its Resource Group) - Create a premium storage account if you plan to migrate to premium-managed disks
     - Cache Storage Account (and its Resource Group) - Create a standard storage account in the same region as the vault
@@ -36,14 +37,14 @@ Before you get started, you need to do the following steps:
     - Target Virtual Network for Test failover (and its Resource Group)
     - Availability Set (if needed)
     - Target Network Security Group and its Resource Group
-- Ensure that you have decided on the properties of the target VM
+- Ensure that you have decided on the following properties of the target VM
     - Target VM name
     - Target VM size in Azure (can be decided using Azure Migrate assessment)
     - Private IP Address of the primary NIC in the VM
 - Download the scripts from [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repo on GitHub
 
 ### CSV Input file
-Once you have all the pre-requisites completed, you need to create a CSV file, which has data for each source machine that you want to migrate. The input CSV must have a header line with the input details and a row with details for each machine that needs to be migrated. All the scripts are designed to work on the same CSV file. A sample CSV template is available in the scripts folder for your reference.
+Once you have completed all the pre-requisites, you need to create a CSV file, which has data for each source machine that you want to migrate. The input CSV must have a header line with the input details and a row with details for each machine that needs to be migrated. All the scripts are designed to work on the same CSV file. A sample CSV template is available in the scripts folder for your reference.
 
 ### Script execution
 Once the CSV is ready, you can execute the following steps to perform migration of the on-premises VMs:

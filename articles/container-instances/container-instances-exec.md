@@ -1,8 +1,13 @@
 ---
 title: Execute commands in running container instance
-description: Learn how execute a command in a container that's currently running in Azure Container Instances
-ms.topic: article
-ms.date: 03/30/2018
+description: Learn how to execute a command in a container that's currently running in Azure Container Instances
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+ms.custom: devx-track-azurecli
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Execute a command in a running Azure container instance
@@ -84,6 +89,6 @@ Azure Container Instances currently supports launching a single process with [az
 Learn about other troubleshooting tools and common deployment issues in [Troubleshoot container and deployment issues in Azure Container Instances](container-instances-troubleshooting.md).
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
 [azure-cli]: /cli/azure

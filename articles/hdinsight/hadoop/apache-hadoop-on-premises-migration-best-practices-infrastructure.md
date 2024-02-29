@@ -4,7 +4,7 @@ description: Learn infrastructure best practices for migrating on-premises Hadoo
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
+ms.date: 07/25/2023
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - infrastructure best practices
@@ -31,7 +31,7 @@ For more information, see the article [Capacity planning for HDInsight clusters]
 
 ## Use recommended virtual machine type for cluster
 
-See [Default node configuration and virtual machine sizes for clusters](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) for recommended virtual machine types for each type of HDInsight cluster.
+See [Default node configuration and virtual machine sizes for clusters](../hdinsight-supported-node-configuration.md) for recommended virtual machine types for each type of HDInsight cluster.
 
 ## Check Hadoop components availability in HDInsight
 
@@ -48,13 +48,13 @@ Applications or components that were available in on-premises clusters but aren'
 |Arcadia|IaaS 
 |Atlas|None (Only HDP)
 |Datameer|HDInsight edge node
-|Datastax (Cassandra)|IaaS (CosmosDB an alternative on Azure)
+|Datastax (Cassandra)|IaaS (Azure Cosmos DB an alternative on Azure)
 |DataTorrent|IaaS 
 |Drill|IaaS 
 |Ignite|IaaS
 |Jethro|IaaS 
 |Mapador|IaaS 
-|Mongo|IaaS (CosmosDB an alternative on Azure)
+|MongoDB|IaaS (Azure Cosmos DB an alternative on Azure)
 |NiFi|IaaS 
 |Presto|IaaS or HDInsight edge node
 |Python 2|PaaS 
@@ -68,7 +68,7 @@ Applications or components that were available in on-premises clusters but aren'
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
-For more information, see the article [Apache Hadoop components available with different HDInsight versions](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+For more information, see the article [Apache Hadoop components available with different HDInsight versions](../hdinsight-component-versioning.md)
 
 ## Customize HDInsight clusters using script actions
 
@@ -172,7 +172,7 @@ For more information, see the following articles:
 
 ## Securely connect to Azure services with Azure Virtual Network service endpoints
 
-HDInsight supports [virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md), which allow you to securely connect to Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB, and SQL databases. By enabling a Service Endpoint for Azure HDInsight, traffic flows through a secured route from within the Azure data center. With this enhanced level of security at the networking layer, you can lock down big data storage accounts to their specified Virtual Networks (VNETs) and still use HDInsight clusters seamlessly to access and process that data.
+HDInsight supports [virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md), which allow you to securely connect to Azure Blob Storage, Azure Data Lake Storage Gen2, Azure Cosmos DB, and SQL databases. By enabling a Service Endpoint for Azure HDInsight, traffic flows through a secured route from within the Azure data center. With this enhanced level of security at the networking layer, you can lock down big data storage accounts to their specified Virtual Networks (VNETs) and still use HDInsight clusters seamlessly to access and process that data.
 
 For more information, see the following articles:
 

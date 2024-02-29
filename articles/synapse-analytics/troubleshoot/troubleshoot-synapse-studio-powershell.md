@@ -2,11 +2,12 @@
 title: Troubleshoot Synapse Studio connectivity
 description: Troubleshoot Azure Synapse Studio connectivity using PowerShell
 author: saveenr 
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
+ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 10/30/2020 
 ms.author: saveenr 
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Troubleshoot Synapse Studio connectivity with PowerShell
@@ -18,7 +19,7 @@ Azure Synapse Studio depends on a set of Web API endpoints to work properly. Thi
 ## Prerequisite
 
 * PowerShell 5.0 or higher version on Windows, or
-* PowerShell Core 6.0 or higher version on Windows or Linux.
+* PowerShell Core 6.0 or higher version on Windows.
 
 ## Troubleshooting steps
 

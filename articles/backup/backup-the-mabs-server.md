@@ -3,6 +3,8 @@ title: Back up the MABS server
 description: Learn how to back up the Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 09/24/2020
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up the MABS server
@@ -327,4 +329,4 @@ DpmSync -ReallocateReplica
 ## Next steps
 
 - [MABS support matrix](backup-support-matrix-mabs-dpm.md)
-- [MABS FAQ](backup-azure-dpm-azure-server-faq.md)
+- [MABS FAQ](backup-azure-dpm-azure-server-faq.yml)

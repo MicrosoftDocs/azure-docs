@@ -1,15 +1,12 @@
 ---
-title: Optimize your Gen2 cache 
+title: Optimize your Gen2 cache
 description: Learn how to monitor your Gen2 cache using the Azure portal.
-services: synapse-analytics
-author: kevinvngo
-manager: craigg
-ms.service: synapse-analytics
-ms.subservice: sql-dw 
-ms.topic: conceptual
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: 11/20/2020
-ms.author: kevin
-ms.reviewer: igorstan
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 

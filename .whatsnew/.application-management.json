@@ -7,8 +7,8 @@
         "relativeLinkPrefix": "/azure/active-directory/manage-apps"
     },
     "inclusionCriteria": {
-        "excludePullRequestTitles": true,
-        "minAdditionsToFile" : 10,
+        "omitPullRequestTitles": false,
+        "minAdditionsToFile": 10,
         "maxFilesChanged": 50,
         "labels": [
             "label:active-directory/svc",
@@ -17,7 +17,7 @@
     },
     "areas": [
         {
-            "name": ".",
+            "names": [ "."],
             "heading": "Azure Active Directory application management"
         }
     ]

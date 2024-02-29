@@ -3,16 +3,13 @@ title: Quickstart - Set & view Azure Key Vault certificates with Azure PowerShel
 description: Quickstart showing how to set and retrieve a certificate from Azure Key Vault using Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
-tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.date: 01/27/2021
+ms.custom: mvc, devx-track-azurepowershell, mode-api
+ms.date: 01/30/2024
 ms.author: mbaldwin
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a certificate from Azure Key Vault using Azure PowerShell
 
@@ -23,15 +20,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ```azurepowershell-interactive
-Login-AzAccount
+Connect-AzAccount
 ```
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/key-vault-powershell-rg-creation.md)]
+[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
 
 ## Create a key vault
 
@@ -49,7 +46,7 @@ $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **"https://<your-unique-keyvault-name>.vault.azure.net/certificates/ExampleCertificate"** to get the current version. 
+You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/certificates/ExampleCertificate`** to get the current version. 
 
 To view previously stored certificate:
 
@@ -59,9 +56,21 @@ Get-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "Exampl
 
 Now, you have created a Key Vault, stored a certificate, and retrieved it.
 
+**Troubleshooting**:
+
+Operation returned an invalid status code 'Forbidden'
+
+If you receive this error, the account accessing the Azure Key Vault does not have the proper permissions to create certificates.
+
+Run the following Azure PowerShell command to assign the proper permissions:
+
+```azurepowershell-interactive
+Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -PermissionsToCertificates get,list,update,create
+```
+
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
+[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
 
 ## Next steps
 
@@ -69,4 +78,4 @@ In this quickstart you created a Key Vault and stored a certificate in it. To le
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

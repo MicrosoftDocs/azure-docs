@@ -1,14 +1,16 @@
 ---
 title: Handle content types
-description: Learn how to handle various content types in workflows during design time and run time in Azure Logic Apps
+description: Learn how to handle various content types in workflows during design time and run time in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: conceptual
-ms.date: 07/20/2018
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 01/04/2024
 ---
 
 # Handle content types in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Various content types can flow through a logic app, 
 for example, JSON, XML, flat files, and binary data. 
@@ -116,8 +118,7 @@ reference and use those properties more easily in your logic app's workflow.
      }
      ```
 
-  3. In your request, make sure you include a `Content-Type` header 
-  and set the header's value to `application/json`.
+  3. In the HTTP request that your client app sends to Azure Logic Apps, make sure that you include a header named **Content-Type**, and set the header's value to **application/json**.
 
 * **Parse JSON action**
 

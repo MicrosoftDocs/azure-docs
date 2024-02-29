@@ -2,35 +2,47 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: RinaRish
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: ektrishi
 ---
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+The Azure Communication Services **Group Calling Hero Sample for iOS** demonstrates how the Communication Services Calling iOS SDK can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
 
-The Azure Communication Services **Group Calling Hero Sample for iOS** demonstrates how the Communication Services Calling iOS client library can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
+## Download code
+
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
 
 ## Overview
 
-The sample is a native iOS application that uses the Azure Communication Services iOS client libraries to build a calling experience that features both voice and video calling. The application uses a server-side component to provision access tokens that are then used to initialize the Azure Communication Services client library. To configure this server-side component, feel free to follow the [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md) tutorial.
+The sample is a native iOS application that uses the Azure Communication Services iOS SDKs to build a calling experience that features both voice and video calling. The application uses a server-side component to provision access tokens that are then used to initialize the Azure Communication Services SDK. To configure this server-side component, feel free to follow the [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md) tutorial.
 
 Here's what the sample looks like:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
-When you press the "Start new call" button, the iOS application creates a new call and joins it. The application also allows you to join an existing Azure Communication Services call by specifying the existing call's ID.
-
-After joining a call, you'll be prompted to give the application permission to access your camera and microphone. You'll also be asked to provide a display name.
+When you press the "Start new call" button, the iOS application prompts you to enter your display 
+name to use for the call.
 
 :::image type="content" source="../media/calling/pre-call-ios.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
-Once you configure your display name and devices, you can join the call. You'll see the main call canvas where the core calling experience lives.
+After tapping "Next" on the "Start Call" screen, you have the opportunity to share the group ID of
+the call via the iOS share sheet.
+
+:::image type="content" source="../media/calling/share-call-ios.png" alt-text="Screenshot showing the share group ID screen of the sample application.":::
+
+The application also allows you to join an existing Azure Communication Services call by specifying the existing call's ID or teams ID link.
+
+:::image type="content" source="../media/calling/join-call-ios.png" alt-text="Screenshot showing the join call screen of the sample application.":::
+
+After joining a call, you'll be prompted to give the application permission to access your camera and microphone, if not already authorized. Keep in mind that, like all AVFoundation-based apps, true audio and video functionality is only available on real hardware.
+
+Once you configure your display name and join the call, you'll see the main call canvas where the core calling experience lives.
 
 :::image type="content" source="../media/calling/main-app-ios.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
@@ -45,8 +57,8 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
-- An Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md).
-- An Azure Function running [Trusted Service logic](../../tutorials/trusted-service-tutorial.md) to fetch access tokens.
+- An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md).
+- An Azure Function running the [Authentication Endpoint](../../tutorials/trusted-service-tutorial.md) to fetch access tokens.
 
 ## Running sample locally
 
@@ -55,33 +67,35 @@ The group calling sample can be run locally using XCode. Developers can either u
 ### Before running the sample for the first time
 
 1. Install dependencies by running `pod install`.
-2. Open `ACSCall.xcworkspace` in XCode.
-3. Update `AppSettings.plist`. Set the value for the `acsTokenFetchUrl` key to be the URL for your Authentication Endpoint.
+2. Open `AzureCalling.xcworkspace` in XCode.
+3. Create a text file at the root, called `AppSettings.xcconfig` and set the value:
+   ```text
+   communicationTokenFetchUrl = <your authentication endpoint, without the https:// component>
+   ```
 
 ### Run sample
 
-Build and run the sample in XCode.
+Build and run the sample in XCode, using the AzureCalling target on the simulator or device of your choice.
 
 ## (Optional) Securing an authentication endpoint
 
-For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, we recommend using your own secured endpoint to provision your own tokens.
+For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services access token. For production scenarios, we recommend using your own secured endpoint to provision your own tokens.
 
-With additional configuration, this sample supports connecting to an **Azure Active Directory** (Azure AD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. See steps below:
+With additional configuration, this sample supports connecting to an **Microsoft Entra ID** (Microsoft Entra ID) protected endpoint so that user login is required for the app to fetch an Azure Communication Services access token. See steps below:
 
-1. Enable Azure Active Directory authentication in your app.  
-   - [Register your app under Azure Active Directory (using iOS / macOS platform settings)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
-	- [Configure your App Service or Azure Functions app to use Azure AD login](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
-2. Go to your registered app overview page under Azure Active Directory App Registrations. Take note of the `Application (client) ID`, `Directory (tenant) ID`, `Application ID URI`
+1. Enable Microsoft Entra authentication in your app.  
+   - [Register your app under Microsoft Entra ID (using iOS / macOS platform settings)](../../../active-directory/develop/tutorial-v2-ios.md) 
+	- [Configure your App Service or Azure Functions app to use Microsoft Entra login](../../../app-service/configure-authentication-provider-aad.md)
+2. Go to your registered app overview page under Microsoft Entra App Registrations. Take note of the `Application (client) ID`, `Directory (tenant) ID`, `Application ID URI`
 
-:::image type="content" source="../media/calling/aad-overview.png" alt-text="Azure Active Directory configuration on Azure portal.":::
+:::image type="content" source="../media/calling/aad-overview.png" alt-text="Microsoft Entra configuration on Azure portal.":::
 
-3. Open `AppSettings.plist` in Xcode, add the following key values:
-   - `acsTokenFetchUrl`: The URL to request Azure Communication Services token 
-   - `isAADAuthEnabled`: A boolean value to indicate if the Azure Communication Services token authentication is required or not
-   - `aadClientId`: Your Application (client) ID
-   - `aadTenantId`: Your Directory (tenant) ID
-   - `aadRedirectURI`: The redirect URI should be in this format: `msauth.<app_bundle_id>://auth`
-   - `aadScopes`: An array of permission scopes requested from users for authorization. Add `<Application ID URI>/user_impersonation` to the array to grant access to authentication endpoint
+3. Create a `AppSettings.xcconfig` file at the root if not already present and add the values:
+   ```text
+   communicationTokenFetchUrl = <Application ID URI, without the https:// component>
+   aadClientId = <Application (client) ID>
+   aadTenantId = <Directory (tenant) ID>
+   ```
 
 ## Clean up resources
 
@@ -89,11 +103,17 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
+>[!div class="nextstepaction"]
+>[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero)
+
 For more information, see the following articles:
 
-- Familiarize yourself with [using the calling client library](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize yourself with [using the Calling SDK](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
 
 ### Additional reading
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
+- [Samples](./../overview.md) - Find more samples and examples on our samples overview page.
+- [Azure Communication Calling Features](../../concepts/voice-video-calling/calling-sdk-features.md) - To learn more about the calling iOS sdk
+-[Azure Communication iOS Calling SDK](https://github.com/Azure/Communication/releases/)

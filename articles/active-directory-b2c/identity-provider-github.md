@@ -2,29 +2,36 @@
 title: Set up sign-up and sign-in with a GitHub account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with GitHub accounts in your applications using Azure Active Directory B2C.
-services: active-directory-b2c
-author: msmimart
-manager: celestedg
+
+author: garrodonnell
+manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 01/27/2021
-ms.custom: project-no-code
-ms.author: mimart
+ms.date: 03/10/2022
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer using Azure Active Directory B2C, I want to integrate GitHub as an identity provider, so that users can sign up and sign in with their GitHub accounts.
+
 ---
 
 # Set up sign-up and sign-in with a GitHub account using Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
+::: zone pivot="b2c-user-flow"
+
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+> [!IMPORTANT]
+> Starting May 2021, GitHub announced a change that impacts your Azure AD B2C custom policy federation. Due to the change, add `<Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>` metadata to your GitHub technical profile. For more information, see [Deprecating API authentication through query parameters](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/).
 
 ::: zone-end
 
@@ -34,12 +41,12 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a GitHub OAuth application
 
-To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [GitHub Developer](https://github.com/settings/developers) portal. For more information, see [Creating an OAuth App](https://docs.github.com/en/free-pro-team@latest/developers/apps/creating-an-oauth-app). If you don't already have a GitHub account, you can sign up at [https://www.github.com/](https://www.github.com/).
+To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [GitHub Developer](https://github.com/settings/developers) portal. For more information, see [Creating an OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app). If you don't already have a GitHub account, you can sign up at [https://www.github.com/](https://github.com/).
 
 1. Sign in to the [GitHub Developer](https://github.com/settings/developers) with your GitHub credentials.
 1. Select **OAuth Apps** and then select **New OAuth App**.
 1. Enter an **Application name** and your **Homepage URL**.
-1. Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Authorization callback URL**. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
+1. For the **Authorization callback URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-domain-name` with your custom domain, and `your-tenant-name` with the name of your tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
 1. Click **Register application**.
 1. Copy the values of **Client ID** and **Client Secret**. You need both to add the identity provider to your tenant.
 
@@ -48,7 +55,7 @@ To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD 
 ## Configure GitHub as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **GitHub (Preview)**.
 1. Enter a **Name**. For example, *GitHub*.
@@ -58,13 +65,19 @@ To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD 
 
 ## Add GitHub identity provider to a user flow 
 
+At this point, the GitHub identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the GitHub identity provider to a user flow:
+
+
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the GitHub identity provider.
 1. Under the **Social identity providers**, select **GitHub**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**
+1. Select the **Run user flow** button.
+1. From the sign-up or sign-in page, select **GitHub** to sign in with GitHub account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
 
@@ -75,7 +88,7 @@ To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD 
 You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.
@@ -111,6 +124,7 @@ You can define a GitHub account as a claims provider by adding it to the **Claim
             <Item Key="HttpBinding">GET</Item>
             <Item Key="scope">read:user user:email</Item>
             <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>  
             <Item Key="UserAgentForClaimsExchange">CPIM-Basic/{tenant}/{policy}</Item>
             <!-- Update the Client ID below to the Application ID -->
             <Item Key="client_id">Your GitHub application ID</Item>
@@ -195,6 +209,18 @@ The GitHub technical profile requires the **CreateIssuerUserId** claim transform
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## Test your custom policy
+
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **GitHub** to sign in with GitHub account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+
+## Next steps
+
+- Learn how to [pass GitHub token to your application](idp-pass-through-user-flow.md).
+- Check out the GitHub federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#github), and how to pass GitHub access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#github-with-access-token)
 
 ::: zone-end

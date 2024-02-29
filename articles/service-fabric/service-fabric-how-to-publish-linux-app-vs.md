@@ -1,32 +1,35 @@
 ---
-title: Create and Publish a.Net Core app to a remote Linux Cluster
-description: Create and publish .Net Core apps targeting a remote Linux cluster from Visual Studio
-author: peterpogorski
-
-ms.topic: troubleshooting
-ms.date: 5/20/2019
-ms.author: pepogors
+title: Create and Publish a .NET Core app to a remote Linux Cluster
+description: Create and publish .NET Core apps targeting a remote Linux cluster from Visual Studio
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-dotnet
+services: service-fabric
+ms.date: 07/14/2022
 ---
-# Use Visual Studio to create and publish .Net Core applications targeting a remote Linux Service Fabric cluster
-With Visual Studio tooling you can develop and publish Service Fabric .Net Core applications targeting a Linux Service Fabric cluster. The SDK version must be 3.4 or above to deploy a .Net Core application targeting Linux Service Fabric clusters from Visual Studio.
+
+# Use Visual Studio to create and publish .NET Core applications targeting a remote Linux Service Fabric cluster
+With Visual Studio tooling you can develop and publish Service Fabric .NET Core applications targeting a Linux Service Fabric cluster. The SDK version must be 3.4 or above to deploy a .NET Core application targeting Linux Service Fabric clusters from Visual Studio.
 
 > [!Note]
 > Visual Studio doesn't support debugging Service Fabric applications which target Linux.
 >
 
-## Create a Service Fabric application targeting .Net Core
+## Create a Service Fabric application targeting .NET Core
 1. Launch Visual Studio as an **administrator**.
 2. Create a project with **File->New->Project**.
 3. In the **New Project** dialog, choose **Cloud -> Service Fabric Application**.
 ![create-application]
 4. Name the application and click **Ok**.
-5. On the **New Service Fabric Service** page, select the type of service you would like to create under the **.Net Core Section**.
+5. On the **New Service Fabric Service** page, select the type of service you would like to create under the **.NET Core Section**.
 ![create-service]
 
 ## Deploy to a remote Linux cluster
 1. In the solution explorer, right click on the application and select **Build**.
 ![build-application]
-2. Once the build process for the application has completed, right click on the service and select edit the **csproj file**.
+2. Once the build process for the application has completed, right click on the service and choose to edit the **csproj file**.
 ![edit-csproj]
 3. Edit the UpdateServiceFabricManifestEnabled property from True to **False** if the service is an **actor project type**. If your application does not have an actor service, skip to step 4.
 ```xml
@@ -38,7 +41,7 @@ With Visual Studio tooling you can develop and publish Service Fabric .Net Core 
 
 4. Update the RuntimeIndetifier from win7-x64 to the target platform in the service project.
 ```xml
-    <RuntimeIdentifier>ubuntu.16.04-x64</RuntimeIdentifier>
+    <RuntimeIdentifier>ubuntu.20.04-x64</RuntimeIdentifier>
 ```
 5. In the ServiceManifest, update the entrypoint program to remove .exe. 
 ```xml
@@ -60,4 +63,4 @@ With Visual Studio tooling you can develop and publish Service Fabric .Net Core 
 [publish-application]:./media/service-fabric-how-to-vs-remote-linux-cluster/publish-remote-linux.png
 
 ## Next steps
-* Learn about [Getting started with Service Fabric with .Net Core](https://azure.microsoft.com/resources/samples/service-fabric-dotnet-core-getting-started/)
+* Learn about [Getting started with Service Fabric with .NET Core](https://azure.microsoft.com/resources/samples/service-fabric-dotnet-core-getting-started/)

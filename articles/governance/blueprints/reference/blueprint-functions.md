@@ -1,10 +1,12 @@
 ---
 title: Azure Blueprints functions
 description: Describes the functions available for use with blueprint artifacts in Azure Blueprints definitions and assignments.
-ms.date: 01/27/2021
+ms.date: 09/07/2023
 ms.topic: reference
 ---
 # Functions for use with Azure Blueprints
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 Azure Blueprints provides functions making a blueprint definition more dynamic. These functions are
 for use with blueprint definitions and blueprint artifacts. An Azure Resource Manager Template (ARM
@@ -137,7 +139,7 @@ A string of concatenated values.
 
 ### Remarks
 
-The Azure Blueprint function differs from the ARM template function in that it only works with
+The Azure Blueprints function differs from the ARM template function in that it only works with
 strings.
 
 ### Example
@@ -163,7 +165,7 @@ The value of the specified blueprint or blueprint artifact parameter.
 
 ### Remarks
 
-The Azure Blueprint function differs from the ARM template function in that it only works with
+The Azure Blueprints function differs from the ARM template function in that it only works with
 blueprint parameters.
 
 ### Example
@@ -224,7 +226,7 @@ The returned object is in the following format:
 
 ### Remarks
 
-The Azure Blueprint function differs from the ARM template function. The `resourceGroup()` function
+The Azure Blueprints function differs from the ARM template function. The `resourceGroup()` function
 can't be used in a subscription level artifact or the blueprint definition. It can only be used in
 blueprint artifacts that are part of a resource group artifact.
 

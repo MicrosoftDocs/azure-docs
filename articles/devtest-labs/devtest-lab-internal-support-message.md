@@ -1,8 +1,11 @@
 ---
-title: Add an internal support statement to a lab in Azure DevTest Labs
+title: Add an internal support statement to a lab
 description: Learn how to post an internal support statement to a lab in Azure DevTest Labs
-ms.topic: article
+ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Add an internal support statement to a lab in Azure DevTest Labs

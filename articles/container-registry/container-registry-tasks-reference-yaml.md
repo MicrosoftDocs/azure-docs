@@ -1,8 +1,12 @@
 ---
 title: YAML reference - ACR Tasks
 description: Reference for defining tasks in YAML for ACR Tasks, including task properties, step types, step properties, and built-in variables.
-ms.topic: article
-ms.date: 07/08/2020
+ms.topic: reference
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # ACR Tasks reference: YAML
@@ -58,12 +62,12 @@ There are several sample task files referenced in the following sections of this
 az acr run -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
-The formatting of the sample commands assumes you've configured a default registry in the Azure CLI, so they omit the `--registry` parameter. To configure a default registry, use the [az configure][az-configure] command with the `--defaults` parameter, which accepts an `acr=REGISTRY_NAME` value.
+The formatting of the sample commands assumes you've configured a default registry in the Azure CLI, so they omit the `--registry` parameter. To configure a default registry, use the [az config][az-config] command with the `set` command, which accepts an `defaults.acr=REGISTRY_NAME` key value pair.
 
 For example, to configure the Azure CLI with a default registry named "myregistry":
 
 ```azurecli
-az configure --defaults acr=myregistry
+az config set defaults.acr=myregistry
 ```
 
 ## Task properties
@@ -73,7 +77,7 @@ Task properties typically appear at the top of an `acr-task.yaml` file, and are 
 | Property | Type | Optional | Description | Override supported | Default value |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Yes | The version of the `acr-task.yaml` file as parsed by the ACR Tasks service. While ACR Tasks strives to maintain backward compatibility, this value allows ACR Tasks to maintain compatibility within a defined version. If unspecified, defaults to the latest version. | No | None |
-| `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. If the property is specified on a task, it sets the default `timeout` property of all the steps. If the `timeout` property is specified on a step, it overrides the property provided by the task. | Yes | 600 (10 minutes) |
+| `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. If the `stepTimeout` property is specified on a task, it sets the default `timeout` property of all the steps. If the `timeout` property is specified on a step, it overrides the `stepTimeout` property provided by the task.<br/><br/>The sum of the step timeout values for a task should equal the value of the task's run `timeout` property (for example, set by passing `--timeout` to the `az acr task create` command). If the tasks's run `timeout` value is smaller, it takes priority.  | Yes | 600 (10 minutes) |
 | `workingDirectory` | string | Yes | The working directory of the container during runtime. If the property is specified on a task, it sets the default `workingDirectory` property of all the steps. If specified on a step, it overrides the property provided by the task. | Yes | `c:\workspace` in Windows or `/workspace` in Linux |
 | `env` | [string, string, ...] | Yes |  Array of strings in `key=value` format that define the environment variables for the task. If the property is specified on a task, it sets the default `env` property of all the steps. If specified on a step, it overrides any environment variables inherited from the task. | Yes | None |
 | `secrets` | [secret, secret, ...] | Yes | Array of [secret](#secret) objects. | No | None |
@@ -134,7 +138,16 @@ steps:
     [property]: [value]
 ```
 
+Run the [az acr run][az-acr-run]command to get the docker version.
+
+```azurecli
+az acr run -r $ACR_NAME --cmd "docker version" /dev/null
+```
+
+Add environment variable `DOCKER_BUILDKIT=1` in yaml file to enable `buildkit` and use `secret` with `buildkit`.
+
 The `build` step type supports the parameters in the following table. The `build` step type also supports all build options of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, such as `--build-arg` to set build-time variables.
+
 
 | Parameter | Description | Optional |
 | --------- | ----------- | :-------: |
@@ -573,10 +586,10 @@ Each of the following aliases points to a stable image in Microsoft Container Re
 
 | Alias | Image |
 | ----- | ----- |
-| `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
-| `az` | `mcr.microsoft.com/acr/azure-cli:a80af84` |
-| `bash` | `mcr.microsoft.com/acr/bash:a80af84` |
-| `curl` | `mcr.microsoft.com/acr/curl:a80af84` |
+| `acr` | `mcr.microsoft.com/acr/acr-cli:0.5` |
+| `az` | `mcr.microsoft.com/acr/azure-cli:7ee1d7f` |
+| `bash` | `mcr.microsoft.com/acr/bash:7ee1d7f` |
+| `curl` | `mcr.microsoft.com/acr/curl:7ee1d7f` |
 
 The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `samples/hello-world` in the run registry:
 
@@ -624,6 +637,6 @@ For single-step builds, see the [ACR Tasks overview](container-registry-tasks-ov
 [acr-tasks]: https://github.com/Azure-Samples/acr-tasks
 
 <!-- LINKS - Internal -->
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-configure]: /cli/azure/reference-index#az-configure
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-config]: /cli/azure/reference-index#az_config

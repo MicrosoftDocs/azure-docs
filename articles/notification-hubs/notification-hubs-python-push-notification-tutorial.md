@@ -2,20 +2,17 @@
 title: How to use Notification Hubs with Python
 description: Learn how to use Azure Notification Hubs from a Python application.
 services: notification-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: 5640dd4a-a91e-4aa0-a833-93615bde49b4
+
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
 ---
@@ -90,7 +87,7 @@ class NotificationHub:
 
         for part in parts:
             if part.startswith('Endpoint'):
-                self.Endpoint = 'https' + part[11:]
+                self.Endpoint = 'https' + part[11:].lower()
             if part.startswith('SharedAccessKeyName'):
                 self.SasKeyName = part[20:]
             if part.startswith('SharedAccessKey'):
@@ -136,17 +133,20 @@ def generate_sas_token(self):
 
 ### Send a notification using HTTP REST API
 
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
+
 First, let use define a class representing a notification.
 
 ```python
 class Notification:
     def __init__(self, notification_format=None, payload=None, debug=0):
-        valid_formats = ['template', 'apple', 'fcm',
+        valid_formats = ['template', 'apple', 'gcm',
                          'windows', 'windowsphone', "adm", "baidu"]
         if not any(x in notification_format for x in valid_formats):
             raise Exception(
                 "Invalid Notification format. " +
-                "Must be one of the following - 'template', 'apple', 'fcm', 'windows', 'windowsphone', 'adm', 'baidu'")
+                "Must be one of the following - 'template', 'apple', 'gcm', 'windows', 'windowsphone', 'adm', 'baidu'")
 
         self.format = notification_format
         self.payload = payload
@@ -202,7 +202,7 @@ def make_http_request(self, url, payload, headers):
 def send_notification(self, notification, tag_or_tag_expression=None):
     url = self.Endpoint + self.HubName + '/messages' + self.API_VERSION
 
-    json_platforms = ['template', 'apple', 'fcm', 'adm', 'baidu']
+    json_platforms = ['template', 'apple', 'gcm', 'adm', 'baidu']
 
     if any(x in notification.format for x in json_platforms):
         content_type = "application/json"
@@ -238,8 +238,8 @@ def send_apple_notification(self, payload, tags=""):
     self.send_notification(nh, tags)
 
 
-def send_fcm_notification(self, payload, tags=""):
-    nh = Notification("fcm", payload)
+def send_google_notification(self, payload, tags=""):
+    nh = Notification("gcm", payload)
     self.send_notification(nh, tags)
 
 
@@ -338,13 +338,13 @@ hub.send_apple_notification(alert_payload)
 ### Android
 
 ```python
-fcm_payload = {
+gcm_payload = {
     'data':
         {
             'msg': 'Hello!'
         }
 }
-hub.send_fcm_notification(fcm_payload)
+hub.send_google_notification(gcm_payload)
 ```
 
 ### Kindle Fire

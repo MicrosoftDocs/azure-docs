@@ -1,13 +1,13 @@
 ---
 title: Global parameters
 description: Set global parameters for each of your Azure Data Factory environments
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: authoring
 ms.topic: conceptual
-author: dcstwh
-ms.author: weetok
-ms.date: 08/31/2020
+author: nabhishek
+ms.author: abnarain
+ms.date: 01/05/2024
+ms.custom:
 ---
 
 # Global parameters in Azure Data Factory
@@ -18,89 +18,54 @@ Global parameters are constants across a data factory that can be consumed by a 
 
 ## Creating global parameters
 
-To create a global parameter, go to the *Global parameters* tab in the *Manage* section. Select **New** to open the creation side-nav.
+To create a global parameter, go to the *Global parameters* tab in the **Manage** section. Select **New** to open the creation side-nav.
 
-![Screenshot that highlights the New button you select to create global parameters.](media/author-global-parameters/create-global-parameter-1.png)
+:::image type="content" source="media/author-global-parameters/create-global-parameter-1.png" alt-text="Screenshot that highlights the New button you select to create global parameters.":::
 
 In the side-nav, enter a name, select a data type, and specify the value of your parameter.
 
-![Screenshot that shows where you add the name, data type, and value for the new global parameter.](media/author-global-parameters/create-global-parameter-2.png)
+:::image type="content" source="media/author-global-parameters/create-global-parameter-2.png" alt-text="Screenshot that shows where you add the name, data type, and value for the new global parameter.":::
 
 After a global parameter is created, you can edit it by clicking the parameter's name. To alter multiple parameters at once, select **Edit all**.
 
-![Create global parameters](media/author-global-parameters/create-global-parameter-3.png)
+:::image type="content" source="media/author-global-parameters/create-global-parameter-3.png" alt-text="Create global parameters":::
+
 
 ## Using global parameters in a pipeline
 
 Global parameters can be used in any [pipeline expression](control-flow-expression-language-functions.md). If a pipeline is referencing another resource such as a dataset or data flow, you can pass down the global parameter value via that resource's parameters. Global parameters are referenced as `pipeline().globalParameters.<parameterName>`.
 
-![Using global parameters](media/author-global-parameters/expression-global-parameters.png)
+:::image type="content" source="media/author-global-parameters/expression-global-parameters.png" alt-text="Using global parameters":::
 
 ## <a name="cicd"></a> Global parameters in CI/CD
 
-There are two ways to integrate global parameters in your continuous integration and deployment solution:
+We recommend including global parameters in the ARM template during the CI/CD. The new mechanism of including global parameters in the ARM template (from 'Manage hub' -> 'ARM template' -> ‘Include global parameters in ARM template
+') as illustrated below, will not conflict/ override the factory-level settings as it used to do earlier, hence not requiring additional PowerShell for global parameters deployment during CI/CD.
 
-* Include global parameters in the ARM template
-* Deploy global parameters via a PowerShell script
-
-For most use cases, it is recommended to include global parameters in the ARM template. This will integrate natively with the solution outlined in [the CI/CD doc](continuous-integration-deployment.md). Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the management hub.
-
-![Include in ARM template](media/author-global-parameters/include-arm-template.png)
-
-Adding global parameters to the ARM template adds a factory-level setting that will override other factory-level settings such as a customer-managed key or git configuration in other environments. If you have these settings enabled in an elevated environment such as UAT or PROD, it's better to deploy global parameters via a PowerShell script in the steps highlighted below.
-
-### Deploying using PowerShell
-
-The following steps outline how to deploy global parameters via PowerShell. This is useful when your target factory has a factory-level setting such as customer-managed key.
-
-When you publish a factory or export an ARM template with global parameters, a folder called *globalParameters* is created with a file called *your-factory-name_GlobalParameters.json*. This file is a JSON object that contains each global parameter type and value in the published factory.
-
-![Publishing global parameters](media/author-global-parameters/global-parameters-adf-publish.png)
-
-If you're deploying to a new environment such as TEST or PROD, it's recommended to create a copy of this global parameters file and overwrite the appropriate environment-specific values. When you republish the original global parameters file will get overwritten, but the copy for the other environment will be untouched.
-
-For example, if you have a factory named 'ADF-DEV' and a global parameter of type string named 'environment' with a value 'dev', when you publish a file named *ADF-DEV_GlobalParameters.json* will get generated. If deploying to a test factory named 'ADF_TEST', create a copy of the JSON file (for example named ADF-TEST_GlobalParameters.json) and replace the parameter values with the environment-specific values. The parameter 'environment' may have a value 'test' now. 
-
-![Deploying global parameters](media/author-global-parameters/powershell-task.png)
-
-Use the below PowerShell script to promote global parameters to additional environments. Add an Azure PowerShell DevOps task before your ARM Template deployment. In the DevOps task, you must specify the location of the new parameters file, the target resource group, and the target data factory.
+:::image type="content" source="media/author-global-parameters/include-arm-template.png" alt-text="Screenshot of 'Include in ARM template'.":::
 
 > [!NOTE]
-> To deploy global parameters using PowerShell, you must use at least version 4.4.0 of the Az module.
+> We have moved the UI experience for including global parameters from the 'Global parameters' section to the 'ARM template' section in the manage hub. 
+If you are already using the older mechanism (from 'Manage hub' -> 'Global parameters' -> 'Include in ARM template'), you can continue. We will continue to support it. 
 
-```powershell
-param
-(
-    [parameter(Mandatory = $true)] [String] $globalParametersFilePath,
-    [parameter(Mandatory = $true)] [String] $resourceGroupName,
-    [parameter(Mandatory = $true)] [String] $dataFactoryName
-)
+If you are using the older flow of integrating global parameters in your continuous integration and deployment solution, it will continue to work:
 
-Import-Module Az.DataFactory
+* Include global parameters in the ARM template (from 'Manage hub' -> 'Global parameters' -> 'Include in ARM template')
+:::image type="content" source="media/author-global-parameters/include-arm-template-deprecated.png" alt-text="Screenshot of deprecated 'Include in ARM template'.":::
 
-$newGlobalParameters = New-Object 'system.collections.generic.dictionary[string,Microsoft.Azure.Management.DataFactory.Models.GlobalParameterSpecification]'
+* Deploy global parameters via a PowerShell script
 
-Write-Host "Getting global parameters JSON from: " $globalParametersFilePath
-$globalParametersJson = Get-Content $globalParametersFilePath
+We strongly recommend using the new mechanism of including global parameters in the ARM template (from 'Manage hub' -> 'ARM template' -> 'Include global parameters in an ARM template') since it makes the CICD with global parameters much more straightforward and easier to manage.
 
-Write-Host "Parsing JSON..."
-$globalParametersObject = [Newtonsoft.Json.Linq.JObject]::Parse($globalParametersJson)
+> [!NOTE]
+> The **Include global parameters in an ARM template** configuration is only available in "Git mode". Currently it is disabled in "live mode" or "Data Factory" mode.  
 
-foreach ($gp in $globalParametersObject.GetEnumerator()) {
-    Write-Host "Adding global parameter:" $gp.Key
-    $globalParameterValue = $gp.Value.ToObject([Microsoft.Azure.Management.DataFactory.Models.GlobalParameterSpecification])
-    $newGlobalParameters.Add($gp.Key, $globalParameterValue)
-}
+> [!WARNING]
+>You cannot use  ‘-‘ in the parameter name. You will receive an errorcode "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}". But, you can use the ‘_’ in the parameter name. 
 
-$dataFactory = Get-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Name $dataFactoryName
-$dataFactory.GlobalParameters = $newGlobalParameters
 
-Write-Host "Updating" $newGlobalParameters.Count "global parameters."
 
-Set-AzDataFactoryV2 -InputObject $dataFactory -Force
-```
+## Related content
 
-## Next steps
-
-* Learn about Azure Data Factory's [continuous integration and deployment process](continuous-integration-deployment.md)
+* Learn about Azure Data Factory's [continuous integration and deployment process](continuous-integration-delivery-improvements.md)
 * Learn how to use the [control flow expression language](control-flow-expression-language-functions.md)

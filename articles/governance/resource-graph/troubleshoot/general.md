@@ -1,9 +1,10 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues with the various SDKs while querying Azure resources with Azure Resource Graph.
-ms.date: 01/27/2021
+ms.date: 08/17/2021
 ms.topic: troubleshooting
 ---
+
 # Troubleshoot errors using Azure Resource Graph
 
 You may run into errors when querying Azure resources with Azure Resource Graph. This article
@@ -17,7 +18,7 @@ it can be fixed and a later query succeeds.
 
 ## General errors
 
-### <a name="throttled"></a>Scenario: Throttled requests
+### Scenario: Throttled requests
 
 #### Issue
 
@@ -39,22 +40,22 @@ There are several methods of dealing with throttled requests:
 - [Query in Parallel](../concepts/guidance-for-throttled-requests.md#query-in-parallel)
 - [Pagination](../concepts/guidance-for-throttled-requests.md#pagination)
 
-### <a name="toomanysubscription"></a>Scenario: Too many subscriptions
+### Scenario: Too many subscriptions
 
 #### Issue
 
-Customers with access to more than 1000 subscriptions, including cross-tenant subscriptions with
+Customers with access to more than 1,000 subscriptions, including cross-tenant subscriptions with
 [Azure Lighthouse](../../../lighthouse/overview.md), can't fetch data across all subscriptions in a
 single call to Azure Resource Graph.
 
 #### Cause
 
-Azure CLI and PowerShell forward only the first 1000 subscriptions to Azure Resource Graph. The REST
-API for Azure Resource Graph accepts a maximum number of subscriptions to perform the query on.
+Azure CLI and PowerShell forward only the first 1,000 subscriptions to Azure Resource Graph. The
+REST API for Azure Resource Graph accepts a maximum number of subscriptions to perform the query on.
 
 #### Resolution
 
-Batch requests for the query with a subset of subscriptions to stay under the 1000 subscription
+Batch requests for the query with a subset of subscriptions to stay under the 1,000 subscription
 limit. The solution is using the **Subscription** parameter in PowerShell.
 
 ```azurepowershell-interactive
@@ -80,7 +81,7 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 $response
 ```
 
-### <a name="rest-contenttype"></a>Scenario: Unsupported Content-Type REST header
+### Scenario: Unsupported Content-Type REST header
 
 #### Issue
 
@@ -97,7 +98,7 @@ tools or agents default to **text/plain**, which is unsupported by the REST API.
 Validate that the tool or agent you're using to query Azure Resource Graph has the REST API header
 `Content-Type` configured for **application/json**.
 
-### <a name="rest-403"></a>Scenario: No read permission to all subscriptions in list
+### Scenario: No read permission to all subscriptions in list
 
 #### Issue
 
@@ -122,7 +123,7 @@ channels for more support:
 
 - Get answers from Azure experts through
   [Azure Forums](https://azure.microsoft.com/support/forums/).
-- Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure
+- Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure
   account for improving customer experience by connecting the Azure community to the right
   resources: answers, support, and experts.
 - If you need more help, you can file an Azure support incident. Go to the

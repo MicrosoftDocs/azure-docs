@@ -1,27 +1,18 @@
 ---
 title: Create or update Azure custom roles using Azure CLI - Azure RBAC
 description: Learn how to list, create, update, or delete Azure custom roles using Azure CLI and Azure role-based access control (Azure RBAC).
-services: active-directory
-documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: amycolannino
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 06/17/2020
+ms.custom: devx-track-azurecli
+ms.date: 12/01/2023
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 # Create or update Azure custom roles using Azure CLI
-
-> [!IMPORTANT]
-> Adding a management group to `AssignableScopes` is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to list, create, update, or delete custom roles using Azure CLI.
 
@@ -31,7 +22,7 @@ For a step-by-step tutorial on how to create a custom role, see [Tutorial: Creat
 
 To create custom roles, you need:
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
+- Permissions to create custom roles, such as [User Access Administrator](built-in-roles.md#user-access-administrator)
 - [Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure/install-azure-cli)
 
 ## List custom roles
@@ -61,7 +52,7 @@ az role definition list --custom-role-only true --output json --query '[].{roleN
 
 ## List a custom role definition
 
-To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). This is the same command you would use for a built-in role.
+To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). This command is the same command you would use for a built-in role.
 
 ```azurecli
 az role definition list --name {roleName}
@@ -141,7 +132,7 @@ To create a custom role, use [az role definition create](/cli/azure/role/definit
 az role definition create --role-definition {roleDefinition}
 ```
 
-The following example creates a custom role named *Virtual Machine Operator*. This custom role assigns access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and assigns access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
+The following example creates a custom role named *Virtual Machine Operator*. This custom role assigns access to all read actions of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and assigns access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
 
 vmoperator.json
 
@@ -184,7 +175,7 @@ To update a custom role, first use [az role definition list](/cli/azure/role/def
 az role definition update --role-definition {roleDefinition}
 ```
 
-The following example adds the *Microsoft.Insights/diagnosticSettings/* operation to `Actions` and adds a management group to `AssignableScopes` for the *Virtual Machine Operator* custom role. Adding a management group to `AssignableScopes` is currently in preview.
+The following example adds the *Microsoft.Insights/diagnosticSettings/* action to `Actions` and adds a management group to `AssignableScopes` for the *Virtual Machine Operator* custom role.
 
 vmoperator.json
 
@@ -223,18 +214,20 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ## Delete a custom role
 
-To delete a custom role, use [az role definition delete](/cli/azure/role/definition#az-role-definition-delete). To specify the role to delete, use the role name or the role ID. To determine the role ID, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+1. Remove any role assignments that use the custom role. For more information, see [Find role assignments to delete a custom role](custom-roles.md#find-role-assignments-to-delete-a-custom-role).
 
-```azurecli
-az role definition delete --name {roleNameOrId}
-```
+1. Use [az role definition delete](/cli/azure/role/definition#az-role-definition-delete) to delete the custom role. To specify the role to delete, use the role name or the role ID. To determine the role ID, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
-The following example deletes the *Virtual Machine Operator* custom role.
-
-```azurecli
-az role definition delete --name "Virtual Machine Operator"
-```
-
+    ```azurecli
+    az role definition delete --name {roleNameOrId}
+    ```
+    
+    The following example deletes the *Virtual Machine Operator* custom role.
+    
+    ```azurecli
+    az role definition delete --name "Virtual Machine Operator"
+    ```
+    
 ## Next steps
 
 - [Tutorial: Create an Azure custom role using Azure CLI](tutorial-custom-role-cli.md)

@@ -1,151 +1,279 @@
 ---
-title: Deploy MLflow models as web services
+title: Guidelines for deploying MLflow models
 titleSuffix: Azure Machine Learning
-description:  Set up MLflow with Azure Machine Learning to deploy your ML models as an Azure web service.
+description: Learn to deploy your MLflow model to the deployment targets supported by Azure Machine Learning.
 services: machine-learning
-author: shivp950
-ms.author: shipatel
 ms.service: machine-learning
-ms.subservice: core
-ms.reviewer: nibaccam
-ms.date: 12/23/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.subservice: mlops
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
+reviewer: msakande
+ms.date: 01/16/2024
+ms.topic: concept-article
+ms.custom: deploy, mlflow, devplatv2, no-code-deployment, cliv2, update-code
+ms.devlang: azurecli
 ---
 
-# Deploy MLflow models as Azure web services (preview)
+# Guidelines for deploying MLflow models
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models.
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-Azure Machine Learning offers deployment configurations for:
-* Azure Container Instance (ACI) which is a suitable choice for a quick dev-test deployment.
-* Azure Kubernetes Service (AKS) which is recommended for scalable production deployments.
+
+In this article, learn about deployment of [MLflow](https://www.mlflow.org) models to Azure Machine Learning for both real-time and batch inference. Learn also about the different tools you can use to manage the deployment.
+
+
+## Deployment of MLflow models vs. custom models
+
+Unlike custom model deployment in Azure Machine Learning, when you deploy MLflow models to Azure Machine Learning, you don't have to provide a scoring script or an environment for deployment. Instead, Azure Machine Learning automatically generates the scoring script and environment for you. This functionality is called _no-code deployment_.
+
+For no-code deployment, Azure Machine Learning:
+
+* Ensures that all the package dependencies indicated in the MLflow model are satisfied.
+* Provides an MLflow base image or curated environment that contains the following items:
+    * Packages required for Azure Machine Learning to perform inference, including [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst).
+    * A scoring script to perform inference.
+
+[!INCLUDE [mlflow-model-package-for-workspace-without-egress](includes/mlflow-model-package-for-workspace-without-egress.md)]
+
+### Python packages and dependencies
+
+Azure Machine Learning automatically generates environments to run inference on MLflow models. To build the environments, Azure Machine Learning reads the conda dependencies that are specified in the MLflow model and adds any packages that are required to run the inferencing server. These extra packages vary, depending on your deployment type.
+
+The following _conda.yaml_ file shows an example of conda dependencies specified in an MLflow model.
+
+__conda.yaml__
+
+:::code language="yaml" source="~/azureml-examples-main/sdk/python/endpoints/online/mlflow/sklearn-diabetes/model/conda.yaml":::
+
+> [!WARNING]
+> MLflow automatically detects packages when logging a model and pins the package versions in the model's conda dependencies. However, this automatic package detection might not always reflect your intentions or requirements. In such cases, consider [logging models with a custom conda dependencies definition](how-to-log-mlflow-models.md?#logging-models-with-a-custom-signature-environment-or-samples).
+
+### Implications of using models with signatures
+
+MLflow models can include a signature that indicates the expected inputs and their types. When such models are deployed to online or batch endpoints, Azure Machine Learning enforces that the number and types of the data inputs comply with the signature. If the input data can't be parsed as expected, the model invocation will fail.
+
+You can inspect an MLflow model's signature by opening the MLmodel file associated with the model. For more information on how signatures work in MLflow, see [Signatures in MLflow](concept-mlflow-models.md#model-signature).
+
+The following file shows the MLmodel file associated with an MLflow model.
+
+__MLmodel__
+
+:::code language="yaml" source="~/azureml-examples-main/sdk/python/endpoints/online/mlflow/sklearn-diabetes/model/MLmodel" highlight="19-25":::
+
 > [!TIP]
-> The information in this document is primarily for data scientists and developers who want to deploy their MLflow model to an Azure Machine Learning web service endpoint. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
-## MLflow with Azure Machine Learning deployment
-
-MLflow is an open-source library for managing the life cycle of your machine learning experiments. Its integration with Azure Machine Learning allows for you to extend this management beyond model training to the deployment phase of your production model.
-
-The following diagram demonstrates that with the MLflow deploy API and Azure Machine Learning, you can deploy models created with popular frameworks, like PyTorch, Tensorflow, scikit-learn, etc., as Azure web services and manage them in your workspace. 
-
-![ deploy mlflow models with azure machine learning](./media/how-to-deploy-mlflow-models/mlflow-diagram-deploy.png)
+> Signatures in MLflow models are optional but highly recommended, as they provide a convenient way to detect data compatibility issues early. For more information about how to log models with signatures, see [Logging models with a custom signature, environment or samples](how-to-log-mlflow-models.md#logging-models-with-a-custom-signature-environment-or-samples).
 
 
->[!NOTE]
-> As an open source library, MLflow changes frequently. As such, the functionality made available via the Azure Machine Learning and MLflow integration should be considered as a preview, and not fully supported by Microsoft.
+## Models deployed in Azure Machine Learning vs. models deployed in the MLflow built-in server
 
-## Prerequisites
+MLflow includes built-in deployment tools that model developers can use to test models locally. For instance, you can run a local instance of a model that is registered in the MLflow server registry, using `mlflow models serve -m my_model` or using the MLflow CLI `mlflow models predict`. 
 
-* A machine learning model. If you don't have a trained model, find the notebook example that best fits your compute scenario in [this repo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) and follow its instructions. 
-* [Set up the MLflow Tracking URI to connect Azure Machine Learning](how-to-use-mlflow.md#track-local-runs).
-* Install the `azureml-mlflow` package. 
-    * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), which provides the connectivity for MLflow to access your workspace.
-* See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations). 
+### Inferencing with batch vs. online endpoints
 
-## Deploy to Azure Container Instance (ACI)
+Azure Machine Learning supports deploying models to both online and batch endpoints. These endpoints run different inferencing technologies that can have different features.
 
-To deploy your MLflow model to an Azure Machine Learning web service, your model must be set up with the [MLflow Tracking URI to connect with Azure Machine Learning](how-to-use-mlflow.md). 
+Online endpoints are similar to the [MLflow built-in server](https://www.mlflow.org/docs/latest/models.html#built-in-deployment-tools) in that they provide a scalable, synchronous, and lightweight way to run models for inference.
 
-Set up your deployment configuration with the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method. You can also add tags and descriptions to help keep track of your web service.
+On the other hand, batch endpoints are capable of running asynchronous inference over long-running inferencing processes that can scale to large amounts of data. The MLflow server currently lacks this capability, although a similar capability can be achieved by [using Spark jobs](how-to-deploy-mlflow-model-spark-jobs.md). To learn more about batch endpoints and MLflow models, see [Use MLflow models in batch deployments](how-to-mlflow-batch.md).
 
-```python
-from azureml.core.webservice import AciWebservice, Webservice
+The sections that follow focus more on MLflow models deployed to Azure Machine Learning online endpoints.
 
-# Set the model path to the model folder created by your run
-model_path = "model"
+### Input formats
 
-# Configure 
-aci_config = AciWebservice.deploy_configuration(cpu_cores=1, 
-                                                memory_gb=1, 
-                                                tags={'method' : 'sklearn'}, 
-                                                description='Diabetes model',
-                                                location='eastus2')
+| Input type | MLflow built-in server | Azure Machine Learning Online Endpoints |
+| :- | :-: | :-: |
+| JSON-serialized pandas DataFrames in the split orientation | **&check;** | **&check;** |
+| JSON-serialized pandas DataFrames in the records orientation | Deprecated |  |
+| CSV-serialized pandas DataFrames | **&check;** | Use batch<sup>1</sup> |
+| Tensor input format as JSON-serialized lists (tensors) and dictionary of lists (named tensors) | **&check;** | **&check;** |
+| Tensor input formatted as in TF Serving's API | **&check;** |  |
+
+<sup>1</sup> Consider using batch inferencing to process files. For more information, see [Deploy MLflow models to batch endpoints](how-to-mlflow-batch.md). 
+
+### Input structure
+
+Regardless of the input type used, Azure Machine Learning requires you to provide inputs in a JSON payload, within the dictionary key `input_data`. Because this key isn't required when using the command `mlflow models serve` to serve models, payloads can't be used interchangeably for Azure Machine Learning online endpoints and the MLflow built-in server.
+
+> [!IMPORTANT]
+> **MLflow 2.0 advisory**: Notice that the payload's structure changed in MLflow 2.0.
+
+This section shows different payload examples and the differences for a model that is deployed in the MLflow built-in server versus the Azure Machine Learning inferencing server.
+
+
+#### Payload example for a JSON-serialized pandas DataFrame in the split orientation
+
+# [Azure Machine Learning](#tab/azureml)
+
+```json
+{
+    "input_data": {
+        "columns": [
+            "age", "sex", "trestbps", "chol", "fbs", "restecg", "thalach", "exang", "oldpeak", "slope", "ca", "thal"
+        ],
+        "index": [1],
+        "data": [
+            [1, 1, 145, 233, 1, 2, 150, 0, 2.3, 3, 0, 2]
+        ]
+    }
+}
 ```
 
-Then, register and deploy the model in one step with MLflow's [deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) method for Azure Machine Learning. 
+# [MLflow built-in server](#tab/builtin)
 
-```python
-(webservice,model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
-                      workspace=ws,
-                      model_name='sklearn-model', 
-                      service_name='diabetes-model-1', 
-                      deployment_config=aci_config, 
-                      tags=None, mlflow_home=None, synchronous=True)
-
-webservice.wait_for_deployment(show_output=True)
+```json
+{
+    "dataframe_split": {
+        "columns": [
+            "age", "sex", "trestbps", "chol", "fbs", "restecg", "thalach", "exang", "oldpeak", "slope", "ca", "thal"
+        ],
+        "index": [1],
+        "data": [
+            [1, 1, 145, 233, 1, 2, 150, 0, 2.3, 3, 0, 2]
+        ]
+    }
+}
 ```
 
-## Deploy to Azure Kubernetes Service (AKS)
+This payload corresponds to MLflow server 2.0+.
 
-To deploy your MLflow model to an Azure Machine Learning web service, your model must be set up with the [MLflow Tracking URI to connect with Azure Machine Learning](how-to-use-mlflow.md). 
+---
 
-To deploy to AKS, first create an AKS cluster. Create an AKS cluster using the [ComputeTarget.create()](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--provisioning-configuration-) method. It may take 20-25 minutes to create a new cluster.
 
-```python
-from azureml.core.compute import AksCompute, ComputeTarget
+#### Payload example for a tensor input
 
-# Use the default configuration (can also provide parameters to customize)
-prov_config = AksCompute.provisioning_configuration()
+# [Azure Machine Learning](#tab/azureml)
 
-aks_name = 'aks-mlflow'
-
-# Create the cluster
-aks_target = ComputeTarget.create(workspace=ws, 
-                                  name=aks_name, 
-                                  provisioning_configuration=prov_config)
-
-aks_target.wait_for_completion(show_output = True)
-
-print(aks_target.provisioning_state)
-print(aks_target.provisioning_errors)
-```
-Set up your deployment configuration with the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method. You can also add tags and descriptions to help keep track of your web service.
-
-```python
-from azureml.core.webservice import Webservice, AksWebservice
-
-# Set the web service configuration (using default here with app insights)
-aks_config = AksWebservice.deploy_configuration(enable_app_insights=True, compute_target_name='aks-mlflow')
-
+```json
+{
+    "input_data": [
+          [1, 1, 0, 233, 1, 2, 150, 0, 2.3, 3, 0, 2],
+          [1, 1, 0, 233, 1, 2, 150, 0, 2.3, 3, 0, 2]
+          [1, 1, 0, 233, 1, 2, 150, 0, 2.3, 3, 0, 2],
+          [1, 1, 145, 233, 1, 2, 150, 0, 2.3, 3, 0, 2]
+    ]
+}
 ```
 
-Then, register and deploy the model in one step with MLflow's [deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) method for Azure Machine Learning. 
+# [MLflow built-in server](#tab/builtin)
 
-```python
-
-# Webservice creation using single command
-from azureml.core.webservice import AksWebservice, Webservice
-
-# set the model path 
-model_path = "model"
-
-(webservice, model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
-                      workspace=ws,
-                      model_name='sklearn-model', 
-                      service_name='my-aks', 
-                      deployment_config=aks_config, 
-                      tags=None, mlflow_home=None, synchronous=True)
-
-
-webservice.wait_for_deployment()
+```json
+{
+    "inputs": [
+          [1, 1, 0, 233, 1, 2, 150, 0, 2.3, 3, 0, 2],
+          [1, 1, 0, 233, 1, 2, 150, 0, 2.3, 3, 0, 2]
+          [1, 1, 0, 233, 1, 2, 150, 0, 2.3, 3, 0, 2],
+          [1, 1, 145, 233, 1, 2, 150, 0, 2.3, 3, 0, 2]
+    ]
+}
 ```
 
-The service deployment can take several minutes.
+---
 
-## Clean up resources
+#### Payload example for a named-tensor input
 
-If you don't plan to use your deployed web service, use `service.delete()` to delete it from your notebook.  For more information, see the documentation for [WebService.delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
+# [Azure Machine Learning](#tab/azureml)
 
-## Example notebooks
+```json
+{
+    "input_data": {
+        "tokens": [
+          [0, 655, 85, 5, 23, 84, 23, 52, 856, 5, 23, 1]
+        ],
+        "mask": [
+          [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
+        ]
+    }
+}
+```
 
-The [MLflow with Azure Machine Learning notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) demonstrate and expand upon concepts presented in this article.
+# [MLflow built-in server](#tab/builtin)
 
-> [!NOTE]
-> A community-driven repository of examples using mlflow can be found at https://github.com/Azure/azureml-examples.
+```json
+{
+    "inputs": {
+        "tokens": [
+          [0, 655, 85, 5, 23, 84, 23, 52, 856, 5, 23, 1]
+        ],
+        "mask": [
+          [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
+        ]
+    }
+}
+```
 
-## Next steps
+---
 
-* [Manage your models](concept-model-management-and-deployment.md).
-* Monitor your production models for [data drift](./how-to-enable-data-collection.md).
-* [Track Azure Databricks runs with MLflow](how-to-use-mlflow-azure-databricks.md).
+For more information about MLflow built-in deployment tools, see [Built-in deployment tools](https://www.mlflow.org/docs/latest/models.html#built-in-deployment-tools) in the MLflow documentation.
 
+## Customize inference when deploying MLflow models
+
+You might be used to authoring scoring scripts to customize how inferencing is executed for your custom models. However, when deploying MLflow models to Azure Machine Learning, the decision about how inferencing should be executed is done by the model builder (the person who built the model), rather than by the DevOps engineer (the person who is trying to deploy it). Each model framework might automatically apply specific inference routines.
+
+At any point, if you need to change how inference of an MLflow model is executed, you can do one of two things:
+
+- Change how your model is being logged in the training routine.
+- Customize inference with a scoring script at deployment time.
+
+
+#### Change how your model is logged during training
+
+When you log a model, using either `mlflow.autolog` or `mlflow.<flavor>.log_model`, the flavor used for the model decides how inference should be executed and what results the model returns. MLflow doesn't enforce any specific behavior for how the `predict()` function generates results. 
+
+In some cases, however, you might want to do some preprocessing or post-processing before and after your model is executed. At other times, you might want to change what is returned (for example, probabilities versus classes). One solution is to implement machine learning pipelines that move from inputs to outputs directly. For example, [`sklearn.pipeline.Pipeline`](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) or [`pyspark.ml.Pipeline`](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.ml.Pipeline.html) are popular ways to implement pipelines, and are sometimes recommended for performance considerations. Another alternative is to [customize how your model does inferencing, by using a custom model flavor](how-to-log-mlflow-models.md?#logging-custom-models).
+
+#### Customize inference with a scoring script
+
+Although MLflow models don't require a scoring script, you can still provide one, if needed. You can use the scoring script to customize how inference is executed for MLflow models. For more information on how to customize inference, see [Customizing MLflow model deployments (online endpoints)](how-to-deploy-mlflow-models-online-endpoints.md#customize-mlflow-model-deployments) and [Customizing MLflow model deployments (batch endpoints)](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script).
+
+> [!IMPORTANT]
+> If you choose to specify a scoring script for an MLflow model deployment, you also need to provide an environment for the deployment.
+
+## Deployment tools
+
+Azure Machine Learning offers many ways to deploy MLflow models to online and batch endpoints. You can deploy models, using the following tools:
+
+> [!div class="checklist"]
+> - MLflow SDK
+> - Azure Machine Learning CLI
+> - Azure Machine Learning SDK for Python
+> - Azure Machine Learning studio
+
+Each workflow has different capabilities, particularly around which type of compute they can target. The following table shows the different capabilities.
+
+| Scenario | MLflow SDK | Azure Machine Learning CLI/SDK | Azure Machine Learning studio |
+| :- | :-: | :-: | :-: |
+| Deploy to managed online endpoints | [See example](how-to-deploy-mlflow-models-online-progressive.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md?tabs=studio)<sup>1</sup> |
+| Deploy to managed online endpoints (with a scoring script) | Not supported<sup>3</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md#customize-mlflow-model-deployments) | [See example](how-to-deploy-mlflow-models-online-endpoints.md?tab=studio#customize-mlflow-model-deployments) |
+| Deploy to batch endpoints | Not supported<sup>3</sup> | [See example](how-to-mlflow-batch.md) | [See example](how-to-mlflow-batch.md?tab=studio) |
+| Deploy to batch endpoints (with a scoring script) | Not supported<sup>3</sup> | [See example](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script) | [See example](how-to-mlflow-batch.md?tab=studio#customizing-mlflow-models-deployments-with-a-scoring-script)  |
+| Deploy to web services (ACI/AKS) | Legacy support<sup>2</sup> | Not supported<sup>2</sup> | Not supported<sup>2</sup> |
+| Deploy to web services (ACI/AKS - with a scoring script) | Not supported<sup>3</sup> | Legacy support<sup>2</sup> | Legacy support<sup>2</sup> |
+
+<sup>1</sup> Deployment to online endpoints that are in workspaces with private link enabled requires you to [package models before deployment (preview)](how-to-package-models.md).
+
+<sup>2</sup> We recommend switching to [managed online endpoints](concept-endpoints.md) instead.
+
+<sup>3</sup> MLflow (OSS) doesn't have the concept of a scoring script and doesn't support batch execution currently.
+
+### Which deployment tool to use?
+
+- Use the MLflow SDK if _both_ of these conditions apply:
+
+    - You're familiar with MLflow, or you're using a platform that supports MLflow natively (like Azure Databricks).
+    - You wish to continue using the same set of methods from MLflow.
+
+- Use the [Azure Machine Learning CLI v2](concept-v2.md) if _any_ of these conditions apply:
+
+    - You're more familiar with the [Azure Machine Learning CLI v2](concept-v2.md).
+    - You want to automate deployments, using automation pipelines.
+    - You want to keep deployment configuration in a git repository.
+
+- Use the [Azure Machine Learning studio](https://ml.azure.com) UI deployment if you want to quickly deploy and test models trained with MLflow.
+
+
+## Related content
+
+- [Deploy MLflow models to online endpoints](how-to-deploy-mlflow-models-online-endpoints.md)
+- [Progressive rollout of MLflow models](how-to-deploy-mlflow-models-online-progressive.md)
+- [Deploy MLflow models to Batch Endpoints](how-to-mlflow-batch.md)

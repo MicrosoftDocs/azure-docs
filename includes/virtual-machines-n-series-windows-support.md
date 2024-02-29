@@ -1,20 +1,24 @@
 ---
- title: include file
- description: include file
+ title: include
+ description: include
  services: virtual-machines-windows
- author: cynthn
- ms.service: virtual-machines-windows
+author: jushiman
+ ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/11/2019
- ms.author: cynthn
- ms.custom: include file
+ ms.date: 04/18/2023
+ms.author: jushiman
+ ms.custom: include
 ---
 
 ## Supported operating systems and drivers
 
 ### NVIDIA Tesla (CUDA) drivers
 
-NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, NCasT4_v3, ND, and NDv2-series VMs (optional for NV-series) are supported only on the operating systems listed in the following table. Driver download links are current at time of publication. For the latest drivers, visit the [NVIDIA](https://www.nvidia.com/) website.
+> [!Note]
+> The Azure NVads A10 v5 VMs only support vGPU 14.1(510.73) or higher driver version. The vGPU driver for the A10 SKU is a unified driver that supports both graphics and compute workloads.
+>
+
+NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, NCasT4_v3, ND, and NDv2-series VMs (optional for NV-series) are tested on the operating systems listed in the following table. CUDA driver is generic and not Azure specific. For the latest drivers, visit the [NVIDIA](https://www.nvidia.com/) website.
 
 > [!TIP]
 > As an alternative to manual CUDA driver installation on a Windows Server VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM editions for Windows Server 2016 pre-install NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
@@ -22,26 +26,52 @@ NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, NCasT4_v3, ND, and NDv2-series V
 
 | OS | Driver |
 | -------- |------------- |
-| Windows Server 2019 | [451.82](http://us.download.nvidia.com/tesla/451.82/451.82-tesla-desktop-winserver-2019-2016-international.exe) (.exe) |
-| Windows Server 2016 | [451.82](http://us.download.nvidia.com/tesla/451.82/451.82-tesla-desktop-winserver-2019-2016-international.exe) (.exe) |
+| Windows Server 2019 | [451.82](https://us.download.nvidia.com/tesla/451.82/451.82-tesla-desktop-winserver-2019-2016-international.exe) (.exe) |
+| Windows Server 2016 | [451.82](https://us.download.nvidia.com/tesla/451.82/451.82-tesla-desktop-winserver-2019-2016-international.exe) (.exe) |
 
 ### NVIDIA GRID drivers
+> [!Note]
+> The Azure NVads A10 v5 VMs only support **vGPU 14.1(510.73) or higher** driver version.
+> Nvs_v3 VMs only support **vGPU 16 or lower** driver version.
+>
 
-Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV-series VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You do not need to set up a NVIDIA vGPU software license server.
+Microsoft redistributes NVIDIA GRID driver installers for NV, NVv3 and NVads A10 v5-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV-series VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You don't need to set up a NVIDIA vGPU software license server.
 
-The GRID drivers redistributed by Azure do not work on non-NV series VMs like NCv2, NCv3, ND, and NDv2-series VMs. The one exception is the NCas_T4_V3 VM series where the GRID drivers will enable the graphics functionalities similar to NV-series.
+The GRID drivers redistributed by Azure don't work on non-NV series VMs like NCv2, NCv3, ND, and NDv2-series VMs. The one exception is the NCas_T4_V3 VM series where the GRID drivers enable the graphics functionalities similar to NV-series.
 
-The NC-Series with Nvidia K80 GPUs do not support GRID/graphics applications.  
+The NC-Series with Nvidia K80 GPUs don't support GRID/graphics applications.  
 
-Please note that the Nvidia extension will always install the latest driver. We provide links to the previous version here for customers, who have dependency on an older version.
+The Nvidia extension always installs the latest driver. 
 
-For Windows Server 2019, Windows Server 2016 1607, 1709, and Windows 10(up to build 20H2):
-- [GRID 12.0 (461.09)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
-- [GRID 11.3 (452.77)](https://download.microsoft.com/download/f/d/5/fd5ad39b-89cb-4990-ae85-a6fd30475584/452.77_grid_win10_server2016_server2019_64bit_azure_swl.exe) (.exe) 
+For Windows 11 22H2/21H2, Windows 10 22H2, Server 2019/2022:
+
+- [GRID 16.3 (538.15)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+
+The following links to previous versions are provided to support dependencies on older driver versions.
+
+For Windows 11, Windows 10  and Server 2019/20
+- [GRID 16.2 (537.13)](https://download.microsoft.com/download/9/d/6/9d6f3611-ff0c-43bc-8958-fe7fb0ded78d/537.13_grid_win10_win11_server2019_server2022_dch_64bit_international_azure_swl.exe) (.exe) 
+
+For Windows Server 2016 1607, 1709:
+- [GRID 14.1 (512.78)](https://download.microsoft.com/download/7/3/6/7361d1b9-08c8-4571-87aa-18cf671e71a0/512.78_grid_win10_win11_server2016_server2019_server2022_64bit_azure_swl.exe) (.exe)  is the last supported driver from NVIDIA. The newer 15.x and above don't support Windows Server 2016. 
 
 For Windows Server 2012 R2: 
-- [GRID 12.0 (461.09)](https://download.microsoft.com/download/c/5/e/c5e7df99-364d-45f5-bff7-c253d59121f1/461.09_grid_server2012R2_64bit_azure_swl.exe) (.exe)
-- [GRID 11.3 (452.77)](https://download.microsoft.com/download/5/4/3/54323644-3c84-4aa1-97ec-35491f94c866/452.77_grid_server2012R2_64bit_azure_swl.exe) (.exe) 
+- [GRID 13.1 (472.39)](https://download.microsoft.com/download/7/3/5/735a46dd-7d61-4852-8e34-28bce7f68727/472.39_grid_win8_win7_64bit_Azure-SWL.exe) (.exe)
+- [GRID 13 (471.68)](https://download.microsoft.com/download/9/b/4/9b4d4f8d-7962-4a67-839b-37cc95756759/471.68_grid_winserver2012R2_64bit_azure_swl.exe) (.exe)
+
+> [!Note]
+> vGPU 15.1/15.2 installer process makes an additional remote call to ngx.download.nvidia.com. This is an unexpected change in behavior and NVIDIA will disable this by default starting with vGPU 15.3 or higher. In the meantime, update the following regkey before installing vGPU 15.1/15.2 driver.
+> >
+> To disable the remote call to ngx. 
+>
+>
+>[HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA Corporation\Global\NGXCore]
+>
+>"EnableOTA"=dword:00000000
+>
+>To enable the remote call again, change the setting to 1 or simply delete the regkey.
 
 
-For the complete list of all previous Nvidia GRID driver links please visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)
+
+
+For links to all previous Nvidia GRID driver versions, visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json).

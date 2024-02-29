@@ -1,10 +1,9 @@
 ---
 title: Tutorial - Azure Toolkit for IntelliJ (Spark application)
 description: Tutorial - Use the Azure Toolkit for IntelliJ to develop Spark applications, which are written in Scala, and submit them to a serverless Apache Spark pool.
-services: synapse-analytics 
 author: jejiang
 ms.author: jejiang
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
@@ -29,13 +28,13 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - [IntelliJ IDEA Community Version](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
-- Azure toolkit plugin 3.27.0-2019.2 – Install from [IntelliJ Plugin repository](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- Azure toolkit plugin 3.27.0-2019.2 – Install from [IntelliJ Plugin repository](/java/azure/intellij/azure-toolkit-for-intellij-installation)
 - [JDK (Version 1.8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - Scala Plugin – Install from [IntelliJ Plugin repository](../../hdinsight/spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 - The following prerequisite is only for Windows users:
 
   While you're running the local Spark Scala application on a Windows computer, you might get an exception, as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). The exception occurs because WinUtils.exe is missing on Windows.
-  To resolve this error, download the [WinUtils executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location such as **C:\WinUtils\bin**. Then, add the environment variable **HADOOP_HOME**, and set the value of the variable to **C:\WinUtils**.
+  To resolve this error, download the [WinUtils executable](https://github.com/steveloughran/winutils/releases/download/tag_2017-08-29-hadoop-2.8.1-native/hadoop-2.8.1.zip) to a location such as **C:\WinUtils\bin**. Then, add the environment variable **HADOOP_HOME**, and set the value of the variable to **C:\WinUtils**.
 
 ## Create a Spark Scala application for a Spark pool
 
@@ -57,8 +56,7 @@ In this tutorial, you learn how to:
     |Project name| Enter a name. This tutorial uses `myApp`.|
     |Project&nbsp;location| Enter the wanted location to save your project.|
     |Project SDK| It might be blank on your first use of IDEA. Select **New...** and navigate to your JDK.|
-    |Spark Version|The creation wizard integrates the proper version for Spark SDK and Scala SDK. Synapse only supports **Spark 2.4.0**.|
-    |||
+    |Spark Version|The creation wizard integrates the proper version for Spark SDK and Scala SDK. Here you can choose the Spark version you need.|
 
     ![Selecting the Apache Spark SDK](./media/intellij-tool-synapse/create-synapse-application02.png)
 
@@ -140,7 +138,7 @@ After creating a Scala application, you can remotely run it.
     |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**) and choosing another class.|
     |Job configurations|You can change the default key and values. For more information, see [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Command-line arguments|You can enter arguments separated by space for the main class if needed.|
-    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen2 cluster. For more information: [Apache Spark Configuration]https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) and [How to upload resources to cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen2 cluster. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) and [How to upload resources to cluster](../../storage/blobs/quickstart-storage-explorer.md).|
     |Job Upload Storage|Expand to reveal additional options.|
     |Storage Type|Select **Use Azure Blob to upload** or **Use cluster default storage account to upload** from the drop-down list.|
     |Storage Account|Enter your storage account.|
@@ -167,7 +165,7 @@ You can follow the instructions below to set up your local run and local debug f
 
     - Environment variables and WinUtils.exe Location are only for windows users.
     - Environment variables: The system environment variable can be auto detected if you have set it before and no need to manually add.
-    - [WinUtils.exe Location](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): You can specify the WinUtils location by selecting the folder icon on the right.
+    - [WinUtils.exe Location](https://github.com/steveloughran/winutils/releases/download/tag_2017-08-29-hadoop-2.8.1-native/hadoop-2.8.1.zip): You can specify the WinUtils location by selecting the folder icon on the right.
 
 2. Then select the local play button.
 

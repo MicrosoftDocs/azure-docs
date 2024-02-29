@@ -1,9 +1,13 @@
 ---
 title: Tutorial - Deploy multi-container group - template 
 description: In this tutorial, you learn how to deploy a container group with multiple containers in Azure Container Instances by using an Azure Resource Manager template with the Azure CLI.
-ms.topic: article
-ms.date: 07/02/2020
-ms.custom: mvc, devx-track-azurecli
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
+ms.custom: mvc, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Tutorial: Deploy a multi-container group using a Resource Manager template
@@ -28,7 +32,7 @@ A Resource Manager template can be readily adapted for scenarios when you need t
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Configure a template
 
@@ -231,8 +235,8 @@ You can also specify a multi-container group using a [YAML file](container-insta
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 [template-reference]: /azure/templates/microsoft.containerinstance/containergroups

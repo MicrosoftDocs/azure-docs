@@ -3,23 +3,15 @@ title: Analyze network security with Security Group View - Azure CLI
 titleSuffix: Azure Network Watcher
 description: This article will describe how to use Azure CLI to analyze a virtual machines security with Security Group View.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: damendo
+ms.date: 12/09/2021
+ms.author: halkazwini
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Analyze your Virtual Machine security with Security Group View using Azure CLI
-
-> [!div class="op_single_selector"]
-> - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [Azure CLI](network-watcher-security-group-view-cli.md)
-> - [REST API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
 > The Security Group View API is no longer being maintained and will be deprecated soon. Please use the [Effective Security Rules feature](./network-watcher-security-group-view-overview.md) which provides the same functionality.
@@ -27,7 +19,7 @@ ms.author: damendo
 
 Security group view returns configured and effective network security rules that are applied to a virtual machine. This capability is useful to audit and diagnose Network Security Groups and rules that are configured on a VM to ensure traffic is being correctly allowed or denied. In this article, we show you how to retrieve the configured and effective security rules to a virtual machine using Azure CLI
 
-To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (CLI)](/cli/azure/install-azure-cli).
+To perform the steps in this article, you need to [install the Azure CLI](/cli/azure/install-azure-cli) for Windows, Linux, or macOS.
 
 ## Before you begin
 
@@ -45,7 +37,7 @@ A virtual machine is required to run the `vm list` cmdlet. The following command
 az vm list -resource-group resourceGroupName
 ```
 
-Once you know the virtual machine, you can use the `vm show` cmdlet to get its resource Id:
+Once you know the virtual machine, you can use the `vm show` cmdlet to get its resource ID:
 
 ```azurecli
 az vm show -resource-group resourceGroupName -name virtualMachineName

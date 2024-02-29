@@ -1,22 +1,27 @@
 ---
 title: Enable TLS with sidecar container
 description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances by running Nginx in a sidecar container
-ms.topic: article
-ms.date: 07/02/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+ms.custom: devx-track-azurecli
+services: container-instances
+ms.topic: how-to
+ms.date: 06/17/2022
 ---
 # Enable a TLS endpoint in a sidecar container
 
 This article shows how to create a [container group](container-instances-container-groups.md) with an application container and a sidecar container running a TLS/SSL provider. By setting up a container group with a separate TLS endpoint, you enable TLS connections for your application without changing your application code.
 
 You set up an example container group consisting of two containers:
-* An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image. 
-* A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use TLS. 
+* An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image.
+* A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use TLS.
 
-In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports. 
+In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container applications that listen on other ports.
 
 See [Next steps](#next-steps) for other approaches to enabling TLS in a container group.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.55 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -106,7 +111,7 @@ http {
 
         location / {
             proxy_pass http://localhost:80; # TODO: replace port if app listens on port other than 80
-            
+
             proxy_set_header Connection "";
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
@@ -140,7 +145,7 @@ code deploy-aci.yaml
 
 Enter the contents of the base64-encoded files where indicated under `secret`. For example, `cat` each of the base64-encoded files to see its contents. During deployment, these files are added to a [secret volume](container-instances-volume-secret.md) in the container group. In this example, the secret volume is mounted to the Nginx container.
 
-```YAML
+```yaml
 api-version: 2019-12-01
 location: westus
 name: app-with-ssl
@@ -148,7 +153,7 @@ properties:
   containers:
   - name: nginx-with-ssl
     properties:
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       ports:
       - port: 443
         protocol: TCP
@@ -236,4 +241,4 @@ If you deploy your container group in an [Azure virtual network](container-insta
 
 * [Azure Functions Proxies](../azure-functions/functions-proxies.md)
 * [Azure API Management](../api-management/api-management-key-concepts.md)
-* [Azure Application Gateway](../application-gateway/overview.md) - see a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
+* [Azure Application Gateway](../application-gateway/overview.md) - see a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress-vnet).

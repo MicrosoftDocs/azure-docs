@@ -2,7 +2,8 @@
 title: Message replication task patterns - Azure Service Bus | Microsoft Docs
 description: This article provides detail guidance for implementing specific message replication task patterns
 ms.topic: article
-ms.date: 12/12/2020
+ms.date: 09/28/2021
+ms.devlang: csharp
 ---
 
 # Message replication tasks patterns
@@ -101,7 +102,7 @@ the subordinate zone corresponding to your primary queue or topic:
 
 | CNAME record                 | Alias
 |------------------------------|-------------------------------------------------------------
-| `servicebus.test.example.com`  | `test1.test.example.com`
+| `servicebus.test.example.com`  | `sb1.test.example.com`
 
 Using a DNS client that allows for querying CNAME and SRV records explicitly
 (the built-in clients of Java and .NET only allow for simple resolution of names
@@ -236,9 +237,9 @@ targets, illustrated here in C#:
 ``` csharp
 [FunctionName("SBRouter")]
 public static async Task Run(
-    [ServiceBusTrigger("source", Connection = "serviceBusConnectionAppSetting")] Message[] messages,
-    [ServiceBus("dest1", Connection = "serviceBusConnectionAppSetting")] QueueClient output1,
-    [ServiceBus("dest2", Connection = "serviceBusConnectionAppSetting")] QueueClient output2,
+    [ServiceBusTrigger("source", Connection = "serviceBusConnectionAppSetting")] ServiceBusReceivedMessage[] messages,
+    [ServiceBusOutput("dest1", Connection = "serviceBusConnectionAppSetting")] IAsyncCollector<dynamic> output1,
+    [ServiceBusOutput("dest2", Connection = "serviceBusConnectionAppSetting")] IAsyncCollector<dynamic> output2,
     ILogger log)
 {
     foreach (Message messageData in messages)

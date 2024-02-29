@@ -4,16 +4,16 @@ description: Provides an overview of the implementation of managed identities in
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
+ms.date: 05/24/2023
 ---
 
 # Managed identities in Azure HDInsight
 
-A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Azure AD. Or maintain credentials such as certificates.
+A managed identity is an identity registered in Microsoft Entra whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Microsoft Entra ID. Or maintain credentials such as certificates.
 
-Managed identities are used in Azure HDInsight to access Azure AD domain services or access files in Azure Data Lake Storage Gen2 when needed.
+Managed identities are used in Azure HDInsight to access Microsoft Entra Domain Services or access files in Azure Data Lake Storage Gen2 when needed.
 
-There are two types of managed identities: user-assigned and system-assigned. Azure HDInsight supports only user-assigned managed identities. HDInsight doesn't support system-assigned managed identities. A user-assigned managed identity is created as a standalone Azure resource, which you can then assign to one or more Azure service instances. In contrast, a system-assigned managed identity is created in Azure AD and then enabled directly on a particular Azure service instance automatically. The life of that system-assigned managed identity is then tied to the life of the service instance that it's enabled on.
+There are two types of managed identities: user-assigned and system-assigned. Azure HDInsight supports only user-assigned managed identities. HDInsight doesn't support system-assigned managed identities. A user-assigned managed identity is created as a standalone Azure resource, which you can then assign to one or more Azure service instances. In contrast, a system-assigned managed identity is created in Microsoft Entra ID and then enabled directly on a particular Azure service instance automatically. The life of that system-assigned managed identity is then tied to the life of the service instance that it's enabled on.
 
 ## HDInsight managed identity implementation
 
@@ -40,11 +40,11 @@ Managed identities are used in Azure HDInsight in multiple scenarios. See the re
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Customer-managed key disk encryption](disk-encryption.md)
 
-HDInsight will automatically renew the certificates for the managed identities you use for these scenarios. However, there is a limitation when multiple different managed identities are used for long running clusters, the certificate renewal may not work as expected for all of the managed identities. Due to this limitation, if you are planning to use long running clusters (e.g. more than 60 days), we recommend to use the same managed identity for all of the above scenarios. 
+HDInsight will automatically renew the certificates for the managed identities you use for these scenarios. However, there is a limitation when multiple different managed identities are used for long running clusters, the certificate renewal may not work as expected for all of the managed identities. Due to this limitation, we recommend to use the same managed identity for all of the above scenarios. 
 
 If you have already created a long running cluster with multiple different managed identities and are running into one of these issues:
  * In ESP clusters, cluster services starts failing or scale up and other operations start failing with authentications errors.
- * In ESP clusters, when changing AAD-DS LDAPS cert, the LDAPS certificate does not automatically get updated and therefore LDAP sync and scale ups start failing.
+ * In ESP clusters, when changing Microsoft Entra Domain Services LDAPS cert, the LDAPS certificate does not automatically get updated and therefore LDAP sync and scale ups start failing.
  * MSI access to ADLS Gen2 start failing.
  * Encryption Keys can not be rotated in the CMK scenario.
 

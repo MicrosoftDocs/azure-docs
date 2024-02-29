@@ -2,19 +2,11 @@
 title: Develop for Azure NetApp Files with REST API | Microsoft Docs
 description: The REST API for the Azure NetApp Files service defines HTTP operations for resources such as the NetApp account, the capacity pool, the volumes, and snapshots.
 services: azure-netapp-files
-documentationcenter: ''
-author: b-juche
-manager: ''
-editor: ''
-
-ms.assetid:
+author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 06/02/2020
-ms.author: b-juche
+ms.date: 09/30/2022
+ms.author: anfdocs
 ---
 # Develop for Azure NetApp Files with REST API 
 
@@ -22,21 +14,28 @@ The REST API for the Azure NetApp Files service defines HTTP operations against 
 
 ## Azure NetApp Files REST API specification
 
-The REST API specification for Azure NetApp Files is published through [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
+The REST API specification for Azure NetApp Files is published through [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager):
 
-`https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
+`https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager`
 
+## Considerations
+
+* When the API limit has been exceeded, the HTTP response code is **429**. For example:
+
+   `"Microsoft.Azure.ResourceProvider.Common.Exceptions.ResourceProviderException: Error getting Pool. Rate limit exceeded for this endpoint - try again later ---> CloudVolumes.Service.Client.Client.ApiException: Error calling V2DescribePool: {\"code\":429,\"message\":\"Rate limit exceeded for this endpoint - try again later\"}`
+   
+   This response code can come from throttling or a temporary condition. See [Azure Resource Manager HTTP 429 response code](../azure-resource-manager/management/request-limits-and-throttling.md#error-code) for more information.
 
 ## Access the Azure NetApp Files REST API  
 
-1. [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven't done so already.
-2. Create a service principal in your Azure Active Directory (Azure AD):
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) if you haven't done so already.
+2. Create a service principal in your Microsoft Entra ID:
    1. Verify that you have [sufficient permissions](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
    2. Enter the following command in the Azure CLI: 
     
         ```azurecli
-        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE
+        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE --role Contributor --scopes /subscriptions/{subscription-id}
         ```
 
       The command output is similar to the following example:  
@@ -73,14 +72,14 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 4. Send a test call and include the token to validate your access to the REST API:
 
     ```azurecli
-    curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2019-11-01
+    curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2022-05-01
     ```
 
 ## Examples using the API  
 
 This article uses the following URL for the baseline of requests. This URL points to the root of the Azure NetApp Files namespace. 
 
-`https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01`
+`https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2022-05-01`
 
 You should replace the `SUBIDGOESHERE` and `RESOURCEGROUPGOESHERE` values in the following examples with your own values. 
 
@@ -90,22 +89,22 @@ You use a GET request to query objects of Azure NetApp Files in a subscription, 
 
 ```azurecli
 #get NetApp accounts 
-curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2022-05-01
 ```
 
 ```azurecli
 #get capacity pools for NetApp account 
-curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools?api-version=2019-11-01
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools?api-version=2022-05-01
 ```
 
 ```azurecli
 #get volumes in NetApp account & capacity pool 
-curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes?api-version=2019-11-01
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes?api-version=2022-05-01
 ```
 
 ```azurecli
 #get snapshots for a volume 
-curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/VOLUMEGOESHERE/snapshots?api-version=2019-11-01
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/VOLUMEGOESHERE/snapshots?api-version=2022-05-01
 ```
 
 ### PUT request examples
@@ -114,22 +113,22 @@ You use a PUT request to create new objects in Azure NetApp Files, as the follow
 
 ```azurecli
 #create a NetApp account  
-curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE?api-version=2019-11-01
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE?api-version=2022-05-01
 ```
 
 ```azurecli
 #create a capacity pool  
-curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE?api-version=2019-11-01
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE?api-version=2022-05-01
 ```
 
 ```azurecli
 #create a volume  
-curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME?api-version=2019-11-01
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME?api-version=2022-05-01
 ```
 
 ```azurecli
  #create a volume snapshot  
-curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME/Snapshots/SNAPNAME?api-version=2019-11-01
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME/Snapshots/SNAPNAME?api-version=2022-05-01
 ```
 
 ### JSON examples

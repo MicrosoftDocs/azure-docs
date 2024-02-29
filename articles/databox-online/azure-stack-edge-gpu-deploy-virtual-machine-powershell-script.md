@@ -6,15 +6,16 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 05/24/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using an Azure PowerShell script so that I can efficiently manage my VMs.
 ---
 
 # Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell script
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using an Azure PowerShell script.
 
@@ -38,7 +39,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     1. Start **Notepad** as an administrator (Administrator privileges is required to save the file), and then open the **hosts** file located at `C:\Windows\System32\Drivers\etc`.
     
-        ![Windows Explorer hosts file](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file.png)
+        ![Windows Explorer hosts file](media/azure-stack-edge-gpu-connect-resource-manager/hosts-file.png)
     
     2. Add the following entries to your **hosts** file replacing with appropriate values for your device:
     
@@ -51,7 +52,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     3. Use the following image for reference. Save the **hosts** file.
 
-        ![hosts file in Notepad](media/azure-stack-edge-j-series-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
+        ![hosts file in Notepad](media/azure-stack-edge-gpu-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
 
 2. [Download the PowerShell script](https://aka.ms/ase-vm-powershell) used in this procedure.
 
@@ -189,7 +190,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     Location             : DBELocal
     Tags                 :
     
-     New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig201221071831  -ResourceGroupName rg201221071831
+     New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig201221071831  -ResourceGroupName rg201221071831 -HyperVGeneration V1
     
     ResourceGroupName    : rg201221071831
     SourceVirtualMachine :

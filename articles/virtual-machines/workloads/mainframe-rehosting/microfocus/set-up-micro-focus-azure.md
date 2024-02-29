@@ -1,17 +1,14 @@
 ---
 title: Install Micro Focus Enterprise Server 5.0 and Enterprise Developer 5.0 on Azure | Microsoft Docs
 description: In this article, learn how to install Micro Focus Enterprise Server 5.0 and Enterprise Developer 5.0 on Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter:
-author: maggsl
-ms.author: edprice
-manager: edprice
-editor: edprice
+services: virtual-machines
+author: swread
+ms.author: sread
+manager: mamccrea 
 ms.topic: conceptual
 ms.date: 06/29/2020
-tags:
-keywords:
-ms.service: multiple
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ---
 
 # Install Micro Focus Enterprise Server 5.0 and Enterprise Developer 5.0 on Azure

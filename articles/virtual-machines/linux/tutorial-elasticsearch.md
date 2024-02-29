@@ -1,23 +1,25 @@
 ---
-title: Deploy ElasticSearch on a development virtual machine in Azure 
-description: Tutorial - Install the Elastic Stack onto a development Linux VM in Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
+title: Deploy ElasticSearch on a development virtual machine in Azure
+description: Install the Elastic Stack (ELK) onto a development Linux VM in Azure
+services: virtual-machines
 author: rloutlaw
 manager: justhe
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.devlang: azurecli
-ms.topic: tutorial
+ms.custom: devx-track-azurecli
+ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: routlaw
 ---
 
-# Install the Elastic Stack on an Azure VM
+# Install the Elastic Stack (ELK) on an Azure VM
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article walks you through how to deploy [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash), and [Kibana](https://www.elastic.co/products/kibana), on an Ubuntu VM in Azure. To see the Elastic Stack in action, you can optionally connect to Kibana  and work with some sample logging data. 
+
+Additionally, you can follow the [Deploy Elastic on Azure Virtual Machines](/training/modules/deploy-elastic-azure-virtual-machines/) module for a more guided tutorial on deploying Elastic on Azure Virtual Machines.   
 
 In this tutorial you learn how to:
 
@@ -30,7 +32,7 @@ In this tutorial you learn how to:
 
  This deployment is suitable for basic development with the Elastic Stack. For more on the Elastic Stack, including recommendations for a production environment, see the [Elastic documentation](https://www.elastic.co/guide/index.html) and the [Azure Architecture Center](/azure/architecture/elasticsearch/).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -54,7 +56,7 @@ The following example creates a VM named *myVM* and creates SSH keys if they do 
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
@@ -159,7 +161,7 @@ Test Logstash in interactive mode to make sure it's working correctly:
 sudo /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 ```
 
-This is a basic logstash [pipeline](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) that echoes standard input to standard output. 
+This is a basic Logstash [pipeline](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) that echoes standard input to standard output. 
 
 ```output
 The stdin plugin is now waiting for input:

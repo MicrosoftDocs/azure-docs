@@ -1,0 +1,84 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ Azure VM sizes with no local temporary disk 
+  description: This article provides answers to frequently asked questions (FAQ) about Microsoft Azure VM sizes that don’t have local temporary disk. 
+  author: brbell 
+  ms.service: virtual-machines 
+  ms.topic: faq
+  ms.subservice: sizes
+  ms.author: brbell
+  ms.reviewer: mimckitt
+  ms.date: 06/15/2020 
+title: Azure VM sizes with no local temporary disk 
+summary: |
+  > [!TIP]
+  > Try the **[Virtual Machine selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
+
+  This article provides answers to frequently asked questions (FAQ) about Azure VM sizes that don't have a local temporary disk (that is, no local temp disk).
+  
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          What does no local temp disk mean? 
+        answer: |
+          Traditionally, we have had VM sizes (for example, Standard_D2s_v3, Standard_E48_v3) that include a small local disk (that is, a D: Drive). With the VM series such as [Dasv5](dasv5-dadsv5-series.md) and [Easv5](easv5-eadsv5-series.md) that small local disk no longer exists. However, you can still attach Standard HDD, Premium SSD or Ultra SSD to use as remote storage.
+          
+      - question: |
+          What if I still want a local temp disk?
+        answer: |
+          If your workload requires a local temporary disk, we still offer sizes such as the [Dadsv5](dasv5-dadsv5-series.md). 
+          
+          > [!NOTE]
+          > Local temporary disk isn't persistent; to ensure your data is persistent, please use Standard HDD, Premium SSD or Ultra SSD options. 
+
+          
+      - question: |
+          Can I resize a VM size that has a local temp disk to a VM size with no local temp disk?  
+        answer: |
+          No. The only combinations allowed for resizing are: 
+          
+          1. VM (with local temp disk) -> VM (with local temp disk); and 
+          2. VM (with no local temp disk) -> VM (with no local temp disk). 
+          
+          If interested in a work around, please see next question.
+          
+          > [!NOTE]
+          > If an image depends on the resource disk, or a pagefile or swapfile exists on the local temp disk, the diskless images won't work—instead, use the ‘with disk’ alternative. 
+          
+      - question: |
+          How do I migrate from a VM size with local temp disk to a VM size with no local temp disk?  
+        answer: |
+          You can migrate by following these steps: 
+          
+          1. Connect to your Virtual Machine that has a local temporary disk (for example, a D: Drive) as a local admin.
+          2. Follow the guidelines on the "Temporarily move pagefile.sys to C drive" section of [Use the D: drive as a data drive on a Windows VM](./windows/change-drive-letter.md) to move the page file from the local temporary disk (D: drive) to the C: drive.
+          
+             > [!NOTE]
+             > Follow the guidelines on the "Temporarily move pagefile.sys to C drive" section of Use the D: drive as a data drive on a Windows VM to move page file from the local temporary disk (D: drive) to C: drive. **Deviation from the steps outlined will lead to the error message - "Unable to resize the VM since changing from resource disk to non-resource disk VM size and vice-versa is not allowed.**
+          
+          3. Take a snapshot of the VM by following the steps outlined in [Create a snapshot using the portal or Azure CLI](./linux/snapshot-copy-managed-disk.md). 
+          4. Use snapshot to create a new diskless VM (such as, Dv5, Dsv5, Dasv5, Ev5, Esv5, Easv5 series) by following the steps outlined in [Create a virtual machine from a snapshot with CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot). 
+          
+      - question: |
+          Do these VM sizes support both Linux and Windows Operating Systems (OS)?
+        answer: |
+          Yes.
+
+      - question: |
+          Will this break my custom scripts, custom images or OS images that have scratch files or page files on a local temp disk?
+        answer: |
+          If the custom OS image points to the local temp disk, the image might not work correctly with this diskless size.
+          
+additionalContent: |
+
+  ## Next steps
+  
+  In this document, you learned more about the most frequent questions related to Azure VMs with no local temp disk. For more information about these VM sizes, see the following articles:
+  
+  - [Specifications for Dv5 and Dsv5-series](dv5-dsv5-series.md)
+  - [Specifications for Dasv5 and Dadsv5-series](dasv5-dadsv5-series.md)
+  - [Specifications for Ev5 and Esv5-series](ev5-esv5-series.md)
+  - [Specifications for Easv5 and Eadsv5-series](easv5-eadsv5-series.md)
+  

@@ -5,8 +5,10 @@ tags: azure-service-management
 
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
-ms.date: 07/07/2020
-ms.custom: mvc
+ms.date: 12/06/2022
+ms.custom: mvc, devx-track-azurepowershell
+ms.author: msangapu
+author: msangapu-msft
 ---
 # PowerShell samples for Azure App Service
 

@@ -1,10 +1,8 @@
 ---
 title: Deploy modules at scale using Visual Studio Code - Azure IoT Edge
 description: Use the IoT extension for Visual Studio Code to create automatic deployments for groups of IoT Edge devices.
-keywords: 
-author: kgremban
-manager: philmea
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
@@ -12,6 +10,8 @@ services: iot-edge
 ---
 
 # Deploy IoT Edge modules at scale using Visual Studio Code
+
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 You can create an **IoT Edge automatic deployment** using Visual Studio Code to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](../iot-hub/iot-hub-automatic-device-management.md) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices. You can also track the status and health of the modules, and make changes when necessary.
 
@@ -27,7 +27,8 @@ In this article, you set up Visual Studio Code and the IoT extension. You then l
   If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
 
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) for Visual Studio Code.
+* [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+* [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ## Sign in to access your IoT hub
 
@@ -77,7 +78,7 @@ Here's a basic deployment manifest with one module as an example:
             "edgeAgent": {
               "type": "docker",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
                 "createOptions": "{}"
               }
             },
@@ -86,7 +87,7 @@ Here's a basic deployment manifest with one module as an example:
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
@@ -131,7 +132,7 @@ If you need to determine which IoT Edge devices you can currently configure, run
 
 ## Identify devices with target conditions
 
-To identify the IoT Edge devices that are to receive the deployment, you must specify a target condition. A target condition is met when specified criteria is matched by a deviceId, tag value, or a reported property value.
+To identify the IoT Edge devices that are to receive the deployment, you must specify a target condition. A target condition is met when specified criteria are matched by a deviceId, tag value, or a reported property value.
 
 You configure tags in the device twin. Here is an example of a device twin that has tags:
 
@@ -217,7 +218,7 @@ After you have configured the deployment manifest and configured tags in the dev
 
 1. Provide values as prompted, starting with the **deployment ID**.
 
-   ![Specify a deployment ID](./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png)
+   :::image type="content" source="./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png" alt-text="Screenshot showing how to specify a deployment ID.":::
 
    Specify values for these parameters:
 

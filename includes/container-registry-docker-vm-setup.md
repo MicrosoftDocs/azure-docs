@@ -7,7 +7,7 @@ ms.author: danlep
 ---
 ## Create a Docker-enabled virtual machine
 
-For test purposes, use a Docker-enabled Ubuntu VM to access an Azure container registry. To use Azure Active Directory authentication to the registry, also install the [Azure CLI][azure-cli] on the VM. If you already have an Azure virtual machine, skip this creation step.
+For test purposes, use a Docker-enabled Ubuntu VM to access an Azure container registry. To use Microsoft Entra authentication to the registry, also install the [Azure CLI][azure-cli] on the VM. If you already have an Azure virtual machine, skip this creation step.
 
 You may use the same resource group for your virtual machine and your container registry. This setup simplifies clean-up at the end but isn't required. If you choose to create a separate resource group for the virtual machine and virtual network, run [az group create][az-group-create]. The following example assumes you've set environment variables for the resource group name and registry location:
 
@@ -23,7 +23,7 @@ VM_NAME=myDockerVM
 az vm create \
   --resource-group $RESOURCE_GROUP \
   --name $VM_NAME \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -61,7 +61,7 @@ This message shows that your installation appears to be working correctly.
 
 ### Install the Azure CLI
 
-Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) to install the Azure CLI on your Ubuntu virtual machine. For example:
+Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt) to install the Azure CLI on your Ubuntu virtual machine. For example:
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
@@ -70,5 +70,5 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 Exit the SSH connection.
 
 [azure-cli]: /cli/azure/install-azure-cli
-[az-vm-create]: /cli/azure/vm#az-vm-create
+[az-vm-create]: /cli/azure/vm#az_vm_create
 [az-group-create]: /cli/azure/group

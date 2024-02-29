@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 
 # Tutorial: Use serverless SQL pool with Power BI Desktop & create a report
@@ -31,7 +31,7 @@ To complete this tutorial, you need the following prerequisites:
 
 Optional:
 
-- A SQL query tool, such as [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- A SQL query tool, such as [Azure Data Studio](/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 Values for the following parameters:
 

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Use Azure Kinect calibration functions
 description: Learn how to use the calibration functions for Azure Kinect DK.
 author: cdedmonds
 ms.author: cedmonds
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, coordinate system, calibration, functions, camera, intrinsic, extrinsic, project, unproject, transformation, rgb-d, point cloud

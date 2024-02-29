@@ -2,7 +2,10 @@
 title: ACR Tasks overview
 description: An introduction to ACR Tasks, a suite of features in Azure Container Registry that provides secure, automated container image build, management, and patching in the cloud.
 ms.topic: article
-ms.date: 08/12/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 01/24/2024
+ms.service: container-registry
 ---
 
 # Automate container image builds and maintenance with ACR Tasks
@@ -12,6 +15,9 @@ Containers provide new levels of virtualization, isolating application and devel
 ## What is ACR Tasks?
 
 **ACR Tasks** is a suite of features within Azure Container Registry. It provides cloud-based container image building for [platforms](#image-platforms) including Linux, Windows, and ARM, and can automate [OS and framework patching](#automate-os-and-framework-patching) for your Docker containers. ACR Tasks not only extends your "inner-loop" development cycle to the cloud with on-demand container image builds, but also enables automated builds triggered by source code updates, updates to a container's base image, or timers. For example, with base image update triggers, you can automate your OS and application framework patching workflow, maintaining secure environments while adhering to the principles of immutable containers.
+
+>[! IMPORTANT]
+> ACR is temporarily pausing ACR Tasks runs from Azure free credits. This may affect existing Tasks runs. If you encounter problems, open a [support case](../azure-portal/supportability/how-to-create-azure-support-request.md) for our team to provide additional guidance. Please note that existing customers will not be affected by this pause. We will update our documentation notice here whenever the pause is lifted.
 
 ## Task scenarios
 
@@ -34,7 +40,7 @@ The inner-loop development cycle, the iterative process of writing code, buildin
 
 Before you commit your first line of code, ACR Tasks's [quick task](container-registry-tutorial-quick-task.md) feature can provide an integrated development experience by offloading your container image builds to Azure. With quick tasks, you can verify your automated build definitions and catch potential problems prior to committing your code.
 
-Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a [context](#context-locations) (the set of files to build), sends it ACR Tasks and, by default, pushes the built image to its registry upon completion.
+Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a [context](#context-locations) (the set of files to build), sends it to ACR Tasks and, by default, pushes the built image to its registry upon completion.
 
 For an introduction, see the quickstart to [build and run a container image](container-registry-quickstart-task-cli.md) in Azure Container Registry.  
 
@@ -56,12 +62,21 @@ ACR Tasks supports the following triggers when you set a Git repo as the task's 
 | Commit | Yes |
 | Pull request | No |
 
-To configure a source code update trigger, you need to provide the task a personal access token (PAT) to set the webhook in the public or private GitHub or Azure DevOps repo.
-
 > [!NOTE]
 > Currently, ACR Tasks doesn't support commit or pull request triggers in GitHub Enterprise repos.
 
 Learn how to trigger builds on source code commit in the second ACR Tasks tutorial, [Automate container image builds with Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
+
+### Personal access token
+
+To configure a source code update trigger, you need to provide the task a personal access token (PAT) to set the webhook in the public or private GitHub or Azure DevOps repo. Required scopes for the PAT are as follows:
+
+| Repo type |GitHub  |DevOps  |
+|---------|---------|---------|
+|Public repo    | repo:status<br/>public_repo        | Code (Read)        |
+|Private repo   | repo (Full control)    | Code (Read)      |
+
+To create a PAT, see the [GitHub](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) or [Azure DevOps](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) documentation.
 
 ## Automate OS and framework patching
 
@@ -70,7 +85,7 @@ The power of ACR Tasks to truly enhance your container build workflow comes from
 You can set up an ACR task to track a dependency on a base image when it builds an application image. When the updated base image is pushed to your registry, or a base image is updated in a public repo such as in Docker Hub, ACR Tasks can automatically build any application images based on it.
 With this automatic detection and rebuilding, ACR Tasks saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
 
-Learn more about [base image update triggers](container-registry-tasks-base-images.md) for ACR Tasks. And learn how to trigger an image build when a base image is pushed to a container registry in the tutorial [Automate container image builds when a base image is updated in a Azure container registry](container-registry-tutorial-base-image-update.md)
+Learn more about [base image update triggers](container-registry-tasks-base-images.md) for ACR Tasks. And learn how to trigger an image build when a base image is pushed to a container registry in the tutorial [Automate container image builds when a base image is updated in an Azure container registry](container-registry-tutorial-base-image-update.md)
 
 ## Schedule a task
 
@@ -109,7 +124,7 @@ The following table shows examples of supported context locations for ACR Tasks:
 | Artifact in container registry | [OCI artifact](container-registry-oci-artifacts.md) files in a container registry repository. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
-> When using a private Git repo as a context for a task, you need to provide a personal access token (PAT).
+> When using a Git repo as a context for a task triggered by a source code update, you need to provide a [personal access token (PAT)](#personal-access-token).
 
 ## Image platforms
 

@@ -3,11 +3,10 @@ title: Review your Azure Enterprise Agreement bill
 description: Learn how to read and understand your usage and bill for Azure Enterprise Agreements.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/19/2022
 ms.author: banders
 
 ---
@@ -16,6 +15,13 @@ ms.author: banders
 Azure customers with an Enterprise Agreement receive an invoice when they exceed the organization's credit or use services that aren't covered by the credit.
 
 Your organization's credit includes your Azure Prepayment (previously called monetary commitment). Azure Prepayment is the amount your organization paid upfront for usage of Azure services. You can add Azure Prepayment funds to your Enterprise Agreement by contacting your Microsoft account manager or reseller.
+
+> [!NOTE]
+> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](../manage/ea-direct-portal-get-started.md).
+>
+> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
 This tutorial applies only to Azure customers with an Azure Enterprise Agreement.
 
@@ -37,7 +43,7 @@ This section doesn't apply to Azure customers in Australia, Japan, or Singapore.
 You receive an Azure invoice when any of the following events occur during your billing cycle:
 
 - **Service overage**: Your organization's usage charges exceed your credit balance.
-- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance:
+- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance. The services shown are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -70,7 +76,7 @@ This section only applies to Azure customers in Australia, Japan, or Singapore.
 You receive one or more Azure invoices when any of the following events occur:
 
 - **Service overage**: Your organization's usage charges exceed your credit balance.
-- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services:
+- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services. The services shown are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -363,7 +369,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
 ### To access Microsoft Azure Consumption Insights:
 
-1. Go to [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+1. Go to Microsoft Azure Consumption Insights.
 1. Select **Get It Now**.
 1. Provide an enrollment number and the number of months, and then select **Next**.
 1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
@@ -372,7 +378,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
 > [!TIP]
 >
-> - To learn how to generate the API key for your enrollment, see the API Reports help file on the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+> - For more information about API keys, see [API key generation](../manage/enterprise-rest-apis.md#api-key-generation).
 > - For more information about connecting Power BI to your Azure consumption, see [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 
 ### To access the legacy Power BI EA content pack:
@@ -387,77 +393,10 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
     - Number of Months: from 1 to 36
     - Enrollment Number: your enrollment number
 1. Select **Next**.
-1. In **Authentication Key Box**, enter the API key.
+1. In **Authentication Key** box, enter the API key.
 
-    You can get the API key in the Azure Enterprise portal under the **Download Usage** tab. Select **API Access Key**, and then paste the key into the **Account Key** box.
+    You can get the API key in the Azure portal. For more information about API keys, see [API key generation](../manage/enterprise-rest-apis.md#api-key-generation).
 1. Data takes approximately 5-30 minutes to load in Power BI, depending on the size of the data sets.
-
-## Reports FAQ
-
-This section addresses common questions about reports.
-
-### Why is my cost showing as $0?
-
-For **direct enrollment** customers, enterprise administrators can provide account owners and department administrators with access to cost/pricing information on the usage reports. Follow these steps:
-
-1. In the Azure Enterprise portal, select **Manage** on the left navigation.
-1. Select the blue pencil next to DA (department administrator) view charges.
-1. Select **Enabled** and save.
-1. Select the blue pencil next to AO (account owner) view charges.
-1. Select **Enabled** and save.
-
-> [!NOTE]
-> If you're an account owner or department administrator, contact your enterprise administrator to enable the pricing feature.
-
-For **indirect enrollment** customers, contact your partner to check that they've enabled the pricing feature for you. This can only be done by the partner. After you're enabled, you can view the cost and pricing on your enrollment as an enterprise administrator.
-
-Partners, if you want to enable the view charges feature for an account owner or a department administrator, follow the steps under **direct enrollment**.
-
-### Why is there no SKU information on my usage detail report?
-
-The usage detail report doesn't contain SKU information. The report does, however, contain usage information so you can download the price sheet report to obtain the SKU information.
-
-### Why doesn't the total amount on Azure Marketplace match the reports for usage summary and detail?
-
-The Azure Marketplace charges report shows only the usage-based charges. One-time fees aren't shown. See the usage summary page for the most up-to-date usage-based charges and one-time fees.
-
-### Why is there no information on my API report?
-
-API keys expire every six months. If you're having an issue, an enterprise administrator should generate a new API key. Remember to follow the steps on the API Report FAQ.
-
-### Why isn't my Power BI report working?
-
-For issues with Power BI, log a ticket with the [Power BI support team](https://support.powerbi.com).
-
-### Why don't my resource tags show on my reports
-
-Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) article.
-
-### Why does my resource rate change every day?
-
-The resource rate shown in the detailed usage report is a calculated value. It represents the average monthly rate that was charged for the service. The resource rate is calculated from the average of your monthly commitment and your monthly overage charges for a unit of service. The portion of usage charged against your commitment and overage rates change to the day the month closes. Thus, the listed resource rate also changes during the month. The resource rate locks on the fifth day following the end of the month.
-
-### Glossary of processes for calculating the resource rate
-
-- **Total RAW Units:** Consumed quantity in the detailed usage report.
-- **MOCP Resource Per Unit:** The upstream usage system emits the usages for each service in different units. (Preset)
-- **Consumption Per Unit:** Azure Enterprise unit of measure. (Preset)
-- **Price:** Unit price from the Azure Enterprise portal.
-- **Total Cost:** Extended cost from the detailed usage report, or the commitment usage plus overage from the Azure Enterprise portal.
-
-### Charges calculations
-
-- **Convert to consumed MOCP resources** = `ROUND(Total RAW Units * MOCP Resource Per Unit,4)`
-- **Convert to consumed units** = `Consumed MOCP Resources / Consumption per Unit`
-- **Calculate total cost** = `Consumed Units * Price`
-
-### Logic in the Usage Calculation Logic
-
-**Resource Rate** = `Total Cost /(Total RAW Units / MOCP Resource Per Unit)`
-
-The resource rate is derived based on your charges. It might not match the actual unit price in the price sheet.
-
-In the download usage data report, you can see raw resource usage up to six decimal places. This data is used for overage charge calculations. However, usage data shown in the Azure Enterprise portal is rounded to four decimal places for commitment units and truncated to zero decimals for overage units. Under the Azure Enterprise portal, all overage usage is charged for full units only. You might see a large difference between the unit price and the resource rate for usage that is charged as overage or in mixed months.
 
 ## Next steps
 

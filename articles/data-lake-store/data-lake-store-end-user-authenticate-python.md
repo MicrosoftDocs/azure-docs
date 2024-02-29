@@ -1,12 +1,12 @@
 ---
 title: End-user authentication - Python with Data Lake Storage Gen1 - Azure
-description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Azure Active Directory with Python
+description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Microsoft Entra ID with Python
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 ms.custom: has-adal-ref, devx-track-python
 ---
 # End-user authentication with Azure Data Lake Storage Gen1 using Python
@@ -31,7 +31,7 @@ Both these options are discussed in this article. For service-to-service authent
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Create an Azure Active Directory "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Create a Microsoft Entra ID "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Storage Gen1 using Microsoft Entra ID](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## Install the modules
 
@@ -51,37 +51,37 @@ pip install azure-datalake-store
 
 ## Create a new Python application
 
-1. In the IDE of your choice, create a new Python application, for example, **mysample.py**.
+1. In the IDE of your choice, create a new Python application, for example, `mysample.py`.
 
 2. Add the following snippet to import the required modules
 
-	```
-	## Use this for Azure AD authentication
-	from msrestazure.azure_active_directory import AADTokenCredentials
+   ```python
+   ## Use this for Azure AD authentication
+   from msrestazure.azure_active_directory import AADTokenCredentials
 
-	## Required for Azure Data Lake Storage Gen1 account management
-	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
-	from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+   ## Required for Azure Data Lake Storage Gen1 account management
+   from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+   from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-	## Required for Azure Data Lake Storage Gen1 filesystem management
-	from azure.datalake.store import core, lib, multithread
+   ## Required for Azure Data Lake Storage Gen1 filesystem management
+   from azure.datalake.store import core, lib, multithread
 
-	# Common Azure imports
-	import adal
+    # Common Azure imports
+    import adal
     from azure.mgmt.resource.resources import ResourceManagementClient
-	from azure.mgmt.resource.resources.models import ResourceGroup
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
-	## Use these as needed for your application
-	import logging, pprint, uuid, time
-	```
+    ## Use these as needed for your application
+    import logging, pprint, uuid, time
+    ```
 
-3. Save changes to mysample.py.
+3. Save changes to `mysample.py`.
 
 ## End-user authentication with multi-factor authentication
 
 ### For account management
 
-Use the following snippet to authenticate with Azure AD for account management operations on a Data Lake Storage Gen1 account. The following snippet can be used to authenticate your application using multi-factor authentication. Provide the values below for  an existing Azure AD **native** application.
+Use the following snippet to authenticate with Microsoft Entra ID for account management operations on a Data Lake Storage Gen1 account. The following snippet can be used to authenticate your application using multi-factor authentication. Provide the values below for  an existing Microsoft Entra ID **native** application.
 
 ```python
 authority_host_url = "https://login.microsoftonline.com"
@@ -100,7 +100,7 @@ armCreds = AADTokenCredentials(mgmt_token, client_id, resource = RESOURCE)
 
 ### For filesystem operations
 
-Use this to authenticate with Azure AD for filesystem operations on a Data Lake Storage Gen1 account. The following snippet can be used to authenticate your application using multi-factor authentication. Provide the values below for  an existing Azure AD **native** application.
+Use this to authenticate with Microsoft Entra ID for filesystem operations on a Data Lake Storage Gen1 account. The following snippet can be used to authenticate your application using multi-factor authentication. Provide the values below for  an existing Microsoft Entra ID **native** application.
 
 ```console
 adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
@@ -108,7 +108,7 @@ adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure
 
 ## End-user authentication without multi-factor authentication
 
-This is deprecated. For more information, see [Azure Authentication using Python SDK](/azure/python/python-sdk-azure-authenticate).
+This is deprecated. For more information, see [Azure Authentication using Python SDK](/azure/developer/python/sdk/authentication-overview).
 
 ## Next steps
 In this article, you learned how to use end-user authentication to authenticate with Azure Data Lake Storage Gen1 using Python. You can now look at the following articles that talk about how to use Python to work with Azure Data Lake Storage Gen1.

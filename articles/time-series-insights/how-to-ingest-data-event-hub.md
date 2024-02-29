@@ -2,18 +2,17 @@
 title: 'Add an Event Hubs event source - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to add an Azure Event Hubs event source to your Azure Time Series Insights environment.
 ms.service: time-series-insights
-services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.reviewer: v-mamcge, jasonh, kfile
-ms.workload: big-data
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: conceptual
 ms.date: 01/21/2021
-ms.custom: seodec18
 ---
 
 # Add an event hub event source to your Azure Time Series Insights environment
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 This article describes how to use the Azure portal to add an event source that reads data from Azure Event Hubs to your Azure Time Series Insights environment.
 
@@ -22,7 +21,7 @@ This article describes how to use the Azure portal to add an event source that r
 
 ## Prerequisites
 
-- Create an Azure Time Series Insights environment as described in [Create an Azure Time Series Insights environment](./tutorials-set-up-tsi-environment.md).
+- Create an Azure Time Series Insights environment as described in [Create an Azure Time Series Insights environment](./tutorial-set-up-environment.md).
 - Create an event hub. Read [Create an Event Hubs namespace and an event hub by using the Azure portal](../event-hubs/event-hubs-create.md).
 - The event hub must have active message events sent to it. Learn how to [Send events to Azure Event Hubs by using the .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Create a dedicated consumer group in the event hub that the Azure Time Series Insights environment can consume from. Each Azure Time Series Insights event source must have its own dedicated consumer group that isn't shared with any other consumer. If multiple readers consume events from the same consumer group, all readers are likely to exhibit failures. There's a limit of 20 consumer groups per event hub. For details, read the [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md).

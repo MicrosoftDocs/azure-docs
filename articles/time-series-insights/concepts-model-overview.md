@@ -1,18 +1,18 @@
-﻿---
+---
 title: 'Time Series Model - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about Time Series Model in Azure Time Series Insights Gen2.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.workload: big-data
+author: msrsrinivasan
+ms.author: radhsrin
+manager: cnovak
+ms.reviewer: orspodek
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
-ms.custom: seodec18
 ---
 
 # Time Series Model in Azure Time Series Insights Gen2
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 This article describes Time Series Model, the capabilities, and how to start building and updating your own models in the Azure Time Series Insights Gen2 environment.
 
@@ -70,7 +70,7 @@ These components are combined to specify a time series model and to organize you
 
 [![Time Series Model overview chart](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-A time series model can be created and managed through the [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels). Time Series Model settings can be managed through the [Model Settings API](/rest/api/time-series-insights/reference-model-apis).
+A time series model can be created and managed through the [Azure Time Series Insights Explorer](./concepts-ux-panels.md). Time Series Model settings can be managed through the [Model Settings API](/rest/api/time-series-insights/reference-model-apis).
 
 ## Time Series Model instances
 

@@ -1,16 +1,13 @@
 ---
-title: Performance considerations for Azure Traffic Manager | Microsoft Docs
+title: Performance considerations for Azure Traffic Manager
 description: Understand performance on Traffic Manager and how to test performance of your website when using Traffic Manager
 services: traffic-manager
-documentationcenter: ''
-author: duongau
+author: greg-lindsay
 ms.service: traffic-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/16/2017
-ms.author: duau
+ms.topic: conceptual
+ms.date: 01/27/2023
+ms.author: greglin
+ms.custom: template-concept
 ---
 
 # Performance considerations for Traffic Manager
@@ -37,10 +34,6 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 ## Sample tools to measure DNS performance
 
-* [SolveDNS](https://www.solvedns.com/dns-comparison/)
-
-    SolveDNS offers many performance tools. The DNS Comparison tool can show you how long it takes to resolve your DNS name and how that compares to other DNS service providers.
-
 * [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 
     One of the simplest tools is WebSitePulse. Enter the URL to see DNS resolution time, First Byte, Last Byte, and other performance statistics. You can choose from three different test locations. In this example, you see that the first execution shows that DNS lookup takes 0.204 sec.
@@ -50,12 +43,6 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
     Because the results are cached, the second test for the same Traffic Manager endpoint the DNS lookup takes 0.002 sec.
 
     ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
-
-* [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
-
-    Formerly known as the Watch-mouse Check Website tool, this site show you the DNS resolution time from multiple geographic regions simultaneously. Enter the URL to see DNS resolution time, connection time, and speed from several geographic locations. Use this test to see which hosted service is returned for different locations around the world.
-
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
 * [Pingdom](https://tools.pingdom.com/)
 

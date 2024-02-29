@@ -1,25 +1,23 @@
 ---
 title: Create an external ASE
 description: Learn how to create an App Service environment with an app in it, or create a standalone (empty) ASE.
-author: ccompy
-
-ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
+author: madsd
 ms.topic: article
-ms.date: 06/13/2017
-ms.author: ccompy
-ms.custom: seodec18
+ms.date: 03/29/2022
+ms.author: madsd
 ---
 
-# Create an External App Service environment
+# Create an External App Service Environment
 
-Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet).
+> [!IMPORTANT]
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+>
+> As of 29 January 2024, you can no longer create new App Service Environment v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
+>
 
-> [!NOTE]
-> Each App Service Environment has a Virtual IP (VIP), which can be used to contact the App Service Environment.
+Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE):
 
-There are two ways to deploy an App Service Environment (ASE):
-
-- With a VIP on an external IP address, often called an External ASE.
+- With a VIP on an external public facing IP address, often called an External ASE.
 - With the VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an Internal Load Balancer (ILB).
 
 This article shows you how to create an External ASE. For an overview of the ASE, see [An introduction to the App Service Environment][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
@@ -111,7 +109,7 @@ To create an ASE while you create an App Service plan:
 
     ![Pricing tier selection][3]
 
-1. Enter the name for your ASE. This name is used in the addressable name for your apps. If the name of the ASE is _appsvcenvdemo_, the domain name is *.appsvcenvdemo.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.appsvcenvdemo.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of that name.
+1. Enter the name for your ASE. This name is used in the addressable name for your apps. If the name of the ASE is *appsvcenvdemo*, the domain name is *.appsvcenvdemo.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.appsvcenvdemo.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of that name.
 
     ![New App Service plan name][4]
 

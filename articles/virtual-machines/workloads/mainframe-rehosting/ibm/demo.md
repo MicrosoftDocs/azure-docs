@@ -1,18 +1,13 @@
 ---
 title: Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1 | Microsoft Docs
 description: Run an IBM Z Development and Test Environment (zD&T) environment on Azure Virtual Machines (VMs).
-services: virtual-machines-linux
-ms.service: virtual-machines-linux
-ms.subservice: workloads
-documentationcenter:
-author: njray
-manager: edprice
-ms.author: edprice
-editor: edprice
+services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+author: swread
+ms.author: sread
 ms.topic: conceptual
 ms.date: 02/22/2019
-tags:
-keywords:
 ---
 # Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1
 
@@ -68,13 +63,13 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 
 2. Select the **SSH** tab, and then copy the ssh command to the clipboard.
 
-3. Log on to your VM using your credentials and the [SSH client](../../../linux/use-remote-desktop.md) of choice. This demo uses the Linux extensions for Windows 10, which adds a bash shell to the Windows command prompt. PuTTY works just as well.
+3. Log on to your VM using your credentials and the [SSH client](../../../linux/use-remote-desktop.md) of choice. This demo uses the Linux extensions for Windows 10, which adds a bash shell to the Windows command prompt.
 
 4. When logged on, create a directory to upload the IBM packages. Keep in mind Linux is case sensitive. For example, this demo assumes the packages are uploaded to:
 
     `/home/MyUserID/ZDT/adcd/nov2017/volumes`
 
-5. Upload the files using an SSH client such as[WinSCP](https://winscp.net/eng/index.php). Since SCP is a part of SSH , it uses port 22, which is what SSH uses. If your local computer is not Windows, you can type the [scp command](http://man7.org/linux/man-pages/man1/scp.1.html) in your SSH session.
+5. Upload the files using an SSH client such as [WinSCP](https://winscp.net/eng/index.php). Since SCP is a part of SSH , it uses port 22, which is what SSH uses. If your local computer is not Windows, you can type the [scp command](http://man7.org/linux/man-pages/man1/scp.1.html) in your SSH session.
 
 6. Initiate the upload to the Azure VM directory you created, which becomes the image storage for zD&T.
 
@@ -186,8 +181,7 @@ Congratulations! You are now running an IBM mainframe environment on Azure.
 
 - [Mainframe migration: myths and facts](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [IBM DB2 pureScale on Azure](ibm-db2-purescale-azure.md)
-- [Troubleshooting](../../../troubleshooting/index.yml)
-- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

@@ -1,22 +1,23 @@
 ---
 title: Deploy Azure Policy to delegated subscriptions at scale
-description: Learn how Azure Lighthouse lets you deploy a policy definition and policy assignment across multiple tenants.
-ms.date: 11/09/2020
-ms.topic: how-to
+description: Azure Lighthouse lets you deploy a policy definition and policy assignment across multiple tenants.
+ms.date: 05/23/2023
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy Azure Policy to delegated subscriptions at scale
 
 As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../overview.md). Azure Lighthouse allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
 
-This topic shows you how to use [Azure Policy](../../governance/policy/index.yml) to deploy a policy definition and policy assignment across multiple tenants using PowerShell commands. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
+This topic explains how to use [Azure Policy](../../governance/policy/index.yml) to deploy a policy definition and policy assignment across multiple tenants using PowerShell commands. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same processes.
 
 ## Use Azure Resource Graph to query across customer tenants
 
-You can use [Azure Resource Graph](../../governance/resource-graph/index.yml) to query across all subscriptions in the customer tenants that you manage. In this example, we'll identify any storage accounts in these subscriptions that do not currently require HTTPS traffic.  
+You can use [Azure Resource Graph](../../governance/resource-graph/overview.md) to query across all subscriptions in customer tenants that you manage. In this example, we'll identify any storage accounts in these subscriptions that do not currently require HTTPS traffic.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -30,7 +31,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 ## Deploy a policy across multiple customer tenants
 
-The example below shows how to use an [Azure Resource Manager template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json) to deploy a policy definition and policy assignment across delegated subscriptions in multiple customer tenants. This policy definition requires all storage accounts to use HTTPS traffic, preventing the creation of any new storage accounts that don't comply and marking existing storage accounts without the setting as non-compliant.
+The example below shows how to use an [Azure Resource Manager template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json) to deploy a policy definition and policy assignment across delegated subscriptions in multiple customer tenants. This policy definition requires all storage accounts to use HTTPS traffic. It prevents the creation of any new storage accounts that don't comply. Any existing storage accounts without the setting are marked as non-compliant.
 
 ```powershell
 Write-Output "In total, there are $($ManagedSubscriptions.Count) delegated customer subscriptions to be managed"
@@ -46,9 +47,12 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> While you can deploy policies across multiple tenants, currently you can't [view compliance details](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) for non-compliant resources in these tenants.
+
 ## Validate the policy deployment
 
-After you've deployed the Azure Resource Manager template, you can confirm that the policy definition was successfully applied by attempting to create a storage account with **EnableHttpsTrafficOnly** set to **false** in one of your delegated subscriptions. Because of the policy assignment, you should be unable to create this storage account.  
+After you've deployed the Azure Resource Manager template, confirm that the policy definition was successfully applied by attempting to create a storage account with **EnableHttpsTrafficOnly** set to **false** in one of your delegated subscriptions. Because of the policy assignment, you should be unable to create this storage account.  
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -Location eastus -Force).ResourceGroupName `
@@ -85,9 +89,6 @@ foreach ($ManagedSub in $ManagedSubscriptions)
     }
 }
 ```
-
-> [!NOTE]
-> While you can deploy policies across multiple tenants, currently you can't [view compliance details](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) for non-compliant resources in these tenants.
 
 ## Next steps
 

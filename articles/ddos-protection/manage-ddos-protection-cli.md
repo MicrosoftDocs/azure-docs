@@ -1,25 +1,23 @@
 ---
-title: Create and configure an Azure DDoS Protection plan using Azure CLI
+title: 'Quickstart: Create and configure an Azure DDoS Network Protection plan - Azure CLI'
 description: Learn how to create a DDoS Protection Plan using Azure CLI
 services: ddos-protection
-documentationcenter: na
-author: yitoh
+author: AbdullahBell
 ms.service: ddos-protection
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/28/2020
-ms.author: yitoh
-
+ms.topic: quickstart
+ms.custom: devx-track-azurecli
+ms.date: 05/23/2023
+ms.author: abell
 ---
-# Quickstart: Create and configure Azure DDoS Protection Standard using Azure CLI
+# QuickStart: Create and configure Azure DDoS Network Protection using Azure CLI
 
-Get started with Azure DDoS Protection Standard by using Azure CLI. 
+Get started with Azure DDoS Network Protection by using Azure CLI.
 
-A DDoS protection plan defines a set of virtual networks that have DDoS protection standard enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan. 
+A DDoS protection plan defines a set of virtual networks that have DDoS Network Protection enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
 
-In this quickstart, you'll create a DDoS protection plan and link it to a virtual network. 
+In this QuickStart, you'll create a DDoS protection plan and link it to a virtual network.
+
+:::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection.":::
 
 ## Prerequisites
 
@@ -28,13 +26,13 @@ In this quickstart, you'll create a DDoS protection plan and link it to a virtua
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.56 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a DDoS Protection plan
 
 In Azure, you allocate related resources to a resource group. You can either use an existing resource group or create a new one.
 
-To create a resource group, use [az group create](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-create). In this example, we'll name our resource group _MyResourceGroup_ and use the _East US_ location:
+To create a resource group, use [az group create](/cli/azure/group#az-group-create). In this example, we'll name our resource group _MyResourceGroup_ and use the _East US_ location:
 
 ```azurecli-interactive
 az group create \
@@ -61,10 +59,11 @@ az network vnet create \
     --resource-group MyResourceGroup \
     --name MyVnet \
     --location eastus \
+    --ddos-protection-plan MyDdosProtectionPlan \
     --ddos-protection true
 ```
 
-You cannot move a virtual network to another resource group or subscription when DDoS Standard is enabled for the virtual network. If you need to move a virtual network with DDoS Standard enabled, disable DDoS Standard first, move the virtual network, and then enable DDoS standard. After the move, the auto-tuned policy thresholds for all the protected public IP addresses in the virtual network are reset.
+[!INCLUDE [DDoS-Protection-virtual-network-relocate-note.md](../../includes/DDoS-Protection-virtual-network-relocate-note.md)]
 
 ### Enable DDoS protection for an existing virtual network
 
@@ -77,8 +76,8 @@ az group create \
 
 az network ddos-protection create \
     --resource-group MyResourceGroup \
-    --name MyDdosProtectionPlan
-    --vnet MyVnet
+    --name MyDdosProtectionPlan 
+    --vnets MyVnet
 ```
 
 Alternatively, you can enable DDoS protection for a given virtual network:
@@ -86,8 +85,22 @@ Alternatively, you can enable DDoS protection for a given virtual network:
 ```azurecli-interactive
 az network vnet update \
     --resource-group MyResourceGroup \
-    --vnet MyVnet \
+    --name MyVnet \
+    --ddos-protection-plan MyDdosProtectionPlan \
     --ddos-protection true
+```
+
+### Disable DDoS protection for a virtual network
+
+Update a given virtual network to disable DDoS protection:
+
+```azurecli-interactive
+az network vnet update \
+    --resource-group MyResourceGroup \
+    --name MyVnet \
+    --ddos-protection-plan MyDdosProtectionPlan \
+    --ddos-protection false
+    
 ```
 
 ## Validate and test
@@ -104,25 +117,17 @@ Verify that the command returns the correct details of your DDoS protection plan
 
 ## Clean up resources
 
-You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the DDoS protection plan and all its related resources. 
+You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the DDoS protection plan and all its related resources.
 
-To delete the resource group use [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az_group_delete):
+To delete the resource group use [az group delete](/cli/azure/group#az-group-delete):
 
 ```azurecli-interactive
 az group delete \
 --name MyResourceGroup 
 ```
 
-Update a given virtual network to disable DDoS protection:
-
-```azurecli-interactive
-az network vnet update \
-    --resource-group MyResourceGroup \
-    --vnet MyVnet \
-    --ddos-protection false
-```
-
-If you want to delete a DDoS protection plan, you must first dissociate all virtual networks from it. 
+> [!NOTE]
+> If you want to delete a DDoS protection plan, you must first dissociate all virtual networks from it.
 
 ## Next steps
 

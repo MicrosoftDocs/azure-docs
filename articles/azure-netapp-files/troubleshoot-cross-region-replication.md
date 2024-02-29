@@ -1,22 +1,14 @@
 ---
-title: Troubleshoot cross-region-replication for Azure NetApp Files | Microsoft Docs
-description: Describes error messages and resolutions that can help you troubleshoot cross-region replication issues for Azure NetApp Files. 
+title: Troubleshoot cross-region replication errors for Azure NetApp Files | Microsoft Docs
+description: Describes error messages and resolutions that can help you troubleshoot cross-region replication issues for Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
-author: b-juche
-manager: ''
-editor: ''
-
-ms.assetid:
+author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/18/2020
-ms.author: b-juche
+ms.date: 08/02/2022
+ms.author: anfdocs
 ---
-# Troubleshoot cross-region replication
+# Troubleshoot cross-region replication errors
 
 This article describes error messages and resolutions that can help you troubleshoot cross-region replication issues for Azure NetApp Files. 
 
@@ -39,12 +31,20 @@ This article describes error messages and resolutions that can help you troubles
 |     `Remote volume   '{0}' does not have source volume '{1}' as RemoteVolumeResourceId`    |     Data   protection volume does not have this source volume in its remote resource ID   (wrong source ID was entered).    |
 |     `The   destination volume replication creation failed (message: {0})`    |     This error   indicates a server error. Contact Support.    |
 
+## Error breaking replication 
+
+| Error Message | Resolution |
+|-|-|
+| `‘Not able to break a volume replication in an uninitialized state.` | Use re-initialize endpoint to get replication in initialized state or delete the replication and try again. |
+
 ## Errors deleting replication
 
 |     Error Message    |     Resolution    |
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Validate that   either replication has been broken or it is uninitialized and idle (failed   initialization).    |
 |     `Cannot delete   source replication`    |     Deleting the   replication from the source side is not allowed. Make sure that you are   deleting the replication from the destination side.    |
+| Deleting replication in uninitialized state and transferring relationship status: <br> `Replication cannot be deleted while relationship status is transferring.` | Wait until replication is idle and try again. |
+| `Replication cannot be deleted while in Mirrored state` | Break the replication relationship  before proceeding. See [Delete volume replications or volumes](cross-region-replication-delete.md). |
 
 ## Errors deleting volume
 
@@ -66,6 +66,12 @@ This article describes error messages and resolutions that can help you troubles
 |     `Snapshot   cannot be deleted, parent volume is a Data Protection volume with a   replication object`    |     Validate that   you have broken the volume's replication if you want to delete this   snapshot.    |
 |     `Cannot delete   volume replication generated snapshot`    |     Deletion of   replication baseline snapshots is not allowed.    |
 
+## Errors resizing volumes
+
+|     Error Message    |     Resolution    |
+|-|-|
+|   Attempt to resize a source volume is failing with the error `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  Ensure that you have enough headroom in the capacity pools for both the source and the destination volumes of cross-region replication. When you resize the source volume, the destination volume is automatically resized. But if the capacity pool hosting the destination volume doesn’t have enough headroom, the resizing of both the source and the destination volumes will fail. See [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume) for details.   |
+
 ## Next steps  
 
 * [Cross-region replication](cross-region-replication-introduction.md)
@@ -73,4 +79,5 @@ This article describes error messages and resolutions that can help you troubles
 * [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
-* [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+* [Test disaster recovery for Azure NetApp Files](test-disaster-recovery.md)

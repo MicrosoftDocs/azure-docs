@@ -1,7 +1,6 @@
 ---
 title: How to monitor SQL requests in Synapse Studio
 description: Learn how to monitor your SQL requests by using Synapse Studio.
-services: synapse-analytics 
 author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
@@ -54,3 +53,5 @@ To view the details about one of your SQL requests, open the SQL request to navi
 For more information on monitoring pipeline runs, see the [Monitor pipeline runs in Synapse Studio](how-to-monitor-pipeline-runs.md) article. 
 
 For more information on monitoring Apache Spark applications, see the [Monitor Apache Spark applications in Synapse Studio](how-to-monitor-spark-applications.md) article.
+
+To analyze historical queries, see [Historical query storage and analysis in Azure Synapse Analytics](../sql/query-history-storage-analysis.md).

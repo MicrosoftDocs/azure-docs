@@ -1,16 +1,14 @@
 ---
-title: Using user-defined schemas 
+title: Using user-defined schemas
 description: Tips for using T-SQL user-defined schemas to develop solutions for dedicated SQL pools in Azure Synapse Analytics.
-services: synapse-analytics
-author: MSTehrani 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: 04/17/2018
-ms.author: emtehran
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - azure-synapse
 ---
 
 # User-defined schemas for dedicated SQL pools in Azure Synapse Analytics
@@ -120,4 +118,3 @@ FROM    [edw].customer
 
 ## Next steps
 For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
-

@@ -1,26 +1,42 @@
 ---
 title: Add resources to integration service environments
-description: Add logic apps, integration accounts, custom connectors, and managed connectors to your integration service environment (ISE)
+description: Add logic apps, integration accounts, custom connectors, and managed connectors to your integration service environment (ISE).
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: conceptual
-ms.date: 02/28/2020
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/23/2023
 ---
 
 # Add resources to your integration service environment (ISE) in Azure Logic Apps
 
-After you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), add resources such as logic apps, integration accounts, and connectors so that they can access the resources in your Azure virtual network. For example, managed ISE connectors that become available after you create your ISE don't automatically appear in the Logic App Designer. Before you can use these ISE connectors, you have to manually [add and deploy those connectors to your ISE](#add-ise-connectors-environment) so that they appear in the Logic App Designer.
+> [!IMPORTANT]
+>
+> On August 31, 2024, the ISE resource will retire, due to its dependency on Azure Cloud Services (classic), 
+> which retires at the same time. Before the retirement date, export any logic apps from your ISE to Standard 
+> logic apps so that you can avoid service disruption. Standard logic app workflows run in single-tenant Azure 
+> Logic Apps and provide the same capabilities plus more.
+>
+> Starting November 1, 2022, you can no longer create new ISE resources. However, ISE resources existing 
+> before this date are supported through August 31, 2024. For more information, see the following resources:
+>
+> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
+> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+> - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+> - [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
+> - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
+> - [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
+
+After you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), you can add resources such as **Consumption** logic apps, integration accounts, and connectors so that they can access the resources in your Azure virtual network. For example, managed ISE connectors that become available after you create your ISE don't automatically appear in the Logic App Designer. Before you can use these ISE connectors, you have to manually [add and deploy those connectors to your ISE](#add-ise-connectors-environment) so that they appear in the Logic App Designer.
 
 > [!IMPORTANT]
-> For logic apps and integration accounts to work together in an ISE, 
-> both must use the *same ISE* as their location.
+> For logic apps and integration accounts to work together in an ISE, both must use the *same ISE* as their location.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The ISE that you created to run your logic apps. If you don't have an ISE, [create an ISE first](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+* The ISE that you created to run your Consumption logic app workflows
 
 * To create, add, or update resources that are deployed to an ISE, you need to be assigned the Owner or Contributor role on that ISE, or you have permissions inherited through the Azure subscription or Azure resource group associated with the ISE. For people who don't have owner, contributor, or inherited permissions, they can be assigned the Integration Service Environment Contributor role or Integration Service Environment Developer role. For more information, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
 
@@ -28,7 +44,7 @@ After you create an [integration service environment (ISE)](../logic-apps/connec
 
 ## Create logic apps
 
-To build logic apps that run in your integration service environment (ISE), follow these steps:
+To develop logic apps that run in your integration service environment (ISE), follow these steps:
 
 1. Find and open your ISE, if not already open. From the ISE menu, under **Settings**, select **Logic apps** > **Add**.
 
@@ -36,19 +52,21 @@ To build logic apps that run in your integration service environment (ISE), foll
 
 1. Provide information about the logic app that you want to create, for example:
 
-   ![Screenshot that shows the "Logic App" "Create" window with example information entered.](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
+   ![Screenshot that shows the "Create a logic app" pane with example information entered.](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Name** | Yes | The name for the logic app to create |
+   | **Logic app name** | Yes | The name for the logic app to create |
    | **Subscription** | Yes | The name for the Azure subscription to use |
-   | **Resource group** | Yes | The name for the Azure resource group (new or existing) to use |
-   | **Location** | Yes | Under **Integration service environments**, select the ISE to use, if not already selected. <p><p> **Important**: To use your logic apps with an integration account, both must use the same ISE. |
+   | **Resource group** | Yes | The name for the new or existing Azure resource group to use |
+   | **Region** | Yes | The Azure region for your logic app, which matches the location for the ISE that you later select |
+   | **Associate with integration service environment*** | Yes | Select this option so you can choose an ISE to use. |
+   | **Integration service environment** | Yes | From the list, select the ISE that you want to use, if not already selected. <p><p>**Important**: To use an integration account with your logic app, both must use the same ISE. |
    ||||
 
 1. When you're done, select **Create**.
 
-1. Continue [creating your logic app in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. Continue [creating your logic app in the usual way](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
    For differences in how triggers and actions work and how they're labeled when you use an ISE compared to the multi-tenant Logic Apps service, see [Isolated versus multi-tenant in the ISE overview](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
@@ -75,8 +93,8 @@ To create an integration account that uses an ISE, follow these steps:
    | **Name** | Yes | The name for the integration account that you want to create |
    | **Subscription** | Yes | The name for the Azure subscription that you want to use |
    | **Resource group** | Yes | The name for the Azure resource group (new or existing) to use |
-   | **Pricing tier** | Yes | The pricing tier to use for the integration account |
-   | **Location** | Yes | Under **Integration service environments**, select the same ISE that your logic apps use, if not already selected. <p><p> **Important**: To use your integration account with logic apps, both must use the same ISE. |
+   | **Pricing Tier** | Yes | The pricing tier to use for the integration account |
+   | **Location** | Yes | From the list, under **Integration service environments**, select the same ISE that your logic apps use, if not already selected. <p><p>**Important**: To use an integration account with your logic app, both must use the same ISE. |
    ||||
 
 1. When you're done, select **Create**.
@@ -112,7 +130,7 @@ After you create your ISE, managed ISE connectors don't automatically appear in 
 
    ![View managed connectors](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. On the **Add a new managed connector** pane, open the **Find connector** list. Select the ISE connector that you want to use but isn't yet deployed in your ISE. Select **Create**.
+1. On the **Add a new managed connector** pane, open the **Find connector** list. Find and select the ISE connector that you want to use but isn't yet deployed in your ISE. When you're done, select **Create**.
 
    ![Select the ISE connector that you want to deploy in your ISE](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 

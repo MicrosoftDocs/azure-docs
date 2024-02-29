@@ -1,15 +1,17 @@
 ---
-title: Introduction to FreeBSD on Azure 
+title: Introduction to FreeBSD on Azure
 description: Learn about using FreeBSD virtual machines on Azure
 author: thomas1206
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-
 ---
 # Introduction to FreeBSD on Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article provides an overview of running a FreeBSD virtual machine in Azure.
 
 ## Overview
@@ -19,7 +21,13 @@ Microsoft Corporation is making images of FreeBSD available on Azure with the [A
 
 - FreeBSD 10.4 on the Azure Marketplace
 - FreeBSD 11.2 on the Azure Marketplace
+- FreeBSD 11.3 on the Azure Marketplace
 - FreeBSD 12.0 on the Azure Marketplace
+
+The following FreeBSD versions also include the [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/), however, they are offered as images by the FreeBSD Foundation:
+- FreeBSD 11.4 on the Azure Marketplace
+- FreeBSD 12.2 on the Azure Marketplace
+- FreeBSD 13.0 on the Azure Marketplace
 
 The agent is responsible for communication between the FreeBSD VM and the Azure fabric for operations such as provisioning the VM on first use (user name, password or SSH key, host name, etc.) and enabling functionality for selective VM extensions.
 
@@ -38,13 +46,13 @@ If bash is not installed on your FreeBSD machine, run following command before t
 sudo pkg install bash
 ```
 
-If python is not installed on your FreeBSD machine, run following commands before the installation. 
+If Python is not installed on your FreeBSD machine, run following commands before the installation. 
 
 ```bash
-sudo pkg install python35
+sudo pkg install python38
 cd /usr/local/bin 
 sudo rm /usr/local/bin/python 
-sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+sudo ln -s /usr/local/bin/python3.8 /usr/local/bin/python
 ```
 
 During the installation, you are asked `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. If you answer `y` and enter `/etc/rc.conf` as `a path to an rc file to update`, you may meet the problem `ERROR: [Errno 13] Permission denied`. To resolve this problem, you should grant the write right to current user against the file `etc/rc.conf`.

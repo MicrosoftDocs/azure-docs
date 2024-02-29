@@ -5,7 +5,9 @@ author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+
 ---
 # Move mainframe compute to Azure
 
@@ -129,7 +131,6 @@ Each tier can also provide appropriate disaster recovery services. For example, 
 
 ### Azure Government
 
-- [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
 - [Microsoft and FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
 
 ### More migration resources

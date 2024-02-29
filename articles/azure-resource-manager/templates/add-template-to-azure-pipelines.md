@@ -2,19 +2,24 @@
 title: CI/CD with Azure Pipelines and templates
 description: Describes how to configure continuous integration in Azure Pipelines by using Azure Resource Manager templates. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there.
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.date: 05/22/2023
 ---
 # Integrate ARM templates with Azure Pipelines
 
-You can integrate Azure Resource Manager templates (ARM templates) with Azure Pipelines for continuous integration and continuous deployment (CI/CD). The tutorial [Continuous integration of ARM templates with Azure Pipelines](deployment-tutorial-pipeline.md) shows how to use the [ARM template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) to deploy a template from your GitHub repo. This approach works when you want to deploy a template directly from a repository.
+You can integrate Azure Resource Manager templates (ARM templates) with Azure Pipelines for continuous integration and continuous deployment (CI/CD). In this article, you learn two more advanced ways to deploy templates with Azure Pipelines.
 
-In this article, you learn two more ways to deploy templates with Azure Pipelines. This article shows how to:
+## Select your option
 
-* **Add task that runs an Azure PowerShell script**. This option has the advantage of providing consistency throughout the development life cycle because you can use the same script that you used when running local tests. Your script deploys the template but can also perform other operations such as getting values to use as parameters.
+Before proceeding with this article, let's consider the different options for deploying an ARM template from a pipeline.
+
+* **Use ARM template deployment task**. This option is the easiest option. This approach works when you want to deploy a template directly from a repository. This option isn't covered in this article but instead is covered in the tutorial [Continuous integration of ARM templates with Azure Pipelines](deployment-tutorial-pipeline.md). It shows how to use the [ARM template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) to deploy a template from your GitHub repo.
+
+* **Add task that runs an Azure PowerShell script**. This option has the advantage of providing consistency throughout the development life cycle because you can use the same script that you used when running local tests. Your script deploys the template but can also perform other operations such as getting values to use as parameters. This option is shown in this article. See [Azure PowerShell task](#azure-powershell-task).
 
    Visual Studio provides the [Azure Resource Group project](create-visual-studio-deployment-project.md) that includes a PowerShell script. The script stages artifacts from your project to a storage account that Resource Manager can access. Artifacts are items in your project such as linked templates, scripts, and application binaries. If you want to continue using the script from the project, use the PowerShell script task shown in this article.
 
-* **Add tasks to copy and deploy tasks**. This option offers a convenient alternative to the project script. You configure two tasks in the pipeline. One task stages the artifacts to an accessible location. The other task deploys the template from that location.
+* **Add tasks to copy and deploy tasks**. This option offers a convenient alternative to the project script. You configure two tasks in the pipeline. One task stages the artifacts to an accessible location. The other task deploys the template from that location. This option is shown in this article. See [Copy and deploy tasks](#copy-and-deploy-tasks).
 
 ## Prepare your project
 
@@ -30,19 +35,19 @@ This article assumes your ARM template and Azure DevOps organization are ready f
 
 1. If you haven't added a pipeline previously, you need to create a new pipeline. From your Azure DevOps organization, select **Pipelines** and **New pipeline**.
 
-   ![Add new pipeline](./media/add-template-to-azure-pipelines/new-pipeline.png)
+   :::image type="content" source="./media/add-template-to-azure-pipelines/new-pipeline.png" alt-text="Screenshot of the Add new pipeline button":::
 
 1. Specify where your code is stored. The following image shows selecting **Azure Repos Git**.
 
-   ![Select code source](./media/add-template-to-azure-pipelines/select-source.png)
+   :::image type="content" source="./media/add-template-to-azure-pipelines/select-source.png" alt-text="Screenshot of selecting the code source in Azure DevOps":::
 
 1. From that source, select the repository that has the code for your project.
 
-   ![Select repository](./media/add-template-to-azure-pipelines/select-repo.png)
+   :::image type="content" source="./media/add-template-to-azure-pipelines/select-repo.png" alt-text="Screenshot of selecting the repository for the project in Azure DevOps":::
 
 1. Select the type of pipeline to create. You can select **Starter pipeline**.
 
-   ![Select pipeline](./media/add-template-to-azure-pipelines/select-pipeline.png)
+   :::image type="content" source="./media/add-template-to-azure-pipelines/select-pipeline.png" alt-text="Screenshot of selecting the type of pipeline to create in Azure DevOps":::
 
 You're ready to either add an Azure PowerShell task or the copy file and deploy tasks.
 
@@ -97,13 +102,13 @@ ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateF
 
 When you select **Save**, the build pipeline is automatically run. Go back to the summary for your build pipeline, and watch the status.
 
-![View results](./media/add-template-to-azure-pipelines/view-results.png)
+:::image type="content" source="./media/add-template-to-azure-pipelines/view-results.png" alt-text="Screenshot of the pipeline results view in Azure DevOps":::
 
 You can select the currently running pipeline to see details about the tasks. When it finishes, you see the results for each step.
 
 ## Copy and deploy tasks
 
-This section shows how to configure continuous deployment by using a two tasks. The first task stages the artifacts to a storage account and the second task deploy the template.
+This section shows how to configure continuous deployment by using two tasks. The first task stages the artifacts to a storage account and the second task deploys the template.
 
 To copy files to a storage account, the service principal for the service connection must be assigned the Storage Blob Data Contributor or Storage Blob Data Owner role. For more information, see [Get started with AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 
@@ -168,20 +173,20 @@ The following YAML shows the [Azure Resource Manager template deployment task](h
 
 There are several parts of this task to review in greater detail.
 
-- `deploymentScope`: Select the scope of deployment from the options: `Management Group`, `Subscription`, and `Resource Group`. To learn more about the scopes, see [Deployment scopes](deploy-rest.md#deployment-scope).
+* `deploymentScope`: Select the scope of deployment from the options: `Management Group`, `Subscription`, and `Resource Group`. To learn more about the scopes, see [Deployment scopes](deploy-rest.md#deployment-scope).
 
-- `azureResourceManagerConnection`: Provide the name of the service connection you created.
+* `azureResourceManagerConnection`: Provide the name of the service connection you created.
 
-- `subscriptionId`: Provide the target subscription ID. This property only applies to the Resource Group deployment scope and the subscription deployment scope.
+* `subscriptionId`: Provide the target subscription ID. This property only applies to the Resource Group deployment scope and the subscription deployment scope.
 
-- `resourceGroupName` and `location`: provide the name and location of the resource group you want to deploy to. The task creates the resource group if it doesn't exist.
+* `resourceGroupName` and `location`: provide the name and location of the resource group you want to deploy to. The task creates the resource group if it doesn't exist.
 
    ```yml
    resourceGroupName: '<resource-group-name>'
    location: '<location>'
    ```
 
-- `csmFileLink`: Provide the link for the staged template. When setting the value, use variables returned from the file copy task. The following example links to a template named mainTemplate.json. The folder named **templates** is included because that where the file copy task copied the file to. In your pipeline, provide the path to your template and the name of your template.
+* `csmFileLink`: Provide the link for the staged template. When setting the value, use variables returned from the file copy task. The following example links to a template named mainTemplate.json. The folder named **templates** is included because that where the file copy task copied the file to. In your pipeline, provide the path to your template and the name of your template.
 
    ```yml
    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
@@ -220,8 +225,9 @@ steps:
     deploymentName: 'deploy1'
 ```
 
-When you select **Save**, the build pipeline is automatically run. Go back to the summary for your build pipeline, and watch the status.
+When you select **Save**, the build pipeline is automatically run. Under the **Jobs** frame, select **Job** to see the job status.
 
 ## Next steps
 
-To learn about using ARM templates with GitHub Actions, see [Deploy Azure Resource Manager templates by using GitHub Actions](deploy-github-actions.md).
+* To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
+* To learn about using ARM templates with GitHub Actions, see [Deploy Azure Resource Manager templates by using GitHub Actions](deploy-github-actions.md).

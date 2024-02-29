@@ -2,11 +2,11 @@
 title: Get started with Azure Data Lake Storage Gen1 - portal
 description: Use the Azure portal to create a Data Lake Storage Gen1 account and perform basic operations in the account.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Get started with Azure Data Lake Storage Gen1 using the Azure portal
@@ -70,9 +70,9 @@ If you used keys from an Azure Key Vault to configure encryption on the Data Lak
 
 > [!NOTE]
 > You can also create a Data Lake Storage Gen1 account using Azure Resource Manager templates. These templates are accessible from [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
-> * Without data encryption: [Deploy Azure Data Lake Storage Gen1 account with no data encryption](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-> * With data encryption using Data Lake Storage Gen1: [Deploy Data Lake Storage Gen1 account with encryption(Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-> * With data encryption using Azure Key Vault: [Deploy Data Lake Storage Gen1 account with encryption(Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> * Without data encryption: [Deploy Azure Data Lake Storage Gen1 account with no data encryption](https://azure.microsoft.com/resources/templates/data-lake-store-no-encryption/).
+> * With data encryption using Data Lake Storage Gen1: [Deploy Data Lake Storage Gen1 account with encryption(Data Lake)](https://azure.microsoft.com/resources/templates/data-lake-store-encryption-adls/).
+> * With data encryption using Azure Key Vault: [Deploy Data Lake Storage Gen1 account with encryption(Key Vault)](https://azure.microsoft.com/resources/templates/data-lake-store-encryption-key-vault/).
 >
 >
 
@@ -111,7 +111,7 @@ Click the ellipsis icon against a file, and from the pop-up menu, click the acti
 
 ## Secure your data
 
-You can secure the data stored in your Data Lake Storage Gen1 account using Azure Active Directory and access control (ACLs). For instructions on how to do that, see [Securing data in Azure Data Lake Storage Gen1](data-lake-store-secure-data.md).
+You can secure the data stored in your Data Lake Storage Gen1 account using Microsoft Entra ID and access control (ACLs). For instructions on how to do that, see [Securing data in Azure Data Lake Storage Gen1](data-lake-store-secure-data.md).
 
 ## Delete your account
 

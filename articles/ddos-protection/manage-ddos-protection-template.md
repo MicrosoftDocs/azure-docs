@@ -1,28 +1,24 @@
 ---
-title: Create and enable an Azure DDoS Protection plan using an Azure Resource Manager template (ARM template).
+title: 'Quickstart: Create and configure Azure DDoS Network Protection - ARM template'
 description: Learn how to create and enable an Azure DDoS Protection plan using an Azure Resource Manager template (ARM template).
 services: ddos-protection
-documentationcenter: na
-author: mumian
+author: AbdullahBell
 ms.service: ddos-protection
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.custom: subject-armqs
-ms.author: jgao
-ms.date: 01/14/2021
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.author: abell
+ms.date: 11/06/2023
 ---
 
-# Quickstart: Create an Azure DDoS Protection Standard using ARM template
+# Quickstart: Create and configure Azure DDoS Network Protection using ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a distributed denial of service (DDoS) protection plan and virtual network (VNet), then enables the protection plan for the VNet. An Azure DDoS Protection Standard plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a distributed denial of service (DDoS) protection plan and virtual network (VNet), then enables the protection plan for the VNet. An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-create-and-enable-ddos-protection-plans%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fcreate-and-enable-ddos-protection-plans%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -30,9 +26,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-create-and-enable-ddos-protection-plans).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/create-and-enable-ddos-protection-plans).
 
-:::code language="json" source="~/quickstart-templates/101-create-and-enable-ddos-protection-plans/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/create-and-enable-ddos-protection-plans/azuredeploy.json":::
 
 The template defines two resources:
 
@@ -45,7 +41,7 @@ In this example, the template creates a new resource group, a DDoS protection pl
 
 1. To sign in to Azure and open the template, select the **Deploy to Azure** button.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-create-and-enable-ddos-protection-plans%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fcreate-and-enable-ddos-protection-plans%2Fazuredeploy.json)
 
 1. Enter the values to create a new resource group, DDoS protection plan, and VNet name.
 

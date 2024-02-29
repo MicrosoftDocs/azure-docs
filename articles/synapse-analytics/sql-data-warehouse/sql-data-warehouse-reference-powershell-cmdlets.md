@@ -1,23 +1,24 @@
 ---
 title: PowerShell & REST APIs for dedicated SQL pool (formerly SQL DW)
 description: Top PowerShell cmdlets for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics including how to pause and resume a database.
-services: synapse-analytics
-author: kevinvngo
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: 04/17/2018
-ms.author: kevin
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - devx-track-azurepowershell
 ---
 
-# PowerShell & REST APIs for for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
+# PowerShell for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
 Many dedicated SQL pool administrative tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your dedicated SQL pool (formerly SQL DW).  For some good REST examples, see the article [Manage scalability with REST](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> This article applies for standalone dedicated SQL pools (formerly SQL DW) and are not applicable to a dedicated SQL pool created in an Azure Synapse Analytics workspace. There are different PowerShell cmdlets to use for each, for example, use [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) for a dedicated SQL pool (formerly SQL DW), but [Suspend-AzSynapseSqlPool](/powershell/module/az.synapse/suspend-azsynapsesqlpool) for a dedicated SQL pool in an Azure Synapse Workspace. For instructions to pause and resume a dedicated SQL pool created in an Azure Synapse Analytics workspace, see [Quickstart: Pause and resume compute in dedicated SQL pool in a Synapse Workspace with Azure PowerShell](pause-and-resume-compute-workspace-powershell.md). For more on the differences between dedicated SQL pool (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).
 
 ## Get started with Azure PowerShell cmdlets
 
@@ -34,13 +35,13 @@ Many dedicated SQL pool administrative tasks can be managed using either Azure P
 
 Pause a database named "Database02" hosted on a server named "Server01."  The server is in an Azure resource group named "ResourceGroup1."
 
-```Powershell
+```powershell
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 A variation, this example pipes the retrieved object to [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  As a result, the database is paused. The final command shows the results.
 
-```Powershell
+```powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
@@ -50,13 +51,13 @@ $resultDatabase
 
 Resume operation of a database named "Database02" hosted on a server named "Server01." The server is contained in a resource group named "ResourceGroup1."
 
-```Powershell
+```powershell
 Resume-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
 A variation, this example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1." It pipes the retrieved object to [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-```Powershell
+```powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzSqlDatabase
 ```

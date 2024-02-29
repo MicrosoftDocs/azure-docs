@@ -1,14 +1,17 @@
 ---
-title: Create a zoned Linux VM with the Azure CLI 
-description: Create a Linux VM in an availability zone with the Azure CLI
-author: cynthn
-ms.service: virtual-machines-linux
+title: Create a zoned VM with the Azure CLI
+description: Create a virtual machine in an availability zone with the Azure CLI
+author: ju-shim
+ms.service: virtual-machines
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/05/2018
-ms.author: cynthn
+ms.author: jushiman
 ---
 
-# Create a Linux virtual machine in an availability zone with the Azure CLI
+# Create a virtual machine in an availability zone using Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article steps through using the Azure CLI to create a Linux VM in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
@@ -64,7 +67,7 @@ Create a virtual machine with the [az vm create](/cli/azure/vm) command.
 When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. The VM is created in availability zone *1*. By default, the VM is created in the *Standard_DS1_v2* size.
 
 ```azurecli-interactive
-az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
+az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image Ubuntu2204 --generate-ssh-keys --zone 1
 ```
 
 It may take a few minutes to create the VM. Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `zones` value, which indicates the availability zone in which the VM is running. 

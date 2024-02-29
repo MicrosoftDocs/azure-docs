@@ -1,17 +1,19 @@
 ---
-title: "PowerShell: Use proximity placement groups"
+title: Create a proximity placement group using Azure PowerShell
 description: Learn about creating and using proximity placement groups using Azure PowerShell. 
 services: virtual-machines
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 01/27/2020
-ms.author: cynthn
-ms.reviewer: zivr
+ms.date: 3/12/2023
+author: mattmcinnes
+ms.author: mattmcinnes
+ms.custom: devx-track-azurepowershell
 ---
 
-# Deploy VMs to proximity placement groups using PowerShell
+# Deploy VMs to proximity placement groups using Azure PowerShell
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
 
 To get VMs as close as possible, achieving the lowest possible latency, you should deploy them within a [proximity placement group](../co-location.md#proximity-placement-groups).
 
@@ -25,12 +27,17 @@ Create a proximity placement group using the [New-AzProximityPlacementGroup](/po
 $resourceGroup = "myPPGResourceGroup"
 $location = "East US"
 $ppgName = "myPPG"
+$zone = "1"
+$vmSize1 = "Standard_E64s_v4"
+$vmSize2 = "Standard_M416ms_v2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 $ppg = New-AzProximityPlacementGroup `
    -Location $location `
    -Name $ppgName `
    -ResourceGroupName $resourceGroup `
-   -ProximityPlacementGroupType Standard
+   -ProximityPlacementGroupType Standard `
+   -Zone $zone `
+   -IntentVMSizeList $vmSize1, $vmSize2
 ```
 
 ## List proximity placement groups
@@ -38,7 +45,19 @@ $ppg = New-AzProximityPlacementGroup `
 You can list all of the proximity placement groups using the [Get-AzProximityPlacementGroup](/powershell/module/az.compute/get-azproximityplacementgroup) cmdlet.
 
 ```azurepowershell-interactive
-Get-AzProximityPlacementGroup
+Get-AzProximityPlacementGroup -ResourceGroupName $resourceGroup -Name $ppgName   
+
+ResourceGroupName           : myPPGResourceGroup
+ProximityPlacementGroupType : Standard
+Id                          : /subscriptions/[subscriptionId]/resourceGroups/myPPGResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myPPG
+Name                        : myPPG
+Type                        : Microsoft.Compute/proximityPlacementGroups
+Location                    : eastus
+Tags                        : {}
+Intent                      : 
+  VmSizes[0]                : Standard_E64s_v4
+  VmSizes[1]                : Standard_M416ms_v2
+Zones[0]                    : 1
 ```
 
 
@@ -53,7 +72,6 @@ New-AzVm `
   -ResourceGroupName $resourceGroup `
   -Name $vmName `
   -Location $location `
-  -OpenPorts 3389 `
   -ProximityPlacementGroup $ppg.Id
 ```
 

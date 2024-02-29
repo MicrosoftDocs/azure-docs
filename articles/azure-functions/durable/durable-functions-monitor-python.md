@@ -5,13 +5,19 @@ author: davidmrdavid
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
+ms.devlang: python
+ms.custom: devx-track-python
 ---
 
 # Monitor scenario in Durable Functions - GitHub Issue monitoring sample
 
 The monitor pattern refers to a flexible recurring process in a workflow - for example, polling until certain conditions are met. This article explains a sample that uses Durable Functions to implement monitoring.
 
-[!INCLUDE durable-functions-prerequisites]
+## Prerequisites
+
+* [Complete the quickstart article](quickstart-python-vscode.md)
+* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/)
+
 
 ## Scenario overview
 
@@ -40,7 +46,6 @@ This article explains the following functions in the sample app:
 
 ### E3_Monitor orchestrator function
 
-# [Python](#tab/python)
 
 The **E3_Monitor** function uses the standard *function.json* for orchestrator functions.
 
@@ -50,7 +55,6 @@ Here is the code that implements the function:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/\_\_init\_\_.py)]
 
----
 
 This orchestrator function performs the following actions:
 
@@ -68,7 +72,6 @@ Multiple orchestrator instances can run simultaneously by calling the orchestrat
 
 As with other samples, the helper activity functions are regular functions that use the `activityTrigger` trigger binding. The **E3_TooManyOpenIssues** function gets a list of currently open issues on the repo and determines if there are "too many" of them: more than 3 as per our sample.
 
-# [Python](#tab/python)
 
 The *function.json* is defined as follows:
 
@@ -78,13 +81,11 @@ And here is the implementation.
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/\_\_init\_\_.py)]
 
----
 
 ### E3_SendAlert activity function
 
 The **E3_SendAlert** function uses the Twilio binding to send an SMS message notifying the end user that there are at least 3 open issues awaiting a resolution.
 
-# [Python](#tab/python)
 
 Its *function.json* is simple:
 
@@ -94,7 +95,6 @@ And here is the code that sends the SMS message:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_init\_\_.py)]
 
----
 
 ## Run the sample
 
@@ -107,7 +107,7 @@ POST https://{host}/orchestrators/E3_Monitor
 Content-Length: 77
 Content-Type: application/json
 
-{ "repo": "<your github handle>/<a new github repo under your user>", "phone": "+1425XXXXXXX" }
+{ "repo": "<your GitHub handle>/<a new GitHub repo under your user>", "phone": "+1425XXXXXXX" }
 ```
 
 For example, if your GitHub username is `foo` and your repository is `bar` then your value for `"repo"` should be `"foo/bar"`.

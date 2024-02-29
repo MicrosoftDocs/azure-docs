@@ -4,13 +4,14 @@ description: Describes how to assess large numbers of physical servers for migra
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 01/19/2020
+ms.date: 05/02/2022
 ---
 
 # Assess large numbers of physical servers for migration to Azure
 
-This article describes how to assess large numbers of on-premises physical servers for migration to Azure, using the Azure Migrate Server Assessment tool.
+This article describes how to assess large numbers of on-premises physical servers for migration to Azure, using the Azure Migrate: Discovery and assessment tool.
 
 [Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 
@@ -18,7 +19,7 @@ This article describes how to assess large numbers of on-premises physical serve
 In this article, you learn how to:
 > [!div class="checklist"]
 > * Plan for assessment at scale.
-> * Configure Azure permissions, and prepare physical servers for assessment.
+> * Configure Azure permissions and prepare physical servers for assessment.
 > * Create an Azure Migrate project, and create an assessment.
 > * Review the assessment as you plan for migration.
 
@@ -30,8 +31,8 @@ In this article, you learn how to:
 
 When planning for assessment of large number of physical servers, there are a couple of things to think about:
 
-- **Plan Azure Migrate projects**: Figure out how to deploy Azure Migrate projects. For example, if your data centers are in different geographies, or you need to store discovery, assessment or migration-related metadata in a different geography, you might need multiple projects.
-- **Plan appliances**: Azure Migrate uses an on-premises Azure Migrate appliance, deployed on a Windows machine, to continually discover servers for assessment and migration. The appliance monitors environment changes such as adding VMs, disks, or network adapters. It also sends metadata and performance data about them to Azure. You need to figure out how many appliances to deploy.
+- **Plan Azure Migrate projects**: Figure out how to deploy Azure Migrate projects. For example, if your data centers are in different geographies, or you need to store discovery, assessment, or migration-related metadata in a different geography, you might need multiple projects.
+- **Plan appliances**: Azure Migrate uses an on-premises Azure Migrate appliance, deployed on a Windows server, to continually discover servers for assessment and migration. The appliance monitors environment changes such as adding servers, disks, or network adapters. It also sends metadata and performance data about them to Azure. You need to figure out how many appliances to deploy.
 
 
 ## Planning limits
@@ -48,11 +49,11 @@ Use the limits summarized in this table for planning.
 
 ## Other planning considerations
 
-- To start discovery from the appliance, you have to select each physical server. 
+- To start discovery from the appliance, you must select each physical server. 
 
 ## Prepare for assessment
 
-Prepare Azure and physical servers for server assessment. 
+Prepare Azure and physical servers for Discovery and assessment tool:  
 
 1. Verify [physical server support requirements and limitations](migrate-support-matrix-physical.md).
 2. Set up permissions for your Azure account to interact with Azure Migrate.
@@ -65,9 +66,9 @@ Follow the instructions in [this tutorial](./tutorial-discover-physical.md) to c
 In accordance with your planning requirements, do the following:
 
 1. Create an Azure Migrate project.
-2. Add the Azure Migrate Server Assessment tool to the projects.
+2. Add the Azure Migrate Discovery and assessment tool to the projects.
 
-[Learn more](./create-manage-projects.md)
+[Learn more](./create-manage-projects.md) about creating projects.
 
 ## Create and review an assessment
 

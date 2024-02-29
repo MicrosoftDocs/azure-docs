@@ -1,82 +1,168 @@
 ---
-title: Connect Microsoft 365 Defender raw data to Azure Sentinel| Microsoft Docs
-description: Learn how to ingest raw event data from Microsoft 365 Defender into Azure Sentinel.
-services: sentinel
-documentationcenter: na
+title: Connect Microsoft Defender XDR data to Microsoft Sentinel| Microsoft Docs
+description: Learn how to ingest incidents, alerts, and raw event data from Microsoft Defender XDR into Microsoft Sentinel.
 author: yelevin
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/13/2019
 ms.author: yelevin
-
+ms.topic: conceptual
+ms.date: 02/01/2023
 ---
-# Connect data from Microsoft 365 Defender to Azure Sentinel
 
-> [!IMPORTANT]
->
-> **Microsoft 365 Defender** was formerly known as **Microsoft Threat Protection** or **MTP**.
->
-> **Microsoft Defender for Endpoint** was formerly known as **Microsoft Defender Advanced Threat Protection** or **MDATP**.
->
-> You may see the old names still in use for a period of time.
+# Connect data from Microsoft Defender XDR to Microsoft Sentinel
 
-## Background
+Microsoft Sentinel's [Microsoft Defender XDR](/microsoft-365/security/mtp/microsoft-threat-protection) connector with incident integration allows you to stream all Microsoft Defender XDR incidents and alerts into Microsoft Sentinel, and keeps the incidents synchronized between both portals. Microsoft Defender XDR incidents include all their alerts, entities, and other relevant information. They also include alerts from Microsoft Defender XDR's component services **Microsoft Defender for Endpoint**, **Microsoft Defender for Identity**, **Microsoft Defender for Office 365**, and **Microsoft Defender for Cloud Apps**, as well as alerts from other services such as **Microsoft Purview Data Loss Prevention** and **Microsoft Entra ID Protection**. The Microsoft Defender XDR connector also brings incidents from **Microsoft Defender for Cloud**, although in order to synchronize alerts and entities from these incidents, you must enable the Microsoft Defender for Cloud connector, otherwise your Microsoft Defender for Cloud incidents will appear empty. Learn more about the available connectors for [Microsoft Defender for Cloud](ingest-defender-for-cloud-incidents.md).
 
-The new [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) connector lets you stream **advanced hunting** logs - a type of raw event data - from Microsoft 365 Defender into Azure Sentinel. 
+The connector also lets you stream **advanced hunting** events from *all* of the above Defender components into Microsoft Sentinel, allowing you to copy those Defender components' advanced hunting queries into Microsoft Sentinel, enrich Sentinel alerts with the Defender components' raw event data to provide additional insights, and store the logs with increased retention in Log Analytics.
 
-With the integration of [Microsoft Defender for Endpoint (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) into the Microsoft 365 Defender security umbrella, you can now collect your Microsoft Defender for Endpoint [advanced hunting](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) events using the Microsoft 365 Defender connector, and stream them straight into new purpose-built tables in your Azure Sentinel workspace. These tables are built on the same schema that is used in the Microsoft 365 Defender portal, giving you complete access to the full set of advanced hunting logs, and allowing you to do the following:
+For more information about incident integration and advanced hunting event collection, see [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
 
-- Easily copy your existing Microsoft Defender ATP advanced hunting queries into Azure Sentinel.
+ The Microsoft Defender XDR connector is now generally available.
 
-- Use the raw event logs to provide additional insights for your alerts, hunting, and investigation, and correlate events with data from additional data sources in Azure Sentinel.
-
-- Store the logs with increased retention, beyond Microsoft Defender for Endpoint or Microsoft 365 Defender’s default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
-
-> [!IMPORTANT]
->
-> The Microsoft 365 Defender connector is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 ## Prerequisites
 
-- You must have a valid license for Microsoft Defender for Endpoint, as described in [Set up Microsoft Defender for Endpoint deployment](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- You must have a valid license for Microsoft Defender XDR, as described in [Microsoft Defender XDR prerequisites](/microsoft-365/security/mtp/prerequisites). 
 
-- Your user must be assigned the Global Administrator role on the tenant (in Azure Active Directory).
+- Your user must be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles on the tenant you want to stream the logs from.
 
-## Connect to Microsoft 365 Defender
+- Your user must have read and write permissions on your Microsoft Sentinel workspace.
 
-If Microsoft Defender for Endpoint is deployed and ingesting your data, the event logs can easily be streamed into Azure Sentinel.
+- To make any changes to the connector settings, your user must be a member of the same Microsoft Entra tenant with which your Microsoft Sentinel workspace is associated.
+- Install the solution for **Microsoft Defender XDR** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
-1. In Azure Sentinel, select **Data connectors**, select **Microsoft 365 Defender (Preview)** from the gallery and select **Open connector page**.
+### Prerequisites for Active Directory sync via MDI
 
-1. The following types of events can be collected from their corresponding advanced hunting tables. Mark the check boxes of the event types you wish to collect:
+- Your tenant must be onboarded to Microsoft Defender for Identity.
 
-    | Events type | Table name |
+- You must have the MDI sensor installed.
+
+## Connect to Microsoft Defender XDR
+
+In Microsoft Sentinel, select **Data connectors**, select **Microsoft Defender XDR** from the gallery and select **Open connector page**.
+
+The  **Configuration** section has three parts:
+
+1. [**Connect incidents and alerts**](#connect-incidents-and-alerts) enables the basic integration between Microsoft Defender XDR and Microsoft Sentinel, synchronizing incidents and their alerts between the two platforms.
+
+1. [**Connect entities**](#connect-entities) enables the integration of on-premises Active Directory user identities into Microsoft Sentinel through Microsoft Defender for Identity.
+
+1. [**Connect events**](#connect-events) enables the collection of raw advanced hunting events from Defender components.
+
+These are explained in greater detail below. See [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md) for more information.
+
+### Connect incidents and alerts
+
+To ingest and synchronize Microsoft Defender XDR incidents, with all their alerts, to your Microsoft Sentinel incidents queue:
+
+1. Mark the check box labeled **Turn off all Microsoft incident creation rules for these products. Recommended**, to avoid duplication of incidents.  
+(This check box will not appear once the Microsoft Defender XDR connector is connected.)
+
+1. Select the **Connect incidents & alerts** button.
+
+
+> [!NOTE]
+> When you enable the Microsoft Defender XDR connector, all of the Microsoft Defender XDR components’ connectors (the ones mentioned at the beginning of this article) are automatically connected in the background. In order to disconnect one of the components’ connectors, you must first disconnect the Microsoft Defender XDR connector.
+
+To query Microsoft Defender XDR incident data, use the following statement in the query window:
+
+```kusto
+SecurityIncident
+| where ProviderName == "Microsoft 365 Defender"
+```
+
+### Connect entities
+
+Use Microsoft Defender for Identity to sync user entities from your on-premises Active Directory to Microsoft Sentinel.
+
+Verify that you've satisfied the [prerequisites](#prerequisites-for-active-directory-sync-via-mdi) for syncing on-premises Active Directory users through Microsoft Defender for Identity (MDI).
+
+1. Select the **Go the UEBA configuration page** link.
+
+1. In the **Entity behavior configuration** page, if you haven't yet enabled UEBA, then at the top of the page, move the toggle to **On**.
+
+1. Mark the **Active Directory (Preview)** check box and select **Apply**.
+
+    :::image type="content" source="media/connect-microsoft-365-defender/ueba-configuration-page.png" alt-text="Screenshot of UEBA configuration page for connecting user entities to Sentinel.":::
+
+### Connect events
+
+If you want to collect advanced hunting events from Microsoft Defender for Endpoint or Microsoft Defender for Office 365, the following types of events can be collected from their corresponding advanced hunting tables.
+
+1. Mark the check boxes of the tables with the event types you wish to collect:
+
+    # [Defender for Endpoint](#tab/MDE)
+
+    | Table name | Events type |
     |-|-|
-    | Machine information (including OS information) | DeviceInfo |
-    | Network properties of machines | DeviceNetworkInfo |
-    | Process creation and related events | DeviceProcessEvents |
-    | Network connection and related events | DeviceNetworkEvents |
-    | File creation, modification, and other file system events | DeviceFileEvents |
-    | Creation and modification of registry entries | DeviceRegistryEvents |
-    | Sign-ins and other authentication events | DeviceLogonEvents |
-    | DLL loading events | DeviceImageLoadEvents |
-    | Additional events types | DeviceEvents |
-    |
+    | **[DeviceInfo](/microsoft-365/security/defender/advanced-hunting-deviceinfo-table)** | Machine information, including OS information |
+    | **[DeviceNetworkInfo](/microsoft-365/security/defender/advanced-hunting-devicenetworkinfo-table)** | Network properties of devices, including physical adapters, IP and MAC addresses, as well as connected networks and domains |
+    | **[DeviceProcessEvents](/microsoft-365/security/defender/advanced-hunting-deviceprocessevents-table)** | Process creation and related events |
+    | **[DeviceNetworkEvents](/microsoft-365/security/defender/advanced-hunting-devicenetworkevents-table)** | Network connection and related events |
+    | **[DeviceFileEvents](/microsoft-365/security/defender/advanced-hunting-devicefileevents-table)** | File creation, modification, and other file system events |
+    | **[DeviceRegistryEvents](/microsoft-365/security/defender/advanced-hunting-deviceregistryevents-table)** | Creation and modification of registry entries |
+    | **[DeviceLogonEvents](/microsoft-365/security/defender/advanced-hunting-devicelogonevents-table)** | Sign-ins and other authentication events on devices |
+    | **[DeviceImageLoadEvents](/microsoft-365/security/defender/advanced-hunting-deviceimageloadevents-table)** | DLL loading events |
+    | **[DeviceEvents](/microsoft-365/security/defender/advanced-hunting-deviceevents-table)** | Multiple event types, including events triggered by security controls such as Windows Defender Antivirus and exploit protection |
+    | **[DeviceFileCertificateInfo](/microsoft-365/security/defender/advanced-hunting-DeviceFileCertificateInfo-table)** | Certificate information of signed files obtained from certificate verification events on endpoints |
 
-1. Click **Apply Changes**. 
+    # [Defender for Office 365](#tab/MDO)
+
+    | Table name | Events type |
+    |-|-|
+    | **[EmailAttachmentInfo](/microsoft-365/security/defender/advanced-hunting-emailattachmentinfo-table)** | Information about files attached to emails |
+    | **[EmailEvents](/microsoft-365/security/defender/advanced-hunting-emailevents-table)** | Microsoft 365 email events, including email delivery and blocking events |
+    | **[EmailPostDeliveryEvents](/microsoft-365/security/defender/advanced-hunting-emailpostdeliveryevents-table)** | Security events that occur post-delivery, after Microsoft 365 has delivered the emails to the recipient mailbox |
+    | **[EmailUrlInfo](/microsoft-365/security/defender/advanced-hunting-emailurlinfo-table)** | Information about URLs on emails |
+
+    # [Defender for Identity](#tab/MDI)
+
+    | Table name | Events type |
+    |-|-|
+    | **[IdentityDirectoryEvents](/microsoft-365/security/defender/advanced-hunting-identitydirectoryevents-table)** | Various identity-related events, like password changes, password expirations, and user principal name (UPN) changes, captured from an on-premises Active Directory domain controller<br><br>Also includes system events on the domain controller |
+    | **[IdentityInfo](/microsoft-365/security/defender/advanced-hunting-identityinfo-table)** | Information about user accounts obtained from various services, including Microsoft Entra ID |
+    | **[IdentityLogonEvents](/microsoft-365/security/defender/advanced-hunting-identitylogonevents-table)** | Authentication activities made through your on-premises Active Directory, as captured by Microsoft Defender for Identity <br><br>Authentication activities related to Microsoft online services, as captured by Microsoft Defender for Cloud Apps |
+    | **[IdentityQueryEvents](/microsoft-365/security/defender/advanced-hunting-identityqueryevents-table)** | Information about queries performed against Active Directory objects such as users, groups, devices, and domains |
+
+    # [Defender for Cloud Apps](#tab/MDCA)
+
+    | Table name | Events type |
+    |-|-|
+    | **[CloudAppEvents](/microsoft-365/security/defender/advanced-hunting-cloudappevents-table)** | Information about activities in various cloud apps and services covered by Microsoft Defender for Cloud Apps |
+
+    # [Defender alerts](#tab/MDA)
+
+    | Table name | Events type |
+    |-|-|
+    | **[AlertInfo](/microsoft-365/security/defender/advanced-hunting-alertinfo-table)** | Information about alerts from Microsoft Defender XDR components |
+    | **[AlertEvidence](/microsoft-365/security/defender/advanced-hunting-alertevidence-table)** | Information about various entities - files, IP addresses, URLs, users, devices - associated with alerts from Microsoft Defender XDR components |
+
+    ---
+
+1. Click **Apply Changes**.
 
 1. To query the advanced hunting tables in Log Analytics, enter the table name from the list above in the query window.
 
 ## Verify data ingestion
 
-The data graph in the connector page indicates that you are ingesting data. You'll notice that it shows a single line that aggregates event volume across all enabled tables. Once you have enabled the connector, you can use the following KQL query to generate a similar graph of event volume for a single table (change the *DeviceEvents* table to the required table of your choosing):
+The data graph in the connector page indicates that you are ingesting data. You'll notice that it shows one line each for incidents, alerts, and events, and the events line is an aggregation of event volume across all enabled tables. Once you have enabled the connector, you can use the following KQL queries to generate more specific graphs.
+
+Use the following KQL query for a graph of the incoming Microsoft Defender XDR incidents:
+
+```kusto
+let Now = now(); 
+(range TimeGenerated from ago(14d) to Now-1d step 1d 
+| extend Count = 0 
+| union isfuzzy=true ( 
+    SecurityIncident
+    | where ProviderName == "Microsoft 365 Defender"
+    | summarize Count = count() by bin_at(TimeGenerated, 1d, Now) 
+) 
+| summarize Count=max(Count) by bin_at(TimeGenerated, 1d, Now) 
+| sort by TimeGenerated 
+| project Value = iff(isnull(Count), 0, Count), Time = TimeGenerated, Legend = "Events") 
+| render timechart 
+```
+
+Use the following KQL query to generate a graph of event volume for a single table (change the *DeviceEvents* table to the required table of your choosing):
 
 ```kusto
 let Now = now();
@@ -92,9 +178,11 @@ let Now = now();
 | render timechart
 ```
 
-In the **Next steps** tab, you will find a few sample queries that have been included. You can run them on the spot, or modify and save them.
+In the **Next steps** tab, you’ll find some useful workbooks, sample queries, and analytics rule templates that have been included. You can run them on the spot or modify and save them.
 
 ## Next steps
-In this document, you learned how to get raw event data from Microsoft Defender for Endpoint into Azure Sentinel, using the Microsoft 365 Defender connector. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+
+In this document, you learned how to integrate Microsoft Defender XDR incidents, and advanced hunting event data from Microsoft Defender component services, into Microsoft Sentinel, using the Microsoft Defender XDR connector. To learn more about Microsoft Sentinel, see the following articles:
+
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).

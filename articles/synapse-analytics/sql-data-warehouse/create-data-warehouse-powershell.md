@@ -1,24 +1,26 @@
 ---
-title: 'Quickstart: Create a dedicated SQL pool (formerly SQL DW) with Azure PowerShell'
+title: "Quickstart: Create a dedicated SQL pool (formerly SQL DW) with Azure PowerShell"
 description: Quickly create a dedicated SQL pool (formerly SQL DW) with a server-level firewall rule using Azure PowerShell.
-services: synapse-analytics
-author: XiaoyuMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw 
+author: joannapea
+ms.author: joanpo
+ms.reviewer: wiassaf
 ms.date: 4/11/2019
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: quickstart
+ms.custom:
+  - devx-track-azurepowershell
+  - azure-synapse
+  - mode-api
 ---
+
 # Quickstart: Create a dedicated SQL pool (formerly SQL DW) with Azure PowerShell
 
 Create an dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics using Azure PowerShell.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 > [!IMPORTANT]
 > Creating a dedicated SQL pool (formerly SQL DW) may result in a new billable service.  For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
@@ -76,7 +78,7 @@ New-AzResourceGroup -Name $resourcegroupname -Location $location
 
 ## Create a server
 
-Create a [logical SQL server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create a [logical SQL server](/azure/azure-sql/database/logical-servers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -87,7 +89,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## Configure a server-level firewall rule
 
-Create an [server-level firewall rule](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a dedicated SQL pool (formerly SQL DW) through the dedicated SQL pool service firewall.
+Create an [server-level firewall rule](/azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a dedicated SQL pool (formerly SQL DW) through the dedicated SQL pool service firewall.
 
 In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
 
@@ -105,7 +107,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 
 The following example creates a dedicated SQL pool (formerly SQL DW) using the previously defined variables.  It specifies the service objective as DW100c, which is a lower-cost starting point for your dedicated SQL pool (formerly SQL DW).
 
-```Powershell
+```powershell
 New-AzSqlDatabase `
     -ResourceGroupName $resourcegroupname `
     -ServerName $servername `

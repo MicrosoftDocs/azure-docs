@@ -1,14 +1,12 @@
 ---
 title: Introduction to Azure Data Factory 
 description: Learn about Azure Data Factory, a cloud data integration service that orchestrates and automates movement and transformation of data.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: overview
-ms.date: 09/30/2019
+ms.date: 07/20/2023
 ---
 
 # What is Azure Data Factory?
@@ -18,6 +16,8 @@ ms.date: 09/30/2019
 In the world of big data, raw, unorganized data is often stored in relational, non-relational, and other storage systems. However, on its own, raw data doesn't have the proper context or meaning to provide meaningful insights to analysts, data scientists, or business decision makers. 
 
 Big data requires a service that can orchestrate and operationalize processes to refine these enormous stores of raw data into actionable business insights. Azure Data Factory is a managed cloud service that's built for these complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
+
+## Usage scenarios 
 
 For example, imagine a gaming company that collects petabytes of game logs that are produced by games in the cloud. The company wants to analyze these logs to gain insights into customer preferences, demographics, and usage behavior. It also wants to identify up-sell and cross-sell opportunities, develop compelling new features, drive business growth, and provide a better experience to its customers.
 
@@ -29,11 +29,17 @@ Azure Data Factory is the platform that solves such data scenarios. It is the *c
 
 Additionally, you can publish your transformed data to data stores such as Azure Synapse Analytics for business intelligence (BI) applications to consume. Ultimately, through Azure Data Factory, raw data can be organized into meaningful data stores and data lakes for better business decisions.
 
-![Top-level view of Data Factory](media/data-flow/overview.png)
-
 ## How does it work?
 
 Data Factory contains a series of interconnected systems that provide a complete end-to-end platform for data engineers.
+
+:::image type="content" source="media/data-flow/overview.svg" alt-text="Shows a top-level architecture diagram of Azure Data Factory.":::
+
+This visual guide provides a detailed overview of the complete Data Factory architecture:
+
+:::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="A detailed visual guide to the complete system architecture for Azure Data Factory, presented in a single high resolution image." lightbox="media\introduction\data-factory-visual-guide.png":::
+
+To see more detail, select the preceding image to zoom in, or browse to the [high resolution image](/azure/data-factory/media/introduction/data-factory-visual-guide.png). 
 
 ### Connect and collect
 
@@ -51,12 +57,13 @@ After data is present in a centralized data store in the cloud, process or trans
 If you prefer to code transformations by hand, ADF supports external activities for executing your transformations on compute services such as HDInsight Hadoop, Spark, Data Lake Analytics, and Machine Learning.
 
 ### CI/CD and publish
-[Data Factory offers full support for CI/CD](continuous-integration-deployment.md) of your data pipelines using Azure DevOps and GitHub. This allows you to incrementally develop and deliver your ETL processes before publishing the finished product. After the raw data has been refined into a business-ready consumable form, load the data into Azure Data Warehouse, Azure SQL Database, Azure CosmosDB, or whichever analytics engine your business users can point to from their business intelligence tools.
+[Data Factory offers full support for CI/CD](continuous-integration-delivery.md) of your data pipelines using Azure DevOps and GitHub. This allows you to incrementally develop and deliver your ETL processes before publishing the finished product. After the raw data has been refined into a business-ready consumable form, load the data into Azure Data Warehouse, Azure SQL Database, Azure Cosmos DB, or whichever analytics engine your business users can point to from their business intelligence tools.
 ### Monitor
 After you have successfully built and deployed your data integration pipeline, providing business value from refined data, monitor the scheduled activities and pipelines for success and failure rates. Azure Data Factory has built-in support for pipeline monitoring via Azure Monitor, API, PowerShell, Azure Monitor logs, and health panels on the Azure portal.
 
 ## Top-level concepts
-An Azure subscription might have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of below key components.
+An Azure subscription might have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of the following key components:
+
 - Pipelines
 - Activities
 - Datasets
@@ -89,6 +96,9 @@ Linked services are used for two purposes in Data Factory:
 
 - To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. For a list of transformation activities and supported compute environments, see the [transform data](transform-data.md) article.
 
+### Integration Runtime
+In Data Factory, an activity defines the action to be performed. A linked service defines a target data store or a compute service. An integration runtime provides the bridge between the activity and linked Services.  It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
+
 ### Triggers
 Triggers represent the unit of processing that determines when a pipeline execution needs to be kicked off. There are different types of triggers for different types of events.
 
@@ -108,7 +118,7 @@ Control flow is an orchestration of pipeline activities that includes chaining a
 ### Variables
 Variables can be used inside of pipelines to store temporary values and can also be used in conjunction with parameters to enable passing values between pipelines, data flows, and other activities.
 
-## Next steps
+## Related content
 Here are important next step documents to explore:
 
 - [Dataset and linked services](concepts-datasets-linked-services.md)
@@ -116,7 +126,7 @@ Here are important next step documents to explore:
 - [Integration runtime](concepts-integration-runtime.md)
 - [Mapping Data Flows](concepts-data-flow-overview.md)
 - [Data Factory UI in the Azure portal](quickstart-create-data-factory-portal.md)
-- [Copy Data tool in the Azure portal](quickstart-create-data-factory-copy-data-tool.md)
+- [Copy Data tool in the Azure portal](quickstart-hello-world-copy-data-tool.md)
 - [PowerShell](quickstart-create-data-factory-powershell.md)
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)

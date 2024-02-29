@@ -1,25 +1,17 @@
-﻿---
-title: Copy data in Blob Storage using Azure Data Factory 
+---
+title: Copy data in Blob Storage using Azure Data Factory
 description: Create an Azure Data Factory using PowerShell to copy data from one location in Azure Blob storage to another location.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.subservice: data-movement
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 04/10/2020
-ms.author: jingwang
+ms.date: 07/20/2023
+ms.author: jianleishen
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create an Azure Data Factory using PowerShell
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-powershell.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -28,13 +20,16 @@ This quickstart describes how to use PowerShell to create an Azure Data Factory.
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)]
 
 ### Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
+
+>[!WARNING]
+>If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
 
 #### Log in to PowerShell
 
@@ -62,7 +57,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
 
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/management/overview.md) in double quotes, and then run the command. For example: `"ADFQuickStartRG"`.
 
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFQuickStartRG";
     ```
 
@@ -336,12 +331,12 @@ $RunId = Invoke-AzDataFactoryV2Pipeline `
             -PipelineRunId $RunId
 
         if ($Run) {
-            if ($run.Status -ne 'InProgress') {
+            if ( ($Run.Status -ne "InProgress") -and ($Run.Status -ne "Queued") ) {
                 Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
                 $Run
                 break
             }
-            Write-Output "Pipeline is running...status: InProgress"
+            Write-Output ("Pipeline is running...status: " + $Run.Status)
         }
 
         Start-Sleep -Seconds 10
@@ -437,8 +432,8 @@ $RunId = Invoke-AzDataFactoryV2Pipeline `
     "target": "CopyFromBlobToBlob"
     ```
 
-[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](includes/data-factory-quickstart-verify-output-cleanup.md)]
 
-## Next steps
+## Related content
 
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios.

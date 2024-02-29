@@ -1,26 +1,21 @@
 ---
-title: Tutorial - Create and manage Azure virtual networks for Linux VMs 
-description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure virtual networks for Linux virtual machines
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
+title: "Tutorial - Create and manage Azure virtual networks for Linux VMs"
+description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure virtual networks for Linux virtual machines.
+services: virtual-machines
+author: ju-shim
+ms.collection: linux
+ms.subservice: networking
+ms.service: virtual-machines
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 05/10/2017
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc, devx-track-azurecli
-
 #Customer intent: As an IT administrator, I want to learn about Azure virtual networks so that I can securely deploy Linux virtual machines and restrict traffic between them.
 ---
 
 # Tutorial: Create and manage Azure virtual networks for Linux virtual machines with the Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Azure virtual machines use Azure networking for internal and external network communication. This tutorial walks through deploying two virtual machines and configuring Azure networking for these VMs. The examples in this tutorial assume that the VMs are hosting a web application with a database back-end, however an application is not deployed in the tutorial. In this tutorial, you learn how to:
 
@@ -140,7 +135,7 @@ az vm create \
   --subnet myFrontendSubnet \
   --nsg myFrontendNSG \
   --public-ip-address myPublicIPAddress \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --generate-ssh-keys
 ```
 
@@ -278,7 +273,7 @@ az vm create \
   --subnet myBackendSubnet \
   --public-ip-address "" \
   --nsg "" \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --generate-ssh-keys
 ```
 
@@ -299,4 +294,4 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Secure network traffic
 > * Create back-end VM
 
-To learn about protecting your VM disks, see [Backup and disaster recovery for disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+To learn about protecting your VM disks, see [Backup and disaster recovery for disks](../backup-and-disaster-recovery-for-azure-iaas-disks.md).

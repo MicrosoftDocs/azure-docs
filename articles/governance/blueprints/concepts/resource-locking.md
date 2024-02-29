@@ -1,10 +1,12 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
-ms.date: 01/27/2021
+ms.date: 12/05/2023
 ms.topic: conceptual
 ---
 # Understand resource locking in Azure Blueprints
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 The creation of consistent environments at scale is only truly valuable if there's a mechanism to
 maintain that consistency. This article explains how resource locking works in Azure Blueprints. To
@@ -12,9 +14,10 @@ see an example of resource locking and application of _deny assignments_, see th
 [protecting new resources](../tutorials/protect-new-resources.md) tutorial.
 
 > [!NOTE]
-> Resource locks deployed by Azure Blueprints are only applied to resources deployed by the
-> blueprint assignment. Existing resources, such as those in resource groups that already exist,
-> don't have locks added to them.
+> Resource locks deployed by Azure Blueprints are only applied to
+> [non-extension resources](../../../azure-resource-manager/templates/scope-extension-resources.md)
+> deployed by the blueprint assignment. Existing resources, such as those in resource groups that
+> already exist, don't have locks added to them.
 
 ## Locking modes and states
 
@@ -30,8 +33,8 @@ Locked** state. The following table can be used to determine the state of a reso
 |Mode|Artifact Resource Type|State|Description|
 |-|-|-|-|
 |Don't Lock|*|Not Locked|Resources aren't protected by Azure Blueprints. This state is also used for resources added to a **Read Only** or **Do Not Delete** resource group artifact from outside a blueprint assignment.|
-|Read Only|Resource group|Cannot Edit / Delete|The resource group is read only and tags on the resource group can't be modified. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
-|Read Only|Non-resource group|Read Only|The resource can't be altered in any way. No changes and it can't be deleted.|
+|Read Only|Resource group|Cannot Edit / Delete|The resource group is read only and all its properties, except for tags, can't be modified. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
+|Read Only|Non-resource group|Read Only|Except for tags, the resource remains unalterable and cannot be deleted or modified.|
 |Do Not Delete|*|Cannot Delete|The resources can be altered, but can't be deleted. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
 
 ## Overriding locking states

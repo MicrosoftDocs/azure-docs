@@ -1,21 +1,32 @@
 ---
 title: Quickstart - Create registry in portal
 description: Quickly learn to create a private Azure container registry using the Azure portal.
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/31/2023
 ms.topic: quickstart
-ms.date: 08/04/2020
-ms.custom: "seodec18, mvc"
+ms.service: container-registry
+ms.custom: mvc, mode-ui
 ---
 # Quickstart: Create an Azure container registry using the Azure portal
 
-An Azure container registry is a private Docker registry in Azure where you can store and manage private Docker container images and related artifacts. In this quickstart, you create a container registry with the Azure portal. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
+Azure Container Registry is a private registry service for building, storing, and managing container images and related artifacts. In this quickstart, you create an Azure container registry instance with the Azure portal. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
 
-To log in to the registry to work with container images, this quickstart requires that you are running the Azure CLI (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+### [Azure CLI](#tab/azure-cli)
 
-You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
+To log in to the registry to work with container images, this quickstart requires that you are running the Azure CLI (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+To log in to the registry to work with container images, this quickstart requires that you are running the Azure PowerShell (version 7.5.0 or later recommended). Run `Get-Module Az -ListAvailable` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module][azure-powershell-install].
+
+---
+
+You must also have Docker installed locally with the daemon running. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a container registry
 
@@ -29,17 +40,19 @@ In the **Basics** tab, enter values for **Resource group** and **Registry name**
 
 Accept default values for the remaining settings. Then select **Review + create**. After reviewing the settings, select **Create**.
 
-In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers (SKUs), see [Container registry service tiers][container-registry-skus].
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
 
 When the **Deployment succeeded** message appears, select the container registry in the portal. 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Container registry Overview in the portal":::
 
-Take note of the registry name and the value of the **Login server**. You use these values in the following steps when you push and pull images with Docker.
+Take note of the registry name and the value of the **Login server**, which is a fully qualified name ending with `azurecr.io` in the Azure cloud. You use these values in the following steps when you push and pull images with Docker.
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the registry instance. [Sign into the Azure CLI][get-started-with-azure-cli] on your local machine, then run the [az acr login][az-acr-login] command. Specify only the registry name when logging in with the Azure CLI. Don't use the login server name, which includes a domain suffix like `azurecr.io`.
+### [Azure CLI](#tab/azure-cli)
+
+Before pushing and pulling container images, you must log in to the registry instance. [Sign into the Azure CLI][get-started-with-azure-cli] on your local machine, then run the [az acr login][az-acr-login] command. Specify only the registry resource name when logging in with the Azure CLI. Don't use the fully qualified login server name.
 
 ```azurecli
 az acr login --name <registry-name>
@@ -52,6 +65,24 @@ az acr login --name mycontainerregistry
 ```
 
 The command returns `Login Succeeded` once completed. 
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+Before pushing and pulling container images, you must log in to the registry instance. [Sign into the Azure PowerShell][get-started-with-azure-powershell] on your local machine, then run the [Connect-AzContainerRegistry][connect-azcontainerregistry] cmdlet. Specify only the registry resource name when logging in with the Azure PowerShell. Don't use the fully qualified login server name.
+
+```azurepowershell
+Connect-AzContainerRegistry -Name <registry-name>
+```
+
+Example:
+
+```azurepowershell
+Connect-AzContainerRegistry -Name mycontainerregistry
+```
+
+The command returns `Login Succeeded` once completed. 
+
+---
 
 [!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 
@@ -95,7 +126,10 @@ In this quickstart, you created an Azure Container Registry with the Azure porta
 <!-- LINKS - internal -->
 [container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md
 [container-registry-skus]: container-registry-skus.md
-[azure-cli]: /cli/azure/install-azure-cli
+[azure-cli-install]: /cli/azure/install-azure-cli
+[azure-powershell-install]: /powershell/azure/install-az-ps
 [get-started-with-azure-cli]: /cli/azure/get-started-with-azure-cli
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[get-started-with-azure-powershell]: /powershell/azure/get-started-azureps
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[connect-azcontainerregistry]: /powershell/module/az.containerregistry/connect-azcontainerregistry
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md

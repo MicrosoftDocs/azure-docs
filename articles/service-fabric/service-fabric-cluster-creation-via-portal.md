@@ -1,10 +1,14 @@
 ---
 title: Create a Service Fabric cluster in the Azure portal 
 description: Learn how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.
-
-ms.topic: conceptual
-ms.date: 09/06/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Create a Service Fabric cluster in Azure using the Azure portal
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
@@ -18,7 +22,7 @@ This is a step-by-step guide that walks you through the steps of setting up a Se
 * Authenticate administrators using certificates.
 
 > [!NOTE]
-> For more advanced security options, such as user authentication with Azure Active Directory and setting up certificates for application security, [create your cluster using Azure Resource Manager][create-cluster-arm].
+> For more advanced security options, such as user authentication with Microsoft Entra ID and setting up certificates for application security, [create your cluster using Azure Resource Manager][create-cluster-arm].
 > 
 > 
 
@@ -38,6 +42,7 @@ To serve these purposes, the certificate must meet the following requirements:
 * The certificate must contain a private key.
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
 * The certificate's **subject name must match the domain** used to access the Service Fabric cluster. This is required to provide TLS for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain a TLS/SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. Acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
+* The certificate's list of DNS names must include the Fully Qualified Domain Name (FQDN) of the cluster.
 
 #### Client authentication certificates
 Additional client certificates authenticate administrators for cluster management tasks. Service Fabric has two access levels: **admin** and **read-only user**. At minimum, a single certificate for administrative access should be used. For additional user-level access, a separate certificate must be provided. For more information on access roles, see [role-based access control for Service Fabric clients][service-fabric-cluster-security-roles].
@@ -45,7 +50,7 @@ Additional client certificates authenticate administrators for cluster managemen
 You do not need to upload Client authentication certificates to Key Vault to work with Service Fabric. These certificates only need to be provided to users who are authorized for cluster management. 
 
 > [!NOTE]
-> Azure Active Directory is the recommended way to authenticate clients for cluster management operations. To use Azure Active Directory, you must [create a cluster using Azure Resource Manager][create-cluster-arm].
+> Microsoft Entra ID is the recommended way to authenticate clients for cluster management operations. To use Microsoft Entra ID, you must [create a cluster using Azure Resource Manager][create-cluster-arm].
 > 
 > 
 
@@ -63,7 +68,7 @@ Creating a production cluster to meet your application needs involves some plann
 
 ### Search for the Service Fabric cluster resource
 
-Sign in to the [Azure portal][azure-portal].
+Sign in to the [Azure portal](https://portal.azure.com).
 Click **Create a resource** to add a new resource template. Search for the Service Fabric Cluster template in the **Marketplace** under **Everything**.
 Select **Service Fabric Cluster** from the list.
 
@@ -198,7 +203,6 @@ At this point, you have a secure cluster using certificates for management authe
 
 <!-- Links -->
 [azure-powershell]: /powershell/azure/
-[azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/general/overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md

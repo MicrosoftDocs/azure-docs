@@ -1,31 +1,31 @@
 ---
 title: Configure local metrics and logs for Azure API Management self-hosted gateway | Microsoft Docs
-description: Learn how to configure local metrics and logs for Azure API Management self-hosted gateway
+description: Learn how to configure local metrics and logs for Azure API Management self-hosted gateway on a Kubernetes cluster
 services: api-management
-documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: gwallace
-editor: ''
-
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/30/2020
-ms.author: apimpm
-
+ms.date: 05/11/2021
+ms.author: danlep
 ---
 
 # Configure local metrics and logs for Azure API Management self-hosted gateway
 
-This article provides details for configuring local metrics and logs for the [self-hosted gateway](./self-hosted-gateway-overview.md). For configuring cloud metrics and logs, see [this article](how-to-configure-cloud-metrics-logs.md). 
+This article provides details for configuring local metrics and logs for the [self-hosted gateway](./self-hosted-gateway-overview.md) deployed on a Kubernetes cluster. For configuring cloud metrics and logs, see [this article](how-to-configure-cloud-metrics-logs.md).
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Metrics
-The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), which has become a unifying protocol for metrics collection and aggregation. This section walks through the steps for deploying StatsD to Kubernetes, configuring the gateway to emit metrics via StatsD, and using [Prometheus](https://prometheus.io/) to monitor the metrics. 
+
+The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), which has become a unifying protocol for metrics collection and aggregation. This section walks through the steps for deploying StatsD to Kubernetes, configuring the gateway to emit metrics via StatsD, and using [Prometheus](https://prometheus.io/) to monitor the metrics.
 
 ### Deploy StatsD and Prometheus to the cluster
 
-Below is a sample YAML configuration for deploying StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway will publish metrics to the StatsD Service. We will access the Prometheus dashboard via its Service.   
+Below is a sample YAML configuration for deploying StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway will publish metrics to the StatsD Service. We will access the Prometheus dashboard via its Service.
+
+> [!NOTE]
+> The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
 
 ```yaml
 apiVersion: v1
@@ -125,7 +125,7 @@ Save the configurations to a file named `metrics.yaml` and use the below command
 kubectl apply -f metrics.yaml
 ```
 
-Once the deployment finishes, run the below command to check the Pods are running. Note that your pod name will be different. 
+Once the deployment finishes, run the below command to check the Pods are running. Note that your pod name will be different.
 
 ```console
 kubectl get pods
@@ -156,23 +156,23 @@ Now that both StatsD and Prometheus have been deployed, we can update the config
 Here is a sample configuration:
 
 ```yaml
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-        name: contoso-gateway-environment
-    data:
-        config.service.endpoint: "<self-hosted-gateway-management-endpoint>"
-        telemetry.metrics.local: "statsd"
-        telemetry.metrics.local.statsd.endpoint: "10.0.41.179:8125"
-        telemetry.metrics.local.statsd.sampling: "1"
-        telemetry.metrics.local.statsd.tag-format: "dogStatsD"
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: contoso-gateway-environment
+data:
+    config.service.endpoint: "<self-hosted-gateway-management-endpoint>"
+    telemetry.metrics.local: "statsd"
+    telemetry.metrics.local.statsd.endpoint: "10.0.41.179:8125"
+    telemetry.metrics.local.statsd.sampling: "1"
+    telemetry.metrics.local.statsd.tag-format: "dogStatsD"
 ```
 
-Update the YAML file of the self-hosted gateway deployment with the above configurations and apply the changes using the below command: 
+Update the YAML file of the self-hosted gateway deployment with the above configurations and apply the changes using the below command:
 
 ```console
 kubectl apply -f <file-name>.yaml
- ```
+```
 
 To pick up the latest configuration changes, restart the gateway deployment using the below command:
 
@@ -182,16 +182,16 @@ kubectl rollout restart deployment/<deployment-name>
 
 ### View the metrics
 
-Now we have everything deployed and configured, the self-hosted gateway should report metrics via StatsD. Prometheus will pick up the metrics from StatsD. Go to the Prometheus dashboard using the `EXTERNAL-IP` and `PORT` of the Prometheus Service. 
+Now we have everything deployed and configured, the self-hosted gateway should report metrics via StatsD. Prometheus will pick up the metrics from StatsD. Go to the Prometheus dashboard using the `EXTERNAL-IP` and `PORT` of the Prometheus Service.
 
 Make some API calls through the self-hosted gateway, if everything is configured correctly, you should be able to view below metrics:
 
-| Metric  | Description |
+| Metric        | Description |
 | ------------- | ------------- |
-| Requests  | Number of API requests in the period |
-| DurationInMS | Number of milliseconds from the moment gateway received request until the moment response sent in full |
-| BackendDurationInMS | Number of milliseconds spent on overall backend IO (connecting, sending and receiving bytes)  |
-| ClientDurationInMS | Number of milliseconds spent on overall client IO (connecting, sending and receiving bytes)  |
+| requests_total  | Number of API requests in the period |
+| request_duration_seconds | Number of milliseconds from the moment gateway received request until the moment response sent in full |
+| request_backend_duration_seconds | Number of milliseconds spent on overall backend IO (connecting, sending and receiving bytes)  |
+| request_client_duration_seconds | Number of milliseconds spent on overall client IO (connecting, sending and receiving bytes)  |
 
 ## Logs
 
@@ -201,19 +201,20 @@ The self-hosted gateway outputs logs to `stdout` and `stderr` by default. You ca
 kubectl logs <pod-name>
 ```
 
-If your self-hosted gateway is deployed in Azure Kubernetes Service, you can enable [Azure Monitor for containers](../azure-monitor/insights/container-insights-overview.md) to collect `stdout` and `stderr` from your workloads and view the logs in Log Analytics. 
+If your self-hosted gateway is deployed in Azure Kubernetes Service, you can enable [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) to collect `stdout` and `stderr` from your workloads and view the logs in Log Analytics.
 
-The self-hosted gateway also supports a number of protocols including `localsyslog`, `rfc5424`, and `journal`. The below table summarizes all the options supported. 
+The self-hosted gateway also supports a number of protocols including `localsyslog`, `rfc5424`, and `journal`. The below table summarizes all the options supported.
 
 | Field  | Default | Description |
 | ------------- | ------------- | ------------- |
 | telemetry.logs.std  | `text` | Enables logging to standard streams. Value can be `none`, `text`, `json` |
-| telemetry.logs.local  | `none` | Enables local logging. Value can be `none`, `auto`, `localsyslog`, `rfc5424`, `journal`  |
+| telemetry.logs.local  | `auto` | Enables local logging. Value can be `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  |
 | telemetry.logs.local.localsyslog.endpoint  | n/a | Specifies localsyslog endpoint.  |
-| telemetry.logs.local.localsyslog.facility  | n/a | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility). e.g., `7` 
+| telemetry.logs.local.localsyslog.facility  | n/a | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility). e.g., `7`
 | telemetry.logs.local.rfc5424.endpoint  | n/a | Specifies rfc5424 endpoint.  |
 | telemetry.logs.local.rfc5424.facility  | n/a | Specifies facility code per [rfc5424](https://tools.ietf.org/html/rfc5424). e.g., `7`  |
 | telemetry.logs.local.journal.endpoint  | n/a | Specifies journal endpoint.  |
+| telemetry.logs.local.json.endpoint | 127.0.0.1:8888 | Specifies UDP endpoint that accepts JSON data: file path, IP:port, or hostname:port.
 
 Here is a sample configuration of local logging:
 
@@ -228,8 +229,33 @@ Here is a sample configuration of local logging:
         telemetry.logs.local.localsyslog.endpoint: "/dev/log"
         telemetry.logs.local.localsyslog.facility: "7"
 ```
- 
+
+### Using local syslog logs on Azure Kubernetes Service (AKS)
+
+When configuring to use localsyslog on Azure Kubernetes Service, you can choose two ways to explore the logs:
+
+- Use [Syslog collection with Container Insights](./../azure-monitor/containers/container-insights-syslog.md)
+- Connect & explore logs on the worker nodes
+
+#### Consuming logs from worker nodes
+
+You can easily consume them by getting access to the worker nodes:
+
+1. Create an SSH connection to the node ([docs](./../aks/node-access.md))
+2. Logs can be found under `host/var/log/syslog`
+
+For example, you can filter all syslogs to just the ones from the self-hosted gateway:
+
+```shell
+$ cat host/var/log/syslog | grep "apimuser"
+May 15 05:54:20 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05-15T05:54:20.0445178Z, isRequestSuccess=True, totalTime=290, category=GatewayLogs, callerIpAddress=141.134.132.243, timeGenerated=2023-05-15T05:54:20.0445178Z, region=Repro, correlationId=b28565ec-73e0-41e6-9312-efcdd6841846, method=GET, url="http://20.126.242.200/echo/resource?param1\=sample", backendResponseCode=200, responseCode=200, responseSize=628, cache=none, backendTime=287, apiId=echo-api, operationId=retrieve-resource, apimSubscriptionId=master, clientProtocol=HTTP/1.1, backendProtocol=HTTP/1.1, apiRevision=1, backendMethod=GET, backendUrl="http://echoapi.cloudapp.net/api/resource?param1\=sample"
+May 15 05:54:21 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05-15T05:54:21.1189171Z, isRequestSuccess=True, totalTime=150, category=GatewayLogs, callerIpAddress=141.134.132.243, timeGenerated=2023-05-15T05:54:21.1189171Z, region=Repro, correlationId=ab4d7464-acee-40ae-af95-a521cc57c759, method=GET, url="http://20.126.242.200/echo/resource?param1\=sample", backendResponseCode=200, responseCode=200, responseSize=628, cache=none, backendTime=148, apiId=echo-api, operationId=retrieve-resource, apimSubscriptionId=master, clientProtocol=HTTP/1.1, backendProtocol=HTTP/1.1, apiRevision=1, backendMethod=GET, backendUrl="http://echoapi.cloudapp.net/api/resource?param1\=sample"
+```
+> [!NOTE]
+> If you have changed the root with `chroot`, for example `chroot /host`, then the above path needs to reflect that change.
+
 ## Next steps
 
+* To learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
-* Learn about [configuring and persisting logs in the cloud](how-to-configure-local-metrics-logs.md)
+* Learn about [configuring and persisting logs in the cloud](how-to-configure-cloud-metrics-logs.md)

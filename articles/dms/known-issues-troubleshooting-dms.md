@@ -1,27 +1,20 @@
 ---
 title: "Common issues - Azure Database Migration Service"
 description: Learn about how to troubleshoot common known issues/errors associated with using Azure Database Migration Service.
-services: database-migration
-author: pochiraju
-ms.author: rajpo
-manager: craigg
-ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: troubleshooting
+author: abhims14
+ms.author: abhishekum
+ms.reviewer: randolphwest
 ms.date: 02/20/2020
+ms.service: dms
+ms.topic: troubleshooting
+ms.custom:
+  - has-azure-ad-ps-ref
+  - sql-migration-content
 ---
 
 # Troubleshoot common Azure Database Migration Service issues and errors
 
 This article describes some common issues and errors that Azure Database Migration Service users can come across. The article also includes information about how to resolve these issues and errors.
-
-> [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
->
 
 ## Migration activity in queued state
 
@@ -40,16 +33,6 @@ The following error occurs when creating an activity for a database migration pr
 | Cause         | Resolution |
 | ------------- | ------------- |
 | This error displays when you've selected more than four databases for a single migration activity. At present, each migration activity is limited to four databases. | Select four or fewer databases per migration activity. If you need to migrate more than four databases in parallel, provision another instance of Azure Database Migration Service. Currently, each subscription supports up to two Azure Database Migration Service instances.<br><br> |
-
-## Errors for MySQL migration to Azure MySQL with recovery failures
-
-When you migrate from MySQL to Azure Database for MySQL using Azure Database Migration Service, the migration activity fails with the following error:
-
-* **Error**: Database migration error - Task 'TaskID' was suspended due to [n] successive recovery failures.
-
-| Cause         | Resolution |
-| ------------- | ------------- |
-| This error may occur when the user doing the  migration is missing ReplicationAdmin role and/or privileges of REPLICATION CLIENT, REPLICATION REPLICA, and SUPER (versions earlier than MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Make sure the [pre-requisite privileges](./tutorial-mysql-azure-mysql-online.md#prerequisites) for the user account are configured accurately on the Azure Database for MySQL instance. For example, the following steps can be followed to create a user named 'migrateuser' with required privileges:<br>1. CREATE USER migrateuser@'%' IDENTIFIED BY 'secret'; <br>2. Grant all privileges on db_name.* to 'migrateuser'@'%' identified by 'secret'; // repeat this step to grant access on more databases <br>3. Grant replication slave on *.* to 'migrateuser'@'%' identified by 'secret';<br>4. Grant replication client on *.* to 'migrateuser'@'%' identified by 'secret';<br>5. Flush privileges; |
 
 ## Error when attempting to stop Azure Database Migration Service
 
@@ -97,9 +80,9 @@ When you try to connect to source in the Azure Database Migration service projec
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
-| When using [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requires](./tutorial-sql-server-azure-sql-online.md) provisioning three service endpoints on the Virtual Network subnet associated with the service:<br> -- Service Bus endpoint<br> -- Storage endpoint<br> -- Target database endpoint (e.g. SQL endpoint, Cosmos DB endpoint)<br><br><br><br><br> | [Enable](./tutorial-sql-server-azure-sql-online.md) the required service endpoints for ExpressRoute connectivity between source and Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
+| When using [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requires](./tutorial-sql-server-to-azure-sql.md) provisioning three service endpoints on the Virtual Network subnet associated with the service:<br> -- Service Bus endpoint<br> -- Storage endpoint<br> -- Target database endpoint (e.g. SQL endpoint, Azure Cosmos DB endpoint)<br><br><br><br><br> | [Enable](./tutorial-sql-server-to-azure-sql.md) the required service endpoints for ExpressRoute connectivity between source and Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
-## Lock wait timeout error when migrating a MySQL database to Azure DB for MySQL
+## Lock wait timeout error when migrating a MySQL database to Azure Database for MySQL
 
 When you migrate a MySQL database to an Azure Database for MySQL instance via Azure Database Migration Service, the migration fails with following lock wait timeout error:
 
@@ -121,13 +104,12 @@ When you try to connect Azure Database Migration Service to SQL Server source th
 
 ## Additional known issues
 
-* [Known issues/migration limitations with online migrations to Azure SQL Database](./known-issues-azure-sql-online.md)
-* [Known issues/migration limitations with online migrations to Azure Database for MySQL](./known-issues-azure-mysql-online.md)
+* [Known issues/migration limitations with online migrations to Azure SQL Database](./index.yml)
 * [Known issues/migration limitations with online migrations to Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 
 ## Next steps
 
-* View the article [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* View the article [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration#data_migration).
 * View the article [How to configure server parameters in Azure Database for MySQL by using the Azure portal](../mysql/howto-server-parameters.md).
 * View the article [Overview of prerequisites for using Azure Database Migration Service](./pre-reqs.md).
-* See the [FAQ about using Azure Database Migration Service](./faq.md).
+* See the [FAQ about using Azure Database Migration Service](./faq.yml).

@@ -1,16 +1,20 @@
 ---
 title: Imagery partner integration
 description: This article describes imagery partner integration.
-author: uhabiba04
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: v-umha
-ms.custom: has-adal-ref
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Imagery partner integration
 
 This article describes how to use the Azure FarmBeats Translator component to send imagery data to FarmBeats. Agricultural imagery data can be generated from various sources, such as multispectral cameras, satellites, and drones. Agricultural imagery partners can integrate with FarmBeats to provide customers with custom-generated maps for their farms.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 Data, once available, can be visualized through the FarmBeats Accelerator and potentially be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by agricultural businesses or customer system integrators.
 
@@ -34,13 +38,13 @@ You must use the following credentials in the drone partner software to link Far
 
 ## API development
 
-The APIs contain Swagger technical documentation. For information about the APIs and corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+The APIs contain Swagger technical documentation.
 
 ## Authentication
 
-FarmBeats uses Microsoft Azure [Active Directory](../../app-service/overview-authentication-authorization.md) (Azure AD). Azure App Service provides built-in authentication and authorization support. 
+FarmBeats uses [Microsoft Entra ID](../../app-service/overview-authentication-authorization.md). Azure App Service provides built-in authentication and authorization support. 
 
-For more information about Azure AD, see [Azure Active Directory](../../app-service/overview-authentication-authorization.md).   
+For more information, see [Microsoft Entra ID](../../app-service/overview-authentication-authorization.md).   
 
 FarmBeats Datahub uses bearer authentication, which needs the following credentials:
 
@@ -86,8 +90,8 @@ Here are the most common request headers that need to be specified when you make
 
 **Header** | **Description and example**
 --- | ---
-Content-Type  | The request format (Content-Type: application/<format>). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
-Authorization | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
+Content-Type  | The request format (Content-Type: application/\<format\>). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
+Authorization | Specifies the access token required to make an API call. Authorization: Bearer \<Access-Token\>
 Accept  | The response format. For FarmBeats Datahub APIs, the format is JSON. Accept: application/json
 
 
@@ -107,7 +111,7 @@ The following sample request is to get the list of devices:
 ```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>”
+"Authorization: Bearer <Access-Token>"
 ```
 
 Most GET, POST, and PUT calls require a JSON request body.
@@ -131,20 +135,22 @@ JSON is a common language-independent data format that provides a simple text re
 
 After the partner has credentials to connect to FarmBeats Datahub, the partner takes the following steps in the Translator component.
 
-1.	Create a new extended type for the following fields, in accordance with the type of imagery to be uploaded:
+1. Create a new extended type for the following fields, in accordance with the type of imagery to be uploaded:
 
-    - **Scene Source**: For example, drone_partner_name
-    - **Scene Type**: For example, drone
-    - **Scene File Type**: For example, chlorophyll index
-    - **Scene File Content Type**: For example, image/tiff
+   - **Scene Source**: For example, drone_partner_name
+   - **Scene Type**: For example, drone
+   - **Scene File Type**: For example, chlorophyll index
+   - **Scene File Content Type**: For example, image/tiff
 
-2.	Call the /Farms API to get the list of farms from within the Azure FarmBeats system.
-3.	Provide the customer with an ability to choose a single farm from the list of farms.
+2. Call the /Farms API to get the list of farms from within the Azure FarmBeats system.
 
-    The partner system must show the farm within the partner software to do the path planning and drone flight and image collection.
+3. Provide the customer with an ability to choose a single farm from the list of farms.
 
-4.	Call the /Scene API and provide required details to create a new scene with a unique scene ID.
-5.	Receive a blob SAS URL to upload the required images into FarmBeats Datahub, in the context of the chosen farm, in the FarmBeats system.
+   The partner system must show the farm within the partner software to do the path planning and drone flight and image collection.
+
+4. Call the /Scene API and provide required details to create a new scene with a unique scene ID.
+
+5. Receive a blob SAS URL to upload the required images into FarmBeats Datahub, in the context of the chosen farm, in the FarmBeats system.
 
 Here's a detailed flow on the API calls.
 
@@ -336,7 +342,7 @@ Here are the system-defined values:
 
 This step is a one-time setup. The scope of this new scene type is limited to the subscription in which the Azure FarmBeats is installed.
 
-For example, to add SceneSource: “SlantRange,” you do a PUT on the ID of the /ExtendedType API with the key "SceneSource" input payload.
+For example, to add SceneSource: "SlantRange," you do a PUT on the ID of the /ExtendedType API with the key "SceneSource" input payload.
 
 ```json
 {

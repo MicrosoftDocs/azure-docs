@@ -1,11 +1,12 @@
 ---
 title: 'Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI'
-description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, send the events to a Webhook, and handle the events in a web application.
-author: curib
-ms.author: cauribeg
+description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, trigger an event, and view the results.
+author: flang-msft
+ms.author: franlanglois
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI
@@ -53,9 +54,9 @@ Replace `<your-site-name>` with a unique name for your web app. The web app name
 ```azurecli-interactive
 sitename=<your-site-name>
 
-az group deployment create \
+az deployment group create \
   --resource-group <resource_group_name> \
-  --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
+  --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/main/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost
 ```
 
@@ -63,7 +64,7 @@ The deployment may take a few minutes to complete. After the deployment has succ
 
 You should see the site with no messages currently displayed.
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to your Azure Cache for Redis instance
 
@@ -72,7 +73,7 @@ In this step, you'll subscribe to a topic to tell Event Grid which events you wa
 The endpoint for your web app must include the suffix `/api/updates/`.
 
 ```azurecli-interactive
-cacheId=$(az redis show --name <cache_name> --resource-group <resource_group_name> --query id --subscription <subscription_id>)
+cacheId=$(az redis show --name <cache_name> --resource-group <resource_group_name> --query id --subscription <subscription_id> --output tsv)
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \

@@ -1,16 +1,21 @@
 ---
 title: Layered security v1
 description: Learn how to implement a layered security architecture in your App Service environment. This doc is provided only for customers who use the legacy v1 ASE.
-author: stefsch
+author: madsd
 
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.topic: article
-ms.date: 08/30/2016
-ms.author: stefsch
-ms.custom: seodec18
-
+ms.date: 03/29/2022
+ms.author: madsd
 ---
 # Implementing a Layered Security Architecture with App Service Environments
+
+> [!IMPORTANT]
+> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+>
+> As of 29 January 2024, you can no longer create new App Service Environment v1 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
+>
+
 Since App Service Environments provide an isolated runtime environment deployed into a virtual network, developers can create a layered security architecture providing differing levels of network access for each physical application tier.
 
 A common desire is to hide API back-ends from general Internet access, and only allow APIs to be called by upstream web apps.  [Network security groups (NSGs)][NetworkSecurityGroups] can be used on subnets containing App Service Environments to restrict public access to API applications.
@@ -62,7 +67,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 ```
 
-Rinse and repeat for the second and third upstream App Service Environments ("fe2ase"and "fe3ase").
+Rinse and repeat for the second and third upstream App Service Environments ("fe2ase" and "fe3ase").
 
 ```azurepowershell-interactive
 #Grant access to requests from the second upstream web front-end

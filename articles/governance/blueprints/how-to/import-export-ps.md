@@ -1,10 +1,12 @@
 ---
 title: Import and export blueprints with PowerShell
 description: Learn how to work with your blueprint definitions as code. Share, source control, and manage them using the export and import commands.
-ms.date: 01/27/2021
+ms.date: 09/07/2023
 ms.topic: how-to
 ---
 # Import and export blueprint definitions with PowerShell
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 Azure Blueprints can be fully managed through Azure portal. As organizations advance in their use of
 Azure Blueprints, they should start thinking of blueprint definitions as managed code. This concept
@@ -103,7 +105,7 @@ manually created blueprint definition in the
 blueprint definition to a different management group or subscription.
 
 For examples of built-in blueprint definitions, see the
-[Azure Blueprint GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
+[Azure Blueprints GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
 
 - **Name** [required]
   - Specifies the name for the new blueprint definition

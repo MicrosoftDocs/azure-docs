@@ -1,13 +1,12 @@
 ---
 title: 'Python: Filesystem operations on Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Learn how to use Python SDK to work with the Data Lake Storage Gen1 file system.
-services: data-lake-store
-author: twooley
 
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 ms.custom: devx-track-python
 
 ---
@@ -82,7 +81,7 @@ pip install azure-datalake-store
 
 ## Authentication
 
-In this section, we talk about the different ways to authenticate with Azure AD. The options available are:
+In this section, we talk about the different ways to authenticate with Microsoft Entra ID. The options available are:
 
 * For end-user authentication for your application, see [End-user authentication with Data Lake Storage Gen1 using Python](data-lake-store-end-user-authenticate-python.md).
 * For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Storage Gen1 using Python](data-lake-store-service-to-service-authenticate-python.md).

@@ -1,0 +1,77 @@
+items:
+- name: Basic Load Balancer documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Basic Azure Load Balancer?
+    href: overview.md 
+- name: Quickstarts
+  items:
+  - name: Create a basic public load balancer
+    items:
+    - name: Portal
+      href: quickstart-basic-public-load-balancer-portal.md
+    - name: PowerShell
+      href: quickstart-basic-public-load-balancer-powershell.md
+    - name: CLI
+      href: quickstart-basic-public-load-balancer-cli.md
+  - name: Create a basic internal load balancer
+    items:
+    - name: Portal
+      href: quickstart-basic-internal-load-balancer-portal.md
+    - name: PowerShell
+      href: quickstart-basic-internal-load-balancer-powershell.md
+    - name: CLI
+      href: quickstart-basic-internal-load-balancer-cli.md
+- name: Concepts
+  items:
+  - name: Azure Load Balancer SKUs
+    href: ../skus.md?toc=/azure/load-balancer/basic/toc.json
+- name: How-to
+  items:
+  - name: IPv6
+    items:
+    - name: Deploy an IPv6 dual stack application using Basic Load Balancer - PowerShell
+      href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+    - name: Deploy an IPv6 dual stack application using Basic Load Balancer - Azure CLI
+      href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+    - name: Deploy an IPv6 dual stack application using Basic Load Balancer - ARM template
+      href: ipv6-configure-template-json.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-network
+  - name: Azure PowerShell
+    href: /powershell/module/az.network
+  - name: .NET
+    href: /dotnet/api/overview/azure/virtual-network
+  - name: Java
+    href: /java/api/
+  - name: Node.js
+    href: /javascript/azure#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/virtualnetwork/nat-gateways
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/allversions
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=virtual-network
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Networking blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Microsoft Q&A question page for Networking
+    href: /answers/topics/azure-virtual-network.html
+  - name: Networking feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/virtual-network
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-network

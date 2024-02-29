@@ -1,10 +1,14 @@
 ---
 title: 'Service Fabric cluster security: client roles'
 description: This article describes the two client roles and the permissions provided to the roles.
-
-ms.topic: conceptual
-ms.date: 2/23/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Role-based access control for Service Fabric clients
 Azure Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control allows the cluster administrator to limit access to certain cluster operations for different groups of users, making the cluster more secure.  
 

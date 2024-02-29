@@ -5,16 +5,13 @@ services: key-vault
 author: mumian
 manager: dougeby
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc,subject-armqs
-ms.date: 02/27/2020
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 04/23/2023
 ms.author: jgao
-
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
-
 ---
 
 # Quickstart: Set and retrieve a secret from Azure Key Vault using an ARM template
@@ -25,7 +22,7 @@ ms.author: jgao
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -33,7 +30,7 @@ To complete this article:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Your Azure AD user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
+* Your Microsoft Entra user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
 
     1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**.
 
@@ -41,7 +38,7 @@ To complete this article:
         ```azurecli-interactive
         echo "Enter your email address that is used to sign in to Azure:" &&
         read upn &&
-        az ad user show --id $upn --query "objectId" &&
+        az ad user show --id $upn --query "Id" &&
         echo "Press [ENTER] to continue ..."
         ```
 
@@ -58,9 +55,9 @@ To complete this article:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-key-vault-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/key-vault-create/).
 
-:::code language="json" source="~/quickstart-templates/101-key-vault-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.keyvault/key-vault-create/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -73,7 +70,7 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
+    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-create%2Fazuredeploy.json)
 
 2. Select or enter the following values.
 
@@ -86,7 +83,7 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
     * **Location**: select a location. For example, **Central US**.
     * **Key Vault Name**: enter a name for the key vault, which must be globally unique within the .vault.azure.net namespace. You need the name in the next section when you validate the deployment.
     * **Tenant Id**: the template function automatically retrieves your tenant ID. Don't change the default value.
-    * **Ad User Id**: enter your Azure AD user object ID that you retrieved from [Prerequisites](#prerequisites).
+    * **Ad User Id**: enter your Microsoft Entra user object ID that you retrieved from [Prerequisites](#prerequisites).
     * **Secret Name**: enter a name for the secret that you store in the key vault. For example, **adminpassword**.
     * **Secret Value**: enter the secret value. If you store a password, it's recommended to use the generated password you created in Prerequisites.
     * **I agree to the terms and conditions state above**: Select.
@@ -161,4 +158,4 @@ In this quickstart, you created a key vault and a secret using an ARM template, 
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

@@ -3,17 +3,16 @@ title: Common cloud service management tasks | Microsoft Docs
 description: Learn how to manage Cloud Services in the Azure portal. These examples use the Azure portal.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Manage Cloud Services (classic) in the Azure portal
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 In the **Cloud Services** area of the Azure portal, you can:
 
@@ -27,7 +26,7 @@ For more information about how to scale your cloud service, see [Configure auto-
 ## Update a cloud service role or deployment
 If you need to update the application code for your cloud service, use **Update** on the cloud service blade. You can update a single role or all roles. To update, you can upload a new service package or service configuration file.
 
-1. In the [Azure portal][Azure portal], select the cloud service you want to update. This step opens the cloud service instance blade.
+1. In the [Azure portal], select the cloud service you want to update. This step opens the cloud service instance blade.
 
 2. On the blade, select **Update**.
 
@@ -52,7 +51,7 @@ When you decide to deploy a new release of a cloud service, stage and test your 
 
 You can swap deployments from the **Cloud Services** page or the dashboard.
 
-1. In the [Azure portal][Azure portal], select the cloud service you want to update. This step opens the cloud service instance blade.
+1. In the [Azure portal], select the cloud service you want to update. This step opens the cloud service instance blade.
 
 2. On the blade, select **Swap**.
 
@@ -76,7 +75,7 @@ There are two key prerequisites for a successful deployment swap:
 
 - If you want to use a static IP address for your production slot, you must reserve one for your staging slot as well. Otherwise, the swap fails.
 
-- All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the **Overview** blade of the Azure portal. Alternatively, you can use the [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0&preserve-view=true) command in Windows PowerShell.
+- All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the **Overview** blade of the Azure portal. Alternatively, you can use the [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole) command in Windows PowerShell.
 
 Note that guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md).
 
@@ -91,7 +90,7 @@ To save compute costs, you can delete the staging deployment after you verify th
 
 Use the following procedure to delete a deployment or your cloud service.
 
-1. In the [Azure portal][Azure portal], select the cloud service you want to delete. This step opens the cloud service instance blade.
+1. In the [Azure portal], select the cloud service you want to delete. This step opens the cloud service instance blade.
 
 2. On the blade, select **Delete**.
 
@@ -114,12 +113,11 @@ The **Overview** blade has a status bar at the top. When you select the bar, a n
 
 ![Cloud Services Overview](./media/cloud-services-how-to-manage-portal/status-info.png)
 
-
-
-[Azure portal]: https://portal.azure.com
-
 ## Next steps
+
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * Configure [TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
+
+[Azure portal]: https://portal.azure.com

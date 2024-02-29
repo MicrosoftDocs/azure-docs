@@ -3,13 +3,12 @@ title: Explore Linux
 titleSuffix: Azure Data Science Virtual Machine 
 description: Learn how to complete several common data science tasks by using the Linux Data Science Virtual Machine.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
-author: lobrien
-ms.author: laobri
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 06/23/2022
 
 ---
 
@@ -25,16 +24,15 @@ Before you can use a Linux DSVM, you must have the following prerequisites:
 
 * **Azure subscription**. To get an Azure subscription, see [Create your free Azure account today](https://azure.microsoft.com/free/).
 
-* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). For information about provisioning the virtual machine, see [Provision the Ubuntu Data Science Virtual Machine](./release-notes.md).
+* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004). For information about provisioning the virtual machine, see [Provision the Ubuntu Data Science Virtual Machine](./release-notes.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installed on your computer with an open XFCE session. For more information, see [Install and configure the X2Go client](dsvm-ubuntu-intro.md#x2go).
-* For a smoother scrolling experience, in the DSVM's Firefox web browser, toggle the `gfx.xrender.enabled` flag in `about:config`. [Learn more](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider setting `mousewheel.enable_pixel_scrolling` to `False`. [Learn more](https://support.mozilla.org/questions/981140).
 
 ## Download the spambase dataset
 
 The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains 4,601 examples. The dataset is a convenient size for demonstrating some of the key features of the DSVM because it keeps the resource requirements modest.
 
 > [!NOTE]
-> This walkthrough was created by using a D2 v2-size Linux DSVM (Ubuntu 18.04 Edition). You can use a DSVM this size to complete the procedures that are demonstrated in this walkthrough.
+> This walkthrough was created by using a D2 v2-size Linux DSVM. You can use a DSVM this size to complete the procedures that are demonstrated in this walkthrough.
 
 If you need more storage space, you can create additional disks and attach them to your DSVM. The disks use persistent Azure storage, so their data is preserved even if the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your DSVM, complete the steps in [Add a disk to a Linux VM](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The steps for adding a disk use the Azure CLI, which is already installed on the DSVM. You can complete the steps entirely from the DSVM itself. Another option to increase storage is to use [Azure Files](../../storage/files/storage-how-to-use-files-linux.md).
 
@@ -68,7 +66,7 @@ The dataset has several types of statistics for each email:
 
 ## Explore the dataset by using R Open
 
-Let's examine the data and do some basic machine learning by using R. The DSVM comes with [Microsoft R Open](https://mran.revolutionanalytics.com/open/) preinstalled. The multithreaded math libraries in the preinstalled version of R offer better performance than single-threaded versions. R Open also provides reproducibility through a snapshot of the CRAN package repository.
+Let's examine the data and do some basic machine learning by using R. The DSVM comes with CRAN R pre-installed.
 
 To get copies of the code samples that are used in this walkthrough, use git to clone the Azure-Machine-Learning-Data-Science repository. Git is preinstalled on the DSVM. At the git command line, run:
 
@@ -76,8 +74,7 @@ To get copies of the code samples that are used in this walkthrough, use git to 
 git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 ```
 
-Open a terminal window and start a new R session in the R interactive console. You also can use RStudio, which is preinstalled on the DSVM.
-
+Open a terminal window and start a new R session in the R interactive console.
 To import the data and set up the environment:
 
 ```R
@@ -325,7 +322,7 @@ rattle()
 > [!NOTE]
 > You don't need to install Rattle on the DSVM. However, you might be prompted to install additional packages when Rattle opens.
 
-Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Team Data Science Process](../team-data-science-process/index.yml), like loading data or exploring data. The data science process flows from left to right through the tabs. The last tab contains a log of the R commands that were run by Rattle.
+Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Team Data Science Process](/azure/architecture/data-science-process/overview), like loading data or exploring data. The data science process flows from left to right through the tabs. The last tab contains a log of the R commands that were run by Rattle.
 
 To load and configure the dataset:
 

@@ -1,11 +1,11 @@
 ---
 title: Move logic apps across subscriptions, resource groups, or regions
-description: Migrate logic apps or integration accounts to other Azure subscriptions, resource groups, or locations (regions)
+description: Migrate logic apps or integration accounts to other Azure subscriptions, resource groups, or locations (regions).
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
-ms.date: 04/06/2020
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 01/04/2024
 ---
 
 # Move logic app resources to other Azure resource groups, regions, or subscriptions
@@ -36,7 +36,9 @@ To move a resource, such as a logic app or integration account, to another Azure
 
 1. In the [Azure portal](https://portal.azure.com), find and select the logic app resource that you want to move.
 
-1. On the resource's **Overview** page, next to **Subscription**, select the **change** link.
+1. On the resource navigation menu, select **Overview**. Next to the **Subscription** label, select **move**.
+
+    You can also go to the resource's **Properties** page, and under **Subscription Name**, select **Change subscription**.
 
 1. On the **Move resources** page, select the logic app resource and any related resources that you want to move.
 
@@ -52,7 +54,7 @@ To move a resource, such as a logic app or integration account, to another Azure
 
 To move a resource, such as a logic app, integration account, or [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), to another Azure resource group, you can use the Azure portal, Azure PowerShell, Azure CLI, or REST API. These steps cover the Azure portal, which you can use when the resource's region stays the same. For other steps and general preparation, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-Before actually moving resources between groups, you can test whether you can successfully move your resource to another group. For more information, see [Validate your move](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
+Before actually moving resources between groups, you can test whether you can successfully move your resource to another group. For more information, see [Validate your move](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-rest-api).
 
 1. In the [Azure portal](https://portal.azure.com), find and select the logic app resource that you want to move.
 
@@ -89,7 +91,7 @@ Some Azure resources, such as on-premises data gateway resources in Azure, can e
 
 For example, to link a logic app to an integration account, both resources must exist in the same region. In scenarios such as disaster recovery, you usually want integration accounts that have the same configuration and artifacts. In other scenarios, you might need integration accounts with different configurations and artifacts.
 
-Custom connectors in Azure Logic Apps are visible to the connectors' authors and users who have the same Azure subscription and the same Azure Active Directory tenant. These connectors are available in the same region where logic apps are deployed. For more information, see [Share custom connectors in your organization](/connectors/custom-connectors/share).
+Custom connectors in Azure Logic Apps are visible to the connectors' authors and users who have the same Azure subscription and the same Microsoft Entra tenant. These connectors are available in the same region where logic apps are deployed. For more information, see [Share custom connectors in your organization](/connectors/custom-connectors/share).
 
 The template that you get from Visual Studio includes only the resource definitions for your logic app and its connections. So, if your logic app uses other resources, for example, an integration account and B2B artifacts, such as partners, agreements, and schemas, you must export that integration account's template by using the Azure portal. This template includes the resource definitions for both the integration account and artifacts. However, the template isn't fully parameterized. So, you must manually parameterize the values that you want to use for deployment.
 

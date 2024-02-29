@@ -1,15 +1,17 @@
-﻿---
-title: 'Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - PowerShell'
+---
+title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - PowerShell'
 description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure PowerShell
 services: private-link
-author: asudbring
+author: abell
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/31/2020
-ms.author: allensu
+ms.author: abell
+ms.custom: template-tutorial, fasttrack-edit, devx-track-azurepowershell
 ---
-# Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Azure PowerShell
+
+# Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint using Azure PowerShell
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
 
@@ -18,13 +20,13 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
 > * Create a virtual machine.
-> * Create a Azure SQL server and private endpoint.
+> * Create an Azure SQL server and private endpoint.
 > * Test connectivity to the SQL server private endpoint.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+* If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -139,6 +141,8 @@ New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Se
 ## Create the virtual machine ##
 New-AzVM -ResourceGroupName 'CreateSQLEndpointTutorial-rg' -Location 'eastus' -VM $vmConfig
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Create an Azure SQL server
 
@@ -259,7 +263,7 @@ New-AzPrivateDnsZoneGroup @parameters4
 
 In this section, you'll use the virtual machine you created in the previous step to connect to the SQL server across the private endpoint.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) 
+1. Sign in to the [Azure portal](https://portal.azure.com).
  
 2. Select **Resource groups** in the left-hand navigation pane.
 
@@ -332,6 +336,6 @@ In this tutorial, you created a:
 
 You used the virtual machine to test connectivity securely to the SQL server across the private endpoint.
 
-Learn how to create a Private Link service:
+As a next step, you may also be interested in the **Web app with private connectivity to Azure SQL database** architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
 > [!div class="nextstepaction"]
-> [Create a Private Link service](create-private-link-service-portal.md)
+> [Web app with private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app)

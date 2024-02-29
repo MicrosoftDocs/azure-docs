@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to configure Jupyter Notebooks ava
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/22/2019
+ms.date: 07/12/2023
 ---
 
 # Use external packages with Jupyter Notebooks in Apache Spark clusters on HDInsight
@@ -29,11 +29,11 @@ In this article, you'll learn how to use the [spark-csv](https://search.maven.or
 
 1. Create a new notebook. Select **New**, and then select **Spark**.
 
-    ![Create a new Spark Jupyter Notebook](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Create a new Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png " alt-text="Create a new Spark Jupyter Notebook" border="true":::
 
 1. A new notebook is created and opened with the name Untitled.pynb. Select the notebook name at the top, and enter a friendly name.
 
-    ![Provide a name for the notebook](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "Provide a name for the notebook")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png " alt-text="Provide a name for the notebook" border="true":::
 
 1. You'll use the `%%configure` magic to configure the notebook to use an external package. In notebooks that use external packages, make sure you call the `%%configure` magic in the first code cell. This ensures that the kernel is configured to use the package before the session starts.
 
@@ -51,7 +51,7 @@ In this article, you'll learn how to use the [spark-csv](https://search.maven.or
 
     b. From the repository, gather the values for **GroupId**, **ArtifactId**, and **Version**. Make sure that the values you gather match your cluster. In this case, we're using a Scala 2.11 and Spark 1.5.0 package, but you may need to select different versions for the appropriate Scala or Spark version in your cluster. You can find out the Scala version on your cluster by running `scala.util.Properties.versionString` on the Spark Jupyter kernel or on Spark submit. You can find out the Spark version on your cluster by running `sc.version` on Jupyter Notebooks.
 
-    ![Use external packages with Jupyter Notebook](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Use external packages with Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png " alt-text="Use external packages with Jupyter Notebook" border="true":::
 
     c. Concatenate the three values, separated by a colon (**:**).
 
@@ -103,7 +103,7 @@ In this article, you'll learn how to use the [spark-csv](https://search.maven.or
 
 ### Tools and extensions
 
-* [Use external python packages with Jupyter Notebooks in Apache Spark clusters on HDInsight Linux](apache-spark-python-package-installation.md)
+* [Use external Python packages with Jupyter Notebooks in Apache Spark clusters on HDInsight Linux](apache-spark-python-package-installation.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)

@@ -1,10 +1,10 @@
 ---
 title: Azure Kinect known issues and troubleshooting
 description: Learn about some of the known issues and troubleshooting tips when using the Sensor SDK with Azure Kinect DK.
-author: tesych
-ms.author: tesych
-ms.prod: kinect-dk
-ms.date: 06/26/2019
+author: qm13
+ms.author: quentinm
+ms.service: azure-kinect-developer-kit
+ms.date: 03/15/2022
 ms.topic: conceptual
 keywords: troubleshooting, update, bug, kinect, feedback, recovery, logging, tips
 ---
@@ -172,14 +172,24 @@ The Azure Kinect depth engine on Linux uses OpenGL. OpenGL requires a window ins
 
 1. Enable automatic login for the user account you plan to use. Refer to [this](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) article for instructions on enabling automatic login.
 2. Power down the system, disconnect the monitor and power up the system. Automatic login forces the creation of an x-server session.
-2. Connect via ssh and set the DISPLAY env variable `export DISPLAY=:0`
-3. Start your Azure Kinect application.
+3. Connect via ssh and set the DISPLAY env variable `export DISPLAY=:0`
+4. Start your Azure Kinect application.
+
+The [xtrlock](http://manpages.ubuntu.com/manpages/xenial/man1/xtrlock.1x.html) utility may be used to immediately lock the screen after automatic login. Add the following command to the startup application or systemd service:
+
+`bash -c “xtrlock -b”`
 
 ## Missing C# documentation
 
 The Sensor SDK C# documentation is located [here](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html).
 
 The Body Tracking SDK C# documentation is located [here](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html).
+
+## Changes to contents of Body Tracking packages
+
+Both the MSI and NuGet packages no longer include the Microsoft Visual C++ Redistributable Package files. Download the latest package [here](/cpp/windows/latest-supported-vc-redist).
+
+The NuGet package is back however it no longer includes Microsoft DirectML, or NVIDIA CUDA and TensorRT files.
 
 ## Next steps
 

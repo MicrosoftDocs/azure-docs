@@ -1,24 +1,27 @@
 ---
-title: 'Quickstart: Create an internal load balancer by using a template'
-description: This quickstart shows how to create an internal Azure load balancer by using an Azure Resource Manager template (ARM template).
+title: 'Quickstart: Create an internal load balancer - ARM template'
+description: This quickstart creates an internal Azure load balancer using an Azure Resource Manager template (ARM template).
 services: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
-ms.author: allensu
-ms.date: 09/14/2020
+ms.author: mbender
+ms.date: 05/01/2023
+ms.custom: subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
 ---
 
-# Quickstart: Create an internal load balancer to load balance VMs by using an ARM template
+# Quickstart: Create an internal load balancer to load balance VMs using an ARM template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an internal Azure load balancer.
 
+:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
+
+
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-2-vms-internal-load-balancer%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2F2-vms-internal-load-balancer%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -26,9 +29,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/201-2-vms-internal-load-balancer).
+The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/2-vms-internal-load-balancer/).
 
-:::code language="json" source="~/quickstart-templates/201-2-vms-internal-load-balancer/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/2-vms-internal-load-balancer/azuredeploy.json":::
 
 Multiple Azure resources have been defined in the template:
 
@@ -48,7 +51,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
 resourceGroupName="myResourceGroupLB"
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json"
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer/azuredeploy.json"
 
 az group create \
 --name $resourceGroupName \

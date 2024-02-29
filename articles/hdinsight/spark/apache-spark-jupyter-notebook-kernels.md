@@ -3,15 +3,15 @@ title: Kernels for Jupyter Notebook on Spark clusters in Azure HDInsight
 description: Learn about the PySpark, PySpark3, and Spark kernels for Jupyter Notebook available with Spark clusters on Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 04/24/2020
+ms.custom: hdinsightactive
+ms.date: 05/23/2023
 ---
 
 # Kernels for Jupyter Notebook on Apache Spark clusters in Azure HDInsight
 
 HDInsight Spark clusters provide kernels that you can use with the Jupyter Notebook on [Apache Spark](./apache-spark-overview.md) for testing your applications. A kernel is a program that runs and interprets your code. The three kernels are:
 
-- **PySpark** - for applications written in Python2.
+- **PySpark** - for applications written in Python2. (Applicable only for Spark 2.4 version clusters)
 - **PySpark3** - for applications written in Python3.
 - **Spark** - for applications written in Scala.
 
@@ -27,7 +27,7 @@ An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark
 
 2. From the **Overview** view, in the **Cluster dashboards** box, select **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-    ![Jupyter Notebook on Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook on Spark")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png " alt-text="Jupyter Notebook on Apache Spark" border="true":::
   
    > [!NOTE]  
    > You may also reach the Jupyter Notebook on Spark cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
@@ -36,7 +36,13 @@ An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark
 
 3. Select **New**, and then select either **Pyspark**, **PySpark3**, or **Spark** to create a notebook. Use the Spark kernel for Scala applications, PySpark kernel for Python2 applications, and PySpark3 kernel for Python3 applications.
 
-    ![Kernels for Jupyter Notebook on Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels for Jupyter Notebook on Spark")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png " alt-text="Kernels for Jupyter Notebook on Spark" border="true":::
+
+ > [!NOTE]  
+ > For Spark 3.1, only **PySpark3**, or **Spark** will be available.
+ >
+ :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark-for-hdi-4-0.png " alt-text="Kernels for Jupyter Notebook on Spark HDI4.0" border="true":::
+ 
 
 4. A notebook opens with the kernel you selected.
 

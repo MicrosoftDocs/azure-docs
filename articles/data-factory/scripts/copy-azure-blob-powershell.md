@@ -1,15 +1,13 @@
 ---
 title: Copy data in the cloud using PowerShell
 description: This PowerShell script copies data from one location in an Azure Blob Storage to another location in the same Blob Storage.
-services: data-factory
-ms.author: jingwang
-author: linda33wj
-manager: shwang
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
 ms.topic: article
-ms.custom: seo-lt-2019
-ms.date: 03/12/2020
+ms.custom: devx-track-azurepowershell
+ms.date: 01/05/2024
 ---
 
 # Use PowerShell to create a data factory pipeline to copy data in the cloud
@@ -61,7 +59,7 @@ This script uses the following commands:
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
-## Next steps
+## Related content
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 

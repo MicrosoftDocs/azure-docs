@@ -1,9 +1,9 @@
 ---
-author: cynthn
-ms.service: virtual-machines-linux
+author: jushiman
+ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: cynthn
+ms.author: jushiman
 ---
 ## Install WordPress
 

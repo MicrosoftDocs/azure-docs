@@ -7,8 +7,8 @@ keywords: web app performance, slow app, app slow
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
-ms.custom: seodec18
-
+ms.author: msangapu
+author: msangapu-msft
 ---
 # Troubleshoot slow app performance issues in Azure App Service
 This article helps you troubleshoot slow app performance issues in [Azure App Service](./overview.md).
@@ -47,7 +47,7 @@ This option enables you to find out if your application is having any issues. In
 Some of the metrics that you might want to monitor for your app are
 
 * Average memory working set
-* Average response time
+* Response time
 * CPU time
 * Memory working set
 * Requests
@@ -57,7 +57,7 @@ Some of the metrics that you might want to monitor for your app are
 For more information, see:
 
 * [Monitor apps in Azure App Service](web-sites-monitor.md)
-* [Receive alert notifications](../azure-monitor/platform/alerts-overview.md)
+* [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md)
 
 #### Monitor web endpoint status
 If you are running your app in the **Standard** pricing tier, App Service lets you monitor two endpoints from three geographic locations.
@@ -68,7 +68,7 @@ Uptime is monitored using HTTP response codes, and response time is measured in 
 
 To set it up, see [Monitor apps in Azure App Service](web-sites-monitor.md).
 
-Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) for a video on endpoint monitoring.
+Also, see Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow for a video on endpoint monitoring.
 
 #### Application performance monitoring using Extensions
 You can also monitor your application performance by using a *site extension*.
@@ -160,3 +160,7 @@ Restarting is often the simplest way to recover from one-time issues. On the [Az
 
 You can also manage your app using Azure PowerShell. For more information, see
 [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
+
+## More resources
+
+[Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

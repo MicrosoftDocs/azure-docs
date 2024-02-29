@@ -1,16 +1,14 @@
 ---
-title: Optimizing transactions 
-description: Learn how to optimize the performance of your transactional code in dedicated SQL pool while minimizing risk for long rollbacks.
-services: synapse-analytics
-author: XiaoyuMSFT 
-manager: craigg
+title: Optimizing transactions
+description: Learn how to optimize the performance of your transactional code in an Azure Synapse Analytics dedicated SQL pool while minimizing risk for long rollbacks.
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: sql-dw 
+ms.subservice: sql-dw
 ms.date: 04/19/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse 
+author: KevinConanMSFT
+ms.author: kecona
+ms.reviewer: wiassaf
+ms.custom: azure-synapse
 ---
 
 # Optimizing transactions in dedicated SQL pool in Azure Synapse Analytics
@@ -414,4 +412,4 @@ The best scenario is to let in flight data modification transactions complete pr
 
 ## Next steps
 
-See [Transactions in dedicated SQL pool](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [Dedicated SQL pool best practices](sql-data-warehouse-best-practices.md).
+See [Transactions in dedicated SQL pool](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [Dedicated SQL pool best practices](../sql/best-practices-dedicated-sql-pool.md).

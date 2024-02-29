@@ -1,25 +1,22 @@
 ---
-title: Expression and functions in Azure Data Factory 
-description: This article provides information about expressions and functions that you can use in creating data factory entities.
-services: data-factory
-documentationcenter: ''
-author: dcstwh
-ms.author: weetok
-ms.reviewer: maghan
+title: Expression and functions
+titleSuffix: Azure Data Factory & Azure Synapse
+description: This article provides information about expressions and functions that you can use in creating Azure Data Factory and Azure Synapse Analytics pipeline entities.
+author: kromerm
+ms.author: makromer
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 10/20/2023
 ---
 
-# Expressions and functions in Azure Data Factory
+# Expressions and functions in Azure Data Factory and Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-functions-variables.md)
-> * [Current version](control-flow-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article provides details about expressions and functions supported by Azure Data Factory. 
+This article provides details about expressions and functions supported by Azure Data Factory and Azure Synapse Analytics. 
 
 ## Expressions
 
@@ -57,13 +54,49 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 |"Answer is: @{pipeline().parameters.myNumber}"| Returns the string `Answer is: 42`.|  
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
-  
+
+In the  control flow activities like ForEach activity, you can provide an array to be iterated over for the property items and use  @item() to iterate over a single enumeration in ForEach activity. For example, if items is an array: [1, 2, 3], @item() returns 1 in the first iteration, 2 in the second iteration, and 3 in the third iteration. You can also use @range(0,10) like expression to iterate ten times starting with 0 ending with 9.
+
+You can use @activity('activity name') to capture output of activity and make decisions. Consider a web activity called Web1. For placing the output of the first activity in the body of the second, the expression generally looks like: @activity('Web1').output or @activity('Web1').output.data or something similar depending upon what the output of the first activity looks like. 
+
 ## Examples
 
 ### Complex expression example
-The below example shows a complex example that references a deep sub-field of activity output. To reference a pipeline parameter that evaluates to a sub-field, use [] syntax instead of dot(.) operator (as in case of subfield1 and subfield2)
+The below example shows a complex example that references a deep sub-field of activity output. To reference a pipeline parameter that evaluates to a sub-field, use [] syntax instead of dot(.) operator (as in case of subfield1 and subfield2), as part of an activity output.
 
-@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*
+`@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*`
+
+Creating files dynamically and naming them is common pattern. Let us explore few dynamic file naming examples.
+
+  1. Append Date to a filename:  `@concat('Test_',  formatDateTime(utcnow(), 'yyyy-dd-MM'))` 
+  
+  2. Append DateTime in customer timezone : `@concat('Test_',  convertFromUtc(utcnow(), 'Pacific Standard Time'))`
+  
+  3. Append Trigger Time :` @concat('Test_',  pipeline().TriggerTime)`
+  
+  4. Output a custom filename in a Mapping Data Flow when outputting to a single file with date : `'Test_' + toString(currentDate()) + '.csv'`
+
+In above cases, 4 dynamic filenames are created starting with Test_. 
+
+### Dynamic content editor
+
+Dynamic content editor automatically escapes characters in your content when you finish editing. For example, the following content in content editor is a string interpolation with two expression functions. 
+
+```json
+{ 
+  "type": "@{if(equals(1, 2), 'Blob', 'Table' )}",
+  "name": "@{toUpper('myData')}"
+}
+```
+
+Dynamic content editor converts above content to expression `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"`. The result of this expression is a JSON format string showed below.
+
+```json
+{
+  "type": "Table",
+  "name": "MYDATA"
+}
+```
 
 ### A dataset with a parameter
 In the following example, the BlobDataset takes a parameter named **path**. Its value is used to set a value for the **folderPath** property by using the expression: `dataset().path`. 
@@ -139,19 +172,65 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
     }
 }
 ```
-### Tutorial
-This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
 
+### Replacing special characters
+
+Dynamic content editor automatically escapes characters like double quote, backslash in your content when you finish editing. This causes trouble if you want to replace line feed or tab by using **\n**, **\t** in replace() function. You can of edit your dynamic content in code view to remove the extra \ in the expression, or you can follow below steps to replace special characters using expression language:
+
+1. URL encoding against the original string value
+1. Replace URL encoded string, for example, line feed (%0A), carriage return(%0D), horizontal tab(%09).
+1. URL decoding
+
+For example, variable *companyName* with a newline character in its value, expression `@uriComponentToString(replace(uriComponent(variables('companyName')), '%0A', ''))` can remove the newline character. 
+
+```json
+Contoso-
+Corporation
+```
+
+### Escaping single quote character
+
+Expression functions use single quote for string value parameters. Use two single quotes to escape a `'` character in string functions. For example, expression `@concat('Baba', '''s ', 'book store')` will return below result.
+
+```
+Baba's book store
+```
+
+### Tutorial
+This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.  The tutorial specifically demonstrates steps for an Azure Data Factory although steps for a Synapse workspace are nearly equivalent but with a slightly different user interface.
   
 ## Functions
 
 You can call functions within expressions. The following sections provide information about the functions that can be used in an expression.  
+  
+## Date functions  
+
+| Date or time function | Task |
+| --------------------- | ---- |
+| [addDays](control-flow-expression-language-functions.md#addDays) | Add a number of days to a timestamp. |
+| [addHours](control-flow-expression-language-functions.md#addHours) | Add a number of hours to a timestamp. |
+| [addMinutes](control-flow-expression-language-functions.md#addMinutes) | Add a number of minutes to a timestamp. |
+| [addSeconds](control-flow-expression-language-functions.md#addSeconds) | Add a number of seconds to a timestamp. |
+| [addToTime](control-flow-expression-language-functions.md#addToTime) | Add a number of time units to a timestamp. See also [getFutureTime](control-flow-expression-language-functions.md#getFutureTime). |
+| [convertFromUtc](control-flow-expression-language-functions.md#convertFromUtc) | Convert a timestamp from Universal Time Coordinated (UTC) to the target time zone. |
+| [convertTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | Convert a timestamp from the source time zone to the target time zone. |
+| [convertToUtc](control-flow-expression-language-functions.md#convertToUtc) | Convert a timestamp from the source time zone to Universal Time Coordinated (UTC). |
+| [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Return the day of the month component from a timestamp. |
+| [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Return the day of the week component from a timestamp. |
+| [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | Return the day of the year component from a timestamp. |
+| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Return the timestamp as a string in optional format. |
+| [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Return the current timestamp plus the specified time units. See also [addToTime](control-flow-expression-language-functions.md#addToTime). |
+| [getPastTime](control-flow-expression-language-functions.md#getPastTime) | Return the current timestamp minus the specified time units. See also [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
+| [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Return the start of the day for a timestamp. |
+| [startOfHour](control-flow-expression-language-functions.md#startOfHour) | Return the start of the hour for a timestamp. |
+| [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | Return the start of the month for a timestamp. |
+| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | Subtract a number of time units from a timestamp. See also [getPastTime](control-flow-expression-language-functions.md#getPastTime). |
+| [ticks](control-flow-expression-language-functions.md#ticks) | Return the `ticks` property value for a specified timestamp. |
+| [utcNow](control-flow-expression-language-functions.md#utcNow) | Return the current timestamp as a string. |
 
 ## String functions  
 
-To work with strings, you can use these string functions
-and also some [collection functions](#collection-functions).
-String functions work only on strings.
+To work with strings, you can use these string functions and also some [collection functions](#collection-functions).  String functions work only on strings.
 
 | String function | Task |
 | --------------- | ---- |
@@ -161,7 +240,7 @@ String functions work only on strings.
 | [indexOf](control-flow-expression-language-functions.md#indexof) | Return the starting position for a substring. |
 | [lastIndexOf](control-flow-expression-language-functions.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
 | [replace](control-flow-expression-language-functions.md#replace) | Replace a substring with the specified string, and return the updated string. |
-| [split](control-flow-expression-language-functions.md#split) | Return an array that contains substrings, separated by commas, from a larger string based on a specified delimiter character in the original string. |
+| [split](control-flow-expression-language-functions.md#split) | Split a string at each occurrence of a specified delimiter, returning the resulting substrings as elements of an array. |
 | [startsWith](control-flow-expression-language-functions.md#startswith) | Check whether a string starts with a specific substring. |
 | [substring](control-flow-expression-language-functions.md#substring) | Return characters from a string, starting from the specified position. |
 | [toLower](control-flow-expression-language-functions.md#toLower) | Return a string in lowercase format. |
@@ -253,31 +332,6 @@ These functions are useful inside conditions, they can be used to evaluate any t
 | [rand](control-flow-expression-language-functions.md#rand) | Return a random integer from a specified range. |
 | [range](control-flow-expression-language-functions.md#range) | Return an integer array that starts from a specified integer. |
 | [sub](control-flow-expression-language-functions.md#sub) | Return the result from subtracting the second number from the first number. |
-  
-## Date functions  
-
-| Date or time function | Task |
-| --------------------- | ---- |
-| [addDays](control-flow-expression-language-functions.md#addDays) | Add a number of days to a timestamp. |
-| [addHours](control-flow-expression-language-functions.md#addHours) | Add a number of hours to a timestamp. |
-| [addMinutes](control-flow-expression-language-functions.md#addMinutes) | Add a number of minutes to a timestamp. |
-| [addSeconds](control-flow-expression-language-functions.md#addSeconds) | Add a number of seconds to a timestamp. |
-| [addToTime](control-flow-expression-language-functions.md#addToTime) | Add a number of time units to a timestamp. See also [getFutureTime](control-flow-expression-language-functions.md#getFutureTime). |
-| [convertFromUtc](control-flow-expression-language-functions.md#convertFromUtc) | Convert a timestamp from Universal Time Coordinated (UTC) to the target time zone. |
-| [convertTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | Convert a timestamp from the source time zone to the target time zone. |
-| [convertToUtc](control-flow-expression-language-functions.md#convertToUtc) | Convert a timestamp from the source time zone to Universal Time Coordinated (UTC). |
-| [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Return the day of the month component from a timestamp. |
-| [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Return the day of the week component from a timestamp. |
-| [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | Return the day of the year component from a timestamp. |
-| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Return the timestamp as a string in optional format. |
-| [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Return the current timestamp plus the specified time units. See also [addToTime](control-flow-expression-language-functions.md#addToTime). |
-| [getPastTime](control-flow-expression-language-functions.md#getPastTime) | Return the current timestamp minus the specified time units. See also [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
-| [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Return the start of the day for a timestamp. |
-| [startOfHour](control-flow-expression-language-functions.md#startOfHour) | Return the start of the hour for a timestamp. |
-| [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | Return the start of the month for a timestamp. |
-| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | Subtract a number of time units from a timestamp. See also [getPastTime](control-flow-expression-language-functions.md#getPastTime). |
-| [ticks](control-flow-expression-language-functions.md#ticks) | Return the `ticks` property value for a specified timestamp. |
-| [utcNow](control-flow-expression-language-functions.md#utcNow) | Return the current timestamp as a string. |
 
 ## Function reference
 
@@ -327,7 +381,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*days*> | Yes | Integer | The positive or negative number of days to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -369,7 +423,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*hours*> | Yes | Integer | The positive or negative number of hours to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -411,7 +465,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*minutes*> | Yes | Integer | The positive or negative number of minutes to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -453,7 +507,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*seconds*> | Yes | Integer | The positive or negative number of seconds to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -497,7 +551,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*interval*> | Yes | Integer | The number of specified time units to add |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -902,8 +956,8 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Values](/windows-hardware/manufacture/desktop/default-time-zones#time-zones), but you might have to remove any punctuation from the time zone name. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -944,9 +998,9 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Values](/windows-hardware/manufacture/desktop/default-time-zones#time-zones), but you might have to remove any punctuation from the time zone name. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Values](/windows-hardware/manufacture/desktop/default-time-zones#time-zones), but you might have to remove any punctuation from the time zone name. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -987,8 +1041,8 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Values](/windows-hardware/manufacture/desktop/default-time-zones#time-zones), but you might have to remove any punctuation from the time zone name. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -1604,7 +1658,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -1636,7 +1690,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Yes | Integer | The number of specified time units to add |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -1680,7 +1734,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Yes | Integer | The number of specified time units to subtract |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -2494,7 +2548,7 @@ rand(<minValue>, <maxValue>)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*random-result*> | Integer | The random integer returned from the specified range |
+| <*random-result*> | Integer | The random integer returned from the specified range. Note that every invocation of ```rand()``` will produce a unique result, meaning that the value you observe in output monitoring may not be the same at actual run time. |
 ||||
 
 *Example*
@@ -2611,8 +2665,8 @@ And returns this array with the remaining items: `[1,2,3]`
 
 ### split
 
-Return an array that contains substrings, separated by commas,
-based on the specified delimiter character in the original string.
+Split a string at each occurrence of a specified delimiter, returning the resulting substrings as elements of an array.
+A delimiter is typically a single character, but multicharacter delimiters are supported.
 
 ```
 split('<text>', '<delimiter>')
@@ -2620,25 +2674,25 @@ split('<text>', '<delimiter>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Yes | String | The string to separate into substrings based on the specified delimiter in the original string |
-| <*delimiter*> | Yes | String | The character in the original string to use as the delimiter |
+| <*text*> | Yes | String | The string to separate into substrings  |
+| <*delimiter*> | Yes | String | The string to use as the delimiter |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings from the original string, separated by commas |
+| [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings of the original string  |
 ||||
 
 *Example*
 
-This example creates an array with substrings from the specified
-string based on the specified character as the delimiter:
+This example returns an array containing substrings of the string "a_b_c" 
+based on the delimiter "_":
 
 ```
 split('a_b_c', '_')
 ```
 
-And returns this array as the result: `["a","b","c"]`
+The array returned is: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 
@@ -2653,7 +2707,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -2684,7 +2738,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -2715,7 +2769,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -2902,7 +2956,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*interval*> | Yes | Integer | The number of specified time units to subtract |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -2985,7 +3039,7 @@ ticks('<timestamp>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*ticks-number*> | Integer | The number of ticks since the specified timestamp |
+| <*ticks-number*> | Integer | The number of ticks that have elapsed since 12:00:00 midnight, January 1, 0001 in the Gregorian calendar since the input timestamp |
 ||||
 
 <a name="toLower"></a>
@@ -3232,7 +3286,7 @@ Optionally, you can specify a different format with the <*format*> parameter.
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
 | Return value | Type | Description |
@@ -3399,6 +3453,9 @@ Following on Example 3, this example finds the value in the
 `xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
 
 And returns this result: `"Paris"`
+  
+> [!NOTE]
+> One can add comments to data flow expressions, but not in pipeline expressions.
 
-## Next steps
+## Related content
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

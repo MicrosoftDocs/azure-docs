@@ -1,24 +1,25 @@
 ---
 title: Excel format in Azure Data Factory 
-description: 'This topic describes how to deal with Excel format in Azure Data Factory.'
-author: linda33wj
-manager: shwang
-ms.reviewer: craigg
+titleSuffix: Azure Data Factory & Azure Synapse
+description: This topic describes how to deal with Excel format in Azure Data Factory and Azure Synapse Analytics.
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/08/2020
-ms.author: jingwang
+ms.date: 07/17/2023
+ms.author: jianleishen
 ---
 
-# Excel format in Azure Data Factory
+# Excel file format in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Follow this article when you want to **parse the Excel files**. Azure Data Factory supports both ".xls" and ".xlsx".
+Follow this article when you want to **parse the Excel files**. The service supports both ".xls" and ".xlsx".
 
-Excel format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md). It is supported as source but not sink. 
+Excel format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md). It is supported as source but not sink. 
 
-**Note**: ".xls" format is not supported while using [HTTP](connector-http.md). 
+>[!NOTE]
+>".xls" format is not supported while using [HTTP](connector-http.md).
 
 ## Dataset properties
 
@@ -34,7 +35,7 @@ For a full list of sections and properties available for defining datasets, see 
 | firstRowAsHeader | Specifies whether to treat the first row in the given worksheet/range as a header line with names of columns.<br>Allowed values are **true** and **false** (default). | No       |
 | nullValue        | Specifies the string representation of null value. <br>The default value is **empty string**. | No       |
 | compression | Group of properties to configure file compression. Configure this section when you want to do compression/decompression during activity execution. | No |
-| type<br/>(*under `compression`*) | The compression codec used to read/write JSON files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **Tar**, **snappy**, or **lz4**. Default is not compressed.<br>**Note** currently Copy activity doesn’t support "snappy" & "lz4", and mapping data flow doesn’t support "ZipDeflate", "TarGzip" and "Tar".<br>**Note** when using copy activity to decompress **ZipDeflate** file(s) and write to file-based sink data store, files are extracted to the folder: `<path specified in dataset>/<folder named as source zip file>/`. | No.  |
+| type<br/>(*under `compression`*) | The compression codec used to read/write JSON files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **Tar**, **snappy**, or **lz4**. Default is not compressed.<br>**Note** currently Copy activity doesn't support "snappy" & "lz4", and mapping data flow doesn't support "ZipDeflate", "TarGzip" and "Tar".<br>**Note** when using copy activity to decompress **ZipDeflate** file(s) and write to file-based sink data store, files are extracted to the folder: `<path specified in dataset>/<folder named as source zip file>/`. | No.  |
 | level<br/>(*under `compression`*) | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](/dotnet/api/system.io.compression.compressionlevel) topic. | No       |
 
 Below is an example of Excel dataset on Azure Blob Storage:
@@ -98,7 +99,7 @@ The following properties are supported in the copy activity ***\*source\**** sec
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read Excel format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). You can point to Excel files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
+In mapping data flows, you can read Excel format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties) and [SFTP](connector-sftp.md#mapping-data-flow-properties). You can point to Excel files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
 
 ### Source properties
 
@@ -118,34 +119,43 @@ The below table lists the properties supported by an Excel source. You can edit 
 
 The below image is an example of an Excel source configuration in mapping data flows using dataset mode.
 
-![Excel source](media/data-flow/excel-source.png)
+:::image type="content" source="media/data-flow/excel-source.png" alt-text="Excel source":::
 
 The associated data flow script is:
 
 ```
 source(allowSchemaDrift: true,
-	validateSchema: false,
-	wildcardPaths:['*.xls']) ~> ExcelSource
+    validateSchema: false,
+    wildcardPaths:['*.xls']) ~> ExcelSource
 ```
 
 If you use inline dataset, you see the following source options in mapping data flow.
 
-![Excel source inline dataset](media/data-flow/excel-source-inline-dataset.png)
+:::image type="content" source="media/data-flow/excel-source-inline-dataset.png" alt-text="Excel source inline dataset":::
 
 The associated data flow script is:
 
 ```
 source(allowSchemaDrift: true,
-	validateSchema: false,
-	format: 'excel',
-	fileSystem: 'container',
-	folderPath: 'path',
-	fileName: 'sample.xls',
-	sheetName: 'worksheet',
-	firstRowAsHeader: true) ~> ExcelSourceInlineDataset
+    validateSchema: false,
+    format: 'excel',
+    fileSystem: 'container',
+    folderPath: 'path',
+    fileName: 'sample.xls',
+    sheetName: 'worksheet',
+    firstRowAsHeader: true) ~> ExcelSourceInlineDataset
 ```
 
-## Next steps
+## Handling very large Excel files
+
+The Excel connector does not support streaming read for the Copy activity and must load the entire file into memory before data can be read.  To import schema, preview data, or refresh an Excel dataset, the data must be returned before the http request timeout (100s). For large Excel files, these operations may not finish within that timeframe, causing a timeout error.  If you want to move large Excel files (>100MB) into another data store, you can use one of following options to work around this limitation:
+
+- Use the self-hosted integration runtime (SHIR), then use the Copy activity to move the large Excel file into another data store with the SHIR.
+- Split the large Excel file into several smaller ones, then use the Copy activity to move the folder containing the files.
+- Use a dataflow activity to move the large Excel file into another data store. Dataflow supports streaming read for Excel and can move/transfer large files quickly.
+- Manually convert the large Excel file to CSV format, then use a Copy activity to move the file.
+
+## Related content
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)

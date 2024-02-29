@@ -1,11 +1,10 @@
 ---
 title: Create a pool with disk encryption enabled
 description: Learn how to use disk encryption configuration to encrypt nodes with a platform-managed key.
-author: pkshultz
 ms.topic: how-to
-ms.date: 01/27/2021
-ms.author: peshultz
-ms.custom: references_regions
+ms.date: 06/29/2023
+ms.devlang: csharp
+ms.custom: devx-track-azurecli
 ---
 
 # Create a pool with disk encryption enabled
@@ -13,11 +12,6 @@ ms.custom: references_regions
 When you create an Azure Batch pool using [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration), you can encrypt compute nodes in the pool with a platform-managed key by specifying the disk encryption configuration.
 
 This article explains how to create a Batch pool with disk encryption enabled.
-
-> [!IMPORTANT]
-> Support for encryption at host using a platform-managed key in Azure Batch is currently in public preview for the East US, West US 2, South Central US, US Gov Virginia, and US Gov Arizona regions.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Why use a pool with disk encryption configuration?
 
@@ -27,22 +21,27 @@ Batch will apply one of these disk encryption technologies on compute nodes, bas
 
 - [Managed disk encryption at rest with platform-managed keys](../virtual-machines/disk-encryption.md#platform-managed-keys)
 - [Encryption at host using a platform-managed Key](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
-- [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
+- [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md)
 
-You won't be able to specify which encryption method will be applied to the nodes in your pool. Instead, you provide the target disks you want to encrypt on their nodes, and Batch can choose the appropriate encryption method, ensuring the specified disks are encrypted on the compute node.
+You won't be able to specify which encryption method will be applied to the nodes in your pool. Instead, you provide the target disks you want to encrypt on their nodes, and Batch can choose the appropriate encryption method, ensuring the specified disks are encrypted on the compute node. The following image depicts how Batch makes that choice.
 
 > [!IMPORTANT]
-> If you are creating your pool with a [custom image](batch-sig-images.md), you can enable disk encryption only if using Windows VMs.
+> If you are creating your pool with a Linux [custom image](batch-sig-images.md), you can only enable disk encryption only if your pool is using an [Encryption At Host Supported VM size](../virtual-machines/disk-encryption.md#supported-vm-sizes).
+> Encryption At Host is not currently supported on User Subscription Pools until the feature becomes [publicly available in Azure](../virtual-machines/disks-enable-host-based-encryption-portal.md#prerequisites).
+
+![Screenshot of the Pool Creation in the Azure portal.](./media/disk-encryption/decision-tree.svg)
+
+Some disk encryption configurations require that the VM family of the pool supports encryption at host. See [End-to-end encryption using encryption at host](../virtual-machines/disks-enable-host-based-encryption-portal.md) to determine which VM families support encryption at host.
 
 ## Azure portal
 
-When creating a Batch pool in the the Azure portal, select either **TemporaryDisk** or **OsAndTemporaryDisk** under **Disk Encryption Configuration**.
+When creating a Batch pool in the Azure portal, select either **OsDisk**, **TemporaryDisk** or **OsAndTemporaryDisk** under **Disk Encryption Configuration**.
 
-:::image type="content" source="media/disk-encryption/portal-view.png" alt-text="Screenshot of the Disk Encryption Configuration option in the Azure portal.":::
+![Screenshot of the Disk Encryption Configuration option in the Azure portal.](./media/disk-encryption/portal-view.png)
 
 After the pool is created, you can see the disk encryption configuration targets in the pool's **Properties** section.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot showing the disk encryption configuration targets in the Azure portal.":::
+![Screenshot showing the disk encryption configuration targets in the Azure portal.](./media/disk-encryption/configuration-target.png)
 
 ## Examples
 
@@ -75,7 +74,7 @@ Request body:
         "imageReference": {
             "publisher": "Canonical",
             "offer": "UbuntuServer",
-            "sku": "18.04-LTS"
+            "sku": "22.04-LTS"
         },
         "diskEncryptionConfiguration": {
             "targets": [
@@ -83,7 +82,7 @@ Request body:
                 "TemporaryDisk"
             ]
         }
-        "nodeAgentSKUId": "batch.node.ubuntu 18.04"
+        "nodeAgentSKUId": "batch.node.ubuntu 22.04"
     },
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
@@ -101,8 +100,8 @@ az batch pool create \
     --id diskencryptionPool \
     --vm-size Standard_DS1_V2 \
     --target-dedicated-nodes 2 \
-    --image canonical:ubuntuserver:18.04-LTS \
-    --node-agent-sku-id "batch.node.ubuntu 18.04" \
+    --image canonical:ubuntuserver:22.04-LTS \
+    --node-agent-sku-id "batch.node.ubuntu 22.04" \
     --disk-encryption-targets OsDisk TemporaryDisk
 ```
 

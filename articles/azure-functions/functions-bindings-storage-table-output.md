@@ -1,23 +1,73 @@
 ---
-title: Azure Table storage output bindings for Azure Functions
-description: Understand how to use Azure Table storage output bindings in Azure Functions.
-author: craigshoemaker
-
+title: Azure Tables output bindings for Azure Functions
+description: Understand how to use Azure Tables output bindings in Azure Functions.
 ms.topic: reference
-ms.date: 09/03/2018
-ms.author: cshoe
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.date: 11/11/2022
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
+zone_pivot_groups: programming-languages-set-functions
 ---
-# Azure Table storage output bindings for Azure Functions
 
-Use an Azure Table storage output binding to write entities to a table in an Azure Storage account.
+# Azure Tables output bindings for Azure Functions
+
+Use an Azure Tables output binding to write entities to a table in [Azure Cosmos DB for Table](../cosmos-db/table/introduction.md) or [Azure Table Storage](../storage/tables/table-storage-overview.md).
+
+For information on setup and configuration details, see the [overview](./functions-bindings-storage-table.md)
 
 > [!NOTE]
-> This output binding does not support updating existing entities. Use the `TableOperation.Replace` operation [from the Azure Storage SDK](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity) to update an existing entity.
+> This output binding only supports creating new entities in a table. If you need to update an existing entity from your function code, instead use an Azure Tables SDK directly.
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 
 ## Example
 
-# [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+# [Isolated worker model](#tab/isolated-process)
+
+The following `MyTableData` class represents a row of data in the table: 
+
+```csharp
+public class MyTableData : Azure.Data.Tables.ITableEntity
+{
+    public string Text { get; set; }
+
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public DateTimeOffset? Timestamp { get; set; }
+    public ETag ETag { get; set; }
+}
+```
+
+The following function, which is started by a Queue Storage trigger, writes a new `MyDataTable` entity to a table named **OutputTable**.
+
+```csharp
+[Function("TableFunction")]
+[TableOutput("OutputTable", Connection = "AzureWebJobsStorage")]
+public static MyTableData Run(
+    [QueueTrigger("table-items")] string input,
+    [TableInput("MyTable", "<PartitionKey>", "{queueTrigger}")] MyTableData tableInput,
+    FunctionContext context)
+{
+    var logger = context.GetLogger("TableFunction");
+
+    logger.LogInformation($"PK={tableInput.PartitionKey}, RK={tableInput.RowKey}, Text={tableInput.Text}");
+
+    return new MyTableData()
+    {
+        PartitionKey = "queue",
+        RowKey = Guid.NewGuid().ToString(),
+        Text = $"Output record with rowkey {input} created at {DateTime.Now}"
+    };
+}
+```
+
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that uses an HTTP trigger to write a single table row.
 
@@ -41,62 +91,11 @@ public class TableStorage
 }
 ```
 
-# [C# Script](#tab/csharp-script)
 
-The following example shows a table output binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function writes multiple table entities.
+---
 
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "input",
-      "type": "manualTrigger",
-      "direction": "in"
-    },
-    {
-      "tableName": "Person",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "tableBinding",
-      "type": "table",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-The [configuration](#configuration) section explains these properties.
-
-Here's the C# script code:
-
-```csharp
-public static void Run(string input, ICollector<Person> tableBinding, ILogger log)
-{
-    for (int i = 1; i < 10; i++)
-        {
-            log.LogInformation($"Adding Person entity {i}");
-            tableBinding.Add(
-                new Person() { 
-                    PartitionKey = "Test", 
-                    RowKey = i.ToString(), 
-                    Name = "Name" + i.ToString() }
-                );
-        }
-
-}
-
-public class Person
-{
-    public string PartitionKey { get; set; }
-    public string RowKey { get; set; }
-    public string Name { get; set; }
-}
-
-```
-
-# [Java](#tab/java)
+::: zone-end
+::: zone pivot="programming-language-java"
 
 The following example shows a Java function that uses an HTTP trigger to write a single table row.
 
@@ -173,9 +172,32 @@ public class AddPersons {
 }
 ```
 
-# [JavaScript](#tab/javascript)
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 
-The following example shows a  table output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes multiple table entities.
+The following example shows a table output binding that writes multiple table entities.
+
+::: zone-end
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/tableOutput1.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/tableOutput1.js" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 Here's the *function.json* file:
 
@@ -204,7 +226,7 @@ The [configuration](#configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context) {
+module.exports = async function (context) {
 
     context.bindings.tableBinding = [];
 
@@ -215,12 +237,13 @@ module.exports = function (context) {
             Name: "Name " + i
         });
     }
-
-    context.done();
 };
 ```
 
-# [PowerShell](#tab/powershell)
+---
+
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
 
 The following example demonstrates how to write multiple entities to a table from a function.
 
@@ -228,41 +251,42 @@ Binding configuration in _function.json_:
 
 ```json
 {
-  "bindings": [
-    {
-      "name": "InputData",
-      "type": "manualTrigger",
-      "direction": "in"
-    },
-    {
-      "tableName": "Person",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "TableBinding",
-      "type": "table",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
+  "bindings": [
+    {
+      "name": "InputData",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "TableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
 }
 ```
 
 PowerShell code in _run.ps1_:
 
 ```powershell
-param($InputData, $TriggerMetadata)
-  
-foreach ($i in 1..10) {
-    Push-OutputBinding -Name TableBinding -Value @{
-        PartitionKey = 'Test'
-        RowKey = "$i"
-        Name = "Name $i"
-    }
+param($InputData, $TriggerMetadata)
+  
+foreach ($i in 1..10) {
+    Push-OutputBinding -Name TableBinding -Value @{
+        PartitionKey = 'Test'
+        RowKey = "$i"
+        Name = "Name $i"
+    }
 }
 ```
 
-# [Python](#tab/python)
+::: zone-end  
+::: zone pivot="programming-language-python"  
 
-The following example demonstrates how to use the Table storage output binding. The `table` binding is configured in the *function.json* by assigning values to `name`, `tableName`, `partitionKey`, and `connection`:
+The following example demonstrates how to use the Table storage output binding. Configure the `table` binding in the *function.json* by assigning values to `name`, `tableName`, `partitionKey`, and `connection`:
 
 ```json
 {
@@ -321,13 +345,35 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
 
 ---
 
-## Attributes and annotations
+::: zone-end  
+::: zone pivot="programming-language-csharp"
+## Attributes 
 
-# [C#](#tab/csharp)
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#table-output).
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
+# [Isolated worker model](#tab/isolated-process)
 
-The attribute's constructor takes the table name. The attribute can be used on an `out` parameter or on the return value of the function, as shown in the following example:
+In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttribute` supports the following properties:
+
+| Attribute property |Description|
+|---------|---------|
+|**TableName** | The name of the table to which to write.| 
+|**PartitionKey** | The partition key of the table entity to write. | 
+|**RowKey** | The row key of the table entity to write. | 
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+# [In-process model](#tab/in-process)
+
+In [C# class libraries](functions-dotnet-class-library.md), the `TableAttribute` supports the following properties:
+
+| Attribute property |Description|
+|---------|---------|
+|**TableName** | The name of the table to which to write.| 
+|**PartitionKey** | The partition key of the table entity to write. | 
+|**RowKey** | The row key of the table entity to write. | 
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+The attribute's constructor takes the table name. Use the attribute on an `out` parameter or on the return value of the function, as shown in the following example:
 
 ```csharp
 [FunctionName("TableOutput")]
@@ -340,7 +386,7 @@ public static MyPoco TableOutput(
 }
 ```
 
-You can set the `Connection` property to specify the storage account to use, as shown in the following example:
+You can set the `Connection` property to specify a connection to the table service, as shown in the following example:
 
 ```csharp
 [FunctionName("TableOutput")]
@@ -353,89 +399,173 @@ public static MyPoco TableOutput(
 }
 ```
 
-For a complete example, see the [C# example](#example).
-
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - attributes](./functions-bindings-storage-table-input.md#attributes-and-annotations).
-
-# [C# Script](#tab/csharp-script)
-
-Attributes are not supported by C# Script.
-
-# [Java](#tab/java)
-
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) annotation on parameters to write values into table storage.
-
-See the [example for more detail](#example).
-
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [PowerShell](#tab/powershell)
-
-Attributes are not supported by PowerShell.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
+[!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
 ---
+
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## Annotations
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) annotation on parameters to write values into your tables. The attribute supports the following elements: 
+
+| Element |Description|
+|---------|---------|
+|**name**| The variable name used in function code that represents the table or entity. | 
+|**dataType**| Defines how Functions runtime should treat the parameter value. To learn more, see [dataType](/java/api/com.microsoft.azure.functions.annotation.tableoutput.datatype).
+|**tableName** | The name of the table to which to write.| 
+|**partitionKey** | The partition key of the table entity to write. | 
+|**rowKey** | The row key of the table entity to write. | 
+|**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `Table` attribute.
+# [Model v4](#tab/nodejs-v4)
 
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type** | n/a | Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
-|**direction** | n/a | Must be set to `out`. This property is set automatically when you create the binding in the Azure portal. |
-|**name** | n/a | The variable name used in function code that represents the table or entity. Set to `$return` to reference the function return value.| 
-|**tableName** |**TableName** | The name of the table.| 
-|**partitionKey** |**PartitionKey** | The partition key of the table entity to write. See the [usage section](#usage) for guidance on how to use this property.| 
-|**rowKey** |**RowKey** | The row key of the table entity to write. See the [usage section](#usage) for guidance on how to use this property.| 
-|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "MyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+The following table explains the properties that you can set on the `options` object passed to the `output.table()` method.
+
+| Property | Description |
+|---------|----------------------|
+|**tableName** |The name of the table to which to write.| 
+|**partitionKey** |The partition key of the table entity to write. | 
+|**rowKey** | The row key of the table entity to write. | 
+|**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|----------------------|
+|**type** |Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
+|**direction** |  Must be set to `out`. This property is set automatically when you create the binding in the Azure portal. |
+|**name** |  The variable name used in function code that represents the table or entity. Set to `$return` to reference the function return value.| 
+|**tableName** |The name of the table to which to write.| 
+|**partitionKey** |The partition key of the table entity to write. | 
+|**rowKey** | The row key of the table entity to write. | 
+|**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-powershell,programming-language-python"
+## Configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Description|
+|---|---|
+|**type** |Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
+|**direction** |  Must be set to `out`. This property is set automatically when you create the binding in the Azure portal. |
+|**name** |  The variable name used in function code that represents the table or entity. Set to `$return` to reference the function return value.| 
+|**tableName** |The name of the table to which to write.| 
+|**partitionKey** |The partition key of the table entity to write. | 
+|**rowKey** | The row key of the table entity to write. | 
+|**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+::: zone-end  
+
+[!INCLUDE [functions-table-connections](../../includes/functions-table-connections.md)]
 
 ## Usage
 
-# [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"  
 
-Access the output table entity by using a method parameter `ICollector<T> paramName` or `IAsyncCollector<T> paramName` where `T` includes the `PartitionKey` and `RowKey` properties. These properties are often accompanied by implementing `ITableEntity` or inheriting `TableEntity`.
+The usage of the binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-Alternatively you can use a `CloudTable` method parameter to write to the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
+# [Isolated worker model](#tab/isolated-process)
 
-# [C# Script](#tab/csharp-script)
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.
 
-Access the output table entity by using a method parameter `ICollector<T> paramName` or `IAsyncCollector<T> paramName` where `T` includes the `PartitionKey` and `RowKey` properties. These properties are often accompanied by implementing `ITableEntity` or inheriting `TableEntity`. The `paramName` value is specified in the `name` property of *function.json*.
+# [In-process model](#tab/in-process)
 
-Alternatively you can use a `CloudTable` method parameter to write to the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
+---
 
-# [Java](#tab/java)
+Choose a version to see usage details for the mode and version. 
 
-There are two options for outputting a Table storage row from a function by using the [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet&preserve-view=true) annotation:
+# [Azure Tables extension](#tab/table-api/in-process)
 
-- **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as a Table storage row.
+The following types are supported for `out` parameters and return types:
 
-- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` includes the `PartitionKey` and `RowKey` properties. These properties are often accompanied by implementing `ITableEntity` or inheriting `TableEntity`.
+- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity`.
+- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity`.
 
-# [JavaScript](#tab/javascript)
+You can also bind to `TableClient` [from the Azure SDK](/dotnet/api/azure.data.tables.tableclient). You can then use that object to write to the table.
 
-Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
+# [Combined Azure Storage extension](#tab/storage-extension/in-process)
 
-# [PowerShell](#tab/powershell)
+The following types are supported for `out` parameters and return types:
 
-To write to table data, use the `Push-OutputBinding` cmdlet, set the `-Name TableBinding` parameter and `-Value` parameter equal to the row data. See the [PowerShell example](#example) for more detail.
+- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
+- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
 
-# [Python](#tab/python)
+You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
 
-There are two options for outputting a Table storage row message from a function:
+# [Functions 1.x](#tab/functionsv1/in-process)
 
-- **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Table storage row.
+The following types are supported for `out` parameters and return types:
 
-- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) type. The value passed to `set` is persisted as an Event Hub message.
+- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
+- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
+
+You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
+
+# [Azure Tables extension](#tab/table-api/isolated-process)
+
+[!INCLUDE [functions-bindings-table-output-dotnet-isolated-types](../../includes/functions-bindings-table-output-dotnet-isolated-types.md)]
+
+# [Combined Azure Storage extension](#tab/storage-extension/isolated-process)
+
+Return a plain-old CLR object (POCO) with properties that can be mapped to the table entity.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support isolated worker process.
 
 ---
+
+::: zone-end  
+::: zone pivot="programming-language-java"
+There are two options for outputting a Table storage row from a function by using the [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput) annotation:
+
+| Options | Description |
+|---|---|
+| **Return value**| By applying the annotation to the function itself, the return value of the function persists as a Table storage row. |
+|**Imperative**| To explicitly set the table row, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.|
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+# [Model v4](#tab/nodejs-v4)
+
+Set the output row data by returning the value or using `context.extraOutputs.set()`.
+
+# [Model v3](#tab/nodejs-v3)
+
+Set the output row data by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
+
+---
+::: zone-end
+::: zone pivot="programming-language-powershell"  
+To write to table data, use the `Push-OutputBinding` cmdlet, set the `-Name TableBinding` parameter and `-Value` parameter equal to the row data. See the [PowerShell example](#example) for more detail.
+
+
+::: zone-end  
+::: zone pivot="programming-language-python"  
+There are two options for outputting a Table storage row message from a function:
+
+| Options | Description |
+|---|---|
+| **Return value**| Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value persists as a Table storage row.|
+|**Imperative**| Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as table row.|
+::: zone-end  
+
+For specific usage details, see [Example](#example). 
 
 ## Exceptions and return codes
 

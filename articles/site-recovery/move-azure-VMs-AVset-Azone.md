@@ -2,11 +2,11 @@
 title: Move VMs to an Azure region with availability zones using Azure Site Recovery 
 description: Learn how to move VMs to an availability zone in a different region with Site Recovery
 services: site-recovery
-author: sideeksh
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/28/2019
-ms.author: sideeksh
+ms.date: 12/14/2023
+ms.author: ankitadutta
 ms.custom: MVC
 ---
 
@@ -76,7 +76,7 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
 
     - [Network security groups](../virtual-network/manage-network-security-group.md)
     - [Load balancers](../load-balancer/index.yml)
-    - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
+    - [Public IP](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     
    For any other networking components, refer to the networking [documentation](../index.yml?pivot=products&panel=network).
 
@@ -92,7 +92,7 @@ The following steps will guide you when using Azure Site Recovery to enable repl
 > These steps are for a single VM. You can extend the same to multiple VMs. Go to the Recovery Services vault, select **+ Replicate**, and select the relevant VMs together.
 
 1. In the Azure portal, select **Virtual machines**, and select the VM you want to move into Availability Zones.
-2. In **Operations**, select **Disaster recovery**.
+2. In **Backup + disaster recovery**, select **Disaster recovery**.
 3. In **Configure disaster recovery** > **Target region**, select the target region to which you'll replicate. Ensure this region [supports](../availability-zones/az-region.md) Availability Zones.
 4. Select **Next: Advanced settings**.
 5. Choose the appropriate values for the target subscription, target VM resource group, and virtual network.

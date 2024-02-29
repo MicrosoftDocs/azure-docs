@@ -1,19 +1,19 @@
 ---
 title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions.
-author: cachai2
+author: ggailey777
 ms.topic: conceptual
-ms.date: 1/21/2021
+ms.date: 4/6/2023
 ms.author: cachai
-
 ---
+
 # Azure Functions networking options
 
 This article describes the networking features available across the hosting options for Azure Functions. All the following networking options give you some ability to access resources without using internet-routable addresses or to restrict internet access to a function app.
 
 The hosting models have different levels of network isolation available. Choosing the correct one helps you meet your network isolation requirements.
 
-You can host function apps in a couple of ways:
+You can host function apps in several ways:
 
 * You can choose from plan options that run on a multitenant infrastructure, with various levels of virtual network connectivity and scaling options:
     * The [Consumption plan](consumption-plan.md) scales dynamically in response to load and offers minimal network isolation options.
@@ -25,7 +25,26 @@ You can host function apps in a couple of ways:
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## Inbound access restrictions
+## Quickstart resources
+
+Use the following resources to quickly get started with Azure Functions networking scenarios. These resources are referenced throughout the article.
+
+*  ARM templates, Bicep files, and Terraform templates:
+    * [Private HTTP triggered function app](https://github.com/Azure-Samples/function-app-with-private-http-endpoint)
+    * [Private Event Hubs triggered function app](https://github.com/Azure-Samples/function-app-with-private-eventhub)
+* ARM templates only:
+    * [Function app with Azure Storage private endpoints](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints).
+    * [Azure function app with Virtual Network Integration](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-vnet-integration).
+* Tutorials:
+    * [Integrate Azure Functions with an Azure virtual network by using private endpoints](functions-create-vnet.md)
+    * [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
+    * [Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md). 
+
+## Inbound networking features
+
+The following features let you filter inbound requests to your function app.
+
+### Inbound access restrictions
 
 You can use access restrictions to define a priority-ordered list of IP addresses that are allowed or denied access to your app. The list can include IPv4 and IPv6 addresses, or specific virtual network subnets using [service endpoints](#use-service-endpoints). When there are one or more entries, an implicit "deny all" exists at the end of the list. IP restrictions work with all function-hosting options.
 
@@ -36,25 +55,34 @@ Access restrictions are available in the [Premium](functions-premium-plan.md), [
 
 To learn more, see [Azure App Service static access restrictions](../app-service/app-service-ip-restrictions.md).
 
-### Use service endpoints
+### Private endpoints
 
-By using service endpoints, you can restrict access to selected Azure virtual network subnets. To restrict access to a specific subnet, create a restriction rule with a **Virtual Network** type. You can then select the subscription, virtual network, and subnet that you want to allow or deny access to. 
+[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
-If service endpoints aren't already enabled with Microsoft.Web for the subnet that you selected, they'll be automatically enabled unless you select the **Ignore missing Microsoft.Web service endpoints** check box. The scenario where you might want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet. 
+To call other services that have a private endpoint connection, such as storage or service bus, be sure to configure your app to make [outbound calls to private endpoints](#private-endpoints). For more details on using private endpoints with the storage account for your function app, visit [restrict your storage account to a virtual network](#restrict-your-storage-account-to-a-virtual-network).
 
-If you need someone else to enable service endpoints on the subnet, select the **Ignore missing Microsoft.Web service endpoints** check box. Your app will be configured for service endpoints in anticipation of having them enabled later on the subnet. 
+### Service endpoints
+
+Using service endpoints, you can restrict many Azure services to selected virtual network subnets to provide a higher level of security. Regional virtual network integration enables your function app to reach Azure services that are secured with service endpoints. This configuration is supported on all [plans](functions-scale.md#networking-features) that support virtual network integration. To access a service endpoint-secured service, you must do the following:
+
+1. Configure regional virtual network integration with your function app to connect to a specific subnet.
+1. Go to the destination service and configure service endpoints against the integration subnet.
+
+To learn more, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
+
+#### Use Service Endpoints
+
+To restrict access to a specific subnet, create a restriction rule with a **Virtual Network** type. You can then select the subscription, virtual network, and subnet that you want to allow or deny access to. 
+
+If service endpoints aren't already enabled with `Microsoft.Web` for the subnet that you selected, they're automatically enabled unless you select the **Ignore missing Microsoft.Web service endpoints** check box. The scenario where you might want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet.
+
+If you need someone else to enable service endpoints on the subnet, select the **Ignore missing Microsoft.Web service endpoints** check box. Your app is configured for service endpoints in anticipation of having them enabled later on the subnet. 
 
 ![Screenshot of the "Add IP Restriction" pane with the Virtual Network type selected.](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 You can't use service endpoints to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to it by applying IP access rules. 
 
 To learn how to set up service endpoints, see [Establish Azure Functions private site access](functions-create-private-site-access.md).
-
-## Private endpoint connections
-
-[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
-
-To call other services that have a private endpoint connection, such as storage or service bus, be sure to configure your app to make [outbound calls to private endpoints](#private-endpoints).
 
 ## Virtual network integration
 
@@ -65,51 +93,115 @@ Azure Functions supports two kinds of virtual network integration:
 
 Virtual network integration in Azure Functions uses shared infrastructure with App Service web apps. To learn more about the two types of virtual network integration, see:
 
-* [Regional virtual network Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
-* [Gateway-required virtual network Integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+* [Regional virtual network integration](../app-service/overview-vnet-integration.md#regional-virtual-network-integration)
+* [Gateway-required virtual network integration](../app-service/configure-gateway-required-vnet-integration.md)
 
-To learn how to set up virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
+To learn how to set up virtual network integration, see [Enable virtual network integration](#enable-virtual-network-integration).
 
-## Regional virtual network integration
+### Enable virtual network integration
 
-[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
+1. In your function app in the [Azure portal](https://portal.azure.com), select **Networking**, then under **VNet Integration** select **Click here to configure**.
 
-## Connect to service endpoint secured resources
+1. Select **Add VNet**.
 
-To provide a higher level of security, you can restrict a number of Azure services to a virtual network by using service endpoints. You must then integrate your function app with that virtual network to access the resource. This configuration is supported on all plans that support virtual network integration.
+    :::image type="content" source="./media/functions-networking-options/vnet-int-function-app.png" alt-text="Select VNet Integration":::
 
-To learn more, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
+1. The drop-down list contains all of the Azure Resource Manager virtual networks in your subscription in the same region. Select the virtual network you want to integrate with.
+
+    :::image type="content" source="./media/functions-networking-options/vnet-int-add-vnet-function-app.png" alt-text="Select the VNet":::
+
+    * The Functions Premium Plan only supports regional virtual network integration. If the virtual network is in the same region, either create a new subnet or select an empty, pre-existing subnet.
+
+    * To select a virtual network in another region, you must have a virtual network gateway provisioned with point to site enabled. Virtual network integration across regions is only supported for Dedicated plans, but global peerings work with regional virtual network integration.
+
+During the integration, your app is restarted. When integration is finished, you see details on the virtual network you're integrated with. By default, Route All is enabled, and all traffic is routed into your virtual network.
+
+If you wish for only your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) to be routed, please follow the steps in the [app service documentation](../app-service/overview-vnet-integration.md#application-routing).
+
+### Regional virtual network integration
+
+Using regional virtual network integration enables your app to access:
+
+* Resources in the same virtual network as your app.
+* Resources in virtual networks peered to the virtual network your app is integrated with.
+* Service endpoint secured services.
+* Resources across Azure ExpressRoute connections.
+* Resources across peered connections, which include Azure ExpressRoute connections.
+* Private endpoints 
+
+When you use regional virtual network integration, you can use the following Azure networking features:
+
+* **Network security groups (NSGs)**: You can block outbound traffic with an NSG that's placed on your integration subnet. The inbound rules don't apply because you can't use virtual network integration to provide inbound access to your app.
+* **Route tables (UDRs)**: You can place a route table on the integration subnet to send outbound traffic where you want.
+
+> [!NOTE]
+> When you route all of your outbound traffic into your virtual network, it's subject to the NSGs and UDRs that are applied to your integration subnet. When virtual network integrated, your function app's outbound traffic to public IP addresses is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
+> 
+> Regional virtual network integration isn't able to use port 25.
+
+There are some limitations with using virtual network:
+
+* The feature is available from all App Service deployments in Premium V2 and Premium V3. It's also available in Standard but only from newer App Service deployments. If you are on an older deployment, you can only use the feature from a Premium V2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you desire after that.
+* The integration subnet can be used by only one App Service plan.
+* The feature can't be used by Isolated plan apps that are in an App Service Environment.
+* The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager virtual network.
+* The app and the virtual network must be in the same region.
+* You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
+* You can have only one regional virtual network integration per App Service plan. Multiple apps in the same App Service plan can use the same integration subnet.
+* You can't change the subscription of an app or a plan while there's an app that's using regional virtual network integration.
+
+### Subnets
+
+Virtual network integration depends on a dedicated subnet. When you provision a subnet, the Azure subnet loses five IPs from the start. One address is used from the integration subnet for each plan instance. When you scale your app to four instances, then four addresses are used. 
+
+When you scale up or down in size, the required address space is doubled for a short period of time. This affects the real, available supported instances for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect this has on horizontal scale:
+
+| CIDR block size | Max available addresses | Max horizontal scale (instances)<sup>*</sup> |
+|-----------------|-------------------------|---------------------------------|
+| /28             | 11                      | 5                               |
+| /27             | 27                      | 13                              |
+| /26             | 59                      | 29                              |
+
+<sup>*</sup>Assumes that you need to scale up or down in either size or SKU at some point. 
+
+Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity for Functions Premium plans, you should use a /24 with 256 addresses for Windows and a /26 with 64 addresses for Linux. When creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /24 and /26 is required for Windows and Linux respectively.
+
+When you want your apps in another plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing virtual network integration.
+
+The feature is fully supported for both Windows and Linux apps, including [custom containers](../app-service/configure-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
+
+### Network security groups
+
+You can use network security groups to block inbound and outbound traffic to resources in a virtual network. An app that uses regional virtual network integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your virtual network or the internet. To block traffic to public addresses, you must have virtual network integration with Route All enabled. The inbound rules in an NSG don't apply to your app because virtual network integration affects only outbound traffic from your app.
+
+To control inbound traffic to your app, use the Access Restrictions feature. An NSG that's applied to your integration subnet is in effect regardless of any routes applied to your integration subnet. If your function app is virtual network integrated with Route All enabled, and you don't have any routes that affect public address traffic on your integration subnet, all of your outbound traffic is still subject to NSGs assigned to your integration subnet. When Route All isn't enabled, NSGs are only applied to RFC1918 traffic.
+
+### Routes
+
+You can use route tables to route outbound traffic from your app to wherever you want. By default, route tables only affect your RFC1918 destination traffic. When Route All is enabled, all of your outbound calls are affected. When [Route All](../app-service/overview-vnet-integration.md#application-routing) is disabled, only private traffic (RFC1918) is affected by your route tables. Routes that are set on your integration subnet won't affect replies to inbound app requests. Common destinations can include firewall devices or gateways.
+
+If you want to route all outbound traffic on-premises, you can use a route table to send all outbound traffic to your ExpressRoute gateway. If you do route traffic to a gateway, be sure to set routes in the external network to send any replies back.
+
+Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic is affected. By default, BGP routes affect only your RFC1918 destination traffic. When your function app is virtual network integrated with Route All enabled, all outbound traffic can be affected by your BGP routes.
+
+### Azure DNS private zones 
+
+After your app integrates with your virtual network, it uses the same DNS server that your virtual network is configured with and will work with the Azure DNS private zones linked to the virtual network.
 
 ## Restrict your storage account to a virtual network 
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage.  You can replace this storage account with one that is secured with service endpoints or private endpoint.  This feature currently only works with Windows Premium plans.  To set up a function with a storage account restricted to a private network:
+> [!NOTE]
+> To quickly deploy a function app with private endpoints enabled on the storage account, please refer to the following template: [Function app with Azure Storage private endpoints](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints).
 
-1. Create a function with a storage account that does not have service endpoints enabled.
-1. Configure the function to connect to your virtual network.
-1. Create or configure a different storage account.  This will be the storage account we secure with service endpoints and connect our function.
-1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-file-share) in the secured storage account.
-1. Enable service endpoints or private endpoint for the storage account.  
-    * If using private endpoint connections, the storage account will need a private endpoint for the `file` and `blob` subresources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
-    * If using service endpoints, enable the subnet dedicated to your function apps for storage accounts.
-1. (Optional) Copy the file and blob content from the function app storage account to the secured storage account and file share.
-1. Copy the connection string for this storage account.
-1. Update the **Application Settings** under **Configuration** for the function app to the following:
-    - `AzureWebJobsStorage` to the connection string for the secured storage account.
-    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` to the connection string for the secured storage account.
-    - `WEBSITE_CONTENTSHARE` to the name of the file share created in the secured storage account.
-    - Create a new setting with the name `WEBSITE_CONTENTOVERVNET` and value of `1`.
-    - If the storage account is using private endpoint connections, verify or add the following settings
-        - `WEBSITE_VNET_ROUTE_ALL` with a value of `1`.
-        - `WEBSITE_DNS_SERVER` with a value of `168.63.129.16` 
-1. Save the application settings.  
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoints. 
 
-The function app will restart and will now be connected to a secured storage account.
+This feature is supported for all Windows and Linux virtual network-supported SKUs in the Dedicated (App Service) plan and for the Premium plans. The Consumption plan isn't supported. To learn how to set up a function with a storage account restricted to a private network, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 ## Use Key Vault references
 
 You can use Azure Key Vault references to use secrets from Azure Key Vault in your Azure Functions application without requiring any code changes. Azure Key Vault is a service that provides centralized secrets management, with full control over access policies and audit history.
 
-Currently, [Key Vault references](../app-service/app-service-key-vault-references.md) won't work if your key vault is secured with service endpoints. To connect to a key vault by using virtual network integration, you need to call Key Vault in your application code.
+If virtual network integration is configured for the app, [Key Vault references](../app-service/app-service-key-vault-references.md) may be used to retrieve secrets from a network-restricted vault.
 
 ## Virtual network triggers (non-HTTP)
 
@@ -120,31 +212,55 @@ Currently, you can use non-HTTP trigger functions from within a virtual network 
 
 ### Premium plan with virtual network triggers
 
-When you run a Premium plan, you can connect non-HTTP trigger functions to services that run inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **Runtime Scale Monitoring** setting is found in the [Azure portal](https://portal.azure.com) under **Configuration** > **Function runtime settings**.
+The [Premium plan](functions-premium-plan.md) lets you create functions that are triggered by services inside a virtual network. These non-HTTP triggers are known as _virtual network triggers_.   
+
+By default, virtual network triggers don't cause your function app to scale beyond their pre-warmed instance count. However, certain extensions support virtual network triggers that cause your function app to scale dynamically. You can enable this _dynamic scale monitoring_ in your function app for supported extensions in one of these ways:
+
+#### [Azure portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your function app. 
+
+1. Under **Settings** select **Configuration**, then in the **Function runtime settings** tab set **Runtime Scale Monitoring** to **On**.
+
+1. Select **Save** to update the function app configuration and restart the app.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
-You can also enable virtual network triggers by using the following Azure CLI command:
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
+#### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$Resource = Get-AzResource -ResourceGroupName <resource_group> -ResourceName <function_app_name>/config/web -ResourceType Microsoft.Web/sites
+$Resource.Properties.functionsRuntimeScaleMonitoringEnabled = $true
+$Resource | Set-AzResource -Force
+```
+
+---
+
 > [!TIP]
-> Enabling virtual network triggers may have an impact on the performance of your application since your App Service plan instances will need to monitor your triggers to determine when to scale. This impact is likely to be very small.
+> Enabling the monitoring of virtual network triggers may have an impact on the performance of your application, though this impact is likely to be very small.
 
-Virtual network triggers are supported in version 2.x and above of the Functions runtime. The following non-HTTP trigger types are supported.
+Support for dynamic scale monitoring of virtual network triggers isn't available in version 1.x of the Functions runtime. 
 
-| Extension | Minimum version |
-|-----------|---------| 
-|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 or above |
-|[Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 or above|
-|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 or above|
-|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 or above|
-|[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 or above|
+The extensions in this table support dynamic scale monitoring of virtual network triggers. To get the best scaling performance, you should upgrade to versions that also support [target-based scaling](functions-target-based-scaling.md#premium-plan-with-runtime-scale-monitoring-enabled).
+
+| Extension (minimum version) | Runtime scale monitoring only | With [target-based scaling](functions-target-based-scaling.md#premium-plan-with-runtime-scale-monitoring-enabled) |
+|-----------|---------|--- |
+|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| > 3.0.5 | > 4.1.0 |
+|[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| > 2.0.0 | n/a |
+|[Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| > 4.1.0 | > 5.2.0 |
+|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| > 3.2.0 | > 5.9.0 |
+|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | > 3.0.10 | > 5.1.0<sup>*</sup>  |
+
+<sup>*</sup> Queue storage only.
 
 > [!IMPORTANT]
-> When you enable virtual network trigger support, only the trigger types shown in the previous table scale dynamically with your application. You can still use triggers that aren't in the table, but they're not scaled beyond their pre-warmed instance count. For the complete list of triggers, see [Triggers and bindings](./functions-triggers-bindings.md#supported-bindings).
+> When you enable virtual network trigger monitoring, only triggers for these extensions can cause your app to scale dynamically. You can still use triggers from extensions that aren't in this table, but they won't cause scaling beyond their pre-warmed instance count. For a complete list of all trigger and binding extensions, see [Triggers and bindings](./functions-triggers-bindings.md#supported-bindings).
 
 ### App Service plan and App Service Environment with virtual network triggers
 
@@ -167,25 +283,55 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 
 Outbound IP restrictions are available in a Premium plan, App Service plan, or App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
-When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By adding the application setting `WEBSITE_VNET_ROUTE_ALL=1`, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
+When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By integrating your function app with a virtual network with Route All enabled, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
+
+To learn how to control the outbound IP using a virtual network, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md). 
 
 ## Automation
 The following APIs let you programmatically manage regional virtual network integrations:
 
 + **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integration.  
-+ **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/function-premium-vnet-integration/).
+
+## Testing considerations
+
+When testing functions in a function app with private endpoints, you must do your testing from within the same virtual network, such as on a virtual machine (VM) in that network. To use the **Code + Test** option in the portal from that VM, you need to add following [CORS origins](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#cors) to your function app:
+
+* `https://functions-next.azure.com`
+* `https://functions-staging.azure.com`
+* `https://functions.azure.com`
+* `https://portal.azure.com`
 
 ## Troubleshooting
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
+
+### Network troubleshooter
+
+You can also use the Network troubleshooter to resolve connection issues. To open the network troubleshooter, go to the app in the Azure portal. Select **Diagnostic and solve problem**, and then search for **Network troubleshooter**.
+
+**Connection issues** - It checks the status of the virtual network integration, including checking if the Private IP has been assigned to all instances of the plan and the DNS settings. If a custom DNS isn't configured, default Azure DNS is applied. The troubleshooter also checks for common Function app dependencies including connectivity for Azure Storage and other binding dependencies.
+
+:::image type="content" source="./media/functions-networking-options/network-troubleshooter-function-app.png" alt-text="Screenshot that shows running troubleshooter for connection issues.":::
+
+**Configuration issues** - This troubleshooter checks if your subnet is valid for virtual network Integration.
+
+:::image type="content" source="./media/functions-networking-options/network-troubleshooter-configuration-function-app.png" alt-text="Screenshot that shows running troubleshooter for configuration issues.":::
+
+**Subnet/VNet deletion issue** - This troubleshooter checks if your subnet has any locks and if it has any unused Service Association Links that might be blocking the deletion of the VNet/subnet.
 
 ## Next steps
 
 To learn more about networking and Azure Functions:
 
 * [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md)
-* [Read the Functions networking FAQ](./functions-networking-faq.md)
-* [Learn more about virtual network integration with App Service/Functions](../app-service/web-sites-integrate-with-vnet.md)
+* [Read the Functions networking FAQ](./functions-networking-faq.yml)
+* [Learn more about virtual network integration with App Service/Functions](../app-service/overview-vnet-integration.md)
 * [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
 * [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
 * [Connect to individual on-premises resources without firewall changes by using Hybrid Connections](../app-service/app-service-hybrid-connections.md)
+
+
+<!--Links-->
+[VNETnsg]: ../virtual-network/network-security-groups-overview.md
+[privateendpoints]: ../app-service/networking/private-endpoint.md

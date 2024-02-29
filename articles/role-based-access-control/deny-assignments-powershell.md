@@ -1,19 +1,15 @@
 ---
 title: List Azure deny assignments using Azure PowerShell - Azure RBAC
 description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using Azure PowerShell and Azure role-based access control (Azure RBAC).
-services: active-directory
-documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: amycolannino
 
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 06/12/2019
+ms.date: 01/24/2022
 ms.author: rolyon
 ms.reviewer: bagovind
+ms.custom: devx-track-azurepowershell
 ---
 
 # List Azure deny assignments using Azure PowerShell
@@ -21,14 +17,14 @@ ms.reviewer: bagovind
 [Azure deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using Azure PowerShell.
 
 > [!NOTE]
-> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Azure deny assignments](deny-assignments.md).
+> You can't directly create your own deny assignments. For more information, see [Azure deny assignments](deny-assignments.md).
 
 ## Prerequisites
 
 To get information about a deny assignment, you must have:
 
 - `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [Azure built-in roles](built-in-roles.md)
-- [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## List deny assignments
 

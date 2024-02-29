@@ -1,0 +1,419 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/guidance/guidance.md",
+            "redirect_url": "/azure/architecture/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/index.md",
+            "redirect_url": "/azure/architecture/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/azure-for-aws-professionals.md",
+            "redirect_url": "/azure/architecture/aws-professional",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-azure-for-aws-professionals-service-map.md",
+            "redirect_url": "/azure/architecture/aws-professional/services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-naming-conventions.md",
+            "redirect_url": "/azure/architecture/best-practices/naming-conventions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-resiliency-checklist.md",
+            "redirect_url": "/azure/architecture/checklist/resiliency",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-elasticsearch.md",
+            "redirect_url": "/azure/architecture/elasticsearch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-elasticsearch-running-on-azure.md",
+            "redirect_url": "/azure/architecture/elasticsearch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-elasticsearch-running-automated-performance-tests.md",
+            "redirect_url": "/azure/architecture/elasticsearch/automated-performance-tests",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-elasticsearch-running-automated-resilience-tests.md",
+            "redirect_url": "/azure/architecture/elasticsearch/automated-resilience-tests",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-elasticsearch-tuning-data-aggregation-and-query-performance.md",
+            "redirect_url": "/azure/architecture/elasticsearch/data-aggregation-and-query-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-elasticsearch-tuning-data-ingestion-performance.md",
+            "redirect_url": "/azure/architecture/elasticsearch/data-ingestion-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-elasticsearch-deploying-jmeter-junit-sampler.md",
+            "redirect_url": "/azure/architecture/elasticsearch/jmeter-junit-sampler",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-elasticsearch-implementing-jmeter-test-plan.md",
+            "redirect_url": "/azure/architecture/elasticsearch/jmeter-test-plan",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-elasticsearch-creating-performance-testing-environment.md",
+            "redirect_url": "/azure/architecture/elasticsearch/performance-testing-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity.md",
+            "redirect_url": "/azure/architecture/multitenant-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-intro.md",
+            "redirect_url": "/azure/architecture/multitenant-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-adfs.md",
+            "redirect_url": "/azure/architecture/multitenant-identity/adfs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-app-roles.md",
+            "redirect_url": "/azure/architecture/multitenant-identity/app-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-authenticate.md",
+            "redirect_url": "/azure/architecture/multitenant-identity/authenticate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-authorize.md",
+            "redirect_url": "/azure/architecture/multitenant-identity/authorize",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-claims.md",
+            "redirect_url": "/azure/architecture/multitenant-identity/claims",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-client-assertion.md",
+            "redirect_url": "/azure/architecture/multitenant-identity/client-assertion",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-keyvault.md",
+            "redirect_url": "/azure/architecture/multitenant-identity/key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-signup.md",
+            "redirect_url": "/azure/architecture/multitenant-identity/signup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-tailspin.md",
+            "redirect_url": "/azure/architecture/multitenant-identity/tailspin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-token-cache.md",
+            "redirect_url": "/azure/architecture/multitenant-identity/token-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-multitenant-identity-web-api.md",
+            "redirect_url": "/azure/architecture/multitenant-identity/web-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/cache-aside.md",
+            "redirect_url": "/azure/architecture/patterns/cache-aside",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/circuit-breaker.md",
+            "redirect_url": "/azure/architecture/patterns/circuit-breaker",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/compensating-transaction.md",
+            "redirect_url": "/azure/architecture/patterns/compensating-transaction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/competing-consumers.md",
+            "redirect_url": "/azure/architecture/patterns/competing-consumers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/compute-resource-consolidation.md",
+            "redirect_url": "/azure/architecture/patterns/compute-resource-consolidation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/command-and-query-responsibility-segregation-cqrs.md",
+            "redirect_url": "/azure/architecture/patterns/cqrs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/event-sourcing.md",
+            "redirect_url": "/azure/architecture/patterns/event-sourcing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/external-configuration-store.md",
+            "redirect_url": "/azure/architecture/patterns/external-configuration-store",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/federated-identity.md",
+            "redirect_url": "/azure/architecture/patterns/federated-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/gatekeeper.md",
+            "redirect_url": "/azure/architecture/patterns/gatekeeper",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/health-endpoint-monitoring.md",
+            "redirect_url": "/azure/architecture/patterns/health-endpoint-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/index-table.md",
+            "redirect_url": "/azure/architecture/patterns/index-table",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/leader-election.md",
+            "redirect_url": "/azure/architecture/patterns/leader-election",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/materialized-view.md",
+            "redirect_url": "/azure/architecture/patterns/materialized-view",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/pipes-and-filters.md",
+            "redirect_url": "/azure/architecture/patterns/pipes-and-filters",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/priority-queue.md",
+            "redirect_url": "/azure/architecture/patterns/priority-queue",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/queue-based-load-leveling.md",
+            "redirect_url": "/azure/architecture/patterns/queue-based-load-leveling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/retry.md",
+            "redirect_url": "/azure/architecture/patterns/retry",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/runtime-reconfiguration.md",
+            "redirect_url": "/azure/architecture/patterns/runtime-reconfiguration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/scheduler-agent-supervisor.md",
+            "redirect_url": "/azure/architecture/patterns/scheduler-agent-supervisor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/sharding.md",
+            "redirect_url": "/azure/architecture/patterns/sharding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/static-content-hosting.md",
+            "redirect_url": "/azure/architecture/patterns/static-content-hosting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/throttling.md",
+            "redirect_url": "/azure/architecture/patterns/throttling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/cloud-design-patterns/valet-key.md",
+            "redirect_url": "/azure/architecture/patterns/valet-key",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-architecture.md",
+            "redirect_url": "/azure/architecture/reference-architectures",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-ra-app-service.md",
+            "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-web-apps-basic.md",
+            "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-web-apps-multi-region.md",
+            "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/multi-region",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-web-apps-scalability.md",
+            "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-ra-network-security.md",
+            "redirect_url": "/azure/architecture/reference-architectures/dmz",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-nva-ha.md",
+            "redirect_url": "/azure/architecture/reference-architectures/dmz/nva-ha",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-iaas-ra-secure-vnet-dmz.md",
+            "redirect_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-dmz",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-iaas-ra-secure-vnet-hybrid.md",
+            "redirect_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-ra-hybrid-networking.md",
+            "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-hybrid-network-expressroute.md",
+            "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-hybrid-network-expressroute-vpn-failover.md",
+            "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-hybrid-network-vpn.md",
+            "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/vpn",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-ra-identity.md",
+            "redirect_url": "/azure/architecture/reference-architectures/identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-identity-adds-extend-domain.md",
+            "redirect_url": "/azure/architecture/reference-architectures/identity/adds-extend-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-identity-adds-resource-forest.md",
+            "redirect_url": "/azure/architecture/reference-architectures/identity/adds-forest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-identity-adfs.md",
+            "redirect_url": "/azure/architecture/reference-architectures/identity/adfs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-identity-aad.md",
+            "redirect_url": "/azure/architecture/reference-architectures/identity/azure-ad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-compute-multiple-datacenters-linux.md",
+            "redirect_url": "/azure/architecture/reference-architectures/virtual-machines-linux/multi-region-application",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-compute-n-tier-vm-linux.md",
+            "redirect_url": "/azure/architecture/reference-architectures/virtual-machines-linux/n-tier",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-compute-single-vm-linux.md",
+            "redirect_url": "/azure/architecture/reference-architectures/virtual-machines-linux/single-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-ra-compute.md",
+            "redirect_url": "/azure/architecture/reference-architectures/virtual-machines-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-compute-multiple-datacenters.md",
+            "redirect_url": "/azure/architecture/reference-architectures/virtual-machines-windows/multi-region-application",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-compute-multi-vm.md",
+            "redirect_url": "/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-compute-n-tier-vm.md",
+            "redirect_url": "/azure/architecture/reference-architectures/virtual-machines-windows/n-tier",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-compute-single-vm.md",
+            "redirect_url": "/azure/architecture/reference-architectures/virtual-machines-windows/single-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-resiliency-overview.md",
+            "redirect_url": "/azure/architecture/resiliency",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-resiliency-failure-mode-analysis.md",
+            "redirect_url": "/azure/architecture/resiliency/failure-mode-analysis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-elasticsearch-configuring-resilience-and-recovery.md",
+            "redirect_url": "/azure/architecture/resiliency/failure-mode-analysis#elasticsearch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-service-fabric-migrate-from-cloud-services.md",
+            "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guidance/guidance-connecting-your-on-premises-network-to-azure.md",
+            "redirect_url": "/azure/networking/networking-overview",
+            "redirect_document_id": false
+        }
+    ]
+}

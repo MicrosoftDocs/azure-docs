@@ -15,7 +15,9 @@
     - name: Send and receive messages - Node WebSockets
       href: relay-hybrid-connections-node-get-started.md
     - name: Send and receive messages - Node HTTP
-      href: relay-hybrid-connections-http-requests-node-get-started.md    
+      href: relay-hybrid-connections-http-requests-node-get-started.md   
+    - name: Send and receive messages - Java HTTP
+      href: relay-hybrid-connections-java-get-started.md
   - name: Windows Communication Foundation (WCF)
     items:
     - name: Expose an on-premises WCF service to a web application in the cloud
@@ -35,9 +37,15 @@
   - name: Security
     items:
     - name: Authentication and authorization
-      href: relay-authentication-and-authorization.md
-    - name: Built-in security controls
-      href: service-bus-relay-security-controls.md
+      items:
+      - name: Overview (authentication and authorization)
+        href: relay-authentication-and-authorization.md      
+      - name: Use Microsoft Entra ID 
+        items:
+        - name: Authenticate with managed identities
+          href: authenticate-managed-identity.md 
+        - name: Authenticate from an application
+          href: authenticate-application.md
     - name: Network security
       href: network-security.md      
   - name: Hybrid Connections protocol
@@ -48,10 +56,6 @@
     href: move-across-regions.md
   - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
     href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json    
-  - name: Plan and design
-    items:
-    - name: Migrate from ACS to SAS
-      href: relay-migrate-acs-sas.md
   - name: Develop
     items:
     - name: Create a namespace
@@ -77,12 +81,16 @@
       href: diagnostic-logs.md
 - name: Reference
   items:
+  - name: REST
+    href: /rest/api/relay/
   - name: .NET
     items:
     - name: Microsoft.Azure.Relay
       href: /dotnet/api/microsoft.azure.relay
     - name: Microsoft.ServiceBus
       href: /dotnet/api/Microsoft.ServiceBus
+  - name: Azure CLI
+    href: /cli/azure/relay
   - name: Exceptions
     href: relay-exceptions.md
   - name: Port settings
@@ -92,7 +100,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: FAQ
-    href: relay-faq.md
+    href: relay-faq.yml
   - name: Blog
     href: /archive/blogs/servicebus/
   - name: Pricing

@@ -1,16 +1,15 @@
 ---
-title: Tutorial - Use Azure Key Vault with a virtual machine in .NET | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with a virtual machine in .NET
 description: In this tutorial, you configure a virtual machine an ASP.NET core application to read a secret from your key vault.
 services: key-vault
 author: msmbaldwin
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 02/20/2024
 ms.author: mbaldwin
-ms.custom: "mvc, devx-track-csharp, devx-track-azurecli"
-
+ms.devlang: csharp
+ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, devx-track-dotnet
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
 # Tutorial: Use Azure Key Vault with a virtual machine in .NET
@@ -39,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
   * The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-  * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+  * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Create resources and assign permissions
 
@@ -47,11 +46,18 @@ Before you start coding you need to create some resources, put a secret into you
 
 ### Sign in to Azure
 
-To sign in to Azure by using the Azure CLI, enter:
+To sign in to Azure by using following command:
 
+# [Azure CLI](#tab/azure-cli)
 ```azurecli
 az login
 ```
+# [Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Connect-AzAccount
+```
+---
 
 ## Create a resource group and key vault
 
@@ -71,13 +77,14 @@ Create a Windows or Linux virtual machine using one of the following methods:
 | [Azure portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) |
 
 ## Assign an identity to the VM
-Create a system-assigned identity for the virtual machine with the [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
+Create a system-assigned identity for the virtual machine with the following example:
 
+# [Azure CLI](#tab/azure-cli)
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be: 
+Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be:
 
 ```output
 {
@@ -86,16 +93,40 @@ Note the system-assigned identity that's displayed in the following code. The ou
 }
 ```
 
-## Assign permissions to the VM identity
-Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command:
+# [Azure PowerShell](#tab/azurepowershell)
 
-```azurecli
-az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
+```azurepowershell
+$vm = Get-AzVM -Name <NameOfYourVirtualMachine>
+Update-AzVM -ResourceGroupName <YourResourceGroupName> -VM $vm -IdentityType SystemAssigned
 ```
+
+Note the PrincipalId that's displayed in the following code. The output of the preceding command would be: 
+
+
+```output
+PrincipalId          TenantId             Type             UserAssignedIdentities
+-----------          --------             ----             ----------------------
+xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
+```
+---
+
+## Assign permissions to the VM identity
+Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command:
+
+# [Azure CLI](#tab/azure-cli)
+```azurecli
+az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions  get list set delete
+```
+# [Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -ResourceGroupName <YourResourceGroupName> -VaultName '<your-unique-key-vault-name>' -ObjectId '<VMSystemAssignedIdentity>' -PermissionsToSecrets  get,list,set,delete
+```
+---
 
 ## Sign in to the virtual machine
 
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](../../virtual-machines/windows/connect-logon.md) or [Connect and sign in to an Azure Linux virtual machine](../../virtual-machines/linux/login-using-aad.md).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](../../virtual-machines/windows/connect-logon.md) or [Connect and sign in to an Azure Linux virtual machine](../../virtual-machines/linux-vm-connect.md).
 
 ## Set up the console app
 
@@ -103,7 +134,7 @@ Create a console app and install the required packages using the `dotnet` comman
 
 ### Install .NET Core
 
-To install .NET Core, go to the [.NET downloads](https://www.microsoft.com/net/download) page.
+To install .NET Core, go to the [.NET downloads](https://dotnet.microsoft.com/download) page.
 
 ### Create and run a sample .NET app
 
@@ -137,11 +168,12 @@ Open the *Program.cs* file and add these packages:
 
 ```csharp
 using System;
+using Azure.Core;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-Add these lines, updating the URI to reflect the `vaultUri` of your key vault. Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for authentication to key vault, which is using token from application managed identity to authenticate. It is also using exponential backoff for retries in case of key vault is being throttled.
+Add these lines, updating the URI to reflect the `vaultUri` of your key vault. Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) for authentication to key vault, which is using token from application managed identity to authenticate. It is also using exponential backoff for retries in case of key vault is being throttled.
 
 ```csharp
   class Program
@@ -149,7 +181,7 @@ Add these lines, updating the URI to reflect the `vaultUri` of your key vault. B
         static void Main(string[] args)
         {
             string secretName = "mySecret";
-
+            string keyVaultName = "<your-key-vault-name>";
             var kvUri = "https://<your-key-vault-name>.vault.azure.net";
             SecretClientOptions options = new SecretClientOptions()
             {
@@ -167,7 +199,7 @@ Add these lines, updating the URI to reflect the `vaultUri` of your key vault. B
             Console.Write("Input the value of your secret > ");
             string secretValue = Console.ReadLine();
 
-            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
+            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "' ...");
 
             client.SetSecret(secretName, secretValue);
 

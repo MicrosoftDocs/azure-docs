@@ -5,15 +5,14 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 01/10/2024
 ms.author: aapowell
-ms.custom: devx-track-js
-
+ms.custom:
 ---
 
-# Tutorial: Publish a VuePress site to Azure Static Web Apps Preview
+# Tutorial: Publish a VuePress site to Azure Static Web Apps
 
-This article demonstrates how to create and deploy a [VuePress](https://vuepress.vuejs.org/) web application to [Azure Azure Static Web Apps](overview.md). The final result is a new Azure Static Web Apps application with the associated GitHub Actions that give you control over how the app is built and published.
+This article demonstrates how to create and deploy a [VuePress](https://vuepress.vuejs.org/) web application to [Azure Static Web Apps](overview.md). The final result is a new Azure Static Web Apps application with the associated GitHub Actions that give you control over how the app is built and published.
 
 In this tutorial, you learn how to:
 
@@ -27,6 +26,7 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
 - A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
+- A Git setup installed. If you don't have one, you can [install Git](https://www.git-scm.com/downloads). 
 - [Node.js](https://nodejs.org) installed.
 
 ## Create a VuePress App
@@ -96,68 +96,56 @@ You need a repository on GitHub to connect to Azure Static Web Apps. The followi
 1. Push your local repo up to GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## Deploy your web app
 
-The following steps show you how to create a new Static Web Apps application and deploy it to a production environment.
+The following steps show you how to create a new static site app and deploy it to a production environment.
 
 ### Create the application
 
-1. Navigate to the [Azure portal](https://portal.azure.com)
-1. Click **Create a Resource**
+1. Go to the [Azure portal](https://portal.azure.com)
+1. Select **Create a Resource**
 1. Search for **Static Web Apps**
-1. Click **Static Web Apps (Preview)**
-1. Click **Create**
+1. Select **Static Web Apps**
+1. Select **Create**
+1. On the _Basics_ tab, enter the following values.
 
-   :::image type="content" source="./media/publish-vuepress/create-in-portal.png" alt-text="Create a Static Web Apps (Preview) in the portal":::
+    | Property | Value |
+    | --- | --- |
+    | _Subscription_ | Your Azure subscription name. |
+    | _Resource group_ | **my-vuepress-group**  |
+    | _Name_ | **vuepress-static-app** |
+    | _Plan type_ | **Free** |
+    | _Region for Azure Functions API and staging environments_ | Select a region closest to you. |
+    | _Source_ | **GitHub** |
 
-1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
+1. Select **Sign in with GitHub** and authenticate with GitHub.
 
-1. In _Resource group_, select **New**. In _New resource group name_, enter **vuepress-static-app** and select **OK**.
+1. Enter the following GitHub values.
 
-1. Next, a name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`.
+    | Property | Value |
+    | --- | --- |
+    | _Organization_ | Select your desired GitHub organization. |
+    | _Repository_ | Select **vuepress-static-app**. |
+    | _Branch_ | Select **main**. |
 
-1. For _Region_, select an available region close to you.
+    > [!NOTE]
+    > If you don't see any repositories, you may need to authorize Azure Static Web Apps on GitHub.
+    > Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
 
-1. For _SKU_, select **Free**.
-
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Details filled out":::
-
-1. Click the **Sign in with GitHub** button.
-
-1. Select the **Organization** under which you created the repo.
-
-1. Select the **vuepress-static-app** as the _Repository_ .
-
-1. For the _Branch_ select **master**.
-
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Completed GitHub information":::
-
-### Build
-
-Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
-
-1. Click the **Next: Build >** button to edit the build configuration
-
-1. Set _App location_ to **/**.
-
-1. Set _App artifact location_ to **.vuepress/dist**.
-
-A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
-
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Build Settings":::
+1. In the _Build Details_ section, select **VuePress** from the _Build Presets_ drop-down and keep the default values.
 
 ### Review and create
 
-1. Click the **Review + Create** button to verify the details are all correct.
+1. Select **Review + Create** to verify the details are all correct.
 
-1. Click **Create** to start the creation of the Azure Static Web Apps and provision a GitHub Action for deployment.
+2. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Actions for deployment.
 
-1. Once the deployment completes click, **Go to resource**.
+3. Once the deployment completes, select **Go to resource**.
 
-1. On the resource screen, click the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Action to complete.
+4. On the resource screen, select the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Actions to complete.
 
    :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Deployed application":::
 

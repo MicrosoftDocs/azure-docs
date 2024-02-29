@@ -7,7 +7,8 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 12/09/2020
 ms.author: victorh
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure per-site WAF policies using Azure PowerShell
@@ -36,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -262,7 +263,9 @@ $wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
   -PolicySetting $PolicySettingURI `
   -CustomRule $rule4, $rule5
 
-$Gateway = Get-AzApplicationGateway -Name "myAppGateway"
+$appgw = Get-AzApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
 
 $PathRuleConfig = New-AzApplicationGatewayPathRuleConfig -Name "base" `
   -Paths "/base" `
@@ -280,7 +283,7 @@ $URLPathMap = New-AzApplicationGatewayUrlPathMapConfig -Name "PathMap" `
   -DefaultBackendAddressPoolId $defaultPool.Id `
   -DefaultBackendHttpSettingsId $poolSettings.Id
 
-Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
+Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $appgw `
   -Name "RequestRoutingRule" `
   -RuleType PathBasedRouting `
   -HttpListener $siteListener `

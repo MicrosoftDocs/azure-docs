@@ -3,17 +3,17 @@ title: Resource Health for Cloud Services (Classic)
 description: This article talks about Resource Health Check (RHC) Support for Microsoft Azure Cloud Services (Classic)
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+ms.subservice: resource-health
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Resource Health Check (RHC) Support for Azure Cloud Services (Classic)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 This article  talks about Resource Health Check (RHC) Support for [Microsoft Azure Cloud Services (Classic)](https://azure.microsoft.com/services/cloud-services)
 
@@ -94,7 +94,7 @@ Since Role Instances are basically VMs and the health check for VMs is reused fo
 | Provisioning failure | We're sorry, your virtual machine isn't available due to unexpected provisioning problems. The provisioning of your virtual machine has failed due to an unexpected error |
 | Live Migration | This virtual machine is paused because of a memory-preserving Live Migration operation. The virtual machine typically resumes within 10 seconds. No additional action is required from you at this time |
 | Live Migration | This virtual machine is paused because of a memory-preserving Live Migration operation. The virtual machine typically resumes within 10 seconds. No additional action is required from you at this time | 
-| Remote disk disconnected | We're sorry, your virtual machine is unavailable because because of connectivity loss to the remote disk. We're working to reestablish disk connectivity. No additional action is required from you at this time |
+| Remote disk disconnected | We're sorry, your virtual machine is unavailable because of connectivity loss to the remote disk. We're working to reestablish disk connectivity. No additional action is required from you at this time |
 | Azure service issue | Your virtual machine is impacted by Azure service issue |
 | Network issue | This virtual machine is impacted by a top-of-rack network device |
 | Unavailable | Your virtual machine is unavailable. We are currently unable to determine the reason for this downtime |

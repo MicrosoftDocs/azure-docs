@@ -7,11 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 # Kubernetes role-based access control on your Azure Stack Edge Pro GPU device
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 On your Azure Stack Edge Pro device, when you configure compute role, a Kubernetes cluster is created. You can use Kubernetes role-based access control (Kubernetes RBAC) to limit access to the cluster resources on your device.
 

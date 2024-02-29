@@ -1,10 +1,10 @@
 ---
-title: What is Apache Hive and HiveQL - Azure HDInsight 
+title: What is Apache Hive and HiveQL - Azure HDInsight
 description: Apache Hive is a data warehouse system for Apache Hadoop. You can query data stored in Hive using HiveQL, which similar to Transact-SQL. In this document, learn how to use Hive and HiveQL with Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/28/2020
+ms.custom: hdinsightactive
+ms.date: 01/04/2024
 ---
 
 # What is Apache Hive and HiveQL on Azure HDInsight?
@@ -28,11 +28,11 @@ Use the following table to discover the different ways to use Hive with HDInsigh
 
 | **Use this method** if you want... | ...**interactive** queries | ...**batch** processing | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |
-| [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X, or Windows |
+| [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, macOS X, or Windows |
 | [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
 | [Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Any (browser based) |
-| [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, Mac OS X, or Windows |
-| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X, or Windows |
+| [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, macOS X, or Windows |
+| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, macOS X, or Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
 ## HiveQL language reference
@@ -56,7 +56,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see the [How to use a custom JSON SerDe with HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) document.
+Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see the [How to use a custom JSON SerDe with HDInsight](/archive/blogs/bigdatasupport/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight) document.
 
 For more information on file formats supported by Hive, see the [Language manual (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
@@ -66,14 +66,14 @@ There are two types of tables that you can create with Hive:
 
 * __Internal__: Data is stored in the Hive data warehouse. The data warehouse is located at `/hive/warehouse/` on the default storage for the cluster.
 
-    Use internal tables when one of the following conditions apply:
+    Use internal tables when one of the following conditions applies:
 
     * Data is temporary.
     * You want Hive to manage the lifecycle of the table and data.
 
 * __External__: Data is stored outside the data warehouse. The data can be stored on any storage accessible by the cluster.
 
-    Use external tables when one of the following conditions apply:
+    Use external tables when one of the following conditions applies:
 
     * The data is also used outside of Hive. For example, the data files are updated by another process (that doesn't lock the files.)
     * Data needs to remain in the underlying location, even after dropping the table.
@@ -160,7 +160,7 @@ These statements perform the following actions:
 |---|---|
 |CREATE TABLE IF NOT EXISTS|If the table doesn't exist, create it. Because the **EXTERNAL** keyword isn't used, this statement creates an internal table. The table is stored in the Hive data warehouse and is managed completely by Hive.|
 |STORED AS ORC|Stores the data in Optimized Row Columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.|
-|INSERT OVERWRITE ... SELECT|Selects rows from the **log4jLogs** table that contains **[ERROR]**, and then inserts the data into the **errorLogs** table.|
+|INSERT OVERWRITE ... SELECT|Selects rows from the `log4jLogs` table that contains **[ERROR]**, and then inserts the data into the **errorLogs** table.|
 
 > [!NOTE]  
 > Unlike external tables, dropping an internal table also deletes the underlying data.
@@ -173,7 +173,7 @@ These statements perform the following actions:
 
 ### Low Latency Analytical Processing (LLAP)
 
-[LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (sometimes known as Live Long and Process) is a new feature in Hive 2.0 that allows in-memory caching of queries. LLAP makes Hive queries much faster, up to [26x faster than Hive 1.x in some cases](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+[LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (sometimes known as Live Long and Process) is a new feature in Hive 2.0 that allows in-memory caching of queries.
 
 HDInsight provides LLAP in the Interactive Query cluster type. For more information, see the [Start with Interactive Query](../interactive-query/apache-interactive-query-get-started.md) document.
 
@@ -198,6 +198,9 @@ For more information, see the [Azure Feature Pack](/sql/integration-services/azu
 ### Apache Oozie
 
 Apache Oozie is a workflow and coordination system that manages Hadoop jobs. For more information on using Oozie with Hive, see the [Use Apache Oozie to define and run a workflow](../hdinsight-use-oozie-linux-mac.md) document.
+
+> [!NOTE]  
+> [Phoenix Storage Handler for Hive](https://phoenix.apache.org/hive_storage_handler.html) is not supported in HDInsight
 
 ## Next steps
 

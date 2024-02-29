@@ -3,7 +3,9 @@ title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 ms.reviewer: sogup
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 07/20/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
@@ -41,6 +43,7 @@ By default, snapshots are retained for two days. This feature allows restore ope
 * For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space.
 * You get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you can set the snapshot retention to a minimum of one day in the backup policy pane as explained below. This will help you save cost for snapshot retention if you don’t perform restores frequently.
 * It's a one directional upgrade. Once upgraded to Instant restore, you can't go back.
+* When you use an Instant Restore recovery point, you must restore the VM or disks to a subscription and resource group that don't require CMK-encrypted disks via Azure Policy. 
 
 >[!NOTE]
 >With this instant restore upgrade, the snapshot retention duration of all the customers (**new and existing both included**) will be set to a default value of two days. However, you can set the duration according to your requirement to any value between 1 to 5 days.
@@ -68,9 +71,9 @@ In the Azure portal, you can see a field added in the **VM Backup Policy** pane 
 > From Az PowerShell version 1.6.0 onwards, you can update the instant restore snapshot retention period in policy using PowerShell
 
 ```powershell
-$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
 The default snapshot retention for each policy is set to two days. You can change the value to a minimum of 1 and a maximum of five days. For weekly policies, the snapshot retention is fixed to five days.
@@ -107,7 +110,18 @@ The new model doesn't allow deleting the restore point (Tier2) unless the snapsh
 
 ### Why does my snapshot still exist, even after the set retention period in backup policy?
 
-If the recovery point has a snapshot and it's the latest recovery point available, it's retained until the next successful backup. This is according to the designated "garbage collection" (GC) policy. It mandates that at least one latest recovery point always be present, in case all subsequent backups fail due to an issue in the VM. In normal scenarios, recovery points are cleaned up at most 24 hours after they expire.
+If the recovery point has a snapshot and it's the latest recovery point available, it's retained until the next successful backup. This is according to the designated "garbage collection" (GC) policy. It mandates that at least one latest recovery point always be present, in case all subsequent backups fail due to an issue in the VM. In normal scenarios, recovery points are cleaned up at most 24 hours after they expire. In rare scenarios, there might be one or two additional snapshots based on the heavier load on the garbage collector (GC).
+
+### Why do I see more snapshots than my retention policy?
+
+In a scenario where a retention policy is set as “1”, you can find two snapshots. This mandates that at least one latest recovery point always be present, in case all subsequent backups fail due to an issue in the VM. This can cause the presence of two snapshots.<br></br>So, if the policy is for "n" snapshots, you can find “n+1” snapshots at times. Further, you can even find “n+1+2” snapshots if there is a delay in garbage collection. This can happen at rare times when:
+- You clean up snapshots, which are past retention.
+- The garbage collector (GC) in the backend is under heavy load.
+
+> [!NOTE]
+> Azure Backup manages backups in automatic way. Azure Backup retains old snapshop as these are needed to mantain this backup for consistency purpose. If you delete snapshot manually, you might encounter problem in backup consistency.
+> If there are errors in your backup history, you need to stop backup with retain data option and resume the backup.
+> Consider creating a **backup strategy** if you've a particular scenario (for example, a virtual machine with multiple disks and requires oversize space). You need to separately create a backup for **VM with OS Disk** and create a different backup for **the other disks**.
 
 ### I don’t need Instant Restore functionality. Can it be disabled?
 
@@ -115,5 +129,5 @@ Instant restore feature is enabled for everyone and can't be disabled. You can r
 
 ### Is it safe to restart the VM during the transfer process (which can take many hours)? Will restarting the VM interrupt or slow down the transfer?
 
-Yes its safe, and there is absolutely no impact in data transfer speed.
+Yes it's safe, and there is absolutely no impact in data transfer speed.
 

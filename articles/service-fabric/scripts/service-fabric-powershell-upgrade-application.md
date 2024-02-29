@@ -1,20 +1,14 @@
 ---
-title: Upgrade a Service Fabric application in Powershell
-description: Azure PowerShell Script Sample - Upgrade and monitor an Azure Service Fabric application using Powershell.
+title: Upgrade a Service Fabric application in PowerShell
+description: Azure PowerShell Script Sample - Upgrade and monitor an Azure Service Fabric application using PowerShell.
 services: service-fabric
-documentationcenter: 
 author: athinanthny
 manager: chackdan
-editor: 
-tags: azure-service-management
-
-ms.assetid: 
 ms.service: service-fabric
-ms.workload: multiple
 ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Upgrade a Service Fabric application
@@ -47,4 +41,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Service Fabric PowerShell module, see [Azure PowerShell documentation](/powershell/azure/service-fabric/overview).
 
-Additional Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
+Additional PowerShell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).

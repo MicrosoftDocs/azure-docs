@@ -2,7 +2,9 @@
 title: Get access key for an Event Grid resource
 description: This article describes how to get access key for an Event Grid topic or domain
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 07/07/2020 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Get access keys for Event Grid resources (topics or domains)

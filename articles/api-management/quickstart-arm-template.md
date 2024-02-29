@@ -1,24 +1,26 @@
 ---
-title: Quickstart - Create Azure API Management instance by using ARM template
-description: Learn how to create an Azure API Management instance in the Developer tier by using an Azure Resource Manager template (ARM template).
+title: Quickstart - Create Azure API Management instance - ARM template
+description: Use this quickstart to create an Azure API Management instance in the Developer tier by using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 author: dlepow
-ms.service: azure-resource-manager
-ms.topic: quickstart
-ms.custom: subject-armqs
+ms.service: api-management
+ms.topic: quickstart-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: danlep
-ms.date: 10/09/2020
+ms.date: 12/12/2023
 ---
 
 # Quickstart: Create a new Azure API Management service instance using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure API Management (APIM) service instance. APIM helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md).
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure API Management instance. You can also use ARM templates for common management tasks such as importing APIs in your API Management instance.
+
+[!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-api-management-create%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fazure-api-management-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -26,9 +28,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-api-management-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-api-management-create/).
 
-:::code language="json" source="~/quickstart-templates/101-azure-api-management-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.apimanagement/azure-api-management-create/azuredeploy.json":::
 
 The following resource is defined in the template:
 
@@ -40,7 +42,7 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
 
 1. Select the following image to sign in to Azure and open a template. The template creates an API Management service instance with an automatically generated name.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-api-management-create%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fazure-api-management-create%2Fazuredeploy.json)
 
     In this example, the instance is configured in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md).
 
@@ -65,7 +67,7 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
 
     :::image type="content" source="media/quickstart-arm-template/deployment-notification.png" alt-text="Deployment notification":::
 
- The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
+ The Azure portal is used to deploy the template. In addition to the Azure portal, you can use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
 
 ## Review deployed resources
 

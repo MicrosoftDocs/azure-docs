@@ -1,11 +1,11 @@
 ---
 title: Create & locate anchors in Swift
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Swift.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
@@ -85,13 +85,13 @@ Learn more about the [tokenRequired](/objectivec/api/spatial-anchors/asacloudspa
 
 ```
 
-[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens.md)]
+[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-tokens.md)]
 
 ```swift
     _cloudSession!.configuration.authenticationToken = "MyAuthenticationToken"
 ```
 
-[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
+[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-tokens-event.md)]
 
 ```swift
     internal func tokenRequired(_ cloudSession:ASACloudSpatialAnchorSession!, _ args:ASATokenRequiredEventArgs!) {

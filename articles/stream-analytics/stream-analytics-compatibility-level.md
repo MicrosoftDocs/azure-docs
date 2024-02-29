@@ -5,30 +5,32 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/18/2021
 ---
 
 # Compatibility level for Azure Stream Analytics jobs
 
-This article describes the compatibility level option in Azure Stream Analytics. Stream Analytics is a managed service, with regular feature updates, and performance improvements. Most of the service's runtimes updates are automatically made available to end users. 
+This article describes the compatibility level option in Azure Stream Analytics.
 
-However, some new functionality in the service may introduce a major change, such as a change in the behavior of an existing job, or a change in the way data is consumed in running jobs. You can keep your existing Stream Analytics jobs running without major changes by leaving the compatibility level setting lowered. When you are ready for the latest runtime behaviors, you can opt-in by raising the compatibility level. 
+Stream Analytics is a managed service, with [regular feature updates and constant performance improvements](https://azure.microsoft.com/updates/?product=stream-analytics). Most of the service's runtimes updates are automatically made available to end users, independently from the compatibility level. However, when a new functionality introduces a change in the behavior of existing jobs, or a change in the way data is consumed in running jobs, we introduce this change under a new compatibility level. 
+You can keep your existing Stream Analytics jobs running without major changes by leaving the compatibility level setting lowered. When you are ready for the latest runtime behaviors, you can opt-in by raising the compatibility level.
+
 
 ## Choose a compatibility level
 
-Compatibility level controls the runtime behavior of a stream analytics job. 
+Compatibility level controls the runtime behavior of a stream analytics job.
 
 Azure Stream Analytics currently supports three compatibility levels:
 
-* 1.0 - Original compatibility level, introduced during general availability of Azure Stream Analytics several years ago.
-* 1.1 - Previous behavior
 * 1.2 - Newest behavior with most recent improvements
+* 1.1 - Previous behavior
+* 1.0 - Original compatibility level, introduced during general availability of Azure Stream Analytics several years ago. 
 
 When you create a new Stream Analytics job, it's a best practice to create it by using the latest compatibility level. Start your job design relying upon the latest behaviors, to avoid added change and complexity later on.
 
 ## Set the compatibility level
 
-You can set the compatibility level for a Stream Analytics job in the Azure portal or by using the [create job REST API call](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel).
+You can set the compatibility level for a Stream Analytics job in the Azure portal or by using the [create job REST API call](/rest/api/streamanalytics/2020-03-01/streaming-jobs/create-or-replace#compatibilitylevel).
 
 To update the compatibility level of the job in the Azure portal:
 
@@ -68,11 +70,11 @@ For more information, see [Updates to geospatial features in Azure Stream Analyt
 
 **1.2 level:** If query logic can be parallelized across input source partitions, Azure Stream Analytics creates separate query instances and runs computations in parallel.
 
-### Native Bulk API integration with CosmosDB output
+### Native Bulk API integration with Azure Cosmos DB output
 
 **Previous levels:** The upsert behavior was *insert or merge*.
 
-**1.2 level:** Native Bulk API integration with CosmosDB output maximizes throughput and efficiently handles throttling requests. For more information, see [the Azure Stream Analytics output to Azure Cosmos DB page](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
+**1.2 level:** Native Bulk API integration with Azure Cosmos DB output maximizes throughput and efficiently handles throttling requests. For more information, see [the Azure Stream Analytics output to Azure Cosmos DB page](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
 The upsert behavior is *insert or replace*.
 
@@ -104,11 +106,18 @@ Adding a prefix to built-in aggregates also results in error. For example, `mypr
 
 Using the prefix "system" for any user-defined functions results in error.
 
-### Disallow Array and Object as key properties in Cosmos DB output adapter
+### Disallow Array and Object as key properties in Azure Cosmos DB output adapter
 
 **Previous levels:** Array and Object types were supported as a key property.
 
 **1.2 level:** Array and Object types are no longer supported as a key property.
+
+### Deserializing boolean type in JSON, AVRO and PARQUET
+
+**Previous levels:** Azure Stream Analytics deserializes Boolean value into type BIGINT - false maps to 0 and true maps to 1. The output only creates boolean values in JSON, AVRO, and PARQUET if you explicitly convert events to BIT.
+For example, a pass-through query like `SELECT value INTO output1 FROM input1` reading a JSON `{ "value": true }` from input1 will write into the output1 a JSON value `{ "value": 1 }`.
+
+**1.2 level:** Azure Stream Analytics deserializes Boolean value into type BIT. False maps to 0 and true maps to 1. A pass-through query like `SELECT value INTO output1 FROM input1` reading a JSON `{ "value": true }` from input1 will write into the output1 a JSON value `{ "value": true }`. You can cast value to type BIT in the query to ensure they appear as true and false in the output for formats supporting boolean type.
 
 ## Compatibility level 1.1
 

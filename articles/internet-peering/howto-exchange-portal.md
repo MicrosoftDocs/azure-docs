@@ -1,16 +1,20 @@
 ---
-title: Create or modify an Exchange peering by using the Azure portal
-titleSuffix: Azure
-description: Create or modify an Exchange peering by using the Azure portal
+title: Create or modify an Exchange peering - Azure portal
+titleSuffix: Internet Peering
+description: Learn how to create or modify an Exchange peering using the Azure portal.
 services: internet-peering
-author: derekolo
+author: halkazwini
+ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 5/2/2020
-ms.author: derekol
+ms.date: 10/04/2023
 ---
 
-# Create or modify an Exchange peering by using the Azure portal
+# Create or modify an Exchange peering using the Azure portal
+
+> [!div class="op_single_selector"]
+> - [Azure portal](howto-exchange-portal.md)
+> - [PowerShell](howto-exchange-powershell.md)
 
 This article describes how to create a Microsoft Exchange peering by using the Azure portal. This article also shows how to check the status of the resource, update it, or delete and deprovision it.
 
@@ -65,11 +69,8 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 ## <a name="delete"></a>Deprovision an Exchange peering
 [!INCLUDE [peering-exchange-delete-portal](./includes/delete.md)]
 
-## Next steps
+## Related content
 
-* [Create or modify a Direct peering by using the portal](howto-direct-portal.md)
-* [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md)
-
-## Additional resources
-
-For more information, see [Internet peering FAQs](faqs.md).
+- [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
+- [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

@@ -1,125 +1,116 @@
 ---
-title: Manage device event alert notifications for your Azure Stack Edge Pro resources | Microsoft Docs 
-description: Describes how to use the Azure portal to manage alerts for device events on your Azure Stack Edge Pro resources.
+title: Use alert processing rules to manage alert notifications on Azure Stack Edge devices | Microsoft Docs 
+description: Describes how to define alert processing rules to manage alert notifications for Azure Stack Edge devices in the Azure portal.
 services: databox
-author: v-dalc
+author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 03/13/2023
 ms.author: alkohli
 ---
-# Manage device event alert notifications on Azure Stack Edge Pro resources
+# Use alert processing rules to manage alert notifications on Azure Stack Edge devices
 
-This article describes how to create action rules in the Azure portal to trigger or suppress alert notifications for device events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource. This article applies to all models of Azure Stack Edge.  
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-## About action rules
+This article describes how to create alert processing rules in the Azure portal. Alert processing rules trigger or suppress notifications for device events that occur within a resource group, an Azure subscription, or an individual Azure Stack Edge resource.  
 
-An action rule can trigger or suppress alert notifications. The action rule is added to an *action group* - a set of notification preferences that's used to notify users who need to act on alerts triggered in different contexts for a resource or set of resources.
+## About alert processing rules
 
-For more information about action rules, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule). For more information about action groups, see [Create and manage action groups in the Azure portal](/blob/master/articles/azure-monitor/platform/action-groups).
+An alert processing rule can add action groups to alert notifications. Use alert notification preferences, like email or SMS messages, to notify users when alerts are triggered.
 
-> [!NOTE]
-> The action rules feature is in preview. Some screens and steps might change as the process is refined.
+For more information about alert processing rules, see [Alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal). For more information about action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
 
+## Create an alert processing rule
 
-## Create an action rule
-
-Take the following steps in the Azure portal to create an action rule for your Azure Stack Edge device.
+Use the following steps in the Azure portal to create an alert processing rule for your Azure Stack Edge device.
 
 > [!NOTE]
-> These steps create an action rule that sends notifications to an action group. For details about creating an action rule to suppress notifications, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
+> These steps create an alert processing rule. The alert processing rule adds action groups to alert notifications. For details about creating an alert processing rule to suppress notifications, see [Alert processing rules](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal).
 
-1. Go to the Azure Stack Edge device in the Azure portal, and then go to **Monitoring > Alerts**. Select **Manage actions**.
+1. Go to the Azure Stack Edge device in the [Azure portal](https://portal.azure.com), and select the **Alerts** menu item (under **Monitoring**). Then select **Alert processing rules**.
 
-   ![Monitoring Alerts, Manage actions view](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-01.png)
+   [![Screenshot showing the Alerts page for an Azure Stack Edge resource. The Alert processing rules option is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-01.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-01.png#lightbox)
 
-2. Select **Action rules (preview)**, and then select **+ New action rule**.
+2. On the **Alert processing rules** page, select **+ Create** to launch the **Create an alert processing rule** wizard.
 
-   ![Manage actions, Action rules option](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/action-rules-open-view-02.png)
+   [![Screenshot showing the Alert processing rules page for an Azure Stack Edge resource. The Plus Create rules option is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-create-rule-02.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-create-rule-02.png#lightbox)
 
-3. On the **Create action rule** screen, use **Scope** to select an Azure subscription, resource group, or target resource. The action rule will act on all alerts generated within that scope.
+3. On the **Scope** page, select **+ Select scope**.
 
-   1. Choose **Select** by **Scope**.
+   [![Screenshot showing the **Scope** menu in the **Create an alert processing rule** wizard for an Azure Stack Edge resource. The Plus Select scope option is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-scope-03.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-scope-03.png#lightbox) 
 
-      ![Select a scope for a new action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01.png)
+1. Select a **Subscription** and optionally filter by **Resource types**. To filter by Azure Stack Edge resources, select **Resource types** for **Azure Stack Edge / Data Box Gateway** as shown in the following example.
 
-   2. Select the **Subscription** for the action rule, optionally filter by a **Resource** type. To filter to Azure Stack Edge resources, select **Data Box Edge devices (dataBoxEdge)**.
+   [![Screenshot showing the **Select a scope** menu for an Azure Stack Edge resource. The Select subscription and Resource types dropdown menus are highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-subscription-04.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-alert-processing-rules-select-subscription-04.png#lightbox)
 
-      The **Resource** area lists the available resources based on your selections.
-  
-      ![Available resources on the Select Scope screen](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-02.png)
+1. The **Resource type** option lists the available resources based on your selection. Use the filter option to reduce the list of options. Select the **Checkbox** for the scope option you want to work with and then select **Apply**.
 
-   3. Select the check box by each resource you want to apply the rule to. You can select the subscription, resource groups, or individual resources. Then select **Done**.
+   [![Illustration of the Scope options for alert processing rule in Azure Stack Edge with the "asegpu" option selected.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-new-action-rule-scope-selection-05a.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-new-action-rule-scope-selection-05a.png#lightbox)
 
-      ![Sample settings for an action rule scope](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-03.png)
+1. You can also use the **Filter** control in the following example to reduce the list of options to a subset of alerts within the selected scope.
 
-      The **Create action rule** screen shows the selected scope.
-
-      ![Completed scope for an Azure Stack Edge action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-04.png)
-
-4. Use **Filter** options to narrow the application of the rule to subset of alerts within the selected scope.
-
-   1. Select **Add** to open the **Add filters** pane.
-
-      ![Option for adding filters to an action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-filter-01.png)
-
-   2. Under **Filters**, add each filter you want to apply. For each filter, select the filter type, **Operator**, and **Value**.
+   [![Screenshot of the filter control to reduce the list of options for setting the scope for alert processing rules in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-filter-scope-results-06a.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-filter-scope-results-06a.png#lightbox)
    
-      For a list of filter options, see [Filter criteria](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#filter-criteria).
+1. On the **Add filters** pane, under **Filters**, add each filter you want to apply. For each filter, select the **Filter** type, **Operator**, and **Value**.
 
-      The sample filters below apply to all alerts at Severity levels 2, 3, and 4 that the Monitor service raises for Azure Stack Edge resources.
+   For a list of filter options, see [Filter criteria](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal#scope-and-filters-for-alert-processing-rules).
 
-      When you finish adding filters, select **Done**.
-   
-      ![Sample filter for an action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-filter-02.png)
+   The filters in the following example apply to all alerts at Severity levels 2, 3, and 4 that the Monitor service raises for Azure Stack Edge resources. 
 
-5. On the **Create action rule** screen, select **Action group** to create a rule that sends notifications. Then, by **Actions**, choose **Select**.
+   [![Screenshot of the filter criteria builder for an action rule in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-action-rule-filter-criteria-builder-07.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-action-rule-filter-criteria-builder-07.png#lightbox)
 
-   ![Action group option for creating an action rule that sends notifications](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-action-group-01.png)
+1. On the **Rule Settings** page, select **Apply action group** to create a rule that sends notifications.
 
-   > [!NOTE]
-   > To create a rule that suppresses notifications, you would choose **Suppression**. For more information, see [Configuring an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
+   Select an option to **+ Select action group** for an existing group or **+ Create action group** to create a new one.
 
-6. Select the action group that you want to use with this action rule. Then choose **Select**. Your new action rule will be added to the notification preferences of the selected action group.
+    To create a new action group, select **+ Create action group** and follow the steps in [Alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md#add-action-groups-to-all-alert-types).
 
-   If you need to create a new action group, select **+ Create action group**, and follow the steps in [Create an action group by using the Azure portal](/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal).
+   >[!NOTE]
+   >Select the **Suppress notifications** option if you don't want to invoke notifications for alerts. For more information, see [Alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal#suppress-notifications-during-planned-maintenance).
 
-   ![Select an action group to use with the rule, and then choose Select.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-action-group-02.png)
+   [![Screenshot of the rule setting options for rule type and action group options for an action rule in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-action-rule-setting-options-08.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-action-rule-setting-options-08.png#lightbox)
 
-7. Give the new action rule a **Name** and **Description**, and assign the rule to a resource group.
+1. On the **Select action groups** page, select up to five action groups to attach to the alert processing rule, and then choose **Select**. 
 
-9. The new rule is enabled by default. If you don't want to start using the rule immediately, select **No** for **Enable rule update creation**.
+   The new alert processing rule is added to the notification preferences of the action group.
 
-10. When you finish your settings, select **Create**.
+   [![Screenshot of the Select action groups page for an action rule in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-select-action-group-09a.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-select-action-group-09a.png#lightbox) 
 
-    ![Completed settings for an action rule that will send alert notifications](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-completed-settings.png)
+1. On the **Details** tab, assign the alert processing rule to a **Resource group** and then specify a **Name** and a **Description** (optional) for the new rule.
 
-    The **Action rules (Preview)** screen opens, but you might not see your new action rule immediately. The focus is **All** resource groups.
+   The new rule is enabled by default. If you don't want to start using the rule immediately, leave the **Enable rule upon creation** option unchecked.
 
-11. To see your new action rule, select the resource group for the rule.
+   [![Screenshot of the Project details page for an alert processing rule in Azure Stack Edge. This page also shows Alert processing rule details.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-create-processing-rule-10.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-create-processing-rule-10.png#lightbox)
 
-    ![Action rules screen with the new rule displayed](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-displayed.png)
+1. To continue, select **Review+Create**.
 
+   [![Screenshot of the action group details for an alert processing rule in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-processing-rule-details-11a.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-processing-rule-details-11a.png#lightbox)
+
+1. Review your selections and then select **Create**.
+
+   The **Alert processing rules** page launches, but you may not see the new rule immediately. The default view is **All** resource groups.
+
+1. To view your new alert processing rule, select the resource group that contains the rule.
+
+   [![Screenshot of the Alert processing rules in Azure Stack Edge with the Resource groups filter highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-processing-rules-12.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-processing-rules-12.png#lightbox)   
 
 ## View notifications
 
-Notifications go out when a new event triggers an alert for a resource that's within the scope of an action rule.
+Notifications go out when an event triggers an alert for a resource within the scope of an alert processing rule.
 
-The action group for a rule sets who receives a notification and the type of notification that's sent - email, a Short Message Service (SMS) message, or both.
+The action group for an alert processing rule determines who receives a notification and the type of notification to send. Notifications can be sent via email, SMS message, or both.
 
-It might take a few minutes to receive notifications after an alert is triggered.
+It may take a few minutes to receive notifications after an alert is triggered.
 
-The email notification will look similar to this one.
+The email notification looks similar to the following example.
 
-![Sample email notification for an action rule](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/sample-action-rule-email-notification.png)
+[![Screenshot showing a sample email notification for an action rule for an Azure Stack Edge resource.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-sample-action-rule-email-notification-13.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-sample-action-rule-email-notification-13.png#lightbox)
 
 
 ## Next steps
 
-<!-- - See [Create and manage action groups in the Azure portal](/blob/master/articles/azure-monitor/platform/action-groups) for guidance on creating a new action group.
-- See [Configure an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule) for more info about creating action rules that send or suppress alert notifications. -2 bullets referenced above. Making room for local tasks in "Next Steps." --> 
-- See [Monitor your Azure Stack Edge Pro](azure-stack-edge-monitor.md) for info about reviewing device events, hardware status, and metrics charts. 
-- See [Using Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md) for info about optimizing Azure Monitor for Azure Stack Edge Pro GPU devices.
-- See [Create, view, and manage metric alerts using Azure Monitor Link target](/../azure-monitor/platform/alerts-metric.md) for info about managing individual alerts.
+- [View device alerts](azure-stack-edge-alerts.md).
+- [Work with alert metrics](../azure-monitor/alerts/alerts-metric.md).
+- [Set up Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).

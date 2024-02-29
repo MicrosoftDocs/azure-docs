@@ -1,16 +1,16 @@
 ---
 title: Connection strings
 description: Connection strings for Synapse SQL pool
-services: synapse-analytics
-author: XiaoyuMSFT 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
+author: joannapea
+ms.author: joanpo
+ms.reviewer: wiassaf
 ms.date: 04/17/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - azure-synapse
+  - devx-track-csharp
 ---
 
 # Connection strings for SQL pools in Azure Synapse

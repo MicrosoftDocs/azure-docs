@@ -1,19 +1,19 @@
 ---
 title: Hive Warehouse Connector - Apache Zeppelin using Livy - Azure HDInsight
 description: Learn how to integrate Hive Warehouse Connector with Apache Zeppelin on Azure HDInsight.
-author: nis-goel
-ms.author: nisgoel
+author: reachnijel
+ms.author: nijelsf 
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 09/27/2023
 ---
 
 # Integrate Apache Zeppelin with Hive Warehouse Connector in Azure HDInsight
 
-HDInsight Spark clusters include Apache Zeppelin notebooks with different interpreters. In this article, we'll focus only on the Livy interpreter to access Hive tables from Spark using Hive Warehouse Connector.
+HDInsight Spark clusters include Apache Zeppelin notebooks with different interpreters. In this article, we focus only on the Livy interpreter to access Hive tables from Spark using Hive Warehouse Connector.
 
 > [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## Prerequisite
 
@@ -21,7 +21,7 @@ Complete the [Hive Warehouse Connector setup](apache-hive-warehouse-connector.md
 
 ## Getting started
 
-1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark cluster. Edit the following command by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -78,7 +78,7 @@ Following configurations are required to access hive tables from Zeppelin with t
     | livy.spark.security.credentials.hiveserver2.enabled | true |
     | livy.spark.sql.hive.llap | true |
     | livy.spark.yarn.security.credentials.hiveserver2.enabled | true |
-    | livy.superusers | livy,zeppelin |
+    | livy.superusers | livy, zeppelin |
     | livy.spark.jars | `file:///usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-VERSION.jar`.<br>Replace VERSION with value you obtained from [Getting started](#getting-started), earlier. |
     | livy.spark.submit.pyFiles | `file:///usr/hdp/current/hive_warehouse_connector/pyspark_hwc-VERSION.zip`.<br>Replace VERSION with value you obtained from [Getting started](#getting-started), earlier. |
     | livy.spark.sql.hive.hiveserver2.jdbc.url | Set it to the HiveServer2 Interactive JDBC URL of the Interactive Query cluster. |
@@ -88,24 +88,17 @@ Following configurations are required to access hive tables from Zeppelin with t
 
     | Configuration| Value|
     |---|---|
-    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<llap-headnode>@<AAD-Domain>` |
+    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/_HOST@<AAD-Domain>` |
 
-    * From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` where CLUSTERNAME is the name of your Interactive Query cluster. Click on **HiveServer2 Interactive**. You will see the Fully Qualified Domain Name (FQDN) of the head node on which LLAP is running as shown in the screenshot. Replace `<llap-headnode>` with this value.
+    * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Interactive Query cluster. Look for `default_realm` parameter in the `/etc/krb5.conf` file. Replace `<AAD-DOMAIN>` with this value as an uppercase string, otherwise the credential cannot be found.
 
-        ![hive warehouse connector Head Node](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
-
-    * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Interactive Query cluster. Look for `default_realm` parameter in the `/etc/krb5.conf` file. Replace `<AAD-DOMAIN>` with this value as an uppercase string, otherwise the credential won't be found.
-
-        ![hive warehouse connector AAD Domain](./media/apache-hive-warehouse-connector/aad-domain.png)
-
-    * For instance, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive warehouse connector AAD Domain" border="true":::
 
 1. Save the changes and restart the Livy interpreter.
 
 If Livy interpreter isn't accessible, modify the `shiro.ini` file present within Zeppelin component in Ambari. For more information, see [Configuring Apache Zeppelin Security](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.0.1/configuring-zeppelin-security/content/enabling_access_control_for_interpreter__configuration__and_credential_settings.html).  
 
-
-## Running Queries in Zeppelin 
+## Running Queries in Zeppelin
 
 Launch a Zeppelin notebook using Livy interpreter and execute the following
 

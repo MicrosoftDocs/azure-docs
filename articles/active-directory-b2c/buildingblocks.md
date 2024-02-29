@@ -2,16 +2,20 @@
 title: BuildingBlocks
 titleSuffix: Azure AD B2C
 description: Specify the BuildingBlocks element of a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
-author: msmimart
-manager: celestedg
+
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 12/10/2019
-ms.author: mimart
+ms.date: 01/11/2024
+ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer creating a custom policy for Azure Active Directory B2C, I want to understand the structure and elements of the BuildingBlocks section, so that I can properly define the necessary components for my custom policy.
+
 ---
 
 # BuildingBlocks
@@ -74,4 +78,4 @@ The **BuildingBlocks** element contains the following elements that must be spec
 
 - [Localization](localization.md) - Allows you to support multiple languages. The localization support in policies allows you set up the list of supported languages in a policy and pick a default language. Language-specific strings and collections are also supported.
 
-- [DisplayControls](display-controls.md) - Defines the controls to be displayed on a page. Display controls have special functionality and interact with back-end validation technical profiles. Display controls are currently in **preview**.
+- [DisplayControls](display-controls.md) - Defines the controls to be displayed on a page. Display controls have special functionality and interact with back-end validation technical profiles. 

@@ -3,7 +3,6 @@ title: Analyze Azure Functions telemetry in Application Insights
 description: Learn how to view and query for Azure Functions telemetry data collected by and stored in Azure Application Insights.
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.custom: "contperf-fy21q2"
 # Customer intent: As a developer, I want to view and query the data being collected from my function app so I can know if it's running correctly and to make improvements.
 ---
 # Analyze Azure Functions telemetry in Application Insights 
@@ -12,7 +11,9 @@ Azure Functions integrates with Application Insights to better enable you to mon
 
 By default, the data collected from your function app is stored in Application Insights. In the [Azure portal](https://portal.azure.com), Application Insights provides an extensive set of visualizations of your telemetry data. You can drill into error logs and query events and metrics. This article provides basic examples of how to view and query your collected data. To learn more about exploring your function app data in Application Insights, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md). 
 
-To learn more about data retention and potential storage costs, see [Data collection, retention, and storage in Application Insights](../azure-monitor/app/data-retention-privacy.md).   
+To be able to view Application Insights data from a function app, you must have at least Contributor role permissions on the function app. You also need to have the [Monitoring Reader permission](../azure-monitor/roles-permissions-security.md#monitoring-reader) on the Application Insights instance. You have these permissions by default for any function app and Application Insights instance that you create.   
+
+To learn more about data retention and potential storage costs, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).   
 
 ## Viewing telemetry in Monitor tab
 
@@ -59,12 +60,12 @@ The following areas of Application Insights can be helpful when evaluating the b
 | ---- | ----------- |
 | **[Failures](../azure-monitor/app/asp-net-exceptions.md)** |  Create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies aren't shown unless you implement custom telemetry for dependencies. |
 | **[Performance](../azure-monitor/app/performance-counters.md)** | Analyze performance issues by viewing resource utilization and throughput per **Cloud role instances**. This performance data can be useful for debugging scenarios where functions are bogging down your underlying resources. |
-| **[Metrics](../azure-monitor/platform/metrics-charts.md)** | Create charts and alerts that are based on metrics. Metrics include the number of function invocations, execution time, and success rates. |
+| **[Metrics](../azure-monitor/essentials/metrics-charts.md)** | Create charts and alerts that are based on metrics. Metrics include the number of function invocations, execution time, and success rates. |
 | **[Live Metrics](../azure-monitor/app/live-stream.md)** | View metrics data as it's created in near real time. |
 
 ## Query telemetry data
 
-[Application Insights Analytics](../azure-monitor/log-query/log-query-overview.md) gives you access to all telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data. 
+[Application Insights Analytics](../azure-monitor/logs/log-query-overview.md) gives you access to all telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data. 
 
 Choose **Logs** to explore or query for logged events.
 
@@ -101,6 +102,35 @@ traces
 
 The runtime provides the `customDimensions.LogLevel` and `customDimensions.Category` fields. You can provide additional fields in logs that you write in your function code. For an example in C#, see [Structured logging](functions-dotnet-class-library.md#structured-logging) in the .NET class library developer guide.
 
+## Query function invocations
+
+Every function invocation is assigned a unique ID. `InvocationId` is included in the custom dimension and can be used to correlate all the logs from a particular function execution.
+
+```kusto
+traces
+| project customDimensions["InvocationId"], message
+```
+
+## Telemetry correlation
+
+Logs from different functions can be correlated using `operation_Id`. Use the following query to return all the logs for a specific logical operation.
+
+```kusto
+traces
+| where operation_Id == '45fa5c4f8097239efe14a2388f8b4e29'
+| project timestamp, customDimensions["InvocationId"], message
+| order by timestamp
+```
+
+## Sampling percentage
+
+Sampling configuration can be used to reduce the volume of telemetry. Use the following query to determine if sampling is operational or not. If you see that `RetainedPercentage` for any type is less than 100, then that type of telemetry is being sampled.
+
+```kusto
+union requests,dependencies,pageViews,browserTimings,exceptions,traces
+| where timestamp > ago(1d)
+| summarize RetainedPercentage = 100/avg(itemCount) by bin(timestamp, 1h), itemType
+```
 ## Query scale controller logs
 
 _This feature is in preview._
@@ -141,4 +171,3 @@ Learn more about monitoring Azure Functions:
 
 + [Monitor Azure Functions](functions-monitoring.md)
 + [How to configure monitoring for Azure Functions](configure-monitoring.md)
-

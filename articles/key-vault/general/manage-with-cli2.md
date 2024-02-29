@@ -3,12 +3,11 @@ title: Manage Azure Key Vault using CLI - Azure Key Vault | Microsoft Docs
 description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/12/2019
+ms.date: 02/20/2024
 ms.author: mbaldwin 
 ms.custom: devx-track-azurecli
 
@@ -19,7 +18,7 @@ This article covers how to get started working with Azure Key Vault using the Az
 
 - How to create a hardened container (a vault) in Azure
 - Adding a key, secret, or certificate to the key vault
-- Registering an application with Azure Active Directory
+- Registering an application with Microsoft Entra ID
 - Authorizing an application to use a key or secret
 - Setting key vault advanced access policies
 - Working with Hardware security modules (HSMs)
@@ -41,7 +40,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To use the Azure CLI commands in this article, you must have the following items:
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* Azure Command-Line Interface version 2.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * An application that will be configured to use the key or password that you create in this article. A sample application is available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the included Readme file.
 
 ### Getting help with Azure Cross-Platform Command-Line Interface
@@ -126,7 +125,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 The output of this command shows properties of the key vault that you've created. The two most important properties are:
 
 * **name**: In the example, the name is ContosoKeyVault. You'll use this name for other Key Vault commands.
-* **vaultUri**: In the example, the URI is https://contosokeyvault.vault.azure.net. Applications that use your vault through its REST API must use this URI.
+* **vaultUri**: In the example, the URI is `https://contosokeyvault.vault.azure.net`. Applications that use your vault through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this key vault. As of yet, nobody else is authorized.
 
@@ -144,15 +143,15 @@ If you have an existing key in a .pem file, you can upload it to Azure Key Vault
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-You can now reference the key that you created or uploaded to Azure Key Vault, by using its URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** to always get the current version. Use https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] to get this specific version. For example, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
+You can now reference the key that you created or uploaded to Azure Key Vault, by using its URI. Use `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey` to always get the current version. Use `https://<keyvault-name>.vault.azure.net/keys/<keyname>/<key-unique-id>` to get this specific version. For example, `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87`.
 
-Add a secret to the vault, which is a password named SQLPassword, and that has the value of "hVFkk965BuUv" to Azure Key Vaults. 
+Add a secret to the vault, which is a password named SQLPassword, and that has the value of "hVFkk965BuUv" to Azure Key Vaults.
 
 ```azurecli
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-Reference this password by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** to always get the current version, and https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] to get this specific version. For example, **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Reference this password by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** to always get the current version, and `https://<keyvault-name>.vault.azure.net/secret/<secret-name>/<secret-unique-id>` to get this specific version. For example, `https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d`.
 
 Import a certificate to the vault using a .pem or .pfx.
 
@@ -162,41 +161,43 @@ az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\ce
 
 Let's view the key, secret, or certificate that you created:
 
-* To view your keys, type: 
+* To view your keys, type:
 
 ```azurecli
 az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
-* To view your secrets, type: 
+* To view your secrets, type:
 
 ```azurecli
 az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
-* To view certificates, type: 
+* To view certificates, type:
 
 ```azurecli
 az keyvault certificate list --vault-name "ContosoKeyVault"
 ```
 
-## Registering an application with Azure Active Directory
+<a name='registering-an-application-with-azure-active-directory'></a>
+
+## Registering an application with Microsoft Entra ID
 
 This step would usually be done by a developer, on a separate computer. It isn't specific to Azure Key Vault but is included here, for awareness. To complete the app registration, your account, the vault, and the application need to be in the same Azure directory.
 
-Applications that use a key vault must authenticate by using a token from Azure Active Directory.  The owner of the application must register it in Azure Active Directory first. At the end of registration, the application owner gets the following values:
+Applications that use a key vault must authenticate by using a token from Microsoft Entra ID.  The owner of the application must register it in Microsoft Entra first. At the end of registration, the application owner gets the following values:
 
-- An **Application ID** (also known as the AAD Client ID or appID)
+- An **Application ID** (also known as the Microsoft Entra Client ID or appID)
 - An **authentication key** (also known as the shared secret). 
 
-The application must present both these values to Azure Active Directory, to get a token. How an application is configured to get a token will depend on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
+The application must present both these values to Microsoft Entra ID, to get a token. How an application is configured to get a token will depend on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
 
-For detailed steps on registering an application with Azure Active Directory you should review the articles titled [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md), [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+For detailed steps on registering an application with Microsoft Entra ID you should review the articles titled [Integrating applications with Microsoft Entra ID](../../active-directory/develop/quickstart-register-app.md), [Use portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
-To register an application in Azure Active Directory:
+To register an application in Microsoft Entra ID:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --role Contributor --scopes /subscriptions/<subscription id>
 # If you don't specify a password, one will be created for you.
 ```
 
@@ -216,7 +217,7 @@ To authorize the same application to read secrets in your vault, type the follow
 az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="bkmk_KVperCLI"></a> Setting key vault advanced access policies
+## Setting key vault advanced access policies
 
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable advanced policies for the key vault.
 

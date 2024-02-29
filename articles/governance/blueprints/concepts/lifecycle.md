@@ -1,16 +1,19 @@
 ---
 title: Understand the lifecycle of a blueprint
 description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
-ms.date: 01/27/2021
+ms.date: 09/07/2023
 ms.topic: conceptual
+ms.author: jgao
 ---
 # Understand the lifecycle of an Azure Blueprint
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 Like many resources within Azure, a blueprint in Azure Blueprints has a typical and natural
 lifecycle. They're created, deployed, and finally deleted when no longer needed or relevant. Azure
 Blueprints supports standard lifecycle operations. It then builds upon them to provide additional
 levels of status that support common continuous integration and continuous deployment pipelines for
-organizations that manage their Infrastructure as Code – a key element in DevOps.
+organizations that manage their Infrastructure as Code - a key element in DevOps.
 
 To fully understand a blueprint and the stages, we'll cover a standard lifecycle:
 
@@ -24,8 +27,8 @@ To fully understand a blueprint and the stages, we'll cover a standard lifecycle
 
 ## Creating and editing a blueprint
 
-When creating a blueprint, add artifacts to it, save to a management group or subscription, and
-provided a unique name and a unique version. The blueprint is now in a **Draft** mode and can't yet
+To create a blueprint, add artifacts to it, save the definition to the management group or subscription scope, and
+provide a unique name version. The blueprint is now in a **Draft** mode and can't yet
 be assigned. While in the **Draft** mode, it can continue to be updated and changed.
 
 A never published blueprint in **Draft** mode displays a different icon on the **Blueprint

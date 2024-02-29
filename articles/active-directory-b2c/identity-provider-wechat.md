@@ -2,18 +2,17 @@
 title: Set up sign-up and sign-in with a WeChat account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with WeChat accounts in your applications using Azure Active Directory B2C.
-services: active-directory-b2c
-author: msmimart
-manager: celestedg
-
+author: garrodonnell
+manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
-ms.custom: project-no-code
-ms.author: mimart
+ms.date: 09/16/2021
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-up and sign-in with a WeChat account, so that users can authenticate using their WeChat credentials.
+
 ---
 
 # Set up sign-up and sign-in with a WeChat account using Azure Active Directory B2C
@@ -36,7 +35,7 @@ To enable sign-in for users with a WeChat account in Azure Active Directory B2C 
 1. Sign in to [https://open.weixin.qq.com/](https://open.weixin.qq.com/) with your WeChat credentials.
 1. Select **管理中心** (management center).
 1. Follow the steps to register a new application.
-1. Enter `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **授权回调域** (callback URL). For example, if your tenant name is contoso, set the URL to be `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. For the **授权回调域** (callback URL), enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain.
 1. Copy the **APP ID** and **APP KEY**. You need both of them to configure the identity provider to your tenant.
 
 ::: zone pivot="b2c-user-flow"
@@ -44,7 +43,7 @@ To enable sign-in for users with a WeChat account in Azure Active Directory B2C 
 ## Configure WeChat as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **WeChat (Preview)**.
 1. Enter a **Name**. For example, *WeChat*.
@@ -60,7 +59,10 @@ To enable sign-in for users with a WeChat account in Azure Active Directory B2C 
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**
+1. Select the **Run user flow** button.
+1. From the sign-up or sign-in page, select **WeChat** to sign in with WeChat account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
 
@@ -71,15 +73,15 @@ To enable sign-in for users with a WeChat account in Azure Active Directory B2C 
 You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. On the Overview page, select **Identity Experience Framework**.
-5. Select **Policy Keys** and then select **Add**.
-6. For **Options**, choose `Manual`.
-7. Enter a **Name** for the policy key. For example, `WeChatSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-8. In **Secret**, enter your client secret that you previously recorded.
-9. For **Key usage**, select `Signature`.
-10. Click **Create**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. On the Overview page, select **Identity Experience Framework**.
+1. Select **Policy Keys** and then select **Add**.
+1. For **Options**, choose `Manual`.
+1. Enter a **Name** for the policy key. For example, `WeChatSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
+1. In **Secret**, enter your client secret that you previously recorded.
+1. For **Key usage**, select `Signature`.
+1. Click **Create**.
 
 ## Configure WeChat as an identity provider
 
@@ -160,6 +162,13 @@ You can define a WeChat account as a claims provider by adding it to the **Claim
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## Test your custom policy
+
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **WeChat** to sign in with WeChat account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end

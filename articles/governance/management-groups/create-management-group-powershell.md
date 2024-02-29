@@ -1,9 +1,9 @@
 ---
-title: "Quickstart: Create a management group with Azure PowerShell"
+title: 'Quickstart: Create a management group with Azure PowerShell'
 description: In this quickstart, you use Azure PowerShell to create a management group to organize your resources into a resource hierarchy.
-ms.date: 08/31/2020
+ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create a management group with Azure PowerShell
 
@@ -24,7 +24,7 @@ directory. You receive a notification when the process is complete. For more inf
   account before you begin.
 
 - Before you start, make sure that the latest version of Azure PowerShell is installed. See
-  [Install Azure PowerShell module](/powershell/azure/install-az-ps) for detailed information.
+  [Install Azure PowerShell module](/powershell/azure/install-azure-powershell) for detailed information.
 
 - Any Azure AD user in the tenant can create a management group without the management group write
   permission assigned to that user if
