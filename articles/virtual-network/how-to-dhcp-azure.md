@@ -1,7 +1,7 @@
 ---
 title: Deploy a DHCP server in Azure on a virtual machine
 titleSuffix: Azure Virtual Network
-description: Learn about how to deploy a DHCP server in Azure on a virtual machine as a target for an on-premises DHCP relay agent.
+description: Learn about how to deploy a Dynamic Host Configuration Protocol (DHCP) server in Azure on a virtual machine as a target for an on-premises DHCP relay agent.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -14,7 +14,7 @@ ms.date: 02/28/2024
 
 # Deploy a DHCP server in Azure on a virtual machine
 
-In this how-to, learn how to deploy a highly available DHCP server in Azure on a virtual machine. This server is used as a target for an on-premises DHCP relay agent to provide dynamic IP address allocation to on-premises clients. Broadcast packets directly from clients to a DHCP Server don't work in an Azure Virtual Network by design.
+Learn how to deploy a highly available DHCP server in Azure on a virtual machine. This server is used as a target for an on-premises DHCP relay agent to provide dynamic IP address allocation to on-premises clients. Broadcast packets directly from clients to a DHCP Server don't work in an Azure Virtual Network by design.
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ During the creation of the load balancer, you configure:
 
 1. Select **Create**.
 
-## Add second frontend to load balancer
+## Configure second load balancer frontend
 
 A second frontend is required for the load balancer to provide high availability for the DHCP server. Use the following steps to add a second frontend to the load balancer.
 
@@ -144,7 +144,7 @@ The load balancer rules are used to distribute traffic to the virtual machines. 
 
 ## Configure DHCP server network adapters
 
-You will sign-in to the virtual machines with Azure Bastion and configure the network adapter settings and DHCP server role for each virtual machine.
+You'll sign-in to the virtual machines with Azure Bastion and configure the network adapter settings and DHCP server role for each virtual machine.
 
 1. In the Azure portal, search for and select **Virtual machines**.
 
@@ -237,7 +237,7 @@ Use the following steps to enable routing between the loopback interface and the
      11          25        1500  connected     Ethernet 3
     ```
 
-    In this example the network interface connected to the Azure Virtual network is **Ethernet**. The loopback interface that you installed in the previous section is **Ethernet 3**.
+    In this example, the network interface connected to the Azure Virtual network is **Ethernet**. The loopback interface that you installed in the previous section is **Ethernet 3**.
 
     **Make note of the `Idx` number for the primary network adapter and the loopback adapter. In this example the primary network adapter is `6` and the loopback adapter is `11`. You'll need these values for the next steps.**
 
@@ -260,4 +260,6 @@ Use the following steps to enable routing between the loopback interface and the
 
 1. Repeat the previous steps to configure **vm-2**. Replace the IP address of **10.0.0.100** with **10.0.0.200** in the static IP address configuration of the loopback adapter.
 
+## Next Steps
 
+In this article, you learned how to deploy a highly available DHCP server in Azure on a virtual machine. You also learned how to configure the network adapters and installed the DHCP role on the virtual machines. Further configuration of the DHCP server is required to provide DHCP services to on-premises clients from the Azure Virtual Machines. The DHCP relay agent on the on-premises network must be configured to forward DHCP requests to the DHCP servers in Azure. Consult the manufacturer's documentation for the DHCP relay agent for configuration steps.
