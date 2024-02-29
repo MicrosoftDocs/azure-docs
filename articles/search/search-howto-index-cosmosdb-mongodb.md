@@ -24,7 +24,7 @@ Because terminology can be confusing, it's worth noting that [Azure Cosmos DB in
 
 ## Prerequisites
 
-+ [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback. You can access the feature automatically after form submission.
++ [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide scenario feedback. You can access the feature automatically after form submission.
   
 + An [Azure Cosmos DB account, database, collection, and documents](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Azure AI Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
 
