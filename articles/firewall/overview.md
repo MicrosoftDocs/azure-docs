@@ -7,7 +7,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, references_regions
-ms.date: 11/07/2022
+ms.date: 02/26/2024
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
 
@@ -38,7 +38,7 @@ To learn about Firewall Premium features, see [Azure Firewall Premium features](
 
 ## Azure Firewall Basic
 
-Azure Firewall Basic is intended for small and medium size (SMB) customers to secure their Azure cloud. 
+Azure Firewall Basic is intended for small and medium size (SMB) customers to secure their Azure cloud
 environments. It provides the essential protection SMB customers need at an affordable price point.
 
 :::image type="content" source="media/overview/firewall-basic-diagram.png" alt-text="Diagram showing Firewall Basic.":::
@@ -59,7 +59,7 @@ To compare the all Firewall SKU features, see [Choose the right Azure Firewall S
 
 You can use Azure Firewall Manager to centrally manage Azure Firewalls across multiple subscriptions. Firewall Manager uses firewall policy to apply a common set of network/application rules and configuration to the firewalls in your tenant.
  
-Firewall Manager supports firewalls in both VNet and Virtual WANs (Secure Virtual Hub) environments. Secure Virtual Hubs use the Virtual WAN route automation solution to simplify routing traffic to the firewall with just a few steps.
+Firewall Manager supports firewalls in both virtual network and Virtual WANs (Secure Virtual Hub) environments. Secure Virtual Hubs use the Virtual WAN route automation solution to simplify routing traffic to the firewall with just a few steps.
 
 To learn more about Azure Firewall Manager, see [Azure Firewall Manager](../firewall-manager/overview.md).
 
@@ -80,7 +80,7 @@ To learn what's new with Azure Firewall, see [Azure updates](https://azure.micro
 
 ## Known issues
 
-For Azure Firewall known issues, see [Azure Firewall known issues](firewall-known-issues.md)
+For Azure Firewall known issues, see [Azure Firewall known issues](firewall-known-issues.md).
 
 ## Next steps
 
