@@ -43,8 +43,6 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 * When running at-scale AKS clusters, use the cluster autoscaler whenever possible to ensure dynamic scaling of node pools based on the demand for compute resources. For more information, see [Automatically scale an AKS cluster to meet application demands][cluster-autoscaler].
 * If you're scaling beyond 1000 nodes without using the cluster autoscaler, we recommend scaling in batches of a maximum 500 to 700 nodes at a time. These scaling operations should also have a two-minute to five-minute wait time between consecutive scale-ups to prevent Azure API throttling. For more information, see [API Management: Caching and throttling policies][throttling-policies].
 
-> [!NOTE]
-> You can't use the [Stop and Start feature][Stop and Start feature] with clusters enabled with the greater than 1000 node limit.
 
 ## Cluster upgrade considerations and best practices
 
