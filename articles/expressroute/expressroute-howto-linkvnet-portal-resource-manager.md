@@ -74,11 +74,17 @@ This article helps you create a connection to link a virtual network (virtual ne
 
 5. Select the resiliency type for your connection. You can choose **Maximum resiliency** or **Standard resiliency**.
 
-    **Maximum resiliency** - This option provides the highest level of resiliency to your virtual network. It provides two redundant connections from the virtual network gateway to two different ExpressRoute circuits in different ExpressRoute locations.
+    **Maximum resiliency (Recommended)** - This option provides the highest level of resiliency to your virtual network. It provides two redundant connections from the virtual network gateway to two different ExpressRoute circuits in different ExpressRoute locations.
     
+    > [!NOTE]
+    > Provides maximum protection against location wide outages and connectivity failures in an ExpressRoute location. This option is strongly recommended for mission-critical and production workloads.
+
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of a virtual network gateway connected to two different ExpressRoute circuits.":::
 
     **Standard resiliency** - This option provides a single redundant connection from the virtual network gateway to a single ExpressRoute circuit. 
+
+    > [!NOTE]
+    > Doesn't provide protection against location wide outages. This option is recommended for non-critical and non-production workloads.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/standard-resiliency.png" alt-text="Diagram of a virtual network gateway connected to a single ExpressRoute circuit.":::
     
