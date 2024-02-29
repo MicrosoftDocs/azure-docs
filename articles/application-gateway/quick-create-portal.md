@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create an application gateway
 
-You'll create the application gateway using the tabs on the **Create application gateway** page.
+Create the application gateway using the tabs on the **Create application gateway** page.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Under **Categories**, select **Networking** and then select **Application Gateway** in the **Popular Azure services** list.
@@ -40,8 +40,9 @@ You'll create the application gateway using the tabs on the **Create application
 
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
+   - Use the default selections for other settings.
 
-     ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+     ![Screenshot of create new application gateway: basics.](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
 
@@ -53,16 +54,12 @@ You'll create the application gateway using the tabs on the **Create application
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
     - **Subnet name** (Application Gateway subnet): The **Subnets** grid will show a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
-  
-    - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
 
-    - **Address range** (backend server subnet): In the second row of the **Subnets** Grid, enter an address range that doesn't overlap with the address range of *myAGSubnet*. For example, if the address range of *myAGSubnet* is 10.0.0.0/24, enter *10.0.1.0/24* for the address range of *myBackendSubnet*.
+         ![Screenshot of create new application gateway: virtual network.](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
-
-     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
-3. On the **Basics** tab, accept the default values for the other settings and then select **Next: Frontends**.
+3.  Select **Next: Frontends**.
 
 ### Frontends tab
 
@@ -72,7 +69,7 @@ You'll create the application gateway using the tabs on the **Create application
 
 2. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
-     ![Create new application gateway: frontends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+     ![Screenshot of create new application gateway: frontends.](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
   > [!NOTE]
   > Application Gateway frontend now supports dual-stack IP addresses (Public Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
@@ -93,7 +90,7 @@ The backend pool is used to route requests to the backend servers that serve the
 
 3. In the **Add a backend pool** window, select **Add** to save the backend pool configuration and return to the **Backends** tab.
 
-     ![Create new application gateway: backends](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+     ![Screenshot of create new application gateway: backends.](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
 4. On the **Backends** tab, select **Next: Configuration**.
 
@@ -115,17 +112,17 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
   
       Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
-   ![Create new application gateway: listener](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
+   ![Screenshot of create new application gateway: listener.](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
 
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
 5. For the **Backend setting**, select **Add new** to add a new Backend setting. The Backend setting will determine the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *myBackendSetting* for the **Backend settings name** and *80* for the **Backend port**. Accept the default values for the other settings in the **Add Backend setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
-     ![Create new application gateway: HTTP setting](./media/application-gateway-create-gateway-portal/application-gateway-create-backendsetting.png)
+     ![Screenshot of create new application gateway: backend setting](./media/application-gateway-create-gateway-portal/application-gateway-create-backendsetting.png)
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
-     ![Create new application gateway: routing rule](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+     ![Screenshot of new application gateway: completed configuration tab.](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
 7. Select **Next: Tags** and then **Next: Review + create**.
 
@@ -133,15 +130,34 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 Review the settings on the **Review + create** tab, and then select **Create** to create the virtual network, the public IP address, and the application gateway. It can take several minutes for Azure to create the application gateway. Wait until the deployment finishes successfully before moving on to the next section.
 
+ ![Screenshot of new application gateway: ready to create.](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
+
 ## Add backend targets
 
 In this example, you'll use virtual machines as the target backend. You can either use existing virtual machines or create new ones. You'll create two virtual machines as backend servers for the application gateway.
 
 To do this, you'll:
 
-1. Create two new VMs, *myVM* and *myVM2*, to be used as backend servers.
-2. Install IIS on the virtual machines to verify that the application gateway was created successfully.
-3. Add the backend servers to the backend pool.
+1. Add a backend subnet.
+2. Create two new VMs, *myVM* and *myVM2*, to be used as backend servers.
+3. Install IIS on the virtual machines to verify that the application gateway was created successfully.
+4. Add the backend servers to the backend pool.
+
+### Add a backend subnet
+
+The subnet *myAGSubnet* can only contain the application gateway, so we need another subnet to add backend targets. 
+
+To create a backend subnet:
+
+1. Select the **myVNet** resource. You can select it under **Deployment details** after deployment of the application gateway is complete, or you can search for Virtual networks and select it from the list.
+2. Under **Settings**, select **Subnets** and then select **+ Subnet** to begin adding a new subnet.
+
+    - **Name**: Enter *myBackendSubnet*.
+    - **Subnet address range**: Enter an address range that doesn't overlap with the address range of *myAGSubnet*. For example, if the address range of *myAGSubnet* is 10.0.0.0/24, enter *10.0.1.0/24* for the address range of *myBackendSubnet*. This address range might be already entered by default.
+
+3. Use the default settings for other items and then select **Save**. 
+
+ ![Screenshot of new application gateway subnets.](./media/application-gateway-create-gateway-portal/application-gateway-subnets.png)
 
 ### Create a virtual machine
 
