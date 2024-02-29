@@ -154,7 +154,7 @@ Clustering is enabled during cache creation from the working pane, when you crea
 
     :::image type="content" source="media/cache-how-to-scale/redis-cache-clustering-selected.png" alt-text="Screenshot showing the clustering toggle selected.":::
 
-    Once the cache is created, you connect to it and use it just like a nonclustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](monitor-cache.md#use-a-storage-account-to-export-azure-cache-for-redis-metrics), metrics are captured separately for each shard, and can be [viewed](cache-how-to-monitor.md) in Azure Cache for Redis using the Resource menu.
+    Once the cache is created, you connect to it and use it just like a nonclustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics), metrics are captured separately for each shard, and can be [viewed](cache-how-to-monitor.md) in Azure Cache for Redis using the Resource menu.
 
 1. Finish creating the cache using the [quickstart guide](quickstart-create-redis.md).
 

@@ -200,7 +200,7 @@ When the failover process is initiated, you see the link provisioning status upd
 
 ### Can I track the health of the geo-replication link?
 
-Yes, there are several [metrics available](cache-how-to-monitor.md) to help track the status of the geo-replication. These metrics are available in the Azure portal.
+Yes, there are several [metrics available](cache-how-to-monitor.md#list-of-metrics) to help track the status of the geo-replication. These metrics are available in the Azure portal.
 
 - **Geo Replication Healthy** shows the status of the geo-replication link. The link show as unhealthy if either the geo-primary or geo-secondary caches are down. This is typically due to standard patching operations, but it could also indicate a failure situation.
 - **Geo Replication Connectivity Lag** shows the time since the last successful data synchronization between geo-primary and geo-secondary.
@@ -208,7 +208,7 @@ Yes, there are several [metrics available](cache-how-to-monitor.md) to help trac
 - **Geo Replication Fully Sync Event Started** indicates that a full synchronization action has been initiated between the geo-primary and geo-secondary caches. This occurs if standard replication can't keep up with the number of new writes.
 - **Geo Replication Full Sync Event Finished** indicates that a full synchronization action was completed.
 
-There's also a [prebuilt workbook](cache-insights-overview.md#workbooks) called the **Geo-Replication Dashboard** that includes all of the geo-replication health metrics in one view. Using this view is recommended because it aggregates information that's emitted only from the geo-primary or geo-secondary cache instances.
+There's also a [prebuilt workbook](cache-how-to-monitor.md#organize-with-workbooks) called the **Geo-Replication Dashboard** that includes all of the geo-replication health metrics in one view. Using this view is recommended because it aggregates information that is emitted only from the geo-primary or geo-secondary cache instances.
 
 ### Can I link more than two caches together?
 

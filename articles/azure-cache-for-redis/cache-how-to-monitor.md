@@ -26,6 +26,9 @@ To configure a different retention policy, see [Data storage](monitor-cache.md#d
 
 For more information about the different `INFO` values used for each cache metric, see [Create your own metrics](#create-your-own-metrics).
 
+<a name="use-a-storage-account-to-export-cache-metrics"></a>
+<a name="list-of-metrics"></a>
+<a name="monitor-azure-cache-for-redis"></a>
 ## View cache metrics
 
 You can view Azure Monitor metrics for Azure Cache for Redis directly from an Azure Cache for Redis resource in the [Azure portal](https://portal.azure.com).

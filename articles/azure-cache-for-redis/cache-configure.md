@@ -361,25 +361,19 @@ To reboot one or more nodes of your cache, select the desired nodes and select *
 ## Monitoring
 
 The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Cache for Redis instance.
-For information on how to set up and use Azure Cache for Redis monitoring and diagnostics, see [Monitor Azure Cache for Redis](monitor-cache.md).
+
+- For more information on Azure Cache for Redis monitoring and diagnostics, see [Monitor Azure Cache for Redis](monitor-cache.md).
+- For information on how to set up and use Azure Cache for Redis monitoring and diagnostics, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md).
 
 :::image type="content" source="media/cache-configure/redis-cache-diagnostics.png" alt-text="Diagnostics":::
 
-- [Insights](#insights)
-- [Metrics](#metrics)
-- [Alerts](#alerts)
-- [Diagnostic settings](#diagnostic-settings)
-- [Advisor recommendations](#advisor-recommendations)
-
 ### Insights
 
-Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics.
-
-For more information, see [Insights](monitor-cache.md#insights).
+Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics. For more information, see [Insights](monitor-cache.md#insights).
 
 ### Metrics
 
-Select **Metrics** to Create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
+Select **Metrics** to create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create your own metrics](cache-how-to-monitor.md#create-your-own-metrics).
 
 ### Alerts
 
@@ -391,7 +385,6 @@ By default, cache metrics in Azure Monitor are [stored for 30 days](/azure/azure
 
 >[!NOTE]
 >In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](/azure/azure-monitor/essentials/stream-monitoring-data-event-hubs).
->
 
 ### Advisor recommendations
 
@@ -421,7 +414,6 @@ To upgrade your cache, select **Upgrade now** to change the pricing tier and [sc
 ### Workbooks
 
 Organize your metrics into groups so that you display metric information in a coherent and effective way.
->>>>>>> 0d6d224e5d4ede07018c226f96166f28fea92873
 
 ## Automation
 
@@ -435,7 +427,7 @@ For more information, see [Manage Azure resources and monitor costs by creating 
 
 ### Export template
 
-Select **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
+Select **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## Support & troubleshooting settings
 
