@@ -270,10 +270,10 @@ This sample template adds a button with a dynamic URL link to the message. It al
 If using the precreated sample template `sample_purchase_feedback`, you need to modify the URL Type of its button from `Static` to `Dynamic`.   
 Go to your [Message templates in the WhatsApp manager](https://business.facebook.com/wa/manage/message-templates/) and edit the template for `sample_purchase_feedback`. In the dropdown for URL Type, change it from `Static` to `Dynamic`. Include a sample URL if necessary.
 
-:::image type="content" source="./../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="./../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.pn" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
+:::image type="content" source="./../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="./../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
 
 Now, if you view the template details in the Azure portal, you see:
-:::image type="content" source="./../media/template-messages/sample-purchase-feedback-details-azure-portal.png" lightbox="./../media/template-messages/sample-purchase-feedback-details-azure-portal.pn" alt-text="Screenshot that shows template details for template named sample_purchase_feedback.":::
+:::image type="content" source="./../media/template-messages/sample-purchase-feedback-details-azure-portal.png" lightbox="./../media/template-messages/sample-purchase-feedback-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_purchase_feedback.":::
 
 In this sample, the header of the template requires an image:
 ```

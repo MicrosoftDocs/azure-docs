@@ -172,15 +172,15 @@ var notificationMessagesClient = new NotificationMessagesClient(connectionString
 
 You can also authenticate with Microsoft Entra ID using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity). 
 
-The [`Azure.Identity`](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true#credentials) and [Azuze Identity - Authenticate the client](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet#authenticate-the-client). This option walks through one way of using the [`DefaultAzureCredential`](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential).
+The [`Azure.Identity`](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true#credentials) and [Azure Identity - Authenticate the client](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet#authenticate-the-client). This option walks through one way of using the [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential).
  
-The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.   
+The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.   
 
 To create a `DefaultAzureCredential` object:
-1. Follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application) to set up your service principle app.
+1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
 
-1. Use the output of your app's creation to set the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`.   
-Open a console window and enter the following commands:
+1. Set the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` using the output of your app's creation.    
+    Open a console window and enter the following commands:
     ```console
     setx AZURE_CLIENT_ID "<your app's appId>"
     setx AZURE_CLIENT_SECRET "<your app's password>"
@@ -188,13 +188,12 @@ Open a console window and enter the following commands:
     ```
     After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
-1. To use the [`DefaultAzureCredential`](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `Azure.Identity` NuGet package and add the following `using` directive to your *Program.cs* file:
-
+1. To use the [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `Azure.Identity` NuGet package and add the following `using` directive to your *Program.cs* file.
     ```csharp
     using Azure.Identity;
     ```
 
-1. To instantiate a `NotificationMessagesClient`, add the following code to the `Main` method:
+1. To instantiate a `NotificationMessagesClient`, add the following code to the `Main` method.
     ```csharp
     // Configure authentication
     var endpoint = new Uri("https://<resource name>.communication.azure.com");
