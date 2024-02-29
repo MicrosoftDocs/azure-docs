@@ -1,27 +1,24 @@
 ---
-title: Relocation guidance for Azure Monitor - Log Analytics Workspace
-description: Learn how to relocate an Azure Monitor - Log Analytics workspace to a new region
+title: Relocation guidance for Log Analytics workspace
+description: Learn how to relocate Log Analytics workspace to a new region.
 author: anaharris-ms
 ms.author: anaharris
-ms.reviewer: anaharris
 ms.date: 02/01/2024
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: how-to
 ms.custom:
   - subject-relocation
+#CustomerIntent: As a cloud architect/engineer, I want to learn how to relocate Log Analytics workspace to another region.
 ---
 
 # Relocate Azure Monitor - Log Analytics workspace to another region
 
-This article covers relocation guidance for Azure Monitor - Log Analytics workspace across regions.
-
-Since many resources depend on Azure Log Analytics workspace for data logging, prioritization sequencing is extremely important. A relocation plan for Log Analytics workspace must include the relocation of any resources that log data with Log Analytics Workspace. 
+A relocation plan for Log Analytics workspace must include the relocation of any resources that log data with Log Analytics Workspace. 
 
 Log Analytics workspace doesn't natively support migrating workspace data from one region to another and associated devices.  Instead, you must create a new Log Analytics workspace in the target region and reconfigure the devices and settings in the new workspace. 
 
 The diagram below illustrates the relocation pattern for a Log Analytics workspace. The red flow lines represent the redeployment of the target instance along with data movement and updating domains and endpoints.
-
 
 :::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics workspace relocation pattern.":::
 
@@ -337,9 +334,10 @@ If you no longer need access to older data in the original workspace:
 1. Select the original resource group in the Azure portal. 
 1. Select any resources that you want to remove, and then select **Delete** on the toolbar.
 
-## Next steps
+## Related content
 
 To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+
 - [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)
