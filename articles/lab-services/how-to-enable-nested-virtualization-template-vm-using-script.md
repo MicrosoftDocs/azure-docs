@@ -80,6 +80,7 @@ You can set up nested virtualization on a template VM in Azure Lab Services usin
 1. Go to the [Azure Lab Services website](https://labs.azure.com) to stop and restart the template VM.
 
 The template VM is now configured to use nested virtualization and you can [create VMs](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v?tabs=hyper-v-manager) inside it. Use 'Default Switch' when creating new nested VMs with Hyper-V.
+
 ---
 
 ## Connect to a nested VM in another lab VM
