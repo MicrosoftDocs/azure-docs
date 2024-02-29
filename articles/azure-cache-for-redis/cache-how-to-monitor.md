@@ -22,9 +22,9 @@ Use Azure Monitor to:
 
 Metrics for Azure Cache for Redis instances are collected using the Redis [`INFO`](https://redis.io/commands/info) command. Metrics are collected approximately two times per minute and automatically stored for 30 days so they can be displayed in the metrics charts and evaluated by alert rules.
 
-To configure a different retention policy, see [Data storage](monitor-cache.md#data-storage).
+To configure a different retention policy, see [Data storage](monitor-cache.md#data-storage). For more information about the different `INFO` values used for each cache metric, see [Create your own metrics](#create-your-own-metrics).
 
-For more information about the different `INFO` values used for each cache metric, see [Create your own metrics](#create-your-own-metrics).
+For detailed information about all the monitoring options available for Azure Cache for Redis, see [Monitor Azure Cache for Redis](monitor-cache.md).
 
 <a name="use-a-storage-account-to-export-cache-metrics"></a>
 <a name="list-of-metrics"></a>
