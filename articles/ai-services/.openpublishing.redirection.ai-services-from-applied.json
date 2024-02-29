@@ -637,8 +637,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/ai-services/translator/document-translation/concept-retrieval-augumented-generation.md",
-      "redirect_url": "/azure/ai-services/translator/document-translation/concept-retrieval-augmented-generation",
+      "source_path_from_root": "/articles/ai-services/document-intelligence/concept-retrieval-augumented-generation.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-retrieval-augmented-generation",
       "redirect_document_id": true
     }
 
