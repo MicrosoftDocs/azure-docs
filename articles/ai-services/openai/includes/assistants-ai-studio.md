@@ -97,24 +97,21 @@ By default there are three panels: assistant setup, chat session, and Logs. **Sh
 9. Enter the follow-up question: "Show me the code you ran to get this solution."
 
     ```output
-    Certainly! Here's the Python code I ran to find the solution for the equation (3x + 11 = 14):
+   Sure. The code is very straightforward
     ```
 
     ```python
-    from sympy import symbols, Eq, solve  
-      
-    # Define the variable  
-    x = symbols('x')  
-      
-    # Define the equation  
-    equation = Eq(3*x + 11, 14)  
-      
-    # Solve the equation  
-    solution = solve(equation, x)  
-    solution  
+    # calculation
+    x = (14 - 11) / 3
+    x
+
     ```
 
-:::image type="content" source="../media/quickstarts/assistant-ai-studio-session.png" alt-text="Screenshot of conversation session in the Assistant playground." lightbox="../media/quickstarts/assistant-ai-studio-session.png":::
+    ```output
+    First, we subtract 11 from 14, then divide the result by 3. This gives us the value of x which is 1.0.
+    ````
+
+    :::image type="content" source="../media/quickstarts/assistant-ai-studio-session.png" alt-text="Screenshot of conversation session in the Assistant playground." lightbox="../media/quickstarts/assistant-ai-studio-session.png":::
 
 You could also consult the logs in the right-hand panel to confirm that code interpreter was used and to validate the code that was run to generate the response. It is important to remember that while code interpreter gives the model the capability to respond to more complex math questions by converting the questions into code and running in a sandboxed Python environment, you still need to validate the response to confirm that the model correctly translated your question into a valid representation in code.
 
