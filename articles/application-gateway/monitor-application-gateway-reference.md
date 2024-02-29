@@ -70,28 +70,47 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 |**Unhealthy host count**|Count|The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.|
 |**Requests per minute per Healthy Host**|Count|The average number of requests received by each healthy member in a backend pool in a minute. Specify the backend pool using the *BackendPool HttpSettings* dimension.|
 
-## Application Gateway layer 4 proxy monitoring 
+### Backend health API
 
-### Layer 4 metrics
+See [Application Gateways - Backend Health](/rest/api/application-gateway/application-gateways/backend-health?tabs=HTTP) for details of the API call to retrieve the backend health of an application gateway.
+
+Sample Request:
+``output
+POST
+https://management.azure.com/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/
+applicationGateways/appgw/backendhealth?api-version=2021-08-01
+After
+``
+
+After sending this POST request, you should see an HTTP 202 Accepted response. In the response headers, find the Location header and send a new GET request using that URL.
+
+``output
+GET
+https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/locations/region-name/operationResults/GUID?api-version=2021-08-01
+``
+
+### Application Gateway TLS/TCP proxy monitoring 
+
+#### TLS/TCP proxy metrics
 
 With layer 4 proxy feature now available with Application Gateway, there are some Common metrics (apply to both layer 7 as well as layer 4), and some layer 4 specific metrics. The following table describes all the metrics are the applicable for layer 4 usage.
 
 | Metric              | Description                                                                                                                            | Type   | Dimension |
 |:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------|:----------|
-| Current Connections | The number of active connections: reading, writing, or waiting. The count of current connections established with Application Gateway. | Common | None      |
-| New Connections per second | The average number of connections handled per second in last 1 minute. | Common | None      |
-| Throughput | The rate of data flow (inBytes+ outBytes) in the last 1 minute. | Common | None      |
-| Healthy host count | The number of healthy backend hosts. | Common | BackendSettingsPool  |
-| Unhealthy host | The number of unhealthy backend hosts. | Common | BackendSettingsPool  |
-| ClientRTT | Average round trip time between clients and Application Gateway. | Common | Listener  |
-| Backend Connect Time | Time spent establishing a connection with a backend server. | Common | Listener, BackendServer, BackendPool, BackendSetting |
-| Backend First Byte Response Time | Time interval between start of establishing a connection to backend server and receiving the first byte of data (approximating processing time of backend server). | Common | Listener, BackendServer, BackendPool, BackendHttpSetting`*`  |
-| Backend Session Duration | The total time of a backend connection. The average time duration from the start of a new connection to its termination. | L4 only | Listener, BackendServer, BackendPool, BackendHttpSetting`*` |
-| Connection Lifetime | The total time of a client connection to application gateway. The average time duration from the start of a new connection to its termination in milliseconds. | L4 only | Listener |
+| Current Connections | The number of active connections: reading, writing, or waiting. The count of current connections established with Application Gateway. | Common metric | None      |
+| New Connections per second | The average number of connections handled per second during that minute. | Common metric | None      |
+| Throughput | The rate of data flow (inBytes+ outBytes) during that minute. | Common metric | None      |
+| Healthy host count | The number of healthy backend hosts. | Common metric | BackendSettingsPool  |
+| Unhealthy host | The number of unhealthy backend hosts. | Common metric | BackendSettingsPool  |
+| ClientRTT | Average round trip time between clients and Application Gateway. | Common metric | Listener  |
+| Backend Connect Time | Time spent establishing a connection with a backend server. | Common metric | Listener, BackendServer, BackendPool, BackendSetting |
+| Backend First Byte Response Time | Time interval between start of establishing a connection to backend server and receiving the first byte of data (approximating processing time of backend server). | Common metric | Listener, BackendServer, BackendPool, BackendHttpSetting`*`  |
+| Backend Session Duration | The total time of a backend connection. The average time duration from the start of a new connection to its termination. | L4-specific | Listener, BackendServer, BackendPool, BackendHttpSetting`*` |
+| Connection Lifetime | The total time of a client connection to application gateway. The average time duration from the start of a new connection to its termination in milliseconds. | L4-specific | Listener |
 
 `*` BackendHttpSetting dimension includes both layer 7 and layer 4 backend settings.
 
-### Layer 4 logs
+#### TLS/TCP proxy logs
 
 Application Gateway’s Layer 4 proxy provides log data through access logs. These logs are only generated and published if they are configured in the diagnostic settings of your gateway.
 - Also see: [Supported categories for Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkapplicationgateways).
@@ -122,30 +141,13 @@ Application Gateway’s Layer 4 proxy provides log data through access logs. The
 | serverStatus |200 - session completed successfully. 400 - client data could not be parsed. 500 - internal server error. 502 - bad gateway. For example, when an upstream server could not be reached. 503 - service unavailable. For example, if access is limited by the number of connections. |
 | ResourceId |Application Gateway resource URI |
 
-### Layer 4 backend health
+### TLS/TCP proxy backend health
 
 Application Gateway’s layer 4 proxy provides the capability to monitor the health of individual members of the backend pools through the portal and REST API.
 
 ![Screenshot of backend health](./media/monitor-application-gateway-reference/backend-health.png) 
 
-### REST API
 
-See [Application Gateways - Backend Health](/rest/api/application-gateway/application-gateways/backend-health?tabs=HTTP) for details of the API call to retrieve the backend health of an application gateway.
-
-Sample Request:
-``output
-POST
-https://management.azure.com/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/
-applicationGateways/appgw/backendhealth?api-version=2021-08-01
-After
-``
-
-After sending this POST request, you should see an HTTP 202 Accepted response. In the response headers, find the Location header and send a new GET request using that URL.
-
-``output
-GET
-https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/locations/region-name/operationResults/GUID?api-version=2021-08-01
-``
 
 ## Application Gateway v1 metrics
 

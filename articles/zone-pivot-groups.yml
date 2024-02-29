@@ -647,8 +647,7 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: REST API
-  - id: vision-studio
-    title: Vision Studio
+
 - id: programming-languages-computer-vision-40
   title: Programming languages
   prompt: Choose a programming language.
@@ -663,6 +662,8 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: REST API
+  - id: vision-studio
+    title: Vision Studio
 - id: programming-languages-vision-40-sdk
   title: Programming languages
   prompt: Choose a programming language.
