@@ -17,6 +17,7 @@ Defender for APIs helps you to gain visibility into business-critical APIs. You 
 This article describes how to enable and onboard the Defender for APIs plan in the Defender for Cloud portal. Alternately, you can [enable Defender for APIs within an API Management instance](../api-management/protect-with-defender-for-apis.md) in the Azure portal.
 
 Learn more about the [Microsoft Defender for APIs](defender-for-apis-introduction.md) plan in the Microsoft Defender for Cloud.
+Learn more about [Defender for APIs](defender-for-apis-introduction.md).
 
 ## Prerequisites
 

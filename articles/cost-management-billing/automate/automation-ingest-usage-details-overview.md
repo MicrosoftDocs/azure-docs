@@ -95,11 +95,11 @@ Sample amortized cost report:
 
 >[!NOTE]
 > - Limitations on `PayGPrice`
->    - For EA customers `PayGPrice` isn't populated when `PricingModel` = `Reservations`, `Marketplace`, or `SavingsPlan`.
+>    - For EA customers `PayGPrice` isn't populated when `PricingModel` = `Reservations` or `Marketplace`.
 >    - For MCA customers, `PayGPrice` isn't populated when `PricingModel` = `Reservations` or `Marketplace`.
 >- Limitations on `UnitPrice`
 >    - For EA customers, `UnitPrice` isn't populated when `PricingModel` = `MarketPlace`.
->    - For MCA customers, `UnitPrice` isn't populated when `PricingModel` = `Reservations` or `SavingsPlan`.
+>    - For MCA customers, `UnitPrice` isn't populated when `PricingModel` = `Reservations`.
 
 ## Unexpected charges
 

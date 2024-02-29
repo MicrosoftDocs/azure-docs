@@ -83,6 +83,202 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/write | Add or modify virtual network peering |
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/delete | Deletes a virtual network peering |
 
+## Microsoft.DataCatalog
+
+Get more value from your enterprise data assets.
+
+Azure service: [Data Catalog](/azure/data-catalog/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.DataCatalog/checkNameAvailability/action | Checks catalog name availability for tenant. |
+> | Microsoft.DataCatalog/register/action | Registers subscription with Microsoft.DataCatalog resource provider. |
+> | Microsoft.DataCatalog/unregister/action | Unregisters subscription from Microsoft.DataCatalog resource provider. |
+> | Microsoft.DataCatalog/catalogs/read | Get properties for catalog or catalogs under subscription or resource group. |
+> | Microsoft.DataCatalog/catalogs/write | Creates catalog or updates the tags and properties for the catalog. |
+> | Microsoft.DataCatalog/catalogs/delete | Deletes the catalog. |
+> | Microsoft.DataCatalog/operations/read | Lists operations available on Microsoft.DataCatalog resource provider. |
+
+## Microsoft.DataFactory
+
+Hybrid data integration at enterprise scale, made easy.
+
+Azure service: [Data Factory](/azure/data-factory/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.DataFactory/register/action | Registers the subscription for the Data Factory Resource Provider. |
+> | Microsoft.DataFactory/unregister/action | Unregisters the subscription for the Data Factory Resource Provider. |
+> | Microsoft.DataFactory/checkazuredatafactorynameavailability/read | Checks if the Data Factory Name is available to use. |
+> | Microsoft.DataFactory/datafactories/read | Reads the Data Factory. |
+> | Microsoft.DataFactory/datafactories/write | Creates or Updates the Data Factory. |
+> | Microsoft.DataFactory/datafactories/delete | Deletes the Data Factory. |
+> | Microsoft.DataFactory/datafactories/activitywindows/read | Reads Activity Windows in the Data Factory with specified parameters. |
+> | Microsoft.DataFactory/datafactories/datapipelines/read | Reads any Pipeline. |
+> | Microsoft.DataFactory/datafactories/datapipelines/delete | Deletes any Pipeline. |
+> | Microsoft.DataFactory/datafactories/datapipelines/pause/action | Pauses any Pipeline. |
+> | Microsoft.DataFactory/datafactories/datapipelines/resume/action | Resumes any Pipeline. |
+> | Microsoft.DataFactory/datafactories/datapipelines/update/action | Updates any Pipeline. |
+> | Microsoft.DataFactory/datafactories/datapipelines/write | Creates or Updates any Pipeline. |
+> | Microsoft.DataFactory/datafactories/datapipelines/activities/activitywindows/read | Reads Activity Windows for the Pipeline Activity with specified parameters. |
+> | Microsoft.DataFactory/datafactories/datapipelines/activitywindows/read | Reads Activity Windows for the Pipeline with specified parameters. |
+> | Microsoft.DataFactory/datafactories/datasets/read | Reads any Dataset. |
+> | Microsoft.DataFactory/datafactories/datasets/delete | Deletes any Dataset. |
+> | Microsoft.DataFactory/datafactories/datasets/write | Creates or Updates any Dataset. |
+> | Microsoft.DataFactory/datafactories/datasets/activitywindows/read | Reads Activity Windows for the Dataset with specified parameters. |
+> | Microsoft.DataFactory/datafactories/datasets/sliceruns/read | Reads the Data Slice Run for the given dataset with the given start time. |
+> | Microsoft.DataFactory/datafactories/datasets/slices/read | Gets the Data Slices in the given period. |
+> | Microsoft.DataFactory/datafactories/datasets/slices/write | Update the Status of the Data Slice. |
+> | Microsoft.DataFactory/datafactories/gateways/read | Reads any Gateway. |
+> | Microsoft.DataFactory/datafactories/gateways/write | Creates or Updates any Gateway. |
+> | Microsoft.DataFactory/datafactories/gateways/delete | Deletes any Gateway. |
+> | Microsoft.DataFactory/datafactories/gateways/connectioninfo/action | Reads the Connection Info for any Gateway. |
+> | Microsoft.DataFactory/datafactories/gateways/listauthkeys/action | Lists the Authentication Keys for any Gateway. |
+> | Microsoft.DataFactory/datafactories/gateways/regenerateauthkey/action | Regenerates the Authentication Keys for any Gateway. |
+> | Microsoft.DataFactory/datafactories/linkedServices/read | Reads any Linked Service. |
+> | Microsoft.DataFactory/datafactories/linkedServices/delete | Deletes any Linked Service. |
+> | Microsoft.DataFactory/datafactories/linkedServices/write | Creates or Updates any Linked Service. |
+> | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for datafactories |
+> | Microsoft.DataFactory/datafactories/runs/loginfo/read | Reads a SAS URI to a blob container containing the logs. |
+> | Microsoft.DataFactory/datafactories/tables/read | Reads any Dataset. |
+> | Microsoft.DataFactory/datafactories/tables/delete | Deletes any Dataset. |
+> | Microsoft.DataFactory/datafactories/tables/write | Creates or Updates any Dataset. |
+> | Microsoft.DataFactory/factories/read | Reads Data Factory. |
+> | Microsoft.DataFactory/factories/write | Create or Update Data Factory |
+> | Microsoft.DataFactory/factories/delete | Deletes Data Factory. |
+> | Microsoft.DataFactory/factories/createdataflowdebugsession/action | Creates a Data Flow debug session. |
+> | Microsoft.DataFactory/factories/startdataflowdebugsession/action | Starts a Data Flow debug session. |
+> | Microsoft.DataFactory/factories/addDataFlowToDebugSession/action | Add Data Flow to debug session for preview. |
+> | Microsoft.DataFactory/factories/executeDataFlowDebugCommand/action | Execute Data Flow debug command. |
+> | Microsoft.DataFactory/factories/deletedataflowdebugsession/action | Deletes a Data Flow debug session. |
+> | Microsoft.DataFactory/factories/querydataflowdebugsessions/action | Queries a Data Flow debug session. |
+> | Microsoft.DataFactory/factories/cancelpipelinerun/action | Cancels the pipeline run specified by the run ID. |
+> | Microsoft.DataFactory/factories/cancelSandboxPipelineRun/action | Cancels a debug run for the Pipeline. |
+> | Microsoft.DataFactory/factories/sandboxpipelineruns/action | Queries the Debug Pipeline Runs. |
+> | Microsoft.DataFactory/factories/querytriggers/action | Queries the Triggers. |
+> | Microsoft.DataFactory/factories/getFeatureValue/action | Get exposure control feature value for the specific location. |
+> | Microsoft.DataFactory/factories/queryFeaturesValue/action | Get exposure control feature values for a list of features |
+> | Microsoft.DataFactory/factories/getDataPlaneAccess/action | Gets access to ADF DataPlane service. |
+> | Microsoft.DataFactory/factories/getGitHubAccessToken/action | Gets GitHub access token. |
+> | Microsoft.DataFactory/factories/querytriggerruns/action | Queries the Trigger Runs. |
+> | Microsoft.DataFactory/factories/querypipelineruns/action | Queries the Pipeline Runs. |
+> | Microsoft.DataFactory/factories/querydebugpipelineruns/action | Queries the Debug Pipeline Runs. |
+> | Microsoft.DataFactory/factories/adfcdcs/read | Reads ADF Change data capture. |
+> | Microsoft.DataFactory/factories/adfcdcs/delete | Deletes ADF Change data capture. |
+> | Microsoft.DataFactory/factories/adfcdcs/write | Create or update ADF Change data capture. |
+> | Microsoft.DataFactory/factories/adflinkconnections/read | Reads ADF Link Connection. |
+> | Microsoft.DataFactory/factories/adflinkconnections/delete | Deletes ADF Link Connection. |
+> | Microsoft.DataFactory/factories/adflinkconnections/write | Create or update ADF Link Connection |
+> | Microsoft.DataFactory/factories/credentials/read | Reads any Credential. |
+> | Microsoft.DataFactory/factories/credentials/write | Writes any Credential. |
+> | Microsoft.DataFactory/factories/credentials/delete | Deletes any Credential. |
+> | Microsoft.DataFactory/factories/dataflows/read | Reads Data Flow. |
+> | Microsoft.DataFactory/factories/dataflows/delete | Deletes Data Flow. |
+> | Microsoft.DataFactory/factories/dataflows/write | Create or update Data Flow |
+> | Microsoft.DataFactory/factories/dataMappers/read | Reads Data Mapping. |
+> | Microsoft.DataFactory/factories/dataMappers/delete | Deletes Data Mapping. |
+> | Microsoft.DataFactory/factories/dataMappers/write | Create or update Data Mapping |
+> | Microsoft.DataFactory/factories/datasets/read | Reads any Dataset. |
+> | Microsoft.DataFactory/factories/datasets/delete | Deletes any Dataset. |
+> | Microsoft.DataFactory/factories/datasets/write | Creates or Updates any Dataset. |
+> | Microsoft.DataFactory/factories/debugpipelineruns/cancel/action | Cancels a debug run for the Pipeline. |
+> | Microsoft.DataFactory/factories/getDataPlaneAccess/read | Reads access to ADF DataPlane service. |
+> | Microsoft.DataFactory/factories/getFeatureValue/read | Reads exposure control feature value for the specific location. |
+> | Microsoft.DataFactory/factories/globalParameters/read | Reads GlobalParameter. |
+> | Microsoft.DataFactory/factories/globalParameters/delete | Deletes GlobalParameter. |
+> | Microsoft.DataFactory/factories/globalParameters/write | Create or Update GlobalParameter. |
+> | Microsoft.DataFactory/factories/integrationruntimes/read | Reads any Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/write | Creates or Updates any Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/delete | Deletes any Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/start/action | Starts any Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/stop/action | Stops any Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/getconnectioninfo/action | Reads Integration Runtime Connection Info. |
+> | Microsoft.DataFactory/factories/integrationruntimes/listauthkeys/action | Lists the Authentication Keys for any Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/synccredentials/action | Syncs the Credentials for the specified Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/upgrade/action | Upgrades the specified Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/createexpressshirinstalllink/action | Create express install link for self hosted Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/regenerateauthkey/action | Regenerates the Authentication Keys for the specified Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/removelinks/action | Removes Linked Integration Runtime References from the specified Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/linkedIntegrationRuntime/action | Create Linked Integration Runtime Reference on the Specified Shared Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/getObjectMetadata/action | Get SSIS Integration Runtime metadata for the specified Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/refreshObjectMetadata/action | Refresh SSIS Integration Runtime metadata for the specified Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/enableInteractiveQuery/action | Enable interactive authoring session. |
+> | Microsoft.DataFactory/factories/integrationruntimes/disableInteractiveQuery/action | Disable interactive authoring session. |
+> | Microsoft.DataFactory/factories/integrationruntimes/getstatus/read | Reads Integration Runtime Status. |
+> | Microsoft.DataFactory/factories/integrationruntimes/monitoringdata/read | Gets the Monitoring Data for any Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/nodes/read | Reads the Node for the specified Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/nodes/delete | Deletes the Node for the specified Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/nodes/write | Updates a self-hosted Integration Runtime Node. |
+> | Microsoft.DataFactory/factories/integrationruntimes/nodes/ipAddress/action | Returns the IP Address for the specified node of the Integration Runtime. |
+> | Microsoft.DataFactory/factories/integrationruntimes/outboundNetworkDependenciesEndpoints/read | Get Azure-SSIS Integration Runtime outbound network dependency endpoints for the specified Integration Runtime. |
+> | Microsoft.DataFactory/factories/linkedServices/read | Reads Linked Service. |
+> | Microsoft.DataFactory/factories/linkedServices/delete | Deletes Linked Service. |
+> | Microsoft.DataFactory/factories/linkedServices/write | Create or Update Linked Service |
+> | Microsoft.DataFactory/factories/managedVirtualNetworks/read | Read Managed Virtual Network. |
+> | Microsoft.DataFactory/factories/managedVirtualNetworks/write | Create or Update Managed Virtual Network. |
+> | Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints/read | Read Managed Private Endpoint. |
+> | Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints/write | Create or Update Managed Private Endpoint. |
+> | Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints/delete | Delete Managed Private Endpoint. |
+> | Microsoft.DataFactory/factories/operationResults/read | Gets operation results. |
+> | Microsoft.DataFactory/factories/pipelineruns/read | Reads the Pipeline Runs. |
+> | Microsoft.DataFactory/factories/pipelineruns/cancel/action | Cancels the pipeline run specified by the run ID. |
+> | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/action | Queries the activity runs for the specified pipeline run ID. |
+> | Microsoft.DataFactory/factories/pipelineruns/activityruns/read | Reads the activity runs for the specified pipeline run ID. |
+> | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/read | Reads the result of query activity runs for the specified pipeline run ID. |
+> | Microsoft.DataFactory/factories/pipelines/read | Reads Pipeline. |
+> | Microsoft.DataFactory/factories/pipelines/delete | Deletes Pipeline. |
+> | Microsoft.DataFactory/factories/pipelines/write | Create or Update Pipeline |
+> | Microsoft.DataFactory/factories/pipelines/createrun/action | Creates a run for the Pipeline. |
+> | Microsoft.DataFactory/factories/pipelines/sandbox/action | Creates a debug run environment for the Pipeline. |
+> | Microsoft.DataFactory/factories/pipelines/pipelineruns/read | Reads the Pipeline Run. |
+> | Microsoft.DataFactory/factories/pipelines/pipelineruns/activityruns/progress/read | Gets the Progress of Activity Runs. |
+> | Microsoft.DataFactory/factories/pipelines/sandbox/create/action | Creates a debug run environment for the Pipeline. |
+> | Microsoft.DataFactory/factories/pipelines/sandbox/run/action | Creates a debug run for the Pipeline. |
+> | Microsoft.DataFactory/factories/privateEndpointConnectionProxies/read | Read Private Endpoint Connection Proxy. |
+> | Microsoft.DataFactory/factories/privateEndpointConnectionProxies/write | Create or Update private Endpoint Connection Proxy. |
+> | Microsoft.DataFactory/factories/privateEndpointConnectionProxies/delete | Delete Private Endpoint Connection Proxy. |
+> | Microsoft.DataFactory/factories/privateEndpointConnectionProxies/validate/action | Validate a Private Endpoint Connection Proxy. |
+> | Microsoft.DataFactory/factories/privateEndpointConnectionProxies/operationresults/read | Read the results of creating a Private Endpoint Connection Proxy. |
+> | Microsoft.DataFactory/factories/privateEndpointConnectionProxies/operationstatuses/read | Read the status of creating a Private Endpoint Connection Proxy. |
+> | Microsoft.DataFactory/factories/privateEndpointConnections/read | Read Private Endpoint Connection. |
+> | Microsoft.DataFactory/factories/privateEndpointConnections/write | Create or Update Private Endpoint Connection. |
+> | Microsoft.DataFactory/factories/privateEndpointConnections/delete | Delete Private Endpoint Connection. |
+> | Microsoft.DataFactory/factories/privateLinkResources/read | Read Private Link Resource. |
+> | Microsoft.DataFactory/factories/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | Microsoft.DataFactory/factories/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> | Microsoft.DataFactory/factories/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for factories |
+> | Microsoft.DataFactory/factories/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for factories |
+> | Microsoft.DataFactory/factories/queryFeaturesValue/read | Reads exposure control feature values for a list of features. |
+> | Microsoft.DataFactory/factories/querypipelineruns/read | Reads the Result of Query Pipeline Runs. |
+> | Microsoft.DataFactory/factories/querytriggerruns/read | Reads the Result of Trigger Runs. |
+> | Microsoft.DataFactory/factories/sandboxpipelineruns/read | Gets the debug run info for the Pipeline. |
+> | Microsoft.DataFactory/factories/sandboxpipelineruns/sandboxActivityRuns/read | Gets the debug run info for the Activity. |
+> | Microsoft.DataFactory/factories/sessions/write | Writes any Session. |
+> | Microsoft.DataFactory/factories/triggerruns/read | Reads the Trigger Runs. |
+> | Microsoft.DataFactory/factories/triggers/read | Reads any Trigger. |
+> | Microsoft.DataFactory/factories/triggers/write | Creates or Updates any Trigger. |
+> | Microsoft.DataFactory/factories/triggers/delete | Deletes any Trigger. |
+> | Microsoft.DataFactory/factories/triggers/subscribetoevents/action | Subscribe to Events. |
+> | Microsoft.DataFactory/factories/triggers/geteventsubscriptionstatus/action | Event Subscription Status. |
+> | Microsoft.DataFactory/factories/triggers/unsubscribefromevents/action | Unsubscribe from Events. |
+> | Microsoft.DataFactory/factories/triggers/querysubscriptionevents/action | Query subscription events. |
+> | Microsoft.DataFactory/factories/triggers/deletequeuedsubscriptionevents/action | Delete queued subscription events. |
+> | Microsoft.DataFactory/factories/triggers/start/action | Starts any Trigger. |
+> | Microsoft.DataFactory/factories/triggers/stop/action | Stops any Trigger. |
+> | Microsoft.DataFactory/factories/triggers/triggerruns/read | Reads the Trigger Runs. |
+> | Microsoft.DataFactory/factories/triggers/triggerruns/cancel/action | Cancel the Trigger Run with the given trigger run id. |
+> | Microsoft.DataFactory/factories/triggers/triggerruns/rerun/action | Rerun the Trigger Run with the given trigger run id. |
+> | Microsoft.DataFactory/locations/configureFactoryRepo/action | Configures the repository for the factory. |
+> | Microsoft.DataFactory/locations/getFeatureValue/action | Get exposure control feature value for the specific location. |
+> | Microsoft.DataFactory/locations/getFeatureValue/read | Reads exposure control feature value for the specific location. |
+> | Microsoft.DataFactory/operations/read | Reads all Operations in Microsoft Data Factory Provider. |
+> | **DataAction** | **Description** |
+> | Microsoft.DataFactory/factories/credentials/useSecrets/action | Uses any Credential Secret. |
+
 ## Microsoft.DataLakeAnalytics
 
 Distributed analytics service that makes big data easy.
@@ -133,7 +329,7 @@ Azure service: [Data Lake Analytics](/azure/data-lake-analytics/)
 
 Highly scalable and cost-effective data lake solution for big data analytics.
 
-Azure service: [Azure Data Lake Store](/azure/storage/blobs/data-lake-storage-introduction)
+Azure service: [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -174,108 +370,6 @@ Azure service: [Azure Data Lake Store](/azure/storage/blobs/data-lake-storage-in
 > | Microsoft.DataLakeStore/locations/operationResults/read | Get result of a DataLakeStore account operation. |
 > | Microsoft.DataLakeStore/locations/usages/read | Get quota usages information of a subscription regarding using DataLakeStore. |
 > | Microsoft.DataLakeStore/operations/read | Get available operations of DataLakeStore. |
-
-## Microsoft.EventHub
-
-Receive telemetry from millions of devices.
-
-Azure service: [Event Hubs](/azure/event-hubs/)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.EventHub/checkNamespaceAvailability/action | Checks availability of namespace under given subscription. This API is deprecated please use CheckNameAvailability instead. |
-> | Microsoft.EventHub/checkNameAvailability/action | Checks availability of namespace under given subscription. |
-> | Microsoft.EventHub/register/action | Registers the subscription for the EventHub resource provider and enables the creation of EventHub resources |
-> | Microsoft.EventHub/unregister/action | Registers the EventHub Resource Provider |
-> | Microsoft.EventHub/availableClusterRegions/read | Read operation to list available pre-provisioned clusters by Azure region. |
-> | Microsoft.EventHub/clusters/read | Gets the Cluster Resource Description |
-> | Microsoft.EventHub/clusters/write | Creates or modifies an existing Cluster resource. |
-> | Microsoft.EventHub/clusters/delete | Deletes an existing Cluster resource. |
-> | Microsoft.EventHub/clusters/namespaces/read | List namespace Azure Resource Manager IDs for namespaces within a cluster. |
-> | Microsoft.EventHub/clusters/operationresults/read | Get the status of an asynchronous cluster operation. |
-> | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | Get list of Cluster metrics Resource Descriptions |
-> | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Deletes the VNet rules in EventHub Resource Provider for the specified VNet |
-> | Microsoft.EventHub/namespaces/write | Create a Namespace Resource and Update its properties. Tags and Capacity of the Namespace are the properties which can be updated. |
-> | Microsoft.EventHub/namespaces/read | Get the list of Namespace Resource Description |
-> | Microsoft.EventHub/namespaces/Delete | Delete Namespace Resource |
-> | Microsoft.EventHub/namespaces/authorizationRules/action | Updates Namespace Authorization Rule. This API is deprecated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01. |
-> | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | Remove ACS namespace |
-> | Microsoft.EventHub/namespaces/updateState/action | UpdateNamespaceState |
-> | Microsoft.EventHub/namespaces/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
-> | Microsoft.EventHub/namespaces/joinPerimeter/action | Action to Join the Network Security Perimeter. This action is used to perform linked access by NSP RP. |
-> | Microsoft.EventHub/namespaces/authorizationRules/read | Get the list of Namespaces Authorization Rules description. |
-> | Microsoft.EventHub/namespaces/authorizationRules/write | Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated. |
-> | Microsoft.EventHub/namespaces/authorizationRules/delete | Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted.  |
-> | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | Get the Connection String to the Namespace |
-> | Microsoft.EventHub/namespaces/authorizationRules/regenerateKeys/action | Regenerate the Primary or Secondary key to the Resource |
-> | Microsoft.EventHub/namespaces/disasterrecoveryconfigs/checkNameAvailability/action | Checks availability of namespace alias under given subscription. |
-> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/write | Creates or Updates the Disaster Recovery configuration associated with the namespace. |
-> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/read | Gets the Disaster Recovery configuration associated with the namespace. |
-> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/delete | Deletes the Disaster Recovery configuration associated with the namespace. This operation can only be invoked via the primary namespace. |
-> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/breakPairing/action | Disables Disaster Recovery and stops replicating changes from primary to secondary namespaces. |
-> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/failover/action | Invokes a GEO DR failover and reconfigures the namespace alias to point to the secondary namespace. |
-> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules/read | Get Disaster Recovery Primary Namespace's Authorization Rules |
-> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action | Gets the authorization rules keys for the Disaster Recovery primary namespace |
-> | Microsoft.EventHub/namespaces/eventhubs/write | Create or Update EventHub properties. |
-> | Microsoft.EventHub/namespaces/eventhubs/read | Get list of EventHub Resource Descriptions |
-> | Microsoft.EventHub/namespaces/eventhubs/Delete | Operation to delete EventHub Resource |
-> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/action | Operation to update EventHub. This operation is not supported on API version 2017-04-01. Authorization Rules. Please use a PUT call to update Authorization Rule. |
-> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/read |  Get the list of EventHub Authorization Rules |
-> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/write | Create EventHub Authorization Rules and Update its properties. The Authorization Rules Access Rights can be updated. |
-> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/delete | Operation to delete EventHub Authorization Rules |
-> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/listkeys/action | Get the Connection String to EventHub |
-> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/regenerateKeys/action | Regenerate the Primary or Secondary key to the Resource |
-> | Microsoft.EventHub/namespaces/eventHubs/consumergroups/write | Create or Update ConsumerGroup properties. |
-> | Microsoft.EventHub/namespaces/eventHubs/consumergroups/read | Get list of ConsumerGroup Resource Descriptions |
-> | Microsoft.EventHub/namespaces/eventHubs/consumergroups/Delete | Operation to delete ConsumerGroup Resource |
-> | Microsoft.EventHub/namespaces/ipFilterRules/read | Get IP Filter Resource |
-> | Microsoft.EventHub/namespaces/ipFilterRules/write | Create IP Filter Resource |
-> | Microsoft.EventHub/namespaces/ipFilterRules/delete | Delete IP Filter Resource |
-> | Microsoft.EventHub/namespaces/messagingPlan/read | Gets the Messaging Plan for a namespace.<br>This API is deprecated.<br>Properties exposed via the MessagingPlan resource are moved to the (parent) Namespace resource in later API versions..<br>This operation is not supported on API version 2017-04-01. |
-> | Microsoft.EventHub/namespaces/messagingPlan/write | Updates the Messaging Plan for a namespace.<br>This API is deprecated.<br>Properties exposed via the MessagingPlan resource are moved to the (parent) Namespace resource in later API versions..<br>This operation is not supported on API version 2017-04-01. |
-> | Microsoft.EventHub/namespaces/networkruleset/read | Gets NetworkRuleSet Resource |
-> | Microsoft.EventHub/namespaces/networkruleset/write | Create VNET Rule Resource |
-> | Microsoft.EventHub/namespaces/networkruleset/delete | Delete VNET Rule Resource |
-> | Microsoft.EventHub/namespaces/networkrulesets/read | Gets NetworkRuleSet Resource |
-> | Microsoft.EventHub/namespaces/networkrulesets/write | Create VNET Rule Resource |
-> | Microsoft.EventHub/namespaces/networkrulesets/delete | Delete VNET Rule Resource |
-> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/write | Create NetworkSecurityPerimeterAssociationProxies |
-> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/read | Get NetworkSecurityPerimeterAssociationProxies |
-> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/delete | Delete NetworkSecurityPerimeterAssociationProxies |
-> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/reconcile/action | Reconcile NetworkSecurityPerimeterAssociationProxies |
-> | Microsoft.EventHub/namespaces/networkSecurityPerimeterConfigurations/read | Get Network Security Perimeter Configurations |
-> | Microsoft.EventHub/namespaces/networkSecurityPerimeterConfigurations/reconcile/action | Reconcile Network Security Perimeter Configurations |
-> | Microsoft.EventHub/namespaces/operationresults/read | Get the status of Namespace operation |
-> | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/validate/action | Validate Private Endpoint Connection Proxy |
-> | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/read | Get Private Endpoint Connection Proxy |
-> | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/write | Create Private Endpoint Connection Proxy |
-> | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/delete | Delete Private Endpoint Connection Proxy |
-> | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/operationstatus/read | Get the status of an asynchronous private endpoint operation |
-> | Microsoft.EventHub/namespaces/privateEndpointConnections/read | Get Private Endpoint Connection |
-> | Microsoft.EventHub/namespaces/privateEndpointConnections/write | Create or Update Private Endpoint Connection |
-> | Microsoft.EventHub/namespaces/privateEndpointConnections/delete | Removes Private Endpoint Connection |
-> | Microsoft.EventHub/namespaces/privateEndpointConnections/operationstatus/read | Get the status of an asynchronous private endpoint operation |
-> | Microsoft.EventHub/namespaces/privateLinkResources/read | Gets the resource types that support private endpoint connections |
-> | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Get list of Namespace diagnostic settings Resource Descriptions |
-> | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Get list of Namespace diagnostic settings Resource Descriptions |
-> | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/logDefinitions/read | Get list of Namespace logs Resource Descriptions |
-> | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Get list of Namespace metrics Resource Descriptions |
-> | Microsoft.EventHub/namespaces/schemagroups/write | Create or Update SchemaGroup properties. |
-> | Microsoft.EventHub/namespaces/schemagroups/read | Get list of SchemaGroup Resource Descriptions |
-> | Microsoft.EventHub/namespaces/schemagroups/delete | Operation to delete SchemaGroup Resource |
-> | Microsoft.EventHub/namespaces/virtualNetworkRules/read | Gets VNET Rule Resource |
-> | Microsoft.EventHub/namespaces/virtualNetworkRules/write | Create VNET Rule Resource |
-> | Microsoft.EventHub/namespaces/virtualNetworkRules/delete | Delete VNET Rule Resource |
-> | Microsoft.EventHub/operations/read | Get Operations |
-> | Microsoft.EventHub/sku/read | Get list of Sku Resource Descriptions |
-> | Microsoft.EventHub/sku/regions/read | Get list of SkuRegions Resource Descriptions |
-> | **DataAction** | **Description** |
-> | Microsoft.EventHub/namespaces/messages/send/action | Send messages |
-> | Microsoft.EventHub/namespaces/messages/receive/action | Receive messages |
-> | Microsoft.EventHub/namespaces/schemas/read | Retrieve schemas |
-> | Microsoft.EventHub/namespaces/schemas/write | Write schemas |
-> | Microsoft.EventHub/namespaces/schemas/delete | Delete schemas |
 
 ## Microsoft.HDInsight
 
@@ -458,71 +552,62 @@ Azure service: [Power BI Embedded](/azure/power-bi-embedded/)
 > | Microsoft.PowerBIDedicated/skus/read | Retrieves the information of Skus |
 > | Microsoft.PowerBIDedicated/skus/read | Retrieves the information of Skus |
 
-## Microsoft.StreamAnalytics
+## Microsoft.Purview
 
-Real-time data stream processing from millions of IoT devices.
-
-Azure service: [Stream Analytics](/azure/stream-analytics/)
+Azure service: [Microsoft Purview](/purview/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.StreamAnalytics/Register/action | Register subscription with Stream Analytics Resource Provider |
-> | Microsoft.StreamAnalytics/clusters/Delete | Delete Stream Analytics Cluster |
-> | Microsoft.StreamAnalytics/clusters/ListStreamingJobs/action | List streaming jobs for Stream Analytics Cluster |
-> | Microsoft.StreamAnalytics/clusters/Read | Read Stream Analytics Cluster |
-> | Microsoft.StreamAnalytics/clusters/Write | Write Stream Analytics Cluster |
-> | Microsoft.StreamAnalytics/clusters/operationresults/Read | Read operation results for Stream Analytics Cluster |
-> | Microsoft.StreamAnalytics/clusters/privateEndpoints/Delete | Delete Stream Analytics Cluster Private Endpoint |
-> | Microsoft.StreamAnalytics/clusters/privateEndpoints/Read | Read Stream Analytics Cluster Private Endpoint |
-> | Microsoft.StreamAnalytics/clusters/privateEndpoints/Write | Write Stream Analytics Cluster Private Endpoint |
-> | Microsoft.StreamAnalytics/clusters/privateEndpoints/operationresults/Read | Read operation results for Stream Analytics Cluster Private Endpoint |
-> | Microsoft.StreamAnalytics/locations/CompileQuery/action | Compile Query for Stream Analytics Resource Provider |
-> | Microsoft.StreamAnalytics/locations/SampleInput/action | Sample Input for Stream Analytics Resource Provider |
-> | Microsoft.StreamAnalytics/locations/TestInput/action | Test Input for Stream Analytics Resource Provider |
-> | Microsoft.StreamAnalytics/locations/TestOutput/action | Test Output for Stream Analytics Resource Provider |
-> | Microsoft.StreamAnalytics/locations/TestQuery/action | Test Query for Stream Analytics Resource Provider |
-> | Microsoft.StreamAnalytics/locations/operationresults/Read | Read Stream Analytics Operation Result |
-> | Microsoft.StreamAnalytics/locations/quotas/Read | Read Stream Analytics Subscription Quota |
-> | Microsoft.StreamAnalytics/operations/Read | Read Stream Analytics Operations |
-> | Microsoft.StreamAnalytics/streamingjobs/CompileQuery/action | Compile Query for Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/Delete | Delete Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/DownloadDiagram/action | Download job diagrams for Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/GenerateTopologies/action | Generate topologies for Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/PublishEdgePackage/action | Publish edge package for Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/Read | Read Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/Scale/action | Scale Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/Start/action | Start Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/Stop/action | Stop Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/TestQuery/action | Test Query for Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/Write | Write Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/functions/Delete | Delete Stream Analytics Job Function |
-> | Microsoft.StreamAnalytics/streamingjobs/functions/Read | Read Stream Analytics Job Function |
-> | Microsoft.StreamAnalytics/streamingjobs/functions/RetrieveDefaultDefinition/action | Retrieve Default Definition of a Stream Analytics Job Function |
-> | Microsoft.StreamAnalytics/streamingjobs/functions/Test/action | Test Stream Analytics Job Function |
-> | Microsoft.StreamAnalytics/streamingjobs/functions/Write | Write Stream Analytics Job Function |
-> | Microsoft.StreamAnalytics/streamingjobs/functions/operationresults/Read | Read operation results for Stream Analytics Job Function |
-> | Microsoft.StreamAnalytics/streamingjobs/inputs/Delete | Delete Stream Analytics Job Input |
-> | Microsoft.StreamAnalytics/streamingjobs/inputs/Read | Read Stream Analytics Job Input |
-> | Microsoft.StreamAnalytics/streamingjobs/inputs/Sample/action | Sample Stream Analytics Job Input |
-> | Microsoft.StreamAnalytics/streamingjobs/inputs/Test/action | Test Stream Analytics Job Input |
-> | Microsoft.StreamAnalytics/streamingjobs/inputs/Write | Write Stream Analytics Job Input |
-> | Microsoft.StreamAnalytics/streamingjobs/inputs/operationresults/Read | Read operation results for Stream Analytics Job Input |
-> | Microsoft.StreamAnalytics/streamingjobs/metricdefinitions/Read | Read Metric Definitions |
-> | Microsoft.StreamAnalytics/streamingjobs/operationresults/Read | Read operation results for Stream Analytics Job |
-> | Microsoft.StreamAnalytics/streamingjobs/outputs/Delete | Delete Stream Analytics Job Output |
-> | Microsoft.StreamAnalytics/streamingjobs/outputs/Read | Read Stream Analytics Job Output |
-> | Microsoft.StreamAnalytics/streamingjobs/outputs/Test/action | Test Stream Analytics Job Output |
-> | Microsoft.StreamAnalytics/streamingjobs/outputs/Write | Write Stream Analytics Job Output |
-> | Microsoft.StreamAnalytics/streamingjobs/outputs/operationresults/Read | Read operation results for Stream Analytics Job Output |
-> | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/read | Read diagnostic setting. |
-> | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/write | Write diagnostic setting. |
-> | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for streamingjobs |
-> | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for streamingjobs |
-> | Microsoft.StreamAnalytics/streamingjobs/Skus/Read | Read Stream Analytics Job SKUs |
-> | Microsoft.StreamAnalytics/streamingjobs/transformations/Delete | Delete Stream Analytics Job Transformation |
-> | Microsoft.StreamAnalytics/streamingjobs/transformations/Read | Read Stream Analytics Job Transformation |
-> | Microsoft.StreamAnalytics/streamingjobs/transformations/Write | Write Stream Analytics Job Transformation |
+> | Microsoft.Purview/register/action | Register the subscription for Microsoft Purview provider. |
+> | Microsoft.Purview/unregister/action | Unregister the subscription for Microsoft Purview provider. |
+> | Microsoft.Purview/setDefaultAccount/action | Sets the default account for the scope. |
+> | Microsoft.Purview/removeDefaultAccount/action | Removes the default account for the scope. |
+> | Microsoft.Purview/accounts/read | Read account resource for Microsoft Purview provider. |
+> | Microsoft.Purview/accounts/write | Write account resource for Microsoft Purview provider. |
+> | Microsoft.Purview/accounts/delete | Delete account resource for Microsoft Purview provider. |
+> | Microsoft.Purview/accounts/listkeys/action | List keys on the account resource for Microsoft Purview provider. |
+> | Microsoft.Purview/accounts/addrootcollectionadmin/action | Add root collection admin to account resource for Microsoft Purview provider. |
+> | Microsoft.Purview/accounts/move/action | Move account resource for Microsoft Purview provider. |
+> | Microsoft.Purview/accounts/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connection. |
+> | Microsoft.Purview/accounts/kafkaConfigurations/read | Read Kafka Configurations. |
+> | Microsoft.Purview/accounts/kafkaConfigurations/write | Create or update Kafka Configurations. |
+> | Microsoft.Purview/accounts/kafkaConfigurations/delete | Delete Kafka Configurations. |
+> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/read | Read Account Private Endpoint Connection Proxy. |
+> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/write | Write Account Private Endpoint Connection Proxy. |
+> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/delete | Delete Account Private Endpoint Connection Proxy. |
+> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/validate/action | Validate Account Private Endpoint Connection Proxy. |
+> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/operationResults/read | Monitor Private Endpoint Connection Proxy async operations. |
+> | Microsoft.Purview/accounts/privateEndpointConnections/read | Read Private Endpoint Connection. |
+> | Microsoft.Purview/accounts/privateEndpointConnections/write | Create or update Private Endpoint Connection. |
+> | Microsoft.Purview/accounts/privateEndpointConnections/delete | Delete Private Endpoint Connection. |
+> | Microsoft.Purview/accounts/privatelinkresources/read | Read Account Link Resources. |
+> | Microsoft.Purview/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
+> | Microsoft.Purview/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
+> | Microsoft.Purview/accounts/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the catalog. |
+> | Microsoft.Purview/accounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for the catalog. |
+> | Microsoft.Purview/checkConsent/read | Resolve the scope the Consent is granted. |
+> | Microsoft.Purview/checknameavailability/read | Check if name of purview account resource is available for Microsoft Purview provider. |
+> | Microsoft.Purview/consents/read | Read Consent Resource. |
+> | Microsoft.Purview/consents/write | Create or Update a Consent Resource. |
+> | Microsoft.Purview/consents/delete | Delete the Consent Resource. |
+> | Microsoft.Purview/getDefaultAccount/read | Gets the default account for the scope. |
+> | Microsoft.Purview/locations/operationResults/read | Monitor async operations. |
+> | Microsoft.Purview/operations/read | Reads all available operations for Microsoft Purview provider. |
+> | Microsoft.Purview/policies/read | Read Policy Resource. |
+> | **DataAction** | **Description** |
+> | Microsoft.Purview/accounts/data/read | Permission is deprecated. |
+> | Microsoft.Purview/accounts/data/write | Permission is deprecated. |
+> | Microsoft.Purview/accounts/scan/read | Permission is deprecated. |
+> | Microsoft.Purview/accounts/scan/write | Permission is deprecated. |
+> | Microsoft.Purview/attributeBlobs/read | Read Attribute Blob. |
+> | Microsoft.Purview/attributeBlobs/write | Write Attribute Blob. |
+> | Microsoft.Purview/policyElements/read | Read Policy Element. |
+> | Microsoft.Purview/policyElements/write | Create or update Policy Element. |
+> | Microsoft.Purview/policyElements/delete | Delete Policy Element. |
+> | Microsoft.Purview/purviewAccountBindings/read | Read Account Binding. |
+> | Microsoft.Purview/purviewAccountBindings/write | Create or update Account Binding. |
+> | Microsoft.Purview/purviewAccountBindings/delete | Delete Account Binding. |
 
 ## Microsoft.Synapse
 
