@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/22/2024
+ms.date: 02/29/2024
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python
 ---
@@ -82,6 +82,27 @@ The following are the current limitations and known issues with PowerShell runbo
 - Executing child scripts using `.\child-runbook.ps1` is not supported.</br>
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
 - When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/) and [PackageManagement](/powershell/module/packagemanagement/) modules.
+- When you utilize the `New-AzAutomationVariable`  cmdlet within Az.Automation Module to upload a variable of type **object**, the operation doesn't function as expected.  
+
+  **Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
+
+  **Example** - Create a PowerShell object that has stored information around Azure VMs 
+
+  ```azurepowershell
+    # Retrieve Azure virtual machines with status information for the 'northeurope' region 
+    $AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
+    
+    $VMstopatch = @($AzVM).Id 
+    # Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
+    
+    # Convert the object to a JSON string 
+    $jsonString = $VMstopatch | ConvertTo-Json 
+    
+    # Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
+  ```
+ 
 
 # [PowerShell 5.1](#tab/lps51)
 
@@ -126,6 +147,26 @@ The following are the current limitations and known issues with PowerShell runbo
 * A PowerShell runbook can fail if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed  to work with large objects. For example, instead of using `Get-Process` with no limitations, you can have the cmdlet output just the required parameters as in `Get-Process | Select ProcessName, CPU`.
 * When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or higher, you may experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/) and [PackageManagement](/powershell/module/packagemanagement/) modules as well.
 * If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 5.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
+* When you utilize the `New-AzAutomationVariable` cmdlet within Az.Automation Module to upload a variable of type **object**, the operation doesn't function as expected.  
+
+  **Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
+
+  **Example** - Create a PowerShell object that has stored information around Azure VMs 
+
+  ```azurepowershell
+    # Retrieve Azure virtual machines with status information for the 'northeurope' region 
+    $AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
+    
+    $VMstopatch = @($AzVM).Id 
+    # Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
+    
+    # Convert the object to a JSON string 
+    $jsonString = $VMstopatch | ConvertTo-Json 
+    
+    # Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
+  ```
 
 # [PowerShell 7.1](#tab/lps71)
 
@@ -183,6 +224,26 @@ The following are the current limitations and known issues with PowerShell runbo
 - When you start PowerShell 7 runbook using the webhook, it auto-converts the webhook input parameter to an invalid JSON.
 - We recommend that you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or lower because version: 3.0.0 or higher may lead to job failures.
 - If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 7.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
+- When you utilize the `New-AzAutomationVariable`  cmdlet within Az.Automation Module to upload a variable of type **object**, the operation doesn't function as expected.  
+
+  **Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
+
+  **Example** - Create a PowerShell object that has stored information around Azure VMs 
+
+  ```azurepowershell
+    # Retrieve Azure virtual machines with status information for the 'northeurope' region 
+    $AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
+    
+    $VMstopatch = @($AzVM).Id 
+    # Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
+    
+    # Convert the object to a JSON string 
+    $jsonString = $VMstopatch | ConvertTo-Json 
+    
+    # Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
+  ```
 ---
 
 ## PowerShell Workflow runbooks

@@ -4,7 +4,7 @@ description: This article shows you how to create a new log search alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 02/28/2024
 ms.reviewer: nolavime
 ---
 
@@ -54,7 +54,12 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log search alert rule.":::
 
-    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md) 
+    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md)
+
+   For limitations:
+   * [Cross-service query limitations](https://learn.microsoft.co/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy#limitations)
+   * [Combine Azure Resource Graph tables with a Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy#combine-azure-resource-graph-tables-with-a-log-analytics-workspace) limitations
+   * Not suppprted in Gov clouds
 1. Select **Run** to run the alert.
 1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
 1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last five minutes. If the system detects summarized query results, the rule is automatically updated with that information.

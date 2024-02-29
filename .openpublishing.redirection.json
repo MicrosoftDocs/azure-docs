@@ -981,6 +981,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-monitor.md",
+            "redirect_url": "/azure/analysis-services/monitor-analysis-services",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/frontdoor/front-door-whats-new.md",
             "redirect_url": "https://azure.microsoft.com/updates/?category=networking\u0026query=Azure%20Front%20Door",
             "redirect_document_id": false
