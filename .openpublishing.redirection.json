@@ -1,5 +1,10 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/batch/batch-pool-no-public-ip-address.md",
+      "redirect_url": "/previous-versions/azure/batch/batch-pool-no-public-ip-address",
+      "redirect_document_id": false
+    },
     	{
            "source_path": "articles/cosmos-db/nosql/sdk-java-spark-v2.md",
            "redirect_url": "/previous-versions/azure/cosmos-db/nosql/sdk-java-spark-v2",
