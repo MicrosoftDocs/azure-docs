@@ -54,12 +54,12 @@ To create an IP Prefix resource, follow these steps: 
             -  `GreaterThanOrEqualTo`: The condition is true when the network prefix of the route is greater than or equal to the network prefix of the rule.
 
 
-        -  `networkPrefix`: The network segment to match. It's specified as an IP address and a prefix length, such as 10.10.10.0/28 or 2001:db8::/64. 
+        -  `networkPrefix`: The network segment to match. It's an IP address and a prefix length, such as 10.10.10.0/28 or 2001:db8::/64. 
 
         -  `sequenceNumber`: The order of evaluation of the rule, from lowest to highest. The rule with the lowest sequence number is evaluated first, and the rule with the highest sequence number is evaluated last. If a rule matches the route, the evaluation stops and the action of the rule is executed. If no rule matches the route, the default action is Deny. 
 
 
-1.  Create the IP Prefix resource using the azcli command. You can use the same command as in the previous step, or modify it as per your requirements.
+2.  Create the IP Prefix resource using the azcli command. You can use the same command as in the previous step, or modify it as per your requirements.
 
 3.  Verify that the IP Prefix resource is created successfully. You can use the `az networkfabric ipprefix show` command to show the details of the IP Prefix resource. You can use the following example as a reference: 
 
@@ -71,7 +71,7 @@ To create an IP Prefix resource, follow these steps: 
 
 In this example, `myResourceGroup` is the name of the resource group where you created the IP Prefix resource, and `myIpPrefix` is the name of the IP Prefix resource. 
 
-The response should contain the properties and rules of the IP Prefix resource, such as the id, type, ipPrefixRules, location, name, provisioningState, resourceGroup, and tags. 
+The response should contain the properties and rules of the IP Prefix resource, such as the ID, type, ipPrefixRules, location, name, provisioningState, resourceGroup, and tags. 
 
 ### Show an IP Prefix resource
 
@@ -127,5 +127,21 @@ To update an IP Prefix resource, follow these steps: 
 
 In this example, `resourceGroupName` is the name of the resource group where you created the IP Prefix resource, `ipPrefixName` is the name of the IP Prefix resource, and the `--add` option adds a new rule to the ipPrefixRules property. The new rule denies routes with network prefix 30.30.30.0/24 and has a sequence number of 30. 
 
+## Deleting an IP Prefix resource 
 
+To delete an existing IP Prefix resource by its ID or name, use the following command: 
 
+```azurecli
+# Delete an IP Prefix resource by its name
+az networkfabric ipprefix delete \
+  --resource-group myResourceGroup \
+  --name myIpPrefix
+```
+
+The REST API request body for deleting an IP Prefix resource by its ID is as follows: 
+
+```
+{
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/myIpPrefix"
+}
+```
