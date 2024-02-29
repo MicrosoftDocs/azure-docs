@@ -49,7 +49,7 @@ The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.
   * New trio of prebuilts meant for mortgage automation (1003 end-user license agreement, 1008 underwriting, closing disclosure) 
 * [🆕 Credit/Debit card model](concept-credit-card.md)
   * New prebuilt to extract information from bank cards. 
-* [🆕 Marriage certificate](concept-marrige-certificate.md)
+* [🆕 Marriage certificate](concept-marriage-certificate.md)
   * New prebuilt to extract information from marriage certificates. 
 
 ## December 2023
