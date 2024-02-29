@@ -29,7 +29,7 @@ To request a quota increase, you must create a new support request with your wor
    - For **Subscription**, select the subscription for which you want to increase the quota.
    - For **Quota type**, select **Azure Database for MySQL Flexible Server**
 
-   :::image type="content" source="./media/how-to-create-support-request-quota-increase/create-quota-increase-request.png" alt-text="Screenshot of creating a new Azure Database for MySQL flexible server request for quota increase.":::
+   :::image type="content" source="media/how-to-request-quota-increase/request-quota-increase-mysql-flex.png" alt-text="Screenshot of new support requst":::
 
 1. In the **Additional Details** tab, enter the details corresponding to your quota request. The Information provided on this tab is used to further assess your issue and help the support engineer troubleshoot the problem.
 1. Fill the following details in this form:
@@ -54,5 +54,5 @@ The Azure Database for MySQL - Flexible Server support team processes all quota 
 
 ## Related content
 
-- [create an Azure Database for MySQL - Flexible Server instance in the portal](/azure/mysql/flexible-server/quickstart-create-server-portal)
-- [service limitations](/azure/mysql/flexible-server/concepts-limitations)
+- [Create an Azure Database for MySQL - Flexible Server instance in the portal](/azure/mysql/flexible-server/quickstart-create-server-portal)
+- [Service limitations](/azure/mysql/flexible-server/concepts-limitations)

@@ -1,5 +1,5 @@
 ---
-title: Resolve capacity errors for Azure Database for MySQL - Flexible Server
+title: Resolve capacity errors
 description: The article describes how you can resolve capacity errors when deploying or scaling Azure Database for MySQL - Flexible Server.
 author: karla-escobar
 ms.author: karlaescobar
@@ -16,7 +16,7 @@ The article describes how you can resolve capacity errors when deploying or scal
 
 ## Exceeded quota
 
-If you encounter any of the following errors when attempting to deploy your Azure MySQL - Flexible Server resource, [submit a request to increase your quota](/azure/mysql/flexible-server/how-to-request-quota-increase).
+If you encounter any of the following errors when attempting to deploy your Azure MySQL - Flexible Server resource, [submit a request to increase your quota](how-to-request-quota-increase.md).
 
 - `Operation could not be completed as it results in exceeding approved {0} Cores quota. Additional details - Current Limit: {1}, Current Usage: {2}, Additional Required: {3}, (Minimum) New Limit Required: {4}.Submit a request for Quota increase by specifying parameters listed in the 'Details' section for deployment to succeed.`
 
@@ -28,7 +28,7 @@ If you see any of the following errors, [Register your subscription with the MyS
 
 - `Your subscription does not have access to create a server in the selected region.`
 
-- `Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with issue type of 'Service and subscription limits' `
+- `Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with issue type of 'Service and subscription limits'`
 
 - `Location 'region name' is not accepting creation of new Azure Database for MySQL - Flexible servers for the subscription 'subscription id' at this time`
 
