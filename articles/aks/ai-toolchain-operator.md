@@ -3,7 +3,7 @@ title: Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchai
 description: Learn how to enable the AI toolchain operator add-on on Azure Kubernetes Service (AKS) to simplify OSS AI model management and deployment.
 ms.topic: article
 ms.custom: azure-kubernetes-service
-ms.date: 01/30/2024
+ms.date: 02/28/2024
 ---
 
 # Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator (preview)
@@ -22,7 +22,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  * If you have multiple Azure subscriptions, make sure you select the correct subscription in which the resources will be created and charged using the [`az account set`][az-account-set] command.
+  * If you have multiple Azure subscriptions, make sure you select the correct subscription in which the resources will be created and charged using the [az account set][az-account-set] command.
 
     > [!NOTE]
     > The subscription you use must have GPU VM quota.
@@ -34,13 +34,13 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
 ### Install the Azure CLI preview extension
 
-1. Install the Azure CLI preview extension using the [`az extension add`][az-extension-add] command.
+1. Install the Azure CLI preview extension using the [az extension add][az-extension-add] command.
 
     ```azurecli-interactive
     az extension add --name aks-preview
     ```
 
-2. Update the extension to make sure you have the latest version using the [`az extension update`][az-extension-update] command.
+2. Update the extension to make sure you have the latest version using the [az extension update][az-extension-update] command.
 
     ```azurecli-interactive
     az extension update --name aks-preview
@@ -48,7 +48,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
 ### Register the AI toolchain operator add-on feature flag
 
-1. Register the AIToolchainOperatorPreview feature flag using the [`az feature register`][az-feature-register] command.
+1. Register the AIToolchainOperatorPreview feature flag using the [az feature register][az-feature-register] command.
 
     ```azurecli-interactive
     az feature register --namespace "Microsoft.ContainerService" --name "AIToolchainOperatorPreview"
@@ -56,7 +56,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
     It takes a few minutes for the registration to complete.
 
-2. Verify the registration using the [`az feature show`][az-feature-show] command.
+2. Verify the registration using the [az feature show][az-feature-show] command.
 
     ```azurecli-interactive
     az feature show --namespace "Microsoft.ContainerService" --name "AIToolchainOperatorPreview"
@@ -79,13 +79,13 @@ The following sections describe how to create an AKS cluster with the AI toolcha
 
 ### Create an AKS cluster with the AI toolchain operator add-on enabled
 
-1. Create an Azure resource group using the [`az group create`][az-group-create] command.
+1. Create an Azure resource group using the [az group create][az-group-create] command.
 
     ```azurecli-interactive
     az group create --name ${AZURE_RESOURCE_GROUP} --location ${AZURE_LOCATION}
     ```
 
-2. Create an AKS cluster with the AI toolchain operator add-on enabled using the [`az aks create`][az-aks-create] command with the `--enable-ai-toolchain-operator` and `--enable-oidc-issuer` flags.
+2. Create an AKS cluster with the AI toolchain operator add-on enabled using the [az aks create][az-aks-create] command with the `--enable-managed-identity`, `--enable-ai-toolchain-operator`, and `--enable-oidc-issuer` flags.
 
     ```azurecli-interactive
     az aks create --location ${AZURE_LOCATION} \
@@ -101,9 +101,19 @@ The following sections describe how to create an AKS cluster with the AI toolcha
     >
     > AI toolchain operator enablement requires the enablement of OIDC issuer.
 
+3. On an existing AKS cluster, you can enable the AI toolchain operator add-on using the [az aks update][az-aks-update] command.
+
+    ```azurecli-interactive
+    az aks update --name ${CLUSTER_NAME} \
+            --resource-group ${AZURE_RESOURCE_GROUP} \
+            --enable-managed-identity \
+            --enable-oidc-issuer \
+            --enable-ai-toolchain-operator
+    ```
+
 ## Connect to your cluster
 
-1. Configure `kubectl` to connect to your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
+1. Configure `kubectl` to connect to your cluster using the [az aks get-credentials][az-aks-get-credentials] command.
 
     ```azurecli-interactive
     az aks get-credentials --resource-group ${AZURE_RESOURCE_GROUP} --name ${CLUSTER_NAME}
@@ -142,7 +152,7 @@ The following sections describe how to create an AKS cluster with the AI toolcha
 
 ## Create role assignment for the service principal
 
-* Create a new role assignment for the service principal using the [`az role assignment create`][az-role-assignment-create] command.
+* Create a new role assignment for the service principal using the [az role assignment create][az-role-assignment-create] command.
 
     ```azurecli-interactive
     az role assignment create --role "Contributor" \
@@ -152,7 +162,7 @@ The following sections describe how to create an AKS cluster with the AI toolcha
 
 ## Establish a federated identity credential
 
-* Create the federated identity credential between the managed identity, AKS OIDC issuer, and subject using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
+* Create the federated identity credential between the managed identity, AKS OIDC issuer, and subject using the [az identity federated-credential create][az-identity-federated-credential-create] command.
 
     ```azurecli-interactive
     az identity federated-credential create --name "kaito-federated-identity" \
@@ -210,7 +220,7 @@ The following sections describe how to create an AKS cluster with the AI toolcha
 
 If you no longer need these resources, you can delete them to avoid incurring extra Azure charges.
 
-* Delete the resource group and its associated resources using the [`az group delete`][az-group-delete] command.
+* Delete the resource group and its associated resources using the [az group delete][az-group-delete] command.
 
     ```azurecli-interactive
     az group delete --name "${AZURE_RESOURCE_GROUP}" --yes --no-wait
@@ -224,6 +234,7 @@ For more inference model options, see the [KAITO GitHub repository](https://gith
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-update]: /cli/azure/aks#az_aks_update
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az_identity_federated_credential_create
