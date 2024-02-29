@@ -149,7 +149,7 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
 
 * You can also enable concurrency on the Service Bus trigger, either through the designer or in code:
   ```json
-    "runtimeConfiguration": {
+  "runtimeConfiguration": {
       "concurrency": {
           "runs": 100
         }
