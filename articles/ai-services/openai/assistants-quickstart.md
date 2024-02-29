@@ -7,8 +7,8 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 02/01/2024
-zone_pivot_groups: openai-quickstart
+ms.date: 02/28/2024
+zone_pivot_groups: openai-quickstart-assistants
 recommendations: false
 ---
 
@@ -19,7 +19,13 @@ Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to
 
 ::: zone pivot="programming-language-studio"
 
-[!INCLUDE [Studio quickstart](includes/assistants-studio.md)]
+[!INCLUDE [Azure OpenAI Studio quickstart](includes/assistants-studio.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-studio"
+
+[!INCLUDE [AI Studio (Preview)](includes/assistants-ai-studio.md)]
 
 ::: zone-end
 

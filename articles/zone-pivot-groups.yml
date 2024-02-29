@@ -1881,6 +1881,19 @@ groups:
   - id: rest-api
     title: REST
 # Owner: mbullwin
+- id: openai-quickstart-assistants
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Azure OpenAI Studio
+  - id: programming-language-ai-studio
+    title: AI Studio (Preview)
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
+# Owner: mbullwin
 - id: openai-quickstart-new
   title: Programming languages
   prompt: Choose your preferred usage method
