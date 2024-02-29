@@ -119,20 +119,9 @@ To start, create a yaml file with the following definitions:
           - name: mq-dapr-app
             image: <YOUR_DAPR_APPLICATION>
 
-          # Container for the Dapr Pub/sub component
-          - name: aio-mq-pubsub-pluggable
-            image: ghcr.io/azure/iot-mq-dapr-components/pubsub:latest
-            volumeMounts:
-            - name: dapr-unix-domain-socket
-              mountPath: /tmp/dapr-components-sockets
-            - name: mqtt-client-token
-              mountPath: /var/run/secrets/tokens
-            - name: aio-ca-trust-bundle
-              mountPath: /var/run/certs/aio-mq-ca-cert/
-
-          # Container for the Dapr State store component
-          - name: aio-mq-statestore-pluggable
-            image: ghcr.io/azure/iot-mq-dapr-components/statestore:latest
+          # Container for the pluggable component
+          - name: aio-mq-components
+            image: ghcr.io/azure/iot-mq-dapr-components:latest
             volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
@@ -155,7 +144,7 @@ To start, create a yaml file with the following definitions:
     pod/dapr-workload created
     NAME                          READY   STATUS              RESTARTS   AGE
     ...
-    dapr-workload                 4/4     Running             0          30s
+    dapr-workload                 3/3     Running             0          30s
     ```
 
 ## Troubleshooting

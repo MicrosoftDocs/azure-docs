@@ -199,7 +199,7 @@ kubectl create configmap client-ca --from-file=client_ca.pem -n azure-iot-operat
 To check the root CA certificate is properly imported, run `kubectl describe configmap`. The result shows the same base64 encoding of the PEM certificate file.
 
 ```console
-$ kubectl describe configmap client-ca
+$ kubectl describe configmap client-ca -n azure-iot-operations
 Name:         client-ca
 Namespace:    azure-iot-operations
 
