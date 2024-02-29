@@ -328,16 +328,7 @@ Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/refe
 | `string`    | The message from the channel.                                                                                   |
 | `Custom`    | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
-<!-- ::: zone-end
-::: zone pivot="programming-language-java"
-
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell"
-
-::: zone-end
-::: zone pivot="programming-language-python"
-
-::: zone-end -->
 
 ## Related content
 

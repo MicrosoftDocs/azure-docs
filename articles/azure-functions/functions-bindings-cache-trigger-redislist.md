@@ -325,18 +325,6 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 | `string`    | The message from the channel.                                                                                   |
 | `Custom`    | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
-<!-- ::: zone-end
-::: zone pivot="programming-language-java"
-
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell"
-
-::: zone-end
-::: zone pivot="programming-language-powershell"
-
-::: zone-end
-::: zone pivot="programming-language-python" -->
-
 ::: zone-end
 
 ## Related content
