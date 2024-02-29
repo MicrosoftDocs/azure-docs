@@ -125,6 +125,7 @@ az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepoo
     --node-count 2 \
     --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet \
     --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet \
+    --pod-ip-allocation-mode StaticBlock \
     --no-wait
 ```
 
