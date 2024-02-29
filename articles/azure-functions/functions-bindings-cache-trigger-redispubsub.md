@@ -15,7 +15,7 @@ ms.date: 02/27/2024
 
 Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers.
 
-For more information this Azure Cache for Redis triggers and bindings, [Redis Extension for Azure Functions](https://github.com/Azure/azure-functions-redis-extension/tree/main).
+For more information about Azure Cache for Redis triggers and bindings, [Redis Extension for Azure Functions](https://github.com/Azure/azure-functions-redis-extension/tree/main).
 
 ## Scope of availability for functions triggers
 
@@ -45,6 +45,10 @@ For more information this Azure Cache for Redis triggers and bindings, [Redis Ex
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
+
+> [!IMPORTANT]
+>
+>For .NET functions, using the _isolated worker_ model is recommended over the _in-process_ model. For a comparison of the _in-process_ and _isolated worker_ models, see differences between the _isolated worker_ model and the _in-process_ model for .NET on Azure Functions.
 
 ### [Isolated worker model](#tab/isolated-process)
 

@@ -36,6 +36,10 @@ For information on setup and configuration details, see the [overview](functions
 
 The following example shows a pub/sub trigger on the set event with an output binding to the same Redis instance. The set event triggers the cache and the output binding returns a delete command for the key that triggered the function.
 
+> [!IMPORTANT]
+>
+>For .NET functions, using the _isolated worker_ model is recommended over the _in-process_ model. For a comparison of the _in-process_ and _isolated worker_ models, see differences between the _isolated worker_ model and the _in-process_ model for .NET on Azure Functions.
+
 ### [In-process](#tab/in-process)
 
 ```c#
@@ -306,9 +310,9 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
-The output returns a string, which is the key of the cache entry on which apply the specific command. 
+The output returns a string, which is the key of the cache entry on which apply the specific command.
 
-There are three types of connections that are allowed from an Azure Functions instance to a Redis Cache. Use the `appsettings` to configure each of the following types of client authentication, assuming the `Connection` was set to `Redis` in the function.
+There are three types of connections that are allowed from an Azure Functions instance to a Redis Cache in your deployments. For local development, you can also use service principal secrets. Use the `appsettings` to configure each of the following types of client authentication, assuming the `Connection` was set to `Redis` in the function.
 
 ### Connection string
 

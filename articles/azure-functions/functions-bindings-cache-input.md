@@ -34,6 +34,10 @@ For information on setup and configuration details, see the [overview](functions
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
+> [!IMPORTANT]
+>
+>For .NET functions, using the _isolated worker_ model is recommended over the _in-process_ model. For a comparison of the _in-process_ and _isolated worker_ models, see differences between the _isolated worker_ model and the _in-process_ model for .NET on Azure Functions.
+
 The following code uses the key from the pub/sub trigger to obtain and log the value from an input binding using a `GET` command:
 
 ### [Isolated process](#tab/isolated-process)
@@ -257,7 +261,7 @@ The [configuration](#configuration) section explains these properties.
 ## Attributes
     
 > [!NOTE]
-> Not all commands are supported for this binding. At the moment, only read commands that return a single output are supported. The full list can be found [here](https://github.com/Azure/azure-functions-redis-extension/blob/main/src/Microsoft.Azure.WebJobs.Extensions.Redis/Bindings/RedisConverter.cs#L61)
+> Not all commands are supported for this binding. At the moment, only read commands that return a single output are supported. The full list can be found [here](https://github.com/Azure/azure-functions-redis-extension/blob/main/src/Microsoft.Azure.WebJobs.Extensions.Redis/Bindings/RedisAsyncConverter.cs#L63)
 
 |Attribute property | Description                   |
 |-------------------|-----------------------------------|

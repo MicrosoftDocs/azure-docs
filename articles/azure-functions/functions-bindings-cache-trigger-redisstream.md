@@ -40,6 +40,10 @@ For more information, see [RedisStreamTrigger](https://github.com/Azure/azure-fu
 
 ## Example
 
+> [!IMPORTANT]
+>
+>For .NET functions, using the _isolated worker_ model is recommended over the _in-process_ model. For a comparison of the _in-process_ and _isolated worker_ models, see differences between the _isolated worker_ model and the _in-process_ model for .NET on Azure Functions.
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
@@ -240,7 +244,6 @@ From `function.json`, here's the binding data:
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 -->
 [!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)]
-::: zone-end 
 
 ---
 
@@ -306,7 +309,7 @@ The consumer group for all instances of a function is the name of the function, 
 
 Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet#scaling) or generates a random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
 
-::: zone pivot="programming-language-csharp"
+<!-- ::: zone pivot="programming-language-csharp"
 
 |  Type                                                                                                                                           | Description                                                                                                                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -315,9 +318,9 @@ Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/refe
 | `string, byte[], ReadOnlyMemory<byte>`                                                                                                                | The stream entry serialized as JSON (UTF-8 encoded for byte types) in the following format: `{"Id":"1658354934941-0","Values":{"field1":"value1","field2":"value2","field3":"value3"}}` |
 | `Custom`                                                                                                                                              | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type.                                                                         |
 
-::: zone-end
+::: zone-end -->
 
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 |  Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
@@ -325,7 +328,7 @@ Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/refe
 | `string`    | The message from the channel.                                                                                   |
 | `Custom`    | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
-::: zone-end
+<!-- ::: zone-end
 ::: zone pivot="programming-language-java"
 
 ::: zone-end
@@ -334,7 +337,7 @@ Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/refe
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-::: zone-end
+::: zone-end -->
 
 ## Related content
 

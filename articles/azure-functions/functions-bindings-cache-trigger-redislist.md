@@ -15,7 +15,7 @@ ms.date: 02/27/2024
 
 The `RedisListTrigger` pops new elements from a list and surfaces those entries to the function.
 
-For more information this Azure Cache for Redis triggers and bindings, [Redis Extension for Azure Functions](https://github.com/Azure/azure-functions-redis-extension/tree/main).
+For more information about Azure Cache for Redis triggers and bindings, [Redis Extension for Azure Functions](https://github.com/Azure/azure-functions-redis-extension/tree/main).
 
 ## Scope of availability for functions triggers
 
@@ -43,6 +43,10 @@ For more information this Azure Cache for Redis triggers and bindings, [Redis Ex
 ## Example
 
 ::: zone pivot="programming-language-csharp"
+
+> [!IMPORTANT]
+>
+>For .NET functions, using the _isolated worker_ model is recommended over the _in-process_ model. For a comparison of the _in-process_ and _isolated worker_ models, see differences between the _isolated worker_ model and the _in-process_ model for .NET on Azure Functions.
 
 The following sample polls the key `listTest`.:
 
@@ -303,16 +307,17 @@ See the Example section for complete examples.
 
 The `RedisListTrigger` pops new elements from a list and surfaces those entries to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/) to pop entries from the lists.
 
-::: zone pivot="programming-language-csharp"
+<!-- ::: zone pivot="
 
 | Type                                                                                                                              | Description                                                                                                   |
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs) | `string`, `byte[]`, `ReadOnlyMemory<byte>`: The entry from the list.                                          |
-| `Custom`                                                                                                                                 | The trigger uses Json.NET serialization to map the message from the channel from a `string` to a custom type. |
+| `Custom`                                                                                                                                 | The trigger uses Json.NET serialization to map the message from the channel from a `string` to a custom type. | 
 
 ::: zone-end
+-->
 
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 |  Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
@@ -320,7 +325,7 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 | `string`    | The message from the channel.                                                                                   |
 | `Custom`    | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
-::: zone-end
+<!-- ::: zone-end
 ::: zone pivot="programming-language-java"
 
 ::: zone-end
@@ -330,7 +335,7 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 ::: zone pivot="programming-language-powershell"
 
 ::: zone-end
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-python" -->
 
 ::: zone-end
 
