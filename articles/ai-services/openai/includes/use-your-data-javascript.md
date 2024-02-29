@@ -38,12 +38,12 @@ const { OpenAIClient } = require("@azure/openai");
 const { DefaultAzureCredential } = require("@azure/identity")
 
 // Set the Azure and AI Search values from environment variables
-const endpoint = process.env["AOAIEndpoint"];
-const azureApiKey = process.env["AOAIKey"];
-const searchEndpoint = process.env["SearchEndpoint"];
-const searchKey = process.env["SearchKey"];
-const searchIndex = process.env["SearchIndex"];
-const deploymentId = process.env["AOAIDeploymentId"];
+const endpoint = process.env["AZURE_OPENAI_ENDPOINT"];
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"];
+const searchEndpoint = process.env["AZURE_AI_SEARCH_ENDPOINT"];
+const searchKey = process.env["AZURE_AI_SEARCH_API_KEY"];
+const searchIndex = process.env["AZURE_AI_SEARCH_INDEX"];
+const deploymentId = process.env["AZURE_OPEN_AI_DEPLOYMENT_ID"];
 
 async function main() {
   console.log("== Chat Using Your Own Data Sample ==");
