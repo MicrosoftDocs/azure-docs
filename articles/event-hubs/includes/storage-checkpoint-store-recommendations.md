@@ -1,10 +1,10 @@
 ---
-title: include file
-description: include file
+title: Storage checkpoint recommendations
+description: Provides recommendations when using Azure Blob Storage as a checkpoint store.
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 06/16/2023
+ms.date: 02/15/2024
 ms.author: spelluru
 ms.custom: "include file"
 ---

@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2024
+ms.date: 02/16/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -386,7 +386,7 @@ When a user is added as an account owner, any Azure subscriptions associated wit
 
 ## Create a subscription
 
-Account owners can view and manage subscriptions. You can use subscriptions to give teams in your organization access to development environments and projects. For example: 
+You can use subscriptions to give teams in your organization access to development environments and projects. For example: 
 
 - Test
 - Production
@@ -405,7 +405,12 @@ Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KF
 
 ## Add a subscription
 
-Account owners create subscriptions within their enrollment account. The first time you add a subscription to your account, you're asked to accept the Microsoft Online Subscription Agreement (MOSA) and a rate plan. Although they aren't applicable to Enterprise Agreement customers, the MOSA and the rate plan are required to create your subscription. Your Microsoft Azure Enterprise Agreement Enrollment Amendment supersedes the preceding items and your contractual relationship doesn't change. When prompted, select the option that indicates you accept the terms.
+A user must have at least one of the following roles to create a new subscription:
+
+- An Enterprise Administrator can create a new subscription under any active enrollment account
+- An Account Owner can create new subscriptions within their enrollment account
+
+The first time you add a subscription to your account, you're asked to accept the Microsoft Online Subscription Agreement (MOSA) and a rate plan. Although they aren't applicable to Enterprise Agreement customers, the MOSA and the rate plan are required to create your subscription. Your Microsoft Azure Enterprise Agreement Enrollment Amendment supersedes the preceding items and your contractual relationship doesn't change. When prompted, select the option that indicates you accept the terms.
 
 _Microsoft Azure Enterprise_ is the default name when a subscription is created. You can change the name to differentiate it from the other subscriptions in your enrollment, and to ensure that it's recognizable in reports at the enterprise level.
 
@@ -433,6 +438,7 @@ You can also create subscriptions by navigating to the Azure Subscriptions page 
 
 A user with the following permission can create subscriptions in another directory if they're allowed or exempted with subscription policy. For more information, see [Setting subscription policy](manage-azure-subscription-policy.md#setting-subscription-policy).
 
+- Enterprise Administrator
 - Account owner
 
 When you try to create a subscription for someone in a directory outside of the current directory (such as a customer's tenant), a _subscription creation request_ is created.

@@ -3,11 +3,11 @@ title: Azure Disk Encryption scenarios on Linux VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux VMs for various scenarios
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 07/07/2023
+ms.date: 02/20/2024
 ms.custom: devx-track-azurepowershell, linux-related-content, devx-track-azurecli
 ---
 

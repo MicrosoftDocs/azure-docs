@@ -167,8 +167,8 @@ There are three logs that can be enabled for online endpoints:
     | Created | Created container image-fetcher 
     | Created | Created container inference-server 
     | Created | Created container model-mount 
-    | Unhealthy | Liveness probe failed: \<FAILURE\_CONTENT\> 
-    | Unhealthy | Readiness probe failed: \<FAILURE\_CONTENT\> 
+    | LivenessProbeFailed | Liveness probe failed: \<FAILURE\_CONTENT\> 
+    | ReadinessProbeFailed | Readiness probe failed: \<FAILURE\_CONTENT\> 
     | Started | Started container image-fetcher 
     | Started | Started container inference-server 
     | Started | Started container model-mount 

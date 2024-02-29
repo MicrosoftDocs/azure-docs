@@ -12,27 +12,23 @@ ms.topic: how-to
 ms.custom:
   - kr2b-contr-experiment
   - ignite-2023
-ms.date: 06/10/2022
+ms.date: 02/28/2024
 ---
 
 # Index data from Azure Database for MySQL
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > MySQL support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API](search-api-preview.md) (2020-06-30-preview or later) to index your content. There is currently no portal support.
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Database for MySQL and makes it searchable in Azure AI Search.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Database for MySQL and makes it searchable in Azure AI Search. Inputs to the indexer are your row, in a single table or view. Output is a search index with searchable content in individual fields.
 
-This article supplements [Creating indexers in Azure AI Search](search-howto-create-indexers.md) with information that's specific to indexing files in Azure Database for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers:
-
-- Create a data source
-- Create an index
-- Create an indexer
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to indexing from ADLS Gen2. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 When configured to include a high water mark and soft deletion, the indexer takes all changes, uploads, and deletes for your MySQL database. It reflects these changes in your search index. Data extraction occurs when you submit the Create Indexer request.
 
 ## Prerequisites
 
-- [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
+- [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide scenario feedback. You can access the feature automatically after form submission.
 
 - [Azure Database for MySQL flexible server](../mysql/flexible-server/overview.md).
 
@@ -61,10 +57,6 @@ The data source definition specifies the data to index, credentials, and policie
 1. [Create or Update Data Source](/rest/api/searchservice/create-data-source) specifies the definition. Be sure to use a preview REST API version (2020-06-30-Preview or later) when creating the data source.
 
     ```http
-    POST https://[search service name].search.windows.net/datasources?api-version=2020-06-30-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-    
     {   
         "name" : "hotel-mysql-ds",
         "description" : "[Description of MySQL data source]",
@@ -109,6 +101,7 @@ In a [search index](search-what-is-an-index.md), add search index fields that co
         { "name": "City", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },
         { "name": "Description", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false  }     
     ]
+}
 ```
 
 If the primary key in the source table matches the document key (in this case, "ID"), the indexer imports the primary key as the document key.
@@ -139,8 +132,6 @@ Once the index and data source have been created, you're ready to create the ind
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30
-    
     {
         "name" : "hotels-mysql-idxr",
         "dataSourceName" : "hotels-mysql-ds",
@@ -168,7 +159,7 @@ An indexer runs automatically when it's created. You can prevent it from running
 To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2023-11-01
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -181,8 +172,8 @@ The response includes status and the number of items processed. It should look s
         "lastResult": {
             "status":"success",
             "errorMessage":null,
-            "startTime":"2022-02-21T00:23:24.957Z",
-            "endTime":"2022-02-21T00:36:47.752Z",
+            "startTime":"2024-02-21T00:23:24.957Z",
+            "endTime":"2024-02-21T00:36:47.752Z",
             "errors":[],
             "itemsProcessed":1599501,
             "itemsFailed":0,
@@ -194,8 +185,8 @@ The response includes status and the number of items processed. It should look s
             {
                 "status":"success",
                 "errorMessage":null,
-                "startTime":"2022-02-21T00:23:24.957Z",
-                "endTime":"2022-02-21T00:36:47.752Z",
+                "startTime":"2024-02-21T00:23:24.957Z",
+                "endTime":"2024-02-21T00:36:47.752Z",
                 "errors":[],
                 "itemsProcessed":1599501,
                 "itemsFailed":0,
@@ -231,19 +222,16 @@ In your MySQL database, the high water mark column must meet the following requi
 The following example shows a [data source definition](#define-the-data-source) with a change detection policy:
 
 ```http
-POST https://[search service name].search.windows.net/datasources?api-version=2020-06-30-Preview
-Content-Type: application/json
-api-key: [admin key]
-    {
-        "name" : "[Data source name]",
-        "type" : "mysql",
-        "credentials" : { "connectionString" : "[connection string]" },
-        "container" : { "name" : "[table or view name]" },
-        "dataChangeDetectionPolicy" : {
-            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-            "highWaterMarkColumnName" : "[last_updated column name]"
-        }
+{
+    "name" : "[Data source name]",
+    "type" : "mysql",
+    "credentials" : { "connectionString" : "[connection string]" },
+    "container" : { "name" : "[table or view name]" },
+    "dataChangeDetectionPolicy" : {
+        "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+        "highWaterMarkColumnName" : "[last_updated column name]"
     }
+}
 ```
 
 > [!IMPORTANT]

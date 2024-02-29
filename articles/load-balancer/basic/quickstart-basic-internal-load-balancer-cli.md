@@ -200,7 +200,7 @@ To create a network security group rule, use [az network nsg rule create](/cli/a
     --priority 200
 ```
 
-## Create back-end servers
+## Create backend servers
 
 In this section, you create:
 
