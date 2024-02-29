@@ -5,7 +5,7 @@ author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
-ms.date: 10/20/2020
+ms.date: 02/29/2024
 ms.author: midesa
 ---
 

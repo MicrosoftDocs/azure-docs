@@ -6,7 +6,7 @@ ms.service:  synapse-analytics
 ms.reviewer: sngun 
 ms.topic: tutorial
 ms.subservice: machine-learning
-ms.date: 02/15/2022
+ms.date: 02/29/2024
 ms.author: negust
 ms.custom: subject-rbac-steps
 
