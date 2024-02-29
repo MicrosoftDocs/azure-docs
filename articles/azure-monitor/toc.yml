@@ -31,6 +31,8 @@ items:
   items:
   - name: Monitor an Azure resource
     items:
+    - name: Use Azure Monitor to monitor an Azure resource
+      href: essentials/monitor-azure-resource.md
     - name: Analyze metric data
       href: essentials/tutorial-metrics.md
     - name: Collect and view resource logs
