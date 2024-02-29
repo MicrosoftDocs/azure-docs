@@ -64,13 +64,13 @@ The [sample application][sample-application] used in this tutorial is a basic st
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-1. Create an empty directory named `aks-store-demo` to host the azd template files.
+1. If you are using AZD locally, create an empty directory named `aks-store-demo` to host the azd template files.
 
     ```azurecli
     mkdir aks-store-demo
     ```
 
-1. Change into the new directory.
+1. Change into the new directory to load all the files from the azd template.
 
     ```azurecli
     cd aks-store-demo
@@ -243,6 +243,23 @@ Since you validated the application's functionality, you can stop and remove the
 ### [Azure Developer CLI](#tab/azure-azd)
 
 When you use AZD, there are no manual container image dependencies. AZD handles the provisioning, deployment, and cleans up of your applications and clusters with the `azd up` and `azd down` commands, similar to Docker.
+
+You can customize the preparation steps to use either Terraform or Bicep before deploying the cluster.
+
+1. This is selected within your `azure.yaml` infra section. By default, this project uses terraform.
+
+    ```yml
+    infra:
+      provider: terraform
+      path: infra/terraform
+
+2. To select Bicep change the provider and path from terraform to bicep
+
+    ```yml
+    infra:
+      provider: bicep
+      path: infra/bicep
+    ```
 
 ---
 ## Next steps

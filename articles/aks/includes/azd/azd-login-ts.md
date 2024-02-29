@@ -9,10 +9,13 @@ ms.date: 02/21/2024
 
 The workaround requires the Azure CLI for authentication. If you don't have it or aren't using GitHub Codespaces, install the [Azure CLI][install-azure-cli].
 
-1. Inside a terminal, run `az login --scope https://graph.microsoft.com/.default` 
-2. Copy the "localhost" URL from the failed redirect
-3. In a new terminal window,  type `curl` and paste your url
-4. If it works, code for a webpage saying "You have logged into Microsoft Azure!" appears
+1. Inside a terminal, login with Azure CLI
+    ```azurecli-interactive
+    az login --scope https://graph.microsoft.com/.default
+    ```
+1. Copy the "localhost" URL from the failed redirect
+1. In a new terminal window,  type `curl` and paste your url
+1. If it works, code for a webpage saying "You have logged into Microsoft Azure!" appears
 
 ```html
 <!DOCTYPE html>
