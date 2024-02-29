@@ -147,6 +147,325 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/sessionpools/interpreters/execute/action | Execute Code |
 > | microsoft.app/sessionpools/interpreters/read | Read interpreter resources |
 
+## Microsoft.AppPlatform
+
+A fully managed Spring Cloud service, built and operated with Pivotal.
+
+Azure service: [Azure Spring Apps](/azure/spring-apps/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.AppPlatform/register/action | Register the subscription to the Microsoft.AppPlatform resource provider |
+> | Microsoft.AppPlatform/unregister/action | Unregister the subscription from the Microsoft.AppPlatform resource provider |
+> | Microsoft.AppPlatform/locations/checkNameAvailability/action | Check resource name availability |
+> | Microsoft.AppPlatform/locations/operationResults/Spring/read | Read resource operation result |
+> | Microsoft.AppPlatform/locations/operationStatus/operationId/read | Read resource operation status |
+> | Microsoft.AppPlatform/operations/read | List available operations of Microsoft Azure Spring Apps |
+> | Microsoft.AppPlatform/runtimeVersions/read | Get runtime versions of Microsoft Azure Spring Apps |
+> | Microsoft.AppPlatform/skus/read | List available skus of Microsoft Azure Spring Apps |
+> | Microsoft.AppPlatform/Spring/write | Create or Update a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/delete | Delete a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/read | Get Azure Spring Apps service instance(s) |
+> | Microsoft.AppPlatform/Spring/listTestKeys/action | List test keys for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/regenerateTestKey/action | Regenerate test key for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/disableTestEndpoint/action | Disable test endpoint functionality for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/enableTestEndpoint/action | Enable test endpoint functionality for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/stop/action | Stop a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/start/action | Start a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/configServers/action | Validate the config server settings for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/enableApmGlobally/action | Enable APM globally for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/disableApmGlobally/action | Disable APM globally for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/listGloballyEnabledApms/action | List globally enabled APMs for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apiPortals/read | Get the API portal for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apiPortals/write | Create or update the API portal for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apiPortals/delete | Delete the API portal for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apiPortals/validateDomain/action | Validate the API portal domain for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apiPortals/domains/read | Get the API portal domain for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apiPortals/domains/write | Create or update the API portal domain for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apiPortals/domains/delete | Delete the API portal domain for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apms/read | Get the APM for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apms/write | Create or update the APM for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apms/delete | Delete the APM for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apms/listSecretKeys/action | List the secret keys for a specific Azure Spring Apps service instance APM |
+> | Microsoft.AppPlatform/Spring/applicationAccelerators/read | Get the Application Accelerator for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationAccelerators/write | Create or update Application Accelerator for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationAccelerators/delete | Delete Application Accelerator for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationAccelerators/customizedAccelerators/read | Get the Customized Accelerator for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationAccelerators/customizedAccelerators/write | Create or update Customized Accelerator for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationAccelerators/customizedAccelerators/delete | Delete Customized Accelerator for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationAccelerators/customizedAccelerators/validate/action | Validate Customized Accelerator for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationAccelerators/predefinedAccelerators/read | Get the Predefined Accelerator for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationAccelerators/predefinedAccelerators/disable/action | Disable Predefined Accelerator for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationAccelerators/predefinedAccelerators/enable/action | Enable Predefined Accelerator for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationLiveViews/read | Get the Application Live View for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationLiveViews/write | Create or update Application Live View for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/applicationLiveViews/delete | Delete Application Live View for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apps/write | Create or update the application for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apps/delete | Delete the application for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apps/read | Get the applications for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action | Get the resource upload URL of a specific Microsoft Azure Spring Apps application |
+> | Microsoft.AppPlatform/Spring/apps/validateDomain/action | Validate the custom domain for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/setActiveDeployments/action | Set active deployments for a specific Microsoft Azure Spring Apps application |
+> | Microsoft.AppPlatform/Spring/apps/validate/action | Validate the container registry for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apps/bindings/write | Create or update the binding for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/bindings/delete | Delete the binding for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/bindings/read | Get the bindings for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/connectorProps/read | Get the service connectors for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/connectorProps/write | Create or update the service connector for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/connectorProps/delete | Delete the service connector for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/write | Create or update the deployment for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/delete | Delete the deployment for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/read | Get the deployments for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/start/action | Start the deployment for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/stop/action | Stop the deployment for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/restart/action | Restart the deployment for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action | Get the log file URL of a specific Microsoft Azure Spring Apps application deployment |
+> | Microsoft.AppPlatform/Spring/apps/deployments/generateHeapDump/action | Generate heap dump for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/generateThreadDump/action | Generate thread dump for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/startJFR/action | Start JFR for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/enableRemoteDebugging/action | Enable remote debugging for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/disableRemoteDebugging/action | Disable remote debugging for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/getRemoteDebuggingConfig/action | Get remote debugging configuration for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/connectorProps/read | Get the service connectors for a specific deployment |
+> | Microsoft.AppPlatform/Spring/apps/deployments/connectorProps/write | Create or update the service connector for a specific deployment |
+> | Microsoft.AppPlatform/Spring/apps/deployments/connectorProps/delete | Delete the service connector for a specific deployment |
+> | Microsoft.AppPlatform/Spring/apps/deployments/operationResults/read | Read resource operation result |
+> | Microsoft.AppPlatform/Spring/apps/deployments/operationStatuses/read | Read resource operation Status |
+> | Microsoft.AppPlatform/Spring/apps/deployments/skus/read | List available skus of an application deployment |
+> | Microsoft.AppPlatform/Spring/apps/domains/write | Create or update the custom domain for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/domains/delete | Delete the custom domain for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/domains/read | Get the custom domains for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/operationResults/read | Read resource operation result |
+> | Microsoft.AppPlatform/Spring/apps/operationStatuses/read | Read resource operation Status |
+> | Microsoft.AppPlatform/Spring/buildpackBindings/read | Get the BuildpackBinding for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/read | Get the Build Services for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/getResourceUploadUrl/action | Get the Upload URL of a specific Microsoft Azure Spring Apps build |
+> | Microsoft.AppPlatform/Spring/buildServices/write | Create or Update the Build Services for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/agentPools/read | Get the Agent Pools for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/agentPools/write | Create or update the Agent Pools for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/builders/read | Get the Builders for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/builders/write | Create or update the Builders for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/builders/delete | Delete the Builders for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/builders/listUsingDeployments/action | List deployments using the Builders for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/read | Get the BuildpackBinding for a specific Azure Spring Apps service instance Builder |
+> | Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/write | Create or update the BuildpackBinding for a specific Azure Spring Apps service instance Builder |
+> | Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings/delete | Delete the BuildpackBinding for a specific Azure Spring Apps service instance Builder |
+> | Microsoft.AppPlatform/Spring/buildServices/builds/read | Get the Builds for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/builds/write | Create or update the Builds for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/builds/delete | Delete the Builds for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/builds/results/read | Get the Build Results for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/builds/results/getLogFileUrl/action | Get the Log File URL of a specific Microsoft Azure Spring Apps build result |
+> | Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks/read | Get the Supported Buildpacks for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/buildServices/supportedStacks/read | Get the Supported Stacks for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/certificates/write | Create or update the certificate for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/certificates/delete | Delete the certificate for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/certificates/read | Get the certificates for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/configServers/read | Get the config server for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/configServers/write | Create or update the config server for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/configServers/operationResults/read | Read resource operation result |
+> | Microsoft.AppPlatform/Spring/configServers/operationStatuses/read | Read resource operation Status |
+> | Microsoft.AppPlatform/Spring/configurationServices/read | Get the Application Configuration Services for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/configurationServices/write | Create or update the Application Configuration Service for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/configurationServices/delete | Delete the Application Configuration Service for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/configurationServices/validate/action | Validate the settings for a specific Application Configuration Service |
+> | Microsoft.AppPlatform/Spring/configurationServices/validateResource/action | Validate the resource for a specific Application Configuration Service |
+> | Microsoft.AppPlatform/Spring/containerRegistries/read | Get the container registry for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/containerRegistries/write | Create or update the container registry for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/containerRegistries/delete | Delete the container registry for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/deployments/read | Get the deployments for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/detectors/read | Get the detectors for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/devToolPortals/read | Get the Dev Tool Portal for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/devToolPortals/write | Create or update Dev Tool Portal for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/devToolPortals/delete | Delete Dev Tool Portal for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/read | Get the Spring Cloud Gateways for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/write | Create or update the Spring Cloud Gateway for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/delete | Delete the Spring Cloud Gateway for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/validateDomain/action | Validate the Spring Cloud Gateway domain for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/listEnvSecrets/action | List environment variables secret of the Spring Cloud Gateway for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/restart/action | Restart the Spring Cloud Gateway for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/domains/read | Get the Spring Cloud Gateways domain for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/domains/write | Create or update the Spring Cloud Gateway domain for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/domains/delete | Delete the Spring Cloud Gateway domain for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/routeConfigs/read | Get the Spring Cloud Gateway route config for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/routeConfigs/write | Create or update the Spring Cloud Gateway route config for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/gateways/routeConfigs/delete | Delete the Spring Cloud Gateway route config for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/monitoringSettings/read | Get the monitoring setting for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/monitoringSettings/write | Create or update the monitoring setting for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/operationResults/read | Read resource operation result |
+> | Microsoft.AppPlatform/Spring/operationStatuses/read | Read resource operation Status |
+> | Microsoft.AppPlatform/Spring/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostic settings for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/providers/Microsoft.Insights/diagnosticSettings/write | Create or update the diagnostic settings for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/providers/Microsoft.Insights/logDefinitions/read | Get definitions of logs from Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/providers/Microsoft.Insights/metricDefinitions/read | Get definitions of metrics from Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/serviceRegistries/read | Get the Service Registrys for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/serviceRegistries/write | Create or update the Service Registry for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/serviceRegistries/delete | Delete the Service Registry for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/storages/write | Create or update the storage for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/storages/delete | Delete the storage for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/storages/read | Get storage for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/supportedApmTypes/read | List the supported APM types for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/supportedServerVersions/read | List the supported server versions for a specific Azure Spring Apps service instance |
+> | **DataAction** | **Description** |
+> | Microsoft.AppPlatform/Spring/ApplicationConfigurationService/logstream/action | Read the streaming log of all subcomponents in Application Configuration Service from a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action | Remote debugging app instance for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/connect/action | Connect to an instance for a specific application |
+> | Microsoft.AppPlatform/Spring/configService/read | Read the configuration content(for example, application.yaml) for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/configService/write | Write config server content for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/configService/delete | Delete config server content for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/eurekaService/read | Read the user app(s) registration information for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/eurekaService/write | Write the user app(s) registration information for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/eurekaService/delete | Delete the user app registration information for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/logstreamService/read | Read the streaming log of user app for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/managedComponents/logstream/action | Read the streaming log of all managed components (e.g. Application Configuration Service, Spring Cloud Gateway) from a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/SpringCloudGateway/logstream/action | Read the streaming log of Spring Cloud Gateway from a specific Azure Spring Apps service instance |
+
+## Microsoft.AVS
+
+Azure service: [Azure VMware Solution](/azure/azure-vmware/introduction)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.AVS/register/action | Register Subscription for Microsoft.AVS resource provider. |
+> | Microsoft.AVS/unregister/action | Unregister Subscription for Microsoft.AVS resource provider. |
+> | Microsoft.AVS/checkNameAvailability/read | Checks if the privateCloud Name is available |
+> | Microsoft.AVS/locations/checkNameAvailability/read | Checks if the privateCloud Name is available |
+> | Microsoft.AVS/locations/checkQuotaAvailability/read | Checks if quota is available for the subscription |
+> | Microsoft.AVS/locations/checkTrialAvailability/read | Checks if trial is available for the subscription |
+> | Microsoft.AVS/operations/read | Lists operations available on Microsoft.AVS resource provider. |
+> | Microsoft.AVS/privateClouds/register/action | Registers the Microsoft Microsoft.AVS resource provider and enables creation of Private Clouds. |
+> | Microsoft.AVS/privateClouds/write | Creates or updates a PrivateCloud resource. |
+> | Microsoft.AVS/privateClouds/read | Gets the settings for the specified PrivateCloud. |
+> | Microsoft.AVS/privateClouds/delete | Delete a specific PrivateCloud. |
+> | Microsoft.AVS/privateClouds/addOns/read | Read addOns. |
+> | Microsoft.AVS/privateClouds/addOns/write | Write addOns. |
+> | Microsoft.AVS/privateClouds/addOns/delete | Delete addOns. |
+> | Microsoft.AVS/privateClouds/addOns/operationStatuses/read | Read addOns operationStatuses. |
+> | Microsoft.AVS/privateClouds/authorizations/read | Gets the authorization settings for a PrivateCloud cluster. |
+> | Microsoft.AVS/privateClouds/authorizations/write | Create or update a PrivateCloud authorization resource. |
+> | Microsoft.AVS/privateClouds/authorizations/delete | Delete a specific PrivateCloud authorization. |
+> | Microsoft.AVS/privateClouds/clusters/read | Gets the cluster settings for a PrivateCloud cluster. |
+> | Microsoft.AVS/privateClouds/clusters/write | Create or update a PrivateCloud cluster resource. |
+> | Microsoft.AVS/privateClouds/clusters/delete | Delete a specific PrivateCloud cluster. |
+> | Microsoft.AVS/privateClouds/clusters/datastores/read | Get the datastore properties in a private cloud cluster. |
+> | Microsoft.AVS/privateClouds/clusters/datastores/write | Create or update datastore in private cloud cluster. |
+> | Microsoft.AVS/privateClouds/clusters/datastores/delete | Delete datastore in private cloud cluster. |
+> | Microsoft.AVS/privateclouds/clusters/datastores/operationresults/read | Read privateClouds/clusters/datastores operationresults. |
+> | Microsoft.AVS/privateClouds/clusters/datastores/operationstatuses/read | Read privateClouds/clusters/datastores operationstatuses. |
+> | Microsoft.AVS/privateclouds/clusters/operationresults/read | Reads privateClouds/clusters operationresults. |
+> | Microsoft.AVS/privateClouds/clusters/operationstatuses/read | Reads privateClouds/clusters operationstatuses. |
+> | Microsoft.AVS/privateClouds/globalReachConnections/delete | Delete globalReachConnections. |
+> | Microsoft.AVS/privateClouds/globalReachConnections/write | Write globalReachConnections. |
+> | Microsoft.AVS/privateClouds/globalReachConnections/read | Read globalReachConnections. |
+> | Microsoft.AVS/privateClouds/globalReachConnections/operationStatuses/read | Read globalReachConnections operationStatuses. |
+> | Microsoft.AVS/privateClouds/hcxEnterpriseSites/read | Gets the hcxEnterpriseSites for a PrivateCloud. |
+> | Microsoft.AVS/privateClouds/hcxEnterpriseSites/write | Create or update a hcxEnterpriseSites. |
+> | Microsoft.AVS/privateClouds/hcxEnterpriseSites/delete | Delete a specific hcxEnterpriseSites. |
+> | Microsoft.AVS/privateClouds/hostInstances/read | Gets the hostInstances for a PrivateCloud. |
+> | Microsoft.AVS/privateClouds/hostInstances/write | Create or update a hostInstances. |
+> | Microsoft.AVS/privateClouds/hostInstances/delete | Delete a specific hostInstances. |
+> | Microsoft.AVS/privateClouds/operationresults/read | Reads privateClouds operationresults. |
+> | Microsoft.AVS/privateClouds/operationstatuses/read | Reads privateClouds operationstatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/delete | Delete dhcpConfigurations. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/write | Write dhcpConfigurations. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/read | Read dhcpConfigurations. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/operationStatuses/read | Read dhcpConfigurations operationStatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/delete | Delete dnsServices. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/write | Write dnsServices. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/read | Read dnsServices. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/operationStatuses/read | Read dnsServices operationStatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/delete | Delete dnsZones. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/write | Write dnsZones. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/read | Read dnsZones. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/operationStatuses/read | Read dnsZones operationStatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/gateways/read | Read gateways. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/delete | Delete portMirroringProfiles. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/write | Write portMirroringProfiles. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/read | Read portMirroringProfiles. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/operationStatuses/read | Read portMirroringProfiles operationStatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/segments/delete | Delete segments. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/segments/write | Write segments. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/segments/read | Read segments. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/segments/operationStatuses/read | Read segments operationStatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/virtualMachines/read | Read virtualMachines. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/delete | Delete vmGroups. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/write | Write vmGroups. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/read | Read vmGroups. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/operationStatuses/read | Read vmGroups operationStatuses. |
+> | **DataAction** | **Description** |
+> | Microsoft.AVS/privateClouds/listAdminCredentials/action | Lists the AdminCredentials for privateClouds. |
+> | Microsoft.AVS/privateClouds/rotateVcenterPassword/action | Rotate Vcenter password for the PrivateCloud. |
+> | Microsoft.AVS/privateClouds/rotateNsxtPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
+> | Microsoft.AVS/privateClouds/rotateNsxtCloudAdminPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
+
+## Microsoft.Batch
+
+Cloud-scale job scheduling and compute management.
+
+Azure service: [Batch](/azure/batch/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Batch/register/action | Registers the subscription for the Batch Resource Provider and enables the creation of Batch accounts |
+> | Microsoft.Batch/unregister/action | Unregisters the subscription for the Batch Resource Provider preventing the creation of Batch accounts |
+> | Microsoft.Batch/batchAccounts/read | Lists Batch accounts or gets the properties of a Batch account |
+> | Microsoft.Batch/batchAccounts/write | Creates a new Batch account or updates an existing Batch account |
+> | Microsoft.Batch/batchAccounts/delete | Deletes a Batch account |
+> | Microsoft.Batch/batchAccounts/listkeys/action | Lists access keys for a Batch account |
+> | Microsoft.Batch/batchAccounts/regeneratekeys/action | Regenerates access keys for a Batch account |
+> | Microsoft.Batch/batchAccounts/syncAutoStorageKeys/action | Synchronizes access keys for the auto storage account configured for a Batch account |
+> | Microsoft.Batch/batchAccounts/applications/read | Lists applications or gets the properties of an application |
+> | Microsoft.Batch/batchAccounts/applications/write | Creates a new application or updates an existing application |
+> | Microsoft.Batch/batchAccounts/applications/delete | Deletes an application |
+> | Microsoft.Batch/batchAccounts/applications/versions/read | Gets the properties of an application package |
+> | Microsoft.Batch/batchAccounts/applications/versions/write | Creates a new application package or updates an existing application package |
+> | Microsoft.Batch/batchAccounts/applications/versions/delete | Deletes an application package |
+> | Microsoft.Batch/batchAccounts/applications/versions/activate/action | Activates an application package |
+> | Microsoft.Batch/batchAccounts/certificateOperationResults/read | Gets the results of a long running certificate operation on a Batch account |
+> | Microsoft.Batch/batchAccounts/certificates/read | Lists certificates on a Batch account or gets the properties of a certificate |
+> | Microsoft.Batch/batchAccounts/certificates/write | Creates a new certificate on a Batch account or updates an existing certificate |
+> | Microsoft.Batch/batchAccounts/certificates/delete | Deletes a certificate from a Batch account |
+> | Microsoft.Batch/batchAccounts/certificates/cancelDelete/action | Cancels the failed deletion of a certificate on a Batch account |
+> | Microsoft.Batch/batchAccounts/detectors/read | Gets AppLens Detector or Lists AppLens Detectors on a Batch account |
+> | Microsoft.Batch/batchAccounts/operationResults/read | Gets the results of a long running Batch account operation |
+> | Microsoft.Batch/batchAccounts/outboundNetworkDependenciesEndpoints/read | Lists the outbound network dependency endpoints for a Batch account |
+> | Microsoft.Batch/batchAccounts/poolOperationResults/read | Gets the results of a long running pool operation on a Batch account |
+> | Microsoft.Batch/batchAccounts/pools/read | Lists pools on a Batch account or gets the properties of a pool |
+> | Microsoft.Batch/batchAccounts/pools/write | Creates a new pool on a Batch account or updates an existing pool |
+> | Microsoft.Batch/batchAccounts/pools/delete | Deletes a pool from a Batch account |
+> | Microsoft.Batch/batchAccounts/pools/stopResize/action | Stops an ongoing resize operation on a Batch account pool |
+> | Microsoft.Batch/batchAccounts/pools/disableAutoscale/action | Disables automatic scaling for a Batch account pool |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/validate/action | Validates a Private endpoint connection proxy on a Batch account |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/write | Create a new Private endpoint connection proxy on a Batch account |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/read | Gets Private endpoint connection proxy on a Batch account |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/delete | Delete a Private endpoint connection proxy on a Batch account |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxyResults/read | Gets the results of a long running Batch account private endpoint connection proxy operation |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnectionResults/read | Gets the results of a long running Batch account private endpoint connection operation |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnections/write | Update an existing Private endpoint connection on a Batch account |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnections/read | Gets Private endpoint connection or Lists Private endpoint connections on a Batch account |
+> | Microsoft.Batch/batchAccounts/privateEndpointConnections/delete | Delete a Private endpoint connection on a Batch account |
+> | Microsoft.Batch/batchAccounts/privateLinkResources/read | Gets the properties of a Private link resource or Lists Private link resources on a Batch account |
+> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the Batch service |
+> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for the Batch service |
+> | Microsoft.Batch/deployments/preflight/action | Runs Preflight validation for resources included in the request |
+> | Microsoft.Batch/locations/checkNameAvailability/action | Checks that the account name is valid and not in use. |
+> | Microsoft.Batch/locations/accountOperationResults/read | Gets the results of a long running Batch account operation |
+> | Microsoft.Batch/locations/cloudServiceSkus/read | Lists available Batch supported Cloud Service VM sizes at the given location |
+> | Microsoft.Batch/locations/quotas/read | Gets Batch quotas of the specified subscription at the specified Azure region |
+> | Microsoft.Batch/locations/virtualMachineSkus/read | Lists available Batch supported Virtual Machine VM sizes at the given location |
+> | Microsoft.Batch/operations/read | Lists operations available on Microsoft.Batch resource provider |
+> | **DataAction** | **Description** |
+> | Microsoft.Batch/batchAccounts/jobs/read | Lists jobs on a Batch account or gets the properties of a job |
+> | Microsoft.Batch/batchAccounts/jobs/write | Creates a new job on a Batch account or updates an existing job |
+> | Microsoft.Batch/batchAccounts/jobs/delete | Deletes a job from a Batch account |
+> | Microsoft.Batch/batchAccounts/jobSchedules/read | Lists job schedules on a Batch account or gets the properties of a job schedule |
+> | Microsoft.Batch/batchAccounts/jobSchedules/write | Creates a new job schedule on a Batch account or updates an existing job schedule |
+> | Microsoft.Batch/batchAccounts/jobSchedules/delete | Deletes a job schedule from a Batch account |
+
 ## Microsoft.ClassicCompute
 
 Azure service: Classic deployment model virtual machine

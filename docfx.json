@@ -349,7 +349,8 @@
         "articles/messaging-services/*": true,
         "articles/defender-for-cloud/*": true,
         "articles/azure-monitor/*": true,
-        "articles/key-vault/*": true
+        "articles/key-vault/*": true,
+        "articles/network-watcher/*": true
       },
       "archive_url": {
         "articles/iot-edge/*": "/previous-versions/azure/iot-edge/"

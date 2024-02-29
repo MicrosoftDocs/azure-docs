@@ -60,6 +60,76 @@ Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365
 > | Microsoft.AppComplianceAutomation/reports/webhooks/delete | Delete an AppComplianceAutomation webhook. |
 > | Microsoft.AppComplianceAutomation/reports/webhooks/write | Update an exiting AppComplianceAutomation webhook. |
 
+## Microsoft.DataProtection
+
+Azure service: Data Protection
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.DataProtection/register/action | Registers subscription for given Resource Provider |
+> | Microsoft.DataProtection/unregister/action | Unregisters subscription for given Resource Provider |
+> | Microsoft.DataProtection/backupVaults/write | Create BackupVault operation creates an Azure resource of type 'Backup Vault' |
+> | Microsoft.DataProtection/backupVaults/write | Update BackupVault operation updates an Azure resource of type 'Backup Vault' |
+> | Microsoft.DataProtection/backupVaults/read | The Get Backup Vault operation gets an object representing the Azure resource of type 'Backup Vault' |
+> | Microsoft.DataProtection/backupVaults/read | Gets list of Backup Vaults in a Subscription |
+> | Microsoft.DataProtection/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
+> | Microsoft.DataProtection/backupVaults/delete | The Delete Vault operation deletes the specified Azure resource of type 'Backup Vault' |
+> | Microsoft.DataProtection/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
+> | Microsoft.DataProtection/backupVaults/backupInstances/write | Creates a Backup Instance |
+> | Microsoft.DataProtection/backupVaults/backupInstances/validateForModifyBackup/action | Validates for modification of Backup Instance |
+> | Microsoft.DataProtection/backupVaults/backupInstances/delete | Deletes the Backup Instance |
+> | Microsoft.DataProtection/backupVaults/backupInstances/read | Returns details of the Backup Instance |
+> | Microsoft.DataProtection/backupVaults/backupInstances/read | Returns all Backup Instances |
+> | Microsoft.DataProtection/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
+> | Microsoft.DataProtection/backupVaults/backupInstances/sync/action | Sync operation retries last failed operation on backup instance to bring it to a valid state. |
+> | Microsoft.DataProtection/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
+> | Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
+> | Microsoft.DataProtection/backupVaults/backupInstances/stopProtection/action | Stop Protection operation stops both backup and retention schedules of backup instance. Existing data will be retained forever. |
+> | Microsoft.DataProtection/backupVaults/backupInstances/suspendBackups/action | Suspend Backups operation stops only backups of backup instance. Retention activities will continue and hence data will be ratained as per policy. |
+> | Microsoft.DataProtection/backupVaults/backupInstances/resumeProtection/action | Resume protection of a ProtectionStopped BI. |
+> | Microsoft.DataProtection/backupVaults/backupInstances/resumeBackups/action | Resume Backups for a BackupsSuspended BI. |
+> | Microsoft.DataProtection/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
+> | Microsoft.DataProtection/backupVaults/backupInstances/operationResults/read | Returns Backup Operation Result for Backup Vault. |
+> | Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read | Returns details of the Recovery Point |
+> | Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
+> | Microsoft.DataProtection/backupVaults/backupJobs/read | Get Jobs list |
+> | Microsoft.DataProtection/backupVaults/backupJobs/enableProgress/action | Get Job details |
+> | Microsoft.DataProtection/backupVaults/backupPolicies/write | Creates Backup Policy |
+> | Microsoft.DataProtection/backupVaults/backupPolicies/delete | Deletes the Backup Policy |
+> | Microsoft.DataProtection/backupVaults/backupPolicies/read | Returns details of the Backup Policy |
+> | Microsoft.DataProtection/backupVaults/backupPolicies/read | Returns all Backup Policies |
+> | Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read | Get the list of ResourceGuard proxies for a resource |
+> | Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read | Get ResourceGuard proxy operation gets an object representing the Azure resource of type 'ResourceGuard proxy' |
+> | Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
+> | Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | Microsoft.DataProtection/backupVaults/deletedBackupInstances/undelete/action | Perform undelete of soft-deleted Backup Instance. Backup Instance moves from SoftDeleted to ProtectionStopped state. |
+> | Microsoft.DataProtection/backupVaults/deletedBackupInstances/read | Get soft-deleted Backup Instance in a Backup Vault by name |
+> | Microsoft.DataProtection/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
+> | Microsoft.DataProtection/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
+> | Microsoft.DataProtection/backupVaults/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | Microsoft.DataProtection/locations/checkNameAvailability/action | Checks if the requested BackupVault Name is Available |
+> | Microsoft.DataProtection/locations/getBackupStatus/action | Check Backup Status for Recovery Services Vaults |
+> | Microsoft.DataProtection/locations/checkFeatureSupport/action | Validates if a feature is supported |
+> | Microsoft.DataProtection/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
+> | Microsoft.DataProtection/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | Microsoft.DataProtection/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | Microsoft.DataProtection/subscriptions/providers/resourceGuards/read | Gets list of ResourceGuards in a Subscription |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action | Performs validations for cross region restore operation. |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/write | Create ResourceGuard operation creates an Azure resource of type 'ResourceGuard' |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/read | The Get ResourceGuard operation gets an object representing the Azure resource of type 'ResourceGuard' |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/delete | The Delete ResourceGuard operation deletes the specified Azure resource of type 'ResourceGuard' |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/read | Gets list of ResourceGuards in a Resource Group |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/write | Update ResouceGuard operation updates an Azure resource of type 'ResourceGuard' |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read | Gets ResourceGuard operation request info |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read | Gets ResourceGuard default operation request info |
+
 ## Microsoft.KeyVault
 
 Safeguard and maintain control of keys and other secrets.
