@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.custom:
   - kr2b-contr-experiment
   - ignite-2023
-ms.date: 06/10/2022
+ms.date: 02/28/2024
 ---
 
 # Index data from Azure Database for MySQL
@@ -28,7 +28,7 @@ When configured to include a high water mark and soft deletion, the indexer take
 
 ## Prerequisites
 
-- [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
+- [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide scenario feedback. You can access the feature automatically after form submission.
 
 - [Azure Database for MySQL flexible server](../mysql/flexible-server/overview.md).
 
