@@ -1,10 +1,10 @@
 ---
-title: Deploy Azure Communications Gateway 
+title: Deploy Azure Communications Gateway
 description: This article guides you through planning for and deploying an Azure Communications Gateway.
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 10/09/2023
 ---
 
@@ -17,6 +17,8 @@ This article guides you through planning for and creating an Azure Communication
 You must have completed [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
 
 [!INCLUDE [communications-gateway-tsp-restriction](includes/communications-gateway-tsp-restriction.md)]
+
+[!INCLUDE [operator-call-protection-ucaas-restriction](../operator-call-protection/includes/operator-call-protection-ucaas-restriction.md)]
 
 [!INCLUDE [communications-gateway-deployment-prerequisites](includes/communications-gateway-deployment-prerequisites.md)]
 
@@ -87,6 +89,8 @@ For Zoom Phone Cloud Peering:
 | Whether to add a custom SIP header to messages entering your network by using Azure Communications Gateway's Provisioning API | **Options common to multiple communications services: Add custom SIP header** |
 | (Only if you choose to add a custom SIP header) The name of any custom SIP header | **Options common to multiple communications services: Custom SIP header name** |
 
+There are no configuration options required for Azure Operator Call Protection.
+
 ## Collect values for service verification numbers
 
 Collect all of the values in the following table for all the service verification numbers required by Azure Communications Gateway.
@@ -118,7 +122,7 @@ If you believe tagging would be useful for your organization, design your naming
 Use the Azure portal to create an Azure Communications Gateway resource.
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com/).
-1. In the search bar at the top of the page, search for Communications Gateway and select **Communications Gateways**.  
+1. In the search bar at the top of the page, search for Communications Gateway and select **Communications Gateways**.
 
     :::image type="content" source="media/deploy/search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for Azure Communications Gateway.":::
 

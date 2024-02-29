@@ -49,8 +49,7 @@ One clear sign of a procedural article would be the use of a numbered list. With
 
 -->
 
-# [\<noun phrase\> concept(s)]
-TODO: Add your heading
+# Overview of deploying Azure Operator Call Protection
 
 <!-- 2. Introductory paragraph
 ----------------------------------------------------------
@@ -64,11 +63,8 @@ Required. Lead with a light intro that describes what the article covers. Answer
 
 -->
 
-[Introductory paragraph]
-* AOCP adds AI Voice features to your ACG deployment
-* You must have an ACG to use AI Voice features.
-* The AI settings are managed through the Azure Communications Gateway resource
-* This article explains the different ways you can enable AOCP.
+Azure Operator Call Protection is built on Azure Communications Gateway.
+You need to deploy an Azure Communications Gateway resource and enable Azure Operator Call Protection to use this feature.
 
 
 <!-- 3. Prerequisites --------------------------------------------------------------------
@@ -79,9 +75,8 @@ language and use a unordered list format.
 -->
 
 ## Prerequisites
-[!INCLUDE [communications-gateway-tsp-restriction](../communications-gateway/includes/communications-gateway-tsp-restriction.md)]
 
-[!INCLUDE [communications-gateway-deployment-prerequisites](../communications-gateway/includes/communications-gateway-deployment-prerequisites.md)]
+[!INCLUDE [operator-call-protection-tsp-restriction](includes/operator-call-protection-tsp-restriction.md)]
 
 <!-- 4. H2s (Article body)
 --------------------------------------------------------------------
@@ -98,55 +93,16 @@ Required: In a series of H2 sections, the article body should discuss the ideas 
 
 -->
 
-## AOCP is available in the Portal Marketplace
+## Running an Azure Operator Call Protection service
 
-* AOCP can be deployed by searching for it in the Marketplace.
-* Creating AOCP will require filling out an ACG create request.
-* See the following docs for how to fill out the ACG create request.
-* You may need to manually enable "AOCP" on the "Communication Services" tab
+[!INCLUDE [operator-call-protection-ucaas-restriction](includes/operator-call-protection-ucaas-restriction.md)]
 
-TODO: Replace this picture with the actual one.
-![Azure Operator Call Protection in the Azure Portal Marketplace](media/portal1.png)
+The following articles will guide you through the process of deploying an Azure Communications Gateway resource.
+When given the option, you must enable the Call Protection settings.
 
-## AOCP is available on your existing ACG
-
-* Existing ACGs have a setting to add/configure AOCP
-* Submitting this request will update your ACG deployment to support ACG
-* You must wait for Provisioning to complete.
-
-TODO: Replace this picture with the actual one.
-![Enabling Azure Operator Call Protection on an Azure Communications Gateway](media/portal2.png)
-
-## [Section n heading]
-TODO: add your content
-
-<!-- 5. Next step/Related content ------------------------------------------------------------------------
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
-
--->
+![Enabling Azure Operator Call Protection when creating an Azure Communications Gateway](media/portal3.png)
 
 ## Next step
 
 > [!div class="nextstepaction"]
 > [Prepare to deploy Operator Call Protection on Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json)
-
-
-<!-- OR -->
-
-<!--
-## Related content
-
-TODO: Add your next step link(s)
-
-- [Write concepts](article-concept.md)
--
---->
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the
-main branch.
-
--->

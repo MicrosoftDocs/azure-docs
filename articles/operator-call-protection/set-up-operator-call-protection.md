@@ -96,26 +96,23 @@ For portal-based procedures, minimize bullets and numbering.
 
 -->
 
-## "\<verb1\> * \<noun1\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+## Enable Azure Operator Call Protection
 
-## "\<verb2\> * \<noun2\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+> [!NOTE]
+> If you selected Azure Operator Call Protection when you [deployed Azure Communications Gateway](../communications-gateway/deploy.md), skip this step and go to [Provision subscribers](#provision-subscribers).
 
-## "\<verb3\> * \<noun3\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
+TODO: Replace this picture with the actual one.
+![Azure Operator Call Protection on the Azure Communications Gateway resource](media/portal2.png)
+
+## Provision subscribers
+
+1. Go to NMP?
+1. Upload subscribers?
+1. ???
+
+## Route traffic for those subscribers
+You must update your network to fork calls for the relevant subscribers, and send ACG a SIPREC stream of these calls.
+
 1. Step 1
 1. Step 2
 1. Step 3
