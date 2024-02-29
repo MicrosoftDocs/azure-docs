@@ -3,7 +3,6 @@ title: Set up SNMP MIB monitoring on an OT sensor
 description: Learn how to set up your OT sensor for health monitoring via SNMP. 
 ms.date: 03/22/2023
 ms.topic: how-to
-
 ---
 
 # Set up SNMP MIB health monitoring on an OT sensor
