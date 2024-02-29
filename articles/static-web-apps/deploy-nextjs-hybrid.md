@@ -149,7 +149,7 @@ Begin by adding an API route.
     }
     ```
 
-1. Create a new file at `app/components/CurrentTimeFromAPI.tsx`. This will container a Client Component that fetches the API from the browser.
+1. Create a new file at `app/components/CurrentTimeFromAPI.tsx`. This component creates a container for the Client Component that fetches the API from the browser.
 1. Add a client component that fetches the API in this file.
 
     ```ts
