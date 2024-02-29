@@ -1,5 +1,5 @@
 ---
-title: Use Application Configuration Service for Tanzu with the Azure Spring Apps Enterprise plan
+title: Use Application Configuration Service for Tanzu
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Learn how to use Application Configuration Service for Tanzu with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
@@ -51,11 +51,19 @@ You can choose the version of Application Configuration Service when you create 
 
 Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your configuration files.
 
-To manage the service settings, open the **Settings** section and add a new entry under the **Repositories** section.
+To manage the service settings, open the **Settings** section. In this section, you can configure the following key aspects:
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-settings-repositories.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab and Repositories section highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-settings-repositories.png":::
+- **Generation**: Upgrade the service generation.
+- **Refresh Interval**: Adjust the frequency at which the service checks for updates from Git repositories.
+- **Repositories**: Add new entries, or modify existing ones. This function enables you to control which repositories the service monitors use to pull data.
 
-The following table describes the properties for each entry.
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-settings.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-settings.png":::
+
+If your current service generation is **Gen1**, you can upgrade to **Gen2** for better performance. For more information, see the [Upgrade from Gen1 to Gen2](#upgrade-from-gen1-to-gen2) section.
+
+The **Refresh Interval** specifies the frequency (in seconds) for checking updates in the repository. The minimum value is *0*, which disables automatic refresh. For optimal performance, set this interval to a minimum value of 60 seconds.
+
+The following table describes the properties for each repository entry:
 
 | Property      | Required? | Description                                                                                                                                                                                                                                                                                                                                  |
 |---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -70,7 +78,7 @@ The following table describes the properties for each entry.
 Configuration is pulled from Git backends using what you define in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
 
 - *{application}* - The name of an application whose configuration you're retrieving. The value `application` is considered the default application and includes configuration information shared across multiple applications. Any other value refers to a specific application and includes properties for both the specific application and shared properties for the default application.
-- *{profile}* - Optional. The name of a profile whose properties you may be retrieving. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
+- *{profile}* - Optional. The name of a profile whose properties you can retrieve. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
 
 ### Authentication
 
@@ -128,13 +136,13 @@ Use the following steps to upgrade from Gen1 to Gen2:
 
 1. In the Azure portal, navigate to the Application Configuration Service page for your Azure Spring Apps service instance.
 
-1. Select the **Settings** section and then select  **Gen 2** in the **Generation** dropdown menu.
+1. Select the **Settings** section and then select  **Gen2** in the **Generation** dropdown menu.
 
    :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-server-upgrade-gen2.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab showing and the Generation menu open." lightbox="media/how-to-enterprise-application-configuration-service/configuration-server-upgrade-gen2.png":::
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-server-upgrade-gen2-settings.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab showing and the Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-server-upgrade-gen2-settings.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-server-upgrade-gen2-settings.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page and the Settings tab with the Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-server-upgrade-gen2-settings.png":::
 
 ## Polyglot support
 
@@ -144,52 +152,58 @@ The Application Configuration Service also supports polyglot apps like dotNET, G
 
 ## Refresh strategies
 
-Use the following steps to refresh your Java Spring Boot application configuration after you update the configuration file in the Git repository.
+When you modify and commit your configurations in a Git repository, several steps are involved before these changes are reflected in your applications. This process, though automated, involves the following distinct stages and components, each with its own timing and behavior:
 
-1. Load the configuration to Application Configuration Service.
+- Polling by Application Configuration Service: The Application Configuration Service regularly polls the backend Git repositories to detect any changes. This polling occurs at a set frequency, defined by the refresh interval. When a change is detected, Application Configuration Service updates the Kubernetes `ConfigMap`.
+- ConfigMap update and interaction with kubelet cache: In Azure Spring Apps, this `ConfigMap` is mounted as a data volume to the relevant application. However, there's a natural delay in this process due to the frequency at which the kubelet refreshes its cache to recognize changes in `ConfigMap`.
+- Application reads updated configuration: Your application running in the Azure Spring Apps environment can access the updated configuration values. The existing beans in the Spring Context aren't automatically refreshed to use the updated configurations.
 
-   Azure Spring Apps manages the refresh frequency, which is set to 60 seconds.
+These stages are summarized in the following diagram:
 
-1. Load the configuration to your application.
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/acs-refresh-lifecycle.png" alt-text="Diagram that shows the lifecycle of the refresh process of Application Configuration Service." lightbox="media/how-to-enterprise-application-configuration-service/acs-refresh-lifecycle.png":::
 
-A Spring application holds the properties as the beans of the Spring Application Context via the Environment interface. The following list shows several ways to load the new configurations:
+You can adjust the polling refresh interval of the Application Configuration Service to align with your specific needs. To apply the updated configurations in your application, a restart or refresh action is necessary.
+
+In Spring applications, properties are held or referenced as beans within the Spring Context. To load new configurations, consider using the following methods:
 
 - Restart the application. Restarting the application always loads the new configuration.
 
 - Call the `/actuator/refresh` endpoint exposed on the config client via the Spring Actuator.
 
-   To use this method, add the following dependency to your configuration client’s *pom.xml* file.
+  To use this method, add the following dependency to your configuration client’s *pom.xml* file.
 
-   ``` xml
-   <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-   </dependency>
-   ```
+  ```xml
+  <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-actuator</artifactId>
+  </dependency>
+  ```
 
-   You can also enable the actuator endpoint by adding the following configurations:
+  You can also enable the actuator endpoint by adding the following configuration:
 
-   ```properties
-   management.endpoints.web.exposure.include=refresh, bus-refresh, beans, env
-   ```
+  ```properties
+  management.endpoints.web.exposure.include=refresh, bus-refresh, beans, env
+  ```
 
-   After you reload the property sources by calling the `/actuator/refresh` endpoint, the attributes bound with `@Value` in the beans having the annotation `@RefreshScope` are refreshed.
+  After you reload the property sources by calling the `/actuator/refresh` endpoint, the attributes bound with `@Value` in the beans having the annotation `@RefreshScope` are refreshed.
 
-   ``` java
-   @Service
-   @Getter @Setter
-   @RefreshScope
-   public class MyService {
-      @Value
-      private Boolean activated;
-   }
-   ```
+  ```java
+  @Service
+  @Getter @Setter
+  @RefreshScope
+  public class MyService {
+     @Value
+     private Boolean activated;
+  }
+  ```
 
-   Use curl with the application endpoint to refresh the new configuration.
+  Use curl with the application endpoint to refresh the new configuration, as shown in the following example:
 
-   ``` bash
-   curl -X POST http://{app-endpoint}/actuator/refresh
-   ```
+  ```bash
+  curl -X POST http://{app-endpoint}/actuator/refresh
+  ```
+
+- Use `FileSystemWatcher` to watch the file change and refresh the context on demand. `FileSystemWatcher` is a class shipped with `spring-boot-devtools` that watches specific directories for file changes, or you can use another utility with similar function. The previous option requires users to initiate the refresh actively, while the latter can monitor for file changes and automatically invoke the refresh upon detecting updates. You can retrieve the file path by using the environment variable `AZURE_SPRING_APPS_CONFIG_FILE_PATH`, as mentioned in the [Polyglot support](#polyglot-support) section.
 
 ## Configure Application Configuration Service settings
 
@@ -198,6 +212,7 @@ A Spring application holds the properties as the beans of the Spring Application
 Use the following steps to configure Application Configuration Service:
 
 1. Select **Application Configuration Service**.
+
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service.
 
    :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-overview.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with Overview tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-overview.png":::
@@ -262,24 +277,24 @@ Use the following steps to use Application Configuration Service with applicatio
 
 1. Open the **App binding** tab.
 
-1. Select **Bind app** and choose one app in the dropdown. Select **Apply** to bind.
+1. Select **Bind app** and choose one app from the dropdown. Select **Apply** to bind.
 
    :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-app-bind-dropdown.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the App binding tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-app-bind-dropdown.png":::
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
 
-1. In the navigation menu, select **Apps** to view the list all the apps.
+1. In the navigation menu, select **Apps** to view the list of all the apps.
 
-1. Select the target app to configure patterns for from the `name` column.
+1. Select the target app to configure patterns for the `name` column.
 
 1. In the navigation pane, select **Configuration** and then select **General settings**.
 
-1. In the **Config file patterns** dropdown, choose one or more patterns from the list. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section.
+1. In the **Config file patterns** dropdown, choose one or more patterns from the list. For more information, see the [Pattern](#pattern) section.
 
    :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-pattern.png" alt-text="Screenshot of the Azure portal that shows the App Configuration page with the General settings tab and api-gateway options highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-pattern.png":::
 
-1. Select **Save**
+1. Select **Save**.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -445,8 +460,21 @@ To check the logs of `application-configuration-service` and `flux-source-contro
      :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-flux-source-controller.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for flux-source-controller." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-flux-source-controller.png":::
 
 > [!NOTE]
-> There could be a few minutes delay before the logs are available in Log Analytics.
+> There might could be a few minutes delay before the logs are available in Log Analytics.
 
-## Next steps
+## Troubleshoot known issues
 
-- [Azure Spring Apps](index.yml)
+If the latest changes aren't reflected in the applications, check the following items based on the [Refresh strategies](#refresh-strategies) section:
+
+- Confirm that the Git repo is updated correctly by checking the following items:
+  - Confirm that the branch of the desired config file changes is updated.
+  - Confirm that the pattern configured in the Application Configuration Service matches the updated config files.
+  - Confirm that the application is bound to the Application Configuration Service.
+- Confirm that the `ConfigMap` of the app is updated. If it isn't updated, raise a ticket.
+- Confirm that the `ConfigMap` is mounted to the application as a file by using `web shell`. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
+
+After checking these items, the applications should be able to read the updated configurations. If the applications still aren't updated, raise a ticket.
+
+## Related content
+
+[Azure Spring Apps](index.yml)

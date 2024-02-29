@@ -4,7 +4,7 @@ description: Learn about the Microsoft Sentinel Solution for Power Platform.
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 02/28/2024
 ---
 
 # Microsoft Sentinel solution for Microsoft Power Platform overview
