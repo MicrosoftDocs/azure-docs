@@ -28,6 +28,6 @@ For more information, see the following resources:
 
 - [Azure VMware Solution + CBS Implementation Guide](https://support.purestorage.com/Pure_Cloud_Block_Store/Azure_VMware_Solution_and_Cloud_Block_Store_Implementation_Guide)
 - [CBS Deployment Guide](https://support.purestorage.com/Pure_Cloud_Block_Store/Pure_Cloud_Block_Store_on_Azure_Implementation_Guide)
-- [Troubleshooting CBS Deployment](https://support.purestorage.com/Pure_Cloud_Block_Store/Pure_Cloud_Block_Store_on_Azure_-_Troubleshooting_Guide)
-- [Pure CBS support](https://support.purestorage.com/Pure_Cloud_Block_Store#tabs-content-avs)
+- [CBS Deployment Troubleshooting](https://support.purestorage.com/Pure_Cloud_Block_Store/Pure_Cloud_Block_Store_on_Azure_-_Troubleshooting_Guide)
+- [CBS support articles](https://support.purestorage.com/Pure_Cloud_Block_Store/CBS_on_Azure_VMware_Solution_Troubleshooting_Article_Index)
 - [Videos](https://support.purestorage.com/Pure_Cloud_Block_Store/Azure_VMware_Solution_and_Cloud_Block_Store_Video_Demos)
