@@ -169,7 +169,7 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
 You can change this delay, but make sure that you carefully test any changes to the default value:
 
 ```json
-"workflow":{
+  "workflow": {
             "settings": {
                 "Runtime.ServiceProviders.FunctionTriggers.DynamicListenerEnableDisableInterval": "00:00:30"
       }
