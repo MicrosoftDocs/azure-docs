@@ -11,7 +11,7 @@ ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 09/13/2023
+ms.date: 02/26/2024
 ---
 
 # Create and manage prompt flow runtimes in Azure Machine Learning studio
@@ -22,8 +22,8 @@ Azure Machine Learning supports the following types of runtimes:
 
 |Runtime type|Underlying compute type|Life cycle management|Customize environment              |
 |------------|----------------------|---------------------|---------------------|
-|Automatic runtime (preview)        |[Serverless compute](../how-to-use-serverless-compute.md)| Automatic | Easily customize packages|
-|Compute instance runtime | Compute instance | Manual | Manually customize via Azure Machine Learning environment|
+|Automatic runtime (preview)        |[Serverless compute](../how-to-use-serverless-compute.md) and [Compute instance](../how-to-create-compute-instance.md)| Automatic | Easily customize packages|
+|Compute instance runtime | [Compute instance](../how-to-create-compute-instance.md) | Manual | Manually customize via Azure Machine Learning environment|
 
 If you're a new user, we recommend that you use the automatic runtime (preview). You can easily customize the environment by adding packages in the `requirements.txt` file in `flow.dag.yaml` in the flow folder. If you're already familiar with the Azure Machine Learning environment and compute instances, you can use your existing compute instance and environment to build a compute instance runtime.
 
@@ -55,15 +55,18 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 > [!IMPORTANT]
 > Automatic runtime is currently in public preview. This preview is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-- Select **Start**. Start creating an automatic runtime (preview) by using the environment defined in `flow.dag.yaml` in the flow folder on the virtual machine (VM) size where you have a quota in the workspace.
+- Select **Start**. Start creating an automatic runtime (preview) by using the environment defined in `flow.dag.yaml` in the flow folder on the virtual machine (VM) size using serverless compute where you have a quota in the workspace.
 
   :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
 - Select **Start with advanced settings**. In the advanced settings, you can:
 
-  - Customize the VM size that the runtime uses.
-  - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
-  - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry pull permission.
+  - Select compute type. You can choose between serverless compute and compute instance. 
+      - If you choose serverless compute, you can set following settings:
+          - Customize the VM size that the runtime uses.
+          - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
+          - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry pull permission.
+    - If you choose compute instance, you can set following settings:
 
     If you don't set this identity, we use the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
