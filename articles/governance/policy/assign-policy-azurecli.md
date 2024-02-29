@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Azure CLI"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using Azure CLI.
-ms.date: 02/23/2024
+ms.date: 02/26/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ---
@@ -51,7 +51,7 @@ The Azure CLI commands use a backslash (`\`) for line continuation to improve re
 
 ## Create policy assignment
 
-Use the following commands to create a new policy assignment for your resource group. This example uses an existing resource group that contains a virtual machine _without_ managed disks. The resource group is the scope for the policy assignment.
+Use the following commands to create a new policy assignment for your resource group. This example uses an existing resource group that contains a virtual machine _without_ managed disks. The resource group is the scope for the policy assignment. This example uses the built-in policy definition [Audit VMs that do not use managed disks](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json).
 
 Run the following commands and replace `<resourceGroupName>` with your resource group name:
 
@@ -70,7 +70,7 @@ Run the following command to create the policy assignment:
 ```azurecli
 az policy assignment create \
   --name 'audit-vm-managed-disks' \
-  --display-name 'Audit VMs without managed disks Assignment' \
+  --display-name 'Audit VM managed disks' \
   --scope $rgid \
   --policy $definition \
   --description 'Azure CLI policy assignment to resource group'
@@ -86,7 +86,7 @@ The results of the policy assignment resemble the following example:
 
 ```output
 "description": "Azure CLI policy assignment to resource group",
-"displayName": "Audit VMs without managed disks Assignment",
+"displayName": "Audit VM managed disks",
 "enforcementMode": "Default",
 "id": "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments/audit-vm-managed-disks",
 "identity": null,

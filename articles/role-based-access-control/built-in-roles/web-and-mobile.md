@@ -117,9 +117,9 @@ Allow read, write and delete access to Azure Spring Cloud Config Server
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.AppPlatform](../permissions/web-and-mobile.md#microsoftappplatform)/Spring/configService/read | Read the configuration content(for example, application.yaml) for a specific Azure Spring Apps service instance |
-> | [Microsoft.AppPlatform](../permissions/web-and-mobile.md#microsoftappplatform)/Spring/configService/write | Write config server content for a specific Azure Spring Apps service instance |
-> | [Microsoft.AppPlatform](../permissions/web-and-mobile.md#microsoftappplatform)/Spring/configService/delete | Delete config server content for a specific Azure Spring Apps service instance |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/configService/read | Read the configuration content(for example, application.yaml) for a specific Azure Spring Apps service instance |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/configService/write | Write config server content for a specific Azure Spring Apps service instance |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/configService/delete | Delete config server content for a specific Azure Spring Apps service instance |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -162,7 +162,7 @@ Allow read access to Azure Spring Cloud Config Server
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.AppPlatform](../permissions/web-and-mobile.md#microsoftappplatform)/Spring/configService/read | Read the configuration content(for example, application.yaml) for a specific Azure Spring Apps service instance |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/configService/read | Read the configuration content(for example, application.yaml) for a specific Azure Spring Apps service instance |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -201,7 +201,7 @@ Allow read access to Azure Spring Cloud Data
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.AppPlatform](../permissions/web-and-mobile.md#microsoftappplatform)/Spring/*/read |  |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/*/read |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -242,9 +242,9 @@ Allow read, write and delete access to Azure Spring Cloud Service Registry
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.AppPlatform](../permissions/web-and-mobile.md#microsoftappplatform)/Spring/eurekaService/read | Read the user app(s) registration information for a specific Azure Spring Apps service instance |
-> | [Microsoft.AppPlatform](../permissions/web-and-mobile.md#microsoftappplatform)/Spring/eurekaService/write | Write the user app(s) registration information for a specific Azure Spring Apps service instance |
-> | [Microsoft.AppPlatform](../permissions/web-and-mobile.md#microsoftappplatform)/Spring/eurekaService/delete | Delete the user app registration information for a specific Azure Spring Apps service instance |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/eurekaService/read | Read the user app(s) registration information for a specific Azure Spring Apps service instance |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/eurekaService/write | Write the user app(s) registration information for a specific Azure Spring Apps service instance |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/eurekaService/delete | Delete the user app registration information for a specific Azure Spring Apps service instance |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -287,7 +287,7 @@ Allow read access to Azure Spring Cloud Service Registry
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.AppPlatform](../permissions/web-and-mobile.md#microsoftappplatform)/Spring/eurekaService/read | Read the user app(s) registration information for a specific Azure Spring Apps service instance |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/eurekaService/read | Read the user app(s) registration information for a specific Azure Spring Apps service instance |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -328,7 +328,7 @@ Create, read, modify, and delete Media Services accounts; read-only access to ot
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/*/read |  |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | List Streaming Locators for Asset |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | List Paths |
@@ -393,7 +393,7 @@ Create, read, modify, and delete Live Events, Assets, Asset Filters, and Streami
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/*/read |  |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/* |  |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/assetfilters/* |  |
@@ -458,7 +458,7 @@ Create, read, modify, and delete Assets, Asset Filters, Streaming Locators, and 
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/*/read |  |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/* |  |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/assetfilters/* |  |
@@ -523,7 +523,7 @@ Create, read, modify, and delete Account Filters, Streaming Policies, Content Ke
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/*/read |  |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | List Streaming Locators for Asset |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | List Paths |
@@ -590,7 +590,7 @@ Create, read, modify, and delete Streaming Endpoints; read-only access to other 
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/*/read |  |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | List Streaming Locators for Asset |
 > | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | List Paths |
@@ -631,137 +631,6 @@ Create, read, modify, and delete Streaming Endpoints; read-only access to other 
     }
   ],
   "roleName": "Media Services Streaming Endpoints Administrator",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Search Index Data Contributor
-
-Grants full access to Azure Cognitive Search index data.
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | *none* |  |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | [Microsoft.Search](../permissions/web-and-mobile.md#microsoftsearch)/searchServices/indexes/documents/* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Grants full access to Azure Cognitive Search index data.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/8ebe5a00-799e-43f5-93ac-243d3dce84a7",
-  "name": "8ebe5a00-799e-43f5-93ac-243d3dce84a7",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Search/searchServices/indexes/documents/*"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Search Index Data Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Search Index Data Reader
-
-Grants read access to Azure Cognitive Search index data.
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | *none* |  |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | [Microsoft.Search](../permissions/web-and-mobile.md#microsoftsearch)/searchServices/indexes/documents/read | Read documents or suggested query terms from an index. |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Grants read access to Azure Cognitive Search index data.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/1407120a-92aa-4202-b7e9-c0e197c71c8f",
-  "name": "1407120a-92aa-4202-b7e9-c0e197c71c8f",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Search/searchServices/indexes/documents/read"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Search Index Data Reader",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Search Service Contributor
-
-Lets you manage Search services, but not access to them.
-
-[Learn more](/azure/search/search-security-rbac)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Search](../permissions/web-and-mobile.md#microsoftsearch)/searchServices/* | Create and manage search services |
-> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Lets you manage Search services, but not access to them.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/7ca78c08-252a-4471-8644-bb5ff32d4ba0",
-  "name": "7ca78c08-252a-4471-8644-bb5ff32d4ba0",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Authorization/*/read",
-        "Microsoft.Insights/alertRules/*",
-        "Microsoft.ResourceHealth/availabilityStatuses/read",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Search/searchServices/*",
-        "Microsoft.Support/*"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Search Service Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1044,7 +913,7 @@ Manage the web plans for websites. Does not allow you to assign roles in Azure R
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
@@ -1100,7 +969,7 @@ Manage websites, but not web plans. Does not allow you to assign roles in Azure 
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/components/* | Create and manage Insights components |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |

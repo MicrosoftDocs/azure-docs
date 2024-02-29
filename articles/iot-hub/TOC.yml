@@ -78,7 +78,7 @@
       - name: Schedule jobs on multiple devices
         href: iot-hub-devguide-jobs.md
       - name: IoT Hub endpoints
-        displayName: multi-tenant
+        displayName: multitenant
         href: iot-hub-devguide-endpoints.md
       - name: Queries
         items:
@@ -131,7 +131,7 @@
         href: iot-hub-message-enrichments-overview.md
     - name: Message routing
       items:
-      - name: Use message routing to send device-to-cloud messages
+      - name: Route device-to-cloud messages to Azure services
         displayName: endpoints, built-in endpoint, Azure storage, Service Bus Queues, fallback, route
         href: iot-hub-devguide-messages-d2c.md
       - name: Add queries to message routes
