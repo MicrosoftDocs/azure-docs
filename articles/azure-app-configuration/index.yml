@@ -142,6 +142,8 @@ landingContent:
           url: quickstart-feature-flag-dotnet.md
         - text: Spring Boot app
           url: quickstart-feature-flag-spring-boot.md
+        - text: Python app
+          url: quickstart-feature-flag-python.md
       - linkListType: tutorial
         links: 
         - text: Manage feature flags

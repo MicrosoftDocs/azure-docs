@@ -39,6 +39,8 @@
           href: quickstart-feature-flag-spring-boot.md
         - name: Azure Functions
           href: quickstart-feature-flag-azure-functions-csharp.md
+        - name: Python app
+          href: quickstart-feature-flag-python.md
     - name: Service integration
       items:
         - name: Azure Kubernetes Service
