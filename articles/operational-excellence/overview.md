@@ -2,7 +2,7 @@
 title: Azure Operational Excellence documentation (Preview)
 description: Azure Operational Excellence documentation for guidance for specific workload operations and projects
 author: anaharris-ms
-ms.topic: overview
+ms.topic: concept
 ms.date: 02/02/2024
 ms.author: anaharris
 ms.service: operational-excellence

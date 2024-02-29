@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/19/2024
 ms.service: automation
-ms.topic: how-to
+ms.topic: concept
 ms.custom:
   - subject-relocation
 ---

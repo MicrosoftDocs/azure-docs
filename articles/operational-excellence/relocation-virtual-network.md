@@ -6,9 +6,8 @@ ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/25/2023
 ms.service: virtual-network
-ms.topic: how-to
+ms.topic: concept
 ms.custom:
-  - references_regions
   - subject-relocation
 ---
 

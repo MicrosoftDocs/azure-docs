@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/24/2024
 ms.service: event-hubs
-ms.topic: how-to
+ms.topic: concept
 ms.custom:
   - subject-relocation
 ---

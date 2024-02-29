@@ -60,12 +60,12 @@ If you already have a dedicated cluster and choose to retain it to access its da
 The new cluster isn’t billed during its first day to avoid double billing during configuration. Only the data ingested before the migration completes would still be billed on the date of migration. 
 
 
-## Next steps
+## Related content
 
 Learn more about:
 
-> [!div class="nextstepaction"]
-> [Azure Monitor Logs Dedicated Clusters](../azure-monitor/logs/logs-dedicated-clusters.md)
+- [Relocate Log Analytics workspaces to another region](../operational-excellence/relocation-log-analytics.md)
 
-> [!div class="nextstepaction"]
-> [Azure Services that support Availability Zones](availability-zones-service-support.md)
+- [Azure Monitor Logs Dedicated Clusters](../azure-monitor/logs/logs-dedicated-clusters.md)
+
+- [Azure Services that support Availability Zones](availability-zones-service-support.md)

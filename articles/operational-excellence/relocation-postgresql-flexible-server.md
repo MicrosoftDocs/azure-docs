@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.reviewer: maghan
 ms.date: 02/14/2024
 ms.service: postgresql
-ms.topic: how-to
+ms.topic: concept
 ms.custom:
   - subject-relocation
 ---

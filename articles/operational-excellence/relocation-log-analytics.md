@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.date: 02/01/2024
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: how-to
+ms.topic: concept
 ms.custom:
   - subject-relocation
 #CustomerIntent: As a cloud architect/engineer, I want to learn how to relocate Log Analytics workspace to another region.
@@ -337,6 +337,8 @@ If you no longer need access to older data in the original workspace:
 ## Related content
 
 To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+
+- [Migrate Log Analytics to availability zone support](../reliability/migrate-monitor-log-analytics.md)
 
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
