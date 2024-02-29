@@ -28,6 +28,12 @@ items:
         - name: Route MQTT messages to Event Hubs
           items:
           - name: Azure CLI
+            href: mqtt-routing-to-event-hubs-cli-namespace-topics.md
+          - name: Azure portal
+            href: mqtt-routing-to-event-hubs-portal-namespace-topics.md
+        - name: Route MQTT messages to Event Hubs using custom topics
+          items:
+          - name: Azure CLI
             href: mqtt-routing-to-event-hubs-cli.md
           - name: Azure portal
             href: mqtt-routing-to-event-hubs-portal.md
