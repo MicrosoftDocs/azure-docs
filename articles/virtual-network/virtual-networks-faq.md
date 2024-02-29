@@ -130,9 +130,10 @@ Unicast is supported in virtual networks. Multicast, broadcast, IP-in-IP encapsu
 
 Azure virtual networks provide DHCP service and DNS to Azure Virtual Machines. However, you can also deploy a DHCP Server in an Azure VM to serve the on-prem clients via a DHCP Relay Agent.
 
-DHCP Server in Azure was previously marked as unsupported since the traffic to port UDP/67 was rate limited in Azure. However, with the recent platform updates, the rate limiting is removed enabling this capability. 
+DHCP Server in Azure was previously marked as unsupported since the traffic to port UDP/67 was rate limited in Azure. However, recent platform updates have removed the rate limitation, enabling this capability. 
 
-Please note that the on-prem client to DHCP Server (source port UDP/68, destination port UDP/67) is still not supported in Azure, since this traffic is intercepted and handled differently. So, this will result in some timeout messages at the time of DHCP RENEW at T1 when the client directly attempts to reach the DHCP Server in Azure, but this should succeed when the DHCP RENEW attempt is made at T2 via DHCP Relay Agent (*please refer to the [RFC 2131](https://www.ietf.org/rfc/rfc2131.txt) for more details on the T1 and T2 DHCP RENEW timers*).
+> [!NOTE]
+> The on-premises client to DHCP Server (source port UDP/68, destination port UDP/67) is still not supported in Azure, since this traffic is intercepted and handled differently. So, this will result in some timeout messages at the time of DHCP RENEW at T1 when the client directly attempts to reach the DHCP Server in Azure, but this should succeed when the DHCP RENEW attempt is made at T2 via DHCP Relay Agent. For more details on the T1 and T2 DHCP RENEW timers, see [RFC 2131](https://www.ietf.org/rfc/rfc2131.txt).
 
 ### Can I ping a default gateway in a virtual network?
 
