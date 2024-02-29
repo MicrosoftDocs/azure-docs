@@ -26,13 +26,11 @@ All other network, compute, and storage limitations apply to the provisioned inf
 
 ## Restricted VM sizes
 
-Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure that the required *kube-system* pods and your applications can reliably be scheduled, **don't use the following VM SKUs in AKS**:
+Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure that the required *kube-system* pods and your applications can reliably be scheduled, **don't use [B series VMs][b-series-vm] and the following VM SKUs in AKS on system node pools**:
 
 - Standard_A0
 - Standard_A1
 - Standard_A1_v2
-- Standard_B1s
-- Standard_B1ms
 - Standard_F1
 - Standard_F1s
 
@@ -53,3 +51,4 @@ Certain default limits and quotas can be increased. If your resource supports an
 <!-- LINKS - Internal -->
 [vm-skus]: ../virtual-machines/sizes.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[b-series-vm]: ../virtual-machines/sizes-b-series-burstable.md
