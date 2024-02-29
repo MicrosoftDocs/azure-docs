@@ -73,7 +73,6 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | ------- | ----- |
     | Name |  **vm-2** |
     | Availability zone | **2** |
-    | Network security group | Select the existing **nsg-1** |
     | Load-balancing options | Select **Azure load balancer** |
     | Select a load balancer | Select **load-balancer**  |
     | Select a backend pool | Select **backend-pool** |
