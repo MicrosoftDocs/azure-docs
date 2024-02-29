@@ -82,7 +82,7 @@ Workers are evaluated based on:
 
 2. After selecting your Subscription, enter a unique name for your function app.
 
- :::image type="content" source="./media/function-select-subscription.png.png" alt-text="Screenshot of selecting subscription in VS Code.":::
+ :::image type="content" source="./media/function-select-subscription.png" alt-text="Screenshot of selecting subscription in VS Code.":::
 
 3. Once your Function App is created, right-click on your App and select 'Deploy Function App...'
 4. Open the Azure portal and go to your Azure OpenAI resource, then go to Azure AI Studio. From here, navigate to the Deployments tab and select "+ Create new deployment"
@@ -99,7 +99,7 @@ Workers are evaluated based on:
 
 6. In the Azure portal, navigate to your newly created Function App Environmental Variables blade and create the following variables:
 
- :::image type="content" source="./media/azure-function-enviornment-settings" alt-text="Screenshot of of Azure function enviornment settings example.":::
+ :::image type="content" source="./media/azure-function-enviornment-settings.png" alt-text="Screenshot of of Azure function enviornment settings example.":::
 
 | Name            | Value            | Description                                                        |
 |-----------------|------------------|--------------------------------------------------------------------|
