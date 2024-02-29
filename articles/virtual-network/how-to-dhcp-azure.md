@@ -14,71 +14,221 @@ ms.date: 02/28/2024
 
 # Deploy a DHCP server in Azure on a virtual machine
 
+In this how-to, learn how to deploy a highly available DHCP server in Azure on a virtual machine. This server is used as a target for an on-premises DHCP relay agent to provide dynamic IP address allocation to on-premises clients. Broadcast packets directly from clients to a DHCP Server don't work in an Azure Virtual Network by design.
 
 ## Prerequisites
 
-<!-- Optional: Prerequisites - H2
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-If included, "Prerequisites" must be the first H2 in the article.
+[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
 
-List any items that are needed for the integration,
-such as permissions or software.
+## Create internal load balancer
 
-If you need to sign in to a portal to do the quickstart, 
-provide instructions and a link.
+In this section, you create an internal load balancer that load balances virtual machines. An internal load balancer is used to load balance traffic inside a virtual network with a private IP address.
 
--->
+During the creation of the load balancer, you configure:
 
-## "[verb] * [noun]"
+* Frontend IP address
+* Backend pool
+* Inbound load-balancing rules
 
-[Introduce the procedure.]
+1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
-1. Procedure step
-1. Procedure step
-1. Procedure step
+1. In the **Load balancer** page, select **Create**.
 
-<!-- Required: Steps to complete the task - H2
+1. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
-In one or more H2 sections, organize procedures. A section
-contains a major grouping of steps that help the user complete
-a task.
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | **Project details** |   |
+    | Subscription               | Select your subscription.    |    
+    | Resource group         | Select **test-rg**. |
+    | **Instance details** |   |
+    | Name                   | Enter **load-balancer**                                   |
+    | Region         | Select **(US) East US 2**.                                        |
+    | SKU           | Leave the default **Standard**. |
+    | Type          | Select **Internal**.                                        |
+    | Tier          | Leave the default **Regional**. |
 
-Begin each section with a brief explanation for context, and
-provide an ordered list of steps to complete the procedure.
+1. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-If it applies, provide sections that describe alternative tasks or
-procedures.
+1. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
--->
+1. Enter **frontend-1** in **Name**.
 
-## Next step -or- Related content
+1. Select **subnet-1 (10.0.0.0/24)** in **Subnet**.
 
-> [!div class="nextstepaction"]
-> [Next sequential article title](link.md)
+1. In **Assignment**, select **Static**.
 
--or-
+1. In **IP address**, enter **10.0.0.100**.
+
+1. Select **Add**.
+
+1. Select **Next: Backend pools** at the bottom of the page.
+
+1. In the **Backend pools** tab, select **+ Add a backend pool**.
+
+1. Enter **backend-pool** for **Name** in **Add backend pool**.
+
+1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+
+1. Select **Save**.
+
+1. Select the blue **Review + create** button at the bottom of the page.
+
+1. Select **Create**.
+
+### Add second frontend to load balancer
+
+A second frontend is required for the load balancer to provide high availability for the DHCP server. Use the following steps to add a second frontend to the load balancer.
+
+1. In the Azure portal, search for and select **Load balancers**.
+
+1. Select **load-balancer**.
+
+1. In **Settings**, select **Frontend IP configuration**.
+
+1. Select **+ Add**.
+
+1. Enter or select the following information in **Add frontend IP configuration**:
+
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | **Name** | Enter **frontend-2**. |
+    | **Subnet** | Select **subnet-1 (10.0.0.0/24)**. |
+    | **Assignment** | Select **Static**. |
+    | **IP address** | Enter **10.0.0.200**. |
+    | **Availability zone** | Select **Zone-redundant**. |
+
+1. Select **Add**.
+
+1. Verify that in **Frontend IP configuration**, you have **frontend-1** and **frontend-2**. 
+
+[!INCLUDE [create-two-virtual-machines-windows-load-balancer.md](../../includes/create-two-virtual-machines-windows-load-balancer.md)]
+
+## Configure DHCP server network adapters
+
+You will sign-in to the virtual machines with Azure Bastion and configure the network adapter settings and DHCP server role for each virtual machine.
+
+1. In the Azure portal, search for and select **Virtual machines**.
+
+1. Select **vm-1**.
+
+1. In the **vm-1** page, select **Connect** then **Connect via Bastion**.
+
+1. Enter the username and password you created when you created the virtual machine.
+
+1. Open **PowerShell** as an administrator.
+
+1. Run the following command to install the DHCP server role:
+
+    ```powershell
+    Install-WindowsFeature -Name DHCP -IncludeManagementTools
+    ```
+
+### Install Microsoft Loopback Adapter
+
+Use the following steps to install the Microsoft Loopback Adapter by using the Hardware Wizard:
+
+1. Open **Device Manager** on the virtual machine. 
+
+1. Select the computer name **vm-1** in **Device Manager**.
+
+1. In the menu bar, select **Action** then **Add legacy hardware**.
+
+1. In the **Add Hardware Wizard**, select **Next**.
+
+1. Select **Install the hardware that I manually select from a list (Advanced)**, and then select **Next**  
+
+1. In the **Common hardware types** list, select **Network adapters**, and then select **Next**.
+
+1. In the **Manufacturers** list box, select **Microsoft**.
+
+1. In the **Network Adapter** list box, select **Microsoft Loopback Adapter**, and then select **Next**.
+
+1. select **Next** to start installing the drivers for your hardware.
+
+1. select **Finish**.
+
+1. In **Device Manager**, expand **Network adapters**. Verify that **Microsoft Loopback Adapter** is listed.
+
+1. Close **Device Manager**.
+
+### Set static IP address for Microsoft Loopback Adapter
+
+Use the following steps to set a static IP address for the Microsoft Loopback Adapter:
+
+1. Open **Network and Internet settings** on the virtual machine.
+
+1. Select **Change adapter options**.
+
+1. Right-click **Microsoft Loopback Adapter** and select **Properties**.
+
+1. Select **Internet Protocol Version 4 (TCP/IPv4)** and select **Properties**.
+
+1. Select **Use the following IP address**.
+
+1. Enter the following information:
+
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | **IP address** | Enter **10.0.0.100**. |
+    | **Subnet mask** | Enter **255.255.255.0**. |
+
+1. Select **OK**.
+
+1. Select **Close**.
+
+### Enable routing between the loopback interface and the network adapter
+
+Use the following steps to enable routing between the loopback interface and the network adapter:
+
+1. Open **CMD** as an administrator.
+
+1. Run the following command to list the network interfaces:
+
+```cmd
+netsh int ipv4 show int
+```
+
+```output
+C:\Users\azureuser>netsh int ipv4 show int
+
+Idx     Met         MTU          State                Name
+---  ----------  ----------  ------------  ---------------------------
+  1          75  4294967295  connected     Loopback Pseudo-Interface 1
+  6           5        1500  connected     Ethernet
+ 11          25        1500  connected     Ethernet 3
+```
+
+In this example the network interface connected to the Azure Virtual network is **Ethernet**. The loopback interface that you installed in the previous section is **Ethernet 3**.
+
+**Make note of the `Idx` number for the primary network adapter and the loopback adapter. In this example the primary network adapter is `6` and the loopback adapter is `11`. You'll need these values for the next steps.**
+
+> [!CAUTION]
+> Don't confuse the **Loopback Loopback Pseudo-Interface 1** with the **Microsoft Loopback Adapter**. The **Loopback Pseudo-Interface 1** isn't used in this scenario.
+
+1. Run the following command to enable **weakhostreceive** and **weakhostsend** on the primary network adapter:
+
+```cmd
+netsh int ipv4 set int 6 weakhostreceive=enabled weakhostsend=enabled
+```
+
+1. Run the following command to enable **weakhostreceive** and **weakhostsend** on the loopback adapter:
+
+```cmd
+netsh int ipv4 set int 11 weakhostreceive=enabled weakhostsend=enabled
+```
+
+1. Close the bastion connection to **vm-1**.
+
+1. Repeat the previous steps to configure **vm-2**. Replace the IP address of **10.0.0.100** with **10.0.0.200** in the static IP address configuration of the loopback adapter.
+
+
+```cmd
+## Related content
 
 * [Related article title](link.md)
 * [Related article title](link.md)
 * [Related article title](link.md)
 
-<!-- Optional: Next step or Related content - H2
-
-Consider adding one of these H2 sections (not both):
-
-A "Next step" section that uses 1 link in a blue box 
-to point to a next, consecutive article in a sequence.
-
--or- 
-
-A "Related content" section that lists links to 
-1 to 3 articles the user might find helpful.
-
--->
-
-<!--
-
-Remove all comments except the customer intent
-before you sign off or merge to the main branch.
-
--->
