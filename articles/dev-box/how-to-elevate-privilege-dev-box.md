@@ -119,7 +119,7 @@ In this section, you create a dev box and an Intune group that you use to test t
      
        :::image type="content" source="media/how-to-elevate-privilege-dev-box/assign-defined-group.png" alt-text="Screenshot showing the Create profile Assignments tab, with Add groups highlighted." lightbox="media/how-to-elevate-privilege-dev-box/assign-defined-group.png":::
 
-## Verify the user can't run applications with administrative privileges
+## Verify administrative privilege restrictions
 
 In this section, you validate that the Microsoft EPM Agent is installed and the policy is applied to the dev box.
 
