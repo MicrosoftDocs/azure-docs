@@ -148,7 +148,7 @@ Migration requires a three to six hour service window for App Service Environmen
 - The existing App Service Environment is shut down and replaced by the new App Service Environment v3.
 - All App Service plans in the App Service Environment are converted from the Isolated to Isolated v2 tier.
 - All of the apps that are on your App Service Environment are temporarily down. **You should expect about one hour of downtime during this period**.
-  - If you can't support downtime, see the [side by side migration feature](side-by-side-migrate.md) or the[migration-alternatives](migration-alternatives.md#migrate-manually).
+  - If you can't support downtime, see the [side by side migration feature](side-by-side-migrate.md) or the [migration-alternatives](migration-alternatives.md#migrate-manually).
 - The public addresses that are used by the App Service Environment change to the IPs generated during the IP generation step.
 
 As in the IP generation step, you can't scale, modify your App Service Environment, or deploy apps to it during this process. When migration is complete, the apps that were on the old App Service Environment are running on the new App Service Environment v3.

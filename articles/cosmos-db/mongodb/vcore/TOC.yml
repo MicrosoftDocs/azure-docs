@@ -4,6 +4,8 @@
   items:
     - name: What is Azure Cosmos DB for MongoDB vCore?
       href: introduction.md
+    - name: FAQ
+      href: faq.yml
 - name: Quickstarts
   items:
     - name: Create resources - Azure portal
@@ -22,6 +24,8 @@
       href: free-tier.md
     - name: Burstable tier
       href: burstable-tier.md
+    - name: Multicloud Solution
+      href: multi-cloud.md
     - name: Vector search
       items:
         - name: Vector search overview
