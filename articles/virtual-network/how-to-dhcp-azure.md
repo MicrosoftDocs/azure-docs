@@ -78,7 +78,7 @@ During the creation of the load balancer, you configure:
 
 1. Select **Create**.
 
-### Add second frontend to load balancer
+## Add second frontend to load balancer
 
 A second frontend is required for the load balancer to provide high availability for the DHCP server. Use the following steps to add a second frontend to the load balancer.
 
@@ -102,7 +102,43 @@ A second frontend is required for the load balancer to provide high availability
 
 1. Select **Add**.
 
-1. Verify that in **Frontend IP configuration**, you have **frontend-1** and **frontend-2**. 
+1. Verify that in **Frontend IP configuration**, you have **frontend-1** and **frontend-2**.
+
+## Create load balancer rules
+
+The load balancer rules are used to distribute traffic to the virtual machines. Use the following steps to create the load balancer rules.
+
+1. In the Azure portal, search for and select **Load balancers**.
+
+1. Select **load-balancer**.
+
+1. In **Settings**, select **Load balancing rules**.
+
+1. Select **+ Add**.
+
+1. Enter or select the following information in **Add load balancing rule**:
+
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | **Name** | Enter **lb-rule-1**. |
+    | **IP version** | Select **IPv4**. |
+    | **Frontend IP address** | Select **frontend-1**. |
+    | **Backend pool** | Select **backend-pool**. |
+    | **Protocol** | Select **UDP**. |
+    | **Port** | Enter **67**. |
+    | **Backend port** | Enter **67**. |
+    | **Health probe** | Select **Create new**. </br> Enter **dhcp-health-probe** for **Name**. </br> Select **TCP** for **Protocol**. </br> Enter **3389** for **Port**. </br> Enter **67** for **Interval**. </br> Enter **5** for **Unhealthy threshold**. </br> Select **Save**. |
+    | **Enable Floating IP** | Select the box. |
+
+1. Select **Save**.
+
+1. Repeat the previous steps to create the second load balancing rule. Replace the following values with the values for the second frontend:
+
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | **Name** | Enter **lb-rule-2**. |
+    | **Frontend IP address** | Select **frontend-2**. |
+    | **Health probe** | Select **dhcp-health-probe**. |
 
 [!INCLUDE [create-two-virtual-machines-windows-load-balancer.md](../../includes/create-two-virtual-machines-windows-load-balancer.md)]
 
@@ -187,45 +223,43 @@ Use the following steps to enable routing between the loopback interface and the
 
 1. Run the following command to list the network interfaces:
 
-```cmd
-netsh int ipv4 show int
-```
+    ```cmd
+    netsh int ipv4 show int
+    ```
 
-```output
-C:\Users\azureuser>netsh int ipv4 show int
+    ```output
+    C:\Users\azureuser>netsh int ipv4 show int
 
-Idx     Met         MTU          State                Name
----  ----------  ----------  ------------  ---------------------------
-  1          75  4294967295  connected     Loopback Pseudo-Interface 1
-  6           5        1500  connected     Ethernet
- 11          25        1500  connected     Ethernet 3
-```
+    Idx     Met         MTU          State                Name
+    ---  ----------  ----------  ------------  ---------------------------
+      1          75  4294967295  connected     Loopback Pseudo-Interface 1
+      6           5        1500  connected     Ethernet
+     11          25        1500  connected     Ethernet 3
+    ```
 
-In this example the network interface connected to the Azure Virtual network is **Ethernet**. The loopback interface that you installed in the previous section is **Ethernet 3**.
+    In this example the network interface connected to the Azure Virtual network is **Ethernet**. The loopback interface that you installed in the previous section is **Ethernet 3**.
 
-**Make note of the `Idx` number for the primary network adapter and the loopback adapter. In this example the primary network adapter is `6` and the loopback adapter is `11`. You'll need these values for the next steps.**
+    **Make note of the `Idx` number for the primary network adapter and the loopback adapter. In this example the primary network adapter is `6` and the loopback adapter is `11`. You'll need these values for the next steps.**
 
-> [!CAUTION]
-> Don't confuse the **Loopback Loopback Pseudo-Interface 1** with the **Microsoft Loopback Adapter**. The **Loopback Pseudo-Interface 1** isn't used in this scenario.
+    > [!CAUTION]
+    > Don't confuse the **Loopback Loopback Pseudo-Interface 1** with the **Microsoft Loopback Adapter**. The **Loopback Pseudo-Interface 1** isn't used in this scenario.
 
 1. Run the following command to enable **weakhostreceive** and **weakhostsend** on the primary network adapter:
 
-```cmd
-netsh int ipv4 set int 6 weakhostreceive=enabled weakhostsend=enabled
-```
+    ```cmd
+    netsh int ipv4 set int 6 weakhostreceive=enabled weakhostsend=enabled
+    ```
 
 1. Run the following command to enable **weakhostreceive** and **weakhostsend** on the loopback adapter:
 
-```cmd
-netsh int ipv4 set int 11 weakhostreceive=enabled weakhostsend=enabled
-```
+    ```cmd    
+    netsh int ipv4 set int 11 weakhostreceive=enabled weakhostsend=enabled
+    ```
 
 1. Close the bastion connection to **vm-1**.
 
 1. Repeat the previous steps to configure **vm-2**. Replace the IP address of **10.0.0.100** with **10.0.0.200** in the static IP address configuration of the loopback adapter.
 
-
-```cmd
 ## Related content
 
 * [Related article title](link.md)
