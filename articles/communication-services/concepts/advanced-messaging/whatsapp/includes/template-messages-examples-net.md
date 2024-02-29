@@ -248,8 +248,8 @@ string templateName = "sample_issue_resolution";
 string templateLanguage = "en_us";
 
 var name = new MessageTemplateText(name: "name", text: "Kat");
-var yes = new MessageTemplateQuickAction(name: "Yes", payload: "Kat said yes");
-var no = new MessageTemplateQuickAction(name: "No", payload: "Kat said no");
+var yes = new MessageTemplateQuickAction(name: "Yes"){ Payload =  "Kat said yes" };
+var no = new MessageTemplateQuickAction(name: "No") { Payload = "Kat said no" };
 
 WhatsAppMessageTemplateBindings bindings = new();
 bindings.Body.Add(new(name.Name));
@@ -324,7 +324,7 @@ var imageUrl = new Uri("https://aka.ms/acsicon1");
 
 var image = new MessageTemplateImage(name: "image", uri: imageUrl);
 var product = new MessageTemplateText(name: "product", text: "coffee");
-var urlSuffix = new MessageTemplateQuickAction(name: "text", text: "survey-code");
+var urlSuffix = new MessageTemplateQuickAction(name: "text") { Text = "survey-code" };
 
 WhatsAppMessageTemplateBindings bindings = new();
 bindings.Header.Add(new(image.Name));

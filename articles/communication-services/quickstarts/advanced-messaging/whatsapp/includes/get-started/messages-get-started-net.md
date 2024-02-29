@@ -365,7 +365,7 @@ var mediaContent =
 
 // Send media message
 Response<SendMessageResult> sendMediaMessageResult = 
-    await notificationMessagesClient.SendMessageAsync(mediaContent);
+    await notificationMessagesClient.SendAsync(mediaContent);
 ```
 
 ## Run the code
