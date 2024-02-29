@@ -137,8 +137,9 @@ FHIR specifies a set of search result parameters to help manage the information 
 | `_containedType`                | No                   | No                        |
 | `_score`                        | No                   | No                        |
 
-> [!NOTE]
-> By default, `_sort` arranges records in ascending order. You can also use the prefix `-` to sort in descending order. The FHIR service only allows you to sort on a single field at a time.
+Note:
+1. By default, `_sort` arranges records in ascending order. You can also use the prefix `-` to sort in descending order. The FHIR service only allows you to sort on a single field at a time.
+1. FHIR service supports wild card searches with revinclude. Adding "*.*" query parameter in revinclude query, it will direct FHIR service to reference all the resources mapped to the source resource.
 
 By default, the FHIR service in Azure Health Data Services is set to lenient handling. This means that the server will ignore any unknown or unsupported parameters. If you want to use strict handling, you can include the `Prefer` header and set `handling=strict`.
 

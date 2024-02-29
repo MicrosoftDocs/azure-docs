@@ -66,6 +66,9 @@ History in FHIR is important for end users to see how a resource has changed ove
 
 Changing the versioning policy either at a system level or resource level won't remove the existing history for any resources in your FHIR service. If you're looking to reduce the history data size in your FHIR service, you must use the [$purge-history](purge-history.md) operation.
 
+> [!NOTE] 
+> The query parameter _summary=count and _count=0 can be added to _history endpoint to get count of all versioned resources. This count includes soft deleted resources.
+
 ## Next steps
 
 In this article, you learned how to purge the history for resources in the FHIR service. For more information about how to disable history and some concepts about history management, see
