@@ -16,7 +16,7 @@ The article describes how you can resolve capacity errors when deploying or scal
 
 ## Exceeded quota
 
-If you encounter any of the following errors when attempting to deploy your Azure MySQL - Flexible Server resource, submit a request to increase your quota.
+If you encounter any of the following errors when attempting to deploy your Azure MySQL - Flexible Server resource, [submit a request to increase your quota](/azure/mysql/flexible-server/how-to-request-quota-increase).
 
 - `Operation could not be completed as it results in exceeding approved {0} Cores quota. Additional details - Current Limit: {1}, Current Usage: {2}, Additional Required: {3}, (Minimum) New Limit Required: {4}.Submit a request for Quota increase by specifying parameters listed in the 'Details' section for deployment to succeed.`
 
@@ -57,7 +57,7 @@ If you encounter the following error, select a different SKU type. Availability 
 
 To deploy Azure Database for MySQL - Flexible Server resources, register your subscription with the MySQL resource provider (RP).
 
-You can register your subscription using the Azure portal, [the Azure CLI](/cli/azure/install-azure-cli), or [Azure PowerShell](/powershell/azure/install-azure-powershell?view=azps-11.3.0).
+You can register your subscription using the Azure portal, [the Azure CLI](/cli/azure/install-azure-cli), or [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 #### [Azure portal](#tab/portal)
 
@@ -109,4 +109,3 @@ If your subscription is part of above offerings and you require access to any of
 ## Related content
 
 - [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits)
-- [Increase quotas](/azure/mysql/flexible-server/how-to-request-quota-increase)
