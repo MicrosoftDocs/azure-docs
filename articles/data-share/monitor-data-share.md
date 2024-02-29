@@ -20,6 +20,8 @@ For more information about the resource types for Azure Data Share, see [Data Sh
 
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
+## Data Share metrics
+
 Select **Metrics** under **Monitoring** in the left navigation of your Data Share page in the Azure portal to access charts for the following Data Share metrics:
 
 - Received Shares
@@ -29,22 +31,28 @@ Select **Metrics** under **Monitoring** in the left navigation of your Data Shar
 - Sent Share Failed Snapshots
 - Sent Share Succeeded Snapshots 
 
-For a list of available metrics for Data Share, see [Data Share monitoring data reference](monitor-data-share-reference.md#metrics).
+For a full listing and descriptions of the available metrics for Data Share, see [Data Share monitoring data reference](monitor-data-share-reference.md#metrics).
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-Select **Diagnostic settings** under **Monitoring** in the left navigation of your Data Share page in the Azure portal to configure collection of the following Data Share log data:
+## Data Share logs
+
+You can configure diagnostic setting to save log data or events. Select **Diagnostic settings** under **Monitoring** in the left navigation of your Data Share page in the Azure portal to configure collection of the following Data Share log data:
 
 - Shares
 - Share Subscriptions
 - Sent Share Snapshots
 - Received Share Snapshots
 
-For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Data Share, see [Data Share monitoring data reference](monitor-data-share-reference.md#resource-logs).
+![Screenshot that shows the Diagnostic settings page in the Azure portal.](./media/diagnostic-settings.png "Diagnostic settings")
+
+For more information on how to create diagnostic settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
+
+For more information about the available resource log categories, their associated Log Analytics tables, and the logs schemas for Data Share, see [Data Share monitoring data reference](monitor-data-share-reference.md#resource-logs).
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-## Share status and history
+## Data Share status and history
 
 To track Data Share invitation status, share subscription status, and snapshot history, select **Sent Shares** under **Data Share** in the left navigation of your Data Share page in the Azure portal. For more information and instructions, see [Monitor Data Share status and history](how-to-monitor.md).
 
@@ -53,9 +61,9 @@ To track Data Share invitation status, share subscription status, and snapshot h
 
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-For example queries, select **Logs** under **Monitoring** in the left navigation of your Data Share page in the Azure portal, and then select the **Queries** tab. Here are a few example queries.
+To write queries and access example queries, select **Logs** under **Monitoring** in the left navigation of your Data Share page in the Azure portal, and then select the **Queries** tab. Here are a couple of example queries:
 
-A list of the snapshots sorted by duration time over the last seven days:
+**A list of sent snapshots sorted by duration time over the last seven days:**
 
 ```kusto
 // List sent snapshots by duration 
@@ -66,7 +74,7 @@ MicrosoftDataShareSentSnapshotLog
 | sort by DurationSeconds desc nulls last
 ```
 
-Top 10 most frequent errors over the last seven days:
+**Top 10 most frequent errors over the last seven days:**
 
 ```kusto
 // Frequent errors in received snapshots 
@@ -77,21 +85,18 @@ MicrosoftDataShareReceivedSnapshotLog
 | top 10 by count_ desc nulls last
 ```
 
-Total count of failed snapshots over the last seven days:
+For more example queries, see:
 
-```kusto
-// Count failed sent snapshots 
-MicrosoftDataShareSentSnapshotLog
-| where TimeGenerated > ago(7d)  
-| where Status == "Failed" 
-| summarize count() by _ResourceId
-```
+- [Queries for the MicrosoftDataShareReceivedSnapshotLog table](~/azure-reference-other-repo/azure-monitor-ref/queries/microsoftdatasharereceivedsnapshotlog.md)
+- [Queries for the MicrosoftDataShareSentSnapshotLog table](~/azure-reference-other-repo/azure-monitor-ref/queries/microsoftdatasharesentsnapshotlog.md)
 
 [!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 ### Data Share alert rules
 
-The following table lists common and recommended alert rules for Data Share. This is just a recommended list. You can set alerts for any metric, log entry, or activity log entry that's listed in the [Data Share monitoring data reference](monitor-data-share-reference.md).
+To create alerts for your Data Share monitoring data, select **Alerts** under **Monitoring** in the left navigation of your Data Share page in the Azure portal, and then select **Create alert rule**. You can select a signal and configure all the details to trigger and route the alert.
+
+The following table lists some alert rules for Data Share. This is just a suggested list. You can set alerts for any metric, log entry, or activity log entry that's listed in the [Data Share monitoring data reference](monitor-data-share-reference.md).
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|

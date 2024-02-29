@@ -67,7 +67,7 @@
     href: how-to-revoke-share-subscription.md
   - name: Monitor
     href: monitor-data-share.md
-  - name: Monitor Sent Shares
+  - name: Monitor share status and history
     href: how-to-monitor.md
   - name: Disaster recovery
     href: disaster-recovery.md
