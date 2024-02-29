@@ -151,7 +151,7 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
   ```json
   "runtimeConfiguration": {
       "concurrency": {
-          "runs": 100
+      "runs": 100
         }
   }
   ```
