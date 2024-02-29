@@ -108,6 +108,6 @@ During onboarding, to create a connection between your VMware vCenter and Azure,
 
 As a last step, run the following command: 
 
-`az rest --method delete --url` [URL](https://management.azure.com/subscriptions/<subscrption-id>/resourcegroups/<resource-group-name>/providers/Microsoft.AVS/privateClouds/<private-cloud-name>/addons/arc?api-version=2022-05-01)
+`az rest --method delete --url` [URL](https://management.azure.com/subscriptions/%3Csubscrption-id%3E/resourcegroups/%3Cresource-group-name%3E/providers/Microsoft.AVS/privateClouds/%3Cprivate-cloud-name%3E/addons/arc?api-version=2022-05-01%22)
 
 Once that step is done, Arc no longer works on the Azure VMware Solution private cloud. When you delete Arc resources from vCenter Server, it doesn't affect the Azure VMware Solution private cloud for the customer. 
