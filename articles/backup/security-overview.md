@@ -100,7 +100,7 @@ Security levels for Azure Backup vaults are categorized as follows:
 
 - **Poor (Bad/None)**: This indicates a deficiency in security measures, which is less suitable for data protection. In this level, neither advanced protective features nor solely reversible capabilities are in place. The None level security gives protection primarily from accidental deletions only.
 
-You can [view and manage the security levels across all datasources in their respective vaults through Azure Business Continuity Center](./business-continuity-center/security-levels-concept.md).
+You can [view and manage the security levels across all datasources in their respective vaults through Azure Business Continuity Center](../business-continuity-center/security-levels-concept.md).
 
 ## Compliance with standardized security requirements
 
