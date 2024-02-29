@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - resources
 description: Describes the functions to use in a Bicep file to retrieve values about resources.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/03/2023
+ms.date: 2024-02-29
 ---
 
 # Resource functions for Bicep
@@ -498,7 +496,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
-Returns an object representing a resource's runtime state.
+Returns an object representing a resource's runtime state. The output and behavior of the `reference` function highly relies on how each resource provider (RP) implements its PUT and GET responses. 
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
