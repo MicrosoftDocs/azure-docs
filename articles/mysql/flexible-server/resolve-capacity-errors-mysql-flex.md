@@ -119,8 +119,10 @@ If your subscription is part of above offerings and you require access to any of
 `Australia Central, Australia Central 2, Australia SouthEast, Brazil SouthEast, Canada East, China East, China North, China North 2, France South, Germany North, Japan West, Jio India Central, Jio India West, Korea South, Norway West, South Africa West, South India, Switzerland West, UAE Central, UK West, US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, West Central US, West India.`
 
 
-## Next steps
+## Related content
 
 Once you submit your request, it undergoes review. You then receive a response based on the information provided in the form.
 
 For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+
+[Increase quotas](/azure/mysql/flexible-server/)
