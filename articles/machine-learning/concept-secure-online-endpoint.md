@@ -11,7 +11,7 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2, moe-wsvnet
-ms.date: 09/27/2023
+ms.date: 02/29/2024
 ---
 
 # Network isolation with managed online endpoints
