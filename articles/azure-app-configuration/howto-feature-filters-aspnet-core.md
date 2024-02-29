@@ -18,13 +18,13 @@ Feature flags allow you to activate or deactivate functionality in your applicat
 
 In contrast, a _conditional feature flag_ allows the feature flag to be enabled or disabled dynamically. The application may behave differently, depending on the feature flag criteria. Suppose you want to show your new feature to a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. _Feature filters_ determine the state of the feature flag each time it's evaluated.
 
-The `Microsoft.FeatureManagement` library includes four built-in feature filters:
+The `Microsoft.FeatureManagement` library includes built-in feature filters:
 
 - `PercentageFilter` enables the feature flag based on a percentage.
 - `TimeWindowFilter` enables the feature flag during a specified window of time.
 - `ContextualTargetingFilter` and `TargetingFilter` enable the feature flag for specified users and groups.
 
-You can also create your own feature filter that implements the `Microsoft.FeatureManagement.IFeatureFilter` interface. For more information, see [Implementing a Feature Filter](https://github.com/microsoft/FeatureManagement-Dotnet?tab=readme-ov-file#implementing-a-feature-filter).
+You can also create your own feature filter that implements the `Microsoft.FeatureManagement.IFeatureFilter` interface. For more information, see [Implementing a Feature Filter](https://github.com/microsoft/FeatureManagement-Dotnet#implementing-a-feature-filter).
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ services.AddFeatureManagement();
 
 ## Configure a feature filter in Azure App Configuration
 
-Some feature filters have additional settings. For example, `TimeWindowFilter` activates a feature based on a time window. It has a setting defining the time window to use.
+Some feature filters have additional settings. For example, `TimeWindowFilter` activates a feature based on a time window. It has settings defining the time window to use.
 
 You can configure these settings for feature flags defined in Azure App Configuration. For example, follow these steps to use `TimeWindowFilter` to activate the feature flag at a certain moment:
 
@@ -65,7 +65,7 @@ You can configure these settings for feature flags defined in Azure App Configur
 
 1. The pane **Create a new filter** opens. Under **Filter type**, select **Time window filter** to enable a new filter for a specific time window.
 
-1. Set the **Expiry date** to **Never** and set the **Start date** to 10 minutes ahead of the current time. For example, if the current time is 1:50 PM on February 28, 2024, please set the time to 2 minutes later, which would be 2:00 PM.
+1. Set the **Expiry date** to **Never** and set the **Start date** to 10 minutes ahead of the current time. For example, if the current time is 1:50 PM on February 28, 2024, please set the time to 10 minutes later, which would be 2:00 PM.
 
     :::image type="content" source="./media/feature-filters/add-time-window-filter.png" alt-text="Screenshot of the Azure portal, creating a new time window filter.":::
 
