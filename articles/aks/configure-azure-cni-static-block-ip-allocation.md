@@ -1,7 +1,7 @@
 ---
-title: Configure Azure CNI VNet networking for static allocation of IP blocks - (Preview)
+title: Configure Azure CNI for static allocation of CIDR blocks - (Preview)
 titleSuffix: Azure Kubernetes Service
-description: Learn how to configure Azure CNI VNet networking for static allocation of IP blocks in Azure Kubernetes Service (AKS)
+description: Learn how to configure Azure CNI Networking for static allocation of CIDR blocks in Azure Kubernetes Service (AKS)
 author: asudbring
 ms.author: allensu
 ms.service: azure-kubernetes-service
