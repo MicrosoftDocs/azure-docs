@@ -13,11 +13,11 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Configure Azure CNI Networking for static allocation of CIDR blocks and enhanced subnet support in Azure Kubernetes Service (AKS) - (Preview)
 
-A limitation of [Azure CNI Dynamic IP Allocation](configure-azure-cni-dynamic-ip-allocation.md) is the exhaustion of pod IP addresses as the AKS cluster grows, which results in the need to rebuild your entire cluster in a bigger subnet but still be limit the cluster size to 65K pods. The new static block allocation capability in Azure CNI solves this problem by assigning CIDR blocks to Nodes rather than individual IPs.
+A limitation of [Azure CNI Dynamic IP Allocation](configure-azure-cni-dynamic-ip-allocation.md) is the exhaustion of pod IP addresses as the AKS cluster grows, which results in the need to rebuild your entire cluster in a bigger subnet. Even with a large subnet, large clusters may still be limited to 65k pods due to an azure address mapping limit. The new static block allocation capability in Azure CNI solves this problem by assigning CIDR blocks to Nodes rather than individual IPs.
 
 It offers the following benefits:
 
-* **Better IP Scalability**: CIDR blocks are statically allocated to the cluster nodes and are present for the lifetime of the node, as opposed to the traditional dynamic allocation of individual IPs with traditional CNI. This enables routing based on CIDR blocks and helps scale the cluster limit up to 1 million pods from the traditional 65K pods per cluster.
+* **Better IP Scalability**: CIDR blocks are statically allocated to the cluster nodes and are present for the lifetime of the node, as opposed to the traditional dynamic allocation of individual IPs with traditional CNI. This enables routing based on CIDR blocks and helps scale the cluster limit up to 1 million pods from the traditional 65K pods per cluster. Your Azure Virtual Network must be large enough to accommodate the scale of your cluster. 
 * **Flexibility**: Node and pod subnets can be scaled independently. A single pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate pod subnet for a node pool.  
 * **High performance**: Since pods are assigned virtual network IPs, they have direct connectivity to other cluster pods and resources in the VNet. The solution supports very large clusters without any degradation in performance.
 * **Separate VNet policies for pods**: Since pods have a separate subnet, you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using an Azure NAT Gateway, and using NSGs to filter traffic between node pools.  
@@ -44,7 +44,7 @@ This article shows you how to use Azure CNI Networking for static allocation of 
 
 Planning your IP addressing is much simpler with this feature. Since the nodes and pods scale independently, their address spaces can also be planned separately. Since pod subnets can be configured to the granularity of a node pool, you can always add a new subnet when you add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
 
-IPs are allocated to nodes based on your max pods settings and in blocks of 16 (15 useable) IP addresses (blocks of /28 - 1 IP for routing purposes). This means that if you have a max Pods set to 30, when a node is provisioned, two blocks of 16 IPs will be allocated to the node and not able to be reused until that node is removed. Subnet IP allocation should be planned with a minimum of 16 IPs per node in the cluster and the max pod count per node when considering scaling. 
+IPs are allocated to nodes based on your max pods settings and in blocks of 16 IP addresses(15 useable -  blocks of /28 - 1 IP for routing purposes). This means that if you have a max pods set to 30, when a node is provisioned, two blocks of 16 IPs will be allocated to the node and are reserved for the lifetime of that node. Subnet IP allocation should be planned with a minimum of 16 IPs per node in the cluster and the max pod count per node when considering scaling. 
 
 The planning of IPs for Kubernetes services and Docker bridge remain unchanged.
 
@@ -92,7 +92,7 @@ az network vnet subnet create --resource-group $resourceGroup --vnet-name $vnet 
 az network vnet subnet create --resource-group $resourceGroup --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
 ```
 
-Create the cluster, referencing the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id` and enabling the monitoring add-on.
+Create the cluster, referencing the node subnet using `--vnet-subnet-id`, the pod subnet using `--pod-subnet-id`, the `--pod-ip-allocation-mode` to define the ip allocation mode, and enable the monitoring add-on.
 
 ```azurecli-interactive
 clusterName="myAKSCluster"
