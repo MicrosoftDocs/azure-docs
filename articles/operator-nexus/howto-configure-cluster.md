@@ -263,4 +263,4 @@ Cluster create Logs can be viewed in the following locations:
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
 
-:::image type="content" source="./media/nexus-deploy-activitylog.png" lightbox="./media/nexus-deploy-activitylog.png" alt-text="Screenshot of Azure portal showing cluster deploy progress activity log.":::
+:::image type="content" source="./media/nexus-deploy-activity-log.png" lightbox="./media/nexus-deploy-activity-log.png" alt-text="Screenshot of Azure portal showing cluster deploy progress activity log.":::
