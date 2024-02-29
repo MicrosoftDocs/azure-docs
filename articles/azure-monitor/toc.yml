@@ -191,6 +191,8 @@ items:
       - name: Application Map
         displayName: appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node
         href: app/app-map.md
+      - name: Failures and Performance Views
+        href: app/failures-and-performance-views.md
       - name: Availability
         items:
         - name: Overview
@@ -519,24 +521,12 @@ items:
         href: ../managed-grafana/how-to-connect-to-data-source-privately.md
       - name: Private link for Container Insights          
         href: containers/container-insights-private-link.md
-    - name: Query Prometheus metrics
-      items:
-      - name: Query using Grafana
-        items:
-        - name: Configure Grafana with managed system identity
-          displayName: Prometheus
-          href: essentials/prometheus-grafana.md
-        - name: Configure Grafana with Microsoft Entra ID
-          displayName: Prometheus
-          href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
       - name: Query using Azure workbooks
         displayName: Prometheus
         href: essentials/prometheus-workbooks.md
       - name: Query using the API and PromQL
         displayName: Prometheus
         href: essentials/prometheus-api-promql.md        
-    - name: Disable monitoring
-      href: containers/kubernetes-monitoring-disable.md
     - name: Monitor
       items:
       - name: Monitor performance
@@ -555,8 +545,8 @@ items:
         href: containers/container-insights-reports.md
       - name: Custom metrics
         href: containers/container-insights-custom-metrics.md
-    - name: Log queries
-      href: containers/container-insights-log-query.md
+      - name: Log queries
+        href: containers/container-insights-log-query.md
     - name: View live data
       items:
       - name: Live Data overview
@@ -574,6 +564,8 @@ items:
         href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage
       href: containers/container-insights-cost.md
+    - name: Disable monitoring
+      href: containers/kubernetes-monitoring-disable.md      
     - name: Troubleshooting
       items:
       - name: Prometheus
@@ -587,14 +579,11 @@ items:
     - name: Network Insights
       items:
       - name: Overview
-        displayName: Network Insights, Network
-        href: ../network-watcher/network-insights-overview.md
-      - name: Topology
-        displayName: Network Insights, Network
-        href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json
-      - name: Troubleshooting
-        displayName: Network Insights, Network
-        href: ../network-watcher/network-insights-troubleshooting.md
+        href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
+      - name: View network topology
+        href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
+      - name: Troubleshoot
+        href: ../network-watcher/network-insights-troubleshooting.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
 - name: Data sources
@@ -605,8 +594,6 @@ items:
     href: essentials/platform-logs-overview.md
   - name: Activity log
     href: essentials/activity-log.md
-  - name: Activity log insights
-    href: essentials/activity-log-insights.md
   - name: Resource logs
     href: essentials/resource-logs.md
   - name: Stream monitoring data
@@ -814,32 +801,6 @@ items:
               href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
             - name: Collect metrics with Telegraf
               href: essentials/collect-custom-metrics-linux-telegraf.md
-    - name: Troubleshoot
-      items:
-      - name: Windows AMA Troubleshooter
-        href: agents/troubleshooter-ama-windows.md
-      - name: Linux AMA Troubleshooter
-        href: agents/troubleshooter-ama-linux.md
-      - name: Linux VM
-        href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
-      - name: Linux Syslog issues
-        href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
-      - name: Windows VM
-        href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
-      - name: Windows Arc-enabled server
-        href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
-      - name: Troubleshoot legacy Agents
-        displayName: Troublshooting guidance
-        items:
-          - name: Log Analytics VM Extension
-            displayName: troubleshoot, troubleshooting
-            href: agents/vmext-troubleshoot.md
-          - name: Log Analytics Windows agent
-            displayName: troubleshoot, troubleshooting
-            href: agents/agent-windows-troubleshoot.md
-          - name: Log Analytics Linux agent
-            displayName: troubleshoot, troubleshooting
-            href: agents/agent-linux-troubleshoot.md
   - name: Logs ingestion API
     items:
     - name: Overview
@@ -877,8 +838,34 @@ items:
     href: logs/ingest-logs-event-hub.md
   - name: Use Microsoft Entra authentication
     href: logs/azure-ad-authentication-logs.md
-  - name: Troubleshoot data collection
-    href: logs/data-collection-troubleshoot.md
+  - name: Troubleshoot
+    items:
+     - name: Data collection
+       href: logs/data-collection-troubleshoot.md
+     - name: Windows AMA Troubleshooter
+       href: agents/troubleshooter-ama-windows.md
+     - name: Linux AMA Troubleshooter
+       href: agents/troubleshooter-ama-linux.md
+     - name: Linux VM
+       href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
+     - name: Linux Syslog issues
+       href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
+     - name: Windows VM
+       href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
+     - name: Windows Arc-enabled server
+       href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
+     - name: Troubleshoot legacy Agents
+       displayName: Troublshooting guidance
+       items:
+        - name: Log Analytics VM Extension
+          displayName: troubleshoot, troubleshooting
+          href: agents/vmext-troubleshoot.md
+        - name: Log Analytics Windows agent
+          displayName: troubleshoot, troubleshooting
+          href: agents/agent-windows-troubleshoot.md
+        - name: Log Analytics Linux agent
+          displayName: troubleshoot, troubleshooting
+          href: agents/agent-linux-troubleshoot.md
 - name: Data platform
   items:
   - name: Overview
@@ -1044,8 +1031,8 @@ items:
   - name: Overview
     displayName: insights
     href: insights/insights-overview.md
-  - name: Troubleshoot insights
-    href: insights/troubleshoot-workbooks.md
+  - name: Activity log insights
+    href: essentials/activity-log-insights.md
 - name: Visualize
   items:
   - name: Workbooks
@@ -1130,6 +1117,8 @@ items:
       href: visualize/workbooks-access-troubleshooting-guide.md
     - name: Workbook Samples
       href: visualize/workbooks-samples.md
+    - name: Troubleshoot insights
+      href: insights/troubleshoot-workbooks.md
   - name: Grafana
     href: visualize/grafana-plugin.md
   - name: Dashboards

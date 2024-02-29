@@ -873,7 +873,6 @@ If the data export rule includes an unsupported table, the configuration will su
 | AzureAttestationDiagnostics |  |
 | AzureBackupOperations |  |
 | AzureDevOpsAuditing |  |
-| AzureDiagnostics |  |
 | AzureLoadTestingOperation |  |
 | AzureMetricsV2 |  |
 | BehaviorAnalytics |  |

@@ -59,8 +59,11 @@ Database servers with mission-critical workloads demand robust performance, requ
 - East US
 - East US 2
 - France Central
+- Japan East
+- Korea Central
 - North Europe
 - Norway East
+- Poland Central
 - South Africa North
 - South Central US
 - Sweden Central
