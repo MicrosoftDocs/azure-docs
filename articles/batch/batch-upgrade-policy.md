@@ -2,7 +2,7 @@
 title: Provision a pool with Auto OS Upgrade
 description: Learn how to create a Batch pool with Auto OS Upgrade so that customers can have control over their OS upgrade strategy to ensure safe, workload-aware OS upgrade deployments.
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 02/29/2024
 ms.custom: 
 ---
 
@@ -19,36 +19,36 @@ When you create an Azure Batch pool, you can provision the pool with nodes that 
 
 Auto OS Upgrade is used to implement an automatic operating system upgrade strategy and control within Azure Batch Pools. Here are some reasons for using Auto OS Upgrade:
 
-- **Security.** Auto OS Upgrade ensures timely patching of vulnerabilities and security issues within the operating system image, thereby enhancing the security of compute resources. This helps prevent potential security vulnerabilities from posing a threat to applications and data.
-- **Minimized Availability Disruption.** Auto OS Upgrade is used to minimize the availability disruption of compute nodes during OS upgrades. This is achieved through task-scheduling-aware upgrade deferral and support for rolling upgrades, ensuring that workloads experience minimal disruption.
-- **Flexibility.** Auto OS Upgrade allows you to configure your automatic operating system upgrade strategy, including percentage-based upgrade coordination and rollback support. This means you can customize your upgrade strategy to meet your specific performance and availability requirements.
+- **Security.** Auto OS Upgrade ensures timely patching of vulnerabilities and security issues within the operating system image, to enhance the security of compute resources. It helps prevent potential security vulnerabilities from posing a threat to applications and data.
+- **Minimized Availability Disruption.** Auto OS Upgrade is used to minimize the availability disruption of compute nodes during OS upgrades. It is achieved through task-scheduling-aware upgrade deferral and support for rolling upgrades, ensuring that workloads experience minimal disruption.
+- **Flexibility.** Auto OS Upgrade allows you to configure your automatic operating system upgrade strategy, including percentage-based upgrade coordination and rollback support. It means you can customize your upgrade strategy to meet your specific performance and availability requirements.
 - **Control.** Auto OS Upgrade provides you with control over your operating system upgrade strategy to ensure secure, workload-aware upgrade deployments. You can tailor your policy configurations to meet the specific needs of your organization.
 
 In summary, the use of Auto OS Upgrade helps improve security, minimize availability disruptions, and provide both greater control and flexibility for your workloads.
 
 ## How does Auto OS Upgrade work?
 
-When upgrading images, VMs in Azure Batch Pool will follow roughly the same work flow as VirtualMachineScaleSets. To learn more about the detailed steps involved in the Auto OS Upgrade process for VirtualMachineScaleSets, you can refer to [VMSS page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#how-does-automatic-os-image-upgrade-work).
+When upgrading images, VMs in Azure Batch Pool will follow roughly the same work flow as VirtualMachineScaleSets. To learn more about the detailed steps involved in the Auto OS Upgrade process for VirtualMachineScaleSets, you can refer to [VirtualMachineScaleSet page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#how-does-automatic-os-image-upgrade-work).
 
-However, if *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true', when an upgrade becomes available while a batch node is actively running tasks the upgrade will be delayed until all tasks have been completed on the node.
+However, if *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true' and an upgrade becomes available when a batch node is actively running tasks, the upgrade will be delayed until all tasks have been completed on the node.
 
 > [!Note]
-> If a pool has enabled *osRollingUpgradeDeferral*, its nodes will be displayed as *upgradingos* state during the upgrade process. Please note that the *upgradingos* state will only be shown when you are using the the API version of 2024-02-01 or later. If you are using an old API version to call *GetTVM/ListTVM*, the node will be in a *rebooting* state when upgrading.
+> If a pool has enabled *osRollingUpgradeDeferral*, its nodes will be displayed as *upgradingos* state during the upgrade process. Please note that the *upgradingos* state will only be shown when you are using the the API version of 2024-02-01 or later. If you're using an old API version to call *GetTVM/ListTVM*, the node will be in a *rebooting* state when upgrading.
 
 ## Supported OS images
-Only certain OS platform images are currently supported for automatic upgrade. For detailed images list, you can get from [VMSS page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
+Only certain OS platform images are currently supported for automatic upgrade. For detailed images list, you can get from [VirtualMachineScaleSet page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
 
 ## Requirements
 
 * The version property of the image must be set to **latest**. 
 * Use Batch API version 2024-02-01 or higher. 
 * Ensure that external resources specified in the pool are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more. 
-* If you are using the property *virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates*, this property must set to 'false' in the pool definition. The enableAutomaticUpdates property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled, an extra patching process through Windows Update is not required.
+* If you are using the property *virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates*, this property must set to 'false' in the pool definition. The enableAutomaticUpdates property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled, an extra patching process through Windows Update isn't required.
 
 ### Additional requirements for custom images
 
-* The VMs will be upgraded to the latest version of the Azure Compute Gallery image when a new version of the image is published and replicated to the region of that pool. If the new image is not replicated to the region where the pool is deployed, the VM instances will not be upgraded to the latest version. Regional image replication allows you to control the rollout of the new image for your VMs.
-* The new image version should not be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version will not be rolled out through automatic OS image upgrade.
+* When a new version of the image is published and replicated to the region of that pool, the VMs will be upgraded to the latest version of the Azure Compute Gallery image. If the new image isn't replicated to the region where the pool is deployed, the VM instances won't be upgraded to the latest version. Regional image replication allows you to control the rollout of the new image for your VMs.
+* The new image version shouldn't be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version won't be rolled out through automatic OS image upgrade.
 
 ## Configure Auto OS Upgrade
 
@@ -211,11 +211,11 @@ public async Task CreateUpgradePolicyPool()
 
 - How can I enable Auto OS Upgrade?
 
-   Please start a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) and provide your batch account to request its activation.
+   Start a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) and provide your batch account to request its activation.
 
 - Will my tasks be disrupted if I enabled Auto OS Upgrade?
 
-  Tasks will not be disrupted when *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true'. In that case, the upgrade will be postponed until node becomes idle. Otherwise, node will upgrade when it receives a new OS version, regardless of whether it is currently running a task or not. So we strongly advise enabling *automaticOSUpgradePolicy.osRollingUpgradeDeferral*.
+  Tasks won't be disrupted when *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true'. In that case, the upgrade will be postponed until node becomes idle. Otherwise, node will upgrade when it receives a new OS version, regardless of whether it is currently running a task or not. So we strongly advise enabling *automaticOSUpgradePolicy.osRollingUpgradeDeferral*.
 
 ## Next steps
 
