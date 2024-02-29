@@ -219,7 +219,7 @@ To set up the container:
 
 For more information about options that are available in the kickstart script, see [Reference: Kickstart script](reference-kickstart.md).
 
-## Troubleshoot
+## Troubleshooting and reference
 
 For troubleshooting information, see these articles:
 
