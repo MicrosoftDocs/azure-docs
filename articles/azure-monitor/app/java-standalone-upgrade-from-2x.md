@@ -85,9 +85,9 @@ The telemetry processors perform the following actions (in order):
    which means it applies to all telemetry that has attributes
    (currently `requests` and `dependencies`, but soon also `traces`).
 
-   It matches any telemetry that has attributes named `http.request.method` (used to be `http.method`) and `url.path` (used to be `http.url`).
+   It matches any telemetry that has attributes named `http.request.method` and `url.path`.
 
-   Then it extracts the path portion of the `url.path` attribute into a new attribute named `tempName`.
+   Then it extracts `url.path` attribute into a new attribute named `tempName`.
 
 2. The second telemetry processor is a span processor (has type `span`),
    which means it applies to `requests` and `dependencies`.
