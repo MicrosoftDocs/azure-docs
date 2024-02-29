@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: tutorial
-ms.workload: infrastructure
 ms.date: 02/24/2023
 ms.author: jushiman
 ms.custom: mvc, devx-track-azurepowershell

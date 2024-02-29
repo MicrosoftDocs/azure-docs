@@ -1,23 +1,23 @@
 ---
 title: "How to prepare HTML content for Immersive Reader"
 titleSuffix: Azure AI services
-description: Learn how to launch the Immersive reader using HTML, JavaScript, Python, Android, or iOS. Immersive Reader uses proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences.
-author: rwallerms
+description: Learn how to structure HTML and retrieve your content for use with Immersive Reader.
+author: sharmas
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.custom: devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 03/04/2021
-ms.author: rwaller
+ms.date: 02/23/2024
+ms.author: sharmas
 ---
 
 # How to prepare HTML content for Immersive Reader
 
-This article shows you how to structure your HTML and retrieve the content, so that it can be used by Immersive Reader.
+This article shows you how to structure your HTML and retrieve the content, so that your Immersive Reader application can use it.
 
 ## Prepare the HTML content
 
-Place the content that you want to render in the Immersive Reader inside of a container element. Be sure that the container element has a unique `id`. The Immersive Reader provides support for basic HTML elements, see the [reference](reference.md#html-support) for more information.
+Place the content that you want to render in the Immersive Reader inside of a container element. Be sure that the container element has a unique `id`. To learn more about how the Immersive Reader provides support for basic HTML elements, see the [SDK reference](reference.md#html-support).
 
 ```html
 <div id='immersive-reader-content'>
@@ -56,6 +56,7 @@ const data = {
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, data, YOUR_OPTIONS);
 ```
 
-## Next steps
+## Next step
 
-* Explore the [Immersive Reader SDK Reference](reference.md)
+> [!div class="nextstepaction"]
+> [Explore the Immersive Reader SDK reference](reference.md)

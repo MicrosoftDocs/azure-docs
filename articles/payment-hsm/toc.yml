@@ -26,7 +26,11 @@
   - name: 2. View your payment HSMs
     href: view-payment-hsms.md
   - name: 3. Access the payShield manager for your payment HSM
-    href: access-payshield-manager.md
+    items:
+    - name: Using VPN
+      href: access-payshield-manager.md
+    - name: Using SSH
+      href: access-payshield-manager-ssh.md
   - name: 4. Delete a commissioned payment HSM
     href: remove-payment-hsm.md
 

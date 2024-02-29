@@ -7,8 +7,7 @@ ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: [contperf-fy21q1, device-developer]
-
+ms.custom: device-developer
 # This article applies to solution builders and device developers.
 ---
 
@@ -37,7 +36,7 @@ To learn how to manage device templates by using the IoT Central REST API, see [
 You have several options to create device templates:
 
 - Design the device template in the IoT Central GUI.
-- Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Optionally, customize the device template to your requirements in IoT Central.
+- Import a device template from the device catalog. Optionally, customize the device template to your requirements in IoT Central.
 - When the device connects to IoT Central, have it send the model ID of the model it implements. IoT Central uses the model ID to retrieve the model from the model repository and to create a device template. Add any cloud properties and views your IoT Central application needs to the device template.
 - When the device connects to IoT Central, let IoT Central [autogenerate a device template](#autogenerate-a-device-template) definition from the data the device sends.
 - Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) and [IoT Central DTDL extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md). Manually import the device model into your IoT Central application. Then add the cloud properties and views your IoT Central application needs.
@@ -93,7 +92,7 @@ To create a device model, you can:
 
 - Use IoT Central to create a custom model from scratch.
 - Import a DTDL model from a JSON file. A device builder might have used Visual Studio Code to author a device model for your application.
-- Select one of the devices from the Device Catalog. This option imports the device model that the manufacturer has published for this device. A device model imported like this is automatically published.
+- Select one of the devices from the device catalog. This option imports the device model that the manufacturer has published for this device. A device model imported like this is automatically published.
 
 1. To view the model ID, select the root interface in the model and select **Edit identity**:
 
@@ -111,7 +110,7 @@ To view and manage the interfaces in your device model:
 
     :::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows root interface for a model":::
 
-1. Select the ellipsis to add an inherited interface or component to the root interface. To learn more about interfaces and component see [multiple components](../../iot-pnp/concepts-modeling-guide.md#multiple-components) in the modeling guide.
+1. Select the ellipsis to add an inherited interface or component to the root interface. To learn more about interfaces and component see [multiple components](../../iot/concepts-modeling-guide.md) in the modeling guide.
 
     :::image type="content" source="media/howto-set-up-template/add-interface.png" alt-text="Screenshot that shows how to add interface or component." lightbox="media/howto-set-up-template/add-interface.png":::
 
@@ -194,7 +193,7 @@ The following table shows the configuration settings for a command capability:
 | Response | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
 |Initial value | The default parameter value. This is an IoT Central extension to DTDL. |
 
-To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](../../iot-develop/concepts-message-payloads.md#commands).
+To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](../../iot/concepts-message-payloads.md#commands).
 
 #### Offline commands
 

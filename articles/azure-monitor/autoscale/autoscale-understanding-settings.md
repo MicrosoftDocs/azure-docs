@@ -6,10 +6,8 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/29/2023
 ms.subservice: autoscale
-ms.custom: ignite-2022
 ms.author: edbaynash
 ms.reviewer: akkumari
-
 ---
 # Understand autoscale settings
 

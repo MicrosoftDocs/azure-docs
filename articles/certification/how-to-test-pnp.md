@@ -26,19 +26,19 @@ This article shows you how to:
 The application code that runs on your IoT Plug and Play must:
 
 - Connect to Azure IoT Hub using the [Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md).
-- Follow the [IoT Plug an Play conventions](../iot-develop/concepts-developer-guide-device.md) to implement of telemetry, properties, and commands.
+- Follow the [IoT Plug an Play conventions](../iot/concepts-developer-guide-device.md) to implement of telemetry, properties, and commands.
 
 The application is software that's installed separately from the operating system or is bundled with the operating system in a firmware image that's flashed to the device.
 
-Prior to certifying your device through the certification process for IoT Plug and Play, you will want to validate that the device implementation matches the telemetry, properties and commands defined in the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) device model locally prior to submitting to the [Azure IoT Public Model Repository](../iot-develop/concepts-model-repository.md).
+Prior to certifying your device through the certification process for IoT Plug and Play, you will want to validate that the device implementation matches the telemetry, properties and commands defined in the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) device model locally prior to submitting to the [Azure IoT Public Model Repository](../iot/concepts-model-repository.md).
 
 To meet the certification requirements, your device must:
 
 - Connects to Azure IoT Hub using the [DPS](../iot-dps/about-iot-dps.md).
 - Implement of telemetry, properties, or commands following the IoT Plug and Play convention.
 - Describe the device interactions with a [DTDL v2](https://aka.ms/dtdl) model.
-- Send the model ID during [DPS registration](../iot-develop/concepts-developer-guide-device.md#dps-payload) in the DPS provisioning payload.
-- Announce the model ID during the [MQTT connection](../iot-develop/concepts-developer-guide-device.md#model-id-announcement).
+- Send the model ID during [DPS registration](../iot/concepts-developer-guide-device.md#dps-payload) in the DPS provisioning payload.
+- Announce the model ID during the [MQTT connection](../iot/concepts-developer-guide-device.md#model-id-announcement).
 
 ## Test with the Azure IoT Extension CLI
 

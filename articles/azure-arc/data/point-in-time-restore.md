@@ -1,13 +1,13 @@
 ---
 title: Restore a database in SQL Managed Instance enabled by Azure Arc to a previous point-in-time
 description: Explains how to restore a database to a specific point-in-time on SQL Managed Instance enabled by Azure Arc.
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.date: 06/17/2022
 ms.topic: how-to
 ---

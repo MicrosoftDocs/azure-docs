@@ -2,13 +2,11 @@
 title: Azure VMs high availability for SAP NW on RHEL multi-SID
 description: Learn how to deploy SAP NetWeaver highly available systems in a two node cluster on Azure VMs with Red Hat Enterprise Linux for SAP applications.
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 01/18/2024
 ms.author: radeltch
 ---

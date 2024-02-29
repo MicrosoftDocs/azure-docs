@@ -4,11 +4,9 @@ description: Learn how to use API Management to edit an API. Add, delete, or ren
 services: api-management
 author: adrianhall
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.date: 01/19/2022
 ms.author: adhal
-
 ---
 # Edit an API
 

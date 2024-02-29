@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 01/28/2024
 ---
 # About data-aware security posture
 

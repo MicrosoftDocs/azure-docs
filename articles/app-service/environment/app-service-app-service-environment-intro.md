@@ -1,14 +1,12 @@
 ---
 title: Introduction to ASE v1
-description: Learn about the App Service Environment v1 features. This doc is provided only for customers who use the legacy v1 ASE. 
+description: Learn about the App Service Environment v1 features. This doc is provided only for customers who use the legacy v1 ASE.
 author: madsd
 
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18
-
 ---
 # Introduction to App Service Environment v1
 

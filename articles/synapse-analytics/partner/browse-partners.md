@@ -9,7 +9,6 @@ ms.date: 06/14/2023
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ---
 
 # Discover partner solutions through Synapse Studio

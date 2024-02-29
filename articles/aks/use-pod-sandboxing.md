@@ -20,7 +20,7 @@ This article helps you understand this new feature, and how to implement it.
 
 - Register the `KataVMIsolationPreview` feature in your Azure subscription.
 
-- AKS supports Pod Sandboxing (preview) on version 1.24.0 and higher.
+- AKS supports Pod Sandboxing (preview) on version 1.24.0 and higher with all AKS network plugins.
 
 - To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. Azure Cloud Shell comes with `kubectl`. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 

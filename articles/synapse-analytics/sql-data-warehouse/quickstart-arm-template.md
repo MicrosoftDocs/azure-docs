@@ -5,7 +5,6 @@ services: azure-resource-manager
 author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-tags: azure-resource-manager
 ms.topic: quickstart
 ms.author: wiassaf
 ms.date: 06/09/2020

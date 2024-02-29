@@ -23,6 +23,8 @@ When you add an API from an API Management instance to your API center:
 
 After adding an API from API Management, you can add metadata and documentation in your API center to help stakeholders discover, understand, and consume the API.
 
+> [!VIDEO https://www.youtube.com/embed/SuGkhuBUV5k]
+
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
 ## Prerequisites
@@ -221,7 +223,6 @@ Use a wildcard (`*`) to specify all APIs from the API Management instance.
 1. Use the `az apic service import-from-apim` command to import the APIs. Substitute the names of your API center and resource group, and use `*` to specify all APIs from the API Management instance.
 
     ```azurecli
-
     #! /bin/bash
     apiIDs="$apimID/apis/*"
 
