@@ -44,8 +44,7 @@ This quick start demonstrates how to integrate Azure OpenAI with ACS Job Router 
 - Five workers that are registered to a queue with three chosen performance indicator values populated as labels.
 - Creates a Job in ACS Job Router and lets the user know which worker Azure OpenAI scored the highest based on the performance indicator labels.
 
-   :::image type="content" source="./media/overview-sequence-diagram.png" alt-text="Screenshot of Job Router with Azure OpenAI integration SequenceDiagram."
-   lightbox="./media/overview-sequence-diagram-expanded.png":::
+   :::image type="content" source="./media/overview-sequence-diagram.png" lightbox="./media/overview-sequence-diagram-expanded.png" alt-text="Screenshot of Job Router with Azure OpenAI integration SequenceDiagram.":::
  
 #### The Azure Function project is set up to interact with a deployed Azure OpenAI model:
 - The Azure function receives a request from ACS Job Router with a payload containing the worker's labels (performance indicators).
