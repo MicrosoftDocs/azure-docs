@@ -3,7 +3,7 @@ title: 'Infrastructure: On-premises Apache Hadoop to Azure HDInsight'
 description: Learn infrastructure best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, ignite-2022
+ms.custom: hdinsightactive
 ms.date: 07/25/2023
 ---
 

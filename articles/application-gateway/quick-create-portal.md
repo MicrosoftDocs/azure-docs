@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use the Azure portal to create
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 11/28/2023
+ms.date: 02/28/2024
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
@@ -15,7 +15,7 @@ ms.custom: mvc, mode-ui
 
 In this quickstart, you use the Azure portal to create an [Azure Application Gateway](overview.md) and test it to make sure it works correctly. You will assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
 
-![Quickstart setup](./media/quick-create-portal/application-gateway-qs-resources.png)
+![Conceptual diagram of the quickstart setup.](./media/quick-create-portal/application-gateway-qs-resources.png)
 
 For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md).
 

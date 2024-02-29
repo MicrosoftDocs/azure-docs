@@ -19,6 +19,14 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
 
+## January 2024
+
+### Updated articles
+
+- [Tutorial: Configure Nok Nok Passport with Azure Active Directory B2C for passwordless FIDO2 authentication](partner-nok-nok.md) - Updated Nok Nok instructions 
+- [Configure Transmit Security with Azure Active Directory B2C for passwordless authentication](partner-bindid.md) - Updated Transmit Security instructions
+- [About claim resolvers in Azure Active Directory B2C custom policies](claim-resolver-overview.md) - Updated claim resolvers and user journey
+
 ## December 2023
 
 ### Updated articles
@@ -46,13 +54,6 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Create and read a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) - Editorial updates
 - [Define a Microsoft Entra multifactor authentication technical profile in an Azure AD B2C custom policy](multi-factor-auth-technical-profile.md) - Editorial updates
 
-## October 2023
-
-### Updated articles
-
-- [Set up a force password reset flow in Azure Active Directory B2C](force-password-reset.md) - Editorial updates
-- [Azure AD B2C: Frequently asked questions (FAQ)](faq.yml) - Editorial updates
-- [Enable JavaScript and page layout versions in Azure Active Directory B2C](javascript-and-page-layout.md) - Added breaking change on script tags
 
 
 

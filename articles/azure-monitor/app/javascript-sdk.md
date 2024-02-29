@@ -142,7 +142,7 @@ If you want to use the extra features provided by plugins for specific framework
 
 - [React plugin](javascript-framework-extensions.md?tabs=react)
 - [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
-- [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
+- [Angular plugin](javascript-framework-extensions.md?tabs=angular)
 
 ### Confirm data is flowing
 

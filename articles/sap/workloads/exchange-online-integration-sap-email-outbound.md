@@ -6,14 +6,12 @@ author: MartinPankraz
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 03/11/2022
 ms.author: mapankra
-
 ---
 # Exchange Online Integration for Email-Outbound from SAP NetWeaver
 
-Sending emails from your SAP backend is a standard feature widely distributed for use cases such as alerting for batch jobs, SAP workflow state changes or invoice distribution. Many customers established the setup using [Exchange Server On-Premises](/exchange/exchange-server). With a shift to [Microsoft 365](https://www.microsoft.com/microsoft-365) and [Exchange Online](/exchange/exchange-online) comes a set of cloud-native approaches impacting that setup.
+Sending emails from your SAP backend is a standard feature widely distributed for use cases such as alerting for batch jobs, SAP workflow state changes or invoice distribution. Many customers established the setup using [Exchange Server on-premises](/exchange/exchange-server). With a shift to [Microsoft 365](https://www.microsoft.com/microsoft-365) and [Exchange Online](/exchange/exchange-online) comes a set of cloud-native approaches impacting that setup.
 
 This article describes the setup for **outbound** email-communication from NetWeaver-based SAP systems to Exchange Online. That applies to SAP ECC, S/4HANA, SAP RISE managed, and any other NetWeaver based system.
 
@@ -24,16 +22,7 @@ Existing implementations relied on SMTP Auth and elevated trust relationship bec
 Follow our standard [guide](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365) to understand the general configuration of a "device" that wants to send email via Microsoft 365.
 
 > [!IMPORTANT]
-> Microsoft disabled Basic Authentication for Exchange online as of 2020 for newly created Microsoft 365 tenants. In addition to that, the feature gets disabled for existing tenants with no prior usage of Basic Authentication starting October 2020. See our developer [blog](https://devblogs.microsoft.com/microsoft365dev/deferred-end-of-support-date-for-basic-authentication-in-exchange-online/) for reference.
-
-> [!IMPORTANT]
-> SMTP Auth was exempted from the Basic Auth feature sunset
-process. However, this is a security risk for your estate, so we advise
-against it. See the latest [post](https://techcommunity.microsoft.com/t5/exchange-team-blog/basic-authentication-and-exchange-online-september-2021-update/ba-p/2772210)
-by our Exchange Team on the matter.
-
-> [!IMPORTANT]
-> Current OAuth support for SMTP is described on our [Exchange Server documentation for legacy protocols](/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth).
+> SMTP Auth was exempted from the [Basic Auth feature sunset process](https://devblogs.microsoft.com/microsoft365dev/deferred-end-of-support-date-for-basic-authentication-in-exchange-online/) for continued support. However, this is a security risk for your estate. See the latest [post](https://techcommunity.microsoft.com/t5/exchange-team-blog/basic-authentication-and-exchange-online-september-2021-update/ba-p/2772210) by our Exchange Online team on the matter.
 
 ## Setup considerations
 
@@ -107,7 +96,7 @@ This will enable SMTP AUTH for that individual user in Exchange Online that you 
 
 3. Restart ICM service from SMICM transaction and make sure SMTP service is active.
 
-   :::image type="content" source="media/exchange-online-integration/scot-smicm-sec-1-3.png" alt-text="Screenshot of ICM setting":::
+   :::image type="content" source="media/exchange-online-integration/scot-smicm-sec-1-3.png" alt-text="Screenshot of ICM setting.":::
 
 4. Activate SAPConnect service in SICF transaction.
 
@@ -127,7 +116,7 @@ This will enable SMTP AUTH for that individual user in Exchange Online that you 
     
    :::image type="content" source="media/exchange-online-integration/scot-smtp-security-serttings-sec-1-5.png" alt-text="SMTP security config":::
     
-   Coming back to the previous screen: Click on "Set" button and check "Internet" under "Supported Address Types". Using the wildcard "\*" option will allow to send emails to all domains without restriction.
+   Coming back to the previous screen: Click on "Set" button and check "Internet" under "Supported Address Types". Using the wildcard "\*" option will allow you to send emails to all domains without restriction.
     
    :::image type="content" source="media/exchange-online-integration/scot-smtp-address-type-sec-1-5.png" alt-text="SMTP address type":::
     

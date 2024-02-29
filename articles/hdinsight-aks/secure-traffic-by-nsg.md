@@ -54,7 +54,7 @@ When clusters are created, then certain ingress public IPs also get created. To 
 The following Azure CLI command can help you get the ingress public IP:
 
 ``` 
-aksManagedResourceGroup=`az rest --uri https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusterpools/{clusterPoolName}\?api-version\=2023-06-01-preview --query properties.managedResourceGroupName -o tsv --query properties.aksManagedResourceGroupName -o tsv`
+aksManagedResourceGroup="az rest --uri https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusterpools/{clusterPoolName}\?api-version\=2023-06-01-preview --query properties.managedResourceGroupName -o tsv --query properties.aksManagedResourceGroupName -o tsv"
 
 az network public-ip list --resource-group $aksManagedResourceGroup --query "[?starts_with(name, 'kubernetes')].{Name:name, IngressPublicIP:ipAddress}" --output table
 ```

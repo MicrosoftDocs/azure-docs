@@ -6,7 +6,6 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.custom: seodec18
 ---
 # Rotate login credentials for inputs and outputs of a Stream Analytics Job
 

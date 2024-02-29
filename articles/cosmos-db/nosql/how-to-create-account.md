@@ -6,7 +6,6 @@ ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/08/2022
 ---

@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: meyetman
 author: meyetman
 ms.date: 01/23/2024
-ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2, event-tier1-build-2022, devx-track-arm-template
+ms.custom: how-to, devx-track-azurecli, devx-track-arm-template
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 

@@ -218,6 +218,14 @@
           href: dynamics-365/dynamics-365-finance-operations-security-content.md
         - name: Deploy solution
           href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
+      - name: Microsoft Power Platform solution
+        items:
+        - name: Overview
+          href: business-applications/power-platform-solution-overview.md 
+        - name: Content overview
+          href: business-applications/power-platform-solution-security-content.md
+        - name: Deploy solution
+          href: business-applications/deploy-power-platform-solution.md
   - name: Integrate Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
@@ -824,8 +832,6 @@
       href: connect-dns-ama.md   
     - name: Custom log sources
       href: connect-custom-logs.md
-    - name: GCP audit logs
-      href: connect-google-cloud-platform.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
     - name: Logstash plugin (legacy)
@@ -838,6 +844,8 @@
       href: connect-aws.md
     - name: CloudWatch events via Lambda function
       href: cloudwatch-lambda-function.md
+    - name: Google Cloud Platform connectors 
+      href: connect-google-cloud-platform.md
     - name: Azure Active Directory
       href: connect-azure-active-directory.md
     - name: Azure Stack VMs
@@ -1008,12 +1016,6 @@
       href: notebooks-hunt.md      
     - name: Configure advanced MSTICPy settings
       href: notebooks-msticpy-advanced.md
-    - name: Configure big data analytics settings
-      href: notebooks-with-synapse.md
-    - name: Export and transform historical log data
-      href: notebooks-with-synapse-export-data.md
-    - name: Hunt on large historical datasets
-      href: notebooks-with-synapse-hunt.md
 - name: Investigate incidents
   items:
   - name: Overview
@@ -1076,6 +1078,8 @@
       href: create-manage-use-automation-rules.md
     - name: Add advanced conditions to automation rules
       href: add-advanced-conditions-to-automation-rules.md
+    - name: Create incident tasks using automation rules
+      href: create-tasks-automation-rule.md
   - name: Playbooks
     items:
     - name: Overview
@@ -1090,8 +1094,6 @@
       href: use-playbook-templates.md
     - name: Configure advanced security for playbooks
       href: define-playbook-access-restrictions.md
-    - name: Create incident tasks using automation rules
-      href: create-tasks-automation-rule.md
     - name: Create and perform advanced incident tasks using playbooks
       href: create-tasks-playbook.md
   - name: Bring your own machine learning
@@ -1164,6 +1166,8 @@
   items:
   - name: Service limits
     href: sentinel-service-limits.md
+  - name: Compare playbooks, workbooks, and notebooks
+    href: resources.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: Management references
@@ -1181,7 +1185,7 @@
     - name: Azure RBAC roles
       items:
       - name: All Azure roles
-        href: ../role-based-access-control/built-in-roles.md#all
+        href: ../role-based-access-control/built-in-roles.md
       - name: Microsoft Sentinel roles
         href: ../role-based-access-control/built-in-roles.md#security
   - name: Advanced Security Information Model (ASIM)
@@ -1270,8 +1274,6 @@
       href: sentinel-soar-content.md
 - name: Resources
   items:
-  - name: Useful resources
-    href: resources.md
   - name: Sample workspace architecture
     href: sample-workspace-designs.md
   - name: Microsoft Sentinel blog

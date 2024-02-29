@@ -4,7 +4,6 @@ description: In this article, you'll learn how to restore SAP HANA databases tha
 ms.topic: how-to
 ms.date: 01/24/2024
 ms.service: backup
-ms.custom: ignite-2022
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

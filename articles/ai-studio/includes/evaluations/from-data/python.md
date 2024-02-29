@@ -128,7 +128,7 @@ For the supported scenarios mentioned previously, we provide default metrics by 
 | Question Answering                                         | `qa`              | `gpt_groundedness` (requires context), `gpt_relevance` (requires context), `gpt_coherence` | `gpt_groundedness`, `gpt_relevance`, `gpt_coherence`, `gpt_fluency`, `gpt_similarity`, `f1_score`, `exact_match`, `ada_similarity` |
 | Single and multi-turn conversation (context required) | `chat`            |  `gpt_groundedness`, `gpt_relevance`, `gpt_retrieval_score`                                 |`gpt_groundedness`, `gpt_relevance`, `gpt_retrieval_score`                                 |
 
-### Set up your Azure Open AI configurations for AI-assisted metrics
+### Set up your Azure OpenAI configurations for AI-assisted metrics
 
 Before you call the `evaluate()` function, your environment needs to set up your large language model deployment configuration that's required for generating the AI-assisted metrics. 
 
@@ -147,7 +147,7 @@ We provide an `evaluate` function call with the following interface for running 
 
 ```python
 result = evaluate( 
-    evaluation_name="my-qa-eval-with-flow", #name your evaluation to view in AI studio
+    evaluation_name="my-qa-eval-with-flow", #name your evaluation to view in AI Studio
     target=myflow, # pass in a flow that you want to run then evaluate results on 
     data=mydata, # data to be evaluated
     task_type="qa", # for different task types, different metrics are available
@@ -174,7 +174,7 @@ Alternatively if you already have a test dataset and *don't need to run a flow* 
 
 ```python
 result = evaluate( 
-    evaluation_name="my-qa-eval-with-data", #name your evaluation to view in AI studio
+    evaluation_name="my-qa-eval-with-data", #name your evaluation to view in AI Studio
     data=mydata, # data to be evaluated
     task_type="qa", # for different task types, different metrics are available
     metrics_list=["gpt_groundedness","gpt_relevance","gpt_coherence","gpt_fluency","gpt_similarity"] #optional superset over default set of metrics

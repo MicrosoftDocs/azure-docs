@@ -117,13 +117,19 @@ To create filters:
 
     :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-create-filter.png" alt-text="Screenshot of creating a filter for the Windows D N S over A M A connector.":::
 
-1. To add complex filters, select **Add field to filter** and add the relevant field.
+1. Choose the values for which you want to filter the field from among the values listed in the drop-down.
 
     :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-filter-fields.png" alt-text="Screenshot of adding fields to a filter for the Windows D N S over A M A connector.":::
 
-1. To add new filters, select **Add new filters**.  
-1. To edit, or delete existing filters or fields, select the edit or delete icons in the table under the **Configuration** area. To add fields or filters, select **Add data collection filters** again.
-1. To save and deploy the filters to your connectors, select **Apply changes**.
+1. To add complex filters, select **Add exclude field to filter** and add the relevant field. See examples in the [Use advanced filters](#use-advanced-filters) section below.
+
+1. To add more new filters, select **Add new exclude filter**.  
+
+1. When finished adding filters, select **Add**.
+
+1. Back on the main connector page, select **Apply changes** to save and deploy the filters to your connectors. To edit or delete existing filters or fields, select the edit or delete icons in the table under the **Configuration** area.
+
+1. To add fields or filters after your initial deployment, select **Add data collection filters** again.
 
 ### Set up the connector with the API
 

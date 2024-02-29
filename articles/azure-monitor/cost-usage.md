@@ -24,7 +24,7 @@ Several other features don't have a direct cost, but you instead pay for the ing
 | Platform Logs | Processing of [diagnostic and auditing information](essentials/resource-logs.md) is charged for [certain services](essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. There's no direct charge when this data is sent to a Log Analytics workspace, but there is a charge for the workspace data ingestion and collection. |
 | Metrics | There is no charge for [standard metrics](essentials/metrics-supported.md) collected from Azure resources. There is a cost for collecting [custom metrics](essentials/metrics-custom-overview.md) and for retrieving metrics from the [REST API](essentials/rest-api-walkthrough.md#retrieve-metric-values). |
 | Prometheus Metrics | Pricing for [Azure Monitor managed service for Prometheus](essentials/prometheus-metrics-overview.md) is based on [data samples ingested](containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)  and [query samples processed](essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Data is retained for 18 months at no extra charge. |
-| Alerts | Alerts are charged based on the type and number of [signals](alerts/alerts-overview.md) used by the alert rule, its frequency, and the type of [notification](alerts/action-groups.md) used in response. For [log alerts](alerts/alerts-unified-log.md) configured for [at scale monitoring](alerts/alerts-unified-log.md#split-by-alert-dimensions), the cost will also depend on the number of time series created by the dimensions resulting from your query. |
+| Alerts | Alerts are charged based on the type and number of [signals](alerts/alerts-overview.md) used by the alert rule, its frequency, and the type of [notification](alerts/action-groups.md) used in response. For [log search alerts](alerts/alerts-types.md#log-alerts) configured for [at scale monitoring](alerts/alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1), the cost will also depend on the number of time series created by the dimensions resulting from your query. |
 | Web tests | There is a cost for [standard web tests](app/availability-standard-tests.md) and [multi-step web tests](app/availability-multistep.md) in Application Insights. Multi-step web tests have been deprecated.
 
 
@@ -104,6 +104,9 @@ Since a usage export has both the number of units of usage and their cost, you c
 
 You can also see these data benefits in the Log Analytics Usage and estimated costs page. If the workspace is receiving these benefits, there will be a sentence below the cost estimate table that gives the data volume of the benefits used over the last 31 days. 
 
+:::image type="content" source="media/cost-usage/log-analytics-workspace-benefit.png" lightbox="media/cost-usage/log-analytics-workspace-benefit.png" alt-text="Screenshot of monthly usage with benefits from Defender and Sentinel offers.":::
+
+
 ### Query benefits from the Operation table
 
 The [Operation](/azure/azure-monitor/reference/tables/operation) table contains daily events which given the amount of benefit used from the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). The `Detail` column for these events are all of the format `Benefit amount used 1.234 GB`, and the type of benefit is in the `OperationKey` column. Here is a query that charts the benefits used in the last 31-days:
@@ -120,7 +123,7 @@ Operation
 | render columnchart 
 ```
 
-(This functionality of reporting the benefits used in the `Operation` table came online in January 2024.) 
+(This functionality of reporting the benefits used in the `Operation` table started January 27, 2024.) 
 
 > [!TIP]
 > If you [increase the data retention](logs/data-retention-archive.md) of the [Operation](/azure/azure-monitor/reference/tables/operation) table, you will be able to view these benefit trends over longer periods.  

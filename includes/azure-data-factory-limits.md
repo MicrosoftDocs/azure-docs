@@ -23,7 +23,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Concurrent Data Integration Units<sup>1</sup> consumption per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) in managed virtual network|  2,400 | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
 | Maximum activities per pipeline, which includes inner activities for containers | 40 | 40 |
 | Maximum number of linked integration runtimes that can be created against a single self-hosted integration runtime | 100 | 100 |
-| Maximum number of node that can be created against a single self-hosted integration runtime | 4 | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
+| Maximum number of nodes that can be created against a single self-hosted integration runtime | 4 | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
 | Maximum parameters per pipeline | 50 | 50 |
 | ForEach items | 100,000 | 100,000 |
 | ForEach parallelism | 20 | 50 |

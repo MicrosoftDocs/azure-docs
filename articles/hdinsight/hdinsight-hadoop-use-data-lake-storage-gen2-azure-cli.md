@@ -5,7 +5,7 @@ author: yeturis
 ms.author: sairamyeturi
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 08/21/2023
 ---
 

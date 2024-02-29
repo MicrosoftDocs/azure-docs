@@ -5,7 +5,7 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Bring your own Machine Learning (ML) into Microsoft Sentinel
@@ -165,4 +165,3 @@ Once you've set up the analytics rule based on the ML results, if there are resu
 In this document, you learned how to use Microsoft Sentinel's BYO-ML platform for creating or importing your own machine learning algorithms to analyze data and detect threats.
 
 - See posts about machine learning and lots of other relevant topics in the [Microsoft Sentinel Blog](https://aka.ms/azuresentinelblog).
-
