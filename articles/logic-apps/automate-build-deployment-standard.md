@@ -94,19 +94,23 @@ For more information, see the following documentation:
 
    1. Select the workflow template. Enter your workflow name.
 
+   1. Choose to open your workspace either in the current window or a new window.
+
+      Visual Studio Code shows your new workspace and logic app project.
+
+1. Follow these steps to open the workflow designer:
+
+   1. 
+
+   :::image type="content" source="media/automate-build-deployment-standard/created-project.png" alt-text="Screenshot shows Visual Studio Code, Explorer icon selected on left menu, logic app project, and workflow designer." lightbox="media/automate-build-deployment-standard/created-project.png":::
+
+You can now edit the workflow in any way that you want and locally test your workflow along the way. To create and test a sample workflow, see [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+
    1. Select **Use connectors from Azure** to enable [Microsoft-managed, Azure-hosted connectors](../connectors/managed.md) for your workflow.
 
       > [!NOTE]
       >
       > If you skip this step, you can access only the [built-in connectors that are runtime-hosted](../connectors/built-in.md) until you [enable the Microosft-managed connectors](#enable-managed-connectors).
-
-   1. Select either the current Visual Studio Code window or a new window.
-
-   Visual Studio Code shows your new workspace, logic app project, and the blank workflow designer.
-
-   :::image type="content" source="media/automate-build-deployment-standard/created-project.png" alt-text="Screenshot shows Visual Studio Code, Explorer icon selected on left menu, logic app project, and workflow designer." lightbox="media/automate-build-deployment-standard/created-project.png":::
-
-You can now edit the workflow in any way that you want and locally test your workflow along the way. To create and test a sample workflow, see [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 <a name="enable-managed-connectors"></a>
 
