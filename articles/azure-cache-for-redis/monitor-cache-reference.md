@@ -11,15 +11,13 @@ ms.service: cache
 
 # Azure Cache for Redis monitoring data reference
 
-<!-- Intro -->
 [!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure Cache for Redis](monitor-cache.md) for details on the data you can collect for Azure Cache for Redis and how to use it.
 
-<!-- ## Metrics -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-For more details and information about the supported metrics for Microsoft.Cache/redis and Microsoft.Cache/redisEnterprise, see [List of metrics](cache-how-to-monitor.md#list-of-metrics).
+For more details and information about the supported metrics for Microsoft.Cache/redis and Microsoft.Cache/redisEnterprise, see [List of metrics](monitor-cache-reference.md#azure-cache-for-redis-metrics).
 
 ### Supported metrics for Microsoft.Cache/redis
 The following table lists the metrics available for the Microsoft.Cache/redis resource type.
@@ -36,7 +34,7 @@ The following table lists the metrics available for the Microsoft.Cache/redisEnt
 <a name="available-metrics-and-reporting-intervals"></a>
 <a name="create-your-own-metrics"></a>
 <a name="metrics-details"></a>
-## Azure Cache for Redis supported metrics details
+## Azure Cache for Redis metrics
 
 The following list provides details and more information about the supported Azure Monitor metrics for [Microsoft.Cache/redis](/azure/azure-monitor/reference/supported-metrics/microsoft-cache-redis-metrics) and [Microsoft.Cache/redisEnterprise](/azure/azure-monitor/reference/supported-metrics/microsoft-cache-redisenterprise-metrics).
 
@@ -144,18 +142,14 @@ The following list provides details and more information about the supported Azu
 - Used Memory RSS
   - The amount of cache memory used in MB during the specified reporting interval, including fragmentation. This value maps to `used_memory_rss` from the Redis INFO command. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 
-<!-- ## Resource logs -->
 [!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Cache/redis
 [!INCLUDE [Microsoft.Cache/redis](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-cache-redis-logs-include.md)]
-<!-- Add any further information here.
-<!-- Repeat the ### heading, tableheader #include, table, and further information for each resource type/namespace. -->
 
 ### Supported resource logs for Microsoft.Cache/redisEnterprise/databases
 [!INCLUDE [Microsoft.Cache/redis](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-cache-redisenterprise-databases-logs-include.md)]
 
-<!-- ## Azure Monitor Logs tables -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 ### Azure Cache for Redis
@@ -164,18 +158,12 @@ microsoft.cache/redis
 - [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics)
 
-
 ### Azure Cache for Redis Enterprise
 Microsoft.Cache/redisEnterprise
 - [REDConnectionEvents](/azure/azure-monitor/reference/tables/redconnectionevents)
 
-<!-- ## Activity log -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 - [Microsoft.Cache resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftcache)
-
-<!-- ## Other schemas. If your service doesn't use other schemas, remove this section. If your service uses other schemas, list them after the following include. Please keep heading in this order. -->
-<!--[!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
-<!-- List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
 
 ## Related content
 

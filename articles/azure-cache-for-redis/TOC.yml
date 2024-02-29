@@ -108,14 +108,14 @@
 
 - name: Logs and monitoring
   items:
-  - name: Monitor Azure Cache for Redis
+  - name: Monitor
     href: monitor-cache.md
+  - name: Monitor Azure Cache for Redis
+    href: cache-how-to-monitor.md
   - name: Use insights to understand performance and utilization
     href: cache-insights-overview.md
   - name: Monitor connection logs
     href: cache-monitor-diagnostic-settings.md
-  - name: Monitoring data reference
-    href: monitor-cache-reference.md
 
 - name: Scaling and performance
   items:
@@ -296,6 +296,8 @@
     href: ./policy-reference.md
   - name: Redis commands
     href: https://redis.io/commands#
+  - name: Monitoring data reference
+    href: monitor-cache-reference.md
 
 - name:  Resources
   items:
