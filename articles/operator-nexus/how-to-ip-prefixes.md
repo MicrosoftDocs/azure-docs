@@ -60,3 +60,72 @@ To create an IP Prefix resource, follow these steps: 
 
 
 1.  Create the IP Prefix resource using the azcli command. You can use the same command as in the previous step, or modify it as per your requirements.
+
+3.  Verify that the IP Prefix resource is created successfully. You can use the `az networkfabric ipprefix show` command to show the details of the IP Prefix resource. You can use the following example as a reference: 
+
+    ```azurecli
+    networkfabric ipprefix show \
+      --resource-group myResourceGroup \
+      --name myIpPrefix 
+    ```
+
+In this example, `myResourceGroup` is the name of the resource group where you created the IP Prefix resource, and `myIpPrefix` is the name of the IP Prefix resource. 
+
+The response should contain the properties and rules of the IP Prefix resource, such as the id, type, ipPrefixRules, location, name, provisioningState, resourceGroup, and tags. 
+
+### Show an IP Prefix resource
+
+To get the details of an existing IP Prefix resource by its ID or name, use the following command: 
+
+```azurecli
+# Get the details of an IP Prefix resource by its name
+az networkfabric ipprefix show \
+  --resource-group myResourceGroup \
+  --name myIpPrefix
+```
+
+The REST API response body for getting the details of an IP Prefix resource by its ID is as follows: 
+
+```
+{
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/myIpPrefix",
+  "location": "eastus",
+  "name": "myIpPrefix",
+  "properties": {
+    "ipPrefixRules": [
+      {
+        "action": "Permit",
+        "condition": "EqualTo",
+        "networkPrefix": "10.10.10.0/28",
+        "sequenceNumber": 10
+      },
+      {
+        "action": "Permit",
+        "condition": "EqualTo",
+        "networkPrefix": "20.20.20.0/24",
+        "sequenceNumber": 20
+      }
+    ]
+  }
+}
+```
+
+## Updating an IP Prefix Resource 
+
+To update an IP Prefix resource, follow these steps: 
+
+1.  Specify the properties and rules of the IP Prefix resource that you want to update. You can use the same JSON template as in the previous section, or modify it as per your requirements. 
+
+2.  Update the IP Prefix resource using the Azure CLI command or the REST API method. You can use the following examples as a reference: 
+
+    ```azurecli
+    az networkfabric ipprefix update  \
+      -g "example-rg" \
+      --resource-name "example-ipprefix" \
+      --ip-prefix-rules "[{action:Permit,sequenceNumber:4155123341,networkPrefix:'10.10.10.10/30',condition:GreaterThanOrEqualTo,subnetMaskLength:10}]"
+    ```
+
+In this example, `resourceGroupName` is the name of the resource group where you created the IP Prefix resource, `ipPrefixName` is the name of the IP Prefix resource, and the `--add` option adds a new rule to the ipPrefixRules property. The new rule denies routes with network prefix 30.30.30.0/24 and has a sequence number of 30. 
+
+
+
