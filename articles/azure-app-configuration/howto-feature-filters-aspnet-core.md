@@ -28,7 +28,7 @@ You can also create your own feature filter that implements the `Microsoft.Featu
 ## Prerequisites
 
 - Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to create a web app with a feature flag.
-- [Microsoft.FeatureManagement.AspNetCore 3.0.0 or later](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/4.0.0-preview)
+- Install the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) package of version **3.0.0** or later.
 
 ## Set up feature management
 
