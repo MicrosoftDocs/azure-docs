@@ -103,7 +103,7 @@ Restore will create a new disk from the selected recovery point in the target re
 
 - For Windows virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](../virtual-machines/windows/attach-managed-disk-portal.md) to the virtual machine. Follow the instructions to [swap the OS disk](../virtual-machines/windows/os-disk-swap.md) of the virtual machine with the restored disk.
 
-- For Linux virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](../virtual-machines/linux/detach-disk.md#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](../virtual-machines/linux/attach-disk-portal.md#attach-an-existing-disk) to the virtual machine. Follow the instructions to [swap the OS disk](../virtual-machines/linux/os-disk-swap.md) of  the virtual machine with the restored disk.
+- For Linux virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](../virtual-machines/linux/detach-disk.md#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](../virtual-machines/linux/attach-disk-portal.yml#attach-an-existing-disk) to the virtual machine. Follow the instructions to [swap the OS disk](../virtual-machines/linux/os-disk-swap.md) of  the virtual machine with the restored disk.
 
 It's recommended that you revoke the **Disk Restore Operator** role assignment from the Backup vault's managed identity on the **Target resource group** after the successful completion of restore operation.
 
