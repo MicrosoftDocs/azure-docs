@@ -101,7 +101,7 @@ You will need the Key Vault resource ID when you run `az iot ops init`. To retri
 az keyvault show --name "<your unique key vault name>" --resource-group "<the name of the resource group>" --query id  -o tsv
 ```
 
-### Set service principal access policy in Azue Key Vault
+### Set service principal access policy in Azure Key Vault
 
 The newly created service principal needs **Secret** `list` and `get` access policy for the Azure IoT Operations to work with the secret store. 
 
@@ -156,7 +156,12 @@ Once you have the secret store set up on your cluster, you can create and add Az
 
 1. Save your changes and apply them to your cluster. If you use k9s, your changes are automatically applied.
 
-The CSI driver updates secrets according to a polling interval, so a new secret won't be updated on the pods until the next polling interval. If you want the secrets to be updated immediately, update the pods for that component. For example, for the Azure IoT Data Processor component, update the `aio-dp-reader-worker-0` and `aio-dp-runner-worker-0` pods.
+The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the next polling interval. To update a component immediately, restart the pods for the component. For example, to restart the Data Processor component, run the following commands:
+
+```console
+kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations
+kubectl delete pod aio-dp-runner-worker-0 -n azure-iot-operations
+```
 
 ## Azure IoT MQ secrets
 
