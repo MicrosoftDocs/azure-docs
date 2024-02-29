@@ -28,7 +28,7 @@ For servers in a VMware environment, use the VMware Hybrid Cloud Extension (HCX)
 
 ### Cause
 
-In the case of VMware and Hyper-V VMs, an Azure VM assessment marks Linux VMs as **conditionally ready** because of a known gap. 
+In the case of VMware and Hyper-V VMs, an Azure VM assessment marks Linux VM as **conditionally ready** because of a known gap. 
 
 - The gap prevents it from detecting the minor version of the Linux OS installed on the on-premises VMs.
 - For example, for RHEL 6.10, currently an Azure VM assessment detects only RHEL 6 as the OS version. This behavior occurs because the vCenter Server and the Hyper-V host don't provide the kernel version for Linux VM operating systems.

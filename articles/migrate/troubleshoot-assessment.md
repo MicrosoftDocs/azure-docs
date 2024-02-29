@@ -487,7 +487,7 @@ Unable to determine ISAPI filters present for all of the site configuration.
 
 #### Recommended Action
 
-Automatic configuration of custom ISAPI filters isn't supported. Fix all configuration errors and confirm that all site content locations are accessible to the administrators group.
+Automatic configuration of custom ISAPI filters isn't supported. Fix all configuration errors and confirm that all site content locations are accessible to the administrator's group.
 
 ### Error: Location tag check
 

@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot assessments FAQ in Azure Migrate
-description: FAQs for Troubleshooring assessments in Azure Migrate.
+description: FAQs for Troubleshooting assessments in Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
@@ -31,7 +31,7 @@ For **Performance-based** assessment, the assessment report export says 'Percent
 - If the VMs are powered on for the duration for which you're creating the assessment.
 - If only memory counters are missing and you're trying to assess Hyper-V VMs, check if you have dynamic memory enabled on these VMs. Because of a known issue, currently the Azure Migrate appliance can't collect memory utilization for such VMs.
 - If all of the performance counters are missing, ensure the port access requirements for assessment are met. Learn more about the port access requirements for [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [Hyper-V](./migrate-support-matrix-hyper-v.md#port-access), and [physical](./migrate-support-matrix-physical.md#port-access) assessments.
-If any of the performance counters are missing, Azure Migrate: Discovery and assessment fall back to the allocated cores/memory on-premises and recommends a VM size accordingly.
+If any of the performance counters are missing, Azure Migrate: Discovery and assessment fall back to the allocated cores/memory on-premises and recommend a VM size accordingly.
 
 ## Why is performance data missing for some or all servers in my Azure VM or Azure VMware Solution assessment report?
 
@@ -80,7 +80,7 @@ By design, in Hyper-V if maximum memory provisioned is less than what is require
 
 An Azure VM assessment currently considers the operating system license cost only for Windows servers. License costs for Linux servers aren't currently considered.
 
-## How does performance-based sizing work in an Azure VM assessment?
+## How performance-based sizing works in an Azure VM assessment?
 
 An Azure VM assessment continuously collects performance data of on-premises servers and uses it to recommend the VM SKU and disk SKU in Azure. [Learn more](concepts-assessment-calculation.md#calculate-sizing-performance-based) about how performance-based data is collected.
 
