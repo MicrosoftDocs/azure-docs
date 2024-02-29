@@ -17,9 +17,9 @@ Storage accounts used by Recovery Services vaults are isolated and can't be acce
 
 Azure Backup provides three [built-in roles](../role-based-access-control/built-in-roles.md) to control backup management operations:
 
-* Backup Contributor - to create and manage backups, except deleting Recovery Services vault and giving access to others
-* Backup Operator - everything a contributor does except removing backup and managing backup policies
-* Backup Reader - permissions to view all backup management operations
+* **Backup Contributor**: To create and manage backups, except deleting Recovery Services vault and giving access to others
+* **Backup Operator**: Everything a contributor does except removing backup and managing backup policies
+* **Backup Reader**: permissions to view all backup management operations
 
 Learn more about [Azure role-based access control to manage Azure Backup](./backup-rbac-rs-vault.md).
 
@@ -27,7 +27,7 @@ Azure Backup has several security controls built into the service to prevent, de
 
 ## Separation between guest and Azure storage
 
-With Azure Backup, which includes virtual machine backup and SQL and SAP HANA in VM backup, the backup data is stored in Azure storage and the guest has no direct access to backup storage or its contents.  With the virtual machine backup, the backup snapshot creation and storage are done by Azure fabric where the guest has no involvement other than quiescing the workload for application consistent backups.  With SQL and SAP HANA, the backup extension gets temporary access to write to specific blobs.  In this way, even in a compromised environment, existing backups can't be tampered with or deleted by the guest.
+With Azure Backup, which includes virtual machine backup and SQL and SAP HANA in VM backup, the backup data is stored in Azure storage and the guest has no direct access to backup storage or its contents. With the virtual machine backup, the backup snapshot creation and storage are done by Azure fabric where the guest has no involvement other than quiescing the workload for application consistent backups.  With SQL and SAP HANA, the backup extension gets temporary access to write to specific blobs.  In this way, even in a compromised environment, existing backups can't be tampered with or deleted by the guest.
 
 ## Internet connectivity not required for Azure VM backup
 
@@ -45,7 +45,7 @@ Encryption protects your data and helps you to meet your organizational security
 
 * Within Azure, data in transit between Azure storage and the vault is [protected by HTTPS](backup-support-matrix.md#network-traffic-to-azure). This data remains on the Azure backbone network.
 
-* Backup data is automatically encrypted using [platform-managed keys](backup-encryption.md), and you don't need to take any explicit action to enable it. You can also encrypt your backed up data using [customer managed keys](encryption-at-rest-with-cmk.md) stored in the Azure Key Vault. It applies to all workloads being backed up to your Recovery Services vault.
+* Backup data is automatically encrypted using [platform-managed keys](backup-encryption.md), and you don't need to take any explicit action to enable it. You can also encrypt your backed-up data using [customer managed keys](encryption-at-rest-with-cmk.md) stored in the Azure Key Vault. It applies to all workloads being backed up to your Recovery Services vault.
 
 * Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with [Azure Disk Encryption (ADE)](backup-azure-vms-encryption.md#encryption-support-using-ade) and [VMs with CMK encrypted disks](backup-azure-vms-encryption.md#encryption-using-customer-managed-keys). For more information, [learn more about encrypted Azure VMs and Azure Backup](./backup-azure-vms-encryption.md).
 
