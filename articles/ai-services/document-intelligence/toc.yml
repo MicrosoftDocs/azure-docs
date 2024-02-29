@@ -184,13 +184,13 @@ items:
     href: concept-batch-analysis.md
   - name: 🆕 Credit card model
     displayName: debit
-    href: concept-credit-debit-card-md
+    href: concept-credit-card.md
   - name: 🆕 US mortgage documents
     displayName: 1003, 1008, closing, disclosure
     href: concept-mortgage.md
   - name: 🆕 Marriage certificate model
     displayName: license
-    href: concept-marriage-certificate
+    href: concept-marriage-certificate.md
   - name: Contract model
     displayName: contracts, agreements, legal, terms, conditions, clauses, parties, dates, signatures
     href: concept-contract.md

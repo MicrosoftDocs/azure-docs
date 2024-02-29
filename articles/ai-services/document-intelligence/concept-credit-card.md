@@ -1,7 +1,7 @@
 ---
 title: Document Intelligence Credit/Debit Card model
 titleSuffix: Azure AI services
-description: 
+description: Use Document Intelligence credit/debit card model extract key fields from credit and debit cards.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -21,7 +21,7 @@ monikerRange: '>=doc-intel-4.0.0'
 
 **This content applies to:** ![checkmark](media/yes-icon.png) **v4.0 (preview)** ![checkmark](media/yes-icon.png)
 
-The Document Intelligence Credit/debit model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields from credit and debit cards. Credit cards and debit cards can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as Card Number, Issuing Bank, and Expiration Date; and returns a structured JSON data representation. The model currently supports English-language document formats.
+The Document Intelligence credit/debit card model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields from credit and debit cards. Credit cards and debit cards can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as Card Number, Issuing Bank, and Expiration Date; and returns a structured JSON data representation. The model currently supports English-language document formats.
 
 ## Automated Credit/Debit Card processing
 

@@ -1,7 +1,7 @@
 ---
 title: Document Intelligence US mortgage document
 titleSuffix: Azure AI services
-description:
+description: Use Document Intelligence mortgage model to analyze and extract key fields from mortgage documents.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -17,7 +17,7 @@ monikerRange: '>=doc-intel-4.0.0'
 <!-- markdownlint-disable MD049 -->
 <!-- markdownlint-disable MD001 -->
 
-# Document Intelligence marriage certificate model
+# Document Intelligence mortgage documents model
 
 **This content applies to:** ![checkmark](media/yes-icon.png) **v4.0 (preview)** ![checkmark](media/yes-icon.png)
 
