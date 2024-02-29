@@ -114,9 +114,8 @@
     href: cache-how-to-monitor.md
   - name: Use insights to understand performance and utilization
     href: cache-insights-overview.md
-  - name: Monitor connection logs
+  - name: Monitor with diagnostic logs
     href: cache-monitor-diagnostic-settings.md
-
 - name: Scaling and performance
   items:
   - name: Change the size and tier of a cache

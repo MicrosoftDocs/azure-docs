@@ -1,39 +1,56 @@
 ---
-title: Connection logs for different Azure Cache for Redis tiers
+title: Monitor Azure Cache for Redis data using diagnostic settings
 titleSuffix: Azure Cache for Redis
-description: Learn about the differences in connection log implementation, setup, and contents between the different tiers of Azure Cache for Redis.
+description: Learn how to use diagnostic settings to monitor connected ip addresses to your Azure Cache for Redis.
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to 
-ms.date: 01/29/2023
-ms.custom: template-how-to, devx-track-azurecli, horz-monitor 
+ms.date: 12/18/2023
+ms.custom: template-how-to, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
-# Connection logs for different Azure Cache for Redis tiers
+# Monitor Azure Cache for Redis data using diagnostic settings
 
-Diagnostic settings in Azure are used to collect resource logs. In Azure Cache for Redis, two options are available to log:
+Diagnostic settings in Azure are used to collect resource logs. An Azure resource emits resource logs and provides rich, frequent data about the operation of that resource. These logs are captured per request and are also referred to as "data plane logs". See [diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) for a recommended overview of the functionality in Azure. The content of these logs varies by resource type. In Azure Cache for Redis, two options are available to log:
 
-- **Cache Metrics** ("AllMetrics") [logs metrics from Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
-- **Connection logs** logs connections to the cache for security and diagnostic purposes. 
+- **Cache Metrics** (that is "AllMetrics") used to [log metrics from Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+- **Connection Logs** logs connections to the cache for security and diagnostic purposes. 
 
-Analyzing the connection logs diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. The log data could be used to identify the scope of a security breach and for security auditing purposes.
+## Scope of availability
 
-This article describes the differences in connection log setup, implementation, and contents between the different Azure Cache for Redis tiers. For detailed information and instructions about collecting and routing resource logs, see [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings). For details about the resource logs that Azure Cache for Redis collects, see [Resource logs](monitor-cache-reference.md#resource-logs).
+|Tier     | Basic, Standard, and Premium  | Enterprise and Enterprise Flash  |
+|---------|---------|---------|
+|Cache Metrics  | Yes         | Yes  |
+|Connection Logs | Yes | Yes |
 
-## Differences between Azure Cache for Redis tiers
+## Cache Metrics
+
+Azure Cache for Redis emits [many metrics](cache-how-to-monitor.md#list-of-metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics). 
+
+## Connection Logs
+
+Azure Cache for Redis uses Azure diagnostic settings to log information on client connections to your cache. Logging and analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. The log data could be used to identify the scope of a security breach and for security auditing purposes.
+
+## Differences Between Azure Cache for Redis Tiers
 
 Implementation of connection logs is slightly different between tiers:
 - **Basic, Standard, and Premium-tier caches** polls client connections by IP address, including the number of connections originating from each unique IP address. These logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals. Authentication events (successful and failed) and disconnection events aren't logged in these tiers.  
 - **Enterprise and Enterprise Flash-tier caches** use the [audit connection events](https://docs.redis.com/latest/rs/security/audit-events/) functionality built-into Redis Enterprise. Audit connection events allow every connection, disconnection, and authentication event to be logged, including failed authentication events. 
 
+The connection logs produced look similar among the tiers, but have some differences. The two formats are shown in more detail later in the article.  
+
 > [!IMPORTANT]
 > The connection logging in the Basic, Standard, and Premium tiers _polls_ the current client connections in the cache. The same client IP addresses appears over and over again. Logging in the Enterprise and Enterprise Flash tiers is focused on each connection _event_. Logs only occur when the actual event occurred for the first time.
+>
+
+## Prerequisites/Limitations of Connection Logging
 
 ### Basic, Standard, and Premium tiers
 - Because connection logs in these tiers consist of point-in-time snapshots taken every 10 seconds, connections that are established and removed in-between 10-second intervals aren't logged.
 - Authentication events aren't logged.
+- All diagnostic settings may take up to [90 minutes](../azure-monitor/essentials/diagnostic-settings.md#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
 - Enabling connection logs can cause a small performance degradation to the cache instance.
 - Only the _Analytics Logs_ pricing plan is supported when streaming logs to Azure Log Analytics. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). 
 
@@ -47,7 +64,27 @@ Implementation of connection logs is slightly different between tiers:
 - Enabling connection logs may cause a small performance degradation to the cache instance.
 
 > [!NOTE]
-> It's always possible to use the [INFO](https://redis.io/commands/info/) or [CLIENT LIST](https://redis.io/commands/client-list/) commands to check who is connected to a cache instance on-demand.
+> It is always possible to use the [INFO](https://redis.io/commands/info/) or [CLIENT LIST](https://redis.io/commands/client-list/) commands to check who is connected to a cache instance on-demand.
+>
+
+> [!IMPORTANT]
+> When selecting logs, you can chose either the specific _Category_ or _Category groups_, which are predefined groupings of logs across Azure services. When you use _Category groups_, [you can no longer configure the retention settings](../azure-monitor/essentials/diagnostic-settings.md#resource-logs). If you need to determine retention duration for your connection logs, select the item in the _Categories_ section instead. 
+>
+
+## Log Destinations
+
+You can turn on diagnostic settings for Azure Cache for Redis instances and send resource logs to the following destinations:
+
+- **Log Analytics workspace** - doesn't need to be in the same region as the resource being monitored.
+- **Storage account** - must be in the same region as the cache. [Premium storage accounts are not supported](../azure-monitor/essentials/diagnostic-settings.md#destination-limitations) as a destination, however. 
+- **Event hub** - diagnostic settings can't access event hub resources when virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall?** setting in event hubs to grant access to your event hub resources. The event hub must be in the same region as the cache.
+- **Partner Solution** - a list of potential partner logging solutions can be found [here](../partner-solutions/partners.md)
+
+For more information on diagnostic requirements, see [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD).
+
+You're charged normal data rates for storage account and event hub usage when you send diagnostic logs to either destination. You're billed under Azure Monitor not Azure Cache for Redis. When sending logs to **Log Analytics**, you're only charged for Log Analytics data ingestion.
+
+For more pricing information, [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Enable connection logging using the Azure portal
 
@@ -80,6 +117,7 @@ Implementation of connection logs is slightly different between tiers:
 
 1. Once you select **Connection events**, send your logs to your preferred destination. Select the information in the working pane.
    :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-enterprise-connection-events.png" alt-text="Screenshot showing Connection events being checked in working pane.":::
+
 
 ---
 
@@ -173,7 +211,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
 ---
 
-## Enable connection logging using Azure CLI
+## Enable Connection Logging using Azure CLI
 
 ### [Azure CLI with Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 
@@ -209,9 +247,9 @@ az monitor diagnostic-settings create
 
 ---
 
-## Contents of the connection logs
+## Contents of the Connection Logs
 
-### [Connection log contents for Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
+### [Connection Log Contents for Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 These fields and properties appear in the `ConnectedClientList` log category. In **Azure Monitor**, logs are collected in the `ACRConnectedClientList` table under the resource provider name of `MICROSOFT.CACHE`.
 
 | Azure Storage field or property | Azure Monitor Logs property | Description |
@@ -258,7 +296,7 @@ If you send your logs to a storage account, the contents of the logs look like t
 }
 ```
 
-### [Connection log contents for Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
+### [Connection Log Contents for Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
 
 These fields and properties appear in the `ConnectionEvents` log category. In **Azure Monitor**, logs are collected in the `REDConnectionEvents` table under the resource provider name of `MICROSOFT.CACHE`.
 
@@ -339,7 +377,11 @@ And the log for a disconnection event looks like this:
 
 ---
 
-## Log Analytics queries
+## Log Analytics Queries
+
+> [!NOTE]
+> For a tutorial on how to use Azure Log Analytics, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md). Remember that it may take up to 90 minutes before logs show up in Log Analtyics. 
+>
 
 Here are some basic queries to use as models.
 
@@ -427,7 +469,6 @@ REDConnectionEvents
 ```
 ---
 
-## Related content
+## Next steps
 
-- [Azure Monitor diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
-- [Supported resource logs for Azure Cache for Redis](monitor-cache-reference.md#resource-logs)
+For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.
