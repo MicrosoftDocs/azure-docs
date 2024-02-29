@@ -29,8 +29,8 @@ Process flow:
 ### Comparing Azure Load Balancer with Azure Application Gateway:
 | Product | Type |
 | ---------- | ---------- |
-| [**Azure Load Balancer**](load-balancer/load-balancer-overview.md) | Pass-through load balancer where the clients directly establish a TLS handshake with a backend server. |
-| **Azure Application Gateway** | Terminating load balancer where the clients perform TLS handshake with Application Gateway. |
+| [**Azure Load Balancer**](load-balancer/load-balancer-overview.md) | A pass-through load balancer where a client directly establishes a connection with a backend server selected by the Load Balancer's distribution algorithm. |
+| **Azure Application Gateway** | Terminating load balancer where a client directly establishes a connection with Application Gateway and a separate connection is initiated with a backend server selected by Application Gateway's distribution algorithm. |
 
 
 ## Features
