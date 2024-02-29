@@ -43,11 +43,11 @@ The `import` operation supports two modes: initial mode and incremental mode. Ea
 This table shows the difference between import modes
 |Areas|Initial mode  |Incremental mode  |
 |:------------- |:-------------|:-----|
-|Capability|Initial load of data into FHIR service|Continuous ingestion of data into FHIR service (Incremental / NRT)|
-|Concurrent API calls|Blocks concurrent write operations|Data can be ingested concurrently while executing API CRUD operations on the FHIR server|
-|Ingestion of versioned resources|Not supported|Enables ingestion of  multiple versions of FHIR resources in single batch while maintaining resource history|
-|Retain lastUpdated field value|Not supported|Retain the lastUpdated field value in FHIR resources during the ingestion process|
-|Billing| Does not incur any charge|Incurs charges based on successfully ingested resources. Charges are incurred per API pricing|
+|Capability|Initial load of data into FHIR service|Continuous ingestion of data into FHIR service (Incremental or Near Real Time).|
+|Concurrent API calls|Blocks concurrent write operations|Data can be ingested concurrently while executing API CRUD operations on the FHIR server.|
+|Ingestion of versioned resources|Not supported|Enables ingestion of  multiple versions of FHIR resources in single batch while maintaining resource history.|
+|Retain lastUpdated field value|Not supported|Retain the lastUpdated field value in FHIR resources during the ingestion process.|
+|Billing| Does not incur any charge|Incurs charges based on successfully ingested resources. Charges are incurred per API pricing.|
 
 ## Performance considerations
 
