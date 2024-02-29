@@ -7,6 +7,7 @@ ms.service: azure-arc
 # ms.subservice: site-manager
 ms.topic: overview #Don't change
 ms.date: 02/27/2024
+ms.custom: references_regions
 
 #customer intent: As a <role>, I want <what> so that <why>.
 
