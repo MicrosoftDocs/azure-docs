@@ -5,7 +5,7 @@ description: Learn how to create Azure DNS Private Resolver. This article is a s
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 07/17/2023
+ms.date: 02/28/2024
 ms.topic: quickstart
 ms.service: dns
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
@@ -17,6 +17,10 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create Azure DNS Private Resolver.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+The following figure summarizes the general setup used. Subnet address ranges used in templates are slightly different than those shown in the figure.
+
+![Conceptual figure displaying components of the private resolver.](./media/dns-resolver-getstarted-portal/resolver-components.png)
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -39,7 +43,7 @@ This template is configured to create a:
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/azure-dns-private-resolver/azuredeploy.json":::
 
-Seven resources have been defined in this template:
+Seven resources are defined in this template:
 
 - [**Microsoft.Network/virtualnetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Network/dnsResolvers**](/azure/templates/microsoft.network/dnsresolvers)
@@ -112,5 +116,5 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Next steps
 
-In this quickstart, you created a virtual network and DNS private resolver. Now configure name resolution for Azure and on-premises domains
+In this quickstart, you created a virtual network and DNS private resolver. Now configure name resolution for Azure and on-premises domains.
 - [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md)
