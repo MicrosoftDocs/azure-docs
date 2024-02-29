@@ -37,7 +37,7 @@ When enabled, the workspace itself is replicated to another region, including it
 ### Supported regions and region groups
 Each workspace has a primary location, which is the region in which the workspace resides. When enabling replication, you choose a secondary location - another region in which a "shadow" workspace is created, and that you can later switch to.
 
-Workspace replication is currently supported for workspaces in a limited set of regions, organized by region groups (groups of geographically adjacent regions). When you enable replication, you select a secondary location from the list of supported regions, and from the same region group as the workspace primary location. For example, a workspace in West Europe can have a replication in North Europe, but not in West US 2, since these regions are in different region groups. 
+Workspace replication is currently supported for workspaces in a limited set of regions, organized by region groups (groups of geographically adjacent regions). When you enable replication, select a secondary location from the list of supported regions, and from the same region group as the workspace primary location. For example, a workspace in West Europe can have a replication in North Europe, but not in West US 2, since these regions are in different region groups. 
 
 The following regions and groups are currently supported.
 * Region group: US regions
@@ -63,11 +63,50 @@ Some Azure Monitor experiences aren't fully compatible with workspace replicatio
 ## Enabling and disabling workspace replication
 Workspace replication can be enabled or disabled through a REST command. This command triggers a long running operation, meaning it can take a few minutes for the new settings to apply. Once replication is set, it may take up to **one hour** to be operational for all data types. Some data types may start replicating before others. Similarly, schema changes done at any time after enabling workspace replication can take up to one hour to start replicating. Examples are custom logs using new tables or custom fields, or diagnostic logs set up for new resource types.
 
+### Using a dedicated cluster?
+If the workspace you want to replicate is linked to a dedicated cluster, you must first enable replication for the cluster. This operation creates a "shadow" cluster on your secondary region, to allow you to keep using a dedicated cluster in case you switch to your secondary region. This also means features like cluster managed keys continue working (with the same key) on your secondary region.
+
+Once replication is enabled, you can proceed to enabled replication for one or more of the workspaces linked to this cluster.
+
+To enable cluster replication, use the PUT command below. This call returns 201. It's a long running operation which may take time to complete, and you can track its exact state as explained later.
+
+> [!NOTE]
+> The Log Analytics Contributor role is required to enable replication.
+
+In the following command, your primary location is the original region the cluster was created in, and the secondary location is the region you'll switch to if the primary isn't healthy.
+Use the values shown in [Supported regions and region groups](#supported-regions-and-region-groups).
+
+
+ ```
+PUT 
+
+https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/clusters/<cluster_name>?api-version=2023-01-01-preview
+
+
+body:
+{
+    "properties": {
+        "replication": {
+            "enabled": true,
+            "location": "<secondary_location>"
+        }
+    },
+    "location": "<primary_location>"
+}
+
+```
+
+> [!NOTE]
+> The secondary location of the workspaces linked to this cluster must be identical to the cluster's secondary location.
+
 ### How to enable workspace replication
 To enable workspace replication, use the PUT command below. This call returns 200. It's a long running operation which may take time to complete, and you can track its exact state as explained later.
 
 > [!NOTE]
 > The Log Analytics Contributor role is required to enable replication.
+
+In the following command, your primary location is the original region the workspace was created in, and the secondary location is the region you'll switch to if the primary isn't healthy.
+Use the values shown in [Supported regions and region groups](#supported-regions-and-region-groups).
 
  ```
 PUT 
