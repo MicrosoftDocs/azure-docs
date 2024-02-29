@@ -2,15 +2,8 @@
 title: Azure NetApp Files datastore performance benchmarks for Azure VMware Solution | Microsoft Docs
 description: Describes performance benchmarks that Azure NetApp Files datastores deliver for virtual machines on Azure VMware Solution.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2023
 ms.author: anfdocs
@@ -47,17 +40,17 @@ Traffic latency from AVS to Azure NetApp Files datastores varies from sub-millis
 
 In a single AVS host scenario, the AVS to Azure NetApp Files datastore I/O occurs over a single network flow. The following graphs compare the throughput and IOPs of a single virtual machine with the aggregated throughput and IOPs of four virtual machines. In the subsequent scenarios, the number of network flows increases as more hosts and datastores are added.
 
-:::image type="content" source="../media/azure-netapp-files/performance-vmware-single-datastore.png" alt-text="Graphs comparing a single virtual machine with four virtual machines over a single network flow." lightbox="../media/azure-netapp-files/performance-vmware-single-datastore.png":::
+:::image type="content" source="./media/performance-benchmarks-azure-vmware-solution/performance-vmware-single-datastore.png" alt-text="Graphs comparing a single virtual machine with four virtual machines over a single network flow." lightbox="./media/performance-benchmarks-azure-vmware-solution/performance-vmware-single-datastore.png":::
 
 ## One-to-multiple Azure NetApp Files datastores with a single AVS host
 
 The following graphs compare the throughput of a single virtual machine on a single Azure NetApp Files datastore with the aggregated throughput of four Azure NetApp Files datastores. In both scenarios, each virtual machine has a VMDK on each Azure NetApp Files datastore.
 
-:::image type="content" source="../media/azure-netapp-files/performance-vmware-one-host-four-datastores.png" alt-text="Graphs comparing a single virtual machine on a single datastore with four datastores." lightbox="../media/azure-netapp-files/performance-vmware-one-host-four-datastores.png":::
+:::image type="content" source="./media/performance-benchmarks-azure-vmware-solution/performance-vmware-one-host-four-datastores.png" alt-text="Graphs comparing a single virtual machine on a single datastore with four datastores." lightbox="./media/performance-benchmarks-azure-vmware-solution/performance-vmware-one-host-four-datastores.png":::
 
 The following graphs compare the IOPs of a single virtual machine on a single Azure NetApp Files datastore with the aggregated IOPs of eight Azure NetApp Files datastores. In both scenarios, each virtual machine has a VMDK on each Azure NetApp Files datastore.
 
-:::image type="content" source="../media/azure-netapp-files/performance-vmware-one-host-eight-datastores.png" alt-text="Graphs comparing a single virtual machine on a single datastore with eight datastores." lightbox="../media/azure-netapp-files/performance-vmware-one-host-eight-datastores.png":::
+:::image type="content" source="./media/performance-benchmarks-azure-vmware-solution/performance-vmware-one-host-eight-datastores.png" alt-text="Graphs comparing a single virtual machine on a single datastore with eight datastores." lightbox="./media/performance-benchmarks-azure-vmware-solution/performance-vmware-one-host-eight-datastores.png":::
 
 ## Scale-out Azure NetApp Files datastores with multiple AVS hosts
 
@@ -65,7 +58,7 @@ The following graph shows the aggregated throughput and IOPs of 16 virtual machi
 
 Nearly identical results were achieved with a single virtual machine on each host with four VMDKs per virtual machine and each of those VMDKs on a separate datastore. 
 
-:::image type="content" source="../media/azure-netapp-files/performance-vmware-scale-out.png" alt-text="Graphs showing aggregated throughput and IOPs of 16 virtual machines distributed across four AVS hosts." lightbox="../media/azure-netapp-files/performance-vmware-scale-out.png":::
+:::image type="content" source="./media/performance-benchmarks-azure-vmware-solution/performance-vmware-scale-out.png" alt-text="Graphs showing aggregated throughput and IOPs of 16 virtual machines distributed across four AVS hosts." lightbox="./media/performance-benchmarks-azure-vmware-solution/performance-vmware-scale-out.png":::
 
 ## Next steps
 

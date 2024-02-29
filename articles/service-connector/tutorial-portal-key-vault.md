@@ -4,7 +4,6 @@ description: Tutorial showing how to store your web app's secrets in Azure Key V
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: tutorial
 ms.date: 10/31/2023
 ---

@@ -6,7 +6,7 @@ metadata:
   ms.author: rosemalcolm 
   ms.service: dev-box 
   ms.topic: faq 
-  ms.date: 05/16/2023 
+  ms.date: 01/16/2024 
 title: "Microsoft Dev Box: Frequently asked questions"
 summary: This article provides answers to some of the most commonly asked questions about [Microsoft Dev Box](https://azure.microsoft.com/services/dev-box/).
   
@@ -85,46 +85,7 @@ sections:
         
       - question: Is there a policy or a feature to prevent users copying data or code from the Dev Box to their laptop using the clipboard? 
         answer: You can prevent users copying data or code from the Dev Box to their local machine by disabling the clipboard redirection feature in the RDP client. You can manage this setting through a device configuration policy in Microsoft Intune. For more information, see [RDP device redirection settings](/windows-365/enterprise/manage-rdp-device-redirections#rdp-device-redirection-settings).
-        
-  - name: Dev Box quota
-    questions:
-      - question: What is quota?
-        answer: |
-                To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a quota.  
-                There are different types of quota that you can encounter in the Developer portal and Azure portal, such as quota for:  
-                - Dev Box vCPU (This is a quota error you'll encounter in devportal.microsoft.com during dev box creation) 
 
-                Or, for Azure portal resource limits:  
-                - Dev Centers 
-                - Network connections 
-                - Dev Box Definitions 
-      
-      - question: What should I do if I hit a vCPU quota error?  
-        answer: |
-                If you are in the developer portal, you might see a *QuotaExceeded* error during dev box creation. 
-                If you see this error, contact your administrator for assistance to increase this quota. You can point them to the documentation on [requesting a quota limit](/azure/dev-box/how-to-request-quota-increase). 
-                If your admin can't increase the quota limit at this time, try selecting another pool with a region close to your location.  
-                
-      - question: How can I check my Dev Box quota?
-        answer: |
-                You can check your Dev Box quota using either: 
-                - REST API - [Usages - List By Location - REST API (Azure Dev Center) | Microsoft Learn](/rest/api/devcenter/administrator/usages/list-by-location?tabs=HTTP)
-                - CLI - [az devcenter admin usage | Microsoft Learn |](/cli/azure/devcenter/admin/usage?view=azure-cli-latest) 
-          
-  - name: Dev Box hibernation
-    questions:
-      - question: Can I use auto-stop schedules to hibernate Dev Boxes on a schedule? # Question.
-        answer: 
-          The ability to use auto-stop schedules to initiate hibernation is in Preview.
-
-      - question: I enabled hibernation on a Dev Box definition, but my Dev Box definition reports that hibernation couldn't be enabled. # Question.
-        answer: |
-          - We recommend using the Visual Studio for Dev Box marketplace images, either directly, or as base images for generating your custom image.
-          - The Windows + OS optimizations image contains optimized power settings, and they can't be used with hibernation.  
-          - If you're using a custom Azure Compute Gallery image, enable hibernation on your Azure Compute Gallery image before enabling hibernation on your Dev Box definition.
-          - If hibernation can't be enabled on the definition even after you enable it on your gallery image, your custom image likely has a Windows configuration that prevents hibernation. 
-
-            For more information, see [Settings not compatible with hibernation](how-to-configure-dev-box-hibernation.md#settings-not-compatible-with-hibernation).
 
 additionalContent: |
     ## Related content

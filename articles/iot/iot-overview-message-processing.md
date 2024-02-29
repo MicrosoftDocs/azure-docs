@@ -8,8 +8,7 @@ ms.author: dobett
 ms.topic: overview
 ms.date: 04/03/2023
 ms.custom: template-overview
-
-# As a solution builder or device developer I want a high-level overview of the message processing in IoT solutions so that I can easily find relevant content for my scenario.
+# Customer intent: As a solution builder or device developer I want a high-level overview of the message processing in IoT solutions so that I can easily find relevant content for my scenario.
 ---
 
 # Message processing in an IoT solution

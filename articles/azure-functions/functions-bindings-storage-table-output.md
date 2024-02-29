@@ -3,8 +3,9 @@ title: Azure Tables output bindings for Azure Functions
 description: Understand how to use Azure Tables output bindings in Azure Functions.
 ms.topic: reference
 ms.date: 11/11/2022
-ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
 

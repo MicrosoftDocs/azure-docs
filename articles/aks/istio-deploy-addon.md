@@ -27,8 +27,8 @@ export LOCATION=<location>
 
 ### Verify Azure CLI and aks-preview extension versions
 The add-on requires:
-* Azure CLI version 2.44.0 or later installed. To install or upgrade, see [Install Azure CLI][install-azure-cli].
-* `aks-preview` Azure CLI extension of version 0.5.133 or later installed
+* Azure CLI version 2.49.0 or later installed. To install or upgrade, see [Install Azure CLI][azure-cli-install].
+* `aks-preview` Azure CLI extension of version 0.5.163 or later installed
 
 You can run `az --version` to verify above versions.
 
@@ -42,26 +42,6 @@ Run the following command to update to the latest version of the extension relea
 
 ```azurecli-interactive
 az extension update --name aks-preview
-```
-
-### Register the _AzureServiceMeshPreview_ feature flag
-
-Register the `AzureServiceMeshPreview` feature flag by using the [az feature register][az-feature-register] command:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
-```
-
-It takes a few minutes for the feature to register. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
 ```
 
 ## Install Istio add-on at the time of cluster creation

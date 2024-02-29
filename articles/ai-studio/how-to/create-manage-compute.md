@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: deeikele
 ms.author: sgilley
 author: sdgilley
@@ -22,7 +22,7 @@ In this article, you learn how to create a compute instance in Azure AI Studio. 
 You need a compute instance to:
 - Use prompt flow in Azure AI Studio. 
 - Create an index
-- Open Visual Studio Code (Web) in the Azure AI Studio.
+- Open Visual Studio Code (Web or Desktop) in Azure AI Studio.
 
 You can use the same compute instance for multiple scenarios and workflows. Note that a compute instance can't be shared. It can only be used by a single assigned user. By default, it will be assigned to the creator and you can change this to a different user in the security step.
 
@@ -42,8 +42,6 @@ To create a compute instance in Azure AI Studio:
     :::image type="content" source="../media/compute/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/compute/compute-create.png":::
 
 1. Enter a custom name for your compute.
-
-    :::image type="content" source="../media/compute/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/compute/compute-create.png":::
 
 1. Select your virtual machine type and size and then select **Next**. 
 
@@ -111,7 +109,7 @@ You can start or stop a compute instance from the Azure AI Studio.
 
     :::image type="content" source="../media/compute/compute-start-stop.png" alt-text="Screenshot of the option to start or stop a compute instance." lightbox="../media/compute/compute-start-stop.png":::
 
-
 ## Next steps
 
 - [Create and manage prompt flow runtimes](./create-manage-runtime.md)
+- [Vulnerability management](../concepts/vulnerability-management.md)

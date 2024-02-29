@@ -4,7 +4,7 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 08/02/2022
+ms.date: 02/20/2024
 ms.author: victorh
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
@@ -110,8 +110,10 @@ $wsn = Get-AzVirtualNetworkSubnetConfig -Name  Workload-SN -VirtualNetwork $test
 $NIC01 = New-AzNetworkInterface -Name Srv-Work -ResourceGroupName Test-FW-RG -Location "East us" -Subnet $wsn
 
 #Define the virtual machine
+$SecurePassword = ConvertTo-SecureString "<choose a password>" -AsPlainText -Force
+$Credential = New-Object System.Management.Automation.PSCredential ("<choose a user name>", $SecurePassword);
 $VirtualMachine = New-AzVMConfig -VMName Srv-Work -VMSize "Standard_DS2"
-$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName Srv-Work -ProvisionVMAgent -EnableAutoUpdate
+$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName Srv-Work -ProvisionVMAgent -EnableAutoUpdate -Credential $Credential
 $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC01.Id
 $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2019-Datacenter' -Version latest
 

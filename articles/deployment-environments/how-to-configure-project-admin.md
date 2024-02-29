@@ -3,7 +3,6 @@ title: Provide administrative access to Azure Deployment Environments projects
 titleSuffix: Azure Deployment Environments
 description: Learn how to configure administrative access for dev team leads by using the DevCenter Project Admin built-in role.
 ms.service: deployment-environments
-ms.custom: ignite-2022
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 12/04/2023

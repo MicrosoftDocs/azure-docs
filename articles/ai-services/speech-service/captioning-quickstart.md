@@ -6,9 +6,9 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 04/23/2022
+ms.date: 2/16/2024
 ms.author: eur
-ms.devlang: cpp, csharp
+ms.devlang: cpp
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-speech-sdk-cli
 ---

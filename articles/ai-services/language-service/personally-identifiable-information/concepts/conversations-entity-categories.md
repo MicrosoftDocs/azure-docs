@@ -22,7 +22,7 @@ The PII preview feature includes the ability to detect personal (`PII`) informat
 
 The following entity categories are returned when you're sending API requests PII feature.
 
-## Category: Name
+## Category: Person
 
 This category contains the following entity:
 
@@ -38,7 +38,9 @@ This category contains the following entity:
 
         All first, middle, last or full name is considered PII regardless of whether it is the speaker’s name, the agent’s name, someone else’s name or a different version of the speaker’s full name (Chris vs. Christopher). 
 
-        To get this entity category, add `Name` to the `pii-categories` parameter. `Name` will be returned in the API response if detected.
+        To get this entity category, add `Person` to the `pii-categories` parameter. `Person` will be returned in the API response if detected. 
+        > [!NOTE]
+        > As of the 2023-04-15-preview API onwards, this category is 'Person' instead of 'Name'.
       
     :::column-end:::
     

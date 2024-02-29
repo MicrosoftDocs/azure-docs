@@ -4,7 +4,6 @@ description: Configure Azure and on-premises DNS to resolve private DNS zones an
 services: dns
 author: greg-lindsay
 ms.service: dns
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/05/2023
 ms.author: greglin

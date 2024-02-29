@@ -1,8 +1,8 @@
 ---
 title: Deploy the Microsoft Sentinel solution for SAP applications® from the content hub
 description: This article shows you how to deploy the Microsoft Sentinel solution for SAP applications® security content from the content hub into your Microsoft Sentinel workspace. This content makes up the remaining parts of the Microsoft Sentinel Solution for SAP.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: how-to
 ms.date: 03/23/2023
 ---

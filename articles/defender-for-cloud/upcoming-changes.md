@@ -1,8 +1,8 @@
 ---
 title: Important upcoming changes
-description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
+description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan. 
 ms.topic: overview
-ms.date: 01/11/2024
+ms.date: 02/21/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,12 +25,18 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| [Four new recommendations for Azure Stack HCI resource type](#four-new-recommendations-for-azure-stack-hci-resource-type) | January 11, 2024 | February 2024 |
+| [Microsoft Security Code Analysis (MSCA) is no longer operational](#microsoft-security-code-analysis-msca-is-no-longer-operational) | February 26, 2024 | February 26, 2024 |
+| [Update recommendations to align with Azure AI Services resources](#update-recommendations-to-align-with-azure-ai-services-resources) | February 20, 2024 | February 28, 2024 |
+| [Deprecation of data recommendation](#deprecation-of-data-recommendation) | February 12, 2024 | March 14, 2024 |
+| [Decommissioning of Microsoft.SecurityDevOps resource provider](#decommissioning-of-microsoftsecuritydevops-resource-provider) | February 5, 2024 | March 6, 2024 |
+| [Changes in endpoint protection recommendations](#changes-in-endpoint-protection-recommendations) | February 1, 2024 | March, 2024 |
+| [Change in pricing for multicloud container threat detection](#change-in-pricing-for-multicloud-container-threat-detection) | January 30, 2024 | April 2024 |
+| [Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#enforcement-of-defender-cspm-for-premium-devops-security-value) | January 29, 2024 | March 2024 |
+| [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
+| [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |January 14, 2024 | February 2024 |
 | [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
 | [Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#retirement-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 9, 2023 | March 2024 |
-| [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
 | [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
-| [Deprecation and severity changes to security alerts](#deprecation-and-severity-changes-to-security-alerts) | December 27, 2023 | January 2024 |
 | [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
 | [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
@@ -41,20 +47,129 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
-## Four new recommendations for Azure Stack HCI resource type
+## Microsoft Security Code Analysis (MSCA) is no longer operational
 
-**Announcement date: January 11, 2024**
+**Announcement date: February 26, 2024**
+
+**Estimated date for change: February 26, 2024**
+
+In February 2021, the deprecation of the MSCA task was communicated to all customers and has been past end of life support since [March 2022](https://devblogs.microsoft.com/premier-developer/microsoft-security-code-analysis/). As of February 26, 2024, MSCA is officially no longer operational.
+
+Customers can get the latest DevOps security tooling from Defender for Cloud through [Microsoft Security DevOps](azure-devops-extension.md) and additional security tooling through [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
+
+
+## Update recommendations to align with Azure AI Services resources
+
+**Announcement date: February 20, 2024**
+
+**Estimated date of change: February 28, 2024**
+
+The Azure AI Services category (formerly known as Cognitive Services) is adding new resource types. As a result, the following recommendations and related policy are set to be updated to comply with the new Azure AI Services naming format and align with the relevant resources.
+
+| Current Recommendation | Updated Recommendation |
+| ---- | ---- |
+| Cognitive Services accounts should restrict network access | [Azure AI Services resources should restrict network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243) |
+| Cognitive Services accounts should have local authentication methods disabled | [Azure AI Services resources should have key access disabled (disable local authentication)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6) |
+
+See the [list of security recommendations](recommendations-reference.md).
+
+## Deprecation of data recommendation
+
+**Announcement date: February 12, 2024**
+
+**Estimated date of change: March 14, 2024**
+
+The recommendation [`Public network access should be disabled for Cognitive Services accounts`](https://ms.portal.azure.com/?feature.msaljs=true#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/684a5b6d-a270-61ce-306e-5cea400dc3a7) is set to be deprecated. The related policy definition [`Cognitive Services accounts should disable public network access`](https://ms.portal.azure.com/?feature.msaljs=true#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0725b4dd-7e76-479c-a735-68e7ee23d5ca) is also being removed from the regulatory compliance dashboard.
+
+This recommendation is already being covered by another networking recommendation for Azure AI Services, [`Cognitive Services accounts should restrict network access`](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243/showSecurityCenterCommandBar~/false).
+
+See the [list of security recommendations](recommendations-reference.md).
+
+## Decommissioning of Microsoft.SecurityDevOps resource provider
+
+**Announcement date: February 5, 2024**
+
+**Estimated date of change: March 6, 2024**
+
+Microsoft Defender for Cloud is decommissioning the resource provider `Microsoft.SecurityDevOps` that was used during public preview of DevOps security, having migrated to the existing `Microsoft.Security` provider. The reason for the change is to improve customer experiences by reducing the number of resource providers associated with DevOps connectors.
+
+Customers that are still using the API version **2022-09-01-preview** under `Microsoft.SecurityDevOps` to query Defender for Cloud DevOps security data will be impacted. To avoid disruption to their service, customer will need to update to the new API version **2023-09-01-preview** under the `Microsoft.Security` provider.
+
+Customers currently using Defender for Cloud DevOps security from Azure portal won't be impacted.
+
+
+For details on the new API version, see [Microsoft Defender for Cloud REST APIs](/rest/api/defenderforcloud/operation-groups).
+
+## Changes in endpoint protection recommendations
+
+**Announcement date: February 1, 2024**
+
+**Estimated date of change: March 2024**
+
+As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269), existing endpoint recommendations, which rely on those agents, will be replaced with new recommendations. The new recommendations rely on [agentless machine scanning](concept-agentless-data-collection.md) which allows the recommendations to discover and assesses the configuration of supported endpoint detection and response solutions and offers remediation steps, if issues are found.
+
+These public preview recommendations will be deprecated.
+
+| Recommendation | Agent | Deprecation date | Replacement recommendation |
+|--|--|--|--|
+| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA | March 2024 | New agentless recommendations. |
+| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA | March 2024 | New agentless recommendations. |
+
+The current generally available recommendations will remain supported until August 2024.
+
+As part of that deprecation, we’ll be introducing new agentless endpoint protection recommendations. These recommendations will be available in Defender for Servers Plan 2 and the Defender CSPM plan. They'll support Azure and multicloud machines. On-premises machines aren't supported.
+
+| Preliminary recommendation name | Estimated release date |
+|--|--|--|
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | March 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on EC2s | March 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | March 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | March 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | March 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | March 2024 |
+
+Learn more about the [migration to the updated Endpoint protection recommendations experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
+
+## Change in pricing for multicloud container threat detection
+
+**Announcement date: January 30, 2024**
+
+**Estimated date for change: April 2024**
+
+When [multicloud container threat detection](support-matrix-defender-for-containers.md) moves to GA, it will no longer be free of charge. For more information, see [Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
+## Enforcement of Defender CSPM for Premium DevOps Security Value
+
+**Announcement date: January 29, 2024**
+
+**Estimated date for change: March 7, 2024**
+
+Defender for Cloud will begin enforcing the Defender CSPM plan check for premium DevOps security value beginning **March 7th, 2024**. If you have the Defender CSPM plan enabled on a cloud environment (Azure, AWS, GCP) within the same tenant your DevOps connectors are created in, you'll continue to receive premium DevOps capabilities at no extra cost. If you aren't a Defender CSPM customer, you have until **March 7th, 2024** to enable Defender CSPM before losing access to these security features. To enable Defender CSPM on a connected cloud environment before March 7, 2024, follow the enablement documentation outlined [here](tutorial-enable-cspm-plan.md#enable-the-components-of-the-defender-cspm-plan).
+
+For more information about which DevOps security features are available across both the Foundational CSPM and Defender CSPM plans, see [our documentation outlining feature availability](devops-support.md#feature-availability).
+
+For more information about DevOps Security in Defender for Cloud, see the [overview documentation](defender-for-devops-introduction.md).
+
+For more information on the code to cloud security capabilities in Defender CSPM, see [how to protect your resources with Defender CSPM](tutorial-enable-cspm-plan.md).
+
+## Update to agentless VM scanning built-in Azure role
+
+**Announcement date: January 14, 2024**
+
+**Estimated date of change: February 2024**
+
+In Azure, agentless scanning for VMs uses a built-in role (called [VM scanner operator](/azure/defender-for-cloud/faq-permissions)) with the minimum necessary permissions required to scan and assess your VMs for security issues. To continuously provide relevant scan health and configuration recommendations for VMs with encrypted volumes, an update to this role's permissions is planned. The update includes the addition of the ```Microsoft.Compute/DiskEncryptionSets/read``` permission. This permission solely enables improved identification of encrypted disk usage in VMs. It doesn't provide Defender for Cloud any more capabilities to decrypt or access the content of these encrypted volumes beyond the encryption methods [already supported](/azure/defender-for-cloud/concept-agentless-data-collection#availability) prior to this change. This change is expected to take place during February 2024 and no action is required on your end.
+
+## Deprecation of two recommendations related to PCI
+
+**Announcement date: January 14, 2024**
 
 **Estimated date for change: February 2024**
 
-Azure Stack HCI is set to be a new resource type that can be managed through Microsoft Defender for Cloud. We're adding four recommendations that are specific to the HCI resource type:
+The following two recommendations related to PCI (Permission Creep Index) are set for deprecation:
 
-| Recommendation | Description  | Severity |
-|----------|----------|----------|
-| Azure Stack HCI servers should meet Secured-core requirements | Ensure that all Azure Stack HCI servers meet the Secured-core requirements. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)) | Low |
-| Azure Stack HCI servers should have consistently enforced application control policies | At a minimum, apply the Microsoft WDAC base policy in enforced mode on all Azure Stack HCI servers. Applied Windows Defender Application Control (WDAC) policies must be consistent across servers in the same cluster. | High |
-| Azure Stack HCI systems should have encrypted volumes | Use BitLocker to encrypt the OS and data volumes on Azure Stack HCI systems | High |
-| Host and VM networking should be protected on Azure Stack HCI systems | Protect data on the Azure Stack HCI host’s network and on virtual machine network connections. | Low |
+- `Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)`
+- `Over-Provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)`
 
 ## Defender for Servers built-in vulnerability assessment (Qualys) retirement path
 
@@ -62,8 +177,8 @@ Azure Stack HCI is set to be a new resource type that can be managed through Mic
 
 **Estimated date for change: May 2024**
 
-The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path which is estimated to complete on **May 1st, 2024**. If you're currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft Defender vulnerability management solution](how-to-transition-to-built-in.md).
- 
+The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path, which is estimated to complete on **May 1st, 2024**. If you're currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft Defender vulnerability management solution](how-to-transition-to-built-in.md).
+
 For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, you can read [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 
 You can also check out the [common questions about the transition to Microsoft Defender Vulnerability Management solution](faq-scanner-detection.yml).
@@ -81,14 +196,6 @@ For more information about our decision to unify our vulnerability assessment of
 For more information about transitioning to our new container vulnerability assessment offering powered by Microsoft Defender Vulnerability Management, see [Transition from Qualys to Microsoft Defender Vulnerability Management](transition-to-defender-vulnerability-management.md).
 
 For common questions about the transition to Microsoft Defender Vulnerability Management, see [Common questions about the Microsoft Defender Vulnerability Management solution](common-questions-microsoft-defender-vulnerability-management.md).
-
-## New version of Defender Agent for Defender for Containers
-
-**Announcement date: January 4, 2024**
-
-**Estimated date for change: February 2024**
-
-A new version of the [Defender Agent for Defender for Containers](tutorial-enable-containers-azure.md#deploy-the-defender-agent-in-azure) will be released in February 2024. It includes performance and security improvements, support for both AMD64 and ARM64 arch nodes (Linux only), and uses [Inspektor Gadget](https://www.inspektor-gadget.io/) as the process collection agent instead of Sysdig. The new version is only supported on Linux kernel versions 5.4 and higher, so if you have older versions of the Linux kernel, you'll need to upgrade. For more information, see [Supported host operating systems](support-matrix-defender-for-containers.md#supported-host-operating-systems).
 
 ## Upcoming change for the Defender for Cloud’s multicloud network requirements
 
@@ -114,69 +221,6 @@ The list is applicable to all plans and sufficient for full capability of the CS
 - North Europe (neu): 13.69.233.80/28
 - Central US (cus): 20.44.10.240/28
 - East US 2 (eus2): 20.44.19.128/28
-
-## Deprecation and severity changes to security alerts
-
-**Announcement date: December 27, 2023**
-
-**Estimated date for change: January 2024**
-
-The following security alerts are set for deprecation or are set for update to the **informational** severity level.
-
-- The following container security alerts are set for deprecation:
-
-  - `Anomalous pod deployment (Preview) (K8S_AnomalousPodDeployment)`
-  - `Excessive role permissions assigned in Kubernetes cluster (Preview) (K8S_ServiceAcountPermissionAnomaly)`
-  - `Anomalous access to Kubernetes secret (Preview) (K8S_AnomalousSecretAccess)`
-
-- The following security alerts are set to be updated to the **informational** severity level:
-
-  - **Alerts for Windows machines**:
-  
-    - `Adaptive application control policy violation was audited (VM_AdaptiveApplicationControlWindowsViolationAudited)`
-    - `Adaptive application control policy violation was audited (VM_AdaptiveApplicationControlLinuxViolationAudited)`
-  
-  - **Alerts for containers**:
-  
-    - `Attempt to create a new Linux namespace from a container detected (K8S.NODE_NamespaceCreation)`
-    - `Attempt to stop apt-daily-upgrade.timer service detected (K8S.NODE_TimerServiceDisabled)`
-    - `Command within a container running with high privileges (K8S.NODE_PrivilegedExecutionInContainer)`
-    - `Container running in privileged mode (K8S.NODE_PrivilegedContainerArtifacts)`
-    - `Container with a sensitive volume mount detected (K8S_SensitiveMount)`
-    - `Creation of admission webhook configuration detected (K8S_AdmissionController)`
-    - `Detected suspicious file download (K8S.NODE_SuspectDownloadArtifacts)`
-    - `Docker build operation detected on a Kubernetes node (K8S.NODE_ImageBuildOnNode)`
-    - `New container in the kube-system namespace detected (K8S_KubeSystemContainer)`
-    - `New high privileges role detected (K8S_HighPrivilegesRole)`
-    - `Privileged container detected (K8S_PrivilegedContainer)`
-    - `Process seen accessing the SSH authorized keys file in an unusual way (K8S.NODE_SshKeyAccess)`
-    - `Role binding to the cluster-admin role detected (K8S_ClusterAdminBinding)`
-    - `SSH server is running inside a container (K8S.NODE_ContainerSSH)`
-  
-  - **Alerts for DNS**:
-
-    - `Communication with suspicious algorithmically generated domain (AzureDNS_DomainGenerationAlgorithm)`
-    - `Communication with suspicious algorithmically generated domain (DNS_DomainGenerationAlgorithm)`
-    - `Communication with suspicious random domain name (Preview) (DNS_RandomizedDomain)`
-    - `Communication with suspicious random domain name (AzureDNS_RandomizedDomain)`
-    - `Communication with possible phishing domain (AzureDNS_PhishingDomain)`
-    - `Communication with possible phishing domain (Preview) (DNS_PhishingDomain)`
-  
-  - **Alerts for Azure App Service**:
-
-    - `NMap scanning detected (AppServices_Nmap)`
-    - `Suspicious User Agent detected (AppServices_UserAgentInjection)`
-  
-  - **Alerts for Azure network layer**
-  
-    - `Possible incoming SMTP brute force attempts detected (Generic_Incoming_BF_OneToOne)`
-    - `Traffic detected from IP addresses recommended for blocking (Network_TrafficFromUnrecommendedIP)`
-
-  - **Alerts for Azure Resource Manager**:
-
-    - `Privileged custom role created for your subscription in a suspicious way (Preview)(ARM_PrivilegedRoleDefinitionCreation)`
-  
-See the full [list of security alerts](alerts-reference.md).
 
 ## Deprecation of two DevOps security recommendations
 
@@ -267,7 +311,7 @@ The `Key Vaults should have purge protection enabled` recommendation is deprecat
 |--|--|--|--|
 | [Key vaults should have deletion protection enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)| A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period. | audit, deny, disabled | [2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
-See the [full index of Azure Policy built-in policy definitions for Key Vault](../key-vault/policy-reference.md)
+See the [full index of Azure Policy built-in policy definitions for Key Vault](../key-vault/policy-reference.md).
 
 ## Preview alerts for DNS servers to be deprecated
 
@@ -279,7 +323,7 @@ The following table lists the alerts to be deprecated:
 
 | AlertDisplayName | AlertType |
 |--|--|
-| Communication with suspicious random domain name (Preview) | DNS_RandomizedDomain
+| Communication with suspicious random domain name (Preview) | DNS_RandomizedDomain |
 | Communication with suspicious domain identified by threat intelligence (Preview) | DNS_ThreatIntelSuspectDomain |
 | Digital currency mining activity (Preview) | DNS_CurrencyMining |
 | Network intrusion detection signature activation (Preview) | DNS_SuspiciousDomain |
@@ -346,7 +390,7 @@ The following table explains how each capability will be provided after the Log 
 
 | **Feature**                                                  | **Deprecation plan**                                                  | **Alternative**                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Defender for Endpoint/Defender for Cloud integration  for down level machines (Windows Server  2012 R2, 2016) | Defender for Endpoint integration that uses the  legacy Defender for Endpoint sensor and the Log Analytics agent (for Windows Server 2016 and Windows  Server 2012 R2 machines) won’t be supported after August 2024. | Enable the GA [unified agent](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) integration to  maintain support for machines, and receive the full extended feature set. For more information, see [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#windows). |
+| Defender for Endpoint/Defender for Cloud integration  for down level machines (Windows Server  2012 R2, 2016) | Defender for Endpoint integration that uses the  legacy Defender for Endpoint sensor and the Log Analytics agent (for Windows Server 2016 and Windows  Server 2012 R2 machines) won’t be supported after August 2024. | Enable the GA [unified agent](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) integration to  maintain support for machines, and receive the full extended feature set. For more information, see [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md#windows). |
 | OS-level threat detection (agent-based)                      | OS-level threat detection based  on the Log Analytics agent won’t be available after August 2024.  A full list of deprecated detections will be provided soon. | OS-level detections are provided by Defender for Endpoint integration  and are already GA. |
 | Adaptive application controls                                | The [current GA version](adaptive-application-controls.md) based on the  Log Analytics agent will be deprecated in August 2024, along with the preview version based on the Azure monitoring agent. | Adaptive Application Controls feature as it is today will be discontinued, and new capabilities in the application control space (on top of what Defender for Endpoint and Windows Defender Application Control offer today) will be considered as part of future Defender for Servers roadmap. |
 | Endpoint protection discovery recommendations                | The current [GA recommendations](endpoint-protection-recommendations-technical.md) to install endpoint protection and fix health issues in the detected solutions will be deprecated in August 2024. The preview recommendations available today over Log analytic agent will be deprecated when the alternative is provided over Agentless Disk Scanning capability. | A new agentless version will be provided for discovery and configuration gaps by April 2024. As part of this upgrade, this feature will be provided as a component of Defender for Servers plan 2 and Defender CSPM, and won’t cover on-premises or Arc-connected machines. |

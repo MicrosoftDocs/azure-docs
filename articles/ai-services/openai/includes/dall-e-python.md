@@ -9,12 +9,11 @@ ms.custom:
   - ignite-2023
 ms.topic: include
 ms.date: 11/06/2023
-keywords:
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for Python.
 
-[Library source code](https://github.com/openai/openai-python/tree/main/openai) | [Package](https://github.com/openai/openai-python) | [Samples](https://github.com/openai/openai-python/tree/main/examples)
+[Library source code](https://github.com/openai/openai-python/tree/main/src/openai) | [Package](https://github.com/openai/openai-python) | [Samples](https://github.com/openai/openai-python/tree/main/examples)
 
 ## Prerequisites
 
@@ -154,7 +153,7 @@ from PIL import Image
 
 # Get endpoint and key from environment variables
 openai.api_base = os.environ['AZURE_OPENAI_ENDPOINT']
-openai.api_key = os.environ['AZURE_OPENAI_KEY']     
+openai.api_key = os.environ['AZURE_OPENAI_API_KEY']     
 
 # Assign the API version (DALL-E is currently supported for the 2023-06-01-preview API version only)
 openai.api_version = '2023-06-01-preview'

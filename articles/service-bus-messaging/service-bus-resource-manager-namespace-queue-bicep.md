@@ -1,7 +1,6 @@
 ---
 title: Create Azure Service Bus namespace and queue using Bicep
 description: 'Quickstart: Create a Service Bus namespace and a queue using Bicep'
-documentationcenter: .net
 author: spelluru
 ms.author: spelluru
 ms.date: 08/24/2022

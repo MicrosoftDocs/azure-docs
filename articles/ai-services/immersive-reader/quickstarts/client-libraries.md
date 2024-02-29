@@ -10,7 +10,7 @@ ms.service: azure-ai-immersive-reader
 ms.topic: quickstart
 ms.date: 03/08/2021
 ms.author: rwaller
-ms.custom: cog-serv-seo-aug-2020, mode-api, devx-track-extended-java, devx-track-js
+ms.custom: mode-api, devx-track-extended-java, devx-track-js
 keywords: display pictures, parts of speech, read selected text, translate words, reading comprehension
 ---
 

@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: tutorial
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 01/11/2024
 ms.reviewer: yoelh
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to manage administrator accounts, add new administrators (work and guest accounts), assign roles to user accounts, remove role assignments, delete administrator accounts, and protect administrative accounts with multifactor authentication, so that I can control access and ensure security in my Azure AD B2C tenant.
+
 ---
 
 # Manage administrator accounts in Azure Active Directory B2C

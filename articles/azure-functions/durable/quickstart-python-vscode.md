@@ -246,7 +246,7 @@ def hello_orchestrator(context):
 # Activity
 @myApp.activity_trigger(input_name="city")
 def hello(city: str):
-    return "Hello " + city   
+    return f"Hello {city}"
 ```
 
 Review the table below for an explanation of each function and its purpose in the sample.

@@ -192,9 +192,11 @@ The "output" corresponds to the response returned from your Web API. The Web API
                 "hitPositions": []
             },
             "errors": null,
-            "warnings": {
+            "warnings": [
+              {
                 "message": "No occurrences of 'Hi' were found in the input text"
-            }
+              }
+            ]
         },
     ]
 }

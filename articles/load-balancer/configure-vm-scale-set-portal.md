@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/11/2024
-ms.custom: template-quickstart, engagement-fy23
+ms.custom: template-quickstart, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure a Virtual Machine Scale Set with an existing Azure Standard Load Balancer
@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 In this section, you'll create a Virtual Machine Scale Set in the Azure portal with an existing Azure load balancer.
 
 > [!NOTE]
-> The following steps assume a virtual network named **myVNet** and a Azure load balancer named **myLoadBalancer** has been previously deployed.
+> The following steps assume a virtual network named **myVNet** and an Azure load balancer named **myLoadBalancer** has been previously deployed.
 
 1. On the top left-hand side of the screen, select **Create a resource** and search for **Virtual Machine Scale Set** in the marketplace search.
 

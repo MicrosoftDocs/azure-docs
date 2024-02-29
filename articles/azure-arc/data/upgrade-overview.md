@@ -4,8 +4,8 @@ description: Explains how to upgrade Azure Arc-enabled data controller, and othe
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 08/15/2022
 ms.topic: conceptual

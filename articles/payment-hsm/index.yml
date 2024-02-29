@@ -5,13 +5,12 @@ summary: Learn how to use Azure Payment HSM to provide cryptographic key operati
 metadata:
   title: Azure Payment HSM documentation
   description: Learn how to use Azure Payment HSM to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud
-  services: payment-hsm
   ms.service: payment-hsm
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin
-  ms.date: 01/25/2022
+  ms.date: 01/25/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

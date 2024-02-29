@@ -1,11 +1,11 @@
 ---
-title: Restart policy for run-once tasks 
+title: Restart policy for run-once tasks
 description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 services: container-instances
 ms.date: 06/17/2022
 ---

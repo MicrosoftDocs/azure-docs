@@ -15,7 +15,7 @@ To learn how to apply JIT to your VMs using the Azure portal (either Defender fo
 
 Threat actors actively hunt accessible machines with open management ports, like RDP or SSH. All of your virtual machines are potential targets for an attack. When a VM is successfully compromised, it's used as the entry point to attack further resources within your environment.
 
-## Why JIT VM access is the solution 
+## Why JIT VM access is the solution
 
 As with all cybersecurity prevention techniques, your goal should be to reduce the attack surface. In this case that means having fewer open ports especially management ports.
 
@@ -25,7 +25,7 @@ To solve this dilemma, Microsoft Defender for Cloud offers JIT. With JIT, you ca
 
 ## How JIT operates with network resources in Azure and AWS
 
-In Azure, you can block inbound traffic on specific ports, by enabling just-in-time VM access. Defender for Cloud ensures "deny all inbound traffic" rules exist for your selected ports in the [network security group](../virtual-network/network-security-groups-overview.md#security-rules) (NSG) and [Azure Firewall rules](../firewall/rule-processing.md). These rules restrict access to your Azure VMs’ management ports and defend them from attack. 
+In Azure, you can block inbound traffic on specific ports, by enabling just-in-time VM access. Defender for Cloud ensures "deny all inbound traffic" rules exist for your selected ports in the [network security group](../virtual-network/network-security-groups-overview.md#security-rules) (NSG) and [Azure Firewall rules](../firewall/rule-processing.md). These rules restrict access to your Azure VMs’ management ports and defend them from attack.
 
 If other rules already exist for the selected ports, then those existing rules take priority over the new "deny all inbound traffic" rules. If there are no existing rules on the selected ports, then the new rules take top priority in the NSG and Azure Firewall.
 
@@ -38,21 +38,23 @@ When a user requests access to a VM, Defender for Cloud checks that the user has
 
 ## How Defender for Cloud identifies which VMs should have JIT applied
 
-The following diagram shows the logic that Defender for Cloud applies when deciding how to categorize your supported VMs: 
+The following diagram shows the logic that Defender for Cloud applies when deciding how to categorize your supported VMs:
 
 ### [**Azure**](#tab/defender-for-container-arch-aks)
+
 [![Just-in-time (JIT) virtual machine (VM) logic flow.](media/just-in-time-explained/jit-logic-flow.png)](media/just-in-time-explained/jit-logic-flow.png#lightbox)
 
 ### [**AWS**](#tab/defender-for-container-arch-eks)
+
 :::image type="content" source="media/just-in-time-explained/aws-jit-logic-flow.png" alt-text="A chart that explains the logic flow for the AWS Just in time (J I T) virtual machine (V M) logic flow.":::
 
 ---
 
-When Defender for Cloud finds a machine that can benefit from JIT, it adds that machine to the recommendation's **Unhealthy resources** tab. 
+When Defender for Cloud finds a machine that can benefit from JIT, it adds that machine to the recommendation's **Unhealthy resources** tab.
 
 ![Just-in-time (JIT) virtual machine (VM) access recommendation.](./media/just-in-time-explained/unhealthy-resources.png)
 
-## Next steps
+## Next step
 
 This page explained why just-in-time (JIT) virtual machine (VM) access should be used. To learn how to enable JIT and request access to your JIT-enabled VMs:
 

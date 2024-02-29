@@ -10,14 +10,16 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 01/17/2024
 ---
 
 # Simple query syntax in Azure AI Search
 
-Azure AI Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because it's flexible, it's the default for queries in Azure AI Search.
+For full text search scenarios, Azure AI Search implements two Lucene-based query languages, each one aligned to a query parser. The [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) is the default. It covers common use cases and attempts to interpret a request even if it's not perfectly composed. The other parser is [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) and it supports more advanced query constructions.
 
-Query syntax for either parser applies to query expressions passed in the "search" parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the ["$filter"](search-filters.md) and ["$orderby"](search-query-odata-orderby.md) expressions in the same request. OData parameters have different syntax and rules for constructing queries, escaping strings, and so on.
+This article is the query syntax reference for the simple query parser.
+
+Query syntax for both parsers applies to query expressions passed in the `search` parameter of a [query request](search-query-create.md), not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md), with its own syntax and rules for [`filter`](search-filters.md) and [`orderby`](search-query-odata-orderby.md) expressions in the same request.
 
 Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, its implementation in Azure AI Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md), consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead.
 
@@ -34,13 +36,13 @@ POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs
 }
 ```
 
-The "searchMode" parameter is relevant in this example. Whenever boolean operators are on the query, you should generally set `"searchMode=all"` to ensure that *all* of the criteria is matched. Otherwise, you can use the default `"searchMode=any"` that favors recall over precision.
+The `searchMode` parameter is relevant in this example. Whenever boolean operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria are matched. Otherwise, you can use the default `searchMode=any` that favors recall over precision.
 
 For more examples, see [Simple query syntax examples](search-query-simple-examples.md). For details about the query request and parameters, see [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).
 
 ## Keyword search on terms and phrases
 
-Strings passed to the "search" parameter can include terms or phrases in any supported language, boolean operators, precedence operators, wildcard or prefix characters for "starts with" queries, escape characters, and URL encoding characters. The "search" parameter is optional. Unspecified, search (`search=*` or `search=" "`) returns the top 50 documents in arbitrary (unranked) order.
+Strings passed to the `search` parameter can include terms or phrases in any supported language, boolean operators, precedence operators, wildcard or prefix characters for "starts with" queries, escape characters, and URL encoding characters. The `search` parameter is optional. Unspecified, search (`search=*` or `search=" "`) returns the top 50 documents in arbitrary (unranked) order.
 
 + A *term search* is a query of one or more terms, where any of the terms are considered a match.
 
@@ -48,11 +50,11 @@ Strings passed to the "search" parameter can include terms or phrases in any sup
 
   Depending on your search client, you might need to escape the quotation marks in a phrase search. For example, in Postman in a POST request, a phrase search on `"Roach Motel"` in the request body would be specified as `"\"Roach Motel\""`.
 
-By default, all strings passed in the "search" parameter undergo lexical analysis. Make sure you understand the tokenization behavior of the analyzer you're using. Often, when query results are unexpected, the reason can be traced to how terms are tokenized at query time. You can [test tokenization on specific strings](/rest/api/searchservice/test-analyzer) to confirm the output.
+By default, all strings passed in the `search` parameter undergo lexical analysis. Make sure you understand the tokenization behavior of the analyzer you're using. Often, when query results are unexpected, the reason can be traced to how terms are tokenized at query time. You can [test tokenization on specific strings](/rest/api/searchservice/test-analyzer) to confirm the output.
 
 Any text input with one or more terms is considered a valid starting point for query execution. Azure AI Search will match documents containing any or all of the terms, including any variations found during analysis of the text.
 
-As straightforward as this sounds, there's one aspect of query execution in Azure AI Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a "searchMode" parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. For more information, see the NOT operator under [Boolean operators](#boolean-operators).
+As straightforward as this sounds, there's one aspect of query execution in Azure AI Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a `searchMode` parameter setting that determines how NOT is interpreted in terms of `AND` or `OR` behaviors. For more information, see the `NOT` operator under [Boolean operators](#boolean-operators).
 
 ## Boolean operators
 
@@ -60,9 +62,9 @@ You can embed Boolean operators in a query string to improve the precision of a 
 
 | Character | Example | Usage |
 |----------- |--------|-------|
-| `+` | `pool + ocean` | An AND operation. For example, `pool + ocean` stipulates that a document must contain both terms.|
-| `|` | `pool | ocean` | An OR operation finds a match when either term is found. In the example, the query engine will return match on documents containing either `pool` or `ocean` or both. Because OR is the default conjunction operator, you could also leave it out, such that `pool ocean` is the equivalent of  `pool | ocean`.|
-| `-` | `pool – ocean` | A NOT operation returns matches on documents that exclude the term. </p></p>The `searchMode` parameter on a query request controls whether a term with the NOT operator is ANDed or ORed with other terms in the query (assuming there's no boolean operators on the other terms). Valid values include `any` or `all`.  </p>`searchMode=any` increases the recall of queries by including more results, and by default `-` will be interpreted as "OR NOT". For example, `pool - ocean` will match documents that either contain the term `pool` or those that don't contain the term `ocean`.  </p>`searchMode=all` increases the precision of queries by including fewer results, and by default `-` will be interpreted as "AND NOT". For example, with `searchMode=any`, the query `pool - ocean` will match documents that contain the term "pool" and all documents that don't contain the term "ocean". This is arguably a more intuitive behavior for the `-` operator. Therefore, you should consider using `searchMode=all` instead of `searchMode=any` if you want to optimize searches for precision instead of recall, *and* Your users frequently use the `-` operator in searches.</p> When deciding on a `searchMode` setting, consider the user interaction patterns for queries in various applications. Users who are searching for information are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures. |
+| `+` | `pool + ocean` | An `AND` operation. For example, `pool + ocean` stipulates that a document must contain both terms.|
+| `|` | `pool | ocean` | An `OR` operation finds a match when either term is found. In the example, the query engine will return a match on documents containing either `pool` or `ocean` or both. Because `OR` is the default conjunction operator, you could also leave it out, such that `pool ocean` is the equivalent of  `pool | ocean`.|
+| `-` | `pool – ocean` | A `NOT` operation returns matches on documents that exclude the term. </p></p>The `searchMode` parameter on a query request controls whether a term with the `NOT` operator is `AND`ed or `OR`ed with other terms in the query (assuming there's no boolean operators on the other terms). Valid values include `any` or `all`.  </p>`searchMode=any` increases the recall of queries by including more results, and by default `-` will be interpreted as "OR NOT". For example, `pool - ocean` will match documents that either contain the term `pool` or those that don't contain the term `ocean`.  </p>`searchMode=all` increases the precision of queries by including fewer results, and by default `-` will be interpreted as "AND NOT". For example, with `searchMode=any`, the query `pool - ocean` will match documents that contain the term "pool" and all documents that don't contain the term "ocean". This is arguably a more intuitive behavior for the `-` operator. Therefore, you should consider using `searchMode=all` instead of `searchMode=any` if you want to optimize searches for precision instead of recall, *and* Your users frequently use the `-` operator in searches.</p> When deciding on a `searchMode` setting, consider the user interaction patterns for queries in various applications. Users who are searching for information are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures. |
 
 <a name="prefix-search"></a>
 
@@ -105,11 +107,11 @@ Special characters can range from currency symbols like '$' or '€', to emojis.
 
 If you need special character representation, you can assign an analyzer that preserves them:
 
-+ The "whitespace" analyzer considers any character sequence separated by white spaces as tokens (so the '❤' emoji would be considered a token). 
++ The whitespace analyzer considers any character sequence separated by white spaces as tokens (so the '❤' emoji would be considered a token). 
 
-+ A language analyzer, such as the Microsoft English analyzer ("en.microsoft"), would take the '$' or '€' string as a token. 
++ A [language analyzer](search-language-support.md), such as the Microsoft English analyzer (`en.microsoft`), would take the '$' or '€' string as a token. 
 
-For confirmation, you can [test an analyzer](/rest/api/searchservice/test-analyzer) to see what tokens are generated for a given string. As you might expect, you might not get full tokenization from a single analyzer. A workaround is to create multiple fields that contain the same content, but with different analyzer assignments (for example,"description_en", "description_fr", and so forth for language analyzers).
+For confirmation, you can [test an analyzer](/rest/api/searchservice/test-analyzer) to see what tokens are generated for a given string. As you might expect, you might not get full tokenization from a single analyzer. A workaround is to create multiple fields that contain the same content, but with different analyzer assignments (for example, `description_en`, `description_fr`, and so forth for language analyzers).
 
 When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for '❤' would use the escape sequence `%E2%9D%A4+`). Postman does this translation automatically.  
 

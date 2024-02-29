@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes Service (AKS) managed nginx Ingress with the application routing add-on 
+title: Azure Kubernetes Service (AKS) managed NGINX ingress with the application routing add-on 
 description: Use the application routing add-on to securely access applications deployed on Azure Kubernetes Service (AKS).
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
@@ -9,21 +9,25 @@ ms.date: 11/21/2023
 ms.author: allensu
 ---
 
-# Managed nginx Ingress with the application routing add-on 
+# Managed NGINX ingress with the application routing add-on
 
-One way to route Hypertext Transfer Protocol (HTTP) and secure (HTTPS) traffic to applications running on an Azure Kubernetes Service (AKS) cluster is to use the [Kubernetes Ingress object][kubernetes-ingress-object-overview]. When you create an Ingress object that uses the application routing add-on nginx Ingress classes, the add-on creates, configures, and manages one or more Ingress controllers in your AKS cluster.
+One way to route Hypertext Transfer Protocol (HTTP) and secure (HTTPS) traffic to applications running on an Azure Kubernetes Service (AKS) cluster is to use the [Kubernetes Ingress object][kubernetes-ingress-object-overview]. When you create an Ingress object that uses the application routing add-on NGINX Ingress classes, the add-on creates, configures, and manages one or more Ingress controllers in your AKS cluster.
 
 This article shows you how to deploy and configure a basic Ingress controller in your AKS cluster.
 
-## Application routing add-on with nginx features
+## Application routing add-on with NGINX features
 
-The application routing add-on with nginx delivers the following:
+The application routing add-on with NGINX delivers the following:
 
-* Easy configuration of managed nginx Ingress controllers based on [Kubernetes nginx Ingress controller][kubernetes-nginx-ingress].
+* Easy configuration of managed NGINX Ingress controllers based on [Kubernetes NGINX Ingress controller][kubernetes-nginx-ingress].
 * Integration with [Azure DNS][azure-dns-overview] for public and private zone management
 * SSL termination with certificates stored in Azure Key Vault.
 
-For additional configuration information related to SSL encryption and DNS integration, review the [application routing add-on configuration][custom-ingress-configurations].
+For other configurations, see:
+
+* [DNS and SSL configuration][dns-ssl-configuration]
+* [Application routing add-on configuration][custom-ingress-configurations]
+* [Configure internal NGIX ingress controller for Azure private DNS zone][create-nginx-private-controller].
 
 With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the Cloud Native Computing Foundation (CNCF), using the application routing add-on is the default method for all AKS clusters.
 
@@ -36,10 +40,9 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 ## Limitations
 
 - The application routing add-on supports up to five Azure DNS zones.
-- All public Azure DNS zones integrated with the add-on have to be in the same resource group.
+- All global Azure DNS zones integrated with the add-on have to be in the same resource group.
 - All private Azure DNS zones integrated with the add-on have to be in the same resource group.
-- Editing any resources in the `app-routing-system` namespace, including the Ingress-nginx ConfigMap isn't supported.
-- Snippet annotations on the Ingress resources through `nginx.ingress.kubernetes.io/configuration-snippet` aren't supported.
+- Editing any resources in the `app-routing-system` namespace, including the Ingress-nginx ConfigMap, isn't supported.
 
 ## Enable application routing using Azure CLI
 
@@ -68,7 +71,7 @@ az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
 
 The following add-ons are required to support this configuration:
 
-* **open-service-mesh**:  If you require encrypted intra cluster traffic (recommended) between the nginx Ingress and your services, the Open Service Mesh add-on is required which provides mutual TLS (mTLS).
+* **open-service-mesh**:  If you require encrypted intra cluster traffic (recommended) between the NGINX Ingress and your services, the Open Service Mesh add-on is required which provides mutual TLS (mTLS).
 
 ### Enable on a new cluster
 
@@ -179,7 +182,7 @@ The application routing add-on uses annotations on Kubernetes Ingress objects to
         app: aks-helloworld
     ```
 
-### Create the Ingress
+### Create the Ingress object
 
 The application routing add-on creates an Ingress class on the cluster named *webapprouting.kubernetes.azure.com*. When you create an Ingress object with this class, it activates the add-on.  
 
@@ -296,7 +299,7 @@ The application routing add-on creates an Ingress class on the cluster named *we
         app: aks-helloworld
     ```
 
-### Create the Ingress
+### Create the Ingress object
 
 The application routing add-on creates an Ingress class on the cluster called *webapprouting.kubernetes.azure.com*. When you create an Ingress object with this class, it activates the add-on. The `kubernetes.azure.com/use-osm-mtls: "true"` annotation on the Ingress object creates an Open Service Mesh (OSM) [IngressBackend][ingress-backend] to configure a backend service to accept Ingress traffic from trusted sources.
 
@@ -482,7 +485,9 @@ When the application routing add-on is disabled, some Kubernetes resources might
 
 ## Next steps
 
-* [Configure custom ingress configurations][custom-ingress-configurations] shows how to create an advanced Ingress configuration to encrypt the traffic and use Azure DNS to manage DNS zones.
+* [Configure custom ingress configurations][custom-ingress-configurations] shows how to create an advanced Ingress configuration and [configure a custom domain using Azure DNS to manage DNS zones and setup a secure ingress][dns-ssl-configuration].
+
+* To integrate with an Azure internal load balancer and configure a private Azure DNS zone to enable DNS resolution for the private endpoints to resolve specific domains, see [Configure internal NGIX ingress controller for Azure private DNS zone][create-nginx-private-controller].
 
 * Learn about monitoring the ingress-nginx controller metrics included with the application routing add-on with [with Prometheus in Grafana][prometheus-in-grafana] (preview) as part of analyzing the performance and usage of your application.
 
@@ -494,9 +499,11 @@ When the application routing add-on is disabled, some Kubernetes resources might
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
-[custom-ingress-configurations]: app-routing-dns-ssl.md
+[dns-ssl-configuration]: app-routing-dns-ssl.md
+[custom-ingress-configurations]: app-routing-nginx-configuration.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [prometheus-in-grafana]: app-routing-nginx-prometheus.md
+[create-nginx-private-controller]: create-nginx-ingress-private-controller.md
 
 <!-- LINKS - external -->
 [kubernetes-ingress-object-overview]: https://kubernetes.io/docs/concepts/services-networking/ingress/

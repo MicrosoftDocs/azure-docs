@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18
 ---
 
 # Tutorial: Optimize costs from recommendations

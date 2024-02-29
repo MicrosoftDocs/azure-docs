@@ -47,6 +47,7 @@ Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.c
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
+  -OrchestrationMode "Flexible" `
   -Location "EastUS" `
   -Credential $cred
 ```

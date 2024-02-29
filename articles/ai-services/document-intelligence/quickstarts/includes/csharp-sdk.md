@@ -641,7 +641,7 @@ DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpo
 
 Uri invoiceUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf");
 
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-invoice", invoiceUri);
+Operation operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-invoice", invoiceUri);
 
 AnalyzeResult result = operation.Value;
 
@@ -744,7 +744,7 @@ DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), cr
 
 Uri invoiceUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf");
 
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-invoice", invoiceUri);
+Operation operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-invoice", invoiceUri);
 
 AnalyzeResult result = operation.Value;
 

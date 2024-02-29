@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.date: 05/03/2023
 ms.service: mysql
 ms.subservice: single-server
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: how-to
 ---
 
@@ -130,7 +130,7 @@ To configure Data in replication, perform the following steps:
 6. Read the metadata file to determine the binary log file name and offset by running the following command:
 
     ```bash
-    cat ./backup/metadata 
+    cat ./backup/metadata
     ```
 
     In this command, **./backup** refers to the output directory used in the command in the previous step.
@@ -163,7 +163,7 @@ To configure Data in replication, perform the following steps:
 
         ```sql
         SET @cert = '-----BEGIN CERTIFICATE-----
-        PLACE YOUR PUBLIC KEY CERTIFICATE'S CONTEXT HERE 
+        PLACE YOUR PUBLIC KEY CERTIFICATE'S CONTEXT HERE
         -----END CERTIFICATE-----'
         ```
 
@@ -191,7 +191,7 @@ To configure Data in replication, perform the following steps:
 10. To check the replication status, on the replica server, run the following command:
 
      ```sql
-     show slave status \G; 
+     show slave status \G;
      ```
 
     > [!Note]
@@ -216,7 +216,7 @@ To confirm that Data-in replication is working properly, you can verify that the
 3. In the Customers table on the primary server, insert rows by running the following command:
 
     ```sql
-    insert  into `customers`(`customerNumber`,`customerName`,`contactLastName`,`contactFirstName`,`phone`,`addressLine1`,`addressLine2`,`city`,`state`,`postalCode`,`country`,`salesRepEmployeeNumber`,`creditLimit`) values 
+    insert  into `customers`(`customerNumber`,`customerName`,`contactLastName`,`contactFirstName`,`phone`,`addressLine1`,`addressLine2`,`city`,`state`,`postalCode`,`country`,`salesRepEmployeeNumber`,`creditLimit`) values
     (<ID>,'name1','name2','name3 ','11.22.5555','54, Add',NULL,'Add1',NULL,'44000','country',1370,'21000.00');
     ```
 

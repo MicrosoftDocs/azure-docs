@@ -5,7 +5,7 @@ description: Learn tips to optimize your cost when building machine learning mod
 ms.reviewer: ssalgado
 author: joburges
 ms.author: joburges
-ms.custom: subject-cost-optimization, event-tier1-build-2022
+ms.custom: subject-cost-optimization
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to

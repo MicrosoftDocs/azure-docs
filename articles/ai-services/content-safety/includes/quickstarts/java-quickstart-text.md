@@ -11,7 +11,7 @@ ms.date: 10/10/2023
 ms.author: pafarley
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-contentsafety-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety/azure-ai-contentsafety/src) |[Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-contentsafety) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety/azure-ai-contentsafety/src/samples/java/com/azure/ai/contentsafety)
+[Reference documentation](/java/api/overview/azure/ai-contentsafety-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety/azure-ai-contentsafety/src) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-contentsafety) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/java/1.0.0)
 
 
 ## Prerequisites
@@ -67,7 +67,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-contentsafety", version = "1.0.0-beta.1")
+    implementation(group = "com.azure", name = "azure-ai-contentsafety", version = "1.0.0")
 }
 ```
 
@@ -84,11 +84,14 @@ Open *ContentSafetyQuickstart.java* in your preferred editor or IDE and paste in
 > The default maximum length for text submissions is **10K** characters.
 
 ```Java
+import com.azure.ai.contentsafety.ContentSafetyClient;
+import com.azure.ai.contentsafety.ContentSafetyClientBuilder;
 import com.azure.ai.contentsafety.models.AnalyzeTextOptions;
 import com.azure.ai.contentsafety.models.AnalyzeTextResult;
-import com.azure.ai.contentsafety.*;
+import com.azure.ai.contentsafety.models.TextCategoriesAnalysis;
 import com.azure.core.credential.KeyCredential;
 import com.azure.core.util.Configuration;
+
 
 public class ContentSafetyQuickstart {
     public static void main(String[] args) {
@@ -103,10 +106,9 @@ public class ContentSafetyQuickstart {
 
         AnalyzeTextResult response = contentSafetyClient.analyzeText(new AnalyzeTextOptions("<your text sample>"));
 
-        System.out.println("Hate severity: " + response.getHateResult().getSeverity());
-        System.out.println("SelfHarm severity: " + response.getSelfHarmResult().getSeverity());
-        System.out.println("Sexual severity: " + response.getSexualResult().getSeverity());
-        System.out.println("Violence severity: " + response.getViolenceResult().getSeverity());
+        for (TextCategoriesAnalysis result : response.getCategoriesAnalysis()) {
+            System.out.println(result.getCategory() + " severity: " + result.getSeverity());
+        }
     }
 }
 ```
