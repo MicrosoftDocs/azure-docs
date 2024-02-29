@@ -125,4 +125,4 @@ Once you submit your request, it undergoes review. You then receive a response b
 
 For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
-[Increase quotas](/azure/mysql/flexible-server/)
+[Increase quotas](/azure/mysql/flexible-server/how-to-request-quota-increase)
