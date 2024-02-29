@@ -150,6 +150,9 @@ A compute instance won't be considered idle if any custom application is running
 
 Also, if a compute instance has already been idle for a certain amount of time, if idle shutdown settings are updated to  an amount of time shorter than the current idle duration, the idle time clock is reset to 0. For example, if the compute instance has already been idle for 20 minutes, and the shutdown settings are updated to 15 minutes, the idle time clock is reset to 0.
 
+> [!IMPORTANT]
+> If the compute instance is also configured with a [managed identity](#assign-managed-identity), the compute instance won't shut down due to inactivity unless the managed identity has *contributor* access to the Azure Machine Learning workspace. For more information on assigning permissions, see [Manage access to Azure Machine Learning workspaces](how-to-assign-roles.md).
+
 The setting can be configured during compute instance creation or for existing compute instances via the following interfaces:
 
 # [Python SDK](#tab/python)
@@ -438,6 +441,9 @@ As an administrator, you can create a compute instance on behalf of a data scien
 ## Assign managed identity
 
 You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account.
+
+> [!IMPORTANT]
+> If the compute instance is also configured for [idle shutdown](#configure-idle-shutdown), the compute instance won't shut down due to inactivity unless the managed identity has *contributor* access to the Azure Machine Learning workspace. For more information on assigning permissions, see [Manage access to Azure Machine Learning workspaces](how-to-assign-roles.md).
 
 # [Python SDK](#tab/python)
 

@@ -48,9 +48,11 @@ Skip this procedure if you have one of the following types of licensing plans:
 
 **To turn on enterprise IoT monitoring**:
 
-1. In [Microsoft Defender XDR](https://security.microsoft.com/), select **Settings** \> **Device discovery** \> **Enterprise IoT**.
+1. In [Microsoft Defender XDR](https://security.microsoft.com/), select **Settings** \> **[Device Discovery](/microsoft-365/security/defender-endpoint/device-discovery)** \> **Enterprise IoT**.
+> [!NOTE]
+> Ensure you have turned on Device Discovery in **Settings** \> **Endpoints** \> **Advanced Features**.
 
-1. Toggle the Enterprise IoT security option to **On**. For example:
+2. Toggle the Enterprise IoT security option to **On**. For example:
 
     :::image type="content" source="media/enterprise-iot/eiot-toggle-on.png" alt-text="Screenshot of Enterprise IoT toggled on in Microsoft Defender XDR.":::
 

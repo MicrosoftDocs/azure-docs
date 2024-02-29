@@ -12,6 +12,9 @@ ms.date: 05/03/2023
 
 # Migrate large databases to Azure Database for MySQL using mydumper/myloader
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. To migrate MySQL databases larger than 1 TB to Azure Database for MySQL, consider using community tools such as [mydumper/myloader](https://centminmod.com/mydumper.html), which provide the following benefits:

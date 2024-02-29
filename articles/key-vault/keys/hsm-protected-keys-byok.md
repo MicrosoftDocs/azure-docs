@@ -4,13 +4,12 @@ description: Use this article to help you plan for, generate, and transfer your 
 services: key-vault
 author: mbaldwin
 manager: devtiw
-tags: azure-resource-manager
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 10/23/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 

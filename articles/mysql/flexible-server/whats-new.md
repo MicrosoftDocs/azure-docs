@@ -24,6 +24,16 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## February 2024
+
+- **Audit logs now supports wild card entries**
+
+  The server parameters now supports wildcards in `audit_log_include_users` and `audit_log_exclude_users`, enhancing flexibility for specifying user inclusions and exclusions in audit logs. [Learn more](./concepts-audit-logs.md#configure-audit-logging)
+
+- **Enhanced Audit Logging with CONNECTION_V2 for Comprehensive MySQL User Audits**
+  
+  Server parameter [audit_log_events](./concepts-audit-logs.md#configure-audit-logging) now supports event CONNECTION_V2 for detailed connection logs, providing insights into user audits, connection status, and [error codes in MySQL](https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html) interactions.[Learn more](./concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs)
+
 
 ## December 2023
 

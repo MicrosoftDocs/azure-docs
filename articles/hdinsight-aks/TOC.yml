@@ -48,12 +48,12 @@ items:
     href: quickstart-create-cluster.md
   - name: Introduction to cluster storage
     href: cluster-storage.md
-  - name: Export ARM templates
+  - name: Export cluster ARM template
     items:
-    - name: Manual export
-      href: ./create-cluster-using-arm-template.md
-    - name: Script based export
+    - name: Export ARM template using Azure portal
       href: ./create-cluster-using-arm-template-script.md
+    - name: Export ARM template using Azure CLI
+      href: ./create-cluster-using-arm-template.md
   - name: Secure network traffic  
     items:
     - name: Use firewall with Azure CLI

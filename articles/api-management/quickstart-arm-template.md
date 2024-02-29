@@ -4,7 +4,6 @@ description: Use this quickstart to create an Azure API Management instance in t
 services: azure-resource-manager
 author: dlepow
 ms.service: api-management
-tags: azure-resource-manager
 ms.topic: quickstart-arm
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: danlep
