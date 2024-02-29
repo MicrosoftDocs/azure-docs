@@ -166,7 +166,12 @@ If you're using the Medium (Nested Virtualization) VM size for the lab, consider
 
     Running a lab VM as a DHCP server is an *unsupported* scenario. See [Can I deploy a DHCP server in a virtual network?](/azure/virtual-network/virtual-networks-faq) for details. Changing the settings of the lab VM can cause issues with other lab VMs.
 
-    If you have the DHCP role installed, try enabling Hyper-V [DHCP guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingdhcp-guard) to block outbound offer packets.
+    If you have the DHCP role installed, try enabling Hyper-V [DHCP guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingdhcp-guard) and [Router guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingrouter-guard).
+
+    ```powershell
+    Get-VMNetworkAdapter * | Set-VMNetworkAdapter -RouterGuard On -DhcpGuard On
+    ```
+    
 
 - Check the network adapter settings for the Hyper-V VM.
 
