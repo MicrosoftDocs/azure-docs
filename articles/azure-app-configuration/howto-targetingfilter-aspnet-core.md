@@ -12,14 +12,14 @@ ms.date: 02/16/2024
 
 # Enable staged rollout of features for targeted audiences
 
-Feature flags allow you to dynamically activate or deactivate functionality in your application. Feature filters determine the state of a feature flag each time it's evaluated. The `Microsoft.FeatureManagement` library includes `TargetingFilter`, which enables a feature flag for a specified list of users and groups, or for a specified percentage of users. `TargetingFilter` is "sticky." This means that once an individual user receives a feature, they'll continue to see that feature on all future requests. You can use `TargetingFilter` to enable a feature for a specific account during a demo, to progressively roll out new features to users in different groups or "rings," and much more.
+Feature flags allow you to dynamically activate or deactivate functionality in your application. Feature filters determine the state of a feature flag each time it's evaluated. The `Microsoft.FeatureManagement` library includes `TargetingFilter`, which enables a feature flag for a specified list of users and groups, or for a specified percentage of users. `TargetingFilter` is "sticky." This means that once an individual user receives a feature, they'll continue to see that feature on all future requests. You can use `TargetingFilter` to enable a feature for a specific account during a demo, to progressively roll out new features to users in different groups or "rings," and much more. For more information, see [Targeting](https://github.com/microsoft/FeatureManagement-Dotnet#targeting).
 
 In this article, you learn how to roll out a new feature in an ASP.NET Core web application to specified users and groups, using `TargetingFilter` with Azure App Configuration.
 
 ## Prerequisites
 
 - Finish the [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md).
-- Update the `Microsoft.FeatureManagement.AspNetCore` package to version **2.6.0** or later.
+- Update the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) package to version **3.0.0** or later.
 
 ## Create a web application with feature flags and authentication
 
@@ -92,47 +92,36 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     }
     ```
 
-1. In *Startup.cs*, add a reference to the *Microsoft.FeatureManagement.FeatureFilters* namespace.
+1. In *Program.cs*, add a reference to the *Microsoft.FeatureManagement.FeatureFilters* namespace.
 
     ```csharp
     using Microsoft.FeatureManagement.FeatureFilters;
     ```
 
-1. Update the *ConfigureServices* method to register `TargetingFilter`, following the call to `AddFeatureManagement()`.
+1. Register `TargetingFilter` and `TestTargetingContextAccessor` created in the earlier step to the service collection. The `TargetingFilter` will use the `TestTargetingContextAccessor` to determine the targeting context every time that the feature flag is evaluated.
+
+    ### [Microsoft.FeatureManagement.AspNetCore 3.0.0+](#tab/fm3x)
+
+    Since `Microsoft.FeatureManagement` 3.0.0, you can use `WithTargeting` method to register `TargetingFilter` and `ITargetingContextAccessor` at the same time.
+
+    ```csharp
+    services.AddFeatureManagement()
+            .WithTargeting<TestTargetingContextAccessor>();
+    ```
+
+    ### [Microsoft.FeatureManagement.AspNetCore 2.6.x](#tab/fm2x)
 
     ```csharp
     services.AddFeatureManagement()
             .AddFeatureFilter<TargetingFilter>();
+    
+    services.AddSingleton<ITargetingContextAccessor, TestTargetingContextAccessor>();
     ```
+
+    ---
     
     > [!NOTE]
     > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
-
-1. Update the *ConfigureServices* method to add the `TestTargetingContextAccessor` created in the earlier step to the service collection. The *TargetingFilter* uses it to determine the targeting context every time that the feature flag is evaluated.
-
-    ```csharp
-      services.AddSingleton<ITargetingContextAccessor, TestTargetingContextAccessor>();
-    ```
-
-    The entire *ConfigureServices* method looks like this.
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlite(
-                Configuration.GetConnectionString("DefaultConnection")));
-        services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-        services.AddControllersWithViews();
-        services.AddRazorPages();
-
-        // Add feature management, targeting filter, and ITargetingContextAccessor to service collection
-        services.AddFeatureManagement()
-                .AddFeatureFilter<TargetingFilter>();
-        services.AddSingleton<ITargetingContextAccessor, TestTargetingContextAccessor>();
-    }
-    ```
 
 ## Update the feature flag to use TargetingFilter
 
