@@ -45,7 +45,7 @@ The following table lists the currently available version ranges of the default 
 
 
 > [!NOTE]
-> Even though host.json supports custom ranges for `version`, you should use a version range value from this table, such as  `[3.3.0, 4.0.0)`.
+> Even though host.json supports custom ranges for `version`, you should use a version range value from this table, such as  `[4.0.0, 5.0.0)`.
 
 ## Explicitly install extensions
 
