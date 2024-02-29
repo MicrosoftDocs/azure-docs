@@ -17,11 +17,6 @@ If your AKS clusters satisfy any of the following criteria, we recommend using t
 
 AKS Standard and Premium tier clusters can scale up to 5000 nodes (1000 per nodepool). If you are unable to scale upto 5k nodes please [raise a support ticket in the Azure portal][support-ticket]. Increasing the node limit doesn't increase other AKS service quota limits, like the number of pods per node. For more information, see [Limits, quotas, and restrictions for AKS resources][quotas-skus-regions].
 
-To increase the node limit beyond 1000, you must have the following pre-requisites:
-
-* Clusters using the Standard tier.
-* Clusters using Kubernetes version 1.23 or above.
-
 > [!NOTE]
 > To scale to 5000 nodes, you'll need to request the corresponding compute quota. Additionally, you may also need to request quota for attached resources such as IPs and Managed Disks
 
