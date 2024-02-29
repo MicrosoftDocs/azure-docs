@@ -3,8 +3,8 @@ title: Nested virtualization in Azure Lab Services
 description: Learn about considerations and recommendations for configuring nested virtualization in Azure Lab Services.
 services: lab-services
 ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: conceptual
 ms.date: 02/28/2024
 #customer intent: As a lab administrator, I want to create networks within a virtual lab in order to cover scenarios where multiple virtual machines interact within or across networks.
@@ -12,7 +12,7 @@ ms.date: 02/28/2024
 
 # Nested virtualization in Azure Lab Services
 
-Nested virtualization enables you to create a lab in Azure Lab Services that contains multiple virtual machines (VMs). You can use nested virtualization to provide lab users with multiple, related virtual machines as part of the lab. You can create and run a virtual machine (*guest VM*) within a virtual machine (*host VM*).
+Nested virtualization enables you to create a lab in Azure Lab Services that contains multiple virtual machines (VMs). You can create and run a virtual machine (*guest VM*) within a virtual machine (*host VM*). You can use nested virtualization to provide lab users with multiple, related virtual machines as part of the lab.
 
 Nested virtualization is enabled through Hyper-V. It's only available on Windows-based lab VMs. You can run both Windows-based and Linux-based guest VMs inside the lab VM. This article explains the concepts, considerations, and recommendations for nested virtualization in Azure Lab Services.
 
@@ -39,9 +39,9 @@ To enable nested virtualization for a lab:
 
 1. Enable nested virtualization on the template VM operating system.
 
-   - Enable the Hyper-V role: the Hyper-V role must be enabled for the creation and running of VMs inside the template VM.
-   - Enable DHCP (optional): when the template VM has the DHCP role enabled, the VMs inside the template VM get an IP address automatically assigned to them.
-   - Create a NAT network for the nested VMs: set up a Network Address Translation (NAT) network to allow the VMs inside the template VM to have internet access and communicate with each other.
+   - Enable the Hyper-V role. The Hyper-V role must be enabled for the creation and running of VMs inside the template VM.
+   - Enable DHCP (optional). When the template VM has the DHCP role enabled, the VMs inside the template VM get an IP address automatically assigned to them.
+   - Create Network Address Translation (NAT) for the nested VMs. Set up a NAT network to allow the VMs inside the template VM to have internet access and communicate with each other.
 
      >[!NOTE]
      >The NAT network that you create on the Lab Services VM allows a Hyper-V VM to access the internet and other Hyper-V VMs on the same Lab Services VM. The Hyper-V VM won't be able to access Azure resources, such as DNS servers, on an Azure virtual network.
@@ -55,7 +55,7 @@ Follow these steps to [enable nested virtualization on a template VM](./how-to-e
 
 ## Connect to a nested VM in another lab VM
 
-You can connect to a lab VM from another lab VM or a nested VM without any extra configuration. However, to connect to a nested VM that is hosted in another lab VM, add a static mapping to the NAT instance with the [**Add-NetNatStaticMapping**](/powershell/module/netnat/add-netnatstaticmapping) PowerShell cmdlet.
+You can connect to a lab VM from another lab VM or a nested VM without any extra configuration. However, to connect to a nested VM that is hosted in another lab VM, add a static mapping to the NAT instance with the [Add-NetNatStaticMapping](/powershell/module/netnat/add-netnatstaticmapping) PowerShell cmdlet.
 
 > [!NOTE]
 > You can't use the `ping` command to test connectivity from or to a nested VM.
@@ -126,7 +126,7 @@ You should also test the performance of the nested VMs with the **Processor Comp
 
 ### Automatically shut down nested VMs
 
-To avoid data corruption in the nested virtual machines when the lab VM shuts down, configure the nested VMs to  shut down automatically when the lab VM shuts down.
+To avoid data corruption in the nested virtual machines when the lab VM shuts down, configure the nested VMs to shut down automatically when the lab VM shuts down.
 
 Learn how you can use the `Set-VM` PowerShell command to [configure the shutdown auto stop action for a nested VM](/powershell/module/hyper-v/set-vm#example-1).
 
@@ -136,7 +136,7 @@ When you create the nested virtual machines, choose the [VHDX file format](/open
 
 ### Configure the number of vCPUs for nested VMs
 
-By default, when you create the nested virtual machine, only one virtual CPU (*vCPU*) is assigned. Depending on the operating system, and software of the nested VM, you might have to increase the number of vCPUs. For more information about managing and setting nested VM CPU resources, see [Hyper-V processor performance](/windows-server/administration/performance-tuning/role/hyper-v-server/processor-performance) or [Set-VM](/powershell/module/hyper-v/set-vm) PowerShell cmdlet.
+By default, when you create the nested virtual machine, only one virtual CPU (vCPU) is assigned. Depending on the operating system and software of the nested VM, you might have to increase the number of vCPUs. For more information about managing and setting nested VM CPU resources, see [Hyper-V processor performance](/windows-server/administration/performance-tuning/role/hyper-v-server/processor-performance) or [Set-VM](/powershell/module/hyper-v/set-vm) PowerShell cmdlet.
 
 ### Configure the assigned memory for nested VMs
 
@@ -144,7 +144,7 @@ When you create the nested virtual machine, the minimum assigned memory might no
 
 ### Best practices for running Linux on Hyper-V
 
-The following resources provide more best practices for running Linux or FreeBSD on Hyper-V:
+The following resources provide best practices for running Linux or FreeBSD on Hyper-V:
 
 - [Best Practices for running Linux on Hyper-V](/windows-server/virtualization/hyper-v/best-practices-for-running-linux-on-hyper-v)
 
