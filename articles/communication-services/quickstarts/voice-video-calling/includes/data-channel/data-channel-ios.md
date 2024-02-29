@@ -5,7 +5,7 @@ titleSuffix: An Azure Communication Services document
 description: In this quickstart, you learn how to add data channel messaging to your existing iOS calling app using Azure Communication Services.
 author: sloanster
 services: azure-communication-services
-ms.date: 05/04/2023
+ms.date: 03/01/2024
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -31,6 +31,15 @@ Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pi
 | - | - | 
 | DataChannelPriority | Describes the priority options of data channel. Values: { `normal`, `high` }. | 
 | DataChannelReliability | Describes the reliability options of data channel. Values: { `lossy`, `durable` }. |
+### Error Code
+| Name | Description |  
+| - | - | 
+| _dataChannelFailedToStart_ | `getDataChannelSender()` can fail with this error code, indicating underlying Data Channel is not ready to be used. | 
+| _dataChannelRandomIdNotAvailable_ | `getDataChannelSender()` can fail with this error code, indicating all available random channel ids have already been used. | 
+| _dataChannelSenderClosed_ | `sendMessage()` can fail with this error code, indicating the sender has already been closed previously. |
+| _dataChannelMessageSizeOverLimit_ | `sendMessage()` can fail with this error code, indicating the message data size exceeds the limit. You can get the message size limit using `maxMessageSizeInBytes` in `DataChannelSender`. |
+| _dataChannelMessageFailureForBandwidth_ | `sendMessage()` can fail with this error code, indicating a failure in sending the message due to not enough bandwidth. | 
+| _dataChannelMessageFailureForTrafficLimit_ | `sendMessage()` can fail with this error code, indicating a failure in sending the message due to the overall usage of Data Channel not in compliance with the traffic limit rules. Refer to [Data Channel Concept Document](../../../../concepts/voice-video-calling/data-channel.md) for details of the traffic limit. |
 ### Methods
 #### Enable Data Channel feature
 

@@ -5,12 +5,11 @@ titleSuffix: An Azure Communication Services document
 description: In this quickstart, you learn how to add data channel messaging to your existing Android calling app using Azure Communication Services.
 author: sloanster
 services: azure-communication-services
-ms.date: 05/04/2023
+ms.date: 03/01/2024
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 >[!IMPORTANT]
 > Please be aware that the current Data Channel feature API doesn't support direct messaging between a web browser and a native app in a peer-to-peer call scenario.
@@ -31,6 +30,15 @@ Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pi
 | - | - | 
 | DataChannelPriority | Describes the priority options of data channel. Values: { `NORMAL`, `HIGH` }. | 
 | DataChannelReliability | Describes the reliability options of data channel. Values: { `LOSSY`, `DURABLE` }. |
+### Error Code
+| Name | Description |  
+| - | - | 
+| _DATA_CHANNEL_FAILED_TO_START_ | `getDataChannelSender()` can fail with this error code, indicating underlying Data Channel is not ready to be used. | 
+| _DATA_CHANNEL_RANDOM_ID_NOT_AVAILABLE_ | `getDataChannelSender()` can fail with this error code, indicating all available random channel ids have already been used. | 
+| _DATA_CHANNEL_SENDER_CLOSED_ | `sendMessage()` can fail with this error code, indicating the sender has already been closed previously. |
+| _DATA_CHANNEL_MESSAGE_SIZE_OVER_LIMIT_ | `sendMessage()` can fail with this error code, indicating the message data size exceeds the limit. You can get the message size limit using `getMaxMessageSizeInBytes()` in `DataChannelSender`. |
+| _DATA_CHANNEL_MESSAGE_FAILURE_FOR_BANDWIDTH_ | `sendMessage()` can fail with this error code, indicating a failure in sending the message due to not enough bandwidth. | 
+| _DATA_CHANNEL_MESSAGE_FAILURE_FOR_TRAFFIC_LIMIT_ | `sendMessage()` can fail with this error code, indicating a failure in sending the message due to the overall usage of Data Channel not in compliance with the traffic limit rules. Refer to [Data Channel Concept Document](../../../../concepts/voice-video-calling/data-channel.md) for details of the traffic limit. |
 ### Methods
 #### Enable Data Channel feature
 
