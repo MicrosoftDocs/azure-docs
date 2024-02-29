@@ -827,6 +827,9 @@ azureml-model-deployment: DEPLOYMENT_NAME
 
 You can configure some of the properties in the created job at invocation time.
 
+> [!NOTE]
+> Configuring job properties is only available in batch endpoints with Pipeline component deployments by the moment.
+
 ### Configure experiment name
 
 # [Azure CLI](#tab/cli)
