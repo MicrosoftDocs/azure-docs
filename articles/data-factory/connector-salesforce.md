@@ -45,7 +45,7 @@ You can explicitly set the API version used to read/write data via [`apiVersion`
 ## Prerequisites
 
 - API permission must be enabled in Salesforce.
-- You need configure the Connected Apps in Salesforce portal referring to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)
+- You need configure the Connected Apps in Salesforce portal referring to this [Configure Salesforce Connected App](configure-salesforce-connected-app.md).
 
     >[!IMPORTANT]
     > - The execution user must have the API Only permission.

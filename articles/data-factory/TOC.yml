@@ -562,6 +562,8 @@ items:
         href: connector-salesforce.md
       - name: Salesforce (legacy)
         href: connector-salesforce-legacy.md
+      - name: How to configure Salesforce connected App 
+        href: configure-salesforce-connected-app.md
     - name: Salesforce Service Cloud
       href: connector-salesforce-service-cloud.md
       items:
