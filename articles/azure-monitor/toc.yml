@@ -588,15 +588,13 @@ items:
         href: ../network-watcher/network-insights-troubleshooting.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
-- name: Data sources
-  items:
-  - name: Overview of data sources
-    href: data-sources.md
 - name: Data collection
   items:
   - name: Overview
     displayName: data collection, data collection rules
     href: essentials/data-collection.md
+  - name: Sources of monitoring data
+    href: data-sources.md
   - name: Data collection rules
     items:
     - name: Overview
