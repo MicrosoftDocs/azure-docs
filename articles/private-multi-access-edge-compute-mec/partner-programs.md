@@ -47,7 +47,7 @@ Our operator partners include:
 Azure private MEC technology partners provide critical hardware and software components including network functions, Radio Access Network (RAN) technologies, and SIM services.
 
 ### Networking ISVs
-Networking ISV partners include software vendors that provide network functions such as firewalls and SD-WAN. The breadth of third-party network functions available enable customers to securely integrate the Azure private MEC solution into their existing edge and cloud environments. The Azure private MEC current network function partners include:
+Networking independent software vendor (ISV) partners include software vendors that provide network functions such as firewalls and SD-WAN. The breadth of third-party network functions available enable customers to securely integrate the Azure private MEC solution into their existing edge and cloud environments. The Azure private MEC current network function partners include:
 
 |Firewall |SD-WAN |
 |---------|---------|
@@ -74,7 +74,7 @@ SIM partners provide wireless authentication technologies and embedded cellular 
 
 
 ### Application ISVs
-Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. Our ISVs partners use a combination of private 5G and edge compute capabilities to create new experiences for customers.
+Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. Our ISV partners use a combination of private 5G and edge compute capabilities to create new experiences for customers.
 
 Applications that run on supported platforms can also deploy to Azure private MEC with few code changes required. This means that application ISV solutions for Azure Stack Edge, and Azure IoT Edge can also run on the Azure private MEC solution.
 
