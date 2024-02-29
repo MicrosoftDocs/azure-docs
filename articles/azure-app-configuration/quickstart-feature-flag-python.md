@@ -74,7 +74,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
-    Restart the command prompt to allow the change to take effect. Validate that it is set properly by printing the value of the environment variable.
+    Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
 
     ### [PowerShell](#tab/powershell)
 
@@ -92,7 +92,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
-    Restart the command prompt to allow the change to take effect. Validate that it is set properly by printing the value of the environment variable.
+    Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
 
     ### [Linux](#tab/linux)
 
@@ -102,7 +102,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
-    Restart the command prompt to allow the change to take effect. Validate that it is set properly by printing the value of the environment variable.
+    Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
 
     ---
 
@@ -233,7 +233,7 @@ Whenever these endpoints are triggered, a refresh check can be performed to ensu
 
 When a refresh is complete all values are updated at once, so the configuration is always consistent within the object.
 
-NOTE: If the refresh interval has yet to pass, then the refresh will not be attempted and the function will return right away.
+NOTE: If the refresh interval has yet to pass, then the refresh won't be attempted and the function will return right away.
 
 ## Clean up resources
 
