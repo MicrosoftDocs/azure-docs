@@ -98,9 +98,9 @@ Confidential VMs support the following OS options:
 | 9.3 <span class="pill purple">(AMD SEV-SNP Only)</span>                                  | 22H2 Enterprise N                                | 2022 Azure Edition Core       |
 | [9.3 <span class="pill purple">Preview (Intel TDX Only)](https://aka.ms/tdx-rhel-93-preview)</span>                       | 22H2 Enterprise Multi-session                    |                               |
 |                                                                                          |                                                  |                               |
-| **SUSE**                                                                                 |                                                  |                               |
-| [15 SP5 <span class="pill purple">Tech Preview (Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>            |                                                  |                               |
-| [15 SP5 for SAP <span class="pill purple">Tech Preview (Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>    |                                                  |                               |
+| **SUSE (Tech Preview)**                                                                                 |                                                  |                               |
+| [15 SP5 <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>            |                                                  |                               |
+| [15 SP5 for SAP <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>    |                                                  |                               |
 
 ### Regions
 

@@ -25,11 +25,11 @@ Allows for full access to Azure Event Hubs resources.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.EventHub](../permissions/analytics.md#microsofteventhub)/* |  |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.EventHub](../permissions/analytics.md#microsofteventhub)/* |  |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -68,11 +68,11 @@ Allows receive access to Azure Event Hubs resources.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.EventHub](../permissions/analytics.md#microsofteventhub)/*/eventhubs/consumergroups/read |  |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/*/eventhubs/consumergroups/read |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.EventHub](../permissions/analytics.md#microsofteventhub)/*/receive/action |  |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/*/receive/action |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -111,11 +111,11 @@ Allows send access to Azure Event Hubs resources.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.EventHub](../permissions/analytics.md#microsofteventhub)/*/eventhubs/read |  |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/*/eventhubs/read |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.EventHub](../permissions/analytics.md#microsofteventhub)/*/send/action |  |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/*/send/action |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -155,10 +155,10 @@ Create and manage data factories, as well as child resources within them.
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.DataFactory](../permissions/databases.md#microsoftdatafactory)/dataFactories/* | Create and manage data factories, and child resources within them. |
-> | [Microsoft.DataFactory](../permissions/databases.md#microsoftdatafactory)/factories/* | Create and manage data factories, and child resources within them. |
+> | [Microsoft.DataFactory](../permissions/analytics.md#microsoftdatafactory)/dataFactories/* | Create and manage data factories, and child resources within them. |
+> | [Microsoft.DataFactory](../permissions/analytics.md#microsoftdatafactory)/factories/* | Create and manage data factories, and child resources within them. |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
@@ -472,11 +472,11 @@ Read, write, and delete Schema Registry groups and schemas.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.EventHub](../permissions/analytics.md#microsofteventhub)/namespaces/schemagroups/* |  |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/schemagroups/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.EventHub](../permissions/analytics.md#microsofteventhub)/namespaces/schemas/* |  |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/schemas/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -513,11 +513,11 @@ Read and list Schema Registry groups and schemas.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.EventHub](../permissions/analytics.md#microsofteventhub)/namespaces/schemagroups/read | Get list of SchemaGroup Resource Descriptions |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/schemagroups/read | Get list of SchemaGroup Resource Descriptions |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.EventHub](../permissions/analytics.md#microsofteventhub)/namespaces/schemas/read | Retrieve schemas |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/schemas/read | Retrieve schemas |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -554,10 +554,10 @@ Lets you perform query testing without creating a stream analytics job first
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.StreamAnalytics](../permissions/analytics.md#microsoftstreamanalytics)/locations/TestQuery/action | Test Query for Stream Analytics Resource Provider |
-> | [Microsoft.StreamAnalytics](../permissions/analytics.md#microsoftstreamanalytics)/locations/OperationResults/read | Read Stream Analytics Operation Result |
-> | [Microsoft.StreamAnalytics](../permissions/analytics.md#microsoftstreamanalytics)/locations/SampleInput/action | Sample Input for Stream Analytics Resource Provider |
-> | [Microsoft.StreamAnalytics](../permissions/analytics.md#microsoftstreamanalytics)/locations/CompileQuery/action | Compile Query for Stream Analytics Resource Provider |
+> | [Microsoft.StreamAnalytics](../permissions/internet-of-things.md#microsoftstreamanalytics)/locations/TestQuery/action | Test Query for Stream Analytics Resource Provider |
+> | [Microsoft.StreamAnalytics](../permissions/internet-of-things.md#microsoftstreamanalytics)/locations/OperationResults/read | Read Stream Analytics Operation Result |
+> | [Microsoft.StreamAnalytics](../permissions/internet-of-things.md#microsoftstreamanalytics)/locations/SampleInput/action | Sample Input for Stream Analytics Resource Provider |
+> | [Microsoft.StreamAnalytics](../permissions/internet-of-things.md#microsoftstreamanalytics)/locations/CompileQuery/action | Compile Query for Stream Analytics Resource Provider |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |

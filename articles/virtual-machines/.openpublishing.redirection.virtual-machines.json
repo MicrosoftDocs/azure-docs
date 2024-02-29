@@ -5239,6 +5239,11 @@
             "source_path_from_root": "/articles/virtual-machines/nv-series-retirement.md",
             "redirect_url": "/azure/virtual-machines/sizes/migration-guides/nv-series-retirement",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/plan-to-manage-costs.md",
+            "redirect_url": "/azure/virtual-machines/cost-optimization-plan-to-manage-costs",
+            "redirect_document_id": false
         }
     ]
 }
