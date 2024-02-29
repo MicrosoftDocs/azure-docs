@@ -12,7 +12,7 @@ ms.date: 02/29/2024
 
 ---
 
-# Create multiple prefixes for a subnet in an Azure Virtual Network
+# Create multiple prefixes for a subnet in an Azure Virtual Network - Preview
 
 Large deployments of multiple scale apps within a virtual network are at risk of subnet address space exhaustion. Subnets in your virtual networks can host many applications that need the ability to scale out. This feature `AllowMultipleAddressPrefixesOnSubnet` allows you to scale your virtual machines and Azure Virtual Machine Scale Sets in subnets with ease. The feature eliminates the need to remove all resources from a subnet as a prerequisite for modifying its address prefixes. 
 
