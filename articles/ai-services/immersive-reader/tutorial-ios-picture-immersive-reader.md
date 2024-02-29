@@ -18,15 +18,14 @@ The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively 
 
 The [Azure AI Vision Read API](../../ai-services/computer-vision/overview-ocr.md) detects text content in an image using Microsoft's latest recognition models and converts the identified text into a machine-readable character stream.
 
-In this tutorial, you build an iOS app from scratch and integrate the Read API, and the Immersive Reader by using the Immersive Reader SDK. A full working sample of this tutorial is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+In this tutorial, you build an iOS app from scratch and integrate the Read API and the Immersive Reader by using the Immersive Reader SDK. A full working sample of this tutorial is available [on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
 ## Prerequisites
 
+* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/ai-services/).
 * MacOS and [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12).
 * An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](how-to-create-immersive-reader.md) to get set up.
-* An Azure subscription to the Azure AI Vision service. Create an [Azure AI Vision resource in the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
+* A subscription to the Azure AI Vision service. Create an [Azure AI Vision resource in the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 
 ## Create an Xcode project
 
@@ -42,7 +41,7 @@ Choose **Single View App**.
 
 The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via Cocoapods:
 
-1. Follow the getting started guide to [install Cocoapods](http://guides.cocoapods.org/using/getting-started.html).
+1. Follow the [guide to install Cocoapods](http://guides.cocoapods.org/using/getting-started.html).
 
 2. Create a Podfile by running `pod init` in your Xcode project's root directory.
 
@@ -68,7 +67,7 @@ The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via
 
 ## Acquire a Microsoft Entra authentication token
 
-You need some values from the Microsoft Entra authentication configuration prerequisite step for this part. Refer back to the text file you saved from that session.
+You need some values from the Microsoft Entra authentication configuration step in the prerequisites section. Refer back to the text file you saved from that session.
 
 ````text
 TenantId     => Azure subscription TenantId
@@ -571,4 +570,4 @@ Take or upload a photo of text by pressing the **Take Photo** button or **Choose
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Explore the Immersive Reader SDK reference](../../reference.md)
+> [Explore the Immersive Reader SDK reference](reference.md)
