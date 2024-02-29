@@ -1,5 +1,5 @@
 ---
-title: Create reverse DNS zones in Azure Private DNS
+title: Create and managed reverse DNS zones in Azure Private DNS
 description: Learn how to use Azure Private DNS to create reverse DNS lookup zones for your private IP address ranges
 author: greg-lindsay
 ms.service: dns
@@ -10,13 +10,9 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-conten
 ms.devlang: azurecli
 ---
 
-# Create reverse DNS zones in Azure Private DNS
+# Create and managed reverse DNS zones in Azure Private DNS
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-This article explains how to create and manage reverse DNS lookup zones for private IP address ranges used with your Azure services.
-
-In this article, you learn how to create a reverse lookup DNS zone and PTR (pointer) record using the Azure portal, Azure PowerShell, Azure classic CLI, and Azure CLI.
+In this article, you learn how to create a private reverse lookup DNS zone and add pointer (PTR) records to the zone using the Azure portal, Azure PowerShell, Azure classic CLI, and Azure CLI.
 
 ## Create a reverse lookup DNS zone
 
