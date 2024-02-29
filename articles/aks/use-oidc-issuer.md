@@ -3,7 +3,7 @@ title: Create an OpenID Connect provider for your Azure Kubernetes Service (AKS)
 description: Learn how to configure the OpenID Connect (OIDC) provider for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 11/10/2023
+ms.date: 02/29/2024
 ---
 
 # Create an OpenID Connect provider on Azure Kubernetes Service (AKS)
@@ -19,6 +19,8 @@ In this article, you learn how to create, update, and manage the OIDC Issuer for
 
 > [!IMPORTANT]
 > After enabling OIDC issuer on the cluster, it's not supported to disable it.
+>
+> The token needs to be refreshed periodically. If you use SDK, the rotation is automatic, otherwise, you need to refresh the token every 24 hours manually.
 
 ## Prerequisites
 
