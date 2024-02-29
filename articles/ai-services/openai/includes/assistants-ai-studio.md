@@ -11,7 +11,7 @@ ms.author: mbullwin
 author: mrbullwinkle
 ---
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Azure AI Studio preview](../../../ai-studio/includes/preview-ai-studio.md)]
 
 ## Prerequisites
 
