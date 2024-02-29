@@ -1,7 +1,7 @@
 ---
 title: Immersive Reader SDK Javascript reference
 titleSuffix: Azure AI services
-description: Learn about the Immersive Reader JavaScript library that allows you to integrate the Immersive Reader into your application.
+description: Learn about the Immersive Reader JavaScript library that allows you to integrate Immersive Reader into your application.
 #services: cognitive-services
 author: sharmas
 manager: nitinme
@@ -49,10 +49,10 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 | Parameter | Type | Description |
 | ---- | ---- |------------ |
-| `token` | string | The Microsoft Entra authentication token. To learn more, see [How to create an Immersive Reader resource](how-to-create-immersive-reader.md). |
-| `subdomain` | string | The custom subdomain of your [Immersive Reader resource](how-to-create-immersive-reader.md) in Azure. |
-| `content` | [Content](#content) | An object that contains the content to be shown in the Immersive Reader. |
-| `options` | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |
+| token | string | The Microsoft Entra authentication token. To learn more, see [How to create an Immersive Reader resource](how-to-create-immersive-reader.md). |
+| subdomain | string | The custom subdomain of your [Immersive Reader resource](how-to-create-immersive-reader.md) in Azure. |
+| content | [Content](#content) | An object that contains the content to be shown in the Immersive Reader. |
+| options | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |
 
 #### Returns
 
@@ -60,7 +60,7 @@ Returns a `Promise<LaunchResponse>`, which resolves when the Immersive Reader is
 
 #### Exceptions
 
-The returned `Promise` is rejected with an [Error](#error) object if the Immersive Reader fails to load.
+If the Immersive Reader fails to load, the returned `Promise` is rejected with an [Error](#error) object.
 
 ### Function: `close`
 
@@ -95,7 +95,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 | Parameter | Type | Description |
 | ---- | ---- |------------ |
-| `options` | [renderButtons options](#renderbuttons-options) | Options for configuring certain behaviors of the renderButtons function. Optional. |
+| options | [renderButtons options](#renderbuttons-options) | Options for configuring certain behaviors of the renderButtons function. Optional. |
 
 #### renderButtons options
 
@@ -128,9 +128,9 @@ Use the following optional attributes to configure the look and feel of the butt
 
 | Attribute | Description |
 | --------- | ----------- |
-| `data-button-style` | Sets the style of the button. Can be `icon`, `text`, or `iconAndText`. Defaults to `icon`. |
-| `data-locale` | Sets the locale. For example, `en-US` or `fr-FR`. Defaults to English `en`. |
-| `data-icon-px-size` | Sets the size of the icon in pixels. Defaults to 20 px. |
+| data-button-style | Sets the style of the button. Can be `icon`, `text`, or `iconAndText`. Defaults to `icon`. |
+| data-locale | Sets the locale. For example, `en-US` or `fr-FR`. Defaults to English `en`. |
+| data-icon-px-size | Sets the size of the icon in pixels. Defaults to 20 px. |
 
 ## LaunchResponse
 
@@ -332,15 +332,14 @@ Default value: null
 ```
 
 ##### `preferences`
-
-> [!CAUTION]
-> Don't attempt to programmatically change the values of the `-preferences` string sent to and from the Immersive Reader application because this might cause unexpected behavior resulting in a degraded user experience. Host applications should never assign a custom value to or manipulate the `-preferences` string. When using the `-preferences` string option, use only the exact value that was returned from the `-onPreferencesChanged` callback option.
-
 ```Parameters
 Type: String
 Required: false
 Default value: null
 ```
+
+> [!CAUTION]
+> Don't attempt to programmatically change the values of the `-preferences` string sent to and from the Immersive Reader application because this might cause unexpected behavior resulting in a degraded user experience. Host applications should never assign a custom value to or manipulate the `-preferences` string. When using the `-preferences` string option, use only the exact value that was returned from the `-onPreferencesChanged` callback option.
 
 ##### `onPreferencesChanged`
 ```Parameters
@@ -372,6 +371,9 @@ type ReadAloudOptions = {
 | speed | Number | Playback speed. Must be between 0.5 and 2.5, inclusive. |
 | autoPlay | Boolean | Automatically start Read Aloud when the Immersive Reader loads. |
 
+> [!NOTE]
+> Due to browser limitations, autoplay is not supported in Safari.
+
 ##### `voice`
 ```Parameters
 Type: String
@@ -387,9 +389,6 @@ Required: false
 Default value: 1
 Values available: 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5
 ```
-
-> [!NOTE]
-> Due to browser limitations, autoplay is not supported in Safari.
 
 ## TranslationOptions
 
