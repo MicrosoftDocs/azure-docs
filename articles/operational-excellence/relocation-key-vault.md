@@ -36,7 +36,7 @@ Keep in mind the following concepts:
 
 Export your keys, secrets, or certificates from your old key vault, and then import them into your new vault. 
 
-You can back up each individual secret, key, and certificate in your vault by using the backup command. Your secrets are downloaded as an encrypted blob.  For step by step guidance, see [Azure Key Vault backup and restore](/azure/key-vault/general/backup/backup).
+You can back up each individual secret, key, and certificate in your vault by using the backup command. Your secrets are downloaded as an encrypted blob.  For step by step guidance, see [Azure Key Vault backup and restore](/azure/key-vault/general/backup).
 
 Alternatively, you can download certain secret types manually. For example, you can download certificates as a PFX file. This option eliminates the geographical restrictions for some secret types, such as certificates. You can upload the PFX files to any key vault in any region. The secrets are downloaded in a non-password protected format. You are responsible for securing your secrets during the move.
 
