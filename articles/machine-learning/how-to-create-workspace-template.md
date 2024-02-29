@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azure
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
-ms.date: 01/22/2024
+ms.date: 02/29/2024
 #Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
 
