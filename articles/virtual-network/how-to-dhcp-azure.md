@@ -260,6 +260,6 @@ Use the following steps to enable routing between the loopback interface and the
 
 1. Repeat the previous steps to configure **vm-2**. Replace the IP address of **10.0.0.100** with **10.0.0.200** in the static IP address configuration of the loopback adapter.
 
-## Next Steps
+## Next step
 
 In this article, you learned how to deploy a highly available DHCP server in Azure on a virtual machine. You also learned how to configure the network adapters and installed the DHCP role on the virtual machines. Further configuration of the DHCP server is required to provide DHCP services to on-premises clients from the Azure Virtual Machines. The DHCP relay agent on the on-premises network must be configured to forward DHCP requests to the DHCP servers in Azure. Consult the manufacturer's documentation for the DHCP relay agent for configuration steps.
