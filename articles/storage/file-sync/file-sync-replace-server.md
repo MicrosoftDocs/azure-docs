@@ -4,7 +4,7 @@ description: How to replace an Azure File Sync server due to hardware decommissi
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 02/28/2024
 ms.author: kendownie
 ---
 
@@ -19,7 +19,7 @@ This article provides guidance on how to replace an Azure File Sync server due t
 4. Optional: To reduce the amount of data that needs to be downloaded to the new server from the Azure file share, use Robocopy to copy the files in the cache from the old server to the new server. 
 
     ```console
-    Robocopy <source> <destination> /COPY:DATSO /MIR /DCOPY:AT /XA:O /B /IT /UNILOG:RobocopyLog.txt
+    Robocopy <source> <destination> /MT:16 /R:2 /W:1 /COPY:DATSO /MIR /DCOPY:DAT /XA:O /B /IT /UNILOG:RobocopyLog.txt
      ```
     Once the initial copy is completed, run the Robocopy command again to copy any remaining changes.
 
