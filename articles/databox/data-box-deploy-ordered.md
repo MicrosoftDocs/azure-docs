@@ -2,11 +2,11 @@
 title: Tutorial to order Azure Data Box | Microsoft Docs
 description: In this tutorial, learn about Azure Data Box, a hybrid solution that allows you to import on-premises data into Azure, and how to order Azure Data Box.
 services: databox
-author: v-dalc
+author: stevenmatthew
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/08/2022
+ms.date: 02/27/2024
 ms.author: shaas
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
@@ -31,11 +31,13 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 
 # [Portal](#tab/portal)
 
-Complete the following configuration prerequisites for Data Box service and device before you deploy the device:
+Complete the following configuration prerequisites for the Data Box service and device before you deploy the device:
 
 [!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
 # [Azure CLI](#tab/azure-cli)
+
+Complete the following configuration prerequisites for the Data Box service and device before you deploy the device:
 
 [!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
@@ -127,6 +129,8 @@ You can use [Azure Cloud Shell](https://shell.azure.com/), an Azure hosted inter
 The button launches an interactive shell that you can use to run the steps outlined in this how-to article.
 
 # [PowerShell](#tab/azure-ps)
+
+Complete the following configuration prerequisites for the Data Box service and device before you deploy the device:
 
 [!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 

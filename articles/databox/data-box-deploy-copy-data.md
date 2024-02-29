@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 04/12/2023
+ms.date: 02/27/2024
 ms.author: shaas
 
 # Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
@@ -53,18 +53,20 @@ Based on the storage account selected, Data Box creates up to:
 
 * Three shares for each associated storage account for GPv1 and GPv2.
 * One share for premium storage.
-* One share for blob storage account.
+* Four shares for a blob storage account.
 
-Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
+<!--Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.-->
 
-The following table shows the UNC path to the shares on your Data Box and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
+Within block blob and page blob shares, first-level entities are folders for each access tier type. Second-level entities are containers, and third-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
+
+The following table shows the UNC path to the shares on your Data Box and the corresponding Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
 |Azure Storage types  | Data Box shares            |
 |-------------------|--------------------------------------------------------------------------------|
-| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
-| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/files/a.txt`</li>        | 
-| Azure Block blobs (Archive)   | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob_Archive>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      |     
+| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob>\<accessTier>\<ContainerName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myFile.txt`</li> |  
+| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_PageBlob>\<ContainerName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myFile.txt`</li>   |  
+| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_AzFile>\<ShareName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/myFile.txt`</li>        | 
+<!--| Azure Block blobs (Archive)   | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob_Archive>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      | -->
 
 If using a Windows Server host computer, follow these steps to connect to the Data Box.
 
@@ -76,7 +78,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     
     ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. To access the shares associated with your storage account (*utsac1* in the following example) from your host computer, open a command window. At the command prompt, type:
+3. The following example uses a sample storage account named *utsac1*. To access the shares associated with your storage account from your host computer, open a command window. At the command prompt, type:
 
     `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
@@ -84,7 +86,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     - Azure Block blob - `\\10.126.76.138\utsac1_BlockBlob`
     - Azure Page blob - `\\10.126.76.138\utsac1_PageBlob`
     - Azure Files - `\\10.126.76.138\utsac1_AzFile`
-    - Azure Blob blob (Archive) - `\\10.126.76.138\utsac0_BlockBlobArchive`
+    <!--- Azure Blob blob (Archive) - `\\10.126.76.138\utsac0_BlockBlobArchive`-->
 
 4. Enter the password for the share when prompted. If the password has special characters, add double quotation marks before and after it. The following sample shows connecting to a share via the preceding command.
 
@@ -102,9 +104,14 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     
     ![Shares shown in File Explorer](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
-    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
-    
-If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
+    <!--**Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.-->
+
+    > [!IMPORTANT]
+    > You can't copy files directly to the storage account's *root* folder. Within a block blob storage account's root folder, you'll find sub-folders corresponding to each of the available access tiers. 
+    > 
+    > Select the access tier for your data, create a sub-folder within it to store your data, then copy your data to the newly created sub-folder. Your new sub-folder represents a container to be created within the storage account, into which your data is uploaded as blobs.
+
+If using a Linux client, use the following command to mount the SMB share. The `vers` parameter below is the version of SMB that your Linux host supports. Insert the appropriate version into the sample command below. To see a list of SMB versions supported by Data Box, see [Supported file systems for Linux clients](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
 ```console
 sudo mount -t cifs -o vers=2.1 10.126.76.138:/utsac1_BlockBlob /home/databoxubuntuhost/databox
@@ -115,7 +122,8 @@ sudo mount -t cifs -o vers=2.1 10.126.76.138:/utsac1_BlockBlob /home/databoxubun
 Once you're connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
 
 * Make sure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. Copy the VHDs to page blob. If the data format doesn't match the appropriate share type, then at a later step, the data upload to Azure will fail.
-* Always create a folder under the share for the files that you intend to copy and then copy the files to that folder. The folder created under block blob and page blob shares represents a container to which the data is uploaded as blobs. You cannot copy files directly to the *root* folder in the storage account. The same behavior applies to Azure Files. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
+* Unless copying data to be uploaded as block blobs, create a folder at the share's root, then copy files to that folder.
+* When copying data to the block blob share, create a sub-folder within the desired access tier, then copy data to the newly created sub-folder. The sub-folder represents a container to which your data is uploaded as blobs. You cannot copy files directly to the *root* folder in the storage account.
 * While copying data, make sure that the data size conforms to the size limits described in the [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
 * If you want to preserve metadata (ACLs, timestamps, and file attributes) when transferring data to Azure Files, follow the guidance in [Preserving file ACLs, attributes, and timestamps with Azure Data Box](data-box-file-acls-preservation.md)  
 * If data that is being uploaded by Data Box is also being uploaded by another application, outside Data Box, at the same time, this could result in upload job failures and data corruption.
