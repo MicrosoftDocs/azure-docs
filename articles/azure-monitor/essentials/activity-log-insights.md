@@ -1,5 +1,5 @@
 ---
-title: Azure activity log insights
+title: Azure activity log and activity log insights
 description: Learn how to monitor changes to resources and resource groups in an Azure subscription with Azure Monitor activity log insights.
 author: guywi-ms
 services: azure-monitor
@@ -11,7 +11,9 @@ ms.reviewer: orens
 # Customer intent: As an IT manager, I want to understand how I can use the activity log and activity log insights to monitor changes to resources and resource groups in an Azure subscription.
 ---
 
-# Use Azure Monitor activity log insights to monitor changes to resources and resource groups 
+# Use the Azure Monitor activity log and activity log insights
+
+The Azure Monitor activity log is a platform log that provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started. This article provides information on how to view the activity log and send it to different destinations.
 
 ## View the activity log
 
@@ -41,23 +43,13 @@ If any changes are associated with the event, you'll see a list of changes that 
 
 Activity log events are retained in Azure for *90 days* and then deleted. There's no charge for entries during this time regardless of volume. For more functionality, such as longer retention, create a diagnostic setting and route the entries to another location based on your needs. See the criteria in the preceding section.
 
-### Other methods to retrieve activity log events
-
-You can also access activity log events by using the following methods:
-
-- Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the activity log from PowerShell. See [Azure Monitor PowerShell samples](../powershell-samples.md#retrieve-activity-log).
-- Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the activity log from the CLI.  See [Azure Monitor CLI samples](../cli-samples.md#view-activity-log).
-- Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the activity log from a REST client.
+## Activity log insights
 
 Activity log insights provide you with a set of dashboards that monitor the changes to resources and resource groups in a subscription. The dashboards also present data about which users or services performed activities in the subscription and the activities' status. This article explains how to onboard and view activity log insights in the Azure portal.
 
-Before you use activity log insights, you must [enable sending logs to your Log Analytics workspace](./diagnostic-settings.md).
-
-## How do activity log insights work?
-
-Azure Monitor stores all activity logs you send to a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in a table called `AzureActivity`.
-
 Activity log insights are a curated [Log Analytics workbook](../visualize/workbooks-overview.md) with dashboards that visualize the data in the `AzureActivity` table. For example, data might include which administrators deleted, updated, or created resources and whether the activities failed or succeeded.
+
+Azure Monitor stores all activity logs you send to a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in a table called `AzureActivity`. Before you use activity log insights, you must [enable sending logs to your Log Analytics workspace](./diagnostic-settings.md).
 
 :::image type="content" source="media/activity-log/activity-logs-insights-main-screen.png" lightbox= "media/activity-log/activity-logs-insights-main-screen.png" alt-text="Screenshot that shows activity log insights dashboards.":::
 

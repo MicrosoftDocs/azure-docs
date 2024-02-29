@@ -1,6 +1,6 @@
 ---
 title: Stream Azure resource log data 
-description: Learn how to stream Azure resource logs to a Log Analytics workspace, Event Hub, or Azure Storage in Azure Monitor.
+description: Learn how to stream Azure resource logs to a Log Analytics workspace, event hub, or Azure Storage in Azure Monitor.
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 08/08/2023

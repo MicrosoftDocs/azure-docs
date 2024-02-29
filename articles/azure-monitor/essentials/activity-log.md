@@ -1,6 +1,6 @@
 ---
-title: Azure activity log
-description: View the Azure Monitor activity log and send it to Azure Monitor Logs, Azure Event Hubs, and Azure Storage.
+title: Stream Azure activity log data
+description: Send Azure Monitor activity log data to Azure Monitor Logs, Azure Event Hubs, and Azure Storage.
 author: guywi-ms
 services: azure-monitor
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.reviewer: orens
 
 # Stream Azure Monitor activity log data
 
-The Azure Monitor activity log is a [platform log](./platform-logs-overview.md) in Azure that provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started. You can view the activity log in the Azure portal or retrieve entries with PowerShell and the Azure CLI. This article provides information on how to view the activity log and send it to different destinations.
+The Azure Monitor activity log is a platform log that provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started. You can view the activity log in the Azure portal or retrieve entries with PowerShell and the Azure CLI. This article provides information on how to view the activity log and send it to different destinations.
 
 For more functionality, create a diagnostic setting to send the activity log to one or more of these locations for the following reasons:
 
@@ -148,7 +148,15 @@ Each event is stored in the PT1H.json file with the following format. This forma
 ```json
 { "time": "2020-06-12T13:07:46.766Z", "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MV-VM-01", "correlationId": "0f0cb6b4-804b-4129-b893-70aeeb63997e", "operationName": "Microsoft.Resourcehealth/healthevent/Updated/action", "level": "Information", "resultType": "Updated", "category": "ResourceHealth", "properties": {"eventCategory":"ResourceHealth","eventProperties":{"title":"This virtual machine is starting as requested by an authorized user or process. It will be online shortly.","details":"VirtualMachineStartInitiatedByControlPlane","currentHealthStatus":"Unknown","previousHealthStatus":"Unknown","type":"Downtime","cause":"UserInitiated"}}}
 ```
+### Other methods to retrieve activity log events
 
+You can also access activity log events by using the following methods:
+
+- Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the activity log from PowerShell. See [Azure Monitor PowerShell samples](../powershell-samples.md#retrieve-activity-log).
+- Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the activity log from the CLI.  See [Azure Monitor CLI samples](../cli-samples.md#view-activity-log).
+- Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the activity log from a REST client.
+- 
+- 
 ## Legacy collection methods
 
 > [!NOTE]
