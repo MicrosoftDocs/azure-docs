@@ -46,7 +46,7 @@ For the available resource log categories, their associated Log Analytics tables
 
 ## Sent share status and history
 
-To monitor Data Share invitation status, share subscription status, and snapshot history, select **Sent Shares** under **Data Share** in the left navigation of your Data Share page in the Azure portal. For more information and insructions, see [How to monitor Azure Data Share](how-to-monitor.md).
+To track Data Share invitation status, share subscription status, and snapshot history, select **Sent Shares** under **Data Share** in the left navigation of your Data Share page in the Azure portal. For more information and instructions, see [How to monitor Azure Data Share](how-to-monitor.md).
 
 [!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 [!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
