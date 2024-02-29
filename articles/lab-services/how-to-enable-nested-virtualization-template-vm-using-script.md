@@ -104,7 +104,7 @@ Consider the following sample lab setup:
   - Nested VM 2-1 (Ubuntu 20.04, IP 192.168.0.102, SSH allowed)
   - Nested VM 2-2 (Windows 11, IP 192.168.0.103, remote desktop enabled and allowed)
 
-To connect with SSH from lab VM 2 to nested lab VM 1-1:
+Enable connection with SSH from lab VM 2 to nested lab VM 1-1:
 
 1. On lab VM 1, add a static mapping:
 
@@ -118,7 +118,7 @@ To connect with SSH from lab VM 2 to nested lab VM 1-1:
     ssh user1@10.0.0.8 -p 23
     ```
 
-To connect with RDP from lab VM 2, or its nested VMs, to nested lab VM 1-2:
+Enable connection with RDP from lab VM 2, or its nested VMs, to nested lab VM 1-2:
 
 1. On lab VM 1, add a static mapping.
 
@@ -162,14 +162,16 @@ If you're using the Medium (Nested Virtualization) VM size for the lab, consider
 
 - Verify that you followed the previous steps for enabling nested virtualization. Consider using the PowerShell script option.
 
-- Verify host VM (lab VM) *doesn't* have DHCP role installed, if you're running a system administration class, 
+- Check if the host VM (lab VM) has the DHCP role installed if you are using Windows Server. 
 
-    Running a lab VM as a DHCP server is an *unsupported* scenario. See [Can I deploy a DHCP server in a virtual network?](/azure/virtual-network/virtual-networks-faq) for details. Changing the settings of the lab VM can cause issues with other lab VMs. Instead, create an internal or private NAT network and have one of the Hyper-V VMs act as the DHCP, DNS, or domain controller.
+    Running a lab VM as a DHCP server is an *unsupported* scenario. See [Can I deploy a DHCP server in a virtual network?](/azure/virtual-network/virtual-networks-faq) for details. Changing the settings of the lab VM can cause issues with other lab VMs.
+
+    If you have the DHCP role installed, try enabling Hyper-V [DHCP guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingdhcp-guard) to block outbound offer packets.
 
 - Check the network adapter settings for the Hyper-V VM.
 
   - Set the IP address of the DNS server and DHCP server to [*168.63.129.16*](/azure/virtual-network/what-is-ip-address-168-63-129-16).
-  - Set the guest VM IPv4 address in the range of the [NAT network you created previously](#create-a-nat-network).
+  - If the guest VM IPv4 address is set manually, verify it is in the range of the NAT network connected to the Hyper-V switch.
 
 > [!NOTE]
 > The `ping` command from a Hyper-V VM to the host VM doesn't work. To test internet connectivity, launch a web browser and verify that the web page loads correctly.
