@@ -35,7 +35,7 @@ Before you begin, verify that:
 
 To set up the BTP account and the solution:
 
-1. After you can log in to your BTP account (see the [prerequisites](#prerequisites),) follow the [audit log retrieval steps](https://help.sap.com/docs/btp/sap-business-technology-platform/audit-log-retrieval-api-usage-for-subaccounts-in-cloud-foundry-environment) on the SAP BTP system.
+1. After you can sign in to your BTP account (see the [prerequisites](#prerequisites),) follow the [audit log retrieval steps](https://help.sap.com/docs/btp/sap-business-technology-platform/audit-log-retrieval-api-usage-for-subaccounts-in-cloud-foundry-environment) on the SAP BTP system.
 
 1. In the SAP BTP cockpit, select the **Audit Log Management Service**.
 
