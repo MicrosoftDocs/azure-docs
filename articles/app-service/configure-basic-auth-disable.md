@@ -18,11 +18,11 @@ App Service provides basic authentication for FTP and WebDeploy clients to conne
 
 ### [Azure portal](#tab/portal)
 
-1. In the [Azure portal], search for and select **App Services**, and then select your app. 
+1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**, and then select your app. 
 
-1. In the app's left menu, select **Configuration**.
+1. In the app's left menu, select **Configuration** > **General settings**.
 
-1. For **Basic Auth Publishing Credentials**, select **Off**, then select **Save**.
+1. For **SCM Basic Auth Publishing Credentials** and **FTP Basic Auth Publishing Credentials**, select **Off**, then select **Save**.
 
     :::image type="content" source="media/configure-basic-auth-disable/basic-auth-disable.png" alt-text="A screenshot showing how to disable basic authentication for Azure App Service in the Azure portal.":::
 
