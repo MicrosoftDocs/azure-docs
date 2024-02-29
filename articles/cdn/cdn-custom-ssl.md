@@ -7,7 +7,7 @@ ms.service: azure-cdn
 ms.topic: tutorial
 ms.date: 06/06/2022
 ms.author: duau
-ms.custom: mvc, devx-track-linux
+ms.custom: mvc, linux-related-content
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
 ---
 
@@ -371,7 +371,7 @@ The following table shows the operation progress that occurs when you disable HT
 7. *How do cert renewals work with Bring Your Own Certificate?*
 
     To ensure a newer certificate is deployed to PoP infrastructure, upload your new certificate to Azure KeyVault. In your TLS settings on Azure CDN, choose the newest certificate version and select save. Azure CDN will then propagate your new updated cert.
-    
+
     For **Azure CDN from Edgio** profiles, if you use the same Azure Key Vault certificate on several custom domains (e.g. a wildcard certificate), ensure you update all of your custom domains that use that same certificate to the newer certificate version.
 
 ## Next steps

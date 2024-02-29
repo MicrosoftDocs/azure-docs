@@ -5,7 +5,7 @@ keywords: Socket.IO, Socket.IO on Azure, webapp Socket.IO, Socket.IO integration
 author: zackliu
 ms.author: chenyl
 ms.service: azure-web-pubsub
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: tutorial
 ms.date: 1/11/2024
 ---

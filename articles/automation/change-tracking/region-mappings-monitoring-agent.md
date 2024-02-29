@@ -42,4 +42,4 @@ The following table shows the supported mappings:
 
 * Learn about Update Management in [Update Management overview](../update-management/overview.md).
 * Learn about Change Tracking and Inventory in [Change Tracking and Inventory overview](../change-tracking/overview.md).
-* Learn about Start/Stop VMs during off-hours in [Start/Stop VMs during off-hours overview](../automation-solution-vm-management.md).
+

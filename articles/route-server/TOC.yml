@@ -25,6 +25,8 @@
   items:
   - name: Route Server FAQ
     href: route-server-faq.md
+  - name: Route Server limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/route-server/toc.json#azure-route-server-limits
   - name: Routing preference
     href: hub-routing-preference.md
   - name: Next Hop IP support

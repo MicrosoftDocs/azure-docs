@@ -4,8 +4,6 @@ description: Learn how to use Synapse Machine Learning to create machine learnin
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: 
-
 ms.date: 03/08/2021
 author: ruixinxu
 ms.author: ruxu

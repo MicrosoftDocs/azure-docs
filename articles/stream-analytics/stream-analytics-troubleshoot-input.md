@@ -6,7 +6,6 @@ ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 12/15/2023
-ms.custom: seodec18
 ---
 
 # Troubleshoot input connections
@@ -177,7 +176,7 @@ Stream Analytics jobs use IoT Hub's built-in [Event Hub compatible endpoint](../
 
 ## Get help
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 

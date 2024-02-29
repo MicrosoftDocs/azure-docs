@@ -5,7 +5,7 @@ description: Learn how to configure Route-maps for Virtual WAN virtual hubs.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 01/16/2024
 ms.author: cherylmc
 ms.custom: references_region
 
@@ -20,11 +20,11 @@ This article helps you create or edit a route map in an Azure Virtual WAN hub us
 
 Verify that you've met the following criteria before beginning your configuration:
 
-You have virtual WAN with a connection (S2S, P2S, or ExpressRoute) already configured. For steps to create a VWAN with a S2S connection, see [Tutorial - Create a S2S connection with Virtual WAN](virtual-wan-site-to-site-portal.md). For steps to create a virtual WAN with a P2S User VPN connection, see [Tutorial - Create a User VPN P2S connection with Virtual WAN](virtual-wan-point-to-site-portal.md).
+* You have virtual WAN with a connection (S2S, P2S, or ExpressRoute) already configured.
+   * For steps to create a VWAN with a S2S connection, see [Tutorial - Create a S2S connection with Virtual WAN](virtual-wan-site-to-site-portal.md).
+   * For steps to create a virtual WAN with a P2S User VPN connection, see [Tutorial - Create a User VPN P2S connection with Virtual WAN](virtual-wan-point-to-site-portal.md).
 
 ## Create a route map
-
-[!INCLUDE [Route-maps email](../../includes/virtual-wan-route-maps-preview-email.md)]
 
 The following steps walk you through how to configure a route map.
 
@@ -64,7 +64,7 @@ The following steps walk you through how to configure a route map.
 
 ## Apply a route map to connections
 
-Once the route map is saved, you may apply the route map to the desired connections in the virtual hub.
+Once the route map is saved, you can apply the route map to the desired connections in the virtual hub.
 
 1. On the **Route-maps** page, select **Apply Route-maps to connections**.
 

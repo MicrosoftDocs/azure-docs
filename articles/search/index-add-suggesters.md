@@ -1,23 +1,23 @@
 ---
 title: Configure a suggester
 titleSuffix: Azure AI Search
-description: Enable type-ahead query actions in Azure AI Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
+description: Enable typeahead query actions in Azure AI Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 01/18/2024
 ms.custom:
   - devx-track-csharp
   - devx-track-dotnet
   - ignite-2023
 ---
 
-# Configure a suggester to enable autocomplete and suggested results in a query
+# Configure a suggester for autocomplete and suggested matches in a query
 
-In Azure AI Search, typeahead or "search-as-you-type" is enabled through a *suggester*. A suggester is defined in an index and provides a list of fields that undergo extra tokenization, generating prefix sequences to support matches on partial terms. For example, a suggester that includes a City field with a value for "Seattle" will have prefix combinations of "sea", "seat", "seatt", and "seattl" to support typeahead.
+In Azure AI Search, typeahead (autocomplete) or "search-as-you-type" is enabled through a *suggester*. A suggester is a configuration in an index specifying which fields should be used to populate autocomplete and suggestions. These fields undergo extra tokenization, generating prefix sequences to support matches on partial terms. For example, a suggester that includes a City field with a value for "Seattle" will have prefix combinations of "sea", "seat", "seatt", and "seattl" to support typeahead.
 
 Matches on partial terms can be either an autocompleted query or a suggested match. The same suggester supports both experiences.
 
@@ -25,7 +25,7 @@ Matches on partial terms can be either an autocompleted query or a suggested mat
 
 Typeahead can be *autocomplete*, which completes a partial input for a whole term query, or *suggestions* that invite click through to a particular match. Autocomplete produces a query. Suggestions produce a matching document.
 
-The following screenshot from [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) illustrates both. Autocomplete anticipates a potential term, finishing "tw" with "in". Suggestions are mini search results, where a field like hotel name represents a matching hotel search document from the index. For suggestions, you can surface any field that provides descriptive information.
+The following screenshot illustrates both. Autocomplete anticipates a potential term, finishing "tw" with "in". Suggestions are mini search results, where a field like hotel name represents a matching hotel search document from the index. For suggestions, you can surface any field that provides descriptive information.
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
@@ -33,13 +33,13 @@ You can use these features separately or together. To implement these behaviors 
 
 + Add a suggester to a search index definition. The remainder of this article is focused on creating a suggester.
 
-+ Call a suggester-enabled query, in the form of a Suggestion request or Autocomplete request, using one of the [APIs listed below](#how-to-use-a-suggester).
++ Call a suggester-enabled query, in the form of a Suggestion request or Autocomplete request, using one of the [APIs listed in a later section](#how-to-use-a-suggester).
 
-Search-as-you-type support is enabled on a per-field basis for string fields. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
+Search-as-you-type is enabled on a per-field basis for string fields. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user provides at least a three character input string.
 
 ## How to create a suggester
 
-To create a suggester, add one to an [index definition](/rest/api/searchservice/create-index). A suggester takes a name and a collection of fields over which the typeahead experience is enabled. The best time to create a suggester is when you're also defining the field that will use it.
+To create a suggester, add one to an [index definition](/rest/api/searchservice/create-index). A suggester takes a name and a collection of fields over which the typeahead experience is enabled. The best time to create a suggester is when you're also defining the field that uses it.
 
 + Use string fields only.
 
@@ -47,25 +47,25 @@ To create a suggester, add one to an [index definition](/rest/api/searchservice/
 
 + Use the default standard Lucene analyzer (`"analyzer": null`) or a [language analyzer](index-add-language-analyzers.md) (for example, `"analyzer": "en.Microsoft"`) on the field.
 
-If you try to create a suggester using pre-existing fields, the API will disallow it. Prefixes are generated during indexing, when partial terms in two or more character combinations are tokenized alongside whole terms. Given that existing fields are already tokenized, you'll have to rebuild the index if you want to add them to a suggester. For more information, see [How to rebuild an Azure AI Search index](search-howto-reindex.md).
+If you try to create a suggester using pre-existing fields, the API disallows it. Prefixes are generated during indexing, when partial terms in two or more character combinations are tokenized alongside whole terms. Given that existing fields are already tokenized, you have to rebuild the index if you want to add them to a suggester. For more information, see [How to rebuild an Azure AI Search index](search-howto-reindex.md).
 
 ### Choose fields
 
 Although a suggester has several properties, it's primarily a collection of string fields for which you're enabling a search-as-you-type experience. There's one suggester for each index, so the suggester list must include all fields that contribute content for both suggestions and autocomplete.
 
-Autocomplete benefits from a larger pool of fields to draw from because the additional content has more term completion potential.
+Autocomplete benefits from a larger pool of fields to draw from because the extra content has more term completion potential.
 
-Suggestions, on the other hand, produce better results when your field choice is selective. Remember that the suggestion is a proxy for a search document so you'll want fields that best represent a single result. Names, titles, or other unique fields that distinguish among multiple matches work best. If fields consist of repetitive values, the suggestions consist of identical results and a user won't know which one to click.
+Suggestions, on the other hand, produce better results when your field choice is selective. Remember that the suggestion is a proxy for a search document so pick fields that best represent a single result. Names, titles, or other unique fields that distinguish among multiple matches work best. If fields consist of repetitive values, the suggestions consist of identical results and a user won't know which one to choose.
 
-To satisfy both search-as-you-type experiences, add all of the fields that you need for autocomplete, but then use "$select", "$top", "$filter", and "searchFields" to control results for suggestions.
+To satisfy both search-as-you-type experiences, add all of the fields that you need for autocomplete, but then use `select`, `top`, `filter`, and `searchFields` to control results for suggestions.
 
 ### Choose analyzers
 
-Your choice of an analyzer determines how fields are tokenized and subsequently prefixed. For example, for a hyphenated string like "context-sensitive", using a language analyzer will result in these token combinations: "context", "sensitive", "context-sensitive". Had you used the standard Lucene analyzer, the hyphenated string wouldn't exist. 
+Your choice of an analyzer determines how fields are tokenized and prefixed. For example, for a hyphenated string like "context-sensitive", using a language analyzer results in these token combinations: "context", "sensitive", "context-sensitive". Had you used the standard Lucene analyzer, the hyphenated string wouldn't exist. 
 
 When evaluating analyzers, consider using the [Analyze Text API](/rest/api/searchservice/test-analyzer) for insight into how terms are processed. Once you build an index, you can try various analyzers on a string to view token output.
 
-Fields that use [custom analyzers](index-add-custom-analyzers.md) or [built-in analyzers](index-add-custom-analyzers.md#built-in-analyzers) (with the exception of standard Lucene) are explicitly disallowed to prevent poor outcomes.
+Fields that use [custom analyzers](index-add-custom-analyzers.md) or [built-in analyzers](index-add-custom-analyzers.md#built-in-analyzers) (except for standard Lucene) are explicitly disallowed to prevent poor outcomes.
 
 > [!NOTE]
 > If you need to work around the analyzer constraint, for example if you need a keyword or ngram analyzer for certain query scenarios, you should use two separate fields for the same content. This will allow one of the fields to have a suggester, while the other can be set up with a custom analyzer configuration.
@@ -158,10 +158,10 @@ A suggester is used in a query. After a suggester is created, call one of the fo
 
 In a search application, client code should use a library like [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) to collect the partial query and provide the match. For more information about this task, see [Add autocomplete or suggested results to client code](search-add-autocomplete-suggestions.md).
 
-API usage is illustrated in the following call to the Autocomplete REST API. There are two takeaways from this example. First, as with all queries, the operation is against the documents collection of an index and the query includes a "search" parameter, which in this case provides the partial query. Second, you must add "suggesterName" to the request. If a suggester isn't defined in the index, a call to autocomplete or suggestions will fail.
+API usage is illustrated in the following call to the Autocomplete REST API. There are two takeaways from this example. First, as with all queries, the operation is against the documents collection of an index and the query includes a `search` parameter, which in this case provides the partial query. Second, you must add `suggesterName` to the request. If a suggester isn't defined in the index, calls to autocomplete or suggestions fail.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2023-11-01
 {
   "search": "minecraf",
   "suggesterName": "sg"

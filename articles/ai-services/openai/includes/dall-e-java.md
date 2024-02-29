@@ -9,7 +9,6 @@ ms.topic: include
 author: PatrickFarley
 ms.author: pafarley
 ms.date: 08/24/2023
-keywords: 
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for Java.
@@ -115,7 +114,7 @@ dependencies {
         public static void main(String[] args) throws InterruptedException {
             
             // Get key and endpoint from environment variables:
-            String azureOpenaiKey = System.getenv("AZURE_OPENAI_KEY");
+            String azureOpenaiKey = System.getenv("AZURE_OPENAI_API_KEY");
             String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");
     
             OpenAIAsyncClient client = new OpenAIClientBuilder()

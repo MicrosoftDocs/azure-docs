@@ -4,7 +4,7 @@ description: Learn how to do an in-place upgrade from Red Hat Enterprise 7.x ima
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: redhat
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
@@ -13,13 +13,13 @@ ms.author: jushiman
 
 # Red Hat Enterprise Linux in-place upgrades
 
-**Applies to:** :heavy_check_mark: Linux VMs 
+**Applies to:** :heavy_check_mark: Linux VMs
 
 
->[!Note] 
+>[!Note]
 > Offerings of SQL Server on Red Hat Enterprise Linux don't support in-place upgrades on Azure.
 
->[!Important] 
+>[!Important]
 > Take a snapshot of the image before you start the upgrade as a precaution.
 
 ## What is RHEL in-place upgrade?

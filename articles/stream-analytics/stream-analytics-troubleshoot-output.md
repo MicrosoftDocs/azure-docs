@@ -6,7 +6,6 @@ ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 12/15/2023
-ms.custom: seodec18
 ---
 
 # Troubleshoot Azure Stream Analytics outputs
@@ -108,7 +107,7 @@ When using the original compatibility level (1.0), Azure Stream Analytics change
 
 ## Get help
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 

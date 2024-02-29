@@ -52,7 +52,7 @@ See [AuthorizationFailed](#AuthorizationFailed).
 
 **More information**
 
-For more information about enterprise agreements, see [Troubleshoot enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information about enterprise agreements, see [Troubleshoot enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 For more information about Microsoft Customer Agreements, see [Understand Microsoft Customer Agreement administrative roles in Azure](../manage/understand-mca-roles.md).
 
@@ -106,7 +106,7 @@ The message indicates that the Enterprise Agreement administrator hasn't enabled
 
 **More information**
 
-For more information, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information, see [Troubleshoot Azure enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 ## AuthorizationFailed
 
@@ -168,7 +168,7 @@ The message indicates that the Enterprise Agreement administrator hasn't enabled
 
 **More information**
 
-For more information about troubleshooting disabled costs, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information about troubleshooting disabled costs, see [Troubleshoot Azure enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 ## DisallowedOperation
 
@@ -222,7 +222,7 @@ The message indicates that your partner hasn't published pricing for the Enterpr
 
 **More information**
 
-For more information, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information, see [Troubleshoot Azure enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 ## InvalidAuthenticationTokenTenant
 

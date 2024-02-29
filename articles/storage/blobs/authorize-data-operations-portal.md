@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 12/10/2021
 
 ms.reviewer: nachakra
-ms.custom: contperf-fy21q1
 ---
 
 # Choose how to authorize access to blob data in the Azure portal
@@ -125,6 +124,8 @@ To update this setting for an existing storage account, follow these steps:
 1. Set **Default to Microsoft Entra authorization in the Azure portal** to **Enabled**.
 
     :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-update-portal.png" alt-text="Screenshot showing how to configure default Microsoft Entra authorization in Azure portal for existing account":::
+
+The **defaultToOAuthAuthentication** property of a storage account is not set by default and does not return a value until you explicitly set it.
 
 ## Next steps
 

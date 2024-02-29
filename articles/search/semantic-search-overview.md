@@ -10,23 +10,25 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 12/12/2023
+ms.date: 02/08/2024
 ---
 
 # Semantic ranking in Azure AI Search
 
-In Azure AI Search, *semantic ranking* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction to the semantic ranker. The [embedded video](#semantic-capabilities-and-limitations) describes the technology, and the section at the end covers availability and pricing.
+In Azure AI Search, *semantic ranking* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction. The section at the end covers [availability and pricing](#availability-and-pricing).
 
 Semantic ranker is a premium feature, billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
-> * [Check regional availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search).
-> * [Enable semantic ranking](semantic-how-to-enable-disable.md) on your search service.
-> * Create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
-> * Add a few more query properties to also [return semantic answers](semantic-answers.md).
+> * [Check regional availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search)
+> * [Sign in to Azure portal](https://portal.azure.com) to verify your search service is Basic or higher
+> * [Enable semantic ranking and choose a pricing plan](semantic-how-to-enable-disable.md)
+> * [Set up a semantic configuration in a search index](semantic-how-to-configure.md)
+> * [Set up queries to return semantic captions and highlights](semantic-how-to-query-request.md)
+> * [Optionally, return semantic answers](semantic-answers.md)
 
 > [!NOTE]
-> Looking for vector support and similarity search? See [Vector search in Azure AI Search](vector-search-overview.md) for details.
+> Semantic ranking doesn't use generative AI or vectors. If you're looking for vector support and similarity search? See [Vector search in Azure AI Search](vector-search-overview.md) for details.
 
 ## What is semantic ranking?
 
@@ -36,7 +38,7 @@ Semantic ranker is a collection of query-related capabilities that improve the q
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
-Here are the capabilities of the semantic ranker.
+Here are the capabilities of the semantic reranker.
 
 | Feature | Description |
 |---------|-------------|
@@ -46,7 +48,7 @@ Here are the capabilities of the semantic ranker.
 
 ## How semantic ranker works
 
-Semantic ranking looks for context and relatedness among terms, elevating matches that make more sense for the query. 
+Semantic ranking feeds a query and results to language understanding models hosted by Microsoft and scans for better matches. 
 
 The following illustration explains the concept. Consider the term "capital". It has different meanings depending on whether the context is finance, law, geography, or grammar. Through language understanding, the semantic ranker can detect context and promote results that fit query intent.
 
@@ -62,7 +64,7 @@ In semantic ranking, the query subsystem passes search results as an input to su
 
 1. Semantic ranking starts with a [BM25-ranked result](index-ranking-similarity.md) from a text query or an [RRF-ranked result](hybrid-search-ranking.md) from a hybrid query. Only text fields are used in the reranking exercise, and only the top 50 results progress to semantic ranking, even if results include more than 50. Typically, fields used in semantic ranking are informational and descriptive.
 
-1. For each document in the search result, the summarization model accepts up to 2,000 tokens, where a token is approximately 10 characters. Inputs are assembled from the "title", "keyword", and "content" fields listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration). 
+1. For each document in the search result, the summarization model accepts up to 2,000 tokens, where a token is approximately 10 characters. Inputs are assembled from the "title", "keyword", and "content" fields listed in the [semantic configuration](semantic-how-to-configure.md). 
 
 1. Excessively long strings are trimmed to ensure the overall length meets the input requirements of the summarization step. This trimming exercise is why it's important to add fields to your semantic configuration in priority order. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
 

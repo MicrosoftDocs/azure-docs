@@ -1,11 +1,11 @@
 ---
 title: Learn how to connect to Azure Analysis Services with Excel | Microsoft Docs
 description: Learn how to connect to an Azure Analysis Services server by using Excel. Once connected, users can create PivotTables to explore data.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 01/24/2023
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: minewiskan
 
 ---

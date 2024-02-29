@@ -34,7 +34,7 @@ The diagnostics service processes and collates diagnostic signals from various A
 | logLevel | false | String | `info` | Log level. `trace`, `debug`, `info`, `warn`, or `error`. |
 | maxDataStorageSize | false | Unsigned integer | `16` | Maximum data storage size in MiB |
 | metricsPort | false | Int32 | `9600` | Port for metrics |
-| openTelemetryCollectorAddr | false | String | `null` | Endpoint URL of the OpenTelemetry collector |
+| openTelemetryTracesCollectorAddr | false | String | `null` | Endpoint URL of the OpenTelemetry collector |
 | staleDataTimeoutSeconds | false | Int32 | `600` | Data timeouts in seconds |
 
 Here's an example of a Diagnostics service resource with basic configuration:

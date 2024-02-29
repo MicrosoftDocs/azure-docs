@@ -24,7 +24,8 @@ You can use the [Azure SQL Migration extension for Azure Data Studio](/azure-dat
 The TDE-enabled database migration process automates manual tasks such as backing up the database certificate keys (DEK), copying the certificate files from the on-premises SQL Server to the Azure SQL target, and then reconfiguring TDE for the target database again.
 
   > [!IMPORTANT]  
-  > Currently, only Azure SQL Managed Instance targets are supported.
+  > 1) Currently, only Azure SQL Managed Instance targets are supported.
+>   2) And Encrypted Backups are not supported.
 
 In this tutorial, you learn how to migrate the example `AdventureWorksTDE` encrypted database from an on-premises instance of SQL Server to an Azure SQL managed instance.
 

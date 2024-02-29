@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: Heidilohr
 ms.author: helohr
-ms.date: 01/04/2023
+ms.date: 02/01/2023
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,10 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## January 2024
+
+There were no major releases or new features in January 2024.
 
 ## December 2023
 

@@ -51,7 +51,7 @@ For Azure App Service, you can deploy the application code via the `az webapp de
 
 ### [Spring Apps](#tab/springapp)
 
-For Azure Spring Apps, you can deploy the application code via the `az spring app deploy` command. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](../spring-apps/quickstart.md).
+For Azure Spring Apps, you can deploy the application code via the `az spring app deploy` command. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](../spring-apps/enterprise/quickstart.md).
 
 ### [Container Apps](#tab/containerapp)
 

@@ -7,7 +7,6 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 05/23/2023
-ms.custom: 
 ---
 
 # Delete items by partition key value - API for NoSQL (preview)

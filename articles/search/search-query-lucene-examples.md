@@ -1,5 +1,5 @@
 ---
-title: Use full Lucene query syntax
+title: Examples of full Lucene query syntax
 titleSuffix: Azure AI Search
 description: Query examples demonstrating the Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure AI Search index.
 
@@ -11,10 +11,10 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 01/17/2024
 ---
 
-# Use the "full" Lucene search syntax (advanced queries in Azure AI Search)
+# Examples of "full" Lucene search syntax (advanced queries in Azure AI Search)
 
 When constructing queries for Azure AI Search, you can replace the default [simple query parser](query-simple-syntax.md) with the more powerful [Lucene query parser](query-lucene-syntax.md) to formulate specialized and advanced query expressions.
 
@@ -28,7 +28,7 @@ The Lucene parser supports complex query formats, such as field-scoped queries, 
 
 The following queries are based on the hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
 
-Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or another web client.
+Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or another web client. Or, use the JSON view of [Search Explorer](search-explorer.md) in the Azure portal. In JSON view, you can paste in the query examples shown here in this article.
 
 Request headers must have the following values:
 
@@ -40,7 +40,7 @@ Request headers must have the following values:
 URI parameters must include your search service endpoint with the index name, docs collections, search command, and API version, similar to the following example:
 
 ```http
-https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 ```
 
 Request body should be formed as valid JSON:
@@ -66,10 +66,10 @@ Request body should be formed as valid JSON:
 
 Fielded search scope individual, embedded search expressions to a specific field. This example searches for hotel names with the term "hotel" in them, but not "motel". You can specify multiple fields using AND. 
 
-When you use this query syntax, you can omit the "searchFields" parameter when the fields you want to query are in the search expression itself. If you include "searchFields" with fielded search, the `fieldName:searchExpression` always takes precedence over "searchFields".
+When you use this query syntax, you can omit the `searchFields` parameter when the fields you want to query are in the search expression itself. If you include `searchFields` with fielded search, the `fieldName:searchExpression` always takes precedence over `searchFields`.
 
 ```http
-POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2023-11-01
 {
     "search": "HotelName:(hotel NOT motel) AND Category:'Resort and Spa'",
     "queryType": "full",
@@ -121,7 +121,7 @@ The field specified in `fieldName:searchExpression` must be a searchable field. 
 Fuzzy search matches on terms that are similar, including misspelled words. To do a fuzzy search, append the tilde `~` symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, `blue~` or `blue~1` would return blue, blues, and glue.
 
 ```http
-POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2023-11-01
 {
     "search": "Tags:conserge~",
     "queryType": "full",
@@ -181,7 +181,7 @@ Proximity search finds terms that are near each other in a document. Insert a ti
 This query searches for the terms "hotel" and  "airport" within 5 words of each other in a document. The quotation marks are escaped (`\"`) to preserve the phrase:
 
 ```http
-POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2023-11-01
 {
     "search": "Description: \"hotel airport\"~5",
     "queryType": "full",
@@ -216,7 +216,7 @@ Term boosting refers to ranking a document higher if it contains the boosted ter
 In this "before" query, search for "beach access" and notice that there are seven documents that match on one or both terms.
 
 ```http
-POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2023-11-01
 {
     "search": "beach access",
     "queryType": "full",
@@ -264,7 +264,7 @@ After boosting the term "beach", the match on Old Carrabelle Hotel moves down to
 A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
 ```http
-POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2023-11-01
 {
     "search": "HotelName:/(Mo|Ho)tel/",
     "queryType": "full",
@@ -323,7 +323,7 @@ You can use generally recognized syntax for multiple (`*`) or single (`?`) chara
 In this query, search for hotel names that contain the prefix 'sc'. You can't use a `*` or `?` symbol as the first character of a search.
 
 ```http
-POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2023-11-01
 {
     "search": "HotelName:sc*",
     "queryType": "full",

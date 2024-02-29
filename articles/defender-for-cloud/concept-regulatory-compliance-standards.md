@@ -2,7 +2,6 @@
 title: Regulatory compliance standards in Microsoft Defender for Cloud
 description: Learn about regulatory compliance standards in Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 11/27/2023
 ---
 
