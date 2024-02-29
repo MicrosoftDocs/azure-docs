@@ -162,8 +162,17 @@ If your devices are sending Syslog and CEF logs over TLS (because, for example, 
 
 ### Install the AMA and create a Data Collection Rule (DCR)
 
+# [Syslog](#tab/syslog)
+
 You can perform this step in one of two ways:
-- Deploy and configure the **Syslog via AMA** and/or **CEF via AMA** data connectors in the [Microsoft Sentinel portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs per workspace. The AMA will be installed automatically on the VMs you select in the connector configuration.  
+- Deploy and configure the **Syslog via AMA** data connector in the [Microsoft Sentinel portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs per workspace. The AMA will be installed automatically on the VMs you select in the connector configuration.  
+    **&mdash;OR&mdash;**
+- Send HTTP requests to the [Logs Ingestion API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level. The downside is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
+
+# [CEF](#tab/cef)
+
+You can perform this step in one of two ways:
+- Deploy and configure the **Common Event Format (CEF) via AMA** data connector in the [Microsoft Sentinel portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs per workspace. The AMA will be installed automatically on the VMs you select in the connector configuration.  
     **&mdash;OR&mdash;**
 - Send HTTP requests to the [Logs Ingestion API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level. The downside is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
 
@@ -219,7 +228,7 @@ Select the appropriate tab below to see the instructions for each way.
 
 1. Select **Next: Resources >**.
 
-# [Microsoft Sentinel portal](#tab/portal/cef+syslog)
+# [Microsoft Sentinel portal](#tab/portal/cef+portal/syslog)
 
 #### Define resources (VMs)
 
