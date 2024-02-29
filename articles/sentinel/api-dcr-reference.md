@@ -1,15 +1,34 @@
 ---
-metadata
+title: Microsoft Sentinel API request examples for creating Data Collection Rules (DCRs)
+description: See samples of API requests for creating Data Collection Rules and their associations, for use with the Azure Monitor Agent.
+author: yelevin
+ms.author: yelevin
+ms.topic: reference
+ms.date: 03/01/2024
+ms.service: microsoft-sentinel
 ---
 # API request examples for creating Data Collection Rules (DCRs)
 
-## Syslog
+This article presents some examples of API requests and responses for creating Data Collection Rules (DCRs) and DCR Associations (DCRAs) for use with the Azure Monitor Agent (AMA).
 
-### Syslog DCR
+## Syslog/CEF
 
-#### Syslog DCR creation request
+The following examples are for DCRs using the AMA to collect Syslog and CEF messages.
 
-The following is an example of a DCR creation request:
+### Syslog/CEF DCR
+
+These examples are of the API request and response for creating a DCR.
+
+#### Syslog/CEF DCR creation request URL and header
+
+        Example:
+        ```http
+        PUT https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR-01?api-version=2022-06-01
+        ```
+
+#### Syslog/CEF DCR creation request body
+
+The following is an example of a DCR creation request. For ingesting CEF messages, substitute `"Microsoft-CommonSecurityLog"` for `"Microsoft-Syslog"` in the `"Streams"` field:
 
 ```json
 {
@@ -77,14 +96,7 @@ The following is an example of a DCR creation request:
 }
 ```
 
-#### Syslog DCR creation request URL and header
-
-        Example:
-        ```http
-        PUT https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR-01?api-version=2022-06-01
-        ```
-
-#### Syslog DCR creation response
+#### Syslog/CEF DCR creation response
 
 Here's the response you should receive according to the sample request above:
 
@@ -162,18 +174,26 @@ Here's the response you should receive according to the sample request above:
   }
 ```
 
-### Syslog DCRA
+### Syslog/CEF DCRA
 
-#### Syslog DCRA creation request URL and header
+#### Syslog/CEF DCRA creation request URL and header
 
 ```http
 PUT 
 https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/LogForwarder-VM-1/providers/Microsoft.Insights/dataCollectionRuleAssociations/contoso-dcr-assoc?api-version=2022-06-01
 ```
 
-#### Syslog DCR creation response
+#### Syslog/CEF DCRA creation request body
 
-Here's a sample response:
+```json
+{
+  "properties": {
+    "dataCollectionRuleId": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR-01"
+  }
+}
+```
+
+#### Syslog/CEF DCRA creation response
 
 ```json
 {
@@ -188,12 +208,4 @@ Here's a sample response:
     }
   }
 ```
-
-## CEF
-
-### CEF DCR creation request
-
-### CEF DCR creation request URL and header
-
-### CEF DCR creation response
 

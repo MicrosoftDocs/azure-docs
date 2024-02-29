@@ -8,7 +8,7 @@ ms.date: 02/19/2024
 #Customer intent: As a security operator, I want to ingest and filter Syslog and CEF messages from Linux machines and from network and security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---
 
-# Ingest CEF logs with the Azure Monitor Agent
+# Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent
 
 This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest Syslog messages, including those in Common Event Format (CEF) from Linux machines and from network and security devices and appliances.
 
@@ -311,7 +311,7 @@ You can create Data Collection Rules (DCRs) using the [Azure Monitor Logs Ingest
 
 1. Prepare a DCR file in JSON format. The contents of this file will be the request body in your API request.
 
-    For an example, see [Syslog DCR creation request](api-dcr-reference.md#syslog-dcr-creation-request).
+    For an example, see [Syslog/CEF DCR creation request body](api-dcr-reference.md#syslogcef-dcr-creation-request-body).
 
     - Verify that the `streams` field is set to `Microsoft-Syslog` for Syslog messages, or to `Microsoft-CommonSecurityLog` for CEF messages.
     - Add the filter and facility log levels in the `facilityNames` and `logLevels` parameters. See [examples below](#examples-of-facilities-and-log-levels-sections).
@@ -330,7 +330,7 @@ You can create Data Collection Rules (DCRs) using the [Azure Monitor Logs Ingest
 
 1. Send the request.
  
-    For an example of the response you should receive, see [Syslog DCR creation response](api-dcr-reference.md#syslog-dcr-creation-response)
+    For an example of the response you should receive, see [Syslog/CEF DCR creation response](api-dcr-reference.md#syslogcef-dcr-creation-response)
 
 #### Associate the DCR with the log forwarder
 
@@ -352,10 +352,15 @@ Now you need to create a DCR Association (DCRA) that ties the DCR to the VM reso
     ```json
     {
       "properties": {
-        "dataCollectionRuleId": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR-01"
+        "dataCollectionRuleId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}"
       }
     }
     ```
+
+    - Substitute the appropriate values for the `{subscriptionId}` and `{resourceGroupName}` placeholders. 
+    - Enter a name of your choice for the DCR in place of the `{dataCollectionRuleName}` placeholder.
+
+1. Send the request.
 
 ---
 
