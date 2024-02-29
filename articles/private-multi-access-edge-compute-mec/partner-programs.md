@@ -13,10 +13,10 @@ ms.author: limichel
 Microsoft is collaborating with leading third-party providers to develop a robust partner ecosystem across all layers of the value chain. This ecosystem enables Azure private multi-access edge compute (MEC) to support diverse use cases and requirements, enabling partners to add unique value to enterprise customers.
 
 ## Azure private MEC ecosystem
-Azure private MEC solution partners include technology partners, application independent software vendors (ISV), and system integrators.
+Azure private MEC solution partners include technology partners, application independent software vendors (ISVs), and system integrators.
 
 - **Technology Partners** bring critical hardware and software components such as network functions, Radio Access Network (RAN) technologies, and SIMs to the Azure private MEC ecosystem. Customers can mix and match these components to meet their requirements.
-- **System Integrators and Operators** are responsible for planning, deployment, and operation of a customer’s Azure private MEC implementation. These providers bring assets and expertise such as spectrum, RF planning, installation, maintenance, and support. System Integrators and Operators enable customers to rapidly deploy the Azure private MEC solution without requiring in-house expertise in complexities surrounding mobile network technologies.
+- **System Integrators and Operators** are responsible for planning, deployment, and operation of a customer’s Azure private MEC implementation. These providers bring assets and expertise such as spectrum, radio frequency (RF) planning, installation, maintenance, and support. System Integrators and Operators enable customers to rapidly deploy the Azure private MEC solution without requiring in-house expertise in complexities surrounding mobile network technologies.
 - **Application ISV Partners** bring ready to deploy software solutions built for Azure private MEC. These applications use the low latency edge computing capabilities of Azure private MEC to enable a customer’s specific use-cases within industries, including manufacturing, energy, and transportation.
 
 ### System Integrators (SIs)
