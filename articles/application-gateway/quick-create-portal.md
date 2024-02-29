@@ -186,7 +186,7 @@ In this example, you install IIS on the virtual machines to verify Azure created
 
    Select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
 
-    ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
+    ![Screenshot of install custom extension.](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
 2. Run the following command to install IIS on the virtual machine. Change the *Location* parameter if necessary: 
 
@@ -228,7 +228,7 @@ Use IIS to test the application gateway:
 2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
 3. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
-   ![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+   ![Screenshot of the application gateway test.](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
    Refresh the browser multiple times and you should see connections to both myVM and myVM2.
 
