@@ -118,7 +118,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 5. For the **Backend setting**, select **Add new** to add a new Backend setting. The Backend setting determines the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *myBackendSetting* for the **Backend settings name** and *80* for the **Backend port**. Accept the default values for the other settings in the **Add Backend setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
-     ![Screenshot of create new application gateway: backend setting](./media/application-gateway-create-gateway-portal/application-gateway-create-backendsetting.png)
+     ![Screenshot of create new application gateway: backend setting.](./media/application-gateway-create-gateway-portal/application-gateway-create-backendsetting.png)
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
