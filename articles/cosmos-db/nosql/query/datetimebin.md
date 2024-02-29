@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a date and time string value that is the result of binning (or rounding)
 
 ## Syntax
 
-```sql
+```nosql
 DateTimeBin(<date_time> , <date_time_part> [, <bin_size>] [, <bin_start_date_time>]) 
 ```
 
@@ -44,7 +45,7 @@ Returns a UTC date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.f
 
 The following example bins the date **January 8, 2021** at **18:35 UTC** by various values. The example also changes the bin size, and the bin start date and time.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimebin/query.sql" highlight="2-7":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/datetimebin/query.sql" highlight="2-7":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimebin/result.json":::
 

@@ -1,12 +1,12 @@
 ---
 title: Migrate from V1 to V2 - Azure Application Gateway
-description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from V1 to V2
+description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from V1 to V2.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 02/26/2024
 ms.author: greglin
 ---
 
@@ -31,19 +31,19 @@ This article primarily helps with the configuration migration. Client traffic mi
 * An existing Application Gateway V1 Standard.
 * Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-* Ensure that there is no existing Application gateway with the provided Appgw V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
-* If Public IP is provided ensure that its in succeeded state.If not provided and AppGwResourceGroupName is provided ensure that public IP resource with name AppGwV2Name-IP  doesn’t  exist in a resourcegroup with the name AppGwResourceGroupName in the V1 subscription.
-* Ensure that no other operation is planned on the V1 gateway or any of its associated resources during migration.
+* Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This rewrites the existing resources.
+* If a public IP address is provided, ensure that it's in a succeeded state. If not provided and AppGWResourceGroupName is provided ensure that public IP resource with name AppGWV2Name-IP  doesn’t  exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
+* Ensure that no other operation is planned on the V1 gateway or any associated resources during migration.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
->Run the `Set-AzContext -Subscription <V1 application gateway SubscriptionId>` cmdlet every time before running the migration script. This is necessary to set the active Azure context to the correct subscription, because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.This is not a mandatory step for version 1.0.11 & above of the migration script.
+>Run the `Set-AzContext -Subscription <V1 application gateway SubscriptionId>` cmdlet every time before running the migration script. This is necessary to set the active Azure context to the correct subscription, because the migration script might clean up the existing resource group if it doesn't exist in current subscription context. This is not a mandatory step for version 1.0.11 & above of the migration script.
 
 > [!IMPORTANT]
->A new stable version of the migration script , version 1.0.11 is available now , which contains important bug fixes and updates.Use this version to avoid potential issues.
+>A new stable version of the migration script, version 1.0.11 is available now, which contains important bug fixes and updates.Use this version to avoid potential issues.
 
 ## Configuration migration 
 
@@ -54,7 +54,7 @@ An Azure PowerShell script is provided in this document. It performs the followi
 
 ## Downloading the script
 
-You can download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).A new stable release (Version 1.0.11) of the migration script is available ,which includes major updates and  bug fixes .It is recommended to use this stable version.
+You can download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).A new stable release (Version 1.0.11) of the migration script is available, which includes major updates and  bug fixes. It's recommended to use this stable version.
 
 
 ## Using the script
@@ -70,8 +70,7 @@ There are two options for you depending on your local PowerShell environment set
 
 To determine if you have the Azure Az modules installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az modules, then you can use the `Install-Script` method.
 
-#### Install using the Install-Script method
-
+#### Install using the Install-Script method (recommended)
 To use this option, you must not have the Azure Az modules installed on your computer. If they're installed, the following command displays an error. You can either uninstall the Azure Az modules, or use the other option to download the script manually and run it.
 
 Run the script with the following command to get the latest version:
@@ -83,12 +82,12 @@ This command also installs the required Az modules.
 #### Install using the script directly
 If you have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
 
-Version 1.0.11 is the new version of the migration script which includes major bug fixes.It is recommended to use this stable version.
+Version 1.0.11 is the new version of the migration script which includes major bug fixes. It's recommended to use this stable version.
 
 #### How to check the version of the downloaded script
 To check the version of the downloaded script the steps are as follows:
 * Extract the contents of the NuGet package.
-* Open the  .PS1 file in the folder and check the .VERSION on top to confirm the version of the downloaded script
+* Open the  `.PS1` file in the folder and check the `.VERSION` on top to confirm the version of the downloaded script
 ```
 <#PSScriptInfo
 .VERSION 1.0.10
@@ -107,18 +106,18 @@ To run the script:
 
 2. Use `Import-Module Az` to import the Az modules.
 
-3. Run the `Set-AzContext` cmdlet ,to set the active Azure context to the correct subscription.This is an important step because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.
+3. Run the `Set-AzContext` cmdlet, to set the active Azure context to the correct subscription. This is an important step because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.
    ```
    Set-AzContext -Subscription '<V1 application gateway SubscriptionId>'
    ```
 4. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 
    ```
-   AzureAppGwMigration.ps1
+   AzureAppGWMigration.ps1
     -resourceId <V1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
-    -AppGwResourceGroupName <resource group name you want to use>
+    -AppGWResourceGroupName <resource group name you want to use>
     -sslCertificates <comma-separated SSLCert objects as above>
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
@@ -126,7 +125,7 @@ To run the script:
     -validateMigration -enableAutoScale
    ```
  > [!NOTE]
-> During migration don't attempt any other operation on the V1 gateway or any of its associated resources.
+> During migration don't attempt any other operation on the V1 gateway or any associated resources.
 
    Parameters for the script:
    * **resourceId: [String]: Required**: This parameter is the Azure Resource ID for your existing Standard V1 or WAF V1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
@@ -140,9 +139,9 @@ To run the script:
 
    * **subnetAddressRange: [String]:  Required**: This parameter is the IP address space that you've allocated (or want to allocate) for a new subnet that contains your new V2 gateway. The address space must be specified in the CIDR notation. For example: 10.0.0.0/24. You don't need to create this subnet in advance but the CIDR needs to be part of the VNET address space. The script creates it for you if it doesn't exist and if it exists, it uses the existing one (make sure the subnet is either empty, contains only V2 Gateway if any, and has enough available IPs).
    * **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_V2 or WAF_V2 gateway. If this parameter isn't supplied, the name of your existing V1 gateway is used with the suffix *_V2* appended. 
-   * **AppGwResourceGroupName: [String]: Optional**. Name of resource group where you want V2 Application Gateway resources to be created (default value is `<V1-app-gw-rgname>`)
+   * **AppGWResourceGroupName: [String]: Optional**. Name of resource group where you want V2 Application Gateway resources to be created (default value is `<V1-app-gw-rgname>`)
  > [!NOTE]
-> Ensure that there is no existing Application gateway with the provided Appgw V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
+> Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This rewrites the existing resources.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the TLS/SSL certs from your V1 gateway must be uploaded to the new V2 gateway. For each of your TLS/SSL certs configured for your Standard V1 or WAF V1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your TLS/SSL Cert file and the password.
 
      This parameter is only optional if you don't have HTTPS listeners configured for your V1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
@@ -192,11 +191,11 @@ To run the script:
 
       To create a list of PSApplicationGatewayTrustedRootCertificate objects, see [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate).
    * **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new V2 gateway.  This must be from the same VNet that you allocate for your new V2 gateway. If this isn't specified, the script allocates a private IP address for your V2 gateway.
-   * **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway.If public Ip resource name is provided, ensure that it exists in succeeded state.
-      If this isn't specified, the script allocates a new public IP in the same resource group. The name is the V2 gateway's name with *-IP* appended.If AppGwResourceGroupName is provided and public IP is not provided ensure that public IP resource with name AppGwV2Name-IP  doesn’t  exist in a resourcegroup with the name AppGwResourceGroupName in the V1 subscription
+   * **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway. If public Ip resource name is provided, ensure that it exists in succeeded state.
+      If this isn't specified, the script allocates a new public IP address in the same resource group. The name is the V2 gateway's name with *-IP* appended. If AppGWResourceGroupName is provided and a public IP address is not provided, ensure that public IP resource with name AppGWV2Name-IP doesn’t exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
 
-   * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
-   * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable autoscaling on the new V2 gateway after it's created. By default, autoscaling is disabled. You can always manually enable it later on the newly created V2 gateway.
+   * **validateMigration: [switch]: Optional**. Use this parameter to enable the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
+   * **enableAutoScale: [switch]: Optional**. Use this parameter to enable the script to enable autoscaling on the new V2 gateway after it's created. By default, autoscaling is disabled. You can always manually enable it later on the newly created V2 gateway.
 
 5. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
@@ -207,7 +206,7 @@ To run the script:
       -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
       -subnetAddressRange 10.0.0.0/24 `
       -appgwname "MynewV2gw" `
-      -AppGwResourceGroupName "MyResourceGroup" `
+      -AppGWResourceGroupName "MyResourceGroup" `
       -sslCertificates $mySslCert1,$mySslCert2 `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
@@ -225,6 +224,7 @@ To run the script:
 * If you have FIPS mode enabled for your V1 gateway, it isn't migrated to your new V2 gateway. FIPS mode isn't supported in V2.
 * If you have a Private IP only V1 gateway, the script generates a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
 * NTLM and Kerberos authentication isn't supported by Application Gateway V2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from V1 to V2 gateways if run.
+* WAFv2 is created in old WAF config mode; migration to WAF policy is required.
 
 ## Traffic migration
 

@@ -1,9 +1,9 @@
 ---
-title: Integrate with Azure Cognitive Services Preview
-description: Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services - Preview.
+title: Integrate Azure AI Language Services with Azure Database for PostgreSQL
+description: Implement scenarios like sentiment analysis with Cognitive Services and Azure Database for PostgreSQL.
 author: mulander
 ms.author: adamwolk
-ms.date: 12/12/2023
+ms.date: 2/26/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:

@@ -33,8 +33,8 @@ Grants full access to manage all resources, but does not allow you to assign rol
 > | [Microsoft.Blueprint](../permissions/management-and-governance.md#microsoftblueprint)/blueprintAssignments/write | Create or update any blueprint assignments |
 > | [Microsoft.Blueprint](../permissions/management-and-governance.md#microsoftblueprint)/blueprintAssignments/delete | Delete any blueprint assignments |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/galleries/share/action | Shares a Gallery to different scopes |
-> | [Microsoft.Purview](../permissions/management-and-governance.md#microsoftpurview)/consents/write | Create or Update a Consent Resource. |
-> | [Microsoft.Purview](../permissions/management-and-governance.md#microsoftpurview)/consents/delete | Delete the Consent Resource. |
+> | [Microsoft.Purview](../permissions/analytics.md#microsoftpurview)/consents/write | Create or Update a Consent Resource. |
+> | [Microsoft.Purview](../permissions/analytics.md#microsoftpurview)/consents/delete | Delete the Consent Resource. |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
