@@ -14,9 +14,6 @@ ms.date: 12/08/2023
 > App attach is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-> [!NOTE]
-> App attach (preview) is gradually rolling out and you might not have access to it yet. If you don't have access, check back later. MSIX app attach is generally available.
-
 There are two features in Azure Virtual Desktop that enable you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop - *MSIX app attach* and *app attach (preview)*. *MSIX app attach* is generally available, but *app attach* is now available in preview, which improves the administrative experience and user experience. With both *MSIX app attach* and *app attach*, applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. 
 
 The following table compares MSIX app attach with app attach:
@@ -197,18 +194,28 @@ The following sections provide some guidance on the permissions, performance, an
 
 Each session host mounts application images from the file share. You need to configure NTFS and share permissions to allow each session host computer object read access to the files and file share. How you configure the correct permission depends on which storage provider and identity provider you're using for your file share and session hosts.
 
+::: zone pivot="app-attach"
 - To use Azure Files when your session hosts joined to Microsoft Entra ID, you need to assign the [Reader and Data Access](../role-based-access-control/built-in-roles.md#reader-and-data-access) Azure role-based access control (RBAC) role to the **Azure Virtual Desktop** and **Azure Virtual Desktop ARM Provider** service principals. This RBAC role assignment allows your session hosts to access the storage account using [access keys](../storage/common/storage-account-keys-manage.md). The storage account must be in the same Azure subscription as your session hosts. To learn how to assign an Azure RBAC role to the Azure Virtual Desktop service principals, see [Assign RBAC roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
 
    For more information about using Azure Files with session hosts that are joined to Microsoft Entra ID, Active Directory Domain Services, or Microsoft Entra Domain Services, see [Overview of Azure Files identity-based authentication options for SMB access](../storage/files/storage-files-active-directory-overview.md).
 
    > [!WARNING]
    > Assigning the **Azure Virtual Desktop ARM Provider** service principal to the storage account grants the Azure Virtual Desktop service to all data inside the storage account. We recommended you only store apps to use with app attach in this storage account and rotate the access keys regularly.
+::: zone-end
 
+::: zone pivot="app-attach"
 - For Azure Files with Active Directory Domain Services, you need to assign the [Storage File Data SMB Share Reader](../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-reader) Azure role-based access control (RBAC) role as the [default share-level permission](../storage/files/storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities), and [configure NTFS permissions](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) to give read access to each session host's computer object.
 
    For more information about using Azure Files with session hosts that are joined to Microsoft Entra ID, Active Directory Domain Services, or Microsoft Entra Domain Services, see [Overview of Azure Files identity-based authentication options for SMB access](../storage/files/storage-files-active-directory-overview.md).
+::: zone-end
 
-- For Azure NetApp Files, you can [create an SMB volume](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) and configure NTFS permissions to give read access to each session host's computer object. Your session hosts need to be joined to Active Directory Domain Services or Microsoft Entra Domain Services. Microsoft Entra ID isn't supported.
+::: zone pivot="msix-app-attach"
+- For Azure Files with Active Directory Domain Services, you need to assign the [Storage File Data SMB Share Reader](../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-reader) Azure role-based access control (RBAC) role as the [default share-level permission](../storage/files/storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities), and [configure NTFS permissions](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) to give read access to each session host's computer object.
+
+   For more information about using Azure Files with session hosts that are joined to Active Directory Domain Services or Microsoft Entra Domain Services, see [Overview of Azure Files identity-based authentication options for SMB access](../storage/files/storage-files-active-directory-overview.md).
+::: zone-end
+
+- For Azure NetApp Files, you can [create an SMB volume](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) and configure NTFS permissions to give read access to each session host's computer object. Your session hosts need to be joined to Active Directory Domain Services or Microsoft Entra Domain Services.
 
 You can verify the permissions are correct by using [PsExec](/sysinternals/downloads/psexec). For more information, see [Check file share access](troubleshoot-app-attach.md#check-file-share-access).
 

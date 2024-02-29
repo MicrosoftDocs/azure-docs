@@ -3,12 +3,12 @@ title: Migrate to the latest version of Azure AI Language
 titleSuffix: Azure AI services
 description: Learn how to move your Text Analytics applications to use the latest version of the Language service.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 # Migrate to the latest version of Azure AI Language
