@@ -13,7 +13,7 @@ Customers who have delegated subscriptions to service providers through [Azure L
 
 [View the activity log](../../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log) from the **Monitor** menu in the Azure portal. Use the filters if you want to show results from a specific subscription.
 
-You can also [view and retrieve activity log events](../../azure-monitor/essentials/activity-log-insights.md#other-methods-to-retrieve-activity-log-events) programmatically.
+You can also [view and retrieve activity log events](../../azure-monitor/essentials/activity-log.md#other-methods-to-retrieve-activity-log-events) programmatically.
 
 > [!NOTE]
 > Users in a service provider's tenant can view activity log results for a delegated subscription if they were granted the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access) when that subscription was onboarded to Azure Lighthouse.
