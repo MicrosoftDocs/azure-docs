@@ -3,7 +3,7 @@ title: Reliability in Azure Functions
 description: Find out about reliability in Azure Functions
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: conceptual
+ms.topic: reliability-article
 ms.service: azure-functions
 ms.custom: references_regions, subject-reliability
 ms.date: 11/14/2023

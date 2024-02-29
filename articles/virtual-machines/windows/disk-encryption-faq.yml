@@ -4,11 +4,11 @@ metadata:
   description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows IaaS VMs.
   author: msmbaldwin
   ms.service: virtual-machines
-  ms.subservice: disks
+  ms.subservice: security
   ms.collection: windows
   ms.topic: faq
   ms.author: mbaldwin
-  ms.date: 11/01/2019
+  ms.date: 02/20/2024
 title: Azure Disk Encryption for Windows virtual machines FAQ
 summary: |
   This article provides answers to frequently asked questions (FAQ) about Azure Disk Encryption for Windows VMs. For more information about this service, see [Azure Disk Encryption overview](disk-encryption-overview.md).

@@ -3,7 +3,7 @@ title: Add external Hive metastore database
 description: Connecting to the HIVE metastore for Trino clusters in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 10/19/2023
+ms.date: 02/21/2024
 ---
 
 # Use external Hive metastore database
@@ -65,7 +65,7 @@ Configure authentication to external Hive metastore database specifying Azure Ke
     "secrets": [
         {
             "referenceName": "hms-db-pwd",
-            "type": "secret",
+            "type": "Secret",
             "keyVaultObjectName": "hms-db-pwd"
         }                        ]
 },
@@ -74,7 +74,7 @@ Configure authentication to external Hive metastore database specifying Azure Ke
 |---|---|---|
 |secretsProfile.keyVaultResourceId|Azure resource ID string to Azure Key Vault where secrets for Hive metastore are stored.|/subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/trino-rg/providers/Microsoft.KeyVault/vaults/trinoakv|
 |secretsProfile.secrets[*].referenceName|Unique reference name of the secret to use later in clusterProfile.|Secret1_ref|
-|secretsProfile.secrets[*].type|Type of object in Azure Key Vault, only “secret” is supported.|secret|
+|secretsProfile.secrets[*].type|Type of object in Azure Key Vault, only “Secret” is supported.|Secret|
 |secretsProfile.secrets[*].keyVaultObjectName|Name of secret object in Azure Key Vault containing actual secret value.|secret1|
 
 ### Catalog configuration
@@ -113,7 +113,7 @@ To configure external Hive metastore to an existing Trino cluster, add the requi
                         "secrets": [
                             {
                                 "referenceName": "hms-db-pwd",
-                                "type": "secret",
+                                "type": "Secret",
                                 "keyVaultObjectName": "hms-db-pwd"
                             }                        ]
                     },
@@ -208,7 +208,7 @@ Alternatively external Hive metastore database parameters can be specified in `t
                         "secrets": [
                             {
                                 "referenceName": "hms-db-pwd",
-                                "type": "secret",
+                                "type": "Secret",
                                 "keyVaultObjectName": "hms-db-pwd"
                             }                        ]
                     },

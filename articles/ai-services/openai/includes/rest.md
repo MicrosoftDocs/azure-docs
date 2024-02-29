@@ -51,7 +51,7 @@ In a bash shell, run the following command. You will need to replace `gpt-35-tur
 ```bash
 curl $AZURE_OPENAI_ENDPOINT/openai/deployments/gpt-35-turbo-instruct/completions?api-version=2023-05-15 \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -d "{\"prompt\": \"Once upon a time\"}"
 ```
 
