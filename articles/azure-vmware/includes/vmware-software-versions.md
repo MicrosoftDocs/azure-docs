@@ -3,7 +3,7 @@ title: VMware solution software versions
 description: Supported VMware solution software versions for Azure VMware Solution.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 01/30/2024
+ms.date: 2/29/2024
 author: suzizuber
 ms.author: v-suzuber
 ms.custom: engagement-fy23
