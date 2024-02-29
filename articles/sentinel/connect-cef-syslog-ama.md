@@ -176,6 +176,8 @@ You can perform this step in one of two ways:
     **&mdash;OR&mdash;**
 - Send HTTP requests to the [Logs Ingestion API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level. The downside is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
 
+---
+
 Select the appropriate tab below to see the instructions for each way.
 
 # [Microsoft Sentinel portal](#tab/portal/syslog)
