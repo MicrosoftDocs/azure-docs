@@ -31,17 +31,11 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 ## Release history
 
-January 23, 2024 - 0.7.2
+0.6.3 - Hotfix to address handling of AGC frontends during controller restart in managed scenario
 
-January 11, 2024 - 0.6.6 
+0.6.2 - Skipped
 
-December 14, 2023 - 0.6.4
-
-December 5, 2023 - 0.6.3 - Hotfix to address handling of AGC frontends during controller restart in managed scenario
-
-November 2, 2023 - 0.6.24971
-
-November 3, 2023 - 0.6.1 - Gateway / Ingress API - Header rewrite support, Ingress API - URL rewrite support, Ingress multiple-TLS listener bug fix,
+November 6, 2023 - 0.6.1 - Gateway / Ingress API - Header rewrite support, Ingress API - URL rewrite support, Ingress multiple-TLS listener bug fix,
 two certificates maximum per host, adopting [semantic versioning (semver)](https://semver.org/), quality improvements
 
 September 25, 2023 - 0.5.024542 - Custom Health Probes, Controller HA, Multi-site support for Ingress, [helm_release via Terraform fix](https://github.com/Azure/AKS/issues/3857), Path rewrite for Gateway API, status for Ingress resources, quality improvements
