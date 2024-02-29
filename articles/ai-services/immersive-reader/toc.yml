@@ -36,6 +36,8 @@
     href: how-to-cache-token.md
   - name: Store user preferences
     href: how-to-store-user-preferences.md
+  - name: Create an iOS app that reads from photos
+    href: tutorial-ios-picture-immersive-reader.md
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks
