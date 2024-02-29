@@ -62,7 +62,7 @@ The **Overview** section provides you with basic information about your cache, s
 
 ### Activity log
 
-Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log). For more information on monitoring the activity log, see [Activity log](monitor-cache.md#activity-log).
+Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log). For more information on monitoring the activity log, see [Activity log](monitor-cache.md#azure-activity-log).
 
 ### Access control (IAM)
 
