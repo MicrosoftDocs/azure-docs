@@ -129,9 +129,9 @@ const client = MessageClient(connectionString);
 
 You can also authenticate with Microsoft Entra ID using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). 
 
-The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true#credentials) and [Azure Identity - Authenticate the client](/javascript/api/overview/azure/identity-readme?view=azure-node#authenticate-the-client). This option walks through one way of using the [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme?view=azure-node&preserve-view=true#defaultazurecredential). 
+The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/javascript/api/overview/azure/identity-readme#credentials) and [Azure Identity - Authenticate the client](/javascript/api/overview/azure/identity-readme#authenticate-the-client). This option walks through one way of using the [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). 
 
-The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/javascript/api/overview/azure/identity-readme?view=azure-node&preserve-view=true#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.    
+The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/javascript/api/overview/azure/identity-readme#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.    
 
 To create a `DefaultAzureCredential` object:
 1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
@@ -145,7 +145,7 @@ To create a `DefaultAzureCredential` object:
     ```
     After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
-1. To use the [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `@azure/identity` package.
+1. To use the [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `@azure/identity` package.
     ```bash
     npm install @azure/identity
     ```
@@ -215,6 +215,10 @@ The recipient phone number can't be the business phone number (Sender ID) associ
 
 The phone number should include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
 
+> [!NOTE]
+> Only one phone number is currently supported in the recipient list.
+
+Create the recipient list like this:
 ```json
 const recipientList = ["<to WhatsApp phone number>"];
 ```
