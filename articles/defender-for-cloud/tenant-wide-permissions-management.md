@@ -7,7 +7,7 @@ ms.date: 01/08/2023
 
 # Grant and request tenant-wide visibility
 
-A user with the Microsoft Entra role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Microsoft Defender for Cloud. Permission elevation is required because Microsoft Entra role assignments don't grant access to Azure resources. 
+A user with the Microsoft Entra role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Microsoft Defender for Cloud. Permission elevation is required because Microsoft Entra role assignments don't grant access to Azure resources.
 
 ## Grant tenant-wide permissions to yourself
 
@@ -15,11 +15,11 @@ A user with the Microsoft Entra role of **Global Administrator** might have tena
 
 1. If your organization manages resource access with [Microsoft Entra Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), or any other PIM tool, the global administrator role must be active for the user.
 
-1. As a Global Administrator user without an assignment on the root management group of the tenant, open Defender for Cloud's **Overview** page and select the **tenant-wide visibility** link in the banner. 
+1. As a Global Administrator user without an assignment on the root management group of the tenant, open Defender for Cloud's **Overview** page and select the **tenant-wide visibility** link in the banner.
 
     :::image type="content" source="media/management-groups-roles/enable-tenant-level-permissions-banner.png" alt-text="Enable tenant-level permissions in Microsoft Defender for Cloud.":::
 
-1. Select the new Azure role to be assigned. 
+1. Select the new Azure role to be assigned.
 
     :::image type="content" source="media/management-groups-roles/enable-tenant-level-permissions-form.png" alt-text="Form for defining the tenant-level permissions to be assigned to your user.":::
 
@@ -32,7 +32,7 @@ A user with the Microsoft Entra role of **Global Administrator** might have tena
 
 1. Sign out of the Azure portal, and then log back in again.
 
-1. Once you have elevated access, open or refresh Microsoft Defender for Cloud to verify you have visibility into all subscriptions under your Microsoft Entra tenant. 
+1. Once you have elevated access, open or refresh Microsoft Defender for Cloud to verify you have visibility into all subscriptions under your Microsoft Entra tenant.
 
 The process of assigning  yourself tenant-level permissions, performs many operations automatically for you:
 
@@ -46,9 +46,9 @@ For more information of the Microsoft Entra elevation process, see [Elevate acce
 
 ## Request tenant-wide permissions when yours are insufficient
 
-When you navigate to Defender for Cloud, you might see a banner that alerts you to the fact that your view is limited. If you see this banner, select it to send a request to the global administrator for your organization. In the request, you can include the role you'd like to be assigned and the global administrator will make a decision about which role to grant. 
+When you navigate to Defender for Cloud, you might see a banner that alerts you to the fact that your view is limited. If you see this banner, select it to send a request to the global administrator for your organization. In the request, you can include the role you'd like to be assigned and the global administrator will make a decision about which role to grant.
 
-It's the global administrator's decision whether to accept or reject these requests. 
+It's the global administrator's decision whether to accept or reject these requests.
 
 > [!IMPORTANT]
 > You can only submit one request every seven days.
@@ -71,7 +71,7 @@ To request elevated permissions from your global administrator:
 
     :::image type="content" source="media/management-groups-roles/request-tenant-permissions-email.png" alt-text="Email to the global administrator for new permissions.":::
 
-    After the global administrator selects **Review the request** and completes the process, the decision is emailed to the requesting user. 
+    After the global administrator selects **Review the request** and completes the process, the decision is emailed to the requesting user.
 
 ## Next steps
 
