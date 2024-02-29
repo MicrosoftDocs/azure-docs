@@ -425,44 +425,50 @@ To set up advanced monitoring:
 
 ## Set up model performance monitoring
 
-Azure Machine Learning model monitoring enables you to track the performance of your models in 
-production by calculating model performance metrics. The following set of model performance metrics are currently supported:
+Azure Machine Learning model monitoring enables you to track the performance of your models in production by calculating their performance metrics. The following model performance metrics are currently supported:
 
-Classification models:
+For classification models:
+
 - Precision
 - Accuracy
 - Recall
 
-Regression models:
+For regression models:
+
 - Mean Absolute Error (MAE)
 - Mean Squared Error (MSE)
 - Root Mean Squared Error (RMSE)
 
-Before you can configure your model performance signal, you need to satisfy the following requirements:
+### More prerequisites for model performance monitoring
 
-* Have production model output data (your model's predictions) with a unique ID for each row. If you collect your data with the [Azure Machine Learning data collector](how-to-collect-production-data.md), a `correlation_id` is provided for each inference request for you. With the data collector, you also have the option to log your own unique ID from your application.
+You must satisfy the following requirements for you to configure your model performance signal:
+
+* Have output data for the production model (the model's predictions) with a unique ID for each row. If you collect production data with the [Azure Machine Learning data collector](how-to-collect-production-data.md), a `correlation_id` is provided for each inference request for you. With the data collector, you also have the option to log your own unique ID from your application.
 
     > [!NOTE]
     >
-    > For Azure Machine Learning model performance monitoring, we recommend logging your unique ID as it's own column using the [Azure Machine Learning data collector](how-to-collect-production-data.md). This will ensure that each collected row is guaranteed to have a unique ID. 
+    > For Azure Machine Learning model performance monitoring, we recommend that you log your unique ID in its own column, using the [Azure Machine Learning data collector](how-to-collect-production-data.md). This practice will ensure that each collected row is guaranteed to have a unique ID.
 
-* Have ground truth data (actuals) with a unique ID for each row. The unique ID for a given row should match the unique ID for the model outputs for that particular inference request. This unique ID will be used to join your ground truth dataset with the model outputs.
+* Have ground truth data (actuals) with a unique ID for each row. The unique ID for a given row should match the unique ID for the model outputs for that particular inference request. This unique ID is used to join your ground truth dataset with the model outputs.
+
+  Without having ground truth data, you can't perform model performance monitoring. Since ground truth data is encountered at the application level, it's your responsibility to collect it as it becomes available. You should also maintain a data asset in Azure Machine Learning that contains this ground truth data.
 
 * (Optional) Have a pre-joined tabular dataset with model outputs and ground truth data already joined together.
 
-The key requirement for enabling model performance monitoring is that you already collected ground truth data. Since ground truth data is encountered at the application level, it's your responsibility to collect it as it becomes available. You should also maintain a data asset in Azure Machine Learning with this ground truth data.
+### When should you monitor model performance?
 
-### Example scenario
+The following example describes model performance monitoring for a scenario when you deploy a model to predict whether credit card transactions are fraudulent or not.
 
-Here is an example scenario to help you understand the concepts associated with model performance monitoring:
-
-Support you have deployed a model to predict if credit card transactions are fraudulent or not. As part of your deployment, you use the [data collector](how-to-collect-production-data.md) to collect production model input and model output data. You log a unique ID for each row (this unique ID can come from your application, or you can use our generated `correlationid`, which is unique for each logged JSON object). When ground truth data becomes available, it is logged and mapped to the same unique ID which was logged with the model outputs. This `is_fraud` data is collected, maintained, and registered to Azure Machine Learning as a data asset. Then, a model performance monitoring signal can be created to join the model outputs and ground truth datasets on the unique ID which was logged. Lastly, model performance metrics are computed.
-
-Alternatively, 
+1. Suppose your deployment uses the data collector to collect the model's production inference data (input and output data), and the output data is stored in a column `is_fraud`.
+1. For each row of the collected inference data, you log a unique ID. The unique ID can come from your application, or you can use the `correlationid` that Azure Machine Learning uniquely generates for each logged JSON object.
+1. Later, when the ground truth (or actual) `is_fraud` data becomes available, it also gets logged and mapped to the same unique ID that was logged with the model's outputs.
+1. This ground truth `is_fraud` data is also collected, maintained, and registered to Azure Machine Learning as a data asset.
+1. You can then create a model performance monitoring signal that joins the model's production inference and ground truth data assets, using the unique ID columns.
+1. Finally, you can compute the model performance metrics.
 
 # [Azure CLI](#tab/azure-cli)
 
-Once you've satisfied the previous requirements, you can set up model monitoring with the following CLI command and YAML definition:
+Once you've satisfied the [prerequisites for model performance monitoring](#more-prerequisites-for-model-performance-monitoring), you can set up model monitoring with the following CLI command and YAML definition:
 
 ```azurecli
 az ml schedule create -f ./model-performance-monitoring.yaml
@@ -519,7 +525,7 @@ create_monitor:
 
 # [Python SDK](#tab/python)
 
-Once you've satisfied the previous requirements, you can set up model monitoring using the following Python code:
+Once you've satisfied the [prerequisites for model performance monitoring](#more-prerequisites-for-model-performance-monitoring), you can set up model monitoring with the following Python code:
 
 ```python
 from azure.identity import InteractiveBrowserCredential
