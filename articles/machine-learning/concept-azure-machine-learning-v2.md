@@ -270,13 +270,13 @@ In custom environments, you're responsible for setting up your environment and i
 
 ### [Python SDK](#tab/sdk)
 
-To create an environment using Python SDK v2, see [Create an envirnment](how-to-manage-environments-v2.md?tabs=python#create-an-environment).
+To create an environment using Python SDK v2, see [Create an environment](how-to-manage-environments-v2.md?tabs=python#create-an-environment).
 
 This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/assets/environment/environment.ipynb) shows more ways to create custom environments using SDK v2.
 
 ### [Azure CLI](#tab/cli)
 
-To create an environment using CLI v2, see [Create an envirnment](how-to-manage-environments-v2.md?tabs=cli#create-an-environment).
+To create an environment using CLI v2, see [Create an environment](how-to-manage-environments-v2.md?tabs=cli#create-an-environment).
 
 For more information, see [environment YAML schema](reference-yaml-environment.md).
 
