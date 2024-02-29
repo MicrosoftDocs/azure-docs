@@ -18,7 +18,7 @@ ms.custom: devplatv2, update-code
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Learn to use Azure Machine Learning's model monitoring to continuously track the performance of machine learning models in production. Model monitoring provides you with a broad view of monitoring signals and alert you to potential issues. By monitoring models in production, you can critically evaluate the inherent risks associated with them and identify blind spots that could adversely affect your business.
+Learn to use Azure Machine Learning's model monitoring to continuously track the performance of machine learning models in production. Model monitoring provides you with a broad view of monitoring signals and alert you to potential issues. When you monitor signals and performance metrics of models in production, you can critically evaluate the inherent risks associated with them and identify blind spots that could adversely affect your business.
 
 In this article you, learn to perform the following tasks:
 
@@ -399,13 +399,15 @@ To set up advanced monitoring:
 1. Select **Add** to open the **Edit Signal** window.
 1. Select **Feature attribution drift (preview)** to configure the feature attribution drift signal as follows:
 
-    1. Select the production data asset with your model inputs and the desired lookback window size. 
-    1. Select the production data asset with your model outputs.
-    1. Select the common column between these data assets to join them on. If the data was collected with the [data collector](how-to-collect-production-data.md), the common column is `correlationid`.
-    1. (Optional)  If you used the data collector to collect data where your model inputs and outputs are already joined, select the joined dataset as your production data asset and **Remove** step 2 in the configuration panel.  
-    1. Select your training dataset to use as the reference dataset. 
-    1. Select the target (output) column for your training dataset. 
-    1. Select your preferred metric and threshold. 
+    1. In step 1, select the production data asset that has your model inputs
+        - Also, select the desired lookback window size.
+    1. In step 2, select the production data asset that has your model outputs.
+        - Also, select the common column between these data assets to join them on. If the data was collected with the [data collector](how-to-collect-production-data.md), the common column is `correlationid`.
+    1. (Optional)  If you used the data collector to collect data where your model inputs and outputs are already joined, select the joined dataset as your production data asset (in step 1) 
+        - Also, **Remove** step 2 in the configuration panel.  
+    1. In step 3, select your training dataset to use as the reference dataset.
+        - Also, select the target (output) column for your training dataset.
+    1. In step 4, select your preferred metric and threshold.
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png" alt-text="Screenshot showing how to configure feature attribution drift signal." lightbox="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png":::
 
@@ -455,16 +457,16 @@ You must satisfy the following requirements for you to configure your model perf
 
 * (Optional) Have a pre-joined tabular dataset with model outputs and ground truth data already joined together.
 
-### When should you monitor model performance?
+### Example scenario for monitoring model performance
 
-The following example describes model performance monitoring for a scenario when you deploy a model to predict whether credit card transactions are fraudulent or not.
+To understand the concepts associated with model performance monitoring, consider this example. Suppose you're deploying a model to predict whether credit card transactions are fraudulent or not. Follow these steps to monitor the model's performance:
 
-1. Suppose your deployment uses the data collector to collect the model's production inference data (input and output data), and the output data is stored in a column `is_fraud`.
-1. For each row of the collected inference data, you log a unique ID. The unique ID can come from your application, or you can use the `correlationid` that Azure Machine Learning uniquely generates for each logged JSON object.
+1. Configure your deployment to use the data collector to collect the model's production inference data (input and output data). Let's say that the output data is stored in a column `is_fraud`.
+1. For each row of the collected inference data, log a unique ID. The unique ID can come from your application, or you can use the `correlationid` that Azure Machine Learning uniquely generates for each logged JSON object.
 1. Later, when the ground truth (or actual) `is_fraud` data becomes available, it also gets logged and mapped to the same unique ID that was logged with the model's outputs.
 1. This ground truth `is_fraud` data is also collected, maintained, and registered to Azure Machine Learning as a data asset.
-1. You can then create a model performance monitoring signal that joins the model's production inference and ground truth data assets, using the unique ID columns.
-1. Finally, you can compute the model performance metrics.
+1. Create a model performance monitoring signal that joins the model's production inference and ground truth data assets, using the unique ID columns.
+1. Finally, compute the model performance metrics.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -667,39 +669,40 @@ created_monitor = poller.result()
 
 To set up model performance monitoring:
 
-1. Complete the entires on the **Basic settings** page as described earlier in the [Set up out-of-box model monitoring](#set-up-out-of-box-model-monitoring) section.
+1. Complete the entries on the **Basic settings** page as described earlier in the [Set up out-of-box model monitoring](#set-up-out-of-box-model-monitoring) section.
 1. Select **Next** to open the **Configure data asset** page of the **Advanced settings** section.
-1. **Add** a dataset to be used as the ground truth dataset. Ensure that your model outputs is also included. The ground truth dataset you add should have a unique ID for each row which matches a unique ID for each row in the model outputs. This is necessary for them to be joined together prior to metric computation.
+1. Select **+ Add** to add a dataset for use as the ground truth dataset. Ensure that your model outputs dataset is also included in the list of added datasets. The ground truth dataset you add should have a unique ID column. The values in the unique ID columns for the ground truth dataset and the model outputs dataset must match in order for both datasets to be joined together prior to metric computation.
 
-   NOTE: This screenshot should show adding model_outputs and the ground truth data asset
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-data2.png" alt-text="Screenshot showing how to add datasets for the monitoring signals to use." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-data2.png":::
 
-   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-data.png" alt-text="Screenshot showing how to add datasets for the monitoring signals to use." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-data.png":::
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-added-ground-truth-dataset.png" alt-text="Screenshot showing the ground truth dataset and the model outputs and inputs datasets for the monitoring signals to connect to." lightbox="media/how-to-monitor-models/model-monitoring-added-ground-truth-dataset.png":::
 
 1. Select **Next** to go to the **Select monitoring signals** page. On this page, you will see some monitoring signals already added (if you selected an Azure Machine Learning online deployment earlier).
+1. Delete the existing monitoring signals on the page, since you're only interested in creating a model performance monitoring signal.
 1. Select **Add** to open the **Edit Signal** window.
 1. Select **Model performance (preview)** to configure the model performance signal as follows:
 
-    1. Select the production data asset with your model outputs and the desired lookback window size and lookback window offset. Select the appropriate target column (for example, `is_fraud`).
-    1. Select the reference data asset, which should be the ground truth data asset you added earlier. Select the appropriate target_column. Select column to join with the model outputs. This column should be the column which is common between the two datasets and is a unique ID for each for (for example, `correlationid`).
-    1. Select your desired performance metrics and the respective thresholds.
+    1. In step 1, for the production data asset, select your model outputs dataset. Also, make the following selections:
+        - Select the appropriate target column (for example, `is_fraud`)
+        - Select the desired lookback window size and lookback window offset.
+    1. In step 2, for the reference data asset, select the ground truth data asset that you added earlier. Also, make the following selections:
+        - Select the appropriate target column
+        - Select the column on which to perform the join with the model outputs dataset. The column used for the join should be the column that is common between the two datasets and which has a unique ID for each row in the dataset (for example, `correlationid`).
+    1. In step 3, select your desired performance metrics and specify their respective thresholds.
     
     NOTE: This screenshot should show a fully configured model performance view
 
-   :::image type="content" source="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png" alt-text="Screenshot showing how to configure feature attribution drift signal." lightbox="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png":::
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-configure-model-performance.png" alt-text="Screenshot showing how to configure a model performance signal." lightbox="media/how-to-monitor-models/model-monitoring-configure-model-performance.png":::
 
 1. Select **Save** to return to the **Select monitoring signals** page.
 
-    NOTE: This screenshot should show the model performance signal configured
+    :::image type="content" source="media/how-to-monitor-models/model-monitoring-configured-model-performance-signal.png" alt-text="Screenshot showing the configured model performance signal." lightbox="media/how-to-monitor-models/model-monitoring-configured-model-performance-signal.png":::
 
-    :::image type="content" source="media/how-to-monitor-models/model-monitoring-configured-signals.png" alt-text="Screenshot showing the configured signals." lightbox="media/how-to-monitor-models/model-monitoring-configured-signals.png":::
-
-1. When you're finished with your monitoring signals configuration, select **Next** to go to the **Notifications** page.
-1. On the **Notifications** page, enable alert notifications for each signal and select **Next**.
+1. Select **Next** to go to the **Notifications** page.
+1. On the **Notifications** page, enable alert notification for the model performance signal and select **Next**.
 1. Review your settings on the **Review monitoring settings** page.
 
-   NOTE: This screenshot should show the review page with model performance added
-
-   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-review.png" alt-text="Screenshot showing review page of the advanced configuration for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-review.png":::
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-review-monitoring-details.png" alt-text="Screenshot showing review page that includes the configured model performance signal." lightbox="media/how-to-monitor-models/model-monitoring-review-monitoring-details.png":::
 
 1. Select **Create** to create your model performance monitor.
 
