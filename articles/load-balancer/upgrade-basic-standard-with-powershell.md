@@ -20,6 +20,10 @@ ms.custom: template-how-to, engagement-fy23
 
 This article introduces a PowerShell module that creates a Standard Load Balancer with the same configuration as the Basic Load Balancer, then associates the Virtual Machine Scale Set or Virtual Machine backend pool members with the new Load Balancer.
 
+For an in-depth walk-through of the upgrade module and process, please see the following video:
+> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6]
+[01:38 - Quick Demo](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h0m35s) | [03:06 - Step-by-step](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h3m06s) | [32:54 - Recovery](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h32m45s) | [40:55 - Advanced Scenarios](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h40m55s) | [57:54 - Resources](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h57m54s)
+
 ## Upgrade Overview
 
 The PowerShell module performs the following functions:
@@ -35,7 +39,7 @@ The PowerShell module performs the following functions:
 - Logs the upgrade operation for easy audit and failure recovery.
 
 >[!WARNING]
-> Migrating _internal_ Basic Load Balancers where the backend VMs or VMSS instances do not have Public IP Addresses assigned requires additional action post-migration to enable backend pool members to connect to the internet. The recommended approach is to create a NAT Gateway and assign it to the backend pool members' subnet (see: [**Integrate NAT Gateway with Internal Load Balancer**](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md)). Alternatively, Public IP Addresses can be allocated to each Virtual Machine Scale Set or Virtual Machine instance by adding a Public IP Configuration to the Network Profile (see: [**VMSS Public IPv4 Address Per Virtual Machine**](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)) for Virtual Machine Scale Sets or [**Associate a Public IP address with a Virtual Machine**](../virtual-network/ip-services/associate-public-ip-address-vm.md) for Virtual Machines. 
+> Migrating _internal_ Basic Load Balancers where the backend VMs or VMSS instances do not have Public IP Addresses assigned requires additional action for backend pool members to connect to the internet. The recommended approach is to create a NAT Gateway and assign it to the backend pool members' subnet (see: [**Integrate NAT Gateway with Internal Load Balancer**](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md)). Alternatively, Public IP Addresses can be allocated to each Virtual Machine Scale Set or Virtual Machine instance by adding a Public IP Configuration to the Network Profile (see: [**VMSS Public IPv4 Address Per Virtual Machine**](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)) for Virtual Machine Scale Sets or [**Associate a Public IP address with a Virtual Machine**](../virtual-network/ip-services/associate-public-ip-address-vm.md) for Virtual Machines. 
 
 >[!NOTE]
 > If the Virtual Machine Scale Set in the Load Balancer backend pool has Public IP Addresses in its network configuration, the Public IP Addresses associated with each Virtual Machine Scale Set instance will change when they are upgraded to Standard SKU. This is because scale set instance-level Public IP addresses cannot be upgraded, only replaced with a new Standard SKU Public IP. All other Public IP addresses will be retained through the migration. 
@@ -46,6 +50,7 @@ The PowerShell module performs the following functions:
 ### Unsupported Scenarios
 
 - Basic Load Balancers with IPv6 frontend IP configurations
+- Basic Load Balancers for [Azure Kubernetes Services (AKS) clusters](../aks/load-balancer-standard.md#moving-from-a-basic-sku-load-balancer-to-standard-sku)
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
 
@@ -270,7 +275,9 @@ At the end of its execution, the upgrade module performs the following validatio
 
 ### What happens if my upgrade fails mid-migration?
 
-The module is designed to accommodate failures, either due to unhandled errors or unexpected script termination. The failure design is a 'fail forward' approach, where instead of attempting to move back to the Basic Load Balancer, you should correct the issue causing the failure (see the error output or log file), and retry the migration again, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerbackupFilePath> -FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` parameters. For public load balancers, because the Public IP Address SKU has been updated to Standard, moving the same IP back to a Basic Load Balancer won't be possible. 
+The module is designed to accommodate failures, either due to unhandled errors or unexpected script termination. The failure design is a 'fail forward' approach, where instead of attempting to move back to the Basic Load Balancer, you should correct the issue causing the failure (see the error output or log file), and retry the migration again, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerBackupFilePath> -FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` parameters. For public load balancers, because the Public IP Address SKU has been updated to Standard, moving the same IP back to a Basic Load Balancer won't be possible. 
+
+[**Click here to watch a video of the recovery process**](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=8e203b99-41ff-4454-9cbd-58856708f1c6#time=0h32m45s)
 
 If your failed migration was targeting multiple load balancers at the same time, using the `-MultiLBConfig` parameter, recover each Load Balancer individually using the same process as below. 
 
@@ -283,5 +290,5 @@ The basic failure recovery procedure is:
 
 ## Next steps
 
-[If skipped, migrate from using NAT Pools to NAT Rules for Virtual Machine Scale Sets](load-balancer-nat-pool-migration.md)
-[Learn about Azure Load Balancer](load-balancer-overview.md)
+- [If skipped, migrate from using NAT Pools to NAT Rules for Virtual Machine Scale Sets](load-balancer-nat-pool-migration.md)
+- [Learn about Azure Load Balancer](load-balancer-overview.md)

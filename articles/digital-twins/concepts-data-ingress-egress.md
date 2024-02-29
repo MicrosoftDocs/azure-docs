@@ -75,5 +75,5 @@ If the event hub, Event Grid, or Service Bus topic used for your endpoint is una
 Learn more about endpoints and routing events to external services:
 * [Endpoints and event routes](concepts-route-events.md)
 
-See how to set up Azure Digital Twins to ingest data from IoT Hub:
+See how to set up Azure Digital Twins to ingest device data from IoT Hub:
 * [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)

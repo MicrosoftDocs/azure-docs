@@ -342,6 +342,7 @@ Consider the following scenario, where Alice makes a call to Bob, then Alice add
 If Teams user stops call recording, the recording is placed into the chat associated with the thread. Provided chat ID impacts the experience of Teams users in Teams clients.
 
 Recommendations for the management of chat ID:
+
 - Escalation of the 1:1 phone call by adding another phone participant:
   * Method `addParticipant` allows you to provide optional parameter thread ID. If the parameter isn't provided, then a new group chat is created, and all participants are added to the call and chat participants list. If the parameter is provided, then Teams users can see ongoing call associated to this group chat in Teams app. You can create new group chat via Graph API.
     ```js
@@ -359,58 +360,3 @@ Recommendations for the management of chat ID:
     startCall(MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)[])
     ```
   * If desired, the developer can provide a unique thread ID to start the group call or add participants. In this case, the ACS Calling SDK will use the given thread ID to create the group call. A chat thread is created for the Teams users and this thread is associated to the group call for users in Teams app. This allows them to chat during the call.
-
-## Send or receive a reaction from other participants
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher
-
-Within Azure Communication Services you can send and receive reactions when on a group call:
-- Like :+1:
-- Love :heart:
-- Applause :clap:
-- Laugh :smile:
-- Surprise :open_mouth:
-
-To send a reaction you'll use the `sendReaction(reactionMessage)` API. To receive a reaction message will be built with Type `ReactionMessage` which uses `Reaction` enums as an attribute. 
-
-You'll need to subscribe for events which provide the subscriber event data as:
-```javascript
-export interface ReactionEventPayload {
-    /**
-     * identifier for a participant
-     */
-    identifier: CommunicationUserIdentifier | MicrosoftTeamsUserIdentifier;
-    /**
-     * reaction type received
-     */
-    reactionMessage: ReactionMessage;
-}
-```
-
-You can determine which reaction is coming from which participant with `identifier` attribute and gets the reaction type from `ReactionMessage`. 
-
-### Sample on how to send a reaction in a meeting
-```javascript
-const reaction = call.feature(SDK.Features.Reaction);
-const reactionMessage: SDK.ReactionMessage = {
-       reactionType: 'like'
-};
-await reaction.sendReaction(reactionMessage);
-```
-
-### Sample on how to receive a reaction in a meeting
-```javascript
-const reaction = call.feature(SDK.Features.Reaction);
-reaction.on('reaction', event => {
-    // user identifier
-    console.log("User Mri - " + event.identifier);
-    // received reaction
-    console.log("User Mri - " + event.reactionMessage.name);
-    // reaction message
-    console.log("reaction message - " + JSON.stringify(event.reactionMessage));
-}
-```
-
-### Key things to note about using Reactions:
-- Reactions won't work if the meeting organizer updates the meeting policy to disallow the reaction in a Teams interop call.
-- Sending of reactions doesn't work on 1:1 calls.

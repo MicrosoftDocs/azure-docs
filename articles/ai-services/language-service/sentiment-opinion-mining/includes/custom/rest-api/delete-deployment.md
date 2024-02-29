@@ -1,12 +1,11 @@
 ---
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
-ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 07/19/2023
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 Create a **DELETE** request using the following URL, headers, and JSON body to delete a deployment.
@@ -35,5 +34,3 @@ Use the following header to authenticate your request.
 
 
 Once you send your API request, you will receive a `202` response indicating success, which means your deployment has been deleted. A successful call results with an `Operation-Location` header used to check the status of the job.
-
-

@@ -1,12 +1,11 @@
 ---
 title: Secure and use policies
 description: Learn about security and policies for virtual machines in Azure.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: security
-ms.workload: infrastructure-services
-ms.date: 11/27/2018
-ms.author: cynthn
+ms.date: 02/26/2024
+ms.author: jushiman
 ms.topic: conceptual
 ---
 

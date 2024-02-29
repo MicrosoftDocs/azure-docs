@@ -29,7 +29,12 @@ If you want to use fleet only for the update orchestration scenario, you can cre
 
 If you want to use fleet for Kubernetes object propagation (preview) and multi-cluster load balancing (preview) in addition to update orchestration, then you need to create the fleet resource with the hub cluster enabled. In this case, you can join up to 20 AKS clusters as member clusters to the same fleet resource.
 
-Note that once a fleet resource has been created, it is not possible to change the hub mode for the fleet resource.
+Note that once a fleet resource has been created, it is not possible to change the hub mode for the fleet resource. AKS manages the hub cluster when it is enabled, and sets the following limitations:
+
+* In order to block external load balancer services from creating external IP and rules, the cloud-controller-manager's service load balancer functionality is disabled.
+* Most workload-related (Deployment/Statefulset/Daemonset/Job/CronJob) controllers are disabled, to prevent these resources from creating a pod in the hub cluster.
+* You cannot create Pod/ReplicaSet in non-fleet-reserved namespaces.
+
 
 ## Update orchestration across multiple clusters
 

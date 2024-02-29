@@ -29,8 +29,12 @@ items:
   items:
   - name: Discover
     items:
-    - name: Discover servers in VMware environment
-      href: tutorial-discover-vmware.md
+    - name: VMware environment
+      items:
+        - name: Discover servers in VMware environment
+          href: tutorial-discover-vmware.md
+        - name: Import servers in VMware environment
+          href: tutorial-import-vmware-using-rvtools-xlsx.md
     - name: Discover servers in Hyper-V environment
       href: tutorial-discover-hyper-v.md
     - name: Discover physical servers

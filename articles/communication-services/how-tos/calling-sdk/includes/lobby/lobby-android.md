@@ -41,7 +41,7 @@ CallLobby object allows user with the Organizer, Co-organizer and Presenter role
 ```java
 AdmitParticipantsResult result = this.callLobby.admit(identifiers).get();
 String failedParticipants = this.convertListToString("", result.getFailedParticipants());
-Log.i(LOBBY_TAG, String.format("Admit result: success count: %s, failure count: %s, failure participants: %s", admitResult.getSuccessCount(), admitResult.getFailedCount(), failedParticipants));
+Log.i(LOBBY_TAG, String.format("Admit result: success count: %s, failure count: %s, failure participants: %s", admitResult.getSuccessCount(), failedParticipants.length(), failedParticipants));
 ```
 
 ### Reject participant from CallLobby

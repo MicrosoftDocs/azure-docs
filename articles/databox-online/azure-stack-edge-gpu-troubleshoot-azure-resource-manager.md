@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Resource Manager configuration on Azure Stack Edge Pro GPU| Microsoft Docs 
+title: Troubleshoot Azure Resource Manager configuration on Azure Stack Edge Pro GPU| Microsoft Docs
 description: Describes how to troubleshoot issues with the Azure Resource Manager configuration on Azure Stack Edge devices.
 services: databox
 author: alkohli
@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 06/10/2021
 ms.author: alkohli
-ms.custom: contperf-fy21q4, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 # Troubleshoot Azure Resource Manager issues on an Azure Stack Edge device 
 

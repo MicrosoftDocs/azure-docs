@@ -8,8 +8,6 @@
     href: support-matrix.md
   - name: What's New 
     href: whats-new.md
-  - name: What's upcoming
-    href: whats-upcoming.md
   - name: FAQ
     href: update-manager-faq.md
 - name: Quickstarts
@@ -18,20 +16,24 @@
     href: quickstart-on-demand.md
 - name: Tutorials
   items:
-  - name: Schedule updates dynamically and at scale using dynamic scope
-    href: tutorial-dynamic-grouping-for-scheduled-patching.md
   - name: Schedule updates and enable periodic assessment at scale using policy
     href: tutorial-assessment-deployment-using-policy.md
+  - name: Dynamic scope
+    items:
+      - name: Schedule updates dynamically and at scale using dynamic scope
+        href: tutorial-dynamic-grouping-for-scheduled-patching.md
+  - name: Pre and Post Events (preview)
+    items:
+      - name: Create pre and post events using a webhook with Automation Runbooks
+        href: tutorial-webhooks-using-runbooks.md
+      - name: Create pre and post events using Azure Functions
+        href: tutorial-using-functions.md
 - name: Concepts
   items:
   - name: Update options and orchestration
     href: updates-maintenance-schedules.md
-  - name: Schedule patching configuration on Azure VMs for business continuity
-    href: prerequsite-for-schedule-patching.md
   - name: Assessment options
     href: assessment-options.md
-  - name: Dynamic scope
-    href: dynamic-scope-overview.md
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
@@ -58,16 +60,32 @@
         href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
     - name: Azure Stack HCI patching
       href: /azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
+    - name: Deploy and manage updates using Updates view (preview)
+      href: deploy-manage-updates-using-updates-view.md
     - name: Create alerts (preview)
       href: manage-alerts.md
+    - name: Pre and Post Events (preview)
+      items:
+      - name: Overview
+        href: pre-post-scripts-overview.md
+      - name: Manage pre and post events (preview)
+        href: manage-pre-post-events.md  
+      - name: FAQ
+        href: pre-post-events-common-scenarios.md
+    - name: Dynamic scope
+      items:
+      - name: Overview
+        href: dynamic-scope-overview.md
+      - name: Manage dynamic scope
+        href: manage-dynamic-scoping.md
+      - name: Schedule patching configuration on Azure VMs for business continuity
+        href: prerequsite-for-schedule-patching.md
     - name: Check update compliance 
       href: view-updates.md
     - name: Deploy updates and track results
       href: deploy-updates.md
     - name: Schedule updates
       href: scheduled-patching.md
-    - name: Manage dynamic scope
-      href: manage-dynamic-scoping.md
     - name: Manage update settings
       href: manage-update-settings.md
     - name: Manage updates for Azure VMs using REST API

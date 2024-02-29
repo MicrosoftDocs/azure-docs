@@ -167,7 +167,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | automationaccounts | **Yes** | **Yes** | **Yes** [PowerShell script](../../automation/automation-disaster-recovery.md)  |
+> | automationaccounts | **Yes** | **Yes** | [PowerShell script](../../automation/automation-disaster-recovery.md)  |
 > | automationaccounts / configurations | **Yes** | **Yes** | No |
 > | automationaccounts / runbooks | **Yes** | **Yes** | No |
 
@@ -185,6 +185,13 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | b2cdirectories | **Yes** | **Yes** | No |
 > | b2ctenants | No | No | No |
+
+## Microsoft.AzureArcData
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | SqlServerInstances | No | No | No |
 
 ## Microsoft.AzureData
 
@@ -694,7 +701,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recovery-from-an-azure-regional-datacenter-outage).
 
 ## Microsoft.DBforMySQL
 
@@ -733,6 +740,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | applicationgroups | **Yes** | **Yes** | No |
 > | hostpools | **Yes** | **Yes** | No |
+> | scalingplans | **Yes** | **Yes** | No |
 > | workspaces | **Yes** | **Yes** | No |
 
 ## Microsoft.Devices
@@ -1145,11 +1153,18 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 
 ## Microsoft.Maintenance
 
-> [!div class="mx-tableFixed"]
+<!-- > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | configurationassignments | No | No | **Yes**. [Learn more](../../virtual-machines/move-region-maintenance-configuration.md) |
 > | maintenanceconfigurations | **Yes** | **Yes** | **Yes**. [Learn more](../../virtual-machines/move-region-maintenance-configuration-resources.md) |
+> | updates | No | No | No | -->
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | configurationassignments | No | No | No |
+> | maintenanceconfigurations | No | No | No |
 > | updates | No | No | No |
 
 ## Microsoft.ManagedIdentity
@@ -1550,7 +1565,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | resources | No | No | No |
 > | subscriptions | No | No | No |
 > | tags | No | No | No |
-> | templatespecs | No | No | **Yes**<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
+> | templatespecs | No | No | [Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
 > | templatespecs / versions | No | No | No |
 > | tenants | No | No | No |
 
@@ -1763,7 +1778,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | storageaccounts | **Yes** | **Yes** | **Yes**<br/><br/> [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) |
+> | storageaccounts | **Yes** | **Yes** | [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) |
 
 ## Microsoft.StorageCache
 

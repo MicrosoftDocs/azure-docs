@@ -5,9 +5,8 @@ description: Add different data feeds to Metrics Advisor
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-metrics-advisor
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 01/19/2024
 ms.author: mbullwin
 ---
 

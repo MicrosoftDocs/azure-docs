@@ -7,9 +7,9 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-health, ignite-fall-2021
+ms.custom: language-service-health
 ---
 
 # Configure Text Analytics for health docker containers

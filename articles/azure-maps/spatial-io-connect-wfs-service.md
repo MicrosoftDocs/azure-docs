@@ -71,11 +71,11 @@ The specification for the WFS standard makes use of OGC filters. The WFS client 
 - `PropertyIsNull`
 - `PropertyIsNil`
 - `PropertyIsBetween`
-
+<!--------------------------------------------------
 The [WFS filter example] sample demonstrates the use of different filters with the WFS client. For the source code for this sample, see [WFS filter example source code].
 
 :::image type="content" source="./media/spatial-io-connect-wfs-service/wfs-filter-example.png"alt-text="A screenshot that shows The WFS filter sample that demonstrates the use of different filters with the WFS client.":::
-
+-------------------------------------------------->
 <!--------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true]
 -------------------------------------------------->
@@ -122,7 +122,6 @@ See the following articles for more code samples to add to your maps:
 [Simple WFS example source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Simple%20WFS%20example/Simple%20WFS%20example.html
 [Simple WFS example]: https://samples.azuremaps.com/spatial-io-module/simple-wfs-example
 [Supported data format details]: spatial-io-supported-data-format-details.md
-[WFS filter example source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/WFS%20filter%20examples/WFS%20filter%20examples.html
 [WFS filter example]: https://samples.azuremaps.com/spatial-io-module/wfs-filter-examples
 [WFS service explorer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/WFS%20service%20explorer/WFS%20service%20explorer.html
 [WFS service explorer]: https://samples.azuremaps.com/spatial-io-module/wfs-service-explorer

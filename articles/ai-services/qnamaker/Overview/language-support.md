@@ -9,8 +9,7 @@ author: jboback
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: reference
-ms.date: 11/09/2019
-ms.custom: ignite-fall-2021
+ms.date: 01/19/2024
 ---
 # Language support for a QnA Maker resource and knowledge bases
 

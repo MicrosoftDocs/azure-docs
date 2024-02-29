@@ -2,11 +2,11 @@
 title: Partner Events overview for customers 
 description: Send or receive from a SaaS or ERP system directly to/from Azure services with Azure Event Grid.
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 01/31/2024
 ---
 
 # Partner Events overview for customers - Azure Event Grid
-Azure Event Grid's **Partner Events** allows customers to **subscribe to events** that originate in a registered system using the same mechanism they would use for any other event source on Azure, such as an Azure service. Those registered systems integrate with Event Grid are known as "partners".
+Azure Event Grid's **Partner Events** allows customers to **subscribe to events** that originate in a registered system using the same mechanism they would use for any other event source on Azure, such as an Azure service. Those registered systems integrate with Event Grid are known as partners.
 
 This feature also enables customers to **send events** to partner systems that support receiving and routing events to customer's solutions/endpoints in their platform. Typically, partners are software-as-a-service (SaaS) or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning) providers, but they might be corporate platforms wishing to make their events available to internal teams.
 
@@ -29,20 +29,20 @@ You receive events from a partner in a [partner topic](concepts.md#partner-topic
 1. [Authorize partner to create a partner topic](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic) in a resource group you designate. Authorizations are stored in partner configurations (Azure resources).
 2. [Request partner to forward your events](subscribe-to-partner-events.md#request-partner-to-enable-events-flow-to-a-partner-topic) from its service to your partner topic. **Partner provisions a partner topic** in the specified resource group of your Azure subscription.
 3. After the partner creates a partner topic in your Azure subscription and resource group, [activate](subscribe-to-partner-events.md#activate-a-partner-topic) your partner topic. 
-4. [Subscribe to events](subscribe-to-partner-events.md#subscribe-to-events) by creating one or more event subscriptions on the partner topic.
+4. [Subscribe to events](subscribe-to-partner-events.md#subscribe-to-events) by creating one or more event subscriptions for the partner topic.
 
-    :::image type="content" source="./media/partner-events-overview/receive-events-from-partner.svg" alt-text="Diagram showing the steps to receive events from a partner.":::
+    :::image type="content" source="./media/partner-events-overview/receive-events-from-partner.png" alt-text="Diagram showing the steps to receive events from a partner.":::
 
     > [!NOTE]
     > You must [register the Azure Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with every Azure subscription where you want create Event Grid resources. Otherwise, operations to create resources will fail.
 
 
 ## Why should I use Partner Events?
-You may want to use the Partner Events feature if you've one or more of the following requirements.
+Use the Partner Events feature if you have one or more of the following requirements.
 
 - You want to subscribe to events that originate in a [partner](#available-partners) system and route them to event handlers on Azure or to any application or service with a public endpoint.
 - You want to take advantage of the rich set Event Grid's [destinations/event handlers](overview.md#event-handlers) that react to events from partners.
-- You want to forward events raised by your custom application on Azure, an Azure service, or a Microsoft service to your application or service hosted by the [partner](#available-partners) system. For example, you may want to send Microsoft Entra ID, Teams, SharePoint, or Azure Storage events to a partner system on which you're a tenant for processing. 
+- You want to forward events raised by your custom application on Azure, an Azure service, or a Microsoft service to your application or service hosted by the [partner](#available-partners) system. For example, you want to send Microsoft Entra ID, Teams, SharePoint, or Azure Storage events to a partner system on which you're a tenant for processing. 
 - You need a resilient push delivery mechanism with send-retry support and at-least once semantics.
 - You want to use [Cloud Events 1.0](https://cloudevents.io/) schema for your events. 
   
@@ -80,7 +80,7 @@ You manage the following types of resources.
  
 ## Grant authorization to create partner topics and destinations
 
-You must authorize partners to create partner topics before they attempt to create those resources. If you don't grant your authorization, the partners' attempt to create the partner resource will fail. 
+You must authorize partners to create partner topics before they attempt to create those resources. If you don't grant your authorization, the partners' attempt to create the partner resource fails. 
 
 You consent the partner to create partner topics by creating a **partner configuration** resource. You add a partner authorization to a partner configuration identifying the partner and providing an authorization expiration time by which a partner topic/destination must be created. The only types of resources that partners can create with your permission are partner topics.
 

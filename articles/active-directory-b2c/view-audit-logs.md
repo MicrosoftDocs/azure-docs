@@ -9,13 +9,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
 
-ms.date: 06/08/2022
+ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to access and view the audit logs for my Azure AD B2C tenant, so that I can monitor activity, track user sign-ins, and troubleshoot any issues related to B2C resources and applications.
+
 ---
 
 # Accessing Azure AD B2C audit logs
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure Active Directory B2C (Azure AD B2C) emits audit logs containing activity information about B2C resources, tokens issued, and administrator access. This article provides a brief overview of the information available in audit logs and instructions on how to access this data for your Azure AD B2C tenant.
 

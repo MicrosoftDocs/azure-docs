@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/27/2023
+ms.date: 02/21/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -16,6 +16,12 @@ ms.custom:
 # What's new in Azure AI Search
 
 **Azure Cognitive Search is now Azure AI Search**. Learn about the latest updates to Azure AI Search functionality, docs, and samples.
+
+## February 2024
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| **New dimension limits** | Feature | For vector fields, maximum dimension limits are now `3072`, up from `2048`. Next-generation embedding models support more dimensions. Limits have been increased accordingly. |
 
 ## November 2023
 
@@ -55,9 +61,9 @@ ms.custom:
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
-| [**Vector demo (Azure SDK for JavaScript)**](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-javascript/code/azure-search-vector-sample.js) | Sample | Uses Node.js and the **@azure/search-documents 12.0.0-beta.2** library to generate embeddings, create and load an index, and run several vector queries. |
-| [**Vector demo (Azure SDK for .NET)**](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-dotnet/readme.md) | Sample | Uses the **Azure.Search.Documents 11.5.0-beta.3** library to generate embeddings, create and load an index, and run several vector queries. You can also try [this sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample07_VectorSearch.md) from the Azure SDK team.|
-| [**Vector demo (Azure SDK for Python)**](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python/code/azure-search-vector-image-python-sample.ipynb) | Sample | Uses the latest beta release of the **azure.search.documents** to generate embeddings, create and load an index, and run several vector queries. Visit the [cognitive-search-vector-pr/demo-python](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python) repo for more vector search demos. |
+| [**Vector demo (Azure SDK for JavaScript)**](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-javascript/JavaScriptVectorDemo/readme.md) | Sample | Uses Node.js and the **@azure/search-documents 12.0.0-beta.2** library to generate embeddings, create and load an index, and run several vector queries. |
+| [**Vector demo (Azure SDK for .NET)**](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-dotnet/DotNetVectorDemo/readme.md) | Sample | Uses the **Azure.Search.Documents 11.5.0-beta.3** library to generate embeddings, create and load an index, and run several vector queries. You can also try [this sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample07_VectorSearch.md) from the Azure SDK team.|
+| [**Vector demo (Azure SDK for Python)**](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-vector-image-python-sample.ipynb) | Sample | Uses the latest beta release of the **azure.search.documents** to generate embeddings, create and load an index, and run several vector queries. Visit the [azure-search-vector-samples/demo-python](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python) repo for more vector search demos. |
 
 ## June 2023
 
@@ -112,9 +118,11 @@ ms.custom:
 
 ## Service rebrand
 
-In October 2019, Azure Search was renamed to Azure Cognitive Search to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations. 
+This service has had multiple names over the years. Here they are in reverse chronological order:
 
-In October 2023, Azure Cognitive Search was renamed to **Azure AI Search** to align with Azure AI services branding.
++ **Azure AI Search** (November 2023) Renamed to align with Azure AI services and customer expectations.
++ **Azure Cognitive Search** (October 2019) Renamed to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations.
++ **Azure Search** (March 2015) The original name.
 
 ## Service updates
 

@@ -7,7 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: reference
-ms.date: 03/19/2020
+ms.date: 01/19/2024
 ---
 
 # Markdown format supported in QnA Maker answer text

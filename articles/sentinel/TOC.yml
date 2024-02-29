@@ -37,6 +37,10 @@
       href: geographical-availability-data-residency.md          
     - name: Support for data types in different clouds
       href: data-type-cloud-support.md
+    - name: Feature support in different clouds
+      href: feature-availability.md
+    - name: Regional availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
     - name: Security baseline
       href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
 - name: Deploy
@@ -153,10 +157,10 @@
             href: sap/configure-audit.md
           - name: Deploy data connector agent
             items:
-            - name: Deploy data connector agent (command line)
-              href: sap/deploy-data-connector-agent-container-other-methods.md
-            - name: Deploy via data connector agent (UI - Preview)
+            - name: Deploy data connector agent (portal/script)
               href: sap/deploy-data-connector-agent-container.md        
+            - name: Deploy data connector agent (manually)
+              href: sap/deploy-data-connector-agent-container-other-methods.md
           - name: Deploy SAP security content
             href: sap/deploy-sap-security-content.md
           - name: Configure the solution
@@ -214,6 +218,14 @@
           href: dynamics-365/dynamics-365-finance-operations-security-content.md
         - name: Deploy solution
           href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
+      - name: Microsoft Power Platform solution
+        items:
+        - name: Overview
+          href: business-applications/power-platform-solution-overview.md 
+        - name: Content overview
+          href: business-applications/power-platform-solution-security-content.md
+        - name: Deploy solution
+          href: business-applications/deploy-power-platform-solution.md
   - name: Integrate Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
@@ -372,10 +384,6 @@
       href: data-connectors/automated-logic-webctrl.md
     - name: Awake Security
       href: data-connectors/awake-security.md
-    - name: Microsoft Entra ID
-      href: data-connectors/azure-active-directory.md
-    - name: Microsoft Entra ID Protection
-      href: data-connectors/azure-active-directory-identity-protection.md
     - name: Azure Activity
       href: data-connectors/azure-activity.md
     - name: Azure Batch Account
@@ -418,6 +426,8 @@
       href: data-connectors/cisco-application-centric-infrastructure.md
     - name: Cisco ASA
       href: data-connectors/cisco-asa.md
+    - name: Cisco ASA/FTD via AMA (Preview)
+      href: data-connectors/cisco-asa-ftd-via-ama.md
     - name: Cisco Duo Security (using Azure Functions)
       href: data-connectors/cisco-duo-security-using-azure-functions.md
     - name: Cisco Identity Services Engine
@@ -456,8 +466,12 @@
       href: data-connectors/cortex-xdr-incidents.md
     - name: Crowdstrike Falcon Data Replicator (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md
+    - name: Crowdstrike Falcon Data Replicator V2 (using Azure Functions)
+      href: data-connectors/crowdstrike-falcon-data-replicator-v2-using-azure-functions.md
     - name: CrowdStrike Falcon Endpoint Protection
       href: data-connectors/crowdstrike-falcon-endpoint-protection.md
+    - name: CyberArk Enterprise Password Vault (EPV) Events
+      href: data-connectors/cyberark-enterprise-password-vault-epv-events.md
     - name: CyberArkEPM (using Azure Functions)
       href: data-connectors/cyberarkepm-using-azure-functions.md
     - name: Cybersixgill Actionable Alerts (using Azure Functions)
@@ -542,6 +556,8 @@
       href: data-connectors/infoblox-nios.md
     - name: InfoSecGlobal Data Connector
       href: data-connectors/infosecglobal-data-connector.md
+    - name: IONIX Security Logs
+      href: data-connectors/ionix-security-logs.md
     - name: ISC Bind
       href: data-connectors/isc-bind.md
     - name: Island Enterprise Browser Admin Audit (Polling CCP)
@@ -594,6 +610,10 @@
       href: data-connectors/microsoft-defender-for-office-365.md
     - name: Microsoft Defender Threat Intelligence
       href: data-connectors/microsoft-defender-threat-intelligence.md
+    - name: Microsoft Entra ID
+      href: data-connectors/azure-active-directory.md
+    - name: Microsoft Entra ID Protection
+      href: data-connectors/microsoft-entra-id-protection.md
     - name: Microsoft Power BI (preview)
       href: data-connectors/microsoft-powerbi.md
     - name: Microsoft Project (preview)
@@ -680,6 +700,8 @@
       href: data-connectors/rsa-securid-authentication-manager.md
     - name: Rubrik Security Cloud data connector (using Azure Functions)
       href: data-connectors/rubrik-security-cloud-data-connector-using-azure-functions.md
+    - name: SaaS Security
+      href: data-connectors/saas-security.md
     - name: SailPoint IdentityNow (using Azure Functions)
       href: data-connectors/sailpoint-identitynow-using-azure-function.md
     - name: Salesforce Service Cloud (using Azure Functions)
@@ -692,6 +714,8 @@
       href: data-connectors/senservapro.md
     - name: SentinelOne (using Azure Functions)
       href: data-connectors/sentinelone-using-azure-functions.md
+    - name: Seraphic Web Security
+      href: data-connectors/seraphic-web-security.md
     - name: Slack Audit (using Azure Functions)
       href: data-connectors/slack-audit-using-azure-functions.md
     - name: Snowflake (using Azure Functions)
@@ -808,8 +832,6 @@
       href: connect-dns-ama.md   
     - name: Custom log sources
       href: connect-custom-logs.md
-    - name: GCP audit logs
-      href: connect-google-cloud-platform.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
     - name: Logstash plugin (legacy)
@@ -822,6 +844,8 @@
       href: connect-aws.md
     - name: CloudWatch events via Lambda function
       href: cloudwatch-lambda-function.md
+    - name: Google Cloud Platform connectors 
+      href: connect-google-cloud-platform.md
     - name: Azure Active Directory
       href: connect-azure-active-directory.md
     - name: Azure Stack VMs
@@ -846,6 +870,8 @@
     href: create-custom-connector.md
   - name: Create a codeless connector
     href: create-codeless-connector.md
+  - name: Legacy codeless connector
+    href: create-codeless-connector-legacy.md
   - name: Normalize data
     items:
     - name: ASIM overview
@@ -990,12 +1016,6 @@
       href: notebooks-hunt.md      
     - name: Configure advanced MSTICPy settings
       href: notebooks-msticpy-advanced.md
-    - name: Configure big data analytics settings
-      href: notebooks-with-synapse.md
-    - name: Export and transform historical log data
-      href: notebooks-with-synapse-export-data.md
-    - name: Hunt on large historical datasets
-      href: notebooks-with-synapse-hunt.md
 - name: Investigate incidents
   items:
   - name: Overview
@@ -1058,6 +1078,8 @@
       href: create-manage-use-automation-rules.md
     - name: Add advanced conditions to automation rules
       href: add-advanced-conditions-to-automation-rules.md
+    - name: Create incident tasks using automation rules
+      href: create-tasks-automation-rule.md
   - name: Playbooks
     items:
     - name: Overview
@@ -1072,8 +1094,6 @@
       href: use-playbook-templates.md
     - name: Configure advanced security for playbooks
       href: define-playbook-access-restrictions.md
-    - name: Create incident tasks using automation rules
-      href: create-tasks-automation-rule.md
     - name: Create and perform advanced incident tasks using playbooks
       href: create-tasks-playbook.md
   - name: Bring your own machine learning
@@ -1146,6 +1166,8 @@
   items:
   - name: Service limits
     href: sentinel-service-limits.md
+  - name: Compare playbooks, workbooks, and notebooks
+    href: resources.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: Management references
@@ -1163,7 +1185,7 @@
     - name: Azure RBAC roles
       items:
       - name: All Azure roles
-        href: ../role-based-access-control/built-in-roles.md#all
+        href: ../role-based-access-control/built-in-roles.md
       - name: Microsoft Sentinel roles
         href: ../role-based-access-control/built-in-roles.md#security
   - name: Advanced Security Information Model (ASIM)
@@ -1240,26 +1262,24 @@
         href: geolocation-data-api.md
       - name: Upload indicator API reference
         href: upload-indicators-api.md
+      - name: Data connector definitions API reference
+        href: data-connector-ui-definitions-reference.md
+      - name: Data connectors API reference
+        href: data-connector-connection-rules-reference.md
     - name: Defender for Cloud Apps alerts not onboarded to Microsoft 365 Defender
-      href: ./microsoft-365-defender-sentinel-integration.md#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules
+      href: ./microsoft-365-defender-sentinel-integration.md#microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules
   - name: Automation and response references
     items:
     - name: SOAR content catalog
       href: sentinel-soar-content.md
 - name: Resources
   items:
-  - name: Useful resources
-    href: resources.md
   - name: Sample workspace architecture
     href: sample-workspace-designs.md
   - name: Microsoft Sentinel blog
     href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
-  - name: Feature availability
-    href: feature-availability.md
   - name: Build your skills for Microsoft Sentinel
     items: 
     - name: Microsoft Applied Skill - Configure SIEM security operations using Microsoft Sentinel

@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-metrics-advisor
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 01/19/2024
 ms.author: mbullwin
 ---
 

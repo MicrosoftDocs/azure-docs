@@ -2,13 +2,10 @@
 title: Purge an Azure CDN endpoint | Microsoft Docs
 description: Learn how to purge all cached content from an Azure Content Delivery Network endpoint. Edge nodes cache assets until their time-to-live expires.
 services: cdn
-documentationcenter: ''
 author: duongau
 manager: kumud
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 02/21/2023
 ms.author: duau
@@ -46,11 +43,11 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
 1. Select what assets you wish to purge from the edge nodes.  If you wish to clear all assets, select the **Purge all** checkbox.  Otherwise, type the path of each asset you wish to purge in the **Path** textbox. The following formats for paths are supported:
 
 	1. **Single URL purge**: Purge individual asset by specifying the full URL, with or without the file extension, for example,`/pictures/strasbourg.png`; `/pictures/strasbourg`
-	2. **Wildcard purge**: You can use an asterisk (\*) as a wildcard. Purge all folders, subfolders and files under an endpoint with `/*` in the path or purge all subfolders and files under a specific folder by specifying the folder followed by `/*`, for example,`/pictures/*`.  Wildcard purge isn't supported by Azure CDN from Akamai currently. 
+	2. **Wildcard purge**: You can use an asterisk (\*) as a wildcard. Purge all folders, subfolders and files under an endpoint with `/*` in the path or purge all subfolders and files under a specific folder by specifying the folder followed by `/*`, for example,`/pictures/*`.
 	3. **Root domain purge**: Purge the root of the endpoint with "/" in the path.
    
    > [!TIP]
-   > 1. Paths must be specified for purge and must be a relative URL that fit the following [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Purge all** and **Wildcard purge** are  not supported by **Azure CDN from Akamai** currently.
+   > 1. Paths must be specified for purge and must be a relative URL that fit the following [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference).
    >
    >    1. Single URL purge `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    >    1. Query string `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
@@ -65,9 +62,8 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
     ![Purge button](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Purge requests take approximately 2 minutes with **Azure CDN from Edgio** (standard and premium), and approximately 10 seconds with **Azure CDN from Akamai**.  Azure CDN has a limit of 100 concurrent purge requests at any given time at the profile level. 
-> 
-> 
+> Purge requests take approximately 2 minutes with **Azure CDN from Edgio** (standard and premium).  Azure CDN has a limit of 100 concurrent purge requests at any given time at the profile level. 
+>
 
 ## Next steps
 

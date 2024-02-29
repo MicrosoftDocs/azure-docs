@@ -4,10 +4,12 @@ description: This article describes how to use Python to manage Data Lake Analyt
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ms.custom: devx-track-python
 ---
+
 # Manage Azure Data Lake Analytics using Python
+
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]

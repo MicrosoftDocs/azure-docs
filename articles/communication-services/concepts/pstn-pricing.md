@@ -312,7 +312,9 @@ All prices shown below are in USD.
 ### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|--------------|
+|Geographic    |USD 3.00/mo   |
 |Toll-Free     |USD 16.00/mo  |
+
 
 ### Usage charges
 |Number type  |To make calls*             |To receive calls|
@@ -478,6 +480,16 @@ All prices shown below are in USD.
 |-------------|---------------|-----------------|
 |Toll-free    |N/A            |USD 0.2632/min   |
 
+## South Africa telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 22.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.0844/min   |
+
 ## South Korea telephony offers
 ### Phone number leasing charges
 |Number type   |Monthly fee   |
@@ -499,6 +511,65 @@ All prices shown below are in USD.
 |-------------|---------------|-----------------|
 |Toll-free    |N/A            |Starting at USD 0.3345/min   |
 
+## Indonesia telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 25.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.3022/min   |
+
+## Argentina telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 25.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.2347/min   |
+
+## Brazil telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 35.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |Starting at USD 0.1888/min   |
+
+## Chile telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 32.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.1621/min   |
+
+## Colombia telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 25.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.1707/min   |
+
+## Mexico telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 30.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.2161/min   |
 
 ***
 

@@ -106,13 +106,13 @@ Now that we've created the flow, the last thing to do is to test it and make sur
 
    :::image type="content" source="media/logic-apps-tutorial/failed-run-step.png" alt-text="Screenshot of failed step.":::
 
-1. Once achieve a successful run, check your email. There's a new email with the information we specified.
+1. After a workflow run succeeds, check your email. There's a new email with the information we specified.
 
     :::image type="content" source="media/logic-apps-tutorial/invoice-received.png" alt-text="Screenshot of received email message.":::
 
-1. Be sure to [disable or delete](../../logic-apps/manage-logic-apps-with-azure-portal.md#disable-or-enable-a-single-logic-app) your logic App after you're done so usage stops.
+1. After you're done, [disable or delete your logic app](../../logic-apps/manage-logic-apps-with-azure-portal.md?tabs=consumption#disable-enable-logic-apps) so that usage stops.
 
-    :::image type="content" source="media/logic-apps-tutorial/disable-delete.png" alt-text="Screenshot of disable and delete buttons.":::
+   :::image type="content" source="media/logic-apps-tutorial/disable-delete.png" alt-text="Screenshot of disable and delete buttons.":::
 
 Congratulations! You've officially completed this tutorial.
 

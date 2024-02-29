@@ -90,7 +90,7 @@ For more information, see [Manage Azure Data Lake Analytics using the Azure port
 
 File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`) aren't compatible with Gen2. You need to rename these files or directories before you migrate.
 
-For the better performance, consider delaying the migration for at least seven days from the time of the last delete operation. In a Gen1 account, deleted files become _soft_ deleted files, and the Garbage Collector won't remove them permanently until approximately seven days. All files, including soft deleted files, are processed during migration. If you wait until the Garbage Collector has permanently removed deleted files, your wait time can improve.  
+For the better performance, consider delaying the migration for at least ten days from the time of the last delete operation. In a Gen1 account, deleted files become _soft_ deleted files, and the Garbage Collector won't remove them permanently until seven days and will take a few extra days to process the cleanup. The time it takes for cleanup will depend on the number of files. All files, including soft deleted files, are processed during migration. If you wait until the Garbage Collector has permanently removed deleted files, your wait time can improve.
 
 ## Step 5: Perform the migration
 

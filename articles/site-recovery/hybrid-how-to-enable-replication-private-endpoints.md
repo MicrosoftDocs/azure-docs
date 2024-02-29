@@ -4,7 +4,7 @@ description: This article describes how to configure replication for on-premises
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2023
 ms.custom: subject-rbac-steps, engagement-fy23
 ---

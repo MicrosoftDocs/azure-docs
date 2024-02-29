@@ -24,7 +24,7 @@ Defender for Cloud detects anomalous activities indicating unusual and potential
 | Release state: | General availability (GA) |
 | Pricing: | **Microsoft Defender for open-source relational databases** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
 | Supported environments:|:::image type="icon" source="./media/icons/yes-icon.png"::: PaaS<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Arc-enabled machines |
-| Protected versions of PostgreSQL: | Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL pricing tiers](../postgresql/concepts-pricing-tiers.md). |
+| Protected versions of PostgreSQL: | Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL Single Server pricing tiers](../postgresql/concepts-pricing-tiers.md).  Flexible Server - all pricing tiers (enablement is currently only supported at resource level).|
 | Protected versions of MySQL: | Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md). |
 | Protected versions of MariaDB: | General Purpose and Memory Optimized. Learn more in [MariaDB pricing tiers](../mariadb/concepts-pricing-tiers.md). |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br> :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet |
@@ -53,9 +53,7 @@ Threat intelligence enriched security alerts are triggered when there are:
 - **Brute-force attacks** – With the ability to separate simple brute force from brute force on a valid user or a successful brute force
 
 > [!TIP]
-> View the full list of security alerts for database servers [in the alerts reference page](alerts-reference.md#alerts-osrdb).
-
-
+> View the full list of security alerts for database servers [in the alerts reference page](alerts-reference.md#alerts-for-open-source-relational-databases).
 
 ## Next steps
 

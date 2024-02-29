@@ -6,7 +6,7 @@ services: networking
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 05/16/2023
+ms.date: 12/13/2023
 ms.author: duau
 ---
 
@@ -24,6 +24,8 @@ You can grant two types of identities to an Azure Front Door profile:
 
 Managed identities are specific to the Microsoft Entra tenant where your Azure subscription is hosted. They don't get updated if a subscription gets moved to a different directory. If a subscription gets moved, you need to recreate and reconfigure the identity.
 
+You also have the option to configure Azure Key Vault access using [role-based access control (RBAC)](#role-based-access-control-rbac) or [access policy](#access-policy).
+
 ## Prerequisites
 
 Before you can set up managed identity for Azure Front Door, you must have an Azure Front Door Standard or Premium profile created. To create a new Front Door profile, see [create an Azure Front Door](create-front-door-portal.md). 
@@ -36,43 +38,72 @@ Before you can set up managed identity for Azure Front Door, you must have an Az
 
 1. Select either a **System assigned** or a **User assigned** managed identity.
 
-    * **System assigned** - a managed identity is created for the Azure Front Door profile lifecycle and is used to access Azure Key Vault.
+    * **[System assigned](#system-assigned)** - a managed identity is created for the Azure Front Door profile lifecycle and is used to access Azure Key Vault.
     
-    * **User assigned** - a standalone managed identity resource is used to authenticate to Azure Key Vault and has its own lifecycle.
+    * **[User assigned](#user-assigned)** - a standalone managed identity resource is used to authenticate to Azure Key Vault and has its own lifecycle.
 
-# [System assigned](#tab/system-assigned)
+    ### System assigned
+    
+    1. Toggle the *Status* to **On** and then select **Save**.
+    
+        :::image type="content" source="./media/managed-identity/system-assigned.png" alt-text="Screenshot of the system assigned managed identity configuration page.":::
+    
+    1. You're prompted with a message to confirm that you would like to create a system managed identity for your Front Door profile. Select **Yes** to confirm.
+    
+        :::image type="content" source="./media/managed-identity/system-assigned-confirm.png" alt-text="Screenshot of the system assigned managed identity confirmation message.":::
+    
+    1. Once the system assigned managed identity gets created and registered with Microsoft Entra ID, you can use the **Object (principal) ID** to grant Azure Front Door access to your Azure Key Vault.
+    
+        :::image type="content" source="./media/managed-identity/system-assigned-created.png" alt-text="Screenshot of the system assigned managed identity registered with Microsoft Entra ID.":::
+    
+    ### User assigned
+    
+    You must already have a user managed identity created. To create a new identity, see [create a user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+    
+    1. In the **User assigned** tab, select **+ Add** to add a user assigned managed identity.
+    
+        :::image type="content" source="./media/managed-identity/user-assigned.png" alt-text="Screenshot of the user assigned managed identity configuration page.":::
+    
+    1. Search and select the user assigned manage identity. Then select **Add** to add the user managed identity to the Azure Front Door profile.
+    
+        :::image type="content" source="./media/managed-identity/add-user-managed-identity.png" alt-text="Screenshot of the add user assigned managed identity page.":::
+    
+    1. You see the name of the user assigned managed identity you selected show in the Azure Front Door profile.
+    
+        :::image type="content" source="./media/managed-identity/user-assigned-configured.png" alt-text="Screenshot of the add user assigned managed identity added to Front Door profile.":::
+    
+    ---
 
-1. Toggle the *Status* to **On** and then select **Save**.
+## Configure Key Vault access
 
-    :::image type="content" source="./media/managed-identity/system-assigned.png" alt-text="Screenshot of the system assigned managed identity configuration page.":::
+* [Role-based access control](#role-based-access-control-rbac) - Grant Azure Front Door access to your Azure Key Vault with fine-grained access control with Azure Resource Manager.
+* [Access policy](#access-policy) - Native Azure Key Vault access control to grant Azure Front Door access to your Azure Key Vault.
 
-1. You're prompted with a message to confirm that you would like to create a system managed identity for your Front Door profile. Select **Yes** to confirm.
+For more information, see [Azure role-based access control (Azure RBAC) vs. access policy](../key-vault/general/rbac-access-policy.md).
 
-    :::image type="content" source="./media/managed-identity/system-assigned-confirm.png" alt-text="Screenshot of the system assigned managed identity confirmation message.":::
+### Role-based access control (RBAC)
 
-1. Once the system assigned managed identity has been created and registered with Microsoft Entra ID, you can use the **Object (principal) ID** to grant Azure Front Door access to your Azure Key Vault.
+1. Navigate to your Azure Key Vault. Select **Access control (IAM)** from under *Settings* and then select **+ Add**. Select **Add role assignment** from the drop-down menu.
 
-    :::image type="content" source="./media/managed-identity/system-assigned-created.png" alt-text="Screenshot of the system assigned managed identity registered with Microsoft Entra I D.":::
+    :::image type="content" source="./media/managed-identity/role-based-access-control.png" alt-text="Screenshot of the access control (IAM) page for a Key Vault.":::
 
-# [User assigned](#tab/user-assigned)
+1. On the *Add role assignment* page, search for **Key Vault Secret User** in the search box. Then select **Key Vault Secret User** from the search results.
 
-You must already have a user managed identity created. To create a new identity, see [create a user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+    :::image type="content" source="./media/managed-identity/role-based-access-control-search.png" alt-text="Screenshot of the add role assignment page for a Key Vault.":::
 
-1. In the **User assigned** tab, select **+ Add** to add a user assigned managed identity.
+1. Select the **Members** tab and then select **Managed identity**. Select **+ Select members** to add the managed identity to the role assignment.
 
-    :::image type="content" source="./media/managed-identity/user-assigned.png" alt-text="Screenshot of the user assigned managed identity configuration page.":::
+    :::image type="content" source="./media/managed-identity/role-based-access-control-members.png" alt-text="Screenshot of the members tab for the add role assignment page for a Key Vault.":::
 
-1. Search and select the user assigned manage identity. Then select **Add** to add the user managed identity to the Azure Front Door profile.
+1. Select the *system-assigned* or *user-assigned* managed identity associated to your Azure Front Door and then select **Select** to add the managed identity to the role assignment.
 
-    :::image type="content" source="./media/managed-identity/add-user-managed-identity.png" alt-text="Screenshot of the add user assigned managed identity page.":::
+    :::image type="content" source="./media/managed-identity/role-based-access-control-select.png" alt-text="Screenshot of the select members page for the add role assignment page for a Key Vault.":::
 
-1. You'll see the name of the user assigned managed identity you've selected show in the Azure Front Door profile.
+1. Select **Review + assign** to set up the role assignment.
 
-    :::image type="content" source="./media/managed-identity/user-assigned-configured.png" alt-text="Screenshot of the add user assigned managed identity added to Front Door profile.":::
+    :::image type="content" source="./media/managed-identity/role-based-access-control-review.png" alt-text="Screenshot of the review and assign page for the add role assignment page for a Key Vault.":::
 
----
-
-## Configure Key Vault access policy
+### Access policy
 
 1. Navigate to your Azure Key Vault. Select **Access policies** from under *Settings* and then select **+ Create**.
 
@@ -96,7 +127,7 @@ You must already have a user managed identity created. To create a new identity,
 
     :::image type="content" source="./media/managed-identity/secrets.png" alt-text="Screenshot of accessing secrets from under settings of a Front Door profile.":::
 
-1. Confirm **Managed identity** appears under the *Access role* column for the certificate used in Front Door.
+1. Confirm **Managed identity** appears under the *Access role* column for the certificate used in Front Door. If you're setting up managed identity for the first time, you need to add a certificate to Front Door to see this column.
 
     :::image type="content" source="./media/managed-identity/confirm-set-up.png" alt-text="Screenshot of Azure Front Door using managed identity to access certificate in Key Vault.":::
 

@@ -4,9 +4,9 @@ description: Specifications for the HBv4-series VMs.
 ms.service: virtual-machines
 author: Padmalathas
 ms.author: padmalathas
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 12/7/2023
 ms.reviewer: wwilliams
 ---
 

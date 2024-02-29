@@ -1,21 +1,21 @@
 ---
 title: Create and manage users on an OT network sensor - Microsoft Defender for IoT
 description: Create and manage on-premises users on a Microsoft Defender for IoT OT network sensor.
-ms.date: 09/28/2022
+ms.date: 12/19/2023
 ms.topic: how-to
 
 ---
 # Create and manage users on an OT network sensor
 
-Microsoft Defender for IoT provides tools for managing on-premises user access in the [OT network sensor](manage-users-sensor.md), and the on-premises management console. Azure users are managed [at the Azure subscription level](manage-users-overview.md) using Azure RBAC.
+Microsoft Defender for IoT provides tools for managing on-premises user access in the OT network sensor, and the legacy on-premises management console. Azure users are managed [at the Azure subscription level](manage-users-overview.md) using Azure RBAC.
 
 This article describes how to manage on-premises users directly on an OT network sensor.
 
 ## Default privileged users
 
-By default, each OT network sensor is installed with the privileged *support* user, which has access to advanced tools for troubleshooting and setup.
+By default, each OT network sensor is installed with the privileged *admin* user, which has access to advanced tools for troubleshooting and setup.
 
-When setting up a sensor for the first time, sign in the *support* user, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
+When setting up a sensor for the first time, sign in the *admin* user, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
 
 For more information, see [Install and set up your OT sensor](how-to-install-software.md) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
@@ -67,7 +67,7 @@ For example, use Active Directory when you have a large number of users that you
 
 This procedure describes how to create new users for a specific OT network sensor.
 
-**Prerequisites**: This procedure is available for the *cyberx*, *support*, and *cyberx_host* users, and any user with the **Admin** role.
+**Prerequisites**: This procedure is available for the *admin*, *cyberx*, and *cyberx_host* users, and any user with the **Admin** role.
 
 **To add a user**:
 
@@ -104,7 +104,7 @@ This procedure describes how **Admin** users can change local user passwords. **
 > [!TIP]
 > If you need to recover access to a privileged user account, see [Recover privileged access to a sensor](#recover-privileged-access-to-a-sensor).
 
-**Prerequisites**: This procedure is available only for the *cyberx*, *support*, or *cyberx_host* users, or for users with the **Admin** role.
+**Prerequisites**: This procedure is available only for the *cyberx*, *admin*, or *cyberx_host* users, or for users with the **Admin** role.
 
 **To change a user's password on a sensor**:
 
@@ -127,9 +127,9 @@ This procedure describes how **Admin** users can change local user passwords. **
 
 ## Recover privileged access to a sensor
 
-This procedure descries how to recover privileged access to a sensor, for the *cyberx*, *support*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+This procedure descries how to recover privileged access to a sensor, for the *cyberx*, *admin*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
-**Prerequisites**: This procedure is available only for the *cyberx*, *support*, or *cyberx_host* users.
+**Prerequisites**: This procedure is available only for the *cyberx*, *admin*, or *cyberx_host* users.
 
 **To recover privileged access to a sensor**:
 
@@ -137,7 +137,7 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
     :::image type="content" source="media/manage-users-sensor/reset-privileged-password.png" alt-text="Screenshot of the sensor sign-in screen with the Reset password link.":::
 
-1. In the **Reset password** dialog, from the **Choose user** menu, select the user whose password you're recovering, either **Cyberx**, **Support**, or **CyberX_host**.
+1. In the **Reset password** dialog, from the **Choose user** menu, select the user whose password you're recovering, either **Cyberx**, **Admin**, or **CyberX_host**. <!--check this-->
 
 1. Copy the unique identifier code that's shown in the **Reset password identifier** to the clipboard. For example:
 
@@ -191,7 +191,7 @@ By default, on-premises users are signed out of their sessions after 30 minutes 
 > [!NOTE]
 > Any changes made to user session timeouts are reset to defaults when you [update the OT monitoring software](update-ot-software.md).
 
-**Prerequisites**: This procedure is available for the *cyberx*, *support*, and *cyberx_host* users only.
+**Prerequisites**: This procedure is available for the *admin*, *cyberx*, and *cyberx_host* users only.
 
 **To control sensor user session timeouts**:
 
@@ -229,7 +229,4 @@ By default, on-premises users are signed out of their sessions after 30 minutes 
 
 ## Next steps
 
-For more information, see:
-
-- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
-- [Audit user activity](track-user-activity.md)
+For more information, see [Audit user activity](track-user-activity.md).

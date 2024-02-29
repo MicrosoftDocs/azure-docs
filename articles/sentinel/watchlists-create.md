@@ -4,7 +4,7 @@ description: Create watchlist in  Microsoft Sentinel for allowlists or blocklist
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 02/22/2022
+ms.date: 12/06/2023
 ---
 
 # Create watchlists in Microsoft Sentinel
@@ -13,7 +13,7 @@ Watchlists in Microsoft Sentinel allow you to correlate data from a data source 
 
 Upload a watchlist file from a local folder or from your Azure Storage account. To create a watchlist file, you have the option to download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.
 
-Local file uploads are currently limited to files of up to 3.8 MB in size. If you have large watchlist file that's up to 500 MB in size, upload the file to your Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
+Local file uploads are currently limited to files of up to 3.8 MB in size. A file that's over 3.8 MB in size and up to 500 MB is considered a [large watchlist](#create-a-large-watchlist-from-file-in-azure-storage-preview) Upload the file to an Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
 
 When you create a watchlist, the watchlist name and alias must each be between 3 and 64 characters. The first and last characters must be alphanumeric. But you can include whitespaces, hyphens, and underscores in between the first and last characters.
 
@@ -134,9 +134,22 @@ Create a shared access signature URL for Microsoft Sentinel to retrieve the watc
 
 1. Follow the steps in [Create SAS tokens for blobs in the Azure portal](../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=blobs#create-sas-tokens-in-the-azure-portal).
 1. Set the shared access signature token expiry time to be at minimum 6 hours.
+1. Keep the default value for **Allowed IP addresses** as blank.
 1. Copy the value for **Blob SAS URL**.
 
-### Step 3: Add the watchlist to a workspace
+### Step 3: Add Azure to the CORS tab
+
+Before using a SAS URI, add the azure portal to the Cross Origin Resource Sharing (CORS).
+
+1. Go to the storage account settings, **Resource sharing** page.
+1. Select the **Blob service** tab.
+1. Add `https://*.portal.azure.net` to the allowed origins table.
+1. Select the appropriate **Allowed methods** of `GET` and `OPTIONS`.
+1. Save the configuration.
+
+For more information, see [CORS support for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
+
+### Step 4: Add the watchlist to a workspace
 
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 

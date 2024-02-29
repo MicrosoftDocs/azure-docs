@@ -5,7 +5,7 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: overview
-ms.date: 09/05/2023
+ms.date: 12/12/2023
 ---
 
 # What is the Azure Linux Container Host for AKS?
@@ -21,11 +21,12 @@ To learn more about Azure Linux, see the [Azure Linux GitHub repository](https:/
 The Azure Linux Container Host offers the following key benefits:
 
 - **Small and lightweight**
-  - The Azure Linux Container Host only includes the necessary set of packages needed to run container workloads. As a result, it consumes limited disk and memory resources.
+  - The Azure Linux Container Host only includes the necessary set of packages needed to run container workloads. As a result, it consumes limited disk and memory resources and produces faster cluster operations (create, upgrade, delete, scale, node creation, and pod creation) on AKS.
   - Azure Linux has only 500 packages, and as a result takes up the least disk space by up to *5 GB* on AKS.
 - **Secure supply chain**
   - The Linux and AKS teams at Microsoft build, sign, and validate the [Azure Linux Container Host packages][azure-linux-packages] from source, and host packages and sources in Microsoft-owned and secured platforms.
-  - Each package update runs through a full set of unit tests and end-to-end testing on the existing image to prevent regressions. The extensive testing, in combination with the smaller package count, reduces the chances of disruptive updates to applications.
+  - Before we release a package, each package runs through a full set of unit tests and end-to-end testing on the existing image to prevent regressions. The extensive testing, in combination with the smaller package count, reduces the chances of disruptive updates to applications.
+  - Azure Linux has a focus on stability, often backporting fixes in core components like the kernel or openssl. It also limits substantial changes or significant version bumps to major release boundaries (for example, Azure Linux 2.0 to 3.0), which prevents customer outages.
 - **Secure by default**
   - The Azure Linux Container Host has an emphasis on security. It follows the secure-by-default principles, including using a hardened Linux kernel with Azure cloud optimizations and flags tuned for Azure. It also provides a reduced attack surface and eliminates patching and maintenance of unnecessary packages.
   - Microsoft monitors the CVE database and releases security patches monthly and critical updates within days if necessary.

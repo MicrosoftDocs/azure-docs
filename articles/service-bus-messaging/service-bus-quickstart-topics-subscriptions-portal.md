@@ -32,4 +32,3 @@ In this article, you created a Service Bus namespace, a topic in the namespace, 
 - [Java](service-bus-java-how-to-use-topics-subscriptions.md)
 - [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 - [Python](service-bus-python-how-to-use-topics-subscriptions.md)
-- [PHP](service-bus-php-how-to-use-topics-subscriptions.md)

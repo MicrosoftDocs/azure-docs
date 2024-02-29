@@ -141,7 +141,7 @@ The following procedure shows how to create a role with the minimum permission, 
     New-AzRoleDefinition -InputFile "<path-to-role-file>"
     New-AzRoleAssignment `
       -ResourceGroupName ExampleGroup `
-      -RoleDefinitionName "Key Vault resource manager template deployment operator" `
+      -RoleDefinitionName "Key Vault Bicep deployment operator" `
       -SignInName <user-principal-name>
     ```
 

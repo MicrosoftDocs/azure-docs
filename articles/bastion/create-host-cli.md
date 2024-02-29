@@ -7,9 +7,9 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 06/08/2023
 ms.author: cherylmc
-# Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
-ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
 ---
 
 # Deploy Bastion using Azure CLI

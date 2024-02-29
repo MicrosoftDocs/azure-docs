@@ -63,16 +63,16 @@ After configuring the credential provider and a connection, the API manager can 
 :::image type="content" source="media/credentials-overview/configuration-scenario.png" alt-text="Diagram of initial configuration scenario for credential manager.":::
 
 
-### Managed identity scenario
+### Unattended scenario
 
-By default when a connection is created, an access policy is preconfigured for the managed identity of the API Management instance. To use such a connection, different users may sign in to a client application such as a static web app, which then calls a backend API exposed through API Management. To make this call, connections are applied using the `get-authorization-context` policy. Because the API call uses a preconfigured connection that's not related to the user context, the same data is returned to all users.
+By default when a connection is created, an access policy and connection are preconfigured for the managed identity of the API Management instance. To use such a connection, different users may sign in to a client application such as a static web app, which then calls a backend API exposed through API Management. To make this call, connections are applied using the `get-authorization-context` policy. Because the API call uses a preconfigured connection that's not related to the user context, the same data is returned to all users.
 
 :::image type="content" source="media/credentials-overview/managed-identity-scenario.png" alt-text="Diagram of managed identity scenario for credential manager.":::
 
 
-### User-delegated scenario
+### Attended (user-delegated) scenario
 
-To enable a simplified authentication experience for users of client applications, such as static web apps, that call backend SaaS APIs that require a user context, you can enable access to a connection on behalf of a Microsoft Entra user or group identity. In this case, a configured user needs to login and provide consent only once, and the API Management instance will manage their connection after that. When API Management gets an incoming call to be forwarded to an external service, it attaches the access token from the connection to the request. This is ideal for when API requests and responses are geared towards an individual (for example, retrieving user-specific profile information).
+To enable a simplified authentication experience for users of client applications, such as static web apps, that call backend SaaS APIs that require a user context, you can enable access to a connection on behalf of a Microsoft Entra user or group identity. In this case, a configured user needs to login and provide consent only once, and the API Management instance will create and manage their connection after that. When API Management gets an incoming call to be forwarded to an external service, it attaches the access token from the connection to the request. This is ideal for when API requests and responses are geared towards an individual (for example, retrieving user-specific profile information).
 
 :::image type="content" source="media/credentials-overview/user-delegated-scenario.png" alt-text="Diagram of user-delegated scenario for credential manager.":::
 

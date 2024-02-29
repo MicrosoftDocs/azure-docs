@@ -85,6 +85,8 @@ A test contains a test plan, which describes the steps to invoke the application
 
 Azure Load Testing supports all communication protocols that JMeter supports, not only HTTP-based endpoints. For example, you might want to read from or write to a database or message queue in the test script.
 
+Azure Load Testing currently does not support other testing frameworks than Apache JMeter.
+
 The test also specifies the configuration settings for running the load test:
 
 - [Load test parameters](./how-to-parameterize-load-tests.md), such as environment variables, secrets, and certificates.

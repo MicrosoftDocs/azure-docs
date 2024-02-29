@@ -4,8 +4,7 @@ description: View the Azure Monitor activity log and send it to Azure Monitor Lo
 author: guywi-ms
 services: azure-monitor
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 07/01/2022
+ms.date: 12/11/2023
 ms.author: guywild
 ms.reviewer: orens
 ---
@@ -16,7 +15,7 @@ The Azure Monitor activity log is a [platform log](./platform-logs-overview.md) 
 
 For more functionality, create a diagnostic setting to send the activity log to one or more of these locations for the following reasons:
 
-- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for longer retention, up to two years.
+- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to twelve years](../logs/data-retention-archive.md).
 - Send to Azure Event Hubs to forward outside of Azure.
 - Send to Azure Storage for cheaper, long-term archiving.
 
@@ -70,7 +69,7 @@ You can also access activity log events by using the following methods:
 - Correlate activity log data with other monitoring data collected by Azure Monitor.
 - Consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together.
 - Use log queries to perform complex analysis and gain deep insights on activity log entries.
-- Use log alerts with Activity entries for more complex alerting logic.
+- Use log search alerts with Activity entries for more complex alerting logic.
 - Store activity log entries for longer than the activity log retention period.
 - Incur no data ingestion or retention charges for activity log data stored in a Log Analytics workspace.
 - The default retention period in Log Analytics is 90 days

@@ -1,12 +1,14 @@
 ---
 title: Smart Detection of Failure Anomalies in Application Insights | Microsoft Docs
 description: Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
 ---
 
 # Smart Detection - Failure Anomalies
+
 [Application Insights](../app/app-insights-overview.md) automatically alerts you in near real time if your web app experiences an abnormal rise in the rate of failed requests. It detects an unusual rise in the rate of HTTP requests or dependency calls that are reported as failed. For requests, failed requests usually have response codes of 400 or higher. To help you triage and diagnose the problem, an analysis of the characteristics of the failures and related application data is provided in the alert details. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up nor configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
 This feature works for any web app, hosted in the cloud or on your own servers that generate application request or dependency data. For example, if you have a worker role that calls [TrackRequest()](../app/api-custom-events-metrics.md#trackrequest) or [TrackDependency()](../app/api-custom-events-metrics.md#trackdependency).
@@ -54,7 +56,7 @@ Failure Anomalies detection relies on a proprietary machine learning algorithm, 
 
 ### Alert rule creation
 A Failure Anomalies alert rule is created automatically when your Application Insights resource is created. The rule is automatically configured to analyze the telemetry on that resource.
-You can create the rule again using Azure [REST API](https://learn.microsoft.com/rest/api/monitor/smart-detector-alert-rules?view=rest-monitor-2019-06-01&preserve-view=true) or using a [Resource Manager template](proactive-arm-config.md#failure-anomalies-alert-rule). Creating the rule can be useful if the automatic creation of the rule failed for some reason, or if you deleted the rule.
+You can create the rule again using Azure [REST API](/rest/api/monitor/smart-detector-alert-rules?view=rest-monitor-2019-06-01&preserve-view=true) or using a [Resource Manager template](proactive-arm-config.md#failure-anomalies-alert-rule). Creating the rule can be useful if the automatic creation of the rule failed for some reason, or if you deleted the rule.
 
 ### Alert rule configuration 
 To configure a Failure Anomalies alert rule in the portal, open the Alerts page and select Alert Rules. Failure Anomalies alert rules are included along with any alerts that you set manually. 

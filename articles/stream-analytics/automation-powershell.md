@@ -1,7 +1,6 @@
 ---
 title: Auto-pause an Azure Stream Analytics with PowerShell
 description: This article describes how to auto-pause an Azure Stream Analytics job on a schedule with PowerShell
-services: stream-analytics
 ms.service: stream-analytics
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
@@ -441,7 +440,7 @@ Once the script is understood, it's straightforward to rework it to extend its s
 
 ## Get support
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 

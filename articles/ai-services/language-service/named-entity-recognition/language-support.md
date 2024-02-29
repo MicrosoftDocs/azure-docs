@@ -7,9 +7,9 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 10/24/2023
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-ner, ignite-fall-2021, ignite-2022
+ms.custom: language-service-ner
 ---
 
 # Named Entity Recognition (NER) language support 

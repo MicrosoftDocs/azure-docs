@@ -90,9 +90,13 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 
 Alternatively, you can provide access to a dev box project in the Azure portal, see [Provide user-level access to projects for developers](how-to-dev-box-user.md). 
 
-### Virtual network security considerations
+### Virtual network considerations
 
+- **Security:** 
 Planning for a Microsoft Dev Box deployment covers many areas, including securing the virtual network (VNet). For more information, see [Azure network security overview](../security/fundamentals/network-overview.md).
+
+- **NIC resource group:**
+Microsoft Dev Box automatically creates a resource group for each network connection, which holds the network interface cards (NICs) that use the virtual network assigned to the network connection. The resource group has a fixed name based on the name and region of the network connection. You can't change the name of the resource group, or specify an existing resource group.
 
 ## Review deployed resources 
 

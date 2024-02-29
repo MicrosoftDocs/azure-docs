@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-metrics-advisor
 ms.custom: applied-ai-non-critical-metrics-advisor
 ms.topic: how-to
-ms.date: 07/02/2021
+ms.date: 01/19/2024
 ms.author: mbullwin
 #Customer intent: As a user of the Metrics Advisor service, I want to learn how encryption at rest works.
 ---

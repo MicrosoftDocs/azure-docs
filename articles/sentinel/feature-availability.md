@@ -1,17 +1,21 @@
 ---
-title: Microsoft Sentinel feature support for Azure clouds
+title: Microsoft Sentinel feature support for Azure commercial/other clouds
 description: This article describes feature availability in Microsoft Sentinel across different Azure environments.
-author: cwatson-cat
-ms.author: cwatson
+author: batamig
+ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
 ms.date: 07/25/2023
 ---
 
-# Microsoft Sentinel feature support for Azure clouds
+# Microsoft Sentinel feature support for Azure commercial/other clouds
 
 This article describes the features available in Microsoft Sentinel across different Azure environments. Features are listed as GA (generally available), public preview, or shown as not available.
+
+> [!NOTE]
+> These lists and tables do not include feature or bundle availability in the Azure Government Secret or Azure Government Top Secret clouds. 
+> For more information about specific availability for air-gapped clouds, please contact your account team.
 
 ## Analytics		
 
@@ -36,7 +40,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Amazon Web Services](connect-aws.md?tabs=ct) |GA |&#x2705; |&#10060; |&#10060; |
-|[Amazon Web Services S3 (Preview)](connect-aws.md?tabs=s3) |Public preview |&#x2705; |&#10060; |&#10060; |
+|[Amazon Web Services S3 (Preview)](connect-aws.md?tabs=s3) |Public preview |&#x2705; |&#x2705; |&#10060; |
 |[Microsoft Entra ID](connect-azure-active-directory.md) |GA |&#x2705; |&#x2705;|&#x2705; <sup>[1](#logsavailable)</sup> |
 |[Microsoft Entra ID Protection](connect-services-api-based.md) |GA |&#x2705;| &#x2705; |&#10060; |
 |[Azure Activity](data-connectors/azure-activity.md) |GA |&#x2705;| &#x2705;|&#x2705; |
@@ -52,8 +56,8 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Common Event Format (CEF)](connect-common-event-format.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Common Event Format (CEF) via AMA (Preview)](connect-cef-ama.md) |Public preview |&#x2705;|&#10060;  |&#x2705; |
 |[DNS](data-connectors/dns.md) |Public preview |&#x2705;| &#10060; |&#x2705; |
-|[GCP Pub/Sub Audit Logs](connect-google-cloud-platform.md) |Public preview |&#x2705; |&#10060; |&#10060; |
-|[Microsoft 365 Defender](connect-microsoft-365-defender.md?tabs=MDE) |GA |&#x2705;| &#x2705;|&#10060; |
+|[GCP Pub/Sub Audit Logs](connect-google-cloud-platform.md) |Public preview |&#x2705; |&#x2705; |&#10060; |
+|[Microsoft Defender XDR](connect-microsoft-365-defender.md?tabs=MDE) |GA |&#x2705;| &#x2705;|&#10060; |
 |[Microsoft Purview Insider Risk Management (Preview)](sentinel-solutions-catalog.md#domain-solutions) |Public preview |&#x2705; |&#x2705;|&#10060; |
 |[Microsoft Defender for Cloud](connect-defender-for-cloud.md) |GA |&#x2705; |&#x2705; |&#x2705;|
 |[Microsoft Defender for IoT](connect-services-api-based.md) |GA |&#x2705;|&#x2705;|&#10060; |
@@ -93,8 +97,8 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Create incidents manually](create-incident-manually.md) |GA |&#x2705; |&#x2705;| &#x2705; |
 |[Cross-tenant/Cross-workspace incidents view](multiple-workspace-view.md)     |GA         |&#x2705; |&#x2705; |&#x2705;         |
 |[Incident advanced search](investigate-cases.md#search-for-incidents) |GA |&#x2705; |&#x2705;| &#x2705; |
-|[Incident tasks](incident-tasks.md) |Public preview |&#x2705; |&#x2705;| &#x2705; |
-|[Microsoft 365 Defender incident integration](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-365-defender-incidents-in-microsoft-sentinel-and-bi-directional-sync) |GA |&#x2705; |&#x2705;| &#10060; |
+|[Incident tasks](incident-tasks.md) |GA |&#x2705; |&#x2705;| &#x2705; |
+|[Microsoft 365 Defender incident integration](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync) |GA |&#x2705; |&#x2705;| &#10060; |
 |[Microsoft Teams integrations](collaborate-in-microsoft-teams.md) |Public preview |&#x2705; |&#x2705;| &#10060; |
 |[Playbook template gallery](use-playbook-templates.md) |Public preview |&#x2705; |&#x2705;| &#10060; |
 |[Run playbooks on entities](respond-threats-during-investigation.md) |Public preview |&#x2705; |&#x2705; |&#10060; |

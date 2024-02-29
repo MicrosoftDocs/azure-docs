@@ -15,7 +15,9 @@ The format for extracting a dynamic value from the alert payload is: `${<path to
 Use the format of the [common alert schema](../alerts/alerts-common-schema.md) to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
 
 > [!NOTE]
-> The [common schema](../alerts/alerts-common-schema.md) overwrites custom configurations. You can't use both custom properties and the common schema.
+> - The [common schema](../alerts/alerts-common-schema.md) overwrites custom configurations. You can't use both custom properties and the common schema.
+> - Custom properties are added to the payload of the alert, but they do not appear in the email template or in the alert details in the Azure portal.
+> - Service Health alerts do not support custom properties.
 
 :::image type="content" source="../alerts/media/alerts-create-new-alert-rule/alerts-rule-custom-props.png" alt-text="Screenshot that shows the custom properties section of creating a new alert rule.":::
 

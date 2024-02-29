@@ -1,16 +1,9 @@
 ---
 title: Back up using Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
-description: Provides a guide for running the backup command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
+description: Provides a guide for running the backup command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: reference
 ms.date: 07/29/2022
 ms.author: phjensen

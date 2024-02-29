@@ -10,7 +10,7 @@ metadata:
     - ignite-2023
   ms.date: 04/14/2023
   ms.author: cshoe
-title: Azure Container Apps frequently asked questions
+title: Azure Container Apps frequently asked questions (FAQs)
 summary: This article lists commonly asked questions about Azure Container Apps together with related answers.
   
 sections:
@@ -98,7 +98,25 @@ sections:
         answer:
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
-          
+  
+  - name: Dockerless deployments
+    questions:
+     - question: |
+         What is a Docker-less deployment?
+       answer: |
+         A Docker-less deployment allows you to deploy your application without defining a Dockerfile in your code. Instead, the Container Apps cloud build functionality uses Buildpacks to turn source code on your local machine into a container image. This option uses the Azure Container Apps default registry.
+     - question: |
+         During the deployment of my Docker-less application, messages about "ImagePullBackOff on legion", "Kubernetes error" or "Gateway error" appear and my application doesn't deploy successfully.
+       answer: |
+         You are experiencing a known issue with Docker-less deployments. Retrying might resolve this for you. If you run into this issue, open a [GitHub issue](https://github.com/microsoft/azure-container-apps/issues) so our team can investigate.
+
+  - name: Deploy .NET applications
+    questions:
+    - question: |
+        What if my .NET application fails to scale?
+      answer: |
+        You need to enable data protection for all .NET apps on Azure Container Apps. See [Deploying and scaling an ASP.NET Core app on Azure Container Apps](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps) for details.        
+        
   - name: Deploy Java applications
     questions:
       - question: |

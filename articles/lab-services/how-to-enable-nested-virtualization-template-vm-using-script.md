@@ -253,7 +253,7 @@ It's recommended that Hyper-V VMs have their [automatic shutdown action set to s
 Increase the number vCPUs and memory that is assigned to the Hyper-V VM in Hyper-V Manager. The total number of vCPUs can't exceed the number of cores of the host VM (lab VM). If you're using variable memory, the default option, increase the minimum amount of memory assigned to the VM. The maximum amount of assigned memory (if using variable memory) can exceed the amount of memory of the host VM. This allows greater flexibility when having to complete intensive operations on just one of the Hyper-V VMs.
 
 If you're using the Medium (Nested Virtualization) VM size for the lab, consider using the Large (Nested Virtualization) VM size instead to have more compute resources for each lab VM.
- 
+
 ### Internet connectivity isn't working for nested VMs
 
 - Confirm that you followed the previous steps for enabling nested virtualization. Consider using the PowerShell script option.
@@ -264,8 +264,8 @@ If you're using the Medium (Nested Virtualization) VM size for the lab, consider
 
 - Check the network adapter settings for the Hyper-V VM:
 
-    - Set the IP address of the DNS server and DHCP server to [*168.63.129.16*](/azure/virtual-network/what-is-ip-address-168-63-129-16).
-    - Set the guest VM IPv4 address in the range of the [NAT network you created previously](#create-a-nat-network).
+  - Set the IP address of the DNS server and DHCP server to [*168.63.129.16*](/azure/virtual-network/what-is-ip-address-168-63-129-16).
+  - Set the guest VM IPv4 address in the range of the [NAT network you created previously](#create-a-nat-network).
 
 > [!NOTE]
 > The ping command from a Hyper-V VM to the host VM doesn't work. To test internet connectivity, launch a web browser and verify that the web page loads correctly.

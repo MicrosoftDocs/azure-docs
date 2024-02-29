@@ -11,7 +11,7 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
 
 To connect your cluster to Azure Arc:
 
-1. Sign in with Azure CLI.
+1. On the machine where you deployed the Kubernetes cluster, sign in with Azure CLI:
 
    ```azurecli
    az login
@@ -22,11 +22,20 @@ To connect your cluster to Azure Arc:
    ```bash
    # Id of the subscription where your resource group and Arc-enabled cluster will be created
    export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
+   ```
+
+   ```bash
    # Azure region where the created resource group will be located
    # Currently supported regions: "eastus", "eastus2", "westus", "westus2", "westus3", "westeurope", or "northeurope"
    export LOCATION="WestUS3"
+   ```
+
+   ```bash
    # Name of a new resource group to create which will hold the Arc-enabled cluster and Azure IoT Operations resources
    export RESOURCE_GROUP=<NEW_RESOURCE_GROUP_NAME>
+   ```
+
+   ```bash
    # Name of the Arc-enabled cluster to create in your resource group
    export CLUSTER_NAME=<NEW_CLUSTER_NAME>
    ```
@@ -61,14 +70,17 @@ To connect your cluster to Azure Arc:
    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
    ```
 
-1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses.
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell) or on your local machine:
 
    ```azurecli
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
    ```
 
-1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. Use the `objectId` or `id` value from the previous command to enable custom locations on the cluster:
+   Make a note of the `objectId` that's returned. You use it in the next step.
+
+1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. This command uses the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command on the machine where you deployed the Kubernetes cluster:
 
     ```azurecli
-    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid <objectId/id> --features cluster-connect custom-locations
+    export OBJECT_ID=<objectID from the previous step>
+    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
     ```

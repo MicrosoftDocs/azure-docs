@@ -28,7 +28,7 @@ The liveness detection solution successfully defends against a variety of spoof 
 - Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**. 
     - You need the key and endpoint from the resource you create to connect your application to the Face service. You'll paste your key and endpoint into the code later in the quickstart.
     - You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-- Access to the Azure AI Vision SDK for mobile (IOS and Android). To get started, you need to apply for the [Face Recognition Limited Access features](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to get access to the SDK. For more information, see the [Face Limited Access](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext) page.
+- Access to the Azure AI Vision Face Client SDK for mobile (IOS and Android). To get started, you need to apply for the [Face Recognition Limited Access features](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to get access to the SDK. For more information, see the [Face Limited Access](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext) page.
 
 ## Perform liveness detection
 
@@ -37,7 +37,7 @@ The liveness solution integration involves two different components: a mobile ap
 ### Integrate liveness into mobile application 
 
 Once you have access to the SDK, follow instruction in the [azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) GitHub repository to integrate the UI and the code into your native mobile application. The liveness SDK supports both Java/Kotlin for Android and Swift for iOS mobile applications:
-- For Swift iOS, follow the instructions in the [iOS sample](https://aka.ms/liveness-sample-ios) 
+- For Swift iOS, follow the instructions in the [iOS sample](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme) 
 - For Kotlin/Java Android, follow the instructions in the [Android sample](https://aka.ms/liveness-sample-java) 
 
 Once you've added the code into your application, the SDK will handle starting the camera, guiding the end-user to adjust their position, composing the liveness payload, and calling the Azure AI Face cloud service to process the liveness payload.
@@ -50,16 +50,17 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
 1. The mobile application starts the liveness check and notifies the app server. 
 
-1. The app server creates a new liveness session with Azure AI Face Service. The service creates a liveness-session and responds back with a session-authorization-token.  
+1. The app server creates a new liveness session with Azure AI Face Service. The service creates a liveness-session and responds back with a session-authorization-token.
     
     ```json
     Request:
-    curl --location 'https://face-gating-livenessdetection.ppe.cognitiveservices.azure.com/face/v1.1-preview.1/detectliveness/singlemodal/sessions' \
+    curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectliveness/singlemodal/sessions' \
     --header 'Ocp-Apim-Subscription-Key:<insert-api-key>
     --header 'Content-Type: application/json' \
     --data '{
       "livenessOperationMode": "passive",
-      "deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd"
+      "deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd",
+      "sendResultsToClient": "false"
     }'
      
     Response:
@@ -93,7 +94,7 @@ The high-level steps involved in liveness orchestration are illustrated below:
     
     ```json
     Request:
-    curl --location 'https://face-gating-livenessdetection.ppe.cognitiveservices.azure.com/face/v1.1-preview.1/detectliveness/singlemodal/sessions/a3dc62a3-49d5-45a1-886c-36e7df97499a' \
+    curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectliveness/singlemodal/sessions/a3dc62a3-49d5-45a1-886c-36e7df97499a' \
     --header 'Ocp-Apim-Subscription-Key: <insert-api-key>
     
     Response:
@@ -178,13 +179,13 @@ The high-level steps involved in liveness with verification orchestration are il
 
         ```json
         Request:
-        curl --location 'https://face-gating-livenessdetection.ppe.cognitiveservices.azure.com/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions' \
+        curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions' \
         --header 'Ocp-Apim-Subscription-Key: <api_key>' \
         --form 'Parameters="{
           \"livenessOperationMode\": \"passive\",
           \"deviceCorrelationId\": \"723d6d03-ef33-40a8-9682-23a1feb7bccd\"
         }"' \
-        --form 'VerifyImage=@"/C:/Users/nabilat/Pictures/test.png"'
+        --form 'VerifyImage=@"test.png"'
         
         Response:
         {
@@ -222,11 +223,11 @@ The high-level steps involved in liveness with verification orchestration are il
     
     ```json
     Request:
-    curl --location 'https://face-gating-livenessdetection.ppe.cognitiveservices.azure.com/face/v1.1-preview.1/detectlivenesswithverify/singlemodal' \
+    curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/3847ffd3-4657-4e6c-870c-8e20de52f567' \
     --header 'Content-Type: multipart/form-data' \
     --header 'apim-recognition-model-preview-1904: true' \
     --header 'Authorization: Bearer.<session-authorization-token> \
-    --form 'Content=@"/D:/work/scratch/data/clips/webpapp6/video.webp"' \
+    --form 'Content=@"video.webp"' \
     --form 'Metadata="<insert-metadata>"
     
     Response:
@@ -286,7 +287,12 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 
 ## Next steps
 
-See the liveness SDK reference to learn about other options in the liveness APIs.
+See the Azure AI Vision SDK reference to learn about other options in the liveness APIs.
 
-- [Java (Android)](https://aka.ms/liveness-sdk-java)
-- [Swift (iOS)](https://aka.ms/liveness-sdk-ios)
+- [Kotlin (Android)](https://aka.ms/liveness-sample-java)
+- [Swift (iOS)](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme)
+
+See the Session REST API reference to learn more about the features available to orchestrate the liveness solution.
+
+- [Liveness Session APIs](https://westus.dev.cognitive.microsoft.com/docs/services/609a5e53f0971cb3/operations/session-create-detectliveness-singlemodal)
+- [Liveness-With-Verify Session APIs](https://westus.dev.cognitive.microsoft.com/docs/services/609a5e53f0971cb3/operations/session-create-detectlivenesswithverify-singlemodal)

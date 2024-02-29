@@ -6,10 +6,9 @@ ms.service: virtual-machines
 ms.collection: windows
 author: bobbytreed
 ms.author: robreed
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 03/20/2023
 ms.topic: how-to
-
 ---
 # Run scripts in your Windows VM
 

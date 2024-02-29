@@ -48,13 +48,13 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To validate the installation was successful, run:
 
     ```bash
-    kubectl get pods
+    kubectl get pods -n azure-iot-operations
     ```
 
     You should see an output that looks like the following example:
 
     ```Output
-    NAME                                    READY   STATUS        RESTARTS   AGE
+    NAME                                READY   STATUS        RESTARTS   AGE
     aio-lnm-operator-7db49dc9fd-kjf5x   1/1     Running       0          78s
     ```
 
@@ -131,33 +131,33 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To validate the instance, run:
 
     ```bash
-    kubectl get pods
+    kubectl get pods -n azure-iot-operations
     ```
 
     The output should look like:
 
     ```Output
-    NAME                                    READY       STATUS    RESTARTS   AGE
-    aio-lnm-operator-7db49dc9fd-kjf5x   1/1     Running       0          78s
-    lnm-level4-7598574bf-2lgss          1/1     Running       0          4s
+    NAME                                    READY       STATUS    RESTARTS       AGE
+    aio-lnm-operator-7db49dc9fd-kjf5x       1/1         Running       0          78s
+    aio-lnm-level4-7598574bf-2lgss          1/1         Running       0          4s
     ```
 
 1. To view the service, run:
 
     ```bash
-    kubectl get services
+    kubectl get services -n azure-iot-operations
     ```
 
     The output should look like the following example:
 
     ```Output
-    NAME          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
-    lnm-level4   LoadBalancer   10.0.141.101   20.81.111.118   80:30960/TCP,443:31214/TCP   29s
+    NAME              TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+    aio-lnm-level4    LoadBalancer   10.0.141.101   20.81.111.118   80:30960/TCP,443:31214/TCP   29s
     ```
 1. To view the config maps, run:
 
     ```bash
-    kubectl get cm
+    kubectl get cm -n azure-iot-operations
     ```
     The output should look like the following example:
     ```

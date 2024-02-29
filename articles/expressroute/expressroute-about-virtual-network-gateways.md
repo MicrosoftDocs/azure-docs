@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/16/2023
+ms.date: 01/25/2024
 ms.author: duau
 ms.custom: ignite-2023
 ---
@@ -44,15 +44,18 @@ Additionally, you can downgrade the virtual network gateway SKU. The following d
 
 For all other downgrade scenarios, you need to delete and recreate the gateway. Recreating a gateway incurs downtime.
 
+## Virtual network gateway limitations and performance
+
 ### <a name="gatewayfeaturesupport"></a>Feature support by gateway SKU
 
-The following table shows the features supported across each gateway type.
+The following table shows the features supported across each gateway types and max number of ExpressRoute circuit connections supported by each gateway SKU.
 
-|Gateway SKU|VPN Gateway and ExpressRoute coexistence|FastPath|Max Number of Circuit Connections|
-| --- | --- | --- | --- |
-|**Standard SKU/ERGw1Az**|Yes|No|4|
-|**High Perf SKU/ERGw2Az**|Yes|No|8
-|**Ultra Performance SKU/ErGw3Az**|Yes|Yes|16
+| Gateway SKU | VPN Gateway and ExpressRoute coexistence | FastPath | Max Number of Circuit Connections |
+|--|--|--|--|
+| **Standard SKU/ERGw1Az** | Yes | No | 4 |
+| **High Perf SKU/ERGw2Az** | Yes | No | 8 |
+| **Ultra Performance SKU/ErGw3Az** | Yes | Yes | 16 |
+| **ErGwScale (Preview)** | Yes | Yes - minimum 10 of scale units | 4 - minimum 1 of scale unit<br>8 - minimum of 2 scale units<br>16 - minimum of 10 scale units |
 
 >[!NOTE]
 > The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
@@ -66,10 +69,12 @@ The following table shows the features supported across each gateway type.
 
 Before you create an ExpressRoute gateway, you must create a gateway subnet. The gateway subnet contains the IP addresses that the virtual network gateway VMs and services use. When you create your virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the required ExpressRoute gateway settings. Never deploy anything else into the gateway subnet. The gateway subnet must be named 'GatewaySubnet' to work properly. Naming the gateway subnet 'GatewaySubnet' lets Azure know to deploy the virtual network gateway VMs and services into this subnet.
 
->[!NOTE]
->[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
+> [!NOTE]
+> [!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 >
->- Linking an Azure DNS private resolver to the virtual network where the ExpressRoute virtual network gateway is deployed may cause management connectivity issues and is not recommended.
+
+> - We don't recommend deploying Azure DNS Private Resolver into a virtual network that has an ExpressRoute virtual network gateway and setting wildcard rules to direct all name resolution to a specific DNS server. Such a configuration can cause management connectivity issues.
+
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
 
@@ -97,6 +102,10 @@ Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateway.
 
 The new gateway SKUs also support other deployment options to best match your needs. When creating a virtual network gateway using the new gateway SKUs, you can deploy the gateway in a specific zone. This type of gateway is referred to as a zonal gateway. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same Availability Zone.
 
+## VNet to VNet and VNet to Virtual WAN connectivity
+
+By default, VNet to VNet and VNet to Virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enabled this traffic, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
+
 ## <a name="fastpath"></a>FastPath
 
 ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
@@ -113,9 +122,9 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 
 ### Private endpoint connectivity and planned maintenance events
 
-Private endpoint connectivity is stateful. When a connection to a private endpoint gets established over ExpressRoute private peering, inbound and outbound connections get routed through one of the backend instances of the gateway infrastructure. During a maintenance event, backend instances of the virtual network gateway infrastructure are rebooted one at a time. This could result in intermittent connectivity issues during the maintenance event.
+Private endpoint connectivity is stateful. When a connection to a private endpoint gets established over ExpressRoute private peering, inbound and outbound connections get routed through one of the backend instances of the gateway infrastructure. During a maintenance event, backend instances of the virtual network gateway infrastructure are rebooted one at a time, which could lead to intermittent connectivity issues.
 
-To prevent or reduce the effect of connectivity issues with private endpoints during maintenance activities, we recommend that you adjust the TCP time-out value to a value between 15-30 seconds on your on-premises applications. Examine the requirements of your application to test and configure the optimal value.
+To avoid or minimize connectivity issues with private endpoints during maintenance activities, we recommend setting the TCP time-out value to fall between 15-30 seconds on your on-premises applications. Test and configure the optimal value based on your application requirements.
 
 ## Route Server
 
@@ -132,7 +141,7 @@ For more technical resources and specific syntax requirements when using REST AP
 
 ## VNet-to-VNet connectivity
 
-By default, connectivity between virtual networks is enabled when you link multiple virtual networks to the same ExpressRoute circuit. Microsoft recommends not using your ExpressRoute circuit for communication between virtual networks. Instead, it's recommended to use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why VNet-to-VNet connectivity isn't recommended over ExpressRoute, see [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
+By default, connectivity between virtual networks is enabled when you link multiple virtual networks to the same ExpressRoute circuit. Microsoft recommends not using your ExpressRoute circuit for communication between virtual networks. Instead, we recommend you to use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why VNet-to-VNet connectivity isn't recommended over ExpressRoute, see [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
 ### Virtual network peering
 
@@ -149,9 +158,19 @@ ErGwScale supports both zonal and zonal-redundant deployments in Azure availabil
 ErGwScale is available in preview in the following regions:
 
 * Australia East
+* Canada Central
+* East US
+* East Asia
 * France Central
+* Germany Central
+* Germany West
+* India Central
+* Italy North
 * North Europe
+* Norway East
 * Sweden Central
+* UAE North
+* UK South
 * West US 3
 
 ### Autoscaling vs. fixed scale unit
@@ -190,7 +209,7 @@ ErGwScale is free of charge during public preview. For information about Express
 
 * For more information about creating ExpressRoute gateways, see [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
-* For more information on how to deploy ErGwScale, see [Configure a virtual network gateway for ExpressRoute using the Azure portal](https://learn.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager).
+* For more information on how to deploy ErGwScale, see [Configure a virtual network gateway for ExpressRoute using the Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md).
 
 * For more information about configuring zone-redundant gateways, see [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 

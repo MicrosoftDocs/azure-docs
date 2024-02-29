@@ -47,11 +47,15 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where United Kingdom phone numbers are available
 | Country/Region |
 | :---------- |
+|Australia|
 |Canada|
 |Denmark|
+|France|
 |Ireland|
 |Italy|
+|Netherlands|
 |Puerto Rico|
+|Spain|
 |Sweden|
 |United Kingdom|
 |United States|

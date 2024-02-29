@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure AD B2C, I want to understand how to use string claims transformations, so that I can manipulate and compare string claims in my custom policies.
+
 ---
 
 # String claims transformations
@@ -217,7 +221,7 @@ Determines whether a claim value is equal to the input parameter value. Check ou
 
 ### Example of CompareClaimToValue
 
-Use this claims transformation to check if a claim is equal to a value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `v1`.
+Use this claims transformation to check if a claim is equal to a value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `V2`.
 
 ```xml
 <ClaimsTransformation Id="IsTermsOfUseConsentRequiredForVersion" TransformationMethod="CompareClaimToValue">
@@ -225,8 +229,8 @@ Use this claims transformation to check if a claim is equal to a value you speci
     <InputClaim ClaimTypeReferenceId="termsOfUseConsentVersion" TransformationClaimType="inputClaim1" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="compareTo" DataType="string" Value="V1" />
-    <InputParameter Id="operator" DataType="string" Value="not equal" />
+    <InputParameter Id="compareTo" DataType="string" Value="V2" />
+    <InputParameter Id="operator" DataType="string" Value="NOT EQUAL" />
     <InputParameter Id="ignoreCase" DataType="string" Value="true" />
   </InputParameters>
   <OutputClaims>
@@ -238,8 +242,8 @@ Use this claims transformation to check if a claim is equal to a value you speci
 - Input claims:
   - **inputClaim1**: v1
 - Input parameters:
-  - **compareTo**: V1
-  - **operator**: EQUAL
+  - **compareTo**: V2
+  - **operator**: NOT EQUAL
   - **ignoreCase**:  true
 - Output claims:
   - **outputClaim**: true

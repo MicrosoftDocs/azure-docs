@@ -2,16 +2,11 @@
 title: Introduction to Azure security | Microsoft Docs
 description: Introduce yourself to Azure Security, its various services, and how it works by reading this overview.
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-
-ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/22/2023
 ms.author: terrylan
 
@@ -203,6 +198,18 @@ Azure networking supports various secure remote access scenarios. Some of these 
 - [Connect on-premises network to an Azure Virtual Network with a dedicated WAN link](../../expressroute/expressroute-introduction.md)
 
 - [Connect Azure Virtual Networks to each other](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+
+### Azure Virtual Network Manager
+
+[Azure Virtual Network Manager](../../virtual-network-manager/overview.md)  provides a centralized solution for protecting your virtual networks at scale. It uses [security admin rules](../../virtual-network-manager/concept-security-admins.md) to centrally define and enforce security policies for your virtual networks across your entire organization. Security admin rules takes precedence over network security group(NSGs) rules and are applied on the virtual network. This allows organizations to enforce core policies with security admin rules, while still enabling downstream teams to tailor NSGs according to their specific needs at the subnet and NIC levels. Depending on the needs of your organization, you can use **Allow**, **Deny**, or **Always Allow** rule actions to enforce security policies. 
+
+| Rule Action | Description |
+|-------------|-------------|
+| **Allow**       | Allows the specified traffic by default. Downstream NSGs still receive this traffic and may deny it.|
+| **Always Allow** | Always allow the specified traffic, regardless of other rules with lower priority or NSGs. This can be used to ensure that monitoring agent, domain controller, or management traffic is not blocked. |
+| **Deny**          | Block the specified traffic. Downstream NSGs will not evaluate this traffic after being denied by a security admin rule, ensuring your high-risk ports for existing and new virtual networks are protected by default. |
+
+In Azure Virtual Network Manager, [network groups](../../virtual-network-manager/concept-network-groups.md) allow you to group virtual networks together for centralized management and enforcement of security policies. Network groups are a logical grouping of virtual networks based on your needs from a topology and security perspective. You can manually update the virtual network membership of your network groups or you can [define conditional statements with Azure Policy](../../virtual-network-manager/concept-azure-policy-integration.md) to dynamically update network groups to automatically update your network group membership.
 
 ### Azure Private Link
 

@@ -42,12 +42,21 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Luxembourg phone numbers are available
 | Country/Region |
 | :---------- |
-|Luxembourg|
-|United States|
-|United Kingdom|
-|Canada|
-|Japan|
 |Australia|
+|Canada|
+|Denmark|
+|France|
+|Germany|
+|Ireland|
+|Italy|
+|Japan|
+|Luxembourg|
+|Netherlands|
+|Puerto Rico|
+|Spain|
+|Sweden|
+|United Kingdom|
+|United States|
 
 
 ## Find information about other countries/regions

@@ -9,8 +9,8 @@ ms.author: jboback
 recommendations: false
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 11/02/2021
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.date: 12/19/2023
+ms.custom: language-service-question-answering
 ---
 
 # Language support for custom question answering and projects
@@ -128,5 +128,3 @@ While the Azure AI Search capabilities are on par for supported languages, quest
 This additional ranking is an internal working of the custom question answering's ranker.
 
 ## Next steps
-
-

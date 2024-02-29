@@ -33,7 +33,7 @@ Containers package your applications in an easy-to-transport unit. Here are a fe
 
 - **Consistency**: Goods in a shipping container remain safe and unchanged during transport. Similarly, a software container guarantees consistent application behavior among different environments.
 
-- **Flexibility**: Despite the diverse contents of a shipping container, transportation methods remain standardized. Software containers encapsulate different apps and technologies, but maintain are maintained in a standardized fashion.
+- **Flexibility**: Despite the diverse contents of a shipping container, transportation methods remain standardized. Software containers encapsulate different apps and technologies, but are maintained in a standardized fashion.
 
 - **Efficiency**: Just as shipping containers optimize transport by allowing efficient stacking on ships and trucks, software containers optimize the use of computing resources. This optimization allows multiple containers to operate simultaneously on a single server.
 

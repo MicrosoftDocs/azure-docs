@@ -3,7 +3,7 @@ title: Find resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
 ms.date: 11/07/2023
-ms.custom: ignite-2022, devx-track-arm-template
+ms.custom: devx-track-arm-template
 content_well_notification: 
   - AI-contribution
 ---
@@ -63,7 +63,7 @@ The resource providers for compute services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.AppPlatform | [Azure Spring Apps](../../spring-apps/overview.md) |
+| Microsoft.AppPlatform | [Azure Spring Apps](../../spring-apps/enterprise/overview.md) |
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
@@ -73,7 +73,7 @@ The resource providers for compute services are:
 | Microsoft.HanaOnAzure | [SAP HANA on Azure Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Maintenance | [Azure Maintenance](../../virtual-machines/maintenance-configurations.md) |
-| Microsoft.Microservices4Spring | [Azure Spring Apps](../../spring-apps/overview.md) |
+| Microsoft.Microservices4Spring | [Azure Spring Apps](../../spring-apps/enterprise/overview.md) |
 | Microsoft.Quantum | [Azure Quantum](https://azure.microsoft.com/services/quantum/) |
 | Microsoft.SerialConsole - [registered by default](#registration) | [Azure Serial Console for Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
@@ -277,7 +277,7 @@ The resource providers for network services are:
 | Microsoft.Cdn | [Content Delivery Network](../../cdn/index.yml) |
 | Microsoft.ClassicNetwork | Classic deployment model virtual network |
 | Microsoft.ManagedNetwork | Virtual networks managed by PaaS services |
-| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Azure Route Server](../../route-server/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Azure Route Server](../../route-server/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual Network NAT](../../nat-gateway/nat-overview.md)<br /> [Virtual Network Manager](../../virtual-network-manager/overview.md)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
 | Microsoft.Peering | [Azure Peering Service](../../peering-service/index.yml) |
 
 ## Security resource providers
@@ -303,7 +303,7 @@ The resource providers for storage services are:
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.ClassicStorage | Classic deployment model storage |
-| Microsoft.ElasticSan | [Elastic SAN Preview](../../storage/elastic-san/index.yml) |
+| Microsoft.ElasticSan | [Elastic SAN](../../storage/elastic-san/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |

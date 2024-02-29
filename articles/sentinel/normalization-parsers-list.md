@@ -33,9 +33,9 @@ To use ASIM authentication parsers, deploy the parsers from the [Microsoft Senti
     - Collected using the Log Analytics Agent or Azure Monitor Agent.
     - Collected using either the Security Events connectors to the SecurityEvent table or using the WEF connector to the WindowsEvent table.
     - Reported as Security Events (4624, 4625, 4634, and 4647).
-    - reported by Microsoft 365 Defender for Endpoint, collected using the Microsoft 365 Defender connector.
+    - reported by Microsoft Defender XDR for Endpoint, collected using the Microsoft Defender XDR connector.
 - **Linux sign-ins** 
-    - reported by Microsoft 365 Defender for Endpoint, collected using the Microsoft 365 Defender connector.
+    - reported by Microsoft Defender XDR for Endpoint, collected using the Microsoft Defender XDR connector.
     - `su`, `sudu`, and `sshd` activity reported using Syslog.
     - reported by Microsoft Defender to IoT Endpoint.
 - **Microsoft Entra sign-ins**, collected using the Microsoft Entra connector. Separate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
@@ -77,7 +77,7 @@ To use ASIM File Activity parsers, deploy the parsers from the [Microsoft Sentin
     - Reported using **Sysmon file activity events** (Events 11, 23, and 26):
         - Collected using the Log Analytics Agent to the Event table.
         - Collected using the Azure Monitor Agent based WEF (Windows Event Forwarding) connector to the WindowsEvent table.
-    - Reported by **Microsoft 365 Defender for Endpoint**, collected using the Microsoft 365 Defender connector.
+    - Reported by **Microsoft Defender XDR for Endpoint**, collected using the Microsoft Defender XDR connector.
 - **Microsoft Office 365 SharePoint and OneDrive events**, collected using the Office Activity connector.
 - **Azure Storage**, including Blob, File, Queue, and Table Storage.
 
@@ -100,7 +100,7 @@ ASIM Network Session parsers are available in every workspace. Microsoft Sentine
 | **Corelight Zeek** | Collected using the Corelight Zeek connector. | `_im_NetworkSession_CorelightZeekVxx` |
 | **Fortigate FortiOS** | IP connection logs collected using Syslog. | `_Im_NetworkSession_FortinetFortiGateVxx` |
 | **ForcePoint Firewall** | | `_Im_NetworkSession_ForcePointFirewallVxx` |    
-| **Microsoft 365 Defender for Endpoint** | | `_Im_NetworkSession_Microsoft365DefenderVxx`|
+| **Microsoft Defender XDR for Endpoint** | | `_Im_NetworkSession_Microsoft365DefenderVxx`|
 | **Microsoft Defender for IoT micro agent** | | `_Im_NetworkSession_MD4IoTAgentVxx` |
 | **Microsoft Defender for IoT sensor** | | `_Im_NetworkSession_MD4IoTSensorVxx` |
 | **Palo Alto PanOS traffic logs** | Collected using CEF. | `_Im_NetworkSession_PaloAltoCEFVxx` |
@@ -120,7 +120,7 @@ To use ASIM Process Event parsers, deploy the parsers from the [Microsoft Sentin
 - **Security Events process termination (Event 4689)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Sysmon process creation (Event 1)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Sysmon process termination (Event 5)**, collected using the Log Analytics Agent or Azure Monitor Agent
-- **Microsoft 365 Defender for Endpoint process creation**
+- **Microsoft Defender XDR for Endpoint process creation**
 
 ## Registry Event parsers
 
@@ -128,7 +128,7 @@ To use ASIM Registry Event parsers, deploy the parsers from the [Microsoft Senti
 
 - **Security Events registry update (Events 4657 and 4663)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Sysmon registry monitoring events (Events 12, 13, and 14)**, collected using the Log Analytics Agent or Azure Monitor Agent
-- **Microsoft 365 Defender for Endpoint registry events**
+- **Microsoft Defender XDR for Endpoint registry events**
 
 ## Web Session parsers
 

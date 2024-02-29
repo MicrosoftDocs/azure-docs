@@ -2,14 +2,12 @@
 title: "Quickstart: Use Azure OpenAI Service with PowerShell"
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with PowerShell.
-#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 author: mgreenegit
 ms.author: migreene
 ms.date: 08/28/2023
-keywords:
 ---
 
 ## Prerequisites
@@ -44,30 +42,21 @@ Create and assign persistent environment variables for your key and endpoint.
 # [PowerShell](#tab/powershell)
 
 ```powershell-interactive
-$Env:AZURE_OPENAI_KEY = 'YOUR_KEY_VALUE'
-```
-
-```powershell-interactive
+$Env:AZURE_OPENAI_API_KEY = 'YOUR_KEY_VALUE'
 $Env:AZURE_OPENAI_ENDPOINT = 'YOUR_ENDPOINT'
 ```
 
-# [Command Line](#tab/command-line)
+# [Command line](#tab/command-line)
 
-```CMD
-setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
-```
-
-```CMD
+```cmd
+setx AZURE_OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 ```
 
 # [Bash](#tab/bash)
 
-```Bash
-echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
-```
-
-```Bash
+```bash
+echo export AZURE_OPENAI_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
 echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
 
@@ -85,7 +74,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
    ```powershell-interactive
    # Azure OpenAI metadata variables
    $openai = @{
-      api_key     = $Env:AZURE_OPENAI_KEY
+      api_key     = $Env:AZURE_OPENAI_API_KEY
       api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
       api_version = '2023-05-15' # this may change in the future
       name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.

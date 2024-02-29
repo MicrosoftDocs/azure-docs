@@ -40,18 +40,20 @@ items:
   items:
   - name: Release notes
     href: ./release-notes/hdinsight-aks-release-notes.md
+  - name: Archived release notes
+    href: ./release-notes/hdinsight-aks-release-notes-archive.md
 - name: Get started
   items:
   - name: Create a cluster pool and cluster
     href: quickstart-create-cluster.md
   - name: Introduction to cluster storage
     href: cluster-storage.md
-  - name: Export ARM templates
+  - name: Export cluster ARM template
     items:
-    - name: Manual export
-      href: ./create-cluster-using-arm-template.md
-    - name: Script based export
+    - name: Export ARM template using Azure portal
       href: ./create-cluster-using-arm-template-script.md
+    - name: Export ARM template using Azure CLI
+      href: ./create-cluster-using-arm-template.md
   - name: Secure network traffic  
     items:
     - name: Use firewall with Azure CLI
@@ -60,6 +62,14 @@ items:
       href: ./secure-traffic-by-firewall-azure-portal.md
     - name: Use NSG to restrict traffic
       href: ./secure-traffic-by-nsg.md
+  - name: Tutorials
+    items: 
+    - name: Manage HDInsight on AKS clusters - .NET SDK
+      href: ./sdk-cluster-creation.md
+    - name: Manage HDInsight on AKS clusters - PowerShell
+      href: ./powershell-cluster-create.md
+    - name: Manage HDInsight on AKS clusters - REST API
+      href: ./rest-api-cluster-creation.md     
 - name: Manage
   items: 
   - name: Cluster pools

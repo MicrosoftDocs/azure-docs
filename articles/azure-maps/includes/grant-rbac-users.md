@@ -2,8 +2,8 @@
 title: Grant role-based access for users in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: Use role-based access control to grant users authorization to Azure Maps
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: eriklind
 ms.date: 06/21/2021
 ms.topic: include
 ms.service: azure-maps

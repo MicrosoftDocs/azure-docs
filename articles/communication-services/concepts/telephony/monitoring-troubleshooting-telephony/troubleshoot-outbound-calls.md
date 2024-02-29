@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 # Issues that affect outbound direct routing calls
 
-You might experience various issues when you use direct routing to make outbound calls from an app built on Azure Communication Services (ACS) Software Development Kit (SDK) to a Session Border Controller (SBC). These issues include:
+You might experience various issues when you use direct routing to make outbound calls from an app built on Azure Communication Services Software Development Kit (SDK) to a Session Border Controller (SBC). These issues include:
 
 - An incorrect or anonymous caller ID is displayed to the call recipient.
 - A connection to the SBC isn't established.

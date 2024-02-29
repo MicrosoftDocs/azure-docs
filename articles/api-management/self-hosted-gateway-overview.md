@@ -2,7 +2,6 @@
 title: Self-hosted gateway overview | Azure API Management
 description: Learn how self-hosted gateway feature of Azure API Management helps organizations manage APIs in hybrid and multicloud environments.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -100,14 +99,14 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 
 | Description | Required for v1 | Required for v2 | Notes |
 |:------------|:---------------------|:---------------------|:------|
-| Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net` | Custom hostnames are also supported and can be used instead of the default hostname. |
+| Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net`<sup>1</sup> | Custom hostnames are also supported and can be used instead of the default hostname. |
 | Public IP address of the API Management instance | ✔️ | ✔️ | IP address of primary location is sufficient. |
 | Public IP addresses of Azure Storage [service tag](../virtual-network/service-tags-overview.md) | ✔️ | Optional<sup>2</sup> | IP addresses must correspond to primary location of API Management instance. |
 | Hostname of Azure Blob Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<blob-storage-account-name>.blob.core.windows.net`) |
 | Hostname of Azure Table Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<table-storage-account-name>.table.core.windows.net`) |
 | Endpoints for Azure Resource Manager | ✔️ | Optional<sup>3</sup> | Required endpoints are `management.azure.com`. |
 | Endpoints for Microsoft Entra integration | ✔️ | Optional<sup>4</sup> | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
-| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/app/ip-addresses.md#outgoing-ports) |
+| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/ip-addresses.md#outgoing-ports) |
 | Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
 | Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | This requirement depends on the external cache that is being used |
 

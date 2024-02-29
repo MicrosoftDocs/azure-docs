@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 01/05/2023
 ms.author: helohr
-manager: femila
 ms.custom: engagement-fy23
 ---
 # Collect and query connection quality data

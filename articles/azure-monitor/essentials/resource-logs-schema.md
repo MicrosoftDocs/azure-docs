@@ -72,7 +72,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Digital Twins | [Set up Azure Digital Twins diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Azure Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Azure ExpressRoute | [Monitoring Azure ExpressRoute](../../expressroute/monitor-expressroute.md#collection-and-routing) |
-| Azure Firewall | [Logging for Azure Firewall](../../firewall/logs-and-metrics.md#diagnostic-logs) |
+| Azure Firewall | [Logging for Azure Firewall](../../firewall/diagnostic-logs.md) |
 | Azure Front Door | [Logging for Azure Front Door](../../frontdoor/front-door-diagnostics.md) |
 | Azure Functions | [Monitoring Azure Functions Data Reference Resource Logs](../../azure-functions/monitor-functions-reference.md#resource-logs) |
 | Azure IoT Hub | [IoT Hub operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
@@ -85,6 +85,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Machine Learning | [Diagnostic logging in Azure Machine Learning](../../machine-learning/monitor-resource-reference.md) |
 | Azure Media Services | [Media Services monitoring schemas](/azure/media-services/latest/monitoring/monitor-media-services#schemas) |
 | Network security groups |[Log Analytics for network security groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |
+| Azure Operator Insights | [Monitoring Azure Operator Insights data reference](../../operator-insights/monitor-operator-insights-data-reference.md#schemas) |
 | Azure Power BI Embedded | [Logging for Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data model for Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Azure Service Bus |[Azure Service Bus logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |

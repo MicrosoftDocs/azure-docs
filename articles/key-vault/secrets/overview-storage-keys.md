@@ -90,7 +90,7 @@ Permissions for storage accounts aren't available on the storage account "Access
 
 ### Create a Key Vault Managed storage account
 
-Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?#az-keyvault-storage-add) command. Set a regeneration period of 30 days. When it's time to rotate, KeyVault regenerates the key that isn't active, and then sets the newly created key as active. Only one of the keys is used to issue SAS tokens at any one time, this is the active key. Provide the command the following parameter values:
+Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/powershell/module/az.storage/new-azstorageaccount) command. Set a regeneration period of 30 days. When it's time to rotate, KeyVault regenerates the key that isn't active, and then sets the newly created key as active. Only one of the keys is used to issue SAS tokens at any one time, this is the active key. Provide the command the following parameter values:
 
 - `--vault-name`: Pass the name of your key vault. To find the name of your key vault, use the Azure CLI [az keyvault list](/cli/azure/keyvault?#az-keyvault-list) command.
 - `-n`: Pass the name of your storage account. To find the name of your storage account, use the Azure CLI [az storage account list](/cli/azure/storage/account?#az-storage-account-list) command.
@@ -139,7 +139,7 @@ For more information about account SAS, see:
 
 ### Set shared access signature definition in Key Vault
 
-Use the Azure CLI [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?#az-keyvault-storage-sas-definition-create) command, passing the SAS definition template from the previous step to the `--template-uri` parameter, to create a shared access signature definition.  You can provide the name of your choice to the `-n` parameter.
+Use the Azure CLI [az keyvault storage sas-definition create](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition) command, passing the SAS definition template from the previous step to the `--template-uri` parameter, to create a shared access signature definition.  You can provide the name of your choice to the `-n` parameter.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <sasDefinitionTemplate>
@@ -147,9 +147,9 @@ az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --acco
 
 ### Verify the shared access signature definition
 
-You can verify that the shared access signature definition has been stored in your key vault using the Azure CLI [az keyvault storage sas-definition show](/cli/azure/keyvault/storage/sas-definition?#az-keyvault-storage-sas-definition-show) command.
+You can verify that the shared access signature definition has been stored in your key vault using the Azure CLI [az keyvault storage sas-definition show](/azure/key-vault/secrets/overview-storage-keys) command.
 
-You can now use the [az keyvault storage sas-definition show](/cli/azure/keyvault/storage/sas-definition?#az-keyvault-storage-sas-definition-show) command and the `id` property to view the content of that secret.
+You can now use the [az keyvault storage sas-definition show](/azure/key-vault/secrets/overview-storage-keys) command and the `id` property to view the content of that secret.
 
 ```azurecli-interactive
 az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.azure.net/storage/<YourStorageAccountName>/sas/<YourSASDefinitionName>
@@ -159,4 +159,4 @@ az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.az
 
 - Learn more about [keys, secrets, and certificates](/rest/api/keyvault/).
 - Review articles on the [Azure Key Vault team blog](/archive/blogs/kv/).
-- See the [az keyvault storage](/cli/azure/keyvault/storage) reference documentation.
+- See the [az keyvault storage](/azure/key-vault/general/manage-with-cli2) reference documentation.

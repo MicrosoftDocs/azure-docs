@@ -2,24 +2,23 @@
 title: Text to speech API reference (REST) - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use the REST API to convert text into synthesized speech.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: reference
-ms.date: 01/24/2022
+ms.date: 1/21/2024
 ms.author: eur
 ms.custom: references_regions
 ---
 
 # Text to speech REST API
 
-The Speech service allows you to [convert text into synthesized speech](#convert-text-to-speech) and [get a list of supported voices](#get-a-list-of-voices) for a region by using a REST API. In this article, you'll learn about authorization options, query options, how to structure a request, and how to interpret a response.
+The Speech service allows you to [convert text into synthesized speech](#convert-text-to-speech) and [get a list of supported voices](#get-a-list-of-voices) for a region by using a REST API. In this article, you learn about authorization options, query options, how to structure a request, and how to interpret a response.
 
 > [!TIP]
 > Use cases for the text to speech REST API are limited. Use it only in cases where you can't use the [Speech SDK](speech-sdk.md). For example, with the Speech SDK you can [subscribe to events](how-to-speech-synthesis.md#subscribe-to-synthesizer-events) for more insights about the text to speech processing and results.
 
-The text to speech REST API supports neural text to speech voices, which support specific languages and dialects that are identified by locale. Each available endpoint is associated with a region. A Speech resource key for the endpoint or region that you plan to use is required. Here are links to more information:
+The text to speech REST API supports neural text to speech voices in many locales. Each available endpoint is associated with a region. A Speech resource key for the endpoint or region that you plan to use is required. Here are links to more information:
 
 - For a complete list of voices, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 - For information about regional availability, see [Speech service supported regions](regions.md#speech-service).
@@ -195,8 +194,8 @@ The HTTP status code for each response indicates success or common errors.
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. |
 | 400 | Bad request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
-| 401 | Unauthorized | The request is not authorized. Make sure your resource key or token is valid and in the correct region. |
-| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your resource. |
+| 401 | Unauthorized | The request isn't authorized. Make sure your resource key or token is valid and in the correct region. |
+| 429 | Too many requests | You exceeded the quota or rate of requests allowed for your resource. |
 | 502 | Bad gateway    | There's a network or server-side problem. This status might also indicate invalid headers. |
 
 
@@ -254,16 +253,16 @@ The HTTP status code for each response indicates success or common errors:
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. The response body is an audio file. |
 | 400 | Bad request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
-| 401 | Unauthorized | The request is not authorized. Make sure your Speech resource key or token is valid and in the correct region. |
+| 401 | Unauthorized | The request isn't authorized. Make sure your Speech resource key or token is valid and in the correct region. |
 | 415 | Unsupported media type | It's possible that the wrong `Content-Type` value was provided. `Content-Type` should be set to `application/ssml+xml`. |
-| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your resource. |
+| 429 | Too many requests | You exceeded the quota or rate of requests allowed for your resource. |
 | 502 | Bad gateway    | There's a network or server-side problem. This status might also indicate invalid headers. |
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file can be played as it's transferred, saved to a buffer, or saved to a file.
 
 ## Audio outputs
 
-The supported streaming and non-streaming audio formats are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. 
+The supported streaming and nonstreaming audio formats are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. 
 
 #### [Streaming](#tab/streaming)
 
@@ -324,5 +323,5 @@ riff-48khz-16bit-mono-pcm
 ## Next steps
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-- [Get started with custom neural voice](how-to-custom-voice.md)
+- [Get started with custom neural voice](professional-voice-create-project.md)
 - [Batch synthesis](batch-synthesis.md)

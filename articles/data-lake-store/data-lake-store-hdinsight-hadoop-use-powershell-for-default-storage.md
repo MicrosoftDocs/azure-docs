@@ -166,7 +166,7 @@ In this section, you create a service principal for a Microsoft Entra applicatio
     $application = New-AzADApplication `
         -DisplayName "HDIADL" `
         -HomePage "https://contoso.com" `
-        -IdentifierUris "https://mycontoso.com" `
+        -IdentifierUris "https://contoso.com" `
         -CertValue $credential  `
         -StartDate $certificatePFX.NotBefore  `
         -EndDate $certificatePFX.NotAfter

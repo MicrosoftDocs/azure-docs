@@ -13,7 +13,7 @@ sections:
     questions:
       - question: What is Azure NAT Gateway?
         answer: |
-          Azure NAT Gateway is a fully managed, highly resilient outbound connectivity solution for Azure virtual networks. Attach NAT gateway to subnets within a virtual network and to at least one static public IP address to achieve secure and scalable outbound connectivity. 
+          Azure NAT Gateway is a fully managed, highly resilient outbound connectivity solution for Azure virtual networks. To achieve secure and scalable outbound connectivity, attach NAT gateway to subnets within a virtual network and to at least one static public IP address. 
 
       - question: What is the pricing for Azure NAT Gateway?
         answer: |
@@ -44,7 +44,29 @@ sections:
       - question: How do I delete a NAT gateway resource?
         answer: |
           To delete a NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted. See [remove a NAT gateway from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step-by-step guidance.
+
+      - question: Does NAT gateway support IP fragmentation?
+        answer: |
+          No, NAT gateway doesn't support IP fragmentation for TCP or UDP protocols.
                   
+  - name: NAT gateway metrics
+    questions: 
+      - question: What is the difference between SNAT Connection Count and Total SNAT Connection Count metrics for NAT gateway?
+        answer: |
+          The [SNAT Connection Count](nat-metrics.md#snat-connection-count) metric shows the number of new SNAT connections made per second. The [Total SNAT Connection Count](nat-metrics.md#total-snat-connection-count) metric shows the total number of active connections on NAT gateway. 
+
+      - question: How can I see SNAT port usage on NAT gateway?
+        answer: |
+          There's no SNAT port usage metric for NAT gateway. Use the SNAT Connection Count and Total SNAT Connection Count metrics to help you evaluate the SNATing capacity of your NAT gateway.  
+
+      - question: How can I store my NAT gateway metrics long-term?
+        answer: |
+          NAT gateway metrics can be retrieved by using the [metrics REST API](/rest/api/monitor/metrics/list). Alternatively, you can select Share and then Download to Excel from the NAT gateway metrics page in the Azure portal.
+
+      - question: Can NAT gateway metrics be retrieved using diagnostic settings?
+        answer: |
+          No, NAT gateway metrics can't be exported using [diagnostic settings](/azure/azure-monitor/reference/supported-metrics/microsoft-network-natgateways-metrics). NAT gateway metrics are multi-dimensional. Diagnostic settings don't support the export of [multi-dimensional metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#exporting-platform-metrics-to-other-locations).
+      
   - name: Outbound connectivity with NAT gateway
     questions:
       - question: How can I use NAT gateway to connect outbound in a setup where I'm currently using a different service for outbound?
@@ -63,13 +85,9 @@ sections:
         answer: |
           Any active connections associated with a public IP address terminate upon the public IP address being removed. If the NAT gateway resource has multiple public IPs, new traffic is distributed among the assigned IPs.
 
-      - question: What is the difference between SNAT Connection Count and Total SNAT Connection Count metrics for NAT gateway?
+      - question: What does it mean when I see an IP being used to connect outbound that is different from my NAT gateway public IP?
         answer: |
-          The [SNAT Connection Count](nat-metrics.md#snat-connection-count) metric shows the number of new SNAT connections made per second. The [Total SNAT Connection Count](nat-metrics.md#total-snat-connection-count) metric shows the total amount of active connection on NAT gateway. 
-
-      - question: How can I see SNAT port usage on NAT gateway?
-        answer: |
-          There's no SNAT port usage metric for NAT gateway. Use the SNAT Connection Count and Total SNAT Connection Count metrics to help you evaluate the SNATing capacity of your NAT gateway.  
+          There are a few possible reasons for why you could be seeing a different IP being used to connect outbound than the one associated to your NAT gateway. To help troubleshoot, refer to the [NAT Gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#nat-gateway-public-ip-isnt-used-to-connect-outbound).
           
   - name: Traffic routes
     questions:
@@ -97,7 +115,7 @@ sections:
 
       - question: How can I use custom IP prefixes (BYOIP) with NAT gateway?
         answer: |
-          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway. See [Custom IP address prefix (BYOIP)](../virtual-network/ip-services/custom-ip-address-prefix.md) to learn more. 
+          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway. To learn more, see [Custom IP address prefix (BYOIP)](../virtual-network/ip-services/custom-ip-address-prefix.md). 
       
       - question: Can an IPv6 public IP address be used with NAT gateway?
         answer: |
@@ -157,14 +175,14 @@ sections:
 
       - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
         answer: |
-          A zone-redundant public IP address can be attached to a "no zone" NAT gateway only. A NAT gateway designated to a specific zone must be attached to a public IP address from the same zone.      
+          A zone-redundant public IP address can be attached to either a no zone NAT gateway or a NAT gateway assigned to a specific availability zone. For more information, see [NAT Gateway and availability zones](/azure/nat-gateway/nat-availability-zones).
 
   - name: NAT gateway and basic SKU resources
     questions: 
       - question: Are basic SKU resources (Basic Load Balancer and Basic public IP addresses) compatible with NAT gateway?
         answer: |
-          No. NAT gateway is compatible with standard SKU resources. Learn more from [NAT gateway basics](./nat-overview.md#azure-nat-gateway-basics)
-          You can upgrade your basic Load balancer and basic public IP address to standard in order to work with NAT gateway.
+          No. NAT gateway is compatible with standard SKU resources. Learn more from [NAT gateway basics](./nat-overview.md#azure-nat-gateway-basics). 
+          Upgrade your basic Load balancer and basic public IP address to standard in order to work with NAT gateway.
           
           To upgrade a basic Load balancer to standard, see [Upgrade Azure Public Load Balancer](../load-balancer/upgrade-basic-standard.md).
           To upgrade a basic public IP to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md).
@@ -200,6 +218,10 @@ sections:
         answer: | 
            Yes. The addition of a NAT gateway to a subnet with service endpoints doesn't affect the endpoints. [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) enable a more specific route for the destination Azure service traffic they represent. Traffic for the service endpoint traverses the Azure backbone instead of the internet. Private Link is recommended over service endpoints when connecting to Azure PaaS services directly from your Azure network.
 
+      - question: Can I use NAT gateway with my Databricks workspace?
+        answer: |
+          Yes. NAT gateway can be used in one of two ways with Databricks if you enable secure cluster connectivity in your workspace. If you use secure cluster connectivity with the **default VNet** that Azure Databricks creates, Azure Databricks automatically creates a NAT gateway for outbound traffic from your workspace's subnets. The NAT gateway is created within the managed resource group managed by Azure Databricks. You can't modify this resource group or any resources provisioned within it. If you enable secure cluster connectivity on your workspace that uses VNet injection, you can deploy a NAT gateway on both of the workspace's subnets to provide outbound connectivity. You can modify the configuration for customized outbound connectivity requirements in this case. For more information, see [Secure cluster connectivity](/azure/databricks/security/network/classic/secure-cluster-connectivity). 
+          
 additionalContent: |
 
   ## Next steps

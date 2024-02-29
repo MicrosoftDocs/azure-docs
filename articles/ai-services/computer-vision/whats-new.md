@@ -10,15 +10,42 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.topic: whats-new
-ms.date: 12/27/2022
+ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
 # What's new in Azure AI Vision
 
-Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
+Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates. 
+
+## February 2024
+
+#### Multimodal embeddings GA: new multi-language model
+
+The Multimodal embeddings API has been updated and is now generally available. The new `2024-02-01` API includes a new model that supports text search in 102 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors aren't compatible with multi-lingual text and image vectors.
+
+
+See the [language support](/azure/ai-services/computer-vision/language-support#multimodal-embeddings) page for the list of supported languages.
+
+## January 2024
+
+### New Image Analysis SDK 1.0.0-beta.1 (breaking changes)
+
+The Image Analysis SDK was rewritten in version 1.0.0-beta.1 to better align with other Azure SDKs. All APIs have changed. See the updated [quickstarts](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40), [samples](/azure/ai-services/computer-vision/sdk/overview-sdk#github-samples) and [how-to-guides](/azure/ai-services/computer-vision/how-to/call-analyze-image-40) for information on how to use the new SDK.
+
+Major changes:
+- The SDK now calls the generally available [Computer Vision REST API (2023-10-01)](https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2023-10-01), instead of the preview [Computer Vision REST API (2023-04-01-preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/61d65934cd35050c20f73ab6).
+- Support for JavaScript was added.
+- C++ is no longer supported.
+- Image Analysis with a custom model, and Image Segmentation (background removal) are no longer supported in the SDK, because the [Computer Vision REST API (2023-10-01)](https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2023-10-01) does not yet support them. To use either feature, call the [Computer Vision REST API (2023-04-01-preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/61d65934cd35050c20f73ab6) directly (using the `Analyze` and `Segment` operations respectively).
 
 ## November 2023
+
+### Analyze Image 4.0 GA
+
+The Analyze Image 4.0 REST API is now in General Availability. Follow the [Analyze Image 4.0 quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
+
+The other features of Image Analysis, such as model customization, background removal, and multimodal embeddings, remain in public preview. 
 
 ### Face client-side SDK for liveness detection
 
@@ -45,13 +72,13 @@ The Product Recognition APIs let you analyze photos of shelves in a retail store
 
 ### Face limited access tokens
 
-Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated. This allows client companies to use the Face API without having to go through the formal approval process. [Use limited access tokens](how-to/identity-access-token.md).
+Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features that are normally gated. This allows client companies to use the Face API without having to go through the formal approval process. [Use limited access tokens](how-to/identity-access-token.md).
 
 ## March 2023
 
 ### Azure AI Vision Image Analysis 4.0 SDK public preview
 
-The [Florence foundation model](https://www.microsoft.com/en-us/research/project/projectflorence/) is now integrated into Azure AI Vision. The improved Vision Services enable developers to create market-ready, responsible Azure AI Vision applications across various industries. Customers can now seamlessly digitize, analyze, and connect their data to natural language interactions, unlocking powerful insights from their image and video content to support accessibility, drive acquisition through SEO, protect users from harmful content, enhance security, and improve incident response times. For more information, see [Announcing Microsoft's Florence foundation model](https://aka.ms/florencemodel).
+The [Florence foundation model](https://www.microsoft.com/en-us/research/project/projectflorence/) is now integrated into Azure AI Vision. The improved Vision services enable developers to create market-ready, responsible Azure AI Vision applications across various industries. Customers can now seamlessly digitize, analyze, and connect their data to natural language interactions, unlocking powerful insights from their image and video content to support accessibility, drive acquisition through SEO, protect users from harmful content, enhance security, and improve incident response times. For more information, see [Announcing Microsoft's Florence foundation model](https://aka.ms/florencemodel).
 
 ### Image Analysis 4.0 SDK (public preview)
 
@@ -59,19 +86,19 @@ Image Analysis 4.0 is now available through client library SDKs in C#, C++, and 
 
 ### Image Analysis V4.0 Captioning and Dense Captioning (public preview):
 
-"Caption" replaces "Describe" in V4.0 as the significantly improved image captioning feature rich with details and semantic understanding. Dense Captions provides more detail by generating one sentence descriptions of up to 10 regions of the image in addition to describing the whole image. Dense Captions also returns bounding box coordinates of the described image regions. There's also a new gender-neutral parameter to allow customers to choose whether to enable probabilistic gender inference for alt-text and Seeing AI applications. Automatically deliver rich captions, accessible alt-text, SEO optimization, and intelligent photo curation to support digital content. [Image captions](./concept-describe-images-40.md).
+"Caption" replaces "Describe" in V4.0 as the improved image captioning feature rich with details and semantic understanding. Dense Captions provides more detail by generating one-sentence descriptions of up to 10 regions of the image in addition to describing the whole image. Dense Captions also returns bounding box coordinates of the described image regions. There's also a new gender-neutral parameter to allow customers to choose whether to enable probabilistic gender inference for alt-text and Seeing AI applications. Automatically deliver rich captions, accessible alt-text, SEO optimization, and intelligent photo curation to support digital content. [Image captions](./concept-describe-images-40.md).
 
 ### Video summary and frame locator (public preview): 
-Search and interact with video content in the same intuitive way you think and write. Locate relevant content without the need for additional metadata. Available only in [Vision Studio](https://aka.ms/VisionStudio).
+Search and interact with video content in the same intuitive way you think and write. Locate relevant content without the need for extra metadata. Available only in [Vision Studio](https://aka.ms/VisionStudio).
 
 
 ### Image Analysis 4.0 model customization (public preview)
 
 You can now create and train your own [custom image classification and object detection models](./concept-model-customization.md), using Vision Studio or the v4.0 REST APIs.
 
-### Multi-modal embeddings APIs (public preview)
+### Multimodal embeddings APIs (public preview)
 
-The [Multi-modal embeddings APIs](./how-to/image-retrieval.md), part of the Image Analysis 4.0 API, enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a multi-dimensional vector space. You can now search with natural language and find relevant images using vector similarity search.
+The [Multimodal embeddings APIs](./how-to/image-retrieval.md), part of the Image Analysis 4.0 API, enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a multi-dimensional vector space. You can now search with natural language and find relevant images using vector similarity search.
 
 ### Background removal APIs (public preview)
 
@@ -80,7 +107,7 @@ As part of the Image Analysis 4.0 API, the [Background removal API](./concept-ba
 ### Azure AI Vision 3.0 & 3.1 previews deprecation
 
 The preview versions of the Azure AI Vision 3.0 and 3.1 APIs are scheduled to be retired on September 30, 2023. Customers won't be able to make any calls to these APIs past this date. Customers are encouraged to migrate their workloads to the generally available (GA) 3.2 API instead. Mind the following changes when migrating from the preview versions to the 3.2 API:
-- The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls take an optional _model-version_ parameter that you can use to specify which AI model to use. By default, they will use the latest model.
+- The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls take an optional _model-version_ parameter that you can use to specify which AI model to use. By default, they use the latest model.
 - The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls also return a `model-version` field in successful API responses. This field reports which model was used.
 - Azure AI Vision 3.2 API uses a different error-reporting format. See the [API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) to learn how to adjust any error-handling code.
 
@@ -88,7 +115,7 @@ The preview versions of the Azure AI Vision 3.0 and 3.1 APIs are scheduled to be
 
 ### Azure AI Vision Image Analysis 4.0 (public preview)
 
-Image Analysis 4.0 has been released in public preview. The new API includes image captioning, image tagging, object detection, smart crops, people detection, and Read OCR functionality, all available through one Analyze Image operation. The OCR is optimized for general, non-document images in a performance-enhanced synchronous API that makes it easier to embed OCR-powered experiences in your workflows.
+Image Analysis 4.0 has been released in public preview. The new API includes image captioning, image tagging, object detection, smart crops, people detection, and Read OCR functionality, all available through one Analyze Image operation. The OCR is optimized for general non-document images in a performance-enhanced synchronous API that makes it easier to embed OCR-powered experiences in your workflows.
 
 ## September 2022
 

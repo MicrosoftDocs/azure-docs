@@ -3,7 +3,6 @@ title: Move and Azure Workbook template to another region
 description: How to move a workbook template to a different region
 services: azure-monitor
 manager: acearun
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: how-to
 ms.custom: subject-moving-resources

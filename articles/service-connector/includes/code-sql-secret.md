@@ -59,7 +59,7 @@ ms.author: wchi
     }
     ```
 
-### [SpringBoot](#tab/sql-secret-spring)
+### [SpringBoot](#tab/sql-secret-springBoot)
 1. Add dependency in your 'pom.xml' file:
     ```xml
     <dependencyManagement>
@@ -111,9 +111,9 @@ ms.author: wchi
     ```python
     # in your setting file, eg. settings.py
     
-    server = os.getenv('AZURE_SQL_SERVER')
+    server = os.getenv('AZURE_SQL_HOST')
     port = os.getenv('AZURE_SQL_PORT')
-    database = os.getenv('AZURE_SQL_DATABASE')
+    database = os.getenv('AZURE_SQL_NAME')
     user = os.getenv('AZURE_SQL_USER')
     password = os.getenv('AZURE_SQL_PASSWORD')
 
@@ -220,6 +220,9 @@ ms.author: wchi
     host: ENV['AZURE_SQL_HOST'], port: ENV['AZURE_SQL_PORT'],  
     database: ENV['AZURE_SQL_DATABASE'], azure:true
     ```
+
+### [Other](#tab/sql-secret-none)
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
 
 ---
 

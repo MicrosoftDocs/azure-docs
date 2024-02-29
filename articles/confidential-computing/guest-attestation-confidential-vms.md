@@ -1,29 +1,27 @@
 ---
 title: What is guest attestation for confidential VMs?
-description: Learn how you can use guest attestation for assurance that your software inside an Azure confidential virtual machine runs on the expected hardware platform. 
+description: Learn how you can use guest attestation for assurance that your software inside an Azure confidential virtual machine runs on the expected hardware platform.
 author: prasadmsft
 ms.author: reprasa
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 09/29/2022
-ms.custom: template-concept, ignite-2022
+ms.custom: template-concept
 ---
 
 # What is guest attestation for confidential VMs?
 
-[Confidential virtual machines (confidential VMs)](confidential-vm-overview.md) are an offering within Azure Confidential Computing. You can use this offering when you have stringent security and confidentiality requirements for your VMs. 
-
-The *guest attestation* feature helps you to confirm that a confidential VM runs on a hardware-based trusted execution environment (TEE) with security features enabled for isolation and integrity.
-
-Guest attestation gives you and the relying party increased confidence that the workloads are running on a hardware-based TEE.
+Guest attestation helps you confirm that your [confidential VM](confidential-vm-overview.md) environment is secured by a genuine hardware-backed Trusted Execution Environment (TEE) with security features enabled for isolation and integrity. 
 
 You can use guest attestation to:
 
-- Make sure that the confidential VM runs on the expected confidential hardware platform (AMD SEV-SNP)
-- Check that a confidential VM has secure boot enabled. This setting protects lower layers of the VM (firmware, boot loader, kernel) from malware (rootkits, bootkits).
+- Make sure that the confidential VM runs on the expected hardware platform
+- Check the confidential VM has secure boot enabled. This setting protects lower layers of the VM (firmware, boot loader, kernel) from malware (rootkits, bootkits).
 - Get evidence for a relying party that the confidential VM runs on confidential hardware
 
+> [!NOTE]
+> To perform guest attestation for DCesv5 and ECesv5 VMs backed by Intel TDX, a how-to guide is [available here](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/tdx-preview/tdx-attestation-app/ATTEST.md#performing-remote-attestation). Using Intel Trust Authority requires registration with Intel.
 
 ## Scenarios
 

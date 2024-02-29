@@ -2,14 +2,14 @@
 title: Text to speech avatar overview - Speech service
 titleSuffix: Azure AI services
 description: Get an overview of the Text to speech avatar feature of speech service, which allows users to create synthetic videos featuring avatars speaking based on text input. 
-author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 11/15/2023
-ms.author: v-baolianzou
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ms.custom: references_regions
-keywords: text to speech avatar
 ---
 
 # Text to speech avatar overview (preview)
@@ -56,19 +56,19 @@ Both batch synthesis and real-time synthesis resolution are 1920 x 1080, and the
 
 You can create custom text to speech avatars that are unique to your product or brand. All it takes to get started is taking 10 minutes of video recordings. If you're also creating a custom neural voice for the actor, the avatar can be highly realistic. For more information, see [What is custom text to speech avatar](./what-is-custom-text-to-speech-avatar.md).
 
-[Custom neural voice](../custom-neural-voice.md) and [custom text to speech avatar](what-is-custom-text-to-speech-avatar.md) are separate features. You can use them independently or together. If you plan to also use [custom neural voice](../custom-neural-voice.md) with a text to speech avatar, you need to deploy or [copy](../how-to-custom-voice-create-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](#available-locations). 
+[Custom neural voice](../custom-neural-voice.md) and [custom text to speech avatar](what-is-custom-text-to-speech-avatar.md) are separate features. You can use them independently or together. If you plan to also use [custom neural voice](../custom-neural-voice.md) with a text to speech avatar, you need to deploy or [copy](../professional-voice-train-voice.md#copy-your-voice-model-to-another-project) your custom neural voice model to one of the [avatar supported regions](#available-locations). 
 
 ## Sample code
 
-Sample code for text to speech avatar is available on GitHub. These samples cover the most popular scenarios:
+Sample code for text to speech avatar is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples). These samples cover the most popular scenarios:
 
-* [Batch synthesis (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples)
-* [Real-time synthesis (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser)
-* [Live chat with Azure Open AI in behind (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser)
+* [Batch synthesis (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch-avatar)
+* [Real-time synthesis (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar)
+* [Live chat with Azure OpenAI in behind (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample)
 
 ## Pricing
 
-When you use the text to speech avatar feature, you'll be billed by the minutes of video output, and the text to speech, speech to text, Azure Open AI, or other Azure services are charged separately.
+When you use the text to speech avatar feature, you'll be billed by the minutes of video output, and the text to speech, speech to text, Azure OpenAI, or other Azure services are charged separately.
 
 For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 

@@ -6,11 +6,12 @@ ms.topic: quickstart
 ms.custom: devx-track-terraform
 author: mbender-ms
 ms.author: mbender
-ms.date: 6/7/2023
+ms.date: 06/07/2023
 content_well_notification: 
   - AI-contribution
 zone_pivot_groups: azure-virtual-network-manager-quickstart-options
 
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Terraform

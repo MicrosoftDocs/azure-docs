@@ -25,7 +25,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Prevent joining locked meeting                                                                                      | ✔️        |
 |                   | Honor assigned Teams meeting role                                                                                   |   ✔️      |
 | Chat              | Send and receive chat messages                                                                                      | ✔️ |
-|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️** |
+|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️ |
 |                   | Send inline images                                                                                                        | ❌ |
 |                   | [Receive file attachments](../../../tutorials/chat-interop/meeting-interop-features-file-attachment.md)                                                                                                           | ✔️** |
 |                   | Send file attachments                                                                                                        | ❌ |
@@ -104,26 +104,28 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Add and remove video stream from spotlight                                                                          | ✔️ |
 |                   | Allow video stream to be selected for spotlight                                                                     | ✔️ |
 |                   | Apply Teams background effects                                                                                      | ❌ |
-| Recording & transcription | Manage Teams convenient recording                                                                           | ❌ |
-|                   | Receive information of call being recorded                                                                          |   ✔️      |
+| Recording & transcription | Manage Teams cloud recording                                                                                | ❌ |
+|                   | Receive information of call being cloud recorded                                                                    | ✔️ |
+|                   | Manage Teams local recording                                                                                        | ❌ |
+|                   | Receive information of call being locally recorded                                                                  | ✔️ |
 |                   | Manage Teams transcription                                                                                          | ❌ |
 |                   | Receive information of call being transcribed                                                                       |   ✔️      |
-|                   | Manage Teams closed captions                                                                                        | ❌ |
+|                   | Manage Teams closed captions                                                                                        | ✔️ |
 |                   | Support for compliance recording                                                                                    |   ✔️      |
 |                   | [Azure Communication Services recording](../../voice-video-calling/call-recording.md)                               |   ❌      |
 | Engagement        | Raise and lower hand                                                                                                | ✔️ |
 |                   | Indicate other participants' raised and lowered hands                                                               | ✔️ |
-|                   | Trigger reactions                                                                                                   | ❌ |
-|                   | Indicate other participants' reactions                                                                              | ❌ |
+|                   | Trigger reactions                                                                                                   | ✔️ |
+|                   | Indicate other participants' reactions                                                                              | ✔️ |
 | Integrations      | Control Teams third-party applications                                                                              | ❌ |
-|                   | Receive PowerPoint Live stream                                                                                      | ❌ |
+|                   | Receive PowerPoint Live stream                                                                                      | ✔️ |
 |                   | Receive Whiteboard stream                                                                                           | ❌ |
 |                   | Interact with a poll                                                                                                | ❌ |
 |                   | Interact with a Q&A                                                                                                 | ❌ |
 |                   | Interact with a OneNote                                                                                             | ❌ |
 |                   | Manage SpeakerCoach                                                                                                 | ❌ |
 | | [Include participant in Teams meeting attendance report](https://support.microsoft.com/office/view-and-download-meeting-attendance-reports-in-teams-ae7cf170-530c-47d3-84c1-3aedac74d310) | ✔️ |
-| Accessibility     | Receive closed captions                                                                                             | ❌ |
+| Accessibility     | Receive Teams closed captions                                                                                             | ✔️ |
 |                   | Communication access real-time translation (CART)                                                                   | ❌ |
 |                   | Language interpretation                                                                                             | ❌ |
 | Advanced call routing   | Does meeting dial-out honor forwarding rules                                                                   |   ✔️      |
@@ -172,7 +174,7 @@ When Teams external users leave the meeting, or the meeting ends, they can no lo
 
 *Azure Communication Services provides developers tools to integrate Microsoft Teams Data Loss Prevention that is compatible with Microsoft Teams. For more information, go to [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md)
 
-**Inline image and file attachment support are currently in public preview and are available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+**File attachment support is currently in public preview and is available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Server capabilities
 

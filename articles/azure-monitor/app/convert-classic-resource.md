@@ -24,7 +24,9 @@ Workspace-based resources:
 
 > [!IMPORTANT]
 > * On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.
-> * When you [migrate to a workspace-based Application Insights resource](convert-classic-resource.md), you must use [diagnostic settings](export-telemetry.md#diagnostic-settings-based-export) for exporting telemetry. All [workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
+> 
+> * [Workspace-based Application Insights resources](./create-workspace-resource.md) are not compatible with continuous export. We recommend migrating to  [diagnostic settings](../essentials/diagnostic-settings.md) on classic Application Insights resources before transitioning to a workspace-based Application Insights. This ensures continuity and compatibility of your diagnostic settings.
+>
 > * Diagnostic settings export might increase costs. For more information, see [Diagnostic settings-based export](export-telemetry.md#diagnostic-settings-based-export).
 
 ## New capabilities
@@ -52,6 +54,9 @@ Your classic resource data persists and is subject to the retention settings on 
 *The migration process is permanent and can't be reversed.* After you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. After you migrate, you can change the target workspace as often as needed.
 
 If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource, see the [Workspace-based resource creation guide](create-workspace-resource.md).
+
+> [!NOTE]
+> The migration process shouldn't introduce any application downtime or restarts nor change your existing instrumentation key or connection string.
 
 ## Prerequisites
 
@@ -121,17 +126,24 @@ When you query directly from the Log Analytics workspace, you only see data that
 > [!NOTE]
 > If you rename your Application Insights resource after you migrate to the workspace-based model, the Application Insights **Logs** tab no longer shows the telemetry collected before renaming. You can see all old and new data on the **Logs** tab of the associated Log Analytics resource.
 
-
 ## Identifying the Application Insights resources by ingestion type
 
 Use the following script to identify your Application Insights resources by ingestion type.
 
 #### Example
 
-```azurecli
-
-Get-AzApplicationInsights -SubscriptionId '7faeaa41-541f-48da-82b4-3dc10c594b85' | Format-Table -Property Name, IngestionMode, WorkspaceResourceId, @{label='Type';expression={if ($_.ingestionMode -eq 'LogAnalytics') {'Workspace-based'} elseif ($_.IngestionMode -eq 'ApplicatonInsights') {'Classic'}}}
-
+```powershell
+Get-AzApplicationInsights -SubscriptionId 'Your Subscription ID' | Format-Table -Property Name, IngestionMode, Id, @{label='Type';expression={
+    if ([string]::IsNullOrEmpty($_.IngestionMode)) {
+        'Unknown'
+    } elseif ($_.IngestionMode -eq 'LogAnalytics') {
+        'Workspace-based'
+    } elseif ($_.IngestionMode -eq 'ApplicationInsights' -or $_.IngestionMode -eq 'ApplicationInsightsWithDiagnosticSettings') {
+        'Classic'
+    } else {
+        'Unknown'
+    }
+}}
 ```
 
 ## Programmatic resource migration
@@ -273,12 +285,19 @@ From within the Application Insights resource pane, select **Properties** > **Ch
 
 This section provides answers to common questions.
 
+### What will happen if I don't migrate my Application Insights classic resource to a workspace-based resource?
+
+Microsoft will begin an automatic phased approach to migrating classic resources to workspace-based resources beginning in May 2024 and this migration will span the course of several months. We can't provide approximate dates that specific resources, subscriptions, or regions will be migrated.
+
+We strongly encourage manual migration to workspace-based resources, which is initiated by selecting the deprecation notice banner in the classic Application Insights resource Overview pane of the Azure portal. This process typically involves a single step of choosing which Log Analytics workspace will be used to store your application data. If you use continuous export, you'll need to additionally migrate to diagnostic settings or disable the feature first.
+
+If you don't wish to have your classic resource automatically migrated to a workspace-based resource, you may delete or manually migrate the resource.
+
 ### Is there any implication on the cost from migration?
 
-There's usually no difference, with a couple of exceptions:
+There's usually no difference, with one exeception - Application Insights resources that were receiving 1 GB per month free via legacy Application Insights pricing model will no longer receive the free data.
 
- - Migrated Application Insights resources can use [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers) to reduce cost if the data volumes in the workspace are high enough.
- - Grandfathered Application Insights resources no longer get 1 GB per month free from the original Application Insights pricing model.
+The migration to workspace-based Application Insights offers a number of options to further [optimize cost](../logs/cost-logs.md), including [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers), [dedicated clusters](../logs/cost-logs.md#dedicated-clusters), and [basic logs](../logs/cost-logs.md#basic-logs).  
 
 ### How will telemetry capping work?
 
@@ -312,9 +331,22 @@ No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor-and-
 
 ### What happens with continuous export after migration?
 
-Continuous export doesn't support workspace-based resources.
+To continue with automated exports, you'll need to migrate to [diagnostic settings](/previous-versions/azure/azure-monitor/app/continuous-export-diagnostic-setting) before migrating to workspace-based resource.  The diagnostic setting carries over in the migration to workspace-based Application Insights.
 
-Switch to [diagnostic settings](../essentials/diagnostic-settings.md#diagnostic-settings-in-azure-monitor).
+### How do I ensure a successful migration of my App Insights resource using Terraform?
+
+If you're using Terraform to manage your Azure resources, it's important to use the latest version of the Terraform azurerm provider before attempting to upgrade your App Insights resource. Using an older version of the provider, such as version 3.12, may result in the deletion of the classic component before creating the replacement workspace-based Application Insights resource. It can cause the loss of previous data and require updating the configurations in your monitored apps with new connection string and instrumentation key values.
+
+To avoid this issue, make sure to use the latest version of the Terraform [azurerm provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest), version 3.89 or higher, which performs the proper migration steps by issuing the appropriate ARM call to upgrade the App Insights classic resource to a workspace-based resource while preserving all the old data and connection string/instrumentation key values.
+
+### Can I still use the old API to create Application Insights resources programmatically?
+
+For backwards compatibility, calls to the old API for creating Application Insights resources will continue to work. Each of these calls will eventually create both a workspace-based Application Insights resource and a Log Analytics workspace to store the data.
+
+We strongly encourage updating to the [new API](resource-manager-app-resource.md) for better control over resource creation.
+
+### Should I migrate diagnostic settings on classic Application Insights before moving to a workspace-based AI?
+Yes, we recommend migrating diagnostic settings on classic Application Insights resources before transitioning to a workspace-based Application Insights. It ensures continuity and compatibility of your diagnostic settings.
 
 ## Troubleshooting
 
@@ -322,7 +354,7 @@ This section offers troubleshooting tips for common issues.
 
 ### Access mode
 
-**Error message:** "The selected workspace is configured with workspace-based access mode. Some APM features may be impacted. Select another workspace or allow resource-based access in the workspace settings. You can override this error by using CLI."
+**Error message:** "The selected workspace is configured with workspace-based access mode. Some Application Performance Monitoring (APM) features may be impacted. Select another workspace or allow resource-based access in the workspace settings. You can override this error by using CLI."
 
 For your workspace-based Application Insights resource to operate properly, you need to change the access control mode of your target Log Analytics workspace to the **Resource or workspace permissions** setting. This setting is located in the Log Analytics workspace UI under **Properties** > **Access control mode**. For instructions, see the [Log Analytics configure access control mode guidance](../logs/manage-access.md#access-control-mode). If your access control mode is set to the exclusive **Require workspace permissions** setting, migration via the portal migration experience remains blocked.
 
@@ -332,8 +364,9 @@ If you can't change the access control mode for security reasons for your curren
 
 **Error message:** "Continuous Export needs to be disabled before continuing. After migration, use Diagnostic Settings for export."
 
-The legacy **Continuous export** functionality isn't supported for workspace-based resources. Prior to migrating, you need to disable continuous export.
+The legacy **Continuous export** functionality isn't supported for workspace-based resources. Before migrating, you need to enable diagnostic settings and disable continuous export.
 
+1. [Enable Diagnostic Settings](/previous-versions/azure/azure-monitor/app/continuous-export-diagnostic-setting) on your classic Application Insights resource.
 1. From your Application Insights resource view, under the **Configure** heading, select **Continuous export**.
 
     :::image type="content" source="./media/convert-classic-resource/continuous-export.png" lightbox="./media/convert-classic-resource/continuous-export.png" alt-text="Screenshot that shows the Continuous export menu item.":::
@@ -383,7 +416,7 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 | traces | AppTraces | Detailed logs (traces) emitted through application code/logging frameworks recorded via `TrackTrace()`. |
 
 > [!CAUTION]
-> Don't take a production dependency on the Log Analytics tables until you see new telemetry records show up directly in Log Analytics. It might take up to 24 hours after the migration process started for records to appear.
+> Wait for new telemetry in Log Analytics before relying on it. After starting the migration, telemetry first goes to Classic Application Insights. Telemetry ingestion is switched to Log Analytics within 24 hours. Once done, Log Analytics solely captures new telemetry.
 
 ### Table schemas
 
@@ -822,3 +855,4 @@ Legacy table: traces
 
 * [Explore metrics](../essentials/metrics-charts.md)
 * [Write Log Analytics queries](../logs/log-query-overview.md)
+

@@ -4,7 +4,8 @@ description: Overview of options and scenarios to authenticate to an Azure conta
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.service: container-registry
+ms.date: 10/31/2023
 ---
 
 # Scenarios to authenticate with Azure Container Registry from Kubernetes

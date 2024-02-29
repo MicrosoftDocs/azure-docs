@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022, ignite-2022
+ms.custom: cliv2
 
-author: Abeomor
-ms.author: osomorog
-ms.date: 05/04/2022
+author: fkriti
+ms.author: kritifaujdar
+ms.date: 01/16/2024
 ms.reviewer: larryfr
 ---
 

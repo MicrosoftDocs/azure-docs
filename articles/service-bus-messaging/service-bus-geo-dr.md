@@ -32,7 +32,7 @@ The Geo-Disaster recovery feature ensures that the entire configuration of a nam
     - Enable auto scale
     - Disable local authentication
 - Pairing a [partitioned namespace](enable-partitions-premium.md) with a non-partitioned namespace isn't supported.
--  if `AutoDeleteOnIdle` is turned on an entity, the entity might not be present in the secondary namespace when the failover occurs.
+- If `AutoDeleteOnIdle` is turned on an entity, the entity might not be present in the secondary namespace when the failover occurs. When the secondary becomes primary the last access status, which is not part of the metadata, won't be available to the new primary and entity may be deleted as part of `AutoDeleteOnIdle` clean up.
  
 > [!TIP]
 > For replicating the contents of queues and topic subscriptions and operating corresponding namespaces in active/active configurations to cope with outages and disasters, don't lean on this Geo-disaster recovery feature set, but follow the [replication guidance](service-bus-federation-overview.md).  
@@ -175,8 +175,7 @@ When you use availability zones, both metadata and data (messages) are replicate
 > [!NOTE]
 > The Availability Zones support for Azure Service Bus Premium is only available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
 
-When you create a premium tier namespace, the support for availability zones (if available in the selected region) is automatically enabled for the namespace. There's no extra cost for using this feature and you can't disable or enable this feature. 
-
+When you create a premium tier namespace through the portal, the support for availability zones (if available in the selected region) is automatically enabled for the namespace. When creating a premium tier namespace through other mechanisms, such as [ARM / Bicep templates](/azure/templates/microsoft.servicebus/namespaces#sbnamespaceproperties), [CLI](/cli/azure/servicebus/namespace?#az-servicebus-namespace-create-optional-parameters), or [PowerShell](/powershell/module/az.servicebus/new-azservicebusnamespace#-zoneredundant), the property `zoneRedundant` needs to be explicitly set to `true` to enable availability zones (if available in the selected region). There's no additional cost for using this feature and you can't disable or enable this feature after namespace creation.
 
 ## Private endpoints
 This section provides more considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Service Bus in general, see [Integrate Azure Service Bus with Azure Private Link](private-link-service.md).

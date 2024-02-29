@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy using Terraform'
 description: 'In this article, you create an Azure AI Search service using Terraform.'
 ms.topic: quickstart
-ms.date: 4/14/2023
+ms.date: 02/16/2024
 ms.custom:
   - devx-track-terraform
   - ignite-2023
@@ -11,6 +11,7 @@ ms.author: tarcher
 ms.service: cognitive-search
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Deploy Azure AI Search service using Terraform
@@ -34,8 +35,6 @@ In this article, you learn how to:
 ## Implement the Terraform code
 
 > [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/main/quickstart/101-azure-cognitive-search). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/blob/main/quickstart/101-azure-cognitive-search/TestRecord.md).
-> 
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.

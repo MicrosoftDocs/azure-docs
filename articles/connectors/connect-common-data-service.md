@@ -1,51 +1,50 @@
 ---
-title: Connect to Microsoft Dataverse, previously Common Data Service
-description: Create and manage rows from Microsoft Dataverse, previously Common Data Service, in workflows using Azure Logic Apps.
+title: Connect to Microsoft Dataverse from your workflow
+description: Create and manage rows in Microsoft Dataverse from your workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 12/14/2023
 ms.custom: engagement-fy23
-tags: connectors
 ---
 
-# Connect to Microsoft Dataverse (previously Common Data Service) from workflows in Azure Logic Apps
+# Connect to Microsoft Dataverse from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > [!IMPORTANT]
 >
 > On August 30, 2022, the connector operations for Common Data Service 2.0, also known as Microsoft Dataverse 
-> (Legacy), migrate to the current Microsoft Dataverse connector. Legacy operations bear the "legacy" label, 
+> (Legacy), migrated to the current Microsoft Dataverse connector. Legacy operations bear the "legacy" label, 
 > while current operations bear the "preview" label. You can use the current Dataverse connector in any 
 > existing or new logic app workflows. For backward compatibility, existing workflows continue to work 
 > with the legacy Dataverse connector. However, make sure to review these workflows, and update them promptly.
 >
-> Starting October 2023, the legacy version becomes unavailable for new workflows. Existing workflows continue 
-> to work, but you *must* use the current Dataverse connector for new workflows. At that time, a timeline for the shutdown date for the legacy actions and triggers will be announced.
->
-> Since November 2020, the Common Data Service connector was renamed Microsoft Dataverse (Legacy).
+> Since October 2023, the legacy version became unavailable for new workflows. Existing workflows continue 
+> to work, but you *must* use the current Dataverse connector operations for new workflows. A timeline for
+> the shutdown date for the legacy actions and triggers will be announced. For more information, see 
+> [Microsoft Dataverse (legacy) connector for Azure Logic Apps will be deprecated and replaced with another connector](/power-platform/important-changes-coming#microsoft-dataverse-legacy-connector-for-azure-logic-apps-will-be-deprecated-and-replaced-with-another-connector).
 
-You can create and run automated workflows that manage rows in your [Microsoft Dataverse database, formerly Common Data Service database](/powerapps/maker/common-data-service/data-platform-intro) by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft Dataverse connector](/connectors/commondataserviceforapps/). These workflows can create rows, update rows, and perform other operations. You can also get information from your Dataverse database and make the output available for other actions to use in your workflows. For example, when a row is added, updated, or deleted in your Dataverse database, you can send an email by using the Office 365 Outlook connector.
+To create and run automated workflows that create and manage rows in your [Microsoft Dataverse database](/powerapps/maker/common-data-service/data-platform-intro), you can use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft Dataverse connector](/connectors/commondataserviceforapps/). These workflows can create rows, update rows, and perform other operations. You can also get information from your Dataverse database and make the output available for other actions to use in your workflows. For example, when a row is added, updated, or deleted in your Dataverse database, you can send an email by using the Office 365 Outlook connector.
 
-This article shows how you can create a logic app workflow that creates a task row whenever a new lead row is created.
+This guide shows how to create a workflow that creates a task row whenever a new lead row is created.
 
 ## Connector reference
 
-For technical information based on the connector's Swagger description, such as operations, limits, and other details, review the [managed connector reference page](/connectors/commondataserviceforapps/).
+For technical information based on the connector's Swagger description, such as operations, limits, and other details, see the [managed connector reference page](/connectors/commondataserviceforapps/).
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A [Dataverse Data Service environment and database](/power-platform/admin/environments-overview), which is a space where your organization stores, manages, and shares business data in a Dataverse database. For more information, review the following resources:
+* A [Dataverse Data Service environment and database](/power-platform/admin/environments-overview), which is a space where your organization stores, manages, and shares business data in a Dataverse database. For more information, see the following resources:
 
   * [Learn: Create and manage Dataverse environments](/training/modules/create-manage-environments/)
 
   * [Power Platform - Environments overview](/power-platform/admin/environments-overview)
 
-* Basic knowledge about how to create either Consumption or Standard logic app workflows and the logic app from where you want to access the rows in your Dataverse database. To start your logic app with a Common Data Service trigger, you need a blank workflow. For more information, review the following resources:
+* Basic knowledge about how to create either Consumption or Standard logic app workflows and the logic app from where you want to access the rows in your Dataverse database. To use a Dataverse trigger, you need to start with a blank workflow. For more information, see the following resources:
 
   * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
 
@@ -58,40 +57,41 @@ For technical information based on the connector's Swagger description, such as 
 This example uses the Dataverse trigger that starts your workflow when a row is added, updated, or deleted.
 
 > [!NOTE]
+>
 > The Dataverse connector has operation-specific parameters and database-specific parameters. For example, 
 > when you select a table, the parameters available for that table vary and differ from other tables.
 
-### [Consumption](#tab/consumption)
+### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and blank workflow in the designer.
 
-1. On the designer, under the search box, select **All**. In the search box, enter **dataverse**.
+1. On the designer, [follow these general steps to add the **Microsoft Dataverse** trigger named **When a row is added, modified or deleted**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-1. From the triggers list, select the trigger named **When a row is added, modified or deleted**.
+1. If prompted, sign in to your Dataverse environment or database.
 
-   ![Screenshot showing designer for Consumption workflow with the trigger named "When a row is added, modified or deleted" selected.](./media/connect-common-data-service/dataverse-trigger-select-consumption.png)
+1. In the trigger information box, provide the necessary values.
 
-1. If necessary, sign in to your Dataverse environment or database. In the trigger information box, provide the necessary values. For the example trigger, review [When a row is added, modified or deleted](/connectors/commondataserviceforapps/#when-a-row-is-added,-modified-or-deleted).
+   For the example trigger, see [When a row is added, modified or deleted](/connectors/commondataserviceforapps/#when-a-row-is-added,-modified-or-deleted).
 
-   ![Screenshot showing Consumption workflow designer and example trigger.](./media/connect-common-data-service/dataverse-trigger-example-consumption.png)
+   ![Screenshot shows Standard workflow designer and example trigger.](./media/connect-common-data-service/dataverse-trigger-example-standard.png)
 
 1. When you're done, save your logic app workflow. On the designer toolbar, select **Save**.
 
 1. Now add at least one action for your workflow to perform when the trigger fires. For example, you can add a Dataverse action or an action that sends email based on the outputs from the trigger.
 
-### [Standard](#tab/standard)
+### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource and blank workflow in the designer.
 
-1. On the designer, select **Choose an operation**. In the **Add a trigger** pane that opens, under the search box, select **Azure**.
+1. On the designer, [follow these general steps to add the **Microsoft Dataverse** trigger named **When a row is added, modified or deleted**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-1. In the search box, enter **dataverse**. From the triggers list, select the trigger named **When a row is added, modified or deleted**.
+1. If prompted, sign in to your Dataverse environment or database.
 
-   ![Screenshot showing designer for Standard workflow with the trigger named "When a row is added, modified or deleted" selected.](./media/connect-common-data-service/dataverse-trigger-select-standard.png)
+1. In the trigger information box, provide the necessary values.
 
-1. If necessary, sign in to your Dataverse environment or database. In the trigger information box, provide the necessary values. For the example trigger, review [When a row is added, modified or deleted](/connectors/commondataserviceforapps/#when-a-row-is-added,-modified-or-deleted).
+   For the example trigger, see [When a row is added, modified or deleted](/connectors/commondataserviceforapps/#when-a-row-is-added,-modified-or-deleted).
 
-   ![Screenshot showing Standard workflow designer and example trigger.](./media/connect-common-data-service/dataverse-trigger-example-standard.png)
+   ![Screenshot shows Consumption workflow designer and example trigger.](./media/connect-common-data-service/dataverse-trigger-example-consumption.png)
 
 1. When you're done, save your logic app workflow. On the designer toolbar, select **Save**.
 
@@ -106,42 +106,41 @@ This example uses the Dataverse trigger that starts your workflow when a row is 
 This example uses the Dataverse action that adds a new row to your database.
 
 > [!NOTE]
+>
 > The Dataverse connector has operation-specific parameters and database-specific parameters. For example, 
 > when you select a table, the parameters available for that table vary and differ from other tables.
 
-### [Consumption](#tab/consumption)
+### [Standard](#tab/standard)
 
-1. Under the **When a row is added, modified or deleted** trigger, select **New step**.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
-1. On the designer, under the search box, select **All**. In the search box, enter **dataverse**.
+1. On the designer, [follow these general steps to add the **Microsoft Dataverse** action named **Add a new row**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. From the actions list, select the action named **Add a new row**.
+1. If prompted, sign in to your Dataverse environment or database.
 
-   ![Screenshot showing designer for Consumption workflow with the action named "Add a new row " selected.](./media/connect-common-data-service/dataverse-action-select-consumption.png)
+1. In the action information box, provide the necessary values.
 
-1. If necessary, sign in to your Dataverse environment or database. In the action information box, provide the necessary values. For the example action, review [Add a new row](/connectors/commondataserviceforapps/#add-a-new-row).
+   For the example action, see [Add a new row](/connectors/commondataserviceforapps/#add-a-new-row).
 
-   ![Screenshot showing Consumption workflow designer and example action.](./media/connect-common-data-service/dataverse-action-example-consumption.png)
+   ![Screenshot shows Standard workflow designer and example action.](./media/connect-common-data-service/dataverse-action-example-standard.png)
 
 1. When you're done, save your logic app workflow. On the designer toolbar, select **Save**.
 
 1. Continue adding more actions, if you want.
 
-### [Standard](#tab/standard)
+### [Consumption](#tab/consumption)
 
-1. On the designer, under the previously added trigger or action, select **Add an action**, which is represented by a plus sign (**+**).
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource and workflow in the designer.
 
-   The plus sign changes to the **Choose an operation** prompt, and the **Add an action** pane opens.
+1. On the designer, [follow these general steps to add the **Microsoft Dataverse** action named **Add a new row**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. In the **Add an action** pane, under the search box, select **Azure**. In the search box, enter **dataverse**.
+1. If prompted, sign in to your Dataverse environment or database.
 
-1. From the actions list, select the action named **Add a new row**.
+1. In the action information box, provide the necessary values.
 
-   ![Screenshot showing designer for Standard workflow with the action named "Add a new row " selected.](./media/connect-common-data-service/dataverse-action-select-standard.png)
+   For the example action, see [Add a new row](/connectors/commondataserviceforapps/#add-a-new-row).
 
-1. If necessary, sign in to your Dataverse environment or database. In the action information box, provide the necessary values. For the example action, review [Add a new row](/connectors/commondataserviceforapps/#add-a-new-row).
-
-   ![Screenshot showing Standard workflow designer and example action.](./media/connect-common-data-service/dataverse-action-example-standard.png)
+   ![Screenshot shows Consumption workflow designer and example action.](./media/connect-common-data-service/dataverse-action-example-consumption.png)
 
 1. When you're done, save your logic app workflow. On the designer toolbar, select **Save**.
 
@@ -153,71 +152,83 @@ This example uses the Dataverse action that adds a new row to your database.
 
 To test and trigger the workflow, follow these steps:
 
+### [Standard](#tab/standard)
+
+1. On the workflow menu, select **Overview**.
+
+1. On the **Overview** toolbar, select **Run** > **Run**.
+
+1. Reproduce the conditions that the trigger requires for your workflow to run.
+
+### [Consumption](#tab/consumption)
+
 1. On the designer toolbar, select **Run Trigger** > **Run**.
 
 1. Reproduce the conditions that the trigger requires for your workflow to run.
 
+---
+
 ## Return rows based on a filter
 
-For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows based on the specified filter. For example, you can set up the action to return only rows for active accounts. For more information about the example action, review [List rows](/connectors/commondataserviceforapps/#list-rows).
+For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows based on the specified filter. For example, you can set up the action to return only rows for active accounts. For more information about the example action, see [List rows](/connectors/commondataserviceforapps/#list-rows).
+
+### [Standard](#tab/standard)
+
+1. On the designer, in the action, open the **Advanced parameters** list, and select the **Filter rows** property.
+
+   ![Screenshot shows Standard workflow and property named Filter rows.](./media/connect-common-data-service/dataverse-action-filter-rows-standard.png)
+
+1. In the **Filter rows** property that now appears in the action, enter an ODATA query expression, for example:
+
+   `statuscode eq 1`
+
+   ![Screenshot shows Standard workflow and property named Filter rows with ODATA query.](./media/connect-common-data-service/dataverse-action-filter-rows-query-standard.png)
+
+For more information about `$filter` system query options, see [Query data using the Web API - Filter results](/power-apps/developer/data-platform/webapi/query-data-web-api#filter-results).
 
 ### [Consumption](#tab/consumption)
 
 1. On the designer, in the action, open the **Add new parameter** list, and select the **Filter rows** property.
 
-   ![Screenshot showing designer for Consumption workflow and "Filter rows" property.](./media/connect-common-data-service/dataverse-action-filter-rows-consumption.png)
+   ![Screenshot shows Consumption workflow and property named Filter rows.](./media/connect-common-data-service/dataverse-action-filter-rows-consumption.png)
 
 1. In the **Filter rows** property that now appears in the action, enter an ODATA query expression, for example:
 
    `statuscode eq 1`
 
-   ![Screenshot showing designer for Consumption workflow and "Filter rows" property with ODATA query.](./media/connect-common-data-service/dataverse-action-filter-rows-query-consumption.png)
+   ![Screenshot shows Consumption workflow and property named Filter rows property with ODATA query.](./media/connect-common-data-service/dataverse-action-filter-rows-query-consumption.png)
 
-For more information about `$filter` system query options, review [Query data using the Web API - Filter results](/power-apps/developer/data-platform/webapi/query-data-web-api#filter-results).
-
-### [Standard](#tab/standard)
-
-1. On the designer, in the action, open the **Add new parameter** list, and select the **Filter rows** property.
-
-   ![Screenshot showing designer for Standard workflow and "Filter rows" property.](./media/connect-common-data-service/dataverse-action-filter-rows-standard.png)
-
-1. In the **Filter rows** property that now appears in the action, enter an ODATA query expression, for example:
-
-   `statuscode eq 1`
-
-   ![Screenshot showing designer for Standard workflow and "Filter rows" property with ODATA query.](./media/connect-common-data-service/dataverse-action-filter-rows-query-standard.png)
-
-For more information about `$filter` system query options, review [Query data using the Web API - Filter results](/power-apps/developer/data-platform/webapi/query-data-web-api#filter-results).
+For more information about `$filter` system query options, see [Query data using the Web API - Filter results](/power-apps/developer/data-platform/webapi/query-data-web-api#filter-results).
 
 ---
 
 ## Return rows based on a sort order
 
-For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows in a specific sequence, which varies based on the rows that the action returns. For example, you can set up the action to return rows organized by the account name. For more information about the example action, review [List rows](/connectors/commondataserviceforapps/#list-rows).
+For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows in a specific sequence, which varies based on the rows that the action returns. For example, you can set up the action to return rows organized by the account name. For more information about the example action, see [List rows](/connectors/commondataserviceforapps/#list-rows).
+
+### [Standard](#tab/standard)
+
+1. On the designer, in the action, open the **Advanced parameters** list, and select the **Sort By** property.
+
+   ![Screenshot shows Standard workflow, a Dataverse action, and Sort By property.](./media/connect-common-data-service/dataverse-action-sort-by-standard.png)
+
+1. In the **Sort By** property that now appears in the action, enter the column name to use for sorting, for example, **name**:
+
+   ![Screenshot shows Standard workflow, a Dataverse action, and Sort By property with column name.](./media/connect-common-data-service/dataverse-action-sort-by-column-standard.png)
+
+For more information about `$orderby` system query options, see [Query data using the Web API - Sort By](/power-apps/developer/data-platform/webapi/query-data-web-api#sort-by).
 
 ### [Consumption](#tab/consumption)
 
 1. On the designer, in the action, open the **Add new parameter** list, and select the **Sort By** property.
 
-   ![Screenshot showing designer for Consumption workflow and "Sort By" property.](./media/connect-common-data-service/dataverse-action-sort-by-consumption.png)
+   ![Screenshot shows Consumption workflow, a Dataverse action, and property named Sort By.](./media/connect-common-data-service/dataverse-action-sort-by-consumption.png)
 
 1. In the **Sort By** property that now appears in the action, enter the column name to use for sorting, for example, **name**:
 
-   ![Screenshot showing designer for Consumption workflow and "Sort By" property with column name.](./media/connect-common-data-service/dataverse-action-sort-by-column-consumption.png)
+   ![Screenshot shows Consumption workflow, a Dataverse action, and Sort By property with column name.](./media/connect-common-data-service/dataverse-action-sort-by-column-consumption.png)
 
-For more information about `$orderby` system query options, review [Query data using the Web API - Sort By](/power-apps/developer/data-platform/webapi/query-data-web-api#sort-by).
-
-### [Standard](#tab/standard)
-
-1. On the designer, in the action, open the **Add new parameter** list, and select the **Sort By** property.
-
-   ![Screenshot showing designer for Standard workflow and "Sort By" property.](./media/connect-common-data-service/dataverse-action-sort-by-standard.png)
-
-1. In the **Sort By** property that now appears in the action, enter the column name to use for sorting, for example, **name**:
-
-   ![Screenshot showing designer for Standard workflow and "Sort By" property with column name.](./media/connect-common-data-service/dataverse-action-sort-by-column-standard.png)
-
-For more information about `$orderby` system query options, review [Query data using the Web API - Sort By](/power-apps/developer/data-platform/webapi/query-data-web-api#sort-by).
+For more information about `$orderby` system query options, see [Query data using the Web API - Sort By](/power-apps/developer/data-platform/webapi/query-data-web-api#sort-by).
 
 ---
 
@@ -237,7 +248,6 @@ For example, suppose that you have a table named **Tasks**. This table has field
 | Integer field | Whole number | Requires either an integer or dynamic content that has the integer data type, for example, these properties: <br><br>- **Percent Complete** <br>- **Duration** |
 | Date field | Date and Time | Requires either a date in MM/DD/YYY format or dynamic content that has the date data type, for example, these properties: <br><br>- **Created On** <br>- **Start Date** <br>- **Actual Start** <br>- **Actual End** <br>- **Due Date** |
 | Field that references another entity row | Primary key | Requires both a row ID, such as a GUID, and a lookup type, which means that values from the dynamic content list won't work, for example, these properties: <br><br>- **Owner**: Must be a valid user ID or a team row ID. <br>- **Owner Type**: Must be a lookup type such as `systemusers` or `teams`, respectively. <br><br>- **Regarding**: Must be a valid row ID such as an account ID or a contact row ID. <br>- **Regarding Type**: Must be a lookup type such as `accounts` or `contacts`, respectively. <br><br>- **Customer**: Must be a valid row ID such as an account ID or contact row ID. <br>- **Customer Type**: Must be the lookup type, such as `accounts` or `contacts`, respectively. |
-||||
 
 For the example **Tasks** table, suppose you use the **Add a new row** action to create a new row that's associated with other entity rows, specifically a user row and an account row. So, in this action, you must specify the IDs and lookup types for those entity rows by using values that match the expected data types for the relevant properties.
 
@@ -245,13 +255,13 @@ For the example **Tasks** table, suppose you use the **Add a new row** action to
 
 * Based on the **Regarding** property, which specifies a row ID, and the **Regarding Type** property, which specifies the `accounts` lookup type, the action associates the new row with a specific account.
 
-### [Consumption](#tab/consumption)
-
-![Screenshot showing the "Add a new row" action in Consumption code view now with a new 'tasks' row associated with IDs and lookup types.](./media/connect-common-data-service/add-a-new-row-task-properties-consumption.png)
-
 ### [Standard](#tab/standard)
 
-![Screenshot showing the "Add a new row" action in Standard code view now with a new 'tasks' row associated with IDs and lookup types.](./media/connect-common-data-service/add-a-new-row-task-properties-standard.png)
+![Screenshot shows Standard workflow code view, Add a new row action, and new tasks row associated with IDs and lookup types.](./media/connect-common-data-service/add-a-new-row-task-properties-standard.png)
+
+### [Consumption](#tab/consumption)
+
+![Screenshot shows Consumption workflow code view, Add a new row action, and new tasks row associated with IDs and lookup types.](./media/connect-common-data-service/add-a-new-row-task-properties-consumption.png)
 
 ---
 
@@ -272,6 +282,7 @@ To stop unwanted notifications, delete the `callbackregistrations` entity from t
       `https://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations`:
 
       > [!NOTE]
+      >
       > If no values are returned, you might not have permissions to view this entity type, 
       > or you might not have signed in to the correct organization.
 
@@ -286,13 +297,12 @@ To stop unwanted notifications, delete the `callbackregistrations` entity from t
       | CreateOrDelete | 5 |
       | UpdateOrDelete | 6 |
       | CreateOrUpdateOrDelete | 7 |
-      |||
 
       The following example shows how you can filter for `Create` notifications on an entity named `nov_validation` by using the following OData URI for a sample organization:
 
       `https://fabrikam-preprod.crm1.dynamics.com/api/data/v9.0/callbackregistrations?$filter=entityname eq 'nov_validation' and message eq 1`
 
-      ![Screenshot that shows browser window and OData URI in the address bar.](./media/connect-common-data-service/find-callback-registrations.png)
+      ![Screenshot shows browser window and OData URI in address bar.](./media/connect-common-data-service/find-callback-registrations.png)
 
       > [!NOTE]
       >
@@ -310,10 +320,15 @@ To stop unwanted notifications, delete the `callbackregistrations` entity from t
          `fetch('http://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations({ID-to-delete})', { method: 'DELETE'})`
 
          > [!IMPORTANT]
+         >
          > Make sure that you make the request from a non-Unified Client Interface (UCI) page, for example, from the 
          > OData or API response page itself. Otherwise, logic in the app.js file might interfere with this operation.
 
    1. To confirm that the callback registration no longer exists, check the callback registrations list.
+
+### Duplicate 'callbackregistrations' entity
+
+In Standard logic app workflows, under specific conditions such as instance reallocation or application restart, the Microsoft Dataverse trigger starts a duplicate run, which creates a duplicate `callbackregistrations` entity in your Dataverse database. If you edit a Standard workflow that starts with a Dataverse trigger, check whether this `callbackregistrations` entity is duplicated. If the duplicate exists, manually delete the duplicate `callbackregistrations` entity.
 
 ## Next steps
 

@@ -133,8 +133,8 @@
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
       href: batch-management-dotnet.md
-    - name: Get cost analysis and set budgets
-      href: budget.md
+    - name: Plan to manage costs for Azure Batch
+      href: plan-to-manage-costs.md
     - name: Configure public network access with Batch accounts
       href: public-network-access.md
     - name: Use private endpoints with Batch accounts

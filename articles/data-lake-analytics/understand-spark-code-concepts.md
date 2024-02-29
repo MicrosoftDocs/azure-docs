@@ -4,7 +4,7 @@ description: This article describes Apache Spark concepts to help U-SQL develope
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts, devx-track-dotnet
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ---
 
 # Understand Apache Spark code for U-SQL developers
@@ -18,7 +18,7 @@ This section provides high-level guidance on transforming U-SQL Scripts to Apach
   - [Transform scripts](#transform-u-sql-scripts) including U-SQL's [rowset expressions](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions)
   - [.NET code](#transform-net-code)
   - [Data types](#transform-typed-values)
-  - [Catalog objects](#transform-u-sql-catalog-objects).
+  - [Catalog objects](#transform-u-sql-catalog-objects)
 
 ## Understand the U-SQL and Spark language and processing paradigms
 
@@ -28,7 +28,7 @@ U-SQL is a SQL-like declarative query language that uses a data-flow paradigm an
 
 Spark is a scale-out framework offering several language bindings in Scala, Java, Python, .NET etc. where you primarily write your code in one of these languages, create data abstractions called resilient distributed datasets (RDD), dataframes, and datasets and then use a LINQ-like domain-specific language (DSL) to transform them. It also provides SparkSQL as a declarative sublanguage on the dataframe and dataset abstractions. The DSL provides two categories of operations, transformations and actions. Applying transformations to the data abstractions won't execute the transformation but instead build-up the execution plan that will be submitted for evaluation with an action (for example, writing the result into a temporary table or file, or printing the result).
 
-Thus when translating a U-SQL script to a Spark program, you'll have to decide which language you want to use to at least generate the data frame abstraction (which is currently the most frequently used data abstraction) and whether you want to write the declarative dataflow transformations using the DSL or SparkSQL. In some more complex cases, you may need to split your U-SQL script into a sequence of Spark and other steps implemented with Azure Batch or Azure Functions.
+Thus when translating a U-SQL script to a Spark program, you'll have to decide which language you want to use to at least generate the data frame abstraction (which is currently the most frequently used data abstraction) and whether you want to write the declarative dataflow transformations using the DSL or SparkSQL. In some more complex cases, you might need to split your U-SQL script into a sequence of Spark and other steps implemented with Azure Batch or Azure Functions.
 
 Furthermore, Azure Data Lake Analytics offers U-SQL in a serverless job service environment where resources are allocated for each job, while Azure Synapse Spark, Azure Databricks and Azure HDInsight offer Spark either in form of a cluster service or with so-called Spark pool templates. When transforming your application, you'll have to take into account the implications of now creating, sizing, scaling, and decommissioning the clusters or pools.
 
@@ -62,7 +62,7 @@ The following details are for the different cases of .NET and C# usages in U-SQL
 
 ### Transform scalar inline U-SQL C# expressions
 
-U-SQL's expression language is C#. Many of the scalar inline U-SQL expressions are implemented natively for improved performance, while more complex expressions may be executed through calling into the .NET framework.
+U-SQL's expression language is C#. Many of the scalar inline U-SQL expressions are implemented natively for improved performance, while more complex expressions could be executed through calling into the .NET framework.
 
 Spark has its own scalar expression language (either as part of the DSL or in SparkSQL) and allows calling into user-defined functions written for the JVM, .NET or Python runtime.
 
@@ -155,7 +155,7 @@ If the U-SQL catalog has been used to share data and code objects across project
 
 ## Transform U-SQL rowset expressions and SQL-based scalar expressions
 
-U-SQL's core language is transforming rowsets and is based on SQL. The following is a non-exhaustive list of the most common rowset expressions offered in U-SQL:
+U-SQL's core language is transforming rowsets and is based on SQL. The following is a nonexhaustive list of the most common rowset expressions offered in U-SQL:
 
 - `SELECT`/`FROM`/`WHERE`/`GROUP BY`+Aggregates+`HAVING`/`ORDER BY`+`FETCH`
 - `INNER`/`OUTER`/`CROSS`/`SEMI` `JOIN` expressions

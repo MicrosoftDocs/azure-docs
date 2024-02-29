@@ -3,7 +3,7 @@ title: Create a persistent volume with Azure Disks in Azure Kubernetes Service (
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Disks for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 11/28/2023
 ---
 
@@ -242,7 +242,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
 
     ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-    
+
     # Output
     MC_myResourceGroup_myAKSCluster_eastus
     ```
@@ -351,7 +351,6 @@ When you create an Azure disk for use with AKS, you can create the disk resource
         volumeMounts:
           - name: azure
             mountPath: /mnt/azure
-            volumeMounts
       volumes:
         - name: azure
           persistentVolumeClaim:

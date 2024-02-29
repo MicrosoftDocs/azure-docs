@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Configure OT sensor settings from the Azure portal (Public preview)
 
-After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defender for IoT, you might want to define several settings directly on the OT sensor console, such as [adding local users](manage-users-sensor.md) or [connecting to an on-premises management console](ot-deploy/connect-sensors-to-management.md).
+After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defender for IoT, you might want to define several settings directly on the OT sensor console, such as [adding local users](manage-users-sensor.md).
 
 The OT sensor settings listed in this article are also available directly from the Azure portal. Use the Azure portal to apply these settings in bulk across multiple cloud-connected OT sensors at a time, or across all cloud-connected OT sensors in a specific site or zone. This article describes how to view and configure view OT network sensor settings from the Azure portal.
 
@@ -145,21 +145,27 @@ For a bandwidth cap, define the maximum bandwidth you want the sensor to use for
 
 To configure an NTP server for your sensor from the Azure portal, define an IP/Domain address of a valid IPv4 NTP server using port 123.
 
-### Subnet
+### Local subnets
 
-To focus the Azure device inventory on devices that are in your IoT/OT scope, you need to manually edit the subnet list to include only the locally monitored subnets that are in your IoT/OT scope. Once the subnets are configured, the network location of the devices is shown in the *Network location* (Public preview) column in the Azure device inventory. All of the devices associated with the listed subnets are displayed as *local*, while devices associated with detected subnets not included in the list are displayed as *routed*.
+To focus the Azure device inventory on devices that are in your OT scope, you need to manually edit the subnet list to include only the locally monitored subnets that are in your OT scope. 
 
-**To configure your subnets in the Azure portal**:
+Subnets in the subnet list are automatically configured as ICS subnets, which means that Defender for IoT recognizes these subnets as OT networks. You can edit this setting when you [configure the subnets](#configure-subnets-in-the-azure-portal).
+
+Once the subnets are configured, the network location of the devices is shown in the *Network location* (Public preview) column in the Azure device inventory. All of the devices associated with the listed subnets are displayed as *local*, while devices associated with detected subnets not included in the list are displayed as *routed*.
+
+#### Configure subnets in the Azure portal
 
 1. In the Azure portal, go to **Sites and sensors** > **Sensor settings**.
 
-1. Under **Subnets**, review the configured subnets. To focus the device inventory and view local devices in the inventory, delete any subnets that are not in your IoT/OT scope by selecting the options menu (...) on any subnet you want to delete.
+1. Under **Local subnets**, review the configured subnets. To focus the device inventory and view local devices in the inventory, delete any subnets that are not in your IoT/OT scope by selecting the options menu (...) on any subnet you want to delete.
 
 1. To modify additional settings, select any subnet and then select **Edit** for the following options:
 
     - Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
 
     - Enter values in the **IP Address**, **Mask**, and **Name** fields to add subnet details manually. Select **Add subnet** to add additional subnets as needed.
+    
+    - **ICS Subnet** is on by default, which means that Defender for IoT recognizes the subnet as an OT network. To mark a subnet as non-ICS, toggle off **ICS Subnet**.
 
 ### VLAN naming
 

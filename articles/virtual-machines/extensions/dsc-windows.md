@@ -6,10 +6,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 author: bobbytreed
 ms.author: robreed
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.collection: windows
 ms.date: 11/28/2022
-
 ---
 # PowerShell DSC Extension
 

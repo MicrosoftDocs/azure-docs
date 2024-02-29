@@ -5,19 +5,36 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 11/13/2023
+ms.date: 02/06/2024
 ---
 
 # What's new in Azure Update Manager
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
+## February 2024
+
+### Migration scripts to move machines and schedules from Automation Update Management to Azure Update Manager (preview)
+
+Migration scripts allow you to move all machines and schedules in an automation account from Automation Update Management to azure Update Management in an automated fashion. [Learn more](guidance-migration-automation-update-management-azure-update-manager.md).
+
+
+### Updates blade in Azure Update Manager (preview)
+
+The purpose of this new blade is to present information from Updates pivot instead of machines. It would be particularly useful for Central IT admins, Security admins who care about vulnerabilities in the system and want to act on them by applying updates. [Learn more](deploy-manage-updates-using-updates-view.md).
+
+## December 2023
+
+### Pre and Post Events (preview)
+
+Azure Update Manager allows you to create and manage pre and post events on scheduled maintenance configurations. [Learn more](pre-post-scripts-overview.md).
+
 ## November 2023
 
 ### Alerting (preview)
-Azure Update Manager allows you to enable alerts to address events as captured in updates data.
+Azure Update Manager allows you to enable alerts to address events as captured in updates data. [Learn more](manage-alerts.md).
 
-### Azure Stack HCI patching (preview)
+### Azure Stack HCI patching
 
 Azure Update Manager allows you to patch Azure Stack HCI cluster. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
 

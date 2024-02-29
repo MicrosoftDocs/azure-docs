@@ -150,9 +150,7 @@ Use [`az servicebus namespace network-rule-set`](/cli/azure/servicebus/namespace
 ## Use Azure PowerShell
 Use the following Azure PowerShell commands to add, list, remove, update, and delete IP firewall rules. 
 
-- [`Add-AzServiceBusIPRule`](/powershell/module/az.servicebus/add-azservicebusiprule) to add an IP firewall rule.
-- [`New-AzServiceBusIPRuleConfig`](/powershell/module/az.servicebus/new-azservicebusipruleconfig) and [`Set-AzServiceBusNetworkRuleSet`](/powershell/module/az.servicebus/set-azservicebusnetworkruleset) together to add an IP firewall rule
-- [`Remove-AzServiceBusIPRule`](/powershell/module/az.servicebus/remove-azservicebusiprule) to remove an IP firewall rule.
+- [`New-AzServiceBusIPRuleConfig`](/powershell/module/az.servicebus/new-azservicebusipruleconfig) and [`Set-AzServiceBusNetworkRuleSet`](/powershell/module/az.servicebus/set-azservicebusnetworkruleset) together to add an IP firewall rule.
 
 ## Default action and public network access 
 
