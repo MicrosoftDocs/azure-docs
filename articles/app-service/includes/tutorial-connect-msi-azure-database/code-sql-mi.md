@@ -85,7 +85,7 @@ For more information, see [Connect using Microsoft Entra authentication](/sql/co
     server = os.getenv('AZURE_SQL_SERVER')
     port = os.getenv('AZURE_SQL_PORT')
     database = os.getenv('AZURE_SQL_DATABASE')
-    authentication = os.getenv('AZURE_SQL_AUTHENTICATION')
+    authentication = os.getenv('AZURE_SQL_AUTHENTICATION')  # The value should be 'ActiveDirectoryMsi'
     
     # Uncomment the following lines according to the authentication type.
     # For system-assigned managed identity.
@@ -97,7 +97,7 @@ For more information, see [Connect using Microsoft Entra authentication](/sql/co
     
     conn = pyodbc.connect(connString)
     ```
-    Refer to [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python) to connect to Azure SQL Database using an access token.
+    For an alternative method, you can also connect to Azure SQL Database using an access token, refer to [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python).
 
 ### [NodeJS](#tab/nodejs)
 
@@ -135,13 +135,11 @@ For more information, see [Connect using Microsoft Entra authentication](/sql/co
     //     port,
     //     database,
     //     authentication: {
-    //         type: authenticationType,
-    //         options: {
-    //             clientId: clientId
-    //         }
+    //         type: authenticationType
     //     },
     //     options: {
-    //         encrypt: true
+    //         encrypt: true,
+    //         clientId: clientId
     //     }
     // };  
 
