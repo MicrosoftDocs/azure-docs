@@ -4,6 +4,7 @@ description: This article describes new features available in Microsoft Defender
 ms.topic: whats-new
 ms.date: 12/19/2023
 ms.custom: enterprise-iot
+
 ---
 
 # What's new in Microsoft Defender for IoT?
