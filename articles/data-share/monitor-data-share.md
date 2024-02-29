@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Data Share
 description: Start here to learn how to monitor Azure Data Share.
-ms.date: mm/dd/yyyy
+ms.date: 02/28/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: sidontha
@@ -44,9 +44,9 @@ For the available resource log categories, their associated Log Analytics tables
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-## Sent share status and history
+## Share status and history
 
-To track Data Share invitation status, share subscription status, and snapshot history, select **Sent Shares** under **Data Share** in the left navigation of your Data Share page in the Azure portal. For more information and instructions, see [How to monitor Azure Data Share](how-to-monitor.md).
+To track Data Share invitation status, share subscription status, and snapshot history, select **Sent Shares** under **Data Share** in the left navigation of your Data Share page in the Azure portal. For more information and instructions, see [Monitor Data Share status and history](how-to-monitor.md).
 
 [!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 [!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]

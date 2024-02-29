@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/19/2023
 ---
 
-# Monitor Azure Data Share  
+# Monitor Azure Data Share status and history
 
 This article explains how you can monitor your data shares using Azure Data Share. As a data provider, you're able to monitor various aspects of your data sharing relationships. Details such as whether your data consumers have accepted your invitation to the data share, and whether they have created a share subscription and started to use your data are all available to monitor.
 
