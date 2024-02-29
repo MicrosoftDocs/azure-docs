@@ -91,7 +91,7 @@ Security levels for Azure Backup vaults are categorized as follows:
 
 - **Excellent (Maximum)**: This level represents the highest security, which ensures comprehensive protection. You can achieve this when all backup data is protected from accidental deletions and defends from ransomware attacks. To achieve this high level of security, the following conditions must be met:
 
-  - [Immutability](backup-azure-immutable-vault-concept,md) or [soft-delete](backup-azure-security-feature-cloud?tabs=azure-portal.md) vault setting must be enabled and irreversible (locked/always-on).
+  - [Immutability](backup-azure-immutable-vault-concept.md) or [soft-delete](backup-azure-security-feature-cloud.md) vault setting must be enabled and irreversible (locked/always-on).
   - [Multi-user authorization (MUA)](multi-user-authorization-concept.md) must be enabled on the vault.
 
 - **Good (Adequate)**: This signifies a robust security level, which ensures dependable data protection. It shields existing backups from unintended removal and enhances the potential for data recovery. To attain this level of security, you must enable either immutability with a lock or soft-delete.
