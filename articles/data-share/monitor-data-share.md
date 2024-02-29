@@ -44,7 +44,7 @@ You can configure diagnostic setting to save log data or events. Select **Diagno
 - Sent Share Snapshots
 - Received Share Snapshots
 
-![Screenshot that shows the Diagnostic settings page in the Azure portal.](./media/diagnostic-settings.png "Diagnostic settings")
+:::image type="content" source="./media/diagnostic-settings.png" alt-text="Screenshot that shows the Diagnostic settings page in the Azure portal.":::
 
 For more information on how to create diagnostic settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
@@ -87,8 +87,8 @@ MicrosoftDataShareReceivedSnapshotLog
 
 For more example queries, see:
 
-- [Queries for the MicrosoftDataShareReceivedSnapshotLog table](~/azure-reference-other-repo/azure-monitor-ref/queries/microsoftdatasharereceivedsnapshotlog.md)
-- [Queries for the MicrosoftDataShareSentSnapshotLog table](~/azure-reference-other-repo/azure-monitor-ref/queries/microsoftdatasharesentsnapshotlog.md)
+- [Queries for the MicrosoftDataShareReceivedSnapshotLog table](/azure/azure-monitor/reference/queries/microsoftdatasharereceivedsnapshotlog.md)
+- [Queries for the MicrosoftDataShareSentSnapshotLog table](/azure/azure-monitor/reference/queries/microsoftdatasharesentsnapshotlog.md)
 
 [!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
