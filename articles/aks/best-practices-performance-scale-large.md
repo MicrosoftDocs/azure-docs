@@ -84,7 +84,7 @@ Always upgrade your Kubernetes clusters to the latest version. Newer versions co
 
 As you scale your AKS clusters to larger scale points, keep the following feature limitations in mind:
 
-* AKS supports up to a 1,000 node scale in an AKS cluster by default. While AKS doesn't prevent you from scaling further, doing so might result in degraded performance. If you want to scale beyond 1,000 nodes, you can request a limit increase. For more information, see [Best practices for creating and running AKS clusters at scale][run-aks-at-scale].
+* AKS supports up to 5,000 node scale in an AKS cluster by default. While AKS doesn't prevent you from scaling further, doing so might result in degraded performance. If you cannot scale beyond 5000 nodes, see [Best practices for creating and running AKS clusters at scale][run-aks-at-scale].
 * [Azure Network Policy Manager (Azure npm)][azure-npm] only supports up to 250 nodes.
 * You can't use the Stop and Start feature with clusters that have more than 100 nodes. For more information, see [Stop and start an AKS cluster](./start-stop-cluster.md).
 
