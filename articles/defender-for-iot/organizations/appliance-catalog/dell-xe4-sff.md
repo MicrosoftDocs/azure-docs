@@ -117,29 +117,29 @@ Set up the Dell XE4 BIOS to achieve optimal performance for sensors.
 
 **To configure the Dell XE4 BIOS**:
 
-1. Set up “Boot Mode”
+1. Set up **Boot Mode**
 
     1. Select **System setup options** > **Boot Configuration menu** > **Boot Mode**
 
-    1. Set to UEFI Only
+    1. Set to **UEFI Only**
 
-1. Set up installation boot from USB/DVD (as applicable)
+1. Set up **Installation boot from USB/DVD (as applicable)**
 
     1. Select **System setup options** > **Boot Configuration menu** > **Boot Sequence**
 
     1. Select the installation disk drive as the first option
 
-1. Set up “Restart on Power Loss”
+1. Set up **Restart on Power Loss**
 
     1. Select **System setup options** > **Power Menu** > **AC Behavior**
 
-    1. Set to “Restart”
+    1. Set to **Restart**
 
 1. Disable Sleep/Hibernation
 
     1. Select **System setup options** > **Power Menu** > **Block Sleep**
 
-    1. Enable “Block Sleep”
+    1. Enable **Block Sleep**
 
 ## Dell XE4 Software Setup
 
@@ -151,7 +151,7 @@ To install Defender for IoT software:
 
 1. Connect an external CD or disk-on-key that contains the software you downloaded from the Azure portal.
 
-1. Start the appliance.
+1. Switch on the appliance.
 
 1. Continue by installing your Defender for IoT software. For more information, see [Defender for IoT software installation](../ot-deploy/install-software-ot-sensor.md#install-defender-or-iot-software-on-ot-sensors).
 
