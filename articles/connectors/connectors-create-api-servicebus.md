@@ -171,7 +171,7 @@ You can change this delay, but make sure that you carefully test any changes to 
 ```json
   "workflow": {
       "settings": {
-                "Runtime.ServiceProviders.FunctionTriggers.DynamicListenerEnableDisableInterval": "00:00:30"
+          "Runtime.ServiceProviders.FunctionTriggers.DynamicListenerEnableDisableInterval": "00:00:30"
       }
   }
 
