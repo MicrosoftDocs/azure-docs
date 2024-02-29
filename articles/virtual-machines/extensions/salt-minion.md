@@ -16,7 +16,7 @@ ms.date: 01/24/2024
 * A Salt Master (either on-premises or in a cloud) that can accept connections from Salt minions hosted on Azure
 * The Salt Minion VM Extension requires that the target VM is connected to the internet in order to fetch Salt packages
 
-## Supported Platforms
+## Supported platforms
 
 Azure VM running any of the following supported OS:
 
@@ -45,15 +45,15 @@ If you want another distro to be supported (assuming Salt [supports](https://doc
 * `minion_id` - Minion ID (hostname by default)
 * `salt_version` - Salt Minion version to install, for example `3006.1` (`latest` by default)
 
-## Install Salt Minion using the Azure Portal
+## Install Salt Minion using the Azure portal
 
-1. Select one of your VMs
-2. In the left menu click **Extensions + applications**
-3. Click **+ Add**
-4. In the gallery, type **salt minion** in the search bar
-5. Select the **Salt Minion** tile and click **Next**
-6. Enter configuration parameters in the provided form (see [Salt Minion settings](#salt-minion-settings))
-7. Click **Review + create**
+1. Select one of your VMs.
+2. In the left menu click **Extensions + applications**.
+3. Click **+ Add**.
+4. In the gallery, type **Salt Minion** in the search bar.
+5. Select the **Salt Minion** tile and click **Next**.
+6. Enter configuration parameters in the provided form (see [Salt Minion settings](#salt-minion-settings)).
+7. Click **Review + create**.
 
 ## Install Salt Minion using the Azure CLI
 

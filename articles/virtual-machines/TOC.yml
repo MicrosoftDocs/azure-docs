@@ -1081,7 +1081,7 @@
       items:
       - name: Chef
         href: ./extensions/chef.md
-      - name: Salt-Minion
+      - name: Salt Minion
         href: ./extensions/salt-minion.md
       - name: Stackify Retrace
         href: ./extensions/stackify-retrace-linux.md
