@@ -22,6 +22,8 @@ The default pricing for Log Analytics is a pay-as-you-go model that's based on i
 - The number and type of monitored resources.
 - The types of data collected from each monitored resource.
 
+A list of Azure Monitor billing meter names is available [here](../cost-meters.md). 
+
 ## Data size calculation
 
 Data volume is measured as the size of the data sent to be stored and is measured in units of GB (10^9 bytes). The data size of a single record is calculated from a string representation of the columns that are stored in the Log Analytics workspace for that record. It doesn't matter whether the data is sent from an agent or added during the ingestion process. This calculation includes any custom columns added by the [logs ingestion API](logs-ingestion-api-overview.md), [transformations](../essentials/data-collection-transformations.md) or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace.
@@ -163,6 +165,8 @@ Subscriptions that contained a Log Analytics workspace or Application Insights r
 - Per Node (Operations Management Suite [OMS]) 
 
 Access to the legacy Free Trial pricing tier was limited on July 1, 2022. Pricing information for the Standalone and Per Node pricing tiers is available [here](https://aka.ms/OMSpricing). 
+
+A list of Azure Monitor billing meter names, including these legacy tiers, is available [here](../cost-meters.md). 
 
 > [!IMPORTANT] 
 > The legacy pricing tiers do not support access to some of the newest features in Log Analytics such as ingesting data as cost-effective Basic Logs. 
