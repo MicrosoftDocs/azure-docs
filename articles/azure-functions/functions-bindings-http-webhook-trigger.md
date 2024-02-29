@@ -189,7 +189,7 @@ This example reads the body of a POST request, as a `String`, and uses it to bui
 
 #### Read parameter from a route
 
-This example reads a mandatory parameter, named `id`, and an optional parameter `name` from the route path, and uses them to build a JSON document returned to the client, with content type `application/json`. T
+This example reads a mandatory parameter, named `id`, and an optional parameter `name` from the route path, and uses them to build a JSON document returned to the client, with content type `application/json`.
 
 ```java
 @FunctionName("TriggerStringRoute")
