@@ -22,6 +22,9 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 * Clusters using the Standard tier.
 * Clusters using Kubernetes version 1.23 or above.
 
+> [!NOTE]
+> To scale to 5000 nodes, you'll need to request the corresponding compute quota. Additionally, you may also need to request quota for attached resources such as IPs and Managed Disks
+
 ## Networking considerations and best practices
 
 * Use Managed NAT for cluster egress with at least two public IPs on the NAT gateway. For more information, see [Create a managed NAT gateway for your AKS cluster](https://learn.microsoft.com/en-us/azure/aks/nat-gateway).
