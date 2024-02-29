@@ -9,7 +9,7 @@ ms.date: 11/03/2021
 
 # Automatically pause a job by using PowerShell and Azure Functions or Azure Automation
 
-Some applications require a stream processing approach (such as through [Azure Stream Analytics](./stream-analytics-introduction.md)) but don't strictly need to run continuously. The reasons are various:
+Some applications require a stream processing approach (such as through [Azure Stream Analytics](./stream-analytics-introduction.md)) but don't strictly need to run continuously. The reasons include:
 
 - Input data that arrives on a schedule (for example, top of the hour)
 - A sparse or low volume of incoming data (few records per minute)
@@ -42,9 +42,9 @@ As an example, consider that *N* = 5 minutes and *M* = 10 minutes. With these se
 
 To restart the job, use the **When Last Stopped** [start option](./start-job.md#start-options). This option tells Stream Analytics to process all the events that were backlogged upstream since the job was stopped.
 
-There are two caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If you run the job only once a day, you need to make sure that the [event hub retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than one day. Second, the job needs to have been started at least once for the mode **When Last Stopped** to be accepted (or else it has literally never been stopped before). So the first run of a job needs to be manual, or you need to extend the script to cover for that case.
+There are two caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If you run the job only once a day, you need to make sure that the [retention period for events](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than one day. Second, the job needs to have been started at least once for the mode **When Last Stopped** to be accepted (or else it has literally never been stopped before). So the first run of a job needs to be manual, or you need to extend the script to cover for that case.
 
-The last consideration is to make these actions idempotent. This way, they can be repeated at will with no side effects, for both ease of use and resiliency.
+The last consideration is to make these actions idempotent. You can then repeat them at will with no side effects, for both ease of use and resiliency.
 
 ## Components
 
@@ -54,18 +54,18 @@ This article anticipates the need to interact with Stream Analytics on the follo
 
 - Get the current job status (Stream Analytics resource management):
   - If the job is running:
-    - Get the time since started (logs).
+    - Get the time since the job started (logs).
     - Get the current metric values (metrics).
     - If applicable, stop the job (Stream Analytics resource management).
   - If the job is stopped:
-    - Get the time since stopped (logs).
+    - Get the time since the job stopped (logs).
     - If applicable, start the job (Stream Analytics resource management).
 
-For Stream Analytics resource management, you can use the [REST API](/rest/api/streamanalytics/), the [.NET SDK](/dotnet/api/microsoft.azure.management.streamanalytics), or one of the CLI libraries ([Azure CLI](/cli/azure/stream-analytics), [PowerShell](/powershell/module/az.streamanalytics)).
+For Stream Analytics resource management, you can use the [REST API](/rest/api/streamanalytics/), the [.NET SDK](/dotnet/api/microsoft.azure.management.streamanalytics), or one of the CLI libraries ([Azure CLI](/cli/azure/stream-analytics) or [PowerShell](/powershell/module/az.streamanalytics)).
 
 For metrics and logs, everything in Azure is centralized under [Azure Monitor](../azure-monitor/overview.md), with a similar choice of API surfaces. Logs and metrics are always 1 to 3 minutes behind when you're querying the APIs. So setting *N* at 5 usually means the job runs 6 to 8 minutes in reality.
 
-Another consideration is that metrics are always emitted. When the job is stopped, the API returns empty records. You have to clean up the output of your API calls to look at only relevant values.
+Another consideration is that metrics are always emitted. When the job is stopped, the API returns empty records. You have to clean up the output of your API calls to focus on relevant values.
 
 ### Scripting language
 
@@ -82,7 +82,7 @@ In PowerShell, use the [Az PowerShell](/powershell/azure/new-azureps-module-az) 
 
 To host your PowerShell task, you need a service that offers scheduled runs. There are many options, but here are two serverless ones:
 
-- [Azure Functions](../azure-functions/functions-overview.md), a serverless compute engine that can run almost any piece of code. It offers a [timer trigger](../azure-functions/functions-bindings-timer.md?tabs=csharp) that can run up to every second.
+- [Azure Functions](../azure-functions/functions-overview.md), a compute engine that can run almost any piece of code. It offers a [timer trigger](../azure-functions/functions-bindings-timer.md?tabs=csharp) that can run up to every second.
 - [Azure Automation](../automation/overview.md), a managed service for operating cloud workloads and resources. Its purpose is appropriate, but its minimal schedule interval is 1 hour (less with [workarounds](../automation/shared-resources/schedules.md#schedule-runbooks-to-run-more-frequently)).
 
 If you don't mind the workarounds, Azure Automation is the easier way to deploy the task. But in this article, you write a local script first so you can compare. After you have a functioning script, you deploy it both in Functions and in an Automation account.
@@ -239,7 +239,7 @@ After you provision the function app, start with its overall configuration.
 
 ### Managed identity for Azure Functions
 
-The function needs permissions to start and stop the Stream Analytics job. You assign these permissions via a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
+The function needs permissions to start and stop the Stream Analytics job. You assign these permissions by using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
 The first step is to enable a *system-assigned managed identity* for the function, by following [this procedure](../app-service/overview-managed-identity.md?tabs=ps%2cportal&toc=/azure/azure-functions/toc.json).
 
@@ -287,7 +287,7 @@ The first step is to follow the [procedure](../azure-functions/functions-how-to-
 |`resourceGroupName`|The resource group name of the Stream Analytics job to be automatically paused.|
 |`asaJobName`|The name of the Stream Analytics job to be automatically paused.|
 
-You'll later need to update your PowerShell script to load the variables accordingly:
+Then, update your PowerShell script to load the variables accordingly:
 
 ```PowerShell
 $maxInputBacklog = $env:maxInputBacklog
@@ -306,7 +306,7 @@ $asaJobName = $env:asaJobName
 
 The same way that you had to install Azure PowerShell locally to use the Stream Analytics commands (like `Start-AzStreamAnalyticsJob`), you need to [add it to the function app host](../azure-functions/functions-reference-powershell.md?tabs=portal#dependency-management):
 
-1. On the page for the function app, under **Functions**, select **App files**, and then select *requirements.psd1*.
+1. On the page for the function app, under **Functions**, select **App files**, and then select **requirements.psd1**.
 1. Uncomment the line `'Az' = '6.*'`.
 1. To make that change take effect, restart the app.
 
@@ -328,7 +328,7 @@ Then, in **Code + Test**, you can copy your script in *run.ps1* and test it. Or 
 
 ![Screenshot of the Code+Test pane for the function.](./media/automation/function-code.png)
 
-You can check that everything runs fine via **Test/Run** on the **Code + Test** pane. You can also check the **Monitor** pane, but it's always late by a couple of executions.
+You can check that everything runs fine by selecting **Test/Run** on the **Code + Test** pane. You can also check the **Monitor** pane, but it's always late by a couple of executions.
 
 ![Screenshot of the output of a successful run.](./media/automation/function-run.png)
 
@@ -336,7 +336,7 @@ You can check that everything runs fine via **Test/Run** on the **Code + Test** 
 
 Finally, you want to be notified via an alert if the function doesn't run successfully. Alerts have a minor cost, but they might prevent more expensive situations.
 
-On the page for the function app, under **Logs**, run the following query that returns all unsuccessful runs in the last 5 minutes:
+On the page for the function app, under **Logs**, run the following query. It returns all unsuccessful runs in the last 5 minutes.
 
 ```SQL
 requests
@@ -426,9 +426,9 @@ You can now paste your script and test it. You can copy the full script from [Gi
 
 You can check that everything is wired properly in **Test pane**.
 
-After that, you need to publish the job (via **Publish**) so that you can link the runbook to a schedule. Creating and linking the schedule is a straightforward process. Now is a good time to remember that there are [workarounds](../automation/shared-resources/schedules.md#schedule-runbooks-to-run-more-frequently) to achieve schedule intervals under 1 hour.
+After that, you need to publish the job (by selecting **Publish**) so that you can link the runbook to a schedule. Creating and linking the schedule is a straightforward process. Now is a good time to remember that there are [workarounds](../automation/shared-resources/schedules.md#schedule-runbooks-to-run-more-frequently) to achieve schedule intervals under 1 hour.
 
-Finally, you can set up an alert. The first step is to enable logs via the [diagnostic settings](../azure-monitor/essentials/create-diagnostic-settings.md?tabs=cli) of the Automation account. The second step is to capture errors via a query like you did for Functions.
+Finally, you can set up an alert. The first step is to enable logs by using the [diagnostic settings](../azure-monitor/essentials/create-diagnostic-settings.md?tabs=cli) of the Automation account. The second step is to capture errors by using a query like you did for Functions.
 
 ## Outcome
 
@@ -442,7 +442,7 @@ And here are the metrics:
 
 ![Screenshot of the metrics of the Stream Analytics job.](./media/automation/asa-metrics.png)
 
-After you understand the script, reworking it to extend its scope is a straightforward task. You can easily update the script to target a list of jobs instead of a single one. You can define and process larger scopes via tags, resource groups, or even entire subscriptions.
+After you understand the script, reworking it to extend its scope is a straightforward task. You can easily update the script to target a list of jobs instead of a single one. You can define and process larger scopes by using tags, resource groups, or even entire subscriptions.
 
 ## Get support
 

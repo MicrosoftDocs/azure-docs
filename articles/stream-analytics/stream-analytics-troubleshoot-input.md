@@ -10,7 +10,9 @@ ms.date: 12/15/2023
 
 # Troubleshoot input connections
 
-This article describes common problems with Azure Stream Analytics input connections, how to troubleshoot input problems, and how to correct the problems. Many troubleshooting steps require you to turn on resource logs for your Stream Analytics job. If you don't have resource logs turned on, see [Troubleshoot Azure Stream Analytics by using resource logs](stream-analytics-job-diagnostic-logs.md).
+This article describes common problems with Azure Stream Analytics input connections, how to troubleshoot those problems, and how to correct them. 
+
+Many troubleshooting steps require you to turn on resource logs for your Stream Analytics job. If you don't have resource logs turned on, see [Troubleshoot Azure Stream Analytics by using resource logs](stream-analytics-job-diagnostic-logs.md).
 
 ## Job doesn't receive input events
 
@@ -26,18 +28,18 @@ This article describes common problems with Azure Stream Analytics input connect
 
 3. Ensure that you selected a time range in the input preview. Choose **Select time range**, and then enter a sample duration before testing your query.
 
-    > [!IMPORTANT]
-    > For [Azure Stream Analytics jobs](./run-job-in-virtual-network.md) that aren't network injected, don't rely on the source IP address of connections coming from Stream Analytics in any way. They can be public or private IPs, depending on service infrastructure operations that happen from time to time.
+> [!IMPORTANT]
+> For [Azure Stream Analytics jobs](./run-job-in-virtual-network.md) that aren't network injected, don't rely on the source IP address of connections coming from Stream Analytics in any way. They can be public or private IPs, depending on service infrastructure operations that happen from time to time.
 
 ## Malformed input events cause deserialization errors
 
-Deserialization problems happen when the input stream of your Stream Analytics job contains malformed messages. For example, a missing parenthesis or brace in a JSON object, or an incorrect timestamp format in the time field, can cause a malformed message.
+Deserialization problems happen when the input stream of your Stream Analytics job contains malformed messages. For example, a missing parenthesis or brace in a JSON object, or an incorrect time-stamp format in the time field, can cause a malformed message.
 
-When a Stream Analytics job receives a malformed message from an input, it drops the message and notifies you with a warning. A warning symbol appears on the **Inputs** tile of your Stream Analytics job. The warning symbol exists as long as the job is in running state.
+When a Stream Analytics job receives a malformed message from an input, it drops the message and notifies you with a warning. A warning symbol appears on the **Inputs** tile of your Stream Analytics job. The warning symbol exists as long as the job is in a running state.
 
 ![Screenshot that shows the Inputs tile for Azure Stream Analytics.](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Turn on resource logs to view the details of the error and the message (payload) that caused the error. There are multiple reasons why deserialization errors can occur. For more information about specific deserialization errors, see [Input data errors](data-errors.md#input-data-errors). If you don't turn on resource logs, a brief notification appears in the Azure portal.
+Turn on resource logs to view the details of the error and the message (payload) that caused the error. There are multiple reasons why deserialization errors can occur. For more information about specific deserialization errors, see [Input data errors](data-errors.md#input-data-errors). If resource logs aren't turned on, a brief notification appears in the Azure portal.
 
 ![Screenshot that shows a warning notification about input details.](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 

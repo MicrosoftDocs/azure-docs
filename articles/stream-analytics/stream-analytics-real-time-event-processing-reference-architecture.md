@@ -14,11 +14,11 @@ The reference architecture for real-time event processing with Azure Stream Anal
 
 Traditionally, analytics solutions are based on capabilities such as ETL (extract, transform, load) and data warehousing, where data is stored before analysis. Changing requirements, including more rapidly arriving data, are pushing this existing model to the limit.
 
-The ability to analyze data within moving streams before storage is one solution. Although it isn't a new capability, the approach hasn't been widely adopted across industry verticals.
+The ability to analyze data within moving streams before storage is one solution. Although this approach isn't new, it hasn't been widely adopted across industry verticals.
 
 Microsoft Azure provides an extensive catalog of analytics technologies that can support an array of solution scenarios and requirements. Selecting which Azure services to deploy for an end-to-end solution can be a challenge, considering the breadth of offerings.
 
-This reference is designed to describe the capabilities and interoperation of the various Azure services that support an event-streaming solution. It also explains some of the scenarios in which customers can benefit from this type of approach.
+This reference describes the capabilities and interoperation of the Azure services that support an event-streaming solution. It also explains some of the scenarios in which customers can benefit from this type of approach.
 
 ## Contents
 
