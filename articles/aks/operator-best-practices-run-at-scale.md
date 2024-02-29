@@ -28,12 +28,13 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 
 ## Networking considerations and best practices
 
-* Use Managed NAT for cluster egress with at least 2 public IPs on the NAT Gateway. For more information, see [Managed NAT Gateway with AKS][Managed NAT Gateway - Azure Kubernetes Service].
-* Use Azure CNI with Dynamic IP allocation for optimum IP utilization, and scale up to 50k application pods per cluster with one routable IP per pod. For more information, see [Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in AKS][Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in Azure Kubernetes Service (AKS)].
-* When using internal Kubernetes services behind an internal load balancer, we recommend creating an internal load balancer or internal service below 750 node scale for optimal scaling performance and load balancer elasticity.
+* Use Managed NAT for cluster egress with at least two public IPs on the NAT gateway. For more information, see [Create a managed NAT gateway for your AKS cluster](https://learn.microsoft.com/en-us/azure/aks/nat-gateway).
+* Use Azure CNI Overlay to scale up to 200,000 pods and 5,000 nodes per cluster. For more information, see [Configure Azure CNI Overlay networking in AKS](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay).
+* If your application needs direct pod-to-pod communication across clusters, use Azure CNI with dynamic IP allocation and scale up to 50,000 application pods per cluster with one routable IP per pod. For more information, see [Configure Azure CNI networking for dynamic IP allocation in AKS](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni-dynamic-ip-allocation).
+* When using internal Kubernetes services behind an internal load balancer, we recommend creating an internal load balancer or service below a 750 node scale for optimal scaling performance and load balancer elasticity.
 
 > [!NOTE]
-> [Azure Policy Network Manager (Azure NPM)][azure-npm] doesn't support clusters that have more than 250 nodes, and you can't update a cluster with more than 250 nodes managed by Cluster Autoscaler across all agent pools.
+> [Azure Policy Network Manager (Azure NPM)][azure-npm] doesn't support clusters that have more than 250 nodes, and you can't update a cluster with more than 250 nodes managed by Cluster Autoscaler across all agent pools. If you want to enforce network policies for larger clusters, consider using Azure CNI powered by Cilium, which combines the robust control plane of [Azure CNI with the Cilium](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) data plane to provide high performance networking and security.
 
 ## Node pool scaling considerations and best practices
 
