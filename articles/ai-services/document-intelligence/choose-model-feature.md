@@ -57,7 +57,7 @@ The following decision charts highlight the features of each **Document Intellig
 |**US Tax 1099(Variations) form**|You want to extract information from `1099` forms and its variations (A, B, C, CAP, DIV, G, H, INT, K, LS, LTC, MISC, NEC, OID, PATR, Q, QA, R, S, SA, SB).|[**US tax 1099 model**](concept-tax-document.md)|
 |**Contract** (legal agreement between parties).|You want to extract contract agreement details such as parties, dates, and intervals.|[**Contract model**](concept-contract.md)|
 |**Health insurance card** or health insurance ID.| You want to extract key information such as insurer, member ID, prescription coverage, and group number.|[**Health insurance card model**](./concept-health-insurance-card.md)|
-|**Credit/Debit card** . |You want to extract key information bank cards such as card number and bank name. | [**Credit/Debit card model**](.md)|
+|**Credit/Debit card** . |You want to extract key information bank cards such as card number and bank name. | [**Credit/Debit card model**](concept-credit-card.md)|
 |**Marriage Certificate** . |You want to extract key information from marriage certificates. | [**Marriage certificate model**](concept-marriage-certificate.md)|
 |**Invoice** or billing statement.|You want to extract key information such as customer name, billing address, and amount due.|[**Invoice model**](concept-invoice.md)
 |**Receipt**, voucher, or single-page hotel receipt. |You want to extract key information such as merchant name, transaction date, and transaction total.|[**Receipt model**](concept-receipt.md)|
