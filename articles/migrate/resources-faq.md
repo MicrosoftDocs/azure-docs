@@ -4,7 +4,7 @@ description: Get answers to common questions about the Azure Migrate service.
 author: MaryMichael-MS
 ms.author: v-michaelar
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 02/27/2022
 ms.custom: engagement-fy23
 ---
 
@@ -68,7 +68,9 @@ Review the supported geographies for [public](migrate-support-matrix.md#public-c
 When you create a project, you select a geography of your choice. The project and related resources are created in one of the regions in the geography, as allocated by the Azure Migrate service. 
 See the metadata storage locations for each geography [here](migrate-support-matrix.md#public-cloud).
 
-Azure Migrate doesn't move or store customer data outside of the region allocated, guaranteeing data residency and resiliency in the same geography. 
+Azure Migrate doesn't move or store customer data outside of the region allocated, guaranteeing data residency and resiliency in the same geography.
+
+Azure Migrate provides an additional option for creating projects and ensuring data residency in preferred regions beyond the specified geographies. To avail this option, use the link - https://aka.ms/migrate/ProjectRegionSelection.
 
 ## Does Azure Migrate offer Backup and Disaster Recovery?
 
