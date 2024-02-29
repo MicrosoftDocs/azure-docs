@@ -4,8 +4,8 @@ description: This article shows you how to create a new log search alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
-ms.date: 11/27/2023
-ms.reviewer: harelbr
+ms.date: 02/28/2024
+ms.reviewer: nolavime
 ---
 
 # Create or edit a log search alert rule
@@ -34,7 +34,8 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1.  On the **Logs** pane, write a query that returns the log events for which you want to create an alert. To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
     > [!NOTE]
-    > Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
+    > * Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
+    > * The word "AggregatedValue" is a reserved word, it cannot be used in the query on Log search Alerts rules.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log search alert rule.":::
       
@@ -53,7 +54,12 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log search alert rule.":::
 
-    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md) 
+    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md)
+
+   For limitations:
+   * [Cross-service query limitations](https://learn.microsoft.co/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy#limitations)
+   * [Combine Azure Resource Graph tables with a Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy#combine-azure-resource-graph-tables-with-a-log-analytics-workspace) limitations
+   * Not suppprted in Gov clouds
 1. Select **Run** to run the alert.
 1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
 1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last five minutes. If the system detects summarized query results, the rule is automatically updated with that information.
@@ -84,7 +90,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     Select values for these fields:
 
     -  **Resource ID column**: In general, if your alert rule scope is a workspace, the alerts are fired on the workspace. If you want a separate alert for each affected Azure resource, you can:
-        - use the ARM **Azure Resource ID** column as a dimension
+        - use the ARM **Azure Resource ID** column as a dimension (notice that by using this option the alert will be fired on the **workspace** with the **Azure Resource ID** column as a dimension.
         - specify it as a dimension in the Azure Resource ID property, which makes the resource returned by your query the target of the alert, so alerts are fired on the resource returned by your query, such as a virtual machine or a storage account, as opposed to in the workspace. When you use this option, if the workspace  gets data from resources in more than one subscription, alerts can be triggered on resources from a subscription that is different from the alert rule subscription. 
 
     |Field  |Description  |

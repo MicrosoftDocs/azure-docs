@@ -215,7 +215,7 @@ Azure Automation region mapping updated to support Update Management feature in 
 
 **Type:** New feature
 
-Start/Stop VM runbooks have been updated to use Az modules in place of Azure Resource Manager modules. See [Start/Stop VMs during off-hours](automation-solution-vm-management.md) overview for updates to the documentation to reflect these changes.
+Start/Stop VM runbooks have been updated to use Az modules in place of Azure Resource Manager modules. 
 
 ## August 2020
 

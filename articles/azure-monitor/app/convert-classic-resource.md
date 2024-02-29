@@ -285,12 +285,19 @@ From within the Application Insights resource pane, select **Properties** > **Ch
 
 This section provides answers to common questions.
 
+### What will happen if I don't migrate my Application Insights classic resource to a workspace-based resource?
+
+Microsoft will begin an automatic phased approach to migrating classic resources to workspace-based resources beginning in May 2024 and this migration will span the course of several months. We can't provide approximate dates that specific resources, subscriptions, or regions will be migrated.
+
+We strongly encourage manual migration to workspace-based resources, which is initiated by selecting the deprecation notice banner in the classic Application Insights resource Overview pane of the Azure portal. This process typically involves a single step of choosing which Log Analytics workspace will be used to store your application data. If you use continuous export, you'll need to additionally migrate to diagnostic settings or disable the feature first.
+
+If you don't wish to have your classic resource automatically migrated to a workspace-based resource, you may delete or manually migrate the resource.
+
 ### Is there any implication on the cost from migration?
 
-There's usually no difference, with a couple of exceptions:
+There's usually no difference, with one exeception - Application Insights resources that were receiving 1 GB per month free via legacy Application Insights pricing model will no longer receive the free data.
 
- - Migrated Application Insights resources can use [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers) to reduce cost if the data volumes in the workspace are high enough.
- - Grandfathered Application Insights resources no longer get 1 GB per month free from the original Application Insights pricing model.
+The migration to workspace-based Application Insights offers a number of options to further [optimize cost](../logs/cost-logs.md), including [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers), [dedicated clusters](../logs/cost-logs.md#dedicated-clusters), and [basic logs](../logs/cost-logs.md#basic-logs).  
 
 ### How will telemetry capping work?
 
@@ -333,13 +340,13 @@ If you're using Terraform to manage your Azure resources, it's important to use 
 To avoid this issue, make sure to use the latest version of the Terraform [azurerm provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest), version 3.89 or higher, which performs the proper migration steps by issuing the appropriate ARM call to upgrade the App Insights classic resource to a workspace-based resource while preserving all the old data and connection string/instrumentation key values.
 
 ### Can I still use the old API to create Application Insights resources programmatically?
-Yes, calls to the old API for creating Application Insights resources continue to work as before. The old API version doesn't include a reference to the Log Analytics resource. However, when you trigger a legacy API call, it automatically creates a resource and the required association between Application Insights and Log Analytics.
+
+For backwards compatibility, calls to the old API for creating Application Insights resources will continue to work. Each of these calls will eventually create both a workspace-based Application Insights resource and a Log Analytics workspace to store the data.
+
+We strongly encourage updating to the [new API](resource-manager-app-resource.md) for better control over resource creation.
 
 ### Should I migrate diagnostic settings on classic Application Insights before moving to a workspace-based AI?
 Yes, we recommend migrating diagnostic settings on classic Application Insights resources before transitioning to a workspace-based Application Insights. It ensures continuity and compatibility of your diagnostic settings.
-
-### What is the migration process for Application Insights resources?
-The migration of Application Insights resources to the new format isn't instantaneous on the day of deprecation. Instead, it occurs over time. We'll gradually migrate all Application Insights resources, ensuring a smooth transition with minimal disruption to your services.
 
 ## Troubleshooting
 
@@ -409,7 +416,7 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 | traces | AppTraces | Detailed logs (traces) emitted through application code/logging frameworks recorded via `TrackTrace()`. |
 
 > [!CAUTION]
-> Don't take a production dependency on the Log Analytics tables until you see new telemetry records show up directly in Log Analytics. It might take up to 24 hours after the migration process started for records to appear.
+> Wait for new telemetry in Log Analytics before relying on it. After starting the migration, telemetry first goes to Classic Application Insights. Telemetry ingestion is switched to Log Analytics within 24 hours. Once done, Log Analytics solely captures new telemetry.
 
 ### Table schemas
 

@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 02/21/2024
 ms.author: lajanuar
 ---
 
@@ -26,9 +26,9 @@ ms.author: lajanuar
 > * Azure AI Language public preview releases provide early access to features that are in active development.
 > * Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
 
-Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to text-based data. The native document support capability enables you to send API requests asynchronously, using an HTTP POST request body to send your data and HTTP GET request query string to retrieve the processed data.
+Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to text-based data. The native document support capability enables you to send API requests asynchronously, using an HTTP POST request body to send your data and HTTP GET request query string to retrieve the status results. Your processed documents are located in your Azure Blob Storage target container.
 
-A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for the following capabilities:
+A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing before using Azure AI Language resource capabilities. Currently, native document support is available for the following capabilities:
 
 * [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md). The PII detection feature can identify, categorize, and redact sensitive information in unstructured text. The `PiiEntityRecognition` API supports native document processing.
 
@@ -36,7 +36,7 @@ A native document refers to the file format used to create the original document
 
 ## Supported document formats
 
- Applications use native file formats to create, save, or open native documents.  Currently **PII** and **Document summarization** capabilities supports the following native document formats:
+ Applications use native file formats to create, save, or open native documents. Currently **PII** and **Document summarization** capabilities supports the following native document formats:
 
 |File type|File extension|Description|
 |---------|--------------|-----------|
@@ -51,7 +51,7 @@ A native document refers to the file format used to create the original document
 |Type|support and limitations|
 |---|---|
 |**PDFs**| Fully scanned PDFs aren't supported.|
-|**Text within images**| Digital images with imbedded text aren't supported.|
+|**Text within images**| Digital images with embedded text aren't supported.|
 |**Digital tables**| Tables in scanned documents aren't supported.|
 
 ***Document Size***
@@ -69,7 +69,7 @@ A native document refers to the file format used to create the original document
 
     > [!NOTE]
     > The cURL package is pre-installed on most Windows 10 and Windows 11 and most macOS and Linux distributions. You can check the package version with the following commands:
-    > Windows: `curl.exe -V`.
+    > Windows: `curl.exe -V`
     > macOS `curl -V`
     > Linux: `curl --version`
 
@@ -78,7 +78,7 @@ A native document refers to the file format used to create the original document
   * [Windows](https://curl.haxx.se/windows/).
   * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows).
 
-* An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
+* An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
 * An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to [create containers](#create-azure-blob-storage-containers) in your Azure Blob Storage account for your source and target files:
 
@@ -128,7 +128,7 @@ Your Language resource needs granted access to your storage account before it ca
 
 * [**Shared access signature (SAS) tokens**](shared-access-signatures.md). User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
-* [**Managed identity role-based access control (RBAC)**](managed-identities.md). Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources
+* [**Managed identity role-based access control (RBAC)**](managed-identities.md). Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources.
 
 For this project, we authenticate access to the `source location` and `target location` URLs with Shared Access Signature (SAS) tokens appended as query strings. Each token is assigned to a specific blob (file).
 
@@ -177,7 +177,7 @@ For this quickstart, you need a **source document** uploaded to your **source co
                 "language": "en-US",
                 "id": "Output-excel-file",
                 "source": {
-                    "location": "{your-source-container-with-SAS-URL}"
+                    "location": "{your-source-blob-with-SAS-URL}"
                 },
                 "target": {
                     "location": "{your-target-container-with-SAS-URL}"
@@ -189,13 +189,17 @@ For this quickstart, you need a **source document** uploaded to your **source co
         {
             "kind": "PiiEntityRecognition",
             "parameters":{
-                "excludePiiCategoriesredac" : ["PersonType", "Category2", "Category3"],
-                "redactionPolicy": "UseEntityTypeName" 
+                "excludePiiCategories" : ["PersonType", "Category2", "Category3"],
+                "redactionPolicy": "UseRedactionCharacterWithRefId" 
             }
         }
     ]
 }
 ```
+
+* The source `location` value is the SAS URL for the **source document (blob)**, not the source container SAS URL.
+
+* The `redactionPolicy` possible values are `UseRedactionCharacterWithRefId` (default) or `UseEntityTypeName`. For more information, *see* [**PiiTask Parameters**](/rest/api/language/text-analysis-runtime/analyze-text?view=rest-language-2023-11-15-preview&tabs=HTTP#piitaskparameters&preserve-view=true).
 
 ### Run the POST request
 
@@ -332,7 +336,7 @@ For this project, you need a **source document** uploaded to your **source conta
 
 1. Copy and paste the Document Summarization **request sample** into your `document-summarization.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance:
 
-  `**Request sample**`
+  ***Request sample***
 
   ```json
   {
@@ -344,7 +348,7 @@ For this project, you need a **source document** uploaded to your **source conta
         "documents":[
             {
           "source":{
-            "location":"{your-source-container-SAS-URL}"
+            "location":"{your-source-blob-SAS-URL}"
           },
           "targets":
             {

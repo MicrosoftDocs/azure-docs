@@ -15,6 +15,9 @@ ms.author: malev
 
 Applications hosted in Kubernetes can access data in App Configuration [using the App Configuration provider library](./enable-dynamic-configuration-aspnet-core.md). The App Configuration provider has built-in caching and refreshing capabilities so applications can have dynamic configuration without redeployment. If you prefer not to update your application, this tutorial shows how to bring data from App Configuration to your Kubernetes using Helm via deployment. This way, your application can continue accessing configuration from Kubernetes variables and secrets. You run Helm upgrade when you want your application to pick up new configuration changes.
 
+> [!TIP]
+> See [options](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration) for workloads hosted in Kubernetes to access Azure App Configuration.
+
 Helm provides a way to define, install, and upgrade applications running in Kubernetes. A Helm chart contains the information necessary to create an instance of a Kubernetes application. Configuration is stored outside of the chart itself, in a file called *values.yaml*.
 
 During the release process, Helm merges the chart with the proper configuration to run the application. For example, variables defined in *values.yaml* can be referenced as environment variables inside the running containers. Helm also supports creation of Kubernetes Secrets, which can be mounted as data volumes or exposed as environment variables.
@@ -205,7 +208,7 @@ Use helm upgrade's **-f** argument to pass in the two configuration files you've
 helm upgrade --install -f myConfig.yaml -f mySecrets.yaml "example" ./mychart
 ```
 
-You can also use the **--set** argument for helm upgrade to pass literal key values. Using the **--set** argument is a good way to avoid persisting sensitive data to disk.
+You can also use the **--set** argument for helm upgrade to pass literal key-values. Using the **--set** argument is a good way to avoid persisting sensitive data to disk.
 
 ```powershell
 $secrets = az appconfig kv list -n myAppConfiguration --key "secrets.*" --resolve-keyvault --query "[*].{name:key, value:value}" | ConvertFrom-Json

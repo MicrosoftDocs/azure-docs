@@ -4,7 +4,7 @@ title: Use the Azure Linux container host on Azure Kubernetes Service (AKS)
 description: Learn how to use the Azure Linux container host on Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: build-2023
-ms.date: 09/18/2023
+ms.date: 02/27/2024
 ---
 
 # Use the Azure Linux container host for Azure Kubernetes Service (AKS)
@@ -53,7 +53,7 @@ The Azure Linux container host is available for use in the same regions as AKS.
 To learn more about Azure Linux, see the [Azure Linux documentation][azurelinuxdocumentation].
 
 <!-- LINKS - Internal -->
-[azurelinux-doc]: https://microsoft.github.io/CBL-Mariner/docs/#cbl-mariner-linux
+[azurelinux-doc]: ../azure-linux/intro-azure-linux.md
 [azurelinux-capabilities]: ../azure-linux/intro-azure-linux.md#azure-linux-container-host-key-benefits
 [azurelinux-cluster-config]: cluster-configuration.md#azure-linux-container-host-for-aks
 [azurelinux-node-pool]: create-node-pools.md#add-an-azure-linux-node-pool
