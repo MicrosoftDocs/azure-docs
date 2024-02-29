@@ -260,9 +260,4 @@ Use the following steps to enable routing between the loopback interface and the
 
 1. Repeat the previous steps to configure **vm-2**. Replace the IP address of **10.0.0.100** with **10.0.0.200** in the static IP address configuration of the loopback adapter.
 
-## Related content
-
-* [Related article title](link.md)
-* [Related article title](link.md)
-* [Related article title](link.md)
 
