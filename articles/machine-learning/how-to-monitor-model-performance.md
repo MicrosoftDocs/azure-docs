@@ -18,9 +18,17 @@ ms.custom: devplatv2, update-code
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you learn to perform out-of box and advanced monitoring setup for models that are deployed to Azure Machine Learning online endpoints. You also learn to set up monitoring for models that are deployed outside Azure Machine Learning or deployed to Azure Machine Learning batch endpoints.
+Learn to use Azure Machine Learning's model monitoring to continuously track the performance of machine learning models in production. Model monitoring provides you with a broad view of monitoring signals and alert you to potential issues. By monitoring models in production, you can critically evaluate the inherent risks associated with them and identify blind spots that could adversely affect your business.
 
-Once a machine learning model is in production, it's important to critically evaluate the inherent risks associated with it and identify blind spots that could adversely affect your business. Azure Machine Learning's model monitoring continuously tracks the performance of models in production by providing a broad view of monitoring signals and alerting you to potential issues.
+In this article you, learn to perform the following tasks:
+
+> [!div class="checklist"]
+> * Set up out-of box and advanced monitoring for models that are deployed to Azure Machine Learning online endpoints
+> * Monitor performance metrics for models in production
+> * Monitor models that are deployed outside Azure Machine Learning or deployed to Azure Machine Learning batch endpoints
+> * Set up model monitoring with custom signals and metrics
+> * Interpret monitoring results
+> * Integrate Azure Machine Learning model monitoring with Azure Event Grid
 
 ## Prerequisites
 
@@ -691,7 +699,7 @@ To set up model performance monitoring:
 
 ---
 
-## Set up model monitoring by bringing your own production data to Azure Machine Learning
+## Set up model monitoring by bringing in your production data to Azure Machine Learning
 
 You can also set up model monitoring for models deployed to Azure Machine Learning batch endpoints or deployed outside of Azure Machine Learning. If you don't have a deployment, but you have production data, you can use the data to perform continuous model monitoring. To monitor these models, you must be able to:
 
@@ -874,7 +882,7 @@ Once you've configured your monitor with the CLI or SDK, you can view the monito
 
 ## Set up model monitoring with custom signals and metrics
 
-With Azure Machine Learning model monitoring, you can define your own custom signal and implement any metric of your choice to monitor your model. You can register this signal as an Azure Machine Learning component. When your Azure Machine Learning model monitoring job runs on the specified schedule, it computes the metric(s) you've defined within your custom signal, just as it does for the prebuilt signals (data drift, prediction drift, and data quality).
+With Azure Machine Learning model monitoring, you can define a custom signal and implement any metric of your choice to monitor your model. You can register this custom signal as an Azure Machine Learning component. When your Azure Machine Learning model monitoring job runs on the specified schedule, it computes the metric(s) you've defined within your custom signal, just as it does for the prebuilt signals (data drift, prediction drift, and data quality).
 
 To set up a custom signal to use for model monitoring, you must first define the custom signal and register it as an Azure Machine Learning component. The Azure Machine Learning component must have these input and output signatures:
 
