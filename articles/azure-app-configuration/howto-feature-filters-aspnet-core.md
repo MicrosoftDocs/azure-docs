@@ -20,9 +20,8 @@ In contrast, a _conditional feature flag_ allows the feature flag to be enabled 
 
 The `Microsoft.FeatureManagement` library includes built-in feature filters:
 
-- `PercentageFilter` enables the feature flag based on a percentage.
 - `TimeWindowFilter` enables the feature flag during a specified window of time.
-- `ContextualTargetingFilter` and `TargetingFilter` enable the feature flag for specified users and groups.
+- `TargetingFilter` enables the feature flag for specified users and groups.
 
 You can also create your own feature filter that implements the `Microsoft.FeatureManagement.IFeatureFilter` interface. For more information, see [Implementing a Feature Filter](https://github.com/microsoft/FeatureManagement-Dotnet#implementing-a-feature-filter).
 
@@ -33,7 +32,7 @@ You can also create your own feature filter that implements the `Microsoft.Featu
 
 ## Set up feature management
 
-Since `Microsoft.FeatureManagement` 3.0.0, all built-in filters, except for the `TargetingFilter`, are added automatically when feature management is registered. For more information on using `TargetingFilter`, see [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md).
+Since `Microsoft.FeatureManagement` 3.0.0, built-in filters, except for the `TargetingFilter`, are added automatically when feature management is registered. For more information on using `TargetingFilter`, see [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md).
 
 ```csharp
 services.AddFeatureManagement();
