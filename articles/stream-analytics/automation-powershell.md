@@ -1,5 +1,5 @@
 ---
-title: Auto-pause an Azure Stream Analytics with PowerShell
+title: Automatically pause an Azure Stream Analytics with PowerShell
 description: This article describes how to automatically pause an Azure Stream Analytics job on a schedule by using PowerShell.
 ms.service: stream-analytics
 ms.custom: devx-track-azurepowershell
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 11/03/2021
 ---
 
-# Auto-pause a job by using PowerShell and Azure Functions or Azure Automation
+# Automatically pause a job by using PowerShell and Azure Functions or Azure Automation
 
 Some applications require a stream processing approach (such as through [Azure Stream Analytics](./stream-analytics-introduction.md)) but don't strictly need to run continuously. The reasons are various:
 
@@ -18,18 +18,18 @@ Some applications require a stream processing approach (such as through [Azure S
 
 The benefit of not running these jobs continuously is cost savings, because Stream Analytics jobs are [billed](https://azure.microsoft.com/pricing/details/stream-analytics/) per Streaming Unit over time.
 
-This article explains how to set up auto-pause for an Azure Stream Analytics job. You configure a task that automatically pauses and resumes a job on a schedule. The term *pause* means that the job [state](./job-states.md) is **Stopped** to avoid any billing.
+This article explains how to set up automatic pausing for an Azure Stream Analytics job. You configure a task that automatically pauses and resumes a job on a schedule. The term *pause* means that the job [state](./job-states.md) is **Stopped** to avoid any billing.
 
 This article discusses the overall design, the required components, and some implementation details.
 
 > [!NOTE]
-> There are downsides to auto-pausing a job. The main downsides are the loss of low-latency/real-time capabilities and the potential risks from allowing the input event backlog to grow unsupervised while a job is paused. Organizations shouldn't consider auto-pausing for most production scenarios that run at scale.
+> There are downsides to automatically pausing a job. The main downsides are the loss of low-latency/real-time capabilities and the potential risks from allowing the input event backlog to grow unsupervised while a job is paused. Organizations shouldn't consider automatic pausing for most production scenarios that run at scale.
 
 ## Design
 
 For the example in this article, you want your job to run for *N* minutes before pausing it for *M* minutes. When the job is paused, the input data isn't consumed and accumulates upstream. After the job starts, it catches up with that backlog and processes the data trickling in before it's shut down again.
 
-![Diagram that illustrates the behavior of an auto-paused job over time.](./media/automation/principle.png)
+![Diagram that illustrates the behavior of an automatically paused job over time.](./media/automation/principle.png)
 
 When the job is running, the task shouldn't stop the job until its metrics are healthy. The metrics of interest are the input backlog and the [watermark](./stream-analytics-time-handling.md#background-time-concepts). You'll check that both are at their baseline for at least *N* minutes. This behavior translates to two actions:
 
@@ -69,7 +69,7 @@ Another consideration is that metrics are always emitted. When the job is stoppe
 
 ### Scripting language
 
-This article implements auto-pause in [PowerShell](/powershell/scripting/overview). The first reason for this choice is that PowerShell is now cross-platform. It can run on any operating system, which makes deployments easier. The second reason is that it takes and returns objects rather than strings. Objects make parsing and processing easier for automation tasks.
+This article implements automatic pausing in [PowerShell](/powershell/scripting/overview). The first reason for this choice is that PowerShell is now cross-platform. It can run on any operating system, which makes deployments easier. The second reason is that it takes and returns objects rather than strings. Objects make parsing and processing easier for automation tasks.
 
 In PowerShell, use the [Az PowerShell](/powershell/azure/new-azureps-module-az) module (which embarks [Az.Monitor](/powershell/module/az.monitor/) and [Az.StreamAnalytics](/powershell/module/az.streamanalytics/)) for everything you need:
 
@@ -243,7 +243,7 @@ The function needs permissions to start and stop the Stream Analytics job. You a
 
 The first step is to enable a *system-assigned managed identity* for the function, by following [this procedure](../app-service/overview-managed-identity.md?tabs=ps%2cportal&toc=/azure/azure-functions/toc.json).
 
-Now you can grant the right permissions to that identity on the Stream Analytics job that you want to auto-pause. For this task, in the portal area for the Stream Analytics job (not the function one), in **Access control (IAM)**, add a role assignment to the role **Contributor** for a member of type **Managed Identity**. Select the name of the function from earlier.
+Now you can grant the right permissions to that identity on the Stream Analytics job that you want to automatically pause. For this task, in the portal area for the Stream Analytics job (not the function one), in **Access control (IAM)**, add a role assignment to the role **Contributor** for a member of type **Managed Identity**. Select the name of the function from earlier.
 
 ![Screenshot of access control settings for a Stream Analytics job.](./media/automation/function-asa-role.png)
 
@@ -283,9 +283,9 @@ The first step is to follow the [procedure](../azure-functions/functions-how-to-
 |`maxWatermark`|The amount of watermark that you tolerate when stopping the job. In seconds, `10` is a good starting point at low Streaming Units.|
 |`restartThresholdMinute`|*M*: The time (in minutes) until a stopped job is restarted.|
 |`stopThresholdMinute`|*N*: The time (in minutes) of cooldown until a running job is stopped. The input backlog needs to stay at `0` during that time.|
-|`subscriptionId`|The subscription ID (not the name) of the Stream Analytics job to be auto-paused.|
-|`resourceGroupName`|The resource group name of the Stream Analytics job to be auto-paused.|
-|`asaJobName`|The name of the Stream Analytics job to be auto-paused.|
+|`subscriptionId`|The subscription ID (not the name) of the Stream Analytics job to be automatically paused.|
+|`resourceGroupName`|The resource group name of the Stream Analytics job to be automatically paused.|
+|`asaJobName`|The name of the Stream Analytics job to be automatically paused.|
 
 You'll later need to update your PowerShell script to load the variables accordingly:
 
@@ -392,7 +392,7 @@ Param(
 
 The Automation account should have received a managed identity during provisioning. But if necessary, you can enable a managed identity by using [this procedure](../automation/enable-managed-identity-for-automation.md).
 
-Like you did for the function, you need to grant the right permissions on the Stream Analytics job that you want to auto-pause.
+Like you did for the function, you need to grant the right permissions on the Stream Analytics job that you want to automatically pause.
 
 To grant the permissions, in the portal area for the Stream Analytics job (not the Automation page), in **Access control (IAM)**, add a role assignment to the role **Contributor** for a member of type **Managed Identity**. Select the name of the Automation account from earlier.
 

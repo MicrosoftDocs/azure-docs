@@ -41,7 +41,7 @@ Turn on resource logs to view the details of the error and the message (payload)
 
 ![Screenshot that shows a warning notification about input details.](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
-If the message payload is greater than 32 KB or is in binary format, run the *CheckMalformedEvents.cs* code available in the [GitHub samples repository](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). This code reads the partition ID's offset and prints the data that's located in that offset.
+If the message payload is greater than 32 KB or is in binary format, run the *CheckMalformedEvents.cs* code available in the [GitHub samples repository](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). This code reads the partition ID offset and prints the data located in that offset.
 
 Other common reasons for input deserialization errors are:
 
