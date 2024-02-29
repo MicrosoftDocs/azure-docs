@@ -113,7 +113,7 @@ In this section, you create a dev box and an Intune group that you use to test t
 
     1. On the **Configuration settings** tab, in **Default elevation response**, select **Deny all elevation requests**.
      
-       :::image type="content" source="media/how-to-elevate-privilege-dev-box/deny-all-requests.png" alt-text="Screenshot showing the Create profile Configuration settings tab, with Endpoint Privilege Management enabled and Default elevation response set to Deny all requests." lightbox="media/how-to-elevate-privilege-dev-box/deny-all-requests.png":::
+      :::image type="content" source="media/how-to-elevate-privilege-dev-box/deny-all-requests.png" alt-text="Screenshot showing the Configuration settings tab, with Endpoint Privilege Management enabled and Default elevation response set to Deny all requests." lightbox="media/how-to-elevate-privilege-dev-box/deny-all-requests.png":::
 
     1. On the **Assignments** tab, select **Add groups**, add the group you created earlier, and then select **Create**.
      
@@ -144,5 +144,5 @@ In this section, you validate that the Microsoft EPM Agent is installed and the 
 
 ## Related content
 
-* [Use Intune Suite add-on capabilities](/em/intune/fundamentals/intune-add-ons).
-* [Use Endpoint Privilege Management with Microsoft Intune](/mem/intune/protect/epm-overview)
+* [Use Intune Suite add-on capabilities](/mem/intune/fundamentals/intune-add-ons).
+* [Use Endpoint Privilege Management with Microsoft Intune](/mem/intune/protect/epm-overview).
