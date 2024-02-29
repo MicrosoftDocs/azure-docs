@@ -165,8 +165,10 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
     - **RDB** – when there's an issue related to RDB persistence
     - **Import** – when there's an issue related to Import RDB
     - **Export** – when there's an issue related to Export RDB
-    - **AADAuthenticationFailure** (preview) - when there's an authentication failure using Microsoft Entra access token
-    - **AADTokenExpired** (preview) - when a Microsoft Entra access token used for authentication isn't renewed and it expires.
+    - **AADAuthenticationFailure** (preview) -  when there's an authentication failure using Microsoft Entra access token. Not recommended, use MicrosoftEntraAuthenticationFailure instead.
+    - **AADTokenExpired** (preview) - when a Microsoft Entra access token used for authentication isn't renewed and it expires. Not recommended, use MicrosoftEntraTokenExpired instead.
+    - **MicrosoftEntraAuthenticationFailure** (preview) - when there's an authentication failure using Microsoft Entra access token
+    - **MicrosoftEntraTokenExpired** (preview) - when a Microsoft Entra access token used for authentication isn't renewed and it expires.
 > [!NOTE]
 > Metrics for errors aren't available when using the Enterprise Tiers.
 
