@@ -447,7 +447,7 @@
               href: azure-cni-overlay.md
             - name: Use Azure CNI for dynamic IP allocation
               href: configure-azure-cni-dynamic-ip-allocation.md
-            - name: Use Azure CNI VNet - Static Block IP Allocation (Preview)
+            - name: Use Azure CNI VNet - Static Block Allocation (Preview)
               href: configure-azure-cni-static-block-allocation.md
             - name: Use Azure CNI Powered by Cilium
               href: azure-cni-powered-by-cilium.md
