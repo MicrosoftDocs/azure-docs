@@ -90,9 +90,9 @@ When using the API, pass the `filter` parameter in each API request. For example
         {
             "type": "AzureCognitiveSearch",
             "parameters": {
-                "endpoint": "'$SearchEndpoint'",
-                "key": "'$SearchKey'",
-                "indexName": "'$SearchIndex'",
+                "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
+                "key": "'$AZURE_AI_SEARCH_API_KEY'",
+                "indexName": "'$AZURE_AI_SEARCH_INDEX'",
                 "filter": "my_group_ids/any(g:search.in(g, 'group_id1, group_id2'))"
             }
         }

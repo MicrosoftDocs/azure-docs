@@ -13,7 +13,7 @@ This article provides information on troubleshooting and resolving issues that c
 
 ### Logs
 
-For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If there is a problem collecting logs, most likely the management machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the management machine to the Appliance VM.
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the management machine to the Appliance VM.
 
 The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the management machine. To use a different machine to run the logs command, make sure the following files are copied to the machine in the same location:
 
@@ -28,7 +28,7 @@ If you run `az arcappliance` CLI commands for Arc Resource Bridge via remote Pow
 
 Using `az arcappliance` commands from remote PowerShell isn't currently supported. Instead, sign in to the node through Remote Desktop Protocol (RDP) or use a console session.
 
-### Resource bridge configurations cannot be updated
+### Resource bridge configurations can't be updated
 
 In this release, all the parameters are specified at time of creation. To update the Azure Arc resource bridge, you must delete it and redeploy it again.
 
@@ -38,7 +38,7 @@ To resolve this issue, delete the appliance and update the appliance YAML file. 
 
 ### Appliance Network Unavailable 
 
-If Arc resource bridge is experiencing a network communication problem or is offline, you may see an "Appliance Network Unavailable" error when trying to perform an action that interacts with the resource bridge or an extension operating on top of the bridge. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host" and this is typically a network communication problem. The problem could be that communication from the host to the Arc resource bridge VM needs to be opened with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. You may also need to check that the appliance VM for Arc resource bridge is not stopped. In the case of Azure Stack HCI, the host storage may be full which has caused the appliance VM to pause and the storage will need to be addressed. 
+If Arc resource bridge is experiencing a network communication problem or is offline, you may see an "Appliance Network Unavailable" error when trying to perform an action that interacts with the resource bridge or an extension operating on top of the bridge. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host" and this is typically a network communication problem. The problem could be that communication from the host to the Arc resource bridge VM needs to be opened with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. You may also need to check that the appliance VM for Arc resource bridge isn't stopped. In the case of Azure Stack HCI, the host storage may be full which has caused the appliance VM to pause and the storage will need to be addressed. 
 
 ### Connection closed before server preface received
 
@@ -54,7 +54,7 @@ When you run the Azure CLI commands, the following error might be returned: *The
 
 When using the `az arcappliance createConfig` or `az arcappliance run` command, there will be an interactive experience which shows the list of the VMware entities where user can select to deploy the virtual appliance. This list will show all user-created resource pools along with default cluster resource pools, but the default host resource pools aren't listed.
 
-When the appliance is deployed to a host resource pool, there is no high availability if the host hardware fails. Because of this, we recommend that you don't try to deploy the appliance in a host resource pool.
+When the appliance is deployed to a host resource pool, there's no high availability if the host hardware fails. Because of this, we recommend that you don't try to deploy the appliance in a host resource pool.
 
 ### Resource bridge status "Offline" and `provisioningState` "Failed"
 
@@ -96,8 +96,19 @@ When trying to deploy Arc resource bridge, you might see an error that contains 
 
 If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md).
 
-### .local not supported
+### Http2 server sent GOAWAY
 
+When trying to deploy Arc resource bridge, you might receive an error message similar to:
+
+`"errorResponse": "{\n\"message\": \"Post \\\"https://region.dp.kubernetesconfiguration.azure.com/azure-arc-appliance-k8sagents/GetLatestHelmPackagePath?api-version=2019-11-01-preview\\u0026releaseTrain=stable\\\": http2: server sent GOAWAY and closed the connection; LastStreamID=1, ErrCode=NO_ERROR, debug=\\\"\\\"\"\n}"`
+
+This occurs when a firewall or proxy has SSL/TLS inspection enabled and blocks http2 calls from the machine used to deploy the resource bridge. To confirm this is the problem, run the following PowerShell cmdlet to invoke the web request with http2 (requires PowerShell version 7 or above), replacing the region in the URL and api-version (ex:2019-11-01) with values from the error:
+
+`Invoke-WebRequest -HttpVersion 2.0 -UseBasicParsing -Uri https://region.dp.kubernetesconfiguration.azure.com/azure-arc-appliance-k8sagents/GetLatestHelmPackagePath?api-version=2019-11-01-preview"&"releaseTrain=stable -Method Post -Verbose`
+
+If the result is `The response ended prematurely while waiting for the next frame from the server`, then the http2 call is being blocked and needs to be allowed. Work with your network administrator to disable the SSL/TLS inspection to allow http2 calls from the machine used to deploy the bridge.
+
+### .local not supported
 When trying to set the configuration for Arc resource bridge, you might receive an error message similar to:
 
 `"message": "Post \"https://esx.lab.local/52b-bcbc707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"`
@@ -139,7 +150,7 @@ For clarity, "management machine" refers to the machine where deployment CLI com
 
 To resolve the error, one or more network misconfigurations might need to be addressed. Follow the steps below to address the most common reasons for this error.
 
-1. When there is a problem with deployment, the first step is to collect logs by Appliance VM IP (not by kubeconfig, as the kubeconfig could be empty if the deploy command didn't complete). Problems collecting logs are most likely due to the management machine being unable to reach the Appliance VM.
+1. When there's a problem with deployment, the first step is to collect logs by Appliance VM IP (not by kubeconfig, as the kubeconfig could be empty if the deploy command didn't complete). Problems collecting logs are most likely due to the management machine being unable to reach the Appliance VM.
 
    Once logs are collected, extract the folder and open kva.log. Review the kva.log for more information on the failure to help pinpoint the cause of the KVA timeout error.
 
