@@ -134,26 +134,44 @@ NotificationMessagesClient notificationClient = new NotificationMessagesClientBu
 
 #### [Microsoft Entra ID](#tab/aad)
 
-A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `ClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
+You can also authenticate with Microsoft Entra ID using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity). 
 
-The `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID`, and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
+The [`Azure.Identity`](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](https://learn.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#credentials) and [Azuze Identity - Authenticate the client](https://learn.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable#authenticate-the-client). This option walks through one way of using the [`DefaultAzureCredential`](https://learn.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#defaultazurecredential).
 
-```java
-// You can find your endpoint and access key from your resource in the Azure portal
-String endpoint = "https://<resource-name>.communication.azure.com/";
-NotificationMessagesClient notificationClient =  new NotificationMessagesClientBuilder()
-    .endpoint(endpoint)
-    .credential(new DefaultAzureCredentialBuilder().build())
-    .buildClient();
-```
+The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](https://learn.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.   
+
+To create a `DefaultAzureCredential` object:
+1. Follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application) to set up your service principle app.
+
+1. Use the output of your app's creation to set the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`.   
+Open a console window and enter the following commands:
+    ```console
+    setx AZURE_CLIENT_ID "<your app's appId>"
+    setx AZURE_CLIENT_SECRET "<your app's password>"
+    setx AZURE_TENANT_ID "<your app's tenant>"
+    ```
+    After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+
+1. To use the [`DefaultAzureCredential`](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, follow the instruction to include the `azure-identity` package at [Azure Identity - Include the package](https://learn.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable#include-the-package).
+
+1. To instantiate a `NotificationMessagesClient`, add the following code to the `Main` method:
+    ```java
+    String endpoint = "https://<resource name>.communication.azure.com/";
+    NotificationMessagesClient notificationClient =  new NotificationMessagesClientBuilder()
+        .endpoint(endpoint)
+        .credential(new DefaultAzureCredentialBuilder().build())
+        .buildClient();
+    ```
+
+    A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `ClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
 NotificationMessage or MessageTemplate clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
 
 ```java
-String endpoint = "https://<resource-name>.communication.azure.com";
-AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key>");
+String endpoint = "https://<resource name>.communication.azure.com";
+AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access key>");
 NotificationMessagesClient notificationClient = new NotificationMessagesClientBuilder()
     .endpoint(endpoint)
     .credential(azureKeyCredential)
@@ -186,8 +204,15 @@ The phone number should include the country code. For more information on phone 
 
 Create the recipient list like this:
 ```java
-List<String> recipients = new ArrayList<>();
-recipients.add("<Phone_Number e.g. '+14255550199');
+List<String> recipientList = new ArrayList<>();
+recipientList.add("<to WhatsApp phone number>");
+```
+
+Example:
+```java
+// Example only
+List<String> recipientList = new ArrayList<>();
+recipientList.add("+14255550199");
 ```
 
 ### Start sending messages between a business and a WhatsApp user
@@ -216,7 +241,7 @@ String templateLanguage = "en_us";
 MessageTemplate messageTemplate = new MessageTemplate(templateName, templateLanguage);
 
 // Assemble template message
-TemplateNotificationContent templateContent = new TemplateNotificationContent(channelRegistrationId, recipients, messageTemplate);
+TemplateNotificationContent templateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplate);
 
 // Send template message
 SendMessageResult result = notificationClient.send(templateContent);
@@ -247,7 +272,7 @@ In the text message, provide text to send to the recipient. In this example, we 
 Assemble then send the text message:
 ```java
 // Assemble text message
-TextNotificationContent textContent = new TextNotificationContent("<CHANNEL_ID>", recipients, "“Thanks for your feedback.");
+TextNotificationContent textContent = new TextNotificationContent(channelRegistrationId, recipientList, "“Thanks for your feedback.");
 
 // Send text message
 SendMessageResult result = notificationClient.send(textContent);
@@ -270,7 +295,7 @@ String mediaUrl = "https://aka.ms/acsicon1";
 Assemble then send the media message:
 ```java
 // Assemble media message
-MediaNotificationContent mediaContent = new MediaNotificationContent("<CHANNEL_ID>", recipients, mediaUrl);
+MediaNotificationContent mediaContent = new MediaNotificationContent(channelRegistrationId, recipientList, mediaUrl);
 
 // Send media message
 SendMessageResult result = notificationClient.send(mediaContent);

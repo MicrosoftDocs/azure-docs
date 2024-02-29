@@ -127,37 +127,66 @@ const client = MessageClient(connectionString);
 
 #### [Microsoft Entra ID](#tab/aad)
 
-You can also authenticate with Microsoft Entra ID using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). To use the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential) provider in the following snippet, or other credential providers provided with the Azure SDK, install the [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package:
+You can also authenticate with Microsoft Entra ID using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). 
 
-```bash
-npm install @azure/identity
-```
+The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true#credentials) and [Azuze Identity - Authenticate the client](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node#authenticate-the-client). This option walks through one way of using the [`DefaultAzureCredential`](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node&preserve-view=true#defaultazurecredential). 
 
-The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides various credential types that your application can use to authenticate. The README for `@azure/identity` provides more details and samples to get you started.
-`AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID`, and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
+The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node&preserve-view=true#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.    
 
-```javascript
-const DefaultAzureCredential = require("@azure/identity").DefaultAzureCredential;
-const MessageClient = require("@azure-rest/communication-messages").default;
+To create a `DefaultAzureCredential` object:
+1. Follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application) to set up your service principle app.
+1. Use the output of your app's creation to set the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`.   
+Open a console window and enter the following commands:
+    ```console
+    setx AZURE_CLIENT_ID "<your app's appId>"
+    setx AZURE_CLIENT_SECRET "<your app's password>"
+    setx AZURE_TENANT_ID "<your app's tenant>"
+    ```
+    After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
-// Configure authentication
-const endpoint = "https://<resource name>.communication.azure.com";
-let credential = new DefaultAzureCredential();
+1. To use the [`DefaultAzureCredential`](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `@azure/identity` package:
 
-// Instantiate the client
-const client = MessageClient(endpoint, credential);
-```
+    ```bash
+    npm install @azure/identity
+    ```
+
+1. To instantiate a `MessageClient`, add the following code to the `Main` method:
+    ```javascript
+    const DefaultAzureCredential = require("@azure/identity").DefaultAzureCredential;
+    const MessageClient = require("@azure-rest/communication-messages").default;
+    
+    // Configure authentication
+    const endpoint = "https://<resource name>.communication.azure.com";
+    let credential = new DefaultAzureCredential();
+    
+    // Instantiate the client
+    const client = MessageClient(endpoint, credential);
+    ```
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
-MessagesService clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
+You can also authenticate with an AzureKeyCredential.
 
+Get the endpoint and key from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Endpoint` and the `Key` field for the primary key.
+
+:::image type="content" source="../../media/get-started/get-communication-resource-endpoint-and-key.png" lightbox="../../media/get-started/get-communication-resource-endpoint-and-key.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
+
+Set the environment variable `COMMUNICATION_SERVICES_KEY` to the value of your connection string.   
+Open a console window and enter the following command:
+```console
+setx COMMUNICATION_SERVICES_KEY "<your key>"
+```
+After you add the environment variable, you might need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+
+For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
+
+To instantiate a `MessageClient`, add the following code to the `Main` method:
 ```javascript
 const AzureKeyCredential = require("@azure/core-auth").AzureKeyCredential;
 const MessageClient = require("@azure-rest/communication-messages").default;
 
 // Configure authentication
-const endpoint = "https://<resource-name>.communication.azure.com";
+const endpoint = "https://<resource name>.communication.azure.com";
 const credential = new AzureKeyCredential("<your key credential>");
 
 // Instantiate the client
@@ -187,7 +216,7 @@ The recipient phone number can't be the business phone number (Sender ID) associ
 The phone number should include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
 
 ```json
-const recipientList = ["<to-phone-number>"];
+const recipientList = ["<to WhatsApp phone number>"];
 ```
 
 Example:
