@@ -1,6 +1,6 @@
 ---
 title: Quickstart for adding feature flags to Python with Azure App Configuration (Preview)
-description: Add feature flags to Python apps and manage them using Azure App Configuration
+description: Add feature flags to Python apps and manage them using Azure App Configuration.
 author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
@@ -21,7 +21,7 @@ These libraries do **not** have a dependency on any Azure libraries. They seamle
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/).
 
 ## Add a feature flag
 
@@ -74,7 +74,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+    Restart the command prompt to allow the change to take effect. Validate that it is set properly by printing the value of the environment variable.
 
     ### [PowerShell](#tab/powershell)
 
@@ -92,7 +92,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+    Restart the command prompt to allow the change to take effect. Validate that it is set properly by printing the value of the environment variable.
 
     ### [Linux](#tab/linux)
 
@@ -102,7 +102,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+    Restart the command prompt to allow the change to take effect. Validate that it is set properly by printing the value of the environment variable.
 
     ---
 
@@ -112,7 +112,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     python app.py
     ```
 
-1. In the App Configuration portal select **Feature Manager**, and change the state of the **Beta** key to **On**:
+1. In the App Configuration portal select **Feature Manager**, and change the state of the **Beta** key to **On**.
 
     | Key | State |
     |---|---|
@@ -229,11 +229,11 @@ You can find a full sample project [here](https://github.com/Azure/AppConfigurat
 
 ---
 
-Whenever these endpoints are triggered, a refresh check can be performed to ensure the latest configuration values are used. The check can return immediately if the refresh interval has not passed or a refresh is already in progress.
+Whenever these endpoints are triggered, a refresh check can be performed to ensure the latest configuration values are used. The check can return immediately if the refresh interval has yet to pass or a refresh is already in progress.
 
 When a refresh is complete all values are updated at once, so the configuration is always consistent within the object.
 
-NOTE: If the refresh interval hasn't passed, then the refresh won't be attempted and returned right away.
+NOTE: If the refresh interval has yet to pass, then the refresh will not be attempted and the function will return right away.
 
 ## Clean up resources
 
@@ -243,7 +243,7 @@ NOTE: If the refresh interval hasn't passed, then the refresh won't be attempted
 
 In this quickstart, you created a new App Configuration store and used it to manage features in a Spring Boot web app via the [Feature Management libraries](https://azure.github.io/azure-sdk-for-java/springboot.html).
 
-* Library [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917)
+* See library [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917).
 * Learn more about [feature management](./concept-feature-management.md).
 * [Manage feature flags](./manage-feature-flags.md).
 * [Use feature flags in a Spring Boot Core app](./use-feature-flags-spring-boot.md).
