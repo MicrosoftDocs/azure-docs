@@ -354,13 +354,12 @@ Recommendations for the management of chat ID:
     ```
   * Use Graph API to get existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00000000-0000-0000-0000-000000000000".
 - Start group call with more than 2 Microsoft 365 users:
-  * (Optional way) Use startCall API on web calling SDK without providing chat thread ID to create a group chat for participants. You only need to provide identifier for all the participants when leveraging API.
+  * (Optional way) When making a group call with more than 2 Microsoft 365 users using ACS Calling SDK, the SDK will automatically create the thread by default.
     ```js
     startCall(MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)[])
     ```
-  * Use Graph API to get or create a group chat with the Teams users.
-> [!NOTE]
-> If you are using optional way to leverage API without providing chat thread Id, then you need to be consistently using this way to let web calling SDK to create/manage the thread ID for your App. In this way, You can access thread ID via TeamsCallInfo object on web calling SDK.
+  * If desired, the developer can provide a unique thread ID to start the group call or add participants. In this case, the ACS Calling SDK will use the given thread ID to create the group call. A chat thread is created for the Teams users and this thread is associated to the group call for users in Teams app. This allows them to chat during the call.
+
 ## Send or receive a reaction from other participants
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher
