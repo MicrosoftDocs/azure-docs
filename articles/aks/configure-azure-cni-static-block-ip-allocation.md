@@ -11,24 +11,24 @@ ms.date: 02/29/2024
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Configure Azure CNI networking for static allocation of IP blocks and enhanced subnet support in Azure Kubernetes Service (AKS) - (Preview)
+# Configure Azure CNI Networking for static allocation of CIDR blocks and enhanced subnet support in Azure Kubernetes Service (AKS) - (Preview)
 
-A limitation of [Azure CNI VNet dynamic IP allocation](configure-azure-cni-dynamic-ip-allocation.md) is the exhaustion of pod IP addresses as the AKS cluster grows, which results in the need to rebuild your entire cluster in a bigger subnet or be limit the cluster size to 65K pods. The new static block IP allocation capability in Azure CNI VNet solves this problem by assigning IP prefixes to Nodes rather than specific IPs.
+A limitation of [Azure CNI Dynamic IP Allocation](configure-azure-cni-dynamic-ip-allocation.md) is the exhaustion of pod IP addresses as the AKS cluster grows, which results in the need to rebuild your entire cluster in a bigger subnet but still be limit the cluster size to 65K pods. The new static block allocation capability in Azure CNI solves this problem by assigning CIDR blocks to Nodes rather than individual IPs.
 
 It offers the following benefits:
 
-* **Better IP Scalability**: IPs are dynamically allocated to cluster Pods from the Pod subnet. This leads to better utilization of IPs in the cluster compared to the traditional CNI solution, which does static allocation of IPs for every node.
+* **Better IP Scalability**: CIDR blocks are statically allocated to the cluster nodes and are present for the lifetime of the node, as opposed to the traditional dynamic allocation of individual IPs with traditional CNI. This enables routing based on CIDR blocks and helps scale the cluster limit up to 1 million pods from the traditional 65K pods per cluster.
 * **Flexibility**: Node and pod subnets can be scaled independently. A single pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate pod subnet for a node pool.  
-* **High performance**: Since pod are assigned virtual network IPs, they have direct connectivity to other cluster pod and resources in the VNet. The solution supports very large clusters without any degradation in performance.
+* **High performance**: Since pods are assigned virtual network IPs, they have direct connectivity to other cluster pods and resources in the VNet. The solution supports very large clusters without any degradation in performance.
 * **Separate VNet policies for pods**: Since pods have a separate subnet, you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using an Azure NAT Gateway, and using NSGs to filter traffic between node pools.  
 * **Kubernetes network policies**: Cilium, Azure NPM, and Calico work with this new solution.
 
-This article shows you how to use Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in AKS.
+This article shows you how to use Azure CNI Networking for static allocation of CIDRs and enhanced subnet support in AKS.
 
 ## Prerequisites
 
 > [!NOTE]
-> When using static block allocation of IPs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service isn't supported.
+> When using static block allocation of CIDRs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service isn't supported.
 
 * Review the [prerequisites][azure-cni-prereq] for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
 * Review the [deployment parameters][azure-cni-deployment-parameters] for configuring basic Azure CNI networking in AKS, as the same parameters apply.
