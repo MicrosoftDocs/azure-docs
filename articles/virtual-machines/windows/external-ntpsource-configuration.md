@@ -5,7 +5,6 @@ author: NDVALPHA
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 08/05/2022
 ms.author: ndelvillar
 ---

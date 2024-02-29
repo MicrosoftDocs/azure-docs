@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 02/14/2024
 ms.reviewer: meyetman
 ms.author: larryfr
 author: Blackmist
@@ -23,7 +23,12 @@ In this article, you learn how to manage access (authorization) to an Azure AI h
 > Applying some roles might limit UI functionality in Azure AI Studio for other users. For example, if a user's role does not have the ability to create a compute instance, the option to create a compute instance will not be available in studio. This behavior is expected, and prevents the user from attempting operations that would return an access denied error. 
 
 ## Azure AI hub resource vs Azure AI project
+
 In the Azure AI Studio, there are two levels of access: the Azure AI hub resource and the Azure AI project. The resource is home to the infrastructure (including virtual network setup, customer-managed keys, managed identities, and policies) as well as where you configure your Azure AI services. Azure AI hub resource access can allow you to modify the infrastructure, create new Azure AI hub resources, and create projects. Azure AI projects are a subset of the Azure AI hub resource that act as workspaces that allow you to build and deploy AI systems. Within a project you can develop flows, deploy models, and manage project assets. Project access lets you develop AI end-to-end while taking advantage of the infrastructure setup on the Azure AI hub resource.
+
+:::image type="content" source="../media/concepts/azureai-hub-project-relationship.png" alt-text="Diagram of the relationship between AI Studio resources." lightbox="../media/concepts/azureai-hub-project-relationship.png":::
+
+One of the key benefits of the AI hub and AI project relationship is that developers can create their own projects that inherit the AI hub security settings. You might also have developers who are contributors to a project, and can't create new projects.
 
 ## Default roles for the Azure AI hub resource 
 
@@ -41,7 +46,7 @@ Here's a table of the built-in roles and their permissions for the Azure AI hub 
 
 The key difference between Contributor and Azure AI Developer is the ability to make new Azure AI hub resources. If you don't want users to make new Azure AI hub resources (due to quota, cost, or just managing how many Azure AI hub resources you have), assign the AI Developer role.
 
-Only the Owner and Contributor roles allow you to make an Azure AI hub resource. At this time, custom roles won't grant you permission to make Azure AI hub resources.
+Only the Owner and Contributor roles allow you to make an Azure AI hub resource. At this time, custom roles can't grant you permission to make Azure AI hub resources.
 
 The full set of permissions for the new "Azure AI Developer" role are as follows:
 
@@ -91,18 +96,33 @@ Here's a table of the built-in roles and their permissions for the Azure AI proj
 | Azure AI Developer |     User can perform most actions, including create deployments, but can't assign permissions to project users. |
 | Reader |     Read only access to the Azure AI project. |
 
-When a user gets access to a project, two more roles are automatically assigned to the project user. The first role is Reader on the Azure AI hub resource. The second role is the Inference Deployment Operator role, which allows the user to create deployments on the resource group that the project is in. This role is composed of these two permissions: ```"Microsoft.Authorization/*/read"``` and    ```"Microsoft.Resources/deployments/*"```.
+When a user is granted access to a project (for example, through the AI Studio permission management), two more roles are automatically assigned to the user. The first role is Reader on the Azure AI hub resource. The second role is the Inference Deployment Operator role, which allows the user to create deployments on the resource group that the project is in. This role is composed of these two permissions: ```"Microsoft.Authorization/*/read"``` and    ```"Microsoft.Resources/deployments/*"```.
 
 In order to complete end-to-end AI development and deployment, users only need these two autoassigned roles and either the Contributor or Azure AI Developer role on a *project*.
 
+The minimum permissions needed to create an AI project resource is a role that has the allowed action of `Microsoft.MachineLearningServices/workspaces/hubs/join` on the AI hub resource. The Azure AI Developer built-in role has this permission.
+
+## Dependency service RBAC permissions
+
+The Azure AI hub resource has dependencies on other Azure services. The following table lists the permissions required for these services when you create an Azure AI hub resource. These permissions are needed by the person that creates the AI hub. They aren't needed by the person who creates an AI project from the AI hub.
+
+| Permission | Purpose |
+|------------|-------------|
+| `Microsoft.Storage/storageAccounts/write` | Create a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
+| `Microsoft.KeyVault/vaults/write` | Create a new key vault or updates the properties of an existing key vault. Certain properties might require more permissions. |
+| `Microsoft.CognitiveServices/accounts/write` | Write API Accounts. |
+| `Microsoft.Insights/Components/Write` | Write to an application insights component configuration. |
+| `Microsoft.OperationalInsights/workspaces/write` | Create a new workspace or links to an existing workspace by providing the customer ID from the existing workspace. |
+
+
 ## Sample enterprise RBAC setup
-Below is an example of how to set up role-based access control for your Azure AI Studio for an enterprise.
+The following is an example of how to set up role-based access control for your Azure AI Studio for an enterprise.
 
 | Persona | Role | Purpose |
 | --- | --- | ---|
 | IT admin | Owner of the Azure AI hub resource | The IT admin can ensure the Azure AI hub resource is set up to their enterprise standards and assign managers the Contributor role on the resource if they want to enable managers to make new Azure AI hub resources or they can assign managers the Azure AI Developer role on the resource to not allow for new Azure AI hub resource creation. |
-| Managers | Contributor or Azure AI Developer on the Azure AI hub resource | Managers can create projects for their team and create shared resources (ex: compute and connections) for their group at the Azure AI hub resource level. |
-| Managers | Owner of the Azure AI Project | When managers create a project, they become the project owner. This allows them to add their team/developers to the project. Their team/developers can be added as Contributors or Azure AI Developers to allow them to develop in the project. |
+| Managers | Contributor or Azure AI Developer on the Azure AI hub resource | Managers can manage the AI hub, audit compute resources, audit connections, and create shared connections. |
+| Team lead/Lead developer | Azure AI Developer on the Azure AI hub resource | Lead developers can create projects for their team and create shared resources (ex: compute and connections) at the Azure AI hub resource level. After project creation, project owners can invite other members. |
 | Team members/developers | Contributor or Azure AI Developer on the Azure AI Project | Developers can build and deploy AI models within a project and create assets that enable development such as computes and connections. |
 
 ## Access to resources created outside of the Azure AI hub resource

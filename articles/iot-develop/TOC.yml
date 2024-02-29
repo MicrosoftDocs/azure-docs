@@ -15,8 +15,6 @@
       items: 
       - name: Send telemetry to IoT Hub
         href: quickstart-send-telemetry-iot-hub.md
-      - name: Send telemetry to IoT Central
-        href: quickstart-send-telemetry-central.md
     - name: Azure RTOS development
       items:
       - name: Microchip ATSAME54-XPro
@@ -155,8 +153,6 @@
         href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
       - name: iOS Platform
         href: https://github.com/azure-samples/azure-iot-samples-ios/tree/master/
-    - name: Azure Certified for IoT device catalog
-      href: https://devicecatalog.azure.com/
     - name: Azure IoT Developer Center
       href: https://azure.microsoft.com/develop/iot/
     - name: Azure Roadmap

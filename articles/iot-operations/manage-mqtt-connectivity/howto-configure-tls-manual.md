@@ -58,15 +58,21 @@ Here, `mqtts-endpoint` and `localhost` are the Subject Alternative Names (SANs) 
 
 Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. If you import your own CA certificates, ensure that the server certificate uses the same key algorithm as the CAs.
 
-## Import server certificate as a Kubernetes secret
+## Import server certificate chain as a Kubernetes secret
 
-Create a Kubernetes secret with the certificate and key using kubectl.
+1. Create a full server certificate chain, where the order of the certificates matters: the server certificate is the first one in the file, the intermediate is the second.
 
-```bash
-kubectl create secret tls server-cert-secret -n azure-iot-operations \
---cert mqtts-endpoint.crt \
---key mqtts-endpoint.key
-```
+    ```bash
+    cat  mqtts-endpoint.crt intermediate_ca.crt  > server_chain.pem
+    ```
+
+1. Create a Kubernetes secret with the server certificate chain and server key using kubectl.
+
+    ```bash
+    kubectl create secret tls server-cert-secret -n azure-iot-operations \
+    --cert server_chain.crt \
+    --key mqtts-endpoint.key
+    ```
 
 ## Enable TLS for a listener
 
@@ -94,26 +100,23 @@ Once the BrokerListener resource is created, the operator automatically creates 
 
 ## Connect to the broker with TLS
 
-1. To test the TLS connection with mosquitto, first create a full certificate chain file with Step CLI.
+To test the TLS connection with mosquitto client, publish a message and pass the root CA certificate in the parameter `--cafile`.
 
-    ```bash
-    cat root_ca.crt intermediate_ca.crt > chain.pem
-    ```
-
-1. Use mosquitto to publish a message.
-
-    ```console
-    $ mosquitto_pub -d -h localhost -p 8885 -i "my-client" -t "test-topic" -m "Hello" --cafile chain.pem
-    Client my-client sending CONNECT
-    Client my-client received CONNACK (0)
-    Client my-client sending PUBLISH (d0, q0, r0, m1, 'test-topic', ... (5 bytes))
-    Client my-client sending DISCONNECT
-    ```
+```console
+$ mosquitto_pub -d -h localhost -p 8885 -i "my-client" -t "test-topic" -m "Hello" --cafile root_ca.crt
+Client my-client sending CONNECT
+Client my-client received CONNACK (0)
+Client my-client sending PUBLISH (d0, q0, r0, m1, 'test-topic', ... (5 bytes))
+Client my-client sending DISCONNECT
+```
 
 > [!TIP]
 > To use localhost, the port must be available on the host machine. For example, `kubectl port-forward svc/mqtts-endpoint 8885:8885 -n azure-iot-operations`. With some Kubernetes distributions like K3d, you can add a forwarded port with `k3d cluster edit $CLUSTER_NAME --port-add 8885:8885@loadbalancer`.
 
-Remember to specify username, password, etc. if authentication is enabled.
+> [!NOTE]
+> To connect to the broker you need to distribute root of trust to the clients, also known as trust bundle. In this case the root of trust is the self-signed root CA created Step CLI. Distribution of root of trust is required for the client to verify the server certificate chain. If your MQTT clients are workloads on the Kubernetes cluster you also need to create a ConfigMap with the root CA and mount it in your Pod.
+
+Remember to specify username, password, etc. if MQ authentication is enabled.
 
 ### Use external IP for the server certificate
 

@@ -5,7 +5,6 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: greglin
 ms.custom: template-how-to

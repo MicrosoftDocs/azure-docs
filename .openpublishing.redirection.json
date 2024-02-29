@@ -981,6 +981,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-monitor.md",
+            "redirect_url": "/azure/analysis-services/monitor-analysis-services",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/frontdoor/front-door-whats-new.md",
             "redirect_url": "https://azure.microsoft.com/updates/?category=networking\u0026query=Azure%20Front%20Door",
             "redirect_document_id": false
@@ -2290,6 +2295,31 @@
             "redirect_url": "/azure/automation/automation-solution-vm-management",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management.md",
+            "redirect_url":"/azure/azure-functions/start-stop-vms/overview",
+            "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-config.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-logs.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-remove.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/remove",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/troubleshoot/start-stop-vm.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/troubleshoot",
+             "redirect_document_id": false
+        },       
         {
             "source_path_from_root": "/articles/update-center/enable-machines.md",
             "redirect_url": "/azure/update-center/updates-maintenance-schedules",
@@ -10421,6 +10451,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-arc/servers/onboard-dsc.md",
+            "redirect_url": "/azure/azure-arc/servers/deployment-options",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-arc/kubernetes/plan-at-scale-deployment.md",
             "redirect_url": "/azure/azure-arc/kubernetes/overview",
             "redirect_document_id": false
@@ -10633,6 +10668,11 @@
         {
             "source_path_from_root": "/articles/orbital/space-partner-program-overview.md",
             "redirect_url": "/azure/orbital/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-availability-zones.md",
+            "redirect_url": "/azure/reliability/reliability-load-balancer",
             "redirect_document_id": false
         },
         {
@@ -10870,11 +10910,15 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cloud-services-php-create-web-role.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-php-create-web-role",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
             "redirect_url": "/azure/reliability/reliability-traffic-manager",
             "redirect_document_id": false
         }
-
         
     ]
 }

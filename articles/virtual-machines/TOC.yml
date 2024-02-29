@@ -1690,8 +1690,6 @@
     - name: Windows
       displayName: Security baselines
       href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline?toc=/azure/virtual-machines/toc.json
-  - name: Recommendations
-    href: security-recommendations.md
   - name: Trusted launch
     items:
     - name: Overview
@@ -1953,6 +1951,18 @@
     href: ../azure-monitor/vm/vminsights-overview.md
   - name: Azure Monitor Agent
     href: ../azure-monitor/agents/agents-overview.md
+  - name: Monitor availability
+    items:
+    - name: Overview
+      href: flash-overview.md
+    - name: Use Azure Resource Graph
+      href: flash-azure-resource-graph.md
+    - name: Use Azure Event Grid
+      href: flash-event-grid-system-topic.md
+    - name: Use Azure Monitor
+      href: flash-azure-monitor.md
+    - name: Use Azure Resource Health
+      href: flash-azure-resource-health.md
   - name: Analyze availability
     href: resource-graph-availability.md
   - name: VM usage
@@ -2092,8 +2102,12 @@
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Cost optimization
   items:
-  - name: Overview
-    href: ./plan-to-manage-costs.md
+  - name: Plan to manage costs
+    href: ./cost-optimization-plan-to-manage-costs.md
+  - name: Monitor costs
+    href: ./cost-optimization-monitor-costs.md
+  - name: Best practices
+    href: ./cost-optimization-best-practices.md
 - name: Resources
   items:
   - name: Cloud adoption framework

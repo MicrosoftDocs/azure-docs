@@ -6,11 +6,9 @@ services: api-management
 author: dlepow
 manager: cfowler
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.date: 04/16/2021
 ms.author: danlep
-
 ---
 
 # Import an Azure Function App as an API in Azure API Management

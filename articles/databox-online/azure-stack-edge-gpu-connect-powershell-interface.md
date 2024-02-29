@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/01/2023
+ms.date: 02/21/2024
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge Pro GPU device via Windows PowerShell
@@ -574,7 +574,10 @@ While changing the memory and processor usage, follow these guidelines.
 
 ## Connect to BMC
 
-Baseboard management controller (BMC) is used to remotely monitor and manage your device. This section describes the cmdlets that can be used to manage BMC configuration. Prior to running any of these cmdlets, [Connect to the PowerShell interface of the device](#connect-to-the-powershell-interface).
+> [!NOTE]
+> Baseboard management controller (BMC) is not available on Azure Stack Edge Pro 2 and Azure Stack Edge Mini R. The cmdlets described in this section only apply to Azure Stack Edge Pro GPU and Azure Stack Edge Pro R.
+
+BMC is used to remotely monitor and manage your device. This section describes the cmdlets that can be used to manage BMC configuration. Prior to running any of these cmdlets, [Connect to the PowerShell interface of the device](#connect-to-the-powershell-interface).
 
 - `Get-HcsNetBmcInterface`: Use this cmdlet to get the network configuration properties of the BMC, for example, `IPv4Address`, `IPv4Gateway`, `IPv4SubnetMask`, `DhcpEnabled`. 
     
