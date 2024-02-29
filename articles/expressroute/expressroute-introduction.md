@@ -48,7 +48,9 @@ Each ExpressRoute circuit consists of two connections to two Microsoft Enterpris
 
 ### Resiliency
 
-Microsoft has multiple ExpressRoute peering locations in many geopolitical regions. In order to provide resiliency, Microsoft recommends that you connect to ExpressRoute in two peering locations. The maximum resiliency is achieved by connecting to two ExpressRoute circuits in different ExpressRoute locations. Standard resiliency is achieved by connecting to one ExpressRoute circuit with redundant connections. The Azure portal provides a guided experience to help you create a resilient ExpressRoute configuration. For Azure PowerShell, CLI, ARM template, Terraform, and Bicep, you can achieve resiliency by creating a second ExpressRoute circuit in a different ExpressRoute location and connecting to it. For more information, see [Create maximum resiliency with ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview).
+Microsoft has multiple ExpressRoute peering locations in many geopolitical regions. In order to provide resiliency, Microsoft recommends that you connect to ExpressRoute in two peering locations. The maximum resiliency is achieved by connecting to two ExpressRoute circuits in different ExpressRoute locations. Standard resiliency is achieved by connecting to one ExpressRoute circuit with redundant connections. The Azure portal provides a guided experience to help you create a resilient ExpressRoute configuration. For Azure PowerShell, CLI, ARM template, Terraform, and Bicep, you can achieve maximum resiliency by creating a second ExpressRoute circuit in a different ExpressRoute location and connecting to it. For more information, see [Create maximum resiliency with ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview).
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of maximum resiliency for an ExpressRoute connection.":::
 
 ### Connectivity to Microsoft cloud services
 
