@@ -31,12 +31,12 @@ For more information, see [RedisStreamTrigger](https://github.com/Azure/azure-fu
 -->
 [!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 ::: zone-end  
-::: zone pivot="programming-language-python"   
+::: zone pivot="programming-language-python"
 <!--- Replace with the following when Python v2 is supported:
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 -->
-[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
-::: zone-end 
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)]
+::: zone-end
 
 ## Example
 
@@ -335,4 +335,5 @@ Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/refe
 - [Introduction to Azure Functions](functions-overview.md)
 - [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
 - [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Redis connection string](functions-bindings-cache.md#redis-connection-string)
 - [Redis streams](https://redis.io/docs/data-types/streams/)

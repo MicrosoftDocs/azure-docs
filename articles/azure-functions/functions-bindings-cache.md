@@ -103,10 +103,9 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-1. Add the extension bundle by adding or replacing the following code in your _host.json_ file:
+Add the extension bundle by adding or replacing the following code in your _host.json_ file:
 
-    <!-- I don't see this in the samples.  -->
-    ```json
+  ```json
     {
       "version": "2.0",
       "extensionBundle": {
@@ -114,17 +113,59 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
         "version": "[4.11.*, 5.0.0)"
     }
   }
+
   ```
 
-    >[!WARNING]
-    >The Redis extension is currently only available in a preview bundle release.
-    >
+>[!WARNING]
+>The Redis extension is currently only available in a preview bundle release.
+>
 
 ::: zone-end
 
 ## Redis connection string
 
-Azure Cache for Redis triggers and bindings have a required property for the cache connection string. The connection string can be found on the [**Access keys**](/azure/azure-cache-for-redis/cache-configure#access-keys) menu in the Azure Cache for Redis portal. The Redis trigger or binding looks for an environmental variable holding the connection string with the name passed to the `ConnectionStringSetting` parameter. In local development, the `ConnectionStringSetting` can be defined using the [local.settings.json](/azure/azure-functions/functions-develop-local#local-settings-file) file. When deployed to Azure, [application settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) can be used.
+Azure Cache for Redis triggers and bindings have a required property for the cache connection string. The connection string can be found on the [**Access keys**](/azure/azure-cache-for-redis/cache-configure#access-keys) menu in the Azure Cache for Redis portal. The Redis trigger or binding looks for an environmental variable holding the connection string with the name passed to the `Connection` parameter.
+
+In local development, the `Connection` can be defined using the [local.settings.json](/azure/azure-functions/functions-develop-local#local-settings-file) file. When deployed to Azure, [application settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) can be used.
+
+When connecting to a cache instance with an Azure function, you can use three types of connections in your deployments: Connection string, System-assigned managed identity, and User-assigned managed identity
+
+For local development, you can also use service principal secrets.
+
+Use the `appsettings` to configure each of the following types of client authentication, assuming the `Connection` was set to `Redis` in the function.
+
+### Connection string
+
+```JSON
+"Redis": "<cacheName>.redis.cache.windows.net:6380,password=..."
+```
+
+### System-assigned managed identity
+
+```JSON
+"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
+"Redis:principalId": "<principalId>"
+```
+
+### User-assigned managed identity
+
+```JSON
+"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
+"Redis:principalId": "<principalId>",
+"Redis:clientId": "<clientId>"
+```
+
+### Service Principal Secret
+
+Connections using Service Principal Secrets are only available during local development.
+
+```JSON
+"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
+"Redis:principalId": "<principalId>",
+"Redis:clientId": "<clientId>"
+"Redis:tenantId": "<tenantId>"
+"Redis:clientSecret": "<clientSecret>"
+```
 
 ## Related content
 

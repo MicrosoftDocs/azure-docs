@@ -26,8 +26,8 @@ For information on setup and configuration details, see the [overview](functions
 <!--- Replace with the following when Python v2 is supported:
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 -->
-[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
-::: zone-end 
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)]
+::: zone-end
 
 ## Example
 
@@ -63,7 +63,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisOutputBinding
 ```
 
 ### [Isolated process](#tab/isolated-process)
-
 
 ```csharp
 ﻿using Microsoft.Extensions.Logging;
@@ -119,9 +118,9 @@ public class SetDeleter {
 ```
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript" 
+::: zone pivot="programming-language-javascript"
 This example shows a pub/sub trigger on the set event with an output binding to the same Redis instance. The set event triggers the cache and the output binding returns a delete command for the key that triggered the function.
- 
+
 ### [Model v3](#tab/nodejs-v3)
 
 The bindings are defined in this `function.json`` file:
@@ -242,6 +241,7 @@ def main(key: str) -> str:
     logging.info("Deleting recently SET key '" + key + "'")
     return key
 ```
+
 ### [v2](#tab/python-v2)
 
 <!--- Replace with the following when Node.js v4 is supported:
@@ -260,7 +260,7 @@ def main(key: str) -> str:
 
 The way in which you define an output binding parameter depends on whether your C# functions runs [in-process](functions-dotnet-class-library.md) or in an [isolated worker process](dotnet-isolated-process-guide.md).
 
-The output binding is defined this way: 
+The output binding is defined this way:
 
 | Definition | Example | Description |
 | ----- | ----- | ----- |
@@ -268,12 +268,12 @@ The output binding is defined this way:
 
 In this case, the type returned by the method is a key value that the binding uses to execute the command against the specific cache.
 
-When your function has multiple output bindings, you can instead apply the binding attribute to the property of a type that is a key value, which the binding uses to execute the command against the specific cache. For more information, see [Multiple output bindings](dotnet-isolated-process-guide.md#multiple-output-bindings). 
+When your function has multiple output bindings, you can instead apply the binding attribute to the property of a type that is a key value, which the binding uses to execute the command against the specific cache. For more information, see [Multiple output bindings](dotnet-isolated-process-guide.md#multiple-output-bindings).
 
 ---
 
 Regardless of the C# process mode, the same properties are supported by the output binding attribute:
- 
+
 | Attribute property | Description  |
 |--------------------| -------------|
 | `Connection`  | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
@@ -284,19 +284,20 @@ Regardless of the C# process mode, the same properties are supported by the outp
 
 ## Annotations
 
-The `RedisOutput` annotation supports these properties: 
+The `RedisOutput` annotation supports these properties:
 
 | Property | Description                            |
 |----------|---------------------------------------------------|
 | `name` | The name of the specific input binding. |
 | `connection`   | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command` | The redis-cli command to be executed on the cache, such as:  `DEL`. |
+
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file. 
+The following table explains the binding configuration properties that you set in the _function.json_ file.
 
 | Property | Description                            |
 |----------|---------------------------------------------------|
@@ -304,7 +305,7 @@ The following table explains the binding configuration properties that you set i
 | `connection`   | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command` | The redis-cli command to be executed on the cache, such as:  `DEL`. |
 
-::: zone-end 
+::: zone-end
 
 See the [Example section](#example) for complete examples.
 
@@ -314,39 +315,7 @@ The output returns a string, which is the key of the cache entry on which apply 
 
 There are three types of connections that are allowed from an Azure Functions instance to a Redis Cache in your deployments. For local development, you can also use service principal secrets. Use the `appsettings` to configure each of the following types of client authentication, assuming the `Connection` was set to `Redis` in the function.
 
-### Connection string
-
-```JSON
-"Redis": "<cacheName>.redis.cache.windows.net:6380,password=..."
-```
-
-### System-Assigned Managed Identity
-
-```JSON
-"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
-"Redis:principalId": "<principalId>"
-```
-
-### User-Assigned Managed Identity
-
-```JSON
-"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
-"Redis:principalId": "<principalId>",
-"Redis:clientId": "<clientId>"
-```
-
-### Service Principal Secret
-
-Connections using Service Principal Secrets are only available during local development.
-
-```JSON
-"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
-"Redis:principalId": "<principalId>",
-"Redis:clientId": "<clientId>"
-"Redis:tenantId": "<tenantId>"
-"Redis:clientSecret": "<clientSecret>"
-```
-
 ## Related Content
 
-[Multiple output bindings](dotnet-isolated-process-guide.md#multiple-output-bindings)
+- [Redis connection string](functions-bindings-cache.md#redis-connection-string)
+- [Multiple output bindings](dotnet-isolated-process-guide.md#multiple-output-bindings)

@@ -606,4 +606,5 @@ JSON string format
 - [Introduction to Azure Functions](functions-overview.md)
 - [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
 - [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Redis connection string](functions-bindings-cache.md#redis-connection-string)
 - [Redis pub sub messages](https://redis.io/docs/manual/pubsub/)
