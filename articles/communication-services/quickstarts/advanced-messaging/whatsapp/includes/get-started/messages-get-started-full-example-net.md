@@ -5,7 +5,7 @@ services: azure-communication-services
 author: glorialimicrosoft
 ms.service: azure-communication-services
 ms.subservice: messages
-ms.date: 02/02/2024
+ms.date: 02/29/2024
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
