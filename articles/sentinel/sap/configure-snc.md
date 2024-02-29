@@ -1,5 +1,5 @@
 ---
-title: Deploy Microsoft Sentinel for SAP data connector with SNC
+title: Deploy the Microsoft Sentinel for SAP data connector with SNC
 description: Deploy the Microsoft Sentinel for SAP data connector to ingest NetWeaver and ABAP logs over a secure connection by using Secure Network Communications (SNC).
 author: batamig
 ms.author: bagol

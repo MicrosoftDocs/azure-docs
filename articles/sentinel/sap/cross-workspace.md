@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel solution for SAP apps in workspaces
+title: Microsoft Sentinel solution for SAP apps across multiple workspaces
 description: Learn how to work with the Microsoft Sentinel solution for SAP applications in multiple workspaces for different deployment scenarios.
 author: batamig
 ms.author: bagol

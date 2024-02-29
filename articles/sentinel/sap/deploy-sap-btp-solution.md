@@ -14,7 +14,7 @@ ms.date: 03/30/2023
 This article describes how to deploy the Microsoft Sentinel solution for SAP Business Technology Platform (BTP) system. The Microsoft Sentinel solution for SAP BTP monitors and protects your SAP BTP system. It collects audit logs and activity logs from the BTP infrastructure and BTP-based apps, and then detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](sap-btp-solution-overview.md).
 
 > [!IMPORTANT]
-> The Microsoft Sentinel solution for SAP BTP solution is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel solution for SAP BTP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Before you begin, verify that:
 - Your organization uses SAP BTP (in a Cloud Foundry environment) to streamline interactions with SAP applications and other business applications.
 - You have an SAP BTP account (which supports BTP accounts in the Cloud Foundry environment). You can also use a [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/).
 - You have the SAP BTP auditlog-management service and service key (see [Set up the BTP account and solution](#set-up-the-btp-account-and-solution)).
-- You can create an [Azure Functions app](../../azure-functions/functions-overview.md) by using the Microsoft.Web/Sites, Microsoft.Web/ServerFarms, Microsoft.Insights/Components, and Microsoft.Storage/StorageAccounts permissions.
+- You can create an [Azure function app](../../azure-functions/functions-overview.md) by using the Microsoft.Web/Sites, Microsoft.Web/ServerFarms, Microsoft.Insights/Components, and Microsoft.Storage/StorageAccounts permissions.
 - You can create [data collection rules and endpoints](../../azure-monitor/essentials/data-collection-rule-overview.md) by using these permissions:
   - Microsoft.Insights/DataCollectionEndpoints and Microsoft.Insights/DataCollectionRules.
   - Assign the Monitoring Metrics Publisher role to the function app.
@@ -79,7 +79,7 @@ To set up the BTP account and the solution:
 1. Complete all configuration steps, including the function app deployment and the Azure Key Vault access policy configuration.
 1. Make sure that BTP logs are flowing into the Microsoft Sentinel workspace:
 
-    1. Log in to your BTP subaccount and run a few activities that generate logs, such as logins, adding users, changing permissions, and changing settings.
+    1. Sign in to your BTP subaccount and run a few activities that generate logs, such as sign-ins, adding users, changing permissions, and changing settings.
     1. Allow 20 to 30 minutes for the logs to start flowing.
     1. On the **SAP BTP** connector page, confirm that Microsoft Sentinel receives the BTP data, or query the **SAPBTPAuditLog_CL** table directly.
 
