@@ -12,7 +12,7 @@ ms.date: 02/21/2024
 
 # Quickstart: Deploy a network function on Azure Kubernetes Services (AKS) or Nexus Azure Kubernetes Services (NAKS)
 
-This quickstart shows you how to deploy various network functions, including SMF, UPF, NRF, NSSF, AMF, MME, and a VNF_Agent in Azure Operator 5G Core.
+This quickstart shows you how to deploy various network functions, including SMF, UPF, NRF, NSSF, AMF, MME, and a VNF_Agent in Azure Operator 5G Core Preview.
 
 ## Deploy network function using Azure CLI
 
@@ -29,4 +29,4 @@ New-AzResourceGroupDeployment `
 
 ## Related content
 
-- [Quickstart: Monitor the  status of your Azure Operator 5G Core deployment](how-to-monitor-deployment-status.md)
+- [Quickstart: Monitor the  status of your Azure Operator 5G Core Preview deployment](how-to-monitor-deployment-status.md)

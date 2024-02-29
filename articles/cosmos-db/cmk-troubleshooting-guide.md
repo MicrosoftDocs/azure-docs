@@ -20,7 +20,7 @@ This troubleshooting guide shows you how to restore access when running into the
 
 ## Default Identity is unauthorized to access the Azure Key Vault key 
 
-### Reason for error?
+### Reason for error
 
 You see the error when the default identity associated with the Azure Cosmos DB account is no longer authorized to perform either a get, a wrap or unwrap call to the Key Vault. 
 
@@ -38,7 +38,7 @@ After assigning the permissions, wait upwards to one hour for the account to sto
 
 ## Microsoft Entra Token Acquisition error 
 
-### Reason for error? 
+### Reason for error 
 
 You see this error when Azure Cosmos DB is unable to obtain the default's identity Microsoft Entra access token. The token is used for communicating with the Azure Key Vault in order to wrap and unwrap the data encryption key. 
 
@@ -52,7 +52,7 @@ After updating the account's default identity, you need to wait upwards to one h
 
 ## Azure Key Vault Resource not found 
 
-### Reason for error? 
+### Reason for error 
 
 You see this error when the Azure Key Vault or specified Key are not found. 
 
@@ -62,7 +62,7 @@ Check if the Azure Key Vault or the specified key exist and restore them if acci
 
 ## Invalid Azure Cosmos DB default identity 
 
-### Reason for error? 
+### Reason for error 
 
 The Azure Cosmos DB account goes into revoke state if it doesn't have any of these identity types set as a default identity: 
 
@@ -78,7 +78,7 @@ Make sure that your default identity is that of a valid Azure resource and has a
 
 ## Improper Syntax Detected on the Key Vault URI Property
 
-### Reason for error?
+### Reason for error
 
 You see this error when internal validation detects that the Key Vault URI property on the Azure Cosmos DB account is different than expected. 
 
@@ -90,7 +90,7 @@ Once the _KeyVaultKeyUri_ property has been updated, wait upwards to one hour fo
 
 ## Internal unwrapping procedure error 
 
-### Reason for error? 
+### Reason for error 
 
 You see the error message when the Azure Cosmos DB service is unable to unwrap the key properly. 
 
@@ -100,7 +100,7 @@ In case that either the Key Vault or the Costumer Managed Key has been recently 
 
 ## Unable to Resolve the Key Vault's DNS 
 
-### Reason for error?
+### Reason for error
 
 You see the error message when the Key Vault DNS name can't be resolved. The error may indicate that there's a major issue within the Azure Key Vault service that blocks Cosmos DB from accessing your key. 
 

@@ -2102,8 +2102,12 @@
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Cost optimization
   items:
-  - name: Overview
-    href: ./plan-to-manage-costs.md
+  - name: Plan to manage costs
+    href: ./cost-optimization-plan-to-manage-costs.md
+  - name: Monitor costs
+    href: ./cost-optimization-monitor-costs.md
+  - name: Best practices
+    href: ./cost-optimization-best-practices.md
 - name: Resources
   items:
   - name: Cloud adoption framework

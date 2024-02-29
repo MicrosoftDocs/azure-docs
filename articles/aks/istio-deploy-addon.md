@@ -44,26 +44,6 @@ Run the following command to update to the latest version of the extension relea
 az extension update --name aks-preview
 ```
 
-### Register the _AzureServiceMeshPreview_ feature flag
-
-Register the `AzureServiceMeshPreview` feature flag by using the [az feature register][az-feature-register] command:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
-```
-
-It takes a few minutes for the feature to register. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 ## Install Istio add-on at the time of cluster creation
 
 To install the Istio add-on when creating the cluster, use the `--enable-azure-service-mesh` or`--enable-asm` parameter.
