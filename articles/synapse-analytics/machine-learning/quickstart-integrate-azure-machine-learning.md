@@ -5,7 +5,7 @@ ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
 ms.reviewer: sngun, garye
-ms.date: 12/16/2021
+ms.date: 02/29/2024
 author: nelgson
 ms.author: negust
 ms.custom: mode-other
@@ -16,6 +16,7 @@ ms.custom: mode-other
 > **IMPORTANT, PLEASE NOTE THE BELOW LIMITATIONS:**
 > - **The Azure ML integration is not currently supported in Synapse Workspaces with Data Exfiltration Protection.** If you are **not** using data exfiltration protection and want to connect to Azure ML using private endpoints, you can set up a managed AzureML private endpoint in your Synapse workspace. [Read more about managed private endpoints](../security/how-to-create-managed-private-endpoints.md)
 > - **AzureML linked service is not supported with self hosted integration runtimes.** This applies to Synapse workspaces with and without Data Exfiltration Protection.
+> - **The Azure Synapse Spark 3.3 and 3.4 runtimes do not support using the Azure ML Linked Service to authenticate to the Azure Machine Learning MLFlow tracking URI.** To learn more about the limitations on these runtimes, see [Azure Synapse Runtime for Apache Spark 3.3](../spark/apache-spark-33-runtime.md) and [Azure Synapse Runtime for Apache Spark 3.4](../spark//apache-spark-34-runtime.md) 
 
 In this quickstart, you'll link an Azure Synapse Analytics workspace to an Azure Machine Learning workspace. Linking these workspaces allows you to leverage Azure Machine Learning from various experiences in Synapse.
 
