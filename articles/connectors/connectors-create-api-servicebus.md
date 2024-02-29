@@ -159,7 +159,15 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
   When you set up concurrency using a batch, keep the number of concurrent runs larger than the overall batch size. That way, read messages don't go into a waiting state and are always picked up when they're read. In some cases, the trigger can have up to twice the batch size.
 
 * If you enable concurrency, the **SplitOn** limit is reduced to 100 items. This behavior is true for all triggers, not just the Service Bus trigger. Make sure the specified batch size is less than this limit on any trigger where you enable concurrency.
-* When concurrency is enabled a 30 second delay occurs between batch reads to optimize performance. This delay is configurable but changes to the default should be tested carefully:
+
+* If you enable concurrency, a 30-second delay exists between batch reads, by default. This delay slows down the trigger to achieve the following goals:
+
+- Reduce the number of storage calls sent to check the number of runs on which to apply concurrency.
+
+- Mimic the behavior of the Service Bus managed connector trigger, which has a 30-second long poll when no messages are found.
+
+You can change this delay, but make sure that you carefully test any changes to the default value:
+
 ```json
 "workflow":{
             "settings": {
