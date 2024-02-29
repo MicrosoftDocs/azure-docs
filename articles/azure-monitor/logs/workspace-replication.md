@@ -152,13 +152,37 @@ To learn more about linking a DCR to a DCE during DCR creation, see step 5b in [
 > [!WARNING]
 > DCRs connected to a workspace's System DCE should target only this specific workspace. They **must not** target other destinations, such as additional workspaces or storage accounts.
 
+
 ### How to disable workspace replication
 To disable workspace replication, use the PUT command below. This call returns 200. Just like the enable operation, disable may take time to complete, and you can track its exact state as explained in [Tracking the workspace state](#tracking-the-workspace-state).
+
+> [!NOTE]
+> If you're using a dedicated cluster, you should disable cluster replication after disabling replication for each workspace linked to this cluster. 
 
 ```
 PUT 
 
 https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
+
+body:
+{
+    "properties": {
+        "replication": {
+            "enabled": false
+        }
+    },
+    "location": "<primary_location>"
+}
+```
+
+### How to disable cluster replication
+
+Disabling cluster replication can be done only after disabling replication for all workspaces linked to this cluster (if previously enabled).
+
+```
+PUT 
+
+https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/clusters/<cluster_name>?api-version=2023-01-01-preview
 
 body:
 {
