@@ -10929,6 +10929,11 @@
             "source_path_from_root": "/articles/azure-monitor/logs/move-workspace-region.md",
             "redirect_url": "/azure/operational-excellence/relocation-log-analytics",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/key-vault/general/move-region.md",
+            "redirect_url": "/azure/operational-excellence/relocation-key-vault",
+            "redirect_document_id": false
         }
         
     ]
