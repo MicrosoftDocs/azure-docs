@@ -14,6 +14,8 @@ ms.custom:
 
 To discover, try, and consume APIs in your [API center](overview.md), you can use the Azure API Center extension in your Visual Studio Code development environment:
 
+* **Build APIs** - Make APIs you are building discoverable to others by registering them in your API center. Shift-left API design conformance checks into Visual Studio Code with integrated linting support, powered by Spectral.
+
 * **Discover APIs** - Browse the APIs in your API center, and view their details and documentation.
 
 * **Try APIs** - Use Swagger UI or REST client to explore API requests and responses. 
@@ -47,6 +49,26 @@ The following Visual Studio Code extensions are optional and needed only for cer
 1. In Visual Studio Code, in the Activity Bar on the left, select API Center.
 1. If you're not signed in to your Azure account, select **Sign in to Azure...**, and follow the prompts to sign in. 
     Select an Azure account with the API center (or API centers) you wish to view APIs from. You can also filter on specific subscriptions if you have many to view from.
+
+## Register APIs
+
+APIs can be registered in your API center directly from Visual Studio Code, either by registering it as a one-time operation or with a CI/CD pipeline.
+
+1. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Register API** and hit **Enter**.
+2. Select how you want to register your API with your API center. **Step-by-step** is best for one-time registration of APIs. **CI/CD** adds a pre-configured GitHub or Azure DevOps pipeline to your active Visual Studio Code workspace that is run as part of a CI/CD workflow on each commit to source control. It is recommended to inventory APIs with your API center using CI/CD to ensure API metadata including specification and version stay current in your API center as the API continues to evolve over time.
+    * For **Step-by-step**, select the API Center instance to register APIs with, and additional prompts with information including API title, type, lifecycle, version, and specification will guide you through completing API registration.
+    * For **CI/CD**, select either **GitHub** or **Azure DevOps** depending on your preferred source control mechanism. Note: A Visual Studio Code workspace must be open for the API Center extension to add a pipeline to your workspace. After the file is added, complete steps documented in the CI/CD pipeline file itself to configure Azure Pipeline/GitHub Action environment variables and identity. On push to source control, the API will be registered in API Center.
+
+## API Design Conformance
+
+To ensure design conformance with organizational standards as you build APIs, the Azure API Center extension for Visual Studio Code provides integrated support for API specification linting with Spectral.
+
+1. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Set active API Style Guide** and hit **Enter**.
+2. Select one of the default rules provided, or, if your organization has a style guide already available, use **Select Local File** or **Input Remote URL** to specify the active ruleset in Visual Studio Code. Hit **Enter**.
+
+Once an active API style guide is set, opening any OpenAPI or AsyncAPI-based specification file will trigger a local linting operation in Visual Studio Code. Results are displayed both inline in the editor, as well as in the Problems window (**View** > **Problems** or **Ctrl+Shift+M**).
+
+![APIC-Linting](https://github.com/MicrosoftDocs/azure-docs/assets/1091304/8c286941-9487-415c-badb-1481891fb0fc)
 
 ## Discover APIs
 
@@ -102,7 +124,6 @@ Use the Microsoft Kiota extension to generate an API client for your favorite la
 The client is generated.
 
 For details on using the Kiota extension, see [Microsoft Kiota extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota).
-
 
   ## Related content
 
