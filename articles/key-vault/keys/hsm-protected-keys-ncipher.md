@@ -20,7 +20,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. Azure Key Vault uses nCipher nShield family of HSMs (FIPS 140-2 Level 2 validated) to protect your keys.
+For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. Azure Key Vault uses nCipher nShield family of HSMs ([FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance)) to protect your keys.
 
 Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
 

@@ -45,9 +45,9 @@ The following table lists supported key types.
 |Key type|About|Security|
 |--|--|--|
 |**RSA**| Software-protected RSA key|FIPS 140-2 Level 1|
-|**RSA-HSM**| HSM-protected RSA key (Premium SKU only)|FIPS 140-2 Level 2 HSM|
+|**RSA-HSM**| HSM-protected RSA key (Premium SKU only)| [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance) HSM|
 |**EC**| Software-protected elliptic curve key|FIPS 140-2 Level 1|
-|**EC-HSM**| HSM-protected elliptic curve key (Premium SKU only)|FIPS 140-2 Level 2 HSM|
+|**EC-HSM**| HSM-protected elliptic curve key (Premium SKU only)| [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance) HSM|
 |**oct**| Software-protected octet key| FIPS 140-2 Level 1|
 
 
