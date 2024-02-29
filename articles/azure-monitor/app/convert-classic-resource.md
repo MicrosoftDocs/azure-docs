@@ -416,7 +416,7 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 | traces | AppTraces | Detailed logs (traces) emitted through application code/logging frameworks recorded via `TrackTrace()`. |
 
 > [!CAUTION]
-> Wait for new telemetry in Log Analytics before relying on it. After starting the migration, telemetry first goes to Classic Application Insights. Aim to switch to Log Analytics within 24 hours, avoiding data loss or double writing. Once done, Log Analytics solely captures new telemetry.
+> Wait for new telemetry in Log Analytics before relying on it. After starting the migration, telemetry first goes to Classic Application Insights. Telemetry ingestion is switched to Log Analytics within 24 hours. Once done, Log Analytics solely captures new telemetry.
 
 ### Table schemas
 
