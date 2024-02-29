@@ -19,7 +19,7 @@ See [Monitor Azure Cache for Redis](monitor-cache.md) for details on the data yo
 <!-- ## Metrics -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-For more details and information about the supported metrics for Microsoft.Cache/redis and Microsoft.Cache/redisEnterprise, see [List of metrics](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+For more details and information about the supported metrics for Microsoft.Cache/redis and Microsoft.Cache/redisEnterprise, see [List of metrics](cache-how-to-monitor.md#list-of-metrics).
 
 ### Supported metrics for Microsoft.Cache/redis
 The following table lists the metrics available for the Microsoft.Cache/redis resource type.

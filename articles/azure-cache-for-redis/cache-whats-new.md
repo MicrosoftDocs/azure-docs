@@ -74,7 +74,7 @@ Azure Cache for Redis now supports clustered caches with up to 30 shards. Now, y
 
 A new metric is available to track the worst-case latency of server-side commands in Azure Cache for Redis instances. Latency is measured by using `PING` commands and tracking response times. This metric can be used to track the health of your cache instance and to see if long-running commands are compromising latency performance.
 
-For more information, see [Metrics](how-to-monitor.md#list-of-metrics).
+For more information, see [Metrics](cache-how-to-monitor.md#list-of-metrics).
 
 ## March 2023
 

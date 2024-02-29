@@ -62,7 +62,7 @@ The **Overview** section provides you with basic information about your cache, s
 
 ### Activity log
 
-Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log.md). For more information on monitoring Azure Cache for Redis events, see [Create alerts](monitor-cache.md#alerts).
+Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log). For more information on monitoring Azure Cache for Redis events, see [Create alerts](monitor-cache.md#alerts).
 
 ### Access control (IAM)
 
@@ -387,10 +387,10 @@ Select **Alerts** to configure alerts based on Azure Cache for Redis metrics. Fo
 
 ### Diagnostic settings
 
-By default, cache metrics in Azure Monitor are [stored for 30 days](/azure/azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](monitor-cache.md#data-storage) used to store cache diagnostics.
+By default, cache metrics in Azure Monitor are [stored for 30 days](/azure/azure-monitor/essentials/data-platform-metrics) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](monitor-cache.md#data-storage) used to store cache diagnostics.
 
 >[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](/azure/azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](/azure/azure-monitor/essentials/stream-monitoring-data-event-hubs).
 >
 
 ### Advisor recommendations
