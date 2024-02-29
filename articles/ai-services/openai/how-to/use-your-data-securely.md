@@ -14,7 +14,7 @@ recommendations: false
 
 # Securely use Azure OpenAI On Your Data
 
-Use this article to learn how to use Azure OpenAI On Your Data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks and private endpoints.
+Use this article to learn how to use Azure OpenAI On Your Data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks, and private endpoints.
 
 This article is only applicable when using [Azure OpenAI On Your Data with text](/azure/ai-services/openai/concepts/use-your-data). It does not apply to [Azure OpenAI On Your Data with images](/azure/ai-services/openai/concepts/use-your-image-data).
 
@@ -163,7 +163,7 @@ To allow your Azure AI Search to call your Azure OpenAI `preprocessing-jobs` as 
 
 Set `networkAcls.bypass` as `AzureServices` from the management API. For more information, see [Virtual networks article](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#grant-access-to-trusted-azure-services-for-azure-openai).
 
-This step can be skipped only if you have [shared private link](#create-shared-private-link) from Azure Search resource.
+This step can be skipped only if you have a [shared private link](#create-shared-private-link) for your Azure AI Search resource.
 
 ### Disable public network access
 
@@ -174,7 +174,7 @@ To allow access to your Azure OpenAI service from your client machines, like usi
 
 ## Configure Azure AI Search
 
-You can use basic pricing tier and higher for the configuration below. You don’t have to, but if you use S2 pricing tier, you will have an advanced option described in [this section](#create-shared-private-link).
+You can use basic pricing tier and higher for the configuration below. It's not necessary, but if you use the S2 pricing tier you will see [additional options](#create-shared-private-link) available for selection.
 
 ### Enable managed identity
 
@@ -221,17 +221,18 @@ Learn more about the [manual approval workflow](/azure/private-link/private-endp
 
 ### Create shared private link
 
-If you are using Basic or Standard pricing tier, or if it is your first time to setup all the resources securely, please skip this advanced topic.
+> [!TIP]
+> If you are using a basic or standard pricing tier, or if it is your first time to setup all of your resources securely, you should skip this advanced topic.
 
 This section is only applicable for S2 pricing tier search resource, because it requires [private endpoint support for indexers with a skill set](/azure/search/search-limits-quotas-capacity#shared-private-link-resource-limits).
 
-To create shared private link from your search resource connecting to your Azure OpenAI resource, please follow [this instruction](/azure/search/search-indexer-howto-access-private). Select **Resource type** as `Microsoft.CognitiveServices/accounts` and **Group ID** as `openai_account`.
+To create shared private link from your search resource connecting to your Azure OpenAI resource, see the [search documentation](/azure/search/search-indexer-howto-access-private). Select **Resource type** as `Microsoft.CognitiveServices/accounts` and **Group ID** as `openai_account`.
 
-With shared private link, [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram is changed from **bypass trusted service** to **private endpoint**.
+With shared private link, [step eight](#data-ingestion-architecture) of the data ingestion architecture diagram is changed from **bypass trusted service** to **private endpoint**.
 
-:::image type="content" source="../media/use-your-data/ingestion-architecture-s2.png" alt-text="A diagram showing the process of ingesting data with s2 search resource." lightbox="../media/use-your-data/ingestion-architecture-s2.png":::
+:::image type="content" source="../media/use-your-data/ingestion-architecture-s2.png" alt-text="A diagram showing the process of ingesting data with an S2 search resource." lightbox="../media/use-your-data/ingestion-architecture-s2.png":::
 
-The Azure Search shared private link you created is also in Microsoft managed virtual network, not your virtual network. The difference comparing to the other managed private endpoint created in [this step](#disable-public-network-access-1) is: the managed private endpoint [1] from Azure OpenAI to Azure Search is provisioned through the [form application](#disable-public-network-access-1), while the managed private endpoint [2] from Azure Search to Azure OpenAI is provisioned via Azure portal or REST API of Azure Search.
+The Azure AI Search shared private link you created is also in a Microsoft managed virtual network, not your virtual network. The difference compared to the other managed private endpoint created [earlier](#disable-public-network-access-1) is that the managed private endpoint `[1]` from Azure OpenAI to Azure Search is provisioned through the [form application](#disable-public-network-access-1), while the managed private endpoint `[2]` from Azure Search to Azure OpenAI is provisioned via Azure portal or REST API of Azure Search.
 
 :::image type="content" source="../media/use-your-data/virtual-network-s2.png" alt-text="A diagram showing the virtual network architecture with S2 search resource." lightbox="../media/use-your-data/virtual-network-s2.png":::
 
@@ -264,7 +265,7 @@ So far you have already setup each resource work independently. Next you need to
 | `Search Service Contributor` | Azure OpenAI | Azure AI Search | Inference service queries the index schema for auto fields mapping. Data ingestion service creates index, data sources, skill set, indexer, and queries the indexer status. |
 | `Storage Blob Data Contributor` | Azure OpenAI | Storage Account | Reads from the input container, and writes the preprocess result to the output container. |
 | `Cognitive Services OpenAI Contributor` | Azure AI Search | Azure OpenAI | Custom skill |
-| `Storage Blob Data Contributor` | Azure AI Search | Storage Account | Reads blob and writes knowledge store |
+| `Storage Blob Data Contributor` | Azure AI Search | Storage Account | Reads blob and writes knowledge store. |
 
 
 In the above table, the `Assignee` means the system assigned managed identity of that resource.
