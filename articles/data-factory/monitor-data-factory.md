@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Data Factory
 description: Start here to learn how to monitor Azure Data Factory.
-ms.date: 02/26/2024
+ms.date: 02/28/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: jonburchel
@@ -44,22 +44,22 @@ For more information about the resource types for Azure Data Factory, see [Data 
 
 [!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
-### Store Data Factory metrics and pipeline run data
+### Store Data Factory pipeline run data
 
-Data Factory stores pipeline run data for only 45 days. Use Azure Monitor to route diagnostic logs if you want to keep the data for a longer time.
+Data Factory stores pipeline run data for only 45 days. Use Azure Monitor to route diagnostic logs if you want to keep the data longer.
 
-- **Storage account**: Save your diagnostic logs to a storage account for auditing or manual inspection. You can use diagnostic settings to specify the retention time in days.
-- **Event hub**: Stream the logs to Azure Event Hubs to become input to a partner service or custom analytics solution like Power BI.
-- **Log Analytics**: Analyze the logs with Log Analytics if you want to write complex queries, create custom alerts, or monitor across data factories.
-- **Partner solutions:** Send diagnostic logs to partner solutions through integration.
+Route data to Log Analytics if you want to analyze it with complex queries, create custom alerts, or monitor across data factories. You can route data from multiple data factories to a single Log Analytics workspace.
 
- You can route data from multiple data factories to a single Log Analytics workspace. You can also use a storage account or event hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate Azure role-based access control (Azure RBAC) access to both subscriptions.
+You can use a storage account or event hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate Azure role-based access control (Azure RBAC) access to both subscriptions.
 
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for Data Factory, see [Data Factory monitoring data reference](monitor-data-factory-reference.md#metrics).
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
-For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Data Factory, see [Data Factory monitoring data reference](monitor-data-factory-reference.md#resource-logs).
+
+- For the available Data Factory resource log categories, their associated Log Analytics tables, and the logs schemas, see [Data Factory monitoring data reference](monitor-data-factory-reference.md#resource-logs).
+
+- To configure diagnostic settings and a Log Analytics workspace to monitor Data Factory, see [Configure diagnostic settings and a workspace](monitor-configure-diagnostics.md).
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 

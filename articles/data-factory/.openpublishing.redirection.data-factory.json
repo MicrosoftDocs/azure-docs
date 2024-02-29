@@ -1082,11 +1082,6 @@
             "redirect_document_id": false
           },
           {
-            "source_path_from_root": "/articles/data-factory/monitor-configure-diagnostics.md",
-            "redirect_url": "/azure/data-factory/monitor-data-factory",
-            "redirect_document_id": false
-          },
-          {
             "source_path_from_root": "/articles/data-factory/connector-troubleshoot-google-adwords.md",
             "redirect_url": "/azure/data-factory/connector-troubleshoot-google-ads",
             "redirect_document_id": false

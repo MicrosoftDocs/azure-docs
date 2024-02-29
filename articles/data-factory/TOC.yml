@@ -900,6 +900,8 @@ items:
       items:
       - name: Monitor
         href: monitor-data-factory.md
+      - name: Configure diagnostics settings and workspace
+        href: monitor-configure-diagnostics.md
       - name: Set up diagnostics logs via the Azure Monitor REST API
         href: monitor-logs-rest.md
       - name: Monitor SSIS operations with Azure Monitor
