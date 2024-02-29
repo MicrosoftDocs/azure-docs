@@ -29,10 +29,8 @@ items:
     href: best-practices-cost.md
 - name: Monitoring scenarios
   items:
-  - name: Monitor Azure resources
+  - name: Monitor an Azure resource
     items:
-    - name: Monitor an Azure resource
-      href: essentials/monitor-azure-resource.md
     - name: Analyze metric data
       href: essentials/tutorial-metrics.md
     - name: Collect and view resource logs
