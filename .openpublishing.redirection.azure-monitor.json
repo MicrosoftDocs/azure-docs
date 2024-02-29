@@ -6265,6 +6265,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/essentials/platform-logs-overview.md",
+            "redirect_url": "/azure/azure-monitor/data-sources",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/essentials/resource-logs-categories.md",
             "redirect_url": "/azure/azure-monitor/reference/supported-logs/logs-index",
             "redirect_document_id": false

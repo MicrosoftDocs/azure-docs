@@ -24,6 +24,7 @@ export RESOURCE_GROUP=<resource-group-name>
 export LOCATION=<location>
 ```
 
+
 ### Verify Azure CLI version
 
 The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az --version` to verify version. To install or upgrade, see [Install Azure CLI][azure-cli-install].

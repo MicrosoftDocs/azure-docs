@@ -165,7 +165,7 @@
       href: container-instances-update.md
   - name: Monitor and log
     items:
-    - name: Monitor Azure Container Instances
+    - name: Monitor
       href: monitor-azure-container-instances.md
     - name: Monitor CPU and memory usage
       href: container-instances-monitor.md
@@ -205,7 +205,7 @@
     href: container-instances-reference-yaml.md
   - name: Connector
     href: /connectors/aci
-  - name: Monitoring data
+  - name: Monitoring data reference
     href: monitor-azure-container-instances-reference.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
