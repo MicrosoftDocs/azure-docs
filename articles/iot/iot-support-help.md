@@ -59,7 +59,7 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 * [Azure IoT Central](https://stackoverflow.com/questions/tagged/azure-iot-central)
 * [Azure IoT Edge](https://stackoverflow.com/questions/tagged/azure-iot-edge)
 * [Azure IoT Hub](https://stackoverflow.com/questions/tagged/azure-iot-hub)
-* [Azure IoT HUb Device Provisioning Service](https://stackoverflow.com/questions/tagged/azure-iot-dps)
+* [Azure IoT Hub Device Provisioning Service](https://stackoverflow.com/questions/tagged/azure-iot-dps)
 * [Azure IoT SDKs](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
 * [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
 * [Azure RTOS](https://stackoverflow.com/questions/tagged/azure-rtos)
