@@ -10934,6 +10934,11 @@
             "source_path_from_root": "/articles/key-vault/general/move-region.md",
             "redirect_url": "/azure/operational-excellence/relocation-key-vault",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-hubs/move-cluster-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-event-hub-cluster",
+            "redirect_document_id": false 
         }
         
     ]
