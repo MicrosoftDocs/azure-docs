@@ -1,5 +1,5 @@
 ---
-title: Configure internal NGIX ingress controller for Azure private DNS zone
+title: Configure internal NGINX ingress controller for Azure private DNS zone
 description: Understand how to configure an ingress controller with a private IP address and an Azure private DNS zone using the application routing add-on for Azure Kubernetes Service. 
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
