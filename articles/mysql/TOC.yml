@@ -771,11 +771,11 @@
   items:
   - name: Resolve capacity errors
     href: ./flexible-server/resolve-capacity-errors-mysql-flex.md
+  - name: Request quota increase
+    href: ./flexible-server/how-to-request-quota-increase.md
   - name: Troubleshoot migration errors
     href: single-server/how-to-troubleshoot-common-errors.md
     displayName: SUPER privilege, DBA role, Access is denied
-  - name: Request quota increase
-    href: ./flexible-server/how-to-request-quota-increase.md
   - name: Query performance
     items:
     - name: Troubleshoot query performance
