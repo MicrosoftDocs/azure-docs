@@ -12,13 +12,15 @@ ms.service: azure-communication-services
 ---
 
 ## Android API emulators
+
 When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22), some crashes are expected.  
 
 ## Android Trouter module conflict
+
 Known issue: When using Android Chat and Calling SDK together in the same application, Chat SDK's real-time notifications feature does not work. You might get a dependency resolving issue.
 
 While we are working on a solution, you can turn off real-time notifications feature by adding the following dependency information in app's build.gradle file and instead poll the GetMessages API to display incoming messages to users.
- 
+
 **Java**
 ```java
  implementation ("com.azure.android:azure-communication-chat:1.0.0") {
