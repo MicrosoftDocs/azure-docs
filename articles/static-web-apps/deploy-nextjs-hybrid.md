@@ -97,7 +97,17 @@ Select **Review + create**.
 
 ## View the website
 
-[!INCLUDE [view website](../../includes/static-web-apps/static-web-apps-tutorials-portal-view-website.md)]
+There are two aspects to deploying a static app. The first creates the underlying Azure resources that make up your app. The second is a workflow that builds and publishes your application.
+
+Before you can go to your new static site, the deployment build must first finish running.
+
+The Static Web Apps Overview window displays a series of links that help you interact with your web app.
+
+:::image type="content" source="../../articles/static-web-apps/media/getting-started/overview-window.png" alt-text="Screenshot of Azure Static Web Apps overview window.":::
+
+Selecting on the banner that says, Select here to check the status of your GitHub Actions runs takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can go to your website via the generated URL.
+
+Once GitHub Actions workflow is complete, you can select the URL link to open the website in new tab.
 
 ## Set up your Next.js project locally to make changes
 
