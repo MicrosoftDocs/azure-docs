@@ -3,7 +3,7 @@ title: Relocation guidance for Log Analytics workspace
 description: Learn how to relocate Log Analytics workspace to a new region.
 author: anaharris-ms
 ms.author: anaharris
-ms.date: 02/01/2024
+ms.date: 03/01/2024
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: concept
