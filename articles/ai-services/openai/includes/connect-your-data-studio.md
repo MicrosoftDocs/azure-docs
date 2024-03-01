@@ -33,7 +33,7 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
     :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
 
-1. On the **Upload files** pane, select **Browse for a file** and select the files you downloaded from the prerequisites section, or your own data. Then select **Upload files**. Then select **Next**.
+1. On the **Upload files** pane, select **Browse for a file** and select the files you downloaded from the [prerequisites](#prerequisites) section, or your own data. Then select **Upload files**. Then select **Next**.
 
 1. On the **Data management** pane, you can choose whether to enable [semantic search or vector search](../concepts/use-your-data.md#search-types) for your index.
     
