@@ -53,7 +53,7 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
     **Standard Resiliency** - This option provides a single ExpressRoute circuit with local redundancy at a single ExpressRoute location.
     
     > [!NOTE]
-    > Doesn't provide protection against location wide outages. This option is recommended for non-critical and non-production workloads.
+    > Doesn't provide protection against location wide outages. This option is recommended for development/test environment and non-production workloads.
     
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/standard-resiliency.png" alt-text="Diagram of standard resiliency for an ExpressRoute connection.":::
 
