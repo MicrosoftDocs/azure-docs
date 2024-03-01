@@ -14,7 +14,7 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 
 ## Benefits of the Azure Compute Gallery
 
-When you use the Azure Compute Gallery for your custom image, you have control over the operating system type and configuration, as well as the type of data disks. Your Shared Image can include applications and reference data that become available on all the Batch pool nodes as soon as they are provisioned.
+When you use the Azure Compute Gallery for your custom image, you have control over the operating system type and configuration, as well as the type of data disks. Your Shared Image can include applications and reference data that become available on all the Batch pool nodes as soon as they're provisioned.
 
 You can also have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create new disks for the VM.
 
@@ -32,12 +32,10 @@ Using a Shared Image configured for your scenario can provide several advantages
 
 ## Prerequisites
 
-> [!NOTE]
-> Currently, Azure Batch does not support the ‘TrustedLaunch’ feature. You must use the standard security type to create a custom image instead.
->
-> You need to authenticate using Microsoft Entra ID. If you use shared-key-auth, you will get an authentication error.
-
 - **An Azure Batch account.** To create a Batch account, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
+
+> [!NOTE]
+> Authentication using Microsoft Entra ID is required. If you use Shared Key Auth, you will get an authentication error.
 
 - **an Azure Compute Gallery image**. To create a Shared Image, you need to have or create a managed image resource. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks.
 
@@ -67,7 +65,7 @@ The following steps show how to prepare a VM, take a snapshot, and create an ima
 
 ### Prepare a VM
 
-If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image.
+If you're creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image.
 
 To get a full list of current Azure Marketplace image references supported by Azure Batch, use one of the following APIs to return a list of Windows and Linux VM images including the node agent SKU IDs for each image:
 
@@ -82,10 +80,10 @@ To get a full list of current Azure Marketplace image references supported by Az
 Follow these guidelines when creating VMs:
 
 - Ensure the VM is created with a managed disk. This is the default storage setting when you create a VM.
-- Do not install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.
+- Don't install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.
 - When using attached data disks, you need to mount and format the disks from within a VM to use them.
 - Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive.
-- Ensure that the OS disk is not encrypted.
+- Ensure that the OS disk isn't encrypted.
 - Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.
 - For faster pool provisioning, use the [ReadWrite disk cache setting](../virtual-machines/premium-storage-performance.md#disk-caching) for the VM's OS disk.
 
@@ -109,9 +107,6 @@ Once you have successfully created your managed image, you need to create an Azu
 ## Create a pool from a Shared Image using the Azure CLI
 
 To create a pool from your Shared Image using the Azure CLI, use the `az batch pool create` command. Specify the Shared Image ID in the `--image` field. Make sure the OS type and SKU matches the versions specified by `--node-agent-sku-id`
-
-> [!NOTE]
-> You need to authenticate using Microsoft Entra ID. If you use shared-key-auth, you will get an authentication error.
 
 > [!IMPORTANT]
 > The node agent SKU id must align with the publisher/offer/SKU in order for the node to start.
@@ -233,7 +228,7 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 1. In the **Image Type** section, select **Azure Compute Gallery**.
 1. Complete the remaining sections with information about your managed image.
 1. Select **OK**.
-1. Once the node is allocated, use **Connect** to generate user and the RDP file for Windows OR use SSH to for Linux to login to the allocated node and verify.
+1. Once the node is allocated, use **Connect** to generate user and the RDP file for Windows OR use SSH to for Linux to log in to the allocated node and verify.
 
 ![Create a pool with from a Shared image with the portal.](media/batch-sig-images/create-custom-pool.png)
 
@@ -242,9 +237,9 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 
 If you plan to create a pool with hundreds or thousands of VMs or more using a Shared Image, use the following guidance.
 
-- **Azure Compute Gallery replica numbers.**  For every pool with up to 300 instances, we recommend you keep at least one replica. For example, if you are creating a pool with 3000 VMs, you should keep at least 10 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
+- **Azure Compute Gallery replica numbers.**  For every pool with up to 300 instances, we recommend you keep at least one replica. For example, if you're creating a pool with 3,000 VMs, you should keep at least 10 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
 
-- **Resize timeout.** If your pool contains a fixed number of nodes (if it doesn't autoscale), increase the `resizeTimeout` property of the pool depending on the pool size. For every 1000 VMs, the recommended resize timeout is at least 15 minutes. For example, the recommended resize timeout for a pool with 2000 VMs is at least 30 minutes.
+- **Resize timeout.** If your pool contains a fixed number of nodes (if it doesn't autoscale), increase the `resizeTimeout` property of the pool depending on the pool size. For every 1,000 VMs, the recommended resize timeout is at least 15 minutes. For example, the recommended resize timeout for a pool with 2,000 VMs is at least 30 minutes.
 
 ## Next steps
 
