@@ -165,28 +165,28 @@ To create an alert for high server latency (average), follow these steps.
 
 2. In the **Condition** tab, select the **Availability** metric.
 
-3. In the **Alert logic** section: 
-   - For **Threshold,**select **Static** 
-   - For **Aggregation type,**select **Average**
-   - For **Operator,**select **Less than**
-   - For **Threshold value,**enter **99.9**
+3. In the **Alert logic** section, provide the following:
+   - **Threshold** = **Static** 
+   - **Aggregation type** = **Average**
+   - **Operator** = **Less than**
+   - **Threshold value** enter **99.9**
 
-3. In the **Split by dimensions** section:
-   - Select the **Dimension name** drop-down and select **File Share**
+4. In the **Split by dimensions** section:
+   - Select the **Dimension name** drop-down and select **File Share**.
    - Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 
-   > [!NOTE]
-   > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Availability alerts for standard file shares will be at the storage acount level.
+    > [!NOTE]
+    > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Availability alerts for standard file shares will be at the storage acount level.
 
-4. In the **When to evaluate** section:
-   - For **Check every,**select **5 minutes**
-   - For **Lookback period,**select **1 hour**
+6. In the **When to evaluate** section, select the following:
+   - **Check every** = **5 minutes**
+   - **Lookback period** = **1 hour**
 
-5. Click **Next** to go to the **Actions** tab and add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
+7. Click **Next** to go to the **Actions** tab and add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
 
-6. Click **Next** to go to the **Details** tab and fill in the details of the alert such as the alert name, description, and severity.
+8. Click **Next** to go to the **Details** tab and fill in the details of the alert such as the alert name, description, and severity.
 
-7. Select **Review + create** to create the alert.
+9. Select **Review + create** to create the alert.
 
 ## Related content
 
