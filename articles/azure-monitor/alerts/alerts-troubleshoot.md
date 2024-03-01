@@ -1,20 +1,22 @@
 ---
 title: Troubleshooting Azure Monitor alerts and notifications
 description: Common issues with Azure Monitor alerts and possible solutions. 
+ms.author: abbyweisberg
 ms.topic: reference
 ms.date: 9/20/2023
 ms.reviewer: nolavime
 ---
+
 # Troubleshooting problems in Azure Monitor alerts
 
 This article discusses common problems in Azure Monitor alerting and notifications. Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
 
 You can see fired alerts in the Azure portal.
 
-Refer to these articles for troubleshooting information about metric or log alerts that are not behaving as expected:
+Refer to these articles for troubleshooting information about metric or log search alerts that are not behaving as expected:
 
 - [Troubleshoot Azure Monitor metric alerts](alerts-troubleshoot-metric.md)
-- [Troubleshoot Azure Monitor log alerts](alerts-troubleshoot-log.md)
+- [Troubleshoot Azure Monitor log search alerts](alerts-troubleshoot-log.md)
 
 If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
 
@@ -229,12 +231,10 @@ If you can see a fired alert in the portal, but a related alert processing rule 
     Here is an example of an alert processing rule adding another action group:
     <!-- convertborder later -->
     :::image type="content" source="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" lightbox="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" alt-text="Screenshot of action repeated in multiple action groups." border="false":::
- 
 
 1. **Does the alert processing rule scope and filter match the fired alert?** 
 
     If you think the alert processing rule should have fired but didn't, or that it shouldn't have fired but it did, carefully examine the alert processing rule scope and filter conditions versus the properties of the fired alert. 
-
 
 ## How to find the alert ID of a fired alert
 
@@ -263,5 +263,6 @@ If you received an error while trying to create, update or delete an [alert proc
     Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
 
 ## Next steps
-- If using a log alert, also see [Troubleshooting Log Alerts](./alerts-troubleshoot-log.md).
+
+- If using a log search alert, also see [Troubleshooting Log Search Alerts](./alerts-troubleshoot-log.md).
 - Go back to the [Azure portal](https://portal.azure.com) to check if you solved your issue with guidance in this article.

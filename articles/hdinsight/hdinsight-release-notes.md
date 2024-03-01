@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 02/15/2024
 ---
 
 # Azure HDInsight release notes
@@ -21,11 +21,11 @@ To subscribe, click the “watch” button in the banner and watch out for [HDIn
 
 ## Release Information
 
-### Release date:  January 10, 2024
+### Release date:  February  15, 2024
 
-This hotfix release applies to HDInsight 4.x and 5.x versions. HDInsight release will be available to all regions over several days. This release is applicable for image number **2401030422**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+This release applies to HDInsight 4.x and 5.x versions. HDInsight release will be available to all regions over several days. This release is applicable for image number **2401250802**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it might take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
@@ -41,6 +41,10 @@ For workload specific versions, see
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
 * [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
+## New features
+
+- Apache Ranger support for Spark SQL in Spark 3.3.0 (HDInsight version 5.1) with Enterprise security package. Learn more about it [here](./spark/ranger-policies-for-spark.md).
+  
 ## Fixed issues
 
 - Security fixes from Ambari and Oozie components
@@ -51,6 +55,10 @@ For workload specific versions, see
 * Basic and Standard A-series VMs Retirement.
    * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
    * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
+ 
+## Known issues
+
+- HMS secrets failure v1.1 HTTP 401
 
 If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
@@ -64,3 +72,4 @@ We are listening: You’re welcome to add more ideas and other topics here and v
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
 * [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)
+* Previous [release note](/azure/hdinsight/hdinsight-release-notes-archive#release-date--october-26-2023)

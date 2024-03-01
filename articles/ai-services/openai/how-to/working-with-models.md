@@ -20,7 +20,7 @@ You can get a list of models that are available for both inference and fine-tuni
 
 ## Model updates
 
-Azure OpenAI now supports automatic updates for select model deployments. On models where automatic update support is available, a model version drop-down will be visible in Azure OpenAI Studio under **Create new deployment** and **Edit deployment**:
+Azure OpenAI now supports automatic updates for select model deployments. On models where automatic update support is available, a model version drop-down is visible in Azure OpenAI Studio under **Create new deployment** and **Edit deployment**:
 
 :::image type="content" source="../media/models/auto-update.png" alt-text="Screenshot of the deploy model UI of Azure OpenAI Studio." lightbox="../media/models/auto-update.png":::
 
@@ -28,23 +28,23 @@ You can learn more about Azure OpenAI model versions and how they work in the [A
 
 ### Auto update to default
 
-When **Auto-update to default** is selected your model deployment will be automatically updated within two weeks of a change in the default version.  For a preview version, it will update automatically when a new preview version is available starting two weeks after the new preview version is released.
+When you set your deployment to **Auto-update to default**, your model deployment is automatically updated within two weeks of a change in the default version.  For a preview version, it updates automatically when a new preview version is available starting two weeks after the new preview version is released.
 
 If you're still in the early testing phases for inference models, we recommend deploying models with **auto-update to default** set whenever it's available.
 
 ### Specific model version
 
-As your use of Azure OpenAI evolves, and you start to build and integrate with applications you might want to manually control model updates so that you can first test and validate that model performance is remaining consistent for your use case prior to upgrade.
+As your use of Azure OpenAI evolves, and you start to build and integrate with applications you might want to manually control model updates. You can first test and validate that your application behavior is consistent for your use case before upgrading.
 
-When you select a specific model version for a deployment this version will remain selected until you either choose to manually update yourself, or once you reach the retirement date for the model. When the retirement date is reached the model will automatically upgrade to the default version at the time of retirement.
+When you select a specific model version for a deployment, this version remains selected until you either choose to manually update yourself, or once you reach the retirement date for the model. When the retirement date is reached the model will automatically upgrade to the default version at the time of retirement.
 
-## Viewing deprecation dates
+## Viewing retirement dates
 
 For currently deployed models, from Azure OpenAI Studio select **Deployments**:
 
 :::image type="content" source="../media/models/deployments.png" alt-text="Screenshot of the deployment UI of Azure OpenAI Studio." lightbox="../media/models/deployments.png":::
 
-To view deprecation/expiration dates for all available models in a given region from Azure OpenAI Studio select **Models** > **Column options** > Select **Deprecation fine tune** and **Deprecation inference**:
+To view retirement dates for all available models in a given region from Azure OpenAI Studio, select **Models** > **Column options** > Select **Deprecation fine tune** and **Deprecation inference**:
 
 :::image type="content" source="../media/models/column-options.png" alt-text="Screenshot of the models UI of Azure OpenAI Studio." lightbox="../media/models/column-options.png":::
 
@@ -54,7 +54,7 @@ You can check what model upgrade options are set for previously deployed models 
 
 :::image type="content" source="../media/how-to/working-with-models/deployments.png" alt-text="Screenshot of the deployments pane with a deployment name highlighted." lightbox="../media/how-to/working-with-models/deployments.png":::
 
-This will open the **Properties** for the model deployment. You can view what upgrade options are set for your deployment under **Version update policy**:
+Selecting a deployment name opens the **Properties** for the model deployment. You can view what upgrade options are set for your deployment under **Version update policy**:
 
 :::image type="content" source="../media/how-to/working-with-models/update-policy.png" alt-text="Screenshot of the model deployments property UI." lightbox="../media/how-to/working-with-models/update-policy.png":::
 
@@ -62,7 +62,7 @@ The corresponding property can also be accessed via [REST](../how-to/working-wit
 
 |Option| Read | Update |
 |---|---|---|
-| [REST](../how-to/working-with-models.md#model-deployment-upgrade-configuration) | Yes. If `versionUpgradeOption` is not returned it means it is `null` |Yes |
+| [REST](../how-to/working-with-models.md#model-deployment-upgrade-configuration) | Yes. If `versionUpgradeOption` is not returned, it means it is `null` |Yes |
 | [Azure PowerShell](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccountdeployment) | Yes.`VersionUpgradeOption` can be checked for `$null`| Yes |
 | [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-show) | Yes. It shows `null` if `versionUpgradeOption` is not set.| *No.* It is currently not possible to update the version upgrade option.|
 
@@ -70,12 +70,12 @@ There are three distinct model deployment upgrade options:
 
 | Name | Description |
 |------|--------|
-| `OnceNewDefaultVersionAvailable` | Once a new version is designated as the default, the model deployment will automatically upgrade to the default version within two weeks of that designation change being made. |
-|`OnceCurrentVersionExpired` | Once the retirement date is reached the model deployment will automatically upgrade to the current default version. |
-|`NoAutoUpgrade` | The model deployment will never automatically upgrade. Once the retirement date is reached the model deployment will stop working. You will need to update your code referencing that deployment to point to a nonexpired model deployment. |
+| `OnceNewDefaultVersionAvailable` | Once a new version is designated as the default, the model deployment automatically upgrades to the default version within two weeks of that designation change being made. |
+|`OnceCurrentVersionExpired` | Once the retirement date is reached the model deployment automatically upgrades to the current default version. |
+|`NoAutoUpgrade` | The model deployment never automatically upgrades. Once the retirement date is reached the model deployment stops working. You need to update your code referencing that deployment to point to a nonexpired model deployment. |
 
 > [!NOTE]
-> `null` is equivalent to `AutoUpgradeWhenExpired`. If the **Version update policy** option is not present in the properties for a model that supports model upgrades this indicates the value is currently `null`. Once you explicitly modify this value the property will be visible in the studio properties page as well as via the REST API.
+> `null` is equivalent to `AutoUpgradeWhenExpired`. If the **Version update policy** option is not present in the properties for a model that supports model upgrades this indicates the value is currently `null`. Once you explicitly modify this value, the property is visible in the studio properties page as well as via the REST API.
 
 ### Examples
 
@@ -122,7 +122,7 @@ New-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} 
 
 # [REST](#tab/rest)
 
-To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0). If the value is null you won't see a `versionUpgradeOption` property.
+To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0). If the value is null, you won't see a `versionUpgradeOption` property.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments?api-version=2023-05-01

@@ -91,7 +91,10 @@ Service-managed failover allows Azure Cosmos DB to fail over the write region of
 > [!IMPORTANT]
 > If you have chosen single-region write configuration with multiple read regions, we strongly recommend that you configure the Azure Cosmos DB accounts used for production workloads to *enable service-managed failover*. This configuration enables Azure Cosmos DB to fail over the account databases to available regions.
 > In the absence of this configuration, the account will experience loss of write availability for the whole duration of the write region outage. Manual failover won't succeed because of a lack of region connectivity.
-> 
+
+> [!WARNING]
+> Even with service-managed failover enabled, partial outage may require manual intervention for the Azure Cosmos DB service team. In these scenarios, it may take up to 1 hour (or more) for failover to take effect. For better write availability during partial outages, we recommend enabling availability zones in addition to service-managed failover.  
+
 
 ### Multiple write regions
 
@@ -205,7 +208,7 @@ The following table summarizes the high-availability capabilities of various acc
 
 * Review the expected [behavior of the Azure Cosmos DB SDKs](troubleshoot-sdk-availability.md) during events and which configurations affect it.
 
-* To ensure high write and read availability, configure your Azure Cosmos DB account to span at least two regions (or three, if you're using strong consistency). Remember that the best configuration to achieve high availability for a region outage is a single write region with service-managed failover. To learn more, see [Tutorial: Set up Azure Cosmos DB global distribution using the API for NoSQL](nosql/tutorial-global-distribution.md).
+* To ensure high write and read availability, configure your Azure Cosmos DB account to span at least two regions (or three, if you're using strong consistency). To learn more, see [Tutorial: Set up Azure Cosmos DB global distribution using the API for NoSQL](nosql/tutorial-global-distribution.md).
 
 * For multiple-region Azure Cosmos DB accounts that are configured with a single write region, [enable service-managed failover by using the Azure CLI or the Azure portal](how-to-manage-database-account.md#automatic-failover). After you enable service-managed failover, whenever there's a regional disaster, Azure Cosmos DB will fail over your account without any user input.
 

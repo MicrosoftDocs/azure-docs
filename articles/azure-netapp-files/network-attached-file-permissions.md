@@ -1,10 +1,9 @@
 ---
 title: Understand NAS file permissions in Azure NetApp Files
-description: Learn about NAS file permissions options in Azure NetApp Files.   
+description: Learn about NAS file permissions options in Azure NetApp Files.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 11/13/2023
 ms.author: anfdocs

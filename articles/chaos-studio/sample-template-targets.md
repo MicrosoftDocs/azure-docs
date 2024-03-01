@@ -5,12 +5,14 @@ services: chaos-studio
 author: prasha-microsoft 
 ms.topic: sample
 ms.date: 11/10/2021
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ms.custom: devx-track-arm-template
 ---
 
 # Azure Resource Manager template samples for targets and capabilities in Azure Chaos Studio
+
 This article includes sample [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/syntax.md) to create [targets and capabilities](chaos-studio-targets-capabilities.md) to add a resource to Azure Chaos Studio. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 ## Add service-direct target and capabilities (single capability)

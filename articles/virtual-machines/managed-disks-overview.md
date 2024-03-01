@@ -15,7 +15,7 @@ Azure managed disks are block-level storage volumes that are managed by Azure an
 
 The available types of disks are ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD). For information about each individual disk type, see [Select a disk type for IaaS VMs](disks-types.md).
 
-Alternatively, you could use an Azure Elastic SAN Preview as your VM's storage. An Elastic SAN allows you to consolidate the storage for all your workloads into a single storage backend and can be more cost effective if you've a sizeable amount of large scale IO-intensive workloads and top tier databases. To learn more, see [What is Azure Elastic SAN? Preview](../storage/elastic-san/elastic-san-introduction.md)
+Alternatively, you could use an Azure Elastic SAN as your VM's storage. An Elastic SAN allows you to consolidate the storage for all your workloads into a single storage backend and can be more cost effective if you've a sizeable amount of large scale IO-intensive workloads and top tier databases. To learn more, see [What is Azure Elastic SAN?](../storage/elastic-san/elastic-san-introduction.md)
 
 ## Benefits of managed disks
 

@@ -46,7 +46,7 @@ When you're running Azure Database for PostgreSQL - Flexible Server, you have tw
 
 ## Microsoft Defender for Cloud support
 
-**[Defender for Cloud](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-reference.md#alerts-osrdb) on anomalous activities so that you can detect potential threats and respond to them as they occur.
+**[Defender for Cloud](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-reference.md#alerts-for-open-source-relational-databases) on anomalous activities so that you can detect potential threats and respond to them as they occur.
 When you enable this plan, Defender for Cloud will provide alerts when it detects anomalous database access and query patterns as well as suspicious database activities.
 
 These alerts appear in Defender for Cloud's security alerts page and include:
@@ -165,6 +165,9 @@ In this example, user *user1* can connect and has all privileges in our test dat
 
 In PostgreSQL database role can have a number of attributes that define its privileges.One such attribute is the [**CREATEROLE** attribute](https://www.postgresql.org/docs/current/role-attributes.html), which is important to PostgreSQL database management of users and roles. In PostgreSQL 16 significant changes were introduced to this attribute.
 In PostgreSQL 16,  users with **CREATEROLE** attribute no longer have the ability to hand out membership in any role to anyone; instead, like other users, without this attribute, they can only hand out memberships in roles for which they possess **ADMIN OPTION**. Also, in PostgreSQL 16,the **CREATEROLE** attribute still allows a non-superuser the ability to provision new users, however they can only drop users that they themselves created. Attempts to drop users , which is not create by user with **CREATEROLE** attribute, will result in an error.
+
+PostgreSQL 16 also introduced new  and improved built-in roles. New *pg_use_reserved_connections* role in PostgreSQL 16 allows the use of connection slots reserved via reserved_connections.The *pg_create_subscription* role allows superusers to create subscriptions.
+
 
 
 ## Row  level security

@@ -125,8 +125,6 @@
       href: tutorial-dr-drill-azure.md
     - name: Run VMware VMs failover to Azure
       href: vmware-azure-tutorial-failover-failback-modernized.md
-
-
 - name: Concepts
   items:
   - name: Support matrices
@@ -139,8 +137,6 @@
       href: hyper-v-azure-support-matrix.md
     - name: Support requirements for Azure Site Recovery replication appliance
       href: replication-appliance-support-matrix.md 
-    - name: VMware/physical to Azure support matrix
-      href: vmware-physical-azure-support-matrix.md      
     - name: Backup center support matrix
       href: ../backup/backup-center-support-matrix.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
     - name: Using Site Recovery with Azure Backup
@@ -329,6 +325,8 @@
       items:
       - name: Set up the source environment
         href: vmware-azure-set-up-source.md
+      - name: For an added disk
+        href: vmware-azure-enable-replication-added-disk.md
       - name: Deploy the configuration server
         href: vmware-azure-deploy-configuration-server.md
       - name: Set up the target environment

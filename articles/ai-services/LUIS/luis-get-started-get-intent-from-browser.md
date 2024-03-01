@@ -174,6 +174,5 @@ In order to query a public app, you need:
 
 ## Next steps
 
-* [V3 prediction endpoint](luis-migration-api-v3.md)
 * [Custom subdomains](../cognitive-services-custom-subdomains.md)
 * [Use the client libraries or REST API](client-libraries-rest-api.md)

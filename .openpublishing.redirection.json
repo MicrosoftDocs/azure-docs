@@ -1,5 +1,25 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/batch/batch-pool-no-public-ip-address.md",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-pool-no-public-ip-address",
+      "redirect_document_id": false
+    }, 
+    {  
+      "source_path": "articles/batch/batch-rendering-applications.md",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-rendering-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-rendering-using.md",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-rendering-using",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-rendering-application-reference.md",
+      "redirect_url": "/previous-versions/aure/batch/articles/batch/batch-rendering-application-reference",
+      "redirect_document_id": false
+    },
     	{
            "source_path": "articles/cosmos-db/nosql/sdk-java-spark-v2.md",
            "redirect_url": "/previous-versions/azure/cosmos-db/nosql/sdk-java-spark-v2",
@@ -978,6 +998,11 @@
         {
             "source_path_from_root": "/articles/analysis-services/analysis-services-compat-level.md",
             "redirect_url": "/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-monitor.md",
+            "redirect_url": "/azure/analysis-services/monitor-analysis-services",
             "redirect_document_id": false
         },
         {
@@ -2290,6 +2315,31 @@
             "redirect_url": "/azure/automation/automation-solution-vm-management",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management.md",
+            "redirect_url":"/azure/azure-functions/start-stop-vms/overview",
+            "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-config.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-logs.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-remove.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/remove",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/troubleshoot/start-stop-vm.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/troubleshoot",
+             "redirect_document_id": false
+        },       
         {
             "source_path_from_root": "/articles/update-center/enable-machines.md",
             "redirect_url": "/azure/update-center/updates-maintenance-schedules",
@@ -5707,7 +5757,77 @@
         },
         {
             "source_path_from_root": "/articles/industrial-iot/overview-what-is-industrial-iot-platform.md",
-            "redirect_url": "/azure/industrial-iot/overview-what-is-industrial-iot",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/index.yml",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/industrial-iot-platform-versions.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/overview-what-is-industrial-iot.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/overview-what-is-opc-publisher.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/reference-command-line-arguments.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/reference-opc-publisher-telemetry-format.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-configure-industrial-iot-components.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-data-explorer-import.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-deploy-industrial-iot-platform.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-industrial-iot-azure-data-explorer.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-publisher-configure-opc-publisher.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-publisher-deploy-opc-publisher-standalone.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-publisher-performance-memory-tuning-opc-publisher.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-visualize-data-time-series-insights.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
             "redirect_document_id": false
         },
         {
@@ -10351,6 +10471,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-arc/servers/onboard-dsc.md",
+            "redirect_url": "/azure/azure-arc/servers/deployment-options",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-arc/kubernetes/plan-at-scale-deployment.md",
             "redirect_url": "/azure/azure-arc/kubernetes/overview",
             "redirect_document_id": false
@@ -10563,6 +10688,11 @@
         {
             "source_path_from_root": "/articles/orbital/space-partner-program-overview.md",
             "redirect_url": "/azure/orbital/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-availability-zones.md",
+            "redirect_url": "/azure/reliability/reliability-load-balancer",
             "redirect_document_id": false
         },
         {
@@ -10798,6 +10928,17 @@
             "source_path_from_root": "/articles/azure-health-insights/response-info.md",
             "redirect_url": "/azure/azure-health-insights/overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-services-php-create-web-role.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-php-create-web-role",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
+            "redirect_url": "/azure/reliability/reliability-traffic-manager",
+            "redirect_document_id": false
         }
+        
     ]
 }

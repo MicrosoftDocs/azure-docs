@@ -20,6 +20,26 @@ This article provides details about the features and enhancements made to Azure 
 > [!IMPORTANT]
 > Azure Health Data Services is generally available. For more information, see the [Service Level Agreement (SLA) for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
+## February 2024
+
+### FHIR service
+
+**Import operation honors ingestion of non-sequential resource versions**
+
+Prior to this change incremental mode in import operation assumed versions to be sequential integers. After this bug fix, versions can be ingested in non-sequential order. For more information, see [Import operation supports non-sequential version ordering for resources](https://github.com/microsoft/fhir-server/pull/3685).
+
+**Revinclude search can reference all resources with wild character**
+
+FHIR service supports wild card searches with revinclude. Adding "*.*" query parameter in revinclude query, it will direct FHIR service to reference all the resources mapped to the source resource. 
+
+**Improve FHIR queries response time with performance enhancements**
+
+To improve performance. missing modifier can be specified for a search parameter that is used in sort. For more information, see [improve performance using missing modifier](https://github.com/microsoft/fhir-server/pull/3655)
+
+**Enables counting all versions (historical and soft deleted) of resources**
+
+The query parameter _summary=count and _count=0 can be added to _history endpoint to get count of all versioned resources. This count includes soft deleted resources.
+
 ## January 2024
 
 ### DICOM service
@@ -66,9 +86,6 @@ The FHIR service can store and exchange large amounts of health data, and each F
 By adding more storage, organizations can handle large data sets to enable analytics scenarios. For example, you can use more storage to manage population health, conduct research, and gain new insights from health data. Plus, more storage enables Azure API for FHIR customers with high-volume data (greater than 4 TB) to migrate to the FHIR service in Azure Health Data Services.
  
 To request storage greater than 4 TB, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) on the Azure portal and use the issue type **Service and Subscription limit (quotas)**.
-
-> [!NOTE]
-> Due to an issue with billing metrics for storage, customers who opt for more than 4 TB of storage capacity won't be billed for storage until the issue is resolved.
 
 ## December 2023
 

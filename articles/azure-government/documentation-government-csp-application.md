@@ -7,7 +7,6 @@ cloud: gov
 
 ms.service: azure-government
 ms.topic: article
-ms.workload: azure-government
 ms.date: 05/30/2023
 ---
 

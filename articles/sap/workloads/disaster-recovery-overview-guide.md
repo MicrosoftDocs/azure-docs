@@ -8,7 +8,6 @@ ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 06/19/2023
 ---
 

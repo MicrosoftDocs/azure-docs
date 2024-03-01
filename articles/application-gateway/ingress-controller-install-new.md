@@ -16,7 +16,7 @@ The instructions below assume Application Gateway Ingress Controller (AGIC) will
 installed in an environment with no pre-existing components.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Required Command Line Tools
 
@@ -305,7 +305,7 @@ spec:
   - image: "mcr.microsoft.com/dotnet/samples:aspnetapp"
     name: aspnetapp-image
     ports:
-    - containerPort: 80
+    - containerPort: 8080
       protocol: TCP
 
 ---
@@ -320,7 +320,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 80
+    targetPort: 8080
 
 ---
 
@@ -335,6 +335,7 @@ spec:
   - http:
       paths:
       - path: /
+        pathType: Exact
         backend:
           service:
             name: aspnetapp

@@ -1,10 +1,15 @@
 ---
 ms.service: azure-arc
 ms.topic: include
-ms.date: 01/10/2024
+ms.date: 02/16/2024
 ---
 
-If you are using Azure Arc-enabled servers only for the purpose of Extended Security Updates for Windows Server 2012, you can enable the following subset of endpoints:
+If you're using Azure Arc-enabled servers only for Extended Security Updates for either or both of the following products:
+
+- Windows Server 2012
+- SQL Server 2012
+
+You can enable the following subset of endpoints:
 
 #### [Azure Cloud](#tab/azure-cloud)
 

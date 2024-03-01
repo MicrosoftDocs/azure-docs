@@ -17,9 +17,9 @@ Azure AI Speech is updated on an ongoing basis. To stay up-to-date with recent d
 
 ## Recent highlights
 
+* The Azure AI Speech service supports OpenAI text to speech voices. For more information, see [What are OpenAI text to speech voices?](./openai-voices.md). 
+* The custom voice API is available for creating and managing [professional](./professional-voice-create-project.md) and [personal](./personal-voice-create-project.md) custom neural voice models. 
 * Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](./batch-transcription-create.md#use-a-whisper-model) guide. 
-* [Speech to text REST API version 3.2](./migrate-v3-1-to-v3-2.md) is available in public preview.
-* [Real-time diarization](./get-started-stt-diarization.md) is in public preview.  
 
 ## Release notes
 

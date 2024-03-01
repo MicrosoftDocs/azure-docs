@@ -88,7 +88,7 @@ The setup process for the CEF via AMA connector has two parts:
 
 - If your log forwarder *isn't* an Azure virtual machine, it must have the Azure Arc [Connected Machine agent](../azure-arc/servers/overview.md) installed on it.
 
-- The Linux log forwarder VM must have Python 2.7 or 3 installed. Use the ``python --version`` or ``python3 --version`` command to check.
+- The Linux log forwarder VM must have Python 2.7 or 3 installed. Use the ``python --version`` or ``python3 --version`` command to check. If using Python 3 make sure it's set as the default command on the machine, or run the scripts below with the 'python3' command instead of 'python'.
 
 - The log forwarder must have either the `syslog-ng` or `rsyslog` daemon enabled.
 
