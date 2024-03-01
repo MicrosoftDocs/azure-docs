@@ -1,18 +1,19 @@
 ---
-title: Add correlation IDs to IoT messages with distributed tracing (preview)
+title: Monitor IoT messages with distributed tracing (preview)
+titleSuffix: Azure IoT Hub
 description: Learn how to use distributed tracing to trace IoT messages throughout the Azure services that your solution uses.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 01/26/2022
-ms.custom: [amqp, mqtt, fasttrack-edit, iot]
+ms.date: 02/29/2024
+ms.custom: [amqp, mqtt, fasttrack-edit, references_regions]
 ---
 
 # Trace Azure IoT device-to-cloud messages by using distributed tracing (preview)
 
-IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you're able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For a background on the feature, see [What is distributed tracing?](../azure-monitor/app/distributed-tracing-telemetry-correlation.md).
+Use distributed tracing (preview) in IoT Hub to monitor IoT messages as they pass through Azure services. IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you're able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For more information about the feature, see [What is distributed tracing?](../azure-monitor/app/distributed-trace-data.md).
 
 When you enable distributed tracing for IoT Hub, you can:
 
@@ -126,44 +127,38 @@ You can use the Azure portal or the Azure IoT Hub extension for Visual Studio Co
 1. Select the gear icon under **Distributed Tracing (preview)**. In the panel that opens:
 
    1. Select the **Enable** option. 
-   1. For **Sampling rate**, choose a percentage between 0 and 100. 
+   1. For **Sampling rate**, choose a percentage between 0 and 100.
    1. Select **Save**.
 
    :::image type="content" source="media/iot-hub-distributed-tracing/enable-distributed-tracing.png" alt-text="Screenshot that shows how to enable distributed tracing in the Azure portal." lightbox="media/iot-hub-distributed-tracing/enable-distributed-tracing.png":::
 
 1. Wait a few seconds, and then select **Refresh**. If the device successfully acknowledges your changes, a sync icon with a check mark appears.
 
-1. Go back to the console window for the telemetry message app. Confirm that messages are being sent with `tracestate` in the application properties.
-
-   :::image type="content" source="media/iot-hub-distributed-tracing/MicrosoftTeams-image.png" alt-text="Screenshot that shows trace state messages." lightbox="media/iot-hub-distributed-tracing/MicrosoftTeams-image.png":::
-
-1. (Optional) Change the sampling rate to a different value, and observe the change in frequency that messages include `tracestate` in the application properties.
-
 #### [VS Code](#tab/vscode)
 
 1. With Visual Studio Code installed, install the latest version of the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
-1. Open Visual Studio Code, and go to the **Explorer** tab and the **Azure IoT Hub** section. 
+1. Open Visual Studio Code, and go to the **Explorer** tab and the **Azure IoT Hub** section.
 
-1. Select the ellipsis (...) next to **Azure IoT Hub** to see a submenu. Choose the **Select IoT Hub** option to retrieve your IoT hub from Azure. 
+1. Select the ellipsis (...) next to **Azure IoT Hub** to see a submenu. Choose the **Select IoT Hub** option to retrieve your IoT hub from Azure.
 
    In the pop-up window that appears at the top of Visual Studio Code, you can select your subscription and IoT hub.
 
    See a demonstration on the [vscode-azure-iot-toolkit](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub) GitHub page.
 
-1. Expand your device under **Devices**. Right-click **Distributed Tracing Setting (Preview)**, and then select **Update Distributed Tracing Setting (Preview)**. 
+1. Expand your device under **Devices**. Right-click **Distributed Tracing Setting (Preview)**, and then select **Update Distributed Tracing Setting (Preview)**.
 
-1. In the pop-up pane that appears at the top of the window, select **Enable**. 
+1. In the pop-up pane that appears at the top of the window, select **Enable**.
 
    :::image type="content" source="media/iot-hub-distributed-tracing/enable-distributed-tracing-vsc.png" alt-text="Screenshot that shows how to enable distributed tracing in the Azure IoT Hub extension.":::
 
    **Enable Distributed Tracing: Enabled** now appears under **Distributed Tracing Setting (Preview)** > **Desired**.
 
-1. In the pop-up pane that appears for the sampling rate, enter **100** and then select the Enter key.
+1. In the pop-up pane that appears for the sampling rate, enter an integer between 0 and 100, then select the Enter key.
 
     ![Screenshot that shows entering a sampling rate](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
-    **Sample rate: 100(%)** now also appears under **Distributed Tracing Setting (Preview)** > **Desired**.
+    **Sample rate: 100(%)** now appears under **Distributed Tracing Setting (Preview)** > **Desired**.
 
 ---
 
@@ -300,7 +295,7 @@ In this section, you edit the [iothub_ll_telemetry_sample.c](https://github.com/
 
 1. Keep the app running. You can observe the messages being sent to IoT Hub in the console window.
 
-For a client app that can receive sampling decisions from the cloud, try the [iothub_devicetwin_sample.c](https://aka.ms/iottracingCsample) sample in the distributed tracing sample repo.
+For a client app that can receive sampling decisions from the cloud, try the [iothub_devicetwin_sample.c](https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/tree/master/iothub_devicetwin_sample-c) sample in the distributed tracing sample repo.
 
 ### Workaround for non-Microsoft clients
 
