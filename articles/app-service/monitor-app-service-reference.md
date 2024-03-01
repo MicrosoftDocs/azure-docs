@@ -19,13 +19,13 @@ See [Monitor Azure App Service](monitor-app-service.md) for details on the data 
 
 ### Supported metrics for Microsoft.Web
 
-This table lists all the automatically collected platform metrics for App Service.
+The following tables list the automatically collected platform metrics for App Service.
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
+| Web apps | [Microsoft.Web/sites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-metrics)
 | Container apps | [Microsoft.Web/containerapps](/azure/azure-monitor/reference/supported-metrics/microsoft-web-containerapps-metrics)
 | App Service Plans | [Microsoft.Web/serverfarms](/azure/azure-monitor/reference/supported-metrics/microsoft-web-serverfarms-metrics)
-| Web apps | [Microsoft.Web/sites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-metrics) |
 | Staging slots | [Microsoft.Web/sites/slots](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-slots-metrics)
 | Static sites | [Microsoft.Web/staticsites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-staticsites-metrics)
 | App Service Environment | [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-metrics)
@@ -33,9 +33,9 @@ This table lists all the automatically collected platform metrics for App Servic
 | App Service Environment Worker Pools | [Microsoft.Web/hostingEnvironments/workerPools](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-workerpools-metrics)
 
 >[!NOTE]
->Azure App Service, Functions, and Logic Apps share the [Microsoft.Web/sites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-metrics) namespace dating back to when they were a single service. Check the metric descriptions in the overall table to see which metrics apply to which services. The Azure portal **Metrics** interface shows only the metrics that apply to that service.
+>Azure App Service, Functions, and Logic Apps share the Microsoft.Web/sites namespace dating back to when they were a single service. Refer to the following list or the **Metric** column in the overall linked table to see which metrics apply to which services. The **Metrics** interface in the Azure portal for each service shows only the metrics that apply to that service.
 
-The following metrics apply to For an app, the available metrics are:
+For web apps, the available metrics in Microsoft.Web/sites are:
 
 - Response Time
 - Average Response Time (deprecated)
@@ -73,14 +73,28 @@ The following metrics apply to For an app, the available metrics are:
 - Total App Domains
 - Total App Domains Unloaded
 
-For an App Service plan, the available metrics are:
+For an App Service plan, the metrics in Microsoft.Web/serverfarms are:
 
-- CPU Percentage
-- Memory Percentage
 - Data In
 - Data Out
+- CPU Percentage
 - Disk Queue Length
 - Http Queue Length
+- Memory Percentage
+- Socket Count for Inbound Requests
+- Socket Count for Loopback Connections
+- Socket Count of Outbound Requests
+- Established Socket Count for Outbound Requests
+- Time Wait Socket Count for Outbound Requests
+- TCP Close Wait
+- TCP Closing
+- TCP Established
+- TCP Fin Wait 1
+- TCP Fin Wait 2
+- TCP Last Ack
+- TCP Syn Received
+- TCP Syn Sent
+- TCP Time Wait
 
 > [!NOTE]
 > App Service plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
@@ -93,7 +107,32 @@ Two metrics reflect CPU usage:
 These metrics are useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across all instances.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
-[!INCLUDE [horz-monitor-ref-no-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-no-metrics-dimensions.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+
+Some metrics in the following namespaces have the listed dimensions:
+
+**Microsoft.Web/sites**
+
+- Instance
+- workflowName
+- status
+- accountName
+
+**Microsoft.Web/containerapps**
+
+- revisionName
+- deploymentName
+- podName
+- statusCodeCategory
+- statusCode
+
+**Microsoft.Web/serverFarms**<br>
+**Microsoft.Web/sites/slots**<br>
+**Microsoft.Web/hostingEnvironments**<br>
+**Microsoft.Web/hostingenvironments/multirolepools**<br>
+**Microsoft.Web/hostingenvironments/workerpools**
+
+- Instance
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
