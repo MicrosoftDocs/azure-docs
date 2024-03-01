@@ -99,10 +99,10 @@ As of version 3.235.0 of the [Azure Resource Manager Template Deployment task](/
 ### Use Azure CLI task
 
 > [!NOTE]
-> The [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create) command requires only a bicepparam file. The `using` statement in the bicepparam file can target any supported location to reference the Bicep file. A Bicep file is only required in your repository when `using` from a local disk path with Azure CLI.
+> The [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create&preserve-view=true) command requires only a bicepparam file. The `using` statement in the bicepparam file can target any supported location to reference the Bicep file. A Bicep file is only required in your repository when `using` from a local disk path with Azure CLI.
 
 > [!NOTE]
-> When using a *[bicepparam](/azure/azure-resource-manager/bicep/parameter-files)* file with the [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create) command you cannot override parameters.
+> When using a *[bicepparam](/azure/azure-resource-manager/bicep/parameter-files)* file with the [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create&preserve-view=true) command you cannot override parameters.
 
 1. Replace your starter pipeline with the following YAML. It creates a resource group and deploys a [bicepparam](/azure/azure-resource-manager/bicep/parameter-files) file by using an [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2):
 
