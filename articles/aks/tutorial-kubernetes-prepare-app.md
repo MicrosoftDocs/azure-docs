@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Prepare an application for Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to prepare and build a multi-container app with Docker Compose that you can then deploy to AKS.
 ms.topic: tutorial
-ms.date: 10/23/2023
+ms.date: 02/15/2023
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to learn how to build a container-based application so that I can deploy the app to Azure Kubernetes Service.
@@ -33,6 +33,8 @@ To complete this tutorial, you need a local Docker development environment runni
 > [!NOTE]
 > Azure Cloud Shell doesn't include the Docker components required to complete every step in these tutorials. Therefore, we recommend using a full Docker development environment.
 
+---
+
 ## Get application code
 
 The [sample application][sample-application] used in this tutorial is a basic store front app including the following Kubernetes deployments and services:
@@ -43,6 +45,9 @@ The [sample application][sample-application] used in this tutorial is a basic st
 * **Product service**: Shows product information.
 * **Order service**: Places orders.
 * **Rabbit MQ**: Message queue for an order queue.
+
+
+### [Git](#tab/azure-cli)
 
 1. Use [git][] to clone the sample application to your development environment.
 
@@ -56,9 +61,34 @@ The [sample application][sample-application] used in this tutorial is a basic st
     cd aks-store-demo
     ```
 
+
+### [Azure Developer CLI](#tab/azure-azd)
+
+1. If you are using AZD locally, create an empty directory named `aks-store-demo` to host the azd template files.
+
+    ```azurecli
+    mkdir aks-store-demo
+    ```
+
+1. Change into the new directory to load all the files from the azd template.
+
+    ```azurecli
+    cd aks-store-demo
+    ```
+
+1. Run the Azure Developer CLI ([azd][]) init command which clones the sample application into your empty directory.
+
+    Here, the `--template` flag is specified to point to the aks-store-demo application.
+
+    ```azurecli
+    azd init --template aks-store-demo
+    ```
+
+---
+
 ## Review Docker Compose file
 
-The sample application you create in this tutorial uses the [*docker-compose-quickstart* YAML file](https://github.com/Azure-Samples/aks-store-demo/blob/main/docker-compose-quickstart.yml) in the [repository](https://github.com/Azure-Samples/aks-store-demo/tree/main) you cloned in the previous step.
+The sample application you create in this tutorial uses the [*docker-compose-quickstart* YAML file](https://github.com/Azure-Samples/aks-store-demo/blob/main/docker-compose-quickstart.yml) from the [repository](https://github.com/Azure-Samples/aks-store-demo/tree/main) you cloned.
 
 ```yaml
 version: "3.7"
@@ -142,11 +172,17 @@ networks:
     driver: bridge
 ```
 
-## Create container images and run application
+---
+
+## Create container images and run application 
+
+### [Docker](#tab/azure-cli)
 
 You can use [Docker Compose][docker-compose] to automate building container images and the deployment of multi-container applications.
 
-1. Create the container image, download the Redis image, and start the application using the `docker compose` command.
+### Docker
+
+1. Create the container image, download the Redis image, and start the application using the `docker compose` command:
 
     ```console
     docker compose -f docker-compose-quickstart.yml up -d
@@ -203,7 +239,32 @@ Since you validated the application's functionality, you can stop and remove the
     docker compose down
     ```
 
+
+### [Azure Developer CLI](#tab/azure-azd)
+
+When you use AZD, there are no manual container image dependencies. AZD handles the provisioning, deployment, and cleans up of your applications and clusters with the `azd up` and `azd down` commands, similar to Docker.
+
+You can customize the preparation steps to use either Terraform or Bicep before deploying the cluster.
+
+1. This is selected within your `azure.yaml` infra section. By default, this project uses terraform.
+
+    ```yml
+    infra:
+      provider: terraform
+      path: infra/terraform
+
+2. To select Bicep change the provider and path from terraform to bicep
+
+    ```yml
+    infra:
+      provider: bicep
+      path: infra/bicep
+    ```
+
+---
 ## Next steps
+
+### [Azure CLI](#tab/azure-cli) 
 
 In this tutorial, you created a sample application, created container images for the application, and then tested the application. You learned how to:
 
@@ -216,6 +277,21 @@ In the next tutorial, you learn how to store container images in an ACR.
 
 > [!div class="nextstepaction"]
 > [Push images to Azure Container Registry][aks-tutorial-prepare-acr]
+
+### [Azure Developer CLI](#tab/azure-azd)
+
+In this tutorial, you cloned a sample application using AZD. You learned how to:
+
+> [!div class="checklist"]
+> * Clone a sample azd template from GitHub.
+> * View where container images are used from the sample application source.
+
+In the next tutorial, you learn how to create a cluster using the azd template you cloned.
+
+> [!div class="nextstepaction"]
+> [Create an AKS Cluster][aks-tutorial-deploy-cluster]
+
+---
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -231,3 +307,5 @@ In the next tutorial, you learn how to store container images in an ACR.
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
+[aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
+[azd]: /azure/developer/azure-developer-cli/install-azd

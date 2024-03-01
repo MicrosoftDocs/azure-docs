@@ -84,7 +84,7 @@ This article helps you create a connection to link a virtual network (virtual ne
     **Standard resiliency** - This option provides a single redundant connection from the virtual network gateway to a single ExpressRoute circuit. 
 
     > [!NOTE]
-    > Doesn't provide protection against location wide outages. This option is recommended for non-critical and non-production workloads.
+    > Doesn't provide protection against location wide outages. This option is recommended for development/testing environment and non-production workloads.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/standard-resiliency.png" alt-text="Diagram of a virtual network gateway connected to a single ExpressRoute circuit.":::
     

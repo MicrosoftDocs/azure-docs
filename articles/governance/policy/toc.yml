@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: false
   items:
-  - name: Assign a policy - Portal
+  - name: Assign a policy - Azure portal
     displayName: assign, compliance
     href: ./assign-policy-portal.md
   - name: Assign a policy - Azure CLI
