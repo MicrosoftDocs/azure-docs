@@ -28,13 +28,15 @@ Here's what changed in February 2024:
 
 ### Azure Virtual Desktop for Azure Stack HCI now generally available 
 
-Azure Virtual Desktop for Azure Stack HCI extends the capabilities of the Microsoft Cloud to your datacenters. Bringing the benefits of Azure Virtual Desktop and Azure Stack HCI together, Azure Virtual Desktop for Azure Stack HCI lets organizations securely run virtualized desktops and apps on-premises in their datacenter and at the edges of their organization. This versatility is especially useful for organizations with data residency and proximity requirements or latency-sensitive workloads.
+Azure Virtual Desktop for Azure Stack HCI extends the capabilities of the Microsoft Cloud to your datacenters. Bringing the benefits of Azure Virtual Desktop and Azure Stack HCI together, organizations can securely run virtualized desktops and apps on-premises in their datacenter and at the edges of their organization. This versatility is especially useful for organizations with data residency and proximity requirements or latency-sensitive workloads.
 
 For more information, see [Azure Virtual Desktop for Azure Stack HCI now available!](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/azure-virtual-desktop-for-azure-stack-hci-now-available/ba-p/4038030)
 
 ### Azure Virtual Desktop web client version 2 is now available
 
-The Azure Virtual Desktop web client has now updated to web client version 2. For more information about the new features available in version 2, see [Use features of the Remote Desktop Web client](./users/client-features-web.md).  
+The Azure Virtual Desktop web client has now updated to web client version 2. All users automatically migrate to this new version of the web client to access their resources.
+
+For more information about the new features available in version 2, see [Use features of the Remote Desktop Web client](./users/client-features-web.md).  
 
 ## January 2024
 
