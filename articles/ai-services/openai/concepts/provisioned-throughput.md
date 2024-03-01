@@ -111,7 +111,7 @@ We use a variation of the leaky bucket algorithm to maintain utilization below 1
 
 #### How many concurrent calls can I have on my deployment?
 
-The number of concurrent calls you can have at one time is dependent on each call's shape. The service will continue to accept calls until the utilization is above 100%. To determine the approximate number of concurrent calls you can model out the maximum requests per minute for a particular call shape in the [capacity calculator](https://oai.azure.com/portal/calculator). This will be the worst case scenario when the `max_tokens` parameter is set to match the sized generation token size. The service may take higher concurrency in some situations. 
+The number of concurrent calls you can achieve depends on each call's shape (prompt size, max_token parameter, etc). The service will continue to accept calls until the utilization reach 100%. To determine the approximate number of concurrent calls you can model out the maximum requests per minute for a particular call shape in the [capacity calculator](https://oai.azure.com/portal/calculator). If the system generates less than the number of samplings tokens like max_token, it will accept more requests.
 
 ## Next steps
 
