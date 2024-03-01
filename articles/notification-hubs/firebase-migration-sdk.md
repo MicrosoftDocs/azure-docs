@@ -164,10 +164,10 @@ To update your FCM credentials, [follow step 1 in the REST API guide](firebase-m
 
    Note the following considerations:
 
-   - If the client app registers itself, then you must update the client app first, to register under the FCM v1 platform.
-   - If the client app doesn't register itself, you can retrieve all registrations/installations and migrate them all to FCM v1 on the server.
+   - If the device registration happens on the client app, update the client app first to register under the FCMv1 platform.
+   - If the device registration happens on the server, you can fetch all registrations/installations and update them to FCMv1 on the server.
 
-1. Send the notification to FCMv1. Use `FcmV1Notification` when you send notifications that target FCM v1. For example:
+1. Send the notification to FCMv1. Use `FcmV1Notification` when you send notifications that target FCMv1. For example:
 
    ```csharp
    // Send FCM v1 notification
