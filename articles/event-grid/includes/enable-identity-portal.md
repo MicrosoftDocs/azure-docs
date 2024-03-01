@@ -16,10 +16,10 @@ ms.custom: include file
 1. Turn **on** the switch to enable a system-assigned managed identity.
 1. Select **Save** on the toolbar to save the setting.
 
-    :::image type="content" source="./media/enable-identity-portal/event-grid-enable-managed-identity.png" alt-text="System-assigned identity page for an Event Grid namespace." lightbox="./media/enable-identity-portal/event-grid-enable-managed-identity.png":::
+    :::image type="content" source="./media/enable-identity-portal/event-grid-enable-managed-identity.png" alt-text="Screenshot of a system-assigned identity page for an Event Grid namespace." lightbox="./media/enable-identity-portal/event-grid-enable-managed-identity.png":::
 1. Select **Yes** on the confirmation message.
 1. Confirm that you see the object ID of the system-assigned managed identity and see a link to assign roles.
 
-    :::image type="content" source="./media/enable-identity-portal/event-grid-enable-managed-identity-confirmation.png" alt-text="Assigning identity to a namespace is completed." lightbox="./media/enable-identity-portal/event-grid-enable-managed-identity-confirmation.png":::
+    :::image type="content" source="./media/enable-identity-portal/event-grid-enable-managed-identity-confirmation.png" alt-text="Screenshot that shows assigning identity to a namespace is completed." lightbox="./media/enable-identity-portal/event-grid-enable-managed-identity-confirmation.png":::
 
     Check notifications in the portal to confirm that the managed identity is enabled for the namespace.
