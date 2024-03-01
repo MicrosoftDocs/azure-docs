@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 03/01/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
