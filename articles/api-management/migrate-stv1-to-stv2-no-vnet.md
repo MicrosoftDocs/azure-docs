@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/26/2024
+ms.date: 03/01/2024
 ms.author: danlep
 ---
 
@@ -161,7 +161,7 @@ After successful migration to a new VIP address, update any network dependencies
 
 - **My stv1 instance is deployed to multiple Azure regions (multi-region). How do I upgrade to stv2?**
 
-   Multi-region deployments include more managed gateways deployed in other locations. Each location should be migrated separately by providing a new subnet and a new public IP. Navigate to the **Locations** blade and perform the changes on each listed location. The instance is considered migrated to the new platform only when all the locations are migrated. All gateways continue to operate normally throughout the migration process.
+   For an API Management that's not inject in a VNet, follow the [migration steps](#migrate-the-instance-to-stv2-platform) using the portal or the Azure CLI. All the regions will be migrated to `stv2`.
 
 
 
