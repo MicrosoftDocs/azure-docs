@@ -45,7 +45,7 @@ We provide a walkthrough of the Assistants playground in our [quickstart guide](
 
 ## Assistants data access
 
-Currently, assistants, threads, messages, and files created via the Assistants API are scoped at the Azure OpenAI resource level. Therefore, anyone with access ot the Azure OpenAI resource or API key access is able to read/write assistants, threads, messages, and files.
+Currently, assistants, threads, messages, and files created for Assistants are scoped at the Azure OpenAI resource level. Therefore, anyone with access ot the Azure OpenAI resource or API key access is able to read/write assistants, threads, messages, and files.
 
 We strongly recommend the following data access controls:
 
