@@ -130,7 +130,7 @@ If the user was sending video before refreshing, the `videoStreams` collection k
 
 ### It isn't possible to render multiple previews from multiple devices on web
 
-This issue is a known limitation. For more information, see [Calling SDK overview](./voice-video-calling/calling-sdk-features.md).
+This issue is a known limitation. For more information, see [Calling SDK overview](../voice-video-calling/calling-sdk-features.md).
 
 ### Enumerating devices isn't possible in Safari when the application runs on iOS or iPadOS
 
@@ -192,7 +192,7 @@ This problem occurs in the following environments:
 
 ### Delay in rendering remote participant videos
 
-During an ongoing group call, suppose that _User A_ sends video, and then _User B_ joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. A network environment configuration problem might cause this delay. For more information, see [Network recommendations](./voice-video-calling/network-requirements.md).
+During an ongoing group call, suppose that _User A_ sends video, and then _User B_ joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. A network environment configuration problem might cause this delay. For more information, see [Network recommendations](../voice-video-calling/network-requirements.md).
 
 ### Using third-party libraries during the call might result in audio loss
 
