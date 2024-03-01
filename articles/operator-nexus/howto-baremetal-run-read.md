@@ -37,163 +37,163 @@ baremetal host, such as `ipmitool` and `racadm`.
 
 The list below shows the commands you can use. Commands in `*italics*` cannot have `arguments`; the rest can.
 
-`arp`
-`brctl show`
-`dmidecode`
-*`fdisk -l`*
-`host`
-*`hostname`*
-*`ifconfig -a`*
-*`ifconfig -s`*
-`ip address show`
-`ip link show`
-`ip maddress show`
-`ip route show`
-`journalctl`
-`kubectl api-resources`
-`kubectl api-versions`
-`kubectl describe`
-`kubectl get`
-`kubectl logs`
-*`mount`*
-`ping`
-*`ss`*
-`tcpdump`
-`traceroute`
-`uname`
-*`ulimit -a`*
-`uptime`
-`nc-toolbox nc-toolbox-runread ipmitool channel authcap`
-`nc-toolbox nc-toolbox-runread ipmitool channel info`
-`nc-toolbox nc-toolbox-runread ipmitool chassis status`
-`nc-toolbox nc-toolbox-runread ipmitool chassis power status`
-`nc-toolbox nc-toolbox-runread ipmitool chassis restart cause`
-`nc-toolbox nc-toolbox-runread ipmitool chassis poh`
-`nc-toolbox nc-toolbox-runread ipmitool dcmi power get_limit`
-`nc-toolbox nc-toolbox-runread ipmitool dcmi sensors`
-`nc-toolbox nc-toolbox-runread ipmitool dcmi asset_tag`
-`nc-toolbox nc-toolbox-runread ipmitool dcmi get_mc_id_string`
-`nc-toolbox nc-toolbox-runread ipmitool dcmi thermalpolicy get`
-`nc-toolbox nc-toolbox-runread ipmitool dcmi get_temp_reading`
-`nc-toolbox nc-toolbox-runread ipmitool dcmi get_conf_param`
-`nc-toolbox nc-toolbox-runread ipmitool delloem lcd info`
-`nc-toolbox nc-toolbox-runread ipmitool delloem lcd status`
-`nc-toolbox nc-toolbox-runread ipmitool delloem mac list`
-`nc-toolbox nc-toolbox-runread ipmitool delloem mac get`
-`nc-toolbox nc-toolbox-runread ipmitool delloem lan get`
-`nc-toolbox nc-toolbox-runread ipmitool delloem powermonitor powerconsumption`
-`nc-toolbox nc-toolbox-runread ipmitool delloem powermonitor powerconsumptionhistory`
-`nc-toolbox nc-toolbox-runread ipmitool delloem powermonitor getpowerbudget`
-`nc-toolbox nc-toolbox-runread ipmitool delloem vflash info card`
-`nc-toolbox nc-toolbox-runread ipmitool echo`
-`nc-toolbox nc-toolbox-runread ipmitool ekanalyzer print`
-`nc-toolbox nc-toolbox-runread ipmitool ekanalyzer summary`
-`nc-toolbox nc-toolbox-runread ipmitool fru print`
-`nc-toolbox nc-toolbox-runread ipmitool fwum info`
-`nc-toolbox nc-toolbox-runread ipmitool fwum status`
-`nc-toolbox nc-toolbox-runread ipmitool fwum tracelog`
-`nc-toolbox nc-toolbox-runread ipmitool gendev list`
-`nc-toolbox nc-toolbox-runread ipmitool hpm rollbackstatus`
-`nc-toolbox nc-toolbox-runread ipmitool hpm selftestresult`
-`nc-toolbox nc-toolbox-runread ipmitool ime help`
-`nc-toolbox nc-toolbox-runread ipmitool ime info`
-`nc-toolbox nc-toolbox-runread ipmitool isol info`
-`nc-toolbox nc-toolbox-runread ipmitool lan print`
-`nc-toolbox nc-toolbox-runread ipmitool lan alert print`
-`nc-toolbox nc-toolbox-runread ipmitool lan stats get`
-`nc-toolbox nc-toolbox-runread ipmitool mc bootparam get`
-`nc-toolbox nc-toolbox-runread ipmitool mc chassis poh`
-`nc-toolbox nc-toolbox-runread ipmitool mc chassis policy list`
-`nc-toolbox nc-toolbox-runread ipmitool mc chassis power status`
-`nc-toolbox nc-toolbox-runread ipmitool mc chassis status`
-`nc-toolbox nc-toolbox-runread ipmitool mc getenables`
-`nc-toolbox nc-toolbox-runread ipmitool mc getsysinfo`
-`nc-toolbox nc-toolbox-runread ipmitool mc guid`
-`nc-toolbox nc-toolbox-runread ipmitool mc info`
-`nc-toolbox nc-toolbox-runread ipmitool mc restart cause`
-`nc-toolbox nc-toolbox-runread ipmitool mc watchdog get`
-`nc-toolbox nc-toolbox-runread ipmitool bmc bootparam get`
-`nc-toolbox nc-toolbox-runread ipmitool bmc chassis poh`
-`nc-toolbox nc-toolbox-runread ipmitool bmc chassis policy list`
-`nc-toolbox nc-toolbox-runread ipmitool bmc chassis power status`
-`nc-toolbox nc-toolbox-runread ipmitool bmc chassis status`
-`nc-toolbox nc-toolbox-runread ipmitool bmc getenables`
-`nc-toolbox nc-toolbox-runread ipmitool bmc getsysinfo`
-`nc-toolbox nc-toolbox-runread ipmitool bmc guid`
-`nc-toolbox nc-toolbox-runread ipmitool bmc info`
-`nc-toolbox nc-toolbox-runread ipmitool bmc restart cause`
-`nc-toolbox nc-toolbox-runread ipmitool bmc watchdog get`
-`nc-toolbox nc-toolbox-runread ipmitool nm alert get`
-`nc-toolbox nc-toolbox-runread ipmitool nm capability`
-`nc-toolbox nc-toolbox-runread ipmitool nm discover`
-`nc-toolbox nc-toolbox-runread ipmitool nm policy get policy_id`
-`nc-toolbox nc-toolbox-runread ipmitool nm policy limiting`
-`nc-toolbox nc-toolbox-runread ipmitool nm statistics`
-`nc-toolbox nc-toolbox-runread ipmitool nm suspend get`
-`nc-toolbox nc-toolbox-runread ipmitool nm threshold get`
-`nc-toolbox nc-toolbox-runread ipmitool pef`
-`nc-toolbox nc-toolbox-runread ipmitool picmg addrinfo`
-`nc-toolbox nc-toolbox-runread ipmitool picmg policy get`
-`nc-toolbox nc-toolbox-runread ipmitool power status`
-`nc-toolbox nc-toolbox-runread ipmitool sdr elist`
-`nc-toolbox nc-toolbox-runread ipmitool sdr get`
-`nc-toolbox nc-toolbox-runread ipmitool sdr info`
-`nc-toolbox nc-toolbox-runread ipmitool sdr list`
-`nc-toolbox nc-toolbox-runread ipmitool sdr type`
-`nc-toolbox nc-toolbox-runread ipmitool sel elist`
-`nc-toolbox nc-toolbox-runread ipmitool sel get`
-`nc-toolbox nc-toolbox-runread ipmitool sel info`
-`nc-toolbox nc-toolbox-runread ipmitool sel list`
-`nc-toolbox nc-toolbox-runread ipmitool sel time get`
-`nc-toolbox nc-toolbox-runread ipmitool sensor get`
-`nc-toolbox nc-toolbox-runread ipmitool sensor list`
-`nc-toolbox nc-toolbox-runread ipmitool session info`
-`nc-toolbox nc-toolbox-runread ipmitool sol info`
-`nc-toolbox nc-toolbox-runread ipmitool sol payload status`
-`nc-toolbox nc-toolbox-runread ipmitool user list`
-`nc-toolbox nc-toolbox-runread ipmitool user summary`
-*`nc-toolbox nc-toolbox-runread racadm arp`*
-*`nc-toolbox nc-toolbox-runread racadm coredump`*
-`nc-toolbox nc-toolbox-runread racadm diagnostics`
-`nc-toolbox nc-toolbox-runread racadm eventfilters get`
-`nc-toolbox nc-toolbox-runread racadm fcstatistics`
-`nc-toolbox nc-toolbox-runread racadm get`
-`nc-toolbox nc-toolbox-runread racadm getconfig`
-`nc-toolbox nc-toolbox-runread racadm gethostnetworkinterfaces`
-*`nc-toolbox nc-toolbox-runread racadm getled`*
-`nc-toolbox nc-toolbox-runread racadm getniccfg`
-`nc-toolbox nc-toolbox-runread racadm getraclog`
-`nc-toolbox nc-toolbox-runread racadm getractime`
-`nc-toolbox nc-toolbox-runread racadm getsel`
-`nc-toolbox nc-toolbox-runread racadm getsensorinfo`
-`nc-toolbox nc-toolbox-runread racadm getssninfo`
-`nc-toolbox nc-toolbox-runread racadm getsvctag`
-`nc-toolbox nc-toolbox-runread racadm getsysinfo`
-`nc-toolbox nc-toolbox-runread racadm gettracelog`
-`nc-toolbox nc-toolbox-runread racadm getversion`
-`nc-toolbox nc-toolbox-runread racadm hwinventory`
-*`nc-toolbox nc-toolbox-runread racadm ifconfig`*
-*`nc-toolbox nc-toolbox-runread racadm inlettemphistory get`*
-`nc-toolbox nc-toolbox-runread racadm jobqueue view`
-`nc-toolbox nc-toolbox-runread racadm lclog view`
-`nc-toolbox nc-toolbox-runread racadm lclog viewconfigresult`
-`nc-toolbox nc-toolbox-runread racadm license view`
-*`nc-toolbox nc-toolbox-runread racadm netstat`*
-`nc-toolbox nc-toolbox-runread racadm nicstatistics`
-`nc-toolbox nc-toolbox-runread racadm ping`
-`nc-toolbox nc-toolbox-runread racadm ping6`
-*`nc-toolbox nc-toolbox-runread racadm racdump`*
-`nc-toolbox nc-toolbox-runread racadm sslcertview`
-*`nc-toolbox nc-toolbox-runread racadm swinventory`*
-*`nc-toolbox nc-toolbox-runread racadm systemconfig getbackupscheduler`*
-`nc-toolbox nc-toolbox-runread racadm systemperfstatistics` (PeakReset argument NOT allowed)
-*`nc-toolbox nc-toolbox-runread racadm techsupreport getupdatetime`*
-`nc-toolbox nc-toolbox-runread racadm traceroute`
-`nc-toolbox nc-toolbox-runread racadm traceroute6`
-`nc-toolbox nc-toolbox-runread racadm usercertview`
-*`nc-toolbox nc-toolbox-runread racadm vflashsd status`*
-*`nc-toolbox nc-toolbox-runread racadm vflashpartition list`*
-*`nc-toolbox nc-toolbox-runread racadm vflashpartition status -a`*
+- `arp`
+- `brctl show`
+- `dmidecode`
+- *`fdisk -l`*
+- `host`
+- *`hostname`*
+- *`ifconfig -a`*
+- *`ifconfig -s`*
+- `ip address show`
+- `ip link show`
+- `ip maddress show`
+- `ip route show`
+- `journalctl`
+- `kubectl api-resources`
+- `kubectl api-versions`
+- `kubectl describe`
+- `kubectl get`
+- `kubectl logs`
+- *`mount`*
+- `ping`
+- *`ss`*
+- `tcpdump`
+- `traceroute`
+- `uname`
+- *`ulimit -a`*
+- `uptime`
+- `nc-toolbox nc-toolbox-runread ipmitool channel authcap`
+- `nc-toolbox nc-toolbox-runread ipmitool channel info`
+- `nc-toolbox nc-toolbox-runread ipmitool chassis status`
+- `nc-toolbox nc-toolbox-runread ipmitool chassis power status`
+- `nc-toolbox nc-toolbox-runread ipmitool chassis restart cause`
+- `nc-toolbox nc-toolbox-runread ipmitool chassis poh`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi power get_limit`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi sensors`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi asset_tag`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi get_mc_id_string`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi thermalpolicy get`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi get_temp_reading`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi get_conf_param`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem lcd info`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem lcd status`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem mac list`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem mac get`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem lan get`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem powermonitor powerconsumption`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem powermonitor powerconsumptionhistory`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem powermonitor getpowerbudget`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem vflash info card`
+- `nc-toolbox nc-toolbox-runread ipmitool echo`
+- `nc-toolbox nc-toolbox-runread ipmitool ekanalyzer print`
+- `nc-toolbox nc-toolbox-runread ipmitool ekanalyzer summary`
+- `nc-toolbox nc-toolbox-runread ipmitool fru print`
+- `nc-toolbox nc-toolbox-runread ipmitool fwum info`
+- `nc-toolbox nc-toolbox-runread ipmitool fwum status`
+- `nc-toolbox nc-toolbox-runread ipmitool fwum tracelog`
+- `nc-toolbox nc-toolbox-runread ipmitool gendev list`
+- `nc-toolbox nc-toolbox-runread ipmitool hpm rollbackstatus`
+- `nc-toolbox nc-toolbox-runread ipmitool hpm selftestresult`
+- `nc-toolbox nc-toolbox-runread ipmitool ime help`
+- `nc-toolbox nc-toolbox-runread ipmitool ime info`
+- `nc-toolbox nc-toolbox-runread ipmitool isol info`
+- `nc-toolbox nc-toolbox-runread ipmitool lan print`
+- `nc-toolbox nc-toolbox-runread ipmitool lan alert print`
+- `nc-toolbox nc-toolbox-runread ipmitool lan stats get`
+- `nc-toolbox nc-toolbox-runread ipmitool mc bootparam get`
+- `nc-toolbox nc-toolbox-runread ipmitool mc chassis poh`
+- `nc-toolbox nc-toolbox-runread ipmitool mc chassis policy list`
+- `nc-toolbox nc-toolbox-runread ipmitool mc chassis power status`
+- `nc-toolbox nc-toolbox-runread ipmitool mc chassis status`
+- `nc-toolbox nc-toolbox-runread ipmitool mc getenables`
+- `nc-toolbox nc-toolbox-runread ipmitool mc getsysinfo`
+- `nc-toolbox nc-toolbox-runread ipmitool mc guid`
+- `nc-toolbox nc-toolbox-runread ipmitool mc info`
+- `nc-toolbox nc-toolbox-runread ipmitool mc restart cause`
+- `nc-toolbox nc-toolbox-runread ipmitool mc watchdog get`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc bootparam get`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc chassis poh`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc chassis policy list`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc chassis power status`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc chassis status`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc getenables`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc getsysinfo`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc guid`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc info`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc restart cause`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc watchdog get`
+- `nc-toolbox nc-toolbox-runread ipmitool nm alert get`
+- `nc-toolbox nc-toolbox-runread ipmitool nm capability`
+- `nc-toolbox nc-toolbox-runread ipmitool nm discover`
+- `nc-toolbox nc-toolbox-runread ipmitool nm policy get policy_id`
+- `nc-toolbox nc-toolbox-runread ipmitool nm policy limiting`
+- `nc-toolbox nc-toolbox-runread ipmitool nm statistics`
+- `nc-toolbox nc-toolbox-runread ipmitool nm suspend get`
+- `nc-toolbox nc-toolbox-runread ipmitool nm threshold get`
+- `nc-toolbox nc-toolbox-runread ipmitool pef`
+- `nc-toolbox nc-toolbox-runread ipmitool picmg addrinfo`
+- `nc-toolbox nc-toolbox-runread ipmitool picmg policy get`
+- `nc-toolbox nc-toolbox-runread ipmitool power status`
+- `nc-toolbox nc-toolbox-runread ipmitool sdr elist`
+- `nc-toolbox nc-toolbox-runread ipmitool sdr get`
+- `nc-toolbox nc-toolbox-runread ipmitool sdr info`
+- `nc-toolbox nc-toolbox-runread ipmitool sdr list`
+- `nc-toolbox nc-toolbox-runread ipmitool sdr type`
+- `nc-toolbox nc-toolbox-runread ipmitool sel elist`
+- `nc-toolbox nc-toolbox-runread ipmitool sel get`
+- `nc-toolbox nc-toolbox-runread ipmitool sel info`
+- `nc-toolbox nc-toolbox-runread ipmitool sel list`
+- `nc-toolbox nc-toolbox-runread ipmitool sel time get`
+- `nc-toolbox nc-toolbox-runread ipmitool sensor get`
+- `nc-toolbox nc-toolbox-runread ipmitool sensor list`
+- `nc-toolbox nc-toolbox-runread ipmitool session info`
+- `nc-toolbox nc-toolbox-runread ipmitool sol info`
+- `nc-toolbox nc-toolbox-runread ipmitool sol payload status`
+- `nc-toolbox nc-toolbox-runread ipmitool user list`
+- `nc-toolbox nc-toolbox-runread ipmitool user summary`
+- *`nc-toolbox nc-toolbox-runread racadm arp`*
+- *`nc-toolbox nc-toolbox-runread racadm coredump`*
+- `nc-toolbox nc-toolbox-runread racadm diagnostics`
+- `nc-toolbox nc-toolbox-runread racadm eventfilters get`
+- `nc-toolbox nc-toolbox-runread racadm fcstatistics`
+- `nc-toolbox nc-toolbox-runread racadm get`
+- `nc-toolbox nc-toolbox-runread racadm getconfig`
+- `nc-toolbox nc-toolbox-runread racadm gethostnetworkinterfaces`
+- *`nc-toolbox nc-toolbox-runread racadm getled`*
+- `nc-toolbox nc-toolbox-runread racadm getniccfg`
+- `nc-toolbox nc-toolbox-runread racadm getraclog`
+- `nc-toolbox nc-toolbox-runread racadm getractime`
+- `nc-toolbox nc-toolbox-runread racadm getsel`
+- `nc-toolbox nc-toolbox-runread racadm getsensorinfo`
+- `nc-toolbox nc-toolbox-runread racadm getssninfo`
+- `nc-toolbox nc-toolbox-runread racadm getsvctag`
+- `nc-toolbox nc-toolbox-runread racadm getsysinfo`
+- `nc-toolbox nc-toolbox-runread racadm gettracelog`
+- `nc-toolbox nc-toolbox-runread racadm getversion`
+- `nc-toolbox nc-toolbox-runread racadm hwinventory`
+- *`nc-toolbox nc-toolbox-runread racadm ifconfig`*
+- *`nc-toolbox nc-toolbox-runread racadm inlettemphistory get`*
+- `nc-toolbox nc-toolbox-runread racadm jobqueue view`
+- `nc-toolbox nc-toolbox-runread racadm lclog view`
+- `nc-toolbox nc-toolbox-runread racadm lclog viewconfigresult`
+- `nc-toolbox nc-toolbox-runread racadm license view`
+- *`nc-toolbox nc-toolbox-runread racadm netstat`*
+- `nc-toolbox nc-toolbox-runread racadm nicstatistics`
+- `nc-toolbox nc-toolbox-runread racadm ping`
+- `nc-toolbox nc-toolbox-runread racadm ping6`
+- *`nc-toolbox nc-toolbox-runread racadm racdump`*
+- `nc-toolbox nc-toolbox-runread racadm sslcertview`
+- *`nc-toolbox nc-toolbox-runread racadm swinventory`*
+- *`nc-toolbox nc-toolbox-runread racadm systemconfig getbackupscheduler`*
+- `nc-toolbox nc-toolbox-runread racadm systemperfstatistics` (PeakReset argument NOT allowed)
+- *`nc-toolbox nc-toolbox-runread racadm techsupreport getupdatetime`*
+- `nc-toolbox nc-toolbox-runread racadm traceroute`
+- `nc-toolbox nc-toolbox-runread racadm traceroute6`
+- `nc-toolbox nc-toolbox-runread racadm usercertview`
+- *`nc-toolbox nc-toolbox-runread racadm vflashsd status`*
+- *`nc-toolbox nc-toolbox-runread racadm vflashpartition list`*
+- *`nc-toolbox nc-toolbox-runread racadm vflashpartition status -a`*
 
 The command syntax is:
 
@@ -215,7 +215,7 @@ This command runs synchronously. If you wish to skip waiting for the command to 
 
 When an optional argument `--output-directory` is provided, the output result is downloaded and extracted to the local directory.
 
-### This example executes the `hostname` command and a `ping` command.
+### This example executes the `hostname` command and a `ping` command
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
@@ -225,7 +225,7 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
     --subscription "<subscription>"
 ```
 
-### This example executes the `racadm getsysinfo -c` command.
+### This example executes the `racadm getsysinfo -c` command
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
