@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the side by side migration
 description: Overview of the side by side migration feature for migration to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 2/22/2024
+ms.date: 3/1/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -53,6 +53,7 @@ The following are limitations when using the side by side migration feature:
 - Your new App Service Environment v3 is in a different subnet but the same virtual network as your existing environment.
 - You can't change the region your App Service Environment is located in.
 - ELB App Service Environment can’t be migrated to ILB App Service Environment v3 and vice versa.
+- The side by side migration feature is only available using the CLI or via REST API. The feature isn't available in the Azure portal.
 
 App Service Environment v3 doesn't support the following features that you might be using with your current App Service Environment v2.
 
@@ -92,7 +93,7 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |This ASE cannot be migrated without downtime.    |This error appears if you try to use the side by side migration feature on an App Service Environment v1.   |The side by side migration feature doesn't support App Service Environment v1. Migrate using the [in-place migration feature](migrate.md) or one of the [manual migration options](migration-alternatives.md).     |
 |Migrate is not available for this subscription.    |Support needs to be engaged for migrating this App Service Environment.|Open a support case to engage support to resolve your issue.|
 |Zone redundant migration cannot be called since the IP addresses created during pre-migrate are not zone redundant.    |This error appears if you attempt a zone redundant migration but didn't create zone redundant IPs during the IP generation step.    |Open a support case to engage support if you need to enable zone redundancy. Otherwise, you can migrate without enabling zone redundancy.     |
-|Migrate cannot be called if IP SSL is enabled on any of the sites.    |App Service Environments that have sites with IP SSL enabled can't be migrated using the side by side migration feature at this time. |Migrate using one of the [manual migration options](migration-alternatives.md) if you want to migrate immediately. Otherwise, you can disable the IP SSL on all sites in the App Service Environment and attempt migration again. |
+|Migrate cannot be called if IP SSL is enabled on any of the sites.    |App Service Environments that have sites with IP SSL enabled can't be migrated using the side by side migration feature. |Remove the IP SSL from all of your apps in the App Service Environment to enable the migration feature. |
 |Cannot migrate within the same subnet.  |The error appears if you specify the same subnet that your current environment is in for placement of your App Service Environment v3.     |You must specify a different subnet for your App Service Environment v3. If you need to use the same subnet, migrate using the [in-place migration feature](migrate.md).     |
 |Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) is met. |Remove unneeded environments or contact support to review your options.  |
 |Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](how-to-upgrade-preference.md) from the Azure portal. In some cases, an upgrade is initiated when visiting the migration page if your App Service Environment isn't on the current build.  |Wait until the upgrade finishes and then migrate.   |

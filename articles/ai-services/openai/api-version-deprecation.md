@@ -5,7 +5,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 02/13/2024
+ms.date: 02/29/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -37,9 +37,10 @@ This version contains support for all the latest Azure OpenAI features including
 On April 2, 2024 the following API preview releases will be retired and will stop accepting API requests:
 
 - 2023-03-15-preview
-- 2023-06-01-preview
 - 2023-07-01-preview
 - 2023-08-01-preview
+- 2023-09-01-preview
+- 2023-12-01-preview
 
 To avoid service disruptions, you must update to use the latest preview version before the retirement date.
 

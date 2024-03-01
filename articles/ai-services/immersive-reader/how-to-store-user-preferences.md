@@ -26,7 +26,7 @@ This functionality can be used as an alternate means to storing user preferences
 
 ## Enable storing user preferences
 
-The Immersive Reader SDK [launchAsync](./reference.md#launchasync) `options` parameter contains the `-onPreferencesChanged` callback. This function is called anytime the user changes their preferences. The `value` parameter contains a string, which represents the user's current preferences. This string is then stored, for that user, by the host application.
+The Immersive Reader SDK [launchAsync](reference.md#function-launchasync) `options` parameter contains the `-onPreferencesChanged` callback. This function will be called anytime the user changes their preferences. The `value` parameter contains a string, which represents the user's current preferences. This string is then stored, for that user, by the host application.
 
 ```typescript
 const options = {
