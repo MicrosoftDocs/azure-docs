@@ -26,17 +26,19 @@ Getting started exploring the Advanced Messaging features for WhatsApp. Advanced
 
 :::image type="content" source="./media/whatsapp-sandbox/communication-resource.png" lightbox="./media/whatsapp-sandbox/communication-resource.png" alt-text="Screenshot that shows Azure Communication Services resource in Azure portal.":::
 
-1. Go to the **Try Advanced Messaging** tab.  
+2. Go to the **Try Advanced Messaging** tab.  
 
-:::image type="content" source="./media/whatsapp-sandbox/advanced-messaging-sandbox-blade.png" lightbox="./media/whatsapp-sandbox/advanced-messaging-sandbox-blade.png" alt-text="Screenshot that shows Advanced Messaging Sandbox option in the Azure portal.":::
+:::image type="content" source="./media/whatsapp-sandbox/advanced-messaging-sandbox-blade.png" lightbox="./media/whatsapp-sandbox/advanced-messaging-sandbox-blade.png" alt-text="Screenshot that shows Try Advanced Messaging in the Azure portal.":::
 
-1. Before you can send a message to a WhatsApp end user from the sandbox on Azure portal, the WhatsApp user first needs to join the sandbox. On your mobile device with WhatsApp installed, scan the QR code on the **Connect to WhatsApp** page with your mobile device. This redirects you to a WhatsApp chat with the "Advanced Messaging Sandbox by Microsoft" account. 
+3. Before you can send a message to a WhatsApp end user from the sandbox on Azure portal, the WhatsApp user first needs to join the sandbox. On your mobile device with WhatsApp installed, scan the QR code on the **Connect to WhatsApp** page with your mobile device. This redirects you to a WhatsApp chat with the "Advanced Messaging Sandbox by Microsoft" account.
 
-1. Find the unique message code on the **Try Advanced Messaging** page (ex. "connect ABC12"). Type then send this unique message in your WhatsApp chat with `Advanced Messaging Sandbox by Microsoft`.
+:::image type="content" source="./media/whatsapp-sandbox/connect-to-sandbox.png" lightbox="./media/whatsapp-sandbox/connect-to-sandbox.png" alt-text="Screenshot that shows WhatsApp Connect QR code in the Azure portal.":::
 
-:::image type="content" source="./media/whatsapp-sandbox/connect-to-whatsapp.png" lightbox="./media/whatsapp-sandbox/connect-to-whatsapp.png" alt-text="Screenshot that shows WhatsApp Connect QR code in the Azure portal.":::
+4. Find the unique message code on the **Try Advanced Messaging** page (ex. "connect ABC12"). Type then send this unique message in your WhatsApp chat with `Advanced Messaging Sandbox by Microsoft`.
 
-1. Once we receive the keyword message, we reply with confirmation to you, indicating that you successfully joined the sandbox. And we also save your WhatsApp phone number, which is used as the recipient number when sending messages from the sandbox. 
+:::image type="content" source="./media/whatsapp-sandbox/connect-to-whatsapp-draft-message.png" lightbox="./media/whatsapp-sandbox/connect-to-whatsapp-draft-message.png" alt-text="Screenshot that shows sending the connection code to the Advanced Messaging Sandbox by Microsoft account.":::
+
+5. Once we receive the keyword message, we reply with confirmation to you, indicating that you successfully joined the sandbox. And we also save your WhatsApp phone number, which is used as the recipient number when sending messages from the sandbox. 
 
 :::image type="content" source="./media/whatsapp-sandbox/connection-established.png" lightbox="./media/whatsapp-sandbox/connection-established.png" alt-text="Screenshot that shows Advanced Messaging WhatsApp connection established in the Azure portal.":::
 
@@ -46,7 +48,7 @@ Once connected, you're able to send either a template message or a text message.
 :::image type="content" source="./media/whatsapp-sandbox/send-message.png" lightbox="./media/whatsapp-sandbox/send-message.png" alt-text="Screenshot that shows WhatsApp Send text message in the Azure portal.":::
 
 ## Send template message 
-The sandbox also has a few preconfigured templates for you to try out. Fill in the parameters and to replace the double-bracketed numbers in the template message. 
+The sandbox also has a few preconfigured templates for you to try out. Fill in the parameters to replace the double-bracketed numbers in the template message. 
 
 :::image type="content" source="./media/whatsapp-sandbox/send-template.png" lightbox="./media/whatsapp-sandbox/send-template.png" alt-text="Screenshot that shows WhatsApp Send template message in the Azure portal.":::
 
