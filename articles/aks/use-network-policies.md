@@ -29,7 +29,7 @@ These Network Policy rules are defined as YAML manifests. Network policies can b
 
 Azure provides three Network Policy engines for enforcing network policies:
 
-* *Cilium* for AKS clusters that use Azure CNI Powered by Cilium.
+* *Cilium* for AKS clusters that use [Azure CNI Powered by Cilium](./azure-cni-powered-by-cilium.md).
 * *Azure Network Policy Manager*.
 * *Calico*, an open-source network and network security solution founded by [Tigera][tigera].
 
@@ -224,14 +224,13 @@ az aks nodepool add \
 
 ## Uninstall Azure Network Policy Manager or Calico
 Requirements:
- - aks-preview Azure CLI extension version 0.5.166+: see [Install the aks-preview Azure CLI extension](#Install-the-aks-preview-Azure-CLI-extension);
- - Azure CLI version 2.54+: to use `--network-policy` flag when updating a cluster;
- - AKS REST API version 2023-08-02-preview and higher (to be able to specify `--network-policy none`);
+ - aks-preview Azure CLI extension version 0.5.166 or later. See [Install the aks-preview Azure CLI extension](#Install-the-aks-preview-Azure-CLI-extension).
+ - Azure CLI version 2.54 or later
+ - AKS REST API version 2023-08-02-preview or later
 
 Notes:
- - After Calico uninstall, Calico Custom Resource Definitions (CRDs) will still exist.  
- These CRDs can be manually deleted after Calico is successfully uninstalled (deleting the CRDs before removing Calico will break the cluster).  
- Learn more about CRDs lifecycle at [Helm website](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/#some-caveats-and-explanations) (AKS uses Helm to manage both Azure NPM and Calico Network Policy engines)
+ - The uninstall process does _not_ remove Custom Resource Definitions (CRDs) and Custom Resources (CRs) used by Calico. These all have names ending with either "projectcalico.org" or "tigera.io".
+ These CRDs and associated CRs can be manually deleted _after_ Calico is successfully uninstalled (deleting the CRDs before removing Calico will break the cluster).
  - The upgrade will not remove any NetworkPolicy resources in the cluster, but after the uninstall these policies will no longer be enforced.
 
 > [!WARNING]
@@ -261,12 +260,10 @@ az aks update
 Example command to install Calico:
 > [!WARNING]
 > This warning applies to upgrading Kubenet clusters with Calico enabled to Azure CNI Overlay with Calico enabled.  
-> - In Kubenet clusters with Calico enabled, Calico is also a CNI.  
-> - When migrating such clusters to Azure CNI Overlay with Calico enabled, then Calico is no longer the CNI.  
-> - Since Calico is no longer the CNI, network policies will not be applied before the pod starts.  
-> - This means that traffic from a new pod will be blocked the first few seconds after the pod starts.  
+> - In Kubenet clusters with Calico enabled, Calico is used as both a CNI and network policy engine.  
+> - In Azure CNI clusters, Calico is used only for network policy enforcement, not as a CNI. This can cause a short delay between when the pod starts and when Calico allows outbound traffic from the pod.
 >
->  It is recommended to use Cilim instead to avoid this issue. Learn more about Cilium at [Azure CNI Powered by Cilium](./azure-cni-powered-by-cilium.md)
+>  It is recommended to use Cilium instead of Calico to avoid this issue. Learn more about Cilium at [Azure CNI Powered by Cilium](./azure-cni-powered-by-cilium.md)
 >  
 
 ```azurecli
