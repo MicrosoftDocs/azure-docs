@@ -178,7 +178,7 @@ For Standard HDDs, each I/O operation is considered as a single transaction, wha
 
 
 ### Example - Standard HDD 
-In this example, we provision a 512 Gb Standard HDD Disk with LRS redundancy. 
+In this example, we provision a 512 GiB Standard HDD Disk with LRS redundancy. 
 We're billed for the provisioned size of the HDD disk and the transactions performed on the disk, which shows as the following tier and meters in our bill:
 
 | Tier | Meter |
