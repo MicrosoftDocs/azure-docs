@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 03/01/2024
+ms.date: 03/04/2024
 ms.custom: mlops, devx-track-python #add more custom tags
 #Customer intent: This tutorial is intended to show users what is needed for deployment and present a high-level overview of how Azure Machine Learning handles deployment. Deployment isn't typically done by a data scientist, so the tutorial won't use Azure CLI examples. We will link to existing articles that use Azure CLI as needed. The code in the tutorial will use SDK v2. The tutorial will continue where the "Create reusable pipelines" tutorial stops.
 ---
@@ -19,9 +19,9 @@ ms.custom: mlops, devx-track-python #add more custom tags
 [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 Learn to deploy a model to an online endpoint, using Azure Machine Learning Python SDK v2.
 
-In this tutorial, you use a model trained to predict the likelihood of defaulting on a credit card payment. The goal is to deploy this model and show its use.
+In this tutorial, you deploy and use a model that predicts the likelihood of a customer defaulting on a credit card payment.
 
-The steps you'll take are:
+The steps you take are:
 
 > [!div class="checklist"]
 > * Register your model
@@ -35,7 +35,7 @@ The steps you'll take are:
 > * Get details of the second deployment
 > * Roll out the new deployment and delete the first one
 
-This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial.  The video shows how to create a notebook, create a compute instance, and clone the notebook. The steps are also described in the following sections.
+This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial. The video shows how to create a notebook, create a compute instance, and clone the notebook. The steps are also described in the following sections.
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=7d0e09a5-c319-4e6a-85e2-c9601a0fba68]
 
@@ -61,12 +61,12 @@ This video shows how to get started in Azure Machine Learning studio so that you
 
 ## Create handle to workspace
 
-Before you dive in the code, you need a way to reference your workspace. For this, you create `ml_client` for a handle to the workspace and use the `ml_client` to manage resources and jobs.
+Before you dive in the code, you need a way to reference your workspace. Create `ml_client` for a handle to the workspace and use the `ml_client` to manage resources and jobs.
 
-In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
+In the next cell, enter your Subscription ID, Resource Group name, and Workspace name. To find these values:
 
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
-1. Copy the value for workspace, resource group and subscription ID into the code.
+1. Copy the value for workspace, resource group, and subscription ID into the code.
 1. You need to copy one value, close the area and paste, then come back for the next one.
 
 
@@ -92,11 +92,11 @@ ml_client = MLClient(
 
 ## Register the model
 
-If you already completed the earlier training tutorial,  [Train a model](tutorial-train-model.md), you've registered an MLflow model as part of the training script and can skip to the next section. 
+If you already completed the earlier training tutorial, [Train a model](tutorial-train-model.md), you registered an MLflow model as part of the training script and can skip to the next section.
 
 If you didn't complete the training tutorial, you need to register the model. Registering your model before deployment is a recommended best practice.
 
-The following code specifies the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-create-resources.md#learn-from-sample-notebooks), then run the following code as-is. Otherwise, [download the files and metadata for the model to deploy](https://azuremlexampledata.blob.core.windows.net/datasets/credit_defaults_model.zip). Update the path to the location on your local computer where you've unzipped the model's files. 
+The following code specifies the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-create-resources.md#learn-from-sample-notebooks), then run the following code as-is. Otherwise, [download the files and metadata for the model to deploy](https://azuremlexampledata.blob.core.windows.net/datasets/credit_defaults_model.zip) and unzip the files. Update the path to the location of the unzipped files on your local computer.
 
 The SDK automatically uploads the files and registers the model. 
 
@@ -127,7 +127,7 @@ You can check the **Models** page in [Azure Machine Learning studio](https://ml.
 
 :::image type="content" source="media/tutorial-deploy-model/registered-model-in-studio.png" alt-text="Screenshot shows the registered model in studio.":::
 
-Alternatively, the code below retrieves the latest version number for you to use.
+Alternatively, the following code retrieves the latest version number for you to use.
 
 
 ```python
@@ -147,7 +147,7 @@ Now that you have a registered model, you can create an endpoint and deployment.
 
 After you train a machine learning model, you need to deploy it so that others can use it for inferencing. For this purpose, Azure Machine Learning allows you to create **endpoints** and add **deployments** to them.
 
-An **endpoint**, in this context, is an HTTPS path that provides an interface for clients to send requests (input data) to a trained model and receive the inferencing (scoring) results back from the model. An endpoint provides:
+An **endpoint**, in this context, is an HTTPS path that provides an interface for clients to send requests (input data) to a trained model and receive the inferencing (scoring) results from the model. An endpoint provides:
 
 - Authentication using "key or token" based auth 
 - [TLS(SSL)](https://simple.wikipedia.org/wiki/Transport_Layer_Security) termination
@@ -368,7 +368,7 @@ print(logs)
 ```
 
 ## Create a second deployment 
-Deploy the model as a second deployment called `green`. In practice, you can create several deployments and compare their performance. These deployments could use a different version of the same model, a completely different model, or a more powerful compute instance. 
+Deploy the model as a second deployment called `green`. In practice, you can create several deployments and compare their performance. These deployments could use a different version of the same model, a different model, or a more powerful compute instance. 
 
 In this example, you deploy the same model version, using a more powerful compute instance that could potentially improve performance.
 
