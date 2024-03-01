@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration using REST API
+title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration using REST API and the Azure portal
 description: Describes how Azure Notification Hubs addresses the Google GCM to FCM migration using REST APIs.
 author: sethmanheim
 manager: femila
@@ -11,7 +11,7 @@ ms.reviewer: heathertian
 ms.lastreviewed: 03/01/2024
 ---
 
-# Google Firebase Cloud Messaging migration using REST API
+# Google Firebase Cloud Messaging migration using REST API and the Azure portal
 
 This article describes the core capabilities for the integration of Azure Notification Hubs with Firebase Cloud Messaging (FCM) v1. As a reminder, Google will stop supporting FCM legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format before then. All methods of onboarding will be ready for migration by March 1, 2024.
 
@@ -23,7 +23,7 @@ This article describes the core capabilities for the integration of Azure Notifi
 > [!NOTE]
 > The existing FCM platform is referred to as *FCM legacy* in this article.
 
-## Migration steps (preview)
+## Migration steps
 
 The Firebase Cloud Messaging (FCM) legacy API will be deprecated by July 2024. You can begin migrating from the legacy HTTP protocol to FCM v1 on March 1, 2024. You must complete the migration by June 2024. This section describes the steps to migrate from FCM legacy to FCM v1 using the Notification Hubs REST API.
 
@@ -170,7 +170,7 @@ See [Create or overwrite an installation](/rest/api/notificationhubs/create-over
 
 #### Option 1: Debug send
 
-Use this procedure to test notifications prior to option 2, 3, or 4. See [Notification Hubs - Debug Send](/rest/api/notificationhubs/notification-hubs/debug-send&view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP).
+Use this procedure to test notifications prior to option 2, 3, or 4. See [Notification Hubs - Debug Send](/rest/api/notificationhubs/notification-hubs/debug-send?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP).
 
 > [!NOTE]
 > Use API version: 2023-10-01-preview.

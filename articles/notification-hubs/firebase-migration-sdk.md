@@ -21,16 +21,16 @@ To update your FCM credentials, [follow step 1 in the REST API guide](firebase-m
 
 ## Android SDK
 
-1. Update the SDK version to `2.0.0-preview` in the **build.gradle** file of your application. For example:
+1. Update the SDK version to `2.0.0` in the **build.gradle** file of your application. For example:
 
    ```gradle
    // This is not a complete build.gradle file; it only highlights the portions you need to update. 
 
    dependencies { 
        // Ensure the following line is updated in your app/library's "dependencies" section.
-   implementation 'com.microsoft.azure:notification-hubs-android-sdk:2.0.0-preview' 
+   implementation 'com.microsoft.azure:notification-hubs-android-sdk:2.0.0' 
        // optionally, use the fcm optimized SKU instead: 
-       // implementation 'com.microsoft.azure:notification-hubs-android-sdk-fcm:2.0.0-preview' 
+       // implementation 'com.microsoft.azure:notification-hubs-android-sdk-fcm:2.0.0' 
    }
    ```
 
@@ -56,12 +56,18 @@ To update your FCM credentials, [follow step 1 in the REST API guide](firebase-m
 
 ### Server SDKs (Data Plane)
 
-1. Update the SDK package to the preview version (4.2.0-beta1). The general availability release is not yet available.
+1. Update the SDK package to the latest version (4.2.0):
+
+   |       SDK GitHub name                     |      SDK package name                            |      Version  |
+   |-------------------------------------------|--------------------------------------------------|---------------|
+   |      azure-notificationhubs-dotnet        |     Microsoft.Azure.NotificationHubs             |     4.2.0     |
+   |      azure-notificationhubs-java-backend  |     com.windowsazure.Notification-Hubs-java-sdk  |     1.1.0     |
+   |      azure-sdk-for-js                     |     @azure/notification-hubs                     |     1.1.0     |
 
    For example, in the **.csproj** file:
 
    ```xml
-   <PackageReference Include="Microsoft.Azure.NotificationHubs" Version="4.2.0-beta1" />
+   <PackageReference Include="Microsoft.Azure.NotificationHubs" Version="4.2.0" />
    ```
 
 1. Add the `FcmV1Credential` to the notification hub. This step is a one-time setup. Unless you have many hubs, and want to automate this step, you can use the REST API or the Azure portal to add the FCM v1 credentials:
