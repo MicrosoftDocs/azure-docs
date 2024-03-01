@@ -385,13 +385,15 @@ To set up advanced monitoring:
     :::image type="content" source="media/how-to-monitor-models/model-monitoring-monitoring-signals.png" alt-text="Screenshot showing default monitoring signals." lightbox="media/how-to-monitor-models/model-monitoring-monitoring-signals.png":::
 
 1. Select **Edit** next to the data drift signal.
-1. In the data drift **Edit signal** window, configure the following:
+1. Configure the data drift in the **Edit signal** window as follows:
 
-    1. For the production data asset, select your model inputs with the desired lookback window size.
-    1. Select your training dataset to use as the reference dataset.
-    1. Select the target (output) column.
-    1. Select to monitor drift for the top N most important features, or monitor drift for a specific set of features.
-    1. Select your preferred metrics and thresholds.
+    1. In step 1, for the production data asset, select your model inputs dataset. Also, make the following selection:
+        - Select the desired lookback window size.
+    1. In step 2, for the reference data asset, select your training dataset. Also, make the following selection:
+        - Select the target (output) column.
+    1. In step 3, select to monitor drift for the top N most important features, or monitor drift for a specific set of features.
+    1. In step 4, select your preferred metric and thresholds to use for numerical features.
+    1. In step 5, select your preferred metric and thresholds to use for categorical features.
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-configure-signals.png" alt-text="Screenshot showing how to configure selected monitoring signals." lightbox="media/how-to-monitor-models/model-monitoring-configure-signals.png":::
 
@@ -403,7 +405,7 @@ To set up advanced monitoring:
         - Also, select the desired lookback window size.
     1. In step 2, select the production data asset that has your model outputs.
         - Also, select the common column between these data assets to join them on. If the data was collected with the [data collector](how-to-collect-production-data.md), the common column is `correlationid`.
-    1. (Optional)  If you used the data collector to collect data where your model inputs and outputs are already joined, select the joined dataset as your production data asset (in step 1) 
+    1. (Optional)  If you used the data collector to collect data that has your model inputs and outputs already joined, select the joined dataset as your production data asset (in step 1) 
         - Also, **Remove** step 2 in the configuration panel.  
     1. In step 3, select your training dataset to use as the reference dataset.
         - Also, select the target (output) column for your training dataset.
@@ -457,9 +459,9 @@ You must satisfy the following requirements for you to configure your model perf
 
 * (Optional) Have a pre-joined tabular dataset with model outputs and ground truth data already joined together.
 
-### Example scenario for monitoring model performance
+### Example workflow for monitoring model performance
 
-To understand the concepts associated with model performance monitoring, consider this example. Suppose you're deploying a model to predict whether credit card transactions are fraudulent or not. Follow these steps to monitor the model's performance:
+To understand the concepts associated with model performance monitoring, consider this example workflow. Suppose you're deploying a model to predict whether credit card transactions are fraudulent or not, you can follow these steps to monitor the model's performance:
 
 1. Configure your deployment to use the data collector to collect the model's production inference data (input and output data). Let's say that the output data is stored in a column `is_fraud`.
 1. For each row of the collected inference data, log a unique ID. The unique ID can come from your application, or you can use the `correlationid` that Azure Machine Learning uniquely generates for each logged JSON object.
@@ -671,9 +673,12 @@ To set up model performance monitoring:
 
 1. Complete the entries on the **Basic settings** page as described earlier in the [Set up out-of-box model monitoring](#set-up-out-of-box-model-monitoring) section.
 1. Select **Next** to open the **Configure data asset** page of the **Advanced settings** section.
-1. Select **+ Add** to add a dataset for use as the ground truth dataset. Ensure that your model outputs dataset is also included in the list of added datasets. The ground truth dataset you add should have a unique ID column. The values in the unique ID columns for the ground truth dataset and the model outputs dataset must match in order for both datasets to be joined together prior to metric computation.
+1. Select **+ Add** to add a dataset for use as the ground truth dataset.
 
-   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-data2.png" alt-text="Screenshot showing how to add datasets for the monitoring signals to use." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-data2.png":::
+    Ensure that your model outputs dataset is also included in the list of added datasets. The ground truth dataset you add should have a unique ID column.
+    The values in the unique ID column for both the ground truth dataset and the model outputs dataset must match in order for both datasets to be joined together prior to metric computation.
+
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-data2.png" alt-text="Screenshot showing how to add datasets to use for model performance monitoring." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-data2.png":::
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-added-ground-truth-dataset.png" alt-text="Screenshot showing the ground truth dataset and the model outputs and inputs datasets for the monitoring signals to connect to." lightbox="media/how-to-monitor-models/model-monitoring-added-ground-truth-dataset.png":::
 
@@ -683,14 +688,12 @@ To set up model performance monitoring:
 1. Select **Model performance (preview)** to configure the model performance signal as follows:
 
     1. In step 1, for the production data asset, select your model outputs dataset. Also, make the following selections:
-        - Select the appropriate target column (for example, `is_fraud`)
+        - Select the appropriate target column (for example, `is_fraud`).
         - Select the desired lookback window size and lookback window offset.
     1. In step 2, for the reference data asset, select the ground truth data asset that you added earlier. Also, make the following selections:
-        - Select the appropriate target column
+        - Select the appropriate target column.
         - Select the column on which to perform the join with the model outputs dataset. The column used for the join should be the column that is common between the two datasets and which has a unique ID for each row in the dataset (for example, `correlationid`).
     1. In step 3, select your desired performance metrics and specify their respective thresholds.
-    
-    NOTE: This screenshot should show a fully configured model performance view
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-configure-model-performance.png" alt-text="Screenshot showing how to configure a model performance signal." lightbox="media/how-to-monitor-models/model-monitoring-configure-model-performance.png":::
 
