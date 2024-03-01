@@ -29,7 +29,7 @@ To get started, export a Resource Manager template. This template contains setti
 3. On the **Event Hubs Cluster** page, select **Export template** in the **Automation** section on the left menu. 
 4. Choose **Download** in the **Export template** page.
 
-    :::image type="content" source="../event-hubs/media/move-cluster-across-regions/download-template.png" alt-text="Screening showing where to download Resource Manager template" lightbox="../event-hubs/media/move-cluster-across-regions/download-template.png":::
+    :::image type="content" source="../event-hubs/media/move-cluster-across-regions/download-template.png" alt-text="Screenshot showing where to download Resource Manager template" lightbox="../event-hubs/media/move-cluster-across-regions/download-template.png":::
 5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
    This zip file contains the .json files that include the template and scripts to deploy the template.
@@ -54,7 +54,7 @@ Deploy the template to create an Event Hubs dedicated cluster in the target regi
     4. In the **SETTINGS** section, do the following steps:    
         1. Enter the new **cluster name**. 
 
-            :::image type="content" source="../event-hubs/media/move-cluster-across-regions/deploy-template.png" alt-text="Deploy Resource Manager template":::
+            :::image type="content" source="../event-hubs/media/move-cluster-across-regions/deploy-template.png" alt-text="Screenshot showing Deploy Resource Manager template":::
     5. Select **Review + create** at the bottom of the page. 
     1. On the **Review + create** page, review settings, and then select **Create**.  
 
