@@ -19,15 +19,14 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## **February 2024**
 **Enables counting all versions (historical and soft deleted) of resources**
-The query parameter _summary=count and _count=0 can be added to _history endpoint to get count of all versioned resources. This count includes soft deleted resources.For more information, see [history management](../../../purge-history.md).
+The query parameter _summary=count and _count=0 can be added to _history endpoint to get count of all versioned resources. This count includes soft deleted resources. For more information, see [history management](../healthcare-apis/azure-api-for-fhir/purge-history.md).
 
 **Improve throughput for export operation**
-The "_isparallel" query parameter can be added to the export operation to enhance its throughput. It is important to note that using this parameter may result in an increase in Request Units consumption over the life of export.For more information, see [Export operation query parameters](../../../export-data.md).
+The "_isparallel" query parameter can be added to the export operation to enhance its throughput. It is important to note that using this parameter may result in an increase in Request Units consumption over the life of export. For more information, see [Export operation query parameters](../healthcare-apis/azure-api-for-fhir/export-data.md).
 
 **Change in name nomenclature for exported file name and default storage account**
-Exported file names will follow the format '<FHIR Resource Name>-<Number>- <Number>.ndjson". The order of the files is not guaranteed to correspond to any ordering of the resources in the database.
-Default storage account name is updated to "Export-<Number>".
-There is no change to number of resources added in individual exported files. For more information, see [Export operation](../../../export-data.md).
+With this change exported file names follow the format '{FHIR Resource Name}-{Number}-{Number}.ndjson'. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.Default storage account name is updated to 'Export-{Number}.'
+There is no change to number of resources added in individual exported files. For more information, see [Export operation](../healthcare-apis/azure-api-for-fhirexport-data.md).
 
 
 **Performance Enhancement**
