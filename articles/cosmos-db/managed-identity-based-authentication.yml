@@ -30,48 +30,47 @@ prerequisites:
       - A system-assigned managed identity for the function app. [Add a system-assigned identity](../app-service/overview-managed-identity.md#add-a-system-assigned-identity)
     - [Azure Functions Core Tools](../azure-functions/functions-run-local.md)
     - To perform the steps in this article, install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in to Azure](/cli/azure/authenticate-azure-cli).
+  
       ## Prerequisite check
-  dependencies:
-    - |
-      In a terminal or command window, store the names of your Azure Functions function app, Azure Cosmos DB account and resource group as shell variables named ``functionName``, ``cosmosName``, and ``resourceGroupName``.
+      1. In a terminal or command window, store the names of your Azure Functions function app, Azure Cosmos DB account and resource group as shell variables named ``functionName``, ``cosmosName``, and ``resourceGroupName``.
 
-        ```azurecli-interactive
-        # Variable for function app name
-        functionName="msdocs-function-app"
-        
-        # Variable for Azure Cosmos DB account name
-        cosmosName="msdocs-cosmos-app"
+          ```azurecli-interactive
+          # Variable for function app name
+          functionName="msdocs-function-app"
+          
+          # Variable for Azure Cosmos DB account name
+          cosmosName="msdocs-cosmos-app"
 
-        # Variable for resource group name
-        resourceGroupName="msdocs-cosmos-functions-dotnet-identity"
-        ```
+          # Variable for resource group name
+          resourceGroupName="msdocs-cosmos-functions-dotnet-identity"
+          ```
 
-        > [!NOTE]
-        > These variables will be re-used in later steps. This example assumes your Azure Cosmos DB account name is ``msdocs-cosmos-app``, your function app name is ``msdocs-function-app`` and your resource group name is ``msdocs-cosmos-functions-dotnet-identity``.
-    - |
-      View the function app's properties using the [``az functionapp show``](/cli/azure/functionapp#az-functionapp-show) command.
+          > [!NOTE]
+          > These variables will be re-used in later steps. This example assumes your Azure Cosmos DB account name is ``msdocs-cosmos-app``, your function app name is ``msdocs-function-app`` and your resource group name is ``msdocs-cosmos-functions-dotnet-identity``.
+      
+      2. View the function app's properties using the [``az functionapp show``](/cli/azure/functionapp#az-functionapp-show) command.
 
-        ```azurecli-interactive
-        az functionapp show \
-            --resource-group $resourceGroupName \
-            --name $functionName
-        ```
-    - |
-      View the properties of the system-assigned managed identity for your function app using [``az webapp identity show``](/cli/azure/webapp/identity#az-webapp-identity-show).
+          ```azurecli-interactive
+          az functionapp show \
+              --resource-group $resourceGroupName \
+              --name $functionName
+          ```
+      
+      3. View the properties of the system-assigned managed identity for your function app using [``az webapp identity show``](/cli/azure/webapp/identity#az-webapp-identity-show).
 
-        ```azurecli-interactive
-        az webapp identity show \
-            --resource-group $resourceGroupName \
-            --name $functionName
-        ```
-    - |
-      View the Azure Cosmos DB account's properties using [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show).
+          ```azurecli-interactive
+          az webapp identity show \
+              --resource-group $resourceGroupName \
+              --name $functionName
+          ```
+      
+      4. View the Azure Cosmos DB account's properties using [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show).
 
-        ```azurecli-interactive
-        az cosmosdb show \
-            --resource-group $resourceGroupName \
-            --name $cosmosName
-        ```
+          ```azurecli-interactive
+          az cosmosdb show \
+              --resource-group $resourceGroupName \
+              --name $cosmosName
+          ```
 procedureSection:
   - title: |
       Create Azure Cosmos DB API for NoSQL databases
