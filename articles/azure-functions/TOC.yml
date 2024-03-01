@@ -937,6 +937,9 @@
             - name: Output
               href: functions-bindings-service-bus-output.md
               displayName: Service Bus
+            - name: Migrate version 4.x to 5.x
+              href: migrate-service-bus-version-4-version-5.md
+              displayName: Service Bus
         - name: SignalR Service
           items:
             - name: Overview

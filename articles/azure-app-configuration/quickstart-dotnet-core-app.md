@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
-ms.date: 07/11/2023
+ms.date: 02/20/2024
 ms.author: malev
 #Customer intent: As a .NET developer, I want to manage all my app settings in one place.
 ---
@@ -19,7 +19,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET console 
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [.NET SDK](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
+- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
 
 ## Add a key-value
 
@@ -64,8 +64,6 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
 4. Use App Configuration by calling the `builder.AddAzureAppConfiguration()` method in the `Program.cs` file.
 
-    ### [.NET 6.0+](#tab/core6x)
-
     ```csharp
     var builder = new ConfigurationBuilder();
     builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
@@ -73,21 +71,6 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     var config = builder.Build();
     Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
     ```
-
-    ### [.NET Core 3.x](#tab/core3x)
-    
-    ```csharp
-    static void Main(string[] args)
-    {
-        var builder = new ConfigurationBuilder();
-        builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
-    
-        var config = builder.Build();
-        Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
-    }
-    ```
-
-    ---
 
 ## Build and run the app locally
 

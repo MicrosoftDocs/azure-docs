@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Bicep file"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using a Bicep file.
-ms.date: 02/23/2024
+ms.date: 02/26/2024
 ms.topic: quickstart
 ms.custom: subject-bicepqs, devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -34,6 +34,7 @@ Create the following Bicep file as _policy-assignment.bicep_.
 ```bicep
 param policyAssignmentName string = 'audit-vm-managed-disks'
 param policyDefinitionID string = '/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d'
+param policyDisplayName string = 'Audit VM managed disks'
 
 resource assignment 'Microsoft.Authorization/policyAssignments@2023-04-01' = {
   name: policyAssignmentName
@@ -41,7 +42,7 @@ resource assignment 'Microsoft.Authorization/policyAssignments@2023-04-01' = {
   properties: {
     policyDefinitionId: policyDefinitionID
     description: 'Policy assignment to resource group scope created with Bicep file'
-    displayName: 'audit-vm-managed-disks'
+    displayName: policyDisplayName
     nonComplianceMessages: [
       {
         message: 'Virtual machines should use managed disks'
@@ -53,7 +54,13 @@ resource assignment 'Microsoft.Authorization/policyAssignments@2023-04-01' = {
 output assignmentId string = assignment.id
 ```
 
-The resource type defined in the Bicep file is [Microsoft.Authorization/policyAssignments](/azure/templates/microsoft.authorization/policyassignments). The Bicep file creates a policy assignment named _audit-vm-managed-disks_.
+The resource type defined in the Bicep file is [Microsoft.Authorization/policyAssignments](/azure/templates/microsoft.authorization/policyassignments).
+
+The Bicep file uses three parameters to deploy the policy assignment:
+
+- `policyAssignmentName` creates the policy assignment named _audit-vm-managed-disks_.
+- `policyDefinitionID` uses the ID of the built-in policy definition. For reference, the commands to get the ID are in the section to deploy the template.
+- `policyDisplayName` creates a display name that's visible in Azure portal.
 
 For more information about Bicep files:
 
@@ -114,6 +121,25 @@ az provider register --namespace Microsoft.PolicyInsights
 ```
 
 The Azure CLI commands use a backslash (`\`) for line continuation to improve readability. For more information, go to [az provider](/cli/azure/provider).
+
+---
+
+The following commands display the `policyDefinitionID` parameter's value:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+(Get-AzPolicyDefinition |
+  Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }).ResourceId
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az policy definition list \
+  --query "[?displayName=='Audit VMs that do not use managed disks']".id \
+  --output tsv
+```
 
 ---
 
@@ -195,7 +221,7 @@ The output is verbose but resembles the following example:
 
 ```output
 "description": "Policy assignment to resource group scope created with Bicep file",
-"displayName": "audit-vm-managed-disks",
+"displayName": "Audit VM managed disks",
 "enforcementMode": "Default",
 "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments/audit-vm-managed-disks",
 "identity": null,

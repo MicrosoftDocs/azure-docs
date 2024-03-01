@@ -3,7 +3,7 @@ title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 12/18/2023
+ms.date: 02/26/2024
 ---
 
 # Create an Azure support request
@@ -30,6 +30,8 @@ To create a support request without a subscription, for example a Microsoft Entr
 
 > [!IMPORTANT]
 > If a support request requires investigation into multiple subscriptions, you must have the required access for each subscription involved ([Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), [Reader](../../role-based-access-control/built-in-roles.md#reader), [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor), or a custom role with the [Microsoft.Support/supportTickets/read](../../role-based-access-control/resource-provider-operations.md#microsoftsupport) permission).
+
+If a support request requires confirmation or release of account-specific information, changes to account information, or operations such as subscription ownership transfer or cancelation, you must be an [account billing administrator](/azure/cost-management-billing/manage/add-change-subscription-administrator#determine-account-billing-administrator) for the subscription.
 
 ### Open a support request from the global header
 
@@ -94,7 +96,6 @@ Next, we collect more details about the problem. Providing thorough and detailed
 
    > [!TIP]
    > To add a support plan that requires an **Access ID** and **Contract ID**, select **Help + Support** > **Support plans** > **Link support benefits**. When a limited support plan expires or has no support incidents remaining, it won't be available to select.
-
 
 1. Provide your preferred contact method, your availability, and your preferred support language. Confirm that your country/region setting is accurate, as this setting affects the business hours in which a support engineer can work on your request.
 

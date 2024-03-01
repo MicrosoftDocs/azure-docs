@@ -77,7 +77,7 @@
       href: tutorial-kubernetes-prepare-acr.md
     - name: 3 - Create Kubernetes cluster
       href: tutorial-kubernetes-deploy-cluster.md
-    - name: 4 - Run application
+    - name: 4 - Deploy containerized application
       href: tutorial-kubernetes-deploy-application.md
     - name: 5 - Use PaaS services
       href: tutorial-kubernetes-paas-services.md        
@@ -489,6 +489,8 @@
                   href: app-routing-nginx-configuration.md
                 - name: Custom domain name and SSL certificate configuration
                   href: app-routing-dns-ssl.md
+                - name: Internal NGINX controller and private DNS zone
+                  href: create-nginx-ingress-private-controller.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
                 - name: Migrate from HTTP application routing to the application routing add-on
@@ -497,8 +499,6 @@
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Use Istio gateway with Istio Service Mesh add-on
               href: istio-deploy-ingress.md
-            - name: Use HTTP application routing add-on (retired)
-              href: http-application-routing.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer
