@@ -33,9 +33,9 @@ This table lists all the automatically collected platform metrics for App Servic
 | App Service Environment Worker Pools | [Microsoft.Web/hostingEnvironments/workerPools](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-workerpools-metrics)
 
 >[!NOTE]
->Azure App Service, Functions, and Logic Apps share the [Microsoft.Web/sites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-metrics) namespace dating back to when they were a single service. Refer to the following lists or check the metric descriptions in the overall table to see which metrics apply to which services. The Azure portal **Metrics** interface shows only the metrics that apply to that service.
+>Azure App Service, Functions, and Logic Apps share the [Microsoft.Web/sites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-metrics) namespace dating back to when they were a single service. Check the metric descriptions in the overall table to see which metrics apply to which services. The Azure portal **Metrics** interface shows only the metrics that apply to that service.
 
-For an app, the available metrics are:
+The following metrics apply to For an app, the available metrics are:
 
 - Response Time
 - Average Response Time (deprecated)
@@ -75,9 +75,6 @@ For an app, the available metrics are:
 
 For an App Service plan, the available metrics are:
 
-> [!NOTE]
-> App Service plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
-
 - CPU Percentage
 - Memory Percentage
 - Data In
@@ -85,12 +82,15 @@ For an App Service plan, the available metrics are:
 - Disk Queue Length
 - Http Queue Length
 
-There are two metrics that reflect CPU usage:
+> [!NOTE]
+> App Service plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
+
+Two metrics reflect CPU usage:
 
 - CPU Time
 - CPU percentage
 
-  Useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across all instances.
+These metrics are useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across all instances.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 [!INCLUDE [horz-monitor-ref-no-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-no-metrics-dimensions.md)]
