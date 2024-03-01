@@ -1,10 +1,10 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
-description: Learn about how you can use Azure Container Apps to host containerized function apps in Azure Functions.
+description: Learn about how you can use Azure Functions on Azure Container Apps to host and manage containerized function apps in Azure.
 ms.date: 02/27/2024
 ms.topic: conceptual
 ms.custom: references_regions, build-2023
-# Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers by using Azure Container Apps.
+# Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers managed by Azure Container Apps.
 ---
 
 # Azure Container Apps hosting of Azure Functions 
@@ -25,7 +25,7 @@ Container Apps hosting of containerized function apps is supported in all [regio
 
 If your app doesn't have a specific hardware requirements, you can run your environment either in a Consumption plan or in a Dedicated plan using the default Consumption workload profile. When running functions on Container Apps, you're charged only for the Container Apps usage. For more information, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/). 
 
-Azure Functions on Azure Container Apps supports GPU-enabled Dedicated plan hosting. 
+Azure Functions on Azure Container Apps supports GPU-enabled hosting in the Dedicated plan with workload profiles. 
 
 To learn how to create and deploy a function app container to Container Apps in the default Consumption plan, see [Create your first containerized functions on Azure Container Apps](functions-deploy-container-apps.md). 
 
@@ -65,7 +65,11 @@ The following command sets the same minimum and maximum replica count on an exis
 
 ```azurecli
 az functionapp config container set --name <APP_NAME> --resource-group <MY_RESOURCE_GROUP> --max-replicas 15 --min-replicas 1
-```  
+```
+
+## Managed resource groups
+
+Azure Function on Container Apps run your functionized container resources in specially managed resource groups, which helps protect the consistency of your apps by preventing unintended or unauthorized modification or deletion of resources in the managed group by users, groups, or service principles. This managed resource group is created for you the first time you create function app resources in a Container Apps environment. All resources required by your containerized function app run in this managed resource group, and any other function apps that are created in the same environment use this existing group. A managed resource group gets removed automatically after all function app container resources are removed from the environment. While the managed resource group is visible, any attempts to modify or remove the managed resource group result in an error. To remove a managed resource group from an environment, remove all of the function app container resources and it gets removed for you.       
 
 ## Considerations for Container Apps hosting
 
