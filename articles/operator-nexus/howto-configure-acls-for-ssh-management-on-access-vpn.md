@@ -1,5 +1,5 @@
 ---
-title: "Azure Operator Nexus: How to Configure Network Access Control Lists (ACLs) for SSH Access on Management VPN."
+title: "Azure Operator Nexus: Configure Network Access Control Lists (ACLs) for SSH Access on Management VPN."
 description: Instructions on setting up network access control lists (ACLs) to control SSH access on a management VPN.
 ms.service: azure-operator-nexus
 ms.custom: template-how-to
@@ -9,19 +9,19 @@ author: sushantjrao
 ms.author: sushrao
 ---
 
-# How-To Guide: Creating ACLs on an NNI
+# Create ACLs on an NNI
 
-ACLs (Permit & Deny) at an NNI Level are designed to protect SSH access on the Management VPN. Network Access Control Lists can be applied before provisioning the Network Fabric. It's important to note that this limitation is temporary and will be removed in future releases.
+In Azure Operator Nexus, access control lists (ACLs) for `Permit` and `Deny` actions at a network-to-network interconnect (NNI) level help protect Secure Shell (SSH) access on the management virtual private netowrk (VPN). At this time, you can apply network ACLs only before you provision the network fabric.
 
-Ingress and Egress ACLs are created prior to the creation of NNI resources and are referenced into the NNI payload. When NNI resources are created, they also create referenced ingress and egress ACLs. This activity needs to be performed before provisioning the Network Fabric.
+Ingress and egress ACLs are created prior to the creation of NNI resources and are referenced into the NNI payload. When NNI resources are created, they also create referenced ingress and egress ACLs. This activity needs to be performed before provisioning the network fabric.
 
-## Steps to Create an ACL on an NNI:
+These are the high-level steps for creating an ACL on an NNI:
 
-1. Create NNI Ingress and Egress ACLs
-2. Update ARM Resource Reference in Management NNI
-3. Create NNI and Provision Network Fabric
+1. Create NNI Ingress and egress ACLs
+2. Update Azure Resource Manager resource reference in a management NNI
+3. Create an NNI and provision the network fabric
 
-## Parameter Usage Guidance:
+## Parameter usage guidance
 
 | Parameter            | Description                                                  | Example or Range                |
 |----------------------|--------------------------------------------------------------|--------------------------------|
@@ -43,7 +43,6 @@ Ingress and Egress ACLs are created prior to the creation of NNI resources and a
 | actions              | Action to be taken based on match condition.                 | Example: permit                |
 | configuration-type   | Configuration type can be inline or by using a file. However, AON supports only inline today. | Example: inline                |
 
-
 There are some further restrictions that you should be aware of:
 
 - **Inline ports and inline VLANs** are a static way of defining the ports or VLANs using `azcli`.
@@ -51,12 +50,12 @@ There are some further restrictions that you should be aware of:
 - **Inline ports and the PortGroupNames** together aren't allowed.
 - **Inline VLANs and the VLANGroupNames** together aren't allowed.
 - **IpGroupNames and IpPrefixValues** together aren't allowed.
-- **Egress ACLs** won’t support IP options, IP length, fragment, ether-type, DSCP marking, or TTL values.
+- **Egress ACLs** won't support IP options, IP length, fragment, ether-type, DSCP marking, or TTL values.
 - **Ingress ACLs** won't support following options: etherType.
 
-## Creating Ingress ACL
+## Create an ingress ACL
 
-To create an Ingress ACL, you can use the following Azure CLI command:
+To create an ingress ACL, you can use the following Azure CLI command:
 
 ```bash
 az networkfabric acl create
@@ -70,7 +69,7 @@ az networkfabric acl create
 
 ```
 
-### Expected Output:
+### Expected output
 
 ```json
 {
@@ -136,11 +135,11 @@ az networkfabric acl create
 }
 ```
 
-This command creates an Ingress ACL with the specified configurations and outputs the expected result. Adjust the parameters as needed for your use case.
+This command creates an ingress ACL with the specified configurations and outputs the expected result. Adjust the parameters as needed for your use case.
 
-## Creating Egress ACL
+## Create an egress ACL
 
-To create an Egress ACL, you can utilize the following Azure CLI command:
+To create an egress ACL, you can use the following Azure CLI command:
 
 ```bash
 az networkfabric acl create
@@ -154,7 +153,7 @@ az networkfabric acl create
 
 ```
 
-### Expected Output:
+### Expected output
 
 ```json
 {
@@ -200,16 +199,16 @@ az networkfabric acl create
 }
 ```
 
-This command creates an Egress ACL with the specified configurations and outputs the expected result. Adjust the parameters as needed for your use case.
+This command creates an egress ACL with the specified configurations and outputs the expected result. Adjust the parameters as needed for your use case.
 
-## Updating ARM Reference
+## Update the Resource Manager reference
 
 This step enables the creation of ACLs (ingress and egress if reference is provided) during the creation of the NNI resource. Post creation of NNI and before fabric provisioning, re-put can be done on NNI.
 
 - `ingressAclId`: Reference ID for ingress ACL
 - `egressAclId`: Reference ID for egress ACL
 
-To get ARM resource ID, navigate to the resource group of the subscription used.
+To get Resource Manager resource ID, navigate to the resource group of the subscription used.
 
 ```bash
 az networkfabric nni create
@@ -225,11 +224,11 @@ az networkfabric nni create
 --egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"
 ```
 
-This command updates the ARM reference for the NNI resource, associating it with the provided ingress and egress ACLs. Adjust the parameters as needed for your use case.
+This command updates the Resource Manager reference for the NNI resource, associating it with the provided ingress and egress ACLs. Adjust the parameters as needed for your use case.
 
-## Show ACL
+## Show ACL details
 
-To display the details of an Access Control List (ACL), use the following command:
+To display the details of an ACL, use the following command:
 
 ```bash
 az networkfabric acl show --resource-group "example-rg" --resource-name "example-acl"
@@ -237,9 +236,9 @@ az networkfabric acl show --resource-group "example-rg" --resource-name "example
 
 This command will retrieve and display information about the specified ACL.
 
-## List ACL
+## List ACLs
 
-To list all Access Control Lists (ACLs) within a resource group, execute the following command:
+To list all ACLs within a resource group, use the following command:
 
 ```bash
 az networkfabric acl list --resource-group "ResourceGroupName"
@@ -247,16 +246,16 @@ az networkfabric acl list --resource-group "ResourceGroupName"
 
 This command will list all ACLs present in the specified resource group.
 
-## Create ACL on Isolation Domain External Network
+## Create an ACL on isolation domain external network
 
 Steps to be performed to create an ACL on an NNI:
 
 1. Create an isolation domain external network ingress and egress ACLs.
 2. Update Arm Resource Reference for External Network.
 
-## Create ISD External Network Egress ACL
+## Create an ISD external network egress ACL
 
-To create an Egress Access Control List (ACL) for an Isolation Domain External Network, use the following command:
+To create an egress ACL for an Isolation Domain External Network, use the following command:
 
 ```bash
 az networkfabric acl create
@@ -269,9 +268,9 @@ az networkfabric acl create
 --match-configurations "[{matchConfigurationName:'L3ISD_EXT_OPTA_EGRESS_ACL_IPV4_CE_PE',sequenceNumber:1110,ipAddressType:IPv4,matchConditions:[{ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}},{ipCondition:{type:DestinationIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}}],actions:[{type:Count}]}]"
 ```
 
-This command creates an Egress ACL for the specified Isolation Domain External Network with the provided configuration.
+This command creates an egress ACL for the specified Isolation Domain External Network with the provided configuration.
 
-### Expected Output
+### Expected output
 
 Upon successful execution, the command will return information about the created ACL in the following format:
 
@@ -339,9 +338,9 @@ Upon successful execution, the command will return information about the created
 
 This output provides details of the created ACL, including its configuration, state, and other relevant information. Adjust the parameters as required for your use case.
 
-## Create ISD External Network Ingress ACL
+## Create ISD External Network ingress ACL
 
-To create an Ingress Access Control List (ACL) for an Isolation Domain External Network, use the following command:
+To create an ingress ACL for an Isolation Domain External Network, use the following command:
 
 ```bash
 az networkfabric acl create
@@ -354,7 +353,7 @@ az networkfabric acl create
 --match-configurations "[{matchConfigurationName:'L3ISD_EXT_OPTA_INGRESS_ACL_IPV4_CE_PE',sequenceNumber:1110,ipAddressType:IPv4,matchConditions:[{ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}},{ipCondition:{type:DestinationIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}}],actions:[{type:Count}]}]"
 ```
 
-This command creates an Ingress ACL for the specified Isolation Domain External Network with the provided configuration.
+This command creates an ingress ACL for the specified Isolation Domain External Network with the provided configuration.
 
 ### Expected Output
 
@@ -423,5 +422,3 @@ Upon successful execution, the command will return information about the created
 ```
 
 This output provides details of the created ACL, including its configuration, state, and other relevant information. Adjust the parameters as required for your use case.
-
-
