@@ -23,6 +23,9 @@ The feature works with Spark 3.1. The following table shows the supported Hive M
 |2.4|Yes|Yes|Yes|Yes|No|
 |3.1|Yes|Yes|Yes|Yes|Yes|
 
+> [!NOTE]
+> External Hive metastores will no longer be supported in Spark 3.4.
+
 ## Set up linked service to Hive Metastore 
 
 > [!NOTE]
