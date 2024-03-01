@@ -26,7 +26,7 @@ The "_isparallel" query parameter can be added to the export operation to enhanc
 
 **Change in name nomenclature for exported file name and default storage account**
 With this change exported file names follow the format '{FHIR Resource Name}-{Number}-{Number}.ndjson'. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.Default storage account name is updated to 'Export-{Number}.'
-There is no change to number of resources added in individual exported files. For more information, see [Export operation](././..healthcare-apis/azure-api-for-fhirexport-data.md).
+There is no change to number of resources added in individual exported files. For more information, see [Export operation](././../azure-api-for-fhirexport-data.md).
 
 
 **Performance Enhancement**
