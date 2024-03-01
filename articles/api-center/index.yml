@@ -48,6 +48,12 @@ landingContent:
           - text: Import APIs from API Management
             url: import-api-management-apis.md
 # Card
+  - title: Govern APIs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Analyze APIs using linting rules
+            url: enable-api-analysis-linting.md# Card
   - title: Discover APIs
     linkLists:
       - linkListType: how-to-guide
