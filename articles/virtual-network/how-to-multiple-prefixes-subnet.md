@@ -33,7 +33,7 @@ The following limitations apply during the public preview:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-# [PowerShell]](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
@@ -55,7 +55,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 In this section, you create a subnet with multiple prefixes.
 
-# [PowerShell]](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 1. Use [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) to create a resource group named **test-rg** in the **eastus2** location.
 
