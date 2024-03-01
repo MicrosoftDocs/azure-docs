@@ -1482,6 +1482,8 @@ Access and manage the predictive models that you created and deployed as web ser
 
 Azure service: [Machine Learning Studio (classic)](/azure/machine-learning/classic/)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
