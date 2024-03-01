@@ -4,7 +4,6 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
 ms.date: 01/10/2024
-ms.custom: devx-track-extended-azdevcli
 ---
 
 <!--
