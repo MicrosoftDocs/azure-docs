@@ -1,7 +1,7 @@
 ---
 title: Rendering capabilities
 description: Standard Azure Batch capabilities are used to run rendering workloads and apps. Batch includes specific features to support rendering workloads.
-ms.date: 12/13/2021
+ms.date: 02/28/2024
 ms.topic: how-to
 ---
 
@@ -22,25 +22,7 @@ The task command line strings will need to reference the applications and paths 
 
 Most rendering applications will require licenses obtained from a license server. If there's an existing on-premises license server, then both the pool and license server need to be on the same [virtual network](../virtual-network/virtual-networks-overview.md). It is also possible to run a license server on an Azure VM, with the Batch pool and license server VM being on the same virtual network.
 
-## Batch pools using rendering VM images
-
-> [!WARNING]
-> The rendering VM images and pay-for-use licensing have been [deprecated and will be retired on February 29, 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). To use Batch for rendering, [a custom VM image and standard application licensing should be used.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
-
-### Rendering application installation
-
-An Azure Marketplace rendering VM image can be specified in the pool configuration if only the pre-installed applications need to be used.
-
-There is a Windows image and a CentOS image.  In the [Azure Marketplace](https://azuremarketplace.microsoft.com), the VM images can be found by searching for 'batch rendering'.
-
-The Azure portal and Batch Explorer provide GUI tools to select a rendering VM image when you create a pool.  If using a Batch API, then specify the following property values for [ImageReference](/rest/api/batchservice/pool/add#imagereference) when creating a pool:
-
-| Publisher | Offer | Sku | Version |
-|---------|---------|---------|--------|
-| batch | rendering-centos73 | rendering | latest |
-| batch | rendering-windows2016 | rendering | latest |
-
-Other options are available if additional applications are required on the pool VMs:
+## Batch pools using custom VM images
 
 * A custom image from the Azure Compute Gallery:
   * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Create a pool with the Azure Compute Gallery](batch-sig-images.md). Autodesk and Chaos Group have modified Arnold and V-Ray, respectively, to validate against an Azure Batch licensing service. Make sure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. Current versions of Maya or 3ds Max don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
@@ -48,20 +30,6 @@ Other options are available if additional applications are required on the pool 
   * Package the application files using one or more ZIP files, upload via the Azure portal, and specify the package in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
 * Resource files:
   * Application files are uploaded to Azure blob storage, and you specify file references in the [pool start task](/rest/api/batchservice/pool/add#starttask). When pool VMs are created, the resource files are downloaded onto each VM.
-
-### Pay-for-use licensing for pre-installed applications
-
-The applications that will be used and have a licensing fee need to be specified in the pool configuration.
-
-* Specify the `applicationLicenses` property when [creating a pool](/rest/api/batchservice/pool/add#request-body).  The following values can be specified in the array of strings - "vray", "arnold", "3dsmax", "maya".
-* When you specify one or more applications, then the cost of those applications is added to the cost of the VMs.  Application prices are listed on the [Azure Batch pricing page](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
-
-> [!NOTE]
-> If instead you connect to a license server to use the rendering applications, do not specify the `applicationLicenses` property.
-
-You can use the Azure portal or Batch Explorer to select applications and show the application prices.
-
-If an attempt is made to use an application, but the application hasn’t been specified in the `applicationLicenses` property of the pool configuration or does not reach a license server, then the application execution fails with a licensing error and non-zero exit code.
 
 ### Environment variables for pre-installed applications
 
@@ -94,5 +62,5 @@ When the Azure Marketplace VM images are used, then the best practice is to use 
 
 ## Next steps
 
-* Learn about [using rendering applications with Batch](batch-rendering-applications.md).
+* Learn about [Batch rendering services](batch-rendering-service.md).
 * Learn about [Storage and data movement options for rendering asset and output files](batch-rendering-storage-data-movement.md).

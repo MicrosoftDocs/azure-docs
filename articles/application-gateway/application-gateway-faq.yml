@@ -467,7 +467,7 @@ sections:
           
           If you're using the V2 SKU of the Application Gateway/WAF service, you don't have to upload the new certificate in the HTTP settings since V2 SKU uses "trusted root certificates", and no action needs to be taken here.
 
-  - name: Configuration - layer 4 proxy
+  - name: Configuration - TLS/TCP proxy
     questions:
       - question: Does Application Gateway’s Layer 7 and Layer 4 use the same frontend IP addresses?
         answer: Yes. Both Layer 7 and Layer 4 routing through application gateway use the same frontend IP configuration. This way, you can direct all your clients to a single IP address (public or private) and the same gateway resource will route them based on the configured listener protocols and the ports.
