@@ -15,14 +15,9 @@ ms.date: 02/24/2024
 
 In this article, you learn about Azure Developer CLI (`azd`) and how it works with Azure Deployment Environments (ADE) to provision application infrastructure and deploy application code to the new infrastructure.
 
-With ADE, you can create environments from an environment definition in a catalog attached to your dev center. By adding `azd`, you can deploy your application code to the new infrastructure.
-
-## What is the Azure Developer CLI?
-
 The Azure Developer CLI (`azd`) is an open-source command-line tool that provides developer-friendly commands that map to key stages in your workflow. You can install `azd` locally on your machine or use it in other environments.
 
-<!-- more context here -->
-
+With ADE, you can create environments from an environment definition in a catalog attached to your dev center. By adding `azd`, you can deploy your application code to the new infrastructure.
 
 ## How does `azd` work with ADE?
 
@@ -36,7 +31,7 @@ At scale, using ADE and `azd` together enables you to provide a way for develope
 
 The Azure Developer CLI commands are designed to work with standardized templates. Each template is a code repository that adheres to specific file and folder conventions. The templates contain the assets `azd` needs to provision an Azure Deployment Environment environment. When you run a command like `azd up`, the tool uses the template assets to execute various workflow steps, such as provisioning or deploying resources to Azure.
 
-All `azd` templates include the following assets:
+The following is a typical `azd` template structure:
 
 ```txt
 ├── infra                                        [ Contains infrastructure as code files ]
@@ -48,6 +43,8 @@ All `azd` templates include the following assets:
 ├── src                                          [ Contains all of the deployable app source code ]
 └── azure.yaml                                   [ Describes the app and type of Azure resources]
 ```
+
+All `azd` templates include the following assets:
 
 - *infra folder* - Contains all of the Bicep or Terraform infrastructure as code files for the azd template. The infra folder is not used in `azd` with ADE. ADE provides the infrastructure as code files for the `azd` template. You don't need to include these files in your `azd` template.
 
@@ -74,11 +71,11 @@ Azure Deployment Environments catalogs consist of environment definitions: IaC t
 
 To properly support certain Azure Compute services, Azure Developer CLI requires more configuration settings in the IaC template. For example, you must tag app service hosts with specific information so that `azd` knows how to find the hosts and deploy the app to them.
 
-You can see a list of supported Azure services here: [Supported Azure compute services (host)](/azure/developer/azure-developer-cli/supported-languages-environments).
+You can see a list of supported Azure services here: [Supported Azure compute services (host)](/azure/developer/azure-developer-cli/supported-languages-environments#supported-azure-compute-services-host).
 
-## Make your ADE environment definition compatible with `azd`
+## Make your ADE catalog compatible with `azd`
 
-To enable your development teams to us `azd` with ADE, you need to create an environment definition that is compatible with `azd`. You can create a new `azd`compatible template, or you can use an existing environment definition from the Azure Deployment Environments dev center catalog. If you choose to use an existing environment definition, you need to make a few changes to make it compatible with `azd`.
+To enable your development teams to us `azd` with ADE, you need to create an environment definition in your catalog that is compatible with `azd`. You can create a new `azd`compatible environment definition, or you can use an existing environment definition from the Azure Deployment Environments dev center catalog. If you choose to use an existing environment definition, you need to make a few changes to make it compatible with `azd`.
 
 Changes include:
 - If you're modifying an existing `azd` template, remove the `infra` folder. ADE uses the following files to create the infrastructure:
@@ -103,7 +100,7 @@ To enable `azd` support, run the following command:
    ```
 ### Explore `azd` commands
 
-When the dev center feature is enabled, the default behavior of some common azd commands changes to work with these remote environments. For more information, see [Work with Azure Deployment Evironments](/azure/developer/azure-developer-cli/ade-integration?branch=main#work-with-azure-deployment-evironments)
+When the dev center feature is enabled, the default behavior of some common azd commands changes to work with these remote environments. For more information, see [Work with Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration?branch=main#work-with-azure-deployment-evironments).
 
 
 ## Related content
