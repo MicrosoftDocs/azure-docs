@@ -28,7 +28,7 @@ Execute the following command to generate the input configuration file for the N
 az aosm nfd generate-config --definition-type vnf
 ```
 
-Once you execute this command, a vnf-input.jsonc file generates.  
+Once you execute this command, a vnf-input.jsonc file is generated.  
 
 > [!NOTE]
 >Edit the vnf-input.jsonc file, replacing it with the values shown in the sample. Save the file as **input-vnf-nfd.jsonc**.
@@ -114,7 +114,7 @@ Here is a sample input-vnf-nfd.jsonc file:
 |  |*image_api_version*: Optional. The ARM API version used to create the Microsoft.Compute/images resource. Delete if not required.|
 
 > [!NOTE]
-> When utilizing the file_path option, it's essential to have a reliable internet connection with sufficient bandwidth, as the upload duration may vary depending on the file size.
+> When using the file_path option, it's essential to have a reliable internet connection with sufficient upload bandwidth, as the VHD images are typically very large.
 > [!IMPORTANT]
 > Each variable described in the previous table must be unique. For instance, the resource group name cannot already exist, and publisher and artifact store names must be unique in the region.
 
@@ -130,12 +130,12 @@ Once the build is complete, examine the generated files to better understand the
 
 These files are created in a subdirectory called **vnf-cli-output**:
 
-| File       | Description  |
+| Directory / File       | Description  |
 |----------------|----------|
 | **vnf-cli-output/artifactManifest** ||
 | deploy.bicep| Bicep template to create artifact manifest, with artifacts populated from input file |
 | **vnf-cli-output/artifacts** ||
-| artifacts.json | List of artifacts (from images and arm templates) provided from input file, to be uploaded on publish  |
+| artifacts.json | List of artifacts (images and ARM templates) to be uploaded on publish. Correlates with the artifact manifest  |
 | **vnf-cli-output/base** ||
 | deploy.bicep | Bicep template to create underlying AOSM resources needed to spin up an NF (publisher, acr, nfdg) |
 | **vnf-cli-output/nfDefinition** ||
@@ -144,7 +144,7 @@ These files are created in a subdirectory called **vnf-cli-output**:
 |\<arm-template-name>-templateParameters.json | File contains the deployment parameters provided to the Network Function Definition Version (NFDV) mapped to the parameters required for the Virtual Machine (VM) ARM template. These VM ARM template parameters are sourced from the ARM templates provided in the input file |
 | vhdParameters.json | File contains the deployment parameters provided to the Network Function Definition Version (NFDV) mapped to the parameters required for the VHD image. The VHD configuration parameters are sourced from the VHD section of the input file |
 | **vnf-cli-output** ||
-| all_deploy.parameters.json | Super parameters.json to customise resource names, so that they are different from the original input file provided in build |
+| all_deploy.parameters.json | Superset of all NF's deploy parameters, providing a single file to customise resource names. The values output to this file by the build command are taken from the vnf-input.jsonc file, but may be edited in this file before running publish, for example to publish to a different location or use a different publisher name |
 | index.json | File used internally when publishing resources. Do not edit |
 
 > [!NOTE]

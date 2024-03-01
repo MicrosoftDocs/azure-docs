@@ -26,10 +26,10 @@ Create an input file for publishing the Network Service Design. Execute the foll
 az aosm nsd generate-config
 ```
 
-Once you execute this command an nsd-input.jsonc file generates.
+Once you execute this command an nsd-input.jsonc file is generated.
 
 > [!NOTE]
-> Edit the nsd-input.jsonc file, replacing it with the values shown in the sample. Remove the section where resource_element_type is set to ArmTemplate. This is for adding infrastructure to more complicated NSDs. Save the file as **input-vnf-nsd.jsonc**.
+> Edit the nsd-input.jsonc file, replacing it with the values shown in the sample. Remove the section where resource_element_type is set to ArmTemplate. This is for adding infrastructure (such as VNets) to more complicated NSDs, which is not needed in this quickstart. Save the file as **input-vnf-nsd.jsonc**.
 
 ```json
 {
@@ -109,21 +109,21 @@ After the build process completes, review the following generated files to gain 
 
 These files are created in a subdirectory called **nsd-cli-output**:
 
-| File       | Description  |
+| Directory / File       | Description  |
 |----------------|----------|
 | **nsd-cli-output/artifactManifest** ||
 | deploy.bicep| Bicep template to create artifact manifest, with artifacts populated from input file |
 | **nsd-cli-output/artifacts** ||
-| artifacts.json | List of artifacts (from images and ARM templates) provided from input file, to be uploaded on publish  |
-| \<nf-name>-nfdg.bicep | Bicep template per NF RET provided in the input file, for deploying the NF. This is converted to an ARM template and uploaded to the artifact store on publish |
+| artifacts.json | List of artifacts (images and ARM templates) to be uploaded on publish. Correlates with the artifact manifest  |
+| \<nf-name>.bicep | Bicep template per NF RET provided in the input file, for deploying the NF. This is converted to an ARM template and uploaded to the artifact store when you run the publish command |
 | **nsd-cli-output/base** ||
-| deploy.bicep | Bicep template to create underlying AOSM resources needed to spin up an NSD (publisher, acr, nsdg) |
-| **nsd-cli-output/nfDefinition** ||
-| deploy.bicep | Bicep to create the Network Service Design Version (NSDV), with resource element template information from the NFs or arm templates (infra) provided in input file |
-| Config_group_schema.json |  Combined configuration group schema for all NFs provided, defining inputs required in the config group values for this NSDV |
-|\<nf-name>-mappings.json | File that maps the config group values inputs to the deployment parameters required for each NF |
+| deploy.bicep | Bicep template to create the publisher, storage accounts and network service design group shared by all NSDVs of this NSD group |
+| **nsd-cli-output/nsdDefinition** ||
+| deploy.bicep | Bicep template to create the Network Service Design Version (NSDV). In this template are child resource element templates, which are taken from the published NFs or ARM templates (for infrastructure) defined in the nsd-input.jsonc file |
+| config-group-schema.json |  Combined configuration group schema for all NFs in this NSDV. This schema defines the inputs the operator will need to supply in the config group values when deploying the NSDV as part of a site network service (SNS). |
+|\<nf-name>-mappings.json | File that maps the config group values provided by the operator to the deploy parameters defined in the NSDV. There will be one per NF in your NSDV |
 | **nsd-cli-output** | |
-| all_deploy.parameters.json | Super parameters.json to customise resource names, so that they are different from the original input file provided in build |
+| all_deploy.parameters.json | Superset of all NF's deploy parameters, providing a single file to customise resource names. The values output to this file by the build command are taken from the nsd-input.jsonc file, but may be edited in this file before running publish, for example to publish to a different location or use a different publisher name |
 | index.json | File used internally when publishing resources. Do not edit |
 
 ## Publish the Network Service Design (NSD)
