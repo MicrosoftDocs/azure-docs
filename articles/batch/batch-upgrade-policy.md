@@ -6,7 +6,7 @@ ms.date: 02/29/2024
 ms.custom: 
 ---
 
-# Create an Azure Batch pool with Automatic Operation System (OS) Upgrade
+# Create an Azure Batch pool with Automatic Operating System (OS) Upgrade
 
 > [!IMPORTANT]
 > - Support for pools with Auto OS Upgrade in Azure Batch is currently in public preview, and is currently controlled by an account-level feature flag. If you want to use this feature, please start a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) and provide your batch account to request its activation.
@@ -41,7 +41,7 @@ Only certain OS platform images are currently supported for automatic upgrade. F
 ## Requirements
 
 * The version property of the image must be set to **latest**. 
-* Use Batch API version 2024-02-01 or higher. 
+* For Batch Management API, use API version 2024-02-01 or higher. For Batch Service API, use API version 2024-02-01.19.0 or higher.
 * Ensure that external resources specified in the pool are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more. 
 * If you are using the property *virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates*, this property must set to 'false' in the pool definition. The enableAutomaticUpdates property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled, an extra patching process through Windows Update isn't required.
 
