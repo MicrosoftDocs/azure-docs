@@ -31,6 +31,7 @@ To get started on Astro:
 - [Connect Astro to Azure data sources](https://docs.astronomer.io/astro/connect-azure)
 - [Develop your Astro project](https://docs.astronomer.io/astro/cli/develop-project)
 - [Deploy DAGs to Astro](https://docs.astronomer.io/astro/deploy-code)
+- [Install Astro from the Azure Marketplace](https://docs.astronomer.io/astro/install-azure)
 
 To learn more about how Astronomer can help your team make the most of Airflow:
 
