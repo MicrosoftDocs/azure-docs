@@ -97,7 +97,7 @@ To delete an Event Hubs namespace (source or target) by using the Azure portal:
 1. In the search window at the top of Azure portal, type **Event Hubs**, and select **Event Hubs** from search results. You see the Event Hubs namespaces in a list.
 2. Select the target namespace to delete, and select **Delete** from the toolbar. 
 
-    ![Delete namespace - button](../event-hubs//media/move-across-regions/delete-namespace-button.png)
+    ![Screenshot showing Delete namespace - button](../event-hubs//media/move-across-regions/delete-namespace-button.png)
 3. On the **Delete Namespace** page, confirm the deletion by typing the **namespace name**, and then select **Delete**. 
 
 ## Next steps
