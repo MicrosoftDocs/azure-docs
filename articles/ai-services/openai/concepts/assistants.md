@@ -52,7 +52,7 @@ We strongly recommend the following data access controls:
 - Implement authorization. Before performing reads or writes on assistants, threads, messages, and files, ensure that the end-user is authorized to do so.
 - Restrict Azure OpenAI resource and API key access. Carefully consider who has access to Azure OpenAI resources where assistants are being used and associated API keys.
 - Routinely audit which accounts/individuals have access to the Azure OpenAI resource. API keys and resource level access enable a wide range of operations including reading and modifying messages and files.
-- Enable [diagnostic settings](../how-to/monitoring.md#configure-diagnostic-settings) to allow tracking of operations like **List Keys** and **Regenerate Key**.
+- Enable [diagnostic settings](../how-to/monitoring.md#configure-diagnostic-settings) to allow long-term tracking of the Azure OpenAI resource's activity log.
 
 ## See also
 
