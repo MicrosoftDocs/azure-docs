@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+      "source_path": "articles/batch/batch-pool-no-public-ip-address.md",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-pool-no-public-ip-address",
+      "redirect_document_id": false
+    }, 
+    {  
       "source_path": "articles/batch/batch-rendering-applications.md",
       "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-rendering-applications",
       "redirect_document_id": false
