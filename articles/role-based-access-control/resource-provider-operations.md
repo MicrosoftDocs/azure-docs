@@ -293,10 +293,13 @@ Click the resource provider name in the following list to see the list of permis
 > | --- | --- | --- |
 > | [Microsoft.AzureStack](./permissions/hybrid-multicloud.md#microsoftazurestack) | Build and run innovative hybrid applications across cloud boundaries. | [Azure Stack](/azure-stack/) |
 > | [Microsoft.AzureStackHCI](./permissions/hybrid-multicloud.md#microsoftazurestackhci) |  | [Azure Stack HCI](/azure-stack/hci/) |
+> | [Microsoft.ExtendedLocation](./permissions/hybrid-multicloud.md#microsoftextendedlocation) |  | [Custom locations](/azure/azure-arc/platform/conceptual-custom-locations) |
 > | [Microsoft.HybridCompute](./permissions/hybrid-multicloud.md#microsofthybridcompute) |  | [Azure Arc](/azure/azure-arc/) |
 > | [Microsoft.HybridConnectivity](./permissions/hybrid-multicloud.md#microsofthybridconnectivity) |  |  |
+> | [Microsoft.HybridContainerService](./permissions/hybrid-multicloud.md#microsofthybridcontainerservice) |  |  |
 > | [Microsoft.Kubernetes](./permissions/hybrid-multicloud.md#microsoftkubernetes) |  | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) |
 > | [Microsoft.KubernetesConfiguration](./permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration) |  | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) |
+> | [Microsoft.ResourceConnector](./permissions/hybrid-multicloud.md#microsoftresourceconnector) |  |  |
 
 ## Next steps
 
