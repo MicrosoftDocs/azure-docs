@@ -5,10 +5,10 @@ author: sethmanheim
 manager: femila
 ms.service: notification-hubs
 ms.topic: article
-ms.date: 01/25/2024
+ms.date: 03/01/2024
 ms.author: sethm
 ms.reviewer: heathertian
-ms.lastreviewed: 01/25/2024
+ms.lastreviewed: 03/01/2024
 ---
 
 # Azure Notification Hubs and Google Firebase Cloud Messaging migration
