@@ -29,13 +29,14 @@ You can integrate Azure Cache for Redis and Azure Functions to build functions t
 | [Read a cached value](functions-bindings-cache-input.md) | Input | Preview |
 | [Write a values to cache](functions-bindings-cache-output.md) | Output | Preview |  
 
-## Scope of availability for functions triggers
+## Scope of availability for functions triggers and bindings
 
 |Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
 |---------|:---------:|:---------:|:---------:|
 |Pub/Sub  | Yes  | Yes  |  Yes  |
 |Lists | Yes  | Yes   |  Yes  |
 |Streams | Yes  | Yes  |  Yes  |
+|Bindings | Yes  | Yes  |  Yes  |
 
 > [!IMPORTANT]
 > Redis triggers are currently only supported for functions running in either a [Elastic Premium plan](functions-premium-plan.md) or a dedicated [App Service plan](./dedicated-plan.md).
