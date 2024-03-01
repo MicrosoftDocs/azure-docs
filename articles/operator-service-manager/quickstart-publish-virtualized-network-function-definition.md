@@ -123,7 +123,7 @@ Here is a sample input-vnf-nfd.jsonc file:
 To construct the Network Function Definition (NFD), initiate the build process.
 
 ```azurecli
-az aosm nfd build --config-file vnf-input.jsonc --definition-type vnf
+az aosm nfd build --config-file input-vnf-nfd.jsonc --definition-type vnf
 ```
 
 Once the build is complete, examine the generated files to better understand the Network Function Definition (NFD) structure.
@@ -145,6 +145,7 @@ These files are created in a subdirectory called **vnf-cli-output**:
 | vhdParameters.json | File contains the deployment parameters provided to the Network Function Definition Version (NFDV) mapped to the parameters required for the VHD image. The VHD configuration parameters are sourced from the VHD section of the input file |
 | **vnf-cli-output** ||
 | all_deploy.parameters.json | Super parameters.json to customise resource names, so that they are different from the original input file provided in build |
+| index.json | File used internally when publishing resources. Do not edit |
 
 > [!NOTE]
 > If errors were made, the only option to correct is to re-run the command with the proper selections.
