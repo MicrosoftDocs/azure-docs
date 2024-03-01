@@ -58,7 +58,7 @@ When configuring resource level configuration, you'll be able to select the FHIR
 
 **Make sure** to select **Save** after you've completed your versioning policy configuration.
 
-:::image type="content" source="media/versioning-policy/save-button.jpg" alt-text="Screenshot of Azure portal versioning policy configuration configuration showing save button." lightbox="media/versioning-policy/save-button.jpg":::
+:::image type="content" source="media/versioning-policy/save-button.jpg" alt-text="Screenshot of Azure portal versioning policy configuration showing save button." lightbox="media/versioning-policy/save-button.jpg":::
 
 ## History management
 
