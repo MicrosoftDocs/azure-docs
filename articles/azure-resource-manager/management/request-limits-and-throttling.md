@@ -5,7 +5,8 @@ ms.topic: conceptual
 ms.date: 03/01/2024
 ms.custom: devx-track-arm-template
 ---
-# Throttling Resource Manager requests
+
+# Understand how Azure Resource Manager throttles requests
 
 This article describes how Azure Resource Manager throttles requests. It shows you how to track the number of requests that remain before reaching the limit, and how to respond when you reach the limit.
 
@@ -34,6 +35,8 @@ These limits are scoped to the security principal (user or application) making t
 These limits apply to each Azure Resource Manager instance. There are multiple instances in every Azure region, and Azure Resource Manager is deployed to all Azure regions. So, in practice, the limits are higher than these limits. The requests from a user are usually handled by different instances of Azure Resource Manager.
 
 The remaining requests are returned in the [response header values](#remaining-requests).
+
+## Migrating to regional throttling and token bucket algorithm
 
 Starting in 2024, Microsoft is migrating Azure subscriptions to a new throttling architecture. With this change, you'll experience new throttling limits. The new throttling limits are applied per region rather than per instance of Azure Resource Manager. The new architecture uses a [token bucket algorithm](https://en.wikipedia.org/wiki/Token_bucket) to manage API throttling.
 
@@ -130,8 +133,6 @@ For information about throttling in other resource providers, see:
 ## Error code
 
 When you reach the limit, you receive the HTTP status code **429 Too many requests**. The response includes a **Retry-After** value, which specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value elapses, your request isn't processed and a new retry value is returned.
-
-After waiting for specified time, you can also close and reopen your connection to Azure. By resetting the connection, you may connect to a different instance of Azure Resource Manager.
 
 If you're using an Azure SDK, the SDK may have an auto retry configuration. For more information, see [Retry guidance for Azure services](/azure/architecture/best-practices/retry-service-specific).
 
