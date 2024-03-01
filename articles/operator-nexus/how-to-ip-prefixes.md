@@ -16,6 +16,41 @@ This article explains the main management operations for IP prefixes and IP pref
 
 ## IP prefixes
 
+### Example
+
+The following json object is an example of an IP prefix resource that can be used in route policies: 
+
+```azurecli
+{
+  "id": "/subscriptions/subscription-id/resourceGroups/op1-cluster/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/ipprefixv4-1204-cn1",
+  "location": "eastus",
+  "name": "ipprefixv4-1204-cn1",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "op1-cluster",
+  "ipPrefixRules": [
+    {
+      "action": "Permit",
+      "networkPrefix": "10.10.10.0/28",
+      "sequenceNumber": 10
+    },
+    {
+      "action": "Permit",
+      "networkPrefix": "20.20.20.0/24",
+      "sequenceNumber": 12
+    }
+  ],
+  "systemData": {
+    "createdAt": "2023-06-12T10:23:26.7645536Z",
+    "createdBy": "user@microsoft.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2023-06-12T10:23:26.7645536Z",
+    "lastModifiedBy": "user@microsoft.com",
+    "lastModifiedByType": "User"
+  },
+  "type": "microsoft.managednetworkfabric/ipPrefixes"
+}
+```
+
 ### Create an IP prefix
 
 
@@ -110,7 +145,7 @@ The REST API response body for getting the details of an IP Prefix resource by i
 }
 ```
 
-## Updating an IP Prefix Resource 
+### Updating an IP Prefix Resource 
 
 To update an IP Prefix resource, follow these steps: 
 
@@ -127,7 +162,7 @@ To update an IP Prefix resource, follow these steps: 
 
 In this example, `resourceGroupName` is the name of the resource group where you created the IP Prefix resource, `ipPrefixName` is the name of the IP Prefix resource, and the `--add` option adds a new rule to the ipPrefixRules property. The new rule denies routes with network prefix 30.30.30.0/24 and has a sequence number of 30. 
 
-## Deleting an IP Prefix resource 
+### Deleting an IP Prefix resource 
 
 To delete an existing IP Prefix resource by its ID or name, use the following command: 
 
