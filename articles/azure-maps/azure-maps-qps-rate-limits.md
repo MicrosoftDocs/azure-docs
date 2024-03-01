@@ -30,7 +30,8 @@ The following list shows the QPS usage limits for each Azure Maps service by Pri
 | Data service (Deprecated<sup>1</sup>) | 50 | 50 |  Not Available  |
 | Data registry service | 50 | 50 |  Not Available  |
 | Geolocation service | 50 | 50 | 50 |
-| Render service - Traffic tiles and Static maps | 50 | 50 | 50 |
+| Render service - Static maps | 50 | 50 | 50 |
+| Render service - Traffic tiles | 50 | 50 | 50 |
 | Render service - Road tiles | 500 | 500 | 50 |
 | Render service - Satellite tiles | 250 | 250 | Not Available |
 | Render service - Weather tiles | 100 | 100 | 50 |
