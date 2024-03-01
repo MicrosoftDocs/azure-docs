@@ -61,7 +61,7 @@
       - name: Azure Log Analytics workspaces
         href: migrate-monitor-log-analytics.md
       - name: Azure Logic Apps
-        href: /azure/logic-apps/set-up-zone-redundancy-availability-zones&tabs=standard&toc=/azure/reliability
+        href: /azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard&toc=/azure/reliability
       - name: Azure Recovery Services vault
         href: migrate-recovery-services-vault.md
       - name: Azure Service Fabric

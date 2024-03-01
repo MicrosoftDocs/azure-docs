@@ -55,7 +55,7 @@ The table below lists each product that offers migration guidance and/or informa
 | [Azure HDInsight](reliability-hdinsight.md#availability-zone-migration)|
 | [Azure Key Vault](/azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability)|
 | [Azure Kubernetes Service](/azure/aks/availability-zones?toc=/azure/reliability)|
-| [Azure Logic Apps](/azure/logic-apps/set-up-zone-redundancy-availability-zones&tabs=standard&toc=/azure/reliability)|
+| [Azure Logic Apps](/azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard&toc=/azure/reliability)|
 | [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md)|
 | [Azure Service Bus](/azure/service-bus-messaging/service-bus-geo-dr#availability-zones?toc=/azure/reliability)|
 | [Azure SQL Managed Instance](migrate-sql-managed-instance.md)|
