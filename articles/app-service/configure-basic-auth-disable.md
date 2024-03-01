@@ -19,7 +19,7 @@ App Service provides basic authentication for FTP and WebDeploy clients to conne
 Two different controls for basic authentication are available. Specifically:
 
 - For [FTP deployment](deploy-ftp.md), basic authentication is controlled by the `basicPublishingCredentialsPolicies/ftp` flag (**FTP Basic Auth Publishing Credentials** option in the portal).
-- For other deployment methods that use basic authentication, such as Visual Studio, local Git, and GitHub, basic authentition is controlled by the `basicPublishingCredentialsPolicies/scm` flag (**SCM Basic Auth Publishing Credentials** option in the portal).
+- For other deployment methods that use basic authentication, such as Visual Studio, local Git, and GitHub, basic authentication is controlled by the `basicPublishingCredentialsPolicies/scm` flag (**SCM Basic Auth Publishing Credentials** option in the portal).
 
 ### [Azure portal](#tab/portal)
 
