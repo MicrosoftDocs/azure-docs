@@ -23,7 +23,7 @@ These are the high-level steps for creating an ACL on an NNI:
 
 | Parameter            | Description                                                  | Example or range                |
 |----------------------|--------------------------------------------------------------|--------------------------------|
-| `defaultAction`        | Default action to be taken. If it's not defined, traffic is permitted. | `"defaultAction": "Permit"`      |
+| `defaultAction`        | Default action to be taken. If you don't define it, traffic is permitted. | `"defaultAction": "Permit"`      |
 | `resource-group`       | Resource group of the network fabric.                        | `nfresourcegroup`                 |
 | `resource-name`        | Name of the ACL.                                             | `example-ingressACL`              |
 | `vlanGroups`           | List of virtual local area network (VLAN) groups.                                         |                                |
@@ -242,7 +242,7 @@ Use the following information to create ingress and egress ACLs for the isolatio
 
 ### Create an egress ACL for the ISD external network
 
-To create an egress ACL for the specified ISD external network with the provided configuration, use the following command. Adjust the parameters as required for your use case.
+To create an egress ACL for the specified ISD external network with the provided configuration, use the following command. Adjust the parameters as needed for your use case.
 
 ```bash
 az networkfabric acl create
@@ -323,7 +323,7 @@ Upon successful execution, the command returns information about the created ACL
 
 ### Create an ingress ACL for the ISD external network
 
-To create an ingress ACL for the specified ISD external network with the provided configuration, use the following command. Adjust the parameters as required for your use case.
+To create an ingress ACL for the specified ISD external network with the provided configuration, use the following command. Adjust the parameters as needed for your use case.
 
 ```bash
 az networkfabric acl create
