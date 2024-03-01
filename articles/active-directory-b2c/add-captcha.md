@@ -5,7 +5,7 @@ author: kengaderdus
 manager: mwongerapk
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 01/17/2024
+ms.date: 03/01/2024
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -314,13 +314,6 @@ To enable CAPTCHA in MFA flow, you need to make an update in two technical profi
     ...
 </TechnicalProfile>
 ```
-::: zone-end
-
-> [!NOTE]
-> - You can't add CAPTCHA to an MFA step in a sign-up only user flow.
-> - In an MFA flow, CAPTCHA is applicable where the MFA method you select is SMS or phone call, SMS only or Phone call only.
-
-::: zone pivot="b2c-user-flow"
 ## Upload the custom policy files
 
 Use the steps in [Upload the policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy&branch=pr-en-us-260336#upload-the-policies) to upload your custom policy files.
@@ -328,7 +321,12 @@ Use the steps in [Upload the policies](tutorial-create-user-flows.md?pivots=b2c-
 ## Test the custom policy
 
 Use the steps in [Test the custom policy](tutorial-create-user-flows.md?pivots=b2c-custom-policy#test-the-custom-policy) to test and confirm that CAPTCHA is enabled for your chosen flow. You should be prompted to enter the characters you see or hear depending on the CAPTCHA type, visual or audio, you choose.
+
 ::: zone-end
+
+> [!NOTE]
+> - You can't add CAPTCHA to an MFA step in a sign-up only user flow.
+> - In an MFA flow, CAPTCHA is applicable where the MFA method you select is SMS or phone call, SMS only or Phone call only.
 
 ## Next steps 
 
