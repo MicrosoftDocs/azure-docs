@@ -49,5 +49,5 @@ Process flow:
 
 ## Next steps
 
-[Configure Azure Application Gateway TCP/TLS proxy](how-to-tcp-tls-proxy.md)
-[Frequently asked questions (FAQs)](application-gateway-faq.yml#configuration---TLS/TCP-proxy)
+- [Configure Azure Application Gateway TCP/TLS proxy](how-to-tcp-tls-proxy.md)
+- [Frequently asked questions (FAQs)](application-gateway-faq.yml#configuration---TLS/TCP-proxy)
