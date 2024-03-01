@@ -22,7 +22,7 @@ In Azure AI Search, if you [added vector fields](vector-search-how-to-create-ind
 > + [Query multiple vector fields at once](#multiple-vector-fields)
 > + [Query with integrated vectorization (preview)](#query-with-integrated-vectorization-preview)
 
-Code samples in the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
+Code samples in the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ All results are returned in plain text, including vectors in fields marked as `r
 
 If you aren't sure whether your search index already has vector fields, look for:
 
-+ A non-empty `vectorSearch` property containing algorithms and other vector-related configurations embedded in the index schema.
++ A nonempty `vectorSearch` property containing algorithms and other vector-related configurations embedded in the index schema.
 
 + In the fields collection, look for fields of type `Collection(Edm.Single)` with a `dimensions` attribute, and a `vectorSearch` section in the index.
 
@@ -56,7 +56,7 @@ This section applies to the generally available version of vector search (**2023
 
 To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library or API endpoint that provides this capability. **Use the same embedding that you used to generate embeddings in the source documents.**
 
-You can find multiple instances of query string conversion in the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/) repository for each of the Azure SDKs.
+You can find multiple instances of query string conversion in the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples) repository for each of the Azure SDKs.
 
 Here's a REST API example of a query string submitted to a deployment of an Azure OpenAI model:
 
@@ -123,7 +123,7 @@ api-key: {{admin-api-key}}
     "select": "title, content, category",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -161,7 +161,7 @@ api-key: {{admin-api-key}}
     "select": "title, content, category",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -238,19 +238,19 @@ Be sure to the **JSON view** and formulate the vector query in JSON. The search 
 
 + Use the [**Azure.Search.Documents 11.5.0**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 
 ### [**Python**](#tab/python-vector-query)
 
 + Use the [**Azure.Search.Documents**](https://pypi.org/project/azure-search-documents) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python) GitHub repository for Python code samples.
 
 ### [**JavaScript**](#tab/js-vector-query)
 
 + Use the [**@azure/search-documents 12.0.0-beta.4**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.4) package for vector scenarios.  
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript/JavaScriptVectorDemo) GitHub repository for JavaScript code samples.
 
 ---
 
@@ -338,7 +338,7 @@ api-key: {{admin-api-key}}
     "vectorFilterMode": "preFilter",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -376,7 +376,7 @@ api-key: {{admin-api-key}}
     "vectorFilterMode": "preFilter",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -398,7 +398,7 @@ REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview)
 
 In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
-In this API version, there's no pre-filter support or `vectorFilterMode` parameter. The filter criteria are applied after the search engine executes the vector query. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
+In this API version, there's no prefilter support or `vectorFilterMode` parameter. The filter criteria are applied after the search engine executes the vector query. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
@@ -438,7 +438,7 @@ api-key: {{admin-api-key}}
     "select": "title, content, category",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -456,9 +456,9 @@ api-key: {{admin-api-key}}
 
 ## Multiple vector queries
 
-Multi-query vector search sends multiple queries across multiple vector fields in your search index. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search where the same model can vectorize image and non-image content.
+Multi-query vector search sends multiple queries across multiple vector fields in your search index. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multimodal vector search where the same model can vectorize image and text content.
 
-The following query example looks for similarity in both `myImageVector` and `myTextVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over different embedding spaces. This query produces a result that's scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
+The following query example looks for similarity in both `myImageVector` and `myTextVector`, but sends in two different query embeddings respectively, each executing in parallel. This query produces a result that's scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
 
 + `vectorQueries` provides an array of vector queries.
 + `vector` contains the image vectors and text vectors in the search index. Each instance is a separate query.
@@ -471,7 +471,7 @@ The following query example looks for similarity in both `myImageVector` and `my
     "select": "title, content, category",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -519,7 +519,7 @@ POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search
     "select": "title, genre, description",
     "vectorQueries": [
         {
-            "kind": "text"
+            "kind": "text",
             "text": "mystery novel set in London",
             "fields": "descriptionVector",
             "k": 5
@@ -546,7 +546,7 @@ api-key: {{admin-api-key}}
     "vectorFilterMode": "postFilter",
     "vectorQueries": [
         {
-            "kind": "text"
+            "kind": "text",
             "text": "mystery novel set in London",
             "fields": "descriptionVector, synopsisVector",
             "k": 5
@@ -577,14 +577,20 @@ Search results are composed of "retrievable" fields from your search index. A re
 + All "retrievable" fields (a REST API default).
 + Fields explicitly listed in a "select" parameter on the query. 
 
-The examples in this article used a "select" statement to specify text (non-vector) fields in the response.
+The examples in this article used a "select" statement to specify text (nonvector) fields in the response.
 
 > [!NOTE]
 > Vectors aren't designed for readability, so avoid returning them in the response. Instead, choose non-vector fields that are representative of the search document. For example, if the query targets a "descriptionVector" field, return an equivalent text field if you have one ("description") in the response.
 
-### Number of results
+### Number of ranked results in a vector query response
 
-A query might match to any number of documents, as many as all of them if the search criteria are weak (for example "search=*" for a null query). Because it's seldom practical to return unbounded results, you should specify a maximum for the response:
+A vector query specifies the `k` parameter, which determines how many matches are returned in the results. The search engine always returns `k` number of matches. If `k` is larger than the number of documents in the index, then the number of documents determines the upper limit of what can be returned.
+
+If you're familiar with full text search, you know to expect zero results if the index doesn't contain a term or phrase. However, in vector search, the search operation is identifying nearest neighbors, and it will always return `k` results even if the nearest neighbors aren't that similar. So, it's possible to get results for nonsensical or off-topic queries, especially if you aren't using prompts to set boundaries. Less relevant results have a worse similarity score, but they're still the "nearest" vectors if there isn't anything closer. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low. 
+
+A [hybrid approach](hybrid-search-overview.md) that includes full text search can mitigate this problem. Another mitigation is to set a minimum threshold on the search score, but only if the query is a pure single vector query. Hybrid queries aren't conducive to minimum thresholds because the RRF ranges are so much smaller and volatile.
+
+Query parameters affecting result count include:
 
 + `"k": n` results for vector-only queries
 + `"top": n` results for hybrid queries that include a "search" parameter
@@ -595,7 +601,7 @@ Both "k" and "top" are optional. Unspecified, the default number of results in a
 
 Ranking of results is computed by either:
 
-+ The similarity metric specified in the index `vectorSearch` section for a vector-only query. Valid values are `cosine` , `euclidean`, and `dotProduct`.
++ The similarity metric specified in the index `vectorSearch` section for a vector-only query. Valid values are `cosine`, `euclidean`, and `dotProduct`.
 + Reciprocal Rank Fusion (RRF) if there are multiple sets of search results.
 
 Azure OpenAI embedding models use cosine similarity, so if you're using Azure OpenAI embedding models, `cosine` is the recommended metric. Other supported ranking metrics include `euclidean` and `dotProduct`.
@@ -604,4 +610,4 @@ Multiple sets are created if the query targets multiple vector fields, or if the
 
 ## Next steps
 
-As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
+As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript/JavaScriptVectorDemo).

@@ -2,11 +2,12 @@
 title: HTTP application routing add-on for Azure Kubernetes Service (AKS) (retired)
 description: Use the HTTP application routing add-on to access applications deployed on Azure Kubernetes Service (AKS) (retired).
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 author: asudbring
 ms.topic: how-to
 ms.date: 04/05/2023
 ms.author: allensu
+ROBOTS: NOINDEX
 ---
 
 # HTTP application routing add-on for Azure Kubernetes Service (AKS) (retired)
@@ -82,7 +83,7 @@ The add-on deploys two components: a [Kubernetes ingress controller][ingress] an
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: aks-helloworld  
+      name: aks-helloworld
     spec:
       replicas: 1
       selector:
@@ -105,7 +106,7 @@ The add-on deploys two components: a [Kubernetes ingress controller][ingress] an
     apiVersion: v1
     kind: Service
     metadata:
-      name: aks-helloworld  
+      name: aks-helloworld
     spec:
       type: ClusterIP
       ports:
@@ -127,9 +128,9 @@ The add-on deploys two components: a [Kubernetes ingress controller][ingress] an
           - path: /
             pathType: Prefix
             backend:
-              service: 
+              service:
                 name: aks-helloworld
-                port: 
+                port:
                   number: 80
     ```
 

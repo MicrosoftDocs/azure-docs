@@ -9,7 +9,7 @@ ms.date: 10/19/2023
 
 # Azure Virtual Desktop service architecture and resilience
 
-Azure Virtual Desktop is designed to provide a resilient, reliable, and secure service for organizations and users. The architecture of Azure Virtual Desktop comprises many components that make up the service connecting users to their desktops and apps. Most components are Microsoft-managed, but some are customer-managed.
+Azure Virtual Desktop is designed to provide a resilient, reliable, and secure service for organizations and users. The architecture of Azure Virtual Desktop comprises many components that make up the service connecting users to their desktops and apps. Most components are Microsoft-managed, but some are customer-managed or partner-managed.
 
 Microsoft provides the virtual desktop infrastructure (VDI) components for core functionality as a service. These components include:
 

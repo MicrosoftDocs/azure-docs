@@ -108,6 +108,11 @@ Your users need accounts that are in Microsoft Entra ID. If you're also using AD
 - If you're using Microsoft Entra ID with AD DS, you need to configure [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to synchronize user identity data between AD DS and Microsoft Entra ID.
 - If you're using Microsoft Entra ID with Microsoft Entra Domain Services, user accounts are synchronized one way from Microsoft Entra ID to Microsoft Entra Domain Services. This synchronization process is automatic.
 
+> [!IMPORTANT]
+> The user account must exist in the Microsoft Entra tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.
+>
+> When using hybrid identities, either the UserPrincipalName (UPN) or the Security Identifier (SID) must match across Active Directory Domain Services and Microsoft Entra ID. For more information, see [Supported identities and authentication methods](authentication.md#hybrid-identity).
+
 ### Supported identity scenarios
 
 The following table summarizes identity scenarios that Azure Virtual Desktop currently supports:
@@ -121,16 +126,15 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 | Microsoft Entra ID + Microsoft Entra Domain Services | Joined to Microsoft Entra ID | In Microsoft Entra ID and Microsoft Entra Domain Services, synchronized|
 | Microsoft Entra-only | Joined to Microsoft Entra ID | In Microsoft Entra ID |
 
+For more detailed information about supported identity scenarios, including single sign-on and multifactor authentication, see [Supported identities and authentication methods](authentication.md).
+
+### FSLogix Profile Container
+
 To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Microsoft Entra ID, you need to [store profiles on Azure Files](create-profile-container-azure-ad.md) or [Azure NetApp Files](create-fslogix-profile-container.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). You must create these accounts in AD DS and synchronize them to Microsoft Entra ID. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
 
 - [Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Microsoft Entra Domain Services](fslogix-profile-container-configure-azure-files-active-directory.md).
 - [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.md).
 - [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)
-
-> [!IMPORTANT]
-> The user account must exist in the Microsoft Entra tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.
->
-> When using hybrid identities, either the UserPrincipalName (UPN) or the Security Identifier (SID) must match across Active Directory Domain Services and Microsoft Entra ID. For more information, see [Supported identities and authentication methods](authentication.md#hybrid-identity).
 
 ### Deployment parameters
 
@@ -147,10 +151,9 @@ You need to enter the following identity parameters when deploying session hosts
 
 You have a choice of operating systems (OS) that you can use for session hosts to provide desktops and applications. You can use different operating systems with different host pools to provide flexibility to your users. We support the following 64-bit versions of these operating systems, where supported versions and dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/).
 
-|Operating system |User access rights|
-|---|---|
-|<ul><li>[Windows 11 Enterprise multi-session](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 11 Enterprise](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 10 Enterprise multi-session](/lifecycle/products/windows-10-enterprise-and-education)</li><li>[Windows 10 Enterprise](/lifecycle/products/windows-10-enterprise-and-education)</li><ul>|License entitlement:<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) by enrolling an Azure subscription instead of license entitlement.</li></ul>|
-|<ul><li>[Windows Server 2022](/lifecycle/products/windows-server-2022)</li><li>[Windows Server 2019](/lifecycle/products/windows-server-2019)</li><li>[Windows Server 2016](/lifecycle/products/windows-server-2016)</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing isn't available for Windows Server operating systems.|
+[!INCLUDE [Operating systems and user access rights](includes/include-operating-systems-user-access-rights.md)]
+
+To learn more, see about licenses you can use, including per-user access pricing, see [Licensing Azure Virtual Desktop](licensing.md).
 
 > [!IMPORTANT]
 > - The following items are not supported:
@@ -161,7 +164,7 @@ You have a choice of operating systems (OS) that you can use for session hosts t
 >   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
 > 
 > - Support for Windows 7 ended on January 10, 2023.
-> - Support for Windows Server 2012 R2 ended on October 10, 2023. For more information, view [SQL Server 2012 and Windows Server 2012/2012 R2 end of support](/lifecycle/announcements/sql-server-2012-windows-server-2012-2012-r2-end-of-support).
+> - Support for Windows Server 2012 R2 ended on October 10, 2023.
 
 For Azure, you can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or create your own custom images stored in an Azure Compute Gallery or as a managed image. Using custom image templates for Azure Virtual Desktop enables you to easily create a custom image that you can use when deploying session host virtual machines (VMs). To learn more about how to create custom images, see:
 

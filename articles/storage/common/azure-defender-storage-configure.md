@@ -30,7 +30,7 @@ Learn more about Microsoft Defender for Storage [capabilities](../../defender-fo
 |Aspect|Details|
 |----|:----|
 |Release state:|General Availability (GA)|
-|Feature availability:|- Activity monitoring (security alerts) - General Availability (GA)<br>- Malware Scanning – General Availability (GA) <br>- Sensitive data threat detection (Sensitive Data Discovery) – General Availability (GA)|
+|Feature availability:|- Activity monitoring (security alerts) - General Availability (GA)<br>- Malware Scanning - General Availability (GA) <br>- Sensitive data threat detection (Sensitive Data Discovery) - General Availability (GA)|
 |Pricing:| Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.|
 | Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
 |Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|

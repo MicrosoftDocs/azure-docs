@@ -10,6 +10,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 12/08/2023
 ms.topic: how-to
+ms.custom: update-code
 ---
 
 # Package and deploy models outside Azure Machine Learning (preview)
@@ -26,10 +27,12 @@ Before following the steps in this article, make sure you have the following pre
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An Azure Machine Learning workspace. If you don't have one, use the steps in the [How to manage workspaces](how-to-manage-workspace.md)article to create one.
+* An Azure Machine Learning workspace. If you don't have one, use the steps in the [How to manage workspaces](how-to-manage-workspace.md) article to create one.
 
-* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+    > [!NOTE]
+    > Private link enabled workspaces don't support packaging models for deployment outside of Azure Machine Learning.
 
+* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md). 
 
 ## Prepare your system
 
@@ -67,6 +70,9 @@ Follow these steps to prepare your system.
     # [Python](#tab/sdk)
     
     The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. Here, you connect to the workspace in which you perform deployment tasks.
+
+    > [!IMPORTANT]
+    > To use this preview feature, the `azure-ai-ml` package must be upgraded to a minimum version `1.12.0`. Run `pip install azure-ai-ml==1.12.0` in your conda environment to ensure the latest SDK is installed.
     
     1. Import the required libraries:
     

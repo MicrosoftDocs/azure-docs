@@ -10,7 +10,8 @@ ms.date: 11/07/2023
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: ozgun
-ms.devlang: powershell, azurecli
+ms.devlang: powershell
+# ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 

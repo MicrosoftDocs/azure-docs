@@ -138,3 +138,5 @@ For more information, see:
 - [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
+
+See this [YouTube video](https://youtu.be/8_2ji5afBqc), on the [Microsoft Security Community YouTube channel](https://www.youtube.com/@MicrosoftSecurityCommunity), for a demonstration of this workbook.

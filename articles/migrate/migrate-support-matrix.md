@@ -1,11 +1,11 @@
 ---
 title: Azure Migrate support matrix
 description: Provides a summary of support settings and limitations for the Azure Migrate service.
-author: jyothisuri
-ms.author: jsuri
+author: MaryMichael-MS
+ms.author: v-michaelar
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 02/14/2024
 ms.custom: engagement-fy24
 ---
 
@@ -92,6 +92,7 @@ Europe | North Europe or West Europe
 France | France Central
 Germany | Germany West Central
 India | Central India or South India
+Italy | North Italy
 Japan |  Japan East or Japan West
 Jio India | Jio India West 
 Korea | Korea Central
@@ -132,7 +133,7 @@ Microsoft Azure operated by 21Vianet | China North 2
 There are two versions of the Azure Migrate service:
 
 - **Current version**: Using this version you can create new projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md).
-- **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
+- **Previous version**: For customer using, the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
 
 ## Next steps
 

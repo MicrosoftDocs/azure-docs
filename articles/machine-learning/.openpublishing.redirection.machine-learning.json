@@ -456,6 +456,11 @@
         " redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/concept-foundation-models.md",
+        "redirect_url": "/azure/machine-learning/concept-model-catalog",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/concept-open-source.md",
         "redirect_url": "https://azure.microsoft.com/solutions/open-source/machine-learning/",
         "redirect_document_id": false
@@ -4213,6 +4218,11 @@
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/more-tools.md",
         "redirect_url": "/azure/machine-learning/prompt-flow/tools-reference/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/open-source-llm-tool.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/tools-reference/open-model-llm-tool",
         "redirect_document_id": false
     }
 ]

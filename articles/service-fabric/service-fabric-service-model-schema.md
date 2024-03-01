@@ -5,7 +5,6 @@ ms.topic: reference
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
-services: service-fabric
 ms.date: 07/11/2022
 ---
 
@@ -53,17 +52,10 @@ def writeOverviewFile(filename, namedElements, namedComplexTypes, namedElementGr
         file.write('---\n')
         file.write('title: Azure Service Fabric service model XML schema descriptions | Microsoft Docs')
         file.write('description: Describes the XML schema of the Service Fabric service model.\n')
-        file.write('services: service-fabric\n')
-        file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
         file.write('manager: chackdan\n')
-        file.write('editor: ''\n')
-
-        file.write('ms.assetid: \n')
         file.write('ms.service: service-fabric\n')
         file.write('ms.topic: reference\n')
-        file.write('ms.tgt_pltfrm: na\n')
-        file.write('ms.workload: multiple\n')
         file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
         file.write('ms.author: atsenthi\n')
 
@@ -122,17 +114,10 @@ def writeElementGroupsFile(filename, namedElementGroups):
         file.write('---\n')
         file.write('title: Azure Service Fabric service model XML schema element groups | Microsoft Docs')
         file.write('description: Describes the element groups in the XML schema of the Service Fabric service model.\n')
-        file.write('services: service-fabric\n')
-        file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
         file.write('manager: chackdan\n')
-        file.write('editor: ''\n')
-
-        file.write('ms.assetid: \n')
         file.write('ms.service: service-fabric\n')
         file.write('ms.topic: reference\n')
-        file.write('ms.tgt_pltfrm: na\n')
-        file.write('ms.workload: multiple\n')
         file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
         file.write('ms.author: atsenthi\n')
 
@@ -190,17 +175,10 @@ def writeElementsFile(filename, namedElements):
         file.write('---\n')
         file.write('title: Azure Service Fabric service model XML schema elements | Microsoft Docs')
         file.write('description: Describes the elements in the XML schema of the Service Fabric service model.\n')
-        file.write('services: service-fabric\n')
-        file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
         file.write('manager: chackdan\n')
-        file.write('editor: ''\n')
-
-        file.write('ms.assetid: \n')
         file.write('ms.service: service-fabric\n')
         file.write('ms.topic: reference\n')
-        file.write('ms.tgt_pltfrm: na\n')
-        file.write('ms.workload: multiple\n')
         file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
         file.write('ms.author: atsenthi\n')
 
@@ -328,17 +306,10 @@ def writeComplexTypesFile(filename, namedComplexTypes):
         file.write('---\n')
         file.write('title: Azure Service Fabric service model XML schema complex types | Microsoft Docs\n')
         file.write('description: Describes the complex types in the XML schema of the Service Fabric service model.\n')
-        file.write('services: service-fabric\n')
-        file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
         file.write('manager: chackdan\n')
-        file.write('editor: ''\n')
-
-        file.write('ms.assetid: \n')
         file.write('ms.service: service-fabric\n')
         file.write('ms.topic: reference\n')
-        file.write('ms.tgt_pltfrm: na\n')
-        file.write('ms.workload: multiple\n')
         file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
         file.write('ms.author: atsenthi\n')
 
@@ -432,17 +403,10 @@ def writeAttributesFile(filename, namedAttributeGroups):
         file.write('---\n')
         file.write('title: Azure Service Fabric service model XML schema attribute groups | Microsoft Docs\n')
         file.write('description: Describes the attribute groups in the XML schema of the Service Fabric service model.\n')
-        file.write('services: service-fabric\n')
-        file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
         file.write('manager: chackdan\n')
-        file.write('editor: ''\n')
-
-        file.write('ms.assetid: \n')
         file.write('ms.service: service-fabric\n')
         file.write('ms.topic: reference\n')
-        file.write('ms.tgt_pltfrm: na\n')
-        file.write('ms.workload: multiple\n')
         file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
         file.write('ms.author: atsenthi\n')
 
@@ -499,17 +463,10 @@ def writeSimpleTypesFile(filename, namedSimpleTypes):
         file.write('---\n')
         file.write('title: Azure Service Fabric service model XML schema simple types | Microsoft Docs\n')
         file.write('description: Describes the simple types in the XML schema of the Service Fabric service model.\n')
-        file.write('services: service-fabric\n')
-        file.write('documentationcenter: na\n')
         file.write('author: athinanthny\n')
         file.write('manager: chackdan\n')
-        file.write('editor: ''\n')
-
-        file.write('ms.assetid: \n')
         file.write('ms.service: service-fabric\n')
         file.write('ms.topic: reference\n')
-        file.write('ms.tgt_pltfrm: na\n')
-        file.write('ms.workload: multiple\n')
         file.write('ms.date: %s\n' % datetime.datetime.today().strftime('%m/%d/%Y'))
         file.write('ms.author: atsenthi\n')
 

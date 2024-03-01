@@ -5,7 +5,7 @@ author:  sidontha
 ms.author: sidontha
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 12/19/2023
 ---
 
 # Share and receive data from Azure Blob Storage and Azure Data Lake Storage
@@ -30,7 +30,7 @@ You can use the table of contents to jump to the section you need, or continue w
 Azure Data Share supports sharing data from Azure Data Lake Gen1, Azure Data Lake Gen2, and Azure storage.
 
 |Resource type | Sharable resource  |
-|----------|-----------
+|----------|-----------|
 |Azure Data Lake Gen1 and Gen2   |Files      |
 ||Folders|
 ||File systems|
@@ -202,7 +202,7 @@ Storage snapshot performance is impacted by many factors in addition to number o
 
 - Concurrent access to the source and target data stores.  
 - Location of source and target data stores.
-- For incremental snapshot, the number of files in the shared dataset can impact the time it takes to find the list of files with last modified time after the last successful snapshot.
+- For incremental snapshot, the number of files in the shared dataset can affect the time it takes to find the list of files with last modified time after the last successful snapshot.
 
 ## Next steps
 

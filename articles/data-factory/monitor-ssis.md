@@ -7,10 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 1/11/2024
 ---
 
 # Monitor SSIS operations with Azure Monitor
+
+> [!NOTE]
+> You can only monitor SSIS operation with Azure Monitor in Azure Data Factory, not in Azure Synapse Pipelines. 
 
 To lift & shift your SSIS workloads, you can [provision SSIS IR in ADF](./tutorial-deploy-ssis-packages-azure.md) that supports:
 
@@ -20,6 +23,8 @@ To lift & shift your SSIS workloads, you can [provision SSIS IR in ADF](./tutori
 Once provisioned, you can [check SSIS IR operational status using Azure PowerShell or on the **Monitor** hub of ADF portal](./monitor-integration-runtime.md#azure-ssis-integration-runtime). With Project Deployment Model, SSIS package execution logs are stored in SSISDB internal tables or views, so you can query, analyze, and visually present them using designated tools like SSMS. With Package Deployment Model, SSIS package execution logs can be stored in file system or Azure Files as CSV files that you still need to parse and process using other designated tools before you can query, analyze, and visually present them.
 
 Now with [Azure Monitor](../azure-monitor/data-platform.md) integration, you can query, analyze, and visually present all metrics and logs generated from SSIS IR operations and SSIS package executions on Azure portal. Additionally, you can also raise alerts on them.
+
+
 
 ## Configure diagnostic settings and workspace for SSIS operations
 

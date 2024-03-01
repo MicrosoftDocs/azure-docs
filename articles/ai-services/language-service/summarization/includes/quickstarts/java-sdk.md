@@ -3,9 +3,9 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 12/12/2022
-ms.custom: devx-track-java, ignite-fall-2021
-ms.author: aahi
+ms.date: 12/19/2023
+ms.custom: devx-track-java
+ms.author: jboback
 ---
 
 [Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true) | [More samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.3.0) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics)

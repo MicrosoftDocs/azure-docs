@@ -61,6 +61,20 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
   -	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.monitor.azure.com)
   -	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)  
     (If you use private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)).
+- **Disk Space**: Required disk space can vary greatly depending upon how an agent is utilized or if the agent is unable to communicate with the destinations where it is instructed to send monitoring data. By default the agent requires 10Gb of disk space to run. The following provides guidance for capacity planning:
+
+| Purpose | Environment | Path | Suggested Space |
+|:---|:---|:---|:---|
+| Download and install packages | Linux | /var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{Version}/ | 500 MB |
+| Download and install packages | Windows | C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent | 500 MB| 
+| Extension Logs | Linux (Azure VM) | /var/log/azure/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent/ | 100 MB |
+| Extension Logs | Linux (Azure Arc) | /var/lib/GuestConfig/extension_logs/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}/ | 100 MB |
+| Extension Logs | Windows (Azure VM) | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent | 100 MB |
+| Extension Logs | Windows (Azure Arc) | C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent | 100 MB |
+| Agent Cache | Linux | /etc/opt/microsoft/azuremonitoragent, /var/opt/microsoft/azuremonitoragent | 500 MB |
+| Agent Cache | Windows (Azure VM) | C:\WindowsAzure\Resources\AMADataStore.{DataStoreName} | 10.5 GB |
+| Agent Cache | Windows (Azure Arc) | C:\Resources\Directory\AMADataStore. {DataStoreName} | 10.5 GB |
+| Event Cache | Linux | /var/opt/microsoft/azuremonitoragent/events | 10 GB |
 
 > [!NOTE]
 > This article only pertains to agent installation or management. After you install the agent, you must review the next article to [configure data collection rules and associate them with the machines](./data-collection-rule-azure-monitor-agent.md) with agents installed. *Azure Monitor Agents can't function without being associated with data collection rules.*
@@ -83,7 +97,7 @@ Use the following PowerShell commands to install Azure Monitor Agent on Azure vi
 
 - Windows
   ```powershell
-  Set-AzVMExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true -SettingString '{"authentication":{"managedIdentity":{"identifier-name":"mi_res_id","identifier-value":/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"}}}'
+  Set-AzVMExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <version-number> -EnableAutomaticUpgrade $true -SettingString '{"authentication":{"managedIdentity":{"identifier-name":"mi_res_id","identifier-value":"/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"}}}'
   ```
 
 - Linux
@@ -394,16 +408,20 @@ There are built-in policy initiatives for Windows and Linux virtual machines, sc
 - [Deploy Windows Azure Monitor Agent with user-assigned managed identity-based auth and associate with Data Collection Rule](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F0d1b56c6-6d1f-4a5d-8695-b15efbea6b49/scopes~/%5B%22%2Fsubscriptions%2Fae71ef11-a03f-4b4f-a0e6-ef144727c711%22%5D)
 - [Deploy Linux Azure Monitor Agent with user-assigned managed identity-based auth and associate with Data Collection Rule](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fbabf8e94-780b-4b4d-abaa-4830136a8725/scopes~/%5B%22%2Fsubscriptions%2Fae71ef11-a03f-4b4f-a0e6-ef144727c711%22%5D)  
 
+> [!NOTE]
+> The policy definitions only include the list of Windows and Linux versions that Microsoft supports. To add a custom image, use the `Additional Virtual Machine Images` parameter.
 
 These initiatives above comprise individual policies that:
 
 - (Optional) Create and assign built-in user-assigned managed identity, per subscription, per region. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#policy-definition-and-details).
-   - `Bring Your Own User-Assigned Identity`: If set to `true`, it creates the built-in user-assigned managed identity in the predefined resource group and assigns it to all machines that the policy is applied to. If set to `false`, you can instead use existing user-assigned identity that *you must assign* to the machines beforehand.
+   - `Bring Your Own User-Assigned Identity`: If set to `false`, it creates the built-in user-assigned managed identity in the predefined resource group and assigns it to all the machines that the policy is applied to. Location of the resource group can be configured in the `Built-In-Identity-RG Location` parameter.
+     If set to `true`, you can instead use an existing user-assigned identity that is automatically assigned to all the machines that the policy is applied to.
 - Install Azure Monitor Agent extension on the machine, and configure it to use user-assigned identity as specified by the following parameters.
-  - `Bring Your Own User-Assigned Managed Identity`: If set to `false`, it configures the agent to use the built-in user-assigned managed identity created by the preceding policy. If set to `true`, it configures the agent to use an existing user-assigned identity that *you must assign* to the machines in scope beforehand.
+  - `Bring Your Own User-Assigned Managed Identity`: If set to `false`, it configures the agent to use the built-in user-assigned managed identity created by the preceding policy. If set to `true`, it configures the agent to use an existing user-assigned identity.
   - `User-Assigned Managed Identity Name`: If you use your own identity (selected `true`), specify the name of the identity that's assigned to the machines.
   - `User-Assigned Managed Identity Resource Group`: If you use your own identity (selected `true`), specify the resource group where the identity exists.
   - `Additional Virtual Machine Images`: Pass additional VM image names that you want to apply the policy to, if not already included.
+  - `Built-In-Identity-RG Location`: If you use built-in user-assigned managed identity, specify the location where the identity and the resource group should be created. This parameter is only used when 'Bring Your Own User-Assigned Managed Identity' parameter is false.
 - Create and deploy the association to link the machine to specified data collection rule.
    - `Data Collection Rule Resource Id`: The Azure Resource Manager resourceId of the rule you want to associate via this policy to all machines the policy is applied to.
 

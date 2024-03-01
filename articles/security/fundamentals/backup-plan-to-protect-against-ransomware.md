@@ -8,7 +8,6 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 08/29/2023
-ms.custom: ignite-fall-2021
 ---
 
 # Backup and restore plan to protect against ransomware
@@ -24,7 +23,7 @@ This article addresses what to do before an attack to protect your critical busi
 
 Ransomware is a type of extortion attack that encrypts files and folders, preventing access to important data and systems. Attackers use ransomware to extort money from victims by demanding money, usually in the form of cryptocurrencies, in exchange for a decryption key or in exchange for not releasing sensitive data to the dark web or the public internet.
 
-While early ransomware mostly used malware that spread with phishing or between devices, [human-operated ransomware](/security/compass/human-operated-ransomware) has emerged where a gang of active attackers, driven by human attack operators, target all systems in an organization (rather than a single device or set of devices). An attack can:
+While early ransomware mostly used malware that spread with phishing or between devices, human-operated ransomware has emerged where a gang of active attackers, driven by human attack operators, target all systems in an organization (rather than a single device or set of devices). An attack can:
 
 - Encrypt your data
 - Exfiltrate your data
@@ -158,7 +157,7 @@ After a ransomware attack or an incident response simulation, take the following
 
 ## Next steps
 
-In this article, you learned how to improve your backup and restore plan to protect against ransomware. For best practices on deploying ransomware protection, see [Rapidly protect against ransomware and extortion](/security/compass/protect-against-ransomware).
+In this article, you learned how to improve your backup and restore plan to protect against ransomware. For best practices on deploying ransomware protection, see Rapidly protect against ransomware and extortion.
 
 Key industry information:
 

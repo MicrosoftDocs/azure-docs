@@ -18,7 +18,7 @@ For those experiencing predictable daily traffic patterns and who have a reliabl
 
 While autoscaling is commonly utilized, it’s important to note that Application Gateway doesn't currently support prescheduled capacity adjustments natively.
 
-The goal is to use Azure Automation to create a schedule for running runbooks that adjust the minimum autoscaling capacity of Application Gateway to meet traffic demands.
+The goal is to use Azure Automation to create a schedule for running runbooks that adjust the minimum autoscaling capacity of Application Gateway to meet traffic demands during peak vs non peak hours.
 
 ## Set up scheduled autoscaling 
 
@@ -28,7 +28,7 @@ To implement scheduled autoscaling:
 3.	Create PowerShell runbooks for increasing and decreasing min autoscaling capacity for the Application Gateway resource.
 4.	Create the schedules during which the runbooks need to be implemented.
 5.	Associate the runbooks with their respective schedules.
-6.	Associate the system assigned managed identity noted in step 2 with the Application Gateway resource.
+6.	Associate the system assigned managed identity noted in step 2 with the Application Gateway and Application Gateway VNET resource.
 
 ## Configure automation
 
@@ -73,7 +73,12 @@ Next, create the following two schedules:
    | --- | --- |  
    |IncreaseMin |	Falls back on native autoscaling. Next run of DecreaseMin should be no-op as the count doesn’t need to be adjusted. | 
    |DecreaseMin |	Additional cost to the customer for the (unintended) capacity that is provisioned for those hours. Next run of IncreaseMin should be no-op because the count doesn’t need to be adjusted. | 
+
+- Can the autoscale configurations be changed multiple times per day?
   
+  Frequent adjustments to autoscale configurations are not advised. For optimal balance, consider scheduling updates twice 
+  daily to coincide with peak and non-peak usage pattern.
+   
 > [!NOTE]
 > Send email to agschedule-autoscale@microsoft.com if you have questions or need help to set up managed and scheduled autoscale for your deployments. 
 

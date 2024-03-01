@@ -452,7 +452,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     
     $body = $staticData;
     $headers = @{"Authorization"="Bearer $bearerToken";"Content-Type"="application/json"};
-    $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/$($streamName)?api-version=2021-11-01-preview"
+    $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/$($streamName)?api-version=2023-01-01"
     
     $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers
     ```

@@ -3,9 +3,9 @@ title: Disable authentication as ARM template
 description: "Disabling azureADAuthenticationAsArmPolicy will force the registry to use ACR audience token."
 ms.author: tejaswikolli
 ms.service: container-registry
+ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: tutorial  #Don't change.
 ms.date: 10/31/2023
-
 ---
 
 # Disable authentication as ARM template

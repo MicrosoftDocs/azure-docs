@@ -245,7 +245,6 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 
 | Variable | Value |
 | -------- | ----- |
-| AZ_ACR_NAME | (your Azure Container Registry instance, for example. azurearctest.azurecr.io) |
 | AZURE_SUBSCRIPTION | (your Azure Service Connection, which should be **arc-demo-acr** from earlier in the tutorial) |
 | AZ_ACR_NAME | Azure ACR name, for example arc-demo-acr |
 | ENVIRONMENT_NAME | Dev |

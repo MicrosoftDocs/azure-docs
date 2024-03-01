@@ -173,6 +173,8 @@ items:
       href: protect-azure-kubernetes-service.md
     - name: Protect Office 365
       href: protect-office-365.md
+    - name: Detect malware with Microsoft Sentinel
+      href: detect-malware-with-sentinel.md
   - name: Migrate
     items:
     - name: Migrate to Azure Firewall Premium
@@ -228,7 +230,7 @@ items:
   items:
   - name: FAQ
     href: firewall-faq.yml
-  - name: Known issues
+  - name: Known issues and limitations
     href: firewall-known-issues.md
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md

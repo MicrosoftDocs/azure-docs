@@ -80,7 +80,7 @@ You can define a data collection rule to send data from multiple machines to mul
 
 ### [API](#tab/api)
 
-1. Create a DCR file by using the JSON format shown in [Sample DCR](data-collection-rule-sample-agent.md).
+1. Create a DCR file by using the JSON format shown in [Sample DCR](../essentials/data-collection-rule-samples.md#azure-monitor-agent---events-and-performance-data).
 
 1. Create the rule by using the [REST API](/rest/api/monitor/datacollectionrules/create#examples).
 

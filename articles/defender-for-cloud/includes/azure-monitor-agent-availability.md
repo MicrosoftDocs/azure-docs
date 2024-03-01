@@ -2,7 +2,6 @@
 author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 11/02/2023
 ---

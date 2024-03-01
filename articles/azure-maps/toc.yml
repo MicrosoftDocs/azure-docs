@@ -367,6 +367,8 @@ items:
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
       href: power-bi-visual-add-bubble-layer.md
+    - name: Add a cluster bubble layer
+      href: power-bi-visual-cluster-bubbles.md
     - name: Add a pie chart layer
       href: power-bi-visual-add-pie-chart-layer.md
     - name: Add a 3D column layer
@@ -419,74 +421,10 @@ items:
       href: supported-search-categories.md
   - name: REST
     items:
-    - name: Overview
-      href: /rest/api/maps
-    - name: Data
-      href: /rest/api/maps/data
-    - name: Data V2
-      href: /rest/api/maps/data-v2
-    - name: Data Registry
-      href: /rest/api/maps/data-registry
-    - name: Geolocation
-      href: /rest/api/maps/geolocation
-    - name: Render
-      href: /rest/api/maps/render
-    - name: Render V2
-      href: /rest/api/maps/render-v2
-    - name: Route
-      href: /rest/api/maps/route
-    - name: Search
-      href: /rest/api/maps/search
-    - name: Search V2
-      href: /rest/api/maps/search-v2
-    - name: Spatial
-      href: /rest/api/maps/spatial
-    - name: Timezone
-      href: /rest/api/maps/timezone
-    - name: Traffic
-      href: /rest/api/maps/traffic
-    - name: Weather
-      href: /rest/api/maps/weather
-    - name: Maps Creator
-      items:
-      - name: Overview
-        href: /rest/api/maps-creator/
-      - name: 2023-03-01-preview
-        items:
-        - name: Alias
-          href: /rest/api/maps/2023-03-01-preview/alias
-        - name: Conversion
-          href: /rest/api/maps/2023-03-01-preview/conversion		
-        - name: Dataset
-          href: /rest/api/maps/2023-03-01-preview/dataset
-        - name: Feature State
-          href: /rest/api/maps/2023-03-01-preview/feature-state
-        - name: Features
-          href: /rest/api/maps/2023-03-01-preview/features
-        - name: Map configuration
-          href: /rest/api/maps/2023-03-01-preview/map-configuration
-        - name: Routeset
-          href: /rest/api/maps/2023-03-01-preview/routeset
-        - name: Style
-          href: /rest/api/maps/2023-03-01-preview/style
-        - name: Tileset
-          href: /rest/api/maps/2023-03-01-preview/tileset
-        - name: Wayfinding
-          href: /rest/api/maps/2023-03-01-preview/wayfinding
-      - name: V2
-        items:
-          - name: Alias
-            href: /rest/api/maps/v2/alias
-          - name: Conversion
-            href: /rest/api/maps/v2/conversion
-          - name: Dataset
-            href: /rest/api/maps/v2/dataset
-          - name: Feature State
-            href: /rest/api/maps/v2/feature-state
-          - name: Tileset
-            href: /rest/api/maps/v2/tileset
-          - name: WFS
-            href: /rest/api/maps/v2/wfs
+    - name: Maps REST API
+      href: rest-api-azure-maps.md
+    - name: Maps Creator REST API
+      href: rest-api-creator.md
     - name: Maps account management
       href: /rest/api/maps-management/
   - name: JavaScript

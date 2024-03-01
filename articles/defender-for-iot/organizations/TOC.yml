@@ -203,6 +203,8 @@
     - name: Stream cloud alerts to a partner SIEM
       href: integrations/send-cloud-data-to-partners.md
       displayName: Splunk
+    - name: Aruba ClearPass
+      href: tutorial-clearpass.md
     - name: CyberArk
       href: tutorial-cyberark.md
     - name: Forescout
@@ -215,22 +217,18 @@
       href: integrations/logrhythm.md
     - name: Micro Focus ArcSight
       href: integrations/arcsight.md
+    - name: Microsoft Sentinel (legacy)
+      href: integrations/on-premises-sentinel.md
+    - name: Palo Alto
+      href: tutorial-palo-alto.md
     - name: RSA NetWitness
       href: integrations/netwitness.md
     - name: ServiceNow
       href: tutorial-servicenow.md
-    - name: Legacy integrations
-      items:
-      - name: Aruba ClearPass
-        href: tutorial-clearpass.md
-      - name: Microsoft Sentinel
-        href: integrations/on-premises-sentinel.md
-      - name: Palo Alto
-        href: tutorial-palo-alto.md
-      - name: ServiceNow
-        href: integrations/service-now-legacy.md
-      - name: Splunk
-        href: tutorial-splunk.md
+    - name: ServiceNow (legacy)
+      href: integrations/service-now-legacy.md
+    - name: Splunk
+      href: tutorial-splunk.md
   - name: Maintain your Defender for IoT system
     items:
     - name: Manage billing plans
@@ -288,9 +286,6 @@
           displayName: activation, time zone, SMTP, PCAP, SSH, ERSPAN
         - name: Configure SNMP monitoring
           href: how-to-set-up-snmp-mib-monitoring.md
-        - name: Add support for proprietary protocols
-          href: resources-manage-proprietary-protocols.md
-          displayName: Horizon
         - name: Maintain threat intelligence packages
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Troubleshoot OT sensors
@@ -359,6 +354,8 @@
       href: best-practices/sample-connectivity-models.md
     - name: Networking requirements
       href: networking-requirements.md
+    - name: End User License Agreement
+      href: /legal/defender-for-iot/sensor-software-eula?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
     - name: OT monitoring appliances
       items:
       - name: Overview
@@ -404,7 +401,7 @@
           href: appliance-catalog/hpe-edgeline-el300.md
         - name: HPE ProLiant DL20 Gen10 (L500 Rugged)
           href: appliance-catalog/hpe-proliant-dl20-smb-legacy.md
-        - name: Neousys Nuvo-500LP (L100 Rugged)
+        - name: Neousys Nuvo-5006LP (L100 Rugged)
           href: appliance-catalog/neousys-nuvo-5006lp.md
   - name: System maintenance references
     items:

@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 04/28/2023
+ms.date: 01/04/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions

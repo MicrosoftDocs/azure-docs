@@ -5,7 +5,7 @@ author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 11/24/2023
+ms.date: 01/12/2024
 ---
 
 #  Azure Web PubSub trigger and bindings for Azure Functions
@@ -91,7 +91,46 @@ public static UserEventResponse Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript Model v4](#tab/javascript-v4)
+
+The following example shows a Web PubSub trigger [JavaScript function](../azure-functions/functions-reference-node.md). 
+
+```js
+const { app, trigger } = require('@azure/functions');
+
+const wpsTrigger = trigger.generic({
+    type: 'webPubSubTrigger',
+    name: 'request',
+    hub: '<hub>',
+    eventName: 'message',
+    eventType: 'user'
+});
+
+app.generic('message', {
+    trigger: wpsTrigger,
+    handler: async (request, context) => {
+        context.log('Request from: ', request.connectionContext.userId);
+        context.log('Request message data: ', request.data);
+        context.log('Request message dataType: ', request.dataType);
+    }
+});
+```
+
+`WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event, when server can check and deny the client request, or send message to the request client directly. In JavaScript weakly typed language, it's deserialized regarding the object keys. And `EventErrorResponse` has the highest priority compare to rest objects, that if `code` is in the return, then it's parsed to `EventErrorResponse` and client connection is dropped.
+
+```js
+app.generic('message', {
+    trigger: wpsTrigger,
+    handler: async (request, context) => {
+          return { 
+              "data": "ack",
+              "dataType" : "text"
+          };
+    }
+});
+```
+
+# [JavaScript Model v3](#tab/javascript-v3)
 
 Define trigger binding in `function.json`.
 
@@ -227,7 +266,29 @@ public static WebPubSubConnection Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript Model v4](#tab/javascript-v4)
+
+```js
+const { app, input } = require('@azure/functions');
+
+const connection = input.generic({
+    type: 'webPubSubConnection',
+    name: 'connection',
+    userId: '{query.userId}',
+    hub: '<hub>'
+});
+
+app.http('negotiate', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    extraInputs: [connection],
+    handler: async (request, context) => {
+        return { body: JSON.stringify(context.extraInputs.get('connection')) };
+    },
+});
+```
+
+# [JavaScript Model v3](#tab/javascript-v3)
 
 Define input bindings in `function.json`.
 
@@ -289,7 +350,7 @@ public static WebPubSubConnection Run(
 # [C#](#tab/csharp)
 
 > [!NOTE]
-> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme?view=azure-dotnet).
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme).
 > ```cs
 > [FunctionName("WebPubSubConnectionCustomRoles")]
 > public static async Task<Uri> Run(
@@ -303,10 +364,28 @@ public static WebPubSubConnection Run(
 > }
 > ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript Model v4](#tab/javascript-v4)
 
 > [!NOTE]
-> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub?view=azure-node-latest).
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub).
+> ```js
+> const { app } = require('@azure/functions');
+> const { WebPubSubServiceClient } = require('@azure/web-pubsub');
+> app.http('negotiate', {
+>     methods: ['GET', 'POST'],
+>     authLevel: 'anonymous',
+>     handler: async (request, context) => {
+>         const serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, "<hub>");
+>         let token = await serviceClient.getAuthenticationToken({ userId: req.query.userid, roles: ["webpubsub.joinLeaveGroup", "webpubsub.sendToGroup"] });
+>         return { body: token.url };
+>     },
+> });
+> ```
+
+# [JavaScript Model v3](#tab/javascript-v3)
+
+> [!NOTE]
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub).
 > 
 > Define input bindings in `function.json`.
 > 
@@ -336,7 +415,7 @@ public static WebPubSubConnection Run(
 >
 > module.exports = async function (context, req) {
 >   const serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, "<hub>");
->   token = await serviceClient.getAuthenticationToken({ userId: req.query.userid, roles: ["webpubsub.joinLeaveGroup", "webpubsub.sendToGroup"] });
+>   let token = await serviceClient.getAuthenticationToken({ userId: req.query.userid, roles: ["webpubsub.joinLeaveGroup", "webpubsub.sendToGroup"] });
 >   context.res = { body: token.url };
 >   context.done();
 > };
@@ -370,7 +449,29 @@ public static object Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript Model v4](#tab/javascript-v4)
+
+```js
+const { app, input } = require('@azure/functions');
+
+const wpsContext = input.generic({
+    type: 'webPubSubContext',
+    name: 'wpsContext'
+});
+
+app.http('connect', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    extraInputs: [wpsContext],
+    handler: async (request, context) => {
+        var wpsRequest = context.extraInputs.get('wpsContext');
+
+        return { "userId": wpsRequest.request.connectionContext.userId };
+    }
+});
+```
+
+# [JavaScript Model v3](#tab/javascript-v3)
 
 Define input bindings in `function.json`.
 
@@ -455,7 +556,17 @@ The following table explains the binding configuration properties that you set i
 | Uri | Uri | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request. |
 | AccessToken | string | Generated `AccessToken` based on request UserId and service information. |
 
-# [JavaScript](#tab/javascript)
+# [JavaScript Model v4](#tab/javascript-v4)
+
+`WebPubSubConnection` provides below properties.
+
+| Binding Name | Description |
+|---------|---------|
+| baseUrl | Web PubSub client connection uri. |
+| url | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request. |
+| accessToken | Generated `AccessToken` based on request UserId and service information. |
+
+# [JavaScript Model v3](#tab/javascript-v3)
 
 `WebPubSubConnection` provides below properties.
 
@@ -530,7 +641,31 @@ public static async Task RunAsync(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript Model v4](#tab/javascript-v4)
+
+```js
+const { app, output } = require('@azure/functions');
+const wpsMsg = output.generic({
+    type: 'webPubSub',
+    name: 'actions',
+    hub: '<hub>',
+});
+
+app.http('message', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    extraOutputs: [wpsMsg],
+    handler: async (request, context) => {
+        context.extraOutputs.set(wpsMsg, [{
+            "actionName": "sendToAll",
+            "data": `Hello world`,
+            "dataType": `text`
+        }]);
+    }
+});
+```
+
+# [JavaScript Model v3](#tab/javascript-v3)
 
 Define bindings in `functions.json`.
 
@@ -588,26 +723,52 @@ In C# language, we provide a few static methods under `WebPubSubAction` to help 
 | `GrantPermissionAction`|ConnectionId, Permission, TargetName |
 | `RevokePermissionAction`|ConnectionId, Permission, TargetName |
 
-# [JavaScript](#tab/javascript)
+# [JavaScript Model v4](#tab/javascript-v4)
 
 In weakly typed language like `javascript`, **`actionName`** is the key parameter to resolve the type, available actions are listed as below.
 
 | ActionName | Properties |
 | -- | -- |
-| `SendToAll`|Data, DataType, Excluded |
-| `SendToGroup`|Group, Data, DataType, Excluded |
-| `SendToUser`|UserId, Data, DataType |
-| `SendToConnection`|ConnectionId, Data, DataType |
-| `AddUserToGroup`|UserId, Group |
-| `RemoveUserFromGroup`|UserId, Group |
-| `RemoveUserFromAllGroups`|UserId |
-| `AddConnectionToGroup`|ConnectionId, Group |
-| `RemoveConnectionFromGroup`|ConnectionId, Group |
-| `CloseAllConnections`|Excluded, Reason |
-| `CloseClientConnection`|ConnectionId, Reason |
-| `CloseGroupConnections`|Group, Excluded, Reason |
-| `GrantPermission`|ConnectionId, Permission, TargetName |
-| `RevokePermission`|ConnectionId, Permission, TargetName |
+| `sendToAll`|Data, DataType, Excluded |
+| `sendToGroup`|Group, Data, DataType, Excluded |
+| `sendToUser`|UserId, Data, DataType |
+| `sendToConnection`|ConnectionId, Data, DataType |
+| `addUserToGroup`|UserId, Group |
+| `removeUserFromGroup`|UserId, Group |
+| `removeUserFromAllGroups`|UserId |
+| `addConnectionToGroup`|ConnectionId, Group |
+| `removeConnectionFromGroup`|ConnectionId, Group |
+| `closeAllConnections`|Excluded, Reason |
+| `closeClientConnection`|ConnectionId, Reason |
+| `closeGroupConnections`|Group, Excluded, Reason |
+| `grantPermission`|ConnectionId, Permission, TargetName |
+| `revokePermission`|ConnectionId, Permission, TargetName |
+
+> [!IMPORTANT]
+> The message data property in the send message related actions must be `string` if data type is set to `json` or `text` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need. This is applied to any place using message property, for example, `UserEventResponse.Data` working with `WebPubSubTrigger`. 
+> 
+> When data type is set to `binary`, it's allowed to leverage binding naturally supported `dataType` as `binary` configured in the `function.json`, see [Trigger and binding definitions](../azure-functions/functions-triggers-bindings.md?tabs=csharp#trigger-and-binding-definitions) for details.
+
+# [JavaScript Model v3](#tab/javascript-v3)
+
+In weakly typed language like `javascript`, **`actionName`** is the key parameter to resolve the type, available actions are listed as below.
+
+| ActionName | Properties |
+| -- | -- |
+| `sendToAll`|Data, DataType, Excluded |
+| `sendToGroup`|Group, Data, DataType, Excluded |
+| `sendToUser`|UserId, Data, DataType |
+| `sendToConnection`|ConnectionId, Data, DataType |
+| `addUserToGroup`|UserId, Group |
+| `removeUserFromGroup`|UserId, Group |
+| `removeUserFromAllGroups`|UserId |
+| `addConnectionToGroup`|ConnectionId, Group |
+| `removeConnectionFromGroup`|ConnectionId, Group |
+| `closeAllConnections`|Excluded, Reason |
+| `closeClientConnection`|ConnectionId, Reason |
+| `closeGroupConnections`|Group, Excluded, Reason |
+| `grantPermission`|ConnectionId, Permission, TargetName |
+| `revokePermission`|ConnectionId, Permission, TargetName |
 
 > [!IMPORTANT]
 > The message data property in the send message related actions must be `string` if data type is set to `json` or `text` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need. This is applied to any place using message property, for example, `UserEventResponse.Data` working with `WebPubSubTrigger`. 

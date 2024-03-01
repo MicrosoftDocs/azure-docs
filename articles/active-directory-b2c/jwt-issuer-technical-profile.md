@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer implementing custom policies in Azure Active Directory B2C, I want to define a technical profile for a JWT token issuer, so that I can emit a JWT token that is returned to the relying party application during the authentication flow.
+
 ---
 
 # Define a technical profile for a JWT token issuer in an Azure Active Directory B2C custom policy

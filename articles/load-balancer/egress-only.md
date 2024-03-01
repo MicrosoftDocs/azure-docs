@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 10/24/2023
 ms.author: mbender
-ms.custom: template-how-to, seodec18
+ms.custom: template-how-to
 ---
 
 # Outbound-only load balancer configuration

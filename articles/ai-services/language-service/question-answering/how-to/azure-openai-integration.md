@@ -6,7 +6,7 @@ ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: how-to
-ms.date: 08/02/2023
+ms.date: 02/09/2024
 ---
 
 # Connect Custom Question Answering with Azure OpenAI on your data 
@@ -72,7 +72,7 @@ At the same time, customers often require a custom answer authoring experience t
 
     :::image type="content" source="../media/question-answering/chat-playground.png" alt-text="A screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/question-answering/chat-playground.png":::
 
-You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. You can also launch a [web app](../../..//openai/concepts/use-your-data.md#using-the-web-app) to chat with the model over the web.
+You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. You can also launch a [web app](../../../openai/how-to/use-web-app.md) to chat with the model over the web.
 
 ## Next steps
 * [Using Azure OpenAI on your data](../../../openai/concepts/use-your-data.md) 

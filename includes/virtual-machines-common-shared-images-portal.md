@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: virtual-machines
- author: cynthn
+author: jushiman
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 11/06/2019
- ms.author: cynthn
+ms.author: jushiman
  ms.custom: include file
 ---
 

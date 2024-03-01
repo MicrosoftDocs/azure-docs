@@ -1,12 +1,12 @@
 ---
-title: Create metric alert rules in Container insights (preview)
+title: Metric alert rules for Kubernetes clusters (preview)
 description: Describes how to create recommended metric alerts rules for a Kubernetes cluster in Container insights.
 ms.topic: conceptual
 ms.date: 03/13/2023
 ms.reviewer: aul
 ---
 
-# Metric alert rules in Container insights (preview)
+# Metric alert rules for Kubernetes clusters (preview)
 
 Metric alerts in Azure Monitor proactively identify issues related to system resources of your Azure resources, including monitored Kubernetes clusters. Container insights provides preconfigured alert rules so that you don't have to create your own. This article describes the different types of alert rules you can create and how to enable and configure them.
 
@@ -41,14 +41,13 @@ The methods currently available for creating Prometheus alert rules are Azure Re
 
 1. Download the template that includes the set of alert rules you want to enable. For a list of the rules for each, see [Alert rule details](#alert-rule-details).
 
-   - [Community alerts](https://aka.ms/azureprometheus-communityalerts)
-   - [Recommended alerts](https://aka.ms/azureprometheus-recommendedalerts)
+   [Recommended metric alerts](https://aka.ms/azureprometheus-recommendedmetricalerts)
 
 2. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md#deploy-the-sample-templates).
 
 ### [Bicep template](#tab/bicep)
 
-1. To deploy community and recommended alerts, follow this [template](https://aka.ms/azureprometheus-alerts-bicep) and follow the README.md file in the same folder for how to deploy.
+1. To deploy recommended metric alerts, follow this [template](https://aka.ms/azureprometheus-recommendedmetricalertsbicep) and follow the README.md file in the same folder for how to deploy.
 
 
 
@@ -110,8 +109,7 @@ The configuration change can take a few minutes to finish before it takes effect
 
 ### Prerequisites
 
-  - You might need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-custom-metrics.md).
-  - See the supported regions for custom metrics at [Supported regions](../essentials/metrics-custom-overview.md#supported-regions).
+You might need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-custom-metrics.md).
 
 ### Enable and configure metric alert rules
 
@@ -182,7 +180,7 @@ The following sections present information on the alert rules provided by Contai
 
 ### Community alert rules
 
-These handpicked alerts come from the Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-communityalerts):
+These handpicked alerts come from the Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-recommendedmetricalerts):
 
 | Alert name | Description | Default threshold |
 |:---|:---|:---|
@@ -208,7 +206,7 @@ These handpicked alerts come from the Prometheus community. Source code for thes
 ### Recommended alert rules
 
 The following table lists the recommended alert rules that you can enable for either Prometheus metrics or custom metrics.
-Source code for the recommended alerts can be found in [GitHub](https://github.com/Azure/prometheus-collector/blob/68ab5b195a77d72b0b8e36e5565b645c3d1e2d5d/mixins/kubernetes/rules/recording_and_alerting_rules/templates/ci_recommended_alerts.json):
+Source code for the recommended alerts can be found in [GitHub](https://aka.ms/azureprometheus-recommendedmetricalerts):
 
 | Prometheus alert name | Custom metric alert name | Description | Default threshold |
 |:---|:---|:---|:---|
@@ -226,9 +224,9 @@ Source code for the recommended alerts can be found in [GitHub](https://github.c
 | Completed job count | Completed job count | Calculates number of jobs completed more than six hours ago. | 0 |
 
 > [!NOTE]
-> The recommended alert rules in the Azure portal also include a log alert rule called *Daily Data Cap Breach*. This rule alerts when the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This alert rule isn't included with the Prometheus alert rules.
+> The recommended alert rules in the Azure portal also include a log search alert rule called *Daily Data Cap Breach*. This rule alerts when the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This alert rule isn't included with the Prometheus alert rules.
 >
-> You can create this rule on your own by creating a [log alert rule](../alerts/alerts-types.md#log-alerts) that uses the query `_LogOperation | where Operation == "Data collection Status" | where Detail contains "OverQuota"`.
+> You can create this rule on your own by creating a [log search alert rule](../alerts/alerts-types.md#log-alerts) that uses the query `_LogOperation | where Operation == "Data collection Status" | where Detail contains "OverQuota"`.
 
 Common properties across all these alert rules include:
 
@@ -249,7 +247,7 @@ The following metrics have unique behavior characteristics:
 
 **Prometheus only**
 
-- If you want to collect `pvUsageExceededPercentage` and analyze it from [metrics explorer](../essentials/metrics-getting-started.md), configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for persistent volume utilization thresholds can be overridden in the ConfigMaps file under the section `alertable_metrics_configuration_settings.pv_utilization_thresholds`. For details related to configuring your ConfigMap configuration file, see [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps). Collection of persistent volume metrics with claims in the `kube-system` namespace are excluded by default. To enable collection in this namespace, use the section `[metric_collection_settings.collect_kube_system_pv_metrics]` in the ConfigMap file. For more information, see [Metric collection settings](./container-insights-agent-config.md#metric-collection-settings).
+- If you want to collect `pvUsageExceededPercentage` and analyze it from [metrics explorer](../essentials/metrics-getting-started.md), configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for persistent volume utilization thresholds can be overridden in the ConfigMaps file under the section `alertable_metrics_configuration_settings.pv_utilization_thresholds`. For details related to configuring your ConfigMap configuration file, see [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps). Collection of persistent volume metrics with claims in the `kube-system` namespace are excluded by default. To enable collection in this namespace, use the section `[metric_collection_settings.collect_kube_system_pv_metrics]` in the ConfigMap file. For more information, see [Metric collection settings](./container-insights-data-collection-configmap.md#data-collection-settings).
 - The `cpuExceededPercentage`, `memoryRssExceededPercentage`, and `memoryWorkingSetExceededPercentage` metrics are sent when the CPU, memory RSS, and Memory Working set values exceed the configured threshold. The default threshold is 95%. The `cpuThresholdViolated`, `memoryRssThresholdViolated`, and `memoryWorkingSetThresholdViolated` metrics are equal to 0 if the usage percentage is below the threshold and are equal to 1 if the usage percentage is above the threshold. These thresholds are exclusive of the alert condition threshold specified for the corresponding alert rule. If you want to collect these metrics and analyze them from [metrics explorer](../essentials/metrics-getting-started.md), configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for their container resource utilization thresholds can be overridden in the ConfigMaps file under the section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`. For details related to configuring your ConfigMap configuration file, see the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps).
 
 ## View alerts

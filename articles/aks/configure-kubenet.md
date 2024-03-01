@@ -59,6 +59,9 @@ With *Azure CNI*, each pod receives an IP address in the IP subnet and can commu
   * [Windows node pools](./windows-faq.md)
   * [Virtual nodes add-on](virtual-nodes.md#network-requirements)
 
+> [!NOTE]
+> Some of the system pods such as **konnectivity** within the cluster use the host node IP address rather than an IP from the overlay address space. The system pods will only use the node IP and not an IP address from the virtual network.
+
 ### IP address availability and exhaustion
 
 A common issue with *Azure CNI* is that the assigned IP address range is too small to then add more nodes when you scale or upgrade a cluster. The network team also might not be able to issue a large enough IP address range to support your expected application demands.
@@ -149,19 +152,6 @@ For more information to help you decide which network model to use, see [Compare
     * This address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed.
     * The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *--pod-cidr* of *10.244.0.0/16* assigns the first node *10.244.0.0/24*, the second node *10.244.1.0/24*, and the third node *10.244.2.0/24*.
     * As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
-
-> [!NOTE]
-> If you want to enable an AKS cluster to include a [Calico network policy][calico-network-policies], you can use the following command:
->
-> ```azurecli-interactive
-> az aks create \
->     --resource-group myResourceGroup \
->     --name myAKSCluster \
->     --node-count 3 \
->     --network-plugin kubenet \
->     --network-policy calico \
->     --vnet-subnet-id $SUBNET_ID 
-> ```
 
 ### Create an AKS cluster with user-assigned managed identity
 

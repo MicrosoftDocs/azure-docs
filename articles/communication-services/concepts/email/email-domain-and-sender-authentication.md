@@ -45,7 +45,7 @@ Email Communication Service resources are designed to enable domain validation s
 
 * [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-* [Get started by connecting Email Communication Service with an Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+* [Get started by connecting Email Communication Service with Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 

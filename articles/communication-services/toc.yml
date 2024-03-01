@@ -20,6 +20,8 @@ items:
       href: quickstarts/identity/access-tokens.md
     - name: Get a phone number
       href: quickstarts/telephony/get-phone-number.md
+    - name: Subscribe to events
+      href: quickstarts/events/subscribe-to-events.md
     - name: SDKs and APIs
       href: concepts/sdk-options.md
     - name: Designing your architecture
@@ -197,6 +199,8 @@ items:
     items: 
       - name: Submit a job for queuing and routing
         href: quickstarts/router/get-started-router.md
+      - name: Integrate Azure OpenAI with Job Router
+        href: quickstarts/router/job-router-azure-openai-integration.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
@@ -219,6 +223,16 @@ items:
     items:
     - name: Enable Managed Identity on Azure Communication Services resources
       href: how-tos/managed-identity.md
+  - name: Events and notifications
+    items:
+    - name: Subscribe to events
+      href: quickstarts/events/subscribe-to-events.md
+    - name: Validate events
+      href: how-tos/event-grid/view-events-request-bin.md
+    - name: Test events locally
+      href: how-tos/event-grid/local-testing-event-grid.md
+    - name: Deliver push notifications
+      href: concepts/notifications.md
 - name: Tutorials
   items:
   - name: SMS
@@ -245,10 +259,6 @@ items:
       items:
       - name: View SMS events
         href: quickstarts/sms/handle-sms-events.md
-      - name: Validate events
-        href: how-tos/event-grid/view-events-request-bin.md
-      - name: Local testing events
-        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -304,6 +314,8 @@ items:
         href: how-tos/calling-sdk/lobby.md
       - name: Manage Audio Filters
         href: how-tos/calling-sdk/manage-audio-filters.md
+      - name: PowerPoint Live
+        href: how-tos/calling-sdk/powerpoint-live.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
@@ -340,6 +352,8 @@ items:
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
       - name: Add video background effects
         href: quickstarts/voice-video-calling/get-started-video-effects.md
+      - name: Add Augmented Reality filters to your video calls
+        href: tutorials/add-video-augmented-reality-tutorial.md
     - name: Diagnostics
       items:
       - name: Diagnose your network
@@ -375,6 +389,11 @@ items:
         - name: 3. Microphone and camera setup before a call
           href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Migrating to Azure Communication Services
+      items:
+        - name: How to migrate from Twilio video to Azure Communication Services
+          href: tutorials/migrating-to-azure-communication-services-calling.md
+          displayName: migration, migrate, Twilio, move, shift
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS
@@ -383,26 +402,28 @@ items:
         href: how-tos/calling-sdk/push-notifications.md
       - name: Using the mobile UI Library for voice and video
         items: 
-        - name: Setup localization
+        - name: Set up localization
           href: how-tos/ui-library-sdk/localization.md
-        - name: Setup theming
+        - name: Set up theming
           href: how-tos/ui-library-sdk/theming.md
-        - name: Participant view data injection
+        - name: Inject participant view data
           href: how-tos/ui-library-sdk/data-model.md
-        - name: Skip Setup Screen
+        - name: Skip the setup screen
           href: how-tos/ui-library-sdk/skip-setup-screen.md
-        - name: Setup Orientation
+        - name: Set up orientation
           href: how-tos/ui-library-sdk/orientation.md
-        - name: Troubleshooting
+        - name: Set up picture-in-picture
+          href: how-tos/ui-library-sdk/picture-in-picture.md
+        - name: Set up CallKit
+          href: how-tos/ui-library-sdk/callkit.md
+        - name: Set up one-to-one calling and push notifications
+          href: how-tos/ui-library-sdk/one-to-one-calling.md
+        - name: Troubleshoot
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
       items:
       - name: View calling events
         href: quickstarts/voice-video-calling/handle-calling-events.md
-      - name: Validate events
-        href: how-tos/event-grid/view-events-request-bin.md
-      - name: Local testing events
-        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -445,12 +466,6 @@ items:
         href: tutorials/add-chat-push-notifications.md
       - name: Using chat SDK with React Native
         href: quickstarts/chat/react-native.md
-    - name: Events
-      items:
-      - name: Validate events
-        href: how-tos/event-grid/view-events-request-bin.md
-      - name: Locally testing events
-        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -491,12 +506,6 @@ items:
         href: quickstarts/voice-video-calling/get-started-call-recording.md
       - name: Record every call in the resource
         href: how-tos/call-automation/record-every-call.md
-    - name: Events
-      items:
-      - name: Validate events
-        href: how-tos/event-grid/view-events-request-bin.md
-      - name: Locally testing events
-        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -515,10 +524,6 @@ items:
       items:
       - name: View email events
         href: quickstarts/email/handle-email-events.md
-      - name: Validate events
-        href: how-tos/event-grid/view-events-request-bin.md
-      - name: Locally testing events
-        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable User Engagement Tracking
@@ -730,7 +735,7 @@ items:
       - name: Network recommendations
         href: concepts/voice-video-calling/network-requirements.md
         displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: Web best practices
+      - name: SDK best practices
         href: concepts/best-practices.md
         displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Call networking internals
@@ -775,8 +780,12 @@ items:
       href: ./concepts/voice-video-calling/retrieve-support-files.md
     - name: User experience
       href: concepts/voice-video-calling/user-experience.md
-    - name: Known issues
-      href: concepts/known-issues.md
+    - name: Known Issues
+      items:    
+      - name: WebJS calling SDK
+        href: concepts/voice-video-calling/known-issues-webjs.md
+      - name: Call Automation
+        href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Chat
     items:
     - name: Overview
@@ -789,16 +798,14 @@ items:
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Government clouds
       href: concepts/chat/government-cloud.md
+    - name: Translating chats
+      href: how-tos/chat-sdk/translating-chats.md
     - name: Events
       items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
       - name: Chat events
         href: ../event-grid/communication-services-chat-events.md
-    - name: Mobile integrations
-      items:
-      - name: Push notifications
-        href: concepts/notifications.md
     - name: Analytics
       items:
       - name: Chat logs
@@ -997,7 +1004,17 @@ items:
     href: /cli/azure/communication
   - name: REST API documentation
     href: /rest/api/communication/
-  - name: Calling 
+  - name: Azure Resource Manager
+    items:
+    - name: Azure Resource Manager (JavaScript)
+      href: /javascript/api/overview/azure/arm-communication-readme
+    - name: Azure Resource Manager (.NET)
+      href: /dotnet/api/overview/azure/resourcemanager.communication-readme
+    - name: Azure Resource Manager (Java)
+      href: /java/api/overview/azure/resourcemanager-communication-readme
+    - name: Azure Resource Manager (Python)
+      href: /python/api/overview/azure/mgmt-communication-readme
+  - name: Calling
     items:
     - name: Calling (JavaScript)
       href: /javascript/api/azure-communication-services/@azure/communication-calling/
@@ -1007,80 +1024,96 @@ items:
       href: /objectivec/communication-services/calling/
   - name: Call Automation
     items:
-    - name: Call Automation (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcallautomation
-    - name: Call Automation (Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-callautomation
     - name: Call Automation (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-callautomation
+      href: /javascript/api/overview/azure/communication-call-automation-readme
+    - name: Call Automation (.NET)
+      href: /dotnet/api/overview/azure/communication.callautomation-readme
+    - name: Call Automation (Java)
+      href: /java/api/overview/azure/communication-callautomation-readme
     - name: Call Automation (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-callautomation
+      href: /python/api/overview/azure/communication-callautomation-readme
   - name: Chat 
     items:
     - name: Chat (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-chat
+      href: /javascript/api/overview/azure/communication-chat-readme
     - name: Chat (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat
+      href: /dotnet/api/overview/azure/communication.chat-readme
     - name: Chat (Android/Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat
+      href: /java/api/overview/azure/communication-chat-readme
     - name: Chat (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat
+      href: /python/api/overview/azure/communication-chat-readme
     - name: Chat (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationChat/index.html
-  - name: SMS 
-    items:
-    - name: SMS (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-sms
-    - name: SMS (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms
-    - name: SMS (Android/Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms
-    - name: SMS (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms
   - name: Email 
     items:
     - name: Email (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-email
+      href: /javascript/api/overview/azure/communication-email-readme
     - name: Email (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-email
+      href: /dotnet/api/overview/azure/communication.email-readme
     - name: Email (Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-email
+      href: /java/api/overview/azure/communication-email-readme
     - name: Email (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-email
+      href: /python/api/overview/azure/communication-email-readme
   - name: Identity 
     items:
     - name: Identity (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-identity
+      href: /javascript/api/overview/azure/communication-identity-readme
     - name: Identity (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationidentity
-    - name: Identity (Android/Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
+      href: /dotnet/api/overview/azure/communication.identity-readme
+    - name: Identity (Java)
+      href: /java/api/overview/azure/communication-identity-readme
     - name: Identity (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
+      href: /python/api/overview/azure/communication-identity-readme
   - name: Job Router 
     items:
-    - name: Job Router (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationjobrouter
     - name: Job Router (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#section-7
-    - name: Job Router (Android/Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-jobrouter
+      href: /javascript/api/overview/azure/communication-job-router-rest-readme
+    - name: Job Router (.NET)
+      href: /dotnet/api/overview/azure/communication.jobrouter-readme
+    - name: Job Router (Java)
+      href: /java/api/overview/azure/communication-jobrouter-readme
     - name: Job Router (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-jobrouter
-  - name: Advanced Messaging
+      href: /python/api/overview/azure/communication-jobrouter-readme
+  - name: Network Traversal
     items:
-    - name: Advanced Messaging (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-messages
-  - name: Common 
+    - name: Network Traversal (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#section-8
+    - name: Network Traversal (.NET)
+      href: /dotnet/api/overview/azure/communication.networktraversal-readme
+    - name: Network Traversal (Java)
+      href: /java/api/overview/azure/communication-networktraversal-readme
+    - name: Network Traversal (Python)
+      href: /python/api/overview/azure/communication-networktraversal-readme
+  - name: Phone Numbers
     items:
-    - name: Common (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-common
-    - name: Common (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon
-    - name: Common (Android/Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
-    - name: Common (iOS)
-      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
+    - name: Phone Numbers (JavaScript)
+      href: /javascript/api/overview/azure/communication-phone-numbers-readme
+    - name: Phone Numbers (.NET)
+      href: /dotnet/api/overview/azure/communication.phonenumbers-readme
+    - name: Phone Numbers (Java)
+      href: /java/api/overview/azure/communication-phonenumbers-readme
+    - name: Phone Numbers (Python)
+      href: /python/api/overview/azure/communication-phonenumbers-readme
+  - name: Rooms
+    items:
+    - name: Rooms (JavaScript)
+      href: /javascript/api/overview/azure/communication-rooms-readme
+    - name: Rooms (.NET)
+      href: /dotnet/api/overview/azure/communication.rooms-readme
+    - name: Rooms (Java)
+      href: /java/api/overview/azure/communication-rooms-readme
+    - name: Rooms (Python)
+      href: /python/api/overview/azure/communication-rooms-readme
+  - name: SMS
+    items:
+    - name: SMS (JavaScript)
+      href: /javascript/api/overview/azure/communication-sms-readme
+    - name: SMS (.NET)
+      href: /dotnet/api/overview/azure/communication.sms-readme
+    - name: SMS (Java)
+      href: /java/api/overview/azure/communication-sms-readme
+    - name: SMS (Python)
+      href: /python/api/overview/azure/communication-sms-readme
   - name: UI Library
     items:
     - name: UI Library (JavaScript)
@@ -1093,18 +1126,40 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
+  - name: Advanced Messaging
+    items:
+    - name: Advanced Messaging (.NET)
+      href: /dotnet/api/overview/azure/communication.messages-readme
+  - name: Common
+    items:
+    - name: Common (JavaScript)
+      href: /javascript/api/overview/azure/communication-common-readme
+    - name: Common (.NET)
+      href: /dotnet/api/overview/azure/communication.common-readme
+    - name: Common (Android/Java)
+      href: /java/api/overview/azure/communication-common-readme
+    - name: Common (iOS)
+      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
   - name: Country phone number management
     items:
+    - name: Phone number management for Argentina
+      href: concepts/numbers/phone-number-management-for-argentina.md
     - name: Phone number management for Australia
       href: concepts/numbers/phone-number-management-for-australia.md
     - name: Phone number management for Austria
       href: concepts/numbers/phone-number-management-for-austria.md
     - name: Phone number management for Belgium
       href: concepts/numbers/phone-number-management-for-belgium.md
+    - name: Phone number management for Brazil
+      href: concepts/numbers/phone-number-management-for-brazil.md
     - name: Phone number management for Canada
       href: concepts/numbers/phone-number-management-for-canada.md
+    - name: Phone number management for Chile
+      href: concepts/numbers/phone-number-management-for-chile.md
     - name: Phone number management for China
       href: concepts/numbers/phone-number-management-for-china.md
+    - name: Phone number management for Colombia
+      href: concepts/numbers/phone-number-management-for-colombia.md
     - name: Phone number management for Czech Republic
       href: concepts/numbers/phone-number-management-for-czech-republic.md
     - name: Phone number management for Denmark
@@ -1137,6 +1192,8 @@ items:
       href: concepts/numbers/phone-number-management-for-luxembourg.md
     - name: Phone number management for Malaysia
       href: concepts/numbers/phone-number-management-for-malaysia.md
+    - name: Phone number management for Mexico
+      href: concepts/numbers/phone-number-management-for-mexico.md
     - name: Phone number management for Netherlands
       href: concepts/numbers/phone-number-management-for-netherlands.md
     - name: Phone number management for New Zealand
@@ -1157,6 +1214,8 @@ items:
       href: concepts/numbers/phone-number-management-for-slovakia.md
     - name: Phone number management for Slovenia
       href: concepts/numbers/phone-number-management-for-slovenia.md
+    - name: Phone number management for South Africa
+      href: concepts/numbers/phone-number-management-for-south-africa.md
     - name: Phone number management for South Korea
       href: concepts/numbers/phone-number-management-for-south-korea.md
     - name: Phone number management for Spain

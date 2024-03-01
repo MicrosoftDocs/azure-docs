@@ -47,9 +47,13 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 
 [!INCLUDE [azure-resource-graph-samples-table-healthresources](../../../../includes/resource-graph/samples/bytable/healthresources.md)]
 
+[!INCLUDE [virtual-instance-sap-solutions-vm-health](../../includes/resource-graph/query/virtual-instance-sap-solutions-vm-health.md)]
+
 ## HealthResourceChanges
 
 [!INCLUDE [Azure-resource-graph-samples-table-healthresourcechanges](../../../../includes/resource-graph/samples/bytable/healthresourcechanges.md)]
+
+[!INCLUDE [virtual-instance-sap-solutions-vm-health-changes](../../includes/resource-graph/query/virtual-instance-sap-solutions-vm-health-changes.md)]
 
 ## InsightResources
 

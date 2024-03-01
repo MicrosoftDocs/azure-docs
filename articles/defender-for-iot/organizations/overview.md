@@ -65,16 +65,6 @@ Install OT network sensors on-premises, at strategic locations in your network t
 
 For more information, see [System architecture for OT system monitoring](architecture.md).
 
-## Extend support to proprietary OT protocols
-
-IoT and industrial control system (ICS) devices can be secured using both embedded protocols and proprietary, custom, or nonstandard protocols. If you have devices that run on protocols that aren't supported by Defender for IoT out-of-the-box, use the Horizon Open Development Environment (ODE) SDK to develop dissector plug-ins to decode network traffic for your protocols.
-
-Create custom alerts for your plugin to pinpoint specific network activity and effectively update your security, IT, and operational teams. For example, have alerts triggered when:
-
-- The sensor detects a write command to a memory register on a specific IP address and Ethernet destination.
-- Any access is performed to a specific IP address.
-
-For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
 
 ## Protect enterprise IoT networks
 

@@ -4,8 +4,7 @@ description: You can create a question answering project from your own content, 
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: include
-ms.date: 06/06/2022
-ms.custom: ignite-fall-2021
+ms.date: 12/19/2023
 ---
 
 You can create a question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a question answering project from a product manual, to answer questions.

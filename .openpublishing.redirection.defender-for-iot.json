@@ -1,6 +1,11 @@
 {
     "redirections": [          
         {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/resources-manage-proprietary-protocols.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-individual-sensors#manage-custom-plugins-legacy",
+            "redirect_document_id": false
+        },      
+        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-set-up-high-availability.md",
             "redirect_url": "/azure/defender-for-iot/organizations/legacy-central-management/how-to-set-up-high-availability",
             "redirect_document_id": false

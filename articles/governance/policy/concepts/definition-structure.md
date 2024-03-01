@@ -3,8 +3,6 @@ title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
 ms.date: 08/15/2023
 ms.topic: conceptual
-ms.author: davidsmatlak
-author: davidsmatlak
 ---
 
 # Azure Policy definition structure
@@ -188,11 +186,13 @@ always stay the same, however their values change based on the individual fillin
 Parameters work the same way when building policies. By including parameters in a policy definition,
 you can reuse that policy for different scenarios by using different values.
 
+### Adding or removing parameters
+
 Parameters may be added to an existing and assigned definition. The new parameter must include the
 **defaultValue** property. This prevents existing assignments of the policy or initiative from
 indirectly being made invalid.
 
-Parameters can't be removed from a policy definition because there may be an assignment that sets the parameter value, and that reference would become broken. Instead of removing, you can classify the parameter as deprecated in the parameter metadata.
+Parameters can't be removed from a policy definition because there may be an assignment that sets the parameter value, and that reference would become broken. Some built-in policy definitions have deprecated parameters using metadata `"deprecated": true`, which hides the parameter when assigning the definition in Azure Portal. While this is not supported for custom policy definitions, another option is to duplicate and create a new custom policy definition without the parameter.
 
 ### Parameter properties
 
@@ -214,6 +214,7 @@ A parameter has the following properties that are used in the policy definition:
     the assignment scope. There's one role assignment per role definition in the policy (or per role
     definition in all of the policies in the initiative). The parameter value must be a valid
     resource or scope.
+  - `deprecated`: A boolean flag to indicate whether a parameter is deprecated in a built-in definition.
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For oject-type parameters, the value must match the appropriate schema.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
   assignment.
@@ -514,16 +515,32 @@ certain criteria can be formed using a **field** expression. The following field
     apostrophes.
   - Where **'\<tagName\>'** is the name of the tag to validate the condition for.
   - Example: `tags['''My.Apostrophe.Tag''']` where **'My.Apostrophe.Tag'** is the name of the tag.
+
+  > [!NOTE]
+  > `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
+  > declaring a tags field. However, the preferred expressions are those listed above.
 - property aliases - for a list, see [Aliases](#aliases).
+  > [!NOTE]
+  > In **field** expressions referring to **\[\*\] alias**, each element in the array is evaluated
+  > individually with logical **and** between elements. For more information, see
+  > [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
-> [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
-> declaring a tags field. However, the preferred expressions are those listed above.
 
-> [!NOTE]
-> In **field** expressions referring to **\[\*\] alias**, each element in the array is evaluated
-> individually with logical **and** between elements. For more information, see
-> [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+Conditions that use `field` expressions can replace the legacy policy definition syntax `"source": "action"`, which used to work for write operations. For example, this is no longer supported:
+```json
+{
+    "source": "action",
+    "like": "Microsoft.Network/publicIPAddresses/*"
+}
+```
+
+But the desired behavior can be achieved using `field` logic:
+```json
+{
+    "field": "type",
+    "equals": "Microsoft.Network/publicIPAddresses"
+}
+```
 
 #### Use tags with parameters
 

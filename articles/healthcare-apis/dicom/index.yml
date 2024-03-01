@@ -5,11 +5,9 @@ summary: The DICOM® service is a managed service in Azure Health Data Services 
 metadata:
   title: Azure Health Data Services DICOM service 
   description: DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like Store (STOW-RS), Search (QIDO-RS), Retrieve (WADO-RS). It's backed by a managed Platform as a Service (PaaS) offering with complete PHI compliance. You can upload PHI data to the DICOM service and exchange it through secure networks.
-  services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: fhir
   ms.topic: landing-page 
-  ms.collection: collection
   author: mmitrik
   ms.author: mmitrik
   ms.date: 09/01/2023
@@ -53,6 +51,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: What is the DICOM change feed? 
-            url: dicom-change-feed-overview.md
+            url: change-feed-overview.md
           - text: Pull DICOM changes using the change feed
             url: pull-dicom-changes-from-change-feed.md

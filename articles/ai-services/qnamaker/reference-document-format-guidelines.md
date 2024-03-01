@@ -7,8 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: reference
-ms.date: 04/06/2020
-ms.custom: ignite-fall-2021
+ms.date: 01/19/2024
 ---
 
 # Format guidelines for imported documents and URLs

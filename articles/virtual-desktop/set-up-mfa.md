@@ -5,14 +5,16 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/27/2023
 ms.author: helohr
-manager: femila
 ---
+
 # Enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access
 
 > [!IMPORTANT]
 > If you're visiting this page from the Azure Virtual Desktop (classic) documentation, make sure to [return to the Azure Virtual Desktop (classic) documentation](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) once you're finished.
 
 Users can sign into Azure Virtual Desktop from anywhere using different devices and clients. However, there are certain measures you should take to help keep your environment and your users safe. Using Microsoft Entra multifactor authentication (MFA) with Azure Virtual Desktop prompts users during the sign-in process for another form of identification in addition to their username and password. You can enforce MFA for Azure Virtual Desktop using Conditional Access, and can also configure whether it applies to the web client, mobile apps, desktop clients, or all clients. 
+
+When a user connects to a remote session, they need to authenticate to the Azure Virtual Desktop service and the session host. If MFA is enabled, it's used when connecting to the Azure Virtual Desktop service and the user is prompted for their user account and a second form of authentication, in the same way as accessing other services. When starting a remote session, a username and password is required for a session host, but this is seamless to the user if single sign-on (SSO) is enabled. For more information, see [Authentication methods](authentication.md#authentication-methods).
 
 How often a user is prompted to reauthenticate depends on [Microsoft Entra session lifetime configuration settings](../active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md#azure-ad-session-lifetime-configuration-settings). For example, if their Windows client device is registered with Microsoft Entra ID, it will receive a [Primary Refresh Token](../active-directory/devices/concept-primary-refresh-token.md) (PRT) to use for single sign-on (SSO) across applications. Once issued, a PRT is valid for 14 days and is continuously renewed as long as the user actively uses the device.
 
@@ -62,6 +64,9 @@ Here's how to create a Conditional Access policy that requires multifactor authe
        
         > [!TIP]
         > If you're using Azure Virtual Desktop (classic) and if the Conditional Access policy blocks all access excluding Azure Virtual Desktop app IDs, you can fix this by also adding the **Azure Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07) to the policy. Not adding this app ID will block feed discovery of Azure Virtual Desktop (classic) resources.
+
+   > [!TIP]
+   > When searching for an application name on Azure, use search terms that begin with the application name in order instead of keywords the application name contains out of order. For example, when you want to use Azure Virtual Desktop, you need to enter 'Azure Virtual` in that order. If you enter `virtual` by itself, the search won't return the desired application.
 
    > [!IMPORTANT]
    > Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID 50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.   

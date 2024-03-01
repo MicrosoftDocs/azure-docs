@@ -63,7 +63,7 @@ Select a tab for the language of your choice to discover support options.
 
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://github.com/open-telemetry/opentelemetry-python) directly.
-- For a list of open issues related to Azure Monitor Distro, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Python/issues/new).
+- For a list of open issues related to Azure Monitor Distro, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-python/issues/new/choose).
 
 ---
 

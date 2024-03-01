@@ -21,7 +21,7 @@ ms.custom:
 
 ## Getting started
 
-- Take note of your Azure subscription ID. We recommend using a subscription on which you have a [Kubernetes contributor](../../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) role if you want to use Azure Disks or Ephemeral Disk as data storage. If you want to use Azure Elastic SAN Preview as data storage, you'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
+- Take note of your Azure subscription ID. We recommend using a subscription on which you have a [Kubernetes contributor](../../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) role if you want to use Azure Disks or Ephemeral Disk as data storage. If you want to use Azure Elastic SAN as data storage, you'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
 
 - [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -92,7 +92,7 @@ If the resource group was created successfully, you'll see output similar to thi
 
 Before deploying Azure Container Storage, you'll need to decide which back-end storage option you want to use to create your storage pool and persistent volumes. Three options are currently available:
 
-- **Azure Elastic SAN Preview**: Azure Elastic SAN preview is a good fit for general purpose databases, streaming and messaging services, CI/CD environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
+- **Azure Elastic SAN**: Azure Elastic SAN is a good fit for general purpose databases, streaming and messaging services, CI/CD environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
 
 - **Azure Disks**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size.
 
@@ -101,11 +101,11 @@ Before deploying Azure Container Storage, you'll need to decide which back-end s
 You'll specify the storage pool type when you install Azure Container Storage.
 
 > [!NOTE]
-> For Azure Elastic SAN Preview and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation. You don't need to create your own Elastic SAN or Azure Disk.  
+> For Azure Elastic SAN and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation. You don't need to create your own Elastic SAN or Azure Disk.  
 
 ## Choose a VM type for your cluster
 
-If you intend to use Azure Elastic SAN Preview or Azure Disks as backing storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) with NVMe drives such as **standard_l8s_v3**. In order to use Ephemeral Disk, the VMs must have NVMe drives. You'll specify the VM type when you create the cluster in the next section.
+If you intend to use Azure Elastic SAN or Azure Disks as backing storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) with NVMe drives such as **standard_l8s_v3**. In order to use Ephemeral Disk, the VMs must have NVMe drives. You'll specify the VM type when you create the cluster in the next section.
 
 > [!IMPORTANT]
 > You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md). Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
@@ -114,7 +114,7 @@ If you intend to use Azure Elastic SAN Preview or Azure Disks as backing storage
 
 If you already have an AKS cluster deployed, skip this section and go to [Install Azure Container Storage on an existing AKS cluster](#install-azure-container-storage-on-an-existing-aks-cluster).
 
-Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values, and specify which VM type you want to use. You'll need a node pool of at least three Linux VMs. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`.
+Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values, and specify which VM type you want to use. You'll need a node pool of at least three Linux VMs. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`.
 
 Optional storage pool parameters:
 
@@ -136,11 +136,11 @@ The deployment will take 10-15 minutes to complete.
 To get the list of available storage pools, run the following command:
 
 ```azurecli-interactive
-kubectl get sp –n acstor
+kubectl get sp -n acstor
 ```
 
 > [!IMPORTANT]
-> If you specified Azure Elastic SAN Preview as backing storage for your storage pool and you don't have owner-level access to the Azure subscription, only Azure Container Storage will be installed and a storage pool won't be created. In this case, you'll have to [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
+> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have owner-level access to the Azure subscription, only Azure Container Storage will be installed and a storage pool won't be created. In this case, you'll have to [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
 
 ## Install Azure Container Storage on an existing AKS cluster
 
@@ -179,4 +179,4 @@ To create persistent volumes, select the link for the backing storage type you s
 
 - [Create persistent volume claim with Azure managed disks](use-container-storage-with-managed-disks.md#create-a-persistent-volume-claim)
 - [Create persistent volume claim with Ephemeral Disk](use-container-storage-with-local-disk.md#create-a-persistent-volume-claim)
-- [Create persistent volume claim with Azure Elastic SAN Preview](use-container-storage-with-elastic-san.md#create-a-persistent-volume-claim)
+- [Create persistent volume claim with Azure Elastic SAN](use-container-storage-with-elastic-san.md#create-a-persistent-volume-claim)

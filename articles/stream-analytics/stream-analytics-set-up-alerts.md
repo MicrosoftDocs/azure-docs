@@ -5,7 +5,6 @@ author: ajetasin
 ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: contperf-fy21q1
 ms.date: 07/12/2022
 ---
 # Set up alerts for Azure Stream Analytics jobs

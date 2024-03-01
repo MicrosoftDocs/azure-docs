@@ -4,7 +4,7 @@ description: Learn how to mount an SMB Azure file share using your on-premises A
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/28/2023
+ms.date: 12/21/2023
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -19,6 +19,7 @@ The process described in this article verifies that your SMB file share and acce
 Sign in to the client using the credentials of the identity that you granted permissions to.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -58,7 +59,7 @@ If you run into issues, see [Unable to mount Azure file shares with AD credentia
 
 ## Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain
 
-Non-domain-joined VMs or VMs that are joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the domain controllers and provide explicit credentials. The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
+Non-domain-joined VMs or VMs that are joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the domain controllers and provide explicit credentials (username and password). The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
 
 To mount a file share from a non-domain-joined VM, use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name. This will allow the client to contact the domain controller to request and receive Kerberos tickets. You can get the value of **domainFQDN** by running `(Get-ADDomain).Dnsroot` in Active Directory PowerShell.
 
@@ -67,6 +68,9 @@ For example:
 ```
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<username@domainFQDN>
 ```
+
+> [!NOTE]
+> Azure Files doesn't support SID to UPN translation for users and groups from a non-domain joined VM or a VM joined to a different domain via Windows File Explorer. If you want to view file/directory owners or view/modify NTFS permissions via Windows File Explorer, you can do so only from domain joined VMs.
 
 ## Mount file shares using custom domain names
 

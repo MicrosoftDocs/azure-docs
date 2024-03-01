@@ -36,15 +36,15 @@ Here are a few examples of the kinds of prompts you can use to improve and prote
 
 ## Examples
 
-When you're working with a storage account, you can ask "How can I make this storage account more secure?" Microsoft Copilot for Azure (preview) asks if you'd like to run a security check. After the check, you'll see specific recommendations about things you can do to align your storage account with security best practices.
+When you're working with a storage account, you can ask "**How can I make this storage account more secure?**" Microsoft Copilot for Azure (preview) asks if you'd like to run a security check. After the check, you'll see specific recommendations about things you can do to align your storage account with security best practices.
 
 :::image type="content" source="media/improve-storage-accounts/storage-account-security.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing suggestions on storage account security best practices.":::
 
-You can also say things like "Prevent this storage account from data loss during a disaster recovery situation." After confirming you'd like Microsoft Copilot for Azure (preview) to run a data resiliency check, you'll see specific recommendations for protecting its data.
+You can also say things like "**Prevent this storage account from data loss during a disaster recovery situation**." After confirming you'd like Microsoft Copilot for Azure (preview) to run a data resiliency check, you'll see specific recommendations for protecting its data.
 
 :::image type="content" source="media/improve-storage-accounts/storage-account-data-resiliency.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing suggestions to improve storage account data resiliency.":::
 
-If it's not clear which storage account you're asking about, Microsoft Copilot for Azure (preview) will ask you to clarify. In this example,  when you ask "How can I stop my storage account from being deleted?", Microsoft Copilot for Azure (preview) prompts you to select a storage account. After that, it proceeds based on your selection.
+If it's not clear which storage account you're asking about, Microsoft Copilot for Azure (preview) will ask you to clarify. In this example,  when you ask "**How can I stop my storage account from being deleted?**", Microsoft Copilot for Azure (preview) prompts you to select a storage account. After that, it proceeds based on your selection.
 
 :::image type="content" source="media/improve-storage-accounts/storage-account-data-resiliency-select.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) prompting to select a storage account before providing suggestions to improve data resiliency.":::
 

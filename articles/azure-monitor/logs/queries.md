@@ -5,8 +5,8 @@ ms.subservice: logs
 ms.topic: article
 author: guywild
 ms.author: guywild
-ms.reviewer: roygal
-ms.date: 06/22/2022
+ms.reviewer: ilanawaitser
+ms.date: 12/28/2023
 ---
 
 # Use queries in Log Analytics

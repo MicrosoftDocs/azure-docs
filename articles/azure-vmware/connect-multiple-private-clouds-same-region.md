@@ -3,7 +3,7 @@ title: Connect multiple Azure VMware Solution private clouds in the same region
 description: Learn how to create a network connection between two or more Azure VMware Solution private clouds located in the same region.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 12/07/2023
+ms.date: 1/8/2024
 ms.custom: engagement-fy23
 ---
 
@@ -11,9 +11,11 @@ ms.custom: engagement-fy23
 
 The **AVS Interconnect** feature lets you create a network connection between two or more Azure VMware Solution private clouds located in the same region. It creates a routing link between the management and workload networks of the private clouds to enable network communication between the clouds.
 
-You can connect a private cloud to multiple private clouds, and the connections are nontransitive. For example, if _private cloud 1_ is connected to _private cloud 2_, and _private cloud 2_ is connected to _private cloud 3_, private clouds 1 and 3 wouldn't communicate until they were directly connected.
+You can connect a private cloud to multiple private clouds, and the connections are nontransitive. For example, if _private cloud A_ is connected to _private cloud B_, and _private cloud B_ is connected to _private cloud C_, private clouds A and B wouldn't communicate until they were directly connected.
 
-You can only connect private clouds in the same region. To connect private clouds in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect them in the same way you connect your private cloud to your on-premises circuit. 
+You can only connect private clouds in the same region. To connect private clouds in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect them in the same way you connect your private cloud to your on-premises circuit.
+
+:::image type="content" source="media/networking/avs-interconnect.png" alt-text="Diagram of the AVS Interconnect Topology for 3 private clouds connected in one region." border="true" lightbox="media/networking/avs-interconnect.png":::
 
 ## Supported regions
 
@@ -25,10 +27,9 @@ The Azure VMware Solution Interconnect feature is available in all regions.
 - Routed IP address space in each cloud is unique and doesn't overlap
 
 >[!NOTE]
->The **AVS interconnect** feature doesn't check for overlapping IP space the way native Azure vNet peering does before creating the peering. Therefore, it's your responsibility to ensure that there isn't overlap between the private clouds.
+>The **AVS Interconnect** feature doesn't check for overlapping IP space the way native Azure vNet peering does before creating the peering. Therefore, it's your responsibility to ensure that there isn't overlap between the private clouds.
 >
->In Azure VMware Solution environments, it's possible to configure non-routed, overlapping IP deployments on NSX segments that aren't routed to Azure.  These don't cause issues with the AVS Interconnect feature, as it only routes between the NSX-T Data Center T0 gateway on each private cloud.
-
+>In Azure VMware Solution environments, it's possible to configure non-routed, overlapping IP deployments on NSX segments that aren't routed to Azure. These don't cause issues with the AVS Interconnect feature, as it only routes between the NSX-T Data Center T0 gateway on each private cloud.
 
 ## Add connection between private clouds
 

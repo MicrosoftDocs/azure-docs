@@ -6,7 +6,6 @@ services: azure-resource-manager
 author: robswain
 ms.author: robswain
 ms.service: private-5g-core
-tags: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-arm-template
 zone_pivot_groups: ase-pro-version

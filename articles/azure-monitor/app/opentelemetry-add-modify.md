@@ -3,7 +3,8 @@ title: Add, modify, and filter Azure Monitor OpenTelemetry for .NET, Java, Node.
 description: This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using Azure Monitor.
 ms.topic: conceptual
 ms.date: 12/15/2023
-ms.devlang: csharp, javascript, typescript, python
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
 ---
@@ -26,15 +27,15 @@ The distros automatically collect data by bundling OpenTelemetry instrumentation
 
 Requests
 - [ASP.NET
-  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) ¹
+  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) ¹²
 
 Dependencies
-- [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) ¹
+- [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) ¹²
 - [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) ¹
 
 Logging
 - `ILogger`
- 
+
 For more information about `ILogger`, see [Logging in C# and .NET](/dotnet/core/extensions/logging) and [code examples](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
 
 #### [.NET](#tab/net)
@@ -139,7 +140,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 #### [Node.js](#tab/nodejs)
 
-The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. For more information, see [OpenTelemetry officially supported instrumentations](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#officially-supported-instrumentations).
+The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. For more information, see [OpenTelemetry officially supported instrumentations](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/README.md#officially-supported-instrumentations).
 
 Requests
 - [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) ²
@@ -187,7 +188,6 @@ Instrumentations can be configured using AzureMonitorOpenTelemetryOptions
 
 ```
 
-
 #### [Python](#tab/python)
 
 Requests
@@ -204,9 +204,9 @@ Dependencies
 Logs
 - [Python logging library](https://docs.python.org/3/howto/logging.html) ⁴
 
-Examples of using the Python logging library can be found on [GitHub](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging).
+Examples of using the Python logging library can be found on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples/logging).
 
-Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#azure-core-distributed-tracing) by default.
+Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/README.md#officially-supported-instrumentations) by default.
 
 ---
 
@@ -220,7 +220,7 @@ Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/
 > The Azure Monitor OpenTelemetry Distros include custom mapping and logic to automatically emit [Application Insights standard metrics](standard-metrics.md).
 
 > [!TIP]
-> The OpenTelemetry-based offerings currently emit all OpenTelemetry metrics as [Custom Metrics](opentelemetry-add-modify.md#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js, and Python, whatever you set as the meter name becomes the metrics namespace.
+> All OpenTelemetry metrics whether automatically collected from instrumentation libraries or manual collected from custom coding are currently considered Application Insights "custom metrics" for billing purposes. [Learn More](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 ### Add a community instrumentation library
 
@@ -230,9 +230,14 @@ You can collect more data automatically when you include instrumentation librari
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTracerProvider` methods.
+To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTracerProvider` methods,
+after adding the nuget package for the library.
 
 The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics.
+
+```dotnetcli
+dotnet add package OpenTelemetry.Instrumentation.Runtime 
+```
 
 ```csharp
 // Create a new ASP.NET Core web application builder.
@@ -371,8 +376,7 @@ The following table represents the currently supported custom telemetry types:
 
 ### Add custom metrics
 
-> [!NOTE]
-> Custom Metrics are under preview in Azure Monitor Application Insights. Custom metrics without dimensions are available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+In this context, custom metrics refers to manually instrumenting your code to collect additional metrics beyond what the OpenTelemetry Instrumentation Libraries automatically collect.
 
 The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
 
@@ -2219,7 +2223,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     class SpanFilteringProcessor(SpanProcessor):
     
         # Prevents exporting spans from internal activities.
-        def on_start(self, span):
+        def on_start(self, span, parent_context):
             # Check if the span is an internal activity.
             if span._kind is SpanKind.INTERNAL:
                 # Create a new span context with the following properties:
@@ -2232,7 +2236,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
                     span.context.trace_id,
                     span.context.span_id,
                     span.context.is_remote,
-                    TraceFlags.DEFAULT,
+                    TraceFlags(TraceFlags.DEFAULT),
                     span.context.trace_state,
                 )
     
@@ -2326,10 +2330,6 @@ span_id = trace.get_current_span().get_span_context().span_id
 
 ---
 
-[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/azure-monitor-app-insights-opentelemetry-faqs.md)]
-
-[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
-
 ## Next steps
 
 ### [ASP.NET Core](#tab/aspnetcore)
@@ -2368,11 +2368,17 @@ span_id = trace.get_current_span().get_span_context().span_id
 
 ### [Python](#tab/python)
 
-- To review the source code and extra documentation, see the [Azure Monitor Distro GitHub repository](https://github.com/microsoft/ApplicationInsights-Python/blob/main/azure-monitor-opentelemetry/README.md).
-- To see extra samples and use cases, see [Azure Monitor Distro samples](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples).
-- See the [release notes](https://github.com/microsoft/ApplicationInsights-Python/releases) on GitHub.
+- To review the source code and extra documentation, see the [Azure Monitor Distro GitHub repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/README.md).
+- To see extra samples and use cases, see [Azure Monitor Distro samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples).
+- See the [release notes](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md) on GitHub.
 - To install the PyPI package, check for updates, or view release notes, see the [Azure Monitor Distro PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry/) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Python GitHub repository](https://github.com/open-telemetry/opentelemetry-python).
 - To see available OpenTelemetry instrumentations and components, see the [OpenTelemetry Contributor Python GitHub repository](https://github.com/open-telemetry/opentelemetry-python-contrib).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
+
+---
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/azure-monitor-app-insights-opentelemetry-faqs.md)]
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]

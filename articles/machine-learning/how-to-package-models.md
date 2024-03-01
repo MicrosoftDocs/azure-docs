@@ -8,7 +8,7 @@ ms.reviewer: mopeakande
 reviewer: msakande
 ms.service: machine-learning
 ms.subservice: mlops
-ms.custom: devx-track-python
+ms.custom: devx-track-python, update-code
 ms.date: 12/08/2023
 ms.topic: how-to
 ---
@@ -166,7 +166,7 @@ You can create model packages in Azure Machine Learning, using the Azure CLI or 
 
 | Attribute                               | Type      | Description | Required |
 |-----------------------------------------|-----------|-------------|----------|
-| `target_environment_name`               | `str`     | The name of the package to create. The result of a package operation is an environment in Azure Machine Learning. | Yes |
+| `target_environment`                    | `str`     | The name of the package to create. The result of a package operation is an environment in Azure Machine Learning. | Yes |
 | `base_environment_source`               | `object`  | The base image to use to create the package where dependencies for the model are specified. | Yes, unless model is MLflow. |
 | `base_environment_source.type`          | `str`     | The type of the base image. Only using another environment as the base image is supported (`type: environment_asset`) is supported.  |  |
 | `base_environment_source.resource_id`   | `str`     | The resource ID of the base environment to use. Use format `azureml:<name>:<version>` or a long resource id.   |  |
@@ -174,19 +174,19 @@ You can create model packages in Azure Machine Learning, using the Azure CLI or 
 | `inferencing_server.type`               | `azureml_online` <br /> `custom` | Use `azureml_online` for the Azure Machine Learning inferencing server, or `custom` for a custom online server like TensorFlow serving or Torch Serve. | Yes |
 | `inferencing_server.code_configuration` | `object`  | The code configuration with the inference routine. It should contain at least one Python file with methods `init` and `run`. | Yes, unless model is MLflow. |
 | `model_configuration`                   | `object`  | The model configuration. Use this attribute to control how the model is packaged in the resulting image. | No |
-| `model_configuration.mode`              | `download` <br /> `copy` | Indicate how the model would be placed in the package. Possible values are `download` and `copy`. Defaults to `download`. | No  |
+| `model_configuration.mode`              | `download` <br /> `copy` | Indicate how the model would be placed in the package. Possible values are `download` (default) and `copy`. Use `download` when you want the model to be downloaded from the model registry at deployment time. This option create smaller docker images since the model is not included on it. Use `copy` when you want to disconnect the image from Azure Machine Learning. Model will be copied inside of the docker image at package time. `copy` is not supported on private link-enabled workspaces. | No  |
 
 # [Python](#tab/sdk)
 
 | Attribute                             | Type                  | Description | Required |
 |---------------------------------------|-----------------------|-------------|----------|
-| `target_environment_name`             | `str`                 | The name of the package to create. The result of a package operation is an environment in Azure Machine Learning. | Yes |
+| `target_environment`                  | `str`                 | The name of the package to create. The result of a package operation is an environment in Azure Machine Learning. | Yes |
 | `base_environment_source`             | `BaseEnvironment`     | The base image to use to create the package where dependencies for the model are specified. | Yes, unless model type is MLflow. |
 | `base_environment_source.type`        | `BaseEnvironmentType` | The type of the base image. Only using another environment (`EnvironmentAsset`) as the base image is supported.  |  |
 | `base_environment_source.resource_id` | `str`                 | The resource ID of the base environment to use. Use format `azureml:<name>:<version>` or a long-format resource id. |  |
 | `inferencing_server`                  | `AzureMLOnlineInferencingServer` <br /> `CustomOnlineInferenceServer` | The inferencing server to use. Use `AzureMLOnlineInferencingServer` to Azure Machine Learning inferencing server, or `CustomOnlineInferenceServer` for a custom online server like TensorFlow serving, Torch Serve, etc. <br /><br />If set to `AzureMLInferencingServer` and the model type isn't Mlflow, a code configuration section should be specified, containing at least one Python file with methods `init` and `run`. <br /><br />If set to `CustomOnlineInferenceServer`, an online server configuration section should be specified.  | Yes |
 | `model_configuration`                 | `ModelConfiguration`  | The model configuration. Use this attribute to control how the model is packaged in the resulting image. | No |
-| `model_configuration.mode`            | `ModelInputMode`      | Specify how the model would be placed in the package. Possible values are `ModelInputMode.DOWNLOAD` (default) and `ModelInputMode.COPY`. Downloading the model helps to make packages more lightweight, especially for large models. However, it requires packages to be deployed to Azure Machine Learning. Copying, on the other hand, generates bigger packages as all the artifacts are copied on it, but they can be deployed anywhere. | No |
+| `model_configuration.mode`            | `ModelInputMode`      | Specify how the model would be placed in the package. Possible values are `ModelInputMode.DOWNLOAD` (default) and `ModelInputMode.COPY`. Use `ModelInputMode.DOWNLOAD` when you want the model to be downloaded from the model registry at deployment time. This option create smaller docker images since the model is not included on it. Use `ModelInputMode.COPY` when you want to disconnect the image from Azure Machine Learning. Model will be copied inside of the docker image at package time. `ModelInputMode.COPY` is not supported on private link-enabled workspaces. | No |
 
 ---
 

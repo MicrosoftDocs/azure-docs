@@ -4,7 +4,6 @@ description: include file
 author: shlipsey3
 manager: amycolannino
 ms.service: active-directory
-ms.workload: identity
 ms.topic: include
 ms.date: 08/08/2023
 ms.author: saralipsey

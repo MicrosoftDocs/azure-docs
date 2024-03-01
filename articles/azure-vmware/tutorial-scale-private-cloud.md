@@ -3,7 +3,7 @@ title: Tutorial - Scale clusters in a private cloud
 description: In this tutorial, you use the Azure portal to scale an Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 10/27/2022
+ms.date: 12/20/2023
 ms.custom: engagement-fy23
 
 #Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution private cloud in the Azure portal.
@@ -15,7 +15,7 @@ To get the most out of your Azure VMware Solution private cloud experience, scal
 
 [!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
 
-In this tutorial, you'll use the Azure portal to:
+In this tutorial, learn how to use the Azure portal to:
 
 > [!div class="checklist"]
 > * Add a cluster to an existing private cloud
@@ -23,7 +23,7 @@ In this tutorial, you'll use the Azure portal to:
 
 ## Prerequisites
 
-You'll need an existing private cloud to complete this tutorial. If you haven't created a private cloud, follow the [create a private cloud tutorial](tutorial-create-private-cloud.md) to create one.
+You need an existing private cloud to complete this tutorial. If you don't already have a private cloud created, follow the [create a private cloud tutorial](tutorial-create-private-cloud.md) to create one.
 
 ## Add a new cluster
 
@@ -45,7 +45,7 @@ You'll need an existing private cloud to complete this tutorial. If you haven't 
 
    :::image type="content" source="media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Screenshot showing where to edit an existing cluster." lightbox="media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" border="true":::
 
-3. Click **Add Host** to add a host to the cluster. Repeat that to reach the desired number of hosts, and then select **Save**.
+3. Select **Add Host** to add a host to the cluster. Repeat that to reach the desired number of hosts, and then select **Save**.
 
    :::image type="content" source="media/tutorial-scale-private-cloud/ss5-add-hosts-to-cluster.png" alt-text="Screenshot showing how to add additional hosts to an existing cluster." lightbox="media/tutorial-scale-private-cloud/ss5-add-hosts-to-cluster.png" border="true":::
 

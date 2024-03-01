@@ -1,9 +1,8 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure DevOps extension.
-ms.date: 06/20/2023
+ms.date: 12/21/2023
 ms.topic: how-to
-ms.custom: ignite-2022
 ---
 
 # Configure the Microsoft Security DevOps Azure DevOps extension
@@ -24,7 +23,7 @@ The Microsoft Security DevOps uses the following Open Source tools:
 | [Trivy](https://github.com/aquasecurity/trivy) | container images, Infrastructure as Code (IaC) | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
 
 > [!NOTE]
-> Effective September 20, 2023, the secret scanning (CredScan) tool within the Microsoft Security DevOps (MSDO) Extension for Azure DevOps has been deprecated. MSDO secret scanning will be replaced with [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security). 
+> Effective September 20, 2023, the secrets scanning (CredScan) tool within the Microsoft Security DevOps (MSDO) Extension for Azure DevOps has been deprecated. MSDO secrets scanning will be replaced with [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
 
 ## Prerequisites
 
@@ -103,7 +102,7 @@ If you don't have access to install the extension, you must request access from 
       # command: 'run' | 'pre-job' | 'post-job'. Optional. The command to run. Default: run
       # config: string. Optional. A file path to an MSDO configuration file ('*.gdnconfig').
       # policy: 'azuredevops' | 'microsoft' | 'none'. Optional. The name of a well-known Microsoft policy. If no configuration file or list of tools is provided, the policy may instruct MSDO which tools to run. Default: azuredevops.
-      # categories: string. Optional. A comma-separated list of analyzer categories to run. Values: 'secrets', 'code', 'artifacts', 'IaC', 'containers. Example: 'IaC,secrets'. Defaults to all.
+      # categories: string. Optional. A comma-separated list of analyzer categories to run. Values: 'code', 'artifacts', 'IaC', 'containers'. Example: 'IaC, containers'. Defaults to all.
       # languages: string. Optional. A comma-separated list of languages to analyze. Example: 'javascript,typescript'. Defaults to all.
       # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
       # break: boolean. Optional. If true, will fail this build step if any error level results are found. Default: false.

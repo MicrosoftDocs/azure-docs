@@ -1,14 +1,12 @@
 ---
 title: Remove Azure role assignments - Azure RBAC
 description: Learn how to remove access to Azure resources for users, groups, service principals, or managed identities using Azure portal, Azure PowerShell, Azure CLI, or REST API.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
-ms.date: 12/01/2023
-ms.author: rolyon 
+ms.date: 01/02/2024
+ms.author: rolyon
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
@@ -96,7 +94,7 @@ Removes the [Reader](built-in-roles.md#reader) role from the *Ann Mack Team* gro
 ```azurecli
 az role assignment delete --assignee "22222222-2222-2222-2222-222222222222" \
 --role "Reader" \
---subscription "00000000-0000-0000-0000-000000000000"
+--scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
 Removes the [Billing Reader](built-in-roles.md#billing-reader) role from the *alain\@example.com* user at the management group scope.

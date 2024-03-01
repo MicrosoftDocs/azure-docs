@@ -2,28 +2,46 @@
 author: msangapu-msft
 ms.service: app-service
 ms.topic: include
-ms.date: 08/24/2023
+ms.date: 01/05/2024
 ms.author: msangapu
 ---
 
 > [!NOTE]
-> You can also [configure Azure Storage in an ARM template](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/BYOS_azureFiles.json).
+> [NFS](../../../storage/files/files-nfs-protocol.md) support is now available for App Service on Linux.
 >
 
-This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. Azure Storage is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud. Azure Storage is non-default storage for App Service and billed separately.
+This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. Azure Storage is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud. Azure Storage is non-default storage for App Service and billed separately. You can also [configure Azure Storage in an ARM template](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/BYOS_azureFiles.json).
+
+
+### Benefits
 
 The benefits of custom-mounted storage include:
 - Configure persistent storage for your App Service app and manage the storage separately.
 - Make static content like video and images readily available for your App Service app. 
 - Write application log files or archive older application log to Azure File shares.  
 - Share content across multiple apps or with other Azure services.
+- Azure Files [NFS](../../../storage/files/files-nfs-protocol.md) and Azure Files [SMB](../../../storage/files/files-smb-protocol.md) are supported.
+- Azure Blobs (read-only) are supported.
+- Up to five mount points per app are supported.
 
-The following features are supported for Linux containers:
-- Azure Files (read/write).
-- Azure Blobs (read-only).
-- Up to five mount points per app.
+### Limitations
 
-Here are the three options to mount Azure storage to your app:
+The limitations of custom-mounted storage include:
+- [Storage firewall](../../../storage/common/storage-network-security.md) is supported only through [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../../../storage/common/storage-private-endpoints.md) (when [VNET integration](../../overview-vnet-integration.md) is used).
+- FTP/FTPS access to custom-mounted storage isn't supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
+- Storage account shared access keys are the only means of authentication that are supported; [Entra ID and RBAC Roles](../../../storage/common/authorize-data-access.md) are not supported.
+- Azure CLI, Azure PowerShell, and Azure SDK support is in preview.
+- Mapping `/` or `/home` to custom-mounted storage isn't supported.
+- Don't map the storage mount to `/tmp` or its subdirectories as this action may cause a timeout during app startup.
+- Azure Storage isn't supported with [Docker Compose](../../configure-custom-container.md?pivots=container-linux#docker-compose-options) scenarios.
+- Storage mounts aren't included in [backups](../../manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
+- NFS support is only available for App Service on Linux. NFS isn't supported for Windows code and Windows containers. The web app and storage account need to be configured on the same VNET for NFS. The storage account used for file share should have "Premium" performance tier and "Filestorage" as the Account Kind.  Azure Key Vault is not applicable when using the NFS protocol.
+- With VNET integration on your app, the mounted drive uses an RFC1918 IP address and not an IP address from your VNET.
+
+
+### Mounting options
+
+You first need to mount the storage to the app. Here are three mounting options for Azure storage:
 
 | Mounting option | Usage |
 |--------------------------|-------------|
@@ -54,20 +72,7 @@ Here are the three options to mount Azure storage to your app:
 
 ---
 
-## Limitations
-
-- [Storage firewall](../../../storage/common/storage-network-security.md) is supported only through [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../../../storage/common/storage-private-endpoints.md) (when [VNET integration](../../overview-vnet-integration.md) is used).
-- FTP/FTPS access to custom-mounted storage isn't supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
-- Azure CLI, Azure PowerShell, and Azure SDK support is in preview.
-- Mapping `/` or `/home` to custom-mounted storage isn't supported.
-- Don't map the storage mount to `/tmp` or its subdirectories as this action may cause a timeout during app startup.
-- Azure Storage isn't supported with [Docker Compose](../../configure-custom-container.md?pivots=container-linux#docker-compose-options) scenarios.
-- Storage mounts aren't included in [backups](../../manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
-- Azure Files [NFS](../../../storage/files/files-nfs-protocol.md) is currently unsupported for App Service on Linux. Only Azure Files [SMB](../../../storage/files/files-smb-protocol.md) are supported.
-- With VNET integration on your app, the mounted drive uses an RFC1918 IP address and not an IP address from your VNET.
-
 ## Prepare for mounting
-
 
 ### [Basic](#tab/basic)
 
@@ -201,32 +206,26 @@ To validate that the Azure Storage is mounted successfully for the app:
 
 ## Best practices
 
+#### Performance
 - To avoid latency issues, place the app and the Azure Storage account in the same region. If you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../../../storage/common/storage-network-security.md) when the app and Azure Storage account are in the same region, then these IP restrictions aren't honored.
+- The mounted Azure Storage account can be either Standard or Premium performance tier. Based on the app capacity and throughput requirements, choose the appropriate performance tier for the storage account. See the scalability and performance targets that correspond to the storage type: [Files](../../../storage/files/storage-files-scale-targets.md) and [Blobs](../../../storage/blobs/scalability-targets.md).
 
-- The mount directory in the custom container should be empty. Any content stored at this path is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
+- If your app [scales to multiple instances](../../../azure-monitor/autoscale/autoscale-get-started.md), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for the storage account.
 
+#### Security
 - In the Azure Storage account, avoid [regenerating the access key](../../../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Azure App Services stores Azure storage account key. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
-
-    1. Regenerate **key2**. 
+    1. Regenerate **key2**.
     1. In the storage mount configuration, update the access the key to use the regenerated **key2**.
     1. Regenerate **key1**.
 
-- If you delete an Azure Storage account, container, or share, remove the corresponding storage mount configuration in the app to avoid possible error scenarios. 
+#### Troubleshooting
 
-- The mounted Azure Storage account can be either Standard or Premium performance tier. Based on the app capacity and throughput requirements, choose the appropriate performance tier for the storage account. See the scalability and performance targets that correspond to the storage type:
+- The mount directory in the custom container should be empty. Any content stored at this path is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
+- If you delete an Azure Storage account, container, or share, remove the corresponding storage mount configuration in the app to avoid possible error scenarios.
+- It isn't recommended to use storage mounts for local databases (such as SQLite) or for any other applications and components that rely on file handles and locks.
+- Ensure the following ports are open when using VNET integration: Azure Files: 80 and 445. Azure Blobs: 80 and 443.
+- If you [initiate a storage failover](../../../storage/common/storage-initiate-account-failover.md) when the storage account is mounted to the app, the mount won't connect until the app is restarted or the storage mount is removed and re-added.
 
-    - [For Files](../../../storage/files/storage-files-scale-targets.md)
-    - [For Blobs](../../../storage/blobs/scalability-targets.md)
-
-- If your app [scales to multiple instances](../../../azure-monitor/autoscale/autoscale-get-started.md), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for the storage account.  
-
-- It isn't recommended to use storage mounts for local databases (such as SQLite) or for any other applications and components that rely on file handles and locks. 
-
-- Ensure the following ports are open when using VNET integration:
-    - Azure Files: 80 and 445.
-    - Azure Blobs: 80 and 443.
-
-- If you [initiate a storage failover](../../../storage/common/storage-initiate-account-failover.md) when the storage account is mounted to the app, the mount won't connect until the app is restarted or the storage mount is removed and readded.
 ## Next steps
 
 - [Configure a custom container](../../configure-custom-container.md?pivots=platform-linux).

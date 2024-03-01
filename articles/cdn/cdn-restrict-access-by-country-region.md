@@ -23,7 +23,7 @@ With the *geo-filtering* feature, you can create rules on specific paths on your
 
 ## Standard profiles
 
-These instructions are for **Azure CDN Standard from Akamai** and **Azure CDN Standard from Edgio** profiles.
+These instructions are for and **Azure CDN Standard from Edgio** profiles.
 
 For **Azure CDN Premium from Edgio** profiles, you must use the **Manage** portal to activate geo-filtering. For more information, see [Azure CDN Premium from Edgio profiles](#azure-cdn-premium-from-verizon-profiles).
 
@@ -98,7 +98,6 @@ In the country/region filtering rules table, select the delete icon next to a ru
 ## Considerations
 * Changes to your geo-filtering configuration don't take effect immediately:
    * For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
-   * For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
    * For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes. 
  
 * This feature doesn't support wildcard characters (for example, *).
@@ -107,4 +106,4 @@ In the country/region filtering rules table, select the delete icon next to a ru
 
 * Only one rule can be applied to the same relative path. That is, you can't create multiple country/region filters that point to the same relative path. However, because country/region filters are recursive, a folder can have multiple country/region filters. In other words, a subfolder of a previously configured folder can be assigned a different country/region filter.
 
-* The geo-filtering feature uses [country/region codes](microsoft-pop-abbreviations.md) codes to define the countries/regions from which a request is allowed or blocked for a secured directory.  **Azure CDN from Edgio** and **Azure CDN from Akamai** profiles use ISO 3166-1 alpha-2 country codes to define the countries/regions from which a request are allowed or blocked for a secured directory. 
+* The geo-filtering feature uses [country/region codes](microsoft-pop-abbreviations.md) codes to define the countries/regions from which a request is allowed or blocked for a secured directory. **Azure CDN from Edgio** use ISO 3166-1 alpha-2 country codes to define the countries/regions from which a request are allowed or blocked for a secured directory. 

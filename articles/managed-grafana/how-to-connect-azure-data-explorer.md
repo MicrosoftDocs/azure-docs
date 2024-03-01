@@ -5,6 +5,7 @@ description: In this guide, learn how to connect an Azure Data Explorer datasour
 author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
+ms.custom: devx-track-azurecli
 zone_pivot_groups: azure-red-hat-openshift-service-principal
 ms.topic: how-to
 ms.date: 11/29/2023
@@ -90,9 +91,6 @@ Enter Azure Data Explorer configuration settings.
     Use the user-based authentication method, leveraging the current Grafana user's Microsoft Entra ID credentials in the configured data source.
 
     When you configure an Azure Data Explorer data source with the Current User authentication method, Grafana queries Azure Data Explorer using the user's credentials.
-
-   > [!NOTE]
-   > Rollout of the user-based authentication in Azure Managed Grafana is in progress.
 
    > [!CAUTION]
    > User-based authentication in Grafana data sources is experimental.

@@ -4,18 +4,22 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 11/28/2023
+ms.date: 12/21/2023
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
+## February 2024
+
+All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. 
+
 ## November 2023
 
 **VMware vSphere 8.0**
 
-VMware vSphere 8.0 will be rolled out to the Azure VMware Solution starting at the end of November.
+VMware vSphere 8.0 is targeted for rollout to Azure VMware Solution by Q2 2024.
 
 **AV64 SKU**
 
@@ -35,7 +39,7 @@ All Azure NetApp Files features available on Azure public cloud are also availab
 
 **Azure Arc-enabled VMware vSphere**
 
-Customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](https://aka.ms/vSphereGAblog)
+Azure Arc-enabled VMware vSphere term refers to both vSphere on-premises and Azure VMware Solutions customer. Customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](https://aka.ms/vSphereGAblog)
 
 **Five-year Reserved Instance**
 

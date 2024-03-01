@@ -1,6 +1,6 @@
 ---
-title: Data-in replication - Azure Database for MySQL - Flexible Server
-description: Learn about using Data-in replication to synchronize from an external server into the Azure Database for MySQL Flexible Server.
+title: Data-in replication
+description: Learn about using Data-in replication to synchronize from an external server into an Azure Database for MySQL - Flexible Server instance.
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
@@ -14,17 +14,17 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Data-in replication allows you to synchronize data from an external MySQL server into an Azure Database for MySQL Flexible Server. The external server can be on-premises, in virtual machines, Azure Database for MySQL single server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position or GTID-based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
+Data-in replication allows you to synchronize data from an external MySQL server into an Azure Database for MySQL flexible server instance. The external server can be on-premises, in virtual machines, Azure Database for MySQL single server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position or GTID-based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
 
 > [!NOTE]  
-> Configuring Data-in replication for servers enabled with high-availability, is supported only through GTID-based replication.
+> Configuring Data-in replication for servers enabled with high-availability is supported only through GTID-based replication.
 
 ## When to use Data-in replication
 
 The main scenarios to consider about using Data-in replication are:
 
-- **Hybrid Data Synchronization:** With Data-in replication, you can keep data synchronized between your on-premises servers and Azure Database for MySQL - Flexible Server. This synchronization helps create hybrid applications. This method is appealing when you have an existing local database server but want to move the data to a region closer to end users.
-- **Multi-Cloud Synchronization:** For complex cloud solutions, use Data-in replication to synchronize data between Azure Database for MySQL - Flexible Server and different cloud providers, including virtual machines and database services hosted in those clouds.
+- **Hybrid Data Synchronization:** With Data-in replication, you can keep data synchronized between your on-premises servers and Azure Database for MySQL flexible server. This synchronization helps create hybrid applications. This method is appealing when you have an existing local database server but want to move the data to a region closer to end users.
+- **Multi-Cloud Synchronization:** For complex cloud solutions, use Data-in replication to synchronize data between Azure Database for MySQL flexible server and different cloud providers, including virtual machines and database services hosted in those clouds.
 - **Migration:** Customers can migrate in Minimal Time using open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with Data-in replication. A selective cutover of production load from source to destination database is possible with Data-in replication.
 
 For migration scenarios, use the [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/)(DMS).
@@ -43,7 +43,7 @@ The stored procedure for replication using GTID is available on all HA-enabled s
 
 ### Filter
 
-The parameter `replicate_wild_ignore_table` creates a replication filter for tables on the replica server. To modify this parameter from the Azure portal, navigate to Azure Database for MySQL Flexible Server used as replica and select "Server Parameters" to view/edit the `replicate_wild_ignore_table` parameter.
+The parameter `replicate_wild_ignore_table` creates a replication filter for tables on the replica server. To modify this parameter from the Azure portal, navigate to the Azure Database for MySQL flexible server instance used as replica and select "Server Parameters" to view/edit the `replicate_wild_ignore_table` parameter.
 
 ### Requirements
 
@@ -52,15 +52,15 @@ The parameter `replicate_wild_ignore_table` creates a replication filter for tab
 - Our recommendation is to have a primary key in each table. If we have a table without a primary key, you might face slowness in replication.
 - The source server should use the MySQL InnoDB engine.
 - The user must have the right permissions to configure binary logging and create new users on the source server.
-- Binary log files on the source server shouldn't be purged before the replica applies those changes. If the source is Azure Database for MySQL, refer to how to configure binlog_expire_logs_seconds for [flexible server](./concepts-server-parameters.md#binlog_expire_logs_seconds) or [Single server](../concepts-server-parameters.md#binlog_expire_logs_seconds)
+- Binary log files on the source server shouldn't be purged before the replica applies those changes. If the source is Azure Database for MySQL flexible server, refer to how to configure binlog_expire_logs_seconds for [flexible server](./concepts-server-parameters.md#binlog_expire_logs_seconds) or [Single server](../concepts-server-parameters.md#binlog_expire_logs_seconds)
 - If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` stored procedure. Refer to the following [examples](./how-to-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
 - Ensure that the machine hosting the source server allows both inbound and outbound traffic on port 3306.
 - With **public access**, ensure that the source server has a public IP address, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN).
-- With **private access**, ensure that the source server name can be resolved and is accessible from the VNet where the Azure Database for MySQL instance is running. (For more details, visit [Name resolution for resources in Azure virtual networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)).
+- With **private access**, ensure that the source server name can be resolved and is accessible from the VNet where the Azure Database for MySQL flexible server instance is running. (For more details, visit [Name resolution for resources in Azure virtual networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)).
 
 ### Generated Invisible Primary Key
 
-For MySQL version 8.0 and above, [Generated Invisible Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html)(GIPK) is enabled by default for all the Azure Database for MySQL Flexible Servers. MySQL 8.0+ servers adds the invisible column *my_row_id* to the tables and a primary key on that column, where the InnoDB table is created without an explicit primary key. This feature, when enabled may impact some of the data-in replication use cases, as described below:
+For MySQL version 8.0 and above, [Generated Invisible Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html)(GIPK) is enabled by default for all the Azure Database for MySQL flexible server instances. MySQL 8.0+ servers adds the invisible column *my_row_id* to the tables and a primary key on that column, where the InnoDB table is created without an explicit primary key. This feature, when enabled may impact some of the data-in replication use cases, as described below:
 
 - Data-in replication fails with replication error: “**ERROR 1068 (42000): Multiple primary key defined**” if source server creates a Primary key on the table without Primary Key. For mitigation, run the following sql command, skip replication error and restart [data-in replication](how-to-data-in-replication.md). 
 
