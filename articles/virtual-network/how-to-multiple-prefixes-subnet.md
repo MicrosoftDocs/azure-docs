@@ -33,6 +33,8 @@ The following limitations apply during the public preview:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+# [PowerShell]](#tab/powershell)
+
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
 - Sign in to Azure PowerShell and ensure you select the subscription with which you want to use this feature. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
@@ -41,9 +43,19 @@ The following limitations apply during the public preview:
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
+# [CLI](#tab/cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- The how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+---
+
 ## Create a subnet with multiple prefixes
 
 In this section, you create a subnet with multiple prefixes.
+
+# [PowerShell]](#tab/powershell)
 
 1. Use [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) to create a resource group named **test-rg** in the **eastus2** location.
 
@@ -77,3 +89,33 @@ In this section, you create a subnet with multiple prefixes.
     }
     New-AzVirtualNetwork @net
     ```
+
+# [CLI](#tab/cli)
+
+1. Use [az group create](/cli/azure/group#az_group_create) to create a resource group named **test-rg** in the **eastus2** location.
+
+    ```azurecli
+    az group create \
+    --name test-rg \
+    --location eastus2
+    ```
+
+1. Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create a virtual network.
+
+    ```azurecli
+    az network vnet create \
+    --name vnet-1 \
+    --resource-group test-rg \
+    --location eastus2 \
+    --address-prefix 10.0.0.0/16
+    ```
+1. Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a subnet with multiple prefixes.
+
+    ```azurecli
+    az network vnet subnet create \
+    --name subnet-1 \
+    --vnet-name vnet-1 \
+    --resource-group test-rg \
+    --address-prefixes 10.0.0.0/24 10.0.1.0/24
+    ```
+---
