@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 02/23/2024
 ms.author: yelevin
 ms.collection: usx-security
-appliesto: Microsoft Sentinel in the Azure portal and Microsoft Defender portal
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ---
 
 # Roles and permissions in Microsoft Sentinel
