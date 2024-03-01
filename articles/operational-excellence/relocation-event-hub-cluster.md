@@ -29,7 +29,7 @@ To get started, export a Resource Manager template. This template contains setti
 3. On the **Event Hubs Cluster** page, select **Export template** in the **Automation** section on the left menu. 
 4. Choose **Download** in the **Export template** page.
 
-    :::image type="content" source="../event-hubs/media/move-cluster-across-regions/download-template.png" alt-text="Download Resource Manager template" lightbox="../event-hubs/media/move-cluster-across-regions/download-template.png":::
+    :::image type="content" source="../event-hubs/media/move-cluster-across-regions/download-template.png" alt-text="Screening showing where to download Resource Manager template" lightbox="../event-hubs/media/move-cluster-across-regions/download-template.png":::
 5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
    This zip file contains the .json files that include the template and scripts to deploy the template.
@@ -42,7 +42,7 @@ Deploy the template to create an Event Hubs dedicated cluster in the target regi
 
 1. In the Azure portal, select **Create a resource**.
 2. In **Search the Marketplace**, type **template deployment**, and select **Template deployment (deploy using custom templates)**.
-1. On the **Template deplyment** page, select **Create**. 
+1. On the **Template deployment** page, select **Create**. 
 1. Select **Build your own template in the editor**.
 1. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
 1. Update the value of the `location` property to point to the new region. To obtain location codes, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, for example, `West US` is equal to `westus`.
@@ -70,6 +70,7 @@ To delete an Event Hubs cluster (source or target) by using the Azure portal:
 3. On the **Delete Cluster** page, confirm the deletion by typing the **cluster name**, and then select **Delete**. 
 
 ## Next steps
+
 In this tutorial, you learned how to move an Event Hubs dedicated cluster from one region to another. 
 
 See the [Move Event Hubs namespaces across regions](relocation-event-hub.md) article for instructions on moving a namespace from one region to another region. 

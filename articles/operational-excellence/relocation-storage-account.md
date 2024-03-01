@@ -232,7 +232,7 @@ The following table lists these features along with guidance for adding them to 
 
 AzCopy is the preferred tool to move your data over due to its performance optimization.  With AzCopy, data is copied directly between storage servers, and so it doesn't use the network bandwidth of your computer. You can run AzCopy at the command line or as part of a custom script. For more information, see [Copy blobs between Azure storage accounts by using AzCopy](/azure/storage/common/storage-use-azcopy-blobs-copy?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json&branch=pr-en-us-259662).
 
-You can also use Azure Data Factory to move your data over. It provides an intuitive user interface. To use Azure Data Factory, see any of these links:.
+You can also use Azure Data Factory to move your data over. To learn how to use Data Factory to relocate your data see one of the following guides:
 
   - [Copy data to or from Azure Blob storage by using Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
   - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)

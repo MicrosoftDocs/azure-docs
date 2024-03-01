@@ -69,14 +69,14 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 :::image type="content" source="media/relocation/vnet-connected-scenarios.png" alt-text="Diagrams showing both connect scenario and disconnect scenarios for virtual network.":::
 
 
-### Disconnected Scenario
+### Disconnected scenario
 
 | Relocation with no IP Address Change  | Relocation with IP Address Change    |
 | -----------------------------|-----------|
 | No other IP address ranges are needed.      | Other IP Address ranges are needed.     |
 | No IP Address change for resources after relocation.        | IP Address change of resources after relocation         |
 | All workloads in a virtual network must be relocated together.     | Workload relocation without considering dependencies or partial relocation is possible (Take communication latency into account)    |
-| Virtual Network in the source region needs to be disconnect or removed before the Virtual Network in the target region can be connected. | Enable communication shortcuts between source and target region using vNetwork peering.                                                                              |
+| Virtual Network in the source region needs to be disconnected or removed before the Virtual Network in the target region can be connected. | Enable communication shortcuts between source and target region using vNetwork peering.                                                                              |
 | No support for data migration scenarios where you need communication between source and target region. | If communication between source and target region is required in data migration scenarios, you can establish network peering during relocation. |
 
 #### Disconnected relocation with the same IP-address range
@@ -96,7 +96,7 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 | No IP Address change for resources after relocation.  | IP Address change of resources after relocation. 
 | All workloads with dependencies on each other need to be relocated together.   | Workload relocation without considering dependencies possible (Take communication latency into account).  |
 | No communication between the two virtual networks in the source and target regions is possible. | Possible to enable communication between source and target region using vNetwork peering.|
-| Data migrations scenarios where you need communication between source and target region, aren't possible (using virtual networks) or can only established through public endpoints. | If communication between source and target region is required in data migration scenarios, you can establish network peering during relocation.|
+| Data migrations where communication between source and target region isn't possible or can only established through public endpoints. | If communication between source and target region is required in data migration scenarios, you can establish network peering during relocation.|
 
 #### Connected relocation with the same IP-address range
 
@@ -104,7 +104,7 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
 #### Connected relocation with a new IP-address range
 
-:::image type="content" source="media/relocation/vnet-connected-relocation-ip-address-change.png" alt-text="Diagram showing connected workload relocation with vNet IP address range change..":::
+:::image type="content" source="media/relocation/vnet-connected-relocation-ip-address-change.png" alt-text="Diagram showing connected workload relocation with vNet IP address range change.":::
 
 
 
@@ -230,7 +230,7 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
             - In the code in the preceding section
             - In the **type** section of the following code. 
             
-        Alos, change the **addressPrefix** property in the following code to match the **addressPrefix** property in the code in the preceding section.
+        Also, change the **addressPrefix** property in the following code to match the **addressPrefix** property in the code in the preceding section.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
