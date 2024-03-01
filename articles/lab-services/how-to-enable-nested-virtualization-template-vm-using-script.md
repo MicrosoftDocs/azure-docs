@@ -33,9 +33,12 @@ For concepts, considerations, and recommendations about nested virtualization, s
 
 To enable nested virtualization on the template VM, first connect to the VM by using a remote desktop (RDP) client. You can then apply the configuration changes by either running a PowerShell script or using Windows tools.
 
+> [!IMPORTANT]
+> It is recommend to use nested virtualization with Windows 11 to take advantage of the 'Default Switch' created when you install Hyper-V on a Windows client OS.  Nested virtualization on Windows Server OSes should be used when additional control over the network settings is required.
+
 # [PowerShell](#tab/powershell)
 
-You can use a PowerShell script to set up nested virtualization on a template VM in Azure Lab Services. The following steps guide you through how to use the [Lab Services Hyper-V scripts](https://github.com/Azure/LabServices/tree/main/ClassTypes/PowerShell/HyperV). The steps are intended for Windows Server 2016, Windows Server 2019, or Windows 10.
+You can use a PowerShell script to set up nested virtualization on a template VM in Azure Lab Services. The following steps guide you through how to use the [Lab Services Hyper-V scripts](https://github.com/Azure/LabServices/tree/main/ClassTypes/PowerShell/HyperV). The script is intended for Windows 11.
 
 1. Follow these steps to [connect to and update the template machine](./how-to-create-manage-template.md#update-a-template-vm).
 
@@ -47,7 +50,7 @@ You can use a PowerShell script to set up nested virtualization on a template VM
     Set-ExecutionPolicy bypass -force
     ```
 
-1. Download and run the script.
+1. Download and run the script to enable the Hyper-V feature and tools.  
 
     ```powershell
     Invoke-WebRequest 'https://aka.ms/azlabs/scripts/hyperV-powershell' -Outfile SetupForNestedVirtualization.ps1
@@ -55,164 +58,80 @@ You can use a PowerShell script to set up nested virtualization on a template VM
     ```
 
     > [!NOTE]
-    > The script might require the machine to restart. Follow instructions from the script and re-run the script until you see **Script completed** in the output.
+    > The script might require you to restart the VM. If so, stop and start the template VM from the [Azure Lab Services website](https://labs.azure.com) and re-run the script until **Script completed** is seen in the output.
 
-1. Don't forget to reset the execution policy. Run the following command.
+1. Don't forget to reset the execution policy.
 
     ```powershell
     Set-ExecutionPolicy default -force
     ```
 
+The template VM is now configured for use with nested virtualization and you can [create VMs](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v?tabs=hyper-v-manager) inside it. Use the switch specified by the script when creating new Hyper-V VMs.
+
 # [Windows tools](#tab/windows)
 
-You can set up nested virtualization on a template VM in Azure Lab Services using Windows roles and tools directly. There are a few things needed on the template VM enable nested virtualization. The following steps describe how to manually set up a Lab Services machine template with Hyper-V. Steps are intended for Windows Server 2016 or Windows Server 2019.
+You can set up nested virtualization on a template VM in Azure Lab Services using Windows features and tools directly. The following steps describe how to manually set up a Lab Services machine template with Hyper-V. Steps are intended for Windows 11.
 
-First, follow these steps to [connect to the template virtual machine by using a remote desktop client](./how-to-create-manage-template.md#update-a-template-vm).
+1. Open the **Settings** page.
+1. Select **Apps**.
+1. Select **Optional features**.
+1. Select **More Windows features** under the **Related features** section.
+1. The **Windows features** pop-up appears. Check the **Hyper-V** feature and select **OK**.
+1. Wait for the Hyper-V feature to be installed. When prompted to restart the VM, select **Don't restart**.
+1. Go to the [Azure Lab Services website](https://labs.azure.com) to stop and restart the template VM.
 
-### Enable the Hyper-V role
-
-The following steps describe the actions to enable Hyper-V on Windows Server using Server Manager. After enabling Hyper-V, Hyper-V manager is available to add, modify, and delete client VMs.
-
-1. In **Server Manager**, on the **Dashboard** page, select **Add roles and features**.
-1. On the **Before you begin** page, select **Next**.
-1. On the **Select installation type** page, keep the default selection of **Role-based or feature-based installation** and select **Next**.
-1. On the **Select destination server** page, choose a server from the server pool. The current server is already selected. Select **Next**.
-1. On the **Select server roles** page, select **Hyper-V**.
-1. The **Add Roles and Features Wizard** dialog box appears. Select **Include management tools (if applicable)**, then select **Add Features**.
-1. For the **Select server roles** page, the **Select features page**, and the **Hyper-V** page, select **Next**.
-1. On the **Create Virtual Switches** page, the **Virtual Machine Migration** page, and the **Default Stores** page, accept the defaults, and select **Next**.
-1. On the **Confirm installation selections** page, select **Restart the destination server automatically if required**. When the **Add Roles and Features Wizard** dialog box appears, select **Yes**.
-1. Select **Install**. Wait for the **Installation progress** page to indicate that the Hyper-V role is complete. The machine might restart in the middle of the installation.
-1. Select **Close**.
-
-### Enable the DHCP role
-
-When you create a client VM, it needs an IP address in the Network Address Translation (NAT) network. Create the NAT network in a later step.
-
-To assign the IP addresses automatically, configure the lab VM template as a DHCP server:
-
-1. In **Server Manager**, on the **Dashboard** page, select **Add roles and features**.
-1. On the **Before you begin** page, select **Next**.
-1. On the **Select installation type** page, select **Role-based or feature-based installation** and select **Next**.
-1. On the **Select destination server** page, choose the current server from the server pool and select **Next**.
-1. On the **Select server roles** page, select **DHCP Server**.
-1. The **Add Roles and Features Wizard** dialog box appears. Select **Include management tools (if applicable)**. Select **Add Features**.
-
-   > [!NOTE]
-   > You might see a validation result that states that no static IP addresses were found. You can ignore this warning for this scenario.
-
-1. On the **Select server roles** page, select **Next**.
-1. On the **Select features** page and the **DHCP Server** page, select **Next**.
-1. On the **Confirm installation selections** page, select **Install**. Wait for the **Installation progress page** to indicate that the DHCP role is complete.
-1. Select **Close**.
-
-### Enable the Routing and Remote Access role
-
-Enable the [Routing service](/windows-server/remote/remote-access/remote-access#routing-service) to enable routing network traffic between the VMs on the template VM.
-
-1. In **Server Manager**, on the **Dashboard** page, select **Add roles and features**.
-1. On the **Before you begin** page, select **Next**.
-1. On the **Select installation type** page, select **Role-based or feature-based installation** and select **Next**.
-1. On the **Select destination server** page, choose the current server from the server pool and select **Next**.
-1. On the **Select server roles** page, select **Remote Access**. Select **Next**.
-1. On the **Select features** page and the **Remote Access** page, select **Next**.
-1. On the **Select role services** page, select **Routing**.
-1. The **Add Roles and Features Wizard** dialog box appears. Select **Include management tools (if applicable)**. Select **Add Features**.
-1. Select **Next**.
-1. On the **Web Server Role (IIS)** page and the **Select role services** page, select **Next**.
-1. On the **Confirm installation selections** page, select **Install**. Wait for the **Installation progress** page to indicate that the Remote Access role is complete.
-1. Select **Close**.
-
-### Create virtual NAT network
-
-After you install all the necessary roles, create the NAT network. The creation process involves creating a switch and the NAT network, itself.
-
-A NAT network assigns a public IP address to a group of VMs on a private network to allow connectivity to the internet. In this case, the group of private VMs consists of the nested VMs. The NAT network allows the nested VMs to communicate with one another.
-
-A switch is a network device that handles receiving and routing of traffic in a network.
-
-#### Create a new virtual switch
-
-Create a virtual switch in Hyper-V.
-
-1. Open **Hyper-V Manager** from Windows Administrative Tools.
-1. In the left-hand navigation menu, select the current server.
-1. In the **Actions** menu on the right, select **Virtual Switch Manager**.
-1. In the **Virtual Switch Manager** dialog box, select **Internal** for the type of switch to create. Select **Create Virtual Switch**.
-1. For the newly created virtual switch, set the name to something memorable, such as *LabServicesSwitch*. Select **OK**.
-
-   A new network adapter is created. The name is similar to *vEthernet (LabServicesSwitch)*. To verify open the **Control Panel**, select **Network and Internet**, select **View network status and tasks**. On the left, select **Change adapter settings**.
-
-#### Create a NAT network
-
-Create a NAT network on the lab template VM.
-
-> [!NOTE]
-> You might need to restart your VM after you create the switch in the previous section to see the options for this procedure.
-
-1. Open the **Routing and Remote Access** tool from Windows Administrative Tools.
-1. In the navigation pane, select the local server.
-1. Choose **Action** > **Configure and Enable Routing and Remote Access**.
-1. When the **Routing and Remote Access Server Setup Wizard** appears, select **Next**.
-1. On the **Configuration** page, select **Network address translation (NAT)** configuration. Select **Next**.
-
-   > [!WARNING]
-   > Don't choose the **Virtual private network (VPN) access and NAT** option.
-
-1. On **NAT Internet Connection** page, choose **Ethernet**. Don't choose the **vEthernet (LabServicesSwitch)** connection you created in Hyper-V Manager. Select **Next**.
-1. Select **Finish** on the last page of the wizard.
-1. When the **Start the service** dialog box appears, select **Start Service**.
-
-   Wait until service start.
-
-### Update network adapter settings
-
-Associate the IP address of the network adapter with the default gateway IP of the NAT network that you created earlier. In this example, assign an IP address of 192.168.0.1, with a subnet mask of 255.255.255.0. Use the virtual switch that you created earlier.
-
-1. Open the **Control Panel**, select **Network and Internet**, select **View network status and tasks**.
-1. On the left, select **Change adapter settings**.
-1. In the **Network Connections** window, double-click on **vEthernet (LabServicesSwitch)** to show the **vEthernet (LabServicesSwitch) Status** dialog box.
-1. Select **Properties**.
-1. Select **Internet Protocol Version 4 (TCP/IPv4)** item and select **Properties**.
-1. In **Internet Protocol Version 4 (TCP/IPv4) Properties**, enter these values.
-
-    - Select **Use the following IP address**.
-    - For the IP address, enter 192.168.0.1.
-    - For the subnet mask, enter 255.255.255.0.
-    - Leave the default gateway and DNS servers blank.
-
-    >[!NOTE]
-    > The range for the NAT network is, in CIDR notation, 192.168.0.0/24. This range provides usable IP addresses from 192.168.0.1 to 192.168.0.254. By convention, gateways have the first IP address in a subnet range.
-
-1. Select **OK** and **Close**.
-
-### Create DHCP Scope
-
-Add a DHCP scope. In this case, your NAT network is 192.168.0.0/24 in CIDR notation. This range provides usable IP addresses from 192.168.0.1 to 192.168.0.254. The scope you create must be in that range of usable addresses, excluding the IP address you assigned in the previous step.
-
-1. Open the **DHCP** tool from Windows Administrative Tools.
-1. In the **DHCP** tool, expand the node for the current server, and select **IPv4**.
-1. From the **Action** menu, choose **New Scope**.
-1. When the **New Scope Wizard** appears, on the **Welcome** page, select **Next**.
-1. On the **Scope Name** page, enter *LabServicesDhcpScope* or something else memorable for the name. Select **Next**.
-1. On the **IP Address Range** page, enter the following values, and then select **Next**.
-
-    - 192.168.0.100 for the Start IP address
-    - 192.168.0.200 for the End IP address
-    - 24 for the Length
-    - 255.255.255.0 for the Subnet mask
-
-1. On the **Add Exclusions and Delay** page and the **Lease Duration** page, select **Next**.
-1. On the **Configure DHCP Options** page, select **Yes, I want to configure these options now**. Select **Next**.
-1. On the **Router (Default Gateway)**, add *192.168.0.1*, if not done already. Select **Next**.
-1. On the **Domain Name and DNS Servers** page, add *168.63.129.16* as a DNS server IP address, if not done already. 168.63.129.16 is the IP address for an Azure static DNS server. Select **Next**.
-1. On the **WINS Servers** page, select **Next**.
-1. One the **Activate Scope** page, select **Yes, I want to activate this scope now**. Select **Next**.
-1. On the **Completing the New Scope Wizard** page, select **Finish**.
+The template VM is now configured to use nested virtualization and you can [create VMs](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v?tabs=hyper-v-manager) inside it. Use 'Default Switch' when creating new nested VMs with Hyper-V.
 
 ---
 
-You configured your template VM to use nested virtualization and create VMs inside it.
+## Connect to a nested VM in another lab VM
+
+Extra configuration is required to connect from a nested VM on one lab VM to a nested VM that is hosted in another lab VM. Add a static mapping to the NAT instance with the [Add-NetNatStaticMapping](/powershell/module/netnat/add-netnatstaticmapping) PowerShell cmdlet.
+
+> [!NOTE]
+> You can't use the `ping` command to test connectivity from or to a nested VM.
+
+> [!NOTE]
+> The static mapping only works when you use private IP addresses. The VM that the lab user is connecting from must be a lab VM, or the VM has to be on the same network if using advanced networking.
+
+### Example scenarios
+
+Consider the following sample lab setup:
+
+- Lab VM 1 (Windows Server 2022, IP 10.0.0.8)
+  - Nested VM 1-1 (Ubuntu 20.04, IP 192.168.0.102, SSH allowed)
+  - Nested VM 1-2 (Windows 11, IP 192.168.0.103, remote desktop enabled and allowed)
+
+- Lab VM 2 (Windows Server 2022, IP 10.0.0.9)
+  - Nested VM 2-1 (Ubuntu 20.04, IP 192.168.0.102, SSH allowed)
+  - Nested VM 2-2 (Windows 11, IP 192.168.0.103, remote desktop enabled and allowed)
+
+Enable connection with SSH from lab VM 2 to nested lab VM 1-1:
+
+1. On lab VM 1, add a static mapping:
+
+    ```powershell
+    Add-NetNatStaticMapping -NatName "LabServicesNat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress 192.168.0.102 -InternalPort 22 -ExternalPort 23
+    ```
+
+1. On lab VM 2, connect using SSH:
+
+    ```bash
+    ssh user1@10.0.0.8 -p 23
+    ```
+
+Enable connection with RDP from lab VM 2, or its nested VMs, to nested lab VM 1-2:
+
+1. On lab VM 1, add a static mapping.
+
+    ```powershell
+    Add-NetNatStaticMapping -NatName "LabServicesNat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress 192.168.0.103 -InternalPort 3389 -ExternalPort 3390
+    ```
+
+1. On lab VM 2, or its nested VMs, connect using RDP to `10.0.0.8:3390`.
+
+    > [!IMPORTANT]
+    > Include `~\` in front of the user name. For example, `~\Administrator` or `~\user1`.
 
 ## Troubleshooting
 
@@ -243,19 +162,28 @@ If you're using the **Medium (Nested Virtualization)** VM size for the lab, cons
 
 ### Internet connectivity isn't working for nested VMs
 
-- Confirm that you followed the previous steps for enabling nested virtualization. Consider using the PowerShell script option.
+- Verify that you followed the previous steps for enabling nested virtualization. Consider using the PowerShell script option.
 
-- If you're running a system administration class, consider not using the host VM (lab VM) as the DHCP server.
+- Check if the host VM (lab VM) has the DHCP role installed if you are using Windows Server.
 
-  Changing the settings of the lab VM can cause issues with other lab VMs. Create an internal or private NAT network and have one of the VMs act as the DHCP, DNS, or domain controller. Using private over internal does mean that Hyper-V VMs don't have internet access.
+  Running a lab VM as a DHCP server is an *unsupported* scenario. See [Can I deploy a DHCP server in a virtual network?](/azure/virtual-network/virtual-networks-faq) for details. Changing the settings of the lab VM can cause issues with other lab VMs.
 
-- Check the network adapter settings for the Hyper-V VM:
+- Check the network adapter settings for the Hyper-V VM.
 
   - Set the IP address of the DNS server and DHCP server to [168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16).
-  - Set the guest VM IPv4 address in the range of the [NAT network you created previously](#create-a-nat-network).
+  - If the guest VM IPv4 address is set manually, verify it is in the range of the NAT network connected to the Hyper-V switch.
+  - Try enabling Hyper-V [DHCP guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingdhcp-guard) and [Router guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingrouter-guard).
+
+    ```powershell
+    Get-VMNetworkAdapter * | Set-VMNetworkAdapter -RouterGuard On -DhcpGuard On
+    ```
 
 > [!NOTE]
-> The `ping` command from a Hyper-V VM to the host VM doesn't work. To test internet connectivity, launch a web browser and verify that the web page loads correctly.
+> You can't use the `ping` command from a Hyper-V VM to the host VM. To test internet connectivity, launch a web browser and verify that the web page loads correctly.
+
+### Can't start Hyper-V VMs
+
+You might choose to create a non-admin user when creating your lab. To be able to start or stop Hyper-V VMs, the non-admin user must be added to **Hyper-V Administrators** group. For more information about Hyper-V and non-admin users, see [Non-admin user](concept-nested-virtualization-template-vm.md#non-admin-user).
   
 ## Related content
 

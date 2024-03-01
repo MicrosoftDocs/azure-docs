@@ -1,6 +1,6 @@
 ---
 title: Vector search on Azure Database for PostgreSQL
-description: Vector search capabilities for retrieval augmented generation (RAG) on Azure Database for PostgreSQL .
+description: Enable semantic simiolarity search for Retrieval Augemented Generation (RAG) on Azure Database for PostgreSQL with pgvector database extension.
 ms.author: avijitgupta
 author: AvijitkGupta
 ms.reviewer: kabharati

@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to use Zeppelin notebooks with Apa
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/14/2023
+ms.date: 02/27/2024
 ---
 
 # Use Apache Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
@@ -167,6 +167,8 @@ This action saves the notebook as a JSON file in your download location.
 >    If you want the notebook to be available even after cluster deletion , you can try to use azure file storage (Using SMB protocol ) and link it to local path. For more details, see [Mount SMB Azure file share on Linux](/azure/storage/files/storage-how-to-use-files-linux)
 > 
 >    After mounting it, you can modify the zeppelin configuration zeppelin.notebook.dir to the mounted path in ambari UI.
+>   
+> - The SMB fileshare as GitNotebookRepo storage is not recommended for zeppelin version 0.10.1
 
 ## Use `Shiro` to Configure Access to Zeppelin Interpreters in Enterprise Security Package (ESP) Clusters
 

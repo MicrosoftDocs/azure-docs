@@ -1,12 +1,13 @@
 ---
-title: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview)
-description: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview).
+title: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service
+description: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service
 ms.topic: conceptual
 ms.date: 05/04/2023
-
+ms.author: shasb
+author: shashankbarsin
 ---
 
-# Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+# Upgrade Istio-based service mesh add-on for Azure Kubernetes Service
 
 This article addresses upgrade experiences for Istio-based service mesh add-on for Azure Kubernetes Service (AKS).
 

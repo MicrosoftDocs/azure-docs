@@ -218,6 +218,14 @@
           href: dynamics-365/dynamics-365-finance-operations-security-content.md
         - name: Deploy solution
           href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
+      - name: Microsoft Power Platform solution
+        items:
+        - name: Overview
+          href: business-applications/power-platform-solution-overview.md 
+        - name: Content overview
+          href: business-applications/power-platform-solution-security-content.md
+        - name: Deploy solution
+          href: business-applications/deploy-power-platform-solution.md
   - name: Integrate Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel

@@ -1,5 +1,25 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/batch/batch-pool-no-public-ip-address.md",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-pool-no-public-ip-address",
+      "redirect_document_id": false
+    }, 
+    {  
+      "source_path": "articles/batch/batch-rendering-applications.md",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-rendering-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-rendering-using.md",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-rendering-using",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-rendering-application-reference.md",
+      "redirect_url": "/previous-versions/aure/batch/articles/batch/batch-rendering-application-reference",
+      "redirect_document_id": false
+    },
     	{
            "source_path": "articles/cosmos-db/nosql/sdk-java-spark-v2.md",
            "redirect_url": "/previous-versions/azure/cosmos-db/nosql/sdk-java-spark-v2",
@@ -978,6 +998,11 @@
         {
             "source_path_from_root": "/articles/analysis-services/analysis-services-compat-level.md",
             "redirect_url": "/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-monitor.md",
+            "redirect_url": "/azure/analysis-services/monitor-analysis-services",
             "redirect_document_id": false
         },
         {
