@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 03/01/2024
 ms.author: kendownie
 ms.custom: monitoring
 ---
@@ -37,6 +37,7 @@ The following table lists some example scenarios to monitor and the proper metri
 | File share is throttled. | Metric: Transactions<br>Dimension name: Response type <br>Dimension name: FileShare (premium file share only) |
 | File share size is 80% of capacity. | Metric: File Capacity<br>Dimension name: FileShare (premium file share only) |
 | File share egress has exceeded 500 GiB in one day. | Metric: Egress<br>Dimension name: FileShare (premium file share only) |
+| File share availability is less than 99.9%. | Metric: Availability<br>Dimension name: FileShare (premium file share only) |
 
 ## How to create an alert if a file share is throttled
 
@@ -132,7 +133,7 @@ To create an alert that will notify you if a file share is being throttled, foll
 
 9. Select **Review + create** to create the alert.
 
-## Create an alert for high server latency
+## How to create an alert for high server latency
 
 To create an alert for high server latency (average), follow these steps.
 
@@ -157,6 +158,35 @@ To create an alert for high server latency (average), follow these steps.
 7. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity.
 
 8. Select **Review + create** to create the alert.
+
+## How to create an alert if the Azure file share availability is less than 99.9%
+
+1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
+
+2. In the **Condition** tab, select the **Availability** metric.
+
+3. In the **Alert logic** section, provide the following:
+   - **Threshold** = **Static** 
+   - **Aggregation type** = **Average**
+   - **Operator** = **Less than**
+   - **Threshold value** enter **99.9**
+
+4. In the **Split by dimensions** section:
+   - Select the **Dimension name** drop-down and select **File Share**.
+   - Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+
+    > [!NOTE]
+    > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Availability alerts for standard file shares will be at the storage acount level.
+
+6. In the **When to evaluate** section, select the following:
+   - **Check every** = **5 minutes**
+   - **Lookback period** = **1 hour**
+
+7. Click **Next** to go to the **Actions** tab and add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
+
+8. Click **Next** to go to the **Details** tab and fill in the details of the alert such as the alert name, description, and severity.
+
+9. Select **Review + create** to create the alert.
 
 ## Related content
 
