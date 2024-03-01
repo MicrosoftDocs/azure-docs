@@ -99,7 +99,7 @@ sections:
       - question: |
           Can I use Azure Site Recovery for SQL machine as well as Azure SQL database backup on the same machine?
         answer: |
-          Yes. Azure Site Recovery will trigger a *copy-only full backup* while taking the *application consistent snapshot* on the VM not to truncate the logs. [Learn more](../azure/site-recovery/site-recovery-sql.md#combining-bcdr-technologies-with-site-recovery).   
+          Yes. Azure Site Recovery will trigger a *copy-only full backup* while taking the *application consistent snapshot* on the VM not to truncate the logs. [Learn more](../site-recovery/site-recovery-sql.md#combining-bcdr-technologies-with-site-recovery).   
 
   - name: Manage
     questions:
