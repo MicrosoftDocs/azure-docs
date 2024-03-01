@@ -23,12 +23,15 @@ In this tutorial, you learn how to work with [event-driven jobs](jobs.md#event-d
 > * Deploy the job to the Container Apps environment
 > * Verify that the queue messages are processed by the container app
 
-The job you create starts an execution for each message that is sent to an Azure Storage Queue. Each job execution runs a container that performs the following steps:
+The job you create starts an execution for each message that is sent to an Azure Storage queue. Each job execution runs a container that performs the following steps:
 
-1. Dequeues one message from the queue.
+1. Gets one message from the queue.
 1. Logs the message to the job execution logs.
 1. Deletes the message from the queue.
 1. Exits.
+
+> [!IMPORTANT]
+> The scaler monitors the queue's length to determine how many jobs to start. For accurate scaling, don't delete a message from the queue until the job execution has finished processing it.
 
 The source code for the job you run in this tutorial is available in an Azure Samples [GitHub repository](https://github.com/Azure-Samples/container-apps-event-driven-jobs-tutorial/blob/main/index.js).
 
