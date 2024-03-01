@@ -87,8 +87,8 @@ MicrosoftDataShareReceivedSnapshotLog
 
 For more example queries, see:
 
-- [Queries for the MicrosoftDataShareReceivedSnapshotLog table](/azure/azure-monitor/reference/queries/microsoftdatasharereceivedsnapshotlog.md)
-- [Queries for the MicrosoftDataShareSentSnapshotLog table](/azure/azure-monitor/reference/queries/microsoftdatasharesentsnapshotlog.md)
+- [Queries for the MicrosoftDataShareReceivedSnapshotLog table](/azure/azure-monitor/reference/queries/microsoftdatasharereceivedsnapshotlog)
+- [Queries for the MicrosoftDataShareSentSnapshotLog table](/azure/azure-monitor/reference/queries/microsoftdatasharesentsnapshotlog)
 
 [!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
