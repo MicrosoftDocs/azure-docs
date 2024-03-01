@@ -1375,8 +1375,6 @@ items:
     href: compute-optimized-data-flow-retire.md
   - name: Monitoring data reference
     href: monitor-data-factory-reference.md
-  - name: Schema of logs and events
-    href: monitor-schema-logs-events.md
 - name: Resources
   items:
   - name: Whitepapers
