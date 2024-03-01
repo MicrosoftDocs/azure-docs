@@ -6,6 +6,11 @@
             "redirect_document_id": false
           },
           {
+            "source_path": "articles/data-lake-store/index.yml",
+            "redirect_url": "/previous-versions/azure/data-lake-store/data-lake-store-overview",
+            "redirect_document_id": false
+          },
+          {
             "source_path": "articles/data-lake-store/data-lake-store-archive-eventhub-capture.md",
             "redirect_url": "/previous-versions/azure/data-lake-store/data-lake-store-archive-eventhub-capture",
             "redirect_document_id": false
