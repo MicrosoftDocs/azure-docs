@@ -86,7 +86,7 @@ Workspace managed virtual network is the recommended way to support network isol
 - If you have strict outbound rule, make sure you have open the [Required public internet access](../how-to-secure-workspace-vnet.md#required-public-internet-access).
 - Add workspace MSI as `Storage File Data Privileged Contributor` to storage account linked with workspace. Please follow step 2 in [Secure prompt flow with workspace managed virtual network](#secure-prompt-flow-with-workspace-managed-virtual-network).
 - Meanwhile, you can follow [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
-- If you want to deploy prompt flow in workspace which secured by your own virtual network, you can deploy it to AKS cluster which is in the same virtual network. You can follow [Secure Azure Kubernetes Service inferencing environment](../how-to-secure-kubernetes-inferencing-environment.md) to secure your AKS cluster.
+- If you want to deploy prompt flow in workspace which secured by your own virtual network, you can deploy it to AKS cluster which is in the same virtual network. You can follow [Secure Azure Kubernetes Service inferencing environment](../how-to-secure-kubernetes-inferencing-environment.md) to secure your AKS cluster. Learn more about [How to deploy prompt flow to ASK cluster via code](./how-to-deploy-to-code.md).
 - You can either create private endpoint to the same virtual network or leverage virtual network peering to make them communicate with each other.
 
 ## Known limitations
