@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
@@ -19,15 +19,15 @@ ms.author: pafarley
 
 Alt text, or alternative text, is an HTML attribute added to the `<img>` tag that displays images on an application or web page. It looks like this in plain HTML code: 
 
-`<img src="elephant.jpg" alt="An elephant in a grassland">`
+`<img src="elephant.jpg" alt="An elephant in a grassland.">`
 
-Alt text enables website owners to describe an image in plain text. These image descriptions improve accessibility by enabling screen readers such as Microsoft Narrator, JAWS, and NVDA to accurately communicate image content to their visually impaired and blind users. 
+Alt text enables website owners to describe an image in plain text. These image descriptions improve accessibility by enabling screen readers such as Microsoft Narrator, JAWS, and NVDA to accurately communicate image content to their vision-impaired and blind users.
 
 Alt text is also vital for image search engine optimization (SEO). It helps search engines understand the visual content in your images. The search engine is then better able to include and rank your website in search results when users search for the content in your website.  
 
 ## Auto-generate alt text with Image Analysis  
 
-Image Analysis offers image captioning models that generate one-sentence descriptions of image visual content. You can use these AI generated captions as alt text for your images.  
+Image Analysis offers image captioning models that generate one-sentence descriptions of an image's visual content. You can use these AI-generated captions as alt text for your images.  
 
 :::image type="content" source="media/use-cases/elephant.png" alt-text="An elephant in a grassland.":::
 
@@ -43,7 +43,7 @@ Microsoft’s own products such as PowerPoint, Word, and Edge browser use image 
 - **Meet legal compliance requirements**. Some websites may be legally required to remove all accessibility barriers. Using alt text for accessibility helps website owners minimize risk of legal action now and in the future. 
 - **Make your website more discoverable and searchable**. Image alt text helps search engine crawlers find images on your website more easily and rank them higher in search results.  
 
-## Frequently Asked Questions 
+## Frequently asked questions 
 
 ### What languages are image captions available in? 
 
@@ -57,7 +57,7 @@ In general, we advise a confidence threshold of `0.4` for the Image Analysis 3.2
 
 ### What can I do about embarrassing or erroneous captions?  
 
-On rare occasions, image captions can contain embarrassing errors, such as labeling a male-identifying person as a "woman" or labeling an adult woman as a "girl". We encourage users to consider using the latest Image Analysis 4.0 API which eliminates some errors by supporting gender-neutral captions.
+On rare occasions, image captions can contain embarrassing errors, such as labeling a male-identifying person as "woman" or labeling an adult woman as "girl". We encourage users to consider using the latest Image Analysis 4.0 API which eliminates some errors by supporting gender-neutral captions.
 
 Please report any embarrassing or offensive captions by going to the [Azure portal](https://portal.azure.com) and navigating to the **Feedback** button in the top right.
 

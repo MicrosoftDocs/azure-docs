@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
-ms.date: 12/15/2022
+ms.date: 1/23/2024
 ---
 
 # Overview of Azure IoT Device SDKs

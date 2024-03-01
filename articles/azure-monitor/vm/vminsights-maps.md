@@ -30,8 +30,7 @@ For more information, see [Enable VM insights on unmonitored machine](vminsights
 
 > [!WARNING]
 > Collecting duplicate data from a single machine with both Azure Monitor Agent and the Log Analytics agent can result in the Map feature of VM insights being inaccurate because it doesn't check for duplicate data.
->
-> For more information, see [Migrate from the Log Analytics agent](vminsights-enable-overview.md#migrate-from-log-analytics-agent-to-azure-monitor-agent).
+
 
 ## Introduction to the Map experience
 Before diving into the Map experience, you should understand how it presents and visualizes information.

@@ -5,11 +5,9 @@ services: cdn
 author: duongau
 manager: danielgi
 ms.service: azure-cdn
-ms.workload: media
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: duau
-
 ---
 # X-EC-Debug HTTP headers for Azure CDN rules engine
 The debug cache request header, `X-EC-Debug`, provides additional information about the cache policy that is applied to the requested asset. These headers are specific to **Azure CDN Premium from Edgio** products.

@@ -8,14 +8,15 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 01/19/2024
 ms.author: pafarley
 ms.custom: references_regions
 ---
 
 # Background removal (version 4.0 preview)
 
-The Image Analysis service can divide images into multiple segments or regions to help the user identify different objects or parts of the image. Background removal creates an alpha matte that separates the foreground object from the background in an image.
+The Background removal operation can divide images into multiple segments or regions to help the user identify different objects or parts of the image. Background removal creates an alpha matte that separates the foreground object from the background in an image. This service is currently in preview, and the API may change in the future.
+
 
 > [!div class="nextstepaction"]
 > [Call the Background removal API](./how-to/background-removal.md)
@@ -24,8 +25,6 @@ This feature provides two possible outputs based on the customer's needs:
 
 - The foreground object of the image without the background. This edited image shows the foreground object and makes the background transparent, allowing the foreground to be placed on a new background. 
 - An alpha matte that shows the opacity of the detected foreground object. This matte can be used to separate the foreground object from the background for further processing.
-
-This service is currently in preview, and the API may change in the future.
 
 > [!IMPORTANT]
 > Background removal is only available in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.

@@ -1,14 +1,14 @@
 ---
-title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Service (AKS)
-description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
+title: Use a customer-managed key to encrypt Azure managed disks in Azure Kubernetes Service (AKS)
+description: Bring your own keys (BYOK) to encrypt managed OS and data disks in AKS.
 ms.topic: article
 ms.custom: devx-track-azurecli, linux-related-content
-ms.date: 11/24/2023
+ms.date: 02/01/2024
 ---
 
-# Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
+# Bring your own keys (BYOK) with Azure managed disks in Azure Kubernetes Service (AKS)
 
-Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the OS and data disks for your AKS clusters.
+Azure encrypts all data in a managed disk at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the OS and data disks for your AKS clusters.
 
 Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] and [Windows][customer-managed-keys-windows].
 
@@ -21,9 +21,9 @@ Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] a
 
 ## Limitations
 
-* Encryption of OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
+* Encryption of an OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
 * Virtual nodes are not supported.
-* When encrypting ephemeral OS disk-enabled node pool with customer-managed keys, if you want to rotate the key in Azure Key Vault, you need to:
+* When encrypting an ephemeral OS disk-enabled node pool with customer-managed keys, if you want to rotate the key in Azure Key Vault, you need to:
 
    * Scale down the node pool count to 0
    * Rotate the key

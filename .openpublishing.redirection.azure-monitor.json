@@ -41,6 +41,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/ip-addresses.md",
+            "redirect_url": "/azure/azure-monitor/ip-addresses",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/source-map-support.md",
             "redirect_url": "/azure/azure-monitor/app/javascript-sdk-advanced",
             "redirect_document_id": false
@@ -1802,7 +1807,7 @@
         },
         {
             "source_path_from_root": "/articles/monitoring-and-diagnostics/resource-group-insights.md",
-            "redirect_url": "/azure/azure-monitor/insights/resource-group-insights",
+            "redirect_url": "/azure/azure-resource-manager/management/resource-group-insights",
             "redirect_document_id": true
         },
         {
@@ -2282,17 +2287,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/insights/solutions-inventory.md",
-            "redirect_url": "/azure/azure-monitor/monitor-reference",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/monitoring/monitoring-solutions-inventory.md",
-            "redirect_url": "/azure/azure-monitor/monitor-reference",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/data-locations.md",
-            "redirect_url": "/azure/azure-monitor/monitor-reference/",
+            "redirect_url": "/azure/azure-monitor/overview/",
             "redirect_document_id": false
         },
         {
@@ -5141,7 +5146,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/partners.md",
-            "redirect_url": "/azure/azure-monitor//partners",
+            "redirect_url": "/azure/azure-monitor/overview#integrate",
             "redirect_document_id": false
         },
         {
@@ -6260,6 +6265,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/essentials/platform-logs-overview.md",
+            "redirect_url": "/azure/azure-monitor/data-sources",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/essentials/resource-logs-categories.md",
             "redirect_url": "/azure/azure-monitor/reference/supported-logs/logs-index",
             "redirect_document_id": false
@@ -6578,6 +6588,36 @@
             "source_path_from_root": "/articles/azure-monitor/agents/data-collection-rule-sample-agent.md",
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-samples",
             "redirect_document_id": false
-        }        
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/resource-manager-container-insights.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=arm#enable-container-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/azure-functions-supported-features.md",
+            "redirect_url": "/azure/azure-functions/functions-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
+            "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/partners.md",
+            "redirect_url": "/azure/azure-monitor/overview#integrate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/monitor-reference.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/resource-group-insights.md",
+            "redirect_url": "/azure/azure-resource-manager/management/resource-group-insights",
+            "redirect_document_id": false
+        }
     ]
 }

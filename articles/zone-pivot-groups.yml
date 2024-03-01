@@ -485,13 +485,13 @@ groups:
   - id: java
     title: Java
 - id: function-worker-process
-  title: .NET Azure Functions worker process 
-  prompt: Choose how to run   
+  title: .NET Azure Functions process model
+  prompt: Choose your .NET mode   
   pivots: 
-  - id: in-proc
-    title: In-process
   - id: isolated
-    title: Isolated worker process
+    title: Isolated worker model
+  - id: in-proc
+    title: In-process model
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
@@ -647,8 +647,7 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: REST API
-  - id: vision-studio
-    title: Vision Studio
+
 - id: programming-languages-computer-vision-40
   title: Programming languages
   prompt: Choose a programming language.
@@ -663,6 +662,8 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: REST API
+  - id: vision-studio
+    title: Vision Studio
 - id: programming-languages-vision-40-sdk
   title: Programming languages
   prompt: Choose a programming language.
@@ -1198,7 +1199,7 @@ groups:
   - id: platform-linux
     title: Linux
   - id: platform-windows
-    title: Windows
+    title: Windows code
   - id: platform-windows-container
     title: Windows container
 # Owner: msangapu
@@ -1225,7 +1226,7 @@ groups:
   title: App Service Java hosting
   prompt: Choose how you want to deploy your Java app
   pivots:
-  - id: java-maven-quarkus
+  - id: java-maven-javase
     title: Embed your own server
   - id: java-maven-tomcat
     title: To a Tomcat server
@@ -1565,6 +1566,14 @@ groups:
     title: Web
   - id: platform-mobile
     title: Mobile
+- id: acs-plat-web-native
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-native
+    title: Native
 - id: acs-plat-web-ios-android-windows
   title: Platform
   prompt: Choose a platform
@@ -1685,6 +1694,24 @@ groups:
     title: Azure CLI
   - id: platform-azp
     title: Azure portal
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: acs-azcli-azp-azpnew-java-net-python-csharp-js
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-azp-new
+    title: Azure portal (new)
   - id: programming-language-java
     title: Java
   - id: programming-language-csharp
@@ -1973,6 +2000,8 @@ groups:
   pivots:
   - id: programming-language-studio
     title: Studio
+  - id: programming-language-python
+    title: Python
   - id: rest-api
     title: REST
 # Owner: mbullwin
@@ -1984,6 +2013,8 @@ groups:
     title: REST
   - id: programming-language-powershell
     title: PowerShell
+  - id: programming-language-python
+    title: Python
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
@@ -2023,8 +2054,19 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
-- id: azure-maps-android
+
+# Owner: farazgis
+- id: azure-maps-coverage
+  title: Azure Maps coverage
+  prompt: Choose the API version
+  pivots:
+  - id: route-v1
+    title: Route
+  - id: route-v2
+    title: Route v2
+
 # Owner: richbrun
+- id: azure-maps-android
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -2098,7 +2140,7 @@ groups:
 # Owner: Brendanc
 - id: drawing-package-version
   title: Creator drawing package
-  prompt: Choose a drawing package Version
+  prompt: Choose a drawing package version
   pivots:
   - id: drawing-package-v1
     title: drawing package 1.0
@@ -2440,6 +2482,14 @@ groups:
     title: Standard/Premium
   - id: front-door-classic
     title: Classic
+- id: expressroute-experience
+  title: ExpressRoute experience
+  prompt: "Select your ExpressRoute create experience:"
+  pivots:
+  - id: expressroute-current
+    title: Current
+  - id: expressroute-preview
+    title: Preview
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
@@ -2614,6 +2664,15 @@ groups:
     title: GitHub build
   - id: local-build
     title: Local build
+# Owner: cshoe
+- id: container-apps-code-to-cloud-segmemts
+  title: Code 
+  prompt: Choose if your source code has a Dockerfile
+  pivots:
+  - id: with-dockerfile
+    title: Dockerfile
+  - id: without-dockerfile
+    title: No Dockerfile
  # Owner: rahulmehta
 - id: azure-red-hat-openshift-service-principal
   title: Azure CLI and Azure portal
@@ -2803,6 +2862,16 @@ groups:
     title: Windows 365
   - id: dev-box
     title: Dev Box
+- id: azure-virtual-desktop-windows-clients
+  title: Remote Desktop clients for Windows
+  prompt: "Choose the version of the Remote Desktop client for Windows you want to use:"
+  pivots:
+  - id: remote-desktop-msi
+    title: Remote Desktop client (MSI)
+  - id: avd-store
+    title: Azure Virtual Desktop Store app
+  - id: rd-store
+    title: Remote Desktop Store app
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -2934,3 +3003,50 @@ groups:
     title: Management group
   - id: sub
     title: Subscription
+# Owner: accledgerdevs
+- id: azure-confidential-ledger-programming-languages
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-portal
+    title: Azure portal
+# Owner: pauljewell
+- id: azure-blob-storage-quickstart-options
+  title: Quickstart interaction type
+  prompt: Choose how you'd like to interact with the quickstart
+  pivots:
+  - id: blob-storage-quickstart-scratch
+    title: Build from scratch
+  - id: blob-storage-quickstart-template
+    title: Start with a template
+# Owner: sloanster
+- id: acs-web-safari-chrome-firefox-known-issues
+  title: Knowns issues
+  prompt: Choose a platform
+  pivots:
+  - id: all-browsers
+    title: All browsers
+  - id: safari-browser
+    title: Safari browser
+  - id: chrome-browser
+    title: Chrome browser
+  - id: firefox-browser
+    title: Firefox browser
+
+# Owner: tejaswikolli-web
+- id: container-registry-zones
+  title: Container registry ide
+  prompt: Choose a scope option
+  pivots:
+  - id: development-environment-azure-portal
+    title: Portal 
+  - id: development-environment-azure-cli
+    title: CLI

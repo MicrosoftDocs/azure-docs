@@ -24,7 +24,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 - [SAP Partners with Microsoft for First-in-Market Cloud Migration Offerings](https://news.microsoft.com/2019/10/20/sap-partners-with-microsoft-for-first-in-market-cloud-migration-offerings/)
 - [SAP and Microsoft Expand Partnership and Integrate Microsoft Teams Across Solutions](https://news.sap.com/2021/01/sap-and-microsoft-expand-partnership-integrate-teams/)
 - [Come Explore the Future](https://news.sap.com/2021/01/sap-and-microsoft-expand-partnership-integrate-teams/), showing how Microsoft and SAP are partnering to meet the needs of every business.
-- [Collaborating for Success: How SAP and Microsoft are working together to accelerate customer innovation and transformation](https://www.sap.com/documents/2021/01/ca0f4c25-c87d-0010-87a3-c30de2ffd8ff.html)
+- [Collaborating for Success: How SAP and Microsoft are working together to accelerate customer innovation and transformation](https://discover.sap.com/microsoft/en-us/index.html)
 
 ## Integration resources
 
@@ -257,7 +257,7 @@ For more information about using Microsoft Defender for Endpoint (MDE) via Micro
 
 - [SAP Applications and Microsoft Defender for Linux | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-applications-and-microsoft-defender-for-linux/ba-p/3675480)
 - [SAP Applications and Microsoft Defender for Windows Server | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/microsoft-defender-endpoint-mde-for-sap-applications-on-windows/ba-p/3912268)
-- [Enable the Microsoft Defender for Endpoint integration](../../defender-for-cloud/integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration)
+- [Enable the Microsoft Defender for Endpoint integration](../../defender-for-cloud/enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration)
 - [Common mistakes to avoid when defining exclusions](/microsoft-365/security/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus)
 
 Also see the following SAP resources:

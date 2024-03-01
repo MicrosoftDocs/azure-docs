@@ -4,7 +4,7 @@ description: This article describes how you can manage Microsoft Entra ID enable
 author: achudnovskij
 ms.author: anchudno
 ms.reviewer: maghan
-ms.date: 11/04/2022
+ms.date: 01/02/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-arm-template
@@ -28,7 +28,7 @@ If you like to learn about how to create and manage Azure subscription users and
 ## Create or delete Microsoft Entra administrators using Azure portal or Azure Resource Manager (ARM) API
 
 1. Open the **Authentication** page for your Azure Database for PostgreSQL flexible server instance in the Azure portal.
-1. To add an administrator - select **Add Microsoft Entra Admin**  and select a user, group, application or a managed identity from the current Microsoft Entra tenant.
+1. To add an administrator - select **Add Microsoft Entra Admin**  and select a user, group, application, or a managed identity from the current Microsoft Entra tenant.
 1. To remove an administrator - select **Delete** icon for the one to remove.
 1. Select **Save** and wait for provisioning operation to completed.
 
@@ -42,7 +42,7 @@ If you like to learn about how to create and manage Azure subscription users and
 
 ## Manage Microsoft Entra roles using SQL
 
-Once first Microsoft Entra administrator is created from the Azure portal or API, you can use the administrator role to manage Microsoft Entra roles in your Azure Database for PostgreSQL flexible server instance.
+Once the first Microsoft Entra administrator is created from the Azure portal or API, you can use the administrator role to manage Microsoft Entra roles in your Azure Database for PostgreSQL flexible server instance.
 
 We recommend getting familiar with [Microsoft identity platform](../../active-directory/develop/v2-overview.md) for best use of Microsoft Entra integration with Azure Database for PostgreSQL flexible server.
 
@@ -85,6 +85,14 @@ For example: select * from pgaadauth_create_principal('mary@contoso.com', false,
 - *isMfa* - Flag if Multi Factor Authentication must be enforced for this role.
 
 <a name='create-a-role-using-azure-ad-object-identifier'></a>
+
+## Drop a role using Microsoft Entra principal name
+
+Remember that any Microsoft Entra role that is created in PostgreSQL must be dropped using a Microsoft Entra Admin. If you use a regular PostgreSQL admin to drop an Entra role then it will result in an error.
+
+```sql
+Drop Role rolename;
+```
 
 ## Create a role using Microsoft Entra object identifier
 

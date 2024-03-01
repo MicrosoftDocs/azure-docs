@@ -9,7 +9,7 @@ ms.reviewer: orspodek
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.custom: seodec18, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 
 # Create Azure Time Series Insights Gen 1 resources using Azure Resource Manager templates

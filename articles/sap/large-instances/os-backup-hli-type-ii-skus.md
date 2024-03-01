@@ -8,11 +8,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: jaawasth
 ms.custom: H1Hack27Feb2017
-
 ---
 # OS backup and restore for Type II SKUs of Revision 3 stamps
 

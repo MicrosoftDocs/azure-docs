@@ -44,7 +44,7 @@ The following regions are supported for Speech service features such as speech t
 | Europe | France Central | `francecentral` |
 | Europe | Germany West Central | `germanywestcentral` |
 | Europe | Norway East | `norwayeast` |
-| Europe | Sweden Central | `swedentcentral`<sup>8</sup> |
+| Europe | Sweden Central | `swedencentral`<sup>8</sup> |
 | Europe | Switzerland North | `switzerlandnorth` <sup>6</sup>|
 | Europe | Switzerland West | `switzerlandwest` |
 | Europe | UK South | `uksouth` <sup>1,2,3,4,7</sup>|

@@ -8,26 +8,32 @@
   - name: What are AI services?
     href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
     displayName: applied, cognitive, form recognizer
+  - name: Azure AI Studio architecture
+    href: concepts/architecture.md
   - name: Region support
     href: reference/region-support.md
+  - name: What's new in Azure AI Studio?
+    href: whats-new.md
   - name: Azure AI FAQ
     href: faq.yml
 - name: Quickstarts
   items:
   - name: Hear and speak with chat in the playground
     href: quickstarts/hear-speak-playground.md
-  - name: Generate text completions in the playground
-    href: quickstarts/playground-completions.md
   - name: Moderate text and images with content safety
     href: quickstarts/content-safety.md
   - name: Analyze images and video with GPT-4 for Vision in the playground
     href: quickstarts/multimodal-vision.md
+  - name: Generate text completions in the playground
+    href: quickstarts/playground-completions.md
 - name: Tutorials
   items:
   - name: Deploy a chat web app
     href: tutorials/deploy-chat-web-app.md
   - name: Build your own copilot using prompt flow
     href: tutorials/deploy-copilot-ai-studio.md
+  - name: Build your own copilot using Azure AI CLI and SDK
+    href: tutorials/deploy-copilot-sdk.md
   - name: Using Azure AI Studio with a screen reader
     href: tutorials/screen-reader.md
 - name: How-to
@@ -53,10 +59,12 @@
       href: how-to/develop-in-vscode.md
   - name: Create Azure AI projects and resources
     items:
-    - name: Azure AI resources overview
+    - name: Azure AI hub resources overview
       href: concepts/ai-resources.md
-    - name: Create and manage an Azure AI resource
+    - name: Create and manage an Azure AI hub resource
       href: how-to/create-azure-ai-resource.md
+    - name: Create an Azure AI hub resource from template
+      href: how-to/create-azure-ai-hub-template.md
     - name: Create an Azure AI project
       href: how-to/create-projects.md
     - name: Create and manage compute
@@ -73,6 +81,7 @@
       items:
       - name: Vector index and retrieval augmented generation
         href: concepts/retrieval-augmented-generation.md
+        displayName: RAG
       - name: Create an index
         href: how-to/index-add.md
     - name: Add and manage your data
@@ -81,6 +90,7 @@
         href: how-to/data-add.md
       - name: Use your image data with Azure OpenAI
         href: how-to/data-image-add.md
+        displayName: vision, gpt, turbo
     - name: Generate synthetic data
       items:
       - name: Generate samples from your dataset
@@ -99,6 +109,8 @@
         href: how-to/flow-develop.md
       - name: Tune prompts using variants
         href: how-to/flow-tune-prompts-using-variants.md
+      - name: Process images in a flow
+        href: how-to/flow-process-image.md
     - name: Use prompt flow tools
       items:
       - name: Overview of prompt flow tools
@@ -131,8 +143,9 @@
           href: how-to/flow-bulk-test-evaluation.md
         - name: Develop an evaluation flow in Prompt flow
           href: how-to/flow-develop-evaluation.md
-    - name: Deploy a flow as a managed online endpoint
+    - name: Deploy a flow for real-time inference
       href: how-to/flow-deploy.md
+      displayName: endpoint
   - name: Evaluate apps
     items:
     - name: Evaluations concepts
@@ -162,10 +175,13 @@
     - name: Deploy Llama 2 family models
       href: how-to/deploy-models-llama.md
       displayName: maas, as a service
+    - name: Deploy Mistral family models
+      href: how-to/deploy-models-mistral.md
+      displayName: maas, as a service
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
-    - name: Monitor quality and safety of deployed applications
+    - name: Monitor prompt flow deployments
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
       href: how-to/troubleshoot-deploy-and-monitor.md
@@ -191,12 +207,16 @@
         href: how-to/configure-managed-network.md
       - name: Configure private link
         href: how-to/configure-private-link.md
+      - name: Troubleshoot secure project connectivity
+        href: how-to/troubleshoot-secure-connection-project.md
     - name: Data protection & encryption
       items:
       - name: Rotate keys
         href: ../ai-services/rotate-keys.md?context=/azure/ai-studio/context/context
       - name: Configure customer-managed keys
         href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context
+    - name: Vulnerability management
+      href: concepts/vulnerability-management.md
 - name: Responsible AI
   items:
   - name: Overview

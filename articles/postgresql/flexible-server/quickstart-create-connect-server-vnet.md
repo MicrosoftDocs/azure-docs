@@ -8,7 +8,7 @@ author: sunilagarwal
 ms.reviewer: ""
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 11/30/2021
+ms.date: 01/02/2024
 ---
 
 # Connect Azure Database for PostgreSQL - Flexible Server with the private access connectivity method

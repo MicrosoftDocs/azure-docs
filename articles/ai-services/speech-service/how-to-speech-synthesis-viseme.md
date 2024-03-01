@@ -195,7 +195,7 @@ synthesizer.visemeReceived = function (s, e) {
     window.console.log("(Viseme), Audio offset: " + e.audioOffset / 10000 + "ms. Viseme ID: " + e.visemeId);
 
     // `Animation` is an xml string for SVG or a json string for blend shapes
-    var animation = e.Animation;
+    var animation = e.animation;
 }
 
 // If VisemeID is the only thing you want, you can also use `speakTextAsync()`
