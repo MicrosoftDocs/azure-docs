@@ -283,7 +283,7 @@
       href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/virtual-network/toc.json
     - name: Network interfaces (NICs)
       href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/virtual-network/toc.json
-    - name: Manual move
+    - name: Manual relocation
       items:
       - name: Network security groups (NSG)
         href: ../operational-excellence/relocation-virtual-network-nsg.md?toc=/azure/virtual-network/toc.json
