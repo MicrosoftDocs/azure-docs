@@ -46,6 +46,12 @@ Microsoft uses BGP, an industry standard dynamic routing protocol, to exchange r
 
 Each ExpressRoute circuit consists of two connections to two Microsoft Enterprise edge routers (MSEEs) at an [ExpressRoute Location](./expressroute-locations.md#expressroute-locations) from the connectivity provider or your network edge. Microsoft requires dual BGP connections from the connectivity provider or your network edge – one to each MSEE. You might choose not to deploy redundant devices/Ethernet circuits at your end. However, connectivity providers use redundant devices to ensure that your connections are handed off to Microsoft in a redundant manner.
 
+### Resiliency
+
+Microsoft offers multiple ExpressRoute peering locations in many geopolitical regions. To ensure maximum resiliency, Microsoft recommends that you connect to two ExpressRoute circuits in two peering locations. For non-production development and test work loads, you can achieve standard resiliency by connecting to a single ExpressRoute circuit that offers redundant connections within a single peering location. The Azure portal provides a guided experience to help you create a resilient ExpressRoute configuration. For Azure PowerShell, CLI, ARM template, Terraform, and Bicep, maximum resiliency can be achieved by creating a second ExpressRoute circuit in a different ExpressRoute location and establishing a connection to it. For more information, see [Create maximum resiliency with ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview).
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of maximum resiliency for an ExpressRoute connection.":::
+
 ### Connectivity to Microsoft cloud services
 
 ExpressRoute connections enable access to the following services:

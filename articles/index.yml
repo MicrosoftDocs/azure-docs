@@ -1423,7 +1423,7 @@ productDirectory:
       azureCategories:
         - security
         - management-and-governance
-      url: external-attack-surface-management/index.md
+      url: external-attack-surface-management/overview.md
     # Card
     - title: Key Vault
       summary: Safeguard and maintain control of keys and other secrets
