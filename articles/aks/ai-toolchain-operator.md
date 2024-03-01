@@ -85,13 +85,12 @@ The following sections describe how to create an AKS cluster with the AI toolcha
     az group create --name ${AZURE_RESOURCE_GROUP} --location ${AZURE_LOCATION}
     ```
 
-2. Create an AKS cluster with the AI toolchain operator add-on enabled using the [az aks create][az-aks-create] command with the `--enable-managed-identity`, `--enable-ai-toolchain-operator`, and `--enable-oidc-issuer` flags.
+2. Create an AKS cluster with the AI toolchain operator add-on enabled using the [az aks create][az-aks-create] command with the `--enable-ai-toolchain-operator` and `--enable-oidc-issuer` flags.
 
     ```azurecli-interactive
     az aks create --location ${AZURE_LOCATION} \
         --resource-group ${AZURE_RESOURCE_GROUP} \
         --name ${CLUSTER_NAME} \
-        --enable-managed-identity \
         --enable-oidc-issuer \
         --enable-ai-toolchain-operator
     ```
@@ -106,7 +105,6 @@ The following sections describe how to create an AKS cluster with the AI toolcha
     ```azurecli-interactive
     az aks update --name ${CLUSTER_NAME} \
             --resource-group ${AZURE_RESOURCE_GROUP} \
-            --enable-managed-identity \
             --enable-oidc-issuer \
             --enable-ai-toolchain-operator
     ```
@@ -125,7 +123,9 @@ The following sections describe how to create an AKS cluster with the AI toolcha
     kubectl get nodes
     ```
 
-3. Export environment variables for the MC resource group, principal ID identity, and KAITO identity using the following commands:
+## Export environment variables
+
+* Export environment variables for the MC resource group, principal ID identity, and KAITO identity using the following commands:
 
     ```azurecli-interactive
     export MC_RESOURCE_GROUP=$(az aks show --resource-group ${AZURE_RESOURCE_GROUP} \
@@ -207,7 +207,7 @@ The following sections describe how to create an AKS cluster with the AI toolcha
 3. Check your service and get the service IP address using the `kubectl get svc` command.
 
     ```azurecli-interactive
-    export SERVICE_IP=$(kubectl get svc workspace-falcon-7b -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+    export SERVICE_IP=$(kubectl get svc workspace-falcon-7b -o jsonpath='{.spec.clusterIP}')
     ```
 
 4. Run the Falcon 7B model with a sample input of your choice using the following `curl` command:
