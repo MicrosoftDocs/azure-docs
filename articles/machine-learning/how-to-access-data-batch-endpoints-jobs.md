@@ -82,7 +82,7 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
 
 ## Create jobs basics
 
-To create a job from a batch endpoint you have to invoke it. Invocation can be done using the Azure CLI, the Azure Machine Learning SDK for Python, or a REST API call. The following examples show the basics of invocation for a batch endpoints that recieves a single input data folder for processing. See [Understanding inputs and outputs](how-to-access-data-batch-endpoints-jobs.md#understanding-inputs-and-outputs) for examples with different inputs and outputs.
+To create a job from a batch endpoint you have to invoke it. Invocation can be done using the Azure CLI, the Azure Machine Learning SDK for Python, or a REST API call. The following examples show the basics of invocation for a batch endpoint that receives a single input data folder for processing. See [Understanding inputs and outputs](how-to-access-data-batch-endpoints-jobs.md#understanding-inputs-and-outputs) for examples with different inputs and outputs.
 
 # [Azure CLI](#tab/cli)
  
