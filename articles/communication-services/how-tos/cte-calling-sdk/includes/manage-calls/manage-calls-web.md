@@ -358,4 +358,4 @@ Recommendations for the management of chat ID:
     ```js
     startCall(MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)[])
     ```
-  * If desired, the developer can provide a unique thread ID to start the group call or add participants. In this case, the ACS Calling SDK will use the given thread ID to create the group call. A chat thread is created for the Teams users and this thread is associated to the group call for users in Teams app. This allows them to chat during the call. Chat thread management can be done via [Graph API](https://learn.microsoft.com/en-us/graph/api/group-post-threads?view=graph-rest-1.0&amp%3Btabs=http&tabs=http)
+  * If desired, the developer can provide a unique thread ID to start the group call or add participants. In this case, the ACS Calling SDK will use the given thread ID to create the group call. A chat thread is created for the Teams users and this thread is associated to the group call for users in Teams app. This allows them to chat during the call. Chat thread management can be done via [Graph API](/graph/api/group-post-threads)
