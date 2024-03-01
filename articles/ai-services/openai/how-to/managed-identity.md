@@ -4,9 +4,9 @@ titleSuffix: Azure OpenAI
 description: Provides guidance on how to set managed identity with Microsoft Entra ID
 ms.service: azure-ai-openai
 ms.topic: how-to 
-ms.date: 06/24/2022
-author: ChrisHMSFT
-ms.author: chrhoder
+ms.date: 02/29/2024
+author: mrbullwinkle
+ms.author: mbullwin
 recommendations: false
 ms.custom: devx-track-azurecli
 ---
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 
 More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.
 
-In the following sections, you'll use  the Azure CLI to assign roles, and obtain a bearer token to call the OpenAI resource. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
+In the following sections, you'll use the Azure CLI to sign in, and obtain a bearer token to call the OpenAI resource. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
 
 ## Prerequisites
 
@@ -27,52 +27,71 @@ In the following sections, you'll use  the Azure CLI to assign roles, and obtain
 ../../cognitive-services-custom-subdomains.md)
 
 - Azure CLI - [Installation Guide](/cli/azure/install-azure-cli)
-- The following Python libraries: os, requests, json
+- The following Python libraries: os, requests, json, openai, azure-identity
+
+## Assign yourself to the Cognitive Services User role
+
+Assign yourself the [Cognitive Services User](role-based-access-control.md#cognitive-services-contributor) role to allow you to use your account to make Azure OpenAI API calls rather than having to use key-based auth. After you make this change it can take up to 5 minutes before the change takes effect.
 
 ## Sign into the Azure CLI
 
-To sign-in to the Azure CLI, run the following command and complete the sign-in. You may need to do it again if your session has been idle for too long.
+To sign-in to the Azure CLI, run the following command and complete the sign-in. You might need to do it again if your session has been idle for too long.
 
 ```azurecli
 az login
 ```
 
-## Assign yourself to the Cognitive Services User role
+## Chat Completions
 
-Assigning yourself to the "Cognitive Services User" role will allow you to use your account for access to the specific Azure AI services resource.
+```python
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from openai import AzureOpenAI
 
-1. Get your user information
+token_provider = get_bearer_token_provider(
+    DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
+)
 
-    ```azurecli
-    export user=$(az account show --query "user.name" -o tsv)
-    ```
+client = AzureOpenAI(
+    api_version="2024-02-15-preview",
+    azure_endpoint="https://{your-custom-endpoint}.openai.azure.com/",
+    azure_ad_token_provider=token_provider
+)
 
-2. Assign yourself to “Cognitive Services User” role.
+response = client.chat.completions.create(
+    model="gpt-35-turbo-0125", # model = "deployment_name".
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
 
-    ```azurecli
-    export resourceId=$(az group show -g $RG --query "id" -o tsv)
-    az role assignment create --role "Cognitive Services User" --assignee $user --scope $resourceId
-    ```
+print(response.choices[0].message.content)
+```
 
-    > [!NOTE]
-    > Role assignment change will take ~5 mins to become effective.
+## Querying Azure OpenAI with the control plane API
 
-3. Acquire a Microsoft Entra access token. Access tokens expire in one hour. you'll then need to acquire another one.
+```python
+import requests
+import json
+from azure.identity import DefaultAzureCredential
 
-    ```azurecli
-    export accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com --query "accessToken" -o tsv)
-    ```
-
-4. Make an API call
-
-Use the access token to authorize your API call by setting the `Authorization` header value.
+region = "eastus"
+token_credential = DefaultAzureCredential()
+subscriptionId = "{YOUR-SUBSCRIPTION-ID}" 
 
 
-```bash
-curl ${endpoint%/}/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15 \
--H "Content-Type: application/json" \
--H "Authorization: Bearer $accessToken" \
--d '{ "prompt": "Once upon a time" }'
+token = token_credential.get_token('https://management.azure.com/.default')
+headers = {'Authorization': 'Bearer ' + token.token}
+
+url = f"https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{region}/models?api-version=2023-05-01"
+
+response = requests.get(url, headers=headers)
+
+data = json.loads(response.text)
+
+print(json.dumps(data, indent=4))
 ```
 
 ## Authorize access to managed identities
