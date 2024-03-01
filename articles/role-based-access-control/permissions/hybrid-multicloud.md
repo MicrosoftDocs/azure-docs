@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -151,7 +151,7 @@ Azure service: [Azure Arc](/azure/azure-arc/)
 > | Microsoft.HybridCompute/licenses/write | Installs or Updates an Azure Arc licenses |
 > | Microsoft.HybridCompute/licenses/delete | Deletes an Azure Arc licenses |
 > | Microsoft.HybridCompute/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Updates Network Security Perimeter Profiles |
-> | Microsoft.HybridCompute/locations/machines/extensions/notifyExtension/action | Notifies Microsoft.HybridCompute about extensions updates |
+> | Microsoft.HybridCompute/locations/notifyExtension/action | Notifies Microsoft.HybridCompute about extensions updates |
 > | Microsoft.HybridCompute/locations/operationresults/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
 > | Microsoft.HybridCompute/locations/operationstatus/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
 > | Microsoft.HybridCompute/locations/privateLinkScopes/read | Reads the full details of any Azure Arc privateLinkScopes |

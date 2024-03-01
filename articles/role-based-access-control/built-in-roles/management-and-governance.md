@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -474,6 +474,7 @@ Azure Resource Bridge Deployment Role
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleassignments/read | Get information about a role assignment. |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Register/Action | Registers the subscription for the Azure Stack HCI resource provider and enables the creation of Azure Stack HCI resources. |
 > | Microsoft.ResourceConnector/register/action | Registers the subscription for Appliances resource provider and enables the creation of Appliance. |
 > | Microsoft.ResourceConnector/appliances/read | Gets an Appliance resource |
@@ -502,6 +503,10 @@ Azure Resource Bridge Deployment Role
 > | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/operations/read | Gets available operations of the Microsoft.KubernetesConfiguration resource provider. |
 > | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
 > | Microsoft.HybridContainerService/register/action | Register the subscription for Microsoft.HybridContainerService |
+> | Microsoft.HybridContainerService/kubernetesVersions/read | Lists the supported kubernetes versions from the underlying custom location |
+> | Microsoft.HybridContainerService/kubernetesVersions/write | Puts the kubernetes version resource type |
+> | Microsoft.HybridContainerService/skus/read | Lists the supported VM SKUs from the underlying custom location |
+> | Microsoft.HybridContainerService/skus/write | Puts the VM SKUs resource type |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Write | Creates/Updates storage containers resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
@@ -523,6 +528,7 @@ Azure Resource Bridge Deployment Role
   "permissions": [
     {
       "actions": [
+        "Microsoft.Authorization/roleassignments/read",
         "Microsoft.AzureStackHCI/Register/Action",
         "Microsoft.ResourceConnector/register/action",
         "Microsoft.ResourceConnector/appliances/read",
@@ -551,6 +557,10 @@ Azure Resource Bridge Deployment Role
         "Microsoft.KubernetesConfiguration/operations/read",
         "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
         "Microsoft.HybridContainerService/register/action",
+        "Microsoft.HybridContainerService/kubernetesVersions/read",
+        "Microsoft.HybridContainerService/kubernetesVersions/write",
+        "Microsoft.HybridContainerService/skus/read",
+        "Microsoft.HybridContainerService/skus/write",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.AzureStackHCI/StorageContainers/Write",
         "Microsoft.AzureStackHCI/StorageContainers/Read"
