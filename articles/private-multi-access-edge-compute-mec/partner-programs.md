@@ -13,10 +13,10 @@ ms.author: limichel
 Microsoft is collaborating with leading third-party providers to develop a robust partner ecosystem across all layers of the value chain. This ecosystem enables Azure private multi-access edge compute (MEC) to support diverse use cases and requirements, enabling partners to add unique value to enterprise customers.
 
 ## Azure private MEC ecosystem
-Azure private MEC solution partners include technology partners, application ISVs, and system integrators.
+Azure private MEC solution partners include technology partners, application independent software vendors (ISVs), and system integrators.
 
 - **Technology Partners** bring critical hardware and software components such as network functions, Radio Access Network (RAN) technologies, and SIMs to the Azure private MEC ecosystem. Customers can mix and match these components to meet their requirements.
-- **System Integrators and Operators** are responsible for planning, deployment, and operation of a customer’s Azure private MEC implementation. These providers bring assets and expertise such as spectrum, RF planning, installation, maintenance, and support. System Integrators and Operators enable customers to rapidly deploy the Azure private MEC solution without requiring in-house expertise in complexities surrounding mobile network technologies.
+- **System Integrators and Operators** are responsible for planning, deployment, and operation of a customer’s Azure private MEC implementation. These providers bring assets and expertise such as spectrum, radio frequency (RF) planning, installation, maintenance, and support. System Integrators and Operators enable customers to rapidly deploy the Azure private MEC solution without requiring in-house expertise in complexities surrounding mobile network technologies.
 - **Application ISV Partners** bring ready to deploy software solutions built for Azure private MEC. These applications use the low latency edge computing capabilities of Azure private MEC to enable a customer’s specific use-cases within industries, including manufacturing, energy, and transportation.
 
 ### System Integrators (SIs)
@@ -47,12 +47,12 @@ Our operator partners include:
 Azure private MEC technology partners provide critical hardware and software components including network functions, Radio Access Network (RAN) technologies, and SIM services.
 
 ### Networking ISVs
-Networking ISV partners include software vendors that provide network functions such as firewalls and SD-WAN. The breadth of third-party network functions available enable customers to securely integrate the Azure private MEC solution into their existing edge and cloud environments. The Azure private MEC current network function partners include:
+Networking independent software vendor (ISV) partners include software vendors that provide network functions such as firewalls and SD-WAN. The breadth of third-party network functions available enable customers to securely integrate the Azure private MEC solution into their existing edge and cloud environments. The Azure private MEC current network function partners include:
 
 |Firewall |SD-WAN |
 |---------|---------|
 | [Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/paloaltonetworks.vmseries-ngfw-vm-edge-panos-10-2-4?tab=Overview) | [NetFoundry](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netfoundryinc.application-ziti-private-edge?exp=ubp8&tab=Overview) |
-| | [VMware SD-WAN by Velocloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vmware-inc.vmware_sdwan_edge_zones?exp=ubp8&tab=Overview) |
+|[Trend Micro](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trendmicro.mobile-network-security?tab=Overview) | [VMware SD-WAN by Velocloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vmware-inc.vmware_sdwan_edge_zones?exp=ubp8&tab=Overview) |
 | | [Versa Networks](https://aka.ms/versa) |
 
 ### SIM & RAN
@@ -74,29 +74,28 @@ SIM partners provide wireless authentication technologies and embedded cellular 
 
 
 ### Application ISVs
-Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. Our ISVs partners use a combination of private 5G and edge compute capabilities to create new experiences for customers.
+Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. Our ISV partners use a combination of private 5G and edge compute capabilities to create new experiences for customers.
 
 Applications that run on supported platforms can also deploy to Azure private MEC with few code changes required. This means that application ISV solutions for Azure Stack Edge, and Azure IoT Edge can also run on the Azure private MEC solution.
 
 Our application ISV partners include:
 - [Cognitiwe](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cognitiweaio1670399502095.cognitiwe_hse_v1?exp=ubp8&tab=Overview)
--[Fractal Analytics](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/neal_analytics.stockview-retail?tab=Overview)
--[Glartek](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/glarevisionsa1698227199975.glartek?tab=Overview)
+- [Fractal Analytics](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/neal_analytics.stockview-retail?tab=Overview)
+- [Glartek](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/glarevisionsa1698227199975.glartek?tab=Overview)
 - [iLink Systems](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ilinksystems.samplemidasvm?exp=ubp8&tab=Overview)
--[inVia Robotics](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/inviaroboticsinc1629911110634.inviarobotics1?tab=Overview)
+- [inVia Robotics](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/inviaroboticsinc1629911110634.inviarobotics1?tab=Overview)
 - [Ipsotek](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atosinternationalsas.ipsotek_vi_suite_bundles?exp=ubp8&tab=Overview)
--[Nsion](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nsionltd1591969784743.nsc3_saas?tab=Overview)
--[MEEP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/eepadvancedenterprisecommunicationltd1676190998651.synch-ptt?tab=overview)
+- [Nsion](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nsionltd1591969784743.nsc3_saas?tab=Overview)
+- [MEEP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/eepadvancedenterprisecommunicationltd1676190998651.synch-ptt?tab=overview)
 - [Red Viking](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redviking1587070336894.rv_argonaut_on_mec?exp=ubp8&tab=Overview)
--[Scenera](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/scenerainc1695952178961.scenera-maistro-saas-1?tab=Overview)
+- [Scenera](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/scenerainc1695952178961.scenera-maistro-saas-1?tab=Overview)
 - [Sensing Feeling](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sensingfeelinglimited1671143541932.001?exp=ubp8)
 -[Tampnet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tampnetas1686124551117.azure_tampnet_private_network?tab=Overview)
 - Taqtile
--[Trend Micro](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trendmicro.mobile-network-security?tab=Overview)
--[Trilogy Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trilogynetworksinc1688507869081.farmgrid-preview?tab=Overview&flightCodes=dec2dcd1-ef23-41d8-bf58-ce0c9d9b17c1)
--[Unmanned Life](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unmanned_life.robot-orchestration?tab=Overview)
+- [Trilogy Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trilogynetworksinc1688507869081.farmgrid-preview?tab=Overview&flightCodes=dec2dcd1-ef23-41d8-bf58-ce0c9d9b17c1)
+- [Unmanned Life](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unmanned_life.robot-orchestration?tab=Overview)
 - [Weavix](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pksolutionsllc1654260389042.smart_radio_36_ms?exp=ubp8&tab=Overview)
--[Zebra](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zebratechnologiescorporation1702409620263.offer_2?tab=Overview)
+- [Zebra](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zebratechnologiescorporation1702409620263.offer_2?tab=Overview)
 
 ## Next steps
 - To partner with Microsoft and deploy Azure private MEC solutions:
