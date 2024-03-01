@@ -133,7 +133,7 @@ az provider register --namespace Microsoft.ApiCenter
 
 ### Unable to sign in to portal
 
-If a user who has been assigned the **Azure API Center Data Reader** role can't complete the sign-in flow after selecting **Sign in** in the API Center portal, there might be a problem with the configuration of the Microsoft Entra ID identity provider.
+If users who have been assigned the **Azure API Center Data Reader** role can't complete the sign-in flow after selecting **Sign in** in the API Center portal, there might be a problem with the configuration of the Microsoft Entra ID identity provider.
 
 In the Microsoft Entra app registration, review and, if needed, update the **Redirect URI** settings:
 
