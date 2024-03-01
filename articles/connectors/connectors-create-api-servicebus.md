@@ -161,6 +161,19 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
 
 * If you enable concurrency, the **SplitOn** limit is reduced to 100 items. This behavior is true for all triggers, not just the Service Bus trigger. Make sure the specified batch size is less than this limit on any trigger where you enable concurrency.
 
+* [Some scenarios exist where the trigger can exceed the concurrency settings](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs-limit) and instead of failing these runs Logic Apps queues them in a waiting state until they can be started. [The **maximumWaitingRuns** setting](../logic-apps/edit-app-settings-host-settings.md#trigger-concurrency) controls the number of runs allowed in the waiting state:
+
+  ```json
+  "runtimeConfiguration": {
+      "concurrency": {
+          "runs": 100,
+          "maximumWaitingRuns": 50
+      }
+  }
+  ```
+
+  In context of the Service Bus trigger, careful testing is required to ensure that runs are not waiting beyond the message lock timeout. Refer to [Concurrency and de-batching limits here](../logic-apps/logic-apps-limits-and-config.md#concurrency-and-debatching) for the default values.
+
 * If you enable concurrency, a 30-second delay exists between batch reads, by default. This delay slows down the trigger to achieve the following goals:
 
   - Reduce the number of storage calls sent to check the number of runs on which to apply concurrency.
