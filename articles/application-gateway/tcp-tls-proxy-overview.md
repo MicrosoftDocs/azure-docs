@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/26/2024
+ms.date: 03/01/2024
 ms.author: greglin
 ---
 
@@ -50,3 +50,4 @@ Process flow:
 ## Next steps
 
 [Configure Azure Application Gateway TCP/TLS proxy](how-to-tcp-tls-proxy.md)
+[Frequently asked questions (FAQs)](application-gateway-faq.yml#configuration---TLS/TCP-proxy)
