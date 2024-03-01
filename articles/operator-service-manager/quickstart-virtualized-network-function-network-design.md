@@ -26,31 +26,57 @@ Create an input file for publishing the Network Service Design. Execute the foll
 az aosm nsd generate-config
 ```
 
-Once you execute this command an input.json file generates.
+Once you execute this command an nsd-input.jsonc file generates.
 
 > [!NOTE]
-> Edit the input.json file, replacing it with the values shown in the sample. Save the file as **input-vnf-nsd.json**.
+> Edit the nsd-input.jsonc file, replacing it with the values shown in the sample. Remove the section where resource_element_type is set to ArmTemplate. This is for adding infrastructure to more complicated NSDs. Save the file as **input-vnf-nsd.jsonc**.
 
 ```json
 {
+    // Azure location to use when creating resources e.g uksouth
     "location": "uksouth",
+    // Name of the Publisher resource you want your definition published to.
+    // Will be created if it does not exist.
     "publisher_name": "ubuntu-publisher",
+    // Resource group for the Publisher resource.
+    // You should create this before running the publish command.
     "publisher_resource_group_name": "ubuntu-publisher-rg",
+    // Name of the ACR Artifact Store resource.
+    // Will be created if it does not exist.
     "acr_artifact_store_name": "ubuntu-acr",
-    "network_functions": [
-        {
-            "name": "ubuntu-vm-nfdg",
-            "version": "1.0.0",
-            "publisher_offering_location": "uksouth",
-            "type": "vnf",
-            "multiple_instances": false,
-            "publisher": "ubuntu-publisher",
-            "publisher_resource_group": "ubuntu-publisher-rg"
-        }
-    ],
-    "nsd_name": "ubuntu-nsdg",
+    // Network Service Design (NSD) name. This is the collection of Network Service Design Versions. Will be created if it does not exist.
+    "nsd_name": "ubuntu-nsd",
+    // Version of the NSD to be created. This should be in the format A.B.C
     "nsd_version": "1.0.0",
-    "nsdv_description": "Plain ubuntu VM"
+    // Optional. Description of the Network Service Design Version (NSDV).
+    "nsdv_description": "Plain ubuntu VM",
+    // Type of NFVI (for nfvisFromSite). Defaults to 'AzureCore'.
+    // Valid values are 'AzureCore', 'AzureOperatorNexus' or 'AzureArcKubernetes.
+    "nfvi_type": "AzureCore",
+    // List of Resource Element Templates.
+    "resource_element_templates": [
+        {
+            // Type of Resource Element. Either NF or ArmTemplate
+            "resource_element_type": "NF",
+            "properties": {
+                // The name of the existing publisher for the NSD.
+                "publisher": "ubuntu-publisher",
+                // The resource group that the publisher is hosted in.
+                "publisher_resource_group": "ubuntu-publisher-rg",
+                // The name of the existing Network Function Definition Group to deploy using this NSD.
+                "name": "ubuntu-vm",
+                // The version of the existing Network Function Definition to base this NSD on.
+                // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.
+                "version": "1.0.0",
+                // The region that the NFDV is published to.
+                "publisher_offering_location": "uksouth",
+                // Type of Network Function. Valid values are 'cnf' or 'vnf'.
+                "type": "vnf",
+                // Set to true or false. Whether the NSD should allow arbitrary numbers of this type of NF. If false only a single instance will be allowed. Only supported on VNFs, must be set to false on CNFs.
+                "multiple_instances": "false"
+            }
+        }
+    ]
 }
 ```
 
@@ -61,7 +87,7 @@ Once you execute this command an input.json file generates.
 |**acr_artifact_store_name**     |    Name of the ACR Artifact Store resource. Created if it doesn't exist.     |
 |**location**      |      Azure location to use when creating resources.   |
 |**network-functions**   |  *publisher*:   The name of the publisher that this NFDV is published under.     |
-|   |      *publisher_resource_group*: The resource group that the publisher is hosted in.   | 
+|   |      *publisher_resource_group*: The resource group that the publisher is hosted in.   |
 |    |   *name*:   The name of the existing Network Function Definition Group to deploy using this NSD.    |
 |    |    *version*:   The version of the existing Network Function Definition to base this NSD on. This NSD is able to deploy any NFDV with deployment parameters compatible with this version.   |
 |     |     *publisher_offering_location*:  The region that the NFDV is published to.  |
@@ -71,44 +97,54 @@ Once you execute this command an input.json file generates.
 |**nsd_version**    |   Version of the NSD to be created. The format should be A.B.C.      |
 |**nsdv_description**     |  Description of the NSDV.       |
 
-
 ## Build the Network Service Design (NSD)
 
-Initiate the build process for the Network Service Definition (NSD) using the following command:
+Initiate the build process for the Network Service Design (NSD) using the following command:
 
 ```azurecli
-az aosm nsd build -f input-vnf-nsd.json
+az aosm nsd build --config-file input-vnf-nsd.jsonc
 ```
-After the build process completes, review the following generated files to gain insights into the NSD's architecture and structure. 
 
-These files are created in a subdirectory called **nsd-bicep-templates**:
+After the build process completes, review the following generated files to gain insights into the NSD's architecture and structure.
 
-|Files  |Description  |
-|---------|---------|
-|**artifact_manifest.bicep**     |   A bicep template for creating the Publisher and artifact stores.      |
-|**configMappings**     |      A directory containing files that convert the config group values inputs to the deployment parameters required for each NF.   |
-|**nsd_definition.bicep**     |   A bicep template for creating the NSDV itself.      |
-|**schemas**    | A directory containing files that define to the inputs required in the config group values for this NSDV.    |
-|**ubuntu-vm-nfdg_nf.bicep**    |   A bicep template for deploying the NF.  Uploaded to the artifact store.      |
+These files are created in a subdirectory called **nsd-cli-output**:
+
+| File       | Description  |
+|----------------|----------|
+| **nsd-cli-output/artifactManifest** ||
+| deploy.bicep| Bicep template to create artifact manifest, with artifacts populated from input file |
+| **nsd-cli-output/artifacts** ||
+| artifacts.json | List of artifacts (from images and ARM templates) provided from input file, to be uploaded on publish  |
+| \<nf-name>-nfdg.bicep | Bicep template per NF RET provided in the input file, for deploying the NF. This is converted to an ARM template and uploaded to the artifact store on publish |
+| **nsd-cli-output/base** ||
+| deploy.bicep | Bicep template to create underlying AOSM resources needed to spin up an NSD (publisher, acr, nsdg) |
+| **nsd-cli-output/nfDefinition** ||
+| deploy.bicep | Bicep to create the Network Service Design Version (NSDV), with resource element template information from the NFs or arm templates (infra) provided in input file |
+| Config_group_schema.json |  Combined configuration group schema for all NFs provided, defining inputs required in the config group values for this NSDV |
+|\<nf-name>-mappings.json | File that maps the config group values inputs to the deployment parameters required for each NF |
+| **nsd-cli-output** | |
+| all_deploy.parameters.json | Super parameters.json to customise resource names, so that they are different from the original input file provided in build |
+| index.json | File used internally when publishing resources. Do not edit |
 
 ## Publish the Network Service Design (NSD)
 
 To publish the Network Service Design (NSD) and its associated artifacts, issue the following command:
 
 ```azurecli
-az aosm nsd publish -f input-vnf-nsd.json
+az aosm nsd publish --build-output-folder nsd-cli-output
 ```
+
 When the Publish process is complete navigate to your Publisher Resource Group to observe and review the resources and artifacts that were produced.
 
 These resources are created:
 
 |Resource Name  |Resource Type  |
 |---------|---------|
-|**ubuntu-nsdg**    |    The Network Service Design.     |
-|**1.0.0 (ubuntu-nsdg/1.0.0)**     |   The   Network Service Design Version.    |
-|**ubuntu-vm-nfdg-nf-acr-manifest-1-0-0** |Publisher Artifact Manifest.
-|**ubuntu_nsdg_ConfigGroupSchema**     |    The Configuration Group Schema.     |
+|**ubuntu-nsd**    |    The Network Service Design.     |
+|**1.0.0 (ubuntu-nsd/1.0.0)**     |   The   Network Service Design Version.    |
+|**ubuntu-nsd-nsd-manifest-1-0-0** |Publisher Artifact Manifest.|
+|**ConfigGroupSchema**     |    The Configuration Group Schema.     |
 
-## Next steps:
+## Next steps
 
 - [Quickstart: Prerequisites for Operator and Virtualized Network Function (VNF)](quickstart-virtualized-network-function-operator.md)
