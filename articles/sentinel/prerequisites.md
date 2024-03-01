@@ -27,7 +27,7 @@ Before deploying Microsoft Sentinel, make sure that your Azure tenant meets the 
 
 - A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) is required to house all of the data that Microsoft Sentinel will be ingesting and using for its detections, analytics, and other features. For more information, see [Microsoft Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
 
-- The Log Analytics workspace must not have a resource lock applied, and the workspace pricing tier must be Pay-as-You-Go or a commitment tier. Log Analytics legacy pricing tiers and resource locks are not supported when enabling Microsoft Sentinel. For more information about pricing tiers, see [Simplified pricing tiers for Microsoft Sentinel](enroll-simplified-pricing-tier.md#prerequisites).
+- The Log Analytics workspace must not have a resource lock applied, and the workspace pricing tier must be Pay-as-You-Go or a commitment tier. Log Analytics legacy pricing tiers and resource locks aren't supported when enabling Microsoft Sentinel. For more information about pricing tiers, see [Simplified pricing tiers for Microsoft Sentinel](enroll-simplified-pricing-tier.md#prerequisites).
 
 - We recommend that when you set up your Microsoft Sentinel workspace, [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) that's dedicated to Microsoft Sentinel and the resources that Microsoft Sentinel uses, including the Log Analytics workspace, any playbooks, workbooks, and so on.
 
