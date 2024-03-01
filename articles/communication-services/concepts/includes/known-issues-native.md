@@ -1,6 +1,6 @@
 ---
 title: Azure Communication Services - known issues
-description: Learn more about Azure Communication Services known issues on Calling SDK
+description: Learn more about Azure Communication Services known issues on Calling SDK.
 author: garchiro7
 manager: chpalmer
 services: azure-communication-services
@@ -19,9 +19,9 @@ When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5
 
 ## Android Trouter module conflict
 
-Known issue: When using Android Chat and Calling SDK together in the same application, Chat SDK's real-time notifications feature does not work. You might get a dependency resolving issue.
+When the Android Chat and Calling SDK are together in the same application, Chat SDK's real-time notifications feature doesn't work. You might get a dependency resolving issue.
 
-While we are working on a solution, you can turn off real-time notifications feature by adding the following dependency information in app's build.gradle file and instead poll the GetMessages API to display incoming messages to users.
+While we're working on a solution, you can turn off real-time notifications feature by adding the following dependency information in app's build.gradle file and instead poll the GetMessages API to display incoming messages to users.
 
 **Java**
 ```java
@@ -31,11 +31,11 @@ While we are working on a solution, you can turn off real-time notifications fea
  implementation 'com.azure.android:azure-communication-calling:1.0.0'
  ```
  
-Note with above update, if the application tries to touch any of the notification API like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, there will be a runtime error.
+Note: if the application tries to touch any of the notification APIs like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, there will be a runtime error.
 
 ## iOS ongoing video Picture in Picture (PiP)
 
-- Incomming video stops when app goes to background. If the application is in foreground the video renders correctly.
+Incoming video stops when app goes to background. If the application is in foreground the video renders correctly.
 
 ## UI Library
 

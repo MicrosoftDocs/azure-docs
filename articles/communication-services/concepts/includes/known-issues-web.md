@@ -1,6 +1,6 @@
 ---
 title: Azure Communication Services - known issues
-description: Learn more about Azure Communication Services known issues on Calling SDK
+description: Learn more about Azure Communication Services known issues on Calling SDK.
 author: sloanster
 manager: chpalmer
 services: azure-communication-services
@@ -28,13 +28,13 @@ Firefox desktop browser support is now available in public preview. Known issues
 
 ### iOS Chrome Known Issues
 iOS Chrome browser support is now available in public preview. Known issues are:
-- No outgoing and incoming audio when switching browser to background or locking the device. This issue has been fixed in iOS version 16.4+.
+- No outgoing and incoming audio when switching browser to background or locking the device. This issue was fixed in iOS version 16.4+.
 - No incoming/outgoing audio coming from bluetooth headset. When a user connects bluetooth headset in the middle of Azure Communication Services call, the audio still comes out from the speaker until the user locks and unlocks the phone. We have seen this issue on older iOS versions (15.6, 15.7), and it isn't reproducible on iOS 16.
 
 ### iOS Safari displays an incorrect resolution size of the camera preview
 This bug occurs on iOS 16.7 or iOS 17 versions earlier than 17.4 when users rotate their phones or enable/disable video during the call.
 The camera preview briefly displays an incorrect resolution size before returning to normal.
-The issue is not reproducible on iOS 17.4 Beta.
+The issue isn't reproducible on iOS 17.4 Beta.
 Related WebKit bug [here](https://bugs.webkit.org/show_bug.cgi?id=259364).
 
 ### iOS 16 introduced bugs when putting browser in the background during a call
@@ -64,7 +64,7 @@ It's worth noting that the user's incoming audio isn't  muted, and this behavior
 ### No incoming audio during a call
 
 Occasionally, a user in an Azure Communication Services call may not be able to hear the audio from remote participants.
-There's a related [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1402250) bug that causes this issue, the issue can be mitigated by reconnecting the PeerConnection. We added this workaround since SDK 1.9.1 (stable) and SDK 1.10.0 (beta)
+There's a related [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1402250) bug that causes this issue, the issue can be mitigated by reconnecting the PeerConnection. We added this workaround since SDK 1.9.1 (stable) and SDK 1.10.0 (beta).
 
 On Android Chrome, if a user joins Azure Communication Services call several times, the incoming audio can also disappear. The user isn't able to hear the audio from other participants until the page is refreshed. We fixed this issue in SDK 1.10.1-beta.1, and improved the audio resource usage.
 
@@ -118,7 +118,7 @@ This issue is fixed in Azure Communication Services Calling SDK version 1.3.1-be
 * iOS Safari version: 15.1
 
 ### Screen sharing in macOS Ventura Safari (v16.3 and lower) 
-Screen sharing doesn't work in macOS Ventura Safari(v16.3 and lower). Known issue from Safari and will be fixed in v16.4+ 
+Screen sharing doesn't work in macOS Ventura Safari(v16.3 and lower). Known issue from Safari and will be fixed in v16.4+. 
 
 ### Refreshing a page doesn't immediately remove the user from their call
 
@@ -227,4 +227,4 @@ The following limitations are known issues in the Communication Services Call Au
 
 ## Group call limitations users 
 
-Up to 350 users can join a group call, room or Teams meeting. Only 100 users can join through JS web calling SDK or Teams web client, the remaining needs to join through Android/iOS/Windows calling SDK or Teams desktop/mobile client. Once the call size reaches 100+ participants in the call, only the top 4 most dominant speakers that have their video camera turned on are seen. When the number of people on the call is 100+, the viewable number of incoming renders goes from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos). When the number of users goes below 100, the number of supported incoming videos goes back up to 3x3 (9 incoming videos).
+Up to 350 users can join a group call, room, or Teams meeting. Only 100 users can join through JS web calling SDK or Teams web client, the remaining needs to join through Android/iOS/Windows calling SDK or Teams desktop/mobile client. Once the call size reaches 100+ participants in the call, only the top 4 most dominant speakers that have their video camera turned on are seen. When the number of people on the call is 100+, the viewable number of incoming renders goes from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos). When the number of users goes below 100, the number of supported incoming videos goes back up to 3x3 (9 incoming videos).
