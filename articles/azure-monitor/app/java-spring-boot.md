@@ -16,10 +16,10 @@ There are two options for enabling Application Insights Java with Spring Boot: J
 
 ## Enabling with JVM argument 
 
-Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.19.jar"` somewhere before `-jar`, for example:
+Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.5.0.jar"` somewhere before `-jar`, for example:
 
 ```
-java -javaagent:"path/to/applicationinsights-agent-3.4.19.jar" -jar <myapp.jar>
+java -javaagent:"path/to/applicationinsights-agent-3.5.0.jar" -jar <myapp.jar>
 ```
 
 ### Spring Boot via Docker entry point
@@ -38,7 +38,7 @@ To enable Application Insights Java programmatically, you must add the following
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-runtime-attach</artifactId>
-    <version>3.4.19</version>
+    <version>3.5.0</version>
 </dependency>
 ```
 
@@ -115,7 +115,7 @@ First, add the `applicationinsights-core` dependency:
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-core</artifactId>
-    <version>3.4.19</version>
+    <version>3.5.0</version>
 </dependency>
 ```
 
