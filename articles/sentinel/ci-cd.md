@@ -6,6 +6,7 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 02/22/2024
 ms.author: austinmc
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal.
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to know how to connect my source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to know how to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 ---
 
