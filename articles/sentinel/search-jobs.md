@@ -5,6 +5,7 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 02/23/2024
 ms.author: austinmc
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal.
 ---
 
 # Search across long time spans in large datasets
