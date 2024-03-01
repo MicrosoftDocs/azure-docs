@@ -38,7 +38,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 #### Install the package
 
-Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.4.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.4.0) or superior. Make sure Include Preleased is checked**.
+Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.4.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.4.0) or superior. Make sure `Include Prerelease` is checked if you want to see the versions for public preview.
 
 #### Request access
 
@@ -372,7 +372,7 @@ Application has an opportunity to configure how the incoming call should be acce
 
 ### Make call button work
 
-Once the `Callee ID` is not null or empty you can start a call.
+Once the `Callee ID` isn't null or empty you can start a call.
 
 The call state must be changed using the `onStateChangedAsync` action.
 
@@ -394,7 +394,7 @@ The call state must be changed using the `onStateChangedAsync` action.
 
 ### Run the code
 
-You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64`, and `x86`. 
 
 You can make an outbound call by providing a user ID in the text field and clicking the `Start Call/Join` button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
 
