@@ -17,9 +17,9 @@ Azure Communication Services now enables you to send and receive WhatsApp messag
 
 ## Prerequisites
 
-- [Azure account with an active subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Register Event Grid Resource Provider](../../sms/handle-sms-events.md#register-an-event-grid-resource-provider).
-- [Create an Azure Communication Services resource](../../create-communication-resource.md).
+- [Azure account with an active subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Register Event Grid Resource Provider](../../sms/handle-sms-events.md#register-an-event-grid-resource-provider)
+- [Create an Azure Communication Services resource](../../create-communication-resource.md)
 
 ## About Event Grid
 
@@ -62,7 +62,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
     
     :::image type="content" source="./media/handle-advanced-messaging-events/event-subscription.png" lightbox="./media/handle-advanced-messaging-events/event-subscription.png" alt-text="Screenshot that shows Azure Communication Services Events subscription option and allows you to subscribe to Advanced Messaging events.":::
 
-2.  Fill in the details for the new event subscription:
+2.  Fill in the details for the new event subscription.
 
     -  Subscription name.
 

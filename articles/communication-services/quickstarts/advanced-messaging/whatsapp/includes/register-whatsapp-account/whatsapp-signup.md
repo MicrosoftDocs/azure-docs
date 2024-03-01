@@ -1,6 +1,6 @@
 ---
-title: include file
-titleSuffix: include file
+title: Include file
+titleSuffix: Include file
 description: Learn about Communication Service WhatsApp Signup.
 author: darmour
 manager: sundraman
