@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: franksolomon
 author: ssalgadodev
 ms.author: xunwan
-ms.date: 03/02/2024
+ms.date: 03/01/2024
 ms.custom: UpdateFrequency5, data4ml
 #Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
 ---
