@@ -59,9 +59,23 @@ Go to your notification hub on the Azure portal, and select **Settings > Google 
 
 See the [description of a NotificationHub FcmV1Credential.](/rest/api/notificationhubs/notification-hubs/create-or-update?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP#fcmv1credential).
 
+- Use API version: 2023-10-01-preview
+- **FcmV1CredentialProperties**:
+
+  |     Name           |     Type      |
+  |--------------------|---------------|
+  |     `clientEmail`    |     string    |
+  |     `privateKey`     |     string    |
+  |     `projectId`      |     string    |
+
 #### Option 3: Update FcmV1 credentials via data plane hub operation
 
-See [Create a notification hub](/rest/api/notificationhubs/create-notification-hub) and [Update a notification hub](/rest/api/notificationhubs/update-notification-hub). Make sure to put **FcmV1Credential** after **GcmCredential**, as the order is important. For example:
+See [Create a notification hub](/rest/api/notificationhubs/create-notification-hub) and [Update a notification hub](/rest/api/notificationhubs/update-notification-hub).
+
+- Use API version: 2015-01
+- Make sure to put **FcmV1Credential** after **GcmCredential**, as the order is important.
+
+For example, the following is the request body:
 
 ```xml
 <NotificationHubDescription xmlns:i='http://www.w3.org/2001/XMLSchema-instance' 
@@ -174,6 +188,14 @@ Use this procedure to test notifications prior to option 2, 3, or 4. See [Notifi
 
 > [!NOTE]
 > Use API version: 2023-10-01-preview.
+
+In the header:
+
+|     Request header                   |     Value                             |
+|--------------------------------------|---------------------------------------|
+|     `Content-Type`                     |     `application/json;charset=utf-8`    |
+|     `ServiceBusNotification-Format`    |     Set to `fcmV1` or `template`          |
+|     `Servicebusnotification-Tags`      |     {single tag identifier}           |
 
 Test a payload [with the following structure](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages/send) via debug send. Note that FcmV1 introduces a significant change in the structuring of the JSON message payload:
 
