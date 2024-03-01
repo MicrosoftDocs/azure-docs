@@ -106,7 +106,7 @@ routeTopicResourceId=$(az eventgrid namespace topic show -g $rgName --namespace-
 az eventgrid namespace create -g $rgName -n $nsName --topic-spaces-configuration "{state:Enabled,'routeTopicResourceId':$routeTopicResourceId}"
 ```
 
-- ## Client client, topic space, and permission bindings
+## Client client, topic space, and permission bindings
 
 Now, create a client to send a few messages for testing. In this step, you create a client, a topic space with a topic, and publisher and subscriber bindings. 
  
