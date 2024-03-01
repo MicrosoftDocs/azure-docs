@@ -64,7 +64,7 @@ To update your FCM credentials, [follow step 1 in the REST API guide](firebase-m
    <PackageReference Include="Microsoft.Azure.NotificationHubs" Version="4.2.0-beta1" />
    ```
 
-1. Add the `FcmV1Credential` to the notification hub. This step is a one-time setup. Unless you have a lot of hubs, and want to automate this step, you can use the REST API or the Azure portal to add the FCM v1 credentials:
+1. Add the `FcmV1Credential` to the notification hub. This step is a one-time setup. Unless you have many hubs, and want to automate this step, you can use the REST API or the Azure portal to add the FCM v1 credentials:
 
    ```csharp
    // Create new notification hub with FCM v1 credentials
