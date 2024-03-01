@@ -1,6 +1,6 @@
 ---
-title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration
-description: Describes how Azure Notification Hubs addresses the Google GCM to FCM migration.
+title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration using REST APIs and SDKs
+description: Describes how Azure Notification Hubs addresses the Google GCM to FCM migration using either REST APIs or SDKs.
 author: sethmanheim
 manager: femila
 ms.service: notification-hubs
