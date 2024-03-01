@@ -11,7 +11,7 @@ ms.reviewer: heathertian
 ms.lastreviewed: 03/01/2024
 ---
 
-# Azure Notification Hubs and Google Firebase Cloud Messaging migration using Azure SDKs
+# Google Firebase Cloud Messaging migration using Azure SDKs
 
 The Firebase Cloud Messaging (FCM) legacy API will be deprecated by July 2024. You can begin migrating from the legacy HTTP protocol to FCM v1 on March 1, 2024. You must complete the migration by June 2024. This section describes the steps to migrate from FCM legacy to FCM v1 using the Azure SDKs.
 
@@ -100,6 +100,25 @@ The Firebase Cloud Messaging (FCM) legacy API will be deprecated by July 2024. Y
    FcmV1RegistrationDescription registration = await hub. CreateFcmV1NativeRegistrationAsync(deviceToken, tags);
    ```
 
+   For Java, use `FcmV1Registration` to register FCMv1 devices:
+
+   ```java
+   // Create new registration
+   NotificationHub client = new NotificationHub(connectionString, hubName);
+   FcmV1Registration registration =  client.createRegistration(new FcmV1Registration("fcm-device-token"));
+   ```
+
+   For JavaScript, use `createFcmV1RegistrationDescription` to register FCMv1 devices:
+
+   ```javascript
+   // Create FCM V1 registration
+   const context = createClientContext(connectionString, hubName);
+   const registration = createFcmV1RegistrationDescription({
+     fcmV1RegistrationId: "device-token",
+   });
+   const registrationResponse = await createRegistration(context, registration);
+   ```
+
    For installations, use `NotificationPlatform.FcmV1` as the platform with `Installation`, or use `FcmV1Installation` to create FCM v1 installations:
 
    ```csharp
@@ -117,6 +136,26 @@ The Firebase Cloud Messaging (FCM) legacy API will be deprecated by July 2024. Y
    await hubClient.CreateOrUpdateInstallationAsync(installation);
    ```
 
+   For Java, use `NotificationPlatform.FcmV1` as the platform:
+
+   ```java
+   // Create new installation
+   NotificationHub client = new NotificationHub(connectionString, hubName);
+   client.createOrUpdateInstallation(new Installation("installation-id", NotificationPlatform.FcmV1, "device-token"));
+   ```
+
+   For JavaScript, use `createFcmV1Installation` to create an FCMv1 installation:
+
+   ```javascript
+   // Create FCM V1 installation
+   const context = createClientContext(connectionString, hubName);
+   const installation = createFcmV1Installation({
+     installationId: "installation-id",
+     pushChannel: "device-token",
+   });
+   const result = await createOrUpdateInstallation(context, installation);
+   ```
+
    Note the following considerations:
 
    - If the client app registers itself, then you must update the client app first, to register under the FCM v1 platform.
@@ -130,3 +169,32 @@ The Firebase Cloud Messaging (FCM) legacy API will be deprecated by July 2024. Y
    var n = new FcmV1Notification(jsonBody); 
    NotificationOutcome outcome = await hub.SendNotificationAsync(n, "tag");
    ```
+
+   ```java
+   // Send FCM V1 Notification 
+   NotificationHub client = new NotificationHub(connectionString, hubName);
+   NotificationOutcome outcome = client.sendNotification(new FcmV1Notification("{\"message\":{\"android\":{\"data\":{\"message\":\"Notification Hub test notification\"}}}}"));
+   ```
+
+   ```javascript
+   // Send FCM V1 Notification
+   const context = createClientContext(connectionString, hubName);
+   const messageBody = `{
+     "message": {
+         "android": {
+             "data": {
+                 "message": "Notification Hub test notification"
+             }
+         }
+     }
+   }`;
+
+   const notification = createFcmV1Notification({
+     body: messageBody,
+   });
+   const result = await sendNotification(context, notification);
+   ```
+
+## Next steps
+
+[Firebase Cloud Messaging migration using REST API](firebase-migration-rest.md)

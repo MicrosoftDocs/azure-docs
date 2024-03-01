@@ -11,7 +11,7 @@ ms.reviewer: heathertian
 ms.lastreviewed: 03/01/2024
 ---
 
-# Azure Notification Hubs and Google Firebase Cloud Messaging migration using REST API
+# Google Firebase Cloud Messaging migration using REST API
 
 This article describes the core capabilities for the integration of Azure Notification Hubs with Firebase Cloud Messaging (FCM) v1. As a reminder, Google will stop supporting FCM legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format before then. All methods of onboarding will be ready for migration by March 1, 2024.
 
@@ -131,7 +131,7 @@ See [Create a notification hub](/rest/api/notificationhubs/create-notification-h
 
 ### Step 2: Manage registration and installation
 
-For direct send scenarios, proceed directly to step 3. If you're using one of the Azure SDKs, see the [SDKs article](firebase-migration-sdk).
+For direct send scenarios, proceed directly to step 3. If you're using one of the Azure SDKs, see the [SDKs article](firebase-migration-sdk.md).
 
 #### Option 1: Create FCM v1 registration or update GCM registration to FCM v1
 
@@ -216,3 +216,6 @@ Perform an FcmV1 native notification send. See [Send a Google Cloud Messaging (G
 
 You can test template sends with a new request body following [the new JSON payload structure](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages/send). No other changes need to be made. See [Send a template notification](/rest/api/notificationhubs/send-template-notification?view=rest-notificationhubs-2023-09-01).
 
+## Next steps
+
+[Firebase Cloud Messaging migration using Azure SDKs](firebase-migration-sdk.md)

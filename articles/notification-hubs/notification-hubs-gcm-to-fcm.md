@@ -13,6 +13,24 @@ ms.lastreviewed: 01/25/2024
 
 # Azure Notification Hubs and Google Firebase Cloud Messaging migration
 
-[!INCLUDE [notification-hubs-firebase-deprecation](../../includes/notification-hubs-firebase-deprecation.md)]
+The core capabilities for the integration of Azure Notification Hubs with Firebase Cloud Messaging (FCM) v1 are ready for testing. As a reminder, Google will stop supporting FCM legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format before then. All methods of onboarding will be ready for migration by March 1, 2024.
 
+To help with this transition, we invite you to join our preview program and test the FCM v1 onboarding process for REST APIs in February 2024. The preview gives you early access to the new features and capabilities, as well as the opportunity to provide feedback and report any issues.
 
+If you are interested in joining the preview program, [contact us by email](mailto:NotificationSvcsPM@microsoft.com) by January 25, 2024. We will reply with instructions on how to onboard to FCM v1 using the Azure portal or the REST API. You will also receive a link to our documentation and support channels.
+
+## Concepts for FCM v1
+
+- A new platform type is supported, called **FCM v1**.
+- New APIs, credentials, registrations, and installations are used for FCM v1.
+
+## Migration steps (preview)
+
+The Firebase Cloud Messaging (FCM) legacy API will be deprecated by July 2024. You can begin migrating from the legacy HTTP protocol to FCM v1 on March 1, 2024. You must complete the migration by June 2024.
+
+- For information about migrating from FCM legacy to FCM v1 using the Azure SDKs, see [Google Firebase Cloud Messaging (FCM) migration using SDKs](firebase-migration-sdk.md).
+- For information about migrating from FCM legacy to FCM v1 using the Azure REST APIs, see [Google Firebase Cloud Messaging (FCM) migration using REST APIs](firebase-migration-rest.md).
+
+## Next steps
+
+- [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md)

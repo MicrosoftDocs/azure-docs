@@ -96,6 +96,8 @@
     href: notification-hubs-push-notification-security.md
 - name: How-to guides
   items: 
+  - name: Firebase v1 migration guide
+    href: notification-hubs-gcm-to-fcm.md 
   - name: Change pricing tier
     href: change-pricing-tier.md
   - name: Send cross-platform notifications
