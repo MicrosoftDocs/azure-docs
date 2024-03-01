@@ -103,25 +103,17 @@ In a separate tab of the Web browser or in a separate window, use the Azure port
 
     Check notifications to confirm that the namespace is enabled with the routing information.
 
-### Routing Event Grid topic considerations
-
-The Event Grid topic used for routing must fulfill the following requirements:
-
-- It must be set to use the Cloud Event Schema v1.0.
-- It must be in the same region as the namespace.
-- You need to assign the Event Grid Data Sender role to yourself on the Event Grid namespace topic.
-
-## Create a client and a topic space 
+## Create clients, topic space, and permission bindings
 Follow steps in the quickstart: [Publish and subscribe on an MQTT topic](./mqtt-publish-and-subscribe-portal.md) to:
 
 1. Create a client. You can create the second client if you want to, but it's optional. 
 1. Create a topic space.
-1. Create publisher and subscriber permission bindings
+1. Create publisher and subscriber permission bindings.
 1. Use MQTTX to send a few messages.
 1. Verify that the event hub received those messages on the **Overview** page for your Event Hubs namespace.
 
    :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal-namespace-topics/verify-incoming-messages.png" alt-text="Screenshot that shows the Overview page of the event hub with incoming message count." lightbox="./media/mqtt-routing-to-event-hubs-portal-namespace-topics/verify-incoming-messages.png"::: 
-- 
+ 
 
 ## View routed MQTT messages in Event Hubs by using a Stream Analytics query
 
