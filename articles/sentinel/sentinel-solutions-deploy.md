@@ -3,8 +3,9 @@ title: Discover and deploy Microsoft Sentinel out-of-the-box content from Conten
 description: Learn how to find and deploy Sentinel packaged solutions containing data connectors, analytics rules, hunting queries, workbooks, and other content.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 02/15/2024
+ms.date: 03/01/2024
 ms.author: austinmc
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal.
 ---
 
 # Discover and manage Microsoft Sentinel out-of-the-box content
@@ -38,7 +39,7 @@ The content hub offers the best way to find new content or manage the solutions 
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
-    The **Content hub** page displays a searchable grid or list of solutions and standalone content.
+    The **Content hub** page displays a searchable grid or a list of solutions and standalone content.
 
 1. Filter the list displayed, either by selecting specific values from the filters, or entering any part of a content name or description in the **Search** field.
 

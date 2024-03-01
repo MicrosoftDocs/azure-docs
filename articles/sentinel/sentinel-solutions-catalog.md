@@ -1,10 +1,11 @@
 ---
 title: Microsoft Sentinel content hub catalog | Microsoft Docs
-description: This article lists the solutions currently available in the content hub for Microsoft Sentinel and where to find the full list of solutions.
+description: Learn about domain specific solutions available in the content hub for Microsoft Sentinel and where to find the full list of solutions.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 08/08/2023
+ms.date: 03/01/2024
 ms.author: cwatson
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal.
 ---
 
 # Microsoft Sentinel content hub catalog

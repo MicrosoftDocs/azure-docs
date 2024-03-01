@@ -47,6 +47,8 @@ The Azure Storage platform includes the following data services that are suitabl
 
 - **Azure Blob Storage**: An object store for text and binary data. It also includes support for big data analytics through Azure Data Lake Storage Gen2.
 
+- **Azure NetApp Files**: Complete networked storage solution including advanced data management capabilities for taking snapshots, cloning, and replicating database volumes.
+
 - **Azure Files**: Managed file shares for cloud or on-premises deployments.
 
 - **Azure Disk Storage**: Block-level storage volumes for Azure VMs.

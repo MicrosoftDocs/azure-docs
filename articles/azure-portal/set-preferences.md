@@ -228,7 +228,7 @@ To read all notifications received during your current session, select the **Not
 
 :::image type="content" source="media/set-preferences/read-notifications.png" alt-text="Screenshot showing the Notifications icon in the global header.":::
 
-To view notifications from previous sessions, look for events in the Activity log. For more information, see [View the Activity log](../azure-monitor/essentials/activity-log.md#view-the-activity-log).
+To view notifications from previous sessions, look for events in the Activity log. For more information, see [View the Activity log](../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log).
 
 ## Next steps
 
