@@ -188,7 +188,7 @@ namespace CallingQuickstart
         }
 
 
-        private async Task<CommunicationCall> StartcallAsync(string acsCallee)
+        private async Task<CommunicationCall> StartCallAsync(string acsCallee)
         {
             // Start a call to an Azure Communication Services user using the CallAgent and the callee id
         }
@@ -249,7 +249,6 @@ Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. Thi
 
             this.callAgent = await this.callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
 
-            TEST THIS INCOMING CALL
             this.callAgent.IncomingCallReceived += OnIncomingCallAsync;
         }
 ```
@@ -259,7 +258,7 @@ Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. Thi
 Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
 
 ```C#
-        private async Task<CommunicationCall> StartcallAsync(string acsCallee)
+        private async Task<CommunicationCall> StartCallAsync(string acsCallee)
         {
             var options = new StartCallOptions();
             var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(acsCallee) }, options);
@@ -372,9 +371,9 @@ Application has an opportunity to configure how the incoming call should be acce
 
 ### Make call button work
 
-Once the `Callee ID` isn't null or empty you can start a call.
+Once the `Callee ID` isn't null or empty, you can start a call.
 
-The call state must be changed using the `onStateChangedAsync` action.
+The call state must be changed using the `OnStateChangedAsync` action.
 
 ```C#
 
@@ -384,10 +383,12 @@ The call state must be changed using the `onStateChangedAsync` action.
 
         if (!string.IsNullOrEmpty(callString))
         {
-            call = await StartcallAsync(callString);
+            call = await StartCallAsync(callString);
+
+            call.StateChanged += OnStateChangedAsync;
         }
     
-        call.StateChanged += OnStateChangedAsync;
+        
     }
 
 ```
@@ -621,7 +622,7 @@ Add the implementation to the `CallButton_Click` to start various kinds of calls
         {
             var callString = CalleeTextBox.Text.Trim();
 
-            call = await StartcallAsync(callString);
+            call = await StartCallAsync(callString);
             if (call != null)
             {
                 call.StateChanged += OnStateChangedAsync;
@@ -706,7 +707,7 @@ In the meeting join scenario, `JoinCallOptions` is made available to customize t
 Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
 
 ```C#
-        private async Task<CommunicationCall> StartcallAsync(string acsCallee)
+        private async Task<CommunicationCall> StartCallAsync(string acsCallee)
         {
             var options = new StartCallOptions();
             var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(acsCallee) }, options);
