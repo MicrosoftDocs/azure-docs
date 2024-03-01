@@ -67,10 +67,10 @@ Open the configuration file on the IoT Edge device.
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-If using a snap installation of IoT Edge, the template file is located at `/var/snap/iotedge/current/config/aziot/config.toml.edge.template`. Create a copy of the template file in your home directory and name it config.toml. For example:
+If using a snap installation of IoT Edge, the template file is located at `/snap/azure-iot-edge/current/etc/aziot/config.toml.edge.template`. Create a copy of the template file in your home directory and name it config.toml. For example:
 
 ```bash
-cp /var/snap/iotedge/current/config/aziot/config.toml.edge.template ~/config.toml
+cp /snap/azure-iot-edge/current/etc/aziot/config.toml.edge.template ~/config.toml
 ```
 
 Open the configuration file in your home directory on the IoT Edge device.
