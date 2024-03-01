@@ -41,10 +41,10 @@
     - name: Next.js
       href: nextjs.md
       items:
-      - name: Statically generated Next.js
-        href: deploy-nextjs-static-export.md
       - name: Hybrid Next.js application (preview)
         href: deploy-nextjs-hybrid.md
+      - name: Statically generated Next.js
+        href: deploy-nextjs-static-export.md
     - name: Nuxt.js
       href: deploy-nuxtjs.md
     - name: Vue
