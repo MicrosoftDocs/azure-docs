@@ -195,7 +195,7 @@ Extract the download and change into the *containerapps-albumapi-csharp-buildpac
 Extract the download and change into the *containerapps-albumapi-java-buildpack/src* folder.
 
 > [!NOTE] 
-> The Java Builpack uses [Maven](https://maven.apache.org/what-is-maven.html) with default settings to build your application. Alternatively, you can the [use `--build-env-vars` parameter to configure the image build from source code](java-build-environment-variables.md).
+> The Java Buildpack uses [Maven](https://maven.apache.org/what-is-maven.html) with default settings to build your application. Alternatively, you can the [use `--build-env-vars` parameter to configure the image build from source code](java-build-environment-variables.md).
 
 # [JavaScript](#tab/javascript)
 
