@@ -97,7 +97,6 @@ export PRINCIPAL_ID=$(az k8s-extension show \
 --name mq \
 --cluster-type connectedClusters \
 --query identity.principalId -o tsv)
-
 echo $PRINCIPAL_ID
 ```
 
@@ -109,7 +108,7 @@ d84481ae-9181-xxxx-xxxx-xxxxxxxxxxxx
 
 Then, use Azure CLI to assign publisher and subscriber roles to IoT MQ for the topic space you created.
 
-Assigning the publisher role:
+Assign the publisher role:
 
 ```azurecli
 az role assignment create \
@@ -118,7 +117,7 @@ az role assignment create \
 --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.EventGrid/namespaces/$EVENT_GRID_NAMESPACE/topicSpaces/tutorial
 ```
 
-Assigning the subscriber role:
+Assign the subscriber role:
 
 ```azurecli
 az role assignment create \
@@ -135,7 +134,11 @@ az role assignment create \
 Use Azure CLI to get the Event Grid MQTT broker hostname.
 
 ```azurecli
-az eventgrid namespace show --resource-group $RESOURCE_GROUP  --namespace-name $EVENT_GRID_NAMESPACE --query topicSpacesConfiguration.hostname -o tsv
+az eventgrid namespace show \
+--resource-group $RESOURCE_GROUP \
+--namespace-name $EVENT_GRID_NAMESPACE \
+--query topicSpacesConfiguration.hostname \
+-o tsv
 ```
 
 Take note of the output value for `topicSpacesConfiguration.hostname` that is a hostname value that looks like:
