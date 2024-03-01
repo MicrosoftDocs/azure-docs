@@ -60,7 +60,7 @@ In this section, you create a subnet with multiple prefixes.
     ```azurepowershell
     $subnet = @{
         Name = 'subnet-1'
-        AddressPrefix = '10.0.0.0/24,10.0.1.0/24'
+        AddressPrefix = '10.0.0.0/24', '10.0.1.0/24'
     }
     $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
     ```
