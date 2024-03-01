@@ -35,7 +35,7 @@ Set environment variables for the rest of the setup. Replace values in `<>` with
 
 ```azurecli
 # For this tutorial, the steps assume the IoT Operations cluster and the Event Grid
-#  are in the same subscription, resource group, and location.
+# are in the same subscription, resource group, and location.
 
 # Name of the resource group of Azure Event Grid and IoT Operations cluster 
 export RESOURCE_GROUP=<RESOURCE_GROUP_NAME>
@@ -58,7 +58,8 @@ export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
 [Create Event Grid namespace](../../event-grid/create-view-manage-namespaces.md) with Azure CLI. The location should be the same as the one you used to deploy Azure IoT Operations.
 
 ```azurecli
-az eventgrid namespace create --namespace-name $EVENT_GRID_NAMESPACE \
+az eventgrid namespace create \
+--namespace-name $EVENT_GRID_NAMESPACE \
 --resource-group $RESOURCE_GROUP \
 --location $LOCATION \
 --topic-spaces-configuration "{state:Enabled,maximumClientSessionsPerAuthenticationName:3}"
@@ -76,7 +77,8 @@ The max client sessions option allows IoT MQ to spawn multiple instances and sti
 In the Event Grid namespace, create a topic space named `tutorial` with a topic template `telemetry/#`.
 
 ```azurecli
-az eventgrid namespace topic-space create --resource-group $RESOURCE_GROUP \
+az eventgrid namespace topic-space create \
+--resource-group $RESOURCE_GROUP \
 --namespace-name $EVENT_GRID_NAMESPACE \
 --name tutorial \
 --topic-templates "telemetry/#"
@@ -89,7 +91,8 @@ By using the `#` wildcard in the topic template, you can publish to any topic un
 Using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension. The command stores the principal ID in a variable for later use.
 
 ```azurecli
-export PRINCIPAL_ID=$(az k8s-extension show --resource-group $RESOURCE_GROUP \
+export PRINCIPAL_ID=$(az k8s-extension show \
+--resource-group $RESOURCE_GROUP \
 --cluster-name $CLUSTER_NAME \
 --name mq \
 --cluster-type connectedClusters \
@@ -104,18 +107,24 @@ Take note of the output value for `identity.principalId`, which is a GUID value 
 d84481ae-9181-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Then, use Azure CLI to assign publisher and subscriber roles to IoT MQ for the topic space you created. Replace `<MQ_ID>` with the principal ID you found in the previous step, and replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, `<EG_NAME>` with your values matching the Event Grid namespace you created.
+Then, use Azure CLI to assign publisher and subscriber roles to IoT MQ for the topic space you created.
 
 Assigning the publisher role:
 
 ```azurecli
-az role assignment create --assignee <MQ_ID> --role "EventGrid TopicSpaces Publisher" --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.EventGrid/namespaces/<EG_NAME>/topicSpaces/tutorial
+az role assignment create \
+--assignee $PRINCIPAL_ID \
+--role "EventGrid TopicSpaces Publisher" \
+--scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.EventGrid/namespaces/$EVENT_GRID_NAMESPACE/topicSpaces/tutorial
 ```
 
 Assigning the subscriber role:
 
 ```azurecli
-az role assignment create --assignee <MQ_ID> --role "EventGrid TopicSpaces Subscriber" --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.EventGrid/namespaces/<EG_NAME>/topicSpaces/tutorial
+az role assignment create \
+--assignee $PRINCIPAL_ID \
+--role "EventGrid TopicSpaces Subscriber" \
+--scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.EventGrid/namespaces/$EVENT_GRID_NAMESPACE/topicSpaces/tutorial
 ```
 
 > [!TIP]
@@ -123,10 +132,10 @@ az role assignment create --assignee <MQ_ID> --role "EventGrid TopicSpaces Subsc
 
 ## Event Grid MQTT broker hostname
 
-Use Azure CLI to get the Event Grid MQTT broker hostname. Replace `<EG_NAME>` and `<RESOURCE_GROUP>` with your own values.
+Use Azure CLI to get the Event Grid MQTT broker hostname.
 
 ```azurecli
-az eventgrid namespace show -g <RESOURCE_GROUP> -n <EG_NAME> --query topicSpacesConfiguration.hostname -o tsv
+az eventgrid namespace show --resource-group $RESOURCE_GROUP  --namespace-name $EVENT_GRID_NAMESPACE --query topicSpacesConfiguration.hostname -o tsv
 ```
 
 Take note of the output value for `topicSpacesConfiguration.hostname` that is a hostname value that looks like:
