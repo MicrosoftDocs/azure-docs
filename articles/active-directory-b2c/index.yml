@@ -8,7 +8,7 @@ brand: azure
 
 metadata:
   title: Azure Active Directory B2C documentation
-  description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications.
+  description: Learn how to use Azure Active Directory B2C to customize and control how your customers sign up, sign in, and manage profiles when using your applications.
   ms.service: active-directory
   ms.subservice: B2C
   ms.topic: hub-page
