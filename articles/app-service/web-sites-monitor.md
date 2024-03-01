@@ -64,7 +64,7 @@ You can increase or remove quotas from your app by upgrading your App Service pl
 
 Metrics provide information about the app or the App Service plan's behavior.
 
-For a list of the metrics that apply to apps and App Service plans, see [Supported metrics for Microsoft.Web](monitor-app-service-reference.md#supported-metrics-for-microsoft-web).
+For a list of the metrics that apply to apps and App Service plans, see [Supported metrics for Microsoft.Web](monitor-app-service-reference.md#supported-metrics-for-microsoftweb).
 
 ## Metrics granularity and retention policy
 Metrics for an app and app service plan are logged and aggregated by the service and [retained according to these rules](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics).
