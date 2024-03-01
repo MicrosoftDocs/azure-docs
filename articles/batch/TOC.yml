@@ -289,14 +289,8 @@
       items:
       - name: Rendering using Azure
         href: batch-rendering-service.md
-      - name: Batch rendering VM images
-        href: batch-rendering-applications.md
       - name: Batch rendering capabilities
         href: batch-rendering-functionality.md
-      - name: Using Batch rendering
-        href: batch-rendering-using.md
-      - name: Rendering application reference
-        href: batch-rendering-application-reference.md
       - name: Storage and data movement
         displayName: rendering, assets
         href: batch-rendering-storage-data-movement.md
