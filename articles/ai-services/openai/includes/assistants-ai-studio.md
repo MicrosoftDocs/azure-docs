@@ -22,7 +22,7 @@ author: mrbullwinkle
 - An [Azure AI hub resource](../../../ai-studio/how-to/create-azure-ai-resource.md) with a model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 - An [Azure AI project](../../../ai-studio/how-to/create-projects.md) in Azure AI Studio.
 
-## Go to the Azure AI Studio
+## Go to the Azure AI Studio (Preview)
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Go to your project or [create a new project](../../../ai-studio//how-to/create-projects.md) in Azure AI Studio.
