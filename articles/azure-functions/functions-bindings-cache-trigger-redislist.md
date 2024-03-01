@@ -116,7 +116,7 @@ public class SimpleListTrigger {
     public void run(
             @RedisListTrigger(
                 name = "req",
-                connectionStringSetting = "redisConnectionString",
+                connection = "redisConnectionString",
                 key = "listTest",
                 pollingIntervalInMs = 1000,
                 maxBatchSize = 1)
@@ -150,7 +150,7 @@ From `function.json`, here's the binding data:
         {
             "type": "redisListTrigger",
             "listPopFromBeginning": true,
-            "connectionStringSetting": "redisConnectionString",
+            "connection": "redisConnectionString",
             "key": "listTest",
             "pollingIntervalInMs": 1000,
             "maxBatchSize": 16,
@@ -192,7 +192,7 @@ From `function.json`, here's the binding data:
         {
             "type": "redisListTrigger",
             "listPopFromBeginning": true,
-            "connectionStringSetting": "redisConnectionString",
+            "connection": "redisConnectionString",
             "key": "listTest",
             "pollingIntervalInMs": 1000,
             "maxBatchSize": 16,
@@ -230,7 +230,7 @@ From `function.json`, here's the binding data:
         {
             "type": "redisListTrigger",
             "listPopFromBeginning": true,
-            "connectionStringSetting": "redisConnectionString",
+            "connection": "redisConnectionString",
             "key": "listTest",
             "pollingIntervalInMs": 1000,
             "maxBatchSize": 16,

@@ -215,7 +215,7 @@ public class SimplePubSubTrigger {
     public void run(
             @RedisPubSubTrigger(
                 name = "req",
-                connectionStringSetting = "redisConnectionString",
+                connection = "redisConnectionString",
                 channel = "pubsubTest")
                 String message,
             final ExecutionContext context) {
@@ -238,7 +238,7 @@ public class KeyspaceTrigger {
     public void run(
             @RedisPubSubTrigger(
                 name = "req",
-                connectionStringSetting = "redisConnectionString",
+                connection = "redisConnectionString",
                 channel = "__keyspace@0__:keyspaceTest")
                 String message,
             final ExecutionContext context) {
@@ -261,7 +261,7 @@ public class KeyeventTrigger {
     public void run(
             @RedisPubSubTrigger(
                 name = "req",
-                connectionStringSetting = "redisConnectionString",
+                connection = "redisConnectionString",
                 channel = "__keyevent@0__:del")
                 String message,
             final ExecutionContext context) {
@@ -294,7 +294,7 @@ Here's binding data to listen to the channel `pubsubTest`.
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "channel": "pubsubTest",
       "name": "message",
       "direction": "in"
@@ -311,7 +311,7 @@ Here's binding data to listen to keyspace notifications for the key `keyspaceTes
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "channel": "__keyspace@0__:keyspaceTest",
       "name": "message",
       "direction": "in"
@@ -328,7 +328,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "channel": "__keyevent@0__:del",
       "name": "message",
       "direction": "in"
@@ -368,7 +368,7 @@ Here's binding data to listen to the channel `pubsubTest`.
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "channel": "pubsubTest",
       "name": "message",
       "direction": "in"
@@ -385,7 +385,7 @@ Here's binding data to listen to keyspace notifications for the key `keyspaceTes
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "channel": "__keyspace@0__:keyspaceTest",
       "name": "message",
       "direction": "in"
@@ -402,7 +402,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "channel": "__keyevent@0__:del",
       "name": "message",
       "direction": "in"
@@ -439,7 +439,7 @@ Here's binding data to listen to the channel `pubsubTest`.
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "channel": "pubsubTest",
       "name": "message",
       "direction": "in"
@@ -456,7 +456,7 @@ Here's binding data to listen to keyspace notifications for the key `keyspaceTes
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "channel": "__keyspace@0__:keyspaceTest",
       "name": "message",
       "direction": "in"
@@ -473,7 +473,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "channel": "__keyevent@0__:del",
       "name": "message",
       "direction": "in"

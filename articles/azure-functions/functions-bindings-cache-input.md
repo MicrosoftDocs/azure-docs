@@ -109,12 +109,12 @@ public class SetGetter {
     public void run(
             @RedisPubSubTrigger(
                 name = "key",
-                connectionStringSetting = "redisConnectionString",
+                connection = "redisConnectionString",
                 channel = "__keyevent@0__:set")
                 String key,
             @RedisInput(
                 name = "value",
-                connectionStringSetting = "redisConnectionString",
+                connection = "redisConnectionString",
                 command = "GET {Message}")
                 String value,
             final ExecutionContext context) {
@@ -134,14 +134,14 @@ This function.json defines both a pub/sub trigger and an input binding to the GE
     "bindings": [
         {
             "type": "redisPubSubTrigger",
-            "connectionStringSetting": "redisConnectionString",
+            "connection": "redisConnectionString",
             "channel": "__keyevent@0__:set",
             "name": "key",
             "direction": "in"
         },
         {
             "type": "redis",
-            "connectionStringSetting": "redisConnectionString",
+            "connection": "redisConnectionString",
             "command": "GET {Message}",
             "name": "value",
             "direction": "in"
@@ -180,14 +180,14 @@ This function.json defines both a pub/sub trigger and an input binding to the GE
     "bindings": [
         {
             "type": "redisPubSubTrigger",
-            "connectionStringSetting": "redisConnectionString",
+            "connection": "redisConnectionString",
             "channel": "__keyevent@0__:set",
             "name": "key",
             "direction": "in"
         },
         {
             "type": "redis",
-            "connectionStringSetting": "redisConnectionString",
+            "connection": "redisConnectionString",
             "command": "GET {Message}",
             "name": "value",
             "direction": "in"
@@ -218,14 +218,14 @@ This function.json defines both a pub/sub trigger and an input binding to the GE
     "bindings": [
         {
             "type": "redisPubSubTrigger",
-            "connectionStringSetting": "redisConnectionString",
+            "connection": "redisConnectionString",
             "channel": "__keyevent@0__:set",
             "name": "key",
             "direction": "in"
         },
         {
             "type": "redis",
-            "connectionStringSetting": "redisConnectionString",
+            "connection": "redisConnectionString",
             "command": "GET {Message}",
             "name": "value",
             "direction": "in"

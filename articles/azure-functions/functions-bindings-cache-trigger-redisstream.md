@@ -115,7 +115,7 @@ public class SimpleStreamTrigger {
     public void run(
             @RedisStreamTrigger(
                 name = "req",
-                connectionStringSetting = "redisConnectionString",
+                connection = "redisConnectionString",
                 key = "streamTest",
                 pollingIntervalInMs = 1000,
                 maxBatchSize = 1)
@@ -149,7 +149,7 @@ From `function.json`, here's the binding data:
   "bindings": [
     {
       "type": "redisStreamTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "key": "streamTest",
       "pollingIntervalInMs": 1000,
       "maxBatchSize": 16,
@@ -189,7 +189,7 @@ From `function.json`, here's the binding data:
   "bindings": [
     {
       "type": "redisStreamTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "key": "streamTest",
       "pollingIntervalInMs": 1000,
       "maxBatchSize": 16,
@@ -226,7 +226,7 @@ From `function.json`, here's the binding data:
   "bindings": [
     {
       "type": "redisStreamTrigger",
-      "connectionStringSetting": "redisConnectionString",
+      "connection": "redisConnectionString",
       "key": "streamTest",
       "pollingIntervalInMs": 1000,
       "maxBatchSize": 16,

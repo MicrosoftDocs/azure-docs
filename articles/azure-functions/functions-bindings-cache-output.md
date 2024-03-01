@@ -101,12 +101,12 @@ public class SetDeleter {
     @FunctionName("SetDeleter")
     @RedisOutput(
                 name = "value",
-                connectionStringSetting = "redisConnectionString",
+                connection = "redisConnectionString",
                 command = "DEL")
     public String run(
             @RedisPubSubTrigger(
                 name = "key",
-                connectionStringSetting = "redisConnectionString",
+                connection = "redisConnectionString",
                 channel = "__keyevent@0__:set")
                 String key,
             final ExecutionContext context) {
@@ -130,14 +130,14 @@ The bindings are defined in this `function.json`` file:
     "bindings": [
         {
             "type": "redisPubSubTrigger",
-            "connectionStringSetting": "redisConnectionString",
+            "connection": "redisConnectionString",
             "channel": "__keyevent@0__:set",
             "name": "key",
             "direction": "in"
         },
         {
             "type": "redis",
-            "connectionStringSetting": "redisConnectionString",
+            "connection": "redisConnectionString",
             "command": "DEL",
             "name": "$return",
             "direction": "out"
@@ -176,14 +176,14 @@ The bindings are defined in this `function.json` file:
     "bindings": [
         {
             "type": "redisPubSubTrigger",
-            "connectionStringSetting": "redisLocalhost",
+            "connection": "redisLocalhost",
             "channel": "__keyevent@0__:set",
             "name": "key",
             "direction": "in"
         },
         {
             "type": "redis",
-            "connectionStringSetting": "redisLocalhost",
+            "connection": "redisLocalhost",
             "command": "DEL",
             "name": "retVal",
             "direction": "out"
@@ -215,14 +215,14 @@ The bindings are defined in this `function.json` file:
     "bindings": [
         {
             "type": "redisPubSubTrigger",
-            "connectionStringSetting": "redisLocalhost",
+            "connection": "redisLocalhost",
             "channel": "__keyevent@0__:set",
             "name": "key",
             "direction": "in"
         },
         {
             "type": "redis",
-            "connectionStringSetting": "redisLocalhost",
+            "connection": "redisLocalhost",
             "command": "DEL",
             "name": "$return",
             "direction": "out"
