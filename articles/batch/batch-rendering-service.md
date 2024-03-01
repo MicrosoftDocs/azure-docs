@@ -1,7 +1,7 @@
 ---
 title: Rendering overview
 description: Introduction of using Azure for rendering and an overview of Azure Batch rendering capabilities
-ms.date: 12/13/2021
+ms.date: 02/29/2024
 ms.topic: how-to
 ---
 
@@ -53,7 +53,5 @@ There are two main options available:
 * A custom solution using Azure Batch to allocate and manage the compute capacity as well as providing the job scheduling to run the render jobs.
 
 ## Next steps
-
- Learn how to [use Azure infrastructure and services to extend an existing on-premises render farm](https://azure.microsoft.com/solutions/high-performance-computing/rendering/).
 
 Learn more about [Azure Batch rendering capabilities](batch-rendering-functionality.md).
