@@ -29,38 +29,7 @@ Each Azure region that supports availability zones is made of one or more datace
 
 Azure Monitor Logs availability zones are [zone-redundant](../../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services), which means that Microsoft manages spreading service requests and replicating data across different zones in supported regions. If one zone is affected by an incident, Microsoft manages failover to a different availability zone in the region automatically. You don't need to take any action because switching between zones is seamless. 
 
-A subset of the availability zones that support data resilience currently also support service resilience for Azure Monitor Logs, as listed in the [Service resilience - supported regions](#service-resilience---supported-regions) section. In regions that support service resilience, Azure Monitor Logs service operations - for example, log ingestion, queries, and alerts - can continue in the event of a zone failure. In regions that only support data resilience, your stored data is protected against zonal failures, but service operations might be impacted by regional incidents.
-    
-## Data resilience - supported regions
-
-Workspace logs are stored in clusters. By default, workspaces aren't explicitly linked to a dedicated cluster and are assigned to a shared cluster. Some customers choose to use a dedicated cluster, that handles a single or multiple workspaces they own.
-
-### Shared clusters (default)
-All shared cluster are in the following regions use availability zones. If your workspace is created in one of these regions, logs being stored are replicated across the region-specific zones (starting January 24).
-
-* Canada Central
-* France Central
-* North Europe
-* South Central US
-* Southeast Asia
-* UK South
-* West US 3
-
-### Dedicated clusters
-
-Azure Monitor currently supports data resilience for availability-zone-enabled dedicated clusters in these regions:
-
-  | Americas | Europe | Middle East | Africa | Asia Pacific |
-  |---|---|---|---|---|
-  | Brazil South | France Central | Qatar Central | South Africa North | Australia East |
-  | Canada Central | Germany West Central | UAE North | | Central India | 
-  | Central US | North Europe | | | Japan East |
-  | East US | Norway East | | | Korea Central |
-  | East US 2 | UK South | | | Southeast Asia |
-  | South Central US | West Europe | | | East Asia |
-  | West US 2 | Sweden Central | | |  |
-  | West US 3 | Switzerland North | | |  |
-  |  | Poland Central | | | |
+A subset of the availability zones that support data resilience currently also support service resilience for Azure Monitor Logs. In regions that support **service resilience**, Azure Monitor Logs service operations - for example, log ingestion, queries, and alerts - can continue in the event of a zone failure. In regions that only support **data resilience**, your stored data is protected against zonal failures, but service operations might be impacted by regional incidents.
 
 > [!NOTE]
 > Moving to a dedicated cluster in a region that supports availablility zones protects data ingested after the move, not historical data.
