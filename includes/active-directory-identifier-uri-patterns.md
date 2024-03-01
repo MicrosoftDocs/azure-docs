@@ -33,3 +33,4 @@ The following API and HTTP scheme-based application ID URI formats are supported
 
 > [!IMPORTANT]
 > The application ID URI value must not end with a slash "/" character.
+> Single tenant applications with configured access token version 2 are exempted from uri validation, including verified domain.
