@@ -50,6 +50,9 @@ The table below lists each product that offers migration guidance and/or informa
 | [Azure Cosmos DB](/azure/cosmos-db/high-availability?toc=/azure/reliability) |
 | [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md)|
 | [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/how-to-manage-high-availability-portal#enable-high-availability-during-server-creation)|
+| [Azure Elastic SAN](reliability-elastic-san.md#availability-zone-migration)|
+| [Azure Functions](reliability-functions.md#availability-zone-migration)|
+| [Azure HDInsight](reliability-hdinsight.md#availability-zone-migration)|
 | [Azure Key Vault](/azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability)|
 | [Azure Kubernetes Service](/azure/aks/availability-zones?toc=/azure/reliability)|
 | [Azure Logic Apps](azure/logic-apps/set-up-zone-redundancy-availability-zones&tabs=standard&toc=/azure/reliability)|
