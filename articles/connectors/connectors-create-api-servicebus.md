@@ -164,7 +164,7 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
 
   - Reduce the number of storage calls sent to check the number of runs on which to apply concurrency.
 
-- Mimic the behavior of the Service Bus managed connector trigger, which has a 30-second long poll when no messages are found.
+  - Mimic the behavior of the Service Bus managed connector trigger, which has a 30-second long poll when no messages are found.
 
 You can change this delay, but make sure that you carefully test any changes to the default value:
 
