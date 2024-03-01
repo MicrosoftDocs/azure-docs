@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Deploy LEMP and WordPress on a VM
+title: Tutorial - Deploy a LEMP stack using WordPress on a VM
 description: In this tutorial, you learn how to install the LEMP stack, and WordPress, on a Linux virtual machine in Azure.
 author: chasecrum
 ms.collection: linux
@@ -17,7 +17,7 @@ ms.reviewer: jushim
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/?Microsoft_Azure_CloudNative_clientoptimizations=false&feature.canmodifyextensions=true#view/Microsoft_Azure_CloudNative/SubscriptionSelectionPage.ReactView/tutorialKey/CreateLinuxVMLAMP)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#view/Microsoft_Azure_CloudNative/SubscriptionSelectionPage.ReactView/tutorialKey/CreateLinuxVMLAMP)
 
 This article walks you through how to deploy an NGINX web server, Azure MySQL Flexible Server, and PHP (the LEMP stack) on an Ubuntu Linux VM in Azure. To see the LEMP server in action, you can optionally install and configure a WordPress site. In this tutorial you learn how to:
 

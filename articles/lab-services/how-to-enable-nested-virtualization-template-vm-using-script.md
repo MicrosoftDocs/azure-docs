@@ -163,21 +163,19 @@ If you're using the Medium (Nested Virtualization) VM size for the lab, consider
 
 - Verify that you followed the previous steps for enabling nested virtualization. Consider using the PowerShell script option.
 
-- Check if the host VM (lab VM) has the DHCP role installed if you are using Windows Server. 
+- Check if the host VM (lab VM) has the DHCP role installed if you are using Windows Server.
 
     Running a lab VM as a DHCP server is an *unsupported* scenario. See [Can I deploy a DHCP server in a virtual network?](/azure/virtual-network/virtual-networks-faq) for details. Changing the settings of the lab VM can cause issues with other lab VMs.
-
-    If you have the DHCP role installed, try enabling Hyper-V [DHCP guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingdhcp-guard) and [Router guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingrouter-guard).
-
-    ```powershell
-    Get-VMNetworkAdapter * | Set-VMNetworkAdapter -RouterGuard On -DhcpGuard On
-    ```
-    
 
 - Check the network adapter settings for the Hyper-V VM.
 
   - Set the IP address of the DNS server and DHCP server to [*168.63.129.16*](/azure/virtual-network/what-is-ip-address-168-63-129-16).
   - If the guest VM IPv4 address is set manually, verify it is in the range of the NAT network connected to the Hyper-V switch.
+  - Try enabling Hyper-V [DHCP guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingdhcp-guard) and [Router guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingrouter-guard).
+
+    ```powershell
+    Get-VMNetworkAdapter * | Set-VMNetworkAdapter -RouterGuard On -DhcpGuard On
+    ```
 
 > [!NOTE]
 > The `ping` command from a Hyper-V VM to the host VM doesn't work. To test internet connectivity, launch a web browser and verify that the web page loads correctly.
