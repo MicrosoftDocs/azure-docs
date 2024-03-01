@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2
+ms.custom: cliv2, update-code
 author: cloga
 ms.author: lochen
 ms.date: 11/28/2022
-ms.reviewer: scottpolly
+ms.reviewer: lagayhar
 ---
 
 # CLI (v2) pipeline job YAML schema

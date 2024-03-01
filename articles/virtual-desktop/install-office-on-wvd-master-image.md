@@ -39,10 +39,7 @@ This sample configuration XML we've provided will do the following things:
 >[!NOTE]
 >Visio's stencil search feature may not work as expected in Azure Virtual Desktop.
 
-Here's what this sample configuration XML won't do:
-
-   - Install Skype for Business
-   - Install OneDrive in per-user mode. To learn more, see [Install OneDrive in per-machine mode](#install-onedrive-in-per-machine-mode).
+This sample configuration XML won't install OneDrive in per-user mode. To learn more, see [Install OneDrive in per-machine mode](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
 >Shared Computer Activation can be set up through Group Policy Objects (GPOs) or registry settings. The GPO is located at **Computer Configuration\\Policies\\Administrative Templates\\Microsoft Office 2016 (Machine)\\Licensing Settings**
@@ -109,7 +106,7 @@ OneDrive is normally installed per-user. In this environment, it should be insta
 
 Here's how to install OneDrive in per-machine mode:
 
-1. First, create a location to stage the OneDrive installer. A local disk folder or [\\\\unc] (file://unc) location is fine.
+1. First, create a location to stage the OneDrive installer. A local disk folder or UNC path is fine.
 
 2. Download [OneDriveSetup.exe](https://go.microsoft.com/fwlink/?linkid=844652) to your staged location.
 
@@ -152,11 +149,9 @@ Here's how to install OneDrive in per-machine mode:
 > [!TIP]
 > You can configure OneDrive so that it will attempt to automatically sign-in when a user connects to a session. For more information, see [Silently configure user accounts](/sharepoint/use-silent-account-configuration).
 
-## Microsoft Teams and Skype for Business
+## Microsoft Teams
 
-To learn how to install Microsoft Teams, see [Use Microsoft Teams on Azure Virtual desktop](./teams-on-avd.md). 
-
-Azure Virtual Desktop doesn't support Skype for Business.
+To learn how to install Microsoft Teams, see [Use Microsoft Teams on Azure Virtual desktop](./teams-on-avd.md). Azure Virtual Desktop doesn't support Skype for Business.
 
 ## Next steps
 

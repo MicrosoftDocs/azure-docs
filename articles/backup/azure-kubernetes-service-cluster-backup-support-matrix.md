@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.date: 12/25/2023
+ms.date: 02/16/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -77,6 +77,8 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 - Only one scheduled recovery point is available in Vault Tier per day that is providing an RPO of 24 hours. For secondary region, the recovery point can take up to 12 hours, thus providing an RPO of 36 hours.
 
 - During restore from Vault Tier, the provided staging location shouldn't have a *Read*/*Delete Lock*; otherwise, hydrated resources aren't cleaned after restore. 
+
+- Don't install AKS Backup Extension along with Velero or other Velero-based backup services. This could lead to disruption of backup service during any future Velero upgrades driven by you or AKS backup
 
 ## Next steps
 

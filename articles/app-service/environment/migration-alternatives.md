@@ -3,23 +3,25 @@ title: Migrate to App Service Environment v3
 description: Learn how to migrate your applications to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 01/30/2024
+ms.date: 02/12/2024
 ms.author: jordanselig
 ---
 
 # Migrate to App Service Environment v3
 
-If you're currently using App Service Environment v1 or v2, you have the opportunity to migrate your workloads to [App Service Environment v3](overview.md). App Service Environment v3 has [advantages and feature differences](overview.md#feature-differences) that provide enhanced support for your workloads and can reduce overall costs.
+> [!NOTE]
+> There are two automated migration features available to help you upgrade to App Service Environment v3. To learn more about those features and for help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). Consider one of the automated options for a quicker path to [App Service Environment v3](overview.md).
+>
 
-The App Service Environment v3 [migration feature](migrate.md) provides an automated migration path to App Service Environment v3. Consider using the migration feature if your environment falls into one of the [supported scenarios](migrate.md#supported-scenarios).
+If you're currently using App Service Environment v1 or v2, you have the opportunity to migrate your workloads to [App Service Environment v3](overview.md). App Service Environment v3 has [advantages and feature differences](overview.md#feature-differences) that provide enhanced support for your workloads and can reduce overall costs. Consider using the [the automated migration features](upgrade-to-asev3.md) if your environment meets the criteria described in the [migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree).
 
-If your App Service Environment [isn't supported for the migration feature](migrate.md#migration-feature-limitations), you must use one of the manual methods to migrate to App Service Environment v3.
+If your App Service Environment isn't supported for the migration features, you must use one of the manual methods to migrate to App Service Environment v3.
 
 ## Prerequisites
 
 Scenario: You have an app that runs on App Service Environment v1 or App Service Environment v2, and you need that app to run on App Service Environment v3.
 
-For any migration method that doesn't use the [migration feature](migrate.md), you need to [create the App Service Environment v3 resource](creation.md) and a new subnet by using the method of your choice.
+For any migration method that doesn't use the automated migration features, you need to [create the App Service Environment v3 resource](creation.md) and a new subnet by using the method of your choice.
 
 [Networking changes](networking.md) between App Service Environment v1/v2 and App Service Environment v3 involve new (and for internet-facing environments, additional) IP addresses. You need to update any infrastructure that relies on these IPs. Be sure to account for inbound dependency changes, such as the Azure Load Balancer port.
 
@@ -151,7 +153,7 @@ You can [deploy ARM templates](../deploy-complex-application-predictably.md) by 
 
 ## Migrate manually
 
-The [migration feature](migrate.md) automates the migration to App Service Environment v3 and transfers all of your apps to the new environment. There's about one hour of downtime during this migration. If your apps can't have any downtime, we recommend that you use one of the manual options to re-create your apps in App Service Environment v3.
+The [in-place migration feature](migrate.md) automates the migration to App Service Environment v3 and transfers all of your apps to the new environment. There's about one hour of downtime during this migration. If your apps can't have any downtime, we recommend that you use the [side by side migration feature](side-by-side-migrate.md), which is a zero-downtime migration option since the new environment is created in a different subnet. If you also choose not to use the side by side migration feature, you can use one of the manual options to re-create your apps in App Service Environment v3.
 
 You can distribute traffic between your old and new environments by using [Application Gateway](../networking/app-gateway-with-service-endpoints.md). If you're using an internal load balancer (ILB) App Service Environment, [create an Azure Application Gateway instance](integrate-with-application-gateway.md) with an extra back-end pool to distribute traffic between your environments. For information about ILB App Service Environments and internet-facing App Service Environments, see [Application Gateway integration](../overview-app-gateway-integration.md).
 
@@ -161,6 +163,8 @@ After your migration and any testing with your new environment are complete, del
 
 ## Frequently asked questions
 
+- **How do I know if I should migrate to App Service Environment v3 using one of the manual options?**  
+  For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). If your environment meets the criteria described in the [migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree), consider using one of the automated migration features for a quicker path to [App Service Environment v3](overview.md). Manual migration is recommended if you need to slowly move your apps to your new environment and validate throughout the whole process.
 - **Will I experience downtime during the migration?**  
   Downtime is dependent on your migration process. If you have a different App Service Environment that you can point traffic to while you migrate, or if you can use a different subnet to create your new environment, you won't have downtime. If you must use the same subnet, there's downtime while you delete the old environment, create the App Service Environment v3 resource, create the new App Service plans, re-create the apps, and update any resources that use the new IP addresses.
 - **Do I need to change anything about my apps to get them to run on App Service Environment v3?**  

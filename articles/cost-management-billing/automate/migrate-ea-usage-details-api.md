@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Usage Details APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2024
+ms.date: 02/22/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -16,6 +16,9 @@ ms.reviewer: jojoh
 EA customers who were previously using the Enterprise Reporting APIs behind the *consumption.azure.com* endpoint to obtain usage details and marketplace charges need to migrate to new and improved solutions. Instructions are outlined below along with contract differences between the old API and the new solutions.
 
 The dataset is referred to as *cost details* instead of *usage details*.
+
+> [!NOTE]
+> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) before then.
 
 ## New solutions generally available
 

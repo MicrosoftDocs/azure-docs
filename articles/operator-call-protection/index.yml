@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: What is Azure Operator Call Protection?
             url: overview.md
+          - text: Onboarding and Included Benefits
+            url: onboarding.md
 
   # Card
   - title: Learn how to deploy Azure Operator Call Protection
@@ -36,9 +38,9 @@ landingContent:
             url: deployment-overview.md
       - linkListType: deploy
         links:
-          - text: Prepare to deploy Operator Call Protection on Azure Communications Gateway
+          - text: Prepare to deploy Azure Communications Gateway
             url: ../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
-          - text: Deploy Operator Call Protection on Azure Communications Gateway
+          - text: Deploy Azure Communications Gateway
             url: ../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
           - text: Integrate with Azure Communications Gateway's API
             url: ../communications-gateway/integrate-with-provisioning-api.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json

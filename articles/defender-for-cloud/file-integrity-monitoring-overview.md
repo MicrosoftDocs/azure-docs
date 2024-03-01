@@ -60,7 +60,7 @@ Defender for Cloud provides the following list of recommended items to monitor b
 
 ## Next steps
 
-In this article, you learned about File Integrity Monitoring (FIM) in Defender for Cloud. 
+In this article, you learned about File Integrity Monitoring (FIM) in Defender for Cloud.
 
 Next, you can:
 
