@@ -36,7 +36,7 @@ When Microsoft Sentinel is removed from a workspace, there might still be costs 
 
 ## Review implications
 
-When you remove the Microsoft Sentinel from the workspace, it takes up to 48 hours to complete the first phase of the deletion process. Data connector configuration and Microsoft Sentinel tables are deleted.
+It can take up to 48 hours for Microsoft Sentinel to be removed from the Log Analytics workspace. Data connector configuration and Microsoft Sentinel tables are deleted. Other resources and data are retained for a limited time.
 
 Your subscription continues to be registered with the Microsoft Sentinel resource provider. But, you can remove it manually.
 
@@ -80,9 +80,9 @@ After you remove the service, there's a grace period of 30 days to re-enable the
 
 ### Microsoft Sentinel tables deleted
 
-When you remove Microsoft Sentinel from your workspace, all Microsoft Sentinel tables are deleted. The data in these tables aren't accessible or queryable. But, the 90 day data retention policy applies to the data in these tables. So, if you re-enable Microsoft Sentinel on the workspace within 90 days, the retained data is restored to those tables.
+When you remove Microsoft Sentinel from your workspace, all Microsoft Sentinel tables are deleted. The data in these tables aren't accessible or queryable. But, the data retention policy set for those tables applies to the data in the deleted tables. So, if you re-enable Microsoft Sentinel on the workspace within the data retention time period, the retained data is restored to those tables.
 
-The tables and related data that are inaccessible when you remove Microsoft Sentinel include the following tables:
+The tables and related data that are inaccessible when you remove Microsoft Sentinel include but aren't limited to the following tables:
 
 - `AlertEvidence`
 - `AlertInfo`
