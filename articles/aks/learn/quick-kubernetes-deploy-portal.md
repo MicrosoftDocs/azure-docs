@@ -466,4 +466,4 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-[azure-monitor-features-containers]: ../azure-monitor/containers/container-insights-overview.md
+[azure-monitor-features-containers]: ../../azure-monitor/containers/container-insights-overview.md
