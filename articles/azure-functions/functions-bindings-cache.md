@@ -8,7 +8,7 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 07/26/2023
+ms.date: 03/01/2024
 ---
 
 # Overview of Azure functions for Azure Cache for Redis (preview)
