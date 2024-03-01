@@ -17,7 +17,7 @@ An Apache Spark pool provides open-source big data compute capabilities where da
 In this quickstart, you learn how to use the Azure portal to create an Apache Spark GPU-enabled pool in an Azure Synapse Analytics workspace.
 
 > [!WARNING]
-> - The GPU accelerated preview is limited to the [Azure Synapse 3.1 (unsupported)](../spark/apache-spark-3-runtime.md) and [Apache Spark 3.2 (EOLA)](../spark/apache-spark-32-runtime.md) runtimes.
+> - The GPU accelerated preview is limited to the [Azure Synapse 3.1 (unsupported)](./spark/apache-spark-3-runtime.md) and [Apache Spark 3.2 (EOLA)](./spark/apache-spark-32-runtime.md) runtimes.
 > - Azure Synapse Runtime for Apache Spark 3.1 has reached its end of life (EOL) as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
 > - End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of life announced (EOLA) runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime will be retired and disabled as of July 8, 2024.
 
