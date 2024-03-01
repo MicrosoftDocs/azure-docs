@@ -29,7 +29,7 @@ To request a quota increase, you must create a new support request with your wor
    - For **Subscription**, select the subscription for which you want to increase the quota.
    - For **Quota type**, select **Azure Database for MySQL Flexible Server**
 
-   :::image type="content" source="media/how-to-request-quota-increase/request-quota-increase-mysql-flex.png" alt-text="Screenshot of new support requst":::
+   :::image type="content" source="media/how-to-request-quota-increase/request-quota-increase-mysql-flex.png" alt-text="Screenshot of new support request.":::
 
 1. In the **Additional Details** tab, enter the details corresponding to your quota request. The Information provided on this tab is used to further assess your issue and help the support engineer troubleshoot the problem.
 1. Fill the following details in this form:
