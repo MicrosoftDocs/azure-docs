@@ -253,6 +253,45 @@ This Client Component fetches the API with a `useEffect` React hook to render th
 
 :::image type="content" source="media/deploy-nextjs/nextjs-13-home-display.png" alt-text="Display the output from the API route":::
 
+
+## Configure the runtime version for Next.js
+
+Certain Next.js versions require specific Node.js versions. To configure this, you can set the 'engines' property of your `package.json` file to indicate the specific Node.js version required.
+
+```json
+{
+  ...
+  "engines": {
+    "node": "18.17.1"
+  }
+}
+```
+
+## Set environment variables for Next.js
+
+Next.js uses environment variables at build time and at request time, to support both static page generation and dynamic page generation with server-side rendering. Therefore, environment variables need to be set both within the build and deploy task, as well as within the _Environment variables_ of you Azure Static Web Apps resource. 
+
+```yml
+...
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          app_location: "/" 
+          api_location: ""
+          output_location: "" 
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+...
+```
+
 ## Enable logging for Next.js
 
 Following best practices for Next.js server API troubleshooting, add logging to the API to catch these errors. Logging on Azure uses **Application Insights**. In order to preload this SDK, you need to create a custom start up script. To learn more:
