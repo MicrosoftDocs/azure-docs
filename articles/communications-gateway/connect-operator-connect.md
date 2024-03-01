@@ -26,8 +26,7 @@ You must [deploy Azure Communications Gateway](deploy.md).
 
 You must have access to a user account with the Microsoft Entra Global Administrator role.
 
-You must allocate six "service verification" test numbers for each of Operator Connect and Teams Phone Mobile. These numbers are used by the Operator Connect and Teams Phone Mobile programs for continuous call testing.
-
+You must allocate "service verification" test numbers. These numbers are used by the Operator Connect and Teams Phone Mobile programs for continuous call testing. Production deployments need six numbers for each service. Lab deployments need three numbers for each service.
 - If you selected the service you're setting up as part of deploying Azure Communications Gateway, you've allocated numbers for the service already.
 - Otherwise, choose the phone numbers now (in E.164 format and including the country code) and names to identify them. We recommend names of the form OC1 and OC2 (for Operator Connect) and TPM1 and TPM2 (for Teams Phone Mobile).
 
