@@ -80,7 +80,184 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
     > [!TIP]
     > If you are using a credential-less data store or external Azure Storage Account as data input, ensure you [configure compute clusters for data access](how-to-authenticate-batch-endpoint.md#configure-compute-clusters-for-data-access). **The managed identity of the compute cluster** is used **for mounting** the storage account. The identity of the job (invoker) is still used to read the underlying data allowing you to achieve granular access control.
 
+## Create jobs basics
 
+To create a job from a batch endpoint you have to invoke it. Invocation can be done using the Azure CLI, the Azure Machine Learning SDK for Python, or a REST API call. The following examples show the basics of invocation for a batch endpoint that receives a single input data folder for processing. See [Understanding inputs and outputs](how-to-access-data-batch-endpoints-jobs.md#understanding-inputs-and-outputs) for examples with different inputs and outputs.
+
+# [Azure CLI](#tab/cli)
+ 
+Use the `invoke` operation under batch endpoints:
+
+```azurecli
+az ml batch-endpoint invoke --name $ENDPOINT_NAME \
+                            --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data
+```
+
+# [Python](#tab/sdk)
+
+Use the method `MLClient.batch_endpoints.invoke()` to specify the name of the experiment:
+
+```python
+job = ml_client.batch_endpoints.invoke(
+    endpoint_name=endpoint.name,
+    inputs={
+        "heart_dataset": Input("https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+    }
+)
+```
+
+# [REST](#tab/rest)
+
+Make a `POST` request to the invocation URL of the endpoint. You can get the invocation URL from Azure Machine Learning portal, in the endpoint's details page.
+
+__Body__
+ 
+```json
+{
+    "properties": {
+        "InputData": {
+           "heart_dataset": {
+               "JobInputType" : "UriFolder",
+               "Uri": "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+           }
+        }
+    }
+}
+```
+
+__Request__
+
+```http
+POST jobs HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+```
+---
+
+### Invoke a specific deployment
+
+Batch endpoints can host multiple deployments under the same endpoint. The default endpoint is used unless the user specifies otherwise. You can change the deployment that is used as follows:
+
+# [Azure CLI](#tab/cli)
+ 
+Use the argument `--deployment-name` or `-d` to specify the name of the deployment:
+
+```azurecli
+az ml batch-endpoint invoke --name $ENDPOINT_NAME \
+                            --deployment-name $DEPLOYMENT_NAME \
+                            --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data
+```
+
+# [Python](#tab/sdk)
+
+Use the parameter `deployment_name` to specify the name of the deployment:
+
+```python
+job = ml_client.batch_endpoints.invoke(
+    endpoint_name=endpoint.name,
+    deployment_name=deployment.name,
+    inputs={
+        "heart_dataset": Input("https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+    }
+)
+```
+
+# [REST](#tab/rest)
+
+Add the header `azureml-model-deployment` to your request, including the name of the deployment you want to invoke.
+
+__Body__
+ 
+```json
+{
+    "properties": {
+        "InputData": {
+           "heart_dataset": {
+               "JobInputType" : "UriFolder",
+               "Uri": "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+           }
+        }
+    }
+}
+```
+
+__Request__
+ 
+```http
+POST jobs HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+azureml-model-deployment: DEPLOYMENT_NAME
+```
+---
+
+### Configure job properties
+
+You can configure some of the properties in the created job at invocation time.
+
+> [!NOTE]
+> Configuring job properties is only available in batch endpoints with Pipeline component deployments by the moment.
+
+#### Configure experiment name
+
+# [Azure CLI](#tab/cli)
+ 
+Use the argument `--experiment-name` to specify the name of the experiment:
+
+```azurecli
+az ml batch-endpoint invoke --name $ENDPOINT_NAME \
+                            --experiment-name "my-batch-job-experiment" \
+                            --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data
+```
+
+# [Python](#tab/sdk)
+
+Use the parameter `experiment_name` to specify the name of the experiment:
+
+```python
+job = ml_client.batch_endpoints.invoke(
+    endpoint_name=endpoint.name,
+    experiment_name="my-batch-job-experiment",
+    inputs={
+        "heart_dataset": Input("https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"),
+    }
+)
+```
+
+# [REST](#tab/rest)
+
+Use the key `experimentName` in `properties` section to indicate the experiment name:
+
+__Body__
+ 
+```json
+{
+    "properties": {
+        "InputData": {
+           "heart_dataset": {
+               "JobInputType" : "UriFolder",
+               "Uri": "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+           }
+        },
+        "properties":
+        {
+            "experimentName": "my-batch-job-experiment"
+        }
+    }
+}
+```
+
+__Request__
+
+```http
+POST jobs HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+```
+---
 
 ## Understanding inputs and outputs
 
@@ -781,111 +958,6 @@ The following example shows how to change the location where an output named `sc
     Authorization: Bearer <TOKEN>
     Content-Type: application/json
     ```
-
-## Invoke a specific deployment
-
-Batch endpoints can host multiple deployments under the same endpoint. The default endpoint is used unless the user specifies otherwise. You can change the deployment that is used as follows:
-
-# [Azure CLI](#tab/cli)
- 
-Use the argument `--deployment-name` or `-d` to specify the name of the deployment:
-
-```azurecli
-az ml batch-endpoint invoke --name $ENDPOINT_NAME --deployment-name $DEPLOYMENT_NAME --input $INPUT_DATA
-```
-
-# [Python](#tab/sdk)
-
-Use the parameter `deployment_name` to specify the name of the deployment:
-
-```python
-job = ml_client.batch_endpoints.invoke(
-    endpoint_name=endpoint.name,
-    deployment_name=deployment.name,
-    inputs={
-        "heart_dataset": input,
-    }
-)
-```
-
-# [REST](#tab/rest)
-
-Add the header `azureml-model-deployment` to your request, including the name of the deployment you want to invoke.
-
-__Request__
- 
-```http
-POST jobs HTTP/1.1
-Host: <ENDPOINT_URI>
-Authorization: Bearer <TOKEN>
-Content-Type: application/json
-azureml-model-deployment: DEPLOYMENT_NAME
-```
----
-
-## Configure job properties
-
-You can configure some of the properties in the created job at invocation time.
-
-> [!NOTE]
-> Configuring job properties is only available in batch endpoints with Pipeline component deployments by the moment.
-
-### Configure experiment name
-
-# [Azure CLI](#tab/cli)
- 
-Use the argument `--experiment-name` to specify the name of the experiment:
-
-```azurecli
-az ml batch-endpoint invoke --name $ENDPOINT_NAME --experiment-name "my-batch-job-experiment" --input $INPUT_DATA
-```
-
-# [Python](#tab/sdk)
-
-Use the parameter `experiment_name` to specify the name of the experiment:
-
-```python
-job = ml_client.batch_endpoints.invoke(
-    endpoint_name=endpoint.name,
-    experiment_name="my-batch-job-experiment",
-    inputs={
-        "heart_dataset": input,
-    }
-)
-```
-
-# [REST](#tab/rest)
-
-Use the key `experimentName` in `properties` section to indicate the experiment name:
-
-__Body__
- 
-```json
-{
-    "properties": {
-        "InputData": {
-           "heart_dataset": {
-               "JobInputType" : "UriFolder",
-               "Uri": "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
-           }
-        },
-        "properties":
-        {
-            "experimentName": "my-batch-job-experiment"
-        }
-    }
-}
-```
-
-__Request__
-
-```http
-POST jobs HTTP/1.1
-Host: <ENDPOINT_URI>
-Authorization: Bearer <TOKEN>
-Content-Type: application/json
-```
----
 
 
 ## Next steps

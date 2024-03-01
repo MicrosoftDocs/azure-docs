@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 02/27/2024
 ms.author: jucocchi
 ms.reviewer: jucocchi
 ---
@@ -22,7 +22,8 @@ Distributed tracing is available in the following SDKs:
 
 |SDK |Supported version |Notes |
 |----|------------------|------|
-|.NET v3 SDK |[>= `3.33.0-preview`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0-preview) |This feature is on by default if you're using a supported preview SDK version. You can disable tracing by setting `IsDistributedTracingEnabled = false` in `CosmosClientOptions`. |
+|.NET v3 SDK |[>= `3.36.0`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.36.0) |This feature is available in both preview and non-preview versions. For non-preview versions it's off by default. You can enable tracing by setting `IsDistributedTracingEnabled = false` in `CosmosClientOptions.CosmosClientTelemetryOptions`. |
+|.NET v3 SDK preview |[>= `3.33.0-preview`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0-preview) |This feature is available in both preview and non-preview versions. For preview versions it's on by default. You can disable tracing by setting `IsDistributedTracingEnabled = true` in `CosmosClientOptions.CosmosClientTelemetryOptions`. |
 |Java v4 SDK |[>= `4.43.0`](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.43.0) | |
 
 ## Trace attributes
@@ -51,12 +52,29 @@ If you've configured logs in your trace provider, you can automatically get [dia
 
 ### [.NET](#tab/dotnet)
 
-In addition to getting diagnostic logs for failed requests, point operations that take over 100 ms and query operations that take over 500 ms also generate diagnostics. You can configure the log level to control which diagnostics logs you receive.
+In addition to getting diagnostic logs for failed requests, you can configure different latency thresholds for when to collect diagnostics from successful requests. The default values are 100 ms for point operations and 500 ms for non point operations and can be adjusted through client options.
+
+```csharp
+CosmosClientOptions options = new CosmosClientOptions()
+{
+    CosmosClientTelemetryOptions = new CosmosClientTelemetryOptions()
+    {
+        DisableDistributedTracing = false,
+        CosmosThresholdOptions = new CosmosThresholdOptions()
+        {
+            PointOperationLatencyThreshold = TimeSpan.FromMilliseconds(100),
+            NonPointOperationLatencyThreshold = TimeSpan.FromMilliseconds(500)
+        }
+    },
+};
+```
+
+You can configure the log level to control which diagnostics logs you receive.
 
 |Log Level |Description |
 |----------|------------|
 |Error | Logs for errors only. |
-|Warning | Logs for errors and high latency requests. |
+|Warning | Logs for errors and high latency requests based on configured thresholds. |
 |Information | There are no specific information level logs. Logs in this level are the same as using Warning. |
 
 Depending on your application environment, there are different ways to configure the log level. Here's a sample configuration in `appSettings.json`:
