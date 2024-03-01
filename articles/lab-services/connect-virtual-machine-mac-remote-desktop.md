@@ -4,23 +4,23 @@ titleSuffix: Azure Lab Services
 description: Learn how to connect using remote desktop (RDP) from a Mac to a virtual machine in Azure Lab Services.
 services: lab-services
 ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
-ms.date: 02/28/2024
+ms.date: 03/04/2024
 #customer intent: As a student or trainee, I want to connect to an Azure Lab Services VM from my Mac over RDP in order to use the lab resources.
 ---
 
 # Connect to a VM using Remote Desktop Protocol on a Mac
 
-In this article, you learn how to connect to a lab VM in Azure Lab Services from a Mac by using Remote Desktop Protocol (RDP).
+In this article, you learn how to connect to a lab virtual machine (VM) in Azure Lab Services from a Mac by using Remote Desktop Protocol (RDP).
 
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 ## Install Microsoft Remote Desktop on a Mac
 
-To connect to the lab VM by using RDP, you can use the Microsoft Remote Desktop app.
+To connect to the lab VM by using RDP, use the Microsoft Remote Desktop app.
 
 To install the Microsoft Remote Desktop app:
 
@@ -32,23 +32,23 @@ To install the Microsoft Remote Desktop app:
 
 ## Access the VM from your Mac using RDP
 
-Next, connect to the lab VM by using the remote desktop application. You can retrieve the connection information for the lab VM from the Azure Lab Services website.
+Connect to the lab VM by using the remote desktop application. You can retrieve the connection information for the lab VM from the Azure Lab Services website.
 
-1. Navigate to the Azure Lab Services website (https://labs.azure.com), and sign in with your credentials.
+1. Navigate to the [Azure Lab Services website](https://labs.azure.com), and sign in with your credentials.
 
 1. On the tile for your VM, ensure the [VM is running](how-to-use-lab.md#start-or-stop-the-vm) and select the **Connect** icon.
 
     :::image type="content" source="./media/connect-virtual-machine-mac-remote-desktop/connect-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services with the connect icon button on the VM tile highlighted.":::
 
-1. When you connect to a Linux VM, you see two options to connect to the VM: SSH and RDP. Select the **Connect via RDP** option. If you're connecting to a Windows VM, you don't need to choose a connection option. The RDP file automatically starts downloading.
+1. When you connect to a Linux VM, you see two options to connect to the VM: SSH and RDP. Select the **Connect via RDP** option. If you're connecting to a Windows VM, you don't need to choose a connection option. The RDP file downloads.
 
-    :::image type="content" source="./media/connect-virtual-machine-mac-remote-desktop/student-vm-connect-options.png" alt-text="Screenshot that shows V M tile for student with the RDP and SSH connection options highlighted.":::
+    :::image type="content" source="./media/connect-virtual-machine-mac-remote-desktop/student-vm-connect-options.png" alt-text="Screenshot that shows VM tile for student with the RDP and SSH connection options highlighted.":::
 
-1. Open the **RDP** file on your computer with **Microsoft Remote Desktop** installed. It should start connecting to the VM.
+1. Open the *RDP* file on your computer with **Microsoft Remote Desktop** installed. Your computer should start to connect to the VM.
 
     :::image type="content" source="./media/how-to-use-classroom-lab/connect-linux-vm.png" alt-text="Screenshot of Microsoft Remote Desktop app connecting to a remote VM.":::
 
-1. When prompted, enter your username and password.
+1. When prompted, enter your user name and password.
 
 1. If you receive a certificate warning, you can select **Continue**.
 
