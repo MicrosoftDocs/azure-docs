@@ -11,7 +11,9 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
+## Calling Web SDK
+
+The following sections provide information about known issues associated with the Azure Communication Services JavaScript voice and video calling SDKs.
 
 ### Chrome M115 - regression 
 
@@ -211,8 +213,7 @@ The cause of this problem might be that acquiring your own stream from the same 
 As a result of the mute/unmute API call, Azure Communication Services infrastructure informs other participants in the call about the state of audio of a local participant who invoked mute/unmute, so that participants in the call know who is muted/unmuted.
 Excessive use of mute/unmute is blocked in Azure Communication Services infrastructure. Throttling happens if the participant (or application on behalf of participant) attempts to mute/unmute continuously, every second, more than 15 times in a 30-second rolling window.
 
-
-## Communication Services Call Automation APIs
+## Call Automation APIs
 
 The following limitations are known issues in the Communication Services Call Automation APIs:
 
@@ -224,6 +225,6 @@ The following limitations are known issues in the Communication Services Call Au
 
 - If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities drops.
 
-## Group call limitations for JS web Calling SDK users		
+## Group call limitations users 
 
 Up to 350 users can join a group call, room or Teams meeting. Only 100 users can join through JS web calling SDK or Teams web client, the remaining needs to join through Android/iOS/Windows calling SDK or Teams desktop/mobile client. Once the call size reaches 100+ participants in the call, only the top 4 most dominant speakers that have their video camera turned on are seen. When the number of people on the call is 100+, the viewable number of incoming renders goes from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos). When the number of users goes below 100, the number of supported incoming videos goes back up to 3x3 (9 incoming videos).

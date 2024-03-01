@@ -11,6 +11,8 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
+The following sections provide information about known issues associated with the Azure Communication Services Calling Native and Native UI SDKs.
+
 ## Android API emulators
 
 When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22), some crashes are expected.  
