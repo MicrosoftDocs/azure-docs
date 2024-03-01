@@ -21,14 +21,14 @@ For many reasons, rendering is a workload perfectly suited for Azure:
   * Animations consist of many frames and each frame can be rendered in parallel. The more VMs available to process each frame, the faster all the frames and the animation can be produced.
   * Some rendering software allows single frames to be broken up into multiple pieces, such as tiles or slices. Each piece can be rendered separately, then combined into the final image when all pieces are finished. The more VMs that are available, the faster a frame can be rendered.
 * Rendering projects can require huge scale:
-  * Individual frames can be complex and require many hours to render, even on high-end hardware; animations can consist of hundreds of thousands of frames. A huge amount of compute is required to render high-quality animations in a reasonable amount of time. In some cases, over 100,000 cores are been used to render thousands of frames in parallel.
+  * Individual frames can be complex and require many hours to render, even on high-end hardware; animations can consist of hundreds of thousands of frames. A huge amount of compute is required to render high-quality animations in a reasonable amount of time. In some cases, over 100,000 cores are being used to render thousands of frames in parallel.
 * Rendering projects are project-based and require varying amounts of compute:
   * Allocate compute and storage capacity when required, scale it up or down according to load during a project, and remove it when a project is finished.
   * Pay for capacity when allocated, but don’t pay for it when there's no load, such as between projects.
   * Cater for bursts due to unexpected changes; scale higher if there are unexpected changes late in a project and those changes need to be processed on a tight schedule.
 * Choose from a wide selection of hardware according to application, workload, and timeframe:
   * There’s a wide selection of hardware available in Azure that can be allocated and managed with Batch.
-  * Depending on the project, the requirement may be for the best price/performance or the best overall performance. Different scenes and/or rendering applications can have different memory requirements. Some rendering application can use GPUs for the best performance or certain features. 
+  * Depending on the project, the requirement may be for the best price/performance or the best overall performance. Different scenes and/or rendering applications can have different memory requirements. Some rendering applications can use GPUs for the best performance or certain features. 
 * Low-priority or [Azure Spot VMs](https://azure.microsoft.com/pricing/spot/) reduce cost:
   * Low-priority and Spot VMs are available for a large discount compared to standard VMs and are suitable for some job types.
   
