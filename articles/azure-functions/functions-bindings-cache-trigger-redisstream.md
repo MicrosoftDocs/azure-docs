@@ -254,7 +254,7 @@ From `function.json`, here's the binding data:
 
 | Parameters                | Description                                                                                                                                              | Required | Default |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
-| `ConnectionStringSetting` | The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...` | Yes      |         |
+| `Connection` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...`| Yes      |         |
 | `Key`                     | Key to read from.                                                                                                                                        | Yes      |         |
 | `PollingIntervalInMs`     | How often to poll the Redis server in milliseconds.                                                                                                      | Optional | `1000`  |
 | `MessagesPerWorker`       | The number of messages each functions worker should process. Used to determine how many workers the function should scale to.                            | Optional | `100`   |
@@ -269,7 +269,7 @@ From `function.json`, here's the binding data:
 | Parameter                 | Description                                                                                                                                              | Required | Default |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
 | `name`                    | `entry`                                                                                                                                                  |  Yes     |         |
-| `connectionStringSetting` | The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...` | Yes      |         |
+| `connection` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` | Yes      |         |
 | `key`                     | Key to read from.                                                                                                                                        | Yes      |         |
 | `pollingIntervalInMs`     | How frequently to poll Redis, in milliseconds.                                                                                                           | Optional | `1000`  |
 | `messagesPerWorker`       | The number of messages each functions worker should process. It's used to determine how many workers the function should scale to.                       | Optional | `100`   |
@@ -287,7 +287,7 @@ The following table explains the binding configuration properties that you set i
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
 | `type`                    |                                                                                                                                                          | Yes      |         |
 | `deleteAfterProcess`      |                                                                                                                                                          | Optional | `false` |
-| `connectionStringSetting` | The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...` | Yes      |         |
+| `connection` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` | Yes      |         |
 | `key`                     | The key to read from.                                                                                                                                    | Yes      |         |
 | `pollingIntervalInMs`     | How often to poll Redis in milliseconds.                                                                                                                 | Optional | `1000`  |
 | `messagesPerWorker`       | (optional) The number of messages each functions worker should process. Used to determine how many workers the function should scale                     | Optional | `100`   |

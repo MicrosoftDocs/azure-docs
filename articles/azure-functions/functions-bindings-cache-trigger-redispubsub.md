@@ -499,7 +499,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 
 | Parameter                 | Description                                                                                                                                   | Required   | Default    |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|:-----:| -----:|
-| `ConnectionStringSetting` | Name of the setting in the `appsettings` that holds the cache connection string. For example,`<cacheName>.redis.cache.windows.net:6380,password=...`. |   Yes  |     |
+| `Connection` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |   Yes  |     |
 | `Channel`                 | The pub sub channel that the trigger should listen to. Supports glob-style channel patterns. This field can be resolved using `INameResolver`.       |  Yes   |     |
 
 ::: zone-end
@@ -510,7 +510,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 | Parameter                 | Description                                                                                                                                               | Required   | Default    |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|: -----:| -----:|
 | `name`                    | Name of the variable holding the value returned by the function.                                                                                          |  Yes   |     |
-| `connectionStringSetting` | Name of the setting in the `appsettings` that holds the cache connection string (for example, `<cacheName>.redis.cache.windows.net:6380,password=...`) |  Yes   |     |
+| `connection` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...`|  Yes   |     |
 | `channel`                 | The pub sub channel that the trigger should listen to. Supports glob-style channel patterns.                                                               | Yes    |     |
 
 ::: zone-end
@@ -521,7 +521,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 | function.json property    | Description                                                                                                                                               | Required   | Default    |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------| :-----:| -----:|
 | `type`                    | Trigger type. For the pub sub trigger, the type is `redisPubSubTrigger`.                                                                                       |  Yes   |     |
-| `connectionStringSetting` | Name of the setting in the `appsettings` that holds the cache connection string (for example, `<cacheName>.redis.cache.windows.net:6380,password=...`) |  Yes   |     |
+| `connection` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...`|  Yes   |     |
 | `channel`                 | Name of the pub sub channel that is being subscribed to                                                                                                    |  Yes   |     |
 | `name`                    | Name of the variable holding the value returned by the function.                                                                                          |  Yes   |     |
 | `direction`               | Must be set to `in`.                                                                                                                                      |  Yes   |     |
@@ -529,7 +529,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 ::: zone-end
 
 >[!IMPORTANT]
->The `connectionStringSetting` parameter does not hold the Redis cache connection string itself. Instead, it points to the name of the environment variable that holds the connection string. This makes the application more secure. For more information, see [Redis connection string](functions-bindings-cache.md#redis-connection-string).
+>The `connection` parameter does not hold the Redis cache connection string itself. Instead, it points to the name of the environment variable that holds the connection string. This makes the application more secure. For more information, see [Redis connection string](functions-bindings-cache.md#redis-connection-string).
 >
 
 ## Usage

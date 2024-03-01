@@ -265,7 +265,7 @@ The [configuration](#configuration) section explains these properties.
 
 |Attribute property | Description                   |
 |-------------------|-----------------------------------|
-| `ConnectionStringSetting ` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `Connection` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `Command` | The redis-cli command to be executed on the cache with all arguments separated by spaces, such as:  `GET key`, `HGET key field`. |
 
 ::: zone-end  
@@ -277,7 +277,7 @@ The `RedisInput` annotation supports these properties:
 | Property | Description                            |
 |----------|---------------------------------------------------|
 | `name` | The name of the specific input binding. |
-| `connectionStringSetting`   | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `connection`   | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command` | The redis-cli command to be executed on the cache with all arguments separated by spaces, such as:  `GET key` or `HGET key field`. |
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
@@ -287,10 +287,10 @@ The following table explains the binding configuration properties that you set i
 
 | function.json property | Description                 |
 |------------------------|-------------------------|
-| `connectionStringSetting` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `connection` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces, such as:  `GET key`, `HGET key field`. |
 
-> [!NOTE] 
+> [!NOTE]
 > Python v2 and Node.js v4 for Functions don't use function.json to define the function. Both of these new language versions aren't currently supported by Azure Redis Cache bindings. 
 
 ::: zone-end  
@@ -304,5 +304,9 @@ The input binding expects to receive a string from the cache.
 When you use a custom type as the binding parameter, the extension tries to deserialize a JSON-formatted string into the custom type of this parameter.   
 ::: zone-end  
 
-## Next steps
+## Related content
 
+- [Introduction to Azure Functions](functions-overview.md)
+- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
+- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Redis connection string](functions-bindings-cache.md#redis-connection-string)
