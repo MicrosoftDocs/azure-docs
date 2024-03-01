@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: iot
 services: iot
 ms.topic: conceptual
-ms.date: 02/20/2023
+ms.date: 02/28/2024
 
 ---
 

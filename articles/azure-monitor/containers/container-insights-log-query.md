@@ -2,7 +2,7 @@
 title: Query logs from Container insights
 description: Container insights collects metrics and log data, and this article describes the records and includes sample queries.
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 2/28/2024
 ms.reviewer: viviandiec
 ---
 
