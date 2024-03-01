@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Mixed
 
 ## Microsoft.MixedReality
 
+Blend your physical and digital worlds to create immersive, collaborative experiences.
+
 Azure service: [Azure Spatial Anchors](/azure/spatial-anchors/)
 
 > [!div class="mx-tableFixed"]

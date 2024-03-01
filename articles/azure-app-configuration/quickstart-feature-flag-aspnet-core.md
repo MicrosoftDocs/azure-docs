@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 02/16/2024
+ms.date: 02/20/2024
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -40,7 +40,6 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call.
 
-    #### [.NET 6.x](#tab/core6x)
     ```csharp
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
@@ -57,38 +56,6 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     });
     ```
 
-    #### [.NET Core 3.x](#tab/core3x)
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.ConfigureAppConfiguration(config =>
-                {
-                    //Retrieve the Connection String from the secrets manager
-                    IConfiguration settings = config.Build();
-                    string connectionString = settings.GetConnectionString("AppConfig");
-
-                    // Load configuration from Azure App Configuration
-                    config.AddAzureAppConfiguration(options =>
-                    {
-                        options.Connect(connectionString)
-                               // Load all keys that start with `TestApp:` and have no label
-                               .Select("TestApp:*", LabelFilter.Null)
-                               // Configure to reload configuration if the registered sentinel key is modified
-                               .ConfigureRefresh(refreshOptions =>
-                                    refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
-
-                        // Load all feature flags with no label
-                        options.UseFeatureFlags();
-                    });
-                });
-
-                webBuilder.UseStartup<Startup>();
-            });
-    ```
-    ---
-
     > [!TIP]
     > When no parameter is passed to the `UseFeatureFlags` method, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh expiration of feature flags is 30 seconds. You can customize this behavior via the `FeatureFlagOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh expiration time to 5 minutes. Note that this refresh expiration time is separate from that for regular key-values.
     >
@@ -102,7 +69,6 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Add feature management to the service collection of your app by calling `AddFeatureManagement`.
 
-    #### [.NET 6.x](#tab/core6x)
     Update *Program.cs* with the following code. 
 
     ```csharp
@@ -125,26 +91,6 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     // The rest of existing code in program.cs
     // ... ...
     ```
-
-    #### [.NET Core 3.x](#tab/core3x)
-    Open *Startup.cs*, and update the `ConfigureServices` method.
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddRazorPages();
-
-        // Add Azure App Configuration middleware to the container of services.
-        services.AddAzureAppConfiguration();
-
-        // Add feature management to the container of services.
-        services.AddFeatureManagement();
-
-        // Bind configuration "TestApp:Settings" section to the Settings object
-        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-    }   
-    ```
-    ---
 
     Add `using Microsoft.FeatureManagement;` at the top of the file if it's not present.
 

@@ -741,7 +741,7 @@
         displayName: Image builder, images, building, packer
         href: ./windows/build-image-with-packer.md
     - name: Capture a legacy managed image
-      href: capture-image-resource.md
+      href: capture-image-resource.yml
   - name: Dedicated hosts
     displayName: sole-tenant, sole tenant, isolated, isolation
     items:
@@ -1690,8 +1690,6 @@
     - name: Windows
       displayName: Security baselines
       href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline?toc=/azure/virtual-machines/toc.json
-  - name: Recommendations
-    href: security-recommendations.md
   - name: Trusted launch
     items:
     - name: Overview
@@ -2104,8 +2102,12 @@
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Cost optimization
   items:
-  - name: Overview
-    href: ./plan-to-manage-costs.md
+  - name: Plan to manage costs
+    href: ./cost-optimization-plan-to-manage-costs.md
+  - name: Monitor costs
+    href: ./cost-optimization-monitor-costs.md
+  - name: Best practices
+    href: ./cost-optimization-best-practices.md
 - name: Resources
   items:
   - name: Cloud adoption framework

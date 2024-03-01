@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 04/11/2023
+ms.date: 02/28/2024
 ms.custom: template-overview
 # Customer intent: As a solution builder, I want a high-level overview of the options for analyzing and visualizing device data in an IoT solution.
 ---
@@ -43,7 +43,7 @@ There are many services you can use to analyze and visualize your IoT data. Some
 Use [Azure Databricks](/azure/databricks/introduction/) to process, store, clean, share, analyze, model, and monetize datasets with solutions from BI to machine learning. Use the Azure Databricks platform to build and deploy data engineering workflows, machine learning models, analytics dashboards, and more.
 
 - [Use structured streaming with Azure Event Hubs and Azure Databricks clusters](/azure/databricks/structured-streaming/streaming-event-hubs/). You can connect a Databricks workspace to the Event Hubs-compatible endpoint on an IoT hub to read data from IoT devices.
-- [Extend Azure IoT Central with custom analytics](../iot-central/core/howto-create-custom-analytics.md)
+- [Extend Azure IoT Central with custom analytics](../iot-central/core/howto-create-custom-analytics.md).
 
 ### Azure Stream Analytics
 
@@ -56,14 +56,14 @@ Azure Stream Analytics is a fully managed stream processing engine that is desig
 
 ### Power BI
 
-[Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. Power BI lets you easily connect to your data sources, visualize and discover what's important, and share that with anyone or everyone you want.
+[Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. Power BI lets you easily connect to your data sources, visualize and discover what's important, and share reports with anyone or everyone you want.
 
 - [Visualize real-time sensor data from Azure IoT Hub using Power BI](../iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 - [Export data from Azure IoT Central and visualize insights in Power BI](../iot-central/retail/tutorial-in-store-analytics-export-data-visualize-insights.md)
 
 ### Azure Maps
 
-[Azure Maps](../azure-maps/about-azure-maps.md) is a collection of geospatial services and SDKs that use fresh mapping data to provide geographic context to web and mobile applications. For an IoT example, see [Integrate with Azure Maps (Azure Digital Twins)](../digital-twins/how-to-integrate-maps.md)
+[Azure Maps](../azure-maps/about-azure-maps.md) is a collection of geospatial services and SDKs that use fresh mapping data to provide geographic context to web and mobile applications. For an IoT example, see [Integrate with Azure Maps (Azure Digital Twins)](../digital-twins/how-to-integrate-maps.md).
 
 ### Grafana
 
