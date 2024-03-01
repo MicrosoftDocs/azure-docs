@@ -4,7 +4,7 @@ description: Overview of the architecture used when you set up disaster recovery
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 02/29/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---

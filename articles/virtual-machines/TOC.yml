@@ -88,7 +88,7 @@
     - name: Create VM images
       href: ./windows/tutorial-custom-images.md
     - name: Manage networking
-      href: ./windows/tutorial-virtual-network.md  
+      href: ./windows/tutorial-virtual-network.md
     - name: Load Balance VMs
       href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md?toc=/azure/virtual-machines/toc.json
     - name: Create and manage a scale set
@@ -195,12 +195,12 @@
           href: ./b-series-cpu-credit-model/b-series-cpu-credit-model.md
         - name: B-series V1
           href: sizes-b-series-burstable.md
-        - name: Bsv2-series 
-          href: bsv2-series.md 
-        - name: Basv2-series  
-          href: basv2.md   
+        - name: Bsv2-series
+          href: bsv2-series.md
+        - name: Basv2-series
+          href: basv2.md
         - name: Bpsv2-series
-          href: bpsv2-arm.md    
+          href: bpsv2-arm.md
       - name: DCsv2-series
         href: dcv2-series.md
       - name: DCsv3 and DCdsv3-series
@@ -260,7 +260,7 @@
       - name: Ev5 and Esv5-series
         href: ev5-esv5-series.md
       - name: Ebdsv5 and Ebsv5 series
-        href: ebdsv5-ebsv5-series.md   
+        href: ebdsv5-ebsv5-series.md
       - name: Edv5 and Edsv5-series
         href: edv5-edsv5-series.md
       - name: Easv5 and Eadsv5-series
@@ -382,7 +382,7 @@
         href: set-up-hpc-vms.md
       - name: Configure and optimize VMs
         displayName: Configure and optimize Infiniband enabled VMs
-        href: configure.md        
+        href: configure.md
       - name: HB-series
         href: hb-series.md
         items:
@@ -442,7 +442,7 @@
     - name: Enable NVMe
       items:
       - name: Enable NVMe and SCSI interface
-        href: enable-nvme-interface.md  
+        href: enable-nvme-interface.md
       - name: Enable NVMe FAQ
         href: enable-nvme-faqs.yml
     - name: Previous generation and retired sizes
@@ -566,7 +566,7 @@
         displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows 11, find
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Generalizing a VM
-      displayName: generalize sysprep deprovision 
+      displayName: generalize sysprep deprovision
       href: generalize.md
     - name: Linux custom images
       items:
@@ -869,6 +869,8 @@
         href: /rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#create-a-vm-with-ssh-authentication
       - name: LAMP stack
         href: ./linux/tutorial-lamp-stack.md
+      - name: LEMP stack
+        href: ./linux/tutorial-lemp-stack.md
       - name: Continuous delivery
         items:
         - name: Configure Rolling deployment strategy
@@ -1025,7 +1027,7 @@
         href: ./extensions/hpc-compute-infiniband-windows.md
       - name: Enable Infiniband
         displayName: InfiniBand Drivers, Infiband, drivers, extensions
-        href: ./extensions/enable-infiniband.md        
+        href: ./extensions/enable-infiniband.md
     - name: NVIDIA GPU Drivers
       items:
       - name: Linux
@@ -1164,7 +1166,7 @@
         displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
         href: ./move-virtual-machines-regional-zonal-faq.md
   - name: Virtual Machine Scale Sets
-    items: 
+    items:
     - name: Overview
       href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
     - name: Scaling profiles
@@ -1487,7 +1489,7 @@
         href: ./windows/convert-unmanaged-to-managed-disks.md
   - name: Create resources
     items:
-      - name: Create a disk from a VHD - CLI 
+      - name: Create a disk from a VHD - CLI
         href: ./scripts/create-managed-disk-from-vhd.md
       - name: Create a disk from a snapshot - CLI
         href: ./scripts/create-managed-disk-from-snapshot.md
@@ -1703,7 +1705,7 @@
       href: boot-integrity-monitoring-overview.md
     - name: Trusted Launch FAQs
       href: trusted-launch-faq.md
- 
+
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
   - name: Policy
@@ -1726,7 +1728,7 @@
         href: ../governance/policy/assign-policy-azurecli.md?toc=/azure/virtual-machines/toc.json
       - name: Terraform
         displayName: assign, compliance, hcl, policy
-        href: ../governance/policy/assign-policy-terraform.md?toc=/azure/virtual-machines/toc.json      
+        href: ../governance/policy/assign-policy-terraform.md?toc=/azure/virtual-machines/toc.json
       - name: Azure PowerShell
         displayName: assign, compliance
         href: ../governance/policy/assign-policy-powershell.md?toc=/azure/virtual-machines/toc.json
@@ -2048,7 +2050,7 @@
       - name: VMSnapshot extension
         href: virtual-machines-restore-points-vm-snapshot-extension.md
       - name: Cross-region copy
-        href: virtual-machines-restore-points-copy.md        
+        href: virtual-machines-restore-points-copy.md
     - name: Manage VM restore points
       href: manage-restore-points.md
     - name: Tutorials
@@ -2060,7 +2062,7 @@
       - name: Portal
         href: virtual-machines-create-restore-points-portal.md
       - name: How to copy VM restore points to another region
-        href: virtual-machines-copy-restore-points-how-to.md        
+        href: virtual-machines-copy-restore-points-how-to.md
     - name: Support matrix
       href: concepts-restore-points.md
     - name: Troubleshooting
