@@ -2,17 +2,17 @@
     "redirections": [
     {
       "source_path": "articles/batch/batch-rendering-applications.md",
-      "redirect_url": "/previous-versions/batch/batch-rendering-applications",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-rendering-applications",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/batch/batch-rendering-using.md",
-      "redirect_url": "/previous-versions/batch/batch-rendering-using",
+      "redirect_url": "/previous-versions/azure/batch/articles/batch/batch-rendering-using",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/batch/batch-rendering-application-reference.md",
-      "redirect_url": "/previous-versions/batch/batch-rendering-application-reference",
+      "redirect_url": "/previous-versions/aure/batch/articles/batch/batch-rendering-application-reference",
       "redirect_document_id": false
     },
     	{
