@@ -79,7 +79,7 @@ from azure.identity import DefaultAzureCredential
 
 region = "eastus"
 token_credential = DefaultAzureCredential()
-subscriptionId = "{YOUR-SUBSCRIPTION-ID" 
+subscriptionId = "{YOUR-SUBSCRIPTION-ID}" 
 
 
 token = token_credential.get_token('https://management.azure.com/.default')
