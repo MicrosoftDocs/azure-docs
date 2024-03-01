@@ -162,7 +162,7 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
 
 * If you enable concurrency, a 30-second delay exists between batch reads, by default. This delay slows down the trigger to achieve the following goals:
 
-- Reduce the number of storage calls sent to check the number of runs on which to apply concurrency.
+  - Reduce the number of storage calls sent to check the number of runs on which to apply concurrency.
 
 - Mimic the behavior of the Service Bus managed connector trigger, which has a 30-second long poll when no messages are found.
 
