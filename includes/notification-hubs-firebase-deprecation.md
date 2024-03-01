@@ -19,7 +19,7 @@ If you are interested in joining the preview program, [contact us by email](mail
 ## Concepts for FCM v1
 
 - A new platform type is supported, called **FCM v1**.
-- New APIs, credentials, registrations, and installations is used for FCM v1.
+- New APIs, credentials, registrations, and installations are used for FCM v1.
 
 > [!NOTE]
 > The existing FCM platform is referred to as *FCM legacy* in this article.
