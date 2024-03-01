@@ -68,7 +68,7 @@ With Azure Network Policy Manager for Linux, we don't recommend scaling beyond 2
 
 To see network policies in action, let's create an AKS cluster that supports network policy and then work on adding policies. 
 
-To use Azure Network Policy Manager, you must use the [Azure CNI plug-in][azure-cni]. Calico could be used with either Azure CNI plug-in or with the Kubenet CNI plug-in.
+To use Azure Network Policy Manager, you must use the Azure CNI plug-in. Calico could be used with either Azure CNI plug-in or with the Kubenet CNI plug-in.
 
 The following example script:
 
