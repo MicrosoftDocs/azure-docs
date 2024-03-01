@@ -138,7 +138,7 @@ Here's how to create a host pool using the Azure portal.
 1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on if you want to create session hosts on Azure or Azure Stack HCI:<br /><br />
 
    <details>
-       <summary>To add session hosts on <b>Azure</b>, expand this section.</summary>
+       <summary>To add session hosts on <b>Azure</b>, select to expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
@@ -173,7 +173,7 @@ Here's how to create a host pool using the Azure portal.
    </details>
 
    <details>
-       <summary>To add session hosts on <b>Azure Stack HCI</b>, expand this section.</summary>
+       <summary>To add session hosts on <b>Azure Stack HCI</b>, select to expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
