@@ -71,12 +71,12 @@ Expected output: lists all the logical volumes created.
 [root @themetal05 ~] chown root:root /prod
 ```
 
-8. Add mount to /etc/fstab
+8. Add mount entries to /etc/fstab
 
 ```azurecli 
-[root @themetal05 ~] /dev/mapper/prodvg-prod01 /prod01 xfs defaults 0 0
-[root @themetal05 ~] /dev/mapper/jrnvg-jrn /jrn xfs defaults 0 0 
-[root @themetal05 ~] /dev/mapper/instvg-prd /prd xfs defaults 0 0
+/dev/mapper/prodvg-prod01 /prod01 xfs defaults 0 0
+/dev/mapper/jrnvg-jrn /jrn xfs defaults 0 0 
+/dev/mapper/instvg-prd /prd xfs defaults 0 0
 ```
 
 9. Mount storage
