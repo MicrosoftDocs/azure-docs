@@ -96,7 +96,7 @@ To improve performance, you can modify the following parameters, depending on th
 
 The Microsoft development team tested the auto-generate prompt variants feature to evaluate harm mitigation and fitness for purpose.
 
-The testing for harm mitigation showed support for the combination of system prompts and Azure Open AI content management policies in actively safeguarding responses. You can find more opportunities to minimize the risk of harms in [Azure OpenAI Service abuse monitoring](/azure/ai-services/openai/concepts/abuse-monitoring) and [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter).
+The testing for harm mitigation showed support for the combination of system prompts and Azure OpenAI content management policies in actively safeguarding responses. You can find more opportunities to minimize the risk of harms in [Azure OpenAI Service abuse monitoring](/azure/ai-services/openai/concepts/abuse-monitoring) and [Azure OpenAI Service content filtering](/azure/ai-services/openai/concepts/content-filter).
 
 Fitness-for-purpose testing supported the quality of generated prompts from creative purposes (poetry) and chat-bot agents. We caution you against drawing sweeping conclusions, given the breadth of possible base prompts and potential use cases. For your environment, use evaluations that are appropriate to the required use cases, and ensure that a human reviewer is part of the process.
 

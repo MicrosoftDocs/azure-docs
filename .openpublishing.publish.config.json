@@ -1200,6 +1200,7 @@
   ".openpublishing.redirection.azure-arc-data.json",
   ".openpublishing.redirection.azure-attestation.json",
   ".openpublishing.redirection.azure-app-configuration.json",
+  ".openpublishing.redirection.azure-datalake-storage-gen1.json",
   ".openpublishing.redirection.azure-australia.json",
   ".openpublishing.redirection.azure-databricks.json",
   ".openpublishing.redirection.azure-hpc.json",
