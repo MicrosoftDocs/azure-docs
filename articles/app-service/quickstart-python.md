@@ -156,13 +156,13 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
-### [Deploy using VS Code](#tab/vscode-deploy)
-
-[!INCLUDE [Deploy VS Code](./includes/quickstart-python/deploy-visual-studio-code.md)]
-
 ### [Deploy using Azure CLI](#tab/azure-cli-deploy)
 
 [!INCLUDE [Deploy Azure CLI](./includes/quickstart-python/deploy-cli.md)]
+
+### [Deploy using VS Code](#tab/vscode-deploy)
+
+[!INCLUDE [Deploy VS Code](./includes/quickstart-python/deploy-visual-studio-code.md)]
 
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
@@ -253,23 +253,6 @@ Having issues? Refer first to the [Troubleshooting guide](./configure-language-p
 
 When you're finished with the sample app, you can remove all of the resources for the app from Azure. It will not incur extra charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
-### [Azure portal](#tab/azure-portal)
-
-Follow these steps while signed-in to the Azure portal to delete a resource group.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Remove resource group Azure portal 1](./includes/quickstart-python/remove-resource-group-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-1-240px.png" alt-text="A screenshot of how to search for and navigate to a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-1.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 2](./includes/quickstart-python/remove-resource-group-azure-portal-2.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-2-240px.png" alt-text="A screenshot of the location of the Delete Resource Group button in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-2.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 3](./includes/quickstart-python/remove-resource-group-azure-portal-3.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-3.png"::: |
-
-### [VS Code](#tab/vscode-aztools)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Remove resource group VS Code 1](./includes/quickstart-python/remove-resource-group-visual-studio-code-1.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-visual-studio-code-1-240px.png" alt-text="A screenshot of how to delete a resource group in VS Code using the Azure Tools extension." lightbox="./media/quickstart-python/remove-resource-group-visual-studio-code-1.png"::: |
-| [!INCLUDE [Remove resource group VS Code 2](./includes/quickstart-python/remove-resource-group-visual-studio-code-2.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-visual-studio-code-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/quickstart-python/remove-resource-group-visual-studio-code-2.png"::: |
-
 ### [Azure CLI](#tab/azure-cli)
 
 Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
@@ -281,6 +264,23 @@ az group delete \
 ```
 
 The `--no-wait` argument allows the command to return before the operation is complete.
+
+### [VS Code](#tab/vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group VS Code 1](./includes/quickstart-python/remove-resource-group-visual-studio-code-1.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-visual-studio-code-1-240px.png" alt-text="A screenshot of how to delete a resource group in VS Code using the Azure Tools extension." lightbox="./media/quickstart-python/remove-resource-group-visual-studio-code-1.png"::: |
+| [!INCLUDE [Remove resource group VS Code 2](./includes/quickstart-python/remove-resource-group-visual-studio-code-2.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-visual-studio-code-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/quickstart-python/remove-resource-group-visual-studio-code-2.png"::: |
+
+### [Azure portal](#tab/azure-portal)
+
+Follow these steps while signed-in to the Azure portal to delete a resource group.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group Azure portal 1](./includes/quickstart-python/remove-resource-group-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-1-240px.png" alt-text="A screenshot of how to search for and navigate to a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-1.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 2](./includes/quickstart-python/remove-resource-group-azure-portal-2.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-2-240px.png" alt-text="A screenshot of the location of the Delete Resource Group button in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-2.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 3](./includes/quickstart-python/remove-resource-group-azure-portal-3.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-3.png"::: |
 
 ---
 
