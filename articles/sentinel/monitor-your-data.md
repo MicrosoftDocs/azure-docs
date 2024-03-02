@@ -107,10 +107,6 @@ To print a workbook, or save it as a PDF, use the options menu to the right of t
 
 To delete a saved workbook, either a saved template or a customized workbook, select the saved workbook that you want to delete and select **Delete**. This action removes the saved workbook. It also removes the workbook resource and any changes you made to the template. The original template remains available.
 
-## Next steps
-
-In this article, you learned how to visualize your data by using workbooks in Microsoft Sentinel.
-
-To learn how to automate your responses to threats, see [Set up automated threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
+## Related articles
 
 To learn about popular built-in workbooks, see [Commonly used Microsoft Sentinel workbooks](top-workbooks.md). 
