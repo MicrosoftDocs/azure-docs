@@ -5,13 +5,13 @@ author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/27/2024
 ms.author: cwatson
-appliesto: Microsoft Sentinel in the Azure portal and Microsoft Defender portal
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 #customer intent: As a security architect or SOC analyst, I want to connect my data source so that I can ingest data into Microsoft Sentinel for security monitoring and threat protection.
 ---
 
 # Connect your data sources to Microsoft Sentinel by using data connectors
 
-Install and configure data connectors to start ingesting your data into Microsoft Sentinel. Data connectors are available as part of solutions from the content hub in Microsoft Sentinel. After you install a solution from the content hub, the related data connectors are available to enable and configure. To find and install solutions that include data connectors, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md). 
+Install and configure data connectors to ingest your data into Microsoft Sentinel. Data connectors are available as part of solutions from the content hub in Microsoft Sentinel. After you install a solution from the content hub, the related data connectors are available to enable and configure. To find and install solutions that include data connectors, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md). 
 
 This article provides general information about how to enable a data connector and how to find more detailed installation instructions for other data connectors. For more information about data connectors in Microsoft Sentinel, see the following articles:
 
@@ -35,6 +35,8 @@ After you or someone in your organization installs the solution that includes th
 1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Configuration**, select **Data connectors**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configurations** > **Data connectors**.
 1. Search for and select the connector. If you don't see the data connector you want, install the solution associated with it from the **Content Hub**.
 1. Select **Open connector page**.  
+
+   :::image type="content" source="media/configure-data-connector/open-connector-page-option.png" alt-text="Screenshot of data connector details page with open connector page button.":::
 1. Review the **Prerequisites**. To configure the data connector, fulfill all the prerequisites.
 1. Follow the steps outlined in the **Configurations** section.
   
@@ -44,8 +46,6 @@ After you or someone in your organization installs the solution that includes th
   
    After you configure the data connector, it might take some time for the data to be ingested into Microsoft Sentinel. After you connect, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.  
 
-   :::image type="content" source="media/connect-data-sources/azure-ad-opened-connector-page.png" alt-text="Screenshot showing how to configure data connectors." border="false"::: 
-
 ## Find support for a data connector
 
 Both Microsoft and other organizations author Microsoft Sentinel data connectors. Find the support contact from data connector page in Microsoft Sentinel.
@@ -53,7 +53,7 @@ Both Microsoft and other organizations author Microsoft Sentinel data connectors
 1. In the Microsoft Sentinel **Data connectors** page, select the relevant connector.
 1. To access support and maintenance for the connector, use the support contact link in the **Supported by** field on the side panel for the connecter. 
 
-   :::image type="content" source="media/connect-data-sources/support.png" alt-text="Screenshot showing the Supported by field for a data connector in Microsoft Sentinel." lightbox="media/connect-data-sources/support.png":::  
+   :::image type="content" source="media/configure-data-connector/support.png" alt-text="Screenshot showing the Supported by field for a data connector in Microsoft Sentinel." lightbox="media/connect-data-sources/support.png":::  
 
 For more information, see [Data connector support](connect-data-sources.md#data-connector-support).
 
