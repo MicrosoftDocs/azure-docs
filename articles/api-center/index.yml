@@ -53,7 +53,8 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Analyze APIs using linting rules
-            url: enable-api-analysis-linting.md# Card
+            url: enable-api-analysis-linting.md
+  # Card
   - title: Discover APIs
     linkLists:
       - linkListType: how-to-guide
