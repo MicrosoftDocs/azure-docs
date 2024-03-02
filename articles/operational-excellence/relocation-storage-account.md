@@ -1,47 +1,43 @@
 ---
-title: Move an Azure Storage account to another region
-description: Shows you how to move an Azure Storage account to another region.
-services: storage
-author: akashdubey-ms
+title: Relocate Azure Storage Account to another region
+description: Learn how to relocate Azure Storage Account to another region
+author: anaharris-ms
+ms.author: anaharris
+ms.reviewer: anaharris
+ms.date: 01/25/2024
 ms.service: azure-storage
-ms.subservice: storage-common-concepts
-ms.topic: how-to
-ms.date: 06/15/2022
-ms.author: akashdubey
-ms.reviewer: dineshm 
-ms.custom: devx-track-azurepowershell
+ms.topic: concept
+ms.custom:
+  - subject-relocation
 ---
 
-# Move an Azure Storage account to another region
 
-To move a storage account, create a copy of your storage account in another region. Then, move your data to that account by using AzCopy, or another tool of your choice.
+# Relocate Azure Storage Account to another region
 
-In this article, you'll learn how to:
+This article shows you how to:
 
-> [!div class="checklist"]
->
-> - Export a template.
-> - Modify the template by adding the target region and storage account name.
-> - Deploy the template to create the new storage account.
-> - Configure the new storage account.
-> - Move data to the new storage account.
-> - Delete the resources in the source region.
+This article shows you how to relocate an Azure Storage Account to a new region by creating a copy of your storage account into another region. You also learn how to relocate your data to that account by using AzCopy, or another tool of your choice.
 
-## Prerequisites
+
+### Prerequisites
 
 - Ensure that the services and features that your account uses are supported in the target region.
+- For preview features, ensure that your subscription is allowlisted for the target region. 
+- Depending on your Storage Account deployment, the following dependent resources may need to be deployed and configured in the target region *prior* to relocation:
 
-- For preview features, ensure that your subscription is allowlisted for the target region.
-
-<a id="prepare"></a>
+    - [Virtual Network, Network Security Groups, and User Defined Route](./relocation-virtual-network.md)
+    - [Azure Key Vault](./relocation-key-vault.md)
+    - [Azure Automation](./relocation-automation.md)
+    - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
+    - [Azure Private Link Service](./relocation-private-link.md)
 
 ## Prepare
 
-To get started, export, and then modify a Resource Manager template.
+To prepare, you must export and then modify a Resource Manager template.
 
 ### Export a template
 
-This template contains settings that describe your storage account.
+A Resource Manager template contains settings that describe your storage account.
 
 # [Portal](#tab/azure-portal)
 
@@ -90,6 +86,7 @@ To export a template by using PowerShell:
 
 ---
 
+
 ### Modify the template
 
 Modify the template by changing the storage account name and region.
@@ -104,7 +101,7 @@ To deploy the template by using Azure portal:
 
 3. Select **Template deployment**.
 
-    ![Azure Resource Manager templates library](./media/storage-account-move/azure-resource-manager-template-library.png)
+    ![Azure Resource Manager templates library](../storage/common/media/storage-account-move/azure-resource-manager-template-library.png)
 
 4. Select **Create**.
 
@@ -173,9 +170,7 @@ To deploy the template by using PowerShell:
 
 ---
 
-<a id="move"></a>
-
-## Move
+## Redeploy
 
 Deploy the template to create a new storage account in the target region.
 
@@ -191,7 +186,7 @@ Deploy the template to create a new storage account in the target region.
 
    - **Location**: Select an Azure location.
 
-3. Click the **I agree to the terms and conditions stated above** checkbox, and then click the **Select Purchase** button.
+3. Select **I agree to the terms and conditions stated above**, and then select **Select Purchase**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -224,31 +219,31 @@ The following table lists these features along with guidance for adding them to 
 
 | Feature    | Guidance    |
 |--------|-----------|
-| **Lifecycle management policies** | [Manage the Azure Blob storage lifecycle](../blobs/storage-lifecycle-management-concepts.md) |
-| **Static websites** | [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
-| **Event subscriptions** | [Reacting to Blob storage events](../blobs/storage-blob-event-overview.md) |
-| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md) |
-| **Content Delivery Network (CDN)** | [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
+| **Lifecycle management policies** | [Manage the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md) |
+| **Static websites** | [Host a static website in Azure Storage](../storage/blobs/storage-blob-static-website-how-to.md) |
+| **Event subscriptions** | [Reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) |
+| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md) |
+| **Content Delivery Network (CDN)** | [Use Azure CDN to access blobs with custom domains over HTTPS](../storage/blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE]
 > If you set up a CDN for the source storage account, just change the origin of your existing CDN to the primary blob service endpoint (or the primary static website endpoint) of your new account.
 
 ### Move data to the new storage account
 
-AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=/azure/storage/blobs/toc.json).
+AzCopy is the preferred tool to move your data over due to its performance optimization.  With AzCopy, data is copied directly between storage servers, and so it doesn't use the network bandwidth of your computer. You can run AzCopy at the command line or as part of a custom script. For more information, see [Copy blobs between Azure storage accounts by using AzCopy](/azure/storage/common/storage-use-azcopy-blobs-copy?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json&branch=pr-en-us-259662).
 
-You can also use Azure Data Factory to move your data over. It provides an intuitive user interface. To use Azure Data Factory, see any of these links:.
+You can also use Azure Data Factory to move your data over. To learn how to use Data Factory to relocate your data see one of the following guides:
 
   - [Copy data to or from Azure Blob storage by using Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
   - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
   - [Copy data from or to Azure Files by using Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
   - [Copy data to and from Azure Table storage by using Azure Data Factory](/azure/data-factory/connector-azure-table-storage)
 
----
+
 
 ## Discard or clean up
 
-After the deployment, if you want to start over, you can delete the target storage account, and repeat the steps described in the [Prepare](#prepare) and [Move](#move) sections of this article.
+After the deployment, if you want to start over, you can delete the target storage account, and repeat the steps described in the [Prepare](#prepare) and [Redeploy](#redeploy) sections of this article.
 
 To commit the changes and complete the move of a storage account, delete the source storage account.
 
@@ -274,7 +269,7 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 
 ## Next steps
 
-In this tutorial, you moved an Azure storage account from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
-- [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Move Azure VMs to another region](../../site-recovery/azure-to-azure-tutorial-migrate.md)
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)

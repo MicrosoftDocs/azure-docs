@@ -1,20 +1,19 @@
 ---
-title: Move a key vault to a different region - Azure Key Vault
+title:  Relocate Azure KeyVault to another region
 description: This article offers guidance on moving a key vault to a different region.
 services: key-vault
-author: msmbaldwin
-
+author: anaharris
 ms.service: key-vault
 ms.subservice: general
-ms.topic: how-to
-ms.date: 01/30/2024
+ms.topic: concept
+ms.date: 02/29/2024
 ms.author: mbaldwin
-ms.custom: subject-moving-resources
+ms.custom:  subject-relocation
 
 # Customer intent: As a key vault administrator, I want to move my vault to another region.
 ---
 
-# Move a key vault across regions
+# Relocate Azure KeyVault to another region
 
 Azure Key Vault does not allow you to move a key vault from one region to another. You can, however, create a key vault in the new region, manually backup/restore each individual key, secret, or certificate from your existing key vault to the new key vault, and then remove the original key vault.
 
@@ -24,7 +23,7 @@ It's critical to understand the implications of this workaround before you attem
 
 ## Prepare
 
-First, you must create a new key vault in the region to which you wish to move. You can do so through the [Azure portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
+First, you must create a new key vault in the region to which you wish to move. You can do so through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
 
 Keep in mind the following concepts:
 
@@ -37,7 +36,7 @@ Keep in mind the following concepts:
 
 Export your keys, secrets, or certificates from your old key vault, and then import them into your new vault. 
 
-You can back up each individual secret, key, and certificate in your vault by using the backup command. Your secrets are downloaded as an encrypted blob.  For step by step guidance, see [Azure Key Vault backup and restore](backup.md).
+You can back up each individual secret, key, and certificate in your vault by using the backup command. Your secrets are downloaded as an encrypted blob.  For step by step guidance, see [Azure Key Vault backup and restore](/azure/key-vault/general/backup).
 
 Alternatively, you can download certain secret types manually. For example, you can download certificates as a PFX file. This option eliminates the geographical restrictions for some secret types, such as certificates. You can upload the PFX files to any key vault in any region. The secrets are downloaded in a non-password protected format. You are responsible for securing your secrets during the move.
 
@@ -56,6 +55,6 @@ Before deleting your old key vault, verify that the new vault contains all of th
 
 ## Next steps
 
-- [Azure Key Vault backup and restore](backup.md)
-- [Moving an Azure Key Vault across resource groups](move-resourcegroup.md)
-- [Moving an Azure Key Vault to another subscription](move-subscription.md)
+- [Azure Key Vault backup and restore](/azure/key-vault/general/backup)
+- [Moving an Azure Key Vault across resource groups](/azure/key-vault/general/move-resourcegroup)
+- [Moving an Azure Key Vault to another subscription](/azure/key-vault/general/move-subscription)
