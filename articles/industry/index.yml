@@ -26,6 +26,6 @@ productDirectory:
   title: Industry Solutions Areas
   items:
     - title: Azure FarmBeats
-      imageSrc: ./industry/agriculture/media/index/farmbeats.svg
+      imageSrc: ./agriculture/media/index/farmbeats.svg
       summary: Rapidly builds digital agriculture solutions in the cloud.
       url: ./agriculture/overview-azure-farmbeats.md
