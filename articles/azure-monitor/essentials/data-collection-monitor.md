@@ -3,17 +3,17 @@ author: Ivan Varnitski
 ms.date: 02/29/2024
 ---
 
-# Monitor and troubleshoot data collection in Azure Monitor
+# Monitor and troubleshoot DCR data collection in Azure Monitor
 This article provides detailed metrics and logs that you can use to monitor performance and troubleshoot any issues related to data collection in Azure Monitor. This telemetry is currently available for data collection scenarios defined by a [data collection rules (DCR)](./data-collection-rule-overview.md) such as Azure Monitor agent and Logs ingestion API.
 
-This includes:
-
-- Logs ingested using Log Ingestion API
-- Logs collected using Azure Monitor Agent (AMA)
-- Logs collected by legacy MMA agent and platform logs, when an ingestion-time transformation is set up for them.
-
 > [!IMPORTANT]
-> This article only refers to data collection scenarios that use DCRs. See the documentation for other scenarios for any monitoring and troubleshooting information that may be available.
+> This article only refers to data collection scenarios that use DCRs, including the following:
+> 
+> - Logs collected using [Azure Monitor Agent (AMA)](../agents/agents-overview.md)
+> - Logs ingested using [Log Ingestion API](../logs/logs-ingestion-api-overview.md)
+> - Logs collected by other methods that use a [workspace transformation DCR](./data-collection-transformations.md#workspace-transformation-dcr)
+>
+> See the documentation for other scenarios for any monitoring and troubleshooting information that may be available.
 
 DCR diagnostic features include metrics and error logs emitted during log processing. [DCR metrics](#dcr-metrics) provide information about the volume of data being ingested, the number and nature of any processing errors, and statistics related to data transformation. [DCR error logs](#dcr-metrics) are generated any time data processing is not successful and the data doesn’t reached its destination.
 
@@ -42,7 +42,23 @@ DCR error logs are implemented as [resource logs](./resource-logs.md) in Azure M
 See [Create diagnostic settings in Azure Monitor](./create-diagnostic-settings.md) for the detailed process. Select **Send to Log Analytics workspace** as the destination and select a workspace. You may want to select the same workspace that's used by the DCR, or you may want to consolidate all of your error logs in a single workspace.
 
 ### Retrieve DCR error logs
-Error logs are written to the [DCRLogErrors](/azure/azure-monitor/reference/tables/dcrlogerrors) table in the Log Analytics workspace you specified in the diagnostic setting. 
+Error logs are written to the [DCRLogErrors](/azure/azure-monitor/reference/tables/dcrlogerrors) table in the Log Analytics workspace you specified in the diagnostic setting. Following are sample queries you can use in [Log Analytics](../logs/log-analytics-overview.md) to retrieve these logs.
+
+**Retrieve all error logs for a particular DCR**
+
+```kusto
+DCRLogErrors
+| where _ResourceId == "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+```
+
+**Retrieve all error logs for a particular input stream in a particular DCR**
+
+```kusto
+DCRLogErrors
+| where _ResourceId == "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+| where InputStream == "Custom-MyTable_CL"
+```
+
 
 ## DCR Metrics
 DCR metrics are collected automatically for all DCRs, and you can analyze them using [metrics explorer](./analyze-metrics.md) like the platform metrics for other Azure resources. *Input stream* is included as a dimension so if you have a DCR with multiple input streams, you can analyze each by [filtering or splitting](./analyze-metrics.md#use-dimension-filters-and-splitting). Some metrics include other dimensions as shown in the table below.
@@ -59,38 +75,39 @@ The following table describes the metrics collected for each DCR.
 | Logs Transformation Duration per Min | Input stream | Average KQL transformation runtime per minute. Represents KQL transformation code efficiency. Data flows with longer transformation run time can experience delays in data processing and greater data latency. |
 | Logs Transformation Errors per Min | Input stream<br>Error type | Number of processing errors encountered per minute |
 
-## Alerts
-
-- Error count
-- Error logs
-- Sudden changes of rows dropped
-- Number of API calls approaching service limits.
 
 ## Troubleshooting common issues
+If you're missing expected data in your Log Analytics workspace, follow these basic steps to troubleshoot the issue. This assumes that you enabled DCR logging as described above.
 
-| Symptom | Signals to examine | Troubleshooting procedure |
-|---|---|---|
-| I'm sending custom logs using Logs ingestion API, but nothing appears in the destination Log Analytics workspace | `Log transformation errors per minute`<br>`DCRLogErrors` | 1. Enable DCR error logging.<br>2. Examine `DCRLogErrors` for common ingestion errors.<br>3. Correct identified issues.<br>4. If no errors found in `DCRLogErrors`, move to the next troubleshooting step. |
-| | `Logs Ingestion Bytes per Min`<br>`Logs Rows Received per Min`<br>`Logs Rows Dropped per Min`. | 1. Examine received metrics to ensure the data is actually sent and accepted for processing.<br>2. Examine rows dropped metric. If all rows are dropped, determine whether the filtering criteria set in the KQL transformation work as expected. |
-| I'm sending custom logs using Logs ingestion API or collecting logs using AMA, but some logs I am sending do not show up in the destination LA workspace. | Bytes received per minute<br>Log rows received per minute | Ensure that missing logs were indeed ingested.<br> Examine Bytes/Rows received metrics for input stream and timeline of interest and determine, whether Logs ingestion API calls or AMA collection events did happen for them.<br>If respective events were found, or if it is impossible to determine, whether or not they are present, proceed to the next step. |
-| | Log rows dropped per minute<br>Log transformation errors per minute | If the rows were dropped during processing, check that log rows under consideration were not dropped due to filtering criteria set in KQL transformation.If transformation errors were present at the same time the log rows were dropped, proceed to the next step. |
-| | DCRErrorLogs | Enable DCR error logging.Examine DCRErrorLogs for transformation errors around the time of ingestion or collection of data. If relevant log entries found, correct problems in KQL transformation or data structure. |
+- Check metrics such as `Logs Ingestion Bytes per Min` and `Logs Rows Received per Min` to ensure that the data is reaching Azure Monitor. If not, then check your data source to ensure that it's sending data as expected.
+- Check `Logs Rows Dropped per Min` to see if any rows are being dropped. This may not indicate an error since the rows could be dropped by a transformation. If the rows dropped is the same as `Logs Rows Dropped per Min` though, then no data will be ingested in the workspace. Examine the `Logs Transformation Errors per Min` to see if there are any transformation errors.
+- Check `Logs Transformation Errors per Min` to determine if there are any errors from transformations applied to the incoming data. This could be due to changes in the data structure or the transformation itself.
+- Check `DCRLogErrors` for any ingestion errors that may have been logged. This can provide additional detail in identifying the root cause of the issue.
+
+
 
 ## Monitoring your log ingestion
 
-The following signals could be useful for monitoring the health of your log collection with DCRs. Alerts could be set up based on the conditions described below.
+The following signals could be useful for monitoring the health of your log collection with DCRs. Create alert rules to identify these conditions.
 
-| **Signal** | **Possible cause, suggested action** |
+| Signal | Possible causes and actions |
 |---|---|
-| New entries in** **DCRErrorLogs** **or  sudden change in Log Transform Errors metric** | |
-| Sudden change in Bytes per minute metric** | |
-| Sudden change in Buter per minute to Rows per minute ratio** | Changes in the structure of logs sent. It might be useful to examine the changes to make sure the data is properly processed with KQL transformation |
-| Sudden change in Rows dropped per minute** | Changes in the structure of logs sent affect the efficiency of log filtering criteria set in KQL transformation. It might be usefule to examine the changes to make sure the data is properly processed with KQL transformation |
-| Bytes per minute or Calls per minute metric approaching Log Ingestion API service limits for maximum data sent/ API calls per minute per DCR | Examine and optimize your DCR configuration to avoid throttling. |
+| New entries in `DCRErrorLogs` or  sudden change in `Log Transform Errors`. | - Problems with Log Ingestion API setup such as authentication, access to DCR or DCE, call payload issues.<br>- Changes in data structure causing KQL transformation failures.<br>- Changes in data destination configuration causing data delivery failures. |
+| Sudden change in `Logs Ingestion Bytes per Min` | - Changes in configuration of log ingestion on the client, including AMA settings.<br>- Changes in structure of logs sent.|
+| Sudden change in ratio between `Logs Ingestion Bytes per Min` and `Logs Rows Received per Min` | - Changes in the structure of logs sent. Examine the changes to make sure the data is properly processed with KQL transformation. |
+| Sudden change in `Logs Transformation Duration per Min` | - Changes in the structure of logs affecting the efficiency of log filtering criteria set in KQL transformation. Examine the changes to make sure the data is properly processed with KQL transformation. |
+| `Logs Ingestion Requests per Min` or `Logs Ingestion Bytes per Min` approaching Log Ingestion API service limits. | Examine and optimize your DCR configuration to avoid throttling. |
 
-1. Problems with Log Ingestion API setup, typically related to data ingestion: authentication, access to DCR/DCE, call payload issues;
-2. Changes in data structure causing KQL transformation failures;
-3. Changes in data destination configuration, causing data delivery failures.
-4. Changes in configuration of log ingestion on the client side, or AMA settings
-5. Changes in structure of logs sent
+## Alerts
+Rather than reactively troubleshooting issues, create alert rules to be proactively notified when a potential error condition occurs. The following table provides examples of alert rules you can create to monitor your log ingestion.
+
+| Condition | Alert details |
+|:---|:---|
+| Sudden changes of rows dropped | Metric alert rule using a dynamic threshold for `Logs Rows Dropped per Min`. |
+| Number of API calls approaching service limits | Metric alert rule using a static threshold for `Logs Ingestion Requests per Min`. Set threshold near 12,000,which is the service limit for maximum requests/minute per DCR.  |
+| Error logs | Log query alert using `DCRLogErrors`. Use a **Table rows** measure and **Threshold value** of **1** to be alerted whenever any errors are logged. |
+
+## Next steps
+- [Read more about data collection rules.](./data-collection-rule-overview.md)
+- [Read more about ingestion-time transformations.](./data-collection-transformations.md)
 
