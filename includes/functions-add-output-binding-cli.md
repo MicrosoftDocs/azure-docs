@@ -17,7 +17,7 @@ Although a function can have only one trigger, it can have multiple input and ou
 You declare these bindings in the *function.json* file in your function folder. From the previous quickstart, your *function.json* file in the *HttpExample* folder contains two bindings in the `bindings` collection:  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-When using the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators), binding attributes are defined directly in the *function_app.py* file as decorators. From the previous quickstart, your *function_app.py* file already contains one decorator-based binding:
+When using the [Python v2 programming model](../articles/azure-functions/functions-reference-python.md?pivots=python-mode-decorators), binding attributes are defined directly in the *function_app.py* file as decorators. From the previous quickstart, your *function_app.py* file already contains one decorator-based binding:
 
 ```python
 import azure.functions as func

@@ -93,7 +93,7 @@ A key scenario for Functions is file processing of files in a blob container, su
 
 There are several ways to execute your function code based on changes to blobs in a storage container. Use the following table to determine which function trigger best fits your needs:
 
-| Consideration | Blob storage (standard) | Blob storage (event-based) | Queue storage | Event Grid | 
+| Consideration | Blob storage (polling) | Blob storage (event-based) | Queue storage | Event Grid | 
 | ----- | ----- | ----- | ----- | ---- |
 | Latency | High (up to 10 min) | Low | Medium  | Low | 
 | [Storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts) limitations | Blob-only accounts not supported¹  | general purpose v1 not supported  | none | general purpose v1 not supported |
