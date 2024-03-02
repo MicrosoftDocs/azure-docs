@@ -19,21 +19,21 @@ This article provides detailed metrics and logs that you can use to monitor perf
 >
 > See the documentation for other scenarios for any monitoring and troubleshooting information that may be available.
 
-DCR diagnostic features include metrics and error logs emitted during log processing. [DCR metrics](#dcr-metrics) provide information about the volume of data being ingested, the number and nature of any processing errors, and statistics related to data transformation. [DCR error logs](#dcr-metrics) are generated any time data processing is not successful and the data doesn’t reached its destination.
+DCR diagnostic features include metrics and error logs emitted during log processing. [DCR metrics](#dcr-metrics) provide information about the volume of data being ingested, the number and nature of any processing errors, and statistics related to data transformation. [DCR error logs](#dcr-metrics) are generated any time data processing is not successful and the data doesn’t reach its destination.
 
 ## DCR Error Logs
 
 Error logs are generated when data reaches the Azure Monitor ingestion pipeline but fails to reach its destination. Examples of error conditions include:
 
 - Log delivery errors
-- [Transformation](./data-collection-transformations.md) errors where the structure of the logs make the transformation KQL invalid
+- [Transformation](./data-collection-transformations.md) errors where the structure of the logs makes the transformation KQL invalid
 - Log Ingestion API calls:
   - with any HTTP response other than 200/202
   - with payload containing malformed data
   - with payload over any [ingestion limits](/azure/azure-monitor/service-limits#logs-ingestion-api)
   - throttling due to overage of API call limits
 
-To avoid excessive logging of persistent errors related to the same data flow, some errors will be logged only a limited number of times each hour followed by a summary error message. The error is then muted until the end of the hour. The number of times a given error is logged may very depending on the region where DCR is deployed. 
+To avoid excessive logging of persistent errors related to the same data flow, some errors will be logged only a limited number of times each hour followed by a summary error message. The error is then muted until the end of the hour. The number of times a given error is logged may vary depending on the region where DCR is deployed. 
 
 Some log ingestion errors will not be logged because they can't be associated with a DCR. The following errors may not be logged:
 
@@ -108,7 +108,7 @@ Rather than reactively troubleshooting issues, create alert rules to be proactiv
 | Condition | Alert details |
 |:---|:---|
 | Sudden changes of rows dropped | Metric alert rule using a dynamic threshold for `Logs Rows Dropped per Min`. |
-| Number of API calls approaching service limits | Metric alert rule using a static threshold for `Logs Ingestion Requests per Min`. Set threshold near 12,000,which is the service limit for maximum requests/minute per DCR.  |
+| Number of API calls approaching service limits | Metric alert rule using a static threshold for `Logs Ingestion Requests per Min`. Set threshold near 12,000, which is the service limit for maximum requests/minute per DCR.  |
 | Error logs | Log query alert using `DCRLogErrors`. Use a **Table rows** measure and **Threshold value** of **1** to be alerted whenever any errors are logged. |
 
 ## Next steps
