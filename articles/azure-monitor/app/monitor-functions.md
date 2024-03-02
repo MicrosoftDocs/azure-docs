@@ -19,7 +19,7 @@ The required Application Insights instrumentation is built into Azure Functions.
 
 For a list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
-## Distributed tracing for Java function apps
+## Distributed tracing for Java Java applications
 
 > [!Note]
 > This feature used to have an 8- to 9-second cold startup implication, which has been reduced to less than 1 second. If you were an early adopter of this feature (for example, prior to February 2023), review the "Troubleshooting" section to update to the current version and benefit from the new faster startup.
