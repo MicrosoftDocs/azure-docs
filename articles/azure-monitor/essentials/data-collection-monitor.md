@@ -1,6 +1,10 @@
 ---
-author: Ivan Varnitski
-ms.date: 02/29/2024
+title: Monitor and troubleshoot DCR data collection in Azure Monitor
+description: Configure log collection for monitoring and troubleshooting of DCR-based data collection in Azure Monitor.
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
+ms.date: 03/01/2024
 ---
 
 # Monitor and troubleshoot DCR data collection in Azure Monitor
