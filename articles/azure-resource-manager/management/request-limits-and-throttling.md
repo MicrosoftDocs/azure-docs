@@ -18,7 +18,7 @@ The following image shows how throttling is applied as a request goes from the u
 
 ## Subscription and tenant limits
 
-Every subscription-level and tenant-level operation is subject to throttling limits. Subscription requests are ones that involve passing your subscription ID, such as retrieving the resource groups in your subscription. Tenant requests don't include your subscription ID, such as retrieving valid Azure locations.
+Every subscription-level and tenant-level operation is subject to throttling limits. Subscription requests are ones that involve passing your subscription ID, such as retrieving the resource groups in your subscription. For example, sending a request to `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups?api-version=2022-01-01` is a subscription-level operation. Tenant requests don't include your subscription ID, such as retrieving valid Azure locations. For example, sending a request to `https://management.azure.com/tenants?api-version=2022-01-01` is a tenant-level operation.
 
 The default throttling limits per hour are shown in the following table.
 
@@ -42,6 +42,8 @@ Starting in 2024, Microsoft is migrating Azure subscriptions to a new throttling
 
 The token bucket represents the maximum number of requests that you can send for each second. When you reach the maximum number of requests, the refill rate determines how quickly tokens become available in the bucket.
 
+These updated limits make it easier for you to refresh and manage your quota.
+
 The new limits are:
 
 | Scope | Operations | Bucket size | Refill rate per sec |
@@ -53,7 +55,9 @@ The new limits are:
 | Tenant | deletes | 200 | 10 |
 | Tenant | writes | 200 | 10 |
 
-These updated limits make it easier for you to refresh and manage your quota.
+The subscription limits apply per subscription, per service principal, and per operation type. There are also global subscription limits that are equivalent to 15 times the individual service principal limits for each operation type. The global limits apply across all service principals. Requests will be throttled if the global, service principal, or tenant specific limits are exceeded.
+
+The limits may be smaller for free or trial customers.
 
 For example, suppose you have a bucket size of 250 tokens for read requests and refill rate of 25 tokens per second. If you send 250 read requests in a second, the bucket is empty and your requests are throttled. Each second, 25 tokens become available until the bucket reaches its maximum capacity of 250 tokens. You can use tokens as they become available.
 
