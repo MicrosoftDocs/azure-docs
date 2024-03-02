@@ -311,6 +311,8 @@
       href: what-is-ip-address-168-63-129-16.md
     - name: Troubleshoot Azure VM connectivity problems
       href: troubleshoot-vm-connectivity.md
+  - name: DHCP server on Azure Virtual Machine
+    href: how-to-dhcp-azure.md
   - name: Monitor virtual network
     href: monitor-virtual-network.md
   - name: Classic deployment
