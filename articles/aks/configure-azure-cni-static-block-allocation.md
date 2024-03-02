@@ -40,6 +40,17 @@ This article shows you how to use Azure CNI Networking for static allocation of 
     az aks enable-addons --addons monitoring --name <cluster-name> --resource-group <resource-group-name>
     ```
 
+## Limitations
+
+Below are some of the limitations of using Azure CNI Static Block allocation:
+* Minimum Kubernetes Version required is 1.28
+* Maximum subnet size supported is x.x.x.x/12 ~ 1 million IPs
+* The property of --pod-ip-allocation mode is only available in `aks create` and `aks nodepool add` commands. This means you cannot update an existing node pool that is running in Dynamic IP allocation mode to Static Block.
+* One subnet can only be used in a single mode of operation across all node pools. If a subnet is used in Static Block mode it cannot be used in Dynamic IP allocation mode in a different cluster or node pool and vice versa.
+* Across all the CIDR blocks assigned to a node in the node pool, one IP will be selected as the primary IP of the node. Thus, for network administrators selecting the `--max-pods` value try to use the calculation below to best serve your needs and have optimal usage of IPs in the subnet:  
+`max_pods` = (N * 16) - 1`
+where N is any positive integer and N > 0
+
 ## Plan IP addressing
 
 Planning your IP addressing is much simpler with this feature. Since the nodes and pods scale independently, their address spaces can also be planned separately. Since pod subnets can be configured to the granularity of a node pool, you can always add a new subnet when you add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
@@ -60,20 +71,46 @@ The [deployment parameters][azure-cni-deployment-parameters]for configuring basi
 * The parameter **pod subnet id** is used to specify the subnet whose IP addresses will be statically or dynamically allocated to pods in the node pool.
 * The **pod ip allocation mode** parameter specifies whether to use dynamic individual or static block allocation.
 
-## Install the aks-preview Azure CLI extension
+## Before you begin
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+- If using the Azure CLI, you need the `aks-preview` extension. See [Install the `aks-preview` Azure CLI extension](#install-the-aks-preview-azure-cli-extension).
+- If using ARM or the REST API, the AKS API version must be *2022-08-02-preview or later*.
+- You need to register the `KubeProxyConfigurationPreview` feature flag. See [Register the `KubeProxyConfigurationPreview` feature flag](#register-the-kubeproxyconfigurationpreview-feature-flag).
 
-* Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
+### Install the `aks-preview` Azure CLI extension
 
-    ```azurecli
+1. Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
+
+    ```azurecli-interactive
     az extension add --name aks-preview
     ```
 
-* Update to the latest version of the extension released using the [`az extension update`][az-extension-update] command.
+2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command.
 
-    ```azurecli
+    ```azurecli-interactive
     az extension update --name aks-preview
+    ```
+
+### Register the `AzureVnetScalePreview` feature flag
+
+1. Register the `AzureVnetScalePreview` feature flag using the [`az feature register`][az-feature-register] command.
+
+    ```azurecli-interactive
+    az feature register --namespace "Microsoft.ContainerService" --name "AzureVnetScalePreview"
+    ```
+
+    It takes a few minutes for the status to show *Registered*.
+
+2. Verify the registration status using the [`az feature show`][az-feature-show] command.
+
+    ```azurecli-interactive
+    az feature show --namespace "Microsoft.ContainerService" --name "AzureVnetScalePreview"
+    ```
+
+3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
+
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerService
     ```
 
 ## Configure networking with static allocation of CIDR blocks and enhanced subnet support - Azure CLI
@@ -176,15 +213,6 @@ az aks get-credentials -n $clusterName -g $resourceGroup
 
 Yes, different node pools can use different allocation modes. However, once a subnet is used in one allocation mode it can only be used in the same allocation mode across all the node pools it is associated.
 
-## Limitations
-Below are some of the limitations of using Azure CNI Static Block allocation:
-* Minimum Kubernetes Version required is 1.28
-* Maximum subnet size supported is x.x.x.x/12 ~ 1 million IPs
-* The property of --pod-ip-allocation mode is only available in 'aks create' and 'aks nodepool add' commands. This means you cannot update an existing node pool that is running in Dynamic IP allocation mode to Static Block.
-* One subnet can only be used in a single mode of operation across all node pools. If a subnet is used in Static Block mode it cannot be used in Dynamic IP allocation mode in a different cluster or node pool and vice versa.
-* Across all the CIDR blocks assigned to a node in the node pool, one IP will be selected as the primary IP of the node. Thus, for network administrators selecting the --max-pods value try to use the calculation below to best serve your needs and have optimal usage of IPs in the subnet:  
-`max_pods` = (N * 16) - 1`
- where N is any positive integer and N > 0
 ## Next steps
 
 Learn more about networking in AKS in the following articles:
