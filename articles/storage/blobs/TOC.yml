@@ -1244,8 +1244,6 @@ items:
       href: ../common/storage-compliance-offerings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
 - name: Data Lake Storage Gen2
   items:
-  - name: Switch to Data Lake Storage Gen1 documentation
-    href: ../../data-lake-store/index.yml
   - name: Overview
     items:
     - name: Introduction to Data Lake Storage
@@ -1334,12 +1332,6 @@ items:
       href: create-data-lake-storage-account.md
     - name: Migrate accounts and data stores
       items:
-      - name: Migrate from Data Lake Storage Gen1
-        items:
-        - name: Migrate using Azure portal
-          href: data-lake-storage-migrate-gen1-to-gen2-azure-portal.md
-        - name: Migration guidelines and patterns
-          href: data-lake-storage-migrate-gen1-to-gen2.md
       - name: Migrate HDFS stores
         items:
         - name: Migrate an HDFS store offline

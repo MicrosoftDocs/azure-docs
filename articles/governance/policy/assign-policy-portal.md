@@ -95,7 +95,7 @@ To remove the policy assignment created in this article, follow these steps:
 
 In this quickstart, you assigned a policy definition to identify non-compliant resources in your Azure environment.
 
-To learn more about how to assign policies that validate if new resources are compliant, continue to the tutorial.
+To learn more about how to assign policies that validate resource compliance, continue to the tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and manage policies to enforce compliance](./tutorials/create-and-manage.md)
