@@ -1,14 +1,11 @@
 ---
 title: Configure an OPC PLC simulator
-titleSuffix: Azure IoT OPC UA Broker
 description: How to configure an OPC PLC simulator
 author: timlt
 ms.author: timlt
 ms.subservice: opcua-broker
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
-ms.date: 11/6/2023
+ms.date: 03/01/2024
 
 # CustomerIntent: As a developer, I want to configure an OPC PLC simulator in my
 # industrial edge environment to test the process of managing OPC UA assets connected to the simulator.
@@ -18,57 +15,64 @@ ms.date: 11/6/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to implement an OPC UA server simulator with different nodes that generate random data, anomalies and configuration of user defined nodes. For developers, an OPC UA simulator enables you to test the process of managing OPC UA assets that are connected to the simulator. 
+In this article, you learn how to configure and connect to an OPC UA server simulator with different nodes that generate random data, anomalies, and configuration of user defined nodes. For developers, an OPC UA simulator enables you to test the process of managing OPC UA assets that are connected to the simulator.
 
 ## Prerequisites
 
-Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). If you deploy Azure IoT Operations as described, the process installs an OPC PLC simulator.
+Azure IoT Operations installed. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). If you deploy Azure IoT Operations as described, the process installs an OPC PLC simulator.
+
+## Deploy the OPC PLC simulator
+
+This section shows how to deploy the OPC PLC simulator. 
+
+> [!IMPORTANT]
+> Don't use the following example in production, use it for simulation and test purposes only. The example lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
+
+Run the following code to update the OPC UA Broker deployment and apply the new settings:
+
+```bash
+az k8s-extension update \
+    --version 0.3.0-preview \
+    --name opc-ua-broker \
+    --release-train preview \
+    --cluster-name <cluster-name> \
+    --resource-group <azure-resource-group> \
+    --cluster-type connectedClusters \
+    --auto-upgrade-minor-version false \
+    --config opcPlcSimulation.deploy=true \
+    --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
+```
+
+The OPC PLC OPC UA server should run in the same deployment as a separate pod.
 
 ## Get the certificate of the OPC PLC simulator
-If you deploy Azure IoT Operations with the OPC PLC simulator enabled, you can get the certificate of the PLC named `simulationPlc`.  By getting the certificate, you can run the simulator with mutual trust.  
+The application instance certificate of the OPC PLC is a self-signed certificate managed by cert-manager and stored in the `secret aio-opc-ua-opcplc-default-application-cert-000000` kubernetes secret.
 
 To get the certificate, run the following commands on your cluster:
 
 ```bash
-# Copy the public cert of the simulationPlc in the cluster to a local folder 
+# extract the public key of the opc plc from the kubernetes secret
+kubectl -n azure-iot-operations get secret aio-opc-ua-opcplc-default-application-cert-000000 -o jsonpath='{.data.tls\.crt}' | base64 -d > opcplc.crt
 
-OPC_PLC_POD=$(kubectl get pod -l app.kubernetes.io/name=opcplc -n azure-iot-operations -o jsonpath="{.items[0].metadata.name}")  
-SERVER_CERT=$(kubectl exec $OPC_PLC_POD -n azure-iot-operations -- ls /app/pki/own/certs) 
-kubectl cp azure-iot-operations/${OPC_PLC_POD}:/app/pki/own/certs/${SERVER_CERT} my-server.der
+# optionally transform the certificate in *.der format
+openssl x509 -outform der -in opcplc.crt -out opcplc.der
 ```
 
-## Configure OPC UA transport authentication
-After you get the simulator's certificate, the next step is to configure authentication. 
-
-1. To complete this configuration, follow the steps in [Configure OPC UA transport authentication](howto-configure-opcua-authentication-options.md#configure-opc-ua-transport-authentication).
-
-1. Optionally, rather than configure a secret provider class CR, you can configure a self-signed certificate for transport authentication. 
-
-    To create a self-signed certificate to test transport authentication, run the following command:
-    
-    ```bash
-    # Create cert.pem and key.pem
-    openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -sha256 -days 365 -nodes \
-    -subj "/CN=opcuabroker/O=Microsoft" \
-    -addext "subjectAltName=URI:urn:microsoft.com:opc:ua:broker" \
-    -addext "keyUsage=critical, nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment, keyCertSign" \
-    -addext "extendedKeyUsage = critical, serverAuth, clientAuth" \
-    -addext "basicConstraints=CA:FALSE"
-    ```
-    
 ## Configure OPC UA mutual trust
-Another OPC UA authentication option you can configure is mutual trust. In OPC UA communication, the OPC UA client and server both confirm the identity of each other. 
+The next step in OPC UA authentication is to configure mutual trust. In OPC UA communication, the OPC UA client and server authenticate each other.
 
-To complete this configuration, follow the steps in [Configure OPC UA mutual trust](howto-configure-opcua-authentication-options.md#configure-opc-ua-mutual-trust).
+To complete this configuration, follow the steps to [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#how-to-handle-the-opc-ua-trusted-certificates-list). Use the certificate file you extracted in the previous section. 
+
+For simplicity, on the OPC PLC you don't need to do a mutual trust action. Mutual trust is configured with `autoAcceptUntrustedCertificates`, which accepts connections from any OPC UA client.
 
 ## Optionally configure for no authentication
 
-You can optionally configure an OPC PLC to run with no authentication. If you understand the risks, you can turn off authentication for testing purposes. 
+You can optionally configure an asset endpoint profile for the OPC PLC to run without mutual trust established. If you understand the risks, you can turn off authentication for testing purposes.
 
 > [!CAUTION]
 > Don't configure for no authentication in production or pre-production. Exposing your cluster to the internet without authentication can lead to unauthorized access and even DDOS attacks.
 
-To run an OPC PLC with no security profile, you can manually adjust the `AssetEndpointProfile` for OPC UA with the `additionalConfiguration` setting.  
+To allow your asset endpoint profile to connect to any OPC PLC server without establishing mutual trust, use the `additionalConfiguration` setting to change the `AssetEndpointProfile` for OPC UA.
 
 Configure the setting as shown in the following example JSON code:
 
