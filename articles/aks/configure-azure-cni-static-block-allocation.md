@@ -146,7 +146,8 @@ az aks create --name $clusterName --resource-group $resourceGroup --location $lo
     --pod-ip-allocation-mode StaticBlock \
     --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
     --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet \
-    --enable-addons monitoring
+    --enable-addons monitoring \
+    --kubernetes-version 1.28
 ```
 
 ### Adding node pool
