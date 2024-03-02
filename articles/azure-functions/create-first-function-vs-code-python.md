@@ -87,44 +87,7 @@ After you verify that the function runs correctly on your local computer, it's t
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-<!--- Go back to the shared include after preview 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
--->
-## <a name="publish-the-project-to-azure"></a>Create the function app in Azure
-
-In this section, you create a function app and related resources in your Azure subscription.
-
-1. Choose the Azure icon in the Activity bar. Then in the **Resources** area, select the **+** icon and choose the **Create Function App in Azure** option.
-
-    ![Create a resource in your Azure subscription](../../includes/media/functions-publish-project-vscode/function-app-create-resource.png)
-
-1. Provide the following information at the prompts:
-
-    |Prompt|Selection|
-    |--|--|
-    |**Select subscription**| Choose the subscription to use. You won't see this prompt when you have only one subscription visible under **Resources**. |
-    |**Enter a globally unique name for the function app**| Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.|
-    |**Select a runtime stack**| Choose the language version on which you've been running locally. |
-    |**Select a location for new resources**| Choose a region for your function app.|
-
-    ::: zone pivot="python-mode-decorators" 
-    ::: zone-end
-
-    The extension shows the status of individual resources as they're being created in Azure in the **Azure: Activity Log** panel.
-
-    ![Log of Azure resource creation](../../includes/media/functions-publish-project-vscode/resource-activity-log.png) 
-
-1. When the creation is complete, the following Azure resources are created in your subscription. The resources are named based on your function app name:
-
-    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
-
-    A notification is displayed after your function app is created and the deployment package is applied.
-
-    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
-
-## Deploy the project to Azure
-
-[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
