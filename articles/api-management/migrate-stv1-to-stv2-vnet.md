@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 03/01/2024
 ms.author: danlep
 ---
 
@@ -100,6 +100,8 @@ After you update the VNet configuration, the status of your API Management insta
 
 [!INCLUDE [api-management-validate-migration-to-stv2](../../includes/api-management-validate-migration-to-stv2.md)]
 
+[!INCLUDE [api-management-migration-rollback](../../includes/api-management-migration-rollback.md)]
+
 ## Update network dependencies
 
 After successful migration, update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address/subnet address space.
@@ -154,7 +156,7 @@ After successful migration, update any network dependencies including DNS, firew
    
 - **Is there a migration path without modifying the existing instance?**
 
-   Yes, you need a side-by-side migration. That means you create a new API Management instance in parallel with your current instance and copy the configuration over to the new instance. 
+   Yes, you need a [side-by-side migration](migrate-stv1-to-stv2.md#alternative-side-by-side-deployment). That means you create a new API Management instance in parallel with your current instance and copy the configuration over to the new instance. 
 
 - **What happens if the migration fails?**
 

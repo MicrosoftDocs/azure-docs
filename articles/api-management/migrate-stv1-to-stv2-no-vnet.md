@@ -87,6 +87,8 @@ az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03
 
 [!INCLUDE [api-management-validate-migration-to-stv2](../../includes/api-management-validate-migration-to-stv2.md)]
 
+[!INCLUDE [api-management-migration-rollback](../../includes/api-management-migration-rollback.md)]
+
 ## Update network dependencies
 
 After successful migration to a new VIP address, update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
@@ -133,7 +135,7 @@ After successful migration to a new VIP address, update any network dependencies
 
 - **Is there a migration path without modifying the existing instance?**
 
-   Yes, you need a side-by-side migration. That means you create a new API Management instance in parallel with your current instance and copy the configuration over to the new instance. 
+   Yes, you need a [side-by-side migration](migrate-stv1-to-stv2.md#alternative-side-by-side-deployment). That means you create a new API Management instance in parallel with your current instance and copy the configuration over to the new instance. 
 
 - **What happens if the migration fails?**
 
