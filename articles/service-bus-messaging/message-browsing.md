@@ -42,6 +42,70 @@ You can specify the maximum number of messages that you want the peek operation 
 
 Here's an example snippet for peeking all messages with the Python Service Bus SDK. The `sequence_number​` can be used to track the last peeked message and start browsing at the next message.
 
+### [C#](#tab/csharp)
+
+```csharp
+using Azure.Messaging.ServiceBus;
+
+// Create a Service Bus client for your namespace
+ServiceBusClient client = new ServiceBusClient("NAMESPACECONNECTIONSTRING");
+
+// Create Service Bus receiver for your queue in the namespace
+ServiceBusReceiver receiver = client.CreateReceiver("QUEUENAME");
+
+// Peek operation with max count set to 5
+var peekedMessages = await receiver.PeekMessagesAsync(maxMessages: 5);
+
+// Keep receiving while there are messages in the queue
+while (peekedMessages.Count > 0)
+{
+    int counter = 0; // To get the sequence number of the last peeked message
+    int countPeekedMessages = peekedMessages.Count;
+
+    if (countPeekedMessages > 0)
+    { 
+        // For each peeked message, print the message body
+        foreach (ServiceBusReceivedMessage msg in peekedMessages)
+        {
+            Console.WriteLine(msg.Body);
+            counter++;
+        }
+        Console.WriteLine("Peek round complete");
+        Console.WriteLine("");
+    }
+
+    // Start receiving from the message after the last one
+    var fromSeqNum = peekedMessages[counter-1].SequenceNumber + 1;
+    peekedMessages = await receiver.PeekMessagesAsync(maxMessages: 5, fromSequenceNumber: fromSeqNum);
+}
+```
+
+The following sample output is from peeking a queue with 13 messages in it. 
+
+```bash
+Message 1
+Message 2
+Message 3
+Message 4
+Message 5
+Peek round complete
+
+Message 6
+Message 7
+Message 8
+Message 9
+Message 10
+Peek round complete
+
+Message 11
+Message 12
+Message 13
+Peek round complete
+```
+
+
+### [Python](#tab/python)
+
 ```python
 import os
 from azure.servicebus import ServiceBusClient
@@ -65,6 +129,8 @@ with servicebus_client:
 
 print("Receive is done.")
 ```
+
+---
 
 ## Next steps
 Try the samples in the language of your choice to explore Azure Service Bus features. 
