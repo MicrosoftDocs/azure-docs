@@ -112,32 +112,44 @@ This example shows how to use the Azure OpenAI and Azure AI Search connectors to
 
 [Requirements](https://github.com/Azure/logicapps/tree/master/ai-sample#prerequisites)
 
+The following [cross-environment parameter values](../create-parameters-workflows.md) are also used by the workflow operations in this example:
+
+| Parameter name | Description |
+|----------------|-------------|
+| **aisearch_admin_key** | The admin key for Azure AI Search |
+| **aisearch_endpoint** | The endpoint URL for the Azure AI Search example |
+| **aisearch_index_name** | The index to use for the Azure AI Search example |
+| **openapi_api_key** | The API key for Azure OpenAI |
+| **openai_deployment_id** | The deployment ID for the Azure OpenAI example |
+| **openai_endpoint** | The endpoint URL for the Azure OpenAI example |
+| **tokenize_function_url** | The URL for |
+
 ### Sample code
 
 [Create a chat using ingested data](https://github.com/Azure/logicapps/tree/master/ai-sample)
 
 ### Video: Learn how to build AI applications using logic apps
 
-:::video source="https://www.youtube.com/watch?v=tiU5yCvMW9o":::
+[Learn how to build AI applications using logic apps](https://www.youtube.com/watch?v=tiU5yCvMW9o)
 
-### Data ingestion workflow
+### Ingest data workflow
 
 To save considerable time and effort when you build an ingestion pipeline, implement the following pattern with any data source. This pattern encapsulates all the advantages and benefits currently offered by Standard workflows in single-tenant Azure Logic Apps.
 
-Each step in this pattern not only provides faster performance when run in a stateless workflow, but also makes sure that the AI seamlessly extracts all the crucial information from your data files. This approach simplifies not only the coding aspect but also guarantees that your workflows have effective authentication, monitoring, and deployment processes in place.
+Each step in this pattern makes sure that the AI seamlessly extracts all the crucial information from your data files. If run as a stateless workflow, this pattern also provides faster performance. This approach simplifies not only the coding aspect but also guarantees that your workflows have effective authentication, monitoring, and deployment processes in place.
 
 :::image type="content" source="media/azure-ai/ingest-data-workflow.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and workflow operations that implement data ingestion functionality." lightbox="media/azure-ai/ingest-data-workflow.png":::
 
 | Step | Task | Underlying operation | Description |
 |------|------|----------------------|-------------|
-| 1 | Check for new data. | **When an HTTP request is received** | A trigger that polls or waits for new data to arrive, either based on a scheduled recurrence or in response to specific events respectively. For example, an event might be a new file uploaded to a specific storage system, such as SharePoint, OneDrive, or Azure Blob Storage. <br><br>In this example, a Request trigger operation waits for an HTTP call from another endpoint. |
-| 2 | Get the data's location. | **HTTP** | An action that gets the URL for the document in the specified storage system. |
-| 3 | Get the data. | **Compose** | A **Data Operations** action that concatenates various items. <br><br>This example concatenates key-value information about the document. |
-| 4 | Tokenize the data. | **HTTP** | An action that [tokenizes the output from the **Compose** action](../../ai-services/openai/overview.md#tokens). |
-| 5 | Convert tokenized data to JSON. | **Parse JSON** | A **Data Operations** action that converts the tokenized output into a JSON array. |
-| 6 | Select JSON array items. | **Select** | A **Data Operations** action that selects items from the JSON array. |
+| 1 | Check for new data. | **When an HTTP request is received** | A trigger that either polls or waits for new data to arrive, either based on a scheduled recurrence or in response to specific events respectively. Such an event might be a new file that's uploaded to a specific storage system, such as SharePoint, OneDrive, or Azure Blob Storage. <br><br>In this example, the **Request** trigger operation waits for an HTTP or HTTPS request sent from another endpoint. The request includes the URL for a new uploaded document. |
+| 2 | Get the data. | **HTTP** | An **HTTP** action that retrieves the uploaded document using the file URL from the trigger output. |
+| 3 | Compose document details. | **Compose** | A **Data Operations** action that concatenates various items. <br><br>This example concatenates key-value information about the document. |
+| 4 | Tokenize the data. | **HTTP** | An **HTTP** action that calls a custom function that [tokenizes](../../ai-services/openai/overview.md#tokens) the output from the **Compose** action. |
+| 5 | Convert tokenized data to JSON. | **Parse JSON** | A **Data Operations** action that converts the tokenized string output into a JSON array. |
+| 6 | Select JSON array items. | **Select** | A **Data Operations** action that selects multiple items from the JSON array. |
 | 7 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings for each JSON array item. |
-| 8 | Select the embeddings. | **Select** | A **Data Operations** action that selects embeddings. | 
+| 8 | Select embeddings and other information. | **Select** | A **Data Operations** action that selects embeddings and other document information. | 
 | 9 | Index the data. | **Index documents** | An **Azure AI Search** action that indexes the data based on each selected embedding. |
 
 ### Chat workflow
@@ -150,16 +162,16 @@ The following pattern is only one example that shows how a chat workflow might l
 
 | Step | Task | Underlying operation | Description |
 |------|------|----------------------|-------------|
-| 1 | Capture the prompt. | **When an HTTP request is received** | A trigger that waits for  the customer's question in JSON format. This example uses the Request trigger. |
-| 2 | Train the model. | **Compose** | A **Data Operations** action that includes input to train the model. |
-| 3 | Train the model. | **Compose** | A **Data Operations** action that includes sample customer questions input. | 
-| 4 | Train the model. | **Compose** | A **Data Operations** action that includes input for the search query. | 
-| 5 | Generate the query. | **Execute JavaScript Code** | An **Inline Code** action that uses JavaScript to create search queries for the vector database by using the outputs from the previous **Compose** actions. |
-| 6 | Convert the query into an embedding. | **Get the chat completions** | An **Azure OpenAI** action that converts search queries into vector embeddings. |
-| 7 | Get an embedding. | **Gets a single embedding** | An **Azure OpenAI** action that gets the vector embedding. |
-| 8 | Run the vector search. | **Vector search** | An **Azure AI Search** action that executes searches in the vector database. |
-| 9 | Create the prompt. | **Execute JavaScript Code** | An **Inline Code** action that uses JavaScript to build a prompt. |
-| 10 | Perform chat completion. | **Get the chat completions** | An **Azure OpenAI** action that connects to the chat completion API, which guarantees reliable responses in chat conversations. |
+| 1 | Wait for input prompt. | **When an HTTP request is received** | A trigger that either polls or waits for new data to arrive, either based on a scheduled recurrence or in response to specific events respectively. <br><br>In this example, the **Request** trigger waits for and captures the customer's question. |
+| 2 | Input system message for the model. | **Compose** | A **Data Operations** action that provides input to train the model. |
+| 3 | Input sample questions and responses. | **Compose** | A **Data Operations** action that provides sample customer questions and associated roles to train the model. | 
+| 4 | Input system message for search query. | **Compose** | A **Data Operations** action that provides search query input to train the model. | 
+| 5 | Generate search query. | **Execute JavaScript Code** | An **Inline Code** action that uses JavaScript to create a search query for the vector store, based on the outputs from the preceding **Compose** actions. |
+| 6 | Convert query to embedding. | **Get chat completions** | An **Azure OpenAI** action that connects to the chat completion API, which guarantees reliable responses in chat conversations. <br><br>In this example, the action accepts search queries and roles as input to the model and returns vector embeddings as output. |
+| 7 | Get an embedding. | **Get an embedding** | An **Azure OpenAI** action that gets a single vector embedding. |
+| 8 | Search the vector database. | **Search vectors** | An **Azure AI Search** action that executes searches in the vector store. |
+| 9 | Create prompt. | **Execute JavaScript Code** | An **Inline Code** action that uses JavaScript to build prompts. |
+| 10 | Perform chat completion. | **Get chat completions** | An **Azure OpenAI** action that connects to the chat completion API, which guarantees reliable responses in chat conversations. <br><br>In this example, the action accepts prompts and roles as input to the model and returns model-generated responses as output. |
 | 11 | Return a response. | **Response** | A **Request** action that returns the results to the caller when you use the **Request** trigger. |
 
 ## See also
