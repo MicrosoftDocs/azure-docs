@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -79,38 +79,6 @@ Azure service: Classic deployment model storage
 > | Microsoft.ClassicStorage/storageAccounts/vmImages/delete | Deletes a given virtual machine image. |
 > | Microsoft.ClassicStorage/storageAccounts/vmImages/operationstatuses/read | Gets a given virtual machine image operation status. |
 > | Microsoft.ClassicStorage/vmImages/read | Lists virtual machine images. |
-
-## Microsoft.DataBox
-
-Move stored or in-flight data to Azure quickly and cost-effectively.
-
-Azure service: [Azure Data Box](/azure/databox/)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.DataBox/register/action | Register Provider Microsoft.Databox |
-> | Microsoft.DataBox/unregister/action | Un-Register Provider Microsoft.Databox |
-> | Microsoft.DataBox/jobs/cancel/action | Cancels an order in progress. |
-> | Microsoft.DataBox/jobs/bookShipmentPickUp/action | Allows to book a pick up for return shipments. |
-> | Microsoft.DataBox/jobs/mitigate/action | This method helps in performing mitigation action on a job with a resolution code |
-> | Microsoft.DataBox/jobs/markDevicesShipped/action |  |
-> | Microsoft.DataBox/jobs/read | List or get the Orders |
-> | Microsoft.DataBox/jobs/delete | Delete the Orders |
-> | Microsoft.DataBox/jobs/write | Create or update the Orders |
-> | Microsoft.DataBox/jobs/listCredentials/action | Lists the unencrypted credentials related to the order. |
-> | Microsoft.DataBox/jobs/eventGridFilters/write | Create or update the Event Grid Subscription Filter |
-> | Microsoft.DataBox/jobs/eventGridFilters/read | List or get the Event Grid Subscription Filter |
-> | Microsoft.DataBox/jobs/eventGridFilters/delete | Delete the Event Grid Subscription Filter |
-> | Microsoft.DataBox/locations/validateInputs/action | This method does all type of validations. |
-> | Microsoft.DataBox/locations/validateAddress/action | Validates the shipping address and provides alternate addresses if any. |
-> | Microsoft.DataBox/locations/availableSkus/action | This method returns the list of available skus. |
-> | Microsoft.DataBox/locations/regionConfiguration/action | This method returns the configurations for the region. |
-> | Microsoft.DataBox/locations/availableSkus/read | List or get the Available Skus |
-> | Microsoft.DataBox/locations/operationResults/read | List or get the Operation Results |
-> | Microsoft.DataBox/operations/read | List or get the Operations |
-> | Microsoft.DataBox/subscriptions/resourceGroups/moveResources/action | This method performs the resource move. |
-> | Microsoft.DataBox/subscriptions/resourceGroups/validateMoveResources/action | This method validates whether resource move is allowed or not. |
 
 ## Microsoft.DataShare
 

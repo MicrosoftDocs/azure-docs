@@ -25,7 +25,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| [Changes in where to access Compliance offerings and Microsoft Actions](#changes-in-where-to-access-compliance-offerings-and-microsoft-actions) | February 25, 2024 | September 30, 2024 |
+| [Changes in where to access Compliance offerings and Microsoft Actions](#changes-in-where-to-access-compliance-offerings-and-microsoft-actions) | March 3, 2024 | September 30, 2024 |
+| [Microsoft Security Code Analysis (MSCA) is no longer operational](#microsoft-security-code-analysis-msca-is-no-longer-operational) | February 26, 2024 | February 26, 2024 |
 | [Update recommendations to align with Azure AI Services resources](#update-recommendations-to-align-with-azure-ai-services-resources) | February 20, 2024 | February 28, 2024 |
 | [Deprecation of data recommendation](#deprecation-of-data-recommendation) | February 12, 2024 | March 14, 2024 |
 | [Decommissioning of Microsoft.SecurityDevOps resource provider](#decommissioning-of-microsoftsecuritydevops-resource-provider) | February 5, 2024 | March 6, 2024 |
@@ -49,7 +50,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 ## Changes in where to access Compliance offerings and Microsoft Actions
 
-**Announcement date: February 25, 2024**
+**Announcement date: March 3, 2024**
 
 **Estimated date for change: September 30, 2024**
 
@@ -58,6 +59,16 @@ On September 30, 2024, the locations where you access Compliance offerings and M
 The table that lists the compliance status of Microsoft's products (accessed from the **Compliance offerings** button in the toolbar of Defender's [regulatory compliance dashboard](regulatory-compliance-dashboard.md)). After this button is removed from Defender for Cloud, you'll still be able to access this information using the [Service Trust Portal](https://servicetrust.microsoft.com/).
 
 For a subset of controls, Microsoft Actions was accessible from the **Microsoft Actions (Preview)** button in the controls details pane. After this button is removed, you can view Microsoft Actions by visiting Microsoft’s [Service Trust Portal for FedRAMP](https://servicetrust.microsoft.com/viewpage/FedRAMP) and accessing  the Azure System Security Plan document.
+
+## Microsoft Security Code Analysis (MSCA) is no longer operational
+
+**Announcement date: February 26, 2024**
+
+**Estimated date for change: February 26, 2024**
+
+In February 2021, the deprecation of the MSCA task was communicated to all customers and has been past end of life support since [March 2022](https://devblogs.microsoft.com/premier-developer/microsoft-security-code-analysis/). As of February 26, 2024, MSCA is officially no longer operational.
+
+Customers can get the latest DevOps security tooling from Defender for Cloud through [Microsoft Security DevOps](azure-devops-extension.md) and additional security tooling through [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
 
 ## Update recommendations to align with Azure AI Services resources
 

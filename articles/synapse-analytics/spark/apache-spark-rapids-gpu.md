@@ -5,11 +5,11 @@ author: Niharikadutta
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 10/18/2021
+ms.date: 02/27/2024
 ms.author: nidutta
 ---
 
-# Apache Spark GPU-accelerated pools in Azure Synapse Analytics
+# Apache Spark GPU-accelerated pools in Azure Synapse Analytics (preview)
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. 
 
@@ -22,6 +22,11 @@ spark.conf.set('spark.rapids.sql.enabled','true/false')
 
 > [!NOTE]
 > Azure Synapse GPU-enabled pools are currently in Public Preview.
+
+> [!WARNING]
+> - The GPU accelerated preview is limited to the [Azure Synapse 3.1 (unsupported)](../spark/apache-spark-3-runtime.md) and [Apache Spark 3.2 (EOLA)](../spark/apache-spark-32-runtime.md) runtimes.
+> - Azure Synapse Runtime for Apache Spark 3.1 has reached its end of life (EOL) as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
+> - Azure Synapse Runtime for Apache Spark 3.2 has reached its end of life (EOL) as of July 8, 2023, with no further bug or feature fixes, but security fixes may be backported based on risk assessment, and it will be retired and disabled as of July 8, 2024.
 
 ## RAPIDS Accelerator for Apache Spark
 

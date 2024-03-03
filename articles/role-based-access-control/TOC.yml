@@ -86,7 +86,7 @@
         href: role-assignments-portal.md
       - name: Managed identity
         href: role-assignments-portal-managed-identity.md
-      - name: External guest users
+      - name: External users
         href: role-assignments-external-users.md
     - name: PowerShell
       href: role-assignments-powershell.md

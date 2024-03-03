@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -364,6 +364,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectjailbreak/action | A synchronous API for the analysis of text jailbreak. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text:adaptiveannotate/action | A remote procedure call (RPC) operation. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectungroundedness/action | A synchronous API for the analysis of language model outputs to determine if they align with the information provided by the user or contain fictional content. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectinjectionattacks/action | A synchronous API for the analysis of text injection attacks. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisthitcalls/read | Show blocklist hit request count at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisttopterms/read | List top terms hit in blocklist at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/categories/severities/requestcounts/read | List API request count number of a specific category and a specific severity given a time range. Default maxpagesize is 1000. |
@@ -1186,6 +1187,9 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/write | Create or update assistant thread run. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/read | Retrieve assistant thread run. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/steps/read | Retrieve assistant thread run step. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/batch-jobs/write | Creates Batch Inference jobs. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/batch-jobs/delete | Deletes Batch Inference jobs. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/batch-jobs/read | Gets information about batch jobs. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action | Search for the most relevant documents using the current engine. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action | Create a completion from a chosen model. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/read | Gets information about deployments. |
@@ -1606,6 +1610,10 @@ Azure service: [Machine Learning](/azure/machine-learning/)
 > | Microsoft.MachineLearningServices/workspaces/connections/write | Creates or updates a Machine Learning Services connection(s) |
 > | Microsoft.MachineLearningServices/workspaces/connections/delete | Deletes the Machine Learning Services connection(s) |
 > | Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action | Gets the Machine Learning Services connection with secret values |
+> | Microsoft.MachineLearningServices/workspaces/connections/deployments/read | Gets the Machine Learning Services AzureOpenAI Connection deployment |
+> | Microsoft.MachineLearningServices/workspaces/connections/deployments/write | Creates or Updates the Machine Learning Services AzureOpenAI Connection deployment |
+> | Microsoft.MachineLearningServices/workspaces/connections/deployments/delete | Deletes the Machine Learning Services AzureOpenAI Connection deployment |
+> | Microsoft.MachineLearningServices/workspaces/connections/models/read | Gets the Machine Learning Services AzureOpenAI Connection model |
 > | Microsoft.MachineLearningServices/workspaces/data/read | Reads Data container in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/data/write | Writes Data container in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/data/delete | Deletes Data container in Machine Learning Services Workspace(s) |
@@ -1712,6 +1720,9 @@ Azure service: [Machine Learning](/azure/machine-learning/)
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/claim/read | Get my claims on data |
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/claim/write | Update my claims on data |
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/quota/read | Get my data quota usage |
+> | Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions/read | Gets the Machine Learning Service Workspaces Marketplace Subscription(s) |
+> | Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions/write | Creates or Updates the Machine Learning Service Workspaces Marketplace Subscription(s) |
+> | Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions/delete | Deletes the Machine Learning Service Workspaces Marketplace Subscription(s) |
 > | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read | Gets artifacts in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write | Creates or updates artifacts in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/delete | Deletes artifacts in Machine Learning Services Workspace(s) |
@@ -1793,6 +1804,74 @@ Azure service: [Machine Learning](/azure/machine-learning/)
 > | Microsoft.MachineLearningServices/workspaces/services/aks/listkeys/action | Lists keys for AKS services in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/services/aks/delete | Deletes AKS services in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/services/aks/score/action | Retrieve auth token or keys to score AKS services in Machine Learning Services Workspace(s) |
+
+## Microsoft.Search
+
+Leverage search services and get comprehensive results.
+
+Azure service: [Azure AI Search](/azure/search/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Search/register/action | Registers the subscription for the search resource provider and enables the creation of search services. |
+> | Microsoft.Search/checkNameAvailability/action | Checks availability of the service name. |
+> | Microsoft.Search/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/write | Check if the configuration of the Network Security Perimeter needs updating. |
+> | Microsoft.Search/operations/read | Lists all of the available operations of the Microsoft.Search provider. |
+> | Microsoft.Search/searchServices/write | Creates or updates the search service. |
+> | Microsoft.Search/searchServices/read | Reads the search service. |
+> | Microsoft.Search/searchServices/delete | Deletes the search service. |
+> | Microsoft.Search/searchServices/start/action | Starts the search service. |
+> | Microsoft.Search/searchServices/stop/action | Stops the search service. |
+> | Microsoft.Search/searchServices/listAdminKeys/action | Reads the admin keys. |
+> | Microsoft.Search/searchServices/regenerateAdminKey/action | Regenerates the admin key. |
+> | Microsoft.Search/searchServices/listQueryKeys/action | Returns the list of query API keys for the given Azure Search service. |
+> | Microsoft.Search/searchServices/createQueryKey/action | Creates the query key. |
+> | Microsoft.Search/searchServices/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
+> | Microsoft.Search/searchServices/dataSources/read | Return a data source or a list of data sources. |
+> | Microsoft.Search/searchServices/dataSources/write | Create a data source or modify its properties. |
+> | Microsoft.Search/searchServices/dataSources/delete | Delete a data source. |
+> | Microsoft.Search/searchServices/debugSessions/read | Return a debug session or a list of debug sessions. |
+> | Microsoft.Search/searchServices/debugSessions/write | Create a debug session or modify its properties. |
+> | Microsoft.Search/searchServices/debugSessions/delete | Delete a debug session. |
+> | Microsoft.Search/searchServices/debugSessions/execute/action | Use a debug session, get execution data, or evaluate expressions on it. |
+> | Microsoft.Search/searchServices/deleteQueryKey/delete | Deletes the query key. |
+> | Microsoft.Search/searchServices/diagnosticSettings/read | Gets the diganostic setting read for the resource |
+> | Microsoft.Search/searchServices/diagnosticSettings/write | Creates or updates the diganostic setting for the resource |
+> | Microsoft.Search/searchServices/indexers/read | Return an indexer or its status, or return a list of indexers or their statuses. |
+> | Microsoft.Search/searchServices/indexers/write | Create an indexer, modify its properties, or manage its execution. |
+> | Microsoft.Search/searchServices/indexers/delete | Delete an indexer. |
+> | Microsoft.Search/searchServices/indexes/read | Return an index or its statistics, return a list of indexes or their statistics, or test the lexical analysis components of an index. |
+> | Microsoft.Search/searchServices/indexes/write | Create an index or modify its properties. |
+> | Microsoft.Search/searchServices/indexes/delete | Delete an index. |
+> | Microsoft.Search/searchServices/logDefinitions/read | Gets the available logs for the search service |
+> | Microsoft.Search/searchServices/metricDefinitions/read | Gets the available metrics for the search service |
+> | Microsoft.Search/searchServices/networkSecurityPerimeterAssociationProxies/delete | Delete an association proxy to a Network Security Perimeter resource of Microsoft.Network provider. |
+> | Microsoft.Search/searchServices/networkSecurityPerimeterAssociationProxies/read | Delete an association proxy to a Network Security Perimeter resource of Microsoft.Network provider. |
+> | Microsoft.Search/searchServices/networkSecurityPerimeterAssociationProxies/write | Change the state of an association to a Network Security Perimeter resource of Microsoft.Network provider |
+> | Microsoft.Search/searchServices/networkSecurityPerimeterConfigurations/read | Read the Network Security Perimeter configuration. |
+> | Microsoft.Search/searchServices/networkSecurityPerimeterConfigurations/reconcile/action | Reconcile the Network Security Perimeter configuration with NRP's (Microsoft.Network Resource Provider) copy. |
+> | Microsoft.Search/searchServices/privateEndpointConnectionProxies/validate/action | Validates a private endpoint connection create call from NRP side |
+> | Microsoft.Search/searchServices/privateEndpointConnectionProxies/write | Creates a private endpoint connection proxy with the specified parameters or updates the properties or tags for the specified private endpoint connection proxy |
+> | Microsoft.Search/searchServices/privateEndpointConnectionProxies/read | Returns the list of private endpoint connection proxies or gets the properties for the specified private endpoint connection proxy |
+> | Microsoft.Search/searchServices/privateEndpointConnectionProxies/delete | Deletes an existing private endpoint connection proxy |
+> | Microsoft.Search/searchServices/privateEndpointConnections/write | Creates a private endpoint connections with the specified parameters or updates the properties or tags for the specified private endpoint connections |
+> | Microsoft.Search/searchServices/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connections |
+> | Microsoft.Search/searchServices/privateEndpointConnections/delete | Deletes an existing private endpoint connections |
+> | Microsoft.Search/searchServices/sharedPrivateLinkResources/write | Creates a new shared private link resource with the specified parameters or updates the properties for the specified shared private link resource |
+> | Microsoft.Search/searchServices/sharedPrivateLinkResources/read | Returns the list of shared private link resources or gets the properties for the specified shared private link resource |
+> | Microsoft.Search/searchServices/sharedPrivateLinkResources/delete | Deletes an existing shared private link resource |
+> | Microsoft.Search/searchServices/sharedPrivateLinkResources/operationStatuses/read | Get the details of a long running shared private link resource operation |
+> | Microsoft.Search/searchServices/skillsets/read | Return a skillset or a list of skillsets. |
+> | Microsoft.Search/searchServices/skillsets/write | Create a skillset or modify its properties. |
+> | Microsoft.Search/searchServices/skillsets/delete | Delete a skillset. |
+> | Microsoft.Search/searchServices/synonymMaps/read | Return a synonym map or a list of synonym maps. |
+> | Microsoft.Search/searchServices/synonymMaps/write | Create a synonym map or modify its properties. |
+> | Microsoft.Search/searchServices/synonymMaps/delete | Delete a synonym map. |
+> | **DataAction** | **Description** |
+> | Microsoft.Search/searchServices/indexes/documents/read | Read documents or suggested query terms from an index. |
+> | Microsoft.Search/searchServices/indexes/documents/write | Upload documents to an index or modify existing documents. |
+> | Microsoft.Search/searchServices/indexes/documents/delete | Delete documents from an index. |
 
 ## Next steps
 
