@@ -351,10 +351,9 @@ az logout
 
 ## Next steps
 
-In this quickstart, you assigned a built-in policy definition to a resource group scope and reviewed its compliance state. The policy definition audits if the virtual machines in the resource group are compliant and identifies resources that aren't compliant.
+In this quickstart, you assigned a policy definition to identify non-compliant resources in your Azure environment.
 
-To learn more about assigning policies to validate that new resources are compliant, continue to the
-tutorial.
+To learn more about how to assign policies that validate resource compliance, continue to the tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and manage policies to enforce compliance](./tutorials/create-and-manage.md)

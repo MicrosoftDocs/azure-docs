@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 03/20/2023
+ms.date: 02/28/2024
 ms.custom: template-overview
 # Customer intent: As a solution builder or device developer I want a high-level overview of the issues around device development so that I can easily find relevant content.
 ---
@@ -26,7 +26,7 @@ In Azure IoT, a device developer writes the code to run on the devices in the so
 - Manages device state and synchronizes that state with the cloud.
 - Responds to commands sent from the cloud.
 - Enables the installation of software updates from the cloud.
-- Enables the device to keep functioning while it's disconnected from the cloud.
+- Enables the device to keep functioning while disconnected from the cloud.
 
 ## Device types
 
@@ -71,7 +71,7 @@ For MPU devices, device SDKs are available for the following languages:
 
 For MCU devices, see:
 
-- [Azure RTOS Middleware](https://github.com/azure-rtos/)
+- [Azure RTOS Middleware](https://github.com/eclipse-threadx)
 - [FreeRTOS Middleware](https://github.com/Azure/azure-iot-middleware-freertos)
 - [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c)
 
@@ -87,7 +87,7 @@ To learn more about implementing automatic reconnections to endpoints, see [Mana
 
 ## Device development without a device SDK
 
-Although you're recommended to use one of the device SDKS, there may be scenarios where you prefer not to. In these scenarios, your device code must directly use one of the communication protocols that IoT Hub and the Device Provisioning Service (DPS) support.
+Although you're recommended to use one of the device SDKS, there might be scenarios where you prefer not to. In these scenarios, your device code must directly use one of the communication protocols that IoT Hub and the Device Provisioning Service (DPS) support.
 
 For more information, see:
 
@@ -98,7 +98,7 @@ For more information, see:
 
 IoT Plug and Play enables solution builders to integrate IoT devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device model that a device uses to advertise its capabilities to an IoT Plug and Play-enabled application such as IoT Central. This model is structured as a set of elements that define:
 
-- *Properties* that represent the read-only or writable state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a writable property.
+- *Properties* that represent the read-only or writable state of a device or other entity. For example, a device serial number might be a read-only property and a target temperature on a thermostat might be a writable property.
 - *Telemetry* that's the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
 - *Commands* that describe a function or operation that can be done on a device. For example, a command could reboot a gateway or take a picture using a remote camera.
 
@@ -117,7 +117,7 @@ To learn more, see:
 
 ## Containerized device code
 
-Using containers, such as Docker, to run your device code lets you deploy code to your devices by using the capabilities of the container infrastructure. Containers also let you define a runtime environment for your code with all the required library and package versions installed. Containers make it easier to deploy updates and to manage the lifecycle of your IoT devices.
+If you use containers, such as in Docker, to run your device code you can deploy code to your devices by using the capabilities of the container infrastructure. Containers also let you define a runtime environment for your code with all the required library and package versions installed. Containers make it easier to deploy updates and to manage the lifecycle of your IoT devices.
 
 Azure IoT Edge runs device code in containers. You can use Azure IoT Edge to deploy code modules to your devices. To learn more, see [Develop your own IoT Edge modules](../iot-edge/module-development.md).
 
