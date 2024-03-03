@@ -38,7 +38,7 @@ Microsoft Sentinel natively incorporates proven Azure services, like Log Analyti
 
 ## Collect data by using data connectors
 
-To on-board Microsoft Sentinel, you first need to [connect to your data sources](connect-data-sources.md).
+To on-board Microsoft Sentinel, you first need to [connect to your data sources](configure-data-connector.md).
 
 Microsoft Sentinel comes with many connectors for Microsoft solutions that are available out of the box and provide real-time integration. Some of these connectors include:
 
@@ -48,7 +48,10 @@ Microsoft Sentinel comes with many connectors for Microsoft solutions that are a
 
 Microsoft Sentinel has built-in connectors to the broader security and applications ecosystems for non-Microsoft solutions. You can also use common event format, Syslog, or REST-API to connect your data sources with Microsoft Sentinel.
 
-For more information, see [Find your data connector](data-connectors-reference.md).
+For more information, see the following articles:
+
+- [Microsoft Sentinel data connectors](connect-data-sources.md)
+- [Find your data connector](data-connectors-reference.md)
 
 :::image type="content" source="media/overview/data-connectors.png" alt-text="Screenshot of the data connectors page in Microsoft Sentinel that shows a list of available connectors.":::
 

@@ -44,7 +44,7 @@ After you or someone in your organization installs the solution that includes th
 
    :::image type="content" source="media/configure-data-connector/open-connector-page-option-defender-portal.png" alt-text="Screenshot of data connector details page in the Defender portal.":::
 
----
+   ---
 
 1. Review the **Prerequisites**. To configure the data connector, fulfill all the prerequisites.
 1. Follow the steps outlined in the **Configurations** section.
@@ -53,7 +53,9 @@ After you or someone in your organization installs the solution that includes th
    - [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
    - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
   
-   After you configure the data connector, it might take some time for the data to be ingested into Microsoft Sentinel. After you connect, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.  
+   After you configure the data connector, it might take some time for the data to be ingested into Microsoft Sentinel. When the data connector is connected, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.  
+
+   :::image type="content" source="media/configure-data-connector/connected-data-connector.png" alt-text="Screenshot of a data connector page with status connected and graph that shows the data received.":::
 
 ## Find support for a data connector
 
