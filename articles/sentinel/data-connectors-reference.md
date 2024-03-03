@@ -3,8 +3,9 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 07/26/2023
+ms.date: 03/02/2024
 ms.author: cwatson
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ---
 
 # Find your Microsoft Sentinel data connector
@@ -14,6 +15,7 @@ This article lists all supported, out-of-the-box data connectors and links to ea
 > [!IMPORTANT]
 > - Noted Microsoft Sentinel data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > - For connectors that use the Log Analytics agent, the agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+> - [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 Data connectors are available as part of the following offerings:
 
@@ -25,7 +27,7 @@ Data connectors are available as part of the following offerings:
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-### Data connector prerequisites
+## Data connector prerequisites
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
 
