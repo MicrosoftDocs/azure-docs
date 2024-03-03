@@ -1,5 +1,5 @@
 ---
-title: workspace replication across regions
+title: Workspace replication across regions
 description: Workspace Replication
 ms.topic: conceptual
 author: noakup
@@ -11,16 +11,16 @@ ms.date: 03/30/2023
 # Workspace replication across regions
 
 ## What is workspace replication
-Workspace replication is a new capability that provides higher resilience to Log Analytics workspace and service by allowing you to create a replication of your workspace in another region, and use it when needed. The original region of your workspace is referred to as the primary region, and the region you choose for your replication is referred to as secondary.
+Workspace replication provides higher resilience to Log Analytics workspace and service by allowing you to create a replication of your workspace in another region, and use it when needed. The original region of your workspace is referred to as the primary region, and the region you choose for your replication is referred to as secondary.
 
 ### How it works
-When workspace replication is enabled, a second instance of your workspace is created in another region. This secondary workspace is created with the same configuration as your primary workspace. Any changes to your workspace configuration are automatically synced to the secondary workspace. The second workspace created for you is a "shadow" workspace - you can’t see in the Azure portal, manage it or access it directly. It’s only used for resiliency purposes.
+When workspace replication is enabled, a second instance of your workspace is created in another region. This secondary workspace is created with the same configuration as your primary workspace. Any changes to your workspace configuration are automatically synced to the secondary workspace. The second workspace created for you is a "shadow" workspace used only for resiliency purposes - you can’t see in the Azure portal, manage it, or access it directly.
 
 Once workspace replication is enabled, new logs ingested to your workspace are replicated to your secondary region as well. Logs that were ingested to the workspace before enabling workspace replication aren’t copied.
 
 If an outage affects your primary region, you can trigger failover to reroute all ingestion and query requests to your secondary region. When the outage is mitigated and your primary workspace is healthy again, you can trigger failback to return to your primary region.
 
-If you choose to fail over, the secondary workspace becomes active, and your primary becomes inactive. This also means ingestion is done through your secondary region ingestion pipeline, instead of the primary region. Similarly, replication during failover is done from the **secondary** region to the **primary** region. Replication is done asynchronously, so it doesn't affect your ingestion latency. If the primary region isn’t able to process incoming logs, the logs are buffered on the secondary region for up to 11 days. During the first four days, replication attempts are repeated periodically. If your primary workspace isn't functional for a longer period, reach out to us to initiate replication once the issue is resolved.
+If you choose to fail over, the secondary workspace becomes active, and your primary becomes inactive. As a result ingestion is done through your secondary region ingestion pipeline, instead of the primary region. Similarly, replication during failover is done from the **secondary** region to the **primary** region. Replication is done asynchronously, so it doesn't affect your ingestion latency. If the primary region isn’t able to process incoming logs, the logs are buffered on the secondary region for up to 11 days. During the first four days, replication attempts are repeated periodically. If your primary workspace isn't functional for a longer period, reach out to us to initiate replication once the issue is resolved.
 
 ![Diagram that shows ingestion flows during normal and failover modes.](./media/workspace-replication/ingestion-flows.png)
 
@@ -50,30 +50,30 @@ The following regions and groups are currently supported.
     * North Europe (JSON value: `northeurope`)
 
 #### Data residency
-Different customers have different data residency requirements, which is why it’s important that **you** control where your data is stored. Workspace logs are only stored in primary and secondary locations you chose, and processed in the Azure geography(s) of your select regions. For more information, see [Supported regions and region groups](#supported-regions-and-region-groups).
+Different customers have different data residency requirements, which is why it’s important that **you** control where your data is stored. Workspace logs are only stored in primary and secondary locations you chose, and processed in one or more Azure geographies of your select regions. For more information, see [Supported regions and region groups](#supported-regions-and-region-groups).
 
 #### Sentinel and other products and experiences using Log Analytics
-There are various products and experiences that interact with Log Analytics workspaces. Some of these are *Compatible* with Workspace replication and failover, meaning they can work with workspaces that triggered failover and switched to another region, and therefore they gain improved resilience "by proxy". 
+There are various products and experiences that interact with Log Analytics workspaces. Some of these experiences are *Compatible* with workspace replication and failover, meaning they can work with workspaces that triggered failover and switched to another region, and therefore they gain improved resilience "by proxy". 
 
-Sentinel, for example, is *compatible* with workspace replication. If a regional network issue causes log ingestion latency, Sentinel customers are also impacted. Customers that use replicated workspaces can trigger workspace failover to switch to another region, which benefits both Log Analytics and Sentinel. Yet, if the network issue impacts Sentinel operations directly (regardless of Log Analytics), switching to another regions won't mitigate the issue.
+Sentinel, for example, is *compatible* with workspace replication. If a regional network issue causes log ingestion latency, Sentinel customers are also impacted. Customers that use replicated workspaces can trigger workspace failover to switch to another region, which benefits both Log Analytics and Sentinel. Yet, if the network issue impacts Sentinel operations directly (regardless of Log Analytics), switching to another regions can't mitigate the issue.
 
-Some Azure Monitor experiences aren't fully compatible with workspace replication and failover yet. That includes Application Insights, VM Insights and others, listed [here](#restrictions-and-limitations).
+Some Azure Monitor experiences aren't fully compatible with workspace replication and failover yet. That includes Application Insights, VM (Virtual Machine) Insights and others, listed [here](#restrictions-and-limitations).
 
 
 ## Enabling and disabling workspace replication
 Workspace replication can be enabled or disabled through a REST command. This command triggers a long running operation, meaning it can take a few minutes for the new settings to apply. Once replication is set, it may take up to **one hour** to be operational for all data types. Some data types may start replicating before others. Similarly, schema changes done at any time after enabling workspace replication can take up to one hour to start replicating. Examples are custom logs using new tables or custom fields, or diagnostic logs set up for new resource types.
 
 ### Using a dedicated cluster?
-If the workspace you want to replicate is linked to a dedicated cluster, you must first enable replication for the cluster. This operation creates a "shadow" cluster on your secondary region, to allow you to keep using a dedicated cluster in case you switch to your secondary region. This also means features like cluster managed keys continue working (with the same key) on your secondary region.
+If your workspace is linked to a dedicated cluster, you must first enable replication on the cluster, and only then on the workspace. This operation creates a second cluster on your secondary region (no extra charge beyond replication charges), in order to allow your workspace to keep using a dedicated cluster even if you failover. This also means features like cluster managed keys (CMK) continue to work (with the same key) during failover.
 
-Once replication is enabled, you can proceed to enabled replication for one or more of the workspaces linked to this cluster.
+Once replication is enabled, you can proceed to enable replication for one or more of the workspaces linked to this cluster.
 
-To enable cluster replication, use the PUT command below. This call returns 201. It's a long running operation which may take time to complete, and you can track its exact state as explained later.
+To enable replication on your dedicated cluster, use the following PUT command. This call returns 201. It's a long running operation which may take time to complete, and you can track its exact state as explained later.
 
 > [!NOTE]
 > The Log Analytics Contributor role is required to enable replication.
 
-In the following command, your primary location is the original region the cluster was created in, and the secondary location is the region you'll switch to if the primary isn't healthy.
+In the following command, your primary location means the original region the cluster was created in, and the secondary location means the region you switch to if the primary isn't healthy.
 Use the values shown in [Supported regions and region groups](#supported-regions-and-region-groups).
 
 
@@ -100,7 +100,7 @@ body:
 > The secondary location of the workspaces linked to this cluster must be identical to the cluster's secondary location.
 
 ### How to enable workspace replication
-To enable workspace replication, use the PUT command below. This call returns 200. It's a long running operation which may take time to complete, and you can track its exact state as explained later.
+To enable workspace replication, use the following PUT command. This call returns 200. It's a long running operation which may take time to complete, and you can track its exact state as explained later.
 
 > [!NOTE]
 > The Log Analytics Contributor role is required to enable replication.
@@ -206,7 +206,7 @@ Service Health notifications are useful for service-wise issues. To identify iss
     * Measure ingestion latency, per data type or for all types
     * Identify the cause of latency - agents vs ingestion pipeline
     * Monitor ingestion volume anomalies, per data type and resource
-    * Monitor query success rate, per data type, user or resource
+    * Monitor query success rate, per data type, user, or resource
     * Create alerts based on your queries.
 
 **This last option is explained in detail in [Using queries to monitor workspace performance](#using-queries-to-monitor-workspace-performance).**
@@ -222,7 +222,7 @@ Choosing when to trigger failover or failback is entirely up to you. It should b
 ### Considerations
 #### The type and scope of the issue you encounter
 Failover routes ingestion and query requests to the secondary region, which likely bypasses the faulty component causing latency or failure on your primary region. Failover isn't expected to help if:
-* You know there's a cross-regional issue with an underlying resource. For example, if AKS failures are reported in both your primary and secondary regions, you may find that your secondary region experiences the same issues as the primary.
+* You know there's a cross-regional issue with an underlying resource. For example, if the same resource types fail in both your primary and secondary regions, you may find that your secondary region experiences the same issues as the primary.
 * You experience an issue related to workspace management (for example, changing workspace retention) – workspace management operations are always handled in your primary region. During failover, workspace management operations are blocked.
 
 #### Is the issue momentary of continuous
@@ -273,7 +273,7 @@ Additionally, DCRs pointing to a System DCE must not send logs to any destinatio
 > Azure Monitor agents that use DCRs not pointing to the workspace DCE will not get the replication settings. As a result, logs collected by these DCRs are not replicated and won't be available when you failover.
 
 #### Restrictions and limitations
-Switching region (by trigerring failover) should only be used after the secondary workspace contains a useful amount of logs. We recommend that you wait at least 1 week after enabling replication and before triggering failover, to allow for sufficient data to be available on your secondary region.
+Switching region (by triggering failover) should only be used after the secondary workspace contains a useful volume of logs. We recommend that you wait at least one week after enabling replication and before triggering failover, to allow for sufficient data to be available on your secondary region.
 > [!NOTE]
 > For Sentinel enabled workspaces, it may take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace. 
 
@@ -281,7 +281,7 @@ Switching region (by trigerring failover) should only be used after the secondar
     * Changing workspace retention, pricing tier, daily cap, etc.
     * Changing network settings
     * Schema changes – done through new custom logs or connecting platform logs from new resource providers (for example, sending diagnostic logs from a new resource type)
-    * Any other management operation of the workspace (enabling new capabilities etc.)
+    * Any other management operation of the workspace
  * Solution targeting – this capability of MMA agents isn't supported during failover.
  > [!WARNING]
 > Since solution targeting can't work during failover, solutions data will be ingested from **all** agents during that time.
@@ -325,7 +325,7 @@ Yet, in some cases you may want to intentionally query the inactive region. For 
 
 ### How to query the inactive workspace
 To see which logs are available on the inactive workspace, go to the Azure portal and open your Workspace's Logs page.
-Select the ‘…’ on the upper right area and turn on the “Query inactive region” option.
+Select the ‘…’ on the upper right area and turn on the "Query inactive region" option.
 
 ![Diagram that shows how to query the inactive region through the workspace Logs page](./media/workspace-replication/query_inactive_region.png)
 
@@ -356,7 +356,7 @@ Different data types have different ingestion latency, so a general measurement 
 
 #### Monitor end-to-end ingestion latency
 ##### Evaluate the baseline ingestion latency
-First, measure the baseline, ongoing latency of the specific data types (tables), over a number of days. The below example creates a chart of the 90th percentile of ingestion latency on the Perf table.
+First, measure the baseline, ongoing latency of the specific data types (tables), over several days. The below example creates a chart of the 90th percentile of ingestion latency on the Perf table.
 ```
 // assess the ingestion latency baseline for each data type
 Perf
