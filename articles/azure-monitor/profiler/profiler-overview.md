@@ -3,7 +3,7 @@ title: Analyze application performance traces with Application Insights Profiler
 description: Identify the hot path in your web server code with a low-footprint profiler.
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 09/21/2023
+ms.date: 12/11/2023
 ms.reviewer: ryankahng
 ---
 
@@ -32,17 +32,20 @@ Profiler randomly runs two minutes per hour on each virtual machine hosting appl
 
 Profiler works with .NET applications deployed on the following Azure services. View specific instructions for enabling Profiler for each service type in the following links.
 
-| Compute platform | .NET (>= 4.6) | .NET Core | Java |
-| ---------------- | ------------- | --------- | ---- |
-| [Azure App Service](profiler.md) | Yes | Yes | No |
-| [Azure Virtual Machines and Virtual Machine Scale Sets for Windows](profiler-vm.md) | Yes | Yes | No |
-| [Azure Virtual Machines and Virtual Machine Scale Sets for Linux](profiler-aspnetcore-linux.md) | No | Yes | No |
-| [Azure Cloud Services](profiler-cloudservice.md) | Yes | Yes | N/A |
-| [Azure Container Instances for Windows](profiler-containers.md) | No | Yes | No |
-| [Azure Container Instances for Linux](profiler-containers.md) | No | Yes | No |
-| Kubernetes | No | Yes | No |
-| [Azure Functions](./profiler-azure-functions.md) | Yes | Yes | No |
-| [Azure Service Fabric](profiler-servicefabric.md) | Yes | Yes | No |
+| Compute platform | .NET (>= 4.6) | .NET Core |
+| ---------------- | ------------- | --------- |
+| [Azure App Service](profiler.md) | Yes | Yes |
+| [Azure Virtual Machines and Virtual Machine Scale Sets for Windows](profiler-vm.md) | Yes | Yes |
+| [Azure Virtual Machines and Virtual Machine Scale Sets for Linux](profiler-aspnetcore-linux.md) | No | Yes |
+| [Azure Cloud Services](profiler-cloudservice.md) | Yes | Yes |
+| [Azure Container Instances for Windows](profiler-containers.md) | No | Yes |
+| [Azure Container Instances for Linux](profiler-containers.md) | No | Yes |
+| Kubernetes | No | Yes |
+| [Azure Functions](./profiler-azure-functions.md) | Yes | Yes |
+| [Azure Service Fabric](profiler-servicefabric.md) | Yes | Yes |
+
+> [!NOTE]
+> You can also use the [Java Profiler for Azure Monitor Application Insights](../app/java-standalone-profiler.md), currently in preview.
 
 If you've enabled Profiler but aren't seeing traces, see the [Troubleshooting guide](profiler-troubleshooting.md).
 

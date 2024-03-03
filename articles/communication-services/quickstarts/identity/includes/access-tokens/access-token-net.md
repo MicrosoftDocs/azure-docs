@@ -100,7 +100,7 @@ string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_AC
 var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
 ```
 
-If you've already set up an Azure Active Directory (Azure AD) application, you can [authenticate by using Azure AD](../../../identity/service-principal.md).
+If you've already set up a Microsoft Entra application, you can [authenticate by using Microsoft Entra ID](../../../identity/service-principal.md).
 
 ```csharp
 TokenCredential tokenCredential = new DefaultAzureCredential();

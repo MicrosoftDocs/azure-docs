@@ -140,12 +140,6 @@ The following steps help you create an ExpressRoute circuit from the ExpressRout
 
 1. Select **Create** once validation passed. You'll see a message letting you know that your deployment is underway. A status will display on this page when your ExpressRoute circuit resource gets created. 
 
-## Public Preview
-
-The following scenario is in public preview:
-
-ExpressRoute Direct and ExpressRoute circuit(s) in a different subscription or Azure Active Directory tenants. You'll create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Azure Active Directory tenant.
-
 ### Enable ExpressRoute Direct and circuits in a different subscription
 
 1. To enroll in the preview, send an e-mail to ExpressRouteDirect@microsoft.com with the ExpressRoute Direct and target ExpressRoute circuit Azure subscription IDs. You'll receive an e-mail once the feature get enabled for your subscriptions.
@@ -154,7 +148,7 @@ ExpressRoute Direct and ExpressRoute circuit(s) in a different subscription or A
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/authorization.png" alt-text="Screenshot of authorizations page.":::
 
-1. Create a new ExpressRoute circuit in a different subscription or Azure Active Directory tenant. 
+1. Create a new ExpressRoute circuit in a different subscription or Microsoft Entra tenant. 
 
 1. Select **Direct** as the port type and check the box for **Redeem authorization**. Enter the resource URI of the ExpressRoute Direct resource and enter the authorization key generated in step 2.
 

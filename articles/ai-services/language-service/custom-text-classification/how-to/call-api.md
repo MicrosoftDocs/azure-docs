@@ -2,15 +2,16 @@
 title: Send a text classification request to your custom model
 description: Learn how to send requests for custom text classification.
 titleSuffix: Azure AI services
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 03/23/2023
-ms.author: aahi
-ms.devlang: csharp, python
-ms.custom: language-service-clu, ignite-fall-2021, event-tier1-build-2022
+ms.date: 12/19/2023
+ms.author: jboback
+ms.devlang: csharp
+# ms.devlang: csharp, python
+ms.custom: language-service-clu
 ---
 
 # Send text classification requests to your model

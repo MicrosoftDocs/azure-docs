@@ -6,7 +6,7 @@ metadata:
   ms.author: whhender
   ms.service: data-catalog
   ms.topic: faq
-  ms.date: 12/14/2022
+  ms.date: 12/13/2023
 title: Azure Data Catalog frequently asked questions
 summary: |
   [!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
@@ -40,12 +40,12 @@ sections:
       - question: |
           How long is Data Catalog available?
         answer: |
-          Data Catalog is available until August 2025. You'll need to be migrated by that time.
+          Data Catalog is available until August 2025. You'll need to be [migrated](data-catalog-migration-to-azure-purview.md) by that time.
 
       - question: |
           Where should we migrate to?
         answer: |
-          You can migrate to [Microsoft Purview](../purview/overview.md) service, which offers unified data governance for your entire data estate.
+          You can migrate to [Microsoft Purview](../purview/overview.md) service which offers unified data governance for your entire data estate.
           
       - question: |
           What is its availability by region?
@@ -87,12 +87,6 @@ sections:
           
           Users accounts that are assigned a Power BI Pro license automatic have access to the data catalog due to License Agreement when they signed up for Office 365 E5 with the Power BI Pro License. This type of user has full access to data catalog assets without administrative privileges. That kind of user is *not* part of **Catalog User** role in Azure Data Catalog.
           
-          
-      - question: |
-          How do I get started with Data Catalog?
-        answer: |
-          The best way to get started is by going to [Getting Started with Data Catalog](data-catalog-get-started.md). This article is an end-to-end overview of the capabilities in the service.
-          
       - question: |
           How do I register my data?
         answer: |
@@ -119,14 +113,14 @@ sections:
           >
           
           > [!NOTE]
-          > For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the Data Catalog data source registration tool extracts that property value. For *on-premises* SQL Server relational databases that lack a first-class **Description** property, the Data Catalog data source registration tool extracts the value from the **MS_Description** extended property for objects and columns. This property isn't supported for SQL Azure. For more information, see [Using Extended Properties on Database Objects](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).
+          > For data sources such as SQL Server Analysis Services that have a first-class Description property, the Data Catalog data source registration tool extracts that property value. For on-premises SQL Server relational databases that lack a first-class **Description** property, the Data Catalog data source registration tool extracts the value from the **MS_Description** extended property for objects and columns. This property isn't supported for SQL Azure. For more information, see [Using Extended Properties on Database Objects](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).
           >
           >
           
       - question: |
           How long should it take for newly registered assets to appear in the catalog?
         answer: |
-          After you register assets with Data Catalog, there may be a period of 5 to 10 seconds before they appear in the Data Catalog portal.
+          After you register assets with Data Catalog, there might be a period of 5 to 10 seconds before they appear in the Data Catalog portal.
 
       - question: |
           How do I annotate and enrich the metadata for my registered data assets?

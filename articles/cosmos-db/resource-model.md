@@ -8,7 +8,6 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/27/2023
-ms.custom: ignite-2022
 ---
 
 # Databases, containers, and items in Azure Cosmos DB

@@ -40,7 +40,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-You can analyze metrics for *App Service* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. 
+You can analyze metrics for *App Service* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. 
 
 For a list of platform metrics collected for App Service, see [Monitoring App Service data reference metrics](monitor-app-service-reference.md#metrics)  
 

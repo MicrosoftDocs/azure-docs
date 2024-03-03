@@ -12,7 +12,7 @@ ms.custom: devdivchpfy22
 [!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 
 > [!NOTE]
-> To learn more about the integrated Az module experience available with the August 2022 Update, see [Quickstart: Create a lab plan using PowerShell and the Azure modules](how-to-create-lab-plan-powershell.md).
+> To learn more about the integrated Az module experience available with lab plans, see [Quickstart: Create a lab plan using PowerShell and the Azure modules](how-to-create-lab-plan-powershell.md).
 
 The [Az.LabServices](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library) PowerShell module simplifies the management of Azure Lab Services. This module provides composable functions to create, query, update and delete resources, such as labs, lab accounts, VMs, and images.
 

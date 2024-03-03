@@ -4,8 +4,7 @@ description: Learn about the NAT gateway resource of the Azure NAT Gateway servi
 author: asudbring
 ms.service: nat-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.custom: ignite-2022, FY23 content-maintenance
+ms.custom: FY23 content-maintenance
 ms.date: 07/10/2023
 ms.author: allensu
 ---
@@ -40,14 +39,11 @@ The following subnet configurations can’t be used with a NAT gateway:
 
 ## Static public IP addresses
 
-A NAT gateway can be associated with static public IP addresses or public IP prefixes for providing outbound connectivity. NAT Gateway supports IPv4 addresses. A NAT gateway can use public IP addresses or prefixes in any combination up to a total of 16 IP addresses.
+A NAT gateway can be associated with static public IP addresses or public IP prefixes for providing outbound connectivity. NAT Gateway supports IPv4 addresses. A NAT gateway can use public IP addresses or prefixes in any combination up to a total of 16 IP addresses. If you assign a public IP prefix, the entire public IP prefix is used. You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT gateway will groom all traffic to the range of IP addresses of the prefix.
 
 * A NAT gateway can’t be used with IPv6 public IP addresses or prefixes.
 
 * A NAT gateway can’t be used with basic SKU public IP addresses.
-
-> [!NOTE]
-> If you assign a public IP prefix, the entire public IP prefix is used. You can't assign a public IP prefix and then break out individual IP addresses to assign to other resources. If you want to assign individual IP addresses from a public IP prefix to multiple resources, you need to create individual public IP addresses and assign them as needed instead of using the public IP prefix itself.
 
 ## SNAT ports
 
@@ -67,7 +63,7 @@ A single NAT gateway can scale up to 16 IP addresses. Each NAT gateway public IP
 
 A NAT gateway can be created in a specific availability zone or placed in **no zone**. When a NAT gateway is placed in no zone, Azure selects a zone for the NAT gateway to reside in.
 
-Zone redundant public IP addresses can be used with no zone NAT gateway resources.
+Zone redundant public IP addresses can be used with zonal or no zone NAT gateway resources.
 
 The recommendation is to configure a NAT gateway to individual availability zones. Additionally, it should be attached to subnets with private instances from the same zone. For more information about availability zones and Azure NAT Gateway, see [Availability zones design considerations](/azure/nat-gateway/nat-availability-zones#design-considerations).
 
@@ -99,7 +95,7 @@ A NAT gateway provides a configurable idle timeout range of 4 minutes to 120 min
 
 When a connection goes idle, the NAT gateway holds onto the SNAT port until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the TCP idle timeout duration to longer than the default time of 4 minutes. The idle timer doesn't affect a flow that never goes idle.
 
-TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. For more information, see these [.NET examples] (/dotnet/api/system.net.servicepoint.settcpkeepalive). TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
+TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. For more information, see these [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive). TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
 UDP idle timeout timers aren't configurable, UDP keepalives should be used to ensure that the idle timeout value isn't reached, and that the connection is maintained. Unlike TCP connections, a UDP keepalive enabled on one side of the connection only applies to traffic flow in one direction. UDP keepalives must be enabled on both sides of the traffic flow in order to keep the traffic flow alive.
 

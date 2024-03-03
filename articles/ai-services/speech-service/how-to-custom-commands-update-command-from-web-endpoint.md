@@ -2,12 +2,11 @@
 title: 'Update a command from a web endpoint'                             
 titleSuffix: Azure AI services
 description: Learn how to update the state of a command by using a call to a web endpoint.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 1/18/2024
 ms.author: eur
 ms.custom: cogserv-non-critical-speech
 ---
@@ -18,7 +17,7 @@ ms.custom: cogserv-non-critical-speech
 
 If your client application requires an update to the state of an ongoing command without voice input, you can use a call to a web endpoint to update the command.
 
-In this article, you'll learn how to update an ongoing command from a web endpoint.
+In this article, you learn how to update an ongoing command from a web endpoint.
 
 ## Prerequisites
 > [!div class = "checklist"]
@@ -26,7 +25,7 @@ In this article, you'll learn how to update an ongoing command from a web endpoi
 
 ## Create an Azure function 
 
-For this example, you'll need an HTTP-triggered [Azure function](../../azure-functions/index.yml) that supports the following input (or a subset of this input):
+For this example, you need an HTTP-triggered [Azure function](../../azure-functions/index.yml) that supports the following input (or a subset of this input):
 
 ```JSON
 {
@@ -49,7 +48,7 @@ Let's review the key attributes of this input:
 
 | Attribute | Explanation |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **conversationId** | The unique identifier of the conversation. Note that this ID can be generated from the client app. |
+| **conversationId** | The unique identifier of the conversation. This ID can be generated from the client app. |
 | **currentCommand** | The command that's currently active in the conversation. |
 | **name** | The name of the command. The `parameters` attribute is a map with the current values of the parameters. |
 | **currentGlobalParameters** | A map like `parameters`, but used for global parameters. |
@@ -91,7 +90,7 @@ module.exports = async function (context, req) {
 }
 ```
 
-When you call this Azure function from Custom Commands, you'll send the current values of the conversation. You'll return the parameters that you want to update or if you want to cancel the current command.
+When you call this Azure function from Custom Commands, you send the current values of the conversation. You return the parameters that you want to update or if you want to cancel the current command.
 
 ## Update the existing Custom Commands app
 

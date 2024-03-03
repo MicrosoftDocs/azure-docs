@@ -3,7 +3,7 @@ title: Azure Data Catalog terminology
 description: This article provides an introduction to concepts and terms used in Azure Data Catalog documentation.
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 12/13/2023
 ---
 # Azure Data Catalog terminology
 
@@ -49,16 +49,16 @@ A data asset's descriptive metadata can include information on how to **request 
 A **preview** in Azure Data Catalog is a snapshot of up to 20 records that can be extracted from the data source during registration, and stored in the catalog with the data asset metadata. The preview can help users who discover a data asset better understand its function and purpose. In other words, seeing sample data can be more valuable than seeing just the column names and data types.
 Previews are only supported for tables and views, and must be explicitly selected by the user during registration.
 
-## Data Profile
+## Data profile
 
 A **data profile** in Azure Data Catalog is a snapshot of table-level and column-level metadata about a registered data asset. This information can be extracted from the data source during registration, and stored in the catalog with the data asset metadata. The data profile can help users who discover a data asset better understand its function and purpose. Similar to previews, data profiles must be explicitly selected by the user during registration.
 
 > [!NOTE]
-> Extracting a data profile can be a costly operation for large tables and views, and may significantly increase the time required to register a data source.
+> Extracting a data profile can be a costly operation for large tables and views, and might significantly increase the time required to register a data source.
 
 ## User perspective
 
-In Azure Data Catalog, **any user can provide descriptive metadata** for a registered data asset. Every user has a distinct perspective on the data and its use. For example, the administrator responsible for a server may provide the details of its service level agreement (SLA) or backup windows. A data steward may provide links to documentation for the business processes the data supports. An analyst may provide a description in the terms that are most relevant to other analysts, and which can be most valuable to those users who need to discover and understand the data.
+In Azure Data Catalog, **any user can provide descriptive metadata** for a registered data asset. Every user has a distinct perspective on the data and its use. For example, the administrator responsible for a server might provide the details of its service level agreement (SLA) or backup windows. A data steward might provide links to documentation for the business processes the data supports. An analyst might provide a description in the terms that are most relevant to other analysts, and which can be most valuable to those users who need to discover and understand the data.
 
 Each of these perspectives is inherently valuable, and with Azure Data Catalog each user can provide the information that is meaningful to them, while all users can use that information to understand the data and its purpose.
 

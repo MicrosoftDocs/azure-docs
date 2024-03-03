@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Image Analysis REST API"
 titleSuffix: "Azure AI services"
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

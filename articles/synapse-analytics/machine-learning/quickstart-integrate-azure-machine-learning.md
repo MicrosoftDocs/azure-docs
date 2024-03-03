@@ -5,7 +5,7 @@ ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
 ms.reviewer: sngun, garye
-ms.date: 12/16/2021
+ms.date: 02/29/2024
 author: nelgson
 ms.author: negust
 ms.custom: mode-other
@@ -14,8 +14,9 @@ ms.custom: mode-other
 # Quickstart: Create a new Azure Machine Learning linked service in Synapse
 
 > **IMPORTANT, PLEASE NOTE THE BELOW LIMITATIONS:**
-> - **The Azure ML integration is not currently supported in Synapse Workspaces with Data Exfiltration Protection.** If you are **not** using data exfiltration protection and want to connect to Azure ML using private endpoints, you can set up a managed AzureML private endpoint in your Synapse workspace. [Read more about managed private endpoints](../security/how-to-create-managed-private-endpoints.md)
+> - **The Azure Machine Learning integration is not currently supported in Synapse Workspaces with Data Exfiltration Protection.** If you are **not** using data exfiltration protection and want to connect to Azure Machine Learning using private endpoints, you can set up a managed Azure Machine Learning private endpoint in your Synapse workspace. [Read more about managed private endpoints](../security/how-to-create-managed-private-endpoints.md)
 > - **AzureML linked service is not supported with self hosted integration runtimes.** This applies to Synapse workspaces with and without Data Exfiltration Protection.
+> - **The Azure Synapse Spark 3.3 and 3.4 runtimes do not support using the Azure Machine Learning Linked Service to authenticate to the Azure Machine Learning MLFlow tracking URI.** To learn more about the limitations on these runtimes, see [Azure Synapse Runtime for Apache Spark 3.3](../spark/apache-spark-33-runtime.md) and [Azure Synapse Runtime for Apache Spark 3.4](../spark//apache-spark-34-runtime.md) 
 
 In this quickstart, you'll link an Azure Synapse Analytics workspace to an Azure Machine Learning workspace. Linking these workspaces allows you to leverage Azure Machine Learning from various experiences in Synapse.
 
@@ -46,13 +47,13 @@ In the following sections, you'll find guidance on how to create an Azure Machin
 
 This section will guide you on how to create an Azure Machine Learning linked service in Azure Synapse, using the [Azure Synapse workspace Managed Identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
 
-### Give MSI permission to the Azure ML workspace
+### Give MSI permission to the Azure Machine Learning workspace
 
 1. Navigate to your Azure Machine Learning workspace resource in the Azure portal and select **Access Control**
 
 1. Create a role assignment and add your Synapse workspace Managed Service identity (MSI) as a *contributor* of the Azure Machine Learning workspace. Note that this will require being an owner of the resource group that the Azure Machine Learning workspace belongs to. If you have trouble finding your Synapse workspace MSI, search for the name of the Synapse workspace.
 
-### Create an Azure ML linked service
+### Create an Azure Machine Learning linked service
 
 1. In the Synapse workspace where you want to create the new Azure Machine Learning linked service, go to **Manage** > **Linked services**, and create a new linked service with type "Azure Machine Learning".
 
@@ -78,7 +79,7 @@ This step will create a new Service Principal. If you want to use an existing Se
 
 1. Open Azure portal. 
 
-1. Go to **Azure Active Directory** -> **App registrations**.
+1. Go to **Microsoft Entra ID** -> **App registrations**.
 
 1. Click **New registration**. Then, follow instructions to register a new application.
 
@@ -94,7 +95,7 @@ This step will create a new Service Principal. If you want to use an existing Se
 
    ![Assign contributor role](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00c.png)
 
-### Create an Azure ML linked service
+### Create an Azure Machine Learning linked service
 
 1. In the Synapse workspace where you want to create the new Azure Machine Learning linked service, go to **Manage** -> **Linked services**, create a new linked service with type "Azure Machine Learning".
 

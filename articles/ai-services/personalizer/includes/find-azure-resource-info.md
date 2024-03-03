@@ -1,12 +1,12 @@
 ---
 title: Find your Personalizer resource endpoint and key
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: jcodella
 manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: include 
-ms.date: 08/25/2019
+ms.date: 01/19/2024
 ms.author: jacodel
 ---
 

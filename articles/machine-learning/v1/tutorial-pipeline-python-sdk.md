@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 01/28/2022
-ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for image classification
@@ -385,7 +385,15 @@ Don't complete this section if you plan to run other Azure Machine Learning tuto
 
 ### Stop the compute instance
 
-[!INCLUDE [aml-stop-server](../includes/aml-stop-server.md)]
+If you used a compute instance, stop the VM when you aren't using it to reduce cost.
+
+1. In your workspace, select **Compute**.
+
+1. From the list, select the name of the compute instance.
+
+1. Select **Stop**.
+
+1. When you're ready to use the server again, select **Start**.
 
 ### Delete everything
 

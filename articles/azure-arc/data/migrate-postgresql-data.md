@@ -20,7 +20,7 @@ This document describes the steps to get your existing PostgreSQL database (one 
 
 ## Considerations
 
-Azure Arc-enabled PostgreSQL server is the community version of PostgreSQL. So any tool that that works on PostgreSQL outside of Azure Arc should work with Azure Arc-enabled PostgreSQL server.
+Azure Arc-enabled PostgreSQL server is the community version of PostgreSQL. So any tool that works on PostgreSQL outside of Azure Arc should work with Azure Arc-enabled PostgreSQL server.
 
 
 As such, with the set of tools you use today for Postgres, you should be able to:

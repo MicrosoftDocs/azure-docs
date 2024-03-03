@@ -5,6 +5,8 @@ description: How to use the Document Intelligence sample tool to analyze documen
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -17,7 +19,7 @@ monikerRange: 'doc-intel-2.1.0'
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the Sample Labeling tool
 
-**This article applies to:** ![Document Intelligence v2.1 checkmark](media/yes-icon.png) **Document Intelligence v2.1**.
+**This content applies to:** ![Document Intelligence v2.1 checkmark](media/yes-icon.png) **v2.1**.
 
 >[!TIP]
 >
@@ -57,7 +59,7 @@ You need an Azure subscription ([create one for free](https://azure.microsoft.co
 
 > [!NOTE]
 >
-> If your storage data is behind a VNet or firewall, you must deploy the **Document Intelligence Sample Labeling tool** behind your VNet or firewall and grant access by creating a [system-assigned managed identity](managed-identities.md "Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources").
+> If your storage data is behind a VNet or firewall, you must deploy the **Document Intelligence Sample Labeling tool** behind your VNet or firewall and grant access by creating a [system-assigned managed identity](managed-identities.md "Azure managed identity is a service principal that creates a Microsoft Entra identity and specific permissions for Azure managed resources").
 
 You use the Docker engine to run the Sample Labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 

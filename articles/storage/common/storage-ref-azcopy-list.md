@@ -12,7 +12,7 @@ ms.reviewer: zezha-msft
 
 # azcopy list
 
-Lists the entities in a given resource.
+This command lists accounts, containers, and directories. Blob Storage, Azure Data Lake Storage Gen2, and File Storage are supported. OAuth for Files is currently not supported; please use SAS to authenticate for Files.
 
 ## Synopsis
 
@@ -52,7 +52,7 @@ azcopy list [containerURL] --properties [semicolon(;) separated list of attribut
 
 `--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
 
-`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Microsoft Entra login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 

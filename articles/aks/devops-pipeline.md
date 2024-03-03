@@ -4,8 +4,8 @@ description: Build and push images to Azure Container Registry; Deploy to Azure 
 ms.topic: article
 ms.author: jukullam
 author: juliakm
-ms.date: 07/05/2023
-ms.custom: devops-pipelines-deploy
+ms.date: 10/11/2023
+ms.custom: devops-pipelines-deploy, devx-track-azurepowershell
 zone_pivot_groups: pipelines-version
 ---
 
@@ -35,10 +35,11 @@ https://github.com/MicrosoftDocs/pipelines-javascript-docker
 
 ## Create the Azure resources
 
-Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](../cloud-shell/overview.md) button in the upper-right corner.
-
+Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](../cloud-shell/overview.md) button in the upper-right corner. Use Azure CLI or PowerShell to create an AKS cluster. 
 
 ### Create a container registry
+
+#### [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
 # Create a resource group
@@ -55,6 +56,40 @@ az aks create \
     --enable-addons monitoring \
     --generate-ssh-keys
 ```
+
+#### [PowerShell](#tab/powershell)
+
+```powershell
+# Install Azure PowerShell
+Install-Module -Name Az -Repository PSGallery -Force
+
+# The Microsoft.OperationsManagement resource provider must be registered. This is a one-time activity per subscription.
+Register-AzResourceProvider -ProviderNamespace Microsoft.OperationsManagement
+
+# Create a resource group
+New-AzResourceGroup -Name myapp-rg -Location eastus
+
+# Create a container registry
+New-AzContainerRegistry -ResourceGroupName myapp-rg -Name myContainerRegistry -Sku Basic -Location eastus
+
+# Create a log analytics workspace (or use an existing one)
+New-AzOperationalInsightsWorkspace -ResourceGroupName myapp-rg -Name myWorkspace -Location eastus
+
+# Create an AKS cluster with monitoring add-on enabled
+$aksParameters = @{ 
+  ResourceGroupName = 'myapp-rg'
+  Name = 'myapp'
+  NodeCount = 1
+  AddOnNameToBeEnabled = 'Monitoring'
+  GenerateSshKey = $true
+  WorkspaceResourceId = '/subscriptions/<subscription-id>/resourceGroups/myapp-rg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace'
+}
+
+New-AzAksCluster @aksParameters
+```
+
+--- 
+
 
 ## Sign in to Azure Pipelines
 
@@ -247,16 +282,18 @@ https://github.com/MicrosoftDocs/pipelines-javascript-docker
 
 ## Create the Azure resources
 
-Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](../cloud-shell/overview.md) button in the upper-right corner.
+Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](../cloud-shell/overview.md) button in the upper-right corner. Use Azure CLI or PowerShell to create an AKS cluster. 
 
 ### Create a container registry
+
+#### [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
 # Create a resource group
 az group create --name myapp-rg --location eastus
 
 # Create a container registry
-az acr create --resource-group myapp-rg --name myContainerRegistry --sku Basic
+az acr create --resource-group myapp-rg --name mycontainerregistry --sku Basic
 
 # Create a Kubernetes cluster
 az aks create \
@@ -266,6 +303,39 @@ az aks create \
     --enable-addons monitoring \
     --generate-ssh-keys 
 ```
+
+#### [PowerShell](#tab/powershell)
+
+```powershell
+# Install Azure PowerShell
+Install-Module -Name Az -Repository PSGallery -Force
+
+# The Microsoft.OperationsManagement resource provider must be registered. This is a one-time activity per subscription.
+Register-AzResourceProvider -ProviderNamespace Microsoft.OperationsManagement
+
+# Create a resource group
+New-AzResourceGroup -Name myapp-rg -Location eastus
+
+# Create a container registry
+New-AzContainerRegistry -ResourceGroupName myapp-rg -Name myContainerRegistry -Sku Basic -Location eastus
+
+# Create a log analytics workspace (or use an existing one)
+New-AzOperationalInsightsWorkspace -ResourceGroupName myapp-rg -Name myWorkspace -Location eastus
+
+# Create an AKS cluster with monitoring add-on enabled
+$aksParameters = @{ 
+  ResourceGroupName = 'myapp-rg'
+  Name = 'myapp'
+  NodeCount = 1
+  AddOnNameToBeEnabled = 'Monitoring'
+  GenerateSshKey = $true
+  WorkspaceResourceId = '/subscriptions/<subscription-id>/resourceGroups/myapp-rg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace'
+}
+
+New-AzAksCluster @aksParameters
+```
+
+---
 
 
 ## Configure authentication

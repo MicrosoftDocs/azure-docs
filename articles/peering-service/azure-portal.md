@@ -5,27 +5,22 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.date: 07/23/2023
+ms.date: 02/08/2024
+
+#CustomerIntent: As an administrator, I want to learn how to create and manage a Peering Service connection using the Azure portal so I can enhance the connectivity to Microsoft services over the public internet.
 ---
 
 # Create, change, or delete a Peering Service connection using the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Portal](azure-portal.md)
-> * [PowerShell](powershell.md)
-> * [Azure CLI](cli.md)
-
 Azure Peering Service is a networking service that enhances connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
 
-In this article, you learn how to create, change, and delete a Peering Service connection using the Azure portal.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this article, you learn how to create, change, and delete a Peering Service connection using the Azure portal. To learn how to manage a Peering Service connection using Azure PowerShell or the Azure CLI, see [Create or change a Peering Service connection using PowerShell](powershell.md) or [Create, change, or delete a Peering Service connection using the Azure CLI](cli.md).
 
 ## Prerequisites
 
-- An Azure subscription.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A connectivity provider. For more information, see [Peering Service partners](./location-partners.md).
+- A connectivity provider. For more information, see [Peering Service partners](location-partners.md).
 
 ## Sign in to Azure
 
@@ -50,9 +45,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Name | Enter *myPeeringService*. |
 
     :::image type="content" source="./media/azure-portal/peering-service-basics.png" alt-text="Screenshot of the Basics tab of Create a peering service connection in Azure portal.":::
-
-    > [!NOTE]
-    > Once a Peering Service resource is created under a certain subscription and resource group, it cannot be moved to another subscription or resource group.
  
 1. Select **Next: Configuration**.
 
@@ -118,7 +110,7 @@ Review the [Technical requirements for Peering Service prefixes](../internet-pee
 
 If you would like to change the primary or backup peering location in your Peering Service, reach out to peeringservice@microsoft.com to request this. Give the resource ID of the peering service to modify, and the new primary and backup locations you'd like to be configured.
 
-## Next steps
+## Related content
 
 - To learn more about Peering Service connections, see [Peering Service connection](connection.md).
 - To learn more about Peering Service connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).

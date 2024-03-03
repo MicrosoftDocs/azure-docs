@@ -1,11 +1,10 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox
-ms.subservice: databox   
+ms.subservice: databox
 ms.topic: include
 ms.date: 06/06/2022
-ms.author: alkohli
-ms.custom: contperf-fy22q3
+ms.author: shaas
 ---
 
 Do the following steps in the Azure portal to order a device:

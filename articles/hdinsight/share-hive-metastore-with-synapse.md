@@ -142,7 +142,7 @@ If the underlying data of your Hive tables are stored in Azure Blob storage acco
 3.	Provide **Name** of the linked service. Record the name of the linked service, this info will be used in Spark session configuration shortly.
 4.	Select the Azure Blob Storage account. Make sure Authentication method is **Account key**. Currently Spark pool can only access Blob Storage account via account key.
 5.	**Test connection** and click **Create**.
-6.	After creating the linked service to Blob Storage account, when you run Spark queries, make sure you run below Spark code in the notebook to get access to the the Blob Storage account for the Spark session. Learn more about why you need to do this [here](../synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary.md).
+6.	After creating the linked service to Blob Storage account, when you run Spark queries, make sure you run below Spark code in the notebook to get access to the Blob Storage account for the Spark session. Learn more about why you need to do this [here](../synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary.md).
 
 ```
 %%pyspark

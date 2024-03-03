@@ -1,16 +1,9 @@
 ---
 title: Create an on-demand snapshot using Azure NetApp Files | Microsoft Docs
-description: Describes how to create on-demand snapshots with Azure NetApp Files.  
+description: Describes how to create on-demand snapshots with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 10/25/2021
 ms.author: anfdocs
@@ -25,19 +18,19 @@ Azure NetApp Files supports creating on-demand [snapshots](snapshots-introductio
  
 ## Steps
 
-1.	Go to the volume that you want to create a snapshot for. Click **Snapshots**.
+1.	Go to the volume that you want to create a snapshot for. Select **Snapshots**.
 
-    ![Screenshot that shows how to navigate to the snapshots blade.](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
+    ![Screenshot that shows how to navigate to the snapshots blade.](./media/azure-netapp-files-manage-snapshots/azure-netapp-files-navigate-to-snapshots.png)
 
-2.  Click **+ Add snapshot** to create an on-demand snapshot for a volume.
+2.  Select **+ Add snapshot** to create an on-demand snapshot for a volume.
 
-    ![Screenshot that shows how to add a snapshot.](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
+    ![Screenshot that shows how to add a snapshot.](./media/azure-netapp-files-manage-snapshots/azure-netapp-files-add-snapshot.png)
 
 3.	In the New Snapshot window, provide a name for the new snapshot that you are creating.   
 
-    ![Screenshot that shows the New Snapshot window.](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
+    ![Screenshot that shows the New Snapshot window.](./media/azure-netapp-files-manage-snapshots/azure-netapp-files-new-snapshot.png)
 
-4. Click **OK**. 
+4. Select **OK**. 
 
 ## Next steps
 

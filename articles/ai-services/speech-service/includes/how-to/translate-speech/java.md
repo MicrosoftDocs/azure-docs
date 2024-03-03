@@ -1,8 +1,8 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 04/13/2020
+ms.date: 1/21/2024
 ms.custom: devx-track-java
 ms.author: eur
 ---
@@ -13,7 +13,7 @@ ms.author: eur
 
 ## Sensitive data and environment variables
 
-The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource's subscription key and region. The Java code file contains two `static final String` values that are assigned from the host machine's environment variables: `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, so they're accessible within method bodies of the class: 
+The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource's key and region. The Java code file contains two `static final String` values that are assigned from the host machine's environment variables: `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, so they're accessible within method bodies of the class: 
 
 ```java
 public class App {
@@ -103,7 +103,7 @@ With every call to [`addTargetLanguage`][addlang], a new target translation lang
 
 ## Initialize a translation recognizer
 
-After you've created a [`SpeechTranslationConfig`][speechtranslationconfig] instance, the next step is to initialize [`TranslationRecognizer`][translationrecognizer]. When you initialize `TranslationRecognizer`, you need to pass it your `speechTranslationConfig` instance. The configuration object provides the credentials that the Speech service requires to validate your request.
+After you created a [`SpeechTranslationConfig`][speechtranslationconfig] instance, the next step is to initialize [`TranslationRecognizer`][translationrecognizer]. When you initialize `TranslationRecognizer`, you need to pass it your `speechTranslationConfig` instance. The configuration object provides the credentials that the Speech service requires to validate your request.
 
 If you're recognizing speech by using your device's default microphone, here's what `TranslationRecognizer` should look like:
 
@@ -173,7 +173,7 @@ static void translateSpeech() {
 
 ## Translate speech
 
-To translate speech, the Speech SDK relies on a microphone or an audio file input. Speech recognition occurs before speech translation. After all objects have been initialized, call the recognize-once function and get the result:
+To translate speech, the Speech SDK relies on a microphone or an audio file input. Speech recognition occurs before speech translation. After all objects are initialized, call the recognize-once function and get the result:
 
 ```java
 static void translateSpeech() throws ExecutionException, InterruptedException {

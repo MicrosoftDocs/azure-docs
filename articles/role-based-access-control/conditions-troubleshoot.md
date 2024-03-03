@@ -1,15 +1,13 @@
 ---
 title: Troubleshoot Azure role assignment conditions - Azure ABAC
 description: Troubleshoot Azure role assignment conditions
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
-ms.workload: identity
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 09/20/2023
+ms.date: 02/27/2024
 ms.author: rolyon
 ---
 
@@ -29,7 +27,7 @@ Ensure that the security principals don't have multiple role assignments (with o
 
 **Cause 2**
 
-Your role assignment has multiple actions that grant a permission and your condition does not target all the actions. For example, you can create a blob if you have either `/blobs/write` or `/blobs/add/action` data actions. If your role assignment has both data actions and you target only one of them in a condition, the role assignment will grant the permission to create blobs and bypass the condition.
+Your role assignment has multiple actions that grant a permission and your condition doesn't target all the actions. For example, you can create a blob if you have either `/blobs/write` or `/blobs/add/action` data actions. If your role assignment has both data actions and you target only one of them in a condition, the role assignment will grant the permission to create blobs and bypass the condition.
 
 **Solution 2**
 
@@ -49,11 +47,19 @@ When you try to add a role assignment with a condition, you get an error similar
 
 `The given role assignment condition is invalid.`
 
-**Cause**
+**Cause 1**
 
-Your condition is not formatted correctly. 
+The `conditionVersion` property is set to "1.0".
 
-**Solution**
+**Solution 1**
+
+Set `conditionVersion` property to "2.0".
+
+**Cause 2**
+
+Your condition isn't formatted correctly. 
+
+**Solution 2**
 
 Fix any [condition format or syntax](conditions-format.md) issues. Alternatively, add the condition using the [visual editor in the Azure portal](conditions-role-assignments-portal.md).
 
@@ -61,37 +67,30 @@ Fix any [condition format or syntax](conditions-format.md) issues. Alternatively
 
 ### Symptom - Principal does not appear in Attribute source
 
-When you try to add a role assignment with a condition, **Principal** does not appear in the **Attribute source** list.
+When you try to add a role assignment with a condition, **Principal** doesn't appear in the **Attribute source** list.
 
 ![Screenshot showing Principal in Attribute source list when adding a condition.](./media/conditions-troubleshoot/condition-principal-attribute-source.png)
 
 Instead, you see the message:
 
-To use principal (user) attributes, you must have all of the following: Azure AD Premium P1 or P2 license, Azure AD permissions (such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role), and custom security attributes defined in Azure AD.
-
-![Screenshot showing principal message when adding a condition.](./media/conditions-troubleshoot/condition-principal-attribute-message.png)
+`To use principal (user) attributes, you must have Microsoft Entra permissions (such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role) and custom security attributes defined in Microsoft Entra ID.`
 
 **Cause**
 
-You don't meet the prerequisites. To use principal attributes, you must have **all** of the following:
+You don't meet the prerequisites. To use principal attributes, you must have the following:
 
-- Azure AD Premium P1 or P2 license
-- Azure AD permissions for the signed-in user to read at least one attribute set
-- Custom security attributes defined in Azure AD
+- Microsoft Entra permissions for the signed-in user to read at least one attribute set
+- Custom security attributes defined in Microsoft Entra ID
 
 **Solution**
 
-1. Open **Azure Active Directory** > **Custom security attributes**.
-
-    If the **Custom security attributes** page is disabled, you don't have an Azure AD Premium P1 or P2 license. Open **Azure Active Directory** > **Overview** and check the license for your tenant.
-
-    ![Screenshot that shows Custom security attributes page disabled in Azure portal.](./media/conditions-troubleshoot/attributes-disabled.png)
+1. Open **Microsoft Entra ID** > **Custom security attributes**.
 
     If you see the **Get started** page, you don't have permissions to read at least one attribute set or custom security attributes haven't been defined yet.
 
     ![Screenshot that shows Custom security attributes Get started page.](./media/conditions-troubleshoot/attributes-get-started.png)
 
-1. If custom security attributes have been defined, assign one of the following roles at tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-manage.md).
+1. If custom security attributes have been defined, assign one of the following roles at tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-manage.md).
 
     - [Attribute Definition Reader](../active-directory/roles/permissions-reference.md#attribute-definition-reader)
     - [Attribute Assignment Reader](../active-directory/roles/permissions-reference.md#attribute-assignment-reader)
@@ -101,15 +100,17 @@ You don't meet the prerequisites. To use principal attributes, you must have **a
     > [!IMPORTANT]
     > By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
-1. If custom security attributes haven't been defined yet, assign the [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) role at tenant scope and add custom security attributes. For more information, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
+1. If custom security attributes haven't been defined yet, assign the [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) role at tenant scope and add custom security attributes. For more information, see [Add or deactivate custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-add.md).
 
-    When finished, you should be able to read at least one attribute set. **Principal** should now appear in the **Attribute source** list when you add a role assignment with a condition.
+    When finished, you should be able to read at least one attribute set. 
 
     ![Screenshot that shows the attribute sets the user can read.](./media/conditions-troubleshoot/attribute-sets-read.png)
 
+    **Principal** should now appear in the **Attribute source** list when you add a role assignment with a condition.
+
 ### Symptom - Principal does not appear in Attribute source when using PIM 
 
-When you try to add a role assignment with a condition using [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), **Principal** does not appear in the **Attribute source** list.
+When you try to add a role assignment with a condition using [Microsoft Entra Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), **Principal** does not appear in the **Attribute source** list.
 
 ![Screenshot showing Principal in Attribute source list when adding a condition using Privileged Identity Management.](./media/conditions-troubleshoot/condition-principal-attribute-source.png)
 
@@ -167,11 +168,11 @@ The previously selected attribute no longer applies to the currently selected ac
 
 **Solution 1**
 
-In the **Add action** section, select an action that applies to the selected attribute. For a list of storage actions that each storage attribute supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md).
+In the **Add action** section, select an action that applies to the selected attribute. For a list of storage actions that each storage attribute supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues](../storage/queues/queues-auth-abac-attributes.md).
 
 **Solution 2**
 
-In the **Build expression** section, select an attribute that applies to the currently selected actions. For a list of storage attributes that each storage action supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md).
+In the **Build expression** section, select an attribute that applies to the currently selected actions. For a list of storage attributes that each storage action supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues](../storage/queues/queues-auth-abac-attributes.md).
 
 ### Symptom - Attribute does not apply in this context warning
 
@@ -181,7 +182,7 @@ When you make edits in the code editor and then switch to the visual editor, you
 
 **Cause**
 
-The specified attribute is not available in the current scope, such as using `Version ID` in a storage account with hierarchical namespace enabled.
+The specified attribute isn't available in the current scope, such as using `Version ID` in a storage account with hierarchical namespace enabled.
 
 **Solution**
 
@@ -195,7 +196,7 @@ When you make edits in the code editor and then switch to the visual editor, you
 
 **Cause**
 
-The specified attribute is not recognized, possibly because of a typo.
+The specified attribute isn't recognized, possibly because of a typo.
 
 **Solution**
 
@@ -209,7 +210,7 @@ When you make edits in the code editor and then switch to the visual editor, you
 
 **Cause**
 
-The right side of the expression contains an attribute or value that is not valid.
+The right side of the expression contains an attribute or value that isn't valid.
 
 **Solution**
 
@@ -223,7 +224,7 @@ When you remove all of the actions in the visual editor, you get the following m
 
 **Cause**
 
-There is an existing expression, but no actions have been selected as a target.
+There's an existing expression, but no actions have been selected as a target.
 
 **Solution**
 
@@ -251,7 +252,7 @@ When you attempt to add an expression, you get the following message:
 
 **Cause**
 
-One or more role definition IDs that you attempted to add for the [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) attribute was not found or does not have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
+One or more role definition IDs that you attempted to add for the [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) attribute wasn't found or doesn't have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
 
 **Solution**
 
@@ -265,7 +266,7 @@ When you attempt to add an expression, you get the following message:
 
 **Cause**
 
-One or more principal IDs that you attempted to add for the [Principal ID](conditions-authorization-actions-attributes.md#principal-id) attribute was not found or does not have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
+One or more principal IDs that you attempted to add for the [Principal ID](conditions-authorization-actions-attributes.md#principal-id) attribute wasn't found or doesn't have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
 
 **Solution**
 
@@ -298,13 +299,13 @@ $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/
 
 **Cause**
 
-If you use PowerShell and copy a condition from a document, it might include special characters that cause the following error. Some editors (such as Microsoft Word) add control characters when formatting text that does not appear.
+If you use PowerShell and copy a condition from a document, it might include special characters that cause the following error. Some editors (such as Microsoft Word) add control characters when formatting text that doesn't appear.
 
 `The given role assignment condition is invalid.`
 
 **Solution**
 
-If you copied a condition from a rich text editor and you are certain the condition is correct, delete all spaces and returns and then add back the relevant spaces. Alternatively, use a plain text editor or a code editor, such as Visual Studio Code.
+If you copied a condition from a rich text editor and you're certain the condition is correct, delete all spaces and returns and then add back the relevant spaces. Alternatively, use a plain text editor or a code editor, such as Visual Studio Code.
 
 ## Error messages in Azure CLI
 
@@ -336,7 +337,7 @@ When you try to add a role assignment with a condition using Azure CLI, you get 
 
 **Cause**
 
-You are likely using an earlier version of Azure CLI that does not support role assignment condition parameters.
+You're likely using an earlier version of Azure CLI that doesn't support role assignment condition parameters.
 
 **Solution**
 
@@ -358,4 +359,4 @@ Disable history expansion with the command `set +H`. To re-enable history expans
 
 - [Azure role assignment condition format and syntax](conditions-format.md)
 - [FAQ for Azure role assignment conditions](conditions-faq.md)
-- [Troubleshoot custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-troubleshoot.md)
+- [Troubleshoot custom security attributes in Microsoft Entra ID (Preview)](../active-directory/fundamentals/custom-security-attributes-troubleshoot.md)

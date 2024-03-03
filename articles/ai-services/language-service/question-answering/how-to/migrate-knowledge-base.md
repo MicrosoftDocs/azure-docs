@@ -5,8 +5,8 @@ ms.service: azure-ai-language
 ms.topic: how-to
 author: jboback
 ms.author: jboback
-ms.date: 1/11/2023
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.date: 12/19/2023
+ms.custom: language-service-question-answering
 ---
 # Move projects and question answer pairs
 
@@ -23,7 +23,7 @@ You may want to create copies of your projects or sources for several reasons:
 ## Prerequisites
 
 * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-* A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and the Language resource name you selected when you created the resource.
+* A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Microsoft Entra ID, Subscription, and the Language resource name you selected when you created the resource.
 
 ## Export a project
 
@@ -69,4 +69,3 @@ There is no way to move chat logs with projects. If diagnostic logs are enabled,
 ## Next steps
 
 <!-- TODO: Replace Link-->
-

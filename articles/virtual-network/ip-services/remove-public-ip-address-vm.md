@@ -9,7 +9,6 @@ ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -110,7 +109,7 @@ The following example dissociates a public IP address named *myVMPublicIP* from 
   
 ```azurepowershell
 $nic = Get-AzNetworkInterface -Name myVMNic -ResourceGroup myResourceGroup
-$nic.IpConfigurations.publicipaddress.id = $null
+$nic.IpConfigurations[0].PublicIpAddress = $null
 Set-AzNetworkInterface -NetworkInterface $nic
 ```
 

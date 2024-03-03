@@ -11,7 +11,7 @@ ms.reviewer: shijain
 
 # Optimize your environment with the System Center Operations Manager Health Check (Preview) solution
 
-![System Center Operations Manager Health Check symbol](./media/scom-assessment/scom-assessment-symbol.png)
+:::image type="content" source="./media/scom-assessment/scom-assessment-symbol.png" alt-text="System Center Operations Manager Health Check symbol.":::
 
 You can use the System Center Operations Manager Health Check solution to assess the risk and health of your System Center Operations Manager management group on a regular interval. This article helps you install, configure, and use the solution so that you can take corrective actions for potential problems.
 
@@ -22,10 +22,10 @@ The recommendations made are based on the knowledge and experience gained by Mic
 You can choose focus areas that are most important to your organization and track your progress toward running a risk free and healthy environment.
 
 After you've added the solution and an assessment is performed, summary information for focus areas is shown on the **System Center Operations Manager Health Check** dashboard for your infrastructure. The following sections describe how to use the information on the **System Center Operations Manager Health Check** dashboard, where you can view and then take recommended actions for your Operations Manager environment.
-
-![System Center Operations Manager solution tile](./media/scom-assessment/log-analytics-scom-healthcheck-tile.png)
-
-![System Center Operations Manager Health Check dashboard](./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-01.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/scom-assessment/log-analytics-scom-healthcheck-tile.png" lightbox="./media/scom-assessment/log-analytics-scom-healthcheck-tile.png" alt-text="System Center Operations Manager solution tile." border="false":::
+<!-- convertborder later -->
+:::image type="content" source="./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-01.png" lightbox="./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-01.png" alt-text="System Center Operations Manager Health Check dashboard." border="false":::
 
 ## Installing and configuring the solution
 
@@ -36,8 +36,8 @@ Use the following information to install and configure the solution.
 - Before you can use the Health Check solution in Log Analytics, you must have the solution installed. Install the solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
 - After adding the solution to the workspace, the **System Center Operations Manager Health Check** tile on the dashboard displays an additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
-
-  ![System Center Operations Manager dashboard tile](./media/scom-assessment/scom-configrequired-tile.png)
+  <!-- convertborder later -->
+  :::image type="content" source="./media/scom-assessment/scom-configrequired-tile.png" lightbox="./media/scom-assessment/scom-configrequired-tile.png" alt-text="System Center Operations Manager dashboard tile." border="false":::
 
 > [!NOTE]
 > Configuration of System Center Operations Manager can be done using a script by following the steps mentioned in the configuration page of the solution in Log Analytics.
@@ -151,7 +151,9 @@ By default, the Microsoft System Center Operations Manager Run Health Check Rule
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Overrides** > **For a specific object of class: Management Server**.
 4.	In the available management servers list, select the management server where the rule should run.  This should be the same management server you configured earlier to associate the Run As account with.
-5.	Ensure that you change override value to **True** for the **Enabled** parameter value.<br><br> ![override parameter](./media/scom-assessment/rule.png)
+5.	Ensure that you change override value to **True** for the **Enabled** parameter value. 
+    <!-- convertborder later -->
+    :::image type="content" source="./media/scom-assessment/rule.png" lightbox="./media/scom-assessment/rule.png" alt-text="override parameter" border="false":::
 
     While still in this window, configure the run frequency using the next procedure.
 
@@ -162,9 +164,11 @@ The assessment is configured to run every 10,080 minutes (or seven days) by defa
 1. In the **Authoring** workspace of the Operations Manager console, search for the rule *Microsoft System Center Operations Manager Run Health Check Rule* in the **Rules** section.
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Override the Rule** > **For all objects of class: Management Server**.
-4. Change the **Interval** parameter value to your desired interval value. In the example below, the value is set to 1440 minutes (one day).<br><br> ![interval parameter](./media/scom-assessment/interval.png)<br>  
+4. Change the **Interval** parameter value to your desired interval value. In the example below, the value is set to 1440 minutes (one day).
+   <!-- convertborder later -->
+   :::image type="content" source="./media/scom-assessment/interval.png" lightbox="./media/scom-assessment/interval.png" alt-text="interval parameter" border="false"::: 
 
-    If the value is set to less than 1440 minutes, then the rule runs on a one day interval. In this example, the rule ignores the interval value and runs at a frequency of one day.
+   If the value is set to less than 1440 minutes, then the rule runs on a one day interval. In this example, the rule ignores the interval value and runs at a frequency of one day.
 
 
 ## Understanding how recommendations are prioritized
@@ -209,7 +213,9 @@ View the summarized compliance assessments for your infrastructure and then dril
 3. In the Log Analytics subscriptions pane, select a workspace and then click the **Workspace summary (deprecated)** menu item.  
 4. On the **Overview** page, click the **System Center Operations Manager Health Check** tile.
 5. On the **System Center Operations Manager Health Check** page, review the summary information in one of the focus area sections and then click one to view recommendations for that focus area.
-6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![focus area](./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
+6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.
+   <!-- convertborder later -->
+   :::image type="content" source="./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png" lightbox="./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png" alt-text="focus area" border="false":::<br>
 7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
 ## Ignore recommendations
@@ -229,7 +235,9 @@ If you have recommendations that you want to ignore, you can create a text file 
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Here's a screenshot showing the Log Search query:<br><br> ![log search](./media/scom-assessment/scom-log-search.png)<br>
+    Here's a screenshot showing the Log Search query:
+    <!-- convertborder later -->
+    :::image type="content" source="./media/scom-assessment/scom-log-search.png" lightbox="./media/scom-assessment/scom-log-search.png" alt-text="log search" border="false":::<br>
 
 3. Choose recommendations that you want to ignore. You'll use the values for RecommendationId in the next procedure.
 

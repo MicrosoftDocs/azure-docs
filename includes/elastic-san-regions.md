@@ -5,21 +5,30 @@
  author: roygara
  ms.service: azure-storage
  ms.topic: include
- ms.date: 12/09/2022
+ ms.date: 02/16/2024
  ms.author: rogarana
  ms.custom: include file
 ---
-Currently, Elastic SAN (preview) is only available in the following regions with the following redundancies:
+The following list contains the regions Elastic SAN is currently available in, and which regions support both zone-redundant storage (ZRS) and locally redundant storage (LRS), or only LRS:
 
-- France Central - LRS & ZRS
+- South Africa North - LRS
+- East Asia - LRS
 - Southeast Asia - LRS
+- Brazil South - LRS
+- Canada Central - LRS
+- France Central - LRS & ZRS
+- Germany West Central - LRS
 - Australia East - LRS
 - North Europe - LRS & ZRS
-- West Europe - LRS & ZRS
+- West Europe - LRS & ZRS 
 - UK South - LRS
-- East US - LRS
+- Japan East - LRS
+- Korea Central - LRS
+- Central US
+- East US - LRS 
 - South Central US - LRS
-- East US 2 - LRS
+- East US 2 - LRS 
 - West US 2 - LRS & ZRS
 - West US 3 - LRS
 - Sweden Central - LRS
+- Switzerland North - LRS

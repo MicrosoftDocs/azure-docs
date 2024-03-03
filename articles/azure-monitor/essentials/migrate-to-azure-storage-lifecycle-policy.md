@@ -69,7 +69,7 @@ To set the rule for a specific webapp app, use *insights-activity-logs/ResourceI
 
 ## [CLI](#tab/cli)
 
-Use the [az storage account management-policy create](https://docs.microsoft.com/cli/azure/storage/account/management-policy?view=azure-cli-latest#az-storage-account-management-policy-create) command to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. See the Azure portal section above for more information.
+Use the [az storage account management-policy create](/cli/azure/storage/account/management-policy#az-storage-account-management-policy-create) command to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. See the Azure portal section above for more information.
 
 
 
@@ -78,7 +78,7 @@ Use the [az storage account management-policy create](https://docs.microsoft.com
 az storage account management-policy create   --account-name <storage account name> --resource-group <resource group name> --policy @<policy definition file>
 ```
 
-The sample policy definition file below sets the retention for all blobs in the container *insights-activity-logs* for the given subscription ID. For more information, see [Lifecycle management policy definition](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview#lifecycle-management-policy-definition).
+The sample policy definition file below sets the retention for all blobs in the container *insights-activity-logs* for the given subscription ID. For more information, see [Lifecycle management policy definition](../../storage/blobs/lifecycle-management-overview.md#lifecycle-management-policy-definition).
 
 ```json
 {
@@ -89,27 +89,15 @@ The sample policy definition file below sets the retention for all blobs in the 
       "type": "Lifecycle",
       "definition": {
         "actions": {
-          "version": {
-            "delete": {
-              "daysAfterCreationGreaterThan": 90
-            }
-          },
           "baseBlob": {
-            "tierToCool": {
-              "daysAfterModificationGreaterThan": 30
-            },
-            "tierToArchive": {
-              "daysAfterModificationGreaterThan": 90,
-              "daysAfterLastTierChangeGreaterThan": 7
-            },
-            "delete": {
-              "daysAfterModificationGreaterThan": 2555
+              "delete": {
+              "daysAfterModificationGreaterThan": 120
             }
           }
         },
         "filters": {
           "blobTypes": [
-            "blockBlob"
+            "appendBlob"
           ],
           "prefixMatch": [
             "insights-activity-logs/ResourceId=/SUBSCRIPTIONS/ABCD1234-5849-ABCD-1234-9876543210AB"
@@ -119,6 +107,9 @@ The sample policy definition file below sets the retention for all blobs in the 
     }
   ]
 }
+
+
+
 
 ```
 
@@ -148,29 +139,23 @@ The following template sets the retention for storage account *azmonstorageaccou
                     "rules": [
                         {
                             "enabled": true,
-                            "name": "Edtest",
+                            "name": "Susbcription level lifecycle rule",
                             "type": "Lifecycle",
                             "definition": {
+                                "actions": {
+                                    "baseBlob": {
+                                        "delete": {
+                                            "daysAfterModificationGreaterThan": 120
+                                        }
+                                    }
+                                },
                                 "filters": {
                                     "blobTypes": [
-                                        "blockBlob"
+                                        "appendBlob"
                                     ],
                                     "prefixMatch": [
                                         "insights-activity-logs/ResourceId=/SUBSCRIPTIONS/ABCD1234-5849-ABCD-1234-9876543210AB"
                                     ]
-                                },
-                                "actions": {
-                                    "baseBlob": {
-                                        "tierToCool": {
-                                            "daysAfterModificationGreaterThan": 30
-                                        },
-                                        "tierToArchive": {
-                                            "daysAfterModificationGreaterThan": 90
-                                        },
-                                        "delete": {
-                                            "daysAfterModificationGreaterThan": 1000
-                                        }
-                                    }
                                 }
                             }
                         }

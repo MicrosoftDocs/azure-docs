@@ -3,7 +3,7 @@ title: Set up Private Link with Azure Virtual Desktop - Azure
 description: Learn how to set up Private Link with Azure Virtual Desktop to privately connect to your remote resources.
 author: dknappettmsft
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 07/17/2023
 ms.author: daknappe
 ---
@@ -16,7 +16,7 @@ This article shows you how to set up Private Link with Azure Virtual Desktop to 
 
 In order to use Private Link with Azure Virtual Desktop, you need the following things:
 
-- An existing [host pool](create-host-pool.md) with [session hosts](add-session-hosts-host-pool.md), [application group, and workspace](create-application-group-workspace.md).
+- An existing [host pool](create-host-pool.md) with [session hosts](add-session-hosts-host-pool.md), an [application group, and workspace](create-application-group-workspace.md).
 
 - An existing [virtual network](../virtual-network/manage-virtual-network.md) and [subnet](../virtual-network/virtual-network-manage-subnet.md) you want to use for private endpoints.
 
@@ -28,14 +28,14 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 - Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You'll need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
 
-## Enable the feature
+## Enable Private Link with Azure Virtual Desktop on a subscription
 
-To use Private Link with Azure Virtual Desktop, you need to re-register the *Microsoft.DesktopVirtualization* resource provider on each each subscription you want to use Private Link with Azure Virtual Desktop.
+To use Private Link with Azure Virtual Desktop, you need to re-register the *Microsoft.DesktopVirtualization* resource provider on each subscription you want to use Private Link with Azure Virtual Desktop.
 
 > [!IMPORTANT]
-> For Azure US Gov and Azure operated by 21Vianet, you also need to register the feature for each subscription.
+> For Azure for US Government and Azure operated by 21Vianet, you also need to register the feature for each subscription.
 
-### Register the feature (Azure US Gov and Azure operated by 21Vianet only)
+### Register Private Link with Azure Virtual Desktop (Azure for US Government and Azure operated by 21Vianet only)
 
 To register the *Azure Virtual Desktop Private Link* feature:
 
@@ -124,7 +124,6 @@ Here's how to create a private endpoint for the *connection* sub-resource for co
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
 1. Select **Create** to create the private endpoint for the connection sub-resource.
-
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -232,7 +231,7 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
       New-AzPrivateEndpoint @parameters
       ```
 
-   Your output should be similar to the following. Check that the value for **ProvisioningState** is **Succeeded**.
+   Your output should be similar to the following output. Check that the value for **ProvisioningState** is **Succeeded**.
 
    ```output
    ResourceGroupName Name            Location ProvisioningState Subnet
@@ -312,7 +311,7 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
           --output table
       ```
 
-   Your output should be similar to the following. Check that the value for **ProvisioningState** is **Succeeded**.
+   Your output should be similar to the following output. Check that the value for **ProvisioningState** is **Succeeded**.
 
    ```output
    CustomNetworkInterfaceName    Location    Name                  ProvisioningState    ResourceGroup
@@ -987,7 +986,7 @@ To check the connection state of each private endpoint, select the relevant tab 
 
 To test that your users can connect to their remote resources:
 
-1. Use the Remote Desktop client and make sure you can [subscribe to and and refresh workspaces](users/remote-desktop-clients-overview.md).
+1. Use the Remote Desktop client and make sure you can [subscribe to and refresh workspaces](users/remote-desktop-clients-overview.md).
 
 1. Finally, make sure your users can connect to a remote session.
 
@@ -995,7 +994,7 @@ To test that your users can connect to their remote resources:
 
 - Learn more about how Private Link for Azure Virtual Desktop at [Use Private Link with Azure Virtual Desktop](private-link-overview.md).
 
-- Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
+- Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns-integration.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
 
 - For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 

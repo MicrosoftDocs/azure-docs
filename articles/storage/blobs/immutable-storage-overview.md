@@ -146,6 +146,9 @@ When you enable blob inventory, Azure Storage generates an inventory report on a
 
 For more information about blob inventory, see [Azure Storage blob inventory](blob-inventory.md).
 
+> [!NOTE]
+> You can't configure an inventory policy in an account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy. 
+
 ## Pricing
 
 There is no additional capacity charge for using immutable storage. Immutable data is priced in the same way as mutable data. For pricing details on Azure Blob Storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -155,6 +158,8 @@ Creating, modifying, or deleting a time-based retention policy or legal hold on 
 If you fail to pay your bill and your account has an active time-based retention policy in effect, normal data retention policies will apply as stipulated in the terms and conditions of your contract with Microsoft. For general information, see [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management).
 
 ## Feature support
+
+This feature is incompatible with Point in Time Restore and Last Access Tracking. 
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 

@@ -5,12 +5,11 @@ description: Learn about the Azure Machine Learning compute instance, a fully ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: compute
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.author: jcioffi
-author: jesscioffi
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
-ms.date: 10/19/2022
+ms.date: 01/17/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
@@ -139,7 +138,7 @@ A compute instance:
 
 * Has a job queue.
 * Runs jobs securely in a virtual network environment, without requiring enterprises to open up SSH port. The job executes in a containerized environment and packages your model dependencies in a Docker container.
-* Can run multiple small jobs in parallel.  One job per core can run in parallel while the rest of the jobs are queued.
+* Can run multiple small jobs in parallel.  One job per vCPU can run in parallel while the rest of the jobs are queued.
 * Supports single-node multi-GPU [distributed training](how-to-train-distributed-gpu.md) jobs
 
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.

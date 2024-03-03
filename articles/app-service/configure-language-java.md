@@ -5,7 +5,7 @@ keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.custom: seodec18, devx-track-java, devx-track-azurecli, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 author: cephalin
@@ -13,6 +13,9 @@ ms.author: cephalin
 ---
 
 # Configure a Java app for Azure App Service
+
+> [!NOTE]
+> For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination. 
 
 Azure App Service lets Java developers to quickly build, deploy, and scale their Java SE, Tomcat, and JBoss EAP web applications on a fully managed service. Deploy applications with Maven plugins, from the command line, or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
@@ -52,6 +55,8 @@ az webapp list-runtimes --os linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 
 ::: zone-end
 
+For more information on version support, see [App Service language runtime support policy](language-support-policy.md).
+
 ## Deploying your app
 
 ### Build Tools
@@ -64,7 +69,7 @@ With the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-ma
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 ```
 
-This command adds a `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. Then you can deploy your Java app to Azure using the following command:
+This command adds an `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. Then you can deploy your Java app to Azure using the following command:
 
 ```shell
 mvn package azure-webapp:deploy
@@ -333,11 +338,11 @@ Java applications running in App Service have the same set of [security best pra
 
 ### Authenticate users (Easy Auth)
 
-Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social sign-ins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory sign-in](configure-authentication-provider-aad.md) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md) article.
+Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Microsoft Entra ID or social sign-ins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Microsoft Entra sign-in](configure-authentication-provider-aad.md) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md) article.
 
 #### Java SE
 
-Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) to secure applications using familiar Spring Security annotations and APIs. Be sure to increase the maximum header size in your *application.properties* file. We suggest a value of `16384`.
+Spring Boot developers can use the [Microsoft Entra Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) to secure applications using familiar Spring Security annotations and APIs. Be sure to increase the maximum header size in your *application.properties* file. We suggest a value of `16384`.
 
 #### Tomcat
 
@@ -395,7 +400,6 @@ More configuration may be necessary for encrypting your JDBC connection with cer
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/ssl/)
 - [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption)
-- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
@@ -844,23 +848,11 @@ The following example script copies a custom Tomcat to a local folder, performs 
 
 #### Finalize configuration
 
-Finally, you'll place the driver JARs in the Tomcat classpath and restart your App Service. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/tomcat/lib* directory. (Create this directory if it doesn't already exist.) To upload these files to your App Service instance, perform the following steps:
+Finally, you'll place the driver JARs in the Tomcat classpath and restart your App Service. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/site/lib* directory. In the [Cloud Shell](https://shell.azure.com), run `az webapp deploy --type=lib` for each driver JAR:
 
-1. In the [Cloud Shell](https://shell.azure.com), install the webapp extension:
-
-    ```azurecli-interactive
-    az extension add -–name webapp
-    ```
-
-2. Run the following CLI command to create an SSH tunnel from your local system to App Service:
-
-    ```azurecli-interactive
-    az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
-    ```
-
-3. Connect to the local tunneling port with your SFTP client and upload the files to the */home/tomcat/lib* folder.
-
-Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](deploy-configure-credentials.md).
+```azurecli-interactive
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --target-path <jar-name>.jar
+```
 
 ---
 
@@ -1000,25 +992,13 @@ An example xsl file is provided below. The example xsl file adds a new connector
 
 Finally, place the driver JARs in the Tomcat classpath and restart your App Service.
 
-1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/tomcat/lib* directory. (Create this directory if it doesn't already exist.) To upload these files to your App Service instance, perform the following steps:
+1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/site/lib* directory. In the [Cloud Shell](https://shell.azure.com), run `az webapp deploy --type=lib` for each driver JAR:
 
-    1. In the [Cloud Shell](https://shell.azure.com), install the webapp extension:
+```azurecli-interactive
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --path <jar-name>.jar
+```
 
-      ```azurecli-interactive
-      az extension add -–name webapp
-      ```
-
-    2. Run the following CLI command to create an SSH tunnel from your local system to App Service:
-
-      ```azurecli-interactive
-      az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
-      ```
-
-    3. Connect to the local tunneling port with your SFTP client and upload the files to the */home/tomcat/lib* folder.
-
-    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](deploy-configure-credentials.md).
-
-2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
+If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
 
 ### JBoss EAP Data Sources
 
@@ -1107,49 +1087,6 @@ You don't need to incrementally add instances (scaling out), you can add multipl
 JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan types. Customers that created a JBoss EAP site on a different tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
 
 ::: zone-end
-
-## Java runtime statement of support
-
-### JDK versions and maintenance
-
-Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download). The table below describes the new Java versions included in the January 2022 App Service platform release:
-
-| Java Version | Linux            | Windows              |
-|--------------|------------------|----------------------|
-| Java 8       | 1.8.0_312 (Adoptium) * | 1.8.0_312 (Adoptium) |
-| Java 11      | 11.0.13 (Microsoft)   | 11.0.13 (Microsoft)       |
-| Java 17      | 17.0.1 (Microsoft)    | 17.0.1 (Microsoft)        |
-
-\* In following releases, Java 8 on Linux will be distributed from Adoptium builds of the OpenJDK.
-
-If you're [pinned](#choosing-a-java-runtime-version) to an older minor version of Java, your site may be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
-
-Major version updates will be provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
-
-Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year. For more information on Java on Azure, see [this support document](/azure/developer/java/fundamentals/java-support-on-azure).
-
-### Security updates
-
-Patches and fixes for major security vulnerabilities will be released as soon as they become available in Microsoft builds of the OpenJDK. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
-
-Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomcat.apache.org/tomcat-80-eol.html). While the runtime is still available on Azure App Service, Azure will not apply security updates to Tomcat 8.0. If possible, migrate your applications to Tomcat 8.5 or 9.0. Both Tomcat 8.5 and 9.0 are available on Azure App Service. For more information, see the [official Tomcat site](https://tomcat.apache.org/whichversion.html).
-
-Community support for Java 7 will terminate on July 29, 2022 and [Java 7 will be retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/) at that time. If you have a web app running on Java 7, please upgrade to Java 8 or 11 before July 29.
-
-### Deprecation and retirement
-
-If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
-
-- [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
-- [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
-
-### Local development
-
-Developers can download the Microsoft Build of OpenJDK for local development from [our download site](/java/openjdk/download).
-
-### Development support
-
-Product support for the [Microsoft Build of OpenJDK](/java/openjdk/download) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
 
 ## Next steps
 

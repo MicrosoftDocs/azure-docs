@@ -6,7 +6,7 @@ ms.subservice: azure-ai-qna-maker
 ms.author: jboback
 author: jboback
 ms.topic: how-to
-ms.date: 11/18/2021
+ms.date: 01/19/2024
 ---
 
 # Use follow-up prompts to create multiple turns of a conversation

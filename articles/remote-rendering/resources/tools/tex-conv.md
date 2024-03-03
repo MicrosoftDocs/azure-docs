@@ -1,8 +1,8 @@
 ---
 title: TexConv - Texture conversion tool
 description: Links to the texture tool repository on GitHub
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ---

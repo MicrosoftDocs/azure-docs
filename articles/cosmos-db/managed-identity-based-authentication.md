@@ -1,6 +1,6 @@
 ---
 title: Use system-assigned managed identities to access Azure Cosmos DB data
-description: Learn how to configure an Azure Active Directory (Azure AD) system-assigned managed identity (managed service identity) to access keys from Azure Cosmos DB. 
+description: Learn how to configure a Microsoft Entra system-assigned managed identity (managed service identity) to access keys from Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/20/2022
 ms.author: sidandrews
 ms.reviewer: justipat
-ms.custom: devx-track-csharp, devx-track-azurecli, subject-rbac-steps, ignite-2022
+ms.custom: devx-track-csharp, devx-track-azurecli, subject-rbac-steps
 ---
 
 # Use system-assigned managed identities to access Azure Cosmos DB data
@@ -331,6 +331,5 @@ Once published, the ``DefaultAzureCredential`` class will use credentials from t
 
 ## Next steps
 
-- [Certificate-based authentication with Azure Cosmos DB and Azure Active Directory](certificate-based-authentication.md)
 - [Secure Azure Cosmos DB keys using Azure Key Vault](store-credentials-key-vault.md)
 - [Security baseline for Azure Cosmos DB](security-baseline.md)

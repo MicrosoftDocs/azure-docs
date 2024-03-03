@@ -87,4 +87,4 @@ The feature to enable storing customer data in a single region is currently only
 * Already have an AKS cluster or an Azure Arc-enabled Kubernetes cluster? [Create GitOps configurations on your Azure Arc-enabled Kubernetes cluster](./tutorial-use-gitops-flux2.md).
 * Learn how to [setup a CI/CD pipeline with GitOps](./tutorial-gitops-flux2-ci-cd.md).
 * Learn how to [use Azure Policy to apply configurations at scale](./use-azure-policy.md).
-* Experience Azure Arc-enabled Kubernetes automated scenarios with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/).
+* Experience Azure Arc-enabled Kubernetes automated scenarios with [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_k8s).

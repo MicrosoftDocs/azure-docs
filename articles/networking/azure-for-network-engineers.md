@@ -1,16 +1,13 @@
 ---
 title: 'Azure for Network Engineers'
 description: This page explains to traditional network engineers how networks work in Azure.
-documentationcenter: na
 services: networking
 author: osamazia
 manager: tracsman
 ms.service: virtual-network
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-
 ---
 # Azure for network engineers
 As a conventional network engineer you have dealt with physical assets such as routers, switches, cables, firewalls to build infrastructure. At a logical layer you have configured virtual LAN (VLAN), Spanning Tree Protocol (STP), routing protocols (RIP, OSPF, BGP). You have managed your network using management tools and CLI. Networking in the cloud is different where network endpoints are logical and use of routing protocols is minimum. You will work with Azure Resource Manager API, Azure CLI, and PowerShell for configuring and managing assets in Azure. You will start your network journey in the cloud by understanding basic tenants of Azure networking. 
@@ -64,15 +61,15 @@ When you have competing entries in a routing table, Azure selects the next hop b
 
 You can filter network traffic to and from resources in a virtual network using network security groups. You can also use network virtual appliances (NVA) such as Azure Firewall or firewalls from other vendors. You can control how Azure routes traffic from subnets. You can also limit who in your organization can work with resources in virtual networks.
 
-A network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. In addition, traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
+A network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. In addition, traffic to an individual NIC can be restricted by associating an NSG directly with a NIC.
 
 NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. Each rule has properties of protocol, source and destination port ranges, address prefixes, direction of traffic, priority, and access type. All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create.
 
 ## Verification
 ### Routes in virtual network
-The combination of routes you create, Azure's default routes, and any routes propagated from your on-premises network through an Azure VPN gateway (if your virtual network is connected to your on-premises network) via the border gateway protocol (BGP), are the effective routes for all network interfaces in a subnet. You can see these effective routes by navigating to NIC either via Portal, PowerShell, or CLI.
+The combination of routes you create, Azure's default routes, and any routes propagated from your on-premises network through an Azure VPN gateway (if your virtual network is connected to your on-premises network) via the border gateway protocol (BGP), are the effective routes for all network interfaces in a subnet. You can see these effective routes by navigating to NIC either via Portal, PowerShell, or CLI. For more information on effective routes on a NIC, please see [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable).
 ### Network Security Groups
-The effective security rules applied to a network interface are an aggregation of the rules that exist in the NSG associated to a network interface, and the subnet the network interface is in. You can view all the effective security rules from NSGs that are applied on your VM's network interfaces by navigating to the NIC via Portal, PowerShell, or CLI.
+The effective security rules applied to a network interface are an aggregation of the rules that exist in the NSG associated with a network interface, and the subnet the network interface is in. You can view all the effective security rules from NSGs that are applied to your VM's network interfaces by navigating to the NIC via Portal, PowerShell, or CLI.
 
 ## Next steps
 

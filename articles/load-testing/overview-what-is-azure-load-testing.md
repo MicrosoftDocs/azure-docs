@@ -4,11 +4,10 @@ description: 'Azure Load Testing is a fully managed load-testing service for gen
 services: load-testing
 ms.service: load-testing
 ms.topic: overview
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 05/09/2023
 adobe-target: true
-ms.custom: contperf-fy22q4
 ---
 
 # What is Azure Load Testing?
@@ -46,6 +45,8 @@ Azure Load Testing uses Apache JMeter and supports a wide range of application t
 By [using JMeter plugins](./how-to-use-jmeter-plugins.md) in your test script, you can load test more application types.
 
 With the quick test experience you can [test a single URL-based HTTP endpoint](./quickstart-create-and-run-load-test.md). By [uploading a JMeter script](how-to-create-and-run-load-test-with-jmeter-script.md), you can use all JMeter-supported communication protocols.
+
+Azure Load Testing currently does not support other testing frameworks than Apache JMeter.
 
 ## Identify performance bottlenecks by using high-scale load tests
 

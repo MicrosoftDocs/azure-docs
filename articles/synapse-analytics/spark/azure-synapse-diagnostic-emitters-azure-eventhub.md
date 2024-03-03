@@ -1,7 +1,6 @@
 ---
 title: Collect your Apache Spark applications logs and metrics using Azure Event Hubs 
 description: In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitter extension to emit Apache Spark applications’ logs, event logs and metrics to your Azure Event Hubs.
-services: synapse-analytics 
 author: hrasheed-msft
 ms.author: jejiang
 ms.reviewer: sngun 

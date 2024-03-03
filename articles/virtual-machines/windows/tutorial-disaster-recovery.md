@@ -41,7 +41,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     **Name** | **Public cloud** | **Government cloud** | **Details**
     --- | --- | --- | ---
     Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Write data from the VM to the cache storage account in the source region.
-    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Authorize and authenticate to Site Recovery service URLs.
+    Microsoft Entra ID  | `login.microsoftonline.com` | `login.microsoftonline.us`| Authorize and authenticate to Site Recovery service URLs.
     Replication | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |VM communication with the Site Recovery service.
     Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | VM writes to Site Recovery monitoring and diagnostic data.
 
@@ -50,7 +50,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     **Tag** | **Allow**
     --- | ---
     Storage tag | Allows data to be written from the VM to the cache storage account.
-    Azure AD tag | Allows access to all IP addresses that correspond to Azure AD.
+    Microsoft Entra ID tag | Allows access to all IP addresses that correspond to Microsoft Entra ID.
     EventsHub tag | Allows access to Site Recovery monitoring.
     AzureSiteRecovery tag | Allows access to the Site Recovery service in any region.
     GuestAndHybridManagement | Use if you want to automatically upgrade the Site Recovery Mobility agent that's running on VMs enabled for replication.
@@ -92,7 +92,7 @@ If you want to enable disaster recovery on an existing VM instead of for a new V
     :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Open disaster recovery options for an existing VM.":::
 
 3. In **Basics**, if the VM is deployed in an availability zone, you can select disaster recovery between availability zones.
-4. In **Target region**, select the region to which you want to replicate the VM. The source and target regions must be in the same Azure Active Directory tenant.
+4. In **Target region**, select the region to which you want to replicate the VM. The source and target regions must be in the same Microsoft Entra tenant.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/basics.png" alt-text="Set the basic disaster recovery options for a VM.":::
 

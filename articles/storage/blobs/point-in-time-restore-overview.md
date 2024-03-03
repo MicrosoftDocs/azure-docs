@@ -71,7 +71,7 @@ The time that it takes to restore a set of data is based on the number of write 
 
 ### Permissions for point-in-time restore
 
-To initiate a restore operation, a client must have write permissions to all containers in the storage account. To grant permissions to authorize a restore operation with Azure Active Directory (Azure AD), assign the **Storage Account Contributor** role to the security principal at the level of the storage account, resource group, or subscription.
+To initiate a restore operation, a client must have write permissions to all containers in the storage account. To grant permissions to authorize a restore operation with Microsoft Entra ID, assign the **Storage Account Contributor** role to the security principal at the level of the storage account, resource group, or subscription.
 
 ## Limitations and known issues
 
@@ -89,7 +89,7 @@ Point-in-time restore for block blobs has the following limitations and known is
 - Performing a customer-managed failover on a storage account resets the earliest possible restore point for the storage account. For more details, see [Point-in-time restore](../common/storage-disaster-recovery-guidance.md#point-in-time-restore-inconsistencies).
 - Snapshots aren't created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - Point-in-time restore isn't supported for hierarchical namespaces or operations via Azure Data Lake Storage Gen2.
-- Point-in-time restore isn't supported when the storage account's **AllowedCopyScope** property is set to restrict copy scope to the same Azure AD tenant or virtual network. For more information, see [About Permitted scope for copy operations (preview)](../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json&tabs=portal#about-permitted-scope-for-copy-operations-preview).
+- Point-in-time restore isn't supported when the storage account's **AllowedCopyScope** property is set to restrict copy scope to the same Microsoft Entra tenant or virtual network. For more information, see [About Permitted scope for copy operations (preview)](../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json&tabs=portal#about-permitted-scope-for-copy-operations-preview).
 - Point-in-time restore isn't supported when version-level immutability is enabled on a storage account or a container in an account. For more information on version-level immutability, see [Overview of immutable storage for blob data](immutable-storage-overview.md#version-level-scope).
 
 > [!IMPORTANT]

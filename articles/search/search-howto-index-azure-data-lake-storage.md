@@ -1,23 +1,25 @@
 ---
 title: Azure Data Lake Storage Gen2 indexer
-titleSuffix: Azure Cognitive Search
-description: Set up an Azure Data Lake Storage (ADLS) Gen2 indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Set up an Azure Data Lake Storage (ADLS) Gen2 indexer to automate indexing of content and metadata for full text search in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 02/19/2024
 ---
 
 # Index data from Azure Data Lake Storage Gen2
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Data Lake Storage (ADLS) Gen2 and makes it searchable in Azure Cognitive Search. Inputs to the indexer are your blobs, in a single container. Output is a search index with searchable content and metadata stored in individual fields.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Data Lake Storage (ADLS) Gen2 and makes it searchable in Azure AI Search. Inputs to the indexer are your blobs, in a single container. Output is a search index with searchable content and metadata stored in individual fields.
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to indexing from ADLS Gen2. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
-For a code sample in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
+For a code sample in C#, see [Index Data Lake Gen2 using Microsoft Entra ID](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
 ## Prerequisites
 
@@ -32,7 +34,7 @@ For a code sample in C#, see [Index Data Lake Gen2 using Azure AD](https://githu
 + Use a REST client, such as [Postman app](https://www.postman.com/downloads/), if you want to formulate REST calls similar to the ones shown in this article.
 
 > [!NOTE]
-> ADLS Gen2 implements an [access control model](../storage/blobs/data-lake-storage-access-control.md) that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs) at the blob level. Azure Cognitive Search does not support document-level permissions. All users have the same level of access to all searchable and retrievable content in the index. If document-level permissions are an application requirement, consider [security trimming](search-security-trimming-for-azure-search.md) as a potential solution.
+> ADLS Gen2 implements an [access control model](../storage/blobs/data-lake-storage-access-control.md) that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs) at the blob level. Azure AI Search does not support document-level permissions. All users have the same level of access to all searchable and retrievable content in the index. If document-level permissions are an application requirement, consider [security trimming](search-security-trimming-for-azure-search.md) as a potential solution.
 
 <a name="SupportedFormats"></a>
 
@@ -79,7 +81,7 @@ You still have to add the underscored fields to the index definition, but you ca
 
 + **metadata_storage_content_type** (`Edm.String`) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
 
-+ **metadata_storage_last_modified** (`Edm.DateTimeOffset`) - last modified timestamp for the blob. Azure Cognitive Search uses this timestamp to identify changed blobs, to avoid reindexing everything after the initial indexing.
++ **metadata_storage_last_modified** (`Edm.DateTimeOffset`) - last modified timestamp for the blob. Azure AI Search uses this timestamp to identify changed blobs, to avoid reindexing everything after the initial indexing.
 
 + **metadata_storage_size** (`Edm.Int64`) - blob size in bytes.
 
@@ -150,7 +152,6 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store blob content and metadata:
 
     ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     {
         "name" : "my-search-index",
         "fields": [
@@ -158,9 +159,8 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false },
             { "name": "metadata_storage_name", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true  },
             { "name": "metadata_storage_size", "type": "Edm.Int64", "searchable": false, "filterable": true, "sortable": true  },
-            { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },        
+            { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true }     
         ]
-      }
     }
     ```
 
@@ -187,9 +187,8 @@ Once the index and data source have been created, you're ready to create the ind
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     {
-      "name" : "my-adlsgen2-indexer,
+      "name" : "my-adlsgen2-indexer",
       "dataSourceName" : "my-adlsgen2-datasource",
       "targetIndexName" : "my-search-index",
       "parameters": {
@@ -197,7 +196,7 @@ Once the index and data source have been created, you're ready to create the ind
           "maxFailedItems": null,
           "maxFailedItemsPerBatch": null,
           "base64EncodeKeys": null,
-          "configuration:" {
+          "configuration": {
               "indexedFileNameExtensions" : ".pdf,.docx",
               "excludedFileNameExtensions" : ".png,.jpeg",
               "dataToExtract": "contentAndMetadata",
@@ -238,7 +237,7 @@ An indexer runs automatically when it's created. You can prevent this by setting
 To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2023-11-01
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -251,8 +250,8 @@ The response includes status and the number of items processed. It should look s
         "lastResult": {
             "status":"success",
             "errorMessage":null,
-            "startTime":"2022-02-21T00:23:24.957Z",
-            "endTime":"2022-02-21T00:36:47.752Z",
+            "startTime":"2024-02-21T00:23:24.957Z",
+            "endTime":"2024-02-21T00:36:47.752Z",
             "errors":[],
             "itemsProcessed":1599501,
             "itemsFailed":0,
@@ -264,8 +263,8 @@ The response includes status and the number of items processed. It should look s
             {
                 "status":"success",
                 "errorMessage":null,
-                "startTime":"2022-02-21T00:23:24.957Z",
-                "endTime":"2022-02-21T00:36:47.752Z",
+                "startTime":"2024-02-21T00:23:24.957Z",
+                "endTime":"2024-02-21T00:36:47.752Z",
                 "errors":[],
                 "itemsProcessed":1599501,
                 "itemsFailed":0,
@@ -285,12 +284,12 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 Errors that commonly occur during indexing include unsupported content types, missing content, or oversized blobs.
 
-By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an audio file). You could use the "excludedFileNameExtensions" parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an audio file). You could use the "excludedFileNameExtensions" parameter to skip certain content types. However, you might want indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
 
 There are five indexer properties that control the indexer's response when errors occur. 
 
 ```http
-PUT /indexers/[indexer name]?api-version=2020-06-30
+PUT /indexers/[indexer name]?api-version=2023-11-01
 {
   "parameters" : { 
     "maxFailedItems" : 10, 
@@ -299,6 +298,7 @@ PUT /indexers/[indexer name]?api-version=2020-06-30
         "failOnUnsupportedContentType" : false, 
         "failOnUnprocessableDocument" : false,
         "indexStorageMetadataOnlyForOversizedDocuments": false
+    }
   }
 }
 ```
@@ -317,4 +317,4 @@ You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor stat
 
 + [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
 + [Index large data sets](search-howto-large-index.md)
-+ [C# Sample: Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/master/data-lake-gen2-acl-indexing/README.md)
++ [C# Sample: Index Data Lake Gen2 using Microsoft Entra ID](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/data-lake-gen2-acl-indexing/README.md)

@@ -1,6 +1,6 @@
 ---
-title: How to use Project Health Insights containers
-titleSuffix: Project Health Insights
+title: How to use Azure AI Health Insights containers
+titleSuffix: Azure AI Health Insights
 description: Learn how to use Project Health Insight models on premises using Docker containers.
 services: azure-health-insights
 author: iBoonZ
@@ -11,13 +11,13 @@ ms.date: 03/14/2023
 ms.author: behoorne
 ---
 
-# Use Project Health Insights containers
+# Use Azure AI Health Insights containers
 
-These services enable you to host Project Health Insights API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Project Health Insights remotely, then on-premises Project Health Insights services might be a good solution.
+These services enable you to host Azure AI Health Insights API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Azure AI Health Insights remotely, then on-premises Azure AI Health Insights services might be a good solution.
 
 ## Prerequisites
 
-You must meet the following prerequisites before using Project Health Insights containers.
+You must meet the following prerequisites before using Azure AI Health Insights containers.
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -46,20 +46,20 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 ## Get the container images with `docker pull`
 
-Project Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They reside within the `azure-cognitive-services/health-insights/` repository and can be found by their model name.
+Azure AI Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They reside within the `azure-cognitive-services/health-insights/` repository and can be found by their model name.
 
 - Clinical Trial Matcher: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/clinical-matching`
 - Onco-Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
 
 To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/clinical-matching/tags/list` and `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/cancer-profiling/tags/list`.
 
-- Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the [dockerhub clinical matching page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-clinical-matching) and [dockerhub cancer profiling page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-cancer-profiling)  
+- Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the [docker hub clinical matching page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-clinical-matching) and [docker hub cancer profiling page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-cancer-profiling)  
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/health-insights/<model-name>:<tag-name>
 ```
 
-- For Clinical Trial Matcher, use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download textanalytics healthcare container image from the Microsoft public container registry. You can find the featured tags on the [dockerhub](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)
+- For Clinical Trial Matcher, use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download textanalytics healthcare container image from the Microsoft public container registry. You can find the featured tags on the [docker hub](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name>
@@ -84,13 +84,13 @@ container-
 > * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 >   * The responsible AI '`RAI_Terms` acknowledgment must also be present with a value of `accept`.
 
-There are multiple ways you can install and run Project Health Insights containers. 
+There are multiple ways you can install and run Azure AI Health Insights containers. 
 
-- Use the Azure portal to create a Project Health Insights resource, and use Docker to get your container.
+- Use the Azure portal to create an Azure AI Health Insights resource, and use Docker to get your container.
 - Use an Azure VM with Docker to run the container. 
 - Use PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
-When you use Project Health Insights container, the data contained in your API requests and responses isn't visible to Microsoft, and is not used for training the model applied to your data. 
+When you use Azure AI Health Insights container, the data contained in your API requests and responses isn't visible to Microsoft, and is not used for training the model applied to your data. 
 
 ### Run the container locally 
 
@@ -118,7 +118,7 @@ TrialMatcher__TA4HConfiguration__Host =   `https://<text-analytics-container-end
 
 This command:
 
-- Runs Project Health Insights container from the container image
+- Runs Azure AI Health Insights container from the container image
 - Allocates 6 CPU core and 12 gigabytes (GB) of memory
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 - Accepts the end user license agreement (EULA) and responsible AI (RAI) terms
@@ -178,7 +178,7 @@ docker-compose up
 
 If you intend to run multiple containers with exposed ports, make sure to run each container with a different exposed port. For example, run the first container on port 5000 and the second container on port 5001.
 
-You can have this container and a different Project Health Insights container running on the HOST together. You also can have multiple containers of the same Project Health Insights container running.
+You can have this container and a different Azure AI Health Insights container running on the HOST together. You also can have multiple containers of the same Azure AI Health Insights container running.
 
 ## Query the container's prediction endpoint
 
@@ -208,11 +208,11 @@ If you run the container with an output mount and logging enabled, the container
 
 ## Billing
 
-Project Health Insights containers send billing information to Azure, using a *Language* resource on your Azure account. 
+Azure AI Health Insights containers send billing information to Azure, using a *Language* resource on your Azure account. 
 
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `ApiKey` parameter.
 
-Project Health Insights containers aren't licensed to run without being connected to the metering or billing endpoint. You must enable the containers to communicate billing information with the billing endpoint always. Project Health Insights containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
+Azure AI Health Insights containers aren't licensed to run without being connected to the metering or billing endpoint. You must enable the containers to communicate billing information with the billing endpoint always. Azure AI Health Insights containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
 
 ### Connect to Azure
 
@@ -224,22 +224,22 @@ The [docker run](https://docs.docker.com/engine/reference/commandline/run/) comm
 
 | Option | Description |
 |--------|-------------|
-| `ApiKey` | The API key of Project Health Insights resource that's used to track billing information.<br/>The value of this option must be set to an API key for the provisioned resource that's specified in `Billing`. |
-| `Billing` | The endpoint of Project Health Insights resource that's used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned Azure resource.|
+| `ApiKey` | The API key of Azure AI Health Insights resource that's used to track billing information.<br/>The value of this option must be set to an API key for the provisioned resource that's specified in `Billing`. |
+| `Billing` | The endpoint of Azure AI Health Insights resource that's used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned Azure resource.|
 | `Eula` | Indicates that you accepted the license for the container.<br/>The value of this option must be set to **accept**. |
 
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running Project Health Insights containers. In summary:
+In this article, you learned concepts and workflow for downloading, installing, and running Azure AI Health Insights containers. In summary:
 
-* Project Health Insights provides a Linux container for Docker
+* Azure AI Health Insights service provides a Linux container for Docker
 * Container images are downloaded from the Microsoft Container Registry (MCR).
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Project Health Insights containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Azure AI Health Insights containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Project Health Insights containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Project Health Insights containers do not send customer data (e.g. text that is being analyzed) to Microsoft.
+> Azure AI Health Insights containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Azure AI Health Insights containers do not send customer data (e.g. text that is being analyzed) to Microsoft.
 
 ## Next steps
 >[!div class="nextstepaction"]

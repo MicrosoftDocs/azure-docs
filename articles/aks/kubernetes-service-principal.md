@@ -1,6 +1,6 @@
 ---
 title: Use a service principal with Azure Kubernetes Services (AKS)
-description: Learn how to create and manage an Azure Active Directory service principal with a cluster in Azure Kubernetes Service (AKS).
+description: Learn how to create and manage a Microsoft Entra service principal with a cluster in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 06/27/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Use a service principal with Azure Kubernetes Service (AKS)
 
-An AKS cluster requires either an [Azure Active Directory (AD) service principal][aad-service-principal] or a [managed identity][managed-identity-resources-overview] to dynamically create and manage other Azure resources, such as an Azure Load Balancer or Azure Container Registry (ACR).
+An AKS cluster requires either an [Microsoft Entra service principal][aad-service-principal] or a [managed identity][managed-identity-resources-overview] to dynamically create and manage other Azure resources, such as an Azure Load Balancer or Azure Container Registry (ACR).
 
 > [!NOTE]
 > We recommend using managed identities to authenticate with other resources in Azure, and they're the default authentication method for your AKS cluster. For more information about using a managed identity with your cluster, see [Use a system-assigned managed identity][use-managed-identity].
@@ -19,9 +19,9 @@ This article shows you how to create and use a service principal for your AKS cl
 
 ## Before you begin
 
-To create an Azure AD service principal, you must have permissions to register an application with your Azure AD tenant and to assign the application to a role in your subscription. If you don't have the necessary permissions, you need to ask your Azure AD or subscription administrator to assign the necessary permissions or pre-create a service principal for you to use with your AKS cluster.
+To create a Microsoft Entra service principal, you must have permissions to register an application with your Microsoft Entra tenant and to assign the application to a role in your subscription. If you don't have the necessary permissions, you need to ask your Microsoft Entra ID or subscription administrator to assign the necessary permissions or pre-create a service principal for you to use with your AKS cluster.
 
-If you're using a service principal from a different Azure AD tenant, there are other considerations around the permissions available when you deploy the cluster. You may not have the appropriate permissions to read and write directory information. For more information, see [What are the default user permissions in Azure Active Directory?][azure-ad-permissions]
+If you're using a service principal from a different Microsoft Entra tenant, there are other considerations around the permissions available when you deploy the cluster. You may not have the appropriate permissions to read and write directory information. For more information, see [What are the default user permissions in Microsoft Entra ID?][azure-ad-permissions]
 
 ## Prerequisites
 
@@ -180,11 +180,11 @@ If you use Virtual Kubelet to integrate with AKS and choose to run Azure Contain
 
 ### [Azure CLI](#tab/azure-cli)
 
-When using AKS and an Azure AD service principal, consider the following:
+When using AKS and a Microsoft Entra service principal, consider the following:
 
 * The service principal for Kubernetes is a part of the cluster configuration, but don't use this identity to deploy the cluster.
 * By default, the service principal credentials are valid for one year. You can [update or rotate the service principal credentials][update-credentials] at any time.
-* Every service principal is associated with an Azure AD application. You can associate the service principal for a Kubernetes cluster with any valid Azure AD application name (for example: *https://www.contoso.org/example*). The URL for the application doesn't have to be a real endpoint.
+* Every service principal is associated with a Microsoft Entra application. You can associate the service principal for a Kubernetes cluster with any valid Microsoft Entra application name (for example: *https://www.contoso.org/example*). The URL for the application doesn't have to be a real endpoint.
 * When you specify the service principal **Client ID**, use the value of the `appId`.
 * On the agent node VMs in the Kubernetes cluster, the service principal credentials are stored in the `/etc/kubernetes/azure.json` file.
 * When you delete an AKS cluster that was created using the [`az aks create`][az-aks-create] command, the service principal created isn't automatically deleted.
@@ -196,11 +196,11 @@ When using AKS and an Azure AD service principal, consider the following:
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-When using AKS and an Azure AD service principal, consider the following:
+When using AKS and a Microsoft Entra service principal, consider the following:
 
 * The service principal for Kubernetes is a part of the cluster configuration, but don't use this identity to deploy the cluster.
 * By default, the service principal credentials are valid for one year. You can [update or rotate the service principal credentials][update-credentials] at any time.
-* Every service principal is associated with an Azure AD application. You can associate the service principal for a Kubernetes cluster with any valid Azure AD application name (for example: *https://www.contoso.org/example*). The URL for the application doesn't have to be a real endpoint.
+* Every service principal is associated with a Microsoft Entra application. You can associate the service principal for a Kubernetes cluster with any valid Microsoft Entra application name (for example: *https://www.contoso.org/example*). The URL for the application doesn't have to be a real endpoint.
 * When you specify the service principal **Client ID**, use the value of the `ApplicationId`.
 * On the agent node VMs in the Kubernetes cluster, the service principal credentials are stored in the `/etc/kubernetes/azure.json` file.
 * When you delete an AKS cluster that was created using the [`New-AzAksCluster`][new-azakscluster], the service principal created isn't automatically deleted.
@@ -259,7 +259,7 @@ The default expiration time for the service principal credentials is one year. I
 
 ## Next steps
 
-For more information about Azure Active Directory service principals, see [Application and service principal objects][service-principal].
+For more information about Microsoft Entra service principals, see [Application and service principal objects][service-principal].
 
 For information on how to update the credentials, see [Update or rotate the credentials for a service principal in AKS][update-credentials].
 

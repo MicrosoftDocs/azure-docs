@@ -6,10 +6,12 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 01/19/2024
 ---
 
 # Configure the Personalizer learning behavior
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 [Apprentice mode](concept-apprentice-mode.md) gives you trust and confidence in the Personalizer service and its machine learning capabilities, and provides assurance that the service is sent information that can be learned from – without risking online traffic.
 

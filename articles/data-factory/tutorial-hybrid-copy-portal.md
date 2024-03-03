@@ -240,7 +240,7 @@ Select **Add Trigger** on the toolbar for the pipeline, and then select **Trigge
 The pipeline automatically creates the output folder named *fromonprem* in the `adftutorial` blob container. Confirm that you see the *[pipeline().RunId].txt* file in the output folder.
 
 
-## Next steps
+## Related content
 The pipeline in this sample copies data from one location to another in Blob storage. You learned how to:
 
 > [!div class="checklist"]

@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 08/29/2023
+ms.date: 01/10/2024
 ---
 
 # Create and manage integration accounts for B2B workflows in Azure Logic Apps with the Enterprise Integration Pack
@@ -190,7 +190,7 @@ To read artifacts and write any state information, your Premium integration acco
    |-----------|-------|-------------|
    | **Scope** | **Storage** | For more information, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md). |
    | **Subscription** | <*Azure-subscription*> | The Azure subscription for the resource to access. |
-   | **Resource** | <*Azure-storage-account-name*> | The name for the Azure storage account to access. <br><br>**Note** If you get an error that you don't have permissions to add role assignments at this scope, you need to get those permissions. For more information, see [Azure AD built-in roles](../../active-directory/roles/permissions-reference.md). |
+   | **Resource** | <*Azure-storage-account-name*> | The name for the Azure storage account to access. <br><br>**Note** If you get an error that you don't have permissions to add role assignments at this scope, you need to get those permissions. For more information, see [Microsoft Entra built-in roles](../../active-directory/roles/permissions-reference.md). |
    | **Role** | - **Storage Account Contributor** <br><br>- **Storage Blob Data Contributor** <br><br>- **Storage Table Data Contributor** | The roles that your Premium integration account requires to access your storage account. |
 
    For more information, see [Assign Azure role to system-assigned managed identity](../../role-based-access-control/role-assignments-portal-managed-identity.md)

@@ -6,11 +6,13 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-metrics-advisor
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 01/19/2024
 ms.author: mbullwin
 ---
 
 # How to: Manage your data feeds
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 Learn how to manage your onboarded data feeds in Metrics Advisor. This article guides you through managing data feeds in Metrics Advisor.
 

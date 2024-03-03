@@ -41,7 +41,7 @@ The steps in this section apply when connecting to a target VM from a Windows lo
    az account set --subscription "<subscription ID>"
    ```
 
-1. Sign in to your target VM via RDP using the following command. You can use either a local username and password, or your Azure AD credentials. To learn more about how to use Azure AD to sign in to your Azure Windows VMs, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
+1. Sign in to your target VM via RDP using the following command. You can use either a local username and password, or your Microsoft Entra credentials. To learn more about how to use Microsoft Entra ID to sign in to your Azure Windows VMs, see [Azure Windows VMs and Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
     ```azurecli
     az network bastion rdp --name "<BastionName>" --resource-group "<BastionResourceGroupName>" --target-resource-id "<VMResourceId>"

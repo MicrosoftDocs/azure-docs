@@ -3,10 +3,9 @@ title: Reprotect Azure VMs to the primary region with Azure Site Recovery
 description: Describes how to reprotect Azure VMs after failover, the secondary to primary region, using Azure Site Recovery.
 services: site-recovery
 author: ankitaduttaMSFT
-manager: jsuri
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/14/2023
+ms.topic: tutorial
+ms.date: 02/27/2024
 ms.author: ankitadutta
 ---
 
@@ -59,7 +58,7 @@ By default, the following occurs:
 1. Temporary replicas of the source disks (disks attached to the VMs in secondary region) are created with the name `ms-asr-<GUID>`, that are used to transfer / read data. The temp disks let us utilize the complete bandwidth of the disk instead of only 16% bandwidth of the original disks (that are connected to the VM). The temp disks are deleted once the reprotection completes.
 1. If the target availability set doesn't exist, a new one is created as part of the reprotect job if necessary. If you've customized the reprotection settings, then the selected set is used.
 
-When you trigger a reprotect job, and the target VM exists, the following occurs:
+**When you trigger a reprotect job, and the target VM exists, the following occurs:**
 
 1. The target side VM is turned off if it's running.
 1. If the VM is using managed disks, a copy of the original disk is created with an `-ASRReplica` suffix. The original disks are deleted. The `-ASRReplica` copies are used for replication.
@@ -67,18 +66,22 @@ When you trigger a reprotect job, and the target VM exists, the following occurs
 1. Only changes between the source disk and the target disk are synchronized. The differentials are computed by comparing both the disks and then transferred. Check below to find the estimated time to complete the reprotection.
 1. After the synchronization completes, the delta replication begins, and a recovery point is created in line with the replication policy.
 
-When you trigger a reprotect job, and the target VM and disks don't exist, the following occurs:
+**When you trigger a reprotect job, and the target VM and disks don't exist, the following occurs:**
 
 1. If the VM is using managed disks, replica disks are created with `-ASRReplica` suffix. The `-ASRReplica` copies are used for replication.
 1. If the VM is using unmanaged disks, replica disks are created in the target storage account.
 1. The entire disks are copied from the failed over region to the new target region.
 1. After the synchronization completes, the delta replication begins, and a recovery point is created in line with the replication policy.
 
+> [!NOTE]
+> The `ms-asr` disks are temporary disks that are deleted after the *reprotect* action is completed.  You will be charged a minimal cost based on the Azure managed disk price for the time that these disks are active.
+
+
 #### Estimated time to do the reprotection
 
 In most cases, Azure Site Recovery doesn't replicate the complete data to the source region. The amount of data replicated depends on the following conditions:
 
-1. If the source VM data is deleted, corrupted, or inaccessible for some reason, such as a resource group change or delete, a complete initial replication will happen during reprotection because there's no data available on the source region to use. In this case, the reprotection time taken will be at least as long as the initial replication time taken from the primary to the disaster recovery location.
+1. Azure Site Recovery doesn't support reprotection if the source virtual machine's data is deleted, corrupted, or inaccessible for some reason. For example, a resource group change or deletion. Alternatively, you can disable the previous disaster recovery protection and enable a new protection from the current region.
 2.	If the source VM data is accessible, then differentials are computed by comparing both the disks and only the differences are transferred. 
    In this case, the **reprotection  time** is greater than or equal to the `checksum calculation time + checksum differentials transfer time + time taken to process the recovery points from Azure Site Recovery agent + auto scale time`.
 
@@ -109,4 +112,6 @@ However, when the VM is re-protected again from the primary region to disaster r
 
 ## Next steps
 
-After the VM is protected, you can initiate a failover. The failover shuts down the VM in the secondary region and creates and boots the VM in the primary region, with brief downtime during this process. We recommend you choose an appropriate time for this process and that you run a test failover before initiating a full failover to the primary site. [Learn more](site-recovery-failover.md) about Azure Site Recovery failover.
+After the VM is protected, you can initiate a failover. The failover shuts down the VM in the secondary region and creates and boots the VM in the primary region, with brief downtime during this process. We recommend you choose an appropriate time for this process and that you run a test failover before initiating a full failover to the primary site. 
+
+[Learn more](site-recovery-failover.md) about Azure Site Recovery failover.

@@ -1,14 +1,14 @@
 ---
 title: Install the Azure Connected Machine agent for connection monitor
-description: This article describes how to install Azure Connected Machine agent
-services: network-watcher
+titleSuffix: Azure Network Watcher
+description: Learn how to install the Azure Connected Machine agent using an installation script to use the Azure Network Watcher connection monitor.
+ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
-ms.custom: ignite-2022, engagement-fy23
 ms.topic: how-to
-ms.date: 10/27/2022
-ms.author: halkazwini
-#Customer intent: I need to monitor a connection by using Azure Monitor Agent.
+ms.date: 11/15/2023
+
+#CustomerIntent: As an Azure administrator, I need to install the Azure Connected Machine agent so I can monitor a connection using the Connection Monitor.
 ---
 
 # Install the Azure Connected Machine agent to enable Azure Arc 
@@ -18,7 +18,7 @@ This article describes how to install the Azure Connected Machine agent.
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't already have an account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Administrator permissions to install and configure the Connected Machine agent. On Linux, you install and configure it by using the root account, and on Windows, you use an account that's a member of the Local Administrators group.
+* Administrator permissions to install and configure the Connected Machine agent. On Linux, you install and configure it using the root account, and on Windows, you use an account that's a member of the Local Administrators group.
 * Register the Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers on your subscription. You can [register these resource providers](../azure-arc/servers/prerequisites.md#azure-resource-providers) either ahead of time or as you're completing the steps in this article.
 * Review the [agent prerequisites](../azure-arc/servers/prerequisites.md), and ensure that:
   * Your target machine is running a supported [operating system](../azure-arc/servers/prerequisites.md#supported-operating-systems).
@@ -54,9 +54,9 @@ Use the Azure portal to create a script that automates the downloading and insta
 
 1. In the **Download or copy the following script** section, review the script. If you want to make any changes, use the **Previous** button to go back and update your selections. Otherwise, select **Download** to save the script file.
 
-## Install the agent by using the script
+## Install the agent using the script
 
-After you've generated the script, the next step is to run it on the server that you want to onboard to Azure Arc. The script will download the Connected Machine agent from the Microsoft Download Center, install the agent on the server, create the Azure Arc-enabled server resource, and associate it with the agent.
+After you've generated the script, the next step is to run it on the server that you want to onboard to Azure Arc. The script downloads the Connected Machine agent from the Microsoft Download Center, install the agent on the server, create the Azure Arc-enabled server resource, and associate it with the agent.
 
 Follow the steps corresponding to the operating system of your server.
 
@@ -101,6 +101,7 @@ Refer to the linked document to discover the required steps to install the [Azur
 
 You can enable Azure Arc-enabled servers for one or more Windows machines in your environment manually, or you can use the Windows Admin Center to deploy the Azure Connected Machine agent and register your on-premises servers without having to perform any steps outside of this tool. For more information about installing the Azure Arc agent via Windows Admin Center, see [Connect hybrid machines to Azure from Windows Admin Center](../azure-arc/servers/onboard-windows-admin-center.md).
 
-## Next steps
+## Next step
 
-- [Install Azure Monitor Agent](connection-monitor-install-azure-monitor-agent.md)
+> [!div class="nextstepaction"]
+> [Install Azure Monitor Agent](connection-monitor-install-azure-monitor-agent.md)

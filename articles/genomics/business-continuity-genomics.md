@@ -2,11 +2,7 @@
 title: Overview of business continuity
 titleSuffix: Microsoft Genomics
 description: This overview describes the capabilities that Microsoft Genomics provides for business continuity and disaster recovery. 
-keywords: business continuity, disaster recovery
-
-services: genomics
 author: vigunase
-manager: cgronlun
 ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual

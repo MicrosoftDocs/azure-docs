@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 08/22/2023
 ms.topic: how-to
-ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022, build-2023
+ms.custom: subject-rbac-steps, cliv2, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 # Tutorial: How to create a secure workspace with an Azure Virtual Network
@@ -96,8 +96,8 @@ To create a virtual network, use the following steps:
 
     1. Look at the default __IPv4 address space__ value. In the screenshot, the value is __172.16.0.0/16__. __The value may be different for you__. While you can use a different value, the rest of the steps in this tutorial are based on the __172.16.0.0/16 value__.
     
-        > [!IMPORTANT]
-        > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
+        > [!WARNING]
+        > Do not use the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network, and will result in errors if used for your VNet. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
     1. Select the __Default__ subnet and then select __Remove subnet__.
     
@@ -432,11 +432,11 @@ Use the following steps to create an Azure Virtual Machine to use as a jump box.
 A compute cluster is used by your training jobs. A compute instance provides a Jupyter Notebook experience on a shared compute resource attached to your workspace.
 
 1. From an Azure Bastion connection to the jump box, open the __Microsoft Edge__ browser on the remote desktop.
-1. In the remote browser session, go to __https://ml.azure.com__. When prompted, authenticate using your Azure AD account.
+1. In the remote browser session, go to __https://ml.azure.com__. When prompted, authenticate using your Microsoft Entra account.
 1. From the __Welcome to studio!__ screen, select the __Machine Learning workspace__ you created earlier and then select __Get started__.
 
     > [!TIP]
-    > If your Azure AD account has access to multiple subscriptions or directories, use the __Directory and Subscription__ dropdown to select the one that contains the workspace.
+    > If your Microsoft Entra account has access to multiple subscriptions or directories, use the __Directory and Subscription__ dropdown to select the one that contains the workspace.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-select-workspace.png" alt-text="Screenshot of the select Machine Learning workspace form.":::
 

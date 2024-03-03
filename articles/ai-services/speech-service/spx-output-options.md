@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: reference
-ms.date: 09/16/2022
+ms.date: 1/22/2024
 ms.author: eur
 ---
 
@@ -44,7 +44,7 @@ spx recognize --file caption.this.mp4 --format any --output vtt --output srt --o
 The default file names are as follows, where the `<EPOCH_TIME>` is replaced at run time.
 - The default SRT file name includes the input file name and the local operating system epoch time: `output.caption.this.<EPOCH_TIME>.srt`
 - The default Web VTT file name includes the input file name and the local operating system epoch time: `output.caption.this.<EPOCH_TIME>.vtt`
-- The default `output each` file name, `each.<EPOCH_TIME>.tsv`, includes the local operating system epoch time. This file is not created by default, unless you specify the `--output each` option.
+- The default `output each` file name, `each.<EPOCH_TIME>.tsv`, includes the local operating system epoch time. This file isn't created by default, unless you specify the `--output each` option.
 - The default `output all` file name, `output.<EPOCH_TIME>.tsv`, includes the local operating system epoch time. This file is created by default.
 
 ## Output to specific files

@@ -137,6 +137,8 @@ items:
       href: how-to-view-api-usage.md
   - name: Creator Indoor Maps
     items:
+    - name: Create indoor map with the onboarding tool
+      href: creator-onboarding-tool.md
     - name: Manage Creator
       href: how-to-manage-creator.md
     - name: Drawing package guide
@@ -365,6 +367,8 @@ items:
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
       href: power-bi-visual-add-bubble-layer.md
+    - name: Add a cluster bubble layer
+      href: power-bi-visual-cluster-bubbles.md
     - name: Add a pie chart layer
       href: power-bi-visual-add-pie-chart-layer.md
     - name: Add a 3D column layer
@@ -417,89 +421,11 @@ items:
       href: supported-search-categories.md
   - name: REST
     items:
-    - name: Overview
-      href: /rest/api/maps
-    - name: Data
-      href: /rest/api/maps/data
-    - name: Data V2
-      href: /rest/api/maps/data-v2
-    - name: Data Registry
-      href: /rest/api/maps/data-registry
-    - name: Geolocation
-      href: /rest/api/maps/geolocation
-    - name: Render
-      href: /rest/api/maps/render
-    - name: Render V2
-      href: /rest/api/maps/render-v2
-    - name: Route
-      href: /rest/api/maps/route
-    - name: Search
-      href: /rest/api/maps/search
-    - name: Search V2
-      href: /rest/api/maps/search-v2
-    - name: Spatial
-      href: /rest/api/maps/spatial
-    - name: Timezone
-      href: /rest/api/maps/timezone
-    - name: Traffic
-      href: /rest/api/maps/traffic
-    - name: Weather
-      href: /rest/api/maps/weather
+    - name: Maps
+      href: rest-api-azure-maps.md
     - name: Maps Creator
-      items:
-      - name: Overview
-        href: /rest/api/maps-creator/
-      - name: 2023-03-01-preview
-        items:
-        - name: Alias
-          href: /rest/api/maps/2023-03-01-preview/alias
-        - name: Conversion
-          href: /rest/api/maps/2023-03-01-preview/conversion		
-        - name: Dataset
-          href: /rest/api/maps/2023-03-01-preview/dataset
-        - name: Feature State
-          href: /rest/api/maps/2023-03-01-preview/feature-state
-        - name: Features
-          href: /rest/api/maps/2023-03-01-preview/features
-        - name: Map configuration
-          href: /rest/api/maps/2023-03-01-preview/map-configuration
-        - name: Routeset
-          href: /rest/api/maps/2023-03-01-preview/routeset
-        - name: Style
-          href: /rest/api/maps/2023-03-01-preview/style
-        - name: Tileset
-          href: /rest/api/maps/2023-03-01-preview/tileset
-        - name: Wayfinding
-          href: /rest/api/maps/2023-03-01-preview/wayfinding
-      - name: V2
-        items:
-          - name: Alias
-            href: /rest/api/maps/v2/alias
-          - name: Conversion
-            href: /rest/api/maps/v2/conversion
-          - name: Dataset
-            href: /rest/api/maps/v2/dataset
-          - name: Feature State
-            href: /rest/api/maps/v2/feature-state
-          - name: Tileset
-            href: /rest/api/maps/v2/tileset
-          - name: WFS
-            href: /rest/api/maps/v2/wfs
-      - name: V20220901Preview
-        items:
-        - name: Dataset
-          href: /rest/api/maps/v20220901preview/dataset
-        - name: Map configuration
-          href: /rest/api/maps/v20220901preview/map-configuration
-        - name: Routeset
-          href: /rest/api/maps/v20220901preview/routeset
-        - name: Style
-          href: /rest/api/maps/v20220901preview/style
-        - name: Tileset
-          href: /rest/api/maps/v20220901preview/tileset
-        - name: Wayfinding
-          href: /rest/api/maps/v20220901preview/wayfinding
-    - name: Maps account management
+      href: rest-api-creator.md
+    - name: Maps Management
       href: /rest/api/maps-management/
   - name: JavaScript
     items:
@@ -519,6 +445,8 @@ items:
         href: release-notes-map-control.md
       - name: Indoor module
         href: release-notes-indoor-module.md
+      - name: Drawing Tools module
+        href: release-notes-drawing-tools-module.md
       - name: Spatial IO module
         href: release-notes-spatial-module.md
   - name: Resource Manager template
@@ -529,32 +457,8 @@ items:
   items:
   - name: Azure Maps code samples
     href: https://samples.azuremaps.com/
-  - name: Support and help options
-    href: ../iot/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure Maps QPS Rate Limits
     href: azure-maps-qps-rate-limits.md
-  - name: Azure IoT services
-    items:
-    - name: IoT Hub
-      href: ../iot-hub/index.yml
-    - name: IoT Hub Device Provisioning Service
-      href: ../iot-dps/index.yml
-    - name: IoT Central
-      href: ../iot-central/index.yml
-    - name: IoT Edge
-      href: ../iot-edge/index.yml
-    - name: IoT Plug and Play
-      href: ../iot-develop/index.yml
-    - name: Azure Maps
-      href: ./index.yml
-    - name: Time Series Insights
-      href: ../time-series-insights/index.yml
-  - name: Azure IoT SDKs
-    items:
-    - name: IoT Service SDKs
-      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
-    - name: IoT Device SDKs
-      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
   - name: Azure Maps terms of use
     href: https://azure.microsoft.com/support/legal/
   - name: Azure Maps pricing
@@ -573,13 +477,5 @@ items:
     href: glossary.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/
-  - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/overview/iot/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Technical case studies
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Azure Maps on IoT School
-    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
   - name: Create elevation data & services
     href: elevation-data-services.md

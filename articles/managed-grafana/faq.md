@@ -30,7 +30,7 @@ Customer data, including dashboards and data source configuration, created in Ma
 
 ## Does Managed Grafana support Grafana's built-in SAML and LDAP authentications?
 
-No. Managed Grafana uses its implementation for Azure Active Directory authentication.
+No. Managed Grafana uses its implementation for Microsoft Entra authentication.
 
 ## Can I install more plugins?
 

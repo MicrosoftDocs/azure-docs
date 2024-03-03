@@ -123,11 +123,9 @@
         href: schema-registry-concepts.md   
       - name: Client-side schema enforcement
         href: schema-registry-client-side-enforcement.md
-    - name: Event processing using SDKs
+    - name: Event processing
       items: 
-      - name: Event processor host (legacy SDK)
-        href: event-hubs-event-processor-host.md
-      - name: Event processor (latest SDK)
+      - name: Event processor
         href: event-processor-balance-partition-load.md
       - name: Event processing with no code editor
         href: ../stream-analytics/no-code-stream-processing.md?toc=/azure/event-hubs/toc.json
@@ -164,13 +162,13 @@
               href: authenticate-shared-access-signature.md
             - name: Authorize access with a shared access signature
               href: authorize-access-shared-access-signature.md
-          - name: Use Azure Active Directory
+          - name: Use Microsoft Entra ID
             items:
             - name: Authenticate with a managed identity
               href: authenticate-managed-identity.md
             - name: Authenticate from an application
               href: authenticate-application.md
-            - name: Authorize access with Azure Active Directory
+            - name: Authorize access with Microsoft Entra ID
               href: authorize-access-azure-active-directory.md
         - name: Network security
           href: network-security.md
@@ -345,9 +343,9 @@
     - name: Move
       items:
       - name: Move a namespace to another region
-        href: move-across-regions.md
+        href: ../operational-excellence/relocation-event-hub.md?toc=/azure/event-hubs/TOC.json
       - name: Move a dedicated cluster to another region
-        href: move-cluster-across-regions.md
+        href: ../operational-excellence/relocation-event-hub-cluster.md?toc=/azure/event-hubs/TOC.json
 - name: Reference
   items:
     - name: Monitor data Reference
@@ -401,9 +399,9 @@
     - name: Go
       items:
         - name: Client library
-          href: https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs?tab=doc
         - name: Management library
-          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/eventhub/armeventhub?tab=doc
     - name: Azure CLI
       href: /cli/azure/eventhubs
     - name: REST

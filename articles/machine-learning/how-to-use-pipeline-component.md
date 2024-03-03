@@ -1,5 +1,5 @@
 ---
-title: How to use pipeline component in pipeline 
+title: How to use pipeline component in pipeline
 titleSuffix: Azure Machine Learning
 description: How to use pipeline component to build nested pipeline job in Azure Machine Learning pipeline using CLI v2 and Python SDK
 services: machine-learning
@@ -10,7 +10,11 @@ author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
 ms.date: 04/12/2023
-ms.custom: sdkv2, cliv2, devx-track-python
+ms.custom:
+  - sdkv2
+  - cliv2
+  - devx-track-python
+  - ignite-2023
 ---
 
 # How to use pipeline component to build nested pipeline job (V2) (preview)
@@ -29,7 +33,7 @@ In this article, you'll learn how to use pipeline component in Azure Machine Lea
 
 - Understand how to use Azure Machine Learning pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
 - Understand what is [component](concept-component.md) and how to use component in Azure Machine Learning pipeline.
-- Understand what is a [Azure Machine Learning pipeline](concept-ml-pipelines.md)
+- Understand what is an [Azure Machine Learning pipeline](concept-ml-pipelines.md)
 
 ## The difference between pipeline job and pipeline component
 
@@ -91,4 +95,4 @@ After submitted pipeline job, you can go to pipeline job detail page to change p
 - [YAML reference for pipeline component](reference-yaml-component-pipeline.md)
 - [Track an experiment](how-to-log-view-metrics.md)
 - [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
-- [Deploy a pipeline with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)
+- [Deploy a pipeline with batch endpoints](how-to-use-batch-pipeline-deployments.md)

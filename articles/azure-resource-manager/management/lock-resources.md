@@ -2,7 +2,7 @@
 title: Protect your Azure resources with a lock
 description: You can safeguard Azure resources from updates or deletions by locking all users and roles.
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 01/02/2024
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 content_well_notification: 
   - AI-contribution
@@ -55,7 +55,7 @@ The distinction means locks protect a resource from changes, but they don't rest
 
 Applying locks can lead to unexpected results. Some operations, which don't seem to modify a resource, require blocked actions. Locks prevent the POST method from sending data to the Azure Resource Manager (ARM) API. Some common examples of blocked operations are:
 
-- A read-only lock on a **storage account** prevents users from listing the account keys. A POST request handles the Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation to protect access to the account keys. The account keys provide complete access to data in the storage account. When a read-only lock is configured for a storage account, users who don't have the account keys need to use Azure AD credentials to access blob or queue data. A read-only lock also prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a data container (blob container or queue). 
+- A read-only lock on a **storage account** prevents users from listing the account keys. A POST request handles the Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation to protect access to the account keys. The account keys provide complete access to data in the storage account. When a read-only lock is configured for a storage account, users who don't have the account keys need to use Microsoft Entra credentials to access blob or queue data. A read-only lock also prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a data container (blob container or queue). 
 
 - A read-only lock on a **storage account** protects RBAC assignments scoped for a storage account or a data container (blob container or queue).
 
@@ -75,9 +75,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting a virtual machine. These operations require a POST method request.
 
-- A read-only lock on a **resource group** that contains a **virtual machine** prevents users from moving the VM out of the resource group.
-
-- A read-only lock on a **resource group** prevents users from moving any new **resource** into that resource group.
+- A read-only lock on a **resource group** prevents you from moving existing **resources** in or out of the resource group.
 
 - A read-only lock on a **resource group** that contains an **automation account** prevents all runbooks from starting. These operations require a POST method request.
 

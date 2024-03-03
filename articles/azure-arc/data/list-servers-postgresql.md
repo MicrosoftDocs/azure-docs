@@ -54,7 +54,7 @@ NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
 postgres01   Ready   5/5          12.345.67.890:5432   12d
 ```
 
-## Next steps:
+## Related content:
 
 * [Read the article about how to get the connection end points and form the connection strings to connect to your server group](get-connection-endpoints-and-connection-strings-postgresql-server.md)
 * [Read the article about showing the configuration of an Azure Arc-enabled PostgreSQL server](show-configuration-postgresql-server.md)

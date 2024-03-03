@@ -6,7 +6,7 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: thvankra
-ms.custom: devx-track-azurecli, seo-azure-cli, ignite-fall-2021, devx-track-arm-template
+ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template
 keywords: azure resource manager cli
 ---
 
@@ -164,8 +164,16 @@ az managed-cassandra datacenter create \
 > - Standard_DS14_v2
 > - Standard_D8s_v4
 > - Standard_D16s_v4
-> - Standard_D32s_v4 
+> - Standard_D32s_v4
+> - Standard_L8s_v3
+> - Standard_L16s_v3
+> - Standard_L32s_v3
+> - Standard_L8as_v3
+> - Standard_L16as_v3
+> - Standard_L32as_v3 
 > 
+> Currently, we do not support transitioning across SKU families. For instance, if you currently possess a `Standard_DS13_v2` and are interested in upgrading to a larger SKU such as `Standard_DS14_v2`, this option is not available. However, you can open a support ticket to request an upgrade to the higher SKU.
+>
 > Note also that `--availability-zone` is set to `false`. To enable availability zones, set this to `true`. Availability zones increase the availability SLA of the service. For more details, review the full SLA details [here](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/).
 
 > [!WARNING]
@@ -219,6 +227,35 @@ az managed-cassandra datacenter update \
     --data-center-name $dataCenterName \
     --node-count 13 
 ```
+
+### <a id="get-yaml"></a>Get Cassandra configuration
+ 
+Get the current YAML configuration of a node by using the [az managed-cassandra cluster invoke-command](/cli/azure/managed-cassandra/cluster#az-managed-cassandra-invoke-command) command:
+ 
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+clusterName='cassandra-hybrid-cluster'
+commandName='get-cassandra-yaml'
+ 
+az managed-cassandra cluster invoke-command \
+    --resource-group $resourceGroupName \
+    --cluster-name $clusterName \
+    --host <ip address> \
+    --command-name 'get-cassandra-yaml'
+```
+
+> [!NOTE]
+> The output can be made more readable using the following commands:
+>
+> ```azurecli-interactive
+> $output = az managed-cassandra cluster invoke-command \
+>     --resource-group $resourceGroupName \
+>     --cluster-name $clusterName \
+>     --host <ip address> \
+>     --command-name 'get-cassandra-yaml' \
+>     | ConvertFrom-Json
+> $output.commandOutput
+> ```
 
 ### <a id="update-yaml"></a>Update Cassandra configuration
 

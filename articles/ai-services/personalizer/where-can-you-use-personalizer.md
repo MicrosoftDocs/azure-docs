@@ -6,9 +6,11 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 01/19/2024
 ---
 # Where and how to use Personalizer
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Use Personalizer in any situation where your application needs to select the correct action (content) to display - in order to make the experience better, achieve better business results, or improve productivity.
 

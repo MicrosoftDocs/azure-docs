@@ -46,7 +46,8 @@ See below how to create data collection rules.
     |Data connector  |Licensing, costs, and other information  |
     |---------|---------|
     |Windows Forwarded Events|- You must have Windows Event Collection (WEC) enabled and running.<br>Install the Azure Monitor Agent on the WEC machine. <br>- We recommend installing the [Advanced Security Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [`Azure-Sentinel` GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.|
- 
+ - Install the related Microsoft Sentinel solution from the Content Hub in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
 ### Instructions
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**. Select your connector from the list, and then select **Open connector page** on the details pane. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.

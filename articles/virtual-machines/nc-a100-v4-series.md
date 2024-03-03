@@ -12,6 +12,9 @@ ms.date: 09/19/2023
 
 #  NC A100 v4-series  
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 The NC A100 v4 series virtual machine (VM) is a new addition to the Azure GPU family. You can use this series for real-world Azure Applied AI training and batch inference workloads. 
@@ -58,7 +61,11 @@ Note: The Ubuntu-HPC 18.04-ncv4 image is only valid during preview and deprecate
 | Standard_NC48ads_A100_v4   | 48 | 440 | 128| 2x960 GB| 2 | 160 | 24 | 60000/2000 | 4/40,000  | 
 | Standard_NC96ads_A100_v4   | 96 | 880 | 256| 4x960 GB | 4 | 320 | 32 | 120000/4000 | 8/80,000  |
 
-1 GPU = one A100 card
+1 GPU = one A100 card <br>
+1. Local NVMe disk is coming as RAM and it needs to be manually formatted in newly deployed VM.
+
+> [!NOTE]
+> Local NVMe disks are ephemeral, and any data stored on these disks will be lost if the VM is stopped or deallocated. 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

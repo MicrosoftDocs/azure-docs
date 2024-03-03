@@ -30,7 +30,7 @@ You can configure an instance of Azure SQL Edge as the push subscriber for one-w
 
 The following requirements and best practices are important to understand as you configure replication:
 
-- You can configure replication by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). You can also do so by running Transact-SQL statements on the publisher, by using either SQL Server Management Studio or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
+- You can configure replication by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). You can also do so by running Transact-SQL statements on the publisher, by using either SQL Server Management Studio or [Azure Data Studio](/azure-data-studio/download-azure-data-studio).
 - To replicate to an instance of Azure SQL Edge, you must use SQL Server authentication to sign in.
 - Replicated tables must have a primary key.
 - A single publication on SQL Server can support both Azure SQL Edge and SQL Server (on-premises and SQL Server in an Azure virtual machine) subscribers.

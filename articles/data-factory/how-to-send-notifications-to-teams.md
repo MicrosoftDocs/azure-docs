@@ -134,7 +134,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
                     },
                     {
                         "name": "Pipline Name:",
-                        "value": "@{pipeline().parameters.name}"
+                        "value": "@{pipeline().Pipeline}"
                     },
                     {
                         "name": "Pipeline Status:",
@@ -455,6 +455,6 @@ The above expressions will return the relevant error messages from a failure, wh
 We also encourage you to review the Microsoft Teams supported [notification payload schema](https://adaptivecards.io/explorer/AdaptiveCard.html) and
 further customize the above template to your needs.
 
-## Next steps
+## Related content
 
 [How to send email from a pipeline](how-to-send-email.md)

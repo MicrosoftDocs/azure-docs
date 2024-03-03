@@ -3,6 +3,7 @@ title: Move Azure single instance Virtual Machines from regional to zonal availa
 description: Move single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region using PowerShell and CLI.
 author: ankitaduttaMSFT
 ms.service: virtual-machines
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 09/25/2023
 ms.author: ankitadutta
@@ -34,8 +35,8 @@ Most move resources operations are the same whether using the Azure portal or Po
 
 | Operation | Portal | PowerShell/CLI |
 | --- | --- | --- |
-| **Create a move collection** | A move collection (a list of all the regional VMs that you're moving) is created automatically. Required identity permissions are assigned in the backend by the portal. | You can use [PowerShell cmdlets](/powershell/module/az.resourcemover/?view=azps-10.3.0#resource-mover) or [CLI cmdlets](https://learn.microsoft.com/cli/azure/resource-mover?view=azure-cli-latest) to: <br> - Assign a managed identity to the collection.  <br> - Add regional VMs to the collection. |
-| **Resource move operations** | Validate steps and validates the *User* setting changes. **Initiate move** starts the move process and creates a copy of source VM in the target zone. It also finalizes the move of the newly created VM in the target zone. | [PowerShell cmdlets](/powershell/module/az.resourcemover/?view=azps-10.3.0#resource-mover) or [CLI cmdlets](https://learn.microsoft.com/cli/azure/resource-mover?view=azure-cli-latest) to: <br> - Add regional VMs to the collection <br> - Resolve dependencies <br> - Perform the move. <br> - Commit the move. | 
+| **Create a move collection** | A move collection (a list of all the regional VMs that you're moving) is created automatically. Required identity permissions are assigned in the backend by the portal. | You can use [PowerShell cmdlets](/powershell/module/az.resourcemover/#resource-mover) or [CLI cmdlets](/cli/azure/resource-mover) to: <br> - Assign a managed identity to the collection.  <br> - Add regional VMs to the collection. |
+| **Resource move operations** | Validate steps and validates the *User* setting changes. **Initiate move** starts the move process and creates a copy of source VM in the target zone. It also finalizes the move of the newly created VM in the target zone. | [PowerShell cmdlets](/powershell/module/az.resourcemover/#resource-mover) or [CLI cmdlets](/cli/azure/resource-mover) to: <br> - Add regional VMs to the collection <br> - Resolve dependencies <br> - Perform the move. <br> - Commit the move. | 
 
 ### Sample values
 

@@ -4,7 +4,7 @@ description: This article discusses common issues, workarounds, and diagnostic s
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 ms.date: 04/11/2023
 ms.author: maquaran
 ms.topic: troubleshooting
@@ -72,9 +72,11 @@ To resolve this issue:
 
 * Upgrade to the latest available version.
 
-### Your Azure function fails to start, with error message "Forbidden (403); Substatus: 5300... The given request [POST ...] can't be authorized by Azure AD token in data plane"
+<a name='your-azure-function-fails-to-start-with-error-message-forbidden-403-substatus-5300-the-given-request-post--cant-be-authorized-by-azure-ad-token-in-data-plane'></a>
 
-This error means that your function is attempting to [perform a non-data operation by using Azure Active Directory (Azure AD) identities](troubleshoot-forbidden.md#non-data-operations-are-not-allowed). You can't use `CreateLeaseContainerIfNotExists = true` when you're using Azure AD identities.
+### Your Azure function fails to start, with error message "Forbidden (403); Substatus: 5300... The given request [POST ...] can't be authorized by Microsoft Entra token in data plane"
+
+This error means that your function is attempting to [perform a non-data operation by using Microsoft Entra identities](troubleshoot-forbidden.md#non-data-operations-are-not-allowed). You can't use `CreateLeaseContainerIfNotExists = true` when you're using Microsoft Entra identities.
 
 ### Your Azure function fails to start, with error message "The lease collection, if partitioned, must have partition key equal to id"
 

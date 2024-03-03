@@ -1,13 +1,14 @@
 ---
-title: OCR cognitive skill
-titleSuffix: Azure Cognitive Search
-description: Extract text from image files using optical character recognition (OCR) in an enrichment pipeline in Azure Cognitive Search.
+title: OCR skill
+titleSuffix: Azure AI Search
+description: Extract text from image files using optical character recognition (OCR) in an enrichment pipeline in Azure AI Search.
 
 author: careyjmac
 ms.author: chalton
 
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 06/24/2022
 ---
@@ -31,7 +32,7 @@ The **OCR** skill extracts text from image files. Supported file formats include
 > [!NOTE]
 > This skill is bound to Azure AI services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
-> In addition, image extraction is [billable by Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
+> In addition, image extraction is [billable by Azure AI Search](https://azure.microsoft.com/pricing/details/search/).
 >
 
 ## Skill parameters
@@ -41,7 +42,7 @@ Parameters are case-sensitive.
 | Parameter name     | Description |
 |--------------------|-------------|
 | `detectOrientation`    | Detects image orientation. Valid values are `true` or `false`. </p>This parameter only applies if the [legacy OCR](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) API is used.  |
-| `defaultLanguageCode` | Language code of the input text. Supported languages include all of the [generally available languages](../ai-services/computer-vision/language-support.md#image-analysis) of Azure AI Vision. You can also specify `unk` (Unknown). </p>If the language code is unspecified or null, the language is set to English. If the language is explicitly set to `unk`, all languages found are auto-detected and returned.|
+| `defaultLanguageCode` | Language code of the input text. Supported languages include all of the [generally available languages](../ai-services/computer-vision/language-support.md#analyze-image) of Azure AI Vision. You can also specify `unk` (Unknown). </p>If the language code is unspecified or null, the language is set to English. If the language is explicitly set to `unk`, all languages found are auto-detected and returned.|
 | `lineEnding` | The value to use as a line separator. Possible values: "Space", "CarriageReturn", "LineFeed".  The default is "Space". |
 
 In previous versions, there was a parameter called "textExtractionAlgorithm" to specify extraction of "printed" or "handwritten" text. This parameter is deprecated because the current Read API algorithm extracts both types of text at once. If your skill includes this parameter, you don't need to remove it, but it won't be used during skill execution.

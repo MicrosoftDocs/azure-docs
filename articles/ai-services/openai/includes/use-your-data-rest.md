@@ -1,5 +1,5 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: aahill
 ms.author: aahi
@@ -12,7 +12,7 @@ ms.date: 08/11/2023
 
 ## Example cURL commands
 
-The Azure OpenAI chat models are optimized to work with inputs formatted as a conversation. The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, tool, and assistant. The `dataSources` variable connects to your Azure Cognitive Search index, and enables Azure OpenAI models to respond using your data.
+The Azure OpenAI chat models are optimized to work with inputs formatted as a conversation. The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, tool, and assistant. The `dataSources` variable connects to your Azure AI Search index, and enables Azure OpenAI models to respond using your data.
 
 To trigger a response from the model, you should end with a user message indicating that it's the assistant's turn to respond.
 
@@ -20,9 +20,9 @@ To trigger a response from the model, you should end with a user message indicat
 > There are several parameters you can use to change the model's response, such as `temperature` or `top_p`. See the [reference documentation](../reference.md#completions-extensions) for more information.
 
 ```bash
-curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/chat/completions?api-version=2023-06-01-preview \
+curl -i -X POST $AZURE_OPENAI_ENDPOINT/openai/deployments/$AZURE_OPEN_AI_DEPLOYMENT_ID/extensions/chat/completions?api-version=2023-06-01-preview \
 -H "Content-Type: application/json" \
--H "api-key: $AOAIKey" \
+-H "api-key: $AZURE_OPENAI_API_KEY" \
 -d \
 '
 {
@@ -30,9 +30,9 @@ curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/ch
         {
             "type": "AzureCognitiveSearch",
             "parameters": {
-                "endpoint": "'$SearchEndpoint'",
-                "key": "'$SearchKey'",
-                "indexName": "'$SearchIndex'"
+                "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
+                "key": "'$AZURE_AI_SEARCH_API_KEY'",
+                "indexName": "'$AZURE_AI_SEARCH_INDEX'"
             }
         }
     ],
@@ -79,4 +79,4 @@ curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/ch
 
 ## Chat with your model using a web app
 
-To start chatting with the Azure OpenAI model that uses your data, you can deploy a web app using [Azure OpenAI studio](../concepts/use-your-data.md#deploying-the-model) or example code we [provide on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395). This app deploys using Azure app service, and provides a user interface for sending queries. This app can be used Azure OpenAI models that use your data, or models that don't use your data. See the readme file in the repo for instructions on requirements, setup, and deployment. You can optionally customize the [frontend and backend logic](../concepts/use-your-data.md#using-the-web-app) of the web app by making changes to the source code.
+To start chatting with the Azure OpenAI model that uses your data, you can deploy a web app using [Azure OpenAI studio](../concepts/use-your-data.md#deploy-to-a-copilot-preview-or-web-app) or example code we [provide on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395). This app deploys using Azure app service, and provides a user interface for sending queries. This app can be used Azure OpenAI models that use your data, or models that don't use your data. See the readme file in the repo for instructions on requirements, setup, and deployment. You can optionally customize the [frontend and backend logic](../how-to/use-web-app.md#web-app-customization) of the web app by making changes to the source code.

@@ -189,7 +189,7 @@ Upload the usage only once per day. When usage information is exported and uploa
 
 For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
 
-## Next steps
+## Related content
 
 [Learn about service principals](/powershell/azure/azurerm/create-azure-service-principal-azureps#what-is-a-service-principal)
 

@@ -7,10 +7,12 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 01/19/2024
 ---
 
 # Offline evaluation
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Offline evaluation is a method that allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience. Offline evaluation uses past data, sent from your application to the Rank and Reward APIs, to compare how different ranks have performed.
 

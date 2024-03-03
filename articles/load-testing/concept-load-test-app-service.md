@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: 'Learn how to use Azure Load Testing with apps hosted on Azure App Service. Run load tests, use environment variables, and gain insights with server metrics and diagnostics.'
 services: load-testing
 ms.service: load-testing
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 06/30/2023
 ms.topic: conceptual
 
@@ -109,4 +109,4 @@ Learn how to:
 - [Start create a URL-based load test](./quickstart-create-and-run-load-test.md).
 - [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
 - [Configure your test for high-scale load](./how-to-high-scale-load.md).
-- [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- [Configure automated performance testing](./quickstart-add-load-test-cicd.md).

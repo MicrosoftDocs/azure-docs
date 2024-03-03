@@ -3,7 +3,8 @@ title: Monitor performance on Azure VMs - Azure Application Insights
 description: Application performance monitoring for Azure virtual machines and virtual machine scale sets.
 ms.topic: conceptual
 ms.date: 03/22/2023
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-azurepowershell
 ms.reviewer: abinetabate
 ---
@@ -208,7 +209,7 @@ If your extension deployed successfully but you're unable to see telemetry, it c
 
 - Updated Application Insights .NET/.NET Core SDK to 2.20.1 - red field.
 - Enabled SQL query collection.
-- Enabled support for Azure Active Directory authentication.
+- Enabled support for Microsoft Entra authentication.
 
 ### 2.8.42
 

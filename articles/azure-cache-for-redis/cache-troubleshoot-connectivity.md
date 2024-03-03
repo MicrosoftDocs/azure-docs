@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual 
-ms.date: 03/22/2022
+ms.date: 12/12/2023
 ms.custom: template-concept
 
 ---
@@ -27,6 +27,7 @@ In this article, we provide troubleshooting help for connecting your client appl
   - [Private endpoint configuration](#private-endpoint-configuration)
   - [Firewall rules](#third-party-firewall-or-external-proxy)
   - [Public IP address change](#public-ip-address-change)
+- [Geo-replication using VNet injection with Premium caches](#geo-replication-using-vnet-injection-with-premium-caches)
 
 ## Intermittent connectivity issues
 
@@ -86,7 +87,7 @@ Steps to check your private endpoint configuration:
 1. If you've deleted your private endpoint, ensure that the public network access is enabled.
 1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Cache for Redis instance](cache-private-link.md#create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance).
 1. Verify if your application is connecting to `<cachename>.redis.cache.windows.net` on port 6380. We recommend avoiding the use of `<cachename>.privatelink.redis.cache.windows.net` in the configuration or the connection string.
-1.  Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
+1. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
   
 ### Firewall rules
 
@@ -100,7 +101,25 @@ When you use a third-party firewall or proxy in your network, check that the end
 
 If you've configured any networking or security resource to use your cache's public IP address, check to see if your cache's public IP address changed. For more information, see [Rely on hostname not public IP address for your cache](cache-best-practices-development.md#rely-on-hostname-not-public-ip-address).
 
-## Next steps
+## Geo-replication using VNet injection with Premium caches
+
+While it is possible to use VNet injection with your Premium caches, we recommend Azure Private Link.
+
+For more information, see:
+
+- [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md)
+- [What is Azure Cache for Redis with Azure Private Link?](cache-private-link.md)
+
+Geo-replication of caches in VNets is supported with caveats:
+
+- Geo-replication between caches in the same VNet is supported.
+- Geo-replication between caches in different VNets is also supported.
+  - If the VNets are in the same region, you can connect them using [VNet peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN Gateway VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+  - If the VNets are in different regions, geo-replication using VNet peering is not supported. A client VM in VNet 1 (region 1) isn't able to access the cache in VNet 2 (region 2) using its DNS name because of a constraint with Basic internal load balancers. For more information about VNet peering constraints, see [Virtual Network - Peering - Requirements and constraints](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). We recommend using a VPN Gateway VNet-to-VNet connection.
+
+To configure your VNet effectively and avoid geo-replication issues, you must configure both the inbound and outbound ports correctly. For more information on avoiding the most common VNet misconfiguration issues, see [Geo-replication peer port requirements](cache-how-to-premium-vnet.md#geo-replication-peer-port-requirements).
+
+## Related Content
 
 These articles provide more information on connectivity and resilience:
 

@@ -39,7 +39,7 @@ Binding a Service Bus namespace to a virtual network is a two-step process. You 
 The virtual network rule is an association of the Service Bus namespace with a virtual network subnet. While the rule exists, all workloads bound to the subnet are granted access to the Service Bus namespace. Service Bus itself never establishes outbound connections, doesn't need to gain access, and is therefore never granted access to your subnet by enabling this rule.
 
 > [!NOTE]
-> Remember that a network service endpoint provides applications running in the virtual network the access to the Service Bus namespace. The virtual network controls the reachability of the endpoint, but not what operations can be done on Service Bus entities (queues, topics, or subscriptions). Use Azure Active Directory (Azure AD) to authorize operations that the applications can perform on the namespace and its entities. For more information, see [Authenticate and authorize an application with Azure AD to access Service Bus entities](authenticate-application.md).
+> Remember that a network service endpoint provides applications running in the virtual network the access to the Service Bus namespace. The virtual network controls the reachability of the endpoint, but not what operations can be done on Service Bus entities (queues, topics, or subscriptions). Use Microsoft Entra ID to authorize operations that the applications can perform on the namespace and its entities. For more information, see [Authenticate and authorize an application with Microsoft Entra ID to access Service Bus entities](authenticate-application.md).
 
 
 ## Use Azure portal
@@ -62,6 +62,10 @@ This section shows you how to use Azure portal to add a virtual network service 
     > You see the **Networking** tab only for **premium** namespaces.  
 1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access from only specified IP addresses. 
     - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
+    
+        :::image type="content" source="./media/service-bus-ip-filtering/public-access-disabled-page.png" alt-text="Screenshot that shows the Networking page of a namespace with public access disabled."::: 
+
+        Choose whether you want to allow trusted Microsoft services to bypass the firewall. For the list of trusted Microsoft services for Azure Service Bus, see the [Trusted Microsoft services](#trusted-microsoft-services) section.
     - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
         > [!IMPORTANT]
@@ -213,9 +217,8 @@ Use [`az servicebus namespace network-rule-set`](/cli/azure/servicebus/namespace
 ## Use Azure PowerShell
 Use the following Azure PowerShell commands to add, list, remove, update, and delete network rules for a Service Bus namespace. 
 
-- [`Add-AzServiceBusVirtualNetworkRule`](/powershell/module/az.servicebus/add-azservicebusvirtualnetworkrule) to add a virtual network rule.
+- [`Set-AzServiceBusNetworkRuleSet`](/powershell/module/az.storage/add-azstorageaccountnetworkrule) to add a virtual network rule.
 - [`New-AzServiceBusVirtualNetworkRuleConfig`](/powershell/module/az.servicebus/new-azservicebusipruleconfig) and [`Set-AzServiceBusNetworkRuleSet`](/powershell/module/az.servicebus/set-azservicebusnetworkruleset) together to add a virtual network rule.
-- [`Remove-AzServiceBusVirtualNetworkRule`](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) to remove s virtual network rule.
 
 
 ## default action and public network access 
@@ -231,7 +234,7 @@ The API version **2021-06-01-preview onwards** also introduces a new property na
 For more information about these properties, see [Create or Update Network Rule Set](/rest/api/servicebus/controlplane-preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/servicebus/controlplane-preview/private-endpoint-connections/create-or-update).
 
 > [!NOTE]
-> None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
+> None of the above settings bypass validation of claims via SAS or Microsoft Entra authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
 
 ### Azure portal
 

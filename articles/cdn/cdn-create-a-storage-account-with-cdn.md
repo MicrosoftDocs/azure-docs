@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 04/29/2022
-ms.author: duau, hmb
+ms.author: duau
 ms.custom: mvc, mode-other
 ---
 # Quickstart: Integrate an Azure Storage account with Azure CDN
@@ -114,4 +114,5 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use CDN to serve static content from a web app.](cdn-add-to-web-app.md)
+> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
+

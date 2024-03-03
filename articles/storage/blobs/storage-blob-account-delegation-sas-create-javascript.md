@@ -1,5 +1,5 @@
 ---
-title: Create account SAS tokens - JavaScript
+title: Create an account SAS with JavaScript
 titleSuffix: Azure Storage
 description: Create and use account SAS tokens in a JavaScript application that works with Azure Blob Storage. This article helps you set up a project and authorizes access to an Azure Blob Storage endpoint.
 author: pauljewellmsft
@@ -8,7 +8,7 @@ ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 09/21/2023
-ms.custom: template-how-to, devx-track-js
+ms.custom: template-how-to, devx-track-js, devguide-js
 ---
 
 # Create and use account SAS tokens with Azure Blob Storage and JavaScript

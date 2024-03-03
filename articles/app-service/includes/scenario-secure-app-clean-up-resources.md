@@ -7,16 +7,15 @@ manager: CelesteDG
 
 ms.service: app-service
 ms.topic: include
-ms.workload: identity
 ms.date: 09/15/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-#Customer intent: As an application developer, I want to learn how to access Azure Storage for an app using managed identities.
 ms.subservice: web-apps
+#Customer intent: As an application developer, I want to learn how to access Azure Storage for an app using managed identities.
 ---
 
-If you completed all the steps in this multipart tutorial, you created an app service, app service hosting plan, and a storage account in a resource group. You also created an app registration in Azure Active Directory. When no longer needed, delete these resources and app registration so that you don't continue to accrue charges.
+If you completed all the steps in this multipart tutorial, you created an app service, app service hosting plan, and a storage account in a resource group. You also created an app registration in Microsoft Entra ID. When no longer needed, delete these resources and app registration so that you don't continue to accrue charges.
 
 In this tutorial, you learn how to:
 
@@ -41,4 +40,3 @@ In the [Microsoft Entra admin center](https://entra.microsoft.com), select **App
 
 In the app registration overview, select **Delete**.
 :::image type="content" alt-text="Screenshot that shows deleting the app registration." source="../media/scenario-secure-app-clean-up-resources/delete-app-registration.png":::
-

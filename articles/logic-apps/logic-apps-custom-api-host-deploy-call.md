@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 01/04/2024
 ---
 
 # Deploy and call custom APIs from workflows in Azure Logic Apps

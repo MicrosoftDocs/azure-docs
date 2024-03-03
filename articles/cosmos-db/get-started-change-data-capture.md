@@ -7,10 +7,10 @@ ms.author: rosouz
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 11/28/2023
 ---
 
-# Get started with change data capture in the analytical store for Azure Cosmos DB (Preview)
+# Get started with change data capture in the analytical store for Azure Cosmos DB
 
 [!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
@@ -158,7 +158,7 @@ First, create a straightforward [Azure Blob Storage](../storage/blobs/index.yml)
 
     :::image type="content" source="media/get-started-change-data-capture/sink-container-name.png" alt-text="Screenshot of the blob container named output set as the sink target.":::
 
-1. Locate the **Update method** section and change the selections to only allow **delete** and **update** operations. Also, specify the **Key columns** as a **List of columns** using the field `_{rid}` as the unique identifier.
+1. Locate the **Update method** section and change the selections to only allow **delete** and **update** operations. Also, specify the **Key columns** as a **List of columns** using the field `{_rid}` as the unique identifier.
 
     :::image type="content" source="media/get-started-change-data-capture/sink-methods-columns.png" alt-text="Screenshot of update methods and key columns being specified for the sink.":::
 

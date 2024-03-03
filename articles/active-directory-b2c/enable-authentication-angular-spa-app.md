@@ -1,16 +1,20 @@
 ---
 title: Enable authentication in an Angular application by using Azure Active Directory B2C building blocks
 description:  Use the building blocks of Azure Active Directory B2C to sign in and sign up users in an Angular application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer, I want to enable Azure Active Directory B2C authentication in my Angular application, so that users can sign in using Azure AD B2C and access protected resources.
+
 ---
 
 # Enable authentication in your own Angular Application by using Azure Active Directory B2C

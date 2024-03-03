@@ -192,9 +192,9 @@ Now that you have the simulated devices in your application, you can create the 
 
 1. On the **Devices** page, select **RS40 Occupancy Sensor** in the list of device templates, and then select your simulated **RS40 Occupancy Sensor** device.
 
-1. Select **Connect to gateway**.
+1. Select **Attach to gateway**.
 
-1. On the **Connect to a gateway** dialog, select the **Smart Building gateway device** template, and then select the simulated instance you created previously.
+1. On the **Attach to a gateway** dialog, select the **Smart Building gateway device** template, and then select the simulated instance you created previously.
 
 1. Select **Attach**.
 

@@ -1,30 +1,28 @@
 ---
-title: Deploy a flow to online endpoint for real-time inference with CLI (preview)
+title: Deploy a flow in prompt flow to online endpoint for real-time inference with CLI
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy your flow to a managed online endpoint or Kubernetes online endpoint in Azure Machine Learning prompt flow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 02/22/2024
 ---
 
-# Deploy a flow to online endpoint for real-time inference with CLI (preview)
+# Deploy a flow to online endpoint for real-time inference with CLI
 
 In this article, you'll learn to deploy your flow to a [managed online endpoint](../concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints) or a [Kubernetes online endpoint](../concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints) for use in real-time inferencing with Azure Machine Learning v2 CLI.
 
 Before beginning make sure that you have tested your flow properly, and feel confident that it's ready to be deployed to production. To learn more about testing your flow, see [test your flow](how-to-bulk-test-evaluate-flow.md). After testing your flow you'll learn how to create managed online endpoint and deployment, and how to use the endpoint for real-time inferencing.
 
-- For the **CLI** experience, all the sample yaml files can be found in the [Prompt flow CLI GitHub folder](https://aka.ms/pf-deploy-mir-cli). This article will cover how to use the CLI experience.
-- For the **Python SDK** experience, sample notebook is [Prompt flow SDK GitHub folder](https://aka.ms/pf-deploy-mir-sdk). The Python SDK isn't covered in this article, see the GitHub sample notebook instead. To use the Python SDK, you must have The Python SDK v2 for Azure Machine Learning. To learn more, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+- For the **CLI** experience, all the sample yaml files can be found in the [prompt flow CLI GitHub folder](https://aka.ms/pf-deploy-mir-cli). This article will cover how to use the CLI experience.
+- For the **Python SDK** experience, sample notebook is [prompt flow SDK GitHub folder](https://aka.ms/pf-deploy-mir-sdk). The Python SDK isn't covered in this article, see the GitHub sample notebook instead. To use the Python SDK, you must have The Python SDK v2 for Azure Machine Learning. To learn more, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
 
 ## Prerequisites
 
@@ -40,7 +38,7 @@ For managed online endpoints, Azure Machine Learning reserves 20% of your comput
 
 Each flow will have a folder which contains codes/prompts, definition and other artifacts of the flow. If you have developed your flow with UI, you can download the flow folder from the flow details page. If you have developed your flow with CLI or SDK, you should have the flow folder already.
 
-This article will use the [sample flow "basic-chat"](https://github.com/microsoft/promptflow/tree/main/examples/flows/chat/basic-chat) as an example to deploy to Azure Machine Learning managed online endpoint.
+This article will use the [sample flow "basic-chat"](https://github.com/Azure/azureml-examples/tree/main/cli/generative-ai/promptflow/basic-chat) as an example to deploy to Azure Machine Learning managed online endpoint.
 
 > [!IMPORTANT]
 >
@@ -59,7 +57,10 @@ az configure --defaults workspace=<Azure Machine Learning workspace name> group=
 
 In the online deployment, you can either refer to a registered model, or specify the model path (where to upload the model files from) inline. It's recommended to register the model and specify the model name and version in the deployment definition. Use the form `model:<model_name>:<version>`.
 
-Following is a model definition example.
+Following is a model definition example for a chat flow.
+
+> [!NOTE]
+> If your flow is not a chat flow, then you don't need to add these `properties`.
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/model.schema.json
@@ -85,13 +86,13 @@ Use `az ml model create --file model.yaml` to register the model to your workspa
 
 To define an endpoint, you need to specify:
 
-- **Endpoint name**: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+- **Endpoint name**: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](../how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 - **Authentication mode**: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](../how-to-authenticate-online-endpoint.md).
 Optionally, you can add a description and tags to your endpoint.
 - Optionally, you can add a description and tags to your endpoint.
 - If you want to deploy to a Kubernetes cluster (AKS or Arc enabled cluster)  which is attaching to your workspace, you can deploy the flow to be a **Kubernetes online endpoint**.
 
-Following is an endpoint definition example.
+Following is an endpoint definition example which by default uses system-assigned identity.
 
 # [Managed online endpoint](#tab/managed)
 
@@ -99,6 +100,11 @@ Following is an endpoint definition example.
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
 name: basic-chat-endpoint
 auth_mode: key
+properties:
+# this property only works for system-assigned identity.
+# if the deploy user has access to connection secrets, 
+# the endpoint system-assigned identity will be auto-assigned connection secrets reader role as well
+  enforce_access_to_default_secret_stores: enabled
 ```
 
 # [Kubernetes online endpoint](#tab/kubernetes)
@@ -111,6 +117,11 @@ compute: azureml:<Kubernetes compute name>
 auth_mode: key
 ```
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ---
 
 | Key | Description |
@@ -118,7 +129,7 @@ auth_mode: key
 | `$schema` | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding code snippet in a browser. |
 | `name` | The name of the endpoint. |
 | `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. To get the most recent token, use the `az ml online-endpoint get-credentials` command. |
-
+|`property: enforce_access_to_default_secret_stores` (preview)|- By default the endpoint will use system-asigned identity. This property only works for system-assigned identity. <br> - This property means if you have the connection secrets reader permission, the endpoint system-assigned identity will be auto-assigned Azure Machine Learning Workspace Connection Secrets Reader role of the workspace, so that the endpoint can access connections correctly when performing inferencing. <br> - By default this property is `disabled``.|
 
 If you create a Kubernetes online endpoint, you need to specify the following additional attributes:
 
@@ -126,23 +137,45 @@ If you create a Kubernetes online endpoint, you need to specify the following ad
 |-----------|----------------------------------------------------------|
 | `compute` | The Kubernetes compute target to deploy the endpoint to. |
 
+
+For more configurations of endpoint, see [managed online endpoint schema](../reference-yaml-endpoint-online.md).
+
+### Use user-assigned identity
+
+By default, when you create an online endpoint, a system-assigned managed identity is automatically generated for you. You can also specify an existing user-assigned managed identity for the endpoint.
+
+If you want to use user-assigned identity, you can specify the following additional attributes in the `endpoint.yaml`:
+
+```yaml
+identity:
+  type: user_assigned
+  user_assigned_identities:
+    - resource_id: user_identity_ARM_id_place_holder
+```
+
+Besides, you also need to specify the `Clicn ID` of the user-assigned identity under `environment_variables` the `deployment.yaml` as following. You can find the `Clicn ID` in the `Overview` of the managed identity in Azure portal.
+
+```yaml
+environment_variables:
+  AZURE_CLIENT_ID: <cliend_id_of_your_user_assigned_identity>
+```
+
 > [!IMPORTANT]
 >
-> By default, when you create an online endpoint, a system-assigned managed identity is automatically generated for you. You can also specify an existing user-assigned managed identity for the endpoint.
-> You need to grant permissions to your endpoint identity so that it can access the Azure resources to perform inference. See [Grant permissions to your endpoint identity](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint) for more information.
->
-> For more configurations of endpoint, see [managed online endpoint schema](../reference-yaml-endpoint-online.md).
+> You need to give the following permissions to the user-assigned identity **before create the endpoint** so that it can access the Azure resources to perform inference. Learn more about [how to grant permissions to your endpoint identity](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint).
+
+|Scope|Role|Why it's needed|
+|---|---|---|
+|Azure Machine Learning Workspace|**Azure Machine Learning Workspace Connection Secrets Reader** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections|
+|Workspace container registry |ACR pull |Pull container image |
+|Workspace default storage| Storage Blob Data Reader| Load model from storage |
+|(Optional) Azure Machine Learning Workspace|Workspace metrics writer| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.|
 
 ### Define the deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. To deploy a flow, you must have:
+A deployment is a set of resources required for hosting the model that does the actual inferencing.
 
-- **Model files (or the name and version of a model that's already registered in your workspace).** In the example, we have a scikit-learn model that does regression.
-- **A scoring script**, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. In this example, we have a score.py file.
-An environment in which your model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
-Settings to specify the instance type and scaling capacity.
-
-Following is a deployment definition example.
+Following is a deployment definition example, in which the `model` section refers to the registered flow model. You can also specify the flow model path in line.
 
 # [Managed online endpoint](#tab/managed)
 
@@ -154,7 +187,7 @@ model: azureml:basic-chat-model:1
   # You can also specify model files path inline
   # path: examples/flows/chat/basic-chat
 environment: 
-  image: mcr.microsoft.com/azureml/promptflow/promptflow-runtime:20230831.v1
+  image: mcr.microsoft.com/azureml/promptflow/promptflow-runtime:latest
   # inference config is used to build a serving container for online deployments
   inference_config:
     liveness_route:
@@ -193,7 +226,7 @@ model: azureml:basic-chat-model:1
   # You can also specify model files path inline
   # path: examples/flows/chat/basic-chat
 environment: 
-  image: mcr.microsoft.com/azureml/promptflow/promptflow-runtime:20230831.v1
+  image: mcr.microsoft.com/azureml/promptflow/promptflow-runtime:latest
   # inference config is used to build a serving container for online deployments
   inference_config:
     liveness_route:
@@ -230,8 +263,8 @@ environment_variables:
 | Model | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification. |
 | Environment | The environment to host the model and code. It contains: <br>    - `image`<br>      - `inference_config`: is used to build a serving container for online deployments, including `liveness route`, `readiness_route`, and `scoring_route` . |
 | Instance type | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md). |
-| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints). |
-| Environment variables | Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PROMPTFLOW_RUN_MODE: serving`: specify the mode to serving <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. <br> - <br> |
+| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [limits for online endpoints](../how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints). |
+| Environment variables | Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PROMPTFLOW_RUN_MODE: serving`: specify the mode to serving <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. |
 
 If you create a Kubernetes online deployment, you need to specify the following additional attributes:
 
@@ -254,11 +287,14 @@ To create the deployment named `blue` under the endpoint, run the following code
 az ml online-deployment create --file blue-deployment.yml --all-traffic
 ```
 
-This deployment might take up to 20 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
+> [!NOTE]
+>
+> This deployment might take more than 15 minutes. 
+
 
 > [!TIP]
 >
-> If you prefer not to block your CLI console, you may add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
+> If you prefer not to block your CLI console, you can add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
 
 > [!IMPORTANT]
 >
@@ -280,12 +316,151 @@ az ml online-deployment get-logs --name blue --endpoint basic-chat-endpoint
 
 ### Invoke the endpoint to score data by using your model
 
+You can create a sample-request.json file like this:
+
+```json
+{
+  "question": "What is Azure Machine Learning?",
+  "chat_history":  []
+}
+```
+
 ```Azure CLI
-az ml online-endpoint invoke --name basic-chat-endpoint --request-file endpoints/online/model-1/sample-request.json
+az ml online-endpoint invoke --name basic-chat-endpoint --request-file sample-request.json
+```
+
+You can also call it with an HTTP client, for example with curl:
+
+```bash
+ENDPOINT_KEY=<your-endpoint-key>
+ENDPOINT_URI=<your-endpoint-uri>
+
+curl --request POST "$ENDPOINT_URI" --header "Authorization: Bearer $ENDPOINT_KEY" --header 'Content-Type: application/json' --data '{"question": "What is Azure Machine Learning?", "chat_history":  []}'
+```
+
+You can get your endpoint key and your endpoint URI from the Azure Machine Learning workspace in **Endpoints** > **Consume** > **Basic consumption info**.
+
+## Advanced configurations
+
+### Deploy with different connections from flow development
+
+You might want to override connections of the flow during deployment.
+
+For example, if your flow.dag.yaml file uses a connection named `my_connection`, you can override it by adding environment variables of the deployment yaml like following:
+
+**Option 1**: override connection name
+
+```yaml
+environment_variables:
+  my_connection: <override_connection_name>
+```
+
+**Option 2**: override by referring to asset
+
+```yaml
+environment_variables:
+  my_connection: ${{azureml://connections/<override_connection_name>}}
+```
+
+> [!NOTE]
+>
+> You can only refer to a connection within the same workspace.
+
+### Deploy with a custom environment
+
+This section will show you how to use a docker build context to specify the environment for your deployment, assuming you have knowledge of [Docker](https://www.docker.com/) and [Azure Machine Learning environments](../concept-environments.md).
+
+1. In your local environment, create a folder named `image_build_with_reqirements` contains following files:
+
+    ```
+    |--image_build_with_reqirements
+    |  |--requirements.txt
+    |  |--Dockerfile
+    ```
+    - The `requirements.txt` should be inherited from the flow folder, which has been used to track the dependencies of the flow. 
+
+    - The `Dockerfile` content is as following: 
+
+        ```
+        FROM mcr.microsoft.com/azureml/promptflow/promptflow-runtime:latest
+        COPY ./requirements.txt .
+        RUN pip install -r requirements.txt
+        ```
+
+1. replace the environment section in the deployment definition yaml file with the following content:
+
+    ```yaml
+    environment: 
+      build:
+        path: image_build_with_reqirements
+        dockerfile_path: Dockerfile
+      # deploy prompt flow is BYOC, so we need to specify the inference config
+      inference_config:
+        liveness_route:
+          path: /health
+          port: 8080
+        readiness_route:
+          path: /health
+          port: 8080
+        scoring_route:
+          path: /score
+          port: 8080
+    ```
+
+### Configure concurrency for deployment
+
+When deploying your flow to online deployment, there are two environment variables, which you configure for concurrency: `PROMPTFLOW_WORKER_NUM` and `PROMPTFLOW_WORKER_THREADS`. Besides, you'll also need to set the `max_concurrent_requests_per_instance` parameter.
+
+Below is an example of how to configure in the `deployment.yaml` file.
+
+```yaml
+request_settings:
+  max_concurrent_requests_per_instance: 10
+environment_variables:
+  PROMPTFLOW_WORKER_NUM: 4
+  PROMPTFLOW_WORKER_THREADS: 1
+```
+
+- **PROMPTFLOW_WORKER_NUM**: This parameter determines the number of workers (processes) that will be started in one container. The default value is equal to the number of CPU cores, and the maximum value is twice the number of CPU cores.
+- **PROMPTFLOW_WORKER_THREADS**: This parameter determines the number of threads that will be started in one worker. The default value is 1.
+    > [!NOTE]
+    >
+    > When setting `PROMPTFLOW_WORKER_THREADS` to a value greater than 1, ensure that your flow code is thread-safe.
+- **max_concurrent_requests_per_instance**: The maximum number of concurrent requests per instance allowed for the deployment. The default value is 10.
+    
+    The suggested value for `max_concurrent_requests_per_instance` depends on your request time:
+    - If your request time is greater than 200 ms, set `max_concurrent_requests_per_instance` to `PROMPTFLOW_WORKER_NUM * PROMPTFLOW_WORKER_THREADS`.
+    - If your request time is less than or equal to 200 ms, set `max_concurrent_requests_per_instance` to `(1.5-2) * PROMPTFLOW_WORKER_NUM * PROMPTFLOW_WORKER_THREADS`. This can improve total throughput by allowing some requests to be queued on the server side.
+    - If you're sending cross-region requests, you can change the threshold from 200 ms to 1 s.
+
+While tuning above parameters, you need to monitor the following metrics to ensure optimal performance and stability:
+- Instance CPU/Memory utilization of this deployment
+- Non-200 responses (4xx, 5xx)
+    - If you receive a 429 response, this typically indicates that you need to either re-tune your concurrency settings following the above guide or scale your deployment.
+- Azure OpenAI throttle status
+
+### Monitor the endpoint
+
+#### Monitor prompt flow deployment metrics
+
+You can monitor general metrics of online deployment (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more), and prompt flow deployment specific metrics (token consumption, flow latency, etc.) by adding `app_insights_enabled: true` in the deployment yaml file. Learn more about [metrics of prompt flow deployment](./how-to-deploy-for-real-time-inference.md#view-endpoint-metrics).
+
+
+## Common errors
+
+### Upstream request timeout issue when consuming the endpoint
+
+Such error is usually caused by timeout. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes, which is 300000 ms. Following is example showing how to specify request time out in the deployment yaml file. Learn more about the deployment schema [here](../reference-yaml-deployment-managed-online.md).
+
+```yaml
+request_settings:
+  request_timeout_ms: 300000
 ```
 
 ## Next steps
 
 - Learn more about [managed online endpoint schema](../reference-yaml-endpoint-online.md) and [managed online deployment schema](../reference-yaml-deployment-managed-online.md).
+- Learn more about how to [test the endpoint in UI](./how-to-deploy-for-real-time-inference.md#test-the-endpoint-with-sample-data) and [monitor the endpoint](./how-to-deploy-for-real-time-inference.md#view-managed-online-endpoints-common-metrics-using-azure-monitor-optional).
 - Learn more about how to [troubleshoot managed online endpoints](../how-to-troubleshoot-online-endpoints.md).
 - Once you improve your flow, and would like to deploy the improved version with safe rollout strategy, see [Safe rollout for online endpoints](../how-to-safely-rollout-online-endpoints.md).
+- Learn more about [deploy flows to other platforms, such as a local development service, Docker container, Azure APP service, etc.](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html)

@@ -2,16 +2,20 @@
 title: IDology integration with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate a sample online payment app in Azure AD B2C with IDology. IDology is an identity verification and proofing provider with multiple solutions.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to integrate IDology with Azure AD B2C, so that I can verify and authenticate user identities using IDology's identity verification and proofing solutions.
+
 ---
 
 # Tutorial for configuring IDology with Azure Active Directory B2C 

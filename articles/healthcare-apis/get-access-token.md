@@ -20,21 +20,21 @@ Keep in mind that to access the FHIR service or the DICOM service, users and app
 ---
 ## Get an access token for the FHIR service
 
-The FHIR service uses a specific `resource`  or `Audience` with URI equal to the URI of the FHIR server `https://<workspacename-fhirservicename>.azurehealthcareapis.com`. Obtain a token and store it in a variable (named `$token`) with the following command:
+The FHIR service uses a specific `resource`  or `Audience` with URI equal to the URI of the FHIR server `https://<workspacename-fhirservicename>.fhir.azurehealthcareapis.com`. Obtain a token and store it in a variable (named `$token`) with the following command:
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-token=$(az account get-access-token --resource=https://<workspacename-fhirservicename>.azurehealthcareapis.com --query accessToken --output tsv)
-curl -X GET --header "Authorization: Bearer $token" https://<workspacename-fhirservicename>.azurehealthcareapis.com/Patient
+token=$(az account get-access-token --resource=https://<workspacename-fhirservicename>.fhir.azurehealthcareapis.com --query accessToken --output tsv)
+curl -X GET --header "Authorization: Bearer $token" https://<workspacename-fhirservicename>.fhir.azurehealthcareapis.com/Patient
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$token = (Get-AzAccessToken -ResourceUrl 'https://<workspacename-fhirservicename>.azurehealthcareapis.com').Token
+$token = (Get-AzAccessToken -ResourceUrl 'https://<workspacename-fhirservicename>.fhir.azurehealthcareapis.com').Token
 $headers = @{Authorization="Bearer $token"}
-Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<workspacename-fhirservicename>.azurehealthcareapis.com/Patient'
+Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<workspacename-fhirservicename>.fhir.azurehealthcareapis.com/Patient'
 ```
 
 ---

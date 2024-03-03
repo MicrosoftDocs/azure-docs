@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop (classic) terminology - Azure
-description: The terminology used for basic elements of a Azure Virtual Desktop (classic) environment.
+description: The terminology used for basic elements of an Azure Virtual Desktop (classic) environment.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
@@ -16,7 +16,7 @@ Azure Virtual Desktop is a service that gives users easy and secure access to th
 
 ## Tenants
 
-The Azure Virtual Desktop tenant is the primary interface for managing your Azure Virtual Desktop environment. Each Azure Virtual Desktop tenant must be associated with the Azure Active Directory containing the users who will sign in to the environment. From the Azure Virtual Desktop tenant, you can begin creating host pools to run your users' workloads.
+The Azure Virtual Desktop tenant is the primary interface for managing your Azure Virtual Desktop environment. Each Azure Virtual Desktop tenant must be associated with the Microsoft Entra ID containing the users who will sign in to the environment. From the Azure Virtual Desktop tenant, you can begin creating host pools to run your users' workloads.
 
 ## Host pools
 
@@ -49,7 +49,7 @@ In Azure Virtual Desktop, the Azure Virtual Desktop tenant is where most of the 
 
 ## End users
 
-After you've assigned users to their application groups, they can connect to a Azure Virtual Desktop deployment with any of the Azure Virtual Desktop clients.
+After you've assigned users to their application groups, they can connect to an Azure Virtual Desktop deployment with any of the Azure Virtual Desktop clients.
 
 ## Next steps
 

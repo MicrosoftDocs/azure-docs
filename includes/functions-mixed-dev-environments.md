@@ -1,14 +1,10 @@
 ---
-title: include file
-description: include file
-services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 06/27/2018
+ms.date: 12/27/2023
 ms.author: glenga
-ms.custom: include file
 ---
 
 >[!NOTE]  
-> Don't mix local development with portal development in the same function app. When you create and publish functions from a local project, you won't be able to maintain or modify project code in the portal.
+> Because of limitations on editing function code in the [Azure portal](https://portal.azure.com), you should develop your functions locally and publish your code project to a function app in Azure. For more information, see [Development limitations in the Azure portal](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal)

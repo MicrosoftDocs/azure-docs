@@ -11,7 +11,7 @@ ms.custom: devdivchpfy22
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If you're using a version of Azure Lab Services prior to the [August 2022 Update](lab-services-whats-new.md), see [Specify Marketplace images available to lab creators](specify-marketplace-images-1.md).
+> If you're using [lab accounts](concept-lab-accounts-versus-lab-plans.md), see [Specify Marketplace images with lab accounts](specify-marketplace-images-1.md).
 
 As an admin, you can specify the Marketplace images that educators can use when creating labs.
 

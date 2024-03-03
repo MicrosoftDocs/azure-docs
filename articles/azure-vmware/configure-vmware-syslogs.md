@@ -3,7 +3,8 @@ title: Configure VMware syslogs for Azure VMware Solution
 description: Learn how to configure diagnostic settings to collect VMware syslogs for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 12/22/2022
+ms.date: 12/07/2023
+ms.custom: engagement-fy23
 
 #Customer intent: As an Azure service administrator, I want to collect VMware syslogs and store it in my storage account so that I can view the vCenter Server logs and analyze for any diagnostic purposes.
 
@@ -13,7 +14,7 @@ ms.date: 12/22/2022
 
 Diagnostic settings are used to configure streaming export of platform logs and metrics for a resource to the destination of your choice. You can create up to five different diagnostic settings to send different logs and metrics to independent destinations. 
 
-In this article, you'll configure a diagnostic setting to collect VMware syslogs for your Azure VMware Solution private cloud. You'll store the syslog to a storage account to view the vCenter Server logs and analyze for diagnostic purposes. 
+In this article, learn how to configure a diagnostic setting to collect VMware syslogs for your Azure VMware Solution private cloud. Then, learn how to store the syslog to a storage account to view the vCenter Server logs and analyze for diagnostic purposes. 
  >[!IMPORTANT]
    >The **VMware syslogs** contains the following logs:
    >- vCenter Server logs
@@ -43,7 +44,7 @@ Make sure you have an Azure VMware Solution private cloud with access to the vCe
 
 A Log Analytics workspace:
 
-* Contains your AVS private cloud logs.
+* Contains your Azure VMware Solution private cloud logs.
 
 * Is the workspace from which you can take desired actions, such as querying for logs.
 
@@ -56,40 +57,40 @@ In this section, you’ll:
 #### Create a resource
 
 1. In the Azure portal, go to **Create a resource**.
-2. Search for “Log Analytics Workspace” and click **Create** -> **Log Analytics Workspace**.
+2. Search for “Log Analytics Workspace” and select **Create** -> **Log Analytics Workspace**.
 
 :::image type="content" source="media/send-logs-to-log-analytics/marketplace.png" alt-text="Screenshot of Create a resource.":::
 
 #### Set up your workspace
 
-1. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. 
-2. Click **Review** + **Create**.
+1. Enter the Subscription you intend to use, the Resource Group chosen to house this workspace. Give it a name and select a region. 
+2. Select **Review** + **Create**.
 
 :::image type="content" source="media/send-logs-to-log-analytics/create-workspace.png" alt-text="Screenshot of Marketplace.":::
 
 #### Add a diagnostic setting
 
-Next, we add a diagnostic setting in your AVS private cloud, so it knows where to send your logs to.
+Next, we add a diagnostic setting in your Azure VMware Solution private cloud, so it knows where to send your logs to.
 
 :::image type="content" source="media/send-logs-to-log-analytics/private-cloud.png" alt-text="Screenshot of vh-private-cloud.":::
 
-1. Click your AVS private cloud.
+1. Select your Azure VMware Solution private cloud.
 Go to Diagnostic settings on the left-hand menu under Monitoring.
 Select **Add diagnostic setting**.
 2. Give your diagnostic setting a name. 
-Select the log categories you are interested in sending to your Log Analytics workspace.
+Select the log categories you're interested in sending to your Log Analytics workspace.
 
 3. Make sure to select the checkbox next to **Send to Log Analytics workspace**.
 Select the Subscription your Log Analytics workspace lives in and the Log Analytics workspace.
-Click **Save** on the top left.
+Select **Save** on the top left.
 
 :::image type="content" source="media/send-logs-to-log-analytics/diagnostic-setting.png" alt-text="Screenshot of Diagnostics settings.":::
 
-At this point, your Log Analytics workspace has been successfully configured to receive logs from your AVS private cloud.
+At this point, your Log Analytics workspace is now successfully configured to receive logs from your Azure VMware Solution private cloud.
 
 #### Search and analyze logs using Kusto
 
-Now that you’ve successfully configured your logs to go to your Log Analytics workspace, you can use that data to gain meaningful insights with Log Analytics’ search feature.
+Now that you successfully configured your logs to go to your Log Analytics workspace, you can use that data to gain meaningful insights with the Log Analytics search feature.
 Log Analytics uses a language called the Kusto Query Language (or Kusto) to search through your logs.
 
 For more information, see
@@ -101,7 +102,7 @@ For more information, see
 
 :::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-2.png" alt-text="Screenshot showing the options to select for storing the syslogs.":::
 
-2. Go to your **Storage accounts**, verify **Insight logs vmwarelog** has been created, select it. 
+2. Go to your **Storage accounts**, verify **Insight logs vmwarelog** was created, and select it. 
  
 :::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-3.png" alt-text="Screenshot showing the Insight logs vmwarelog option created and available.":::
 

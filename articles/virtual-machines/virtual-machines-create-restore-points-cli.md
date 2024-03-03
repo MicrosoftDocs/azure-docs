@@ -1,8 +1,8 @@
 ---
 title: Creating Virtual Machine Restore Points using Azure CLI
 description: Creating Virtual Machine Restore Points using Azure CLI
-author: mamccrea
-ms.author: mamccrea
+author: ju-shim
+ms.author: jushiman
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: tutorial

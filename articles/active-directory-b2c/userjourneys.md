@@ -1,16 +1,19 @@
 ---
 title: UserJourneys  
 description: Specify the UserJourneys element of a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 01/27/2023
+ms.date: 01/17/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C into an application, I want to understand how custom policy user journeys work so that I can design the steps that a users goes through for the relying party application to obtain the desired claims for a user.  
 ---
 
 # UserJourneys
@@ -88,7 +91,7 @@ A user journey is represented as an orchestration sequence that must be followed
 
 Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step element. For example, you can check to perform an orchestration step only if a specific claim exists, or if a claim is equal or not to the specified value.
 
-To specify the ordered list of orchestration steps, an **OrchestrationSteps** element is added as part of the policy. This element is required.
+To specify the ordered list of orchestration steps, an **OrchestrationSteps** element is added as part of the policy. This element is required. 
 
 ```xml
 <UserJourney Id="SignUpOrSignIn">
@@ -107,7 +110,7 @@ The **OrchestrationStep** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| `Order` | Yes | The order of the orchestration steps. |
+| `Order` | Yes | The order of the orchestration steps. The value of the `Order` attribute starts at `1` through `N`. So, if you've 10 steps and you delete the second step, you need to renumber the steps three to 10 to become two to nine. |
 | `Type` | Yes | The type of the orchestration step. Possible values: <ul><li>**ClaimsProviderSelection** - Indicates that the orchestration step presents various claims providers to the user to select one.</li><li>**CombinedSignInAndSignUp** - Indicates that the orchestration step presents a combined social provider sign-in and local account sign-up page.</li><li>**ClaimsExchange** - Indicates that the orchestration step exchanges claims with a claims provider.</li><li>**GetClaims** - Specifies that the orchestration step should process claim data sent to Azure AD B2C from the relying party via its `InputClaims` configuration.</li><li>**InvokeSubJourney** - Indicates that the orchestration step exchanges claims with a [sub journey](subjourneys.md).</li><li>**SendClaims** - Indicates that the orchestration step sends the claims to the relying party with a token issued by a claims issuer.</li></ul> |
 | ContentDefinitionReferenceId | No | The identifier of the [content definition](contentdefinitions.md) associated with this orchestration step. Usually the content definition reference identifier is defined in the self-asserted technical profile. But, there are some cases when Azure AD B2C needs to display something without a technical profile. There are two examples - if the type of the orchestration step is one of following: `ClaimsProviderSelection` or  `CombinedSignInAndSignUp`, Azure AD B2C needs to display the identity provider selection without having a technical profile. |
 | CpimIssuerTechnicalProfileReferenceId | No | The type of the orchestration step is `SendClaims`. This property defines the technical profile identifier of the claims provider that issues the token for the relying party.  If absent, no relying party token is created. |

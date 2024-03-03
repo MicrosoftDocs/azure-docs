@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic:  conceptual
 ms.date: 08/29/2023
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
+ms.custom: build-2023
 ---
 
 # Azure Container Apps environments
@@ -60,6 +60,14 @@ Settings relevant to the Azure Container Apps environment API resource.
 |---|---|
 | `properties.appLogsConfiguration` | Used for configuring the Log Analytics workspace where logs for all apps in the environment are published. |
 | `properties.containerAppsConfiguration.daprAIInstrumentationKey` | App Insights instrumentation key provided to Dapr for tracing |
+
+## Policies
+
+Azure Container Apps environments are automatically deleted if one of the following conditions is detected for longer than 90 days:
+
+- In an idle state
+- In a failed state due to VNet or Azure Policy configuration
+- Blocks infrastructure updates due to VNet or Azure Policy configuration
 
 ## Next steps
 

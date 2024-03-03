@@ -77,7 +77,7 @@ You must install a Container Storage Interface (CSI) driver to create a Kubernet
 
     ```bash
     helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts   
-    helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.10.0 –-set windows.enabled=true
+    helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.13.0 --set windows.enabled=true
     ```
 
     For other methods of installing the SMB CSI Driver, see [Install SMB CSI driver master version on a Kubernetes cluster](https://github.com/kubernetes-csi/csi-driver-smb/blob/master/docs/install-csi-driver-master.md). 
@@ -440,7 +440,7 @@ A backend must be created to instruct Astra Trident about the Azure NetApp Files
       clientSecret: rR0rUmWXfNioN1KhtHisiSAnoTherboGuskey6pU
     ``` 
 
-2. Create a file named `backend-anf-smb.yaml` and copy in the following YAML. Change the `ClientID`, `clientSecret`, `subscriptionID`, `tenantID`, `location`, and `serviceLevel` to the correct values for your environment.  The `tenantID`, `clientID`, and `clientSecret` can be found from an application registration in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The application registration includes the Owner or Contributor role predefined by Azure. The Azure location must contain at least one delegated subnet. The `serviceLevel` must match the `serviceLevel` configured for the capacity pool in [Configure Azure NetApp Files for AKS workloads](azure-netapp-files.md#configure-azure-netapp-files-for-aks-workloads).
+2. Create a file named `backend-anf-smb.yaml` and copy in the following YAML. Change the `ClientID`, `clientSecret`, `subscriptionID`, `tenantID`, `location`, and `serviceLevel` to the correct values for your environment.  The `tenantID`, `clientID`, and `clientSecret` can be found from an application registration in Microsoft Entra ID with sufficient permissions for the Azure NetApp Files service. The application registration includes the Owner or Contributor role predefined by Azure. The Azure location must contain at least one delegated subnet. The `serviceLevel` must match the `serviceLevel` configured for the capacity pool in [Configure Azure NetApp Files for AKS workloads](azure-netapp-files.md#configure-azure-netapp-files-for-aks-workloads).
 
     ```yaml
     apiVersion: trident.netapp.io/v1

@@ -3,7 +3,7 @@ title: Azure Resource Graph sample queries for Azure Policy
 description: Sample Azure Resource Graph queries for Azure Policy showing use of resource types and tables to access Azure Policy related resources and properties.
 ms.date: 08/31/2023
 ms.topic: sample
-ms.custom: subject-resourcegraph-sample, devx-track-azurepowershell
+ms.custom: subject-resourcegraph-sample, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Azure Resource Graph sample queries for Azure Policy
 

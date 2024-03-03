@@ -36,7 +36,7 @@ When you use a gallery to store images, multiple resource types are created:
 
 Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created and also contains Image metadata such as, what OS it is for, features it supports and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
 
-There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image versions that share one or two, but not all three values.  For example, here are three image definitions and their values:
+There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image definitions that share one or two, but not all three values. For example, here are three image definitions and their values:
 
 |Image Definition|Publisher|Offer|Sku|
 |---|---|---|---|
@@ -173,7 +173,7 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [Can I move the Azure Compute Gallery resource to a different subscription after it has been created?](#can-i-move-the-azure-compute-gallery-resource-to-a-different-subscription-after-it-has-been-created)
 * [Can I replicate my image versions across clouds such as Microsoft Azure operated by 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-operated-by-21vianet-or-azure-germany-or-azure-government-cloud)
 * [Can I replicate my image versions across subscriptions?](#can-i-replicate-my-image-versions-across-subscriptions)
-* [Can I share image versions across Azure AD tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
+* [Can I share image versions across Microsoft Entra tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
 * [How long does it take to replicate image versions across the target regions?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
 * [What is the difference between source region and target region?](#what-is-the-difference-between-source-region-and-target-region)
 * [How do I specify the source region while creating the image version?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
@@ -249,7 +249,9 @@ No, you can't replicate image versions across clouds.
 
 No, you may replicate the image versions across regions in a subscription and use it in other subscriptions through RBAC.
 
-### Can I share image versions across Azure AD tenants? 
+<a name='can-i-share-image-versions-across-azure-ad-tenants'></a>
+
+### Can I share image versions across Microsoft Entra tenants? 
 
 Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](share-gallery.md?tabs=powershell) or [CLI](share-gallery.md?tabs=cli).
 

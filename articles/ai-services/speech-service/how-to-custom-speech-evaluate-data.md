@@ -1,21 +1,19 @@
 ---
-title: Test accuracy of a Custom Speech model - Speech service
+title: Test accuracy of a custom speech model - Speech service
 titleSuffix: Azure AI services
 description: In this article, you learn how to quantitatively measure and improve the quality of our speech to text model or your custom model.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 1/19/2024
 ms.author: eur
-ms.custom: ignite-fall-2021
 zone_pivot_groups: speech-studio-cli-rest
 show_latex: true
 no-loc: [$$, '\times', '\over']
 ---
 
-# Test accuracy of a Custom Speech model
+# Test accuracy of a custom speech model
 
 In this article, you learn how to quantitatively measure and improve the accuracy of the base speech to text model or your own custom models. [Audio + human-labeled transcript](how-to-custom-speech-test-and-train.md#audio--human-labeled-transcript-data-for-training-or-testing) data is required to test accuracy. You should provide from 30 minutes to 5 hours of representative audio. 
 
@@ -23,14 +21,14 @@ In this article, you learn how to quantitatively measure and improve the accurac
 
 ## Create a test
 
-You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy with a speech to text base model or another custom model. After you [get](#get-test-results) the test results, [evaluate](#evaluate-word-error-rate) the word error rate (WER) compared to speech recognition results.
+You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy with a speech to text base model or another custom model. After you [get](#get-test-results) the test results, [evaluate the word error rate (WER)](#evaluate-word-error-rate-wer) compared to speech recognition results.
 
 ::: zone pivot="speech-studio"
 
 Follow these steps to create a test:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
-1. Select **Custom Speech** > Your project name > **Test models**.
+1. Select **Custom speech** > Your project name > **Test models**.
 1. Select **Create new test**.
 1. Select **Evaluate accuracy** > **Next**. 
 1. Select one audio + human-labeled transcription dataset, and then select **Next**. If there aren't any datasets available, cancel the setup, and then go to the **Speech datasets** menu to [upload datasets](how-to-custom-speech-upload-data.md).
@@ -48,12 +46,12 @@ Follow these steps to create a test:
 
 To create a test, use the `spx csr evaluation create` command. Construct the request parameters according to the following instructions:
 
-- Set the `project` parameter to the ID of an existing project. This is recommended so that you can also view the test in Speech Studio. You can run the `spx csr project list` command to get available projects.
+- Set the `project` parameter to the ID of an existing project. This parameter is recommended so that you can also view the test in Speech Studio. You can run the `spx csr project list` command to get available projects.
 - Set the required `model1` parameter to the ID of a model that you want to test.
 - Set the required `model2` parameter to the ID of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
 - Set the required `dataset` parameter to the ID of a dataset that you want to use for the test.
-- Set the `language` parameter, otherwise the Speech CLI will set "en-US" by default. This should be the locale of the dataset contents. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
-- Set the required `name` parameter. This is the name that will be displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
+- Set the `language` parameter, otherwise the Speech CLI sets "en-US" by default. This parameter should be the locale of the dataset contents. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
+- Set the required `name` parameter. This parameter is the name that is displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
 
 Here's an example Speech CLI command that creates a test:
 
@@ -128,13 +126,13 @@ spx help csr evaluation
 
 To create a test, use the [Evaluations_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the `project` property to the URI of an existing project. This is recommended so that you can also view the test in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
+- Set the `project` property to the URI of an existing project. This property is recommended so that you can also view the test in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the `testingKind` property to `Evaluation` within `customProperties`. If you don't specify `Evaluation`, the test is treated as a quality inspection test. Whether the `testingKind` property is set to `Evaluation` or `Inspection`, or not set, you can access the accuracy scores via the API, but not in the Speech Studio.
 - Set the required `model1` property to the URI of a model that you want to test.
 - Set the required `model2` property to the URI of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
 - Set the required `dataset` property to the URI of a dataset that you want to use for the test.
-- Set the required `locale` property. This should be the locale of the dataset contents. The locale can't be changed later.
-- Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
+- Set the required `locale` property. This property should be the locale of the dataset contents. The locale can't be changed later.
+- Set the required `displayName` property. This property is the name that is displayed in the Speech Studio.
 
 Make an HTTP POST request using the URI as shown in the following example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
@@ -223,18 +221,18 @@ The top-level `self` property in the response body is the evaluation's URI. Use 
 
 ## Get test results
 
-You should get the test results and [evaluate](#evaluate-word-error-rate) the word error rate (WER) compared to speech recognition results.
+You should get the test results and [evaluate](#evaluate-word-error-rate-wer) the word error rate (WER) compared to speech recognition results.
 
 ::: zone pivot="speech-studio"
 
 Follow these steps to get test results:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
-1. Select **Custom Speech** > Your project name > **Test models**.
+1. Select **Custom speech** > Your project name > **Test models**.
 1. Select the link by test name.
 1. After the test is complete, as indicated by the status set to *Succeeded*, you should see results that include the WER number for each tested model.
 
-This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where additional training and improvements are required.
+This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where more training and improvements are required.
 
 ::: zone-end
 
@@ -387,7 +385,7 @@ You should receive a response body in the following format:
 ::: zone-end
 
 
-## Evaluate word error rate
+## Evaluate word error rate (WER)
 
 The industry standard for measuring model accuracy is [word error rate (WER)](https://en.wikipedia.org/wiki/Word_error_rate). WER counts the number of incorrect words identified during recognition, and divides the sum by the total number of words provided in the human-labeled transcript (N). 
 
@@ -418,11 +416,31 @@ If you want to replicate WER measurements locally, you can use the sclite tool f
 
 ## Resolve errors and improve WER
 
-You can use the WER calculation from the machine recognition results to evaluate the quality of the model you're using with your app, tool, or product. A WER of 5-10% is considered to be good quality and is ready to use. A WER of 20% is acceptable, but you might want to consider additional training. A WER of 30% or more signals poor quality and requires customization and training.
+You can use the WER calculation from the machine recognition results to evaluate the quality of the model you're using with your app, tool, or product. A WER of 5-10% is considered to be good quality and is ready to use. A WER of 20% is acceptable, but you might want to consider more training. A WER of 30% or more signals poor quality and requires customization and training.
 
-How the errors are distributed is important. When many deletion errors are encountered, it's usually because of weak audio signal strength. To resolve this issue, you need to collect audio data closer to the source. Insertion errors mean that the audio was recorded in a noisy environment and crosstalk might be present, causing recognition issues. Substitution errors are often encountered when an insufficient sample of domain-specific terms has been provided as either human-labeled transcriptions or related text.
+How the errors are distributed is important. When many deletion errors are encountered, it's usually because of weak audio signal strength. To resolve this issue, you need to collect audio data closer to the source. Insertion errors mean that the audio was recorded in a noisy environment and crosstalk might be present, causing recognition issues. Substitution errors are often encountered when an insufficient sample of domain-specific terms is provided as either human-labeled transcriptions or related text.
 
-By analyzing individual files, you can determine what type of errors exist, and which errors are unique to a specific file. Understanding issues at the file level will help you target improvements.
+By analyzing individual files, you can determine what type of errors exist, and which errors are unique to a specific file. Understanding issues at the file level helps you target improvements.
+
+## Evaluate token error rate (TER)
+
+Besides [word error rate](#evaluate-word-error-rate-wer), you can also use the extended measurement of **Token Error Rate (TER)** to evaluate quality on the final end-to-end display format. In addition to the lexical format (`That will cost $900.` instead of `that will cost nine hundred dollars`), TER takes into account the display format aspects such as punctuation, capitalization, and ITN. Learn more about [Display output formatting with speech to text](display-text-format.md). 
+
+TER counts the number of incorrect tokens identified during recognition, and divides the sum by the total number of tokens provided in the human-labeled transcript (N).
+
+$$
+TER = {{I+D+S}\over N} \times 100
+$$
+
+The formula of TER calculation is also similar to WER. The only difference is that TER is calculated based on the token level instead of word level.
+* Insertion (I): Tokens that are incorrectly added in the hypothesis transcript
+* Deletion (D): Tokens that are undetected in the hypothesis transcript
+* Substitution (S): Tokens that were substituted between reference and hypothesis
+
+In a real-world case, you can analyze both WER and TER results to get the desired improvements. 
+
+> [!NOTE]
+> To measure TER, you need to make sure the [audio + transcript testing data](./how-to-custom-speech-test-and-train.md#audio--human-labeled-transcript-data-for-training-or-testing) includes transcripts with display formatting such as punctuation, capitalization, and ITN.
 
 ## Example scenario outcomes
 

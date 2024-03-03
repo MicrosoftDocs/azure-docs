@@ -1,11 +1,10 @@
 ---
-title: Partnering with Azure DDoS Protection 
+title: Partnering with Azure DDoS Protection
 description: "Understand partnering opportunities enabled by Azure DDoS Protection."
 ms.service: ddos-protection
-ms.custom: ignite-2022
 author: AbdullahBell
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 11/06/2023
 ms.author: abell
 ---
 # Partnering with Azure DDoS Protection

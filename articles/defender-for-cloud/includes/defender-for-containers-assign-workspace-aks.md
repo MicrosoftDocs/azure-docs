@@ -70,7 +70,7 @@ If the policy has already been assigned to a workspace, you'll see `Assignments 
 :::image type="content" source="../media/defender-for-containers/already-assigned.png" alt-text="Screenshot that shows Assignment (1), meaning a workspace has already been assigned." lightbox="../media/defender-for-containers/already-assigned.png":::
 
 > [!NOTE]
-> If you have more than one subscription the number may be higher.
+> If you have more than one subscription the number might be higher.
 
 **To assign custom workspace**:
 

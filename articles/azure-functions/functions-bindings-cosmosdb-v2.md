@@ -2,7 +2,7 @@
 title: Azure Cosmos DB bindings for Functions 2.x and higher
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 ms.topic: reference
-ms.custom: ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 11/29/2022
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -70,6 +70,15 @@ Working with the trigger and bindings requires that you reference the appropriat
 This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 4.x.
+
+If you're writing your application using F#, you must also configure this extension as part of the app's [startup configuration](./dotnet-isolated-process-guide.md#start-up-and-configuration). In the call to `ConfigureFunctionsWorkerDefaults()` or `ConfigureFunctionsWebApplication()`, add a delegate that takes an `IFunctionsWorkerApplication` parameter. Then within the body of that delegate, call `ConfigureCosmosDBExtension()` on the object:
+
+```fsharp
+let hostBuilder = new HostBuilder()
+hostBuilder.ConfigureFunctionsWorkerDefaults(fun (context: HostBuilderContext) (appBuilder: IFunctionsWorkerApplicationBuilder) ->
+    appBuilder.ConfigureCosmosDBExtension() |> ignore
+) |> ignore
+```
 
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 

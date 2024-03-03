@@ -6,11 +6,8 @@ summary: Azure role-based access control (Azure RBAC) is a system that provides 
 metadata:
   title: Azure RBAC documentation
   description: Learn about Azure role-based access control (Azure RBAC) to manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
-  services: role-based-access-control
   ms.service: role-based-access-control
-  ms.subservice: na
   ms.topic: landing-page
-  ms.collection: na
   author: rolyon
   manager: amycolannino
   ms.author: rolyon

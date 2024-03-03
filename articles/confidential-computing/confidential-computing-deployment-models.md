@@ -1,14 +1,12 @@
 ---
 title: Choose Between Deployment Models
 description: Choose Between Deployment Models
-author: mamccrea
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/04/2021
-ms.author: mamccrea
-ms.custom: ignite-fall-2021
+ms.author: jushiman
 ---
 
 # Confidential computing deployment models

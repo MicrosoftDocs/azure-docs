@@ -2,14 +2,13 @@
 title: 'Quickstart: Use Azure OpenAI Service with the REST API'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the REST API. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/21/2023
-keywords: 
 ---
 
 [REST API Spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json?azure-portal=true) |
@@ -38,7 +37,7 @@ In a bash shell, run the following command. You will need to replace `gpt-35-tur
 ```bash
 curl $AZURE_OPENAI_ENDPOINT/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-05-15 \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -d '{"messages":[{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},{"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},{"role": "user", "content": "Do other Azure AI services support this too?"}]}'
 
 ```

@@ -4,8 +4,9 @@ description: This article describes how to use the Azure portal to troubleshoot 
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: troubleshooting
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ---
+
 # Monitor jobs in Azure Data Lake Analytics using the Azure portal
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]
@@ -18,7 +19,7 @@ ms.date: 01/20/2023
 
    ![Azure Data Lake Analytics job management](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
 
-    The job Management gives you a glance of the job status. Notice there is a failed job.
+    The job Management gives you a glance of the job status. Notice there's a failed job.
 3. Select the **Job Management** tile to see the jobs. The jobs are categorized in **Running**, **Queued**, and **Ended**. You shall see your failed job in the **Ended** section. It shall be first one in the list. When you have many jobs, you can select **Filter** to help you to locate jobs.
 
    ![Azure Data Lake Analytics filter jobs](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)

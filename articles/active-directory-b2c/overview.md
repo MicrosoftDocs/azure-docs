@@ -1,39 +1,39 @@
 ---
 title: What is Azure Active Directory B2C?
 description: Learn how you can use Azure Active Directory B2C to support external identities in your applications, including social sign-up with Facebook, Google, and other identity providers.
-services: active-directory-b2c
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: overview
-ms.date: 10/26/2022
-ms.custom: engagement-fy23
+ms.date: 01/24/2024
 ms.author: godonnell
 ms.subservice: B2C
+
+#Customer Intent: As an IT administrator or developer, I want to understand what Azure Active Directory B2C is and how it can be used for customer identity access management, so that I can determine if it is the right solution for authenticating end users to my web/mobile applications and managing access to API resources.
+
 ---
 
 # What is Azure Active Directory B2C?
 
-Azure Active Directory B2C provides business-to-customer identity as a service. Your customers use their preferred social, enterprise, or local account identities to get single sign-on access to your applications and APIs.
+Azure Active Directory B2C provides business-to-customer identity as a service. Your customers can use their preferred social, enterprise, or local account identities to get single sign-on access to your applications and APIs.
 
 ![Infographic of Azure AD B2C identity providers and downstream applications](./media/overview/azureadb2c-overview.png)
 
 Azure AD B2C is a customer identity access management (CIAM) solution capable of supporting millions of users and billions of authentications per day. It takes care of the scaling and safety of the authentication platform, monitoring, and automatically handling threats like denial-of-service, password spray, or brute force attacks.
 
-Azure AD B2C is a separate service from [Microsoft Entra ID](../active-directory/fundamentals/whatis.md). It is built on the same technology as Microsoft Entra ID but for a different purpose. It allows businesses to build customer facing applications, and then allow anyone to sign-up and into those applications with no restrictions on user account.
+Azure AD B2C is built on the same technology as [Microsoft Entra ID](../active-directory/fundamentals/whatis.md) but for a different purpose and is a separate service. It allows businesses to build customer facing applications, and then allow anyone to sign up and sign in to those applications with no restrictions on user account.
    
 ## Who uses Azure AD B2C?
-Any business or individual who wishes to authenticate end users to their web/mobile applications using a white-label authentication solution. Apart from authentication, Azure AD B2C service is used for authorization such as access to API resources by authenticated users. Azure AD B2C is designed to be used by **IT administrators** and **developers**.
+Any business or individual who wishes to authenticate end users to their web or mobile applications using a white-label authentication solution. Apart from authentication, Azure AD B2C service is used for authorization such as access to API resources by authenticated users. Azure AD B2C is designed to be used by **IT administrators** and **developers**.
 
 ## Custom-branded identity solution
 
-Azure AD B2C is a white-label authentication solution. You can customize the entire user experience with your brand so that it blends seamlessly with your web and mobile applications.
+Azure AD B2C is a white-label authentication solution which means you can customize the entire user experience with your brand so that it blends seamlessly with your web and mobile applications.
 
-Customize every page displayed by Azure AD B2C when your users sign-up, sign in, and modify their profile information. Customize the HTML, CSS, and JavaScript in your user journeys so that the Azure AD B2C experience looks and feels like it's a native part of your application.
+Customize every page displayed by Azure AD B2C when your users sign up, sign in, and modify their profile information. Customize the HTML, CSS, and JavaScript in your user journeys so that the Azure AD B2C experience looks and feels like it's a native part of your application.
 
-![Customized sign-up and sign-in pages and background image](./media/overview/sign-in-small.png)
+:::image type="content" source="./media/overview/sign-in-small.png" alt-text="Customized sign-up and sign-in pages and background image":::
 
 ## Single sign-on access with a user-provided identity
 
@@ -51,7 +51,7 @@ Another external user store scenario is to have Azure AD B2C handle the authenti
 
 :::image type="content" source="./media/overview/scenario-remoteprofile.png" alt-text="A logical diagram of Azure AD B2C communicating with an external user store.":::
 
-Azure AD B2C can facilitate collecting the information from the user during registration or profile editing, then hand that data off to the external system via API. Then, during future authentications, Azure AD B2C can retrieve the data from the external system and, if needed, include it as a part of the authentication token response it sends to your application.
+Azure AD B2C can facilitate collecting information from a user during registration or profile editing, then hand that data off to an external system via API. Then, during future authentications, Azure AD B2C can retrieve that data from the external system and, if needed, include it as a part of the authentication token response it sends to your application.
 
 ## Progressive profiling
 
@@ -63,10 +63,7 @@ Another user journey option includes progressive profiling. Progressive profilin
 
 Use Azure AD B2C to facilitate identity verification and proofing by collecting user data, then passing it to a third-party system to perform validation, trust scoring, and approval for user account creation.
 
-
 :::image type="content" source="./media/overview/scenario-idproofing.png" alt-text="A diagram showing the user flow for third-party identity proofing.":::
-
-You have learned some of the things you can do with Azure AD B2C as your business-to-customer identity platform. You may now move on directly to a more in-depth [technical overview of Azure AD B2C](technical-overview.md).
 
 ## Next steps
 

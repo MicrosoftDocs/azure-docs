@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 09/26/2023
 ---
 
-# Azure Resource Notifications - Health Resources events in Azure Event Grid
+# Azure Resource Notifications - Health Resources events in Azure Event Grid (Preview)
 HealthResources system topic provides accurate, reliable, and comprehensive health information, enabling deeper understanding of the diverse service issues impacting your Azure resources namely, single instance virtual machines (VMs), Virtual Machine Scale Set VMS, and Virtual Machine Scale Sets. Health Resources offers two event types for consumption: `AvailabilityStatusChanged` and `ResourceAnnotated`.
 
 This article provides the properties and the schema for Azure Resource Notifications Health Resources events. For an introduction to event schemas in general, see [Azure Event Grid event schema](event-schema.md). In addition, you can find samples of generated events and a link to a related article on how to create system topic for this topic type. 
@@ -22,6 +22,48 @@ Health Resources offers two event types for consumption:
 Currently, these events are exclusively emitted at the Azure subscription scope. It implies that the entity creating the event subscription for this topic type receives notifications throughout this Azure subscription. For security reasons, it's imperative to restrict the ability to create event subscriptions on this topic to principals with read access over the entire Azure subscription. To access data via this system topic, in addition to the generic permissions required by Event Grid, the following Azure Resource Notifications specific permission is necessary: `Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action`.
 
 ## Event schemas
+
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+Here's the schema:
+
+```json
+{
+    "id": string,
+    "source": string,
+    "subject": string,
+    "type": "Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged | Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated",
+    "time ": string, 
+    "data": {
+        "resourceInfo": {
+            "id": string,
+            "name": string,
+            "type": string,
+            "properties": { 
+                <<Different for AvailabilityStatusChanged event and ResourceAnnotated event>>            
+            }
+        },
+        "operationalInfo":{
+			"resourceEventTime": date-time
+		},
+        "apiVersion": string 
+    }, 
+    "specversion": string
+}
+```
+
+An event has the following top-level data:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- | 
+| `id` | String | Unique identifier of the event |
+| `source` | String | The Azure subscription for which this system topic is being created. |
+| `subject` | String | Publisher defined path to the base resource on which this event is emitted. |
+| `type` | String | Registered event type of this system topic type |
+| `time` | String <br/> Format: `2022-11-07T18:43:09.2894075Z` | The time the event is generated based on the provider's UTC time |
+| `data` | Object | Contains event data specific to the resource provider. For more information, see the next table. |
+| `specversion` | String | CloudEvents schema specification version. |
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
@@ -67,48 +109,6 @@ An event has the following top-level data:
 | `eventTime` | String <br/> Format: `2022-11-07T18:43:09.2894075Z` | The time the event is generated based on the provider's UTC time |
 
 
-
-# [Cloud event schema](#tab/cloud-event-schema)
-
-Here's the schema:
-
-```json
-{
-    "id": string,
-    "source": string,
-    "subject": string,
-    "type": "Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged | Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated",
-    "time ": string, 
-    "data": {
-        "resourceInfo": {
-            "id": string,
-            "name": string,
-            "type": string,
-            "properties": { 
-                <<Different for AvailabilityStatusChanged event and ResourceAnnotated event>>            
-            }
-        },
-        "operationalInfo":{
-			"resourceEventTime": date-time
-		},
-        "apiVersion": string 
-    }, 
-    "specversion": string
-}
-```
-
-An event has the following top-level data:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- | 
-| `id` | String | Unique identifier of the event |
-| `source` | String | The Azure subscription for which this system topic is being created. |
-| `subject` | String | Publisher defined path to the base resource on which this event is emitted. |
-| `type` | String | Registered event type of this system topic type |
-| `time` | String <br/> Format: `2022-11-07T18:43:09.2894075Z` | The time the event is generated based on the provider's UTC time |
-| `data` | Object | Contains event data specific to the resource provider. For more information, see the next table. |
-| `specversion` | String | CloudEvents schema specification version. |
-
 ---
 
 The `data` object has the following properties:
@@ -116,7 +116,7 @@ The `data` object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `resourceInfo` | Object | Data specific to the resource. For more information, see the next table. |
-| `apiVersion` | String | Api version of the resource properties. |
+| `apiVersion` | String | API version of the resource properties. |
 | `operationalInfo` | Object | Details of operational information pertaining to the resource. | 
 
 The `resourceInfo` object has the following properties:
@@ -194,38 +194,6 @@ For the `ResourceAnnotated` event, the `properties` object has the following pro
 
 ### AvailabilityStatusChanged event 
 
-# [Event Grid event schema](#tab/event-grid-event-schema)
-
-```json
-{
-  "id": "1fb6fa94-d965-4306-abeq-4810f0774e97",
-  "topic": "/subscriptions/{subscription-id}",
-  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
-  "data": {
-    "resourceInfo": {
-      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/{event-id}",
-      "name": "{event-id}",
-      "type": "Microsoft.ResourceHealth/availabilityStatuses",
-      "properties": {
-        "targetResourceId": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
-        "targetResourceType": "Microsoft.Compute/virtualMachines",
-        "occurredTime": "2023-07-24T19:20:37.9245071Z",
-        "previousAvailabilityState": "Unavailable",
-        "availabilityState": "Available"
-      }
-    },
-    "operationalInfo": {
-      "resourceEventTime": "2023-07-24T19:20:37.9245071Z"
-    },
-    "apiVersion": "2023-12-01"
-  },
-  "eventType": "Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged",
-  "dataVersion": "1",
-  "metadataVersion": "1",
-  "eventTime": "2023-07-24T19:20:37.9245071Z"
-}
-```
-
 # [Cloud event schema](#tab/cloud-event-schema)
 
 The following example shows the schema of a key-value modified event: 
@@ -259,44 +227,41 @@ The following example shows the schema of a key-value modified event:
 }
 ```
 
----
-
-### ResourceAnnotated event 
-
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
 ```json
 {
-  "id": "8945cf9b-e220-496e-ab4f-f3a239318995",
+  "id": "1fb6fa94-d965-4306-abeq-4810f0774e97",
   "topic": "/subscriptions/{subscription-id}",
   "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
   "data": {
     "resourceInfo": {
-      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}/providers/Microsoft.ResourceHealth/resourceAnnotations/{event-id}",
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/{event-id}",
       "name": "{event-id}",
-      "type": "Microsoft.ResourceHealth/resourceAnnotations",
+      "type": "Microsoft.ResourceHealth/availabilityStatuses",
       "properties": {
         "targetResourceId": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
         "targetResourceType": "Microsoft.Compute/virtualMachines",
         "occurredTime": "2023-07-24T19:20:37.9245071Z",
-        "annotationName": "VirtualMachineDeallocationInitiated",
-        "reason": "Stopping and deallocating",
-        "summary": "This virtual machine is stopped and deallocated as requested by an authorized user or process.",
-        "context": "Customer Initiated",
-        "category": "Not Applicable"
+        "previousAvailabilityState": "Unavailable",
+        "availabilityState": "Available"
       }
     },
     "operationalInfo": {
       "resourceEventTime": "2023-07-24T19:20:37.9245071Z"
     },
-    "apiVersion": "2022-08-01"
+    "apiVersion": "2023-12-01"
   },
-  "eventType": "Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated",
+  "eventType": "Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged",
   "dataVersion": "1",
   "metadataVersion": "1",
   "eventTime": "2023-07-24T19:20:37.9245071Z"
 }
 ```
+
+---
+
+### ResourceAnnotated event 
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
@@ -334,7 +299,44 @@ The following example shows the schema of a key-value modified event:
 }
 ```
 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+```json
+{
+  "id": "8945cf9b-e220-496e-ab4f-f3a239318995",
+  "topic": "/subscriptions/{subscription-id}",
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
+  "data": {
+    "resourceInfo": {
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}/providers/Microsoft.ResourceHealth/resourceAnnotations/{event-id}",
+      "name": "{event-id}",
+      "type": "Microsoft.ResourceHealth/resourceAnnotations",
+      "properties": {
+        "targetResourceId": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
+        "targetResourceType": "Microsoft.Compute/virtualMachines",
+        "occurredTime": "2023-07-24T19:20:37.9245071Z",
+        "annotationName": "VirtualMachineDeallocationInitiated",
+        "reason": "Stopping and deallocating",
+        "summary": "This virtual machine is stopped and deallocated as requested by an authorized user or process.",
+        "context": "Customer Initiated",
+        "category": "Not Applicable"
+      }
+    },
+    "operationalInfo": {
+      "resourceEventTime": "2023-07-24T19:20:37.9245071Z"
+    },
+    "apiVersion": "2022-08-01"
+  },
+  "eventType": "Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2023-07-24T19:20:37.9245071Z"
+}
+```
+
 ---
+
+[!INCLUDE [contact-resource-notifications](./includes/contact-resource-notifications.md)]
 
 ## Next steps
 See [Subscribe to Azure Resource Notifications - Health Resources events](subscribe-to-resource-notifications-health-resources-events.md).

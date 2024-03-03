@@ -4,6 +4,7 @@ description: Learn how to use Image Integrity to validate signed images before d
 author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
+ms.custom: devx-track-azurecli
 ms.topic: article
 ms.date: 09/26/2023
 ---

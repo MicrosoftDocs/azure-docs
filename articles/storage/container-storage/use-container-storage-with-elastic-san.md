@@ -1,16 +1,16 @@
 ---
-title: Use Azure Container Storage Preview with Azure Elastic SAN Preview
-description: Configure Azure Container Storage Preview for use with Azure Elastic SAN Preview. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
+title: Use Azure Container Storage Preview with Azure Elastic SAN
+description: Configure Azure Container Storage Preview for use with Azure Elastic SAN. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 11/06/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
-# Use Azure Container Storage Preview with Azure Elastic SAN Preview
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure Elastic SAN Preview as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using Elastic SAN as its storage.
+# Use Azure Container Storage Preview with Azure Elastic SAN
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure Elastic SAN as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using Elastic SAN as its storage.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ ms.custom: references_regions
 - If you haven't already installed Azure Container Storage Preview, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
 
 > [!NOTE]
-> To use Azure Container Storage with Azure Elastic SAN Preview, your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
+> To use Azure Container Storage with Azure Elastic SAN, your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 
 ## Regional availability
 
@@ -27,7 +27,11 @@ ms.custom: references_regions
 
 ## Create a storage pool
 
-First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. Follow these steps to create a storage pool with Azure Elastic SAN Preview.
+First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. 
+
+If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
+
+Follow these steps to create a storage pool with Azure Elastic SAN.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
@@ -64,14 +68,14 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
-When the storage pool is created, Azure Container Storage will create a storage class on your behalf using the naming convention `acstor-<storage-pool-name>`. It will also create an Azure Elastic SAN Preview resource.
+When the storage pool is created, Azure Container Storage will create a storage class on your behalf using the naming convention `acstor-<storage-pool-name>`. It will also create an Azure Elastic SAN resource.
 
-## Assign Contributor role to AKS managed identity on Azure Elastic SAN Preview subscription
+## Assign Contributor role to AKS managed identity on Azure Elastic SAN subscription
 
-Next, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity on your Azure Elastic SAN Preview subscription. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+Next, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity on your Azure Elastic SAN subscription. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
-1. Select **Subscriptions**, and locate and select the subscription associated with the Azure Elastic SAN Preview resource that Azure Container Storage created on your behalf. This will likely be the same subscription as the AKS cluster that Azure Container Storage is installed on. You can verify this by locating the Elastic SAN resource in the resource group that AKS created (`MC_YourResourceGroup_YourAKSClusterName_Region`).
+1. Select **Subscriptions**, and locate and select the subscription associated with the Azure Elastic SAN resource that Azure Container Storage created on your behalf. This will likely be the same subscription as the AKS cluster that Azure Container Storage is installed on. You can verify this by locating the Elastic SAN resource in the resource group that AKS created (`MC_YourResourceGroup_YourAKSClusterName_Region`).
 1. Select **Access control (IAM)** from the left pane.
 1. Select **Add > Add role assignment**.
 1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**, then select **Next**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.

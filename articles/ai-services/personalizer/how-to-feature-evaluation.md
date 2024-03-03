@@ -7,10 +7,12 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 01/19/2024
 ---
 
 # Evaluate feature importances
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 You can assess how important each feature was to Personalizer's machine learning model by conducting a _feature evaluation_ on your historical log data. Feature evaluations are useful to:
 

@@ -6,11 +6,13 @@ author: jcodella
 ms.author: jacodel
 manager: nitinme
 ms.service: azure-ai-personalizer
-ms.date: 05/23/2022
+ms.date: 01/19/2024
 ms.topic: conceptual
 ---
 
 # Data and privacy for Personalizer
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 This article provides information about what data Azure AI Personalizer uses to work, how it processes that data, and how you can control that data. It assumes basic familiarity with [what Personalizer is](what-is-personalizer.md) and [how Personalizer works](how-personalizer-works.md). Specific terms can be found in Terminology.
 

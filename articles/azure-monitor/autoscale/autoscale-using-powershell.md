@@ -45,8 +45,8 @@ Create a scale set using the following cmdlets. Set the `$resourceGroupName` and
 New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location "EastUS"
 
 # Create login credentials for the VMSS
-$vmPassword = ConvertTo-SecureString "ChangeThisPassword1" -AsPlainText -Force
-$vmCred = New-Object System.Management.Automation.PSCredential('azureuser', $vmPassword)
+$Cred = Get-Credential
+$vmCred = New-Object System.Management.Automation.PSCredential($Cred.UserName, $Cred.Password)
 
 
 New-AzVmss `

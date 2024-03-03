@@ -13,11 +13,11 @@ ms.custom: known-issue
 
 # Known issue  - The ApplicationSharingPolicy property isn't supported for compute instances
 
+[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
+
 Configuring the `applicationSharingPolicy` property for a compute instance has no effect as that property isn't supported
 
  
-[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
-
 **Status:** Open
 
 **Problem area:** Compute

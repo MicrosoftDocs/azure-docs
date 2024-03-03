@@ -1,8 +1,8 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
 ---
 
@@ -12,9 +12,12 @@ The Speech SDK for C++ is compatible with Windows, Linux, and macOS.
 
 On Windows, you must use the 64-bit target architecture. Windows 10 or later is required.
 
-You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
+Install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 
 # [Linux](#tab/linux)
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 The Speech SDK for C++ only supports the following distributions on the x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) architectures:
 

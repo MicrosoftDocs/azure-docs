@@ -4,9 +4,11 @@ description: Learn more about using clustered applications on an Elastic SAN vol
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 08/15/2023
+ms.date: 02/13/2024
 ms.author: rogarana
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023-elastic-SAN
 ---
 
 # Use clustered applications on Azure Elastic SAN

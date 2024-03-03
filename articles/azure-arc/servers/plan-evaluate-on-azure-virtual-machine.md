@@ -7,6 +7,9 @@ ms.topic: conceptual
 
 # Evaluate Azure Arc-enabled servers on an Azure virtual machine
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Azure Arc-enabled servers is designed to help you connect servers running on-premises or in other clouds to Azure. Normally, you would not use Azure Arc-enabled servers on an Azure virtual machine because all the same capabilities are natively available for these VMs, including a representation of the VM in Azure Resource Manager, VM extensions, managed identities, and Azure Policy. If you attempt to install Azure Arc-enabled servers on an Azure VM, you'll receive an error message stating that it is unsupported and the agent installation will be canceled.
 
 While you cannot install Azure Arc-enabled servers on an Azure VM for production scenarios, it is possible to configure Azure Arc-enabled servers to run on an Azure VM for *evaluation and testing purposes only*. This article will help you set up an Azure VM before you can enable Azure Arc-enabled servers on it.
@@ -37,6 +40,12 @@ After you've made these changes, your Azure VM behaves like any machine or serve
 When Azure Arc-enabled servers is configured on the VM, you see two representations of it in Azure. One is the Azure VM resource, with a `Microsoft.Compute/virtualMachines` resource type, and the other is an Azure Arc resource, with a `Microsoft.HybridCompute/machines` resource type. As a result of preventing management of the guest operating system from the shared physical host server, the best way to think about the two resources is the Azure VM resource is the virtual hardware for your VM, and let's you control the power state and view information about its SKU, network, and storage configurations. The Azure Arc resource manages the guest operating system in that VM, and can be used to install extensions, view compliance data for Azure Policy, and complete any other supported task by Azure Arc-enabled servers.
 
 ## Reconfigure Azure VM
+
+> [!NOTE]
+> For windows, set the environment variable to override the ARC on an Azure VM installation.
+> ```powershell
+> [System.Environment]::SetEnvironmentVariable("MSFT_ARC_TEST",'true', [System.EnvironmentVariableTarget]::Machine)
+> ```
 
 1. Remove any VM extensions on the Azure VM.
 
@@ -84,14 +93,14 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
    If your Azure VM is running CentOS, Red Hat, or SUSE Linux Enterprise Server (SLES), perform the following steps to configure firewalld:
 
    ```bash
-   firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 1 -p tcp -d 169.254.169.254 -j DROP
-   firewall-cmd --reload
+   sudo firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 1 -p tcp -d 169.254.169.254 -j REJECT
+   sudo firewall-cmd --reload
    ```
 
    For other distributions, consult your firewall docs or configure a generic iptables rule with the following command:
 
    ```bash
-   iptables -A OUTPUT -d 169.254.169.254 -j DROP
+   sudo iptables -A OUTPUT -d 169.254.169.254 -j REJECT
    ```
 
    > [!NOTE]

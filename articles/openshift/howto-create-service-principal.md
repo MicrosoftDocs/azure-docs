@@ -15,7 +15,7 @@ zone_pivot_groups: azure-red-hat-openshift-service-principal
 
 # Create and use a service principal to deploy an Azure Red Hat OpenShift cluster
 
-To interact with Azure APIs, an Azure Red Hat OpenShift cluster requires an Azure Active Directory (AD) service principal. This service principal is used to dynamically create, manage, or access other Azure resources, such as an Azure load balancer or an Azure Container Registry (ACR). For more information, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
+To interact with Azure APIs, an Azure Red Hat OpenShift cluster requires a Microsoft Entra service principal. This service principal is used to dynamically create, manage, or access other Azure resources, such as an Azure load balancer or an Azure Container Registry (ACR). For more information, see [Application and service principal objects in Microsoft Entra ID](../active-directory/develop/app-objects-and-service-principals.md).
 
 This article explains how to create and use a service principal to deploy your Azure Red Hat OpenShift clusters using the Azure command-line interface (Azure CLI) or the Azure portal.  
 
@@ -76,7 +76,7 @@ The output is similar to the following example:
 > [!IMPORTANT]
 > This service principal only allows a contributor over the resource group the Azure Red Hat OpenShift cluster is located in. If your VNet is in another resource group, you need to assign the service principal contributor role to that resource group as well. You also need to create your Azure Red Hat OpenShift cluster in the resource group you created above.
 
-To grant permissions to an existing service principal with the Azure portal, see [Create an Azure AD app and service principal in the portal](../active-directory/develop/howto-create-service-principal-portal.md#configure-access-policies-on-resources).
+To grant permissions to an existing service principal with the Azure portal, see [Create a Microsoft Entra app and service principal in the portal](../active-directory/develop/howto-create-service-principal-portal.md#configure-access-policies-on-resources).
 
 ::: zone-end
 
@@ -84,7 +84,7 @@ To grant permissions to an existing service principal with the Azure portal, see
 
 ## Create a service principal with the Azure portal
 
-To create a service principal for your Azure Red Hat OpenShift cluster via the Azure portal, see [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). **Be sure to save the Application (client) ID and the secret.**
+To create a service principal for your Azure Red Hat OpenShift cluster via the Azure portal, see [Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). **Be sure to save the Application (client) ID and the secret.**
 
 
 

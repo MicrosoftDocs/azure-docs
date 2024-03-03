@@ -1,8 +1,8 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
 ---
 
@@ -14,7 +14,8 @@ The Speech SDK depends on the following Linux system libraries:
 - The shared libraries of the GNU C library, including the POSIX Threads Programming library, `libpthreads`.
 - The OpenSSL library (`libssl`) version 1.x and certificates (`ca-certificates`).
 - The shared library for ALSA applications (`libasound`).
-- You should also install `ca-certificates` to establish a secure websocket and avoid the `WS_OPEN_ERROR_UNDERLYING_IO_OPEN_FAILED` error.
+
+You should also install `ca-certificates` to establish a secure websocket and avoid the `WS_OPEN_ERROR_UNDERLYING_IO_OPEN_FAILED` error.
 
 > [!IMPORTANT]
 > The Speech SDK does not yet support OpenSSL 3.0, which is the default in Ubuntu 22.04 and Debian 12.
@@ -34,7 +35,7 @@ export SSL_CERT_DIR=/etc/ssl/certs
 Notes on installation:
 
 - Check [https://www.openssl.org/source/](https://www.openssl.org/source/) for the latest OpenSSL 1.x version to use.
-- The setting of `SSL_CERT_DIR` must be in effect systemwide or at least in the console where applications that use the Speech SDK are launched from. Otherwise OpenSSL 1.x installed in */usr/local* might not find certificates.
+- The setting of `SSL_CERT_DIR` must be in effect system-wide or at least in the console where applications that use the Speech SDK are launched from. Otherwise OpenSSL 1.x installed in */usr/local* might not find certificates.
 - Ensure that the console output from `ldconfig -v` includes */usr/local/lib*. On modern systems, it should by default. If it doesn't, set `LD_LIBRARY_PATH` with the same scope as `SSL_CERT_DIR` to add */usr/local/lib* to the library path:
 
   ```Bash
@@ -42,6 +43,8 @@ Notes on installation:
   ```
 
 # [Ubuntu 18.04/20.04/22.04](#tab/ubuntu)
+
+Run these commands:
 
 ```Bash
 sudo apt-get update
@@ -58,6 +61,9 @@ sudo apt-get install build-essential libssl-dev ca-certificates libasound2 wget
 ```
 
 # [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 Install the development tools and libraries:
 

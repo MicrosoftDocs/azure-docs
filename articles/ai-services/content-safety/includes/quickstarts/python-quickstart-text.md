@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Analyze text content with Python"
-description: In this quickstart, get started using the Content Safety Python SDK to analyze text content for objectionable material.
-services: cognitive-services
+description: In this quickstart, get started using the Azure AI Content Safety Python SDK to analyze text content for objectionable material.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
@@ -10,6 +10,8 @@ ms.topic: include
 ms.date: 05/03/2023
 ms.author: pafarley
 ---
+
+[Reference documentation](https://pypi.org/project/azure-ai-contentsafety/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety/azure-ai-contentsafety) | [Package (PyPI)](https://pypi.org/project/azure-ai-contentsafety/) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/python/1.0.0) |
 
 ## Prerequisites
 
@@ -30,7 +32,7 @@ The following section walks through a sample request with the Python SDK.
 1. Run this command to install the Azure AI Content Safety library:
 
     ```console
-    python -m pip install azure-ai-contentsafety
+    pip install azure-ai-contentsafety
     ```
 
 1. Copy the following code into *quickstart.py*:
@@ -40,15 +42,14 @@ The following section walks through a sample request with the Python SDK.
     from azure.ai.contentsafety import ContentSafetyClient
     from azure.core.credentials import AzureKeyCredential
     from azure.core.exceptions import HttpResponseError
-    from azure.ai.contentsafety.models import AnalyzeTextOptions
-    
+    from azure.ai.contentsafety.models import AnalyzeTextOptions, TextCategory
     
     def analyze_text():
         # analyze text
         key = os.environ["CONTENT_SAFETY_KEY"]
         endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
     
-        # Create an Content Safety client
+        # Create an Azure AI Content Safety client
         client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
     
         # Contruct request
@@ -66,20 +67,28 @@ The following section walks through a sample request with the Python SDK.
             print(e)
             raise
 
-        if response.hate_result:
-            print(f"Hate severity: {response.hate_result.severity}")
-        if response.self_harm_result:
-            print(f"SelfHarm severity: {response.self_harm_result.severity}")
-        if response.sexual_result:
-            print(f"Sexual severity: {response.sexual_result.severity}")
-        if response.violence_result:
-            print(f"Violence severity: {response.violence_result.severity}")
+        hate_result = next(item for item in response.categories_analysis if item.category == TextCategory.HATE)
+        self_harm_result = next(item for item in response.categories_analysis if item.category == TextCategory.SELF_HARM)
+        sexual_result = next(item for item in response.categories_analysis if item.category == TextCategory.SEXUAL)
+        violence_result = next(item for item in response.categories_analysis if item.category == TextCategory.VIOLENCE)
     
+        if hate_result:
+            print(f"Hate severity: {hate_result.severity}")
+        if self_harm_result:
+            print(f"SelfHarm severity: {self_harm_result.severity}")
+        if sexual_result:
+            print(f"Sexual severity: {sexual_result.severity}")
+        if violence_result:
+            print(f"Violence severity: {violence_result.severity}")
     
     if __name__ == "__main__":
         analyze_text()
     ```
 1. Replace `"Your input text"` with the text content you'd like to use.
+    > [!TIP]
+    > Text size and granularity
+    >
+    > The default maximum length for text submissions is **10K** characters.
 1. Then run the application with the `python` command on your quickstart file.
 
     ```console

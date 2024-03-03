@@ -6,8 +6,9 @@ author: SudheeshGH
 ms.author: sunaray
 ms.topic: how-to
 ms.date: 04/19/2023
-ms.devlang: csharp, golang, java, php, python, ruby
-ms.custom: devx-track-csharp, devx-track-linux
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, php, python, ruby
+ms.custom: devx-track-csharp, linux-related-content
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB
 
@@ -82,7 +83,7 @@ To establish a secure connection to Azure Database for MariaDB over SSL from you
 
 ```php
 $conn = mysqli_init();
-mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL) ; 
+mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL) ;
 mysqli_real_connect($conn, 'mydemoserver.mariadb.database.azure.com', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
@@ -116,9 +117,9 @@ conn = pymysql.connect(user='myadmin@mydemoserver',
 
 ```ruby
 client = Mysql2::Client.new(
-        :host     => 'mydemoserver.mariadb.database.azure.com', 
-        :username => 'myadmin@mydemoserver',      
-        :password => 'yourpassword',    
+        :host     => 'mydemoserver.mariadb.database.azure.com',
+        :username => 'myadmin@mydemoserver',
+        :password => 'yourpassword',
         :database => 'quickstartdb',
         :sslca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
         :ssl_mode => 'required'
@@ -147,7 +148,7 @@ if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
 }
 mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool})
 var connectionString string
-connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mariadb.database.azure.com', 'quickstartdb')	
+connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mariadb.database.azure.com', 'quickstartdb')
 db, _ := sql.Open("mysql", connectionString)
 ```
 
@@ -160,16 +161,16 @@ String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
     " -keystore truststore "+
-    " -trustcacerts " + 
+    " -trustcacerts " +
     " -storepass password -noprompt ";
 String genKey = " -genkey -keyalg rsa " +
     " -alias mysqlClientCertificate -keystore keystore " +
-    " -storepass password123 -keypass password " + 
+    " -storepass password123 -keypass password " +
     " -dname CN=MS ";
 sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
 sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
-# use the generated keystore and truststore 
+# use the generated keystore and truststore
 
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
@@ -191,16 +192,16 @@ String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
     " -keystore truststore "+
-    " -trustcacerts " + 
+    " -trustcacerts " +
     " -storepass password -noprompt ";
 String genKey = " -genkey -keyalg rsa " +
     " -alias mysqlClientCertificate -keystore keystore " +
-    " -storepass password123 -keypass password " + 
+    " -storepass password123 -keypass password " +
     " -dname CN=MS ";
 sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
 sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
-# use the generated keystore and truststore 
+# use the generated keystore and truststore
 
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");

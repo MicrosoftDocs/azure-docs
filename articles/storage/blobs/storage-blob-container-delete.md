@@ -16,6 +16,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 # Delete and restore a blob container with .NET
 
+[!INCLUDE [storage-dev-guide-selector-delete-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-container.md)]
+
 This article shows how to delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
 
 ## Prerequisites

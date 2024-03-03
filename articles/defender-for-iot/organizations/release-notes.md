@@ -2,7 +2,7 @@
 title: OT monitoring software versions - Microsoft Defender for IoT
 description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
 ms.topic: release-notes
-ms.date: 09/14/2023
+ms.date: 12/19/2023
 ---
 
 # OT monitoring software versions
@@ -37,6 +37,8 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
+| **24.1** | | | |
+| 24.1.0  |02/2024 | Major |01/2025 |
 | **23.1** | | | |
 | 23.1.3 | 09/2023 | Patch | 08/2024 |
 | 23.1.2 | 07/2023 | Major | 06/2024 |
@@ -98,6 +100,38 @@ Maintain your sensors and on-premises management consoles, for activities like b
 Version numbers are listed only in this article and in the [What's new in Microsoft Defender for IoT?](whats-new.md) article, and not in detailed descriptions elsewhere in the documentation.
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
+
+## Versions 24.1.x
+
+### Version 24.1.0
+
+**Release date**: 02/2024
+
+**Supported until**: 03/2025
+
+This version includes the following updates and enhancements:
+
+- [Alert suppression rules from the Azure portal](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts)
+- [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments)
+- [Alert ID (ID field) is now aligned on the Azure portal and sensor console](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal)
+- [Newly supported protocols](concept-supported-protocols.md)
+- [L60 hardware profile is no longer supported](ot-appliance-sizing.md#production-line-monitoring-medium-and-small-deployments)
+
+## Versions 23.2.x
+
+### Version 23.2.0
+
+**Release date**: 12/2023
+
+**Supported until**: 11/2024
+
+This version includes the following updates and enhancements:
+
+- [Sensor software runs on a Debian 11 operating system](ot-deploy/install-software-ot-sensor.md) and [updates to this version may be heavier and longer than usual](whats-new.md#ot-network-sensors-now-run-on-debian-11)
+- [The legacy, privileged default *support* user is replaced by the default *admin* user](roles-on-premises.md#legacy-users)
+
+> [!IMPORTANT]
+> If you're updating your software from a legacy version and have the *support* credentials saved, such as in CLI scripts, we recommend that you update those credentials to use the *admin* user instead.
 
 ## Versions 23.1.x
 
@@ -423,7 +457,7 @@ This version includes the following new updates and fixes:
 - [New integration APIs](api/management-integration-apis.md)
 - [Network traffic analysis enhancements for multiple OT and ICS protocols](concept-supported-protocols.md)
 - [Automatic deletion for older, archived alerts](how-to-view-alerts.md)
-- [Export alert enhancements](how-to-work-with-alerts-on-premises-management-console.md#export-alerts-to-a-csv-file)
+- [Export alert enhancements](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md#export-alerts-to-a-csv-file)
 
 ### 10.5.2
 
@@ -435,11 +469,11 @@ This version includes the following new updates and fixes:
 
 - [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
 - [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-- [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
+- [Export logs from the on-premises management console for troubleshooting](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
 - [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
 - [Unicode support for certificate passphrases](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates)
 
 ## Next steps
 
-For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT?](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
 

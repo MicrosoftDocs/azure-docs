@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/17/2022
+ms.date: 11/10/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Mini R device in datacenter so I can use it to transfer data to Azure.  
 ---
@@ -97,13 +97,16 @@ On your Azure Stack Edge device:
     - The device has 1 SSD disk in the slot. 
     - The device also has a CFx card that serves as storage for the operating system disk.
     
-- The front panel has network interfaces and access to Wi-Fi. 
+- The front panel has network interfaces and access to Wi-Fi.
 
     - 2 X 1 GbE RJ 45 network interfaces (PORT 1 and PORT 2 on the local UI of the device)
     - 2 X 10 GbE SFP+ network interfaces (PORT 3 and PORT 4 on the local UI of the device) 
     - One Wi-Fi port with a Wi-Fi transceiver attached to it.
 
-- The front panel also has a power button. 
+   > [!NOTE]
+   > On Azure Stack Edge 2309 and later, Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. Wi-Fi is no longer supported on the Azure Stack Edge Mini R device.
+
+- The front panel also has a power button.
 
 - The back panel includes a battery and a cover that are installed on the device. 
 

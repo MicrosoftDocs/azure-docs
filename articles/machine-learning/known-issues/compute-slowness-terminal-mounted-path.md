@@ -13,11 +13,9 @@ ms.custom: known-issue
 
 # Known issue  - Slowness in compute instance terminal from a mounted path
 
-While using the compute instance terminal inside a mounted path of a data folder, any commands executed from the terminal result in slowness. This issue is restricted to the terminal; running the commands from SDK using a notebook works as expected.
-
-
 [!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
-<!--- Choose the correct include --->
+
+While using the compute instance terminal inside a mounted path of a data folder, any commands executed from the terminal result in slowness. This issue is restricted to the terminal; running the commands from SDK using a notebook works as expected.
 
 **Status:** Open
 

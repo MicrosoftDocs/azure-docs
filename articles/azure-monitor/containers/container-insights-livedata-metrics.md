@@ -22,13 +22,13 @@ For help with setting up or troubleshooting the Live Data feature, review the [s
 
 The Live Data feature directly accesses the Kubernetes API. For more information about the authentication model, see [The Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-This feature performs a polling operation against the metrics endpoints including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes`, and `/api/v1/pods`. The interval is every five seconds by default. This data is cached in your browser and charted in four performance charts included in Container insights. Each subsequent poll is charted into a rolling five-minute visualization window. To see the charts, select **Go Live (preview)** and then select the **Cluster** tab.
+This feature performs a polling operation against the metrics endpoints including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes`, and `/api/v1/pods`. The interval is every five seconds by default. This data is cached in your browser and charted in four performance charts included in Container insights. Each subsequent poll is charted into a rolling five-minute visualization window. To see the charts, slide the **Live** option to **On**.
 
 :::image type="content" source="./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png" alt-text="Screenshot that shows the Go Live option in the Cluster view." lightbox="./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png":::
 
 The polling interval is configured from the **Set interval** dropdown list. Use this dropdown list to set polling for new data every 1, 5, 15, and 30 seconds.
 
-![Screenshot that shows the Go Live dropdown polling interval.](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
+:::image type="content" source="./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png" lightbox="./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png" alt-text="Screenshot that shows the Go Live dropdown polling interval.":::
 
 >[!IMPORTANT]
 >We recommend that you set the polling interval to one second while you troubleshoot an issue for a short period of time. These requests might affect the availability and throttling of the Kubernetes API on your cluster. Afterward, reconfigure to a longer polling interval.
@@ -45,12 +45,12 @@ The following metrics are captured and displayed in four performance charts.
 ### Node CPU utilization % and Node memory utilization %
 
 These two performance charts map to an equivalent of invoking `kubectl top nodes` and capturing the results of the **CPU%** and **MEMORY%** columns to the respective chart.
-
-![Screenshot that shows the kubectl top nodes example results.](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
-
-![Screenshot that shows the Node CPU utilization percent chart.](./media/container-insights-livedata-metrics/cluster-view-node-cpu-util.png)
-
-![Screenshot that shows the Node memory utilization percent chart.](./media/container-insights-livedata-metrics/cluster-view-node-memory-util.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png" lightbox="./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png" alt-text="Screenshot that shows the kubectl top nodes example results." border="false":::
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-livedata-metrics/cluster-view-node-cpu-util.png" lightbox="./media/container-insights-livedata-metrics/cluster-view-node-cpu-util.png" alt-text="Screenshot that shows the Node CPU utilization percent chart." border="false":::
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-livedata-metrics/cluster-view-node-memory-util.png" lightbox="./media/container-insights-livedata-metrics/cluster-view-node-memory-util.png" alt-text="Screenshot that shows the Node memory utilization percent chart." border="false":::
 
 The percentile calculations will function in larger clusters to help identify outlier nodes in your cluster. For example, you can understand if nodes are underutilized for scale-down purposes. By using the **Min** aggregation, you can see which nodes have low utilization in the cluster. To further investigate, select the **Nodes** tab and sort the grid by CPU or memory utilization.
 
@@ -59,10 +59,10 @@ This information also helps you understand which nodes are being pushed to their
 ### Node count
 
 This performance chart maps to an equivalent of invoking `kubectl get nodes` and mapping the **STATUS** column to a chart grouped by status types.
-
-![Screenshot that shows the kubectl get nodes example results.](./media/container-insights-livedata-metrics/kubectl-get-nodes-example.png)
-
-![Screenshot that shows the Node count chart.](./media/container-insights-livedata-metrics/cluster-view-node-count-01.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-livedata-metrics/kubectl-get-nodes-example.png" lightbox="./media/container-insights-livedata-metrics/kubectl-get-nodes-example.png" alt-text="Screenshot that shows the kubectl get nodes example results." border="false":::
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-livedata-metrics/cluster-view-node-count-01.png" lightbox="./media/container-insights-livedata-metrics/cluster-view-node-count-01.png" alt-text="Screenshot that shows the Node count chart." border="false":::
 
 Nodes are reported either in a **Ready** or **Not Ready** state and they're counted to create a total count. The results of these two aggregations are charted so that, for example, you can understand if your nodes are falling into failed states. By using the **Not Ready** aggregation, you can quickly see the number of nodes in your cluster currently in the **Not Ready** state.
 
@@ -70,9 +70,9 @@ Nodes are reported either in a **Ready** or **Not Ready** state and they're coun
 
 This performance chart maps to an equivalent of invoking `kubectl get pods --all-namespaces` and maps the **STATUS** column the chart grouped by status types.
 
-![Screenshot that shows the kubectl get pods example results.](./media/container-insights-livedata-metrics/kubectl-get-pods-example.png)
-
-![Screenshot that shows the Active pod count chart.](./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png)
+:::image type="content" source="./media/container-insights-livedata-metrics/kubectl-get-pods-example.png" lightbox="./media/container-insights-livedata-metrics/kubectl-get-pods-example.png" alt-text="Screenshot that shows the kubectl get pods example results.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png" lightbox="./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png" alt-text="Screenshot that shows the Active pod count chart." border="false":::
 
 >[!NOTE]
 >Names of status as interpreted by `kubectl` might not exactly match in the chart.

@@ -55,7 +55,7 @@ Cloud-connected sensors are sensors that are connected to Defender for IoT in Az
 
 - Sensor names can be updated in the sensor console.
 
-For more information, see [Manage OT sensors from the sensor console](how-to-manage-individual-sensors.md) and [Manage OT sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md).
+For more information, see [Manage OT sensors from the sensor console](how-to-manage-individual-sensors.md) and [Manage OT sensors from the management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md).
 
 ### Defender for IoT analytics engines
 
@@ -104,4 +104,4 @@ Defender for IoT provides hybrid network support using the following management 
 ## Next steps
 
 > [!div class="step-by-step"]
-> [Understand your network architecture »](architecture.md)
+> [Understand your network architecture »](best-practices/understand-network-architecture.md)

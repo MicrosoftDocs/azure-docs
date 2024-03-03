@@ -2,14 +2,14 @@
 title: Language and region support for custom Text Analytics for health
 titleSuffix: Azure AI services
 description: Learn about the languages and regions supported by custom Text Analytics for health
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 04/14/2023
+ms.date: 12/19/2023
 ms.custom: language-service-custom-ta4h
-ms.author: aahi
+ms.author: jboback
 ---
 
 # Language support for custom text analytics for health
