@@ -11,7 +11,7 @@ Defender Cloud Security Posture Management (CSPM) in Microsoft Defender for Clou
 
 Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. Defender for Cloud shows you your security posture with the secure score. The secure score is an aggregated score of the security findings that tells you your current security situation. The higher the score, the lower the identified risk level.
 
-When you enable Defender for Cloud, you automatically enable the **Foundational CSPM capabilities**. these capabilities are part of the free services offered by Defender for Cloud.
+When you enable Defender for Cloud, you automatically enable the **Foundational CSPM capabilities**. These capabilities are part of the free services offered by Defender for Cloud.
 
 You have the ability to enable the **Defender CSPM** plan, which offers extra protections for your environments such as governance, regulatory compliance, cloud security explorer, attack path analysis and agentless scanning for machines.
 
