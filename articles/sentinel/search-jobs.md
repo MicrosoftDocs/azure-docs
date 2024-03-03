@@ -5,6 +5,7 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 02/23/2024
 ms.author: austinmc
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal.
 ---
 
 # Search across long time spans in large datasets
@@ -20,9 +21,6 @@ Use a search job when you start an investigation to find specific events in logs
 ## Start a search job
 
 Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft Defender portal to enter your search criteria. Depending on the size of the target dataset, search times vary. While most search jobs take a few minutes to complete, searches across massive data sets that run up to 24 hours are also supported. 
-
-
-
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **General**, select **Search**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Search**.
 1. Select the **Table** menu and choose a table for your search.
@@ -41,7 +39,6 @@ Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft De
    :::image type="content" source="media/search-jobs/search-job-advanced-kql-edit.png" alt-text="Screenshot of KQL editor with revised search.":::
  
 1. When you're satisfied with the query and the search results preview, select the ellipses **...** and toggle  **Search job mode** on.
-
 
    :::image type="content" source="media/search-jobs/search-job-advanced-kql-ellipsis.png" alt-text="Screenshot of KQL editor with revised search with ellipsis highlighted for Search job mode." lightbox="media/search-jobs/search-job-advanced-kql-ellipsis.png":::
 1. Select the appropriate **Time range**.
