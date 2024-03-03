@@ -215,7 +215,8 @@ The following instructions apply for public **Azure Commercial clouds** only. Fo
 
 1. Edit the new role's trust policy and add another condition:<br>`"sts:RoleSessionName": "MicrosoftSentinel_{WORKSPACE_ID)"`
 
-Please note that the prefix value must be MicrosoftSentinel_ for the STS Role Session name. If this exact value is not used, the connector will not function properly.
+   > [!IMPORTANT]
+   > The value of the `sts:RoleSessionName` parameter must have the exact prefix `MicrosoftSentinel_`, otherwise the connector will not function properly.
 
    The finished trust policy should look like this:
 
