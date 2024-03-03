@@ -1,7 +1,7 @@
 ---
 title: Music Mode on Native Calling SDK
 titleSuffix: An Azure Communication Services Calling concept doc
-description: Use Azure Communication Services Calling to review Music Mode
+description: Use Azure Communication Services Calling to review Music Mode.
 author: t-leejiyoon
 ms.author: zehangzheng
 ms.service: azure-communication-services
@@ -26,7 +26,7 @@ To optimize the music mode, we recommend using high-quality external loudspeaker
 
 **Note:** music mode only works in 1:1 calls on native platforms and group calls. Currently, music mode doesn't work in 1:1 calls between native and web. By default, music mode is disabled.
 
-Calling Native SDK provides an additional set of audio filters that will bring a richer experience during the call.
+Calling Native SDK provides an additional set of audio filters that bring a richer experience during the call.
 
 ### Analog Automatic gain control
 
@@ -45,4 +45,4 @@ Echo cancellation is a filter available before and during a call. You can only t
 Noise suppression is a filter available before and during a call. The currently available modes are `Off`, `Auto`, `Low`, and `High`.
 
 ## Next steps
-- [Learn how to setup adio filters](../../how-tos/calling-sdk/manage-audio-filters.md)
+- [Learn how to setup audio filters](../../how-tos/calling-sdk/manage-audio-filters.md)
