@@ -721,7 +721,7 @@ items:
     - name: Video constraints
       href: concepts/voice-video-calling/video-constraints.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Music Mode
+    - name: Music mode
       href: concepts/voice-video-calling/music-mode.md
       displayName: music mode, audio filters, calling
     
