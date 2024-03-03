@@ -80,7 +80,7 @@ sections:
       - question: |
           Why am I not able to see GitHub Advanced Security for Azure Devops (GHAzDO) results in Defender for Cloud?
         answer: |
-          Confirm your connectors is properly [authorized](#why-am-i-getting-an-error-while-trying-to-connect).
+          Confirm your connectors is properly [authorized](#why-am-i-getting-an-error-while-trying-to-connect-).
           
           Ensure you are using the same Subscription ID for GHAzDO and Defender for Cloud. If you are still unable to see the results, the issue might be caused by your ADO connector lacking the necessary scope. DevOps security introduced new scopes to Azure DevOps connectors in June. If you created the connector before June and haven't updated it, you won't be able to see GHAzDO results due to missing scope on the connector. You would need to create a new ADO connector, which will automatically include the new scopes.
           
