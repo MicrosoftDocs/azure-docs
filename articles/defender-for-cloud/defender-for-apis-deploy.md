@@ -1,11 +1,11 @@
 ---
 title: Protect your APIs with Defender for APIs
-description: Learn about deploying the Defender for APIs plan in Defender for Cloud
+description: Learn about deploying the Defender for APIs plan in Defender for Cloud.
 author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 02/26/2024
+ms.date: 03/03/2024
 ---
 
 # Protect your APIs with Defender for APIs
@@ -37,7 +37,7 @@ Learn more about [Defender for APIs](defender-for-apis-introduction.md).
 
 When selecting a plan, consider these points:
 
-- Defender for APIs protects only those APIs that are onboarded to Defender for APIs. This means you can activate the plan at the subscription level, and complete the second step of onboarding by fixing the onboarding recommendation. (For more information about onboarding, see the [onboarding guide](defender-for-apis-deploy.md#enable-the-defender-for-apis-plan)).
+- Defender for APIs protects only those APIs that are onboarded to Defender for APIs. This means you can activate the plan at the subscription level, and complete the second step of onboarding by fixing the onboarding recommendation. For more information about onboarding, see the [onboarding guide](defender-for-apis-deploy.md#enable-the-defender-for-apis-plan).
 - Defender for APIs has five pricing plans, each with a different entitlement limit and monthly fee. The billing is done at the subscription level.  
 - Billing is applied to the entire subscription based on the total amount of API traffic monitored over the month for the subscription. 
 - The API traffic counted towards the billing is reset to 0 at the start of each month (every billing cycle). 
@@ -79,7 +79,7 @@ You must select a plan that grants entitlement appropriate for the API traffic v
     1. Metric = **Requests**
     1. Aggregation = **Sum**
     
-1. After setting the above parameters, the query will automatically run, and the total number of requests for the past 30 days appears at the bottom of the screen. Iin the screenshot example, the query results in 414 total number of requests.
+1. After setting the above parameters, the query will automatically run, and the total number of requests for the past 30 days appears at the bottom of the screen. In the screenshot example, the query results in 414 total number of requests.
 
     :::image type="content" source="media/defender-for-apis-entitlement-plans/metrics-results.png" alt-text="Screenshot that shows metrics results." lightbox="media/defender-for-apis-entitlement-plans/metrics-results.png":::
 
@@ -95,22 +95,22 @@ If you don't have access to run the metrics query, reach out to your internal Az
 
 1. In the Defender for Cloud portal, select **Recommendations**.
 1. Search for *Defender for APIs*.
-1. Under **Enable enhanced security features**, select the security recommendation **Azure API Management APIs should be onboarded to Defender for APIs**:
+1. Under **Enable enhanced security features** select the security recommendation **Azure API Management APIs should be onboarded to Defender for APIs**:
 
     :::image type="content" source="media/defender-for-apis-deploy/api-recommendations.png" alt-text="Screenshot that shows how to turn on the Defender for APIs plan from the recommendation." lightbox="media/defender-for-apis-deploy/api-recommendations.png":::
 
-1. In the recommendation page, you can review the recommendation severity, update interval, description, and remediation steps.
+1. In the recommendation page you can review the recommendation severity, update interval, description, and remediation steps.
 1. Review the resources in scope for the recommendations:
     - **Unhealthy resources**: Resources that aren't onboarded to Defender for APIs.
     - **Healthy resources**: API resources that are onboarded to Defender for APIs.
     - **Not applicable resources**: API resources that aren't applicable for protection.
 
-1. In **Unhealthy resources**, select the APIs that you want to protect with Defender for APIs.
+1. In **Unhealthy resources** select the APIs that you want to protect with Defender for APIs.
 1. Select **Fix**:
 
     :::image type="content" source="media/defender-for-apis-deploy/api-recommendation-details.png" alt-text="Screenshot that shows the recommendation details for turning on the plan." lightbox="media/defender-for-apis-deploy/api-recommendation-details.png":::
 
-1. In **Fixing resources**, review the selected APIs, and select **Fix resources**:
+1. In **Fixing resources** review the selected APIs and select **Fix resources**:
 
     :::image type="content" source="media/defender-for-apis-deploy/fix-resources.png" alt-text="Screenshot that shows how to fix unhealthy resources." lightbox="media/defender-for-apis-deploy/fix-resources.png":::
 
