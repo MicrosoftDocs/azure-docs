@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Cosmos DB
 description: This article contains important reference material you need when you monitor Azure Cosmos DB.
-ms.date: 02/24/2024
+ms.date: 03/02/2024
 ms.custom: horz-monitor
 ms.topic: reference
 ms.author: esarroyo
@@ -9,40 +9,15 @@ author: StefArroyo
 ms.service: cosmos-db
 ---
 
-<!-- 
-IMPORTANT 
-To make this template easier to use, first:
-1. Search and replace Azure Cosmos DB with the official name of your service.
-2. Search and replace [TODO-replace-with-service-filename] with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 3.0 2024_01_01
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- Most services can use the following sections unchanged. All headings are required unless otherwise noted.
-The sections use #included text you don't have to maintain, which changes when Azure Monitor functionality changes. Add info into the designated service-specific places if necessary. Remove #includes or template content that aren't relevant to your service.
-At a minimum your service should have the following two articles:
-1. The primary monitoring article (based on the template monitor-service-template.md)
-   - Title: "Monitor Azure Cosmos DB"
-   - TOC title: "Monitor"
-   - Filename: "monitor.md"
-2. A reference article that lists all the metrics and logs for your service (based on this template).
-   - Title: "Azure Cosmos DB monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "monitor-reference.md".
--->
-
 # Azure Cosmos DB monitoring data reference
 
-<!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure Cosmos DB](monitor.md) for details on the data you can collect for Azure Cosmos DB and how to use it.
 
-<!-- ## Metrics. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 For a list of all Azure Monitor supported metrics, including Azure Cosmos DB, see [Azure Monitor supported metrics](/azure/azure-monitor/essentials/metrics-supported).
 
-<!-- Repeat the following section for each resource type/namespace in your service. -->
 ### Supported metrics for Microsoft.DocumentDB/DatabaseAccounts
 The following table lists the metrics available for the Microsoft.DocumentDB/DatabaseAccounts resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
@@ -100,10 +75,7 @@ The following tables list Azure Cosmos DB metrics categorized by metric type.
 - CassandraRequestCharges (Cassandra Request Charges)
 - CassandraConnectionClosures (Cassandra Connection Closures)
 
-<!-- ## Metric dimensions. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
-<!-- Use one of the following includes, depending on whether you have metrics with dimensions.
-- If you have metrics with dimensions, use the following include and list the metrics with dimensions after the include. For an example, see https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions. Questions: email azmondocs@microsoft.com. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 ### Microsoft.DocumentDB/DatabaseAccounts
@@ -153,10 +125,8 @@ The following tables list Azure Cosmos DB metrics categorized by metric type.
 
 - ServerName
 
-<!-- ## Resource logs. Required section. -->
 [!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-<!-- Add at least one resource provider/resource type here. Repeat this section for each resource type/namespace in your service. Example: ### Supported resource logs for Microsoft.Storage/storageAccounts/blobServices -->
 ### Supported resource logs for Microsoft.DocumentDB/DatabaseAccounts
 [!INCLUDE [Microsoft.DocumentDB/DatabaseAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-documentdb-databaseaccounts-logs-include.md)]
 
@@ -166,7 +136,6 @@ The following tables list Azure Cosmos DB metrics categorized by metric type.
 ### Supported resource logs for Microsoft.DocumentDB/mongoClusters
 [!INCLUDE [Microsoft.DocumentDB/mongoClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-documentdb-mongoclusters-logs-include.md)]
 
-<!-- ## Azure Monitor Logs tables. Required section. -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 ### Azure Cosmos DB
@@ -223,13 +192,8 @@ The following table lists properties of resource logs in Azure Cosmos DB. The re
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](./secure-access-to-data.md#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
 | **responseLength** | **responseLength_s** | The length of the response, in bytes.|
 
-<!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 - [Microsoft.DocumentDB resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb)
-
-<!-- ## Other schemas. Optional section. Please keep heading in this order. If your service uses other schemas, add the following include and information. 
-[!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
-List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
 
 ## Related content
 
