@@ -16,7 +16,7 @@ zone_pivot_groups: acs-plat-ios-android-windows
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-Learn how to manage audio processing features with the Azure Communication Services SDKS. You learn how to apply different audio features before and during calls using audio filters.
+Learn how to manage audio processing features with the Azure Communication Services SDKS. You learn how to apply different audio features before and during calls using audio filters. 
 
 Currently, there are five different filters available to control.
 
@@ -30,12 +30,7 @@ Digital automatic gain control is a filter available before a call. By default, 
 
 ## Music Mode
 
-This option enables high-fidelity audio transmission and currently supports a 32-kHz sampling rate at 128 kbps when network bandwidth allows, when network bandwidth is insufficient, the bitrate can be reduced to as low as 48 kbps. This enhancement is designed to elevate the audio quality for calls, ensuring that audio is crispy, offering a richer and more immersive audio experience. Once music mode is enabled, you should consider:
-
-- Input and output audio devices that allow high bitrate and sampling rate (two channels, 32 kHz or higher)
-- Enable Control Noise suppression
-
-**Note:** music mode only works in 1:1 calls on native platforms and group calls. Currently, music mode doesn't work in 1:1 calls between native and web. By default, music mode is disabled.
+Music mode is a filter available before and during a call. Learn more about music mode [here](../../concepts/voice-video-calling/music-mode.md). Note that music mode only works in 1:1 calls on native platforms and group calls. Currently, music mode doesn't work in 1:1 calls between native and web. By default, music mode is disabled.
 
 ## Echo cancellation
 
@@ -65,6 +60,7 @@ Noise suppression is a filter available before and during a call. The currently 
 ::: zone-end
 
 ## Next steps
+
 - [Learn how to manage calls](./manage-calls.md)
 - [Learn how to record calls](./record-calls.md)
 - [Learn how to transcribe calls](./call-transcription.md)
