@@ -29,7 +29,7 @@ PUT https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeee
 
 #### Syslog/CEF DCR creation request body
 
-The following is an example of a DCR creation request. For ingesting CEF messages, substitute `"Microsoft-CommonSecurityLog"` for `"Microsoft-Syslog"` in the `"Streams"` field:
+The following is an example of a DCR creation request. For ingesting CEF messages, substitute `"Microsoft-CommonSecurityLog"` for `"Microsoft-Syslog"` in the `"Streams"` field wherever it appears:
 
 ```json
 {

@@ -149,7 +149,7 @@ To avoid this scenario, use one of these methods:
     where ProcessName !contains "CEF"
     ```
 
-For more details on how to ingest both Syslog and CEF messages from the same agent, see [Ingest log messages in both the CEF and Syslog format](connect-cef-syslog.md).
+For details on how to arrange a DCR to ingest both Syslog and CEF messages from the same agent, see [Syslog and CEF streams in the same DCR](#syslog-and-cef-streams-in-the-same-dcr) later in this article.
 
 #### Log forwarder security considerations
 
@@ -399,7 +399,11 @@ This example collects events from the `cron`, `daemon`, `local0`, `local3` and `
   }
 ```
 
+##### Syslog and CEF streams in the same DCR
+
 This example shows how you can collect **Syslog and CEF** messages in the same DCR.
+
+See [Avoid data ingestion duplication](#avoid-data-ingestion-duplication) earlier in this article for more information about steps to take when ingesting Syslog and CEF messages using a single agent and DCR.
 
 The DCR collects CEF event messages for:
 - The `authpriv` and `mark` facilities with the `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
