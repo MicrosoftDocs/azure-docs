@@ -22,6 +22,8 @@ This option enables high-fidelity audio transmission and currently supports a 32
 - Input and output audio devices that allow high bitrate and sampling rate (two channels, 32 kHz or higher)
 - Enable Control Noise suppression
 
+To optimize the music mode, we recommend using high-quality external loudspeakers, professional microphones, or headsets instead of Bluetooth devices.
+
 **Note:** music mode only works in 1:1 calls on native platforms and group calls. Currently, music mode doesn't work in 1:1 calls between native and web. By default, music mode is disabled.
 
 Calling Native SDK provides an additional set of audio filters that will bring a richer experience during the call.
