@@ -45,30 +45,3 @@ filter.MusicModeEnabled = true;
 filter.AcousticEchoCancellationEnabled = true;
 filter.NoiseSuppressionMode = NoiseSuppressionMode.Auto;
 ```
-
-## Available Filters
-
-Currently, there are five different filters available to control.
-
-### Analog Automatic gain control
-Analog automatic gain control is a filter available before a call. By default, this filter is enabled.
-
-### Digital Automatic gain control
-Digital automatic gain control is a filter available before a call. By default, this filter is enabled.
-
-### Music Mode
-
-This option will enable high-fidelity audio transmission and currently supports a 32kHz sampling rate at 128kbps when network bandwidth allows, when network bandwidth is insufficient, the bitrate can be reduced to as low as 48kbps. This enhancement is designed to elevate the audio quality for calls, ensuring that audio is crispy, offering a richer and more immersive audio experience. Once music mode is enabled, you should consider:
-
-- Input and output audio devices that allow high bitrate and sampling rate (2 channels, 32kHz or higher)
-- Enable Control Noise suppression.
-
-Learn more about music mode in Teams [here](https://support.microsoft.com/office/use-high-fidelity-music-mode-to-play-music-in-microsoft-teams-c1550582-2f76-4b31-9f72-e98c7167a18e).
-
-**Note:** music mode only works in 1:1 calls on native platforms and group calls. Currently, music mode doesn't work in 1:1 calls between native and web. By default, music mode is disabled.
-
-### Echo cancellation
-Echo cancellation is a filter available before and during a call. You can only toggle echo cancellation only if music mode is enabled. By default, this filter is enabled. 
-
-### Noise suppression
-Noise suppression is a filter available before and during a call. The currently available modes are `Off`, `Auto`, `Low`, and `High`. By default, this feature is set to `High` mode. 
