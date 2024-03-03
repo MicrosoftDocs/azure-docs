@@ -2,14 +2,14 @@
 title: Text to speech avatar overview - Speech service
 titleSuffix: Azure AI services
 description: Get an overview of the Text to speech avatar feature of speech service, which allows users to create synthetic videos featuring avatars speaking based on text input. 
-author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 11/15/2023
-ms.author: v-baolianzou
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ms.custom: references_regions
-keywords: text to speech avatar
 ---
 
 # Text to speech avatar overview (preview)
@@ -64,11 +64,11 @@ Sample code for text to speech avatar is available on [GitHub](https://github.co
 
 * [Batch synthesis (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch-avatar)
 * [Real-time synthesis (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar)
-* [Live chat with Azure Open AI in behind (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample)
+* [Live chat with Azure OpenAI in behind (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample)
 
 ## Pricing
 
-When you use the text to speech avatar feature, you'll be billed by the minutes of video output, and the text to speech, speech to text, Azure Open AI, or other Azure services are charged separately.
+When you use the text to speech avatar feature, you'll be billed by the minutes of video output, and the text to speech, speech to text, Azure OpenAI, or other Azure services are charged separately.
 
 For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 

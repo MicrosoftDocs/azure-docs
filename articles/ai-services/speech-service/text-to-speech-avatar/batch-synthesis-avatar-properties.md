@@ -2,13 +2,13 @@
 title: Batch synthesis properties - Speech service
 titleSuffix: Azure AI services
 description: Learn about the batch synthesis properties that are available for text to speech avatar. 
-author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: v-baolianzou
-keywords: text to speech avatar batch synthesis
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
 # Batch synthesis properties for text to speech avatar (preview)
