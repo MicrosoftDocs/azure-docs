@@ -58,7 +58,7 @@ Both Microsoft and other organizations author Microsoft Sentinel data connectors
 1. In the Microsoft Sentinel **Data connectors** page, select the relevant connector.
 1. To access support and maintenance for the connector, use the support contact link in the **Supported by** field on the side panel for the connecter. 
 
-   :::image type="content" source="media/configure-data-connector/support.png" alt-text="Screenshot showing the Supported by field for a data connector in Microsoft Sentinel." lightbox="media/connect-data-sources/support.png":::  
+   :::image type="content" source="media/configure-data-connector/support.png" alt-text="Screenshot showing the Supported by field for a data connector in Microsoft Sentinel." lightbox="media/configure-data-connector/support.png":::  
 
 For more information, see [Data connector support](connect-data-sources.md#data-connector-support).
 
