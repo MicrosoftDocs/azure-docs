@@ -16,7 +16,7 @@ zone_pivot_groups: acs-plat-ios-android-windows
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-Learn how to manage audio processing features with the Azure Communication Services SDKS. We'll learn how to apply different audio features before and during calls using audio filters.
+Learn how to manage audio processing features with the Azure Communication Services SDKS. You learn how to apply different audio features before and during calls using audio filters.
 
 Currently, there are five different filters available to control.
 
@@ -30,10 +30,10 @@ Digital automatic gain control is a filter available before a call. By default, 
 
 ## Music Mode
 
-This option will enable high-fidelity audio transmission and currently supports a 32kHz sampling rate at 128kbps when network bandwidth allows, when network bandwidth is insufficient, the bitrate can be reduced to as low as 48kbps. This enhancement is designed to elevate the audio quality for calls, ensuring that audio is crispy, offering a richer and more immersive audio experience. Once music mode is enabled, you should consider:
+This option enables high-fidelity audio transmission and currently supports a 32-kHz sampling rate at 128 kbps when network bandwidth allows, when network bandwidth is insufficient, the bitrate can be reduced to as low as 48 kbps. This enhancement is designed to elevate the audio quality for calls, ensuring that audio is crispy, offering a richer and more immersive audio experience. Once music mode is enabled, you should consider:
 
-- Input and output audio devices that allow high bitrate and sampling rate (2 channels, 32kHz or higher)
-- Enable Control Noise suppression.
+- Input and output audio devices that allow high bitrate and sampling rate (two channels, 32 kHz or higher)
+- Enable Control Noise suppression
 
 **Note:** music mode only works in 1:1 calls on native platforms and group calls. Currently, music mode doesn't work in 1:1 calls between native and web. By default, music mode is disabled.
 
@@ -47,8 +47,8 @@ Noise suppression is a filter available before and during a call. The currently 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md)
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 

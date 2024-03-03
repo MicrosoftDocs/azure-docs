@@ -44,4 +44,3 @@ filters.setMusicModeEnabled(false);
 filters.setAcousticEchoCancellationEnabled(false);
 filters.setNoiseSuppressionMode(NoiseSuppressionMode.HIGH);
 ```
-
