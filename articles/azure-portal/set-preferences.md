@@ -9,7 +9,7 @@ ms.topic: how-to
 
 You can change the default settings of the Azure portal to meet your own preferences.
 
-To view and manage your settings, select the **Settings** menu icon in the top right section of the global page header to open the **Portal settings** page.
+To view and manage your settings, select the **Settings** menu icon in the top right section of the global page header to open **Portal settings**.
 
 :::image type="content" source="media/set-preferences/settings-top-header.png" alt-text="Screenshot showing the settings icon in the global page header.":::
 
@@ -17,13 +17,13 @@ Within **Portal settings**, you'll see different sections. This article describe
 
 ## Directories + subscriptions
 
-The **Directories + subscriptions** page lets you manage directories and set subscription filters.
+**Directories + subscriptions** lets you manage directories and set subscription filters.
 
 ### Switch and manage directories
 
 In the **Directories** section, you'll see your **Current directory** (the directory that you're currently signed in to).
 
-The **Startup directory** shows the default directory when you sign in to the Azure portal (or **Last visited** if you've chosen that option). To choose a different startup directory, select **change** to open the [Appearance + startup views](#appearance--startup-views) page, where you can change your selection.
+The **Startup directory** shows the default directory when you sign in to the Azure portal (or **Last visited** if you've chosen that option). To choose a different startup directory, select **change** to open [Appearance + startup views](#appearance--startup-views), where you can change your selection.
 
 To see a full list of directories to which you have access, select **All Directories**.
 
@@ -38,7 +38,7 @@ To switch to a different directory, find the directory that you want to work in,
 You can choose the subscriptions that are filtered by default when you sign in to the Azure portal. This can be helpful if you have a primary list of subscriptions you work with but use others occasionally.
 
 > [!IMPORTANT]
-> After you apply a subscription filter in the Azure portal settings page, you will only see subscriptions that match the filter across all portal experiences. You won't be able to work with other subscriptions that are excluded from the selected filter. Any new subscriptions that are created after the filter was applied may not be shown if the filter criteria don't match. To see them, you must update the filter criteria to include other subscriptions in the portal, or select **Advanced filters** and use the **Default** filter to always show all subscriptions.
+> After you apply a subscription filter, you'll only see subscriptions that match that filter, across all portal experiences. You won't be able to work with other subscriptions that are excluded from the selected filter. Any new subscriptions that are created after the filter was applied may not be shown if the filter criteria don't match. To see them, you must update the filter criteria to include other subscriptions in the portal, or select **Advanced filters** and use the **Default** filter to always show all subscriptions.
 >
 > Certain features, such as **Management groups** or **Security Center**, may show subscriptions that don't match your filter criteria. However, you won't be able to perform operations on those subscriptions (such as moving a subscription between management groups) unless you adjust your filters to include the subscriptions that you want to work with.
 
@@ -46,7 +46,7 @@ To use customized filters, select **Advanced filters**. You'll be prompted to co
 
 :::image type="content" source="media/set-preferences/settings-advanced-filters-enable.png" alt-text="Screenshot showing the confirmation dialog box for Advanced filters.":::
 
-After you continue, the **Advanced filters** page appears in the left navigation menu of **Portal settings**. You can create and manage multiple subscription filters on this page. Your currently selected subscriptions are saved as an imported filter that you can use again. You'll see this filter selected on the **Directories + subscriptions** page.
+After you continue, **Advanced filters** appears in the left navigation menu of **Portal settings**. You can create and manage multiple subscription filters here. Your currently selected subscriptions are saved as an imported filter that you can use again. You'll see this filter selected in **Directories + subscriptions**.
 
 If you want to stop using advanced filters, select the toggle again to restore the default subscription view. Any custom filters you've created are saved and will be available to use if you enable **Advanced filters** in the future.
 
@@ -54,7 +54,7 @@ If you want to stop using advanced filters, select the toggle again to restore t
 
 ## Advanced filters
 
-After enabling the **Advanced filters** page, you can create, modify, or delete subscription filters.
+After enabling **Advanced filters**, you can create, modify, or delete subscription filters.
 
 :::image type="content" source="media/set-preferences/settings-advanced-filters.png" lightbox="media/set-preferences/settings-advanced-filters.png" alt-text="Screenshot showing the Advanced filters screen.":::
 
@@ -146,11 +146,11 @@ Once you have made the desired changes to your language and regional format sett
 
 ## My information
 
-The **My information** page lets you update the email address that is used for updates on Azure services, billing, support, or security issues. You can also opt in or out from additional emails about Microsoft Azure and other products and services.
+**My information** lets you update the email address that is used for updates on Azure services, billing, support, or security issues. You can also opt in or out from additional emails about Microsoft Azure and other products and services.
 
-Near the top of the **My information** page, you'll see options to export, restore, or delete settings.
+Near the top of **My information**, you'll see options to export, restore, or delete settings.
 
-:::image type="content" source="media/set-preferences/settings-my-information.png" alt-text="Screenshot of the My information settings page." lightbox="media/set-preferences/settings-my-information.png":::
+:::image type="content" source="media/set-preferences/settings-my-information.png" alt-text="Screenshot of My information settings." lightbox="media/set-preferences/settings-my-information.png":::
 
 ### Export user settings
 
@@ -180,7 +180,7 @@ It's a good idea to export and review your settings before you delete them, as d
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-To delete your portal settings, select **Delete all settings and private dashboards** from the top of the **My information** page. You'll be prompted to confirm the deletion. When you do so, all settings customizations will return to the default settings, and all of your private dashboards will be lost.
+To delete your portal settings, select **Delete all settings and private dashboards** from the top of **My information**. You'll be prompted to confirm the deletion. When you do so, all settings customizations will return to the default settings, and all of your private dashboards will be lost.
 
 ## Signing out + notifications
 
