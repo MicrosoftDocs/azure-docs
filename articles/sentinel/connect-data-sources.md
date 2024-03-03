@@ -29,7 +29,15 @@ Microsoft Sentinel solutions provide packaged security content, including data c
 
 The Microsoft Sentinel **Data connectors** page lists the installed or in-use data connectors.
 
+#### [Azure portal](#tab/azure-portal)
+
 :::image type="content" source="media/connect-data-sources/data-connector-list.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/data-connector-list.png":::
+
+#### [Defender portal](#tab/defender-portal)
+
+:::image type="content" source="media/connect-data-sources/data-connector-list-defender.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/data-connector-list-defender.png":::
+
+---
 
 To add more data connectors, install the solution associated with the data connector from the **Content Hub**. For more information, see the following articles:
 

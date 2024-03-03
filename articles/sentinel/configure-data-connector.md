@@ -37,10 +37,14 @@ After you or someone in your organization installs the solution that includes th
 1. Select **Open connector page**.  
 
    #### [Azure portal](#tab/azure-portal)
+
    :::image type="content" source="media/configure-data-connector/open-connector-page-option.png" alt-text="Screenshot of data connector details page with open connector page button.":::
 
    #### [Defender portal](#tab/defender-portal)
+
    :::image type="content" source="media/configure-data-connector/open-connector-page-option-defender-portal.png" alt-text="Screenshot of data connector details page in the Defender portal.":::
+
+---
 
 1. Review the **Prerequisites**. To configure the data connector, fulfill all the prerequisites.
 1. Follow the steps outlined in the **Configurations** section.
