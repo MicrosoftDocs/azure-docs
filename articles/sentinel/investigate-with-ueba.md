@@ -140,7 +140,6 @@ The Investigation graph includes a node for the detonated URL, as well as the fo
 
 - **DetonationVerdict**. The high-level, Boolean determination from detonation. For example, **Bad** means that the side was classified as hosting malware or phishing content.
 - **DetonationFinalURL**. The final, observed landing page URL, after all redirects from the original URL.
-- **DetonationScreenshot**. A screenshot of what the page looked like at the time that the alert was triggered. Select the screenshot to enlarge.
 
 For example:
 
