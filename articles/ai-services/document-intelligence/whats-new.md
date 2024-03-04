@@ -25,17 +25,18 @@ ms.custom:
 Document Intelligence service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
 > [!IMPORTANT]
-> Preview API versions are retured once the GA API is released. The 2023-02-28-preview API version is being retired, if you are still using the preview API or the associated SDK versions, please update your code to target the 2023-07-31 API version.
+> Preview API versions are retured once the GA API is released. The 2023-02-28-preview API version is being retired, if you are still using the preview API or the associated SDK versions, please update your code to target the latest API version: 2023-07-31 (GA).
 
 ## February 2024
 
-The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available. This preview API introduces new and updated capabilities:
+The Document Intelligence [**2024-02-29-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available. This preview API introduces new and updated capabilities:
 
-* Public preview version [**2023-10-31-preview**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) is currently only available in the following Azure regions:
+* Public preview version [**2024-02-29-preview**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) is currently available only in the following Azure regions:
 
   * **East US**
   * **West US2**
   * **West Europe**
+    
 * [Custom Models](concept-custom.md)
   * Custom models now support cell level confidence to custom models. 
   * Custom models support office file types, specifically, Word, PPT, and excel for classification.
