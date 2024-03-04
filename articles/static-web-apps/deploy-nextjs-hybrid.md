@@ -225,7 +225,7 @@ Begin by adding an API route.
     }
     ```
 
-This Client Component fetches the API with a `useEffect` React hook to render the component once it's loaded. The `'use client'` directive specifies this is a Client Component. For more information, see [Client Components](https://nextjs.org/docs/app/building-your-application/rendering/client-components).
+This Client Component fetches the API with a `useEffect` React hook to render the component after the load is complete. The `'use client'` directive identifies this element as a Client Component. For more information, see [Client Components](https://nextjs.org/docs/app/building-your-application/rendering/client-components).
 
 1. Edit _app/page.tsx_ to import and render the `CurrentTimeFromAPI` Client Component.
 
