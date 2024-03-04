@@ -108,9 +108,13 @@ For more information, see the following resources:
 
 This example shows how to use the Azure OpenAI and Azure AI Search connectors to break down the backend logic for ingesting data and conducting simple chat conversations into two key workflows. For faster performance, create stateless workflows that, by default, don't save and store the history for each run.
 
+### Sample code
+
+[Create a chat using ingested data](https://github.com/Azure/logicapps/tree/master/ai-sample)
+
 ### Prerequisites
 
-[Requirements](https://github.com/Azure/logicapps/tree/master/ai-sample#prerequisites)
+See the [sample code requirements](https://github.com/Azure/logicapps/tree/master/ai-sample#prerequisites).
 
 The following [cross-environment parameter values](../create-parameters-workflows.md) are also used by the workflow operations in this example:
 
@@ -122,11 +126,7 @@ The following [cross-environment parameter values](../create-parameters-workflow
 | **openapi_api_key** | The API key for Azure OpenAI |
 | **openai_deployment_id** | The deployment ID for the Azure OpenAI example |
 | **openai_endpoint** | The endpoint URL for the Azure OpenAI example |
-| **tokenize_function_url** | The URL for |
-
-### Sample code
-
-[Create a chat using ingested data](https://github.com/Azure/logicapps/tree/master/ai-sample)
+| **tokenize_function_url** | The URL for a custom Azure function that batches and tokenizes data, which is required for Azure OpenAI to properly create embeddings for this example. <br><br>For more information about this function, see the [sample code for "Create a chat using ingested data"](https://github.com/Azure/logicapps/tree/master/ai-sample). |
 
 ### Video: Learn how to build AI applications using logic apps
 
@@ -145,7 +145,7 @@ Each step in this pattern makes sure that the AI seamlessly extracts all the cru
 | 1 | Check for new data. | **When an HTTP request is received** | A trigger that either polls or waits for new data to arrive, either based on a scheduled recurrence or in response to specific events respectively. Such an event might be a new file that's uploaded to a specific storage system, such as SharePoint, OneDrive, or Azure Blob Storage. <br><br>In this example, the **Request** trigger operation waits for an HTTP or HTTPS request sent from another endpoint. The request includes the URL for a new uploaded document. |
 | 2 | Get the data. | **HTTP** | An **HTTP** action that retrieves the uploaded document using the file URL from the trigger output. |
 | 3 | Compose document details. | **Compose** | A **Data Operations** action that concatenates various items. <br><br>This example concatenates key-value information about the document. |
-| 4 | Tokenize the data. | **HTTP** | An **HTTP** action that calls a custom function that [tokenizes](../../ai-services/openai/overview.md#tokens) the output from the **Compose** action. |
+| 4 | Tokenize the data. | **HTTP** | An **HTTP** action that calls a custom Azure function that [batches and tokenizes](../../ai-services/openai/overview.md#tokens) the output from the **Compose** action. |
 | 5 | Convert tokenized data to JSON. | **Parse JSON** | A **Data Operations** action that converts the tokenized string output into a JSON array. |
 | 6 | Select JSON array items. | **Select** | A **Data Operations** action that selects multiple items from the JSON array. |
 | 7 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings for each JSON array item. |
