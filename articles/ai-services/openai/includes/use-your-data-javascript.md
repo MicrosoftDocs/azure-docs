@@ -53,7 +53,7 @@ async function main(){
     { role: "user", content: "What are the differences between Azure Machine Learning and Azure AI services?" },
   ];
 
-  console.log(`Messages: ${messages.map((m) => m.content).join("\n")}`);
+  console.log(`Message: ${messages.map((m) => m.content).join("\n")}`);
 
   const events = await client.streamChatCompletions(deploymentId, messages, { 
     maxTokens: 128,
@@ -69,7 +69,6 @@ async function main(){
     },
   });
   for await (const event of events) {
-    var response = "";
     for (const choice of event.choices) {
       const delta = choice.delta?.content;
       if (delta !== undefined) {
@@ -98,7 +97,7 @@ node.exe ChatWithOwnData.js
 ## Output
 
 ```output
-Messages: What are the differences between Azure Machine Learning and Azure AI services?
+Message: What are the differences between Azure Machine Learning and Azure AI services?
 Chatbot: Azure 
 Chatbot: Machine 
 Chatbot: Learning 
