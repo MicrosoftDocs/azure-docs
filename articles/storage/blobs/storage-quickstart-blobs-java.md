@@ -313,7 +313,7 @@ These example code snippets show you how to perform the following actions with t
 - [Download blobs](#download-blobs)
 - [Delete a container](#delete-a-container)
 
-::: zone pivot="blob-storage-quickstart-scratch
+::: zone pivot="blob-storage-quickstart-scratch"
 
 > [!IMPORTANT]
 > Make sure you have the correct dependencies in pom.xml and the necessary directives for the code samples to work, as described in the [setting up](#setting-up) section.
