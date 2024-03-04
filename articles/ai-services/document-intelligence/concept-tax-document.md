@@ -36,6 +36,7 @@ The Document Intelligence contract model uses powerful Optical Character Recogni
 * 1098-E
 * 1098-T
 * 1099 and variations (A, B, C, CAP, DIV, G, H, INT, K, LS, LTC, MISC,  NEC, OID, PATR, Q, QA, R, S, SA, SB​)
+* 1040 and variations (Schedule 1, Schedule 2, Schedule 3, Schedule 8812, Schedule A, Schedule B, Schedule C, Schedule D, Schedule E, Schedule EIC, Schedule F, Schedule H, Schedule J, Schedule R, Schedule SE, Schedule Senior)
 
 ## Automated tax document processing
 
@@ -49,7 +50,7 @@ Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, ap
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**US tax form models**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**&bullet; prebuilt-tax.us.W-2</br>&bullet; prebuilt-tax.us.1098</br>&bullet; prebuilt-tax.us.1098E</br>&bullet; prebuilt-tax.us.1098T</br>&bullet; prebuilt-tax.us.1099(Variations)**|
+|**US tax form models**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**&bullet; prebuilt-tax.us.W-2</br>&bullet; prebuilt-tax.us.1098</br>&bullet; prebuilt-tax.us.1098E</br>&bullet; prebuilt-tax.us.1098T</br>&bullet; prebuilt-tax.us.1099A</br>&bullet; prebuilt-tax.us.1099B</br>&bullet; prebuilt-tax.us.1099C</br>&bullet; prebuilt-tax.us.1099CAP</br>&bullet; prebuilt-tax.us.1099DIV</br>&bullet; prebuilt-tax.us.1099G</br>&bullet; prebuilt-tax.us.1099H</br>&bullet; prebuilt-tax.us.1099INT</br>&bullet; prebuilt-tax.us.1099K</br>&bullet; prebuilt-tax.us.1099LS</br>&bullet; prebuilt-tax.us.1099LTC</br>&bullet; prebuilt-tax.us.1099MISC</br>&bullet; prebuilt-tax.us.1099NEC</br>&bullet; prebuilt-tax.us.1099OID</br>&bullet; prebuilt-tax.us.1099PATR</br>&bullet; prebuilt-tax.us.1099Q</br>&bullet; prebuilt-tax.us.1099QA</br>&bullet; prebuilt-tax.us.1099R</br>&bullet; prebuilt-tax.us.1099S</br>&bullet; prebuilt-tax.us.1099SA</br>&bullet; prebuilt-tax.us.1099SB</br>&bullet; prebuilt-tax.us.1040</br>&bullet; prebuilt-tax.us.1040Schedule1</br>&bullet; prebuilt-tax.us.1040Schedule2</br>&bullet; prebuilt-tax.us.1040Schedule3</br>&bullet; prebuilt-tax.us.1040Schedule8812</br>&bullet; prebuilt-tax.us.1040ScheduleA</br>&bullet; prebuilt-tax.us.1040ScheduleB</br>&bullet; prebuilt-tax.us.1040ScheduleC</br>&bullet; prebuilt-tax.us.1040ScheduleD</br>&bullet; prebuilt-tax.us.1040ScheduleE</br>&bullet; prebuilt-tax.us.1040ScheduleEIC</br>&bullet; prebuilt-tax.us.1040ScheduleF</br>&bullet; prebuilt-tax.us.1040ScheduleH</br>&bullet; prebuilt-tax.us.1040ScheduleJ</br>&bullet; prebuilt-tax.us.1040ScheduleR</br>&bullet; prebuilt-tax.us.1040ScheduleSE</br>&bullet; prebuilt-tax.us.1040Senior**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
@@ -167,6 +168,101 @@ The following are the fields extracted from a 1099-nec tax form in the JSON outp
 | `Box2` |boolean|Box 2 extracted from Form 1099-NEC.| true |
 | `Box4` |number|Box 4 extracted from Form 1099-NEC.| 123456 |
 | `StateTaxesWithheld` |array| State Taxes Withheld extracted from Form 1099-NEC (boxes 5, 6, and 7)| |
+
+## Field extraction 1040 form
+
+The following are the fields extracted from a 1040 tax form in the JSON output response. The other variations of 1040 are also supported.
+
+|Name| Type | Description | Example output |
+|:-----|:----|:----|:---:|
+| `TaxPayer` | Object | An object that contains the taxpayer's information such as SSN, Last Name, and Address | |
+| `Spouse` | Object | An object that contains the spouse's information such as SSN, last name, and first name and initials Name| |
+| `Dependants` |array|An array that contains a list of dependants including information such as Name, SSN, and Credit Type |  |
+| `ThirdPartyDesignee` |object|An object that contains informationabout the third party designee|  |
+| `SignatureDetails` |object|An object that contains information about the Signees such as phone numbers and emails|  |
+| `PaidPreparer` |object|An object that contains information about the preparer. | |
+| `FillingStatus` | String |Value can be one of '[noSelection]', 'single', 'marriedFilingJointly', 'marriedFillingSeparately', 'headOfHousehold', 'qualifyingSurvivingSpouse' or '[multiSelection]'.| single |
+| `FilingStatusDetails` |object|An object that contains information about the filing status. | |
+| `NameOfSpouseOrQualifyingPerson` | String |Name Of Spouse Or Qualifying Person extracted from Form 1040.| John Smith |
+| `PresidentilElectionCampaign` | String |Value can be one of '[noSelection]', 'taxpayer', 'spouse' or '[multiSelection]'.| Taxpayer |
+| `PresidentialElectionCampaignDetails` | object | An object that contains details about the presidential election campaign. |  |
+| `DigitalAssets` | String |Value can be one of '[noSelection]', 'yes', 'no' or '[multiSelection]'.| yes |
+| `DigitalAssetsDetails` | object | An object that contains details about the digital assets. |  |
+| `ClaimStatus` | String |Value can be one of '[noSelection]', 'taxpayerAsDependent', 'spouseAsDependent', 'spouseItemizesSeparatelyOrDualStatusAlien' or '[multiSelection]'.| taxpayerAsDependent |
+| `ClaimStatusDetails` | object | An object that contains details about the claim status. |  |
+| `TaxpayerAgeBlindness` | String |Value can be one of '[noSelection]', 'above64', 'blind' or '[multiSelection]'.| above64 |
+| `TaxPayerAgeBlindnessDetails` | object | An object that contains details about the taxpayer age blindness. |  |
+| `SpouseAgeBlindness` | String | Value can be one of '[noSelection]', 'above64', 'blind' or '[multiSelection]'. | above64 |
+| `TaxPayerAgeBlindnessDetails` | object | An object that contains details about the spouse age blindness. |  |
+| `MoreThanFourDependents` | boolean | More Than Four Dependents extracted from Form 1040.. | true |
+| `Box1a` | number | Box 1a extracted from 1040. | 123456 |
+Based on the provided JSON structure and converting it into the same table format as requested, the result would look like this:
+| `Box1b`         | number  | Box 1b extracted from 1040.                      | 123456  |
+| `Box1c`         | number  | Box 1c extracted from 1040.                      | 123456  |
+| `Box1d`         | number  | Box 1d extracted from 1040.                      | 123456  |
+| `Box1e`         | number  | Box 1e extracted from 1040.                      | 123456  |
+| `Box1f`         | number  | Box 1f extracted from 1040.                      | 123456  |
+| `Box1g`         | number  | Box 1g extracted from 1040.                      | 123456  |
+| `Box1h`         | number  | Box 1h extracted from 1040.                      | 123456  |
+| `Box1i`         | number  | Box 1i extracted from 1040.                      | 123456  |
+| `Box1z`         | number  | Box 1z extracted from 1040.                      | 123456  |
+| `Box2a`         | number  | Box 2a extracted from 1040.                      | 123456  |
+| `Box2b`         | number  | Box 2b extracted from 1040.                      | 123456  |
+| `Box3a`         | number  | Box 3a extracted from 1040.                      | 123456  |
+| `Box3b`         | number  | Box 3b extracted from 1040.                      | 123456  |
+| `Box4a`         | number  | Box 4a extracted from 1040.                      | 123456  |
+| `Box4b`         | number  | Box 4b extracted from 1040.                      | 123456  |
+| `Box5a`         | number  | Box 5a extracted from 1040.                      | 123456  |
+| `Box5b`         | number  | Box 5b extracted from 1040.                      | 123456  |
+| `Box6a`         | number  | Box 6a extracted from 1040.                      | 123456  |
+| `Box6b`         | number  | Box 6b extracted from 1040.                      | 123456  |
+| `Box6cCheckbox` | boolean | Box6c Checkbox extracted from 1040.              | true    |
+| `Box7Checkbox`  | boolean | Box7 Checkbox extracted from 1040.               | true    |
+| `Box7`          | number  | Box 7 extracted from 1040.                       | 123456  |
+| `Box8`          | number  | Box 8 extracted from 1040.                       | 123456  |
+| `Box9`          | number  | Box 9 extracted from 1040.                       | 123456  |
+| `Box10`         | number  | Box 10 extracted from 1040.                      | 123456  |
+| `Box11`         | number  | Box 11 extracted from 1040.                      | 123456  |
+| `Box12`         | number  | Box 12 extracted from 1040.                      | 123456  |
+| `Box13`         | number  | Box 13 extracted from 1040.                      | 123456  |
+| `Box14`         | number  | Box 14 extracted from 1040.                      | 123456  |
+| `Box15`         | number  | Box 15 extracted from 1040.                      | 123456  |
+| `Box16FromForm` | string  | Value can be one of '[noSelection]', '8814', '4972', 'other' or '[multiSelection]'. | 8814  |
+| `Box16FromFormDetails` | object  | Object that contains details about the Box16 |  |
+The conversion of the provided JSON structure into the requested table format would result in the following:
+| `Box16OtherFormNumber` | string  | Box16 Other Form Number extracted from 1040.       | 8888    |
+| `Box16`              | number  | Box 16 extracted from 1040.                        | 123456  |
+| `Box17`              | number  | Box 17 extracted from 1040.                        | 123456  |
+| `Box18`              | number  | Box 18 extracted from 1040.                        | 123456  |
+| `Box19`              | number  | Box 19 extracted from 1040.                        | 123456  |
+| `Box20`              | number  | Box 20 extracted from 1040.                        | 123456  |
+| `Box21`              | number  | Box 21 extracted from 1040.                        | 123456  |
+| `Box22`              | number  | Box 22 extracted from 1040.                        | 123456  |
+| `Box23`              | number  | Box 23 extracted from 1040.                        | 123456  |
+| `Box24`              | number  | Box 24 extracted from 1040.                        | 123456  |
+| `Box25a`             | number  | Box 25a extracted from 1040.                       | 123456  |
+| `Box25b`             | number  | Box 25b extracted from 1040.                       | 123456  |
+| `Box25c`             | number  | Box 25c extracted from 1040.                       | 123456  |
+| `Box25d`             | number  | Box 25d extracted from 1040.                       | 123456  |
+| `Box26`              | number  | Box 26 extracted from 1040.                        | 123456  |
+| `Box27`              | number  | Box 27 extracted from 1040.                        | 123456  |
+| `Box28`              | number  | Box 28 extracted from 1040.                        | 123456  |
+| `Box29`              | number  | Box 29 extracted from 1040.                        | 123456  |
+| `Box31`              | number  | Box 31 extracted from 1040.                        | 123456  |
+| `Box32`              | number  | Box 32 extracted from 1040.                        | 123456  |
+| `Box33`              | number  | Box 33 extracted from 1040.                        | 123456  |
+| `Box34`              | number  | Box 34 extracted from 1040.                        | 123456  |
+| `Box35Checkbox`      | boolean | Box35 Checkbox extracted from 1040.                | true    |
+| `Box35a`             | number  | Box 35a extracted from 1040.                       | 123456  |
+| `Box35b`             | number  | Box 35b extracted from 1040.                       | 123456  |
+| `Box35c`             | string  | Value can be one of '[noSelection]', 'checking', 'saving' or '[multiSelection]'. | checking |
+| `Box35cDetails` | object  | Object that contains details about box35c |  |
+| `Box35d`                     | number  | Box 35d extracted from 1040.                   | 123456  |
+| `Box36`                      | number  | Box 36 extracted from 1040.                    | 123456  |
+| `Box37`                      | number  | Box 37 extracted from 1040.                    | 123456  |
+| `Box38`                      | number  | Box 38 extracted from 1040.                    | 123456  |
+| `HasAssignedThirdPartyDesignee` | string  | Value can be one of '[noSelection]', 'yes', 'no' or '[multiSelection]'. | yes  |
+| `HasAssignedThirdPartyDesigneeDetails` | object  | Object that contains information on what was selected for the has assigned third party designee |  |
 
 The tax documents key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
