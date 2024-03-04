@@ -1,5 +1,5 @@
 ---
-title: Use Azure Monitor gallery workbooks with Defender for Cloud data
+title: Azure Monitor workbooks with Defender for Cloud data
 description: Learn how to create rich, interactive reports for your Microsoft Defender for Cloud data by using workbooks from the integrated Azure Monitor workbooks gallery.
 ms.topic: conceptual
 ms.author: dacurwin
@@ -114,7 +114,6 @@ Defender for Cloud includes vulnerability scanners for your machines, containers
 Learn more about using these scanners:
 
 - [Find vulnerabilities with Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management.md)
-- [Find vulnerabilities with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
 - [Scan your SQL resources for vulnerabilities](defender-for-sql-on-machines-vulnerability-assessment.md)
 
 Findings for each resource type are reported in separate recommendations:
