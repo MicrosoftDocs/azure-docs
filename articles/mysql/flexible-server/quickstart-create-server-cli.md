@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create with Azure CLI'
-description: This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL - Flexible Server instance in an Azure resource group.
+title: 'Quickstart: Create a flexible server by using the Azure CLI'
+description: In this quickstart, learn how to create an instance of Azure Database for MySQL - Flexible Server in an Azure resource group by using the Azure CLI.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -11,61 +11,60 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 ms.date: 9/21/2020
 ---
 
-# Quickstart: Create an Azure Database for MySQL - Flexible Server instance using Azure CLI
+# Quickstart: Create an instance of Azure Database for MySQL - Flexible Server by using the Azure CLI
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-
-This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for MySQL flexible server instance in five minutes. 
+This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for MySQL flexible server instance in five minutes.
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
+## Open Azure Cloud Shell
 
-## Launch Azure Cloud Shell
+[Azure Cloud Shell](../../cloud-shell/overview.md) is a free interactive shell that you can use to run the steps that are described in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-The [Azure Cloud Shell](../../cloud-shell/overview.md) is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+To open Cloud Shell, in the upper-right corner of a code example, select **Try it** corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
-
-If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you prefer to install and use the Azure CLI, this quickstart requires Azure CLI version 2.0 or later. Run `az --version` to find the version of your Azure CLI installation. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Prerequisites
 
-Log in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+Sign in to your account by using the [az login](/cli/azure/reference-index#az-login) command. Note the `id` property. The `id` property refers to the subscription ID of your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription under your account using [az account set](/cli/azure/account#az-account-set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az-account-list).
+Select the specific subscription under your account using [az account set](/cli/azure/account#az-account-set) command. Make a note of the `id` value from the `az login` output to use as the value for the `subscription` argument in the command. If you have multiple subscriptions, choose the subscription in which you want the resource to be billed. To get a list of your subscriptions, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli-interactive
-az account set --subscription <subscription id>
+az account set --subscription <subscription ID>
 ```
 
-## Create an Azure Database for MySQL flexible server instance
+## Create an Azure Database for MySQL flexible server
 
-Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the `az group create` command and then create your Azure Database for MySQL flexible server instance inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `eastus2` location.
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md) by using the `az group create` command. Then create your Azure Database for MySQL flexible server inside the resource group. Be sure to provide a unique name. The following example creates a resource group named `myresourcegroup` in the `eastus2` location.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location eastus2
 ```
 
-Create an Azure Database for MySQL flexible server instance with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's local context:
+Create an Azure Database for MySQL flexible server by using the `az mysql flexible-server create` command. A server can contain multiple databases. The following command creates a server by using service defaults and values from the local context of the Azure CLI:
 
 ```azurecli-interactive
 az mysql flexible-server create
 ```
 
-The server created has the following attributes:
-- Auto-generated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group
-- Service defaults for remaining server configurations: compute tier (Burstable), compute size/SKU (B1MS), backup retention period (7 days), and MySQL version (5.7)
-- The default connectivity method is Private access (VNet Integration) with an auto-generated virtual network and subnet
+The server that's created has the following attributes:
+
+- An auto-generated server name, admin username, admin password, and resource group name (if it's not already specified in a local context), and it's in the same location as your resource group.
+- Service defaults for the remaining server configurations: compute tier (Burstable), compute size/SKU (B1MS), backup retention period (7 days), and MySQL version (5.7).
+- The default connectivity method is **Private access (VNet Integration)**, with an auto-generated virtual network and subnet.
 
 > [!NOTE]
-> The connectivity method can't be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking.md).
+> The connectivity method can't be changed after you create the server. For example, if you selected **Private access (VNet Integration)** when you created the server, you can't change the setting to **Public access (allowed IP addresses)** after deployment. We highly recommend that you create a server that has private access to securely access your server by using virtual network integration. For more information about private access, see the [networking concepts](./concepts-networking.md) article.
 
-If you want to change any defaults, refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-server) for the complete list of configurable CLI parameters.
+If you want to change any defaults, see the Azure CLI [reference documentation](/cli/azure/mysql/flexible-server) for the complete list of configurable CLI parameters.
 
 Here is some sample output:
 
@@ -95,6 +94,7 @@ Make a note of your password. If you forget, you would have to reset your passwo
 If you want to change any defaults, refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-server) for the complete list of configurable CLI parameters.
 
 ## Create a database
+
 Run the following command to create a database called **newdatabase** if you didn't already create one.
 
 ```azurecli-interactive
@@ -145,26 +145,31 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 }
 ```
 
-## Connect and test the connection using Azure CLI
+## Connect and test the connection by using the Azure CLI
 
 Azure Database for MySQL flexible server enables you to connect to your Azure Database for MySQL flexible server instance with the Azure CLI `az mysql flexible-server connect` command. This command allows you test connectivity to your database server, create a quick starter database and run queries directly against your server without having to install mysql.exe or MySQL Workbench.  You can also use run the command in an interactive mode for running multiple queries.
 
-Run the following script to test and validate the connection to the database from your development environment.
+Run the following script to test and validate the connection to the database from your development environment:
 
 ```azurecli-interactive
 az mysql flexible-server connect -n <servername> -u <username> -p <password> -d <databasename>
 ```
+
 **Example:**
+
 ```azurecli-interactive
 az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase
 ```
+
 You should see the following output for successful connection:
 
 ```output
 Connecting to newdatabase database.
 Successfully connected to mysqldemoserver1.
 ```
+
 If the connection failed, try these solutions:
+
 - Check if port 3306 is open on your client machine.
 - Check if your server administrator user name and password are correct.
 - Check if you configured a firewall rule for your client machine.
@@ -177,9 +182,11 @@ az mysql flexible-server connect -n <server-name> -u <username> -p "<password>" 
 ```
 
 **Example:**
+
 ```azurecli-interactive
 az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase -q "select * from table1;" --output table
 ```
+
 To learn more about using `az mysql flexible-server connect`, refer to the [connect and query](connect-azure-cli.md) documentation.
 
 ## Connect using mysql command-line client
@@ -204,7 +211,6 @@ In order to use Azure Cloud Shell to connect to your Azure Database for MySQL fl
 
  > :::image type="content" source="./media/quickstart-create-server-portal/allow-access-to-any-azure-service.png" alt-text="Screenshot that shows how to allow Azure Cloud Shell access to MySQL flexible server for public access network configuration.":::
 
-
 > [!NOTE]
 > Checking **Allow public access from any Azure service within Azure to this server** should be done only for development or testing. This setting configures the firewall to allow connections from IP addresses allocated to any Azure service or asset, including connections from the subscriptions of other customers.
 
@@ -214,6 +220,7 @@ Select **Try it** to launch the Azure Cloud Shell and use the following commands
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
 mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
+
 > [!IMPORTANT]
 >While connecting to your Azure Database for MySQL flexible server instance using Azure Cloud Shell, you need to use --ssl=true parameter and not --ssl-mode=REQUIRED.
 > The primary reason is that Azure Cloud Shell comes with a preinstalled mysql.exe client from the MariaDB distribution that requires the --ssl parameter, while the mysql client from Oracle's distribution requires the --ssl-mode parameter.

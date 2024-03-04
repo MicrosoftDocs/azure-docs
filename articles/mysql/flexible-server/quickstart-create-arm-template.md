@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create using ARM template'
-description: In this Quickstart, learn how to create an Azure Database for MySQL - Flexible Server instance by using an ARM template.
+title: 'Quickstart: Create a flexible server by using Azure Resource Manager'
+description: In this quickstart, learn how to deploy a database in an instance of Azure Database for MySQL - Flexible Server by using an Azure Resource Manager template.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 02/16/2023
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible Server instance
+# Quickstart: Create an instance of Azure Database for MySQL - Flexible Server by using Azure Resource Manager
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -24,7 +24,7 @@ ms.date: 02/16/2023
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-## Create server with public access
+## Create a server that has public access
 
 Create an **azuredeploy.json** file with the following content to create an Azure Database for MySQL flexible server instance using public access connectivity method and also create a database on the server. Update the **firewallRules** default value if needed.
 
@@ -254,9 +254,9 @@ Create an **azuredeploy.json** file with the following content to create an Azur
 }
 ```
 
-## Create a server with private access
+## Create a server that has private access
 
-Create an **azuredeploy.json** file with the following content to create an Azure Database for MySQL flexible server instance using private access connectivity method inside a virtual network.
+Modify the following code samples to create an Azure Database for MySQL flexible server that has private access connectivity inside a virtual network:
 
 ```json
 {
