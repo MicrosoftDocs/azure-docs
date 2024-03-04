@@ -93,7 +93,7 @@ Eadsv6-series virtual machines support Standard SSD, Standard HDD, and Premium S
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
