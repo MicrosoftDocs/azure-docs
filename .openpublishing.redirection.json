@@ -10906,9 +10906,10 @@
         {
             "source_path_from_root": "/articles/reliability/disaster-recovery-guidance-overview.md",
             "redirect_url": "/azure/reliability/reliability-guidance-overview",
-            "redirect_document_id": false
+            "redirect_document_id": false  
         },
         {
+
             "source_path_from_root": "/articles/orbital/overview-analytics.md",
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false
@@ -10938,6 +10939,31 @@
             "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
             "redirect_url": "/azure/reliability/reliability-traffic-manager",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-hubs/move-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-event-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/move-workspace-region.md",
+            "redirect_url": "/azure/operational-excellence/relocation-log-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/key-vault/general/move-region.md",
+            "redirect_url": "/azure/operational-excellence/relocation-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-hubs/move-cluster-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-event-hub-cluster",
+            "redirect_document_id": false 
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-account-move.md",
+            "redirect_url": "/azure/operational-excellence/relocation-storage-account",
+            "redirect_document_id": false 
         }
         
     ]
