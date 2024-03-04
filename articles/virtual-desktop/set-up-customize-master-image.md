@@ -70,7 +70,7 @@ If your users need to access certain LOB applications, we recommend you install 
 
 To include the FSLogix container as part of the image, follow the instructions in [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](/fslogix/configure-cloud-cache-tutorial/).
 
-### Configure Antivirus exclusions for FSLogix
+### Configure antivirus exclusions for FSLogix
 
 If Windows Defender is configured in the VM, make sure it's configured to not scan the entire contents of VHD and VHDX files during attachment. You can find a list of exclusions for FSLogix at [Configure Antivirus file and folder exclusions](/fslogix/overview-prerequisites.md#configure-antivirus-file-and-folder-exclusions).
 
