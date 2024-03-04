@@ -1,15 +1,13 @@
 ---
 title: Prerequisites for Azure role assignment conditions - Azure ABAC
 description: Prerequisites for Azure role assignment conditions.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.workload: identity
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 10/24/2022
+ms.date: 12/01/2023
 ms.author: rolyon
 ---
 
@@ -48,24 +46,25 @@ For more information, see [API versions of Azure RBAC REST APIs](/rest/api/autho
 
 ## Permissions
 
-Just like role assignments, to add or update conditions, you must be signed in to Azure with a user that has the `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner).
+Just like role assignments, to add or update conditions, you must be signed in to Azure with a user that has the `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator).
 
 ## Principal attributes
 
-> [!IMPORTANT]
-> Principal attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+To use principal attributes ([custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-overview.md)), you must have the following:
 
-To use principal attributes ([custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-overview.md)), you must have **all** of the following:
-
-- Azure AD Premium P1 or P2 license
 - [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) at attribute set or tenant scope
-- Custom security attributes defined in Azure AD
+- Custom security attributes defined in Microsoft Entra ID
 
 For more information about custom security attributes, see:
 
 - [Principal does not appear in Attribute source](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
-- [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md)
+- [Add or deactivate custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-add.md)
+
+## Environment attributes
+
+To use the [Private endpoint](../storage/blobs/storage-auth-abac-attributes.md#private-endpoint) attribute, you must have at least one private endpoint configured in your subscription.
+
+To use the [Subnet](../storage/blobs/storage-auth-abac-attributes.md#subnet) attribute, you must have at least one virtual network subnet using [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) configured in your subscription.
 
 ## Next steps
 

@@ -3,9 +3,8 @@ title: How to integrate Service Bus with RabbitMQ
 description: Step-by-step guide on how to integrate Service Bus with RabbitMQ
 author: videlalvaro
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 01/10/2024
 ms.author: alvidela
-ms.custom: contperf-fy22q2
 ---
 
 # How to integrate Service Bus with RabbitMQ

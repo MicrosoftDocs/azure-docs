@@ -3,7 +3,7 @@ title: Azure HDInsight Accelerated Writes for Apache HBase
 description: Gives an overview of the Azure HDInsight Accelerated Writes feature, which uses premium managed disks to improve performance of the Apache HBase Write Ahead Log.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 08/21/2023
 ---
 
 # Azure HDInsight Accelerated Writes for Apache HBase
@@ -12,15 +12,15 @@ This article provides background on the **Accelerated Writes** feature for Apach
 
 ## Overview of HBase architecture
 
-In HBase, a **row** consists of one or more **columns** and is identified by a **row key**. Multiple rows make up a **table**. Columns contain **cells**, which are timestamped versions of the value in that column. Columns are grouped into **column families**, and all columns in a column-family are stored together in storage files called **HFiles**.
+In HBase, a **row** consists of one or more **columns** and is identified by a **row key**. Multiple rows make up a **table**. Columns contain **cells**, which are timestamped versions of the value in that column. Columns are grouped into **column families**, and all columns in a column-family are stored together in storage files called `HFiles`.
 
 **Regions** in HBase are used to balance the data processing load. HBase first stores the rows of a table in a single region. The rows are spread across multiple regions as the amount of data in the table increases. **Region Servers** can handle requests for multiple regions.
 
 ## Write Ahead Log for Apache HBase
 
-HBase first writes data updates to a type of commit log called a Write Ahead Log (WAL). After the update is stored in the WAL, it's written to the in-memory **MemStore**. When the data in memory reaches its maximum capacity, it's written to disk as an **HFile**.
+HBase first writes data updates to a type of commit log called a Write Ahead Log (WAL). After the update is stored in the WAL, it's written to the in-memory **MemStore**. When the data in memory reaches its maximum capacity, it's written to disk as an `HFile`.
 
-If a **RegionServer** crashes or becomes unavailable before the MemStore is flushed, the Write Ahead Log can be used to replay updates. Without the WAL, if a **RegionServer** crashes before flushing updates to an **HFile**, all of those updates are lost.
+If a **RegionServer** crashes or becomes unavailable before the MemStore is flushed, the Write Ahead Log can be used to replay updates. Without the WAL, if a **RegionServer** crashes before flushing updates to an `HFile`, all of those updates are lost.
 
 ## Accelerated Writes feature in Azure HDInsight for Apache HBase
 
@@ -58,7 +58,7 @@ Follow similar steps when scaling down your cluster: flush your tables and disab
 
 Following these steps will ensure a successful scale-down and avoid the possibility of a namenode going into safe mode due to under-replicated or temporary files.
 
-If your namenode does go into safemode after a scale down, use hdfs commands to re-replicate the under-replicated blocks and get hdfs out of safe mode. This re-replication will allow you to restart HBase successfully.
+If your namenode does go into safe mode after a scale down, use hdfs commands to re-replicate the under-replicated blocks and get hdfs out of safe mode. This re-replication will allow you to restart HBase successfully.
 
 ## Next steps
 

@@ -1,13 +1,11 @@
 ---
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
-ms.custom: event-tier1-build-2022
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 04/14/2023
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 1. Sign into the [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select the Language resource you created in the above step. 

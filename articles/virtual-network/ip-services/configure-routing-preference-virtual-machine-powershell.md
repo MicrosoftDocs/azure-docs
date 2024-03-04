@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Configure routing preference for a VM - Azure PowerShell'
-description: In this tutorial, learn how to create a VM with a public IP address with routing preference choice using Azure PowerShell.
-author: asudbring
-ms.author: allensu
+description: In this tutorial, learn how to configure routing preference for a VM using a public IP address with Azure PowerShell.
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
-ms.date: 10/01/2021
+ms.date: 08/24/2023
 ms.custom: template-tutorial, devx-track-azurepowershell
 ---
 

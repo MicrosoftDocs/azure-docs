@@ -146,7 +146,7 @@ Review the code to understand the steps in the [Azure Batch .NET Quickstart](htt
    }
    ```
 
-1. The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage Batch pools, jobs, and tasks. The Batch client uses shared key authentication. Batch also supports Azure Active Directory (Azure AD) authentication.
+1. The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage Batch pools, jobs, and tasks. The Batch client uses shared key authentication. Batch also supports Microsoft Entra authentication.
 
    ```csharp
    var cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);

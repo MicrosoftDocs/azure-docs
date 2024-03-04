@@ -23,8 +23,8 @@ This article presents information that is common to the group of API-based data 
   
   |Data connector  |Licensing, costs, and other prerequisites  |
   |---------|---------|
-  |Azure Active Directory Identity Protection   | - [Azure AD Premium P2 subscription](https://azure.microsoft.com/pricing/details/active-directory/)<br> - Other charges may apply      |
-  |Dynamics 365     | - [Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<br>- At least one user assigned a Microsoft/Office 365 [E1 or greater](/power-platform/admin/enable-use-comprehensive-auditing#requirements) license.<br>- Other charges may apply    |
+  |Microsoft Entra ID Protection   | - [Microsoft Entra ID P2 subscription](https://azure.microsoft.com/pricing/details/active-directory/)<br> - Other charges may apply      |
+  |Dynamics 365     | - [Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<br>- At least one user assigned a Microsoft/Office 365 [E1 or greater](/power-platform/admin/enable-use-comprehensive-auditing#requirements) license. <br>- Audit logging enabled in Microsoft Purview. See [Turn auditing on or off](/purview/audit-log-enable-disable). <br>- Audit logging enabled in your Microsoft Dataverse environment. See [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing). <br>- Other charges may apply.   |
   |Microsoft Defender for Cloud Apps|For Cloud Discovery logs, [enable Microsoft Sentinel as your SIEM in Microsoft Defender for Cloud Apps](/cloud-app-security/siem-sentinel)|
   |Microsoft Defender for Endpoint|Valid license for [Microsoft Defender for Endpoint deployment](/microsoft-365/security/defender-endpoint/production-deployment)|
   |Microsoft Defender for Office 365|Valid license for [Office 365 ATP Plan 2](/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2)|

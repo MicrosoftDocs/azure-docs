@@ -3,7 +3,7 @@ title: Generate load and view Application Insights Profiler data
 description: Generate load to your Azure service to view the Profiler data
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 09/22/2023
 ms.reviewer: charles.weininger
 ---
 
@@ -20,7 +20,7 @@ Let's say you're running a web performance test. You'll need traces to understan
 
 For Profiler to upload traces, your service must be actively handling requests. 
 
-If you've newly enabled Profiler, run a short [load test](/vsts/load-test/app-service-web-app-performance-test). 
+If you've newly enabled Profiler, run a short [load test with Azure Load Testing](/azure/load-testing/quickstart-create-and-run-load-test). 
 
 If your Azure service already has incoming traffic or if you just want to manually generate traffic, skip the load test and start a **Profiler on-demand session**:
 

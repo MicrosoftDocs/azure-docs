@@ -2,7 +2,7 @@
 title: Azure Key Vault as Event Grid source
 description: Describes the properties and schema provided for Azure Key Vault events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 01/17/2024
 ---
 
 # Azure Key Vault as Event Grid source
@@ -28,6 +28,33 @@ An Azure Key Vault account generates the following event types:
 | Microsoft.KeyVault.VaultAccessPolicyChanged | Vault Access Policy Changed | Triggered when an access policy on Key Vault changed. It includes a scenario when Key Vault permission model is changed to/from Azure role-based access control.   |
 
 ## Event examples
+
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
+
+```JSON
+[
+   {
+      "id":"00eccf70-95a7-4e7c-8299-2eb17ee9ad64",
+      "source":"/subscriptions/{subscription-id}/resourceGroups/sample-rg/providers/Microsoft.KeyVault/vaults/sample-kv",
+      "subject":"newsecret",
+      "type":"Microsoft.KeyVault.SecretNewVersionCreated",
+      "time":"2019-07-25T01:08:33.1036736Z",
+      "data":{
+         "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
+         "VaultName":"sample-kv",
+         "ObjectType":"Secret",
+         "ObjectName":"newsecret",
+         "Version":"ee059b2bb5bc48398a53b168c6cdcb10",
+         "NBF":"1559081980",
+         "EXP":"1559082102"
+      },
+      "specversion":"1.0"
+   }
+]
+```
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
@@ -56,49 +83,9 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
 ]
 ```
 
-# [Cloud event schema](#tab/cloud-event-schema)
-
-The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
-
-```JSON
-[
-   {
-      "id":"00eccf70-95a7-4e7c-8299-2eb17ee9ad64",
-      "source":"/subscriptions/{subscription-id}/resourceGroups/sample-rg/providers/Microsoft.KeyVault/vaults/sample-kv",
-      "subject":"newsecret",
-      "type":"Microsoft.KeyVault.SecretNewVersionCreated",
-      "time":"2019-07-25T01:08:33.1036736Z",
-      "data":{
-         "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
-         "VaultName":"sample-kv",
-         "ObjectType":"Secret",
-         "ObjectName":"newsecret",
-         "Version":"ee059b2bb5bc48398a53b168c6cdcb10",
-         "NBF":"1559081980",
-         "EXP":"1559082102"
-      },
-      "specversion":"1.0"
-   }
-]
-```
-
 ---
 
 ### Event properties
-
-# [Event Grid event schema](#tab/event-grid-event-schema)
-An event has the following top-level data:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | Publisher-defined path to the event subject. |
-| `eventType` | string | One of the registered event types for this event source. |
-| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
-| `id` | string | Unique identifier for the event. |
-| `data` | object | App Configuration event data. |
-| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
-| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 
 # [Cloud event schema](#tab/cloud-event-schema)
@@ -114,6 +101,21 @@ An event has the following top-level data:
 | `id` | string | Unique identifier for the event. |
 | `data` | object | App Configuration event data. |
 | `specversion` | string | CloudEvents schema specification version. |
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+An event has the following top-level data:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `eventType` | string | One of the registered event types for this event source. |
+| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
+| `id` | string | Unique identifier for the event. |
+| `data` | object | App Configuration event data. |
+| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
+| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+
 
 ---
  

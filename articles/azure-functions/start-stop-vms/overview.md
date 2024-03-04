@@ -12,7 +12,7 @@ ms.date: 09/23/2022
 
 The Start/Stop VMs v2 feature starts or stops Azure Virtual Machines instances across multiple subscriptions. It starts or stops virtual machines on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). For most scenarios, Start/Stop VMs can manage virtual machines deployed and managed both by Azure Resource Manager and by Azure Service Manager (classic), which is [deprecated](../../virtual-machines/classic-vm-deprecation.md).
 
-This new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the [original version](../../automation/automation-solution-vm-management.md) available with Azure Automation, but it's designed to take advantage of newer technology in Azure. The Start/Stop VMs v2 relies on mutiple Azure services and it will be charged based on the service that are deployed and consumed.
+This new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version that was available with Azure Automation, but it's designed to take advantage of newer technology in Azure. The Start/Stop VMs v2 relies on multiple Azure services and it will be charged based on the service that are deployed and consumed.
 
 ## Important Start/Stop VMs v2 Updates
 
@@ -25,9 +25,9 @@ This new version of Start/Stop VMs v2 provides a decentralized low-cost automati
     
 ## Overview
 
-Start/Stop VMs v2 is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [previous version](../../automation/automation-solution-vm-management.md). This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
+Start/Stop VMs v2 is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required by the previous version. This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
 
-A managed identity is created in Azure Active Directory (Azure AD) for this Azure Functions application and allows Start/Stop VMs v2 to easily access other Azure AD-protected resources, such as the logic apps and Azure VMs. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+A managed identity is created in Microsoft Entra ID for this Azure Functions application and allows Start/Stop VMs v2 to easily access other Microsoft Entra protected resources, such as the logic apps and Azure VMs. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 An HTTP trigger function endpoint is created to support the schedule and sequence scenarios included with the feature, as shown in the following table.
 
@@ -107,7 +107,7 @@ Specifying a list of VMs can be used when you need to perform the start and stop
 
 - You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-- Your account has been granted the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) permission in the subscription.
+- To deploy the solution, your account must be granted the [Owner](../../role-based-access-control/built-in-roles.md#owner) permission in the subscription.
 
 - Start/Stop VMs v2 is available in all Azure global and US Government cloud regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions.
 

@@ -1,14 +1,12 @@
 ---
 title: Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW)
 description: Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
-author: WilliamDAssafMSFT 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/22/2019
+author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.custom: seo-lt-2019
+ms.date: 10/30/2023
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ---
 
 # Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
@@ -38,8 +36,6 @@ Increasing DWUs:
 - Increases the maximum number of concurrent queries and concurrency slots
 
 ## Service Level Objective
-
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000.
 
 The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your dedicated SQL pool (formerly SQL DW). The service levels for Gen2 dedicated SQL pool (formerly SQL DW) are measured in data warehouse units (DWU), for example DW2000c.
 

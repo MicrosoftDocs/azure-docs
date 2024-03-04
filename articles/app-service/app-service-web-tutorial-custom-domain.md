@@ -6,8 +6,9 @@ keywords: app service, azure app service, domain mapping, domain name, existing 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.topic: article
 ms.date: 01/31/2023
-ms.custom: mvc, seodec18
+ms.custom: mvc
 ms.author: msangapu
+author: msangapu-msft
 ---
 
 # Map an existing custom DNS name to Azure App Service

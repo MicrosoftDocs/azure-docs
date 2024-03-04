@@ -152,4 +152,4 @@ If you're already signed in, go to the next step.
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/lookoutinc.lookout_cloudsecurity_sentinel?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/lookoutinc.lookout_casb_for_o365?tab=Overview) in the Azure Marketplace.

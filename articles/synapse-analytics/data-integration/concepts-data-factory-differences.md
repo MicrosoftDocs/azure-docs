@@ -1,7 +1,6 @@
 ---
 title: Differences from Azure Data Factory
 description: Learn how the data integration capabilities of Azure Synapse Analytics differ from those of Azure Data Factory
-services: synapse-analytics 
 author: kromerm
 ms.service: synapse-analytics
 ms.subservice: pipeline 
@@ -23,12 +22,12 @@ Check below table for features availability:
 | Category                 | Feature    |  Azure Data Factory  | Azure Synapse Analytics |
 | ------------------------ | ---------- | :------------------: | :---------------------: |
 | **Integration Runtime**  | Support for Cross-region Integration Runtime (Data Flows) | ✓ | ✗ |
-|                          | Integration Runtime Sharing | ✓<br><small>*Can be shared across different data factories* | ✗ |
+|                          | Integration Runtime Sharing | ✓ *Can be shared across different data factories* | ✗ |
 | **Pipelines Activities** | Support for Power Query Activity | ✓ | ✗ |
 |                          | Support for global parameters | ✓ | ✗ |
-| **Template Gallery and Knowledge center** | Solution Templates | ✓<br><small>*Azure Data Factory Template Gallery* | ✓<br><small>*Synapse Workspace Knowledge center* |
+| **Template Gallery and Knowledge center** | Solution Templates | ✓ *Azure Data Factory Template Gallery* | ✓ *Synapse Workspace Knowledge center* |
 | **GIT Repository Integration** | GIT Integration | ✓ | ✓ |
-| **Monitoring**           | Monitoring of Spark Jobs for Data Flow | ✗ | ✓<br><small>*Leverage the Synapse Spark pools* |
+| **Monitoring**           | Monitoring of Spark Jobs for Data Flow | ✗ | ✓ *Leverage the Synapse Spark pools* |
 
 ## Next steps
 

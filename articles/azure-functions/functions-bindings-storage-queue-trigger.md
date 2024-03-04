@@ -3,9 +3,10 @@ title: Azure Queue storage trigger for Azure Functions
 description: Learn to run an Azure Function as Azure Queue storage data changes.
 ms.topic: reference
 ms.date: 04/04/2023
-ms.devlang: csharp, java, javascript, powershell, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Queue storage trigger for Azure Functions
@@ -14,6 +15,9 @@ The queue storage trigger runs a function as messages are added to Azure Queue s
 
 Azure Queue storage scaling decisions for the Consumption and Premium plans are done via target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md).
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"  
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -27,8 +31,6 @@ The Python v1 programming model requires you to define bindings in a separate *f
 
 This article supports both programming models. 
 
-> [!IMPORTANT]   
-> The Python v2 programming model is currently in preview.  
 ::: zone-end   
 
 ## Example
@@ -39,7 +41,13 @@ Use the queue trigger to start a function when a new item is received on a queue
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The following example shows a [C# function](dotnet-isolated-process-guide.md) that polls the `input-queue` queue and writes several messages to an output queue each time a queue item is processed.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding":::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
@@ -55,12 +63,6 @@ public static class QueueFunctions
     }
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that polls the `input-queue` queue and writes several messages to an output queue each time a queue item is processed.
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding":::
 
 ---
 
@@ -82,7 +84,34 @@ public void run(
 ```
 
 ::: zone-end  
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a queue trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageQueueTrigger1.ts" :::
+
+The [usage](#usage) section explains `queueItem`. The [message metadata section](#message-metadata) explains all of the other variables shown.
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a queue trigger [JavaScript function](functions-reference-node.md). The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueTrigger1.js" :::
+
+The [usage](#usage) section explains `queueItem`. The [message metadata section](#message-metadata) explains all of the other variables shown.
+
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows a queue trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
@@ -125,6 +154,8 @@ module.exports = async function (context, message) {
 ```
 
 The [usage](#usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#message-metadata) explains all of the other variables shown.
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -242,7 +273,15 @@ def main(msg: func.QueueMessage):
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueTriggerAttribute.cs) to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#queue-trigger).
 
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+In [C# class libraries](dotnet-isolated-process-guide.md), the attribute's constructor takes the name of the queue to monitor, as shown in the following example:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger":::
+
+This example also demonstrates setting the [connection string setting](#connections) in the attribute itself. 
+
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue to monitor, as shown in the following example:
 
@@ -267,14 +306,6 @@ public static void Run(
     ....
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-In [C# class libraries](dotnet-isolated-process-guide.md), the attribute's constructor takes the name of the queue to monitor, as shown in the following example:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger":::
-
-This example also demonstrates setting the [connection string setting](#connections) in the attribute itself. 
 
 ---
 
@@ -323,7 +354,7 @@ For Python v2 functions defined using decorators, the following properties on th
 
 For Python functions defined by using function.json, see the Configuration section. 
 ::: zone-end                   
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 ::: zone-end
 
@@ -331,7 +362,33 @@ For Python functions defined by using function.json, see the Configuration secti
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `app.storageQueue()` method.
+
+| Property | Description |
+|---------|------------------------|
+|**queueName** | The name of the queue to poll. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|------------------------|
+|**type** |  Must be set to `queueTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction**|  In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | The name of the variable that contains the queue item payload in the function code.  |
+|**queueName** | The name of the queue to poll. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-powershell,programming-language-python"
 The following table explains the binding configuration properties that you set in the *function.json* file and the `QueueTrigger` attribute.
 
 |function.json property | Description|
@@ -359,14 +416,14 @@ See the [Example section](#example) for complete examples.
 
 The usage of the Queue trigger depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
+# [Isolated worker model](#tab/isolated-process)
+
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.   
+
 # [In-process class library](#tab/in-process)
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  
-# [Isolated process](#tab/isolated-process)
-
-An isolated worker process class library compiled C# function runs in a process isolated from the runtime.   
-
 ---
 
 Choose a version to see usage details for the mode and version. 
@@ -412,8 +469,16 @@ Earlier versions of this extension in the isolated worker process only support b
 ::: zone pivot="programming-language-java"
 The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) annotation gives you access to the queue message that triggered the function.
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
-The queue item payload is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. If the payload is JSON, the value is deserialized into an object.
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+# [Model v4](#tab/nodejs-v4)
+
+Access the queue item as the first argument to your function. If the payload is JSON, the value is deserialized into an object.
+
+# [Model v3](#tab/nodejs-v3)
+
+Access the queue item using `context.bindings.<NAME>` where `<NAME>` matches the value defined in *function.json*. If the payload is JSON, the value is deserialized into an object.
+
+---
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 Access the queue message via string parameter that matches the name designated by binding's `name` parameter in the *function.json* file.
@@ -424,21 +489,42 @@ Access the queue message via the parameter typed as [QueueMessage](/python/api/a
 
 ## <a name="message-metadata"></a>Metadata
 
-The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. 
+The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code, for language workers that provide this access to message metadata. 
 
 ::: zone pivot="programming-language-csharp"
-The properties are members of the [CloudQueueMessage] class.
+The message metadata properties are members of the [CloudQueueMessage] class.
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+The message metadata properties can be accessed from `context.triggerMetadata`.
+::: zone-end
+::: zone pivot="programming-language-powershell"
+The message metadata properties can be accessed from the passed `$TriggerMetadata` parameter.
 ::: zone-end
 
 |Property|Type|Description|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Queue payload (if a valid string). If the queue message payload is a string, `QueueTrigger` has the same value as the variable named by the `name` property in *function.json*.|
-|`DequeueCount`|`int`|The number of times this message has been dequeued.|
+|`DequeueCount`|`long`|The number of times this message has been dequeued.|
 |`ExpirationTime`|`DateTimeOffset`|The time that the message expires.|
 |`Id`|`string`|Queue message ID.|
 |`InsertionTime`|`DateTimeOffset`|The time that the message was added to the queue.|
 |`NextVisibleTime`|`DateTimeOffset`|The time that the message will next be visible.|
 |`PopReceipt`|`string`|The message's pop receipt.|
+
+::: zone pivot="programming-language-python"
+The following message metadata properties can be accessed from the passed binding parameter (`msg` in previous [examples](#example)).
+
+|Property|Description|
+|--------|----------|
+|`body`| Queue payload as a string.|
+|`dequeue_count`| The number of times this message has been dequeued.|
+|`expiration_time`|The time that the message expires.|
+|`id`| Queue message ID.|
+|`insertion_time`|The time that the message was added to the queue.|
+|`time_next_visible`|The time that the message will next be visible.|
+|`pop_receipt`|The message's pop receipt.|
+
+::: zone-end
 
 [!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
 
@@ -450,7 +536,8 @@ To handle poison messages manually, check the [dequeueCount](#message-metadata) 
 
 
 ## Peek lock
-The peek-lock pattern happens automatically for queue triggers. As messages are dequeued, they are marked as invisible and associated with a timeout managed by the Storage service.
+
+The peek-lock pattern happens automatically for queue triggers. As messages are dequeued, they are marked as invisible and associated with a 10-minute timeout managed by the Storage service. This timeout can't be changed.  
 
 When the function starts, it starts processing a message under the following conditions.
 

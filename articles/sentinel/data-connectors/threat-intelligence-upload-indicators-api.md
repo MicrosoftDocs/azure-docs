@@ -42,10 +42,10 @@ You can connect your threat intelligence data sources to Microsoft Sentinel by e
 
 Follow These Steps to Connect to your Threat Intelligence: 
 
-Get AAD Access Token
+Get Microsoft Entra access token
 
-To send request to the APIs, you need to acquire Azure Active Directory access token. You can follow instruction in this page: [Get Azure AD tokens for users by using MSAL](/azure/databricks/dev-tools/api/latest/aad/app-aad-token#get-an-azure-ad-access-token). 
-  - Notice: Please request AAD access token with appropriate scope value.
+To send request to the APIs, you need to acquire Microsoft Entra access token. You can follow instruction in this page: [Get Microsoft Entra tokens for users by using MSAL](/azure/databricks/dev-tools/api/latest/aad/app-aad-token#get-an-azure-ad-access-token). 
+  - Notice: Please request Microsoft Entra access token with appropriate scope value.
 
 
 You can send indicators by calling our Upload Indicators API. For more information about the API, click [here](/azure/sentinel/upload-indicators-api). 

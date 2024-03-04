@@ -2,11 +2,8 @@
 title: "include file for TSI retirement" 
 description: "include file" 
 ms.service: time-series-insights
-services: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
-manager: 
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 3/15/2022
 ms.custom: tvilutis

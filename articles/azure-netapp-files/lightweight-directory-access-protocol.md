@@ -1,16 +1,9 @@
 ---
 title: Understand the use of LDAP with Azure NetApp Files | Microsoft Learn
-description: This article helps you understand how Azure NetApp Files uses lightweight directory access protocol (LDAP).  
+description: This article helps you understand how Azure NetApp Files uses lightweight directory access protocol (LDAP).
 services: azure-netapp-files
-documentationcenter: ''
 author: whyistheinternetbroken
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2023
 ms.author: anfdocs
@@ -22,7 +15,7 @@ Lightweight directory access protocol (LDAP) is a standard directory access prot
 
 LDAP models define how to communicate with the LDAP directory store, how to find an object in the directory, how to describe the objects in the store, and the security that is used to access the directory. LDAP allows customization and extension of the objects that are described in the store. Therefore, you can use an LDAP store to store many types of diverse information. Many of the initial LDAP deployments focused on the use of LDAP as a directory store for applications such as email and web applications and to store employee information. Many companies are replacing or have replaced Network Information Service (NIS) with LDAP as a network directory store.
 
-An LDAP server provides UNIX user and group identities for use with NAS volumes. In Azure NetApp Files, Active Directory is the only currently supported LDAP server that can be used. This support includes both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS).
+An LDAP server provides UNIX user and group identities for use with NAS volumes. In Azure NetApp Files, Active Directory is the only currently supported LDAP server that can be used. This support includes both Active Directory Domain Services (AD DS) and Microsoft Entra Domain Services.
 
 LDAP requests can be broken down into two main operations.
 
@@ -118,7 +111,9 @@ The following section discusses the basics of LDAP as it pertains to Azure NetAp
     contoso.com      internet address = y.y.y.y
     ```
 * LDAP servers can also be used to perform custom name mapping for users. For more information, see [Custom name mapping using LDAP](#custom-name-mapping-using-ldap). 
+* LDAP query timeouts 
 
+    By default, LDAP queries time out if they cannot be completed in a timely fashion. If an LDAP query fails due to a timeout, the user and/or group lookup will fail and access to the Azure NetApp Files volume may be denied, depending on the permission settings of the volume. Refer to [Create and manage Active Directory connections](create-active-directory-connections.md#ldap-query-timeouts) to understand Azure NetApp Files LDAP query timeout settings.
 
 ## Name mapping types
 
@@ -135,13 +130,13 @@ LDAP can be a name mapping resource, if the LDAP schema attributes on the LDAP s
 
 In the following example, a user has a Windows name of `asymmetric` and needs to map to a UNIX identity of `UNIXuser`. To achieve that in Azure NetApp Files, open an instance of the [Active Directory Users and Computers MMC](/troubleshoot/windows-server/system-management-components/remote-server-administration-tools). Then, find the desired user and open the properties box. (Doing so requires [enabling the Attribute Editor](http://directoryadmin.blogspot.com/2019/02/attribute-editor-tab-missing-in-active.html)). Navigate to the Attribute Editor tab and find the UID field, then populate the UID field with the desired UNIX user name `UNIXuser` and click **Add** and **OK** to confirm.
 
-:::image type="content" source="../media/azure-netapp-files/asymmetric-properties.png" alt-text="Screenshot that shows the Asymmetric Properties window and Multi-valued String Editor window." lightbox="../media/azure-netapp-files/asymmetric-properties.png":::
+:::image type="content" source="./media/lightweight-directory-access-protocol/asymmetric-properties.png" alt-text="Screenshot that shows the Asymmetric Properties window and Multi-valued String Editor window." lightbox="./media/lightweight-directory-access-protocol/asymmetric-properties.png":::
 
 After this action is done, files written from Windows SMB shares by the Windows user `asymmetric` will be owned by `UNIXuser` from the NFS side.
 
 The following example shows Windows SMB owner `asymmetric`:
 
-:::image type="content" source="../media/azure-netapp-files/windows-owner-asymmetric.png" alt-text="Screenshot that shows Windows SMB owner named Asymmetric." lightbox="../media/azure-netapp-files/windows-owner-asymmetric.png":::
+:::image type="content" source="./media/lightweight-directory-access-protocol/windows-owner-asymmetric.png" alt-text="Screenshot that shows Windows SMB owner named Asymmetric." lightbox="./media/lightweight-directory-access-protocol/windows-owner-asymmetric.png":::
 
 The following example shows NFS owner `UNIXuser` (mapped from Windows user `asymmetric` using LDAP):
 

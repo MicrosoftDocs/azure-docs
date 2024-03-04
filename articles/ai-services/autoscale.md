@@ -1,20 +1,22 @@
 ---
-title: Use the autoscale feature
+title: Autoscale AI services limits
 description: Learn how to use the autoscale feature for Azure AI services to dynamically adjust the rate limit of your service.
 author: PatrickFarley
 ms.author: pafarley
-ms.service: cognitive-services
+ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 06/27/2022
+ms.date: 01/20/2024
 ---
 
-# Azure AI services autoscale feature
+# Autoscale AI services limits
 
 This article provides guidance for how customers can access higher rate limits on their Azure AI services resources.
 
 ## Overview
 
-Each Azure AI services resource has a preconfigured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics.
+Each Azure AI services resource has a pre-configured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics.
 
 ## Get started with the autoscale feature
 
@@ -84,7 +86,7 @@ No, the autoscale feature isn't available to free tier subscriptions.
 
 ## Next steps
 
-* [Plan and Manage costs for Azure AI services](./plan-manage-costs.md).
+* [Plan and Manage costs for Azure AI services](../ai-studio/how-to/costs-plan-manage.md).
 * [Optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 * Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 * Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

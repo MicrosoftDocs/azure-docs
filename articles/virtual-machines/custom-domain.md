@@ -1,11 +1,10 @@
 ---
-title: Create and use a custom domain 
+title: Create and use a custom domain
 description: Connect a custom domain to a virtual machine in Azure.
 author: jasonmesser7
 ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 02/23/2023
 ms.author: jamesserra
 ms.reviewer: cynthn
@@ -22,7 +21,7 @@ In Azure there are multiple ways to connect a custom domain to your VM or resour
 ## Prerequisites 
 - You need a VM with a web server running. You can use the [Quickstart](./linux/quick-create-cli.md) to create a VM and add NGINX.
 
-- The VM must be accessible to the web (open port 80, or 443 ). For a more secure deployment place your VM behind a load balancer or Application Gateway first. For more information, see [Quickstart: Load Balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard).
+- The VM must be accessible to the web (open port 80, or 443). For a more secure deployment place your VM behind a load balancer or Application Gateway first. For more information, see [Quickstart: Load Balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard).
 
 - Have an existing domain and access to DNS settings. For more information, see [Buy a custom domain for Azure App Service](../app-service/manage-custom-dns-buy-domain.md).
 
@@ -70,4 +69,3 @@ After the record is created it usually takes about an hour for DNS propagate, bu
  
 ## Next steps
 [Overview of TLS termination and end to end TLS with Application Gateway](../application-gateway/ssl-overview.md).
-

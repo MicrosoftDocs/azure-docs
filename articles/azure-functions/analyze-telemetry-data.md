@@ -3,7 +3,6 @@ title: Analyze Azure Functions telemetry in Application Insights
 description: Learn how to view and query for Azure Functions telemetry data collected by and stored in Azure Application Insights.
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.custom: "contperf-fy21q2"
 # Customer intent: As a developer, I want to view and query the data being collected from my function app so I can know if it's running correctly and to make improvements.
 ---
 # Analyze Azure Functions telemetry in Application Insights 
@@ -14,7 +13,7 @@ By default, the data collected from your function app is stored in Application I
 
 To be able to view Application Insights data from a function app, you must have at least Contributor role permissions on the function app. You also need to have the [Monitoring Reader permission](../azure-monitor/roles-permissions-security.md#monitoring-reader) on the Application Insights instance. You have these permissions by default for any function app and Application Insights instance that you create.   
 
-To learn more about data retention and potential storage costs, see [Data collection, retention, and storage in Application Insights](../azure-monitor/app/data-retention-privacy.md).   
+To learn more about data retention and potential storage costs, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).   
 
 ## Viewing telemetry in Monitor tab
 

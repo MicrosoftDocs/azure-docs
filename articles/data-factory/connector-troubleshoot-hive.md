@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 01/28/2023
+ms.date: 10/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -38,7 +38,7 @@ This article provides suggestions to troubleshoot common problems with the Hive 
     3. Edit the **krb5.ini** file.
     4. Shut down and restart the VM and the SHIR from the machine.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

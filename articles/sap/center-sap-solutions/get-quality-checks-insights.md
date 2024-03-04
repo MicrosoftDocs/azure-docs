@@ -5,8 +5,8 @@ ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 10/19/2022
-author: lauradolan
-ms.author: ladolan
+author: sagarkeswani
+ms.author: sagarkeswani
 #Customer intent: As a developer, I want to use the quality checks feature so that I can learn more insights about virtual machines within my Virtual Instance for SAP resource.
 ---
 

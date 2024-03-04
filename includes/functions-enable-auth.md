@@ -8,7 +8,7 @@ ms.author: glenga
 
 #### Enable App Service Authentication/Authorization
 
-The App Service platform lets you use Azure Active Directory (AAD) and several third-party identity providers to authenticate clients. You can use this strategy to implement custom authorization rules for your functions, and you can work with user information from your function code. To learn more, see [Authentication and authorization in Azure App Service](../articles/app-service/overview-authentication-authorization.md) and [Working with client identities](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities).
+The App Service platform lets you use Microsoft Entra ID and several third-party identity providers to authenticate clients. You can use this strategy to implement custom authorization rules for your functions, and you can work with user information from your function code. To learn more, see [Authentication and authorization in Azure App Service](../articles/app-service/overview-authentication-authorization.md) and [Working with client identities](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities).
 
 #### Use Azure API Management (APIM) to authenticate requests
 

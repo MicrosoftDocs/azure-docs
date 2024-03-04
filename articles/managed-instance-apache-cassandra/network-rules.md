@@ -6,12 +6,11 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: jroth
-ms.custom: ignite-fall-2021
 ---
 
 # Required outbound network rules
 
-The Azure SQL Managed Instance for Apache Casandra service requires certain network rules to properly manage the service. By ensuring you have the proper rules exposed, you can keep your service secure and prevent operational issues.
+The Azure Managed Instance for Apache Cassandra service requires certain network rules to properly manage the service. By ensuring you have the proper rules exposed, you can keep your service secure and prevent operational issues.
 
 > [!WARNING]
 > We recommend exercising caution when applying changes to firewall rules for an existing cluster. For example, if rules are not applied correctly, they might not be applied to existing connections, so it may appear that firewall changes have not caused any problems. However, automatic updates of the Cassandra Managed Instance nodes may subsequently fail. We recommend monitoring connectivity after any major firewall updates for some time to ensure there are no issues.
@@ -26,7 +25,7 @@ If you're using Azure Firewall to restrict outbound access, we highly recommend 
 | AzureKeyVault | HTTPS | 443 | Required for secure communication between the nodes and Azure Key Vault. Certificates and keys are used to secure communication inside the cluster.|
 | EventHub | HTTPS | 443 | Required to forward logs to Azure |
 | AzureMonitor | HTTPS | 443 | Required to forward metrics to Azure |
-| AzureActiveDirectory| HTTPS | 443 | Required for Azure Active Directory authentication.|
+| AzureActiveDirectory| HTTPS | 443 | Required for Microsoft Entra authentication.|
 | AzureResourceManager| HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot)|
 | AzureFrontDoor.Firstparty| HTTPS | 443 | Required for logging operations.|
 | GuestAndHybridManagement | HTTPS | 443 |  Required to gather information about and manage Cassandra nodes (for example, reboot) |
@@ -55,7 +54,7 @@ The required network rules and IP address dependencies are:
 |management.azure.com:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure Virtual Machine Scale Sets/Azure Management API | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot)|
 |\*.servicebus.windows.net:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure EventHub | HTTPS | 443 | Required to forward logs to Azure|
 |jarvis-west.dc.ad.msft.net:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure Monitor | HTTPS | 443 | Required to forward metrics Azure |
-|login.microsoftonline.com:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure AD | HTTPS | 443 | Required for Azure Active Directory authentication.|
+|login.microsoftonline.com:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Microsoft Entra ID | HTTPS | 443 | Required for Microsoft Entra authentication.|
 | packages.microsoft.com | HTTPS | 443 | Required for updates to Azure security scanner definition and signatures |
 | azure.microsoft.com | HTTPS | 443 | Required to get information about virtual machine scale sets |
 | \<region\>-dsms.dsms.core.windows.net | HTTPS | 443 | Certificate for logging |

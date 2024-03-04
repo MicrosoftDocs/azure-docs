@@ -1,16 +1,17 @@
 ---
 title: "Quickstart: Analyze image content with C#"
-description: In this quickstart, get started using the Content Safety .NET SDK to analyze image content for objectionable material.
-services: cognitive-services
+description: In this quickstart, get started using the Azure AI Content Safety .NET SDK to analyze image content for objectionable material.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom:
 ms.topic: include
 ms.date: 07/04/2023
 ms.author: pafarley
 ---
+
+[Reference documentation](/dotnet/api/overview/azure/ai.contentsafety-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentsafety/Azure.AI.ContentSafety) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.ContentSafety) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/dotnet/1.0.0)
 
 ## Prerequisites
 
@@ -30,7 +31,7 @@ Open Visual Studio, and under **Get started** select **Create a new project**. S
 
 ### Install the client SDK 
 
-Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.ContentSafety`. Select **Install**.
+Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.ContentSafety`. Select **Install**.
 
 #### [CLI](#tab/cli)
 
@@ -61,7 +62,7 @@ Build succeeded.
 Within the application directory, install the Computer Vision client SDK for .NET with the following command:
 
 ```dotnet
-dotnet add package Azure.AI.ContentSafety --prerelease
+dotnet add package Azure.AI.ContentSafety
 ```
     
 ---
@@ -70,7 +71,7 @@ dotnet add package Azure.AI.ContentSafety --prerelease
 
 ## Analyze image content
 
-From the project directory, open the *Program.cs* file that was created previously. Paste in the following code:
+From the project directory, open the *Program.cs* file that was created previously. Paste in the following code.
 
 ```csharp
 using System;
@@ -90,8 +91,8 @@ namespace Azure.AI.ContentSafety.Dotnet.Sample
 
       // Example: analyze image
 
-      string imagePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Samples", "sample_data", "image.jpg");
-      ImageData image = new ImageData() { Content = BinaryData.FromBytes(File.ReadAllBytes(imagePath)) };
+      string imagePath = @"sample_data\image.png";
+      ContentSafetyImageData image = new ContentSafetyImageData(BinaryData.FromBytes(File.ReadAllBytes(imagePath)));
 
       var request = new AnalyzeImageOptions(image);
 
@@ -106,10 +107,10 @@ namespace Azure.AI.ContentSafety.Dotnet.Sample
           throw;
       }
 
-      Console.WriteLine("Hate severity: {0}", response.Value.HateResult?.Severity ?? 0);
-      Console.WriteLine("SelfHarm severity: {0}", response.Value.SelfHarmResult?.Severity ?? 0);
-      Console.WriteLine("Sexual severity: {0}", response.Value.SexualResult?.Severity ?? 0);
-      Console.WriteLine("Violence severity: {0}", response.Value.ViolenceResult?.Severity ?? 0);
+      Console.WriteLine("Hate severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == ImageCategory.Hate)?.Severity ?? 0);
+      Console.WriteLine("SelfHarm severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == ImageCategory.SelfHarm)?.Severity ?? 0);
+      Console.WriteLine("Sexual severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == ImageCategory.Sexual)?.Severity ?? 0);
+      Console.WriteLine("Violence severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == ImageCategory.Violence)?.Severity ?? 0);
     }
     static void Main()
     {
@@ -118,6 +119,8 @@ namespace Azure.AI.ContentSafety.Dotnet.Sample
   }
 }
 ```
+
+Create a _sample_data_ folder in your project directory, and add an _image.png_ file into it.
 
 #### [Visual Studio IDE](#tab/visual-studio)
 

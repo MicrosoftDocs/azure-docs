@@ -15,7 +15,7 @@ ms.custom: references_regions
 > [!div class="op_single_selector"]
 > * [POP locations by region](cdn-pop-locations.md)
 > * [Microsoft POP locations by abbreviation](microsoft-pop-abbreviations.md)
-> * [Verizon POP locations by abbreviation](cdn-pop-abbreviations.md)
+> * [Edgio POP locations by abbreviation](cdn-pop-abbreviations.md)
 
 This article lists Microsoft POP locations, sorted by POP abbreviation, for **Azure CDN**.
 

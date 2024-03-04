@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 08/02/2023
+ms.date: 11/14/2023
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
@@ -15,11 +15,16 @@ ms.custom: devx-track-python, devguide-python
 
 # Upload a block blob with Python
 
+[!INCLUDE [storage-dev-guide-selector-upload](../../../includes/storage-dev-guides/storage-dev-guide-selector-upload.md)]
+
 This article shows how to upload a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can upload data to a block blob from a file path, a stream, a binary object, or a text string. You can also upload blobs with index tags.
+
+To learn about uploading blobs using asynchronous APIs, see [Upload blobs asynchronously](#upload-blobs-asynchronously).
 
 ## Prerequisites
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- To use asynchronous APIs in your code, see the requirements in the [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming) section.
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Put Blob](/rest/api/storageservices/put-blob#authorization)
     - [Put Block](/rest/api/storageservices/put-block#authorization)
@@ -36,25 +41,25 @@ This method creates a new blob from a data source with automatic chunking, meani
 
 The following example uploads a file to a block blob using a `BlobClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_file":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_file":::
 
 ## Upload a block blob from a stream
 
 The following example creates random bytes of data and uploads a `BytesIO` object to a block blob using a `BlobClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_stream":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_stream":::
 
 ## Upload binary data to a block blob
 
 The following example uploads binary data to a block blob using a `BlobClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_data":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_data":::
 
 ## Upload a block blob with index tags
 
 The following example uploads a block blob with index tags:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_tags":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_tags":::
 
 ## Upload a block blob with configuration options
 
@@ -73,7 +78,7 @@ For upload operations, you can also pass the `max_concurrency` argument when cal
 
 The following code example shows how to specify data transfer options when creating a `BlobClient` object, and how to upload data using that client object. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_transfer_options":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_transfer_options":::
 
 To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with Python](storage-blobs-tune-upload-download-python.md).
 
@@ -83,7 +88,7 @@ You can set a blob's access tier on upload by passing the `standard_blob_tier` k
 
 The following code example shows how to set the access tier when uploading a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_access_tier":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_access_tier":::
 
 Setting the access tier is only allowed for block blobs.  You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. To set the access tier to `Cold`, you must use a minimum [client library](/python/api/azure-storage-blob) version of 12.15.0.
 
@@ -103,7 +108,32 @@ Use the following method to write a blob by specifying the list of block IDs tha
 
 The following example reads data from a file and stages blocks to be committed as part of a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_blocks":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_blocks":::
+
+## Upload blobs asynchronously
+
+The Azure Blob Storage client library for Python supports uploading blobs asynchronously. To learn more about project setup requirements, see [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming).
+
+Follow these steps to upload a blob using asynchronous APIs:
+
+1. Add the following import statements:
+
+    ```python
+    import asyncio
+
+    from azure.identity.aio import DefaultAzureCredential
+    from azure.storage.blob.aio import BlobServiceClient, BlobClient, ContainerClient
+    ```
+
+1. Add code to run the program using `asyncio.run`. This function runs the passed coroutine, `main()` in our example, and manages the `asyncio` event loop. Coroutines are declared with the async/await syntax. In this example, the `main()` coroutine first creates the top level `BlobServiceClient` using `async with`, then calls the method that uploads the blob. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload_async.py" id="Snippet_create_client_async":::
+
+1. Add code to upload the blob. The following example uploads a blob from a local file path using a `ContainerClient` object. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `upload_blob` method.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload_async.py" id="Snippet_upload_blob_file":::
+
+With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
 ## Resources
 
@@ -118,7 +148,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_upload_async.py) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 

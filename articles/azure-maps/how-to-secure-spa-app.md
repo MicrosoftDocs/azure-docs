@@ -13,9 +13,9 @@ ms.custom: subject-rbac-steps
 
 # How to secure a single-page web application with non-interactive sign-in
 
-Secure a single-page web application with Azure Active Directory (Azure AD), even when the user isn't able to sign in to Azure AD.
+Secure a single-page web application with Microsoft Entra ID, even when the user isn't able to sign in to Microsoft Entra ID.
 
-To create this non-interactive authentication flow, first create an Azure Function secure web service that's responsible for acquiring access tokens from Azure AD. This web service is exclusively available only to your single-page web application.
+To create this non-interactive authentication flow, first create an Azure Function secure web service that's responsible for acquiring access tokens from Microsoft Entra ID. This web service is exclusively available only to your single-page web application.
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
@@ -24,13 +24,13 @@ To create this non-interactive authentication flow, first create an Azure Functi
 
 ## Create an Azure function
 
-To create a secured web service application that's responsible for authentication to Azure AD:
+To create a secured web service application that's responsible for authentication to Microsoft Entra ID:
 
 1. Create a function in the Azure portal. For more information, see [Getting started with Azure Functions].
 
 2. Configure CORS policy on the Azure function to be accessible by the single-page web application. The CORS policy secures browser clients to the allowed origins of your web application. For more information, see [Add CORS functionality].
 
-3. [Add a system-assigned identity] on the Azure function to enable creation of a service principal to authenticate to Azure AD.  
+3. [Add a system-assigned identity] on the Azure function to enable creation of a service principal to authenticate to Microsoft Entra ID.  
 
 4. Grant role-based access for the system-assigned identity to the Azure Maps account. For more information, see [Grant role-based access].
 
@@ -108,7 +108,7 @@ Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
 > [View usage metrics](how-to-view-api-usage.md)
 
-Explore other samples that show how to integrate Azure AD with Azure Maps:
+Explore other samples that show how to integrate Microsoft Entra ID with Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ClientGrant)
 

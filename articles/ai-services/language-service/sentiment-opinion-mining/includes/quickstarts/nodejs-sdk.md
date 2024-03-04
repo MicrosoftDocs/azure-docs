@@ -1,12 +1,11 @@
 ---
-author: aahill
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 07/19/2023
-ms.author: aahi
-ms.custom: devx-track-js, ignite-fall-2021
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: devx-track-js
 ---
 
 [Reference documentation](/javascript/api/overview/azure/ai-language-text-readme) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-language-text) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text) 

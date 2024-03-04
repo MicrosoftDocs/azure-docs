@@ -5,13 +5,13 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 12/28/2023
 ms.author: qixwang
 ---
 
 # Using Azure Front Door Standard/Premium with Cross-Origin Resource Sharing (CORS)
 
-> [!Note]
+> [!NOTE]
 > This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
 ## What is CORS?
@@ -28,7 +28,7 @@ There are two types of CORS requests, *simple requests* and *complex requests.*
 
    `Origin: https://www.contoso.com`
 
-2. The server may respond with any of the following:
+2. The server might respond with any of the following responses:
 
    * An **Access-Control-Allow-Origin** header in its response indicating which origin site is allowed. For example:
 
@@ -50,16 +50,16 @@ A complex request is a CORS request where the browser is required to send a *pre
 >
 
 ## Wildcard or single origin scenarios
-CORS on Azure Front Door will work automatically with no extra configuration when the **Access-Control-Allow-Origin** header is set to wildcard (*) or a single origin.  Azure Front Door will cache the first response and ensuing requests will use the same header.
+CORS on Azure Front Door works automatically with no extra configuration when the **Access-Control-Allow-Origin** header is set to wildcard (*) or a single origin.  Azure Front Door caches the first response and ensuing requests use the same header.
 
-If requests have already been made to the Azure Front Door before CORS being set on your origin, you'll need to purge content on your endpoint content to reload the content with the **Access-Control-Allow-Origin** header.
+If requests were sent to the Azure Front Door before CORS being set on your origin, you need to purge content on your endpoint content to reload the content with the **Access-Control-Allow-Origin** header.
 
 ## Multiple origin scenarios
-If you need to allow a specific list of origins to be allowed for CORS, things get a little more complicated. The problem occurs when the CDN caches the **Access-Control-Allow-Origin** header for the first CORS origin.  When a different CORS origin makes another request, the CDN will serve the cached **Access-Control-Allow-Origin** header, which won't match. There are several ways to correct this problem.
+If you need to allow a specific list of origins to be allowed for CORS, things get a little more complicated. The problem occurs when the CDN caches the **Access-Control-Allow-Origin** header for the first CORS origin.  When a different CORS origin makes another request, the CDN serves the cached **Access-Control-Allow-Origin** header, which doesn't match. There are several ways to correct this problem.
 
 ### Azure Front Door Rule Set
 
-On Azure Front Door, you can create a rule in the Azure Front Door [Rules Set](../front-door-rules-engine.md) to check the **Origin** header on the request. If it's a valid origin, your rule will set the **Access-Control-Allow-Origin** header with the correct value. In this case, the **Access-Control-Allow-Origin** header from the file's origin server is ignored and the AFD's rules engine completely manages the allowed CORS origins.
+On Azure Front Door, you can create a rule in the Azure Front Door [Rules Set](../front-door-rules-engine.md) to check the **Origin** header on the request. If it's a valid origin, your rule sets the **Access-Control-Allow-Origin** header with the correct value. In this case, the **Access-Control-Allow-Origin** header from the file's origin server is ignored and the AFD's rules engine completely manages the allowed CORS origins.
 
 :::image type="content" source="../media/troubleshooting-cross-origin-resource-sharing/cross-origin-resource.png" alt-text="Screenshot of rules example with rule set.":::
 

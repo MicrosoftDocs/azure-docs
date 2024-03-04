@@ -1,16 +1,17 @@
 ---
 title: What's New - Anomaly Detector
 description: This article is regularly updated with news about the Azure AI Anomaly Detector.
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: whats-new
 ms.author: mbullwin
 author: mrbullwinkle
 manager: nitinme
-ms.date: 12/15/2022
+ms.date: 01/18/2024
 ---
 
 # What's new in Anomaly Detector
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Learn what's new in the service. These items include release notes, videos, blog posts, papers, and other types of information. Bookmark this page to keep up to date with the service.
 

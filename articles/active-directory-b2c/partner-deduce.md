@@ -2,16 +2,16 @@
 title: Configure Azure Active Directory B2C with Deduce
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Deduce for identity verification 
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 8/22/2022
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C
+
+# Customer intent: As an Azure AD B2C administrator, I want to integrate Deduce with Azure AD B2C authentication. I want to combat identity fraud and create a trusted user experience for my organization.
 ---
 
 # Configure Azure Active Directory B2C with Deduce to combat identity fraud and create a trusted user experience
@@ -679,11 +679,7 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-
-   a. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-   b. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch** button next to it.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 
 1. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
 

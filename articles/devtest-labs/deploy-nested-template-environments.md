@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-arm-template, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/26/2022
+ms.date: 09/30/2023
 ---
 
 # Deploy DevTest Labs environments by using nested templates

@@ -2,15 +2,13 @@
 title: "How to recognize speech - Speech service"
 titleSuffix: Azure AI services
 description: Learn how to convert speech to text, including object construction, supported audio input formats, and configuration options for speech recognition.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 1/21/2024
 ms.author: eur
-ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
+ms.devlang: cpp
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-speech-services
 keywords: speech to text, speech to text software

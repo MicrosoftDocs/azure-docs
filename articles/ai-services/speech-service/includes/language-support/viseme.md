@@ -1,7 +1,6 @@
 ---
 author: sally-baolian
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.date: 07/06/2023
 ms.topic: include
 ms.author: Zoubaolian
@@ -26,7 +25,7 @@ ms.author: Zoubaolian
 | ar-TN           | Arabic (Tunisia)| Viseme ID|
 | ar-YE           | Arabic (Yemen)| Viseme ID|
 | bg-BG           | Bulgarian (Bulgaria) | Viseme ID|
-| ca-ES           | Catalan (Spain)| Viseme ID|
+| ca-ES           | Catalan| Viseme ID|
 | cs-CZ           | Czech (Czechia) | Viseme ID|
 | da-DK           | Danish (Denmark)  | Viseme ID|
 | de-AT           | German (Austria)  |Viseme ID <br> Blend shapes|
@@ -103,7 +102,7 @@ ms.author: Zoubaolian
 | ta-SG           | Tamil (Singapore)|Viseme ID|
 | te-IN           | Telugu (India)|Viseme ID|
 | th-TH           | Thai (Thailand)|Viseme ID|
-| tr-TR           | Turkish (Turkey)|Viseme ID|
+| tr-TR           | Turkish (Türkiye)|Viseme ID|
 | uk-UA           | Ukrainian (Ukraine)|Viseme ID|
 | ur-IN           | Urdu (India)|Viseme ID|
 | ur-PK           | Urdu (Pakistan)|Viseme ID|

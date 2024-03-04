@@ -56,15 +56,15 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 For more information about this role requirement and the assignment process, see [Set up your user's access permissions](how-to-set-up-instance-CLI.md#set-up-user-access-permissions).
 
-If you have this role assignment already and you're using an Azure AD app registration to authenticate a client app, you can continue to the next solution if this solution didn't resolve the 403 issue.
+If you have this role assignment already and you're using a Microsoft Entra app registration to authenticate a client app, you can continue to the next solution if this solution didn't resolve the 403 issue.
 
 ### Solution #2
 
-If you're using an Azure AD app registration to authenticate a client app, the second possible solution is to verify that the app registration has permissions configured for the Azure Digital Twins service. If these aren't configured, set them up.
+If you're using a Microsoft Entra app registration to authenticate a client app, the second possible solution is to verify that the app registration has permissions configured for the Azure Digital Twins service. If these aren't configured, set them up.
 
 #### Check current setup
 
-To check whether the permissions have been configured correctly, navigate to the [Azure AD app registration overview page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal. You can get to this page yourself by searching for *app registrations* in the portal search bar.
+To check whether the permissions have been configured correctly, navigate to the [Microsoft Entra app registration overview page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal. You can get to this page yourself by searching for *app registrations* in the portal search bar.
 
 Switch to the **All applications** tab to see all the app registrations that have been created in your subscription.
 
@@ -74,11 +74,11 @@ You should see the app registration you created in the list. Select it to open u
 
 First, verify that the Azure Digital Twins permissions settings were properly set on the registration: Select **Manifest** from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match the ones in the screenshot below:
 
-:::image type="content" source="media/troubleshoot-error-403-digital-twins/verify-manifest.png" alt-text="Screenshot of the manifest for the Azure AD app registration in the Azure portal.":::
+:::image type="content" source="media/troubleshoot-error-403-digital-twins/verify-manifest.png" alt-text="Screenshot of the manifest for the Microsoft Entra app registration in the Azure portal.":::
 
 Next, select **API permissions** from the menu bar to verify that this app registration contains Read/Write permissions for Azure Digital Twins. You should see an entry like this:
 
-:::image type="content" source="media/troubleshoot-error-403-digital-twins/verify-api-permissions.png" alt-text="Screenshot of the API permissions for the Azure AD app registration in the Azure portal, showing 'Read/Write Access' for Azure Digital Twins.":::
+:::image type="content" source="media/troubleshoot-error-403-digital-twins/verify-api-permissions.png" alt-text="Screenshot of the API permissions for the Microsoft Entra app registration in the Azure portal, showing 'Read/Write Access' for Azure Digital Twins.":::
 
 #### Fix issues
 

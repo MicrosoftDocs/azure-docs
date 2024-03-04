@@ -2,7 +2,6 @@
 title: Use Azure DNS with other Azure services
 description: In this learning path, get started on how to use Azure DNS to resolve names for other Azure services
 services: dns
-documentationcenter: na
 author: greg-lindsay
 manager: kumudD
 tags: azure dns
@@ -10,10 +9,8 @@ tags: azure dns
 ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
 ms.service: dns
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
-ms.workload: infrastructure-services
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 ---
 # How Azure DNS works with other Azure services

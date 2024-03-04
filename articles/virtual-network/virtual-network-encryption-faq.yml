@@ -37,4 +37,12 @@ sections:
 
       - question: Where is the encryption terminated? 
         answer: |
-          The encryption is terminated at the SmartNIC/FPGA on the Azure Host. 
+          The encryption is terminated at the SmartNIC/FPGA on the Azure Host.
+      
+      - question: Is FIPS-140 compliance supported with virtual network encryption?
+        answer: |
+          FIPS-140 is an Azure-wide commitment to FedRAMP accreditation. The proof point for crypto usage in Azure is covered by the FedRAMP certification for all of Azure, including Azure Virtual Network encryption. For more information about Azure public guidance for FIPS-140, see [Federal Information Processing Standard (FIPS) 140](/azure/compliance/offerings/offering-fips-140-2). For more information about PCI, HIPAA, and FedRAMP in the context of Azure, see [Service Trust Portal](https://servicetrust.microsoft.com/).
+
+      - question: How is virtual network encryption priced?
+        answer: |
+          Azure Virtual Network encryption is a free feature offered under the Azure subscription within Azure Virtual Network. Standard charges are applicable for resources, such as Virtual Machines (VMs) and other products that you use.

@@ -84,7 +84,7 @@ ledger_client = ConfidentialLedgerClient(
 
 Using the Confidential Ledger client, we can run any supported operations on an Azure Confidential Ledger instance. For example, we can append a new entry to the ledger and wait for corresponding write transaction to be committed.
 
- ```python
+```python
 # The method begin_create_ledger_entry returns a poller that  
 # we can use to wait for the transaction to be committed 
 create_entry_poller = ledger_client.begin_create_ledger_entry( 

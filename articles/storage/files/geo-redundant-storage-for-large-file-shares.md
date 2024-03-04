@@ -4,7 +4,7 @@ description: Azure Files geo-redundancy for large file shares (preview) signific
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 08/13/2023
+ms.date: 08/28/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -66,6 +66,7 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - China North 2
 - China North 3
 - East Asia
+- East US
 - East US 2
 - France Central
 - France South
@@ -76,6 +77,7 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - Korea Central
 - Korea South
 - North Central US
+- North Europe
 - Norway East
 - Norway West
 - South Africa North
@@ -91,12 +93,17 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - UAE North
 - UK South
 - UK West
+- US DoD Central
+- US DoD East
 - US Gov Arizona
 - US Gov Texas
 - US Gov Virginia
 - West Central US
+- West Europe
 - West India
+- West US
 - West US 2
+- West US 3
 
 ## Pricing
 
@@ -143,7 +150,7 @@ The steps to enable geo-redundancy for large file shares will vary based on the 
 
 #### Existing storage accounts with a redundancy option of LRS or ZRS
 
-1. [Change the redundancy option](../common/redundancy-migration.md?tabs=portal#change-the-replication-setting-using-the-portal-powershell-or-the-cli) for your storage account to GRS or GZRS.
+1. [Change the redundancy option](../common/redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) for your storage account to GRS or GZRS.
 1. Verify that the [large file shares setting is enabled](storage-how-to-create-file-share.md#enable-large-file-shares-on-an-existing-account) on your storage account.
 1. **Optional:** [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB.
 

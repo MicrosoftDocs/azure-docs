@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-arm-template, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/11/2022
+ms.date: 09/30/2023
 ---
 
 # Azure Resource Manager (ARM) templates in Azure DevTest Labs

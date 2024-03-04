@@ -38,7 +38,7 @@ If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. 
 
 A role assignment's resource name must be a globally unique identifier (GUID).
 
-Role assignment resource names must be unique within the Azure Active Directory tenant, even if the scope is narrower.
+Role assignment resource names must be unique within the Microsoft Entra tenant, even if the scope is narrower.
 
 For your Bicep deployment to be repeatable, it's important for the name to be deterministic - in other words, to use the same name every time you deploy. It's a good practice to create a GUID that uses the scope, principal ID, and role ID together. It's a good idea to use the `guid()` function to help you to create a deterministic GUID for your role assignment names, like in this example:
 
@@ -56,7 +56,7 @@ When you create the role assignment resource, you need to specify a fully qualif
 
 ### Principal
 
-The `principalId` property must be set to a GUID that represents the Azure Active Directory (Azure AD) identifier for the principal. In Azure AD, this is sometimes referred to as the *object ID*.
+The `principalId` property must be set to a GUID that represents the Microsoft Entra identifier for the principal. In Microsoft Entra ID, this is sometimes referred to as the *object ID*.
 
 The `principalType` property specifies whether the principal is a user, a group, or a service principal. Managed identities are a form of service principal.
 
@@ -69,7 +69,7 @@ The following example shows how to create a user-assigned managed identity and a
 
 ### Resource deletion behavior
 
-When you delete a user, group, service principal, or managed identity from Azure AD, it's a good practice to delete any role assignments. They aren't deleted automatically.
+When you delete a user, group, service principal, or managed identity from Microsoft Entra ID, it's a good practice to delete any role assignments. They aren't deleted automatically.
 
 Any role assignments that refer to a deleted principal ID become invalid. If you try to reuse a role assignment's name for another role assignment, the deployment will fail. To work around this behavior, you should either remove the old role assignment before you recreate it, or ensure that you use a unique name when you deploy a new role assignment. This [quickstart template](/samples/azure/azure-quickstart-templates/key-vault-managed-identity-role-assignment) illustrates how you can define a role assignment in a Bicep module and use a principal ID as a seed value for the role assignment name.
 
@@ -79,7 +79,7 @@ Custom role definitions enable you to define a set of permissions that can then 
 
 To create a custom role definition, define a resource of type `Microsoft.Authorization/roleDefinitions`. See the [Create a new role def via a subscription level deployment](https://azure.microsoft.com/resources/templates/create-role-def/) quickstart for an example.
 
-Role definition resource names must be unique within the Azure Active Directory tenant, even if the assignable scopes are narrower.
+Role definition resource names must be unique within the Microsoft Entra tenant, even if the assignable scopes are narrower.
 
 > [!NOTE]
 > Some services manage their own role definitions and assignments. For example, Azure Cosmos DB maintains its own [`Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments`](/azure/templates/microsoft.documentdb/databaseaccounts/sqlroleassignments?tabs=bicep) and [`Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions`](/azure/templates/microsoft.documentdb/databaseaccounts/sqlroledefinitions?tabs=bicep) resources. For more information, see the specific service's documentation.

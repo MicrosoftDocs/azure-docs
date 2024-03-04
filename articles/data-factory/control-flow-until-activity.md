@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ms.custom: devx-track-azurepowershell, synapse
 ---
 
@@ -298,7 +298,7 @@ while ($True) {
 }
 ```
 
-## Next steps
+## Related content
 See other supported control flow activities: 
 
 - [If Condition Activity](control-flow-if-condition-activity.md)

@@ -3,7 +3,7 @@ title: "VMware vCenter connector for Microsoft Sentinel"
 description: "Learn how to install the connector VMware vCenter to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -26,16 +26,16 @@ The [vCenter](https://www.vmware.com/in/products/vcenter-server.html) connector 
    ```kusto
 vCenter 
  
-   | summarize count() by eventtype
+   | summarize count() by EventType
    ```
 
 **log in/out to vCenter Server**
    ```kusto
 vCenter 
  
-   | where eventtype in ('UserLogoutSessionEvent','UserLoginSessionEvent') 
+   | where EventType in ('UserLogoutSessionEvent','UserLoginSessionEvent') 
  
-   | summarize count() by eventtype,eventid,username,useragent 
+   | summarize count() by EventType,EventID,UserName,UserAgent 
  
    | top 10 by count_
    ```
@@ -46,7 +46,7 @@ vCenter
 
 
 **NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias VMware vCenter and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/VMware%20vCenter/Parsers/vCenter.txt), on the second line of the query, enter the hostname(s) of your VMware vCenter device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update. 
-> 1. If you have not installed the vCenter solution from ContentHub then [Follow the steps](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/VMware%20vCenter/Parsers/vCenter.txt) to use the Kusto function alias, **vCenter**
+> 1. If you have not installed the vCenter solution from ContentHub then [Follow the steps](https://aka.ms/sentinel-vCenter-parser) to use the Kusto function alias, **vCenter**
 
 1. Install and onboard the agent for Linux
 

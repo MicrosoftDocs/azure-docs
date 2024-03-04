@@ -5,12 +5,12 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 02/29/2024
 ---
 
 # Web Application Firewall DRS rule groups and rules
 
-Azure Web Application Firewall on Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
+Azure Web Application Firewall on Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because Azure manages these rule sets, the rules are updated as needed to protect against new attack signatures.
 
 The Default Rule Set (DRS) also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
@@ -42,7 +42,7 @@ Custom rules are always applied before rules in the DRS are evaluated. If a requ
 
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
-Some of the built-in DRS rules are disabled by default because they've been replaced by newer rules in the Microsoft Threat Intelligence Collection rules. For example, rule ID 942440, *SQL Comment Sequence Detected*, has been disabled and replaced by the Microsoft Threat Intelligence Collection rule 99031002. The replaced rule reduces the risk of false positive detections from legitimate requests.
+By default, the Microsoft Threat Intelligence Collection rules replace some of the built-in DRS rules, causing them to be disabled. For example, rule ID 942440, *SQL Comment Sequence Detected*, has been disabled and replaced by the Microsoft Threat Intelligence Collection rule 99031002. The replaced rule reduces the risk of false positive detections from legitimate requests.
 
 ### <a name="anomaly-scoring-mode"></a>Anomaly scoring
 
@@ -59,7 +59,7 @@ When you configure your WAF, you can decide how the WAF handles requests that ex
 
 For example, if the anomaly score is 5 or greater on a request, and the WAF is in Prevention mode with the anomaly score action set to Block, the request is blocked. If the anomaly score is 5 or greater on a request, and the WAF is in Detection mode, the request is logged but not blocked.
 
-A single *Critical* rule match is enough for the WAF to block a request when in Prevention mode with the anomaly score action set to Block because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "matched" action in the logs. If the anomaly score is 5 or greater, there will be a separate rule triggered with the anomaly score action configured for the rule set. Default anomaly score action is Block, which results in a log entry with the action `blocked`.
+A single *Critical* rule match is enough for the WAF to block a request when in Prevention mode with the anomaly score action set to Block because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "matched" action in the logs. If the anomaly score is 5 or greater, there a separate rule is triggered with the anomaly score action configured for the rule set. Default anomaly score action is Block, which results in a log entry with the action `blocked`.
 
 When your WAF uses an older version of the Default Rule Set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visibility into the complete set of rules that a specific request matched.
 
@@ -109,6 +109,7 @@ The following rules are disabled by default for DRS 2.1.
 |99001014|MS-ThreatIntel-CVEs|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|Enable rule to prevent against SpringShell vulnerability|
 |99001015|MS-ThreatIntel-WebShells|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|Enable rule to prevent against SpringShell vulnerability|
 |99001016|MS-ThreatIntel-WebShells|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|Enable rule to prevent against SpringShell vulnerability|
+|99001017|MS-ThreatIntel-CVEs|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164).|Enable rule to prevent against Apache Struts vulnerability|
 
 ### DRS 2.0
 
@@ -316,7 +317,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
-|941180|Node-Validator Blacklist Keywords|
+|941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
 |941210|XSS using obfuscated JavaScript|
@@ -337,9 +338,6 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941360|JavaScript obfuscation detected|
 |941370|JavaScript global variable found|
 |941380|AngularJS client side template injection detected|
-
->[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-21"></a> SQLI: SQL injection
 |RuleId|Description|
@@ -446,6 +444,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|99001017|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
 
 > [!NOTE]
 > When you review your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
@@ -584,7 +583,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes.|
 |941160|NoScript XSS InjectionChecker: HTML Injection.|
 |941170|NoScript XSS InjectionChecker: Attribute Injection.|
-|941180|Node-Validator Blacklist Keywords.|
+|941180|Node-Validator Blocklist Keywords.|
 |941190|XSS Using style sheets.|
 |941200|XSS using VML frames.|
 |941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)).|
@@ -605,9 +604,6 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941360|JavaScript obfuscation detected.|
 |941370|JavaScript global variable found.|
 |941380|AngularJS client side template injection detected.|
-
->[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-20"></a> SQLI: SQL injection
 |RuleId|Description|
@@ -699,6 +695,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)
+|99001017|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
 
 > [!NOTE]
 > When you review your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
@@ -780,7 +777,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes.|
 |941160|NoScript XSS InjectionChecker: HTML Injection.|
 |941170|NoScript XSS InjectionChecker: Attribute Injection.|
-|941180|Node-Validator Blacklist Keywords.|
+|941180|Node-Validator Blocklist Keywords.|
 |941190|IE XSS Filters - Attack Detected.|
 |941200|IE XSS Filters - Attack Detected.|
 |941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) found.|
@@ -798,9 +795,6 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941330|IE XSS Filters - Attack Detected.|
 |941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
-
->[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-11"></a> SQLI: SQL injection
 |RuleId|Description|
@@ -889,6 +883,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|99001017|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
 
 # [DRS 1.0](#tab/drs10)
 
@@ -963,7 +958,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes.|
 |941160|NoScript XSS InjectionChecker: HTML Injection.|
 |941170|NoScript XSS InjectionChecker: Attribute Injection.|
-|941180|Node-Validator Blacklist Keywords.|
+|941180|Node-Validator Blocklist Keywords.|
 |941190|XSS Using style sheets.|
 |941200|XSS using VML frames.|
 |941210|IE XSS Filters - Attack Detected or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)).|
@@ -981,9 +976,6 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941330|IE XSS Filters - Attack Detected.|
 |941340|IE XSS Filters - Attack Detected.|
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
-
->[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-10"></a> SQLI: SQL injection
 |RuleId|Description|
@@ -1056,6 +1048,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|99001017|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
 
 # [Bot rules](#tab/bot)
 

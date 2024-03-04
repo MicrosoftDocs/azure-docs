@@ -1,9 +1,9 @@
 ---
 title: Use customer-managed keys to encrypt your configuration data 
 description: Encrypt your configuration data using customer-managed keys
-author: mcleanbyron
-ms.author: mcleans
-ms.date: 08/30/2022
+author: maud-lv
+ms.author: malev
+ms.date: 02/20/2024
 ms.custom: devdivchpfy22, devx-track-azurecli
 ms.topic: conceptual
 ms.service: azure-app-configuration
@@ -14,7 +14,7 @@ Azure App Configuration [encrypts sensitive information at rest](../security/fun
 
 ## Overview
 
-Azure App Configuration encrypts sensitive information at rest by using a 256-bit AES encryption key provided by Microsoft. Every App Configuration instance has its own encryption key managed by the service and used to encrypt sensitive information. Sensitive information includes the values found in key-value pairs. When the customer-managed key capability is enabled, App Configuration uses a managed identity assigned to the App Configuration instance to authenticate with Azure Active Directory. The managed identity then calls Azure Key Vault and wraps the App Configuration instance's encryption key. The wrapped encryption key is then stored, and the unwrapped encryption key is cached within App Configuration for one hour. Every hour, the App Configuration refreshes the unwrapped version of the App Configuration instance's encryption key. This process ensures availability under normal operating conditions.
+Azure App Configuration encrypts sensitive information at rest by using a 256-bit AES encryption key provided by Microsoft. Every App Configuration instance has its own encryption key managed by the service and used to encrypt sensitive information. Sensitive information includes the values found in key-value pairs. When the customer-managed key capability is enabled, App Configuration uses a managed identity assigned to the App Configuration instance to authenticate with Microsoft Entra ID. The managed identity then calls Azure Key Vault and wraps the App Configuration instance's encryption key. The wrapped encryption key is then stored, and the unwrapped encryption key is cached within App Configuration for one hour. Every hour, the App Configuration refreshes the unwrapped version of the App Configuration instance's encryption key. This process ensures availability under normal operating conditions.
 
 > [!IMPORTANT]
 > If the identity assigned to the App Configuration instance is no longer authorized to unwrap the instance's encryption key, or if the managed key is permanently deleted, then it will no longer be possible to decrypt sensitive information stored in the App Configuration instance. By using Azure Key Vault's [soft delete](../key-vault/general/soft-delete-overview.md) function, you mitigate the chance of accidentally deleting your encryption key.
@@ -38,21 +38,9 @@ After these resources are configured, use the following steps so that the Azure 
 1. Assign a managed identity to the Azure App Configuration instance.
 1. Grant the identity `GET`, `WRAP`, and `UNWRAP` permissions in the target Key Vault's access policy.
 
-## Enable customer-managed key encryption for your Azure App Configuration instance
+## Enable customer-managed key encryption for your App Configuration store
 
-To begin, you'll need a properly configured Azure App Configuration instance. If you don't yet have an App Configuration instance available, follow one of these quickstarts to set one up:
-
-- [Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
-- [Create a .NET Core app with Azure App Configuration](quickstart-dotnet-core-app.md)
-- [Create a .NET Framework app with Azure App Configuration](quickstart-dotnet-app.md)
-- [Create a Java Spring app with Azure App Configuration](quickstart-java-spring-app.md)
-- [Create a JavaScript app with Azure App Configuration](quickstart-javascript.md)
-- [Create a Python app with Azure App Configuration](quickstart-python.md)
-
-> [!TIP]
-> The Azure Cloud Shell is a free interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md).
-
-### Create and configure an Azure Key Vault
+1. [Create an App Configuration store](./quickstart-azure-app-configuration-create.md) if you don't have one.
 
 1. Create an Azure Key Vault by using the Azure CLI. Both `vault-name` and `resource-group-name` are user-provided and must be unique. We use `contoso-vault` and `contoso-resource-group` in these examples.
 

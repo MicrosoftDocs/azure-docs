@@ -1,12 +1,11 @@
 ---
 title: Best practices - question answering
 description: Use these best practices to improve your project and provide better results to your application/chat bot's end users.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 12/19/2023
 ms.custom: language-service-question-answering
 ---
 

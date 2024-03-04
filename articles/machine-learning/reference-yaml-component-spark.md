@@ -33,16 +33,15 @@ ms.reviewer: franksolomon
 | `description` | string | Description of the component. | | |
 | `tags` | object | Dictionary of tags for the component. | | |
 | `code` | string | **Required.** The location of the folder that contains source code and scripts for the component. | | |
-| `entry` | object | **Required.** The entry point for the component. It could define a `file` or a `class_name`. | | |
+| `entry` | object | **Required.** The entry point for the component. It could define a `file`. | | |
 | `entry.file` | string | The location of the folder that contains source code and scripts for the component. | | |
-| `entry.class_name` | string | The name of the class that serves as an entry point for the component. | | |
 | `py_files` | object | A list of `.zip`, `.egg`, or `.py` files, to be placed in the `PYTHONPATH`, for successful execution of the job with this component. | | |
 | `jars` | object | A list of `.jar` files to include on the Spark driver, and the executor `CLASSPATH`, for successful execution of the job with this component. | | |
 | `files` | object | A list of files that should be copied to the working directory of each executor, for successful execution of the job with this component. | | |
 | `archives` | object | A list of archives that should be extracted into the working directory of each executor, for successful execution of the job  with this component. | | |
 | `conf` | object | The Spark driver and executor properties. See [Attributes of the `conf` key](#attributes-of-the-conf-key) | | |
 | `environment` | string or object | The environment to use for the component. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment_name>:<environment_version>` syntax or `azureml:<environment_name>@latest` (to reference the latest version of an environment). <br><br> To define an environment inline, follow the [Environment schema](./reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties, because inline environments don't support them. | | |
-| `args` | string | The command line arguments that should be passed to the component entry point Python script or class. These arguments may contain the paths of input data and the location to write the output, for example `"--input_data ${{inputs.<input_name>}} --output_path ${{outputs.<output_name>}}"`  | | |
+| `args` | string | The command line arguments that should be passed to the component entry point Python script. These arguments may contain the paths of input data and the location to write the output, for example `"--input_data ${{inputs.<input_name>}} --output_path ${{outputs.<output_name>}}"`  | | |
 | `inputs` | object | Dictionary of component inputs. The key is a name for the input within the context of the component and the value is the input value. <br><br> Inputs can be referenced in the `args` using the `${{ inputs.<input_name> }}` expression. | | |
 | `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [component input data specification](#component-inputs). | | |
 | `outputs` | object | Dictionary of output configurations of the component. The key is a name for the output within the context of the component and the value is the output configuration. <br><br> Outputs can be referenced in the `args` using the `${{ outputs.<output_name> }}` expression. | |

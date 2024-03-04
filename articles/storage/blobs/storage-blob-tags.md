@@ -14,6 +14,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 # Use blob index tags to manage and find data with .NET
 
+[!INCLUDE [storage-dev-guide-selector-index-tags](../../../includes/storage-dev-guides/storage-dev-guide-selector-index-tags.md)]
+
 This article shows how to use blob index tags to manage and find data using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 ## Prerequisites
@@ -24,11 +26,7 @@ This article shows how to use blob index tags to manage and find data using the 
     - [Set Blob Tags](/rest/api/storageservices/set-blob-tags#authorization)
     - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags#authorization)
 
-## About blob index tags
-
-Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. This article shows you how to set, get, and find data using blob index tags.
-
-To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
+[!INCLUDE [storage-dev-guide-about-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-tags.md)]
 
 ## Set tags
 

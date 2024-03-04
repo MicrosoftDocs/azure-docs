@@ -69,12 +69,14 @@ Keep in mind that any changes to the Docker or Conda sections will create a new 
 
 ## View logs
 
-Click on the **Build log** tab within the details page to view the logs of an environment version and the environment log analysis. Environment log analysis (Preview) is a feature that provides insight and relevant troubleshooting documentation to explain environment definition issues or image build failures. If you have feedback on the feature or the documentation, file it at https://aka.ms/azureml/environment/log-analysis-feedback
+Click on the **Build log** tab within the details page to view the logs of an environment version and the environment log analysis. Environment log analysis is a feature that provides insight and relevant troubleshooting documentation to explain environment definition issues or image build failures.
 * Build log contains the bare output from an Azure Container Registry (ACR) task or an Image Build Compute job.
 * Image build analysis is an analysis of the build log used to see the cause of the image build failure.
 * Environment definition analysis provides information about the environment definition if it goes against best practices for reproducibility, supportability, or security.
 
-For an overview of common build failures, see https://aka.ms/azureml/environment/troubleshooting-guide
+For an overview of common build failures, see [How to troubleshoot for environments](https://aka.ms/azureml/environment/troubleshooting-guide).
+
+If you have feedback on the environment log analysis, file a [GitHub issue](https://aka.ms/azureml/environment/log-analysis-feedback).
 
 ## Rebuild an environment
 

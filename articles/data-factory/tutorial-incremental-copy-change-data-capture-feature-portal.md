@@ -6,7 +6,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 01/11/2023
+ms.date: 10/20/2023
 ---
 
 # Incrementally load data from Azure SQL Managed Instance to Azure Storage using change data capture (CDC)
@@ -384,7 +384,7 @@ You see the second file in the `customers/incremental/YYYY/MM/DD` folder of the 
 :::image type="content" source="media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-run.png" alt-text="Output file from incremental copy":::
  
 
-## Next steps
+## Related content
 Advance to the following tutorial to learn about copying new and changed files only based on their LastModifiedDate:
 
 > [!div class="nextstepaction"]

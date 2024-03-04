@@ -5,16 +5,16 @@ description: Learn about the process of Face enrollment to register users in a f
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: best-practice
-ms.date: 09/27/2021
+ms.date: 02/14/2024
 ms.author: pafarley
 ---
 
 # Best practices for adding users to a Face service
 
-In order to use the Azure AI Face API for face verification or identification, you need to enroll faces into a **LargePersonGroup** or similar data structure. This deep-dive demonstrates best practices for gathering meaningful consent from users and example logic to create high-quality enrollments that will optimize recognition accuracy. 
+In order to use the Azure AI Face API for face verification or identification, you need to enroll faces into a **LargePersonGroup** or similar [data structure](/azure/ai-services/computer-vision/concept-face-recognition-data-structures). This deep-dive demonstrates best practices for gathering meaningful consent from users and example logic to create high-quality enrollments that will optimize recognition accuracy. 
 
 ## Meaningful consent 
 
@@ -29,7 +29,7 @@ Based on Microsoft user research, Microsoft's Responsible AI principles, and [ex
 
 This section offers guidance for developing an enrollment application for facial recognition. This guidance has been developed based on Microsoft user research in the context of enrolling individuals in facial recognition for building entry. Therefore, these recommendations might not apply to all facial recognition solutions. Responsible use for Face API depends strongly on the specific context in which it's integrated, so the prioritization and application of these recommendations should be adapted to your scenario. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > It is your responsibility to align your enrollment application with applicable legal requirements in your jurisdiction and accurately reflect all of your data collection and processing practices.
 
 ## Application development 
@@ -39,7 +39,7 @@ Before you design an enrollment flow, think about how the application you're bui
 |Category | Recommendations |
 |---|---|
 |Hardware | Consider the camera quality of the enrollment device. |
-|Recommended enrollment features | Include a log-on step with multi-factor authentication. </br></br>Link user information like an alias or identification number with their face template ID from the Face API (known as person ID). This mapping is necessary to retrieve and manage a user's enrollment. Note: person ID should be treated as a secret in the application.</br></br>Set up an automated process to delete all enrollment data, including the face templates and enrollment photos of people who are no longer users of facial recognition technology, such as former employees. </br></br>Avoid auto-enrollment, as it does not give the user the awareness, understanding, freedom of choice, or control that is recommended for obtaining consent. </br></br>Ask users for permission to save the images used for enrollment. This is useful when there is a model update since new enrollment photos will be required to re-enroll in the new model about every 10 months. If the original images aren't saved, users will need to go through the enrollment process from the beginning.</br></br>Allow users to opt out of storing photos in the system. To make the choice clearer, you can add a second consent request screen for saving the enrollment photos. </br></br>If photos are saved, create an automated process to re-enroll all users when there is a model update. Users who saved their enrollment photos will not have to enroll themselves again. </br></br>Create an app feature that allows designated administrators to override certain quality filters if a user has trouble enrolling. |
+|Recommended enrollment features | Include a log-on step with multifactor authentication. </br></br>Link user information like an alias or identification number with their face template ID from the Face API (known as person ID). This mapping is necessary to retrieve and manage a user's enrollment. Note: person ID should be treated as a secret in the application.</br></br>Set up an automated process to delete all enrollment data, including the face templates and enrollment photos of people who are no longer users of facial recognition technology, such as former employees. </br></br>Avoid auto-enrollment, as it does not give the user the awareness, understanding, freedom of choice, or control that is recommended for obtaining consent. </br></br>Ask users for permission to save the images used for enrollment. This is useful when there is a model update since new enrollment photos will be required to re-enroll in the new model about every 10 months. If the original images aren't saved, users will need to go through the enrollment process from the beginning.</br></br>Allow users to opt out of storing photos in the system. To make the choice clearer, you can add a second consent request screen for saving the enrollment photos. </br></br>If photos are saved, create an automated process to re-enroll all users when there is a model update. Users who saved their enrollment photos will not have to enroll themselves again. </br></br>Create an app feature that allows designated administrators to override certain quality filters if a user has trouble enrolling. |
 |Security | Azure AI services follow [best practices](../cognitive-services-virtual-networks.md?tabs=portal) for encrypting user data at rest and in transit. The following are other practices that can help uphold the security promises you make to users during the enrollment experience. </br></br>Take security measures to ensure that no one has access to the person ID at any point during enrollment. Note: PersonID should be treated as a secret in the enrollment system. </br></br>Use [role-based access control](../../role-based-access-control/overview.md) with Azure AI services. </br></br>Use token-based authentication and/or shared access signatures (SAS) over keys and secrets to access resources like databases. By using request or SAS tokens, you can grant limited access to data without compromising your account keys, and you can specify an expiry time on the token. </br></br>Never store any secrets, keys, or passwords in your app. |
 |User privacy |Provide a range of enrollment options to address different levels of privacy concerns. Do not mandate that people use their personal devices to enroll into a facial recognition system. </br></br>Allow users to re-enroll, revoke consent, and delete data from the enrollment application at any time and for any reason. |
 |Accessibility |Follow accessibility standards (for example, [ADA](https://www.ada.gov/regs2010/2010ADAStandards/2010ADAstandards.htm) or [W3C](https://www.w3.org/TR/WCAG21/)) to ensure the application is usable by people with mobility or visual impairments. |

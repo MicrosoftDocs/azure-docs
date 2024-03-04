@@ -4,16 +4,17 @@ titleSuffix: Azure AI services
 description: Use this quickstart to connect your applications to the Metrics Advisor API from Azure AI services.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: quickstart
-ms.date: 11/07/2022
+ms.date: 01/19/2024
 ms.author: mbullwin
 zone_pivot_groups: programming-languages-metrics-monitor
 ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Use the client libraries or REST APIs to customize your solution
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 Get started with the Metrics Advisor REST API or client libraries. Follow these steps to install the package and try out the example code for basic tasks.
 

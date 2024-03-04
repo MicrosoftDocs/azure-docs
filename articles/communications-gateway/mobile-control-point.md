@@ -73,16 +73,15 @@ For example, you could use the following iFC (replacing *`<mcp-hostname>`* with 
         </SPT>
     </TriggerPoint>
     <ApplicationServer>
-        <ServerName>sips:<mcp-hostname>;transport=tcp;service=mcp</ServerName>
+        <ServerName>sip:<mcp-hostname>;transport=tcp;service=mcp</ServerName>
         <DefaultHandling>0</DefaultHandling>
     </ApplicationServer>
-    <ProfilePartIndicator>0</ProfilePartIndicator>
 </InitialFilterCriteria>
 ```
 
 ## Next steps
 
-- Learn about [preparing to deploy Integrated Mobile Control Point in Azure Communications Gateway](prepare-to-deploy.md)
-- Learn how to [integrate Azure Communications Gateway with Integrated Mobile Control Point with your network](prepare-for-live-traffic.md)
+- Learn about [preparing to deploying Integrated Mobile Control Point in Azure Communications Gateway](prepare-to-deploy.md)
+- Learn how to [integrate Azure Communications Gateway with Integrated Mobile Control Point with your network](prepare-for-live-traffic-operator-connect.md)
 
 

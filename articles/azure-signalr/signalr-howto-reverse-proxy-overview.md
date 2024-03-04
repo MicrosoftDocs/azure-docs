@@ -21,7 +21,7 @@ There are several general practices to follow when using a reverse proxy in fron
 
 * Make sure to rewrite the incoming HTTP [HOST header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host) with the Azure SignalR service URL, e.g. `https://demo.service.signalr.net`. Azure SignalR is a multi-tenant service, and it relies on the `HOST` header to resolve to the correct endpoint. For example, when [configuring Application Gateway](./signalr-howto-work-with-app-gateway.md#create-an-application-gateway-instance) for Azure SignalR, select **Yes** for the option *Override with new host name*.
 
-* When your client goes through your reverse proxy to Azure SignalR, set `ClientEndpoint` as your reverse proxy URL. When your client *negotiate*s with your hub server, the hub server will return the URL defined in `ClientEndpoint` for your client to connect. [Check here for more details.](./concept-connection-string.md#client-and-server-endpoints)
+* When your client goes through your reverse proxy to Azure SignalR, set `ClientEndpoint` as your reverse proxy URL. When your client *negotiate*s with your hub server, the hub server will return the URL defined in `ClientEndpoint` for your client to connect. [Check here for more details.](./concept-connection-string.md#provide-client-and-server-endpoints)
 
   There are two ways to configure `ClientEndpoint`:
   * Add a `ClientEndpoint` section to your ConnectionString: `Endpoint=...;AccessKey=...;ClientEndpoint=<reverse-proxy-URL>`

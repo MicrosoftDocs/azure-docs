@@ -5,8 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 02/07/2023
+ms.date: 10/31/2023
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
@@ -78,20 +77,21 @@ You can also choose to use your own TLS certificate. Your TLS certificate must m
 
 #### Prepare your key vault and certificate
 
-If you already have a certificate, you can upload it to your key vault. Otherwise, create a new certificate directly through Azure Key Vault from one of the partner certificate authorities (CAs) that Azure Key Vault integrates with.
+We recommend you create a separate Azure Key Vault to store your Azure Front Door TLS certificates. For more information, see [create an Azure Key Vault](../../key-vault/general/quick-create-portal.md). If you already a certificate, you can upload it to your new Azure Key Vault. Otherwise, you can create a new certificate through Azure Key Vault from one of the certificate authorities (CAs) partners.
 
 > [!WARNING]
-> Azure Front Door currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
+> Azure Front Door currently only supports Azure Key Vault in the same subscription. Selecting an Azure Key Vault under a different subscription will result in a failure.
 
 > [!NOTE]
-> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates, and the root certification authority (CA) must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> * Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates, and also the root certification authority (CA) must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> * We recommend using [**managed identity**](../managed-identity.md) to allow access to your Azure Key Vault certificates because App registration will be retired in the future.
 
 #### Register Azure Front Door
 
-Register the service principal for Azure Front Door as an app in your Azure Active Directory (Azure AD) by using Azure PowerShell or the Azure CLI.
+Register the service principal for Azure Front Door as an app in your Microsoft Entra ID by using Azure PowerShell or the Azure CLI.
 
 > [!NOTE]
-> * This action requires you to have *Global Administrator* permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
+> * This action requires you to have *Global Administrator* permissions in Microsoft Entra ID. The registration only needs to be performed **once per Microsoft Entra tenant**.
 > * The application ID of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** and **d4631ece-daab-479b-be77-ccb713491fc0** is predefined by Azure for Front Door Standard and Premium across all Azure tenants and subscriptions. Azure Front Door (Classic) has a different application ID.
 
 # [Azure PowerShell](#tab/powershell)
@@ -131,9 +131,9 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
      ```
 ---
 
-#### Grant Azure Front Door access to your key vault
+#### Grant Azure Front Door access to your Key Vault
 
-Grant Azure Front Door permission to access the certificates in your Azure Key Vault account.
+Grant Azure Front Door permission to access the certificates in your Azure Key Vault account. You only need to give **GET** permission to the certificate and secret in order for Azure Front Door to retrieve the certificate.
 
 1. In your key vault account, select **Access policies**.
 
@@ -202,4 +202,6 @@ You can change a domain between using an Azure Front Door-managed certificate an
 
 ## Next steps
 
-Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md).
+* Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md).
+* [Understand custom domains](../domain.md) on Azure Front Door.
+* Learn about [End-to-end TLS with Azure Front Door](../end-to-end-tls.md).

@@ -1,14 +1,16 @@
 ---
 title: 'Tutorial: Debug skillsets'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Debug Sessions is an Azure portal tool used to find, diagnose, and repair problems in a skillset.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
-ms.date: 07/20/2023
+ms.date: 10/09/2023
 ---
 
 # Tutorial: Debug a skillset using Debug Sessions
@@ -25,13 +27,13 @@ Before you begin, have the following prerequisites in place:
 
 + An active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
++ Azure AI Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
 + Azure Storage account with [Blob storage](../storage/blobs/index.yml), used for hosting sample data, and for persisting cached data created during a debug session.
 
-+ [Postman app](https://www.postman.com/downloads/) and a [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) to create objects using the REST APIs.
++ [Postman app](https://www.postman.com/downloads/) and a [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Debug-sessions) to create objects using the REST APIs.
 
-+ [Sample PDFs (clinical trials)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-pdf-19).
++ [Sample PDFs (clinical trials)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/clinical-trials/clinical-trials-pdf-19).
 
 > [!NOTE]
 > This tutorial also uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for language detection, entity recognition, and key phrase extraction. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create a billable Azure AI services resource.
@@ -40,11 +42,11 @@ Before you begin, have the following prerequisites in place:
 
 This section creates the sample data set in Azure Blob Storage so that the indexer and skillset have content to work with.
 
-1. [Download sample data (clinical-trials-pdf-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-pdf-19), consisting of 19 files.
+1. [Download sample data (clinical-trials-pdf-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/clinical-trials/clinical-trials-pdf-19), consisting of 19 files.
 
 1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
-   + Choose the same region as Azure Cognitive Search to avoid bandwidth charges.
+   + Choose the same region as Azure AI Search to avoid bandwidth charges.
 
    + Choose the StorageV2 (general purpose V2) account type.
 
@@ -56,7 +58,7 @@ This section creates the sample data set in Azure Blob Storage so that the index
 
 ## Get a key and URL
 
-REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure AI Search to your subscription, follow these steps to get the necessary information:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -68,9 +70,9 @@ All requests require an api-key on every request sent to your service. Having a 
 
 ## Create data source, skillset, index, and indexer
 
-In this section, import a Postman collection containing a "buggy" workflow that you fix in this tutorial. 
+In this section, you will import a Postman collection containing a "buggy" workflow that you will fix in this tutorial. 
 
-1. Start Postman and import the [DebugSessions.postman_collection.json](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) collection.  If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md).
+1. Start Postman and import the [DebugSessions.postman_collection.json](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Debug-sessions) collection.  If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md).
 
 1. Under **Files** > **New**, select the collection.
 
@@ -310,6 +312,6 @@ This tutorial touched on various aspects of skillset definition and processing. 
 
 + [How to map skillset output fields to fields in a search index](cognitive-search-output-field-mapping.md)
 
-+ [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md)
++ [Skillsets in Azure AI Search](cognitive-search-working-with-skillsets.md)
 
 + [How to configure caching for incremental enrichment](cognitive-search-incremental-indexing-conceptual.md)

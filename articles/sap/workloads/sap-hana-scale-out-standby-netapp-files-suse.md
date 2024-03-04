@@ -3,13 +3,12 @@ title: SAP HANA scale-out with standby with Azure NetApp Files on SLES | Microso
 description: Learn how to deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server.
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
+ms.custom: devx-track-azurecli
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 07/11/2023
 ms.author: radeltch
 ---
@@ -620,7 +619,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 ## Test SAP HANA failover
 
 > [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
+> This article contains references to terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
 
 1. Simulate a node crash on an SAP HANA worker node. Do the following:
 

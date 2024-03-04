@@ -49,9 +49,13 @@ An Azure CLI environment:
 
 To create a device group, the first step is to add a tag to the target set of devices in IoT Hub. Tags can only be successfully added to your device after it has been connected to Device Update.
 
-Device Update tags use the following format:
+Device Update tags use the format in the following example:
 
 ```json
+"etag": "",
+"deviceId": "",
+"deviceEtag": "",
+"version": <version>,
 "tags": {
    "ADUGroup": "<CustomTagValue>"
 }
@@ -192,6 +196,17 @@ az iot du device group show \
 ```
 
 ---
+
+## Removing a device from a device group
+
+To remove a device from a device group, the ADUGroup tag value must be changed to "null".
+
+   ```JSON
+       "tags": {
+               "ADUGroup": "null"
+               }
+   ```
+This will delete the ADUGroup tag from the device twin and remove the device from its device group.
 
 ## Deleting device groups
 

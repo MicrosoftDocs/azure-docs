@@ -13,9 +13,9 @@ ms.author: banders
 
 # Create a Microsoft Customer Agreement subscription request
 
-This article helps you create a [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) subscription for someone else that's in a different Azure Active Directory (Azure AD) directory/tenant. After the request is created, the recipient accepts the subscription request. You may want another subscription to avoid hitting subscription quota limits, to create separate environments for security, or to isolate data for compliance reasons. 
+This article helps you create a [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) subscription for someone else that's in a different Microsoft Entra directory/tenant. After the request is created, the recipient accepts the subscription request. You may want another subscription to avoid hitting subscription quota limits, to create separate environments for security, or to isolate data for compliance reasons. 
 
-If you instead want to create a subscription for yourself or for someone else in your current Azure Active Directory (Azure AD) directory/tenant, see [Create a Microsoft Customer Agreement subscription](create-subscription.md). If you want to create subscriptions for Enterprise Agreements, see [Create an EA subscription](create-enterprise-subscription.md). If you're a Microsoft Partner and you want to create a subscription for a customer, see [Create a subscription for a partner's customer](create-customer-subscription.md). Or, if you have a Microsoft Online Service Program (MOSP) billing account, also called pay-as-you-go, you can create subscriptions starting in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and then you complete the process at https://signup.azure.com/.
+If you instead want to create a subscription for yourself or for someone else in your current Microsoft Entra directory/tenant, see [Create a Microsoft Customer Agreement subscription](create-subscription.md). If you want to create subscriptions for Enterprise Agreements, see [Create an EA subscription](create-enterprise-subscription.md). If you're a Microsoft Partner and you want to create a subscription for a customer, see [Create a subscription for a partner's customer](create-customer-subscription.md). Or, if you have a Microsoft Online Service Program (MOSP) billing account, also called pay-as-you-go, you can create subscriptions starting in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and then you complete the process at https://signup.azure.com/.
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).
 
@@ -30,7 +30,7 @@ For more information, see [Subscription billing roles and task](understand-mca-r
 
 ## Create a subscription request
 
-The subscription creator uses the following procedure to create a subscription request for a person in a different Azure Active Directory (Azure AD). After creation, the request is sent to the subscription acceptor (recipient) by email.
+The subscription creator uses the following procedure to create a subscription request for a person in a different Microsoft Entra ID. After creation, the request is sent to the subscription acceptor (recipient) by email.
 
 A link to the subscription request is also created. The creator can manually share the link with the acceptor.
 
@@ -44,7 +44,7 @@ A link to the subscription request is also created. The creator can manually sha
 1. Next to **Plan**, select **Microsoft Azure Plan for DevTest** if the subscription will be used for development or testing workloads. Otherwise, select **Microsoft Azure Plan**.  
     :::image type="content" source="./media/create-subscription-request/create-subscription-basics-tab.png" alt-text="Screenshot showing the Basics tab where you enter basic information about the subscription." lightbox="./media/create-subscription-request/create-subscription-basics-tab.png" :::
 1. Select the **Advanced** tab.
-1. Select your **Subscription directory**. It's the Azure Active Directory (Azure AD) where the new subscription will get created.
+1. Select your **Subscription directory**. It's the Microsoft Entra ID where the new subscription will get created.
 1. The **Management group** option is unavailable because you can only select management groups in the current directory.
 1. Select more or more **Subscription owners**. You can select only users or service principals in the selected subscription directory. You can't select guest directory users. If you select a service principal, enter its App ID.   
     :::image type="content" source="./media/create-subscription-request/create-subscription-advanced-tab-external.png" alt-text="Screenshot showing the Advanced tab where you specify the directory, management group, and owner. " lightbox="./media/create-subscription-request/create-subscription-advanced-tab-external.png" :::
@@ -70,7 +70,7 @@ Or, the subscription creator might have manually sent the acceptor an **Accept o
 
 1. In either case above, select the link to open the Accept subscription ownership page in the Azure portal.
 1. On the Basics tab, you can optionally change the subscription name.
-1. Select the Advanced tab where you can optionally change the Azure AD management group that the new subscription is associated with. You can only select management groups in the current directory.
+1. Select the Advanced tab where you can optionally change the Microsoft Entra management group that the new subscription is associated with. You can only select management groups in the current directory.
 1. Select the Tags tab to optionally enter tag pairs for **Name** and **Value**.
 1. Select the Review + accept tab. You should see a message stating `Validation passed. Click on the Accept button below to initiate subscription creation`.
 1. Select **Accept**. You'll see a status message stating that the subscription is being created. Then you'll see another status message stating th the subscription was successfully created. The acceptor becomes the subscription owner.

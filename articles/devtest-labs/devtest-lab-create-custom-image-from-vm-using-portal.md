@@ -4,7 +4,7 @@ description: Learn how to create a custom image from a provisioned virtual machi
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/15/2022
+ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 

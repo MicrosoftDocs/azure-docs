@@ -6,20 +6,53 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/16/2022
+ms.date: 09/27/2023
 ms.custom: references_regions
 ms.author: kavitagaddam
 ---
 
 # Release notes: Azure API for FHIR
 
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
-> [!Note]
-> Azure Health Data services is the evolved version of Azure API for FHIR enabling customers to manage FHIR, DICOM, and MedTech services with integrations into other Azure Services. To learn about Azure Health Data Services [click here](https://azure.microsoft.com/products/health-data-services/).
+## **February 2024**
+**Enables counting all versions (historical and soft deleted) of resources**
+The query parameter _summary=count and _count=0 can be added to _history endpoint to get count of all versioned resources. This count includes soft deleted resources. For more information, see [history management](././../azure-api-for-fhir/purge-history.md).
+
+**Improve throughput for export operation**
+The "_isparallel" query parameter can be added to the export operation to enhance its throughput. It is important to note that using this parameter may result in an increase in Request Units consumption over the life of export. For more information, see [Export operation query parameters](././../azure-api-for-fhir/export-data.md).
+
+**Change in name nomenclature for exported file name and default storage account**
+With this change exported file names follow the format '{FHIR Resource Name}-{Number}-{Number}.ndjson'. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.Default storage account name is updated to 'Export-{Number}'. There is no change to number of resources added in individual exported files. 
+
+
+**Performance Enhancement**
+Parallel optimization for FHIR queries can be enabled using HTTP header "x-ms-query-latency-over-efficiency" . This value needs to be set to true to achieve maximum concurrency during execution of query. For more information, see [Batch Bundles](././../azure-api-for-fhir/fhir-rest-api-capabilities.md).
+
+
+## **January 2024**
+**Concurrent execution of queries with conditional interactions**
+Conditional interactions can be complex and performance-intensive. To enhance the latency of queries involving conditional interactions, you have the option to utilize the request header x-conditionalquery-processing-logic. For more information, see [Performance considerations for conditional API interactions](././../azure-api-for-fhir/fhir-rest-api-capabilities.md).
+
+## **December 2023**
+**Additional capabilities added to the Export operation**
+$export operation now supports exporting versioned resources and soft deleted resources. For more information, see [Export query parameters](../../healthcare-apis/azure-api-for-fhir/export-data.md).
+
+## **November 2023**
+**Bulk delete capability now available**
+`$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](../../healthcare-apis/azure-api-for-fhir/bulk-delete-operation.md).
+
+Bulk delete operation is currently in public preview. Review disclaimer for details. [!INCLUDE public preview disclaimer]
+
+**Bug Fix: FHIR queries using pagination and revinclude resulted in an error on using next link**
+
+Issue is now addressed and FHIR queries using continuation token with include/ revinclude, no longer report an exception. For details on fix, visit [#3525](https://github.com/microsoft/fhir-server/pull/3525).
 
 ## **July 2023**
 **Feature enhancement: Change to the exported file name format**
+
 FHIR service enables customers to export data with $export operation. Export can be conducted across various levels, such as System, Patient and Group of patients. There are name changes with exported file and default storage account name.
 * Exported file names will follow the format \<FHIR Resource Name\>-\<Number\>- \<Number\>.ndjson. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.
 * Default storage account name is updated to Export-\<Number\>.

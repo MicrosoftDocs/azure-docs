@@ -26,7 +26,7 @@ A data factory engineer is responsible for designing, building, and testing mapp
 
 **8 (hours) x 8 (compute-optimized cores) x $0.193 = $12.35**
 
-## Next steps
+## Related content
 
 - [Pricing example: Copy data from AWS S3 to Azure Blob storage hourly for 30 days](pricing-examples-s3-to-blob.md)
 - [Pricing example: Copy data and transform with Azure Databricks hourly for 30 days](pricing-examples-copy-transform-azure-databricks.md)

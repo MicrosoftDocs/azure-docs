@@ -19,7 +19,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 
 | Direction | Protocol &<br>ports | Service tag | Purpose |
 | ----- |-----| ----- | ----- |
-| Outbound | TCP: 80, 443 | `AzureActiveDirectory` | Authentication using Azure AD. |
+| Outbound | TCP: 80, 443 | `AzureActiveDirectory` | Authentication using Microsoft Entra ID. |
 | Outbound | TCP: 443, 18881<br>UDP: 5831 | `AzureMachineLearning` | Using Azure Machine Learning services.<br>Python intellisense in notebooks uses port 18881.<br>Creating, updating, and deleting an Azure Machine Learning compute instance uses port 5831. |
 | Outbound | ANY: 443 | `BatchNodeManagement.region` | Communication with Azure Batch back-end for Azure Machine Learning compute instances/clusters. |
 | Outbound | TCP: 443 | `AzureResourceManager` | Creation of Azure resources with Azure Machine Learning, Azure CLI, and Azure Machine Learning SDK. |

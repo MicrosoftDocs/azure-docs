@@ -2,13 +2,12 @@
 title: Use Azure AI Vision container with Kubernetes and Helm
 titleSuffix: Azure AI services
 description: Learn how to deploy the Azure AI Vision container using Kubernetes and Helm.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 02/27/2024
 ms.author: pafarley
 ms.custom: cogserv-non-critical-vision
 ---
@@ -358,7 +357,7 @@ replicaset.apps/read-6cbbb6678   3         3         3       3s
 For more details on installing applications with Helm in Azure Kubernetes Service (AKS), [visit here][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Azure AI services containers][cog-svcs-containers]
+> [Azure AI containers][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free

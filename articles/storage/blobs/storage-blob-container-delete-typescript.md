@@ -2,18 +2,18 @@
 title: Delete and restore a blob container with TypeScript
 titleSuffix: Azure Storage 
 description: Learn how to delete and restore a blob container in your Azure Storage account using the JavaScript client library using TypeScript.
-services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 03/21/2023
-ms.devlang: TypeScript
+ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---
 
 # Delete and restore a blob container with TypeScript
+
+[!INCLUDE [storage-dev-guide-selector-delete-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-container.md)]
 
 This article shows how to delete containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).  If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
 

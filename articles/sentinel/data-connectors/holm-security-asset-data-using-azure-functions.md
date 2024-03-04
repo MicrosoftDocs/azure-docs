@@ -3,7 +3,7 @@ title: "Holm Security Asset Data (using Azure Functions) connector for Microsoft
 description: "Learn how to install the connector Holm Security Asset Data (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,20 +18,20 @@ The connector provides the capability to poll data from Holm Security Center int
 | --- | --- |
 | **Log Analytics table(s)** | net_assets_CL<br/> web_assets_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [Holm Security](https://support.holmsecurity.com/hc/en-us) |
+| **Supported by** | [Holm Security](https://support.holmsecurity.com/) |
 
 ## Query samples
 
 **All low net assets**
    ```kusto
-net_assets_Cl
+net_assets_CL
             
    | where severity_s  == 'low'
    ```
 
 **All low web assets**
    ```kusto
-web_assets_Cl
+web_assets_CL
             
    | where severity_s  == 'low'
    ```
@@ -43,7 +43,7 @@ web_assets_Cl
 To integrate with Holm Security Asset Data (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
-- **Holm Security API Token**: Holm Security API Token is required. [Holm Security API Token](https://support.holmsecurity.com/hc/en-us)
+- **Holm Security API Token**: Holm Security API Token is required. [Holm Security API Token](https://support.holmsecurity.com/)
 
 
 ## Vendor installation instructions
@@ -58,7 +58,7 @@ To integrate with Holm Security Asset Data (using Azure Functions) make sure you
 
 **STEP 1 - Configuration steps for the Holm Security API**
 
- [Follow these instructions](https://www.holmsecurity.com/platform/api-scanning) to create an API authentication token.
+ [Follow these instructions](https://support.holmsecurity.com/knowledge/how-do-i-set-up-an-api-token) to create an API authentication token.
 
 
 **STEP 2 - Use the below deployment option to deploy the connector and the associated Azure Function**

@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 01/04/2024
 ---
 
 # Set up cross-region disaster recovery for integration accounts in Azure Logic Apps

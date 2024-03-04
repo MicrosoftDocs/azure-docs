@@ -6,9 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 07/26/2023
-ms.custom: ignite-2022, engagement-fy23
-#Customer intent: I need to monitor a connection by using Azure Monitor Agent.
+ms.date: 11/15/2023
+
+#Customer intent: As an Azure administrator, I need use the Azure Monitor agent so I can monitor a connection using the Connection monitor.
 ---
 
 # Monitor network connectivity using Azure Monitor agent with connection monitor

@@ -81,7 +81,7 @@ To simplify the command-line parameters, encapsulate the key values that drive t
 ![Screenshot that shows Build variables.](./media/set-up-devops-lab/configure-build-variables.png)
 
 ## Connect to Azure
-The next step is to set up a service principal. A service principal is an identity in Azure Active Directory that enables the DevOps build agent to operate in Azure on the user’s behalf. To set it up, start with adding you first Azure PowerShell Build Step.
+The next step is to set up a service principal. A service principal is an identity in Microsoft Entra ID that enables the DevOps build agent to operate in Azure on the user’s behalf. To set it up, start with adding you first Azure PowerShell Build Step.
 
 1. Select **Add Task**.
 2. Search for **Azure PowerShell**.

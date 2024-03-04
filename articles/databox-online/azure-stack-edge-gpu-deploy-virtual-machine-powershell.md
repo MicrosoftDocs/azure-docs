@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 07/27/2023
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
@@ -342,21 +342,23 @@ You'll now create a managed disk from the uploaded VHD.
 
     ```powershell
     $DiskName = "<Managed disk name>"
+    $HyperVGeneration = "<Generation of the image: V1 or V2>"
     ```
 
 1. Create a managed disk from uploaded VHD. To get the source URL for your VHD, go to the container in the storage account that contains the VHD in Storage Explorer. Select the VHD, and right-click and then select **Properties**. In the **Blob properties** dialog, select the **URI**. 
 
     ```powershell
     $StorageAccountId = (Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Id    
-    $DiskConfig = New-AzDiskConfig -Location DBELocal -StorageAccountId $StorageAccountId -CreateOption Import -SourceUri "Source URL for your VHD"
+    $DiskConfig = New-AzDiskConfig -Location DBELocal -HyperVGeneration $HyperVGeneration -StorageAccountId $StorageAccountId -CreateOption Import -SourceUri "Source URL for your VHD"
     New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $DiskConfig
     ```
     Here's an example output:.
     
     ```output
     PS C:\WINDOWS\system32> $DiskName = "myazmd"
+    PS C:\WINDOWS\system32  $HyperVGeneration = "V1"
     PS C:\WINDOWS\system32> $StorageAccountId = (Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Id
-    PS C:\WINDOWS\system32> $DiskConfig = New-AzDiskConfig -Location DBELocal -StorageAccountId $StorageAccountId -CreateOption Import -SourceUri "https://myaseazsa.blob.myasegpu.wdshcsso.com/testcontainer1/ubuntu13.vhd"
+    PS C:\WINDOWS\system32> $DiskConfig = New-AzDiskConfig -Location DBELocal -HyperVGeneration $HyperVGeneration -StorageAccountId $StorageAccountId -CreateOption Import -SourceUri "https://myaseazsa.blob.myasegpu.wdshcsso.com/testcontainer1/ubuntu13.vhd"
     PS C:\WINDOWS\system32> New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $DiskConfig
     
     ResourceGroupName            : myaseazrg
@@ -365,7 +367,7 @@ You'll now create a managed disk from the uploaded VHD.
     Zones                        :
     TimeCreated                  : 6/24/2021 12:19:56 PM
     OsType                       :
-    HyperVGeneration             :
+    HyperVGeneration             : V1
     CreationData                 : Microsoft.Azure.Management.Compute.Models.CreationDat
                                    a
     DiskSizeGB                   : 30
@@ -441,7 +443,6 @@ You'll now create a VM image from the managed disk.
     $DiskSize = "<Size greater than or equal to size of source managed disk>"
     $OsType = "<linux or windows>" 
     $ImageName = "<Image name>"
-    $hyperVGeneration = "<Generation of the image: V1 or V2>" 
     ```
 1. Create a VM image. The supported OS types are Linux and Windows.
 

@@ -12,16 +12,13 @@ ms.date: 01/12/2023
 
 When Websocket client connections drop due to intermittent network issues, messages can be lost. In a pub/sub system, publishers are decoupled from subscribers, so publishers may not detect a subscribers' dropped connection or message loss. It's crucial for clients to overcome intermittent network issues and maintain reliable message delivery. To achieve that, you can create a reliable Websocket client with the help of reliable Azure Web PubSub subprotocols.
 
-> [!NOTE]
-> Reliable protocols are still in preview. Some changes are expected in the future.
-
 ## Reliable Protocol
 
 The Web PubSub service supports two reliable subprotocols `json.reliable.webpubsub.azure.v1` and `protobuf.reliable.webpubsub.azure.v1`. Clients must follow the publisher, subscriber, and recovery parts of the subprotocol to achieve reliability. Failing to properly implement the subprotocol may result in the message delivery not working as expected or the service terminating the client due to protocol violations.
 
 ## The Easy Way - Use Client SDK
 
-The simplest way to create a reliable client is to use Client SDK. Client SDK implements [Web PubSub client specification](./reference-client-specification.md) and uses `json.reliable.webpubsub.azure.v1` by default. Please refer to [PubSub with client SDK](./quickstart-use-client-sdk.md) for quick start.
+The simplest way to create a reliable client is to use Client SDK. Client SDK implements [Web PubSub client specification](./reference-client-specification.md) and uses `json.reliable.webpubsub.azure.v1` by default. Please refer to [Publish/subscribe among clients](./quickstarts-pubsub-among-clients.md) for quick start.
 
 ## The Hard Way - Implement by hand
 

@@ -1,22 +1,16 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 02/17/2023
-ms.author: aahi
-ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 # [Document summarization](#tab/document-summarization)
 
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684)
-
 # [Conversation summarization](#tab/conversation-summarization)
-
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
 
 ---
 
@@ -54,8 +48,6 @@ Choose the type of summarization you would like to perform, and select one of th
 |Conversation summarization     | Use abstractive text summarization to produce a summary of issues and resolutions in transcripts between customer-service agents, and customers.         |
 
 # [Document summarization](#tab/document-summarization)
-
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684)
 
 |parameter  |Description  |
 |---------|---------|
@@ -121,8 +113,6 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
-
-
 
 ### Document extractive summarization example JSON response
 
@@ -308,8 +298,6 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs/<my-job-id>?a
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
-
-
 
 ### Conversation issue and resolution summarization example JSON response
 

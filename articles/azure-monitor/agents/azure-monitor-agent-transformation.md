@@ -42,8 +42,8 @@ To complete this procedure, you need:
     For information about the KQL operators that transformations support, see [Structure of transformation in Azure Monitor](../essentials/data-collection-transformations-structure.md#kql-limitations).
    
    > [!Note]
-   > The only columns that are available to apply transfroms against are TimeGenerated and RawData.  Other columns are added to the table automatically after the transformation and are not availiable at the time of transformation.
-   > The _ResourceId column can't be used in the trasnformation.
+   > The only columns that are available to apply transforms against are TimeGenerated and RawData.  Other columns are added to the table automatically after the transformation and are not available at the time of transformation.
+   > The _ResourceId column can't be used in the transformation.
 
     **Example**
     

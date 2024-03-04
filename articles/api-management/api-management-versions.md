@@ -2,7 +2,6 @@
 title: Versions in Azure API Management | Microsoft Docs
 description: Learn about the concept of versions in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: dlepow
  
 ms.service: api-management
@@ -54,7 +53,7 @@ The format of an API request URL when using query string-based versioning is: `h
 For example, `https://apis.contoso.com/products?api-version=v1` and `https://apis.contoso.com/products?api-version=v2` could refer to the same `products` API but to versions `v1` and `v2` respectively.
 
 > [!NOTE]
-> Query parameters aren't allowed in the `servers` propery of an OpenAPI specification. If you export an OpenAPI specification from an API version, a query string won't appear in the server URL.
+> Query parameters aren't allowed in the `servers` property of an OpenAPI specification. If you export an OpenAPI specification from an API version, a query string won't appear in the server URL.
 
 ## Original versions
 

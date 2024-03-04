@@ -2,16 +2,20 @@
 title: Extensions app in Azure Active Directory B2C  
 titleSuffix: Azure AD B2C
 description: Restoring the b2c-extensions-app.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 11/02/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to verify the presence of the b2c-extensions-app in my directory, so that I can ensure the correct functioning of Azure AD B2C and avoid any loss of user information.
+
 ---
 
 # Extensions app in Azure AD B2C

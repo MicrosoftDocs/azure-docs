@@ -12,27 +12,29 @@
  # this file is used for both virtual wan and vpn gateway. When modifying, make sure that your changes work for both environments.
 ---
 
-## <a name="tenant"></a>1. Create the Azure AD tenant
+<a name='a-nametenanta1-create-the-azure-ad-tenant'></a>
 
-Create an Azure AD tenant using the steps in the [Create a new tenant](../articles/active-directory/fundamentals/active-directory-access-create-new-tenant.md) article:
+## <a name="tenant"></a>1. Create the Microsoft Entra tenant
+
+Create a Microsoft Entra tenant using the steps in the [Create a new tenant](../articles/active-directory/fundamentals/active-directory-access-create-new-tenant.md) article:
 
 * Organizational name
 * Initial domain name
 
   Example:
 
-   ![New Azure AD tenant](./media/openvpn-tenant-multi-app/new-tenant.png)
+   ![New Microsoft Entra tenant](./media/openvpn-tenant-multi-app/new-tenant.png)
 
 ## <a name="users"></a>2. Create tenant users
 
-In this step, you create two Azure AD tenant users: One Global Admin account and one master user account. The master user account is used as your master embedding account (service account). When you create an Azure AD tenant user account, you adjust the Directory role for the type of user that you want to create. Use the steps in [this article](../articles/active-directory/fundamentals/add-users-azure-active-directory.md) to create at least two users for your Azure AD tenant. Be sure to change the **Directory Role** to create the account types:
+In this step, you create two Microsoft Entra tenant users: One Global Admin account and one master user account. The master user account is used as your master embedding account (service account). When you create a Microsoft Entra tenant user account, you adjust the Directory role for the type of user that you want to create. Use the steps in [this article](../articles/active-directory/fundamentals/add-users-azure-active-directory.md) to create at least two users for your Microsoft Entra tenant. Be sure to change the **Directory Role** to create the account types:
 
 * Global Admin
 * User
 
 ## <a name="register-client"></a>3. Register the VPN Client
 
-Register the VPN client in the Azure AD tenant.
+Register the VPN client in the Microsoft Entra tenant.
 
 1. Locate the Directory ID of the directory that you want to use for authentication. It is listed in the properties section of the Active Directory page.
 
@@ -69,7 +71,7 @@ Register the VPN client in the Azure AD tenant.
     ```
 
 > [!NOTE]
-> If you using a global admin account that is not native to the Azure AD tenant to provide consent, please replace “common” with the Azure AD directory id in the URL. You may also have to replace “common” with your directory id in certain other cases as well.
+> If you using a global admin account that is not native to the Microsoft Entra tenant to provide consent, please replace “common” with the Microsoft Entra directory id in the URL. You may also have to replace “common” with your directory id in certain other cases as well.
 >
 
 5. Select the **Global Admin** account if prompted.
@@ -78,7 +80,7 @@ Register the VPN client in the Azure AD tenant.
 
 6. On the **Permissions requested** page, select **Accept** to grant permissions to the app.
 
-7. Under your Azure AD, in **Enterprise applications**, you will see **Azure VPN** listed.
+7. Under your Microsoft Entra ID, in **Enterprise applications**, you will see **Azure VPN** listed.
 
      ![Azure VPN](./media/openvpn-tenant-multi-app/azure-vpn.png)
 
@@ -86,7 +88,7 @@ Register the VPN client in the Azure AD tenant.
 
 In this step, you register additional applications for various users and groups.
 
-1. Under your Azure Active Directory, click **App registrations** and then **+ New registration**.
+1. Under your Microsoft Entra ID, click **App registrations** and then **+ New registration**.
 
     ![Azure VPN 2](./media/openvpn-tenant-multi-app/app1.png)
 
@@ -127,7 +129,7 @@ In this step, you register additional applications for various users and groups.
 
 Assign the users to your applications.
 
-1. Under **Azure AD -> Enterprise applications**, select the newly registered application and click **Properties**. Ensure that **User assignment required?** is set to **yes**. Click **Save**.
+1. Under **Microsoft Entra ID -> Enterprise applications**, select the newly registered application and click **Properties**. Ensure that **User assignment required?** is set to **yes**. Click **Save**.
 
     ![Azure VPN 8](./media/openvpn-tenant-multi-app/user2.png)
 

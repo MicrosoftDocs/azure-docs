@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1
 ---
 # Train models with the Azure Machine Learning Python SDK (v1)
 
@@ -234,7 +234,7 @@ Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can
 > [!IMPORTANT]
 > Azure Machine Learning cannot create an Azure Databricks compute target. Instead, you must create an Azure Databricks workspace, and then attach it to your Azure Machine Learning workspace. To create a workspace resource, see the [Run a Spark job on Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) document.
 > 
-> To attach an Azure Databricks workspace from a __different Azure subscription__, you (your Azure AD account) must be granted the **Contributor** role on the Azure Databricks workspace. Check your access in the [Azure portal](https://portal.azure.com/).
+> To attach an Azure Databricks workspace from a __different Azure subscription__, you (your Microsoft Entra account) must be granted the **Contributor** role on the Azure Databricks workspace. Check your access in the [Azure portal](https://portal.azure.com/).
 
 To attach Azure Databricks as a compute target, provide the following information:
 

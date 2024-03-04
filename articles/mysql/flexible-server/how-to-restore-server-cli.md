@@ -1,6 +1,6 @@
 ---
-title: Restore Azure Database for MySQL - Flexible Server with Azure CLI
-description: This article describes how to perform restore operations in Azure Database for MySQL through the Azure CLI.
+title: Restore a server with Azure CLI
+description: This article describes how to perform restore operations in Azure Database for MySQL - Flexible Server through the Azure CLI.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
@@ -10,11 +10,11 @@ ms.author: vamehta
 ms.date: 04/01/2021
 ---
 
-# Point-in-time restore of an Azure Database for MySQL - Flexible Server with Azure CLI
+# Point-in-time restore in Azure Database for MySQL - Flexible Server with Azure CLI
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
+This article provides step-by-step procedure to perform point-in-time recoveries in Azure Database for MySQL flexible server using backups.
 
 ## Prerequisites
 
@@ -29,14 +29,14 @@ This article provides step-by-step procedure to perform point-in-time recoveries
     az login
     ````
 
-- If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the ```az account set``` command.
+- If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the `az account set` command.
 `
 
     ```azurecli
     az account set --subscription <subscription id>
     ```
 
-- Create a MySQL Flexible Server if you have not already created one using the ```az mysql flexible-server create``` command.
+- Create an Azure Database for MySQL flexible server instance if you haven't already created one by using the `az mysql flexible-server create` command.
 
     ```azurecli
     az mysql flexible-server create --resource-group myresourcegroup --name myservername
@@ -88,7 +88,7 @@ az mysql flexible-server geo-restore --source-server
 ```
 
 **Example:**
-Geo-restore 'mydemoserver' in region East US to a new server 'mydemoserver-restored' in it’s geo-paired location West US with the same network setting.
+Geo-restore 'mydemoserver' in region East US to a new server 'mydemoserver-restored' in its geo-paired location West US with the same network setting.
 
 ```azurecli
 az mysql flexible-server geo-restore \
@@ -102,10 +102,10 @@ az mysql flexible-server geo-restore \
 
 After the restore is completed, you should perform the following tasks to get your users and applications back up and running:
 
-- If the new server is meant to replace the original server, redirect clients and client applications to the new server
+- If the new server is meant to replace the original server, redirect clients and client applications to the new server.
 - Ensure appropriate VNet rules are in place for users to connect. These rules are not copied over from the original server.
-- Ensure appropriate logins and database level permissions are in place
-- Configure alerts as appropriate for the newly restore server
+- Ensure appropriate logins and database level permissions are in place.
+- Configure alerts as appropriate for the newly restore server.
 
 ## Next steps
 

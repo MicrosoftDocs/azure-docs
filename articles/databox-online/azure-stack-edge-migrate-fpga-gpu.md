@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/07/2023
+ms.date: 02/27/2024
 ms.author: alkohli  
 ---
 # Migrate workloads from an Azure Stack Edge Pro FPGA to an Azure Stack Edge Pro 2 or Azure Stack Edge GPU device
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article describes how to migrate workloads and data from an Azure Stack Edge Pro FPGA device to an Azure Stack Edge Pro 2 or Pro GPU device. The migration process begins with selection of a new device, a migration plan, and a review of migration considerations. The migration procedure gives detailed steps ending with verification and device cleanup.
 
@@ -125,7 +127,7 @@ Data in Edge local shares stays on the device. Do these steps on your *source* d
     |--------------------------------|---------------------------------------------------------|
     | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> For details, contact Cohesity.          |
     | Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault.          |
-    | Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> For details, contact Veritas.   |
+    | Veritas                        | [https://www.veritas.com/partners/microsoft-azure](https://www.veritas.com/partners/microsoft-azure) <br> For details, contact Veritas.   |
     | Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 
@@ -170,7 +172,7 @@ Data in Edge local shares stays on the device. Do these steps on your *source* d
     |--------------------------------|---------------------------------------------------------|
     | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> For details, contact Cohesity.          |
     | Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault.          |
-    | Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> For details, contact Veritas.   |
+    | Veritas                        | [https://www.veritas.com/partners/microsoft-azure](https://www.veritas.com/partners/microsoft-azure) <br> For details, contact Veritas.   |
     | Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 
@@ -272,7 +274,7 @@ Follow these steps to recover the data from local shares:
     |--------------------------------|---------------------------------------------------------|
     | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> For details, contact Cohesity.          |
     | Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault. |
-    | Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> For details, contact Veritas.   |
+    | Veritas                        | [https://www.veritas.com/partners/microsoft-azure](https://www.veritas.com/partners/microsoft-azure) <br> For details, contact Veritas.   |
     | Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 ### 3. Redeploy IoT Edge workloads

@@ -22,7 +22,7 @@ Azure MANA supports several VM operating systems. While your VM might be running
 MANA maintains feature-parity with previous Azure networking features. VMs run on hardware with both Mellanox and MANA NICs, so existing 'mlx4' and 'mlx5' support still need to be present.
 
 ### Supported Marketplace Images
-Several [Azure Marketplace](https://learn.microsoft.com/marketplace/azure-marketplace-overview) images have built-in support for Azure MANA's ethernet driver. 
+Several [Azure Marketplace](/marketplace/azure-marketplace-overview) images have built-in support for Azure MANA's ethernet driver. 
 
 #### Linux:
 - Ubuntu 20.04 LTS
@@ -45,15 +45,7 @@ Several [Azure Marketplace](https://learn.microsoft.com/marketplace/azure-market
 We recommend using an operating system with support for MANA to maximize performance. In instances where the operating system doesn't or can't support MANA, network connectivity is provided through the hypervisor’s virtual switch. The virtual switch is also used during some infrastructure servicing events where the Virtual Function (VF) is revoked. 
 
 ### Using DPDK
-Utilizing DPDK on MANA hardware requires the Linux kernel 6.2 or later or a backport of the Ethernet and InfiniBand drivers from the latest Linux kernel. It also requires specific versions of DPDK and user-space drivers.
-
-DPDK requires the following set of drivers:
-1.	[Linux kernel Ethernet driver](https://github.com/torvalds/linux/tree/master/drivers/net/ethernet/microsoft/mana) (5.15 kernel and later)
-1.	[Linux kernel InfiniBand driver](https://github.com/torvalds/linux/tree/master/drivers/infiniband/hw/mana) (6.2 kernel and later)
-1.	[DPDK MANA poll-mode driver](https://github.com/DPDK/dpdk/tree/main/drivers/net/mana) (DPDK 22.11 and later)
-1.	[Libmana user-space drivers](https://github.com/linux-rdma/rdma-core/tree/master/providers/mana) (rdma-core v44 and later)
-
-DPDK only functions on Linux VMs.
+For information about DPDK on MANA hardware, see [Microsoft Azure Network Adapter (MANA) and DPDK on Linux](setup-dpdk-mana.md)
 
 ## Evaluating performance
 Differences in VM SKUs, operating systems, applications, and tuning parameters can all affect network performance on Azure. For this reason, we recommend that you benchmark and test your workloads to ensure you achieve the expected network performance. 

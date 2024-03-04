@@ -1,16 +1,17 @@
 ---
 title: "Quickstart: Analyze text content with C#"
-description: In this quickstart, get started using the Content Safety .NET SDK to analyze text content for objectionable material.
-services: cognitive-services
+description: In this quickstart, get started using the Azure AI Content Safety .NET SDK to analyze text content for objectionable material.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom:
 ms.topic: include
 ms.date: 07/04/2023
 ms.author: pafarley
 ---
+
+[Reference documentation](/dotnet/api/overview/azure/ai.contentsafety-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentsafety/Azure.AI.ContentSafety) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.ContentSafety) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/dotnet/1.0.0)
 
 ## Prerequisites
 
@@ -29,7 +30,7 @@ Open Visual Studio, and under **Get started** select **Create a new project**. S
 
 ### Install the client SDK 
 
-Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.ContentSafety`. Select **Install**.
+Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, and search for `Azure.AI.ContentSafety`. Select **Install**.
 
 #### [CLI](#tab/cli)
 
@@ -60,7 +61,7 @@ Build succeeded.
 Within the application directory, install the Computer Vision client SDK for .NET with the following command:
 
 ```dotnet
-dotnet add package Azure.AI.ContentSafety --prerelease
+dotnet add package Azure.AI.ContentSafety
 ```
     
 ---
@@ -102,16 +103,27 @@ namespace Azure.AI.ContentSafety.Dotnet.Sample
           throw;
       }
 
-      Console.WriteLine("Hate severity: {0}", response.Value.HateResult?.Severity ?? 0);
-      Console.WriteLine("SelfHarm severity: {0}", response.Value.SelfHarmResult?.Severity ?? 0);
-      Console.WriteLine("Sexual severity: {0}", response.Value.SexualResult?.Severity ?? 0);
-      Console.WriteLine("Violence severity: {0}", response.Value.ViolenceResult?.Severity ?? 0);
+      Console.WriteLine("\nAnalyze text succeeded:");
+      Console.WriteLine("Hate severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == TextCategory.Hate)?.Severity ?? 0);
+      Console.WriteLine("SelfHarm severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == TextCategory.SelfHarm)?.Severity ?? 0);
+      Console.WriteLine("Sexual severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == TextCategory.Sexual)?.Severity ?? 0);
+      Console.WriteLine("Violence severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == TextCategory.Violence)?.Severity ?? 0);
+
+    }
+    static void Main()
+    {
+        AnalyzeText();
     }
   }
 }
 ```
 
 Replace `"Your input text"` with the text content you'd like to use.
+
+> [!TIP]
+> Text size and granularity
+>
+> The default maximum length for text submissions is **10K** characters.
 
 #### [Visual Studio IDE](#tab/visual-studio)
 

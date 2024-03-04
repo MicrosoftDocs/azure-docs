@@ -1,10 +1,10 @@
 ---
-author: v-dalc
+author: stevenmatthew
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
 ms.date: 10/21/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Take the following steps if returning the device in Hong Kong Special Administrative Region.

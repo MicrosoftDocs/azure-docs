@@ -8,7 +8,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/27/2023
-ms.custom: cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video
 ---
 
 # Consistency levels in Azure Cosmos DB
@@ -178,6 +178,9 @@ The exact RTT latency is a function of speed-of-light distance and the Azure net
 
 > [!NOTE]
 > The RU/s cost of reads for Local Minority reads are twice that of weaker consistency levels because reads are made from two replicas to provide consistency guarantees for Strong and Bounded Staleness.
+
+> [!NOTE]
+> The RU/s cost of reads for the strong and bounded staleness consistency levels consume approximately two times more RUs while performing read operations when compared to that of other relaxed consistency levels.
 
 ## <a id="rto"></a>Consistency levels and data durability
 

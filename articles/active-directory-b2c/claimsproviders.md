@@ -1,16 +1,20 @@
 ---
 title: ClaimsProviders  - Azure Active Directory B2C  
 description: Specify the ClaimsProvider element of a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating with Azure Active Directory B2C, I want to understand how claims providers work and how to configure their technical profiles, so that I can communicate with different parties and leverage their capabilities.
+
 ---
 
 # ClaimsProviders
@@ -53,7 +57,7 @@ The **ClaimsProvider** element contains the following child elements:
 | DisplayName | 1:1 | A string that contains the name of the claims provider. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | A set of technical profiles supported by the claim provider |
 
-**ClaimsProvider** organizes how your technical profiles relate to the claims provider. The following example shows the Azure Active Directory claims provider with the Azure Active Directory technical profiles:
+**ClaimsProvider** organizes how your technical profiles relate to the claims provider. The following example shows the Microsoft Entra claims provider with the Microsoft Entra technical profiles:
 
 ```xml
 <ClaimsProvider>

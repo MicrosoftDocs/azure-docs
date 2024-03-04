@@ -5,14 +5,14 @@ description: Learn how to use WebJobs to run background tasks in Azure App Servi
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
 ms.date: 7/30/2023
-ms.author: cephalin
-ms.reviewer: msangapu;suwatch;pbatum;naren.soni;glenga
-ms.custom: seodec18
-#Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
+author: msangapu-msft
+ms.author: msangapu
+ms.reviewer: cephalin;suwatch;pbatum;naren.soni;glenga
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./webjobs-create-ieux
+#Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
 ---
 
 # Run background tasks with WebJobs in Azure App Service

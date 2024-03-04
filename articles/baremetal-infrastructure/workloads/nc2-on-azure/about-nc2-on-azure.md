@@ -42,7 +42,7 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 
 * Microsoft Azure Consumption Contract (MACC) credits
 
-## **Azure Hybrid Benefits (AHUB) for NC2 on Azure**
+## Azure Hybrid Benefits (AHUB) for NC2 on Azure
 
 ### Azure Commercial benefits
 
@@ -75,16 +75,18 @@ Advantages of the hybrid benefit over license mobility when adopting IaaS are:
 - No need to complete and submit license verification forms.
 - The hybrid benefit for windows and SQL can be used together for IaaS (PaaS abstracts the OS)
 
-### Extended Security Updates (ESU) – for Windows Server**
+### Extended Security Updates (ESU) – for Windows Server
 
-NC2 on Azure requires manual escalation to request, approve and deliver ESI keys to the client.
+NC2 on Azure requires manual escalation to request, approve and deliver ESU keys to the client.
 
-- ESUs for deployment to the platforms below are intended to be free of charge (Azure and Azure connected), however unlike the majority of VMs on Azure today, MSFT cannot provide automatic updates. Rather, clients must request keys and install the updates themselves.
-- For regular on-premises customers – there is no manual escalation process; these customers must work with VLSC and EA processes. To be eligible to purchase ESUs for on-premises deployment, customers must have Software Assurance.
+* ESUs for deployment to the supported platforms are intended to be free of charge (Azure and Azure connected), however unlike the majority of VMs on Azure today, MSFT cannot provide automatic updates. Rather, clients must request keys and install the updates themselves. Supported platforms are:
+  * Windows Server 2008 and Windows Server 2008 R2
+  * Windows Server 2012 and Windows Server 2012 R2
+* For regular on-premises customers – there is no manual escalation process; these customers must work with VLSC and EA processes. To be eligible to purchase ESUs for on-premises deployment, customers must have Software Assurance.
 
-#### To request ESI keys
+#### To request ESU keys
 
-1. Draft an email that is sent to your Microsoft Account team, The email should contain the following:
+1. Draft an email to send to your Microsoft Account team. The email should contain the following:
    1. Your contact information in the body of the email
    1. Customer name and TPID
    1. Specific Deployment Scenario: Nutanix Cloud Clusters on Azure
@@ -92,11 +94,11 @@ NC2 on Azure requires manual escalation to request, approve and deliver ESI keys
    1. Point of Contact: Name and email address of a customer employee who can either install or manage the keys once provided. Manage in this context means ensuring that
       1. Keys are not disclosed to anyone outside of the client company
       2. Keys are not publicly exposed
-1.  Do not cc the customer at this stage. The MSFT response will include the ESU Keys and the following language:
+1. The MSFT response will include the ESU Keys and Terms of Use.
 
 >> **Terms of Use**
 
->> By activating this key you agree that it will only be used for only NC1 on Azure. If you violate these terms, we may stop providing services to you or we may close your Microsoft account.
+>> By activating this key you agree that it will only be used for only NC2 on Azure. If you violate these terms, we may stop providing services to you or we may close your Microsoft account.
 
 For any questions on Azure Hybrid Benefits, please contact your Microsoft Account Executive.
 

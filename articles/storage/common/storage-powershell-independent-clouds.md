@@ -3,12 +3,12 @@ title: Use PowerShell to manage data in Azure independent clouds
 titleSuffix: Azure Storage
 description: Managing Storage in the China Cloud, Government Cloud, and German Cloud Using Azure PowerShell.
 services: storage
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/04/2019
-ms.author: tamram
+ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,7 +18,6 @@ ms.custom: devx-track-azurepowershell
 Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." The following list details the independent clouds currently available.
 
 - [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
-- [Microsoft Azure operated by 21Vianet](http://www.windowsazure.cn/)
 - [Azure German Cloud](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -44,7 +43,7 @@ Get-AzEnvironment
 Sign in to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to sign into an account that uses the Azure Government Cloud.
 
 ```powershell
-Connect-AzAccount –Environment AzureUSGovernment
+Connect-AzAccount -Environment AzureUSGovernment
 ```
 
 To access the China Cloud, use the environment **AzureChinaCloud**. To access the German Cloud, use **AzureGermanCloud**.

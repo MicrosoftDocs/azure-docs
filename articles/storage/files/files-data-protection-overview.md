@@ -14,7 +14,7 @@ Azure Files gives you many tools to protect your data, including soft delete, sh
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/TOHaNJpAOfc" title="How Azure Files can help protect against ransomware and accidental data loss" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube.com/embed/TOHaNJpAOfc]
     :::column-end:::
     :::column:::
         Watch this video to learn how Azure Files advanced data protection helps enterprises stay protected against ransomware and accidental data loss while delivering greater business continuity.

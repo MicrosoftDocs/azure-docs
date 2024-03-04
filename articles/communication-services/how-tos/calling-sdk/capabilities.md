@@ -23,7 +23,7 @@ Do I have permission to turn video on, do I have permission to turn mic on, do I
 [!INCLUDE [Capabilities JavaScript](./includes/capabilities/capabilities-web.md)]
 
 ## Supported Calltype
-The feature is currently supported only for ACS Rooms call type.
+The feature is currently supported only for Azure Communication Services Rooms call type and teams meeting call type
 
 ## Next steps
 - [Learn how to manage video](./manage-video.md)

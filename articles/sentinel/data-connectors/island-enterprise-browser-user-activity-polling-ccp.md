@@ -3,7 +3,7 @@ title: "Island Enterprise Browser User Activity (Polling CCP) connector for Micr
 description: "Learn how to install the connector Island Enterprise Browser User Activity (Polling CCP) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -44,7 +44,8 @@ To integrate with Island Enterprise Browser User Activity (Polling CCP) make sur
 
 Connect Island to Microsoft Sentinel
 
-Provide the Island API Key.
+Provide the Island API URL and Key.  API URL is https://management.island.io/api/external/v1/timeline for US or https://eu.management.island.io/api/external/v1/timeline for EU.
+  Generate the API Key in the Management Console under Settings > API.
 
 
 

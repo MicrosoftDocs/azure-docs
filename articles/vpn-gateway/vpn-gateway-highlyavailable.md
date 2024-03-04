@@ -40,7 +40,7 @@ This configuration provides multiple active tunnels from the same Azure VPN gate
 1. BGP is required for this configuration. Each local network gateway representing a VPN device must have a unique BGP peer IP address specified in the "BgpPeerIpAddress" property.
 1. You should use BGP to advertise the same prefixes of the same on-premises network prefixes to your Azure VPN gateway, and the traffic will be forwarded through these tunnels simultaneously.
 1. You must use Equal-cost multi-path routing (ECMP).
-1. Each connection is counted against the maximum number of tunnels for your Azure VPN gateway. See the [Overview](vpn-gateway-about-vpngateways.md#benchmark) page for the latest information about tunnels, connections, and throughput.
+1. Each connection is counted against the maximum number of tunnels for your Azure VPN gateway. See the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) page for the latest information about tunnels, connections, and throughput.
 
 In this configuration, the Azure VPN gateway is still in active-standby mode, so the same failover behavior and brief interruption will still happen as described [above](#activestandby). But this setup guards against failures or interruptions on your on-premises network and VPN devices.
 

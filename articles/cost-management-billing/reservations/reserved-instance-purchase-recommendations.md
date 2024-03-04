@@ -3,7 +3,7 @@ title: Azure reservation recommendations
 description: Learn about Azure reservation recommendations.
 author: bandersmsft
 ms.author: banders
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual

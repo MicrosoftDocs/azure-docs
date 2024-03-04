@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # What is Azure Communication Services?
 
+[!INCLUDE [Survey Request](./includes/survey-request.md)]
+
 Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication to your applications without being an expert in underlying technologies such as media encoding or telephony. Azure Communication Service is available in multiple [Azure geographies](concepts/privacy.md) and Azure for government.
 
 >[!VIDEO https://www.youtube.com/embed/chMHVHLFcao]
@@ -34,6 +36,8 @@ Scenarios for Azure Communication Services include:
 - **Consumer to Consumer (C2C).** Build engaging consumer-to-consumer interaction with voice, video, and rich text chat. Any type of user interface can be built on Azure Communication Services SDKs, or use complete application samples and an open-source UI toolkit to help you get started quickly.
 
 To learn more, check out our [Microsoft Mechanics video](https://www.youtube.com/watch?v=apBX7ASurgM) or the resources linked next.
+
+
 
 ## Common scenarios
 
@@ -93,7 +97,7 @@ Find comprehensive components, composites, and UX guidance in the [UI Library De
 
 There are two other Microsoft communication products you may consider using, these products aren't directly interoperable with Communication Services at this time:
 
- - [Microsoft Graph Cloud Communication APIs](/graph/cloud-communications-concept-overview) allow organizations to build communication experiences tied to Azure Active Directory users with Microsoft 365 licenses. This workflow is ideal for applications tied to Azure Active Directory or where you want to extend productivity experiences in Microsoft Teams. There are also APIs to build applications and customization within the [Teams experience.](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest)
+ - [Microsoft Graph Cloud Communication APIs](/graph/cloud-communications-concept-overview) allow organizations to build communication experiences tied to Microsoft Entra users with Microsoft 365 licenses. This workflow is ideal for applications tied to Microsoft Entra ID or where you want to extend productivity experiences in Microsoft Teams. There are also APIs to build applications and customization within the [Teams experience.](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest)
 
  - [Azure PlayFab Party](/gaming/playfab/features/multiplayer/networking/) simplifies adding low-latency chat and data communication to games. While you can power gaming chat and networking systems with Communication Services, PlayFab is a tailored option and free on Xbox.
 

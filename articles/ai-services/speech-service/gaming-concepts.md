@@ -2,13 +2,11 @@
 title: Game development with Azure AI Speech - Speech service
 titleSuffix: Azure AI services
 description: Concepts for game development with Azure AI Speech.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 1/18/2024
 ms.author: eur
 ---
 
@@ -19,7 +17,7 @@ Azure AI services for Speech can be used to improve various gaming scenarios, bo
 Here are a few Speech features to consider for flexible and interactive game experiences:
 
 - Bring everyone into the conversation by synthesizing audio from text. Or by displaying text from audio.
-- Make the game more accessible for players who are unable to read text in a particular language, including young players who haven't learned to read and write. Players can listen to storylines and instructions in their preferred language. 
+- Make the game more accessible for players who are unable to read text in a particular language, including young players who don't read or write. Players can listen to storylines and instructions in their preferred language. 
 - Create game avatars and non-playable characters (NPC) that can initiate or participate in a conversation in-game. 
 - Prebuilt neural voice can provide highly natural out-of-box voices with leading voice variety in terms of a large portfolio of languages and voices. 
 - Custom neural voice for creating a voice that stays on-brand with consistent quality and speaking style. You can add emotions, accents, nuances, laughter, and other para linguistic sounds and expressions. 
@@ -35,13 +33,13 @@ Help bring everyone into the conversation by converting text messages to audio u
 
 When enabling this functionality in your game, keep in mind the following benefits:
 
-- Voices and languages supported - A large portfolio of [locales and voices](language-support.md?tabs=tts#supported-languages) are supported. You can also [specify multiple languages](speech-synthesis-markup-voice.md#adjust-speaking-languages) for Text to speech output. For [custom neural voice](custom-neural-voice.md), you can [choose to create](how-to-custom-voice-create-voice.md?tabs=neural#choose-a-training-method) different languages from single language training data.
-- Emotional styles supported - [Emotional tones](language-support.md?tabs=tts#voice-styles-and-roles), such as cheerful, angry, sad, excited, hopeful, friendly, unfriendly, terrified, shouting, and whispering. You can [adjust the speaking style](speech-synthesis-markup-voice.md#speaking-styles-and-roles), style degree, and role at the sentence level.
+- Voices and languages supported - A large portfolio of [locales and voices](language-support.md?tabs=tts#supported-languages) are supported. You can also [specify multiple languages](speech-synthesis-markup-voice.md#adjust-speaking-languages) for Text to speech output. For [custom neural voice](custom-neural-voice.md), you can [choose to create](professional-voice-train-voice.md?tabs=neural#choose-a-training-method) different languages from single language training data.
+- Emotional styles supported - [Emotional tones](language-support.md?tabs=tts#voice-styles-and-roles), such as cheerful, angry, sad, excited, hopeful, friendly, unfriendly, terrified, shouting, and whispering. You can [adjust the speaking style](speech-synthesis-markup-voice.md#use-speaking-styles-and-roles), style degree, and role at the sentence level.
 - Visemes supported - You can use visemes during real-time synthesizing to control the movement of 2D and 3D avatar models, so that the mouth movements are perfectly matched to synthetic speech. For more information, see [Get facial position with viseme](how-to-speech-synthesis-viseme.md).
 - Fine-tuning Text to speech output with Speech Synthesis Markup Language (SSML) - With SSML, you can customize Text to speech outputs, with richer voice tuning supports. For more information, see [Speech Synthesis Markup Language (SSML) overview](speech-synthesis-markup.md).
 - Audio outputs - Each prebuilt neural voice model is available at 24 kHz and high-fidelity 48 kHz. If you select 48-kHz output format, the high-fidelity voice model with 48 kHz will be invoked accordingly. The sample rates other than 24 kHz and 48 kHz can be obtained through upsampling or downsampling when synthesizing. For example, 44.1 kHz is downsampled from 48 kHz. Each audio format incorporates a bitrate and encoding type. For more information, see the [supported audio formats](rest-text-to-speech.md?tabs=streaming#audio-outputs). For more information on 48-kHz high-quality voices, see [this introduction blog](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/azure-neural-tts-voices-upgraded-to-48khz-with-hifinet2-vocoder/ba-p/3665252).  
 
-For an example, see the [Text to speech quickstart](get-started-text-to-speech.md).
+For an example, see the [text to speech quickstart](get-started-text-to-speech.md).
 
 ## Speech to text
 
@@ -53,7 +51,7 @@ With [language identification](language-identification.md), you can detect the l
 
 ## Speech translation
 
-It's not unusual that players in the same game session natively speak different languages and may appreciate receiving both the original message and its translation. You can use [speech translation](speech-translation.md) to translate text between languages so players across the world can communicate with each other in their native language.
+It's not unusual that players in the same game session natively speak different languages and might appreciate receiving both the original message and its translation. You can use [speech translation](speech-translation.md) to translate text between languages so players across the world can communicate with each other in their native language.
 
 For an example, see the [Speech translation quickstart](get-started-speech-translation.md).
 

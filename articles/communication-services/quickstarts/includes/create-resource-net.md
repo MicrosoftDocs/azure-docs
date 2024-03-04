@@ -76,7 +76,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, managedIdentit
 
 ### Option 2: Service Principal
 
-Instead of using a managed identity, you may want to authenticate to Azure using a service principal that you manage yourself. Learn more using documentation on [creating and managing a service principal in Azure Active Directory](../../../active-directory/develop/howto-create-service-principal-portal.md).
+Instead of using a managed identity, you may want to authenticate to Azure using a service principal that you manage yourself. Learn more using documentation on [creating and managing a service principal in Microsoft Entra ID](../../../active-directory/develop/howto-create-service-principal-portal.md).
 
 After you've created your service principal, you'll need to collect the following information about it from the Azure portal:
 
@@ -98,7 +98,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, new Environmen
 
 ### Option 3: User Identity
 
-If you want to call Azure on behalf of an interactive user, rather than using a service identity, you can use the following code to create an Azure Communication Services Management client. This will open a browser window to prompt the user for their MSA or Azure AD credentials.
+If you want to call Azure on behalf of an interactive user, rather than using a service identity, you can use the following code to create an Azure Communication Services Management client. This will open a browser window to prompt the user for their MSA or Microsoft Entra credentials.
 
 ```csharp
 using Azure.Identity;

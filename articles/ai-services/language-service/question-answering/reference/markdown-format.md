@@ -1,12 +1,11 @@
 ---
 title: Markdown format - question answering
 description: Following is the list of markdown formats that you can use your answer text.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.author: jboback
 author: jboback
 ms.topic: reference
-ms.date: 01/21/2022
+ms.date: 12/19/2023
 ---
 
 # Markdown format supported in answer text

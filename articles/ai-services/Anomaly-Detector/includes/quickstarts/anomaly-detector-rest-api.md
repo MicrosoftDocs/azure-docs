@@ -1,8 +1,8 @@
 ---
 author: mrbullwinkle
-ms.service: cognitive-services
+ms.service: azure-ai-anomaly-detector
 ms.topic: include
-ms.date: 10/06/2022
+ms.date: 01/18/2024
 ms.author: mbullwin
 ms.custom: engagement-fy23
 ---

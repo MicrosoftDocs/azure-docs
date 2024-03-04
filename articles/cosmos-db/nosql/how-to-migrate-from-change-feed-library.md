@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 11/28/2023
 ms.author: maquaran
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
@@ -41,6 +41,14 @@ For the delegate, you can have a static method to receive the events. If you wer
 * `ChangeFeedProcessorContext.Diagnostics` contains detailed information about request latency for troubleshooting
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=Delegate)]
+
+## Health events and observability
+
+If previously you were using `IHealthMonitor` or you were leveraging `IChangeFeedObserver.OpenAsync` and `IChangeFeedObserver.CloseAsync`, use the [Notifications API](./change-feed-processor.md#life-cycle-notifications).
+
+* `IChangeFeedObserver.OpenAsync` can be replaced with `WithLeaseAcquireNotification`.
+* `IChangeFeedObserver.CloseAsync` can be replaced with `WithLeaseReleaseNotification`.
+* `IHealthMonitor.InspectAsync` can be replaced with `WithErrorNotification`.
 
 ## State and lease container
 

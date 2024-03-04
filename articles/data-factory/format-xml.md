@@ -154,7 +154,7 @@ Note the following when using XML as source.
 
     - If an XML element has both simple text value and attributes/child elements, the simple text value       is parsed as the value of a "value column" with built-in field name `_value_`. And it inherits the namespace of the element as well if applies.
 
-## Next steps
+## Related content
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Mapping data flow](concepts-data-flow-overview.md)

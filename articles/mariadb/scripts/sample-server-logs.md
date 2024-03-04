@@ -12,6 +12,8 @@ ms.date: 01/26/2022
 
 # Enable and download server slow query logs of an Azure Database for MariaDB server using Azure CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](../includes/azure-database-for-mariadb-deprecation.md)]
+
 This sample CLI script enables and downloads the slow query logs of a single Azure Database for MariaDB server.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

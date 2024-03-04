@@ -179,6 +179,9 @@ You can use the Azure portal to specify private IP address ranges for the firewa
 
 You can configure Azure Firewall to auto-learn both registered and private ranges every 30 minutes. These learned address ranges are considered to be internal to the network, so traffic to destinations in the learned ranges aren't SNATed. Auto-learn SNAT ranges requires Azure Route Server to be deployed in the same VNet as the Azure Firewall. The firewall must be associated with the Azure Route Server and configured to auto-learn SNAT ranges in the Azure Firewall Policy. You can currently use an ARM template, Azure PowerShell, or the Azure portal to configure auto-learn SNAT routes.
 
+> [!NOTE]
+> Auto-learn SNAT routes is availalable only on VNet deployments (hub virtual network). It isn't availble on VWAN deployments (secured virtual hub). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md)
+
 ### Configure using an ARM template
 
 You can use the following JSON to configure auto-learn. Azure Firewall must be associated with an Azure Route Server.
@@ -201,20 +204,21 @@ You can use the following JSON to configure auto-learn. Azure Firewall must be a
 Use the following JSON to associate an Azure Route Server:
 
 ```json
-            "type": "Microsoft.Network/azureFirewalls",
-            "apiVersion": "2022-11-01",
-            "name": "[parameters('azureFirewalls_testFW_name')]",
-            "location": "eastus",
-            "properties": {
-                "sku": {
-                    "name": "AZFW_VNet",
-                    "tier": "Standard"
-                },
-                "threatIntelMode": "Alert",
-                "additionalProperties": {
-                    "Network.RouteServerInfo.RouteServerID": "[parameters'virtualHubs_TestRouteServer_externalid')]"
-                },
-        
+  "type": "Microsoft.Network/azureFirewalls",
+  "apiVersion": "2022-11-01",
+  "name": "[parameters('azureFirewalls_testFW_name')]",
+  "location": "eastus",
+  "properties": {
+    "sku": {
+      "name": "AZFW_VNet",
+      "tier": "Standard"
+    },
+    "threatIntelMode": "Alert",
+    "additionalProperties": {
+      "Network.RouteServerInfo.RouteServerID": "[parameters'virtualHubs_TestRouteServer_externalid')]"
+    },
+    ...
+  }
 ``` 
 
 ### Configure using Azure PowerShell
@@ -288,10 +292,10 @@ Use the portal to complete the following tasks:
 
 - Add a subnet named **RouteServerSubnet** to your existing firewall VNet. The size of the subnet should be at least /27.
 - Deploy a Route Server into the existing firewall VNet. For information about Azure Route Server, see [Quickstart: Create and configure Route Server using the Azure portal](../route-server/quickstart-configure-route-server-portal.md).
-- Modify your firewall policy to enable **Auto-learn IP prefixes (preview)** in the **Private IP ranges (SNAT)** section.
-   :::image type="content" source="media/snat-private-range/auto-learn.png" alt-text="Screenshot showing firewall policy Private IP ranges (SNAT) settings." lightbox="media/snat-private-range/auto-learn.png":::
 - Add the route server on the firewall **Learned SNAT IP Prefixes (preview)** page.
    :::image type="content" source="media/snat-private-range/add-route-server.png" alt-text="Screenshot showing firewall add a route server." lightbox="media/snat-private-range/add-route-server.png":::
+- Modify your firewall policy to enable **Auto-learn IP prefixes (preview)** in the **Private IP ranges (SNAT)** section.
+   :::image type="content" source="media/snat-private-range/auto-learn.png" alt-text="Screenshot showing firewall policy Private IP ranges (SNAT) settings." lightbox="media/snat-private-range/auto-learn.png":::
 - You can see the learned routes on the **Learned SNAT IP Prefixes (preview)** page.
 
 

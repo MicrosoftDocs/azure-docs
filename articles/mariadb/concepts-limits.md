@@ -9,6 +9,8 @@ ms.date: 06/24/2022
 ---
 # Limitations in Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
 
 ## Server parameters

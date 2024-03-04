@@ -8,6 +8,8 @@ items:
 - name: Quickstarts
   expanded: true
   items:
+  - name: Start a free trial
+    href: dynatrace-free-trial.md
   - name: Create Dynatrace resource
     href: dynatrace-create.md
   - name: Link to existing Dynatrace resource

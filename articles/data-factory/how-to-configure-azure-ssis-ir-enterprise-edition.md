@@ -54,7 +54,7 @@ Some of these features require you to install additional components to customize
                                                  -ResourceGroupName $MyResourceGroupName
     ```
 
-## Next steps
+## Related content
 
 -   [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md)
 

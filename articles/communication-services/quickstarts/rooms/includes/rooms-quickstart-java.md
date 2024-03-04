@@ -6,8 +6,7 @@ author: mrayyan
 manager: alexokun
 
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
-ms.date: 05/25/2023
+ms.date: 07/20/2023
 ms.topic: include
 ms.custom: include file
 ms.author: t-siddiquim
@@ -171,19 +170,45 @@ Create a new `room` using the `roomParticipants` defined in the code snippet abo
 ```java
 OffsetDateTime validFrom = OffsetDateTime.now();
 OffsetDateTime validUntil = validFrom.plusDays(30);
+boolean pstnDialOutEnabled = false;
 
-CreateRoomOptions roomOptions = new CreateRoomOptions()
+CreateRoomOptions createRoomOptions = new CreateRoomOptions()
     .setValidFrom(validFrom)
     .setValidUntil(validUntil)
+    .setPstnDialOutEnabled(pstnDialOutEnabled)
     .setParticipants(roomParticipants);
 
-CommunicationRoom roomCreated = roomsClient.createRoom(roomOptions);
+CommunicationRoom roomCreated = roomsClient.createRoom(createRoomOptions);
 
 System.out.println("\nCreated a room with id: " + roomCreated.getRoomId());
 
 ```
 
+*setPstnDialOutEnabled is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
+
+### Enable PSTN Dial Out Capability for a Room (Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
+Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a `room` at creation, by defining the `pstnDialOutEnabled` parameter as true. This capability may also be modified for a `room` by issuing an update request for the `pstnDialOutEnabled` parameter.
+
+```java
+boolean pstnDialOutEnabled = true;
+// Create a room with PSTN dial out capability
+CreateRoomOptions createRoomOptions = new CreateRoomOptions()
+    .setPstnDialOutEnabled(pstnDialOutEnabled)
+
+CommunicationRoom roomCreated = roomsClient.createRoom(createRoomOptions);
+System.out.println("\nCreated a room with PSTN dial out enabled: " + roomCreated.getPstnDialOutEnabled());
+
+// Update a room to enable or disable PSTN dial out capability
+pstnDialOutEnabled = false;
+UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
+    .setPstnDialOutEnabled(pstnDialOutEnabled);
+
+CommunicationRoom roomUpdated = roomsClient.updateRoom(roomId, updateRoomOptions);
+System.out.println("\nUpdated a room with PSTN dial out enabled: " + roomUpdated.getPstnDialOutEnabled());
+
+```
 
 ## Get properties of an existing room
 
@@ -205,14 +230,16 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 
 OffsetDateTime validFrom = OffsetDateTime.now().plusDays(1);
 OffsetDateTime validUntil = validFrom.plusDays(1);
+boolean pstnDialOutEnabled = true;
 
-UpdateRoomOptions roomUpdateOptions = new UpdateRoomOptions()
+UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
     .setValidFrom(validFrom)
-    .setValidUntil(validUntil);
+    .setValidUntil(validUntil)
+    .setPstnDialOutEnabled(pstnDialOutEnabled);
 
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, roomUpdateOptions);
+CommunicationRoom roomResult = roomsClient.updateRoom(roomId, updateRoomOptions);
 
-System.out.println("Updated room with validFrom: " + roomResult.getValidFrom() + " and validUntil: " + roomResult.getValidUntil());
+System.out.println("Updated room with validFrom: " + roomResult.getValidFrom() + ", validUntil: " + roomResult.getValidUntil() + " and pstnDialOutEnabled: " + roomResult.getPstnDialOutEnabled());
 ```
 
 ## Add or update participants
@@ -278,7 +305,7 @@ System.out.println("Participant(s) removed");
 
 ### List all active rooms
 
-Retrieve all active `rooms` under your ACS resource.
+Retrieve all active `rooms` under your Azure Communication Services resource.
 
 ```java
 try {
@@ -349,7 +376,7 @@ Created a room with id:  99445276259151407
 
 Retrieved room with id:  99445276259151407
 
-Updated room with validFrom:  2023-05-11T22:11:46.784Z  and validUntil:  2023-05-11T22:16:46.784Z
+Updated room with validFrom: 2023-05-11T22:11:46.784Z, validUntil: 2023-05-11T22:16:46.784Z and pstnDialOutEnabled: true
 
 Participant(s) added/updated
 

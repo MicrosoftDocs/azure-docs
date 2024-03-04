@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/19/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the exponential value of the specified numeric expression.
 
 ## Syntax
 
-```sql
+```nosql
 EXP(<numeric_expr>)  
 ```
 
@@ -38,7 +39,7 @@ Returns a numeric expression.
 
 The following example returns the exponential value for various numeric inputs.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/exp/query.sql" highlight="2-4":::  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/exp/query.sql" highlight="2-4":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/exp/result.json":::
 
@@ -48,7 +49,7 @@ The following example returns the exponential value for various numeric inputs.
 - The exponent of a number is the constant `e` raised to the power of the number. For example, `EXP(1.0) = e^1.0 = 2.71828182845905` and `EXP(10) = e^10 = 22026.4657948067`.  
 - The exponential of the natural logarithm of a number is the number itself: `EXP (LOG (n)) = n`. And the natural logarithm of the exponential of a number is the number itself: `LOG (EXP (n)) = n`.  
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`LOG`](log.md)

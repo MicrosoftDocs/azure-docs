@@ -1,16 +1,13 @@
 ---
 title: Assign Azure roles using the REST API - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using the REST API and Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
-ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 12/01/2023
 ms.author: rolyon
-
 ---
 # Assign Azure roles using the REST API
 
@@ -29,7 +26,7 @@ For more information, see [API versions of Azure RBAC REST APIs](/rest/api/autho
 
 ## Assign an Azure role
 
-To assign a role, use the [Role Assignments - Create](/rest/api/authorization/role-assignments/create) REST API and specify the security principal, role definition, and scope. To call this API, you must have access to the `Microsoft.Authorization/roleAssignments/write` action. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this action.
+To assign a role, use the [Role Assignments - Create](/rest/api/authorization/role-assignments/create) REST API and specify the security principal, role definition, and scope. To call this API, you must have access to the `Microsoft.Authorization/roleAssignments/write` action, such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator).
 
 1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API or see [Built-in roles](built-in-roles.md) to get the identifier for the role definition you want to assign.
 

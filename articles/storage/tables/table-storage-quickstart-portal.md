@@ -3,9 +3,9 @@ title: Create a table in the Azure portal
 titleSuffix: Azure Storage
 description: Learn how to use the Azure portal to create a new table in Azure Table storage.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.author: tamram
+ms.author: akashdubey
 ms.date: 01/25/2023
 ms.topic: quickstart
 ms.service: azure-table-storage
@@ -28,7 +28,7 @@ To create a table in the Azure portal:
 
 1. Navigate to your storage account in the Azure portal.
 1. Select **Storage Browser** in the left-hand navigation panel.
-1. In the Storage Browser tree, select select **Tables**.
+1. In the Storage Browser tree, select **Tables**.
 1. Select the **Add table** button to add a new table.
 1. In the **Add table** dialog, provide a name for the new table.
 

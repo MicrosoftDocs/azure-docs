@@ -3,8 +3,8 @@ title: Considerations for naming Azure resources
 description: Guidance on naming Azure resources to prevent accidental spillage of sensitive data.
 ms.service: azure-government
 ms.topic: article
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 recommendations: false
 ms.date: 01/28/2022
 ---
@@ -18,7 +18,7 @@ You shouldn't include sensitive or restricted information in Azure resource name
 - [Controlled Unclassified Information](/azure/compliance/offerings/offering-nist-800-171) (CUI) that warrants extra protection or is subject to NOFORN marking
 - And others
 
-Data stored or processed in customer VMs, storage accounts, databases, Azure Import/Export, Azure Cache for Redis, ExpressRoute, Azure Cognitive Search, App Service, API Management, and other Azure services suitable for holding, processing, or transmitting customer data can contain sensitive data. However, metadata for these Azure services isn't permitted to contain sensitive or restricted data. This metadata includes all configuration data entered when creating and maintaining an Azure service, including:
+Data stored or processed in customer VMs, storage accounts, databases, Azure Import/Export, Azure Cache for Redis, ExpressRoute, Azure AI Search, App Service, API Management, and other Azure services suitable for holding, processing, or transmitting customer data can contain sensitive data. However, metadata for these Azure services isn't permitted to contain sensitive or restricted data. This metadata includes all configuration data entered when creating and maintaining an Azure service, including:
 
 - Subscription names, service names, server names, database names, tenant role names, resource groups, deployment names, resource names, resource tags, circuit name, and so on.
 - All shipping information that is used to transport media for Azure Import/Export, such as carrier name, tracking number, description, return information, drive list, package list, storage account name, container name, and so on.

@@ -1,13 +1,12 @@
 ---
 title: Enrich your project with active learning
 description: In this tutorial, learn how to enrich your question answering projects with active learning
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
 ms.author: jboback
-ms.date: 11/02/2021
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.date: 12/19/2023
+ms.custom: language-service-question-answering
 ---
 
 # Enrich your project with active learning
@@ -74,5 +73,3 @@ By adding alternate questions along with active learning, we further enrich the 
 > To examine the list of stop words consult the [stop words article](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
 
 ## Next steps
-
-

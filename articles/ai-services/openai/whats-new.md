@@ -1,24 +1,201 @@
 ---
 title: What's new in Azure OpenAI Service?
 titleSuffix: Azure AI services
-description: Learn about the latest news and features updates for Azure OpenAI
+description: Learn about the latest news and features updates for Azure OpenAI.
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
+ms.custom:
+  - ignite-2023
+  - references_regions
 ms.topic: whats-new
-ms.date: 08/08/2023
+ms.date: 02/21/2024
 recommendations: false
-keywords:  
 ---
 
 # What's new in Azure OpenAI Service
 
+## February 2024
+
+### GPT-3.5-turbo-0125 model available
+
+This model has various improvements, including higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.
+
+For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
+
+### Third generation embeddings models available
+
+- `text-embedding-3-large`
+- `text-embedding-3-small`
+
+In testing, OpenAI reports both the large and small third generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining better performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb) benchmark than the second generation text-embedding-ada-002 model.
+
+For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
+
+### GPT-3.5 Turbo quota consolidation
+
+To simplify migration between different versions of the GPT-3.5-Turbo models (including 16k), we will be consolidating all GPT-3.5-Turbo quota into a single quota value.
+
+- Any customers who have increased quota approved will have combined total quota that reflects the previous increases.
+
+- Any customer whose current total usage across model versions is less than the default will get a new combined total quota by default.
+
+### GPT-4-0125-preview model available
+
+The `gpt-4` model version `0125-preview` is now available on Azure OpenAI Service in the East US, North Central US, and South Central US regions.  Customers with deployments of `gpt-4` version `1106-preview` will be automatically upgraded to `0125-preview` in the coming weeks.  
+
+For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
+
+### Assistants API public preview
+
+Azure OpenAI now supports the API that powers OpenAI's GPTs. Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to your needs through custom instructions and advanced tools like code interpreter, and custom functions. To learn more, see:
+
+- [Quickstart](./assistants-quickstart.md)
+- [Concepts](./concepts/assistants.md)
+- [In-depth Python how-to](./how-to/assistant.md)
+- [Code Interpreter](./how-to/code-interpreter.md)
+- [Function calling](./how-to/assistant-functions.md)
+- [Assistants model & region availability](./concepts/models.md#assistants-preview)
+- [Assistants Python & REST reference](./assistants-reference.md)
+- [Assistants Samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
+
+### OpenAI text to speech voices public preview
+
+Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get AI-generated speech from the text you provide. To learn more, see the [overview guide](../speech-service/openai-voices.md) and try the [quickstart](./text-to-speech-quickstart.md).
+
+> [!NOTE]
+> Azure AI Speech also supports OpenAI text to speech voices. To learn more, see [OpenAI text to speech voices via Azure OpenAI Service or via Azure AI Speech](../speech-service/openai-voices.md#openai-text-to-speech-voices-via-azure-openai-service-or-via-azure-ai-speech) guide.
+
+### New Fine-tuning capabilities and model support
+
+- [Continuous fine-tuning](https://aka.ms/oai/fine-tuning-continuous)
+- [Fine-tuning & function calling](./how-to/fine-tuning-functions.md)
+- [`gpt-35-turbo 1106` support](./concepts/models.md#fine-tuning-models)
+
+### New regional support for Azure OpenAI On Your Data
+
+You can now use Azure OpenAI On Your Data in the following Azure region:
+* South Africa North
+
+### Azure OpenAI On Your Data general availability
+
+- [Azure OpenAI On Your Data](./concepts/use-your-data.md) is now generally available.
+
+## December 2023
+
+### Azure OpenAI On Your Data
+
+- Full VPN and private endpoint support for Azure OpenAI On Your Data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
+- New article for using [Azure OpenAI On Your Data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
+
+### GPT-4 Turbo with Vision now available
+
+GPT-4 Turbo with Vision on Azure OpenAI service is now in public preview. GPT-4 Turbo with Vision is a large multimodal model (LMM) developed by OpenAI that can analyze images and provide textual responses to questions about them. It incorporates both natural language processing and visual understanding. With enhanced mode, you can use the [Azure AI Vision](/azure/ai-services/computer-vision/overview) features to generate additional insights from the images.
+
+- Explore the capabilities of GPT-4 Turbo with Vision in a no-code experience using the [Azure Open AI Playground](https://oai.azure.com/). Learn more in the [Quickstart guide](./gpt-v-quickstart.md).
+- Vision enhancement using GPT-4 Turbo with Vision is now available in the [Azure Open AI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, object grounding, image support for "add your data," and support for video prompt.
+- Make calls to the chat API directly using the [REST API](https://aka.ms/gpt-v-api-ref).
+- Region availability is currently limited to `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, and `AustraliaEast`  
+- Learn more about the known limitations of GPT-4 Turbo with Vision and other [frequently asked questions](/azure/ai-services/openai/faq#gpt-4-with-vision).
+
+## November 2023
+
+### New data source support in Azure OpenAI On Your Data
+
+- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md#supported-data-sources) as well as URLs/web addresses as data sources to ingest your data and chat with a supported Azure OpenAI model.
+
+### GPT-4 Turbo Preview & GPT-3.5-Turbo-1106 released
+
+Both models are the latest release from OpenAI with improved instruction following, [JSON mode](./how-to/json-mode.md), [reproducible output](./how-to/reproducible-output.md), and parallel function calling.
+
+- **GPT-4 Turbo Preview** has a max context window of 128,000 tokens and can generate 4,096 output tokens. It has the latest training data with knowledge up to April 2023. This model is in preview and is not recommended for production use. All deployments of this preview model will be automatically updated in place once the stable release becomes available.
+
+- **GPT-3.5-Turbo-1106** has a max context window of 16,385 tokens and can generate 4,096 output tokens.
+
+For information on model regional availability consult the [models page](./concepts/models.md).
+
+The models have their own unique per region [quota allocations](./quotas-limits.md).
+
+### DALL-E 3 public preview
+
+DALL-E 3 is the latest image generation model from OpenAI. It features enhanced image quality, more complex scenes, and improved performance when rendering text in images. It also comes with more aspect ratio options. DALL-E 3 is available through OpenAI Studio and through the REST API. Your OpenAI resource must be in the `SwedenCentral` Azure region.
+
+DALL-E 3 includes built-in prompt rewriting to enhance images, reduce bias, and increase natural variation.
+
+Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
+
+### Responsible AI
+
+- **Expanded customer configurability**: All Azure OpenAI customers can now configure all severity levels (low, medium, high) for the categories hate, violence, sexual and self-harm, including filtering only high severity content. [Configure content filters](./how-to/content-filters.md)
+
+- **Content Credentials in all DALL-E models**: AI-generated images from all DALL-E models now include a digital credential that discloses the content as AI-generated. Applications that display image assets can leverage the open source [Content Authenticity Initiative SDK](https://opensource.contentauthenticity.org/docs/js-sdk/getting-started/quick-start/) to display credentials in their AI generated images. [Content Credentials in Azure OpenAI](/azure/ai-services/openai/concepts/content-credentials)
+
+- **New RAI models**
+    
+    - **Jailbreak risk detection**: Jailbreak attacks are user prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. The jailbreak risk detection model is optional (default off), and available in annotate and filter model. It runs on user prompts.
+    - **Protected material text**: Protected material text describes known text content (for example, song lyrics, articles, recipes, and selected web content) that can be outputted by large language models. The protected material text model is optional (default off), and available in annotate and filter model. It runs on LLM completions.
+    - **Protected material code**: Protected material code describes source code that matches a set of source code from public repositories, which can be outputted by large language models without proper citation of source repositories. The protected material code model is optional (default off), and available in annotate and filter model. It runs on LLM completions.
+
+    [Configure content filters](./how-to/content-filters.md)
+
+- **Blocklists**: Customers can now quickly customize content filter behavior for prompts and completions further by creating a custom blocklist in their filters. The custom blocklist allows the filter to take action on a customized list of patterns, such as specific terms or regex patterns. In addition to custom blocklists, we provide a Microsoft profanity blocklist (English). [Use blocklists](./how-to/use-blocklists.md)
+## October 2023
+
+### New fine-tuning models (preview)
+
+- `gpt-35-turbo-0613` is [now available for fine-tuning](./how-to/fine-tuning.md).
+
+- `babbage-002` and `davinci-002` are [now available for fine-tuning](./how-to/fine-tuning.md). These models replace the legacy ada, babbage, curie, and davinci base models that were previously available for fine-tuning.
+
+- Fine-tuning availability is limited to certain regions. Check the [models page](concepts/models.md#fine-tuning-models), for the latest information on model availability in each region.
+
+- Fine-tuned models have different [quota limits](quotas-limits.md) than regular models.
+
+- [Tutorial: fine-tuning GPT-3.5-Turbo](./tutorials/fine-tune.md)
+
+### Azure OpenAI On Your Data
+
+- New [custom parameters](./concepts/use-your-data.md#runtime-parameters) for determining the number of retrieved documents and strictness.
+    - The strictness setting sets the threshold to categorize documents as relevant to your queries.
+    - The retrieved documents setting specifies the number of top-scoring documents from your data index used to generate responses.
+- You can see data ingestion/upload status in the Azure OpenAI Studio.
+- Support for private endpoints & VPNs for blob containers.
+
+## September 2023
+
+### GPT-4
+GPT-4 and GPT-4-32k are now available to all Azure OpenAI Service customers. Customers no longer need to apply for the waitlist to use GPT-4 and GPT-4-32k (the Limited Access registration requirements continue to apply for all Azure OpenAI models). Availability might vary by region. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
+
+### GPT-3.5 Turbo Instruct
+
+Azure OpenAI Service now supports the GPT-3.5 Turbo Instruct model. This model has performance comparable to `text-davinci-003` and is available to use with the Completions API. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
+
+### Whisper public preview
+
+Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whisper model. Get AI-generated text based on the speech audio you provide. To learn more, check out the [quickstart](./whisper-quickstart.md).
+
+> [!NOTE]
+> Azure AI Speech also supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](../speech-service/batch-transcription-create.md#use-a-whisper-model) guide. Check out [What is the Whisper model?](../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service.
+
+### New Regions
+
+- Azure OpenAI is now also available in the Sweden Central, and Switzerland North regions. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
+
+### Regional quota limits increases
+
+- Increases to the max default quota limits for certain models and regions. Migrating workloads to [these models and regions](./quotas-limits.md#regional-quota-limits) will allow you to take advantage of higher Tokens per minute (TPM).  
+
 ## August 2023
 
-- You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
-- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-network-support) now supports private endpoints.
+### Azure OpenAI on your own data (preview) updates
+
+- You can now deploy Azure OpenAI On Your Data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
+- Azure OpenAI On Your Data now supports private endpoints.
+- Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
+- [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
+- [Vector search and semantic search options](./concepts/use-your-data.md#search-types). 
+- [View your chat history in the deployed web app](./how-to/use-web-app.md#chat-history)
 
 ## July 2023
 
@@ -38,7 +215,7 @@ keywords:
 
 ### Use Azure OpenAI on your own data (preview)
 
-- [Azure OpenAI on your data](./concepts/use-your-data.md) is now available in preview, enabling you to chat with OpenAI models such as GPT-35-Turbo and GPT-4 and receive responses based on your data. 
+- [Azure OpenAI On Your Data](./concepts/use-your-data.md) is now available in preview, enabling you to chat with OpenAI models such as GPT-35-Turbo and GPT-4 and receive responses based on your data. 
 
 ### New versions of gpt-35-turbo and gpt-4 models
 
@@ -71,7 +248,7 @@ keywords:
 - General availability support for:
   - Chat Completion API version `2023-05-15`.
   - GPT-35-Turbo models.
-  - GPT-4 model series. Due to high demand access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
+  - GPT-4 model series. 
   
 If you are currently using the `2023-03-15-preview` API, we recommend migrating to the GA `2023-05-15` API. If you are currently using API version `2022-12-01` this API remains GA, but does not include the latest Chat Completion capabilities.
 

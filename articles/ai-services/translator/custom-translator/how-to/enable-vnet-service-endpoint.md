@@ -2,11 +2,10 @@
 title: Enable Virtual Network service endpoints with Custom Translator service
 titleSuffix: Azure AI services
 description: This article describes how to use Custom Translator service with an Azure Virtual Network service endpoint.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 08/08/2023
 ms.author: moelghaz
 ms.topic: how-to

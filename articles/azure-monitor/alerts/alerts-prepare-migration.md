@@ -1,10 +1,12 @@
 ---
 title: Update logic apps & runbooks for alerts migration
 description: Learn how to modify your webhooks, logic apps, and runbooks to prepare for voluntary migration.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 06/20/2023
 ms.reviewer: yalavi
 ---
+
 # Prepare your logic apps and runbooks for migration of classic alert rules
 
 > [!NOTE]
@@ -68,7 +70,7 @@ If you're using logic apps with classic alerts, you must modify your logic-app c
 
 1. Use the template "Azure Monitor - Metrics Alert Handler". This template has an **HTTP request** trigger with the appropriate schema defined.
 
-    ![Screenshot shows two buttons, Blank Logic App and Azure Monitor – Metrics Alert Handler.](media/alerts-prepare-migration/logic-app-template.png "Metric alert template")
+    :::image type="content" source="media/alerts-prepare-migration/logic-app-template.png" lightbox="media/alerts-prepare-migration/logic-app-template.png" alt-text="Screenshot shows two buttons, Blank Logic App and Azure Monitor – Metrics Alert Handler.":::
 
 1. Add an action to host your processing logic.
 
@@ -145,7 +147,7 @@ For a full example of a runbook that stops a virtual machine when an alert is tr
 
 ## Partner integration via webhooks
 
-Most of [our partners that integrate with classic alerts](../partners.md) already support newer metric alerts through their integrations. Known integrations that already work with new metric alerts are:
+Most of our partners that integrate with classic alerts already support newer metric alerts through their integrations. Known integrations that already work with new metric alerts include:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)

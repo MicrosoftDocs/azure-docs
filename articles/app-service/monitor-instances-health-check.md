@@ -7,7 +7,6 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 08/26/2022
 ms.author: msangapu
-ms.custom: contperf-fy22q1
 ---
 
 # Monitor App Service instances using Health check
@@ -45,6 +44,7 @@ Note that _/api/health_ is just an example added for illustration purposes. We d
 > - The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application can't connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy. Also, if the path does not return a response within 1 minute, the health check ping is considered unhealthy.
 > - When selecting the Health check path, make sure you're selecting a path that returns a 200 status code, only when the app is fully warmed up.
 > - In order to use Health check on your Function App, you must use a [premium or dedicated hosting plan](../azure-functions/functions-scale.md#overview-of-plans).
+> - Details about Health check on Function Apps can be found here: [Monitor function apps using Health check](../azure-functions/configure-monitoring.md?#monitor-function-apps-using-health-check).
 
 > [!CAUTION]
 > Health check configuration changes restart your app. To minimize impact to production apps, we recommend [configuring staging slots](deploy-staging-slots.md) and swapping to production.
@@ -64,6 +64,9 @@ In addition to configuring the Health check options, you can also configure the 
 Health check integrates with App Service's [authentication and authorization features](overview-authentication-authorization.md). No other settings are required if these security features are enabled.
 
 If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. Once you have those features in-place, you can authenticate the health check request by inspecting the header, `x-ms-auth-internal-token`, and validating that it matches the SHA256 hash of the environment variable `WEBSITE_AUTH_ENCRYPTION_KEY`. If they match, then the health check request is valid and originating from App Service. 
+
+> [!NOTE]
+> Specifically for [Azure Functions authentication](/azure/azure-functions/security-concepts?tabs=v4#function-access-keys), the function that serves as Health check endpoint needs to allow anonymous access. 
 
 ##### [.NET](#tab/dotnet)
 
@@ -136,9 +139,10 @@ function envVarMatchesHeader(headerValue) {
 > The `x-ms-auth-internal-token` header is only available on Windows App Service.
 
 ## Instances
-Once Health Check is enabled, you can restart and monitor the status of your application instances through the instances tab. The instances tab shows your instance's name, the status of that instance and gives you the option to manually restart the application instance.
 
-If the status of your instance is unhealthy, you can restart the instance manually using the restart button in the table.  Keep in mind that any other applications hosted on the same App Service Plan as the instance will also be affected by the restart.  If there are other applications using the same App Service Plan as the instance, they are listed on the opening blade from the restart button.
+Once Health Check is enabled, you can restart and monitor the status of your application instances through the instances tab. The instances tab shows your instance's name, the status of that application's instance and gives you the option to manually restart the instance.
+
+If the status of your application instance is unhealthy, you can restart the instance manually using the restart button in the table.  Keep in mind that any other applications hosted on the same App Service Plan as the instance will also be affected by the restart.  If there are other applications using the same App Service Plan as the instance, they are listed on the opening blade from the restart button.
 
 If you restart the instance and the restart process fails, you will then be given the option to replace the worker (only 1 instance can be replaced per hour).  This will also affect any applications using the same App Service Plan.
 
@@ -168,7 +172,7 @@ If your app is only scaled to one instance and becomes unhealthy, it will not be
  
 ### Why are the Health check requests not showing in my web server logs?
 
-The Health check requests are sent to your site internally, so the request won't show in [the web server logs](troubleshoot-diagnostic-logs.md#enable-web-server-logging). This also means the request will have an origin of `127.0.0.1` since the request is being sent internally. You can add log statements in your Health check code to keep logs of when your Health check path is pinged.
+The Health check requests are sent to your site internally, so the request won't show in [the web server logs](troubleshoot-diagnostic-logs.md#enable-web-server-logging). You can add log statements in your Health check code to keep logs of when your Health check path is pinged.
 
 ### Are the Health check requests sent over HTTP or HTTPS?
 

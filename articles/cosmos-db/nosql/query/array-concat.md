@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/17/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns an array that is the result of concatenating two or more array values.
 
 ## Syntax
 
-```sql
+```nosql
 ARRAY_CONCAT(<array_expr_1>, <array_expr_2> [, <array_expr_N>])  
 ```  
 
@@ -43,7 +44,7 @@ Returns an array expression.
 
 The following example shows how to concatenate two arrays.  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/array-concat/query.sql" highlight="2":::  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/array-concat/query.sql" highlight="2":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/array-concat/result.json":::
 
@@ -51,7 +52,7 @@ The following example shows how to concatenate two arrays.
 
 - This function doesn't utilize the index.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)
