@@ -178,7 +178,7 @@ In addition to Server Components, Next.js provides [Route Handlers](https://next
 
 Begin by adding an API route.
 
-1. Create a new file at `app/api/currentTime/route.tsx`. This is the Route Handler for the new API endpoint.
+1. Create a new file at `app/api/currentTime/route.tsx`. This file holds the Route Handler for the new API endpoint.
 1. Add a handler function to return data from the API.
 
     ```ts
