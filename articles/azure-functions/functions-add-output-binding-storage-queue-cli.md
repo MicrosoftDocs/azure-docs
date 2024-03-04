@@ -19,7 +19,7 @@ In this article, you integrate an Azure Storage queue with the function and stor
 Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-node.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-node.md?pivot=nodejs-model-v3). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end   
 ::: zone pivot="programming-language-java"  
 Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-java.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
@@ -58,7 +58,7 @@ For more information on the details of bindings, see [Azure Functions triggers a
 With the queue binding defined, you can now update your function to receive the `msg` output parameter and write messages to the queue.
 
 ::: zone pivot="programming-language-python"     
-[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python-v1-v2.md)]
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-storage-binding-python-v2.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript"  
