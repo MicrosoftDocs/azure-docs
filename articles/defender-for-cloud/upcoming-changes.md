@@ -57,7 +57,6 @@ In February 2021, the deprecation of the MSCA task was communicated to all custo
 
 Customers can get the latest DevOps security tooling from Defender for Cloud through [Microsoft Security DevOps](azure-devops-extension.md) and additional security tooling through [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
 
-
 ## Update recommendations to align with Azure AI Services resources
 
 **Announcement date: February 20, 2024**
