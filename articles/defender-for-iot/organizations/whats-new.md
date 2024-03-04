@@ -35,7 +35,7 @@ For more information, see [Suppress irrelevant alerts](how-to-accelerate-alert-i
 
 ### Focused alerts in OT/IT environments
 
-Organizations where sensors are deployed between OT and IT networks deal with many alerts, related to both OT and IT traffic. The amount of alerts, some of which are irrelevant, can cause alert fatigue and affect overall performance.
+Organizations where sensors are deployed between OT and IT networks deal with many alerts, related to both OT and IT traffic. The number of alerts, some of which are irrelevant, can cause alert fatigue and affect overall performance.
 
 To address these challenges, we've updated Defender for IoT's detection policy to automatically trigger alerts based on business impact and network context, and reduce low-value IT related alerts.  
 

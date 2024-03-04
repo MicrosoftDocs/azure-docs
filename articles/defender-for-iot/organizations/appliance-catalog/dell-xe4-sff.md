@@ -18,15 +18,15 @@ This article describes the **DELL XE4 SFF** appliance deployment and installatio
 
 The following image shows a sample of the DELL XE4 SFF front panel:
 
-:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-front-view-700x400.png" alt-text="Photo of the front view of the DELL XE4 SFF." border="false":::
+:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-front-view-700x400.png" alt-text="Picture of the front view of the DELL XE4 SFF." border="false":::
 
 The following image shows a sample of the DELL XE4 SFF back panel:
 
-:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-rear-view.png" alt-text="Photo of the back view of the DELL XE4 SFF." border="false":::
+:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-rear-view.png" alt-text="Picture of the back view of the DELL XE4 SFF." border="false":::
 
 The following image shows the DELL XE4 SFF dust filter installation and maintenance:
 
-:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-dust-filter.png" alt-text="Photo of the dust filter of the DELL XE4 SFF." border="false":::
+:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-dust-filter.png" alt-text="Picture of the dust filter of the DELL XE4 SFF." border="false":::
 
 ## Specifications
 
@@ -140,7 +140,7 @@ Set up the Dell XE4 BIOS to achieve optimal performance for sensors.
 
     1. Enable **Block Sleep**
 
-## Dell XE4 Software Setup
+## Dell XE4 software setup
 
 This procedure describes how to install Defender for IoT software on the Dell XE4. The installation process takes about 20 minutes. After the installation, the system restarts several times.
 
