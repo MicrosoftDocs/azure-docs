@@ -184,6 +184,7 @@ To trigger a rebuild, run the following statement on each table in the preceding
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
 ```
+
 > [!NOTE]
 > If you are planning to rebuild the statistics of the uncached replicated table, make sure to update the statistics before triggering the cache. Updating statistics will invalidate the cache, so the sequence is important.
 > 
@@ -195,6 +196,15 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 > SELECT TOP 1 * FROM [ReplicatedTable]
 > 
 > UPDATE STATISTICS [ReplicatedTable]
+> END
+> ```
+>
+> ```sql
+> -- Correct sequence. Ensure that the rebuild operation is the last statement within the batch.
+> BEGIN
+> UPDATE STATISTICS [ReplicatedTable]
+>
+> SELECT TOP 1 * FROM [ReplicatedTable]
 > END
 > ```
 
