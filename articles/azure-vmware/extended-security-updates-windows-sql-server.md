@@ -3,7 +3,7 @@ title: Extended Security Updates (ESU) for Windows Server and SQL Server
 description: Customers get free Extended Security Updates (ESUs) for older Windows Server and SQL Server versions. This article is to raise awareness of this and tells them how they can configure it for this software running in Azure VMware Solution (AVS) virtual machines.
 author: MikeWeiner-Microsoft
 ms.author: michwe
-ms.service: Azure VMware Solution
+ms.service: azure-vmware
 ms.topic: how-to  
 ms.date: 02/28/2024
 ---
@@ -33,8 +33,8 @@ When you contact support, the ticket should be raised under the category of Azur
 -	OS versions 
 -	ESU Year(s) coverage (for example, Year 1, Year 2, Year 3, etc.)
 
-> [!WARNING]: 
->If you create Extended Security Update licenses for Windows through Azure Arc, this will result in billing charges for the ESUs. 
+> [!WARNING] 
+> If you create Extended Security Update licenses for Windows through Azure Arc, this will result in billing charges for the ESUs. 
 
 ### SQL Server
 For SQL Server environments running in a VM in AVS you can use Extended Security Updates enabled by Azure Arc to configure ESUs and automate patching. The configuration steps are 
@@ -42,7 +42,7 @@ For SQL Server environments running in a VM in AVS you can use Extended Security
 
 2.	You should then follow the steps discussed here: [Subscribe to Extended Security Updates enabled by Azure Arc](https://learn.microsoft.com/en-us/sql/sql-server/end-of-support/sql-server-extended-security-updates?view=sql-server-ver16&tabs=portal#subscribe-to-extended-security-updates-enabled-by-azure-arc) to subscribe to Extended Security Updates through the SQL Server Configuration experience. 
 
-> [!WARNING]: 
+> [!WARNING]
 > If you register SQL Server instances in a different manner than documented in this step it will not be integrated into AVS and result in you being billed for ESUs.
 
 #### View ESU subscription status
