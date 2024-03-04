@@ -46,7 +46,7 @@ Storage accounts created as part of the function app create flow in the Azure po
 
 + When creating your function app on a plan with [availability zone support](../reliability/reliability-functions.md#availability-zone-support) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
 
-You can create function apps in an Elastic Premium or Dedicated (App Service) plan using deployment automation. However, you must include specific networking configurations in your ARM template or Bicep file. When you don't include these settings and resources, your automated deployment fails in validation. For more information, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). 
+You can create function apps in an Elastic Premium or Dedicated (App Service) plan using deployment automation. However, you must include specific networking configurations in your ARM template or Bicep file. When you don't include these settings and resources, your automated deployment might fail in validation. For more information, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). 
 
 ## Storage account guidance
 
