@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: timanghn
 author: tinaem
 ms.reviewer: ssalgado
-ms.date: 12/12/2023
+ms.date: 03/04/2024
 #Customer intent: As a data scientist, I want to learn about machine learning foundation models and how to integrate popular models into azure machine learning.
 ---
 
@@ -35,7 +35,7 @@ The most popular open source third-party models curated by Azure Machine Learnin
 'Curated by Azure AI' and collections from partners such as Meta, NVIDIA, Mistral AI are all curated collections on the Catalog. 
 
 **Azure OpenAI models, exclusively available on Azure**:
-Fine-tune and deploy Azure OpenAI models via the 'Azure Open AI' collection in the Model Catalog.
+Deploy Azure OpenAI models via the 'Azure Open AI' collection in the Model Catalog.
 
 **Transformers models from the HuggingFace hub**: 
 Thousands of models from the HuggingFace hub are accessible via the 'Hugging Face' collection for real time inference with online endpoints. 
@@ -54,7 +54,7 @@ Thousands of models from the HuggingFace hub are accessible via the 'Hugging Fac
 Feature | Open source models curated by Azure Machine Learning | Transformers models from the HuggingFace hub
 --|--|--
 Inference | Online and batch inference | Online inference
-Evaluation and fine-tuning | Evaluate and fine tune with UI wizards, SDK or CLI | not available
+Evaluation and fine-tuning | Evaluate and fine tune with the UI, SDK or CLI | not available
 Import models | Limited support for importing models using SDK or CLI | not available 
 
 ## Compare attributes of collections
