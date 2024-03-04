@@ -357,7 +357,7 @@ Best practices to load data with partition option:
 - Choose distinctive column as partition column (like primary key or unique key) to avoid data skew. 
 - If you use Azure Integration Runtime to copy data, you can set larger "[Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units)" (>4) to utilize more computing resource. Check the applicable scenarios there.
 - "[Degree of copy parallelism](copy-activity-performance-features.md#parallel-copy)" control the partition numbers, setting this number too large sometime hurts the performance, recommend setting this number as (DIU or number of Self-hosted IR nodes) * (2 to 4).
-- Note Microsoft Fabric Warehouse can execute a maximum of 32 queries at a moment, setting "Degree of copy parallelism" too large may cause a Warehouse throttling issue.
+- Note that Microsoft Fabric Warehouse can execute a maximum of 32 queries at a moment, setting "Degree of copy parallelism" too large may cause a Warehouse throttling issue.
 
 **Example: query with dynamic range partition**
 
