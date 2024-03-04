@@ -15,9 +15,7 @@ ms.date: 03/04/2024
 
 This article shows you how to set up a class that focuses on the forensics side of ethical hacking with Azure Lab Services. In an ethical hacking class, students can learn modern techniques for defending against vulnerabilities. Penetration testing, a practice that the ethical hacking community uses, occurs when someone attempts to gain access to the system or network to demonstrate vulnerabilities that a malicious attacker might exploit.
 
-[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
-
-Each student gets a Windows host virtual machine (VM) that has two nested virtual machines: one VM with Metasploitable3 image and another VM with the Kali Linux image. Use the Metasploitable VM for exploiting purposes. The Kali VM provides access to the tools you need to run forensic tasks.
+Each student gets a Windows host virtual machine (VM) that has two nested virtual machines: one VM with Metasploitable3 image and another VM with the Kali Linux image. Use the Metasploitable VM to try exploitation tasks. The Kali VM provides access to the tools you need to run forensic tasks.
 
 ## Prerequisites
 
@@ -32,6 +30,8 @@ Each student gets a Windows host virtual machine (VM) that has two nested virtua
 | ------------ | ------------------ |
 | Virtual machine (VM) size | Medium (Nested Virtualization) |
 | VM image | Windows 11 |
+
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 ## Configure your template
 
@@ -61,7 +61,7 @@ To configure the template VM, complete the following tasks:
 
 Kali is a Linux distribution that includes tools for penetration testing and security auditing.
 
-The Rapid7 Metasploitable image is an image purposely configured with security vulnerabilities. Use this image to test and find issues. The following instructions show you how to use a precreated Metasploitable image. However, if you need a newer version of the Metasploitable image, see [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3).
+The Rapid7 Metasploitable image is an image purposely configured with security vulnerabilities. Use this image to test and find issues. The following instructions show you how to set up a particular Metasploitable image. If you need a newer version of the Metasploitable, see [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3).
 
 - To install Kali Linux and Metasploitable on the template VM, run the following command:
 
@@ -109,7 +109,7 @@ To install the Metasploitable nested VM on the template VM:
    1. Select **Download Metasploitable Now**.
    1. When the download finishes, extract the zip file, and remember the location of the *Metasploitable.vmdk* file.
 
-1. Convert the extracted vmdk file to a Hyper-V vhdx file with StarWind V2V Converter.
+1. Convert the extracted *.vmdk* file to a Hyper-V *.vhdx* file with StarWind V2V Converter.
 
    1. Download and install [StarWind V2V Converter](https://www.starwindsoftware.com/starwind-v2v-converter#download).
    1. Start **StarWind V2V Converter**.
