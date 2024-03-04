@@ -4,7 +4,7 @@ description: Enabling the Support Form and tooling, and handling support request
 author:      ahammer # GitHub alias
 ms.author:   adamhammer # Microsoft alias
 ms.service: azure-communication-services
-ms.topic: conceptual
+ms.topic: quick-start
 ms.date:     01/08/2024
 ms.subservice: calling
 zone_pivot_groups: acs-programming-languages-support-kotlin-swift
@@ -39,7 +39,6 @@ In this guide, you'll gain comprehensive insights into integrating user feedback
 - **Handle Support Tickets:** Understand how to generate unique support ticket numbers, store user feedback alongside relevant application data, and provide endpoints for accessing detailed support ticket information and downloading log files.
 - **Utilize Azure Blob Storage:** Dive into how to use Azure Blob Storage for storing feedback and support request data, ensuring secure and structured data management that supports efficient retrieval and analysis.
 - **Enhance Application Reliability and User Satisfaction:** By implementing the strategies outlined in this guide, developers will be able to quickly address and resolve user issues, leading to improved application reliability and user satisfaction.
-    
 
 ## Server-Side Setup
 
@@ -234,7 +233,7 @@ app.listen(port, () => {
 
 The following section will explain how to take the events generated feedback and consume deploy the issue to your servers.
 
-You will learn how to register for the event, serialize the data over the wire and receive it on your server. The end result is that your ACS Project will be able to c
+You will learn how to register for the event, serialize the data over the wire and receive it on your server. The end result is that your ACS Project will be able to dispatch these events to the Server we created in the first step, and receive a link to view the details.
 
 ::: zone pivot="programming-language-kotlin"
 [!INCLUDE [Android](./includes/collecting-user-feedback/android.md)]

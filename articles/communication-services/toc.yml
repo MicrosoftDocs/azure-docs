@@ -272,6 +272,8 @@ items:
     - name: Survey users
       href: tutorials/end-of-call-survey-tutorial.md
       displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+    - name: Collecting user feedback with the mobile UI Library
+      href: tutorials/collecting-user-feedback/collecting-user-feedback.md
     - name: Virtual appointments
       items:      
       - name: Sample builder
@@ -777,8 +779,6 @@ items:
         href: concepts/ui-library/ui-library-overview.md
       - name: UI Library use cases
         href: concepts/ui-library/ui-library-use-cases.md
-      - name: Collecting user feedback
-        href: quickstarts/ui-library/collecting-user-feedback.md
       - name: Audio Only Mode
         href: concepts/ui-library/audio_only_mode.md
       - name: Design with UI Library Design Kit
