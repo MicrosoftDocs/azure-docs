@@ -99,7 +99,7 @@ To create an image from a VM in the portal, see [Capture an image of a VM](../vi
 
 To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md).
 
-To create an image requires purchase plan, see [Supply Azure Marketplace purchase plan information when creating images](../virtual-machines/marketplace-images).
+To create an image requires purchase plan, see [Supply Azure Marketplace purchase plan information when creating images](../virtual-machines/marketplace-images.md).
 
 > [!NOTE]
 > If the base image requires purchase plan, Batch will need the required purchased image plan information when creating pools. You have to make sure that the image has the correct plan information when you create it.
