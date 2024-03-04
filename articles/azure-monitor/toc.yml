@@ -946,7 +946,7 @@ items:
               - name: Move a workspace
                 href: logs/move-workspace.md
               - name: Move a workspace across regions
-                href: logs/move-workspace-region.md
+                href: ../operational-excellence/relocation-log-analytics.md?toc=/azure/azure-monitor/toc.json
               - name: Delete and recover a workspace
                 href: logs/delete-workspace.md
           - name: Manage access
