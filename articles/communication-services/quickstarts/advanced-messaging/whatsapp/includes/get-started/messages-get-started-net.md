@@ -84,7 +84,7 @@ dotnet add package Azure.Communication.Messages
 
 Open the *Program.cs* file in a text editor.   
 
-Replace the contents of your Program.cs with the following code:
+Replace the contents of your *Program.cs* with the following code:
 
 ```csharp
 using System;

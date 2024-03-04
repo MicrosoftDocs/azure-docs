@@ -33,7 +33,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
     
     :::image type="content" source="./media/handle-advanced-messaging-events/event-grid-viewer.png" lightbox="./media/handle-advanced-messaging-events/event-grid-viewer.png" alt-text="Screenshot that shows the Event Grid Viewer Sample Page with Deploy To Azure option.":::
 
-2.  After clicking the "Deploy to Azure" button, fill in the required fields (since the site name needs to be globally unique as it creates a DNS entry, it's recommended to include your alias in the name for this step). While this quickstart doesn't require any special setup for this step, here are suggestions for filling out the deployment details:
+2.  After clicking the **Deploy to Azure**, fill in the required fields. Because the site name creates a DNS entry, it needs to be globally unique. We recommended that you include your alias in the name for this step. While this quickstart doesn't require any special setup for this step, here are suggestions for filling out the deployment details:
   - `Subscription` - Select the subscription that contains your Azure Communication Services resource. This specific subscription isn't required, but it will make it easier to clean up after you're done with the quickstart.
   - `Resource Group` - Select the resource group that contains your Azure Communication Services resource. This specific resource group isn't required, but it will make it easier to clean up after you're done with the quickstart.
   - `Region` - Select the resource group that contains your Azure Communication Services resource. This specific region isn't required, but is recommended.
@@ -53,7 +53,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
     :::image type="content" source="./media/handle-advanced-messaging-events/default-domain.png" lightbox="./media/handle-advanced-messaging-events/default-domain.png" alt-text="Screenshot that shows URL of Events Viewer web app.":::
 
-6.  The URL for the Event Grid Viewer is the Site Name you used to create the deployment with the path "/api/update" appended.
+6.  The URL for the Event Grid Viewer is the Site Name you used to create the deployment with the path `/api/update` appended.
     For example: "https://{{site-name}}.azurewebsites.net/api/updates". You'll need it in the next step and during the creation of the demo app.
 
 ## Subscribe to Advanced Messaging events
@@ -72,13 +72,13 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
         :::image type="content" source="./media/handle-advanced-messaging-events/create-event-subscription.png" lightbox="./media/handle-advanced-messaging-events/create-event-subscription.png" alt-text="Screenshot that shows create event subscription properties.":::
 
-    -  For endpoint type, select **"Webhook"** and enter the URL for the Event Grid Viewer we created in the "Setup Event Grid Viewer" step with the path "/api/updates" appended. For example: https://{{site-name}}.azurewebsites.net/api/updates.
+    -  For endpoint type, select **"Webhook"** and enter the URL for the Event Grid Viewer we created in the **Setup Event Grid Viewer** step with the path `/api/updates` appended. For example: `https://{{site-name}}.azurewebsites.net/api/updates`.
 
         :::image type="content" source="./media/handle-advanced-messaging-events/event-webhook-details.png" lightbox="./media/handle-advanced-messaging-events/event-webhook-details.png" alt-text="Screenshot that shows how to update webhook url of event subscription to receive events.":::
 
     -  Select **Create**.
 
-3.  Now if you navigate back to the "Events" option in left panel of your Azure Communication Services resource, you should be able to see the new event subscription with the Advanced Messaging events.
+3.  Navigate back to the **Events** option in left panel of your Azure Communication Services resource. Notice the new event subscription with Advanced Messaging events.
 
     :::image type="content" source="./media/handle-advanced-messaging-events/verify-events.png" lightbox="./media/handle-advanced-messaging-events/verify-events.png" alt-text="Screenshot that shows two Advanced messaging events subscribed.":::
 
