@@ -26,7 +26,7 @@
     href: quickstarts/multimodal-vision.md
   - name: Generate text completions in the playground
     href: quickstarts/playground-completions.md
-  - name: Get started with Assistants & code interpreter in the playground
+  - name: Get started with Assistants and code interpreter in the playground
     href: quickstarts/assistants.md
 - name: Tutorials
   items:
