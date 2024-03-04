@@ -300,6 +300,9 @@
           - name: Test MSIX packages
             displayName: msix app attach, app attach, applications, apps, appx packages, app packages
             href: app-attach-test-msix-packages.md
+          - name: Migrate from MSIX app attach to app attach
+            displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+            href: msix-app-attach-migration.md
           - name: MSIXMGR tool parameters
             displayName: msix app attach, app attach, applications, apps, appx packages, app packages
             href: msixmgr-tool-syntax-description.md 
@@ -616,6 +619,9 @@
   - name: Custom image templates
     displayName: troubleshooting, virtual machines, vms, images, vhd, vhdx
     href: troubleshoot-custom-image-templates.md
+  - name: App attach
+    displayName: troubleshooting, apps, remoteapp
+    href: troubleshoot-app-attach.md
 - name: Reference
   items:
   - name: Azure CLI

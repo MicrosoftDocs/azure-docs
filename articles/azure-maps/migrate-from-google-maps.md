@@ -123,7 +123,6 @@ Learn the details of how to migrate your Google Maps application with these arti
 > [!div class="nextstepaction"]
 > [Migrate a web app](migrate-from-google-maps-web-app.md)
 
-[Azure Active Directory authentication]: azure-maps-authentication.md#azure-ad-authentication
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Blog]: https://aka.ms/AzureMapsBlog
 [Azure Maps developer forums]: https://aka.ms/AzureMapsForums
@@ -139,6 +138,7 @@ Learn the details of how to migrate your Google Maps application with these arti
 [Azure support options]: https://azure.microsoft.com/support/options
 [free account]: https://azure.microsoft.com/free/
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Microsoft Entra authentication]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [terms of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46

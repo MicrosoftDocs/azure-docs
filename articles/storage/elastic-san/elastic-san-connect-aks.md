@@ -8,7 +8,7 @@ ms.date: 02/13/2024
 ms.author: rogarana
 ---
 
-# Connect Azure Elastic SAN volumes to an Azure Kubernetes Service cluster (Preview)
+# Connect Azure Elastic SAN volumes to an Azure Kubernetes Service cluster
 
 This article explains how to connect an Azure Elastic storage area network (SAN) volume from an Azure Kubernetes Service (AKS) cluster. To make this connection, enable the [Kubernetes iSCSI CSI driver](https://github.com/kubernetes-csi/csi-driver-iscsi) on your cluster. With this driver, you can access volumes on your Elastic SAN by creating persistent volumes on your AKS cluster, and then attaching the Elastic SAN volumes to the persistent volumes. 
 
