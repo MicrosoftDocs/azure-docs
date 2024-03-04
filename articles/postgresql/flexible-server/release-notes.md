@@ -10,7 +10,7 @@ ms.custom:
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 01/24/2024
+ms.date: 03/3/2024
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -18,6 +18,9 @@ ms.date: 01/24/2024
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Azure Database for PostgreSQL flexible server.
+
+## Release: February 2024
+* Support for [minor versions](./concepts-supported-versions.md) 16.1, 15.5, 14.10, 13.13, 12.17, 11.22 <sup>$</sup>
 
 ## Release: January 2024
 * General availability of [Server logs](./how-to-server-logs-portal.md) including Portal and CLI support.
