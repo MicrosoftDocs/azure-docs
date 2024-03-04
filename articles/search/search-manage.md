@@ -61,11 +61,23 @@ On a new search service, we recommend these configuration tasks.
 
 By default, a search service is created in a minimum configuration of one replica and partition each. You can [modify capacity](search-capacity-planning.md) by adding or removing replicas and partitions, but we recommend waiting until volumes require it. Many customers run production workloads on the minimum configuration.
 
-Some features add to the cost of running the service. [How you're charged for Azure AI Search](search-sku-manage-costs.md#how-youre-charged-for-azure-ai-search) explains which features have billing impact. You can [disable semantic ranking](semantic-how-to-enable-disable.md) at the service level to prevent usage.
+Some features add to the cost of running the service:
+
++ [How you're charged for Azure AI Search](search-sku-manage-costs.md#how-youre-charged-for-azure-ai-search) explains which features have billing impact.
++ [(Optional) disable semantic ranking](semantic-how-to-enable-disable.md) at the service level to prevent usage of the feature.
+
+### Configure network security
+
+By default, a search service accepts authenticated and authorized requests over public internet connections. Network security restricts access through firewall rules, or by disabling public connections and allowing requests only from Azure virtual networks.
+
+* [Configure IP firewall rules](service-configure-firewall.md) to restrict access by IP address.
+* [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network.
+
+Review the [Security in Azure AI Search](search-security-overview.md) for details about inbound and outbound calls.
 
 ### Enable diagnostic logging
 
-[Enable diagnostic logging](monitor-azure-cognitive-search.md) to track user activity. If you skip this step, you still get [**activity logs**](../azure-monitor/essentials/activity-log.md)  and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md#types-of-metrics), but if you want index and query usage information, you should enable diagnostic logging and choose a destination for logged operations. 
+[Enable diagnostic logging](monitor-azure-cognitive-search.md) to track user activity. If you skip this step, you still get [**activity logs**](../azure-monitor/essentials/activity-log.md)  and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md#types-of-metrics) automatically, but if you want index and query usage information, you should enable diagnostic logging and choose a destination for logged operations. 
 
 We recommend Log Analytics Workspace for durable storage if you want to run system queries in the portal.
 
@@ -87,12 +99,13 @@ Initially, only an owner has access to search service information and operations
 
 A search service is always created with [API keys](search-security-api-keys.md). An admin API key grants read-write access to all data plane operations. You can't delete admin API keys but you can [disable API keys](search-security-rbac.md#disable-api-key-authentication) if you want all users to access data plane operations through role assignments.
 
-### Configure network security
+### Provide connection information to developers
 
-By default, a search service accepts authenticated and authorized requests over public internet connections. Network security restricts access through firewall rules, or by disabling public connections and allowing requests only from Azure virtual networks.
+Developers need the following information to connect to Azure AI Search:
 
-* [Configure IP firewall rules](service-configure-firewall.md) to restrict access by IP address
-* [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network
++ Endpoint or URL, provided on the **Overview** page.
++ API key from the **Keys** page, or a role assignment (Search Index Data Contributor is recommended).
++ Recommended. A portal link for access to the following wizards and tools: [Import data wizard](search-get-started-portal.md), [Import and vectorize data](search-get-started-portal-import-vectors.md), [Search explorer](search-explorer.md).
 
 ## Next steps
 
