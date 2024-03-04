@@ -18,7 +18,7 @@ This article describes the **DELL XE4 SFF** appliance deployment and installatio
 
 The following image shows a sample of the DELL XE4 SFF front panel:
 
-:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-front-view-700x400.png" alt-text="Picture of the front view of the DELL XE4 SFF." border="false":::
+:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-front-view.png" alt-text="Picture of the front view of the DELL XE4 SFF." border="false":::
 
 The following image shows a sample of the DELL XE4 SFF back panel:
 
