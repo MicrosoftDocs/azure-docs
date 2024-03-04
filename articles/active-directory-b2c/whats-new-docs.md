@@ -21,9 +21,19 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ## February 2024
 
+### New articles
+
+- [Enable CAPTCHA in Azure Active Directory B2C](add-captcha.md)
+- [Define a CAPTCHA technical profile in an Azure Active Directory B2C custom policy](captcha-technical-profile.md)
+- [Verify CAPTCHA challenge string using CAPTCHA display control](display-control-captcha.md)
+
 ### Updated articles
 
-
+- [Enable custom domains in Azure Active Directory B2C](custom-domain.md) - Updated steps to block the default B2C domain
+- [Manage Azure AD B2C custom policies with Microsoft Graph PowerShell](manage-custom-policies-powershell.md) - Microsoft Graph PowerShell updates 
+- [Localization string IDs](localization-string-ids.md) - CAPTCHA updates
+- [Page layout versions](page-layout.md) - CAPTCHA updates
+- [Configure Asignio with Azure Active Directory B2C for multifactor authentication](partner-asignio.md) - CAPTCHA updates
 
 ## January 2024
 
