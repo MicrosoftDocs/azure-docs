@@ -270,7 +270,7 @@
           - name: Set up golden image in Azure
             displayName: session hosts, virtual machines, vms, vhd, vhdx
             href: set-up-golden-image.md
-          - name: Set up a master VHD image
+          - name: Prepare and customize a VHD image
             displayName: session hosts, virtual machines, vms, vhd, vhdx
             href: set-up-customize-master-image.md
           - name: Install Office on a master VHD image
@@ -454,6 +454,9 @@
       - name: Watermarking
         displayName: security
         href: watermarking.md
+      - name: Configure clipboard transfer direction
+        displayName: security
+        href: clipboard-transfer-direction-data-types.md
     - name: Set up a disaster recovery plan
       displayName: bcdr, bc dr
       href: disaster-recovery.md
