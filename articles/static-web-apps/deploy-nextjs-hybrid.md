@@ -121,7 +121,7 @@ Once GitHub Actions workflow is complete, you can select the URL link to open th
 
 ## Add Server-Rendered data with a Server Component
 
-To add server-rendered data in your Next.js project using the App Router, edit a Next.js component to add a server-side operations and render these in this component. By default, Next.js components are [Server Components](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating) that can be server-rendered.
+To add server-rendered data in your Next.js project using the App Router, edit a Next.js component to add a server-side operations to render data in the component. By default, Next.js components are [Server Components](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating) that can be server-rendered.
 
 1. Open the `app/page.tsx` file and add an operation that sets the value of a variable, which is computed server-side. Examples include fetching data or other server operations.
 
