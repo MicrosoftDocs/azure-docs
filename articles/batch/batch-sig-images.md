@@ -2,7 +2,7 @@
 title: Use the Azure Compute Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 11/09/2023
+ms.date: 03/04/2024
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-azurecli, linux-related-content
@@ -65,17 +65,13 @@ The following steps show how to prepare a VM, take a snapshot, and create an ima
 
 ### Prepare a VM
 
-If you're creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image.
+If you're creating a new VM for the image, use Azure Marketplace image supported by Batch as the base image for your managed image.
 
-To get a full list of current Azure Marketplace image references supported by Azure Batch, use one of the following APIs to return a list of Windows and Linux VM images including the node agent SKU IDs for each image:
+To get a full list of current Azure Marketplace image references supported by Azure Batch, use one of the following APIs to return a list of Windows and Linux VM images:
 
 - PowerShell: [Azure Batch supported images](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI:  [Azure Batch pool supported images](/cli/azure/batch/pool/supported-images)
 - Batch service APIs: [Batch service APIs](batch-apis-tools.md#batch-service-apis) and [Azure Batch service supported images](/rest/api/batchservice/account/listsupportedimages)
-- List node agent SKUs: [Node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus)
-
-> [!NOTE]
-> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties)VMs.
 
 Follow these guidelines when creating VMs:
 
@@ -86,6 +82,10 @@ Follow these guidelines when creating VMs:
 - Ensure that the OS disk isn't encrypted.
 - Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.
 - For faster pool provisioning, use the [ReadWrite disk cache setting](../virtual-machines/premium-storage-performance.md#disk-caching) for the VM's OS disk.
+
+### Create an Azure Compute Gallery
+
+You need to create an Azure Compute Gallery to make your custom image available. Select this gallery when creating image in the following steps. To learn how to create an Azure Compute Gallery for your images, see [Create an Azure Compute Gallery](../virtual-machines/create-gallery.md).
 
 ### Create a VM snapshot
 
@@ -99,10 +99,14 @@ To create an image from a VM in the portal, see [Capture an image of a VM](../vi
 
 To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md).
 
+To create an image requires purchase plan, see [Supply Azure Marketplace purchase plan information when creating images](https://learn.microsoft.com/en-us/azure/virtual-machines/marketplace-images).
 
-### Create an Azure Compute Gallery
-
-Once you have successfully created your managed image, you need to create an Azure Compute Gallery to make your custom image available. To learn how to create an Azure Compute Gallery for your images, see [Create an Azure Compute Gallery](../virtual-machines/create-gallery.md).
+> [!NOTE]
+> If the base image requires purchase plan, Batch will need the required purchased image plan information when creating pools. You have to make sure that the image has the correct plan information when you create it.
+> 
+> For the purchase plan information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties) VMs.
+> 
+> Use Azure PowerShell [Get-AzGalleryImageDefinition](https://learn.microsoft.com/en-us/powershell/module/az.compute/get-azgalleryimagedefinition) or Azure CLI  [az sig image-definition show](https://learn.microsoft.com/en-us/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-show) to check whether the gallery image has correct plan information.
 
 ## Create a pool from a Shared Image using the Azure CLI
 
