@@ -57,7 +57,6 @@ In February 2021, the deprecation of the MSCA task was communicated to all custo
 
 Customers can get the latest DevOps security tooling from Defender for Cloud through [Microsoft Security DevOps](azure-devops-extension.md) and additional security tooling through [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
 
-
 ## Update recommendations to align with Azure AI Services resources
 
 **Announcement date: February 20, 2024**
@@ -96,7 +95,6 @@ Microsoft Defender for Cloud is decommissioning the resource provider `Microsoft
 Customers that are still using the API version **2022-09-01-preview** under `Microsoft.SecurityDevOps` to query Defender for Cloud DevOps security data will be impacted. To avoid disruption to their service, customer will need to update to the new API version **2023-09-01-preview** under the `Microsoft.Security` provider.
 
 Customers currently using Defender for Cloud DevOps security from Azure portal won't be impacted.
-
 
 For details on the new API version, see [Microsoft Defender for Cloud REST APIs](/rest/api/defenderforcloud/operation-groups).
 
