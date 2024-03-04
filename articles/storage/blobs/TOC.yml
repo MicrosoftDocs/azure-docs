@@ -67,8 +67,8 @@ items:
         href: ../common/lock-account-resource.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Get account configuration properties
         href: ../common/storage-account-get-info.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Move across regions
-        href: ../common/storage-account-move.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Relocate a storage account to another region
+        href: ../../operational-excellence/relocation-storage-account.md?toc=/azure/storage/blobs/toc.json
     - name: Classic storage account retirement
       href: ../common/classic-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
