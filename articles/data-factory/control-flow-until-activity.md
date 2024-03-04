@@ -44,7 +44,7 @@ To use an Until activity in a pipeline, complete the following steps:
             "value":  "<expression that evaluates to true or false>", 
             "type": "Expression"
         },
-        "timeout": "<time out for the loop. for example: 00:01:00 (1 minute)>",
+        "timeout": "<time out for the loop. for example: 00:10:00 (10 minute)>",
         "activities": [
             {
                 "<Activity 1 definition>"
@@ -92,7 +92,7 @@ In this example, the pipeline has two activities: **Until** and **Wait**. The Wa
                         "value": "@equals('Failed', coalesce(body('MyUnauthenticatedActivity')?.status, actions('MyUnauthenticatedActivity')?.status, 'null'))",
                         "type": "Expression"
                     },
-                    "timeout": "00:00:01",
+                    "timeout": "00:10:00",
                     "activities": [
                         {
                             "name": "MyUnauthenticatedActivity",
@@ -145,7 +145,7 @@ The pipeline in this sample copies data from an input folder to an output folder
                         "value":  "@equals('false', pipeline().parameters.repeat)", 
                         "type": "Expression"
                     },
-                    "timeout": "00:01:00",
+                    "timeout": "00:10:00",
                     "activities": [
                         {
                             "name": "CopyFromBlobToBlob",
