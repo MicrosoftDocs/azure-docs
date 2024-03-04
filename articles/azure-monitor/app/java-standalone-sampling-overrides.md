@@ -11,7 +11,7 @@ ms.reviewer: mmcc
 # Sampling overrides (preview) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> The sampling overrides feature is in preview, starting from 3.0.3.
+> The sampling overrides feature is in GA, starting from 3.5.0.
 
 Sampling overrides allow you to override the [default sampling percentage](./java-standalone-config.md#sampling),
 for example:
@@ -43,26 +43,22 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
   "connectionString": "...",
   "sampling": {
     "percentage": 10
-  },
-  "preview": {
-    "sampling": {
-      "overrides": [
-        {
-          "telemetryType": "request",
-          "attributes": [
-            ...
-          ],
-          "percentage": 0
-        },
-        {
-          "telemetryType": "request",
-          "attributes": [
-            ...
-          ],
-          "percentage": 100
-        }
-      ]
-    }
+    "overrides": [
+      {
+        "telemetryType": "request",
+        "attributes": [
+          ...
+        ],
+        "percentage": 0
+      },
+      {
+        "telemetryType": "request",
+        "attributes": [
+          ...
+        ],
+        "percentage": 100
+      }
+    ]
   }
 }
 ```
@@ -100,22 +96,20 @@ This example also suppresses collecting any downstream spans (dependencies) that
 ```json
 {
   "connectionString": "...",
-  "preview": {
-    "sampling": {
-      "overrides": [
-        {
-          "telemetryType": "request",
-          "attributes": [
-            {
-              "key": "http.url",
-              "value": "https?://[^/]+/health-check",
-              "matchType": "regexp"
-            }
-          ],
-          "percentage": 0
-        }
-      ]
-    }
+  "sampling": {
+    "overrides": [
+      {
+        "telemetryType": "request",
+        "attributes": [
+          {
+            "key": "url.path",
+            "value": "/health-check",
+            "matchType": "strict"
+          }
+        ],
+        "percentage": 0
+      }
+    ]
   }
 }
 ```
@@ -127,27 +121,25 @@ This example suppresses collecting telemetry for all `GET my-noisy-key` redis ca
 ```json
 {
   "connectionString": "...",
-  "preview": {
-    "sampling": {
-      "overrides": [
-        {
-          "telemetryType": "dependency",
-          "attributes": [
-            {
-              "key": "db.system",
-              "value": "redis",
-              "matchType": "strict"
-            },
-            {
-              "key": "db.statement",
-              "value": "GET my-noisy-key",
-              "matchType": "strict"
-            }
-          ],
-          "percentage": 0
-        }
-      ]
-    }
+  "sampling": {
+    "overrides": [
+      {
+        "telemetryType": "dependency",
+        "attributes": [
+          {
+            "key": "db.system",
+            "value": "redis",
+            "matchType": "strict"
+          },
+          {
+            "key": "db.statement",
+            "value": "GET my-noisy-key",
+            "matchType": "strict"
+          }
+        ],
+        "percentage": 0
+      }
+    ]
   }
 }
 ```
@@ -166,22 +158,20 @@ those are also collected for all '/login' requests.
   "sampling": {
     "percentage": 10
   },
-  "preview": {
-    "sampling": {
-      "overrides": [
-        {
-          "telemetryType": "request",
-          "attributes": [
-            {
-              "key": "http.url",
-              "value": "https?://[^/]+/login",
-              "matchType": "regexp"
-            }
-          ],
-          "percentage": 100
-        }
-      ]
-    }
+  "sampling": {
+    "overrides": [
+      {
+        "telemetryType": "request",
+        "attributes": [
+          {
+            "key": "url.path",
+            "value": "/login",
+            "matchType": "strict"
+          }
+        ],
+        "percentage": 100
+      }
+    ]
   }
 }
 ```
