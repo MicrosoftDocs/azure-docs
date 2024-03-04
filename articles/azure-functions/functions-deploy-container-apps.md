@@ -64,6 +64,7 @@ Use the following commands to create these items.
     ```azurecli
     az containerapp env create --name MyContainerappEnvironment --enable-workload-profiles --resource-group AzureFunctionsContainers-rg --location eastus
     ```
+    This command can take up to 10 minutes to complete.
 
 1. Create a general-purpose storage account in your resource group and region.
 
@@ -74,6 +75,12 @@ Use the following commands to create these items.
     The [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) command creates the storage account. 
 
     In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage names must contain 3 to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](storage-considerations.md#storage-account-requirements).
+
+1. Before you proceed, use this command to verify that your environment is ready.
+
+   ```azurecli
+   az containerapp env show -n MyContainerappEnvironment -g AzureFunctionsContainers-rg
+   ```
 
 ## Create and configure a function app on Azure with the image
 
@@ -154,7 +161,7 @@ In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) c
 
 ---
 
-When you first create the function app, it pulls the initial image from your registry. 
+Specifying `--workload-profile-name "Consumption"` creates your app in an environment using the default `Consumption` workload profile, which costs the same as running in a Container Apps Consumption plan. When you first create the function app, it pulls the initial image from your registry. 
   
 <!--- CI/CD isn't yet supported: 
 You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from Docker Hub.-->
