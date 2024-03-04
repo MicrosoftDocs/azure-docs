@@ -33,7 +33,6 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Manage Azure AD B2C custom policies with Microsoft Graph PowerShell](manage-custom-policies-powershell.md) - Microsoft Graph PowerShell updates 
 - [Localization string IDs](localization-string-ids.md) - CAPTCHA updates
 - [Page layout versions](page-layout.md) - CAPTCHA updates
-- [Configure Asignio with Azure Active Directory B2C for multifactor authentication](partner-asignio.md) - CAPTCHA updates
 
 ## January 2024
 
