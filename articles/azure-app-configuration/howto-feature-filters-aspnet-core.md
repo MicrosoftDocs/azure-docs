@@ -39,7 +39,11 @@ services.AddFeatureManagement()
         .AddFeatureFilter<MyCriteriaFilter>();
 ```
 
-Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following built-in filters are registered automatically as part of the `AddFeatureManagement` call, so you don't need to register them.
+Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following [built-in filters](https://github.com/microsoft/FeatureManagement-Dotnet#built-in-feature-filters) are registered automatically as part of the `AddFeatureManagement` call, so you don't need to register them.
+
+- `TimeWindowFilter`
+- `ContextualTargetingFilter`
+- `PercentageFilter`
 
 > [!TIP]
 > For more information on using `TargetingFilter`, see [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md).
