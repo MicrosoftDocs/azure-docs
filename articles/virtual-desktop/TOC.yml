@@ -270,7 +270,7 @@
           - name: Set up golden image in Azure
             displayName: session hosts, virtual machines, vms, vhd, vhdx
             href: set-up-golden-image.md
-          - name: Set up a master VHD image
+          - name: Prepare and customize a VHD image
             displayName: session hosts, virtual machines, vms, vhd, vhdx
             href: set-up-customize-master-image.md
           - name: Install Office on a master VHD image
@@ -300,6 +300,9 @@
           - name: Test MSIX packages
             displayName: msix app attach, app attach, applications, apps, appx packages, app packages
             href: app-attach-test-msix-packages.md
+          - name: Migrate from MSIX app attach to app attach
+            displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+            href: msix-app-attach-migration.md
           - name: MSIXMGR tool parameters
             displayName: msix app attach, app attach, applications, apps, appx packages, app packages
             href: msixmgr-tool-syntax-description.md 
@@ -451,6 +454,9 @@
       - name: Watermarking
         displayName: security
         href: watermarking.md
+      - name: Configure clipboard transfer direction
+        displayName: security
+        href: clipboard-transfer-direction-data-types.md
     - name: Set up a disaster recovery plan
       displayName: bcdr, bc dr
       href: disaster-recovery.md
