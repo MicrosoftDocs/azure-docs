@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Cosmos DB account by adding an output binding to your Visual Studio Code project.
-ms.date: 02/13/2024
+ms.date: 03/04/2024
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp
