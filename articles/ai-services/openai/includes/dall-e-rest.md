@@ -15,8 +15,6 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 
 ## Prerequisites
 
-
-
 #### [DALL-E 3](#tab/dalle3)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
@@ -79,7 +77,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
         # Enter your prompt text here
         "prompt": "A multi-colored umbrella on the beach, disposable camera",
         "size": "1024x1024", # supported values are “1792x1024”, “1024x1024” and “1024x1792” 
-        "n": 1,
+        "n": 1, #The number of images to generate. Only n=1 is supported for DALL-E 3.
         "quality": "hd", # Options are “hd” and “standard”; defaults to standard 
         "style": "vivid" # Options are “natural” and “vivid”; defaults to “vivid”
     }
@@ -184,82 +182,7 @@ The output from a successful image generation API call looks like the following 
 
 ---
 
-The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
-
-The system returns an operation status of `Failed` and the `error.code` value in the message is set to `contentFilter`. Here's an example:
-
-
-#### [DALL-E 3](#tab/dalle3)
-
-```json
-{
-    "created": 1698435368,
-    "error":
-    {
-        "code": "contentFilter",
-        "message": "Your task failed as a result of our safety system."
-    }
-}
-```
-
-#### [DALL-E 2](#tab/dalle2)
-
-```json
-{
-   "created": 1589478378,
-   "error": {
-       "code": "contentFilter",
-       "message": "Your task failed as a result of our safety system."
-   },
-   "id": "9484f239-9a05-41ba-997b-78252fec4b34",
-   "status": "failed"
-}
-```
-
-
----
-
-It's also possible that the generated image itself is filtered. In this case, the error message is set to `Generated image was filtered as a result of our safety system.`. Here's an example:
-
-
-#### [DALL-E 3](#tab/dalle3)
-
-```json
-{
-    "created": 1698435368,
-    "error":
-    {
-        "code": "contentFilter",
-        "message": "Generated image was filtered as a result of our safety system."
-    }
-}
-```
-
-#### [DALL-E 2](#tab/dalle2)
-
-```json
-{
-   "created": 1589478378,
-   "expires": 1589478399,
-   "id": "9484f239-9a05-41ba-997b-78252fec4b34",
-   "lastActionDateTime": 1589478378,
-   "data": [
-       {
-           "url": "<URL_TO_IMAGE>"
-       },
-       {
-           "error": {
-               "code": "contentFilter",
-               "message": "Generated image was filtered as a result of our safety system."
-           }
-       }
-   ],
-   "status": "succeeded"
-}
-```
-
-
----
+The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md). For examples of error responses, see the [DALL-E how-to guide](../how-to/dall-e.md).
 
 ## Clean up resources
 
