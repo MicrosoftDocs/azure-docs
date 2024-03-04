@@ -51,7 +51,7 @@ Every request made against the emulator must be authenticated using a key over T
 
 ## Import emulator certificate
 
-In some cases, you may wish to manually import the TLS/SS certificate from the emulator's running container into your host machine. This step avoids bad practices like disabling TLS/SSL validation in the SDK. For more information, see [import certificate](how-to-develop-emulator.md#export-the-emulators-tlsssl-certificate).
+In some cases, you may wish to manually import the TLS/SS certificate from the emulator's running container into your host machine. This step avoids bad practices like disabling TLS/SSL validation in the SDK. For more information, see [import certificate](how-to-develop-emulator.md#import-the-emulators-tlsssl-certificate).
 
 ## Next step
 
