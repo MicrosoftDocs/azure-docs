@@ -29,7 +29,7 @@ Azure Communication Services now enables you to send and receive WhatsApp messag
 
 The Event Grid Viewer is a sample site that allows you to view incoming events from Event Grid.
 
-1.  Go to this Link [Azure Event Grid Viewer - Code Samples \| Microsoft Learn](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/). Deploy the Event Grid Viewer sample by clicking the "Deploy to Azure" button.
+1.  Go to this Link [Azure Event Grid Viewer - Code Samples \| Microsoft Learn](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/). Deploy the Event Grid Viewer sample by clicking **Deploy to Azure**.
     
     :::image type="content" source="./media/handle-advanced-messaging-events/event-grid-viewer.png" lightbox="./media/handle-advanced-messaging-events/event-grid-viewer.png" alt-text="Screenshot that shows the Event Grid Viewer Sample Page with Deploy To Azure option.":::
 
@@ -49,7 +49,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
     :::image type="content" source="./media/handle-advanced-messaging-events/event-viewer-web-app.png" lightbox="./media/handle-advanced-messaging-events/event-viewer-web-app.png" alt-text="Screenshot that shows Events Viewer web app.":::
 
-5.  On the resource overview page, select on the copy button next to the "Default Domain" property.
+5.  On the resource overview page, select on the copy button next to the **Default Domain** property.
 
     :::image type="content" source="./media/handle-advanced-messaging-events/default-domain.png" lightbox="./media/handle-advanced-messaging-events/default-domain.png" alt-text="Screenshot that shows URL of Events Viewer web app.":::
 
