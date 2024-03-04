@@ -452,7 +452,7 @@ BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
 
 ### Create a container
 
-Create a new container in your storage account by creating an instance of the [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) class and calling the [create](/java/api/com.azure.storage.blob.blobcontainerclient.create) method. In this example, the code appends a GUID value to the container name to ensure that it's unique.
+Create a new container in your storage account by calling the [createBlobContainer](/java/api/com.azure.storage.blob.blobserviceclient#method-details) method on the `blobServiceClient` object. In this example, the code appends a GUID value to the container name to ensure that it's unique.
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
