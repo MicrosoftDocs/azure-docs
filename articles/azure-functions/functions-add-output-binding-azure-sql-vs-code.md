@@ -30,6 +30,10 @@ Before you begin, you must complete the [quickstart: Create a Python function in
 
 More details on the settings for [Azure SQL bindings and trigger for Azure Functions](functions-bindings-azure-sql.md) are available in the Azure Functions documentation.
 
+::: zone pivot="programming-language-javascript"  
+>[!NOTE]
+>This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md&pivots=nodejs-model-v3).  
+::: zone-end 
 
 ## Create your Azure SQL Database
 

@@ -15,15 +15,18 @@ ms.custom: mode-ui, vscode-azure-extension-update-completed, devx-track-extended
 
 This article shows you how to use Visual Studio Code to connect [Azure Cosmos DB](../cosmos-db/introduction.md) to the function you created in the previous quickstart article. The output binding that you add to this function writes data from the HTTP request to a JSON document stored in an Azure Cosmos DB container. 
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp"  
 Before you begin, you must complete the [quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
-::: zone-end
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 Before you begin, you must complete the [quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md?pivot=nodejs-model-v3). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
-::: zone-end
+
+>[!NOTE]
+>This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md&pivots=nodejs-model-v3).   
+::: zone-end  
 ::: zone pivot="programming-language-python"  
 Before you begin, you must complete the [quickstart: Create a Python function in Azure using Visual Studio Code](create-first-function-vs-code-python.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
-::: zone-end
+::: zone-end  
 
 ## Configure your environment
 

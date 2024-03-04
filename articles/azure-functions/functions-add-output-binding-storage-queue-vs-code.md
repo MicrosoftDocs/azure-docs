@@ -18,6 +18,11 @@ In this article, you learn how to use Visual Studio Code to connect Azure Storag
 
 Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
+::: zone pivot="programming-language-javascript"  
+>[!NOTE]
+>This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md&pivots=nodejs-model-v3).  
+::: zone-end  
+
 ## Configure your local environment
 
 Before you begin, you must meet the following requirements:
