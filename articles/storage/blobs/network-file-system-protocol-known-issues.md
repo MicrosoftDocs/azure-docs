@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 08/18/2023
+ms.date: 03/04/2024
 ms.author: normesta
 ---
 
@@ -47,7 +47,7 @@ The following NFS 3.0 features aren't yet supported.
 
 ## NFS 3.0 clients
 
-Windows client for NFS is not yet supported.
+Windows client for NFS is not yet supported. However, there is a workaround available which leverages the Windows Subsystem for Linux (WSL 2) to mount storage by using the NFS 3.0 protocol. See the [BlobNFS-wsl2](https://github.com/Azure/BlobNFS-wsl2/tree/develop) project on GitHub.
 
 ## Blob Storage features
 
