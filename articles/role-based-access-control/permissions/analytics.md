@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -167,6 +167,7 @@ Azure service: [Data Factory](/azure/data-factory/)
 > | Microsoft.DataFactory/factories/querytriggerruns/action | Queries the Trigger Runs. |
 > | Microsoft.DataFactory/factories/querypipelineruns/action | Queries the Pipeline Runs. |
 > | Microsoft.DataFactory/factories/querydebugpipelineruns/action | Queries the Debug Pipeline Runs. |
+> | Microsoft.DataFactory/factories/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connection. |
 > | Microsoft.DataFactory/factories/adfcdcs/read | Reads ADF Change data capture. |
 > | Microsoft.DataFactory/factories/adfcdcs/delete | Deletes ADF Change data capture. |
 > | Microsoft.DataFactory/factories/adfcdcs/write | Create or update ADF Change data capture. |

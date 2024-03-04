@@ -14,7 +14,10 @@ ms.custom:
 
 # Azure OpenAI API preview lifecycle
 
-This article is to help you understand the support lifecycle for the Azure OpenAI API previews.
+This article is to help you understand the support lifecycle for the Azure OpenAI API previews. New preview APIs target a monthly release cadence. Post April 2, 2024, the latest three preview APIs will remain supported while older APIs will no longer be supported.
+
+> [!NOTE]
+> The `2023-06-01-preview` API will remain supported at this time, as `DALL-E 2` is only available in this API version. `DALL-E 3` is supported in the latest API releases.
 
 ## Latest preview API release
 
@@ -29,7 +32,6 @@ This version contains support for all the latest Azure OpenAI features including
 - [Fine-tuning](./how-to/fine-tuning.md) `gpt-35-turbo`, `babbage-002`, and `davinci-002` models.[**Added in 2023-10-01-preview**]
 - [Whisper](./whisper-quickstart.md). [**Added in 2023-09-01-preview**]
 - [Function calling](./how-to/function-calling.md)  [**Added in 2023-07-01-preview**]
-- [DALL-E](./dall-e-quickstart.md)  [**Added in 2023-06-01-preview**]
 - [Retrieval augmented generation with the on your data feature](./use-your-data-quickstart.md).  [**Added in 2023-06-01-preview**]
 
 ## Retiring soon
@@ -40,6 +42,7 @@ On April 2, 2024 the following API preview releases will be retired and will sto
 - 2023-07-01-preview
 - 2023-08-01-preview
 - 2023-09-01-preview
+- 2023-10-01-preview
 - 2023-12-01-preview
 
 To avoid service disruptions, you must update to use the latest preview version before the retirement date.
