@@ -22,9 +22,9 @@ This section shows how to include spans for an attribute processor. The processo
 A match requires the span name to be equal to `spanA` or `spanB`. 
 
 These spans match the include properties, and the processor actions are applied:
-* Span1 Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
-* Span2 Name: 'spanB' Attributes: {env: dev, test_request: false}
-* Span3 Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
+* `Span1` Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
+* `Span2` Name: 'spanB' Attributes: {env: dev, test_request: false}
+* `Span3` Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 
 This span doesn't match the include properties, and the processor actions aren't applied:
 * Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
@@ -62,9 +62,9 @@ This section demonstrates how to exclude spans for an attribute processor. This 
 A match requires the span name to be equal to `spanA` or `spanB`.
 
 The following spans match the exclude properties, and the processor actions aren't applied:
-* Span1 Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
-* Span2 Name: 'spanB' Attributes: {env: dev, test_request: false}
-* Span3 Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
+* `Span1` Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
+* `Span2` Name: 'spanB' Attributes: {env: dev, test_request: false}
+* `Span3` Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 
 This span doesn't match the exclude properties, and the processor actions are applied:
 * Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
@@ -104,11 +104,11 @@ A match requires the following conditions to be met:
 * The span must have an attribute that has key `test_request`.
 
 The following spans match the exclude properties, and the processor actions aren't applied.
-* Span1 Name: 'spanB' Attributes: {env: dev, test_request: 123, credit_card: 1234}
-* Span2 Name: 'spanA' Attributes: {env: dev, test_request: false}
+* `Span1` Name: 'spanB' Attributes: {env: dev, test_request: 123, credit_card: 1234}
+* `Span2` Name: 'spanA' Attributes: {env: dev, test_request: false}
 
 The following span doesn't match the exclude properties, and the processor actions are applied:
-* Span3 Name: 'spanB' Attributes: {env: 1, test_request: dev, credit_card: 1234}
+* `Span3` Name: 'spanB' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 * Span4 Name: 'spanC' Attributes: {env: dev, dev_request: false}
 
 
@@ -155,11 +155,11 @@ properties indicate which spans should be processed. The exclude properties filt
 
 In the following configuration, these spans match the properties, and processor actions are applied:
 
-* Span1 Name: 'spanB' Attributes: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
-* Span2 Name: 'spanA' Attributes: {env: staging, test_request: false, redact_trace: true}
+* `Span1` Name: 'spanB' Attributes: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
+* `Span2` Name: 'spanA' Attributes: {env: staging, test_request: false, redact_trace: true}
 
 These spans don't match the include properties, and processor actions aren't applied:
-* Span3 Name: 'spanB' Attributes: {env: production, test_request: true, credit_card: 1234, redact_trace: false}
+* `Span3` Name: 'spanB' Attributes: {env: production, test_request: true, credit_card: 1234, redact_trace: false}
 * Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
 
 ```json
