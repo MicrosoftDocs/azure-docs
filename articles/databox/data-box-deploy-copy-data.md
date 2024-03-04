@@ -80,23 +80,22 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 3. The following example uses a sample storage account named *utsac1*. To access the shares associated with your storage account from your host computer, open a command window. At the command prompt, type:
 
-    `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
+    `net use \\<DeviceIPAddress>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
     Depending upon your data format, the share paths are as follows:
-    - Azure Block blob - `\\10.126.76.138\utsac1_BlockBlob`
-    - Azure Page blob - `\\10.126.76.138\utsac1_PageBlob`
-    - Azure Files - `\\10.126.76.138\utsac1_AzFile`
-    <!--- Azure Blob blob (Archive) - `\\10.126.76.138\utsac0_BlockBlobArchive`-->
+    - Azure Block blob - `\\<DeviceIPAddress>\utsac1_BlockBlob`
+    - Azure Page blob - `\\<DeviceIPAddress>\utsac1_PageBlob`
+    - Azure Files - `\\<DeviceIPAddress>\utsac1_AzFile`
 
 4. Enter the password for the share when prompted. If the password has special characters, add double quotation marks before and after it. The following sample shows connecting to a share via the preceding command.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:10.126.76.138\testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
+    C:\Users\Databoxuser>net use \\<DeviceIPAddress>\utSAC1_202006051000_BlockBlob /u:<DeviceIPAddress>\testuser1
+    Enter the password for 'testuser1' to connect to '<DeviceIPAddress>': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
+4. Press  Windows + R. In the **Run** window, specify the `\\<DeviceIPAddress>`. Select **OK** to open File Explorer.
     
     ![Connect to share via File Explorer](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -107,9 +106,9 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     <!--**Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.-->
 
     > [!IMPORTANT]
-    > You can't copy files directly to the storage account's *root* folder. Within a block blob storage account's root folder, you'll find sub-folders corresponding to each of the available access tiers. 
+    > You can't copy files directly to the storage account's *root* folder. Within a block blob storage account's root folder, you'll find a folder corresponding to each of the available access tiers. 
     > 
-    > Select the access tier for your data, create a sub-folder within it to store your data, then copy your data to the newly created sub-folder. Your new sub-folder represents a container to be created within the storage account, into which your data is uploaded as blobs.
+    > To copy you data to Azure Data Box, you must first select the folder corresponding to one of the access tiers. Next, create a sub-folder within that tier's folder to store your data. Finally, copy your data to the newly created sub-folder. Your new sub-folder represents the container created within the storage account during ingestion. Your data is uploaded to this container as blobs.
 
 If using a Linux client, use the following command to mount the SMB share. The `vers` parameter below is the version of SMB that your Linux host supports. Insert the appropriate version into the sample command below. To see a list of SMB versions supported by Data Box, see [Supported file systems for Linux clients](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
