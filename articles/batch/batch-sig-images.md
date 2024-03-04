@@ -99,14 +99,14 @@ To create an image from a VM in the portal, see [Capture an image of a VM](../vi
 
 To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md).
 
-To create an image requires purchase plan, see [Supply Azure Marketplace purchase plan information when creating images](https://learn.microsoft.com/en-us/azure/virtual-machines/marketplace-images).
+To create an image requires purchase plan, see [Supply Azure Marketplace purchase plan information when creating images](../virtual-machines/marketplace-images).
 
 > [!NOTE]
 > If the base image requires purchase plan, Batch will need the required purchased image plan information when creating pools. You have to make sure that the image has the correct plan information when you create it.
 > 
 > For the purchase plan information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties) VMs.
 > 
-> Use Azure PowerShell [Get-AzGalleryImageDefinition](https://learn.microsoft.com/en-us/powershell/module/az.compute/get-azgalleryimagedefinition) or Azure CLI  [az sig image-definition show](https://learn.microsoft.com/en-us/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-show) to check whether the gallery image has correct plan information.
+> Use Azure PowerShell [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition) or Azure CLI  [az sig image-definition show](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-show) to check whether the gallery image has correct plan information.
 
 ## Create a pool from a Shared Image using the Azure CLI
 
