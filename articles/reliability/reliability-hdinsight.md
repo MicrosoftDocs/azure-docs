@@ -97,7 +97,7 @@ When the HDInsight cluster is ready, you can check the location to see which ava
 
 You can scale up an HDInsight cluster with more worker nodes. The newly added worker nodes will be placed in the same availability zone of this cluster. 
 
-### Availability zone redeployment
+### Availability zone migration
 
 Azure HDInsight clusters currently doesn't support in-place migration of existing cluster instances to availability zone support. However, you can choose to [recreate your cluster](#create-an-hdinsight-cluster-using-availability-zone), and choose a different availability zone or region during the cluster creation. A secondary standby cluster in a different region and a different availability zone can be used in disaster recovery scenarios.
 

@@ -89,6 +89,8 @@
     href: disable-private-link-service-network-policy.md
   - name: Manage private endpoints
     href: manage-private-endpoint.md
+  - name: Relocate Private Link Service to another region
+    href: ../operational-excellence/relocation-private-link.md?toc=/azure/private-link/toc.json
   - name: Troubleshoot
     items:
     - name: Troubleshoot private endpoint connectivity problems
