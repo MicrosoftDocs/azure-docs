@@ -277,4 +277,4 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |NC48ads_A100_v4*|Standard_NC48ads_A100_v4|48|440|
 |NC96ads_A100_v4*|Standard_NC96ads_A100_v4|96|880|
 
-\*Day-2 only (i.e., not support as an install-time option)
+\*Day-2 only (i.e., not supported as an install-time option)
