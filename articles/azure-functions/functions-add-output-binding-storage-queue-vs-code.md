@@ -20,7 +20,7 @@ Most bindings require a stored connection string that Functions uses to access t
 
 ::: zone pivot="programming-language-javascript"  
 >[!NOTE]
->This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md&pivots=nodejs-model-v3).  
+>This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md?pivots=nodejs-model-v3).  
 ::: zone-end  
 
 ## Configure your local environment

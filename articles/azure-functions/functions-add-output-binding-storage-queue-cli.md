@@ -15,7 +15,7 @@ In this article, you integrate an Azure Storage queue with the function and stor
 
 ::: zone pivot="programming-language-javascript"  
 >[!NOTE]
->This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md&pivots=nodejs-model-v3).  
+>This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md?pivots=nodejs-model-v3).  
 ::: zone-end   
 
 ## Configure your local environment

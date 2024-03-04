@@ -32,7 +32,7 @@ More details on the settings for [Azure SQL bindings and trigger for Azure Funct
 
 ::: zone pivot="programming-language-javascript"  
 >[!NOTE]
->This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md&pivots=nodejs-model-v3).  
+>This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md?pivots=nodejs-model-v3).  
 ::: zone-end 
 
 ## Create your Azure SQL Database
