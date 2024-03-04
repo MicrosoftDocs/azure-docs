@@ -134,7 +134,7 @@ To add server-rendered data in your Next.js project using the App Router, edit a
     }
     ```
 
-1. Import `unstable_noStore` from `next/cache` and call it within the `Home` component to ensure the route will get dynamically rendered.
+1. Import `unstable_noStore` from `next/cache` and call it within the `Home` component to ensure the route is dynamically rendered.
    
     ```ts
     import { unstable_noStore as noStore } from 'next/cache';
