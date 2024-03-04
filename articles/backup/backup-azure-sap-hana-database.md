@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: how-to
-ms.date: 02/29/2024
+ms.date: 03/04/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

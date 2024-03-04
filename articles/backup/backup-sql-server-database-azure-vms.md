@@ -2,7 +2,7 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 03/04/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
