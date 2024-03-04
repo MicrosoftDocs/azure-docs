@@ -27,7 +27,7 @@ The Dasv6-series and Dadsv6-series utilize AMD's 4th Generation EPYC<sup>TM</sup
 Dasv6-series VMs utilize AMD's 4th Generation EPYC<sup>TM</sup> 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPU and 384 GiB of RAM. The Dasv6-series sizes offer a combination of vCPU and memory for most production workloads. The new VMs with no local disk provide a better value proposition for workloads that do not require local temporary storage. 
 
 > [!NOTE]
-> For frequently asked questions, see [Azure VM sizes with no local temp disk](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-vms-no-temp-disk).
+> For frequently asked questions, see [Azure VM sizes with no local temp disk](https://learn.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk).
  
 
 Dasv6-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -91,7 +91,7 @@ Daldsv6-series virtual machines support Standard SSD, Standard HDD, and Premium 
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
