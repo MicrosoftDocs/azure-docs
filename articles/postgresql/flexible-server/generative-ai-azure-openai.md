@@ -19,6 +19,7 @@ Invoke [Azure OpenAI embeddings](../../ai-services/openai/reference.md#embedding
 
 ## Prerequisites
 
+1. [Enable and configure](generative-ai-azure-overview.md#enable-the-azure_ai-extension) the `azure_ai` extension.
 1. Create an Open AI account and [request access to Azure OpenAI Service](https://aka.ms/oai/access).
 1. Grant Access to Azure OpenAI in the desired subscription.
 1. Grant permissions to [create Azure OpenAI resources and to deploy models](../../ai-services/openai/how-to/role-based-access-control.md).

@@ -17,6 +17,7 @@ Azure AI extension gives the ability to invoke the [language services](../../ai-
 
 ## Prerequisites
 
+1. [Enable and configure](generative-ai-azure-overview.md#enable-the-azure_ai-extension) the `azure_ai` extension.
 1. [Create a Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal to get your key and endpoint.  
 1. After it deploys, select **Go to resource**.
 
