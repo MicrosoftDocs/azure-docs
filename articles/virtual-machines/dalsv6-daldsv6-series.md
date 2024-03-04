@@ -1,6 +1,6 @@
 ---
-title:       # Dalsv6 and Daldsv6-series
-description: # Specifications for Dalsv6 and Daldsv6-series VMS
+title:       Dalsv6 and Daldsv6-series
+description: Specifications for Dalsv6 and Daldsv6-series VMS
 author:      iamwilliew 
 ms.author:   wwilliams
 ms.service:  virtual-machines
