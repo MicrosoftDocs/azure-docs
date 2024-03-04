@@ -1,5 +1,5 @@
 ---
-title: Copy and Transform data in Microsoft Fabric Warehouse
+title: Copy and transform data in Microsoft Fabric Warehouse
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data to and from Microsoft Fabric Warehouse using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
@@ -81,15 +81,15 @@ To use service principal authentication, follow these steps.
 2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
     1. Go to your Microsoft Fabric workspace, select **Manage access** on the top bar. Then select **Add people or groups**.
     
-        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/fabric-workspace-manage-access.png" alt-text="Screenshot shows selecting Fabric workspace Manage access."::: 
+        :::image type="content" source="media/connector-microsoft-fabric-warehouse/fabric-workspace-manage-access.png" alt-text="Screenshot shows selecting Fabric workspace Manage access."::: 
 
-        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
+        :::image type="content" source="media/connector-microsoft-fabric-warehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
     
     1. In **Add people** pane, enter your service principal name, and select your service principal from the drop-down list.
     
     1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
         
-        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/select-workspace-role.png" alt-text="Screenshot shows adding Fabric workspace role."::: 
+        :::image type="content" source="media/connector-microsoft-fabric-warehouse/select-workspace-role.png" alt-text="Screenshot shows adding Fabric workspace role."::: 
 
     1. Your service principal is displayed on **Manage access** pane.
 
@@ -195,9 +195,9 @@ To copy data from Microsoft Fabric Warehouse, set the **type** property in the C
 | partitionUpperBound | The maximum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.  <br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
 | partitionLowerBound | The minimum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
 
-**Note the following point:**
 
-- When using stored procedure in source to retrieve data, note if your stored procedure is designed as returning different schema when different parameter value is passed in, you may encounter failure or see unexpected result when importing schema from UI or when copying data to Microsoft Fabric Warehouse with auto table creation.
+>[!Note]
+>When using stored procedure in source to retrieve data, note if your stored procedure is designed as returning different schema when different parameter value is passed in, you may encounter failure or see unexpected result when importing schema from UI or when copying data to Microsoft Fabric Warehouse with auto table creation.
 
 #### Example: using SQL query
 
@@ -295,7 +295,7 @@ To copy data to Microsoft Fabric Warehouse, set the sink type in Copy Activity t
 | Property          | Description                                                  | Required                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | The **type** property of the Copy Activity sink must be set to **WarehouseSink**. | Yes                                           |
-| allowCopyCommand| Indicates whether to use [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?source=recommendations&view=fabric&preserve-view=true) to load data into Microsoft Fabric Warehouse. <br/><br/>See [Use COPY statement to load data into Microsoft Fabric Warehouse](#use-copy-statement) section for constraints and details.<br/><br/>The allowed values is **True**. | Yes |
+| allowCopyCommand| Indicates whether to use [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?source=recommendations&view=fabric&preserve-view=true) to load data into Microsoft Fabric Warehouse. <br/><br/>See [Use COPY statement to load data into Microsoft Fabric Warehouse](#use-copy-statement) section for constraints and details.<br/><br/>The allowed value is **True**. | Yes |
 | copyCommandSettings | A group of properties that can be specified when `allowCopyCommand` property is set to TRUE. | No |
 | writeBatchTimeout| This property specifies the wait time for the insert, upsert and stored procedure operation to complete before it times out.<br/><br/>Allowed values are for the timespan. An example is "00:30:00" for 30 minutes. If no value is specified, the timeout defaults to "00:30:00"| No |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Microsoft Fabric Warehouse in each run. Use this property to clean up the preloaded data. | No                                            |
@@ -350,15 +350,14 @@ You are suggested to enable parallel copy with data partitioning especially when
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Full load from large table, while with an integer or datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Partition column** (optional): Specify the column used to partition data. If not specified, the index or primary key column is used.<br/>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, and all rows in the table will be partitioned and copied. If not specified, copy activity auto detect the values.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions - IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
-| Load a large amount of data by using a custom query, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, and all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>During execution, the service replaces `?AdfRangePartitionColumnName` with the actual column name and value ranges for each partition, and sends to Microsoft Fabric Warehouse. <br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. <br><br>Here are more sample queries for different scenarios:<br> 1. Query the whole table: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Query from a table with column selection and additional where-clause filters: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Query with subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Query with partition in subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
-|
+| Load a large amount of data by using a custom query, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, and all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>During execution, the service replaces `?AdfRangePartitionColumnName` with the actual column name and value ranges for each partition, and sends to Microsoft Fabric Warehouse. <br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. <br><br>Here are more sample queries for different scenarios:<br> 1. Query the whole table: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Query from a table with column selection and additional where-clause filters: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Query with subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Query with partition in subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`|
 
 Best practices to load data with partition option:
 
-1. Choose distinctive column as partition column (like primary key or unique key) to avoid data skew. 
-1. If you use Azure Integration Runtime to copy data, you can set larger "[Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units)" (>4) to utilize more computing resource. Check the applicable scenarios there.
-1. "[Degree of copy parallelism](copy-activity-performance-features.md#parallel-copy)" control the partition numbers, setting this number too large sometime hurts the performance, recommend setting this number as (DIU or number of Self-hosted IR nodes) * (2 to 4).
-1. Note Microsoft Fabric Warehouse can execute a maximum of 32 queries at a moment, setting "Degree of copy parallelism" too large may cause a Warehouse throttling issue.
+- Choose distinctive column as partition column (like primary key or unique key) to avoid data skew. 
+- If you use Azure Integration Runtime to copy data, you can set larger "[Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units)" (>4) to utilize more computing resource. Check the applicable scenarios there.
+- "[Degree of copy parallelism](copy-activity-performance-features.md#parallel-copy)" control the partition numbers, setting this number too large sometime hurts the performance, recommend setting this number as (DIU or number of Self-hosted IR nodes) * (2 to 4).
+- Note Microsoft Fabric Warehouse can execute a maximum of 32 queries at a moment, setting "Degree of copy parallelism" too large may cause a Warehouse throttling issue.
 
 **Example: query with dynamic range partition**
 
@@ -380,7 +379,7 @@ Using [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?source=recom
 
 
 - If your source data is in **Azure Blob or Azure Data Lake Storage Gen2**, and the **format is COPY statement compatible**, you can use copy activity to directly invoke COPY statement to let Microsoft Fabric Warehouse pull the data from source. For details, see **[Direct copy by using COPY statement](#direct-copy-by-using-copy-statement)**.
-- If your source data store and format isn't originally supported by COPY statement, use the **[Staged copy by using COPY statement](#staged-copy-by-using-copy-statement)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into COPY statement compatible format, stores the data in Azure Blob storage, then calls COPY statement to load data into Microsoft Fabric Warehouse.
+- If your source data store and format isn't originally supported by COPY statement, use the **[Staged copy by using COPY statement](#staged-copy-by-using-copy-statement)** feature instead. The staged copy feature also provides you with better throughput. It automatically converts the data into COPY statement compatible format, stores the data in Azure Blob storage, then calls COPY statement to load data into Microsoft Fabric Warehouse.
 
 >[!TIP]
 >When using COPY statement with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) is always 2. Tuning the DIU doesn't impact the performance.
