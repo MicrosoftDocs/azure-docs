@@ -10,16 +10,16 @@ ms.date: 02/19/2024
 
 # Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent
 
-This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest Syslog messages, including those in Common Event Format (CEF) from Linux machines and from network and security devices and appliances.
+This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest Syslog messages, including those in Common Event Format (CEF), from Linux machines and from network and security devices and appliances.
 
-These connectors install the Azure Monitor Agent (AMA) on any Linux machine from which you want to collect Syslog messages.This machine could be the originator of the messages, or it could be a forwarder that collects messages from other machines, such as network or security devices and appliances. The connector sends the agents instructions based on Data Collection Rules (DCRs) that you define. DCRs specify the systems to monitor, and they define filters to apply to the messages before they're ingested, for better performance and more efficient querying and analysis.
+These connectors install the Azure Monitor Agent (AMA) on any Linux machine from which you want to collect Syslog and/or CEF messages. This machine could be the originator of the messages, or it could be a forwarder that collects messages from other machines, such as network or security devices and appliances. The connector sends the agents instructions based on Data Collection Rules (DCRs) that you define. DCRs specify the systems to monitor and the types of logs or messages to collect, and they define filters to apply to the messages before they're ingested, for better performance and more efficient querying and analysis.
 
 - [Set up the connector](#set-up-the-data-connectors)
 - [Learn more about the connector](#how-microsoft-sentinel-collects-syslog-and-cef-messages-with-the-azure-monitor-agent)
 
 > [!IMPORTANT]
 >
-> On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. Following this change, you might need to review and update custom queries. For more details, see the **"Recommended actions"** section in [this blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232). Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.   
+> On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. Following these changes, you might need to review and update custom queries. For more details, see the **"Recommended actions"** section in [this blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232). Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.   
 
 ## Overview 
 
@@ -65,7 +65,7 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 
 - **Log forwarder:** This is a dedicated Linux VM that your organization sets up to collect the log messages from your Syslog and CEF log sources. The VM can be on-premises, in Azure, or in another cloud. This log forwarder itself has two components:
     - The **Syslog daemon** (either `rsyslog` or `syslog-ng`) collects the log messages on TCP or UDP port 514 (per your preference). The daemon then sends these logs\* to the **Azure Monitor Agent**.
-    - The **Azure Monitor Agent** that you install on the log forwarder by setting up the Syslog and/or CEF data connectors according to the instructions below ([Syslog](#set-up-the-syslog-via-ama-connector) | [CEF](#set-up-the-common-event-format-cef-via-ama-connector)). The agent parses the logs and then sends them to your **Microsoft Sentinel (Log Analytics) workspace**.
+    - The **Azure Monitor Agent** that you install on the log forwarder by setting up the Syslog and/or CEF data connectors according to the instructions below ([Syslog](#set-up-the-syslog-via-ama-connector) | [CEF](?tabs=cef#set-up-the-common-event-format-cef-via-ama-connector)). The agent parses the logs and then sends them to your **Microsoft Sentinel (Log Analytics) workspace**.
 
 - Your **Microsoft Sentinel (Log Analytics) workspace:** CEF logs sent here end up in the *CommonSecurityLog* table, and Syslog messages in the *Syslog* table. There you can query the logs and perform analytics on them to detect and respond to security threats.
 
@@ -199,7 +199,7 @@ Select the appropriate tab below to see the instructions for each way.
 1. In the **Basic** tab: 
     - Type a DCR name.
     - Select your subscription.
-    - Select the resource group where your collector is defined.
+    - Select the resource group where you want to locate your DCR.
 
     :::image type="content" source="media/connect-cef-ama/dcr-basics-tab.png" alt-text="Screenshot showing the DCR details in the Basic tab." lightbox="media/connect-cef-ama/dcr-basics-tab.png":::
 
@@ -257,7 +257,7 @@ In the **Resources** tab, select the machines on which you want to install the A
 1. In the **Basic** tab: 
     - Type a DCR name.
     - Select your subscription.
-    - Select the resource group where your collector is defined.
+    - Select the resource group where you want to locate your DCR.
 
     :::image type="content" source="media/connect-cef-ama/dcr-basics-tab.png" alt-text="Screenshot showing the DCR details in the Basic tab." lightbox="media/connect-cef-ama/dcr-basics-tab.png":::
 
