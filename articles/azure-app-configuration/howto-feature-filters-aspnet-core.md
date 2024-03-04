@@ -18,10 +18,10 @@ Feature flags allow you to activate or deactivate functionality in your applicat
 
 In contrast, a _conditional feature flag_ allows the feature flag to be enabled or disabled dynamically. The application may behave differently, depending on the feature flag criteria. Suppose you want to show your new feature to a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. _Feature filters_ determine the state of the feature flag each time it's evaluated.
 
-The `Microsoft.FeatureManagement` library includes built-in feature filters:
+The `Microsoft.FeatureManagement` library includes built-in feature filters accessible from the Azure App Configuration portal.
 
-- `TimeWindowFilter` enables the feature flag during a specified window of time.
-- `TargetingFilter` enables the feature flag for specified users and groups.
+- Time window filter enables the feature flag during a specified window of time.
+- Targeting filter enables the feature flag for specified users and groups.
 
 You can also create your own feature filter that implements the `Microsoft.FeatureManagement.IFeatureFilter` interface. For more information, see [Implementing a Feature Filter](https://github.com/microsoft/FeatureManagement-Dotnet#implementing-a-feature-filter).
 
@@ -30,41 +30,37 @@ You can also create your own feature filter that implements the `Microsoft.Featu
 - Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to create a web app with a feature flag.
 - Install the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) package of version **3.0.0** or later.
 
-## Set up feature management
+## Register a feature filter
 
-Since `Microsoft.FeatureManagement` 3.0.0, built-in filters, except for the `TargetingFilter`, are added automatically when feature management is registered. For more information on using `TargetingFilter`, see [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md).
+If you have a [custom feature filter](https://github.com/microsoft/FeatureManagement-Dotnet#implementing-a-feature-filter), you can register it by calling the `AddFeatureFilter` method.
 
 ```csharp
-services.AddFeatureManagement();
+services.AddFeatureManagement()
+        .AddFeatureFilter<MyCriteriaFilter>();
 ```
 
+Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following built-in filters are registered automatically as part of the `AddFeatureManagement` call, so you don't need to register them.
+
 > [!TIP]
-> You can create your own feature filter that implements the `Microsoft.FeatureManagement.IFeatureFilter` interface. The feature filter can be registered by calling the `AddFeatureFilter` method. For built-in feature filters, calling `AddFeatureFilter` is no longer needed since `Microsoft.FeatureManagement` 3.0.0.
->
-> ```csharp
-> services.AddFeatureManagement()
->         .AddFeatureFilter<MyCriteriaFilter>();
-> ```
+> For more information on using `TargetingFilter`, see [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md).
 
-## Configure a feature filter in Azure App Configuration
+## Add a feature filter to a feature flag
 
-Some feature filters have additional settings. For example, `TimeWindowFilter` activates a feature based on a time window. It has settings defining the time window to use.
-
-You can configure these settings for feature flags defined in Azure App Configuration. For example, follow these steps to use `TimeWindowFilter` to activate the feature flag at a certain moment:
+In this section, you will learn how to add a feature filter to the **Beta** feature flag you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md). The following steps use the built-in `TimeWindowFilter` as an example.
 
 1. In the Azure portal, go to your configuration store and select **Feature manager**.
 
-    :::image type="content" source="./media/feature-filters/edit-beta-feature-flag.png" alt-text="Screenshot of the Azure portal, selecting the Edit option for the Beta feature flag, under Feature manager.":::
+    :::image type="content" source="./media/feature-filters/edit-beta-feature-flag.png" alt-text="Screenshot of the Azure portal, selecting the Edit option for the **Beta** feature flag, under Feature manager.":::
 
-1. On the line with the Beta feature flag you created in the quickstart, select the context menu and then **Edit**.
+1. On the line with the **Beta** feature flag you created in the quickstart, select the context menu and then **Edit**.
 
 1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
 
     :::image type="content" source="./media/feature-filters/edit-a-feature-flag.png" alt-text="Screenshot of the Azure portal, filling out the form 'Edit feature flag'.":::
 
-1. The pane **Create a new filter** opens. Under **Filter type**, select **Time window filter** to enable a new filter for a specific time window.
+1. The pane **Create a new filter** opens. Under **Filter type**, select **Time window filter**.
 
-1. Set the **Expiry date** to **Never** and set the **Start date** to 10 minutes ahead of the current time. For example, if the current time is 1:50 PM on February 28, 2024, please set the time to 10 minutes later, which would be 2:00 PM.
+1. Set the **Start date** to **Custom** and select a time a few minutes ahead of your current time. Set the **Expiry date** to **Never**
 
     :::image type="content" source="./media/feature-filters/add-time-window-filter.png" alt-text="Screenshot of the Azure portal, creating a new time window filter.":::
 
@@ -80,7 +76,9 @@ You can configure these settings for feature flags defined in Azure App Configur
 
 ## Feature filters in action
 
-To see the effects of this feature flag, launch the application. You'll see that the *Beta* item will not appears on the toolbar. It's hidden, because the `TimeWindowFilter` deactivates the *Beta* feature. After about 10 minutes, click the refresh button in you browser and you'll see the *Beta* item will appear again because the `TimeWindowFilter` will activate the *Beta* feature when time hits the time window.
+Relaunch the application you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md). If your current time is earlier than the start time set for the time window filter, the **Beta** menu item will not appear on the toolbar. This is because the **Beta** feature flag is disabled by the time window filter.
+
+Once the start time has passed, refresh your browser a few times. You will notice that the **Beta** menu item will now appear. This is because the **Beta** feature flag is now enabled by the time window filter.
 
 ## Next steps
 
