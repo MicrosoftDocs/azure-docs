@@ -1,12 +1,24 @@
+---
+title: "Azure Operator Nexus: How to run Instance Readiness Testing"
+description: Learn how to run instance readiness testing.
+author: lesage-oded
+ms.author: odedlesage
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 02/29/2024
+ms.custom: template-how-to
+---
 # Azure Operator Nexus Instance Readiness Test (IRT)
 
 The Instance Readiness Test (IRT) framework is an optional/add-on tool for the Nexus platform. It enables operators to verify the successful deployment and readiness of the Azure Operator Nexus instance for workload deployment. This verification applies to both initial deployment and subsequent upgrades of the Nexus. It runs a series of tests and provides the test results as an html report.
 
 ## Key benefits
 
-- Self-Service: IRT enables users to independently initiate and execute tests.
-- Repeatable: Users can execute IRT on the Nexus instance multiple times to verify the reliability and consistency of test results.
-- Abilities:
+- Self-Service
+  - IRT enables users to independently initiate and execute tests.
+- Repeatable
+  - Users can execute IRT on the Nexus instance multiple times to verify the reliability and consistency of test results.
+- Abilities
   - IRT provides generic functionality that all operators can use.
   - It enables validation of new Nexus deployments and post-upgrade states.
   - It allows testing of Network Function infrastructure components.
@@ -58,7 +70,7 @@ The Instance Readiness Test (IRT) framework is an optional/add-on tool for the N
 - Validate IPV4 routes are configured correctly.
 - Validate IPV6 routes are configured correctly.
 - Validate that network interfaces are configured as expected.
-- Validate DNS ability to resolve Azure Portal endpoint with nslookup.
+- Validate DNS ability to resolve Azure portal endpoint with nslookup.
 - Validate dpdk-testpmd on L2 interface within NAKS cluster for vlan.
 - Validate dpdk-testpmd on L2 interface within NAKS cluster, data captured for vlan.
 - Validate dpdk-testpmd on trunk interface within NAKS cluster, data captured for trunk.
@@ -111,18 +123,18 @@ For access to the nexus-samples GitHub repository
 ## Environment Requirements
 
 - A Linux environment (Ubuntu suggested) capable of calling Azure APIs.
-- Support for other Linux distros for example, RedHat, Mariner, etc. depends on being able to install the necessary tooling. See [Install Dependencies](#install-dependencies) section.
+- Support for other Linux distros, for example, RedHat, Mariner, etc. depends on being able to install the necessary tooling. See [Install Dependencies](#install-dependencies) section.
   - Any machine that has the required packages installed should be able to use the scripts.
 - Knowledge of networks to use for the test.
   * Networks to use for the test are specified in a "networks-blueprint.yml" file, see [Input Configuration](#input-configuration).
-- A way to download the IRT release package for example, curl, wget, etc.
+- A way to download the IRT release package, for example, curl, wget, etc.
 - The ability to create a service principal with the correct roles.
 - The ability to read secrets from the KeyVault, see [Service Principal] (#create-service-principal-and-security-group) section for more details.
 - The ability to create security groups in your Active Directory tenant.
 
 ## Input Configuration
 
-Start by building your input file. The IRT tarball provides `irt-input.example.yml` as an example. Download the tarball by following the [instructions](#download-irt). Note that these values **will not work for your instances**. You need to manually change them and rename the file to `irt-input.yml`. We provide the example input file as a stub to help you configure new input files. The example outlines overridable values and their usage. The **[One Time Setup](#one-time-setup)** assists you in setting input values by writing key/value pairs to the config file as they execute.
+Start by building your input file. The IRT tarball provides `irt-input.example.yml` as an example. Download the tarball by following the [instructions](#download-irt). The example values **will not work for your instances**. You need to manually change them and rename the file to `irt-input.yml`. We provide the example input file as a stub to help you configure new input files. The example outlines overridable values and their usage. The **[One Time Setup](#one-time-setup)** assists you in setting input values by writing key/value pairs to the config file as they execute.
 
 You can provide the network information in a `networks-blueprint.yml` file, similar to the `networks-blueprint.example.yml` that we provide, or append it to the `irt-input.yml` file. The `networks-blueprint.example.yml` defines the schema for IRT. The test creates the networks, so provide network details that aren't in use. Currently, IRT has the following network requirements:
 
@@ -136,7 +148,7 @@ You can provide the network information in a `networks-blueprint.yml` file, simi
 
 ### Download IRT
 IRT is distributed via tarball from the release section of the [nexus-samples](https://aka.ms/nexus-irt) GitHub repo.
-1. Find the release package marked with 'Latest'. Download it, extract it, and navigate to the `irt` directory.
+1. Find the release package marked with 'Latest', download it, extract it, and navigate to the `irt` directory.
 1. Extract the tarball to the local file system: `mkdir -p irt && tar xf nexus-irt.tar.gz --directory ./irt`.
 1. Switch to the new directory `cd irt`.
 1. See RELEASE-CHANGELOG.md for any notable updates or changes.
@@ -214,7 +226,7 @@ SERVICE_PRINCIPAL:
 
 > **_NOTE:_** if all `SP_ID`,`SP_OBJECT_ID`,`SP_TENANT_ID`,`ADMIN_GROUP_OBJECT_ID`,`KV_NAME`,`KV_ID` are set in the yaml or as an environment variable the script skips creating them.
 
-**RESULT:** This script prints values for `ADMIN_GROUP_OBJECT_ID`, `SP_ID`, `SP_OBJECT_ID`, `SP_TENANT`, `KV_NAME` and `KV_ID`; and sets the values back to the input yaml.
+**RESULT:** This script prints values for `ADMIN_GROUP_OBJECT_ID`, `SP_ID`, `SP_OBJECT_ID`, `SP_TENANT`, `KV_NAME`, and `KV_ID`. The script sets the values back to the input yaml.
 See [Input Configuration](#input-configuration).
 
 ```yml
@@ -229,22 +241,24 @@ KV_ID: "<provided-key-valut-secret>" # If SP already exists please fill it in to
 
 #### Creating a Custom Role for Execution
 <details>
-<summary>Expand to see details for using a custom role </summary>
+<summary>Expand to see details for using a custom role. </summary>
 
 If you have an existing service principal and would like the convenience of only having to assign one role for IRT execution, you can follow the directions in this section.
 
 ##### Prerequisites
 
-- **Azure Subscription:** Ensure you have access to an Azure subscription.
-- **Azure CLI:** Ensure Azure CLI exists on your local machine
+1. Azure Subscription
+    - Ensure you have access to an Azure subscription.
+1. Azure CLI
+    - Ensure Azure CLI exists on your local machine
 
 ##### Steps
 
-1. Prepare Your Environment:
+1. Prepare Your Environment
    - Open a Bash Shell:
    - You can use any terminal that supports Bash
 
-1. Sign in to Azure:
+1. Sign in to Azure
    - Execute the following command to sign in to your Azure account:
 
     ```bash
@@ -255,7 +269,7 @@ If you have an existing service principal and would like the convenience of only
     az account set --subscription "<your-subscription-id>"
     ```
 
-1. Deploy the Template:
+1. Deploy the Template
 
     Deploy your ARM template by running the following command. Replacing the example variable values with your actual values:
 
@@ -274,9 +288,9 @@ If you have an existing service principal and would like the convenience of only
         --parameters roleName="$roleName"
     ```
 
-1. Assign Role to Application Service Principal used for testing:
+1. Assign Role to Application Service Principal used for testing
 
-   Weather created via the all-in-one setup or using your own, assign the newly created role to your identity. This single role provides all the necessary authorizations to run Instance Readiness Testing.
+   Weather created via the all-in-one setup, or using your own, assign the newly created role to your identity. This single role provides all the necessary authorizations to run Instance Readiness Testing.
 
    ```bash
     # The Application ID of your Service Principal for your application
@@ -301,7 +315,7 @@ If you have an existing service principal and would like the convenience of only
 <details>
 <summary>Expand to see how to create l3 isolation. </summary>
 
-The testing framework does't create, destroy, or manipulate isolation domains. Therefore, existing isolation domains can be used for execution. Each isolation domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks for example, L3, trunked, etc. are created, manipulated, and destroyed through the course of testing.
+The testing framework doesn't create, destroy, or manipulate isolation domains. Therefore, existing isolation domains can be used for execution. Each isolation domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks, for example, L3, trunked, etc. are created, manipulated, and destroyed through the course of testing.
 
 Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to a file containing the networks requirements. You can choose either the standalone network-blueprint.yml or the input.yml based on your workflow, either can contain the information needed.
 
@@ -348,17 +362,15 @@ executed, different prerequisite test commands, so totals may not always be the 
 
 ![irt summary header success](./media/irt/irt-header-success.png)
 
-If there is any failures in the tests, the values represent accordingly.
+If there's any failures in the tests, the values represent accordingly.
 
 ![irt summary header failure](./media/irt/irt-header-failure.png)
 
 ### Test Results
 
 The Test Results section provides all the tests (assertions) that IRT
-executes. The Asserters section expands to view the list of tests
-(assertions) that are run and available. Each asserter can be further expanded
-that loads an accordion pane, which provides more details of the asserter,
-including the description of the test and any thresholds to be measured and asserted against.
+executes. The Asserters section expands to view the list of tests (assertions) that are run and available.
+Each asserter can be further expanded that loads an accordion pane, which provides more details of the asserter, including the description of the test and any thresholds to be measured and asserted against.
 
 ### Display of Test Results
 
@@ -378,7 +390,7 @@ description of it under standard log.
 An example of an Asserter:
 
 *Asserters \[It\] res-test-dpdk-naks-84f5b - network: \'l3network-704\'
-(**PMD) average of Rx-pps \[17668558\] should be greater than 8000000*.
+(*_PMD) average of Rx-pps \[17668558\] should be greater than 8000000_.
 
 The above example of an assert reads as the Rx (receive)-pps (packets
 per seconds) for l3network-704 is 17668558, which is greater than the
@@ -400,39 +412,37 @@ consists of the suite relevant tests that expand to provide details.
 Failures of any specific tests are highlighted in red.
 
 - Setup Suite:
-    - Sets up test execution and deploys Nexus Resources as defined in
+  - Sets up test execution and deploys Nexus Resources as defined in
     the ARM Template required for the framework and tests.
 
 - Inject Suite:
-    - Injects the required environment variables and test
+  - Injects the required environment variables and test
     data to support the testing of NAKS resources
 
 - Collect Suite:
-    - The collect suite collects the data published by
+  - The collect suite collects the data published by
     the Setup Suite.
 
 - Cleanup Suite:
-    - Deletes the Nexus resources created for the tests
+  - Deletes the Nexus resources created for the tests
     after the data is collected.
 
 ![irt debug section](./media/irt/irt-debug-section.png)
 
 ## Extras Section
 
-This section is an informational only, that provides additional details about
-the Nexus instance. There are no assertions/tests that represent this
-section. It helps operators to check the status of underlying cluster
-resources and tenant resources running on the cluster after IRT is
-executed.
+This section is an informational only, that provides extra details about the Nexus instance.
+There are no assertions/tests that represent this section.
+It is intended to help users check the status of underlying cluster resources and tenant resources running on the cluster after IRT is executed.
 
 The Extras section consists of results displayed by running two different
 script files separately.
 
 - Platform Validation Results:
-   - Displays the Nexus under cloud deployed resources details and their current statuses, including Cluster Manager details and its extensions, Fabric related details, Nexus cluster and its extensions, BareMetal Machines, Arc related, and Storage appliances.
+  - Displays the Nexus under cloud deployed resources details and their current statuses, including Cluster Manager details and its extensions, Fabric related details, Nexus cluster and its extensions, BareMetal Machines, Arc related, and Storage appliances.
 
 - Tenant workloads Validation Results:
-    - Displays the Nexus tenant resources details and their current statuses running on the Nexus cluster, including displaying of L2 and L3 Isolation Domains, Cloud Service networks, default cni networks, L2 and L3 networks, trunked networks, available list of VMs…
+  - Displays the Nexus tenant resources details and their current statuses running on the Nexus cluster, including displaying of L2 and L3 Isolation Domains, Cloud Service networks, default cni networks, L2 and L3 networks, trunked networks, available list of VMs.
 
 ## Troubleshooting
 
@@ -442,4 +452,4 @@ methods to address failures and technical problems.
 If you still have questions, [contact
 support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 For more information about Support plans, see [Azure Support
-plans](https://azure.microsoft.com/support/plans/response/)
+plans](https://azure.microsoft.com/support/plans/response/).
