@@ -30,13 +30,13 @@ The following Basic tab items must be filled out:
 
 ## Database 
 
-The database picked for you in this list will be Runtime-aware and generate a default name that can be customized. [Learn more about database types on Azure.]( https://azure.microsoft.com/products/category/databases) 
+The database picked for you in this list is Runtime-aware and generate a default name that can be customized. [Learn more about database types on Azure.]( https://azure.microsoft.com/products/category/databases) 
 
 **Inputs:**
 
-- `Name`: a default name will be generated and can be customized 
+- `Name`: a default name is generated and can be customized 
 
-- `Database Type`: the default database type will match your selected Runtime 
+- `Database Type`: the database default matches community preferences for each Runtime 
 
 ## Azure Cache for Redis 
 
@@ -44,6 +44,6 @@ Redis improves the performance and scalability of an app that uses backend data 
 
 **Inputs:**  
 
-- `Name`: a default name will be generated and can be customized 
+- `Name`: a default name is generated and can be customized 
 
-- `SKU`: Dev/Test, Production, or Free, where most App Service SKUs will default to a Production Redis SKU 
+- `SKU`: Dev/Test, Production, or Free
