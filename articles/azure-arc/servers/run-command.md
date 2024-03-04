@@ -53,7 +53,7 @@ The following examples use [az connectedmachine run-command](/cli/azure/connecte
 This command delivers the script to the machine, executes it, and returns the captured output.
 
 ```azurecli
-az connectedmachine run-command create –-name "myRunCommand" --machine-name "myMachine" --resource-group "myRG" --script "Write-Host Hello World!"
+az connectedmachine run-command create --name "myRunCommand" --machine-name "myMachine" --resource-group "myRG" --script "Write-Host Hello World!"
 ```
 
 ### List all deployed RunCommand resources on a machine
