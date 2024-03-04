@@ -130,6 +130,15 @@ There are three main patterns for connecting spoke virtual networks to each othe
 
 Use [Azure Virtual Network Manager (AVNM)](../../virtual-network-manager/overview.md) to create new (and onboard existing) hub and spoke virtual network topologies for the central management of connectivity and security controls.
 
+### Communication with privately networked clients in different regions 
+
+Frequently customers have a need  to connect to clients different Azure regions. More specifically, this question typically boils down to how to connect two VNETs (one of which has Azure Database for PostgreSQL - Flexible Server and another application client) that are in different regions.
+There are multiple ways to achieve such connectivity, some of which are:
+* **[Global VNET peering](../../virtual-network/virtual-network-peering-overview.md)**. Most common methodology, as its is the easiest way to connect networks in different regions together. Global VNET peering will create a connection over the Azure backbone directly between the two peered VNETs. This provides best network throughput and lowest latencies for connectivity using this method. When VNETs are peered, Azure will also handle the routing automatically for you, these VNETs can communicate with all resources in the peered VNET, established on a VPN gateway. 
+* **[VNET-to-VNET connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)**. A VNET-to-VNET connection is essentially a VPN between the two different Azure locations. The VNET-to-VNET connection is established on a VPN gateway. This means your traffic will incur two additional traffic hops as compared to global VNET peering. There is also additional latency and lower bandwith as compared to that method. 
+* **[Communication via network appliance in Hub and Spoke architecture](#using-hub-and-spoke-private-networking-design)**. 
+Instead of connecting spoke virtual networks directly to each other, you can use network appliances to forward traffic between spokes. Network appliances provide additional network services like deep packet inspection and traffic segmentation or monitoring, but they can introduce latency and performance bottlenecks if they're not properly sized. 
+
 ### Replication across Azure regions and virtual networks with private networking
 
 Database replication is the process of copying data from a central or primary server to multiple servers known as replicas. The primary server accepts read and write operations whereas the replicas serve read-only transactions. The primary server and replicas collectively form a database cluster. The goal of database replication is to ensure redundancy, consistency, high availability, and accessibility of data, especially in high-traffic, mission-critical applications.
