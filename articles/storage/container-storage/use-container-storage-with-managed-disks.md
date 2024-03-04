@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Azure managed disks.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 03/05/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
