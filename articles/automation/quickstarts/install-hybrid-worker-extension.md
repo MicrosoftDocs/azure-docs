@@ -4,7 +4,7 @@ titleSuffix: Azure Automation
 description: This article helps you get started on how to install Hybrid Worker extension on Azure portal.
 services: automation
 keywords: hybrid worker extension, automation
-ms.date: 02/26/2024
+ms.date: 03/04/2024
 ms.topic: quickstart
 author: SnehaSudhir 
 ms.author: sudhirsneha
@@ -49,6 +49,9 @@ You can follow similar steps for installing Hybrid Worker extension on all other
 
 ## Next steps
 
- To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/extension-based-hybrid-runbook-worker.md).
+- To learn about Hybrid Runbook Worker, benefits, limitations, see [An overview of Automation Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md)
 
-- To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](../virtual-machines/extensions/features-windows.md) and [Azure VM extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
+- To learn about deploying a User Hybrid Runbook Worker on Windows and Linux machines, see [Run Automation runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)
+
+- To learn about the benefits of extension based User Hybrid Runbook and how to migrate an existing Agent based User Hybrid Worker to Extension based Hybrid Workers, see [Migrate the existing agent-based hybrid workers to extension-based hybrid workers](../migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md)
+
