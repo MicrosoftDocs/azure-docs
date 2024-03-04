@@ -19,7 +19,7 @@ The following table shows the supported mappings:
 |**Geography**| **Monitoring Agent workspace region**|
 |---| ---|
 |**Asia Pacific**| EastAsia </br> SoutheastAsia|
-|**Australia**| AustraliaEast </br> AustraliaSoutheast </br> AustraliaSoutheast|
+|**Australia**| AustraliaEast </br> AustraliaSoutheast |
 |**Brazil**| BrazilSouth|
 |**Canada**| CanadaCentral|
 |**China**| ChinaEast2<sup>1</sup>|
@@ -37,7 +37,7 @@ The following table shows the supported mappings:
 |**US Gov**| USGovVirginia </br> USGovArizona<sup>1</sup>|
 |**US**| EastUS</br> EastUS2</br> WestUS </br> WestUS2 </br> NorthCentralUS </br> CentralUS </br> SouthCentralUS </br> WestCentralUS|
 
-<sup>1</sup> In this region, only Update Management is supported, and other features like Change Tracking and Inventory are not available at this time.
+<sup>1</sup> In this region, only Update Management is supported, and other features like Change Tracking and Inventory aren't available at this time.
 
 
 ## Next steps
