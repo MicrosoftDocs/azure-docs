@@ -10,8 +10,7 @@ ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/24/2023
 ms.author: mimart
-ms.custom: it-pro
-
+ms.custom: it-pro, has-azure-ad-ps-ref
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 

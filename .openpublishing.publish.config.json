@@ -1066,6 +1066,7 @@
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
   ".openpublishing.redirection.devops-project.json",
+  ".openpublishing.redirection.sentinel.json",
   "articles/ai-services/.openpublishing.redirection.ai-services-from-applied.json",
   "articles/ai-services/.openpublishing.redirection.ai-services-from-cog.json",
   "articles/ai-services/.openpublishing.redirection.applied-ai-old.json",

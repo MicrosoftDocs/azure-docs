@@ -188,8 +188,8 @@ Users that have Microsoft Authenticator on their device can't register Authentic
 ### SSPR Notifications
 TOTP codes from Outlook will work for SSPR, but the push notification will not work and will return an error.
 
-### Logs are showing additional conditional access evaluations
-The conditional access policies are evaluated each time a user opens their Outlook app, in order to determine whether the user is eligible to register for Authenticator Lite. These checks may appear in logs. 
+### Logs are showing additional Conditional Access evaluations
+The Conditional Access policies are evaluated each time a user opens their Outlook app, in order to determine whether the user is eligible to register for Authenticator Lite. These checks may appear in logs. 
 
 
 ## Next steps

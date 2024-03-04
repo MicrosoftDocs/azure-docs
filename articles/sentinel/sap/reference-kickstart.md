@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications container kickstart deployment script reference | Microsoft Docs
 description: Description of command line options available with kickstart deployment script
-author: MSFTandrelom
-ms.author: andrelom
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.date: 05/24/2023
 ---

@@ -334,7 +334,10 @@ When removing indexed paths, you should group all your changes into one indexing
 When you drop an indexed path, the query engine will immediately stop using it, and will do a full scan instead.
 
 > [!NOTE]
-> Where possible, you should always try to group multiple indexing changes into one single indexing policy modification
+> Where possible, you should always try to group multiple index removals into one single indexing policy modification.
+
+> [!IMPORTANT]
+> Removing an index takes affect immediately, whereas adding a new index takes some time as it requires an indexing transformation. When replacing one index with another (for example, replacing a single property index with a composite-index) make sure to add the new index first and then wait for the index transformation to complete **before** you remove the previous index from the indexing policy. Otherwise this will negatively affect your ability to query the previous index and may break any active workloads that reference the previous index. 
 
 ## Indexing policies and TTL
 

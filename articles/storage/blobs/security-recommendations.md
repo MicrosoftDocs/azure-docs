@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn about security recommendations for Blob storage. Implementing this guidance will help you fulfill your security obligations as described in our shared responsibility model.
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 04/06/2023
 ms.author: tamram

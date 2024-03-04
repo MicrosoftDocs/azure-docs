@@ -35,7 +35,7 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 ### <a name="resource"></a> Set up an Application Insights resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Create an [Application Insights resource](create-new-resource.md).
+1. Create an [Application Insights resource](create-workspace-resource.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 

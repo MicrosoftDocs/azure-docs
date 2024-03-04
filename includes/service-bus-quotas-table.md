@@ -5,7 +5,7 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 07/19/2022
+ms.date: 08/14/2023
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -15,7 +15,7 @@ The following table lists quota information specific to Azure Service Bus messag
 
 | Quota name | Scope | Value | Notes | 
 | --- | --- | --- | --- |
-| Maximum number of namespaces per Azure subscription |Namespace |  1000 (default and maximum) |Subsequent requests for additional namespaces are rejected. |
+| Maximum number of namespaces per Azure subscription |Namespace |  1000 (default and maximum) | This limit is based on the `Microsoft.ServiceBus` provider, not based on the tier. Therefore, it's the total number of namespaces across all tiers. Subsequent requests for additional namespaces are rejected. |
 | Queue or topic size |Entity | <p>1, 2, 3, 4 GB or 5 GB</p><p>In the Premium SKU, and the Standard SKU with [partitioning](../articles/service-bus-messaging/service-bus-partitioning.md) enabled, the maximum queue or topic size is 80 GB.</p><p>Total size limit for a premium namespace is 1 TB per [messaging unit](../articles/service-bus-messaging/service-bus-premium-messaging.md). Total size of all entities in a namespace can't exceed this limit.</p> | Defined upon creation/updation of the queue or topic. <br/><br/> Subsequent incoming messages are rejected, and an exception is received by the calling code. <p>Currently, a large message (size \> 1 MB) sent to a queue is counted twice. And, a large message (size \> 1 MB) sent to a topic is counted X + 1 times, where X is the number of subscriptions to the topic. </p>|
 | Number of concurrent connections on a namespace |Namespace |Net Messaging: 1,000.<br /><br />AMQP: 5,000. | Subsequent requests for additional connections are rejected, and an exception is received by the calling code. REST operations don't count toward concurrent TCP connections. |
 | Number of concurrent receive requests on a queue, topic, or subscription entity |Entity | 5,000 |Subsequent receive requests are rejected, and an exception is received by the calling code. This quota applies to the combined number of concurrent receive operations across all subscriptions on a topic. |

@@ -23,7 +23,7 @@ Learn all you need to build a single-page application (SPA). For instructions re
 
 If you haven't already, create your first app by completing the JavaScript SPA quickstart:
 
-[Quickstart: Single-page application](./single-page-app-quickstart.md?pivots=devlang-javascript)
+[Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using JavaScript](quickstart-single-page-app-javascript-sign-in.md)
 
 ## Overview
 

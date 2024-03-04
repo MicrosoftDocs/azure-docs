@@ -10,7 +10,9 @@ items:
     href: whats-new.md
   - name: Packet core release notes
     items:
-    - name: 2306 - Current
+    - name: 2307 - Current
+      href: azure-private-5g-core-release-notes-2307.md  
+    - name: 2306
       href: azure-private-5g-core-release-notes-2306.md  
     - name: 2305
       href: azure-private-5g-core-release-notes-2305.md  
@@ -58,12 +60,14 @@ items:
     items:
     - name: Cloud monitoring with Azure Monitor platform metrics
       href: monitor-private-5g-core-with-platform-metrics.md
-    - name: Local monitoring with distributed tracing
-      href: distributed-tracing.md
+    - name: Cloud monitoring with Azure Monitor Workbooks
+      href: monitor-private-5g-core-workbooks.md
+    - name: Cloud monitoring of UE usage with Event Hubs (preview)
+      href: ue-usage-event-hub.md  
     - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
-    - name: Monitoring UE usage with Event Hubs (preview)
-      href: ue-usage-event-hub.md  
+    - name: Local monitoring with distributed tracing
+      href: distributed-tracing.md
   - name: Reliability
     href: reliability-private-5g-core.md
   - name: Security
@@ -142,10 +146,6 @@ items:
       href: manage-existing-sims.md
     - name: Manage SIM groups
       href: manage-sim-groups.md
-  - name: Packet capture
-    items:
-    - name: Perform data plane packet capture for a packet core instance
-      href: data-plane-packet-capture.md
   - name: Local monitoring tools
     items:
     - name: Enable Azure Active Directory
@@ -154,12 +154,20 @@ items:
       href: distributed-tracing-share-traces.md
     - name: Modify a packet core instance's local access configuration
       href: modify-local-access-configuration.md
+  - name: Network diagnostic tools
+    items:
+    - name: Perform data plane packet capture on a packet core instance
+      href: data-plane-packet-capture.md
+    - name: Use ping and traceroute on a packet core instance
+      href: ping-traceroute.md
   - name: Gather diagnostics
     href: gather-diagnostics.md
-  - name: Move between regions
+  - name: Manage resources
     items:
     - name: Move private mobile network resources
       href: region-move-private-mobile-network-resources.md
+    - name: Delete resources
+      href: delete-resources.md
 - name: Reference
   items:
    - name: REST API

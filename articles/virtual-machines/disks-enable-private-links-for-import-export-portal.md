@@ -22,11 +22,7 @@ To use Private Link to export and import managed disks, first you create a disk 
 
 ## Create a disk access resource
 
-1. Sign in to the Azure portal and navigate to **Disk Accesses** with [this link](https://aka.ms/disksprivatelinks).
-
-    > [!IMPORTANT]
-    > You must use the [provided link](https://aka.ms/disksprivatelinks) to navigate to the Disk Accesses pane. It is not currently visible in the public portal without using the link.
-
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Disk Accesses**.
 1. Select **+ Create** to create a new disk access resource.
 1. On the **Create a disk accesses** pane, select your subscription and a resource group. Under **Instance details**, enter a name and select a region.
 

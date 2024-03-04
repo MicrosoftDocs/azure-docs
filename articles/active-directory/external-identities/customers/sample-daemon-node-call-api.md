@@ -161,7 +161,7 @@ A Web API endpoint should be prepared to accept calls from both users and applic
 
 ## Next steps
 
-- Learn how to [Acquire an access token, then call a web API in your own Node.js daemon app](how-to-daemon-node-call-api-overview.md).
+- Learn how to [Acquire an access token, then call a web API in your own Node.js daemon app](tutorial-daemon-node-call-api-prepare-tenant.md).
 
 - Learn how to [Use client certificate instead of a secret for authentication in your Node.js confidential app](how-to-web-app-node-use-certificate.md).
 

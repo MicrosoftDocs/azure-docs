@@ -322,7 +322,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
         <container-name>myContainer</container-name>
     </connection-info>
     <query-request>
-        <sql-statement>SELECT * FROM c </sqlstatement>
+        <sql-statement>SELECT * FROM c </sql-statement>
     </query-request>
 </cosmosdb-data-source>
 ```

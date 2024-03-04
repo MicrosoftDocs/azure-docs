@@ -166,6 +166,7 @@ The size of your source Active Directory topology will influence your SQL databa
 
 
 - Organizations with more than 100,000 users can reduce network latencies by colocating SQL database and the provisioning engine on the same server.
+- SQL Named Pipes protocol is not supported as it introduces significant delays in the sync cycle and should be disabled in the SQL Server Configuration Manager under SQL Native Clients and SQL Server Network. Please note that changing Named Pipes configuration only takes effect after restarting database and ADSync services.
 - Due to the high disk input and output (I/O) requirements of the sync process, use Solid State Drives (SSD) for the SQL database of the provisioning engine for optimal results, if not possible, consider RAID 0 or RAID 1 configurations.
 - Don’t do a full sync preemptively; it causes unnecessary churn and slower response times.
 

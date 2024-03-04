@@ -48,7 +48,7 @@ The Enterprise deployment plan includes the following Tanzu components:
 
 ## Review the template
 
-The templates used in this quickstart are from the [Azure Spring Apps Reference Architecture](reference-architecture.md).
+The templates used in this quickstart are from the [Azure Spring Apps Reference Architecture](/previous-versions/azure/spring-apps/reference-architecture).
 
 ### [Standard plan](#tab/azure-spring-apps-standard)
 
@@ -130,5 +130,5 @@ In this quickstart, you deployed an Azure Spring Apps instance into an existing 
   * [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI)
 * Use [custom domains](how-to-custom-domain.md) with Azure Spring Apps.
 * Expose applications in Azure Spring Apps to the internet using Azure Application Gateway. For more information, see [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md).
-* View the secure end-to-end [Azure Spring Apps reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+* View the secure end-to-end [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 * Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md).

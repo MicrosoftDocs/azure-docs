@@ -129,17 +129,21 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -Rp sap-automation/deploy/samples/WORKSPACES WORKSPACES
+cp -Rp sap-automation/deploy/samples/WORKSPACES config
 
 ```
 
 
 ```bash
+
+export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/config/WORKSPACES"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X01
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh          \
+${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/installer.sh     \
         --parameterfile DEV-WEEU-SAP01-X01.tfvars           \
-        --type sap_system
+        --type sap_system --auto-approve
 ```
 # [Windows](#tab/windows)
 

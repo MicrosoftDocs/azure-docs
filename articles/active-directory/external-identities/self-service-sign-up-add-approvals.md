@@ -32,6 +32,8 @@ This article gives an example of how to integrate with an approval system. In th
 
 ## Register an application for your approval system
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You need to register your approval system as an application in your Azure AD tenant so it can authenticate with Azure AD and have permission to create users. Learn more about [authentication and authorization basics for Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
@@ -75,7 +77,7 @@ To create these connectors, follow the steps in [create an API connector](self-s
 
 Now you'll add the API connectors to a self-service sign-up user flow with these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
 4. Select **User flows**, and then select the user flow you want to enable the API connector for.

@@ -62,7 +62,7 @@ To set up a storage account:
 
 1. Select **+ File share**.
 
-1. Enter a **Name**, such as *Profiles*, then for the tier select **Transaction optimized**.
+1. Enter a **Name**, such as *profiles*, then for the tier select **Transaction optimized**.
 
 ## Join your storage account to Active Directory
 
@@ -230,7 +230,7 @@ To configure Profile Container on your session host VMs:
 1. Open an elevated PowerShell prompt and run the following commands, replacing `\\<storage-account-name>.file.core.windows.net\<share-name>` with the UNC path to your storage account you created earlier. These commands enable Profile Container and configure the location of the share.
 
    ```powershell
-   $regPath = "HKLM:\SOFTWARE\FSLogix\Profiles"
+   $regPath = "HKLM:\SOFTWARE\FSLogix\profiles"
    New-ItemProperty -Path $regPath -Name Enabled -PropertyType DWORD -Value 1 -Force
    New-ItemProperty -Path $regPath -Name VHDLocations -PropertyType MultiString -Value \\<storage-account-name>.file.core.windows.net\<share-name> -Force
    ```

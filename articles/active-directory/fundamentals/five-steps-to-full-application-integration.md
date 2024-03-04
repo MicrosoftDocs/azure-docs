@@ -19,7 +19,7 @@ Learn more:
 
 * [What is Conditional Access?](../conditional-access/overview.md)
 * [How it works: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
-* [Azure AD seamless single sign-on](../hybrid/how-to-connect-sso.md)
+* [Azure AD seamless single sign-on](../hybrid/connect/how-to-connect-sso.md)
 * [What is app provisioning in Azure AD?](../app-provisioning/user-provisioning.md)
 
 If your company has a Microsoft 365 subscription, you likely use Azure AD. However, you can use Azure AD for applications. If you centralize application management, identity management features, tools, and policies for your app portfolio. The benefit is a unified solution that improves security, reduces costs, increases productivity, and enables compliance. In addition, there's remote access to on-premises apps.
@@ -113,7 +113,7 @@ Improve the configuration illustrated in the previous diagram by moving applicat
 
 Learn more:
 
-* [Move application authentication to Azure AD](../manage-apps/migrate-adfs-apps-to-azure.md)
+* [Move application authentication to Azure AD](../manage-apps/migrate-adfs-apps-stages.md)
 * [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)
 
 See the following diagram of app authentication simplified by Azure AD.

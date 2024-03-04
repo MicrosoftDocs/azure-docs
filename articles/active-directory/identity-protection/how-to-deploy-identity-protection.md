@@ -37,8 +37,8 @@ This deployment plan extends concepts introduced in the [Conditional Access depl
    * Create or modify Conditional Access policies 
       * [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator)
       * [Security Administrator](../roles/permissions-reference.md#security-administrator)
-* A test user (non-administrator) that allows you to verify policies work as expected before deploying to real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
-* A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+* A test user (non-administrator) that allows you to verify policies work as expected before deploying to real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users.md).
+* A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/how-to-manage-groups.md).
 
 ### Engage the right stakeholders
 

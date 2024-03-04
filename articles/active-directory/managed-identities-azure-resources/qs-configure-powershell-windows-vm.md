@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 05/10/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, has-azure-ad-ps-ref
 ---
 
 # Configure managed identities for Azure resources on an Azure VM using PowerShell

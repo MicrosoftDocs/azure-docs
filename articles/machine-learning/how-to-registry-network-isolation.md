@@ -120,15 +120,6 @@ Create a private endpoint to the registry, storage and ACR from the VNet of the 
 
 ### Use assets from registry in workspace 
 
-> [!NOTE]
-> The information in this section applies to configurations where the registry and it's associated Azure Storage and Container Registry use a private endpoint and public network access is disabled.
->
-> If a pipeline job references an asset that resides in a registry, the job may fail. This is a known issue and we are working to fix it. The following are specific scenarios that may fail:
->
-> * Job references a component that uses an environment, where the environment resides in a registry.
-> * Job uses a model as an input, where the model resides in a registry.
-> * Job uses an environment that resides in a registry.
-
 Example operations: 
 * Submit a job that uses an asset from registry.
 * Use a component from registry in a pipeline.

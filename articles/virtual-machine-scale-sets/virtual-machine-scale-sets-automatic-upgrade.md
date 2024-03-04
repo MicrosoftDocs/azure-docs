@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
 ms.custom: devx-track-linux
-ms.date: 11/22/2022
+ms.date: 07/25/2023
 ms.reviewer: mimckitt
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
@@ -214,6 +214,7 @@ The following example describes how to set automatic OS upgrades on a scale set 
         "disableAutomaticRollback": false 
     } 
   },
+  },
 "imagePublisher": {
    "type": "string",
    "defaultValue": "MicrosoftWindowsServer"
@@ -229,8 +230,7 @@ The following example describes how to set automatic OS upgrades on a scale set 
  "imageOSVersion": {
    "type": "string",
    "defaultValue": "latest"
- } 
-}
+ }
 
 ```
 
@@ -246,6 +246,7 @@ properties: {
         enableAutomaticOSUpgrade: true 
       } 
     } 
+}
 ```
 
 ## Using Application Health Probes

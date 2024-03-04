@@ -1,8 +1,18 @@
 {
     "redirections": [
         {
+            "source_path": "articles/route-server/tutorial-protect-route-server.md",
+            "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/route-server/resource-manager-template-samples.md",
             "redirect_url": "/azure/route-server/tutorial-configure-route-server-with-quagga",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/route-server/routing-preference.md",
+            "redirect_url": "/azure/route-server/overview",
             "redirect_document_id": false
         }
     ]

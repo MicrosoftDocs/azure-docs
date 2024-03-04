@@ -11,4 +11,15 @@
 ---
 
 > [!IMPORTANT]
-> The MQTT Messaging and Pull Delivery features are currently in PREVIEW. 
+> The MQTT Messaging and Pull Delivery features along with the following resources are currently in **PREVIEW**.
+>
+> - Namespaces
+> - Namespace topics
+> - Event subscriptions to namespace topics
+> - Topic spaces
+> - Clients
+> - Client Groups
+> - Certificates
+> - Permission Bindings
+
+

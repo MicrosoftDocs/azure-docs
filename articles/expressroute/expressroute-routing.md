@@ -288,7 +288,7 @@ In addition to the BGP tag for each region, Microsoft also tags prefixes based o
 | Azure Active Directory |12076:5160 |
 | Other Office 365 Online services |12076:5200 |
 
-* *Office 365 communities aren't supported over Microsoft Peering for Azure China region.*
+* *Office 365 communities aren't supported over Microsoft Peering for Microsoft Azure operated by 21Vianet region.*
 
 ## Next steps
 * Configure your ExpressRoute connection.

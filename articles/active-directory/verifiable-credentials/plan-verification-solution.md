@@ -342,6 +342,6 @@ Implement Verifiable Credentials
 
    * [Introduction to Microsoft Entra Verified ID](decentralized-identifier-overview.md) 
 
-   * [Get started with Verifiable Credentials](get-started-verifiable-credentials.md)
+   * [Get started with Verifiable Credentials](./verifiable-credentials-configure-tenant.md)
 
 [FAQs](verifiable-credentials-faq.md)

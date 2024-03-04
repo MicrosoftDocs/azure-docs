@@ -4,9 +4,9 @@ description: Cost details for data stored in a Log Analytics workspace in Azure 
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 06/23/2023
-ms.reviwer: dalek git 
+ms.reviwer: dalek git
 ---
- 
+
 # Azure Monitor Logs cost calculations and options
 
 The most significant charges for most Azure Monitor implementations will typically be ingestion and retention of data in your Log Analytics workspaces. Several features in Azure Monitor don't have a direct cost but add to the workspace data that's collected. This article describes how data charges are calculated for your Log Analytics workspaces and Application Insights resources and the different configuration options that affect your costs.
@@ -63,7 +63,7 @@ Billing for the commitment tiers is done per workspace on a daily basis. If the 
 Azure Commitment Discounts, such as discounts received from [Microsoft Enterprise Agreements](https://www.microsoft.com/licensing/licensing-programs/enterprise), are applied to Azure Monitor Logs commitment-tier pricing just as they are to pay-as-you-go pricing. Discounts are applied whether the usage is being billed per workspace or per dedicated cluster.
 
 > [!TIP]
-> The **Usage and estimated costs** menu item for each Log Analytics workspace shows an estimate of your monthly charges at each commitment level. Review this information periodically to determine if you can reduce your charges by moving to another tier. For information on this view, see [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs).
+> The **Usage and estimated costs** menu item for each Log Analytics workspace shows an estimate of what your data ingestion charges would be at each commitment level to help you choose the optimal commitment tier for your data ingestion patterns. Review this information periodically to determine if you can reduce your charges by moving to another tier. For information on this view, see [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs). To review your actual charges, use [Azure Cost Management = Billing](../usage-estimated-costs.md#azure-cost-management--billing).
 
 ## Dedicated clusters
 
@@ -305,3 +305,4 @@ This query isn't an exact replication of how usage is calculated, but it provide
 - See [Analyze usage in Log Analytics workspace](analyze-usage.md) for details on analyzing the data in your workspace to determine the source of any higher-than-expected usage and opportunities to reduce your amount of data collected.
 - See [Set daily cap on Log Analytics workspace](daily-cap.md) to control your costs by configuring a maximum volume that might be ingested in a workspace each day.
 - See [Azure Monitor best practices - Cost management](../best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.
+

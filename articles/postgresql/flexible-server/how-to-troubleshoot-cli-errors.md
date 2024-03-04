@@ -28,30 +28,30 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 > - Replace ```examplegroup``` and ```exampledeployment``` with the correct resource group and deployment name for your database server. 
 > - You can see the Deployment name in the deployments page in your resource group. See [how to find the deployment name](../../azure-resource-manager/templates/deployment-history.md?tabs=azure-portal)
 
+1. List the deployments in resource group to identify the PostgreSQL Server deployment.
 
-1. List the deployments in resource group to identify the PostgreSQL Server deployment 
-	```azurecli
-
-		az deployment operation group list \
-		  --resource-group examplegroup \
-		  --name exampledeployment
-	```
+    ```azurecli
+        az deployment operation group list \
+          --resource-group examplegroup \
+          --name exampledeployment
+    ```
 
 2. Get the request content of the PostgreSQL Server deployment 
-	```azurecli
+    ```azurecli
+        az deployment operation group list \
+          --name exampledeployment \
+          -g examplegroup \
+          --query [].properties.request
+    ```
 
-		az deployment operation group list \
-		  --name exampledeployment \
-		  -g examplegroup \
-		  --query [].properties.request
-	```
 3. Examine the response content 
-	```azurecli
-	az deployment operation group list \
-	  --name exampledeployment \
-	  -g examplegroup \
-	  --query [].properties.response
-	```
+
+    ```azurecli
+    az deployment operation group list \
+      --name exampledeployment \
+      -g examplegroup \
+      --query [].properties.response
+    ```
 
 ## Error codes
 

@@ -18,6 +18,9 @@ To create a geo-filtering custom rule in the Azure portal, select *Geo location*
 > [!NOTE]
 > Geo-filtering works based on mapping each request's IP address to a country or region. There might be some IP addresses in the data set that are not yet mapped to a country or region. To avoid accidentally blocking legitimate users, Application Gateway's WAF allows requests from unknown IP addresses.
 
+> [!IMPORTANT]
+> Include the country code **ZZ** whenever you use geo-filtering. The **ZZ** country code (or *Unknown* country) captures IP addresses that are not yet mapped to a country in our dataset. This avoids false positives.
+
 ## Country/Region codes
 
 If you're using the Geomatch operator, the selectors can be any of the following two-digit country/region codes. 

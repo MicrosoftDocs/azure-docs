@@ -6,7 +6,7 @@ ms.reviwer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 07/28/2023
 ms.author: banders
 ---
 
@@ -31,6 +31,8 @@ Enterprise Agreement and Microsoft Customer Agreement billing readers can view a
 ## View reservation transactions in the Azure portal
 
 An Enterprise enrollment or Microsoft Customer Agreement billing administrator can view reservation transactions in Cost Management and Billing.
+
+To view the corresponding refunds for reservation transactions, select a **Timespan** that includes the purchase refund dates. You might have to select **Custom** under the **Timespan** list option.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.

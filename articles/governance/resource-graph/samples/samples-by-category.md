@@ -100,6 +100,8 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-networking](../../../../includes/resource-graph/samples/bycat/networking.md)]
 
+[!INCLUDE [virtual-machine-basic-sku-public-ip](../../includes/resource-graph/query/virtual-machine-basic-sku-public-ip.md)]
+
 ## Resource health
 
 [!INCLUDE [azure-resource-graph-samples-cat-resource-health](../../../../includes/resource-graph/samples/bycat/resource-health.md)]

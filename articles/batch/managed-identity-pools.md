@@ -40,7 +40,7 @@ After you've created one or more user-assigned managed identities, you can creat
 
 To create a Batch pool with a user-assigned managed identity through the Azure portal:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter and select **Batch accounts**.
 1. On the **Batch accounts** page, select the Batch account where you want to create a Batch pool.
 1. In the menu for the Batch account, under **Features**, select **Pools**.

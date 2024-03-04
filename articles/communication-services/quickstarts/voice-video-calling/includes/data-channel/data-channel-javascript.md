@@ -11,7 +11,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-The Data Channel feature API enables real-time messaging during audio and video calls. In this quickstart guide, we'll illustrate how to integrate the Data Channel feature, enabling the exchange of text messages among participants within a group call.
+The Data Channel feature API enables real-time messaging during audio and video calls. In this quickstart guide, we'll illustrate how to integrate the Data Channel feature, enabling the exchange of text messages among participants within a group call. Please note that there are many different messaging solutions other than the Data Channel feature, and you should choose the suitable solution for your specific usage scenario.
 
 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
@@ -21,7 +21,7 @@ The Data Channel feature API enables real-time messaging during audio and video 
 
 
 ## Create a DataChannelSender object
-First you need to create a DataChannelSender object to send messages. In this chat application, we suggest assigning a number to `channelId`, which serves to distinguish different application use cases. For instance, you can assign `channelId` 1000 for chat messages.
+First you need to create a DataChannelSender object to send messages. In this custom messaging application, we suggest assigning a number to `channelId`, which serves to distinguish different application use cases. For instance, you can assign `channelId` 1000 for custom messages.
 
 ```js
 const dataChannel = call.feature(Features.DataChannel);

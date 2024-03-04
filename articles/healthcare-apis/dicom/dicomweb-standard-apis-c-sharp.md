@@ -224,7 +224,7 @@ This response should return the only frame from the red-triangle. Validate that 
 ## Query DICOM (QIDO)
 
 > [!NOTE]
-> Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement.md#supported-search-parameters) for supported DICOM attributes.
+> Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md#supported-search-parameters) for supported DICOM attributes.
 
 ### Search for studies
 

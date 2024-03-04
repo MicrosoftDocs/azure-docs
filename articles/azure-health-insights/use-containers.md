@@ -129,7 +129,7 @@ This command:
 Use the example cURL request as a reference how to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/health-insights/<model>/' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/health-insights/<model>/jobs?api-version=<version>/' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 ```
 
 #### Example docker compose file

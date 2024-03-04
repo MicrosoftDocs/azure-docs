@@ -17,7 +17,7 @@ ms.custom: developer, devx-track-dotnet
 
 # Sign in users for a sample ASP.NET web app in an Azure AD for customers tenant
 
-This how-to guide uses a sample ASP.NET web application to show the fundamentals of modern authentication using the [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) and [Microsoft Identity Web](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for ASP.NET to handle authentication.
+This how-to guide uses a sample ASP.NET web application to show the fundamentals of modern authentication using the [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) and [Microsoft Identity Web](https://github.com/AzureAD/microsoft-identity-web/) for ASP.NET to handle authentication.
 
 In this article, you'll register a web application in the Microsoft Entra admin center and create a sign in and sign out user flow. You'll associate your web application with the user flow, download and update a sample ASP.NET web application using your own Azure Active Directory (Azure AD) for customers tenant details. Finally, you'll run and test the sample web application.
 
@@ -89,7 +89,7 @@ To get the web app sample code, you can do either of the following tasks:
 
 1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
 
-    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into a ASP.NET web app.":::
+    :::image type="content" source="media/tutorial-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into a ASP.NET web app.":::
 
 1. To sign-out from the application, select the **Sign out** button.
 
@@ -98,4 +98,4 @@ To get the web app sample code, you can do either of the following tasks:
 - [Enable password reset](how-to-enable-password-reset-customers.md)
 - [Customize the default branding](how-to-customize-branding-customers.md)
 - [Configure sign-in with Google](how-to-google-federation-customers.md)
-- [Sign in users in your own ASP.NET web application by using an Azure AD for customers tenant](how-to-web-app-dotnet-sign-in-prepare-app.md)
+- [Sign in users in your own ASP.NET web application by using an Azure AD for customers tenant](tutorial-web-app-dotnet-sign-in-prepare-app.md)

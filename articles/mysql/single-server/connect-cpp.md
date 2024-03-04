@@ -5,8 +5,8 @@ ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.devlang: cpp
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: mvc, mode-api, devx-track-dotnet
 ms.date: 06/20/2022
 ---

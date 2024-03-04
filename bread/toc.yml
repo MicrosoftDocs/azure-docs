@@ -21,6 +21,9 @@
       - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
+      - name: Architecture
+        tocHref: /azure/active-directory/architecture/
+        topicHref: /azure/active-directory/architecture/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
@@ -478,7 +481,7 @@
   - name: Container Instances
     tocHref: /azure/container-instances/
     topicHref: /azure/container-instances/
-  - name: AKS
+  - name: Azure Kubernetes Service
     tocHref: /azure/aks/
     topicHref: /azure/aks/
   - name: Kubernetes Fleet Manager

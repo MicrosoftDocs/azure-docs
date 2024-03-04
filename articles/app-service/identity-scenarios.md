@@ -5,11 +5,11 @@ author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.topic: conceptual
-ms.date: 06/20/2023
+ms.date: 08/10/2023
 ---
 # Authentication scenarios and recommendations
 
-You can add authentication to your web app or API running in Azure App Service to limit the users who can access it.  There are several different authentication solutions available.  This article describes which authentication solution to use for specific scenarios.
+If you have a web app or an API running in Azure App Service, you can restrict access to it based on the identity of the users or applications that request it. App Service offers several authentication solutions to help you achieve this goal. In this article, you will learn about the different authentication solutions, their benefits and drawbacks, and which authentication solution to use for specific scenarios.
 
 ## Authentication solutions
 
@@ -37,7 +37,7 @@ The following table lists authentication scenarios and the authentication soluti
 | Even if you can use a code solution, would you rather *not* use libraries? Don't want the maintenance burden?  | ✅ | ❌ | ❌ |
 | Does your web app need to provide incremental consent?  | ❌ | ✅ | ✅ |
 | Do you need conditional access in your web app? | ❌ | ❌ | ✅ |
-| Your app need to handle the access token expiring without making the user sign in again (use a refresh token)? | ❌ | ✅ | ✅ |
+| Your app need to handle the access token expiring without making the user sign in again (use a refresh token)? | ✅  | ✅ | ✅ |
 | Need custom authorization logic or info about the signed-in user? | ❌ | ✅ | ✅ |
 | Need to sign in users from external or social identity providers?  | ✅ | ✅ | ✅ |
 | You have an ASP.NET Core app? | ✅ | ❌ | ✅ |

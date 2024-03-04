@@ -133,4 +133,4 @@ Privileged Identity Management sends emails to end users when the following even
 ## Next steps
 
 - [Configure Azure AD role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)
-- [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md)
+- [Approve or deny requests for Azure AD roles in Privileged Identity Management](./pim-approval-workflow.md)

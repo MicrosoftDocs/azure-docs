@@ -2,8 +2,8 @@
 title: Packet core dashboards
 titleSuffix: Azure Private 5G Core
 description: Information on the packet core dashboards, which can be used to monitor key statistics in an Azure Private 5G Core deployment. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual
 ms.date: 01/19/2022

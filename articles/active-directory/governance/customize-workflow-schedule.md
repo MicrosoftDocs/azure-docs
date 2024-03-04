@@ -20,6 +20,8 @@ When you create workflows by using lifecycle workflows, you can fully customize 
 
 ## Customize the schedule of workflows by using the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Workflows that you create within lifecycle workflows follow the same schedule that you define on the **Workflow settings** pane. To adjust the schedule, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

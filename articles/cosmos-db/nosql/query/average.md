@@ -54,5 +54,5 @@ In this example, the function is used to average the values of a specific field 
 
 ## Next steps
 
-- [System functions in Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`SUM`](sum.md)

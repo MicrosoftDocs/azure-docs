@@ -215,8 +215,8 @@ Test your logic app by quickly simulating a device connection using the Azure CL
 1. Select the Cloud Shell button to reopen your terminal.
 
 1. Run the following command to create a simulated device identity:
-    
-     ```azurecli 
+
+    ```azurecli 
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName}
     ```
 

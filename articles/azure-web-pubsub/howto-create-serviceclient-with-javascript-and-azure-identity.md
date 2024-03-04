@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # How to create a `WebPubSubServiceClient` with JavaScript and Azure Identity
 
-This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure Active Directory in JavaScript.
+This how-to guide shows you how to create a `WebPubSubServiceClient` using Microsoft Entra ID in JavaScript.
 
 ## Requirements
 
@@ -32,36 +32,40 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure
 
 1. Create a `TokenCredential` with Azure Identity SDK.
 
-    ```javascript
-    const { DefaultAzureCredential } = require('@azure/identity')
+   ```javascript
+   const { DefaultAzureCredential } = require("@azure/identity");
 
-    let credential = new DefaultAzureCredential();
-    ```
+   let credential = new DefaultAzureCredential();
+   ```
 
-    `credential` can be any class that inherits from `TokenCredential` class.
+   `credential` can be any class that inherits from `TokenCredential` class.
 
-    - EnvironmentCredential
-    - ClientSecretCredential
-    - ClientCertificateCredential
-    - ManagedIdentityCredential
-    - VisualStudioCredential
-    - VisualStudioCodeCredential
-    - AzureCliCredential
+   - EnvironmentCredential
+   - ClientSecretCredential
+   - ClientCertificateCredential
+   - ManagedIdentityCredential
+   - VisualStudioCredential
+   - VisualStudioCodeCredential
+   - AzureCliCredential
 
-    To learn more, see [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme)
+   To learn more, see [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme)
 
-2. Then create a `client` with `endpoint`, `hub`, and `credential`. 
+2. Then create a `client` with `endpoint`, `hub`, and `credential`.
 
-    ```javascript
-    const { DefaultAzureCredential } = require('@azure/identity')
+   ```javascript
+   const { DefaultAzureCredential } = require("@azure/identity");
 
-    let credential = new DefaultAzureCredential();
+   let credential = new DefaultAzureCredential();
 
-    let serviceClient = new WebPubSubServiceClient("<endpoint>", credential, "<hub>");
-    ```
+   let serviceClient = new WebPubSubServiceClient(
+     "<endpoint>",
+     credential,
+     "<hub>"
+   );
+   ```
 
-    Learn how to use this client, see [Azure Web PubSub service client library for JavaScript](/javascript/api/overview/azure/web-pubsub-readme)
+   Learn how to use this client, see [Azure Web PubSub service client library for JavaScript](/javascript/api/overview/azure/web-pubsub-readme)
 
 ## Complete sample
 
-- [Simple chatroom with AAD Auth](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp-aad)
+- [Simple chatroom with Microsoft Entra ID authorization](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp-aad)

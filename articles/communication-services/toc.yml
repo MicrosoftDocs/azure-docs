@@ -116,6 +116,8 @@ items:
       href: quickstarts/ui-library/get-started-composites.md
     - name: Add data channel messaging to your calling app
       href: quickstarts/voice-video-calling/get-started-data-channel.md
+    - name: Set video constraints in your calling app
+      href: quickstarts/voice-video-calling/get-started-video-constraints.md
   - name: Chat
     items:
     - name: Connect to a chat 
@@ -226,6 +228,8 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add video calling to your Android WebView client app
       href: quickstarts/voice-video-calling/get-started-android-webview.md
+    - name: Using Event Grid to send VOIP push notifications to devices
+      href: tutorials/add-voip-push-notifications-event-grid.md
     - name: Proxy your calling traffic
       href: tutorials/proxy-calling-support-tutorial.md
     - name: Survey users
@@ -267,6 +271,8 @@ items:
         href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Manage Teams meeting Lobby
         href: how-tos/calling-sdk/lobby.md
+      - name: Manage Audio Filters
+        href: how-tos/calling-sdk/manage-audio-filters.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
@@ -423,6 +429,8 @@ items:
       items:
       - name: Control and steer calls
         href: how-tos/call-automation/actions-for-call-control.md
+      - name: Control mid call media actions
+        href: how-tos/call-automation/control-mid-call-media-actions.md
       - name: Customize voice prompts to users with play action 
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 
@@ -710,6 +718,8 @@ items:
         href: concepts/ui-library/ui-library-use-cases.md
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
+    - name: User experience
+      href: concepts/voice-video-calling/user-experience.md
     - name: Known issues
       href: concepts/known-issues.md
   - name: Chat

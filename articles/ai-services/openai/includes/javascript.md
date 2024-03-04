@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/22/2023
+ms.date: 07/26/2023
 keywords: 
 ---
 
@@ -91,7 +91,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 ## Create a sample application
 
-Open a command prompt where you want the new project, and create a new file named Completion.js. Copy the following code into the ChatCompletion.js file.
+Open a command prompt where you created the new project, and create a new file named Completion.js. Copy the following code into the Completion.js file.
 
 ```javascript
 const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");

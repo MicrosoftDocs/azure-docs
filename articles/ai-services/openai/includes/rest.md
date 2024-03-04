@@ -75,49 +75,24 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Set-up)
 
-## Create a new Python application
 
-Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
+## REST API
 
-1. Replace the contents of quickstart.py with the following code.
+In a bash shell, run the following command. You will need to replace `text-davinci-003` with the deployment name you chose when you deployed the GPT-35-Turbo. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
 
-    ```python
-    import os
-    import requests
-    import json
+```bash
+curl $AZURE_OPENAI_ENDPOINT/openai/deployments/text-davinci-003/completions?api-version=2023-05-15 \
+  -H "Content-Type: application/json" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
+  -d "{\"prompt\": \"Once upon a time\"}"
+```
 
-    api_key = os.getenv("AZURE_OPENAI_KEY")
-    base_url = os.getenv("AZURE_OPENAI_ENDPOINT") 
-    deployment_name ="REPLACE_WITH_YOUR_DEPLOYMENT_NAME_HERE"
+The format of your first line of the command with an example endpoint would appear as follows `curl https://docs-test-001.openai.azure.com/openai/deployments/{YOUR-DEPLOYMENT_NAME_HERE}/completions?api-version=2023-05-15 \`. If you encounter an error double check to make sure that you don't have a doubling of the `/` at the separation between your endpoint and `/openai/deployments`.
 
-    url = base_url + "/openai/deployments/" + deployment_name + "/completions?api-version=2023-05-15"
-    prompt = "Once upon a time"
-    payload = {        
-        "prompt":prompt
-        }
+If you want to run this command in a normal Windows command prompt you would need to alter the text to remove the `\` and line breaks.
 
-    r = requests.post(url, 
-          headers={
-            "api-key": api_key,
-            "Content-Type": "application/json"
-          },
-          json = payload
-        )
-
-    response = json.loads(r.text)
-    formatted_response = json.dumps(response, indent=4)
-
-    print(formatted_response)
-    ```
-
-    > [!IMPORTANT]
-    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
-
-1. Run the application with the `python` command on your quickstart file:
-
-    ```console
-    python quickstart.py
-    ```
+> [!IMPORTANT]
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 ## Output
 
@@ -128,7 +103,7 @@ The output from the completions API will look as follows.
     "id": "ID of your call",
     "object": "text_completion",
     "created": 1675444965,
-    "model": "text-davinci-002",
+    "model": "text-davinci-003",
     "choices": [
         {
             "text": " there lived in a little village a woman who was known as the meanest",

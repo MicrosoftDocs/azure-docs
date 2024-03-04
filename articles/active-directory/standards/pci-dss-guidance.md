@@ -124,7 +124,7 @@ Where applications and resources use Azure AD for identity and access management
 
 Learn more
 
-* [Introduction to delegated administration and isolated environments](../fundamentals/secure-introduction.md)
+* [Introduction to delegated administration and isolated environments](../architecture/secure-introduction.md)
 * [How to use the Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
 * [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
 * [What are access reviews?](../governance/access-reviews-overview.md)
@@ -222,4 +222,3 @@ To configure Azure AD to comply with PCI-DSS, see the following articles.
 * [Requirement 10: Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md)
 * [Requirement 11: Test Security of Systems and Networks Regularly](pci-requirement-11.md)
 * [Azure AD PCI-DSS Multi-Factor Authentication guidance](pci-dss-mfa.md)
-

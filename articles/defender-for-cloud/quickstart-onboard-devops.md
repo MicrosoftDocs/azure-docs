@@ -36,7 +36,7 @@ To complete this quickstart, you need:
 | Pricing: | For pricing, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing). |
 | Required permissions: | **Account Administrator** with permissions to sign in to the Azure portal. <br> **Contributor** on the Azure subscription where the connector will be created. <br> **Security Admin** in Defender for Cloud. <br> **Organization Administrator** in Azure DevOps. <br> **Basic or Basic + Test Plans Access Level** in Azure DevOps. Third-party applications gain access via OAuth, which must be set to `On`. [Learn more about OAuth](/azure/devops/organizations/accounts/change-application-access-policies).|
 | Regions: | Central US, West Europe, Australia East |
-| Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Azure China 21Vianet) |
+| Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 
 ## Connect your Azure DevOps organization
 

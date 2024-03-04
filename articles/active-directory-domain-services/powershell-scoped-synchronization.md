@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/29/2023
 ms.author: justinha 
-ms.custom:
+ms.custom: has-azure-ad-ps-ref
 ---
 # Configure scoped synchronization from Azure AD to Azure Active Directory Domain Services using Azure AD PowerShell
 

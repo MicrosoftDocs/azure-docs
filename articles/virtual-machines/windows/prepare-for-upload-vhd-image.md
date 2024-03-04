@@ -647,6 +647,18 @@ configured them.
     interfere and block the Windows Provisioning Agent scripts executed when you deploy a new VM
     from your image.
 
+> [!TIP]
+> **Optional** Use [DISM](/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) to optimize your image and reduce your VM's first boot time.
+>
+> To optimize your image, mount your VHD by double-clicking on it in Windows explorer, and then run DISM with the `/optimize-image` parameter.
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> Where D: is the mounted VHD's path.
+>
+> Running `DISM /optimize-image` should be the last modification you make to your VHD. If you make any changes to your VHD prior to deployment, you'll have to run `DISM /optimize-image` again.
+
 ## Next steps
 
 - [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)

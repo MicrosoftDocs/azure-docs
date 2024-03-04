@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: ddematheu2
+author: RinaRish
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: dademath
+ms.author: ektrishi
 ---
 
 The Azure Communication Services **Group Calling Hero Sample for Android** demonstrates how the Communication Services Calling Android SDK can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.

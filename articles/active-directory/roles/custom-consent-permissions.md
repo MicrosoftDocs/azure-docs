@@ -11,7 +11,7 @@ ms.topic: overview
 ms.date: 01/31/2023
 ms.author: rolyon
 ms.reviewer: psignoret
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ---
 
 # App consent permissions for custom roles in Azure Active Directory

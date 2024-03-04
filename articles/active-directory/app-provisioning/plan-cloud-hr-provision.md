@@ -85,7 +85,7 @@ You also need a valid Azure AD Premium P1 or higher subscription license for eve
 - A test and production instance of the cloud HR app.
 - Administrator permissions in the cloud HR app to create a system integration user and make changes to test employee data for testing purposes.
 - For user provisioning to Active Directory, a server running Windows Server 2016 or greater is required to host the Azure AD Connect provisioning agent. This server should be a tier 0 server based on the Active Directory administrative tier model.
-- [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) for synchronizing users between Active Directory and Azure AD.
+- [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) for synchronizing users between Active Directory and Azure AD.
 
 ### Training resources
 
@@ -116,7 +116,7 @@ The following key steps are indicated in the diagram:  
 2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes to process for sync with Active Directory.
 3. **Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload that contains Active Directory account create, update, enable, and disable operations.
 4. **Azure AD Connect provisioning agent** uses a service account to manage Active Directory account data.
-5. **Azure AD Connect** runs delta [sync](../hybrid/how-to-connect-sync-whatis.md) to pull updates in Active Directory.
+5. **Azure AD Connect** runs delta [sync](../hybrid/connect/how-to-connect-sync-whatis.md) to pull updates in Active Directory.
 6. **Active Directory** updates are synced with Azure AD.
 7. **Azure AD provisioning service** write backs email attribute and username from Azure AD to the cloud HR app tenant.
 
@@ -126,7 +126,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so owing to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md). Also make sure that stakeholder roles in the project are well understood. Document the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so owing to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../architecture/deployment-plans.md). Also make sure that stakeholder roles in the project are well understood. Document the stakeholders and their project input and accountabilities.
 
 Include a representative from the HR organization who can provide inputs on existing HR business processes and worker identity plus job data-processing requirements.
 
@@ -138,7 +138,7 @@ Communication is critical to the success of any new service. Proactively communi
 
 Integrating HR business processes and identity workflows from the cloud HR app to target systems requires a considerable amount of data validation, data transformation, data cleansing, and end-to-end testing before you can deploy the solution into production.
 
-Run the initial configuration in a [pilot environment](../fundamentals/deployment-plans.md#best-practices-for-a-pilot) before you scale it to all users in production.
+Run the initial configuration in a [pilot environment](../architecture/deployment-plans.md#best-practices-for-a-pilot) before you scale it to all users in production.
 
 ## Select cloud HR provisioning connector apps
 
@@ -206,7 +206,7 @@ The cloud HR app to Active Directory user provisioning solution requires the dep
 
 To prepare the on-premises environment, the Azure AD Connect provisioning agent configuration wizard registers the agent with your Azure AD tenant, [opens ports](../app-proxy/application-proxy-add-on-premises-application.md#open-ports), [allows access to URLs](../app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls), and supports [outbound HTTPS proxy configuration](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 
-The provisioning agent configures a [Global Managed Service Account (GMSA)](../cloud-sync/how-to-prerequisites.md#group-managed-service-accounts)
+The provisioning agent configures a [Global Managed Service Account (GMSA)](../hybrid/cloud-sync/how-to-prerequisites.md#group-managed-service-accounts)
 to communicate with the Active Directory domains.
 
 You can select domain controllers that should handle provisioning requests. If you have several geographically distributed domain controllers, install the provisioning agent in the same site as your preferred domain controllers. This positioning improves the reliability and performance of the end-to-end solution.
@@ -225,7 +225,7 @@ Deployment topology one is the most common deployment topology. Use this topolog
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
-* Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register your AD domain with your Azure AD tenant. 
+* Use the [provisioning agent configuration wizard](../hybrid/cloud-sync/how-to-install.md#install-the-agent) to register your AD domain with your Azure AD tenant. 
 * When configuring the provisioning app, select the AD domain from the dropdown of registered domains. 
 * If you're using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
@@ -255,7 +255,7 @@ For example: In the diagram, the provisioning apps are set up for each geographi
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
-* Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register all child AD domains with your Azure AD tenant. 
+* Use the [provisioning agent configuration wizard](../hybrid/cloud-sync/how-to-install.md#install-the-agent) to register all child AD domains with your Azure AD tenant. 
 * Create a separate HR2AD provisioning app for each target domain. 
 * When configuring the provisioning app, select the respective child AD domain from the dropdown of available AD domains. 
 * Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users that each app processes. 
@@ -272,8 +272,8 @@ For example: In the diagram, the provisioning apps are set up for each geographi
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
-* Configure [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
-* Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Azure AD tenant. 
+* Configure [referral chasing](../hybrid/cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
+* Use the [provisioning agent configuration wizard](../hybrid/cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Azure AD tenant. 
 * Create a separate HR2AD provisioning app for each target domain. 
 * When configuring each provisioning app, select the parent AD domain from the dropdown of available AD domains. Selecting the parent domain ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
 * Use *parentDistinguishedName* with expression mapping to dynamically create user in the correct child domain and [OU container](#configure-active-directory-ou-container-assignment). 
@@ -291,8 +291,8 @@ For example: In the diagram, a single provisioning app manages users present in 
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
-* Configure [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
-* Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Azure AD tenant. 
+* Configure [referral chasing](../hybrid/cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
+* Use the [provisioning agent configuration wizard](../hybrid/cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Azure AD tenant. 
 * Create a single HR2AD provisioning app for the entire forest. 
 * When configuring the provisioning app, select the parent AD domain from the dropdown of available AD domains. Selecting the parent domain ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
 * Use *parentDistinguishedName* with expression mapping to dynamically create user in the correct child domain and [OU container](#configure-active-directory-ou-container-assignment). 
@@ -307,7 +307,7 @@ Use this topology if your IT infrastructure has disconnected/disjoint AD forests
 **Salient configuration aspects**
 * Setup two different sets of provisioning agents for high availability and failover, one for each forest. 
 * Create two different provisioning apps, one for each forest. 
-* If you need to resolve cross domain references within the forest, enable [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
+* If you need to resolve cross domain references within the forest, enable [referral chasing](../hybrid/cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
 * Create a separate HR2AD provisioning app for each disconnected forest. 
 * When configuring each provisioning app, select the appropriate parent AD domain from the dropdown of available AD domain names. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
@@ -320,7 +320,7 @@ In large organizations, it isn't uncommon to have multiple HR systems. During bu
 
 **Salient configuration aspects**
 * Setup two different sets of provisioning agents for high availability and failover, one for each forest. 
-* If you need to resolve cross domain references within the forest, enable [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
+* If you need to resolve cross domain references within the forest, enable [referral chasing](../hybrid/cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
 * Create a separate HR2AD provisioning app for each HR system and on-premises Active Directory combination.
 * When configuring each provisioning app, select the appropriate parent AD domain from the dropdown of available AD domain names. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
@@ -497,7 +497,7 @@ To review these events and all other activities performed by the provisioning se
 
 All activities performed by the provisioning service are recorded in the Azure AD audit logs. You can route Azure AD audit logs to Azure Monitor logs for further analysis. With Azure Monitor logs (also known as Log Analytics workspace), you can query data to find events, analyze trends, and perform correlation across various data sources. Watch this [video](https://youtu.be/MP5IaCTwkQg) to learn the benefits of using Azure Monitor logs for Azure AD logs in practical user scenarios.
 
-Install the [log analytics views for Azure AD activity logs](../reports-monitoring/howto-install-use-log-analytics-views.md) to get access to [prebuilt reports](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views) around provisioning events in your environment.
+Install the [log analytics views for Azure AD activity logs](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md) to get access to [prebuilt reports](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views) around provisioning events in your environment.
 
 For more information, see how to [analyze the Azure AD activity logs with your Azure Monitor logs](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md).
 

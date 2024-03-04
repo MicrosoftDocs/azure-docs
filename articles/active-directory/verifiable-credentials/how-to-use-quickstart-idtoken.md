@@ -171,7 +171,7 @@ Claims must exist in the returned identity provider so that they can successfull
 
 If the claims don't exist, there's no value in the issued verifiable credential. Most OIDC identity providers don't issue a claim in an ID token if the claim has a null value in your profile. Be sure to include the claim in the ID token definition, and ensure that you've entered a value for the claim in your user profile.
 
-**For Azure Active Directory**: To configure the claims to include in your token, see [Provide optional claims to your app](../../active-directory/develop/active-directory-optional-claims.md). The configuration is per application, so this configuration should be for the app that has the application ID specified in the client ID in the rules definition.
+**For Azure Active Directory**: To configure the claims to include in your token, see [Provide optional claims to your app](../develop/optional-claims.md). The configuration is per application, so this configuration should be for the app that has the application ID specified in the client ID in the rules definition.
 
 To match the display and rules definitions, you should make your application's optionalClaims JSON look like the following:
 

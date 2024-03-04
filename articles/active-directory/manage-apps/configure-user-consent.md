@@ -26,8 +26,6 @@ Before an application can access your organization's data, a user must grant the
 
 To reduce the risk of malicious applications attempting to trick users into granting them access to your organization's data, we recommend that you allow user consent only for applications that have been published by a [verified publisher](../develop/publisher-verification-overview.md).
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To configure user consent, you need:
@@ -36,6 +34,8 @@ To configure user consent, you need:
 - A Global Administrator role.
 
 ## Configure user consent settings
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 :::zone pivot="portal"
 

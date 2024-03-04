@@ -41,7 +41,7 @@ The secure hybrid access solution for this scenario is made up of several compon
 
 **Oracle EBS Application:** BIG-IP published service to be protected by Azure AD SHA.
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access, and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
 
 **Oracle Internet Directory (OID):** Hosts the user database. BIG-IP checks via LDAP for authorization attributes. 
 
@@ -276,7 +276,7 @@ To select a policy to be applied to the application being published:
 
    The selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the policy is not enforced.
 
-   ![Screenshot for CA policies](./media/f5-big-ip-oracle-ebs/conditional-access-policy.png)
+   ![Screenshot for Conditional Access policies](./media/f5-big-ip-oracle-ebs/conditional-access-policy.png)
 
 > [!NOTE]
 > The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.

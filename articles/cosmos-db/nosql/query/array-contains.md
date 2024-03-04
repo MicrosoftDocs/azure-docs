@@ -50,5 +50,5 @@ The following example illustrates how to check for specific values or objects in
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`ARRAY_CONCAT`](array-concat.md)

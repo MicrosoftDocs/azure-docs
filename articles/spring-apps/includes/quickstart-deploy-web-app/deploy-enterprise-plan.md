@@ -2,6 +2,7 @@
 author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 07/11/2023
 ---
@@ -33,7 +34,7 @@ Use the following steps to clone and run the app locally.
 3. Use the following command to run the sample application by using Maven:
 
    ```bash
-   java -jar web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
+   java -jar web/target/simple-todo-web-0.0.2-SNAPSHOT.jar
    ```
 
 4. Go to `http://localhost:8080` in your browser to access the application.

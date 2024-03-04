@@ -4,8 +4,8 @@ description: In this quickstart, you learn how to use PowerShell to send an invi
 services: active-directory
 ms.author: cmulligan
 author: csmulligan
-manager: celestedg
-ms.date: 03/21/2023
+manager: CelesteDG
+ms.date: 07/31/2023
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
@@ -83,5 +83,5 @@ Remove-MgUser -UserId '3f80a75e-750b-49aa-a6b0-d9bf6df7b4c6'
 
 
 ## Next steps
-In this quickstart, you invited and added a single guest user to your directory using PowerShell. Next, learn how to [invite guest users in bulk using PowerShell](tutorial-bulk-invite.md).
+In this quickstart, you invited and added a single guest user to your directory using PowerShell. You can also invite a guest user using the [Azure portal](b2b-quickstart-add-guest-users-portal.md). Additionally you can [invite guest users in bulk using PowerShell](tutorial-bulk-invite.md). 
 

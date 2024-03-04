@@ -52,9 +52,9 @@ The following steps use the collaborator role but any of the roles can be added 
     |--|
     |Owner|
     |Contributor|
-    |Azure AI QnA Maker Reader|
-    |Azure AI QnA Maker Editor|
-    |Azure AI services User|
+    |Cognitive Services QnA Maker Reader|
+    |Cognitive Services QnA Maker Editor|
+    |Cognitive Services User|
 
     :::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-add-role-iam.png" alt-text="QnA Maker IAM add role.":::
 

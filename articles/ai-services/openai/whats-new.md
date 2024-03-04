@@ -8,12 +8,17 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: whats-new
-ms.date: 07/20/2023
+ms.date: 08/08/2023
 recommendations: false
 keywords:  
 ---
 
 # What's new in Azure OpenAI Service
+
+## August 2023
+
+- You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
+- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-network-support) now supports private endpoints.
 
 ## July 2023
 
@@ -24,6 +29,10 @@ keywords:
 ### Embedding input array increase
 
 - Azure OpenAI now [supports arrays with up to 16 inputs](./how-to/switching-endpoints.md#azure-openai-embeddings-multiple-input-support) per API request with text-embedding-ada-002 Version 2.
+
+### New Regions
+
+- Azure OpenAI is now also available in the Canada East, East US 2, Japan East, and North Central US regions. Check the [models page](concepts/models.md), for the latest information on model availability in each region.  
 
 ## June 2023
 

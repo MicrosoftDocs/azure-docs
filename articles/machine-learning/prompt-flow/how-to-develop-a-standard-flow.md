@@ -66,26 +66,9 @@ We also support the input type of int, bool, double, list and object.
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-datatype.png" alt-text="Screenshot of inputs showing the type drop-down menu with string selected. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-datatype.png":::
 
-You should first set the input schema (name: url; type: string), then set a value manually or by:
+## Develop the flow using different tools
 
-1. Inputting data manually in the value field.
-2. Selecting a row of existing dataset in **fill value from data**.
-
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-value-from-data.gif" alt-text="Gif of selecting fill value from data button and selecting rows of data. " lightbox = "./media/how-to-develop-a-standard-flow/flow-value-from-data.gif":::
-
-The dataset selection supports search and autosuggestion.
-
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-dataerror.png" alt-text="Screenshot of fill value from data with the dataset warning highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-dataerror.png":::
-
-After selecting a row, the url is backfilled to the value field.
-
-If the existing datasets don't meet your needs, upload new data from files. We support **.csv** and **.txt** for now.
-
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-content.png" alt-text="Screenshot of fill value from data with the upload new data button highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-content.png":::
-
-## Develop tool in your flow
-
-In one flow, you can consume different kinds of tools. We now support LLM, Python, Serp API, Content Safety and Vector Search.
+In one flow, you can consume different kinds of tools. We now support LLM, Python, Serp API, Content Safety, Vector Search and etc.
 
 ### Add tool as your need
 
@@ -220,6 +203,6 @@ First define flow output schema, then select in drop-down the node whose output 
 
 ## Next steps
 
-- [Develop a customized evaluation flow](how-to-develop-an-evaluation-flow.md)
+- [Bulk test using more data and evaluate the flow performance](how-to-bulk-test-evaluate-flow.md)
 - [Tune prompts using variants](how-to-tune-prompts-using-variants.md)
 - [Deploy a flow](how-to-deploy-for-real-time-inference.md)

@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Natural language support for Azure AI services
 
-Azure AI services enable you to build applications that see, hear, articulate, and understand users. Our burgeoning language support capabilities enable users to communicate with your application in natural ways and help facilitate global outreach. Use the links in the tables to view language support and availability by service.
+Azure AI services enable you to build applications that see, hear, articulate, and understand users. Our language support capabilities enable users to communicate with your applications in natural ways and empower global outreach. Use the links in the tables to view language support and availability by service.
 
 ## Language supported services
 

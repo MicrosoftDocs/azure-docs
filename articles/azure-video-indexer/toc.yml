@@ -80,7 +80,7 @@
       href: observed-matched-people.md
     - name: Topics inference
       href: topics-inference.md
-    - name: Emotions detection
+    - name: Text-based emotion detection
       href: emotions-detection.md
   - name: Customizing content models
     displayName: customize, customizing
@@ -161,7 +161,7 @@
       href: language-identification-model.md
       displayName: Azure AI Video Indexer language identification model, Azure AI Video Indexer languages, automatic language identification, auto language identification, auto detect option, corresponding confidence score, high enough confidence, spontaneous conversational speech, spoken languages description, spoken language content, Model dominant language, mixed languages audio, Model output, model results, following languages, multi-language content, fallback language, home page, right-bottom corner, index button, Modern Standard, one minute, voice commands, sourceLanguage parameter, sourceLanguage attribute, media file, sourceLanguageConfidence attribute, Low-quality audio, title, article, LID, process, list, langues, limitations, guidelines, section, indexing, details, Operations, Re-Index-Video, API, portal, videoindexer, name, English, insights, JSON, root/videos, version, duration, FR, transcript, Arabic, Levantine, Hindi, Korean, support, singing, language-identification, 04
     - name: Observed people (preview)
-      href: observed-people-tracing.md
+      href: observed-people-tracking.md
       displayName: dark lighting conditions, new advanced model, bounding box coordinates, following JSON response, Maximum frame size, Low quality video, Recommended video input, up to 10 people, minimum person height, Azure AI Video Indexer, Observed People Tracing, same ID number, Advanced video, exact timestamp, Post-event analysis, bank robbery, raw data, content creators, sport games, red shirt, court evidence, shopping mall, checkout lines, detect operation, Standard indexing, false negatives, limited detail, static cameras, moving camera, mixed scenes, frame rate, single frame, highest confidence, similar clothes, different poses, video description, video concept, video frame, video advertising, video archive, long video, video player, video footage, detection confidence, detection result, detector results, people thumbnails, other people, audio indexing, person instance, specific person, same person, multiple instances, title, Trace, topic, overview, videos, information, location, API, pixels, scenarios, feature, movement, accident, crime, example, explosion, incident, efficiency, news, summary, appearance, trends, customers, aisles, functionality, path, file, image, people-tracing, screenshot, Insights, videoindexer, website, page, thumbnailId, Limitations, assumptions, effects, detections, 30 FPS, uniforms, players, Obstruction, errors, tracks
       items:
       - name: Detected clothing (preview)

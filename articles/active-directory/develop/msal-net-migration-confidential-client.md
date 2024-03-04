@@ -486,7 +486,7 @@ app.UseInMemoryTokenCaches(); // or a distributed token cache.
 
 When your controller attempts to acquire a token silently for different
 scopes/resources, MSAL.NET might throw an `MsalUiRequiredException` as expected if the user needs to re-sign-in, or if the
-access to the resource requires more claims (because of a conditional access
+access to the resource requires more claims (because of a Conditional Access
 policy). For details on mitigation see how to [Handle errors and exceptions in MSAL.NET](msal-error-handling-dotnet.md).
 
 [Learn more about web apps calling web APIs](scenario-web-app-call-api-overview.md) and how they're implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
@@ -534,7 +534,7 @@ If you get an exception with either of the following messages:
 Troubleshoot the exception using these steps:
 
 1. Confirm that you're using the latest version of [MSAL.NET](https://www.nuget.org/packages/Microsoft.Identity.Client/).
-1. Confirm that the authority host that you set when building the confidential client app and the authority host that you used with ADAL are similar. In particular, is it the same [cloud](msal-national-cloud.md) (Azure Government, Azure China 21Vianet, or Azure Germany)?
+1. Confirm that the authority host that you set when building the confidential client app and the authority host that you used with ADAL are similar. In particular, is it the same [cloud](msal-national-cloud.md) (Azure Government, Microsoft Azure operated by 21Vianet, or Azure Germany)?
 
 ### MsalClientException
 

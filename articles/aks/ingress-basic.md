@@ -1,15 +1,16 @@
 ---
-title: Create an ingress controller in Azure Kubernetes Service (AKS)
+title: Create an unmanaged ingress controller
+titleSuffix: Azure Kubernetes Service
 description: Learn how to create and configure an ingress controller in an Azure Kubernetes Service (AKS) cluster.
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 08/07/2023
 ---
 
-# Create an ingress controller in Azure Kubernetes Service (AKS)
+# Create an unmanaged ingress controller
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. When you use an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster.
 

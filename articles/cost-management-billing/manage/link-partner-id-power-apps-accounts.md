@@ -6,7 +6,7 @@ ms.reviewer: tpalmer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 08/10/2023
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -16,7 +16,11 @@ ms.devlang: azurecli
 
 Microsoft partners who are Power Platform and Dynamics 365 Customer Insights service providers work with their customers to manage, configure, and support Power Platform and Customer Insights resources. To get credit for the services, you can associate your partner network ID with the Azure credential used for service delivery that's in your customers’ production environments using the Partner Admin Link (PAL).
 
-PAL allows Microsoft to identify and recognize partners that have Power Platform and Customer Insights customers. Microsoft attributes usage to a partner's organization based on the account's permissions (user role) and scope (tenant, resource, and so on). The attribution is used for Specializations, such as the [Microsoft Low Code Advanced Specializations](https://partner.microsoft.com/membership/advanced-specialization#tab-content-2), and [Partner Incentives](https://partner.microsoft.com/asset/collection/microsoft-commerce-incentive-resources#/). 
+PAL allows Microsoft to identify and recognize partners that have Power Platform and Customer Insights customers. Microsoft attributes usage to a partner's organization based on the account's permissions (user role) and scope (tenant, resource, and so on). The attribution is used for Specializations, including:
+
+- [Microsoft Low Code Application Development Specialization](https://partner.microsoft.com/partnership/specialization/low-code-application-development)
+- [Microsoft Intelligent Automation Specialization](https://partner.microsoft.com/partnership/specialization/intelligent-automation)
+- [Partner Incentives](https://partner.microsoft.com/asset/collection/microsoft-commerce-incentive-resources#/)
 
 The following sections explain how to:
 
@@ -24,14 +28,14 @@ The following sections explain how to:
 2. **Registration** - link your access account to your partner ID
 3. **Attribution** - attribute your service account to the Power Platform & Dynamics Customer Insights resources using Solutions
 
-We recommend taking these actions in the sequence above.
+We recommend taking these actions in the preceding order.
 
-The attribution step is critical and typically happens automatically, as the partner user is the one creating, editing, and updating the resource (i.e. the Power App application, the Power Automate flow, etc.). To ensure success, we strongly recommend that you use Solutions where available to import your deliverables into the customers Production Environment via a Managed Solution. When you use Solutions, the account used to import the Solution becomes the owner of each deliverable inside the Solution. Linking the account to your partner ID ensures all deliverables inside the Solution are associated to your partner ID, automatically handling step #3 above.
+The attribution step is critical and typically happens automatically, as the partner user is the one creating, editing, and updating the resource. For example, the Power App application, the Power Automate flow, and so on. To ensure success, we strongly recommend that you use Solutions where available to import your deliverables into the customers Production Environment via a Managed Solution. When you use Solutions, the account used to import the Solution becomes the owner of each deliverable inside the Solution. Linking the account to your partner ID ensures all deliverables inside the Solution are associated to your partner ID, automatically handling the preceding step #3.
 
 > [!NOTE]
-> Solutions are not available for Power BI and Customer Insights. See detailed sections below. 
+> Solutions are not available for Power BI and Customer Insights. See the following detailed sections.
 
-:::image type="content" source="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" alt-text="Images showing the three steps listed above."  border="false" lightbox="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" :::
+:::image type="content" source="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" alt-text="Diagrams showing the three steps listed previously."  border="false" lightbox="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" :::
 
 ## Initiation - get service account from your customer
 
@@ -49,9 +53,8 @@ Perform PAL Association on this Service Account.
 
 To use the Azure portal to link to a new partner ID:
 
-1. Go to [Link to a partner ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) in the Azure portal.
-2. Sign in to the Azure portal
-3. Enter the [Microsoft Cloud Partner Program](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated Partner ID** shown on your partner center profile. It's typically known as your [partner location ID](/partner-center/account-structure).  
+1. Go to [Link to a partner ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) in the Azure portal and sign in.
+1. Enter the [Microsoft Cloud Partner Program](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated Partner ID** shown on your partner center profile. It's typically known as your [partner location ID](/partner-center/account-structure).  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/link-partner-id.png" alt-text="Screenshot showing the Link to a partner ID window." lightbox="./media/link-partner-id-power-apps-accounts/link-partner-id.png" :::
 
 > [!NOTE]
@@ -63,11 +66,11 @@ For more information about using PowerShell or the Azure CLI, see sections under
 
 To count the usage of a specific resource, the partner service account needs to be attributed to the *resource* for Power Platform or Dynamics Customer Insights. 
 
-To ensure success, we strongly recommend that you use [Solutions](/power-apps/maker/data-platform/solutions-overview) where available to import your deliverables into the customers Production Environment via a Managed Solution. Use the Service account to install these Solutions into production environments. The last account with a PAL Association to import the solution will assume ownership of all objects inside the Solution and receive the usage credit. 
+To ensure success, we strongly recommend that you use [Solutions](/power-apps/maker/data-platform/solutions-overview) where available to import your deliverables into the customers Production Environment via a Managed Solution. Use the Service account to install these Solutions into production environments. The last account with a PAL Association to import the solution assumes ownership of all objects inside the Solution and receive the usage credit.
 
 [Attributing the account to Power Platform & Customer Insights resources using Solutions](https://aka.ms/AttributetoResources)
 
-The resource and attribute user logic differ for every product and are detailed below. 
+The resource and attribute user logic differ for every product.
 
 | Product | Primary Metric | Resource | Attributed User Logic |
 |---|---|---|---|
@@ -78,19 +81,17 @@ The resource and attribute user logic differ for every product and are detailed 
 
 ## Validation
 
-The operation of a PAL association is a Boolean operation. Once performed it can be verified visually in the Azure portal or with a PowerShell Command. Either option will show your organization name and Partner ID to represent the account and partner ID were correctly connected. 
-
-
+The operation of a PAL association is a Boolean operation. Once performed it can be verified visually in the Azure portal or with a PowerShell Command. Either option shows your organization name and Partner ID to represent the account and partner ID were correctly connected.
 
 ## Alternate approaches
 
-The following sections are alternate approaches that you can use to leverage PAL for Power Platform and Customer Insights. 
+The following sections are alternate approaches to use PAL for Power Platform and Customer Insights.
 
-### Associate PAL with user accounts 
+### Associate PAL with user accounts
 
-The Attribution step can also be completed with **user accounts**. While we are including this as an option, there are some downsides to this approach.  For partners with a large number of users, it will require management of user accounts when users are new to the team and/or resign from the team.  If you choose to associate PAL in this way, you will need to manage the users via a spreadsheet.  
+The Attribution step can also be completed with **user accounts**. Although it's an option, there are some downsides to the approach. For partners with a large number of users, it requires management of user accounts when users are new to the team and/or resign from the team. If you choose to associate PAL in this way, you need to manage the users via a spreadsheet.
 
-To Associate PAL with User Accounts, follow the same steps as with Service Accounts but do so for each user.  
+To Associate PAL with User Accounts, follow the same steps as with Service Accounts but do so for each user.
 
 Other points about products:
 
@@ -114,7 +115,7 @@ Other points about products:
 
 ### Tooling to update or change attributed users 
 
-The following table shows the tooling compatibility to change the owner or co-owner, as described above, **user accounts or dedicated service accounts** after the application has been created.
+The following table shows the tooling compatibility to change the owner or co-owner, as described previously, **user accounts or dedicated service accounts** after the application has been created.
 
 | Product | GUI | PowerShell | PP CLI | DevOps + Build Tools |
 | --- | --- | --- | --- | --- |

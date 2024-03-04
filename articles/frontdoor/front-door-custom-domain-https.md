@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Configure HTTPS on a custom domain for Azure Front Door (classic)'
+title: Configure HTTPS on a Front Door (classic) custom domain
+titleSuffix: Azure Front Door
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure Front Door (classic) configuration for a custom domain.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.workload: infrastructure-services
-ms.topic: tutorial
-ms.date: 06/06/2022
+ms.topic: how-to
+ms.date: 08/09/2023
 ms.author: duau
-ms.custom: devx-track-azurepowershell
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain in my Front Door (classic) so that my users can use my custom domain to access their content securely.
 ---
 
-# Tutorial: Configure HTTPS on a Front Door (classic) custom domain
+# Configure HTTPS on a Front Door (classic) custom domain
 
-This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with your Front Door (classic) under the frontend hosts section. By using the HTTPS protocol on your custom domain (for example, `https://www.contoso.com`), you ensure that your sensitive data is delivered securely via TLS/SSL encryption when it's sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site's security certificate and verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
+This article shows how to enable the HTTPS protocol for a custom domain that's associated with your Front Door (classic) under the frontend hosts section. By using the HTTPS protocol on your custom domain (for example, `https://www.contoso.com`), you ensure that your sensitive data is delivered securely via TLS/SSL encryption when it's sent across the internet. When your web browser is connected to a web site using HTTPS, it validates the web site's security certificate and verifies if issued by a legitimate certificate authority. This process provides security and protects your web applications from malicious attacks.
 
-Azure Front Door supports HTTPS on a Front Door default hostname, by default. For example, if you create a Front Door (such as `https://contoso.azurefd.net`), HTTPS is automatically enabled for requests made to `https://contoso.azurefd.net`. However, once you onboard the custom domain 'www.contoso.com' you'll need to additionally enable HTTPS for this frontend host.
+Azure Front Door supports HTTPS on a Front Door default hostname, by default. For example, if you create a Front Door (such as `https://contoso.azurefd.net`), HTTPS is automatically enabled for requests made to `https://contoso.azurefd.net`. However, once you onboard the custom domain 'www.contoso.com' you need to additionally enable HTTPS for this frontend host.
 
 Some of the key attributes of the custom HTTPS feature are:
 
@@ -43,11 +43,11 @@ Before you can complete the steps in this tutorial, you must first create a Fron
 
 ## TLS/SSL certificates
 
-To enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you must use a TLS/SSL certificate. You can choose to use a certificate that is managed by Azure Front Door or use your own certificate.
+To enable the HTTPS protocol for securely delivering content on a Front Door (classic) custom domain, you must use a TLS/SSL certificate. You can choose to use a certificate that gets managed by Azure Front Door or use your own certificate.
 
 ### Option 1 (default): Use a certificate managed by Front Door
 
-When you use a certificate managed by Azure Front Door, the HTTPS feature can be turned on with just a few clicks. Azure Front Door completely handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately. If the custom domain is already mapped to the Front Door's default frontend host (`{hostname}.azurefd.net`), no further action is required. Front Door will process the steps and complete your request automatically. However, if your custom domain is mapped elsewhere, you must use email to validate your domain ownership.
+When you use a certificate managed by Azure Front Door, the HTTPS feature can be turned on with a few setting changes. Azure Front Door completely handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately. If the custom domain is already mapped to the Front Door's default frontend host (`{hostname}.azurefd.net`), no further action is required. Front Door processes the steps and completes your request automatically. However, if your custom domain is mapped elsewhere, you must use email to validate your domain ownership.
 
 To enable HTTPS on a custom domain, follow these steps:
 
@@ -67,7 +67,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 ### Option 2: Use your own certificate
 
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure Front Door uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  If a certificate without complete chain is presented, the requests that involve that certificate are not guaranteed to work as expected.
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure Front Door uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected.  If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
 
 #### Prepare your key vault and certificate
 
@@ -168,7 +168,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
 ## Validate the domain
 
-If you already have a custom domain in use that gets mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to [Custom domain is mapped to your Front Door](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). Otherwise, if the CNAME record entry for your domain no longer exists or it contains the afdverify subdomain, continue to [Custom domain is not mapped to your Front Door](#custom-domain-is-not-mapped-to-your-front-door).
+If you already have a custom domain in use that gets mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to [Custom domain is mapped to your Front Door](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). Otherwise, if the CNAME record entry for your domain no longer exists or it contains the afdverify subdomain, continue to [Custom domain isn't mapped to your Front Door](#custom-domain-isnt-mapped-to-your-front-door).
 
 ### Custom domain is mapped to your Front Door by a CNAME record
 
@@ -184,18 +184,18 @@ Your CNAME record should be in the following format, where *Name* is your custom
 
 For more information about CNAME records, see [Create the CNAME DNS record](../cdn/cdn-map-content-to-custom-domain.md).
 
-If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a dedicated certificate for your domain name. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be autorenewed before it expires. Continue to [Wait for propagation](#wait-for-propagation).
+If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a dedicated certificate for your domain name. DigitCert doesn't send you a verification email and you don't need to approve your request. The certificate is valid for one year and autorenews before it expires. Continue to [Wait for propagation](#wait-for-propagation).
 
 Automatic validation typically takes a few mins. If you don't see your domain validated within an hour, open a support ticket.
 
 >[!NOTE]
 >If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
 
-### Custom domain is not mapped to your Front Door
+### Custom domain isn't mapped to your Front Door
 
 If the CNAME record entry for your endpoint no longer exists or it contains the afdverify subdomain, follow the rest of the instructions in this step.
 
-After you enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that aren't approved within six business days are automatically canceled. DigiCert domain validation works at the subdomain level. You'll need to prove ownership of each subdomain separately.
+After you enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS is active on your custom domain. You have six business days to approve the domain. Requests that aren't approved within six business days are automatically canceled. DigiCert domain validation works at the subdomain level. You need to prove ownership of each subdomain separately.
 
 ![WHOIS record](./media/front-door-custom-domain-https/whois-record.png)
 
@@ -207,7 +207,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;
 postmaster@&lt;your-domain-name.com&gt;
 
-You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add no-reply@digitalcertvalidation.com to its allowlist. Under certain scenarios, DigiCert may be unable to fetch the domain contacts from the WHOIS registrant information to send you an email. If you don't receive an email within 24 hours, contact Microsoft support.
+You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you're using a spam filter, add no-reply@digitalcertvalidation.com to its allowlist. Under certain scenarios, DigiCert may be unable to fetch the domain contacts from the WHOIS registrant information to send you an email. If you don't receive an email within 24 hours, contact Microsoft support.
 
 When you select the approval link, you're directed to an online approval form. Follow the instructions on the form; you have two verification options:
 
@@ -215,7 +215,7 @@ When you select the approval link, you're directed to an online approval form. F
 
 - You can approve just the specific host name used in this request. Extra approval is required for subsequent requests.
 
-After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year and will be autorenewed before it's expired.
+After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year and gets autorenew before it expires.
 
 ## Wait for propagation
 
@@ -223,21 +223,21 @@ After the domain name is validated, it can take up to 6-8 hours for the custom d
 
 ### Operation progress
 
-The following table shows the operation progress that occurs when you enable HTTPS. After you enable HTTPS, four operation steps appear in the custom domain dialog. As each step becomes active, more substep details appear under the step as it progresses. Not all of these substeps will occur. After a step successfully completes, a green check mark appears next to it.
+The following table shows the operation progress that occurs when you enable HTTPS. After you enable HTTPS, four operation steps appear in the custom domain dialog. As each step becomes active, more substep details appear under the step as it progresses. Not all of these substeps occur. After a step successfully completes, a green check mark appears next to it.
 
 | Operation step | Operation substep details |
 | --- | --- |
-| 1 Submitting request | Submitting request |
+| 1. Submitting request | Submitting request |
 | | Your HTTPS request is being submitted. |
 | | Your HTTPS request has been submitted successfully. |
-| 2 Domain validation | Domain is automatically validated if it's CNAME mapped to the default .azurefd.net frontend host of your Front Door. Otherwise, a verification request will be sent to the email listed in your domain's registration record (WHOIS registrant). Verify the domain as soon as possible. |
+| 2. Domain validation | Domain is automatically validated if it's CNAME mapped to the default .azurefd.net frontend host of your Front Door. Otherwise, a verification request is sent to the email listed in your domain's registration record (WHOIS registrant). Verify the domain as soon as possible. |
 | | Your domain ownership has been successfully validated. |
 | | Domain ownership validation request expired (customer likely didn't respond within 6 days). HTTPS won't be enabled on your domain. * |
-| | Domain ownership validation request was rejected by the customer. HTTPS won't be enabled on your domain. * |
-| 3 Certificate provisioning | The certificate authority is currently issuing the certificate needed to enable HTTPS on your domain. |
+| | Domain ownership validation request rejected by the customer. HTTPS won't be enabled on your domain. * |
+| 3. Certificate provisioning | The certificate authority is currently issuing the certificate needed to enable HTTPS on your domain. |
 | | The certificate has been issued and is currently being deployed for your Front Door. This process could take from several minutes to an hour to complete. |
 | | The certificate has been successfully deployed for your Front Door. |
-| 4 Complete | HTTPS has been successfully enabled on your domain. |
+| 4. Complete | HTTPS has been successfully enabled on your domain. |
 
 \* This message doesn't appear unless an error has occurred.
 
@@ -279,7 +279,7 @@ In the preceding steps, you enabled the HTTPS protocol on your custom domain. If
 
 2. In the list of frontend hosts, select the custom domain for which you want to disable HTTPS.
 
-3. Click **Disabled** to disable HTTPS, then click **Save**.
+3. Select **Disabled** to disable HTTPS, then select **Save**.
 
 ### Wait for propagation
 
@@ -291,19 +291,10 @@ The following table shows the operation progress that occurs when you disable HT
 
 | Operation progress | Operation details |
 | --- | --- |
-| 1 Submitting request | Submitting your request |
-| 2 Certificate deprovisioning | Deleting certificate |
-| 3 Complete | Certificate deleted |
+| 1. Submitting request | Submitting your request |
+| 2. Certificate deprovisioning | Deleting certificate |
+| 3. Complete | Certificate deleted |
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-* Upload a certificate to Key Vault.
-* Validate a domain.
-* Enable HTTPS for your custom domain.
-
-To learn how to set up a geo-filtering policy for your Front Door, continue to the next tutorial.
-
-> [!div class="nextstepaction"]
-> [Set up a geo-filtering policy](front-door-geo-filtering.md)
+To learn how to [set up a geo-filtering policy](front-door-geo-filtering.md) for your Front Door, continue to the next tutorial.

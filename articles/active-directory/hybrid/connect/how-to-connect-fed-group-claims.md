@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) can provide a user's group membership informat
 ## Important caveats for this functionality
 
 - Support for use of `sAMAccountName` and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from Active Directory Federation Services (AD FS) and other identity providers. Groups managed in Azure AD don't contain the attributes necessary to emit these claims.
-- In order to avoid the number of groups limit if your users have large numbers of group memberships, you can restrict the groups emitted in claims to the relevant groups for the application. Read more about emitting groups assigned to the application for [JWT tokens](../../develop\active-directory-optional-claims.md#configuring-groups-optional-claims) and [SAML tokens](#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). If assigning groups to your applications is not possible, you can also configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. Group filtering applies to tokens emitted for apps where group claims and filtering were configured in the **Enterprise apps** blade in the portal.
+- In order to avoid the number of groups limit if your users have large numbers of group memberships, you can restrict the groups emitted in claims to the relevant groups for the application. Read more about emitting groups assigned to the application for [JWT tokens](../../develop/optional-claims.md#configure-groups-optional-claims) and [SAML tokens](#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). If assigning groups to your applications is not possible, you can also configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. Group filtering applies to tokens emitted for apps where group claims and filtering were configured in the **Enterprise apps** blade in the portal.
 - Group claims have a five-group limit if the token is issued through the implicit flow. Tokens requested via the implicit flow will have a `"hasgroups":true` claim only if the user is in more than five groups.
 - We recommend basing in-app authorization on application roles rather than groups when:
 
@@ -62,7 +62,7 @@ However, if an existing application expects to consume group information via cla
 
 - When you're using group membership for in-application authorization, it's preferable to use the group `ObjectID` attribute. The group `ObjectID` attribute is immutable and unique in Azure AD. It's available for all groups.
 - If you're using the on-premises group `sAMAccountName` attribute for authorization, use domain-qualified names. It reduces the chance of names clashing. `sAMAccountName` might be unique within an Active Directory domain, but if more than one Active Directory domain is synchronized with an Azure AD tenant, there's a possibility for more than one group to have the same name.
-- Consider using [application roles](../../develop/howto-add-app-roles-in-azure-ad-apps.md) to provide a layer of indirection between the group membership and the application. The application then makes internal authorization decisions based on role claims in the token.
+- Consider using [application roles](../../develop/howto-add-app-roles-in-apps.md) to provide a layer of indirection between the group membership and the application. The application then makes internal authorization decisions based on role claims in the token.
 - If the application is configured to get group attributes that are synced from Active Directory and a group doesn't contain those attributes, it won't be included in the claims.
 - Group claims in tokens include nested groups, except when you're using the option to restrict the group claims to groups that are assigned to the application. 
 
@@ -200,7 +200,7 @@ After you add a group claim configuration to the **User Attributes & Claims** co
 
 ## Configure the Azure AD application registration for group attributes
 
-You can also configure group claims in the [optional claims](../../develop/active-directory-optional-claims.md) section of the [application manifest](../../develop/reference-app-manifest.md).
+You can also configure group claims in the [optional claims](../../develop/optional-claims.md) section of the [application manifest](../../develop/reference-app-manifest.md).
 
 1. In the portal, select **Azure Active Directory** > **Application Registrations** > **Select Application** > **Manifest**.
 
@@ -295,4 +295,4 @@ Emit group names to be returned in `NetbiosDomain\sAMAccountName` format as the 
 
 - [Add authorization using groups & group claims to an ASP.NET Core web app (code sample)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
 - [Assign a user or group to an enterprise app](../../manage-apps/assign-user-or-group-access-portal.md)
-- [Configure role claims](../../develop/active-directory-enterprise-app-role-management.md)
+- [Configure role claims](../../develop/enterprise-app-role-management.md)

@@ -108,7 +108,7 @@ Save the access token from the response for use in the following HTTP requests.
    - **accessToken**: The authorization token acquired from the previous step.
     
     ```Shell
-    curl -X POST 'https://<location>.monitoring.azure.com<resourceId>/metrics' \
+    curl -X POST 'https://<location>/.monitoring.azure.com<resourceId>/metrics' \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer <accessToken>' \
     -d @custommetric.json 

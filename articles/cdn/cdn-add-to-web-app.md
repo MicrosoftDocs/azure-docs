@@ -45,7 +45,7 @@ To create the web app that you work with, follow the [static HTML quickstart](..
 
 ## Sign in to the Azure portal
 
-Open a browser and navigate to the [Azure portal](https://portal.azure.com).
+Open a browser and sign in to the [Azure portal](https://portal.azure.com).
 
 ### Dynamic site acceleration optimization
 If you want to optimize your CDN endpoint for dynamic site acceleration (DSA), you should use the [CDN portal](cdn-create-new-endpoint.md) to create your profile and endpoint. With [DSA optimization](cdn-dynamic-site-acceleration.md), the performance of web pages with dynamic content is measurably improved. For instructions about how to optimize a CDN endpoint for DSA from the CDN portal, see [CDN endpoint configuration to accelerate delivery of dynamic files](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). 

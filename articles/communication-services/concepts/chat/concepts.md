@@ -47,6 +47,7 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 - The maximum number of participants allowed in a chat thread is 250.
 - The maximum message size allowed is approximately 28 KB.
 - For chat threads with more than 20 participants, read receipts and typing indicator features are not supported.
+- For Teams Interop scenarios, it is the number of ACS users, not Teams users that must be below 20 for read receipts and typing indicator features to be supported.
 
 ## Chat architecture
 
@@ -119,17 +120,17 @@ For more information, see [Push Notifications](../notifications.md).
 
 ## Build intelligent, AI powered chat experiences
 
-You can use [Azure Cognitive APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
+You can use [Azure AI APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
 
 - Enable users to chat with each other in different languages.
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
 - Analyze the incoming messages for key detection and entity recognition, and prompt relevant info to the user in your app based on the message content.
 
-One way to achieve this is by having your trusted service act as a participant of a chat thread. Let's say you want to enable language translation. This service is responsible for listening to the messages exchanged by other participants [1], calling Cognitive APIs to translate content to desired language[2,3] and sending the translated result as a message in the chat thread[4].
+One way to achieve this is by having your trusted service act as a participant of a chat thread. Let's say you want to enable language translation. This service is responsible for listening to the messages exchanged by other participants [1], calling AI APIs to translate content to desired language[2,3] and sending the translated result as a message in the chat thread[4].
 
-This way, the message history contains both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](../../../ai-services/translator/quickstart-text-rest-api.md) to understand how to use Cognitive APIs to translate text to different languages. 
+This way, the message history contains both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](../../../ai-services/translator/quickstart-text-rest-api.md) to understand how to use AI APIs to translate text to different languages. 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram showing Cognitive Services interacting with Communication Services.":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram showing Azure AI services interacting with Communication Services.":::
 
 ## Next steps
 

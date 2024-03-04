@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/26/2023
+ ms.date: 08/10/2023
  ms.author: cherylmc
 ---
 1. Go to your virtual network. On your VNet page, select **Connected devices** on the left. Locate your VPN gateway and click to open it.
@@ -31,7 +31,7 @@
    * **IPse/IKE policy:** Default.
    * **Use policy based traffic selector:** Disable.
    * **DPD timeout in seconds:** 45
-   * **Connection Mode:** leave as Default.
+   * **Connection Mode:** leave as Default. This setting is used to specify which gateway can initiate the connection. For more information, see [VPN Gateway settings - connection modes](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#connectionmode).
 1. For **NAT Rules Associations**, leave both Ingress and Egress as **0 selected**.
 1. Select **Review + create** to validate your connection settings.
 1. Select **Create** to create the connection.

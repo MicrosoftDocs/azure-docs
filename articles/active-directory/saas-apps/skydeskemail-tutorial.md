@@ -77,9 +77,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://mail.skydesk.jp/portal/<companyname>`
 
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [SkyDesk Email Client support team](https://www.skydesk.jp/apps/support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
@@ -164,9 +161,6 @@ In this section, you create a user called Britta Simon in SkyDesk Email.
 Click on **User Access** from the left panel in SkyDesk Email and then enter your username.
 
 ![Screenshot shows User Access selected from Control Panel.](./media/skydeskemail-tutorial/create-users.png)
-
-> [!NOTE]
-> If you need to create bulk users, you need to contact the [SkyDesk Email Client support team](https://www.skydesk.jp/apps/support/).
 
 ## Test SSO
 

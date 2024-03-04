@@ -28,9 +28,9 @@ There are two possible reasons why you might need to edit the claims that are is
 
 1. The application requires a different set of claim URIs or claim values.
 
-2. The application requires the NameIdentifier claim to be something other than the user principal name [(UPN)](../hybrid/plan-connect-userprincipalname.md#what-is-userprincipalname) that's stored in Azure AD.
+2. The application requires the NameIdentifier claim to be something other than the user principal name [(UPN)](../hybrid/connect/plan-connect-userprincipalname.md#what-is-userprincipalname) that's stored in Azure AD.
 
-For information about how to add and edit claims, see [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+For information about how to add and edit claims, see [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/saml-claims-customization.md).
 
 For B2B collaboration users, mapping NameID and UPN cross-tenant are prevented for security reasons.
 
@@ -38,4 +38,3 @@ For B2B collaboration users, mapping NameID and UPN cross-tenant are prevented f
 
 - For information about B2B collaboration user properties, see [Properties of an Azure Active Directory B2B collaboration user](user-properties.md).
 - For information about user tokens for B2B collaboration users, see [Understand user tokens in Azure AD B2B collaboration](user-token.md).
-

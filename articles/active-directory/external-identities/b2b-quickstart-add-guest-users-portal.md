@@ -24,7 +24,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users-azure-active-directory.md) article.
+Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users.md) article.
 
 ## Prerequisites
 
@@ -36,9 +36,11 @@ To complete the scenario in this quickstart, you need:
 
 ## Invite an external guest user
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 This quickstart guide provides the basic steps to invite an external user. To learn about all of the properties and settings that you can include when you invite an external user, see [How to create and delete a user](../fundamentals/how-to-create-delete-users.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using one of the roles listed in the Prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the roles listed in the Prerequisites.
 
 1. Navigate to **Azure Active Directory** > **Users**.
 
@@ -92,7 +94,7 @@ Now sign in as the guest user to see the invitation.
 
 When no longer needed, delete the test guest user.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that's been assigned the Global administrator or User administrator role.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's been assigned the Global administrator or User administrator role.
 1. Select the **Azure Active Directory** service.
 1. Under **Manage**, select **Users**.
 1. Select the test user, and then select **Delete user**.

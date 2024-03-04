@@ -30,10 +30,6 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-# [C# script](#tab/csharp-script)
-
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
-
 ---
 
 The functionality of the extension varies depending on the extension version:
@@ -56,14 +52,6 @@ Add the extension to your project by installing the [NuGet package](https://www.
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 
 Functions 1.x doesn't support running in an isolated worker process.
-
-# [Functions v2.x+](#tab/functionsv2/csharp-script)
-
-This version of the extension should already be available to your function app with [extension bundle], version 2.x. 
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
 ---
 

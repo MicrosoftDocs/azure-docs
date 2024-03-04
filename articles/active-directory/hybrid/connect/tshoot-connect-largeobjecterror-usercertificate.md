@@ -45,7 +45,7 @@ Until the LargeObject error is resolved, other attribute changes to the same obj
  * Configure Azure AD Connect to exclude the userCertificate attribute from being exported to Azure AD. In general, we do not recommend this option since the attribute may be used by Microsoft Online Services to enable specific scenarios. In particular:
     * The userCertificate attribute on the User object is used by Exchange Online and Outlook clients for message signing and encryption. To learn more about this feature, refer to article [S/MIME for message signing and encryption](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption).
 
-    * The userCertificate attribute on the Computer object is used by Azure AD to allow Windows 10 on-premises domain-joined devices to connect to Azure AD. To learn more about this feature, please refer to article [Connect domain-joined devices to Azure AD for Windows 10 experiences](../../devices/hybrid-azuread-join-plan.md).
+    * The userCertificate attribute on the Computer object is used by Azure AD to allow Windows 10 on-premises domain-joined devices to connect to Azure AD. To learn more about this feature, please refer to article [Connect domain-joined devices to Azure AD for Windows 10 experiences](../../devices/hybrid-join-plan.md).
 
 ## Implementing sync rule to limit export of userCertificate attribute
 To resolve the LargeObject error caused by the userCertificate attribute, you can implement an outbound sync rule in Azure AD Connect that exports a **null value instead of the actual values for objects with more than 15 certificate values**. This section describes the steps required to implement the sync rule for **User** objects. The steps can be adapted for **Contact** and **Computer** objects.
@@ -64,7 +64,7 @@ The steps can be summarized as:
 8. Export the changes to Azure AD.
 9. Re-enable sync scheduler.
 
-### Step 1.	Disable sync scheduler and verify there is no synchronization in progress
+### Step 1. Disable sync scheduler and verify there is no synchronization in progress
 Ensure no synchronization takes place while you are in the middle of implementing a new sync rule to avoid unintended changes being exported to Azure AD. To disable the built-in sync scheduler:
 1. Start PowerShell session on the Azure AD Connect server.
 
@@ -77,7 +77,7 @@ Ensure no synchronization takes place while you are in the middle of implementin
 
 1. Go to the **Operations** tab and confirm there is no operation whose status is *“in progress.”*
 
-### Step 2.	Find the existing outbound sync rule for userCertificate attribute
+### Step 2. Find the existing outbound sync rule for userCertificate attribute
 There should be an existing sync rule that is enabled and configured to export userCertificate attribute for User objects to Azure AD. Locate this sync rule to find out its **precedence** and **scoping filter** configuration:
 
 1. Start the **Synchronization Rules Editor** by going to START → Synchronization Rules Editor.
@@ -131,11 +131,11 @@ The new sync rule must have the same **scoping filter** and **higher precedence*
     
 6. Click the **Add** button to create the sync rule.
 
-### Step 4.	Verify the new sync rule on an existing object with LargeObject error
+### Step 4. Verify the new sync rule on an existing object with LargeObject error
 This is to verify that the sync rule created is working correctly on an existing AD object with LargeObject error before you apply it to other objects:
 1. Go to the **Operations** tab in the Synchronization Service Manager.
 2. Select the most recent Export to Azure AD operation and click on one of the objects with LargeObject errors.
-3.	In the Connector Space Object Properties pop-up screen, click on the **Preview** button.
+3. In the Connector Space Object Properties pop-up screen, click on the **Preview** button.
 4. In the Preview pop-up screen, select **Full synchronization** and click **Commit Preview**.
 5. Close the Preview screen and the Connector Space Object Properties screen.
 6. Go to the **Connectors** tab in the Synchronization Service Manager.
@@ -143,7 +143,7 @@ This is to verify that the sync rule created is working correctly on an existing
 8. In the Run Connector pop-up, select **Export** step and click **OK**.
 9. Wait for Export to Azure AD to complete and confirm there is no more LargeObject error on this specific object.
 
-### Step 5.	Apply the new sync rule to remaining objects with LargeObject error
+### Step 5. Apply the new sync rule to remaining objects with LargeObject error
 Once the sync rule has been added, you need to run a full synchronization step on the AD Connector:
 1. Go to the **Connectors** tab in the Synchronization Service Manager.
 2. Right-click on the **AD** Connector and select **Run...**
@@ -151,7 +151,7 @@ Once the sync rule has been added, you need to run a full synchronization step o
 4. Wait for the Full Synchronization step to complete.
 5. Repeat the above steps for the remaining AD Connectors if you have more than one AD Connectors. Usually, multiple connectors are required if you have multiple on-premises directories.
 
-### Step 6.	Verify there are no unexpected changes waiting to be exported to Azure AD
+### Step 6. Verify there are no unexpected changes waiting to be exported to Azure AD
 1. Go to the **Connectors** tab in the Synchronization Service Manager.
 2. Right-click on the **Azure AD** Connector and select **Search Connector Space**.
 3. In the Search Connector Space pop-up:
@@ -160,14 +160,14 @@ Once the sync rule has been added, you need to run a full synchronization step o
     3. Click **Search** button to return all objects with changes waiting to be exported to Azure AD.
     4. Verify there are no unexpected changes. To examine the changes for a given object, double-click on the object.
 
-### Step 7.	Export the changes to Azure AD
+### Step 7. Export the changes to Azure AD
 To export the changes to Azure AD:
 1. Go to the **Connectors** tab in the Synchronization Service Manager.
 2. Right-click on the **Azure AD** Connector and select **Run...**
 4. In the Run Connector pop-up, select **Export** step and click **OK**.
 5. Wait for Export to Azure AD to complete and confirm there are no more LargeObject errors.
 
-### Step 8.	Re-enable sync scheduler
+### Step 8. Re-enable sync scheduler
 Now that the issue is resolved, re-enable the built-in sync scheduler:
 1. Start PowerShell session.
 2. Re-enable scheduled synchronization by running cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`

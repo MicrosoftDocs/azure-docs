@@ -229,7 +229,7 @@ az network vnet peering delete --resource-group myResourceGroup --name VNetBtoVN
 
 - <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as *Global VNet Peering*.
 
-- When creating a global peering, the peered virtual networks can exist in any Azure public cloud region or China cloud regions or Government cloud regions. You can't peer across clouds. For example, a VNet in Azure public cloud can't be peered to a VNet in Azure China cloud.
+- When creating a global peering, the peered virtual networks can exist in any Azure public cloud region or China cloud regions or Government cloud regions. You can't peer across clouds. For example, a VNet in Azure public cloud can't be peered to a VNet in Microsoft Azure operated by 21Vianet cloud.
 
 - Resources in one virtual network can't communicate with the front-end IP address of a Basic Load Balancer (internal or public) in a globally peered virtual network. Support for Basic Load Balancer only exists within the same region. Support for Standard Load Balancer exists for both, VNet Peering and Global VNet Peering. Some services that use a Basic load balancer don't work over global virtual network peering. For more information, see [Constraints related to Global VNet Peering and Load Balancers](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 

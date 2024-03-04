@@ -30,6 +30,8 @@ To delegate the creation and management of access packages in a catalog, you add
 - Who needs to approve the access requests
 - How long the project lasts
 
+They can create access packages and policies, including policies referencing existing [connected organizations](entitlement-management-organization.md). Once their access packages are created, then they can have other users request or be assigned to those access packages.
+
 This video provides an overview of how to delegate access governance from catalog owner to access package manager.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq08]

@@ -54,4 +54,4 @@ The IDP initiated SSO feature exposes the following settings for each applicatio
 
 ## Next steps
 
-- To learn more about how to configure this policy see [Customize app SAML token claims](active-directory-saml-claims-customization.md)
+- To learn more about how to configure this policy see [Customize app SAML token claims](./saml-claims-customization.md)

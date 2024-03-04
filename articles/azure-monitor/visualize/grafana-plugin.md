@@ -76,7 +76,7 @@ If you're hosting Grafana on your own Azure Virtual Machines or Azure App Servic
     * View [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal.md) to assign the [Monitoring Reader role](../roles-permissions-security.md) to the Azure Active Directory application on the subscription, resource group, or resource you want to monitor.
   
 1. Provide the connection details you want to use:
-    * When you configure the plug-in, you can indicate which Azure Cloud you want the plug-in to monitor: Public, Azure US Government, Azure Germany, or Azure China.
+    * When you configure the plug-in, you can indicate which Azure Cloud you want the plug-in to monitor: Public, Azure US Government, Azure Germany, or Microsoft Azure operated by 21Vianet.
         > [!NOTE]
         > Some data source fields are named differently than their correlated Azure settings:
         > * Tenant ID is the Azure Directory ID.

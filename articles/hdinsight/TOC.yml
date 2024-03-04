@@ -714,7 +714,9 @@ items:
       - name: SSL Encryption and Authentication for ESP Kafka cluster
         href: ./kafka/apache-esp-kafka-ssl-encryption-authentication.md  
       - name: Kafka MirrorMaker 2.0 guide
-        href: ./kafka/kafka-mirrormaker-2-0-guide.md  
+        href: ./kafka/kafka-mirrormaker-2-0-guide.md
+      - name: Connect HDInsight Kafka cluster with client VM in different VNet
+        href: ./kafka/connect-kafka-with-vnet.md 
     - name: Troubleshoot
       items:
       - name: Insufficient fault domains

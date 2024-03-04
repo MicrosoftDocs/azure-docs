@@ -21,7 +21,7 @@ This article explains how to create a new user, invite an external guest, and de
 
 The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Instructions for the legacy create user process can be found in the [Add or delete users](add-users-azure-active-directory.md) article.
+Instructions for the legacy create user process can be found in the [Add or delete users](./add-users.md) article.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -52,7 +52,9 @@ The required role of least privilege varies based on the type of user you're add
 
 ## Create a new user
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) in the **User Administrator** role.
 
 1. Navigate to **Azure Active Directory** > **Users**.
 
@@ -128,7 +130,7 @@ The final tab captures several key details from the user creation process. Revie
 
 The overall process for inviting an external guest user is similar, except for a few details on the **Basics** tab and the email invitation process. You can't assign external users to administrative units. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
+1. Sign in to the [Azure portal](https://portal.azure.com) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
 
 1. Navigate to **Azure Active Directory** > **Users**.
 
@@ -176,7 +178,7 @@ You can delete an existing user using Azure portal.
 
 To delete a user, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using one of the appropriate roles.
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the appropriate roles.
 
 1. Go to **Azure Active Directory** > **Users**.
 
@@ -186,7 +188,7 @@ To delete a user, follow these steps:
 
     ![Screenshot of the All users page with a user selected and the Delete button highlighted.](media/how-to-create-delete-users/delete-existing-user.png)
 
-The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](active-directory-users-restore.md).
+The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](./users-restore.md).
 
 When a user is deleted, any licenses consumed by the user are made available for other users.
 

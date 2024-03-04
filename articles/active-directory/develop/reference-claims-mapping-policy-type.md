@@ -301,7 +301,7 @@ These claims are restricted by default, but aren't restricted if you have a [cus
 To control the claims that are included and where the data comes from, use the properties of a claims mapping policy. Without a policy, the system issues tokens with the following claims:
 - The core claim set.
 - The basic claim set.
-- Any [optional claims](active-directory-optional-claims.md) that the application has chosen to receive.
+- Any [optional claims](./optional-claims.md) that the application has chosen to receive.
 
 > [!NOTE]
 > Claims in the core claim set are present in every token, regardless of what this property is set to.

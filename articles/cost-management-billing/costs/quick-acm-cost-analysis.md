@@ -3,7 +3,7 @@ title: Quickstart - Start using Cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/10/2023
+ms.date: 08/10/2023
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -31,8 +31,6 @@ Cost analysis is your tool for interactive analytics and insights. It should be 
 - Overarching services spanning all your resources.
 - Amortized reservation usage.
 - Cost trends over time.
-
-Depending on how you access Cost analysis, you may see two options. If available, we recommend starting with **Cost analysis (preview)** since you can access all views from one central page.
 
 The first time you open Cost analysis, you start with either a list of available cost views or a customizable area chart. This section walks through the list of views. If Cost analysis shows an area chart by default, see [Analyze costs with customizable views](#analyze-costs-with-customizable-views).
 
@@ -62,7 +60,7 @@ If showing three months or less, the Average cost API compares the cost from the
 We recommend checking your cost weekly to ensure each KPI remains within the expected range. If you recently deployed or changed resources, we recommend checking daily for the first week or two to monitor the cost changes.
 
 > [!NOTE]
-> If you want to monitor your forecasted cost, you can enable the [Forecast KPI preview feature](enable-preview-features-cost-management-labs.md#forecast-in-the-cost-analysis-preview) in Cost Management Labs, available from the **Try preview** command.
+> If you want to monitor your forecasted cost, you can enable the [Forecast KPI preview feature](enable-preview-features-cost-management-labs.md#forecast-in-the-resources-view) in Cost Management Labs, available from the **Try preview** command.
 
 If you don't have a budget, select the **create** link in the **Budget** KPI and specify the amount you expect to stay under each month. To create a quarterly or yearly budget, select the **Configure advanced settings** link.
 

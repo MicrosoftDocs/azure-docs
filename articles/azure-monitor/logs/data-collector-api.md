@@ -4,7 +4,7 @@ description: You can use the Azure Monitor HTTP Data Collector API to add POST J
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/14/2022
+ms.date: 08/08/2023
 
 ---
 

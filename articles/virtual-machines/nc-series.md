@@ -14,7 +14,7 @@ ms.author: vikancha
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 > [!IMPORTANT]
-> NC and NC_Promo series Azure virtual machines (VMs) will be retired on August 31st, 2023. For more information, see the [NC and NC_Promo retirement information](nc-series-retirement.md). For how to migrate your workloads to other VM sizes, see the [GPU compute migration guide](n-series-migration.md).
+> NC and NC_Promo series Azure virtual machines (VMs) will be retired on September 6, 2023. For more information, see the [NC and NC_Promo retirement information](nc-series-retirement.md). For how to migrate your workloads to other VM sizes, see the [GPU compute migration guide](n-series-migration.md).
 >
 > This retirement announcement doesn't apply to NCv3, NCasT4v3 and NC A100 v4 series VMs.  
 

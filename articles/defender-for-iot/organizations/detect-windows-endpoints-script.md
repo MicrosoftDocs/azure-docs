@@ -1,13 +1,17 @@
 ---
-title: Detect Windows workstations and servers with a local script
-description: Learn about how to detect Windows workstations and servers on your network using a local script.
+title: Enrich Windows workstation and server data with a local script
+description: Learn about how to enrich Windows workstation and server data on your OT sensor using a local script.
 ms.date: 07/12/2022
 ms.topic: how-to
 ---
 
-# Detect Windows workstations and servers with a local script
+# Enrich Windows workstation and server data with a local script (Public preview)
 
-In addition to detecting OT devices on your network, use Defender for IoT to discover Microsoft Windows workstations and servers. Same as other detected devices, detected Windows workstations and servers are displayed in the Device inventory. The **Device inventory** pages on the sensor and on-premises management console show enriched data about Windows devices, including data about the Windows operating system and applications installed, patch-level data, open ports, and more.
+> [!NOTE]
+> This feature is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
+In addition to detecting OT devices on your network, use Defender for IoT to discover Microsoft Windows workstations and servers and enrich workstation and server data for devices already detected. Same as other detected devices, detected Windows workstations and servers are displayed in the Device inventory. The **Device inventory** pages on the sensor and on-premises management console show enriched data about Windows devices, including data about the Windows operating system and applications installed, patch-level data, open ports, and more.
 
 This article describes how to use a Defender for IoT Windows-based WMI tool to get extended information from Windows devices, such as workstations, servers, and more. Run the WMI script on your Windows devices to get extended information, increasing your device inventory and security coverage. While you can also use [scheduled WMI scans](configure-windows-endpoint-monitoring.md) to obtain this data, scripts can be run locally for regulated networks with waterfalls and one-way elements if WMI connectivity isn't possible.
 
@@ -26,7 +30,7 @@ If an OT network sensor has already detected the device, running the script outl
 
 Before performing the procedures in this article, you must have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md), and monitoring the network where your device is connected.
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md).
 
 - Access to your OT network sensor as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 

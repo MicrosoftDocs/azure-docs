@@ -30,6 +30,7 @@ The following table provides information on which versions of the ASE device are
 
 | Packet core version  | ASE Pro GPU compatible versions  | ASE Pro 2 compatible versions |
 |-----|-----|-----|
+| 2307 | 2303 | 2303 |
 | 2306 | 2303 | 2303 |
 | 2305 | 2303 | 2303 |
 | 2303 | 2301, 2303  | 2301, 2303 |

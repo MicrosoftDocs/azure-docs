@@ -103,7 +103,7 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
     ```bash
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh
     ```
-    For Azure China 21Vianet, the command is:
+    For Microsoft Azure operated by 21Vianet, the command is:
     ```bash
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh --cloud mooncake
     ```
@@ -265,7 +265,7 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
    ```bash
    sid=<SID>
    docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest
-   docker create -d --restart unless-stopped -v /opt/sapcon/$sid/:/sapcon-app/sapcon/config/system --name sapcon-$sid sapcon   
+   docker create --restart unless-stopped --name my-container mcr.microsoft.com/azure-sentinel/solutions/sapcon   
    ```
 
 1. Run the following command to copy the SDK into the container. Replace `<SID>` with the name of the SAP instance and `<sdkfilename>` with full filename of the SAP NetWeaver SDK.

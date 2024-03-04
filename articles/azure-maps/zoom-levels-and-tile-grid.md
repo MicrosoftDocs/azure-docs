@@ -12,10 +12,10 @@ services: azure-maps
 
 # Zoom levels and tile grid
 
-Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857). A projection is the mathematical model used to transform the spherical globe into a flat map. The Spherical Mercator projection stretches the map at the poles to create a square map. This projection significantly distorts the scale and area of the map but has two important properties that outweigh this distortion:
+Azure Maps use the Spherical Mercator projection coordinate system ([EPSG:3857]). A projection is the mathematical model used to transform the spherical globe into a flat map. The Spherical Mercator projection stretches the map at the poles to create a square map. This projection significantly distorts the scale and area of the map but has two important properties that outweigh this distortion:
 
 - It's a conformal projection, which means that it preserves the shape of relatively small objects. Preserving the shape of small objects is especially important when showing aerial imagery. For example, we want to avoid distorting the shape of buildings. Square buildings should appear square, not rectangular.
-- It's a cylindrical projection. North and south are always up and down, and west and east are always left and right. 
+- It's a cylindrical projection. North and south are always up and down, and west and east are always left and right.
 
 To optimize the performance of map retrieval and display, the map is divided into square tiles. The Azure Maps SDK's use tiles that have a size of 512 x 512 pixels for road maps, and smaller 256 x 256 pixels for satellite imagery. Azure Maps provides raster and vector tiles for 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
 
@@ -27,7 +27,7 @@ Zoom level 1 uses four tiles to render the world: a 2 x 2 square
 
 Each additional zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 22 is a grid 2<sup>22</sup> x 2<sup>22</sup>, or 4,194,304 x 4,194,304 tiles (17,592,186,044,416 tiles in total).
 
-The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Although road data will only be available at the zoom levels in when the tiles are available.
+The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Although road data is only available at the zoom levels in when the tiles are available.
 
 The following table provides the full list of values for zoom levels where the tile size is **512** pixels square at latitude 0:
 
@@ -115,16 +115,16 @@ When determining which zoom level to use, remember each location is in a fixed p
 
 Once the zoom level is determined, the x and y values can be calculated. The top-left tile in each zoom grid is x=0, y=0; the bottom-right tile is at x=2<sup>zoom-1</sup>, y=2<sup>zoom-1</sup>.
 
-Here is the zoom grid for zoom level 1:
+Here's the zoom grid for zoom level 1:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Zoom grid for zoom level 1":::
 
 ## Quadkey indices
 
-Some mapping platforms use a `quadkey` indexing naming convention that combines the tile ZY coordinates into a one-dimension string called `quadtree` keys or `quadkeys` for short. Each `quadkey` uniquely identifies a single tile at a particular level of detail, and it can be used as a key in common database B-tree indexes. The Azure Maps SDKs support the overlaying of tile layers that use `quadkey` naming convention in addition to other naming conventions as documented in the [Add a tile layer](map-add-tile-layer.md) document.
+Some mapping platforms use a `quadkey` indexing naming convention that combines the tile ZY coordinates into a one-dimension string called `quadtree` keys or `quadkeys` for short. Each `quadkey` uniquely identifies a single tile at a particular level of detail, and it can be used as a key in common database B-tree indexes. The Azure Maps SDKs support the overlaying of tile layers that use `quadkey` naming convention in addition to other naming conventions as documented in the [Add a tile layer] document.
 
 > [!NOTE]
-> The `quadkeys` naming convention only works for zoom levels of one or greater. The Azure Maps SDK's support zoom level 0 which is a single map tile for the whole world. 
+> The `quadkeys` naming convention only works for zoom levels of one or greater. The Azure Maps SDK's support zoom level 0 which is a single map tile for the whole world.
 
 To convert tile coordinates into a `quadkey`, the bits of the Y and X coordinates are interleaved, and the result is interpreted as a base-4 number (with leading zeros maintained) and converted into a string. For instance, given tile XY coordinates of (3, 5) at level 3, the `quadkey` is determined as follows:
 
@@ -136,7 +136,7 @@ tileY = 5 = 101 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys` have several interesting properties. First, the length of a `quadkey` (the number of digits) equals the zoom level of the corresponding tile. Second, the `quadkey` of any tile starts with the `quadkey` of its parent tile (the containing tile at the previous level). As shown in the example below, tile 2 is the parent of tiles 20 through 23:
+`Qquadkeys` have several interesting properties. First, the length of a `quadkey` (the number of digits) equals the zoom level of the corresponding tile. Second, the `quadkey` of any tile starts with the `quadkey` of its parent tile (the containing tile at the previous level). As shown in the following example, tile 2 is the parent of tiles 20 through 23:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Quadkey tile pyramid":::
 
@@ -927,23 +927,32 @@ module AzureMaps {
 * * *
 
 > [!NOTE]
-> The interactive map controls in the Azure Maps SDK's have helper functions for converting between geospatial positions and viewport pixels. 
-> - [Web SDK: Map pixel and position calculations](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> The interactive map controls in the Azure Maps SDK's have helper functions for converting between geospatial positions and viewport pixels.
+>
+> - [Web SDK: Map pixel and position calculations]
 
 ## Next steps
 
 Directly access map tiles from the Azure Maps REST services:
 
 > [!div class="nextstepaction"]
-> [Get map tiles](/rest/api/maps/render/getmaptile)
+> [Get map tiles]
 
 > [!div class="nextstepaction"]
-> [Get traffic flow tiles](/rest/api/maps/traffic/gettrafficflowtile)
+> [Get traffic flow tiles]
 
 > [!div class="nextstepaction"]
-> [Get traffic incident tiles](/rest/api/maps/traffic/gettrafficincidenttile)
+> [Get traffic incident tiles]
 
 Learn more about geospatial concepts:
 
 > [!div class="nextstepaction"]
-> [Azure Maps glossary](glossary.md)
+> [Azure Maps glossary]
+
+[EPSG:3857]: https://epsg.io/3857
+[Web SDK: Map pixel and position calculations]: /javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---
+[Add a tile layer]: map-add-tile-layer.md
+[Get map tiles]: /rest/api/maps/render/getmaptile
+[Get traffic flow tiles]: /rest/api/maps/traffic/gettrafficflowtile
+[Get traffic incident tiles]: /rest/api/maps/traffic/gettrafficincidenttile
+[Azure Maps glossary]: glossary.md

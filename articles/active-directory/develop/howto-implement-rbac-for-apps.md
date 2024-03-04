@@ -20,7 +20,7 @@ Role-based access control (RBAC) allows users or groups to have specific permiss
 
 As discussed in [Role-based access control for application developers](./custom-rbac-for-developers.md), there are three ways to implement RBAC using the Microsoft identity platform:
 
-- **App Roles** – using the [App Roles feature in an application](./howto-add-app-roles-in-azure-ad-apps.md#declare-roles-for-an-application) using logic within the application to interpret incoming app role assignments.
+- **App Roles** – using the [App Roles feature in an application](./howto-add-app-roles-in-apps.md#declare-roles-for-an-application) using logic within the application to interpret incoming app role assignments.
 - **Groups** – using group assignments of an incoming identity using logic within the application to interpret the group assignments.
 - **Custom Data Store** – retrieve and interpret role assignments using logic within the application.
 
@@ -28,7 +28,7 @@ The preferred approach is to use *App Roles* as it is the easiest to implement. 
 
 ## Define app roles
 
-The first step for implementing RBAC for an application is to define the app roles for it and assign users or groups to it. This process is outlined in [How to: Add app roles to your application and receive them in the token](./howto-add-app-roles-in-azure-ad-apps.md). After defining the app roles and assigning users or groups to them, access the role assignments in the tokens coming into the application and act on them accordingly.
+The first step for implementing RBAC for an application is to define the app roles for it and assign users or groups to it. This process is outlined in [How to: Add app roles to your application and receive them in the token](./howto-add-app-roles-in-apps.md). After defining the app roles and assigning users or groups to them, access the role assignments in the tokens coming into the application and act on them accordingly.
 
 ## Implement RBAC in ASP.NET Core
 
@@ -97,5 +97,5 @@ Implementing RBAC in a Node.js with express application involves the use of MSAL
 
 ## Next steps
 
-- Read more on [permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md).
+- Read more on [permissions and consent in the Microsoft identity platform](./permissions-consent-overview.md).
 - Read more on [role-based access control for application developers](./custom-rbac-for-developers.md).

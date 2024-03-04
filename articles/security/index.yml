@@ -37,12 +37,12 @@ highlightedContent:
     - title: Combine SIEM and XDR to defend against modern attacks
       itemType: overview
       url: https://www.microsoft.com/security/business/threat-protection
-    - title: Sunset for SHA-1 Online Certificate Standard Protocol signing
-      itemType: whats-new
-      url: ./fundamentals/ocsp-sha-1-sunset.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - title: Use watchlists in Microsoft Sentinel
       itemType: concept
       url: ../sentinel/watchlists.md
+    - title: Azure Network Security
+      itemType: concept
+      url: ../networking/security/index.yml
 
 conceptualContent:
   items:

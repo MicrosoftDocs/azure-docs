@@ -70,6 +70,8 @@ landingContent:
             url: tutorial-portal-key-vault.md
           - text: Web app with App Configuration
             url: tutorial-connect-web-app-app-configuration.md
+          - text: Passwordless connection to database
+            url: tutorial-passwordless.md
             
       - linkListType: how-to-guide
         links:

@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 06/02/2023
+ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
@@ -233,7 +233,7 @@ The resulting FHIR Observation will look like this after the transformation stag
 
 In this article, you've been provided an overview of the MedTech service FHIR destination mapping. 
 
-To get an overview of the MedTech service device mapping, see
+For an overview of the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
 > [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
@@ -252,5 +252,10 @@ To learn how to use custom functions with the MedTech service device mapping, se
 
 > [!div class="nextstepaction"] 
 > [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
+
+For an overview of the MedTech service scenario-based mappings samples, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

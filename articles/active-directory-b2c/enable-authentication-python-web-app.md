@@ -190,7 +190,7 @@ In the root folder of your web app, create the `templates` folder. In the templa
 
 Add the following templates under the templates folder. These templates extend the `base.html` template:
 
-- **index.html**: the home page of the web app. The templates use the following logic: if a user doesn't sign-in, it renders the sing-in button. If users sings-in, it renders the access token's claims, link to edit profile, and call a Graph API.
+- **index.html**: the home page of the web app. The templates use the following logic: if a user doesn't sign in, it renders the sign-in button. If a user signs in, it renders the access token's claims, link to edit profile, and call a Graph API.
 
     ```html
     {% extends "base.html" %}

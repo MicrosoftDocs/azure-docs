@@ -20,11 +20,11 @@ Multimedia redirection has two key components:
 - Video playback redirection, which optimizes video playback experience for streaming sites and websites with embedded videos like YouTube and Facebook. For more information about which sites are compatible with this feature, see [Video playback redirection](#video-playback-redirection).
 - Call redirection (preview), which optimizes audio calls for WebRTC-based calling apps. For more information about which sites are compatible with this feature, see [Call redirection](#call-redirection).
 
-Call redirection only affects the connection between the local client device and the telephony app server, as shown in the following diagram.
+  Call redirection only affects the connection between the local client device and the telephony app server, as shown in the following diagram.
 
-:::image type="content" source="media/multimedia-redirection-intro/call-redirection.png" alt-text="A diagram depicting the relationship between the telephony web app server, the Azure Virtual Desktop user, the web app, and other callers." lightbox="media/multimedia-redirection-intro/call-redirection.png":::
+  :::image type="content" source="media/multimedia-redirection-intro/call-redirection.png" alt-text="A diagram depicting the relationship between the telephony web app server, the Azure Virtual Desktop user, the web app, and other callers." lightbox="media/multimedia-redirection-intro/call-redirection.png":::
 
-Call redirection offloads WebRTC calls from session hosts to local client devices to reduce latency and improve call quality. However, after the connection is established, call quality becomes dependent on the website or app providers just as it would with a non-redirected call.
+  Call redirection offloads WebRTC calls from session hosts to local client devices to reduce latency and improve call quality. However, after the connection is established, call quality becomes dependent on the website or app providers just as it would with a non-redirected call.
 
 ## Websites that work with multimedia redirection
 

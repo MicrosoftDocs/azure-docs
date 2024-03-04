@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/25/2023
+ms.date: 08/11/2023
 ms.author: jeedes
 ---
 
@@ -113,9 +113,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | emailaddress | user.userprincipalname |
     | email | user.userprincipalname |
 
-   > [!NOTE]
-   > In order to set up the service provider (SP) configuration, you must click on **Expand** next to **Advanced Options** in the SAML configuration page. In the **Service Provider Issuer** box, enter the workspace URL. The default is slack.com. 
-
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
@@ -186,6 +183,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     b. Enter `https://slack.com` in the **Service provider issuer** textbox.
 
     c. Choose how the SAML response from your IDP is signed from the two options.
+
+   > [!NOTE]
+   > In order to set up the service provider (SP) configuration, you must click on **Expand** next to **Advanced Options** in the SAML configuration page. In the **Service Provider Issuer** box, enter the workspace URL. The default is slack.com. 
 
 1. Under **Settings**, decide if members can edit their profile information (like their email or display name) after SSO is enabled. You can also choose whether SSO is required, partially required or optional.
 

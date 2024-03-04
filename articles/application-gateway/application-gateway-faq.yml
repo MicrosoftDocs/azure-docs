@@ -42,7 +42,7 @@ sections:
           
       - question: In what regions is Application Gateway available?
         answer: |
-          Application Gateway v1 (Standard and WAF) is available in all regions of global Azure. It's also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+          Application Gateway v1 (Standard and WAF) is available in all regions of global Azure. It's also available in [Microsoft Azure operated by 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
           
           For Application Gateway v2 (Standard_v2 and WAF_v2) availability, see [supported regions for Application Gateway v2](./overview-v2.md#unsupported-regions)
           

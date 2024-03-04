@@ -10,8 +10,7 @@ ms.date: 04/27/2023
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Erel Hansav joins Yuri Diogenes to talk about the latest updates regarding the Defender for Servers integration with Microsoft Defender for Endpoint. Erel explains the architecture of this integration for the different versions of Windows Servers, how this integration takes place in the backend, the deployment options for Windows and Linux and the deployment at scale using Azure Policy.
 
-
-<iframe src="https://aka.ms/docs/player?id=aaf5dbcd-9a29-40c2-b355-8c832b27baa5" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=aaf5dbcd-9a29-40c2-b355-8c832b27baa5]
 
 - [00:0](/shows/mdc-in-the-field/servers-med-integration#time=00m00s) - Introduction
 

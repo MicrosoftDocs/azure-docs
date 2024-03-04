@@ -67,5 +67,5 @@ The following example returns various parts of the date and time **May 29, 2016 
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`DateTimeFromParts`](datetimefromparts.md)

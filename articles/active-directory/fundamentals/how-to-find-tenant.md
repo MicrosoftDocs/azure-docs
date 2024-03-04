@@ -22,6 +22,8 @@ Azure subscriptions have a trust relationship with Azure Active Directory (Azure
 
 ## Find tenant ID through the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
  
 1. Select **Azure Active Directory**.
@@ -30,7 +32,7 @@ Azure subscriptions have a trust relationship with Azure Active Directory (Azure
 
 1. Scroll down to the **Tenant ID** section and you can find your tenant ID in the box.
 
-:::image type="content" source="media/active-directory-how-to-find-tenant/portal-tenant-id.png" alt-text="Azure Active Directory - Properties - Tenant ID - Tenant ID field":::
+:::image type="content" source="media/how-to-find-tenant/portal-tenant-id.png" alt-text="Azure Active Directory - Properties - Tenant ID - Tenant ID field":::
 
 ## Find tenant ID with PowerShell
 
@@ -70,8 +72,8 @@ For more information, see the Microsoft 365 [tenant ID get](https://pnp.github.i
 
 ## Next steps
 
-- To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
+- To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](./create-new-tenant.md).
 
-- To learn how to associate or add a subscription to a tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](active-directory-how-subscriptions-associated-directory.md).
+- To learn how to associate or add a subscription to a tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](./how-subscriptions-associated-directory.md).
 
 - To learn how to find the object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).

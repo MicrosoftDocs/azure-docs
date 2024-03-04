@@ -38,7 +38,7 @@ Allowing an application to request permissions dynamically through the `scope` p
 
 ## Requesting individual user consent
 
-In an [OpenID Connect or OAuth 2.0](active-directory-v2-protocols.md) authorization request, an application can request the permissions it needs by using the `scope` query parameter. For example, when a user signs in to an app, the application sends a request like the following example. (Line breaks are added for legibility).
+In an [OpenID Connect or OAuth 2.0](./v2-protocols.md) authorization request, an application can request the permissions it needs by using the `scope` query parameter. For example, when a user signs in to an app, the application sends a request like the following example. (Line breaks are added for legibility).
 
 ```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -110,7 +110,7 @@ In many cases, it makes sense for the application to show the "connect" view onl
 
 When you sign the user into your app, you can identify the organization to which the admin belongs before you ask them to approve the necessary permissions. Although this step isn't strictly necessary, it can help you create a more intuitive experience for your organizational users. 
 
-To sign the user in, follow the [Microsoft identity platform protocol tutorials](active-directory-v2-protocols.md).
+To sign the user in, follow the [Microsoft identity platform protocol tutorials](./v2-protocols.md).
 
 ### Request the permissions in the app registration portal
 
@@ -178,7 +178,7 @@ Content-Type: application/json
 
 You can use the resulting access token in HTTP requests to the resource. It reliably indicates to the resource that your application has the proper permission to do a specific task.
 
-For more information about the OAuth 2.0 protocol and how to get access tokens, see the [Microsoft identity platform endpoint protocol reference](active-directory-v2-protocols.md).
+For more information about the OAuth 2.0 protocol and how to get access tokens, see the [Microsoft identity platform endpoint protocol reference](./v2-protocols.md).
 
 ## Next steps
 

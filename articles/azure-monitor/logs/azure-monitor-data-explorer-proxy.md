@@ -4,7 +4,7 @@ description: Use Azure Monitor to perform cross-product queries between Azure Da
 author: guywi-ms
 ms.author: guywild
 ms.topic: conceptual
-ms.date: 03/28/2022
+ms.date: 07/25/2023
 ms.reviewer: osalzberg
 
 ---

@@ -1,6 +1,6 @@
 ---
-author: ddematheu2
-ms.author: dademath
+author: RinaRish
+ms.author: ektrishi
 ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services

@@ -1,16 +1,16 @@
 ---
-title: Reservation utilization alerts - Preview
+title: Reservation utilization alerts
 description: This article helps you set up and use reservation utilization alerts.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2023
+ms.date: 08/10/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: jojoh
 ---
 
-# Reservation utilization alerts - Preview
+# Reservation utilization alerts
 
 This article helps you set up and use reservation utilization alerts. The alerts are email notifications that you receive when reservations have low utilization. [Azure reservations](../reservations/save-compute-costs-reservations.md) can provide cost savings by committing to one-year or three-year plans. However, it's possible for reservations to go unutilized or underutilized, resulting in financial losses. If you have [Azure RBAC](../reservations/reservation-utilization.md#view-utilization-in-the-azure-portal-with-azure-rbac-access) permissions on the reservations or if you're a [billing administrator](../reservations/reservation-utilization.md#view-utilization-as-billing-administrator), you can [review](../reservations/reservation-utilization.md) the utilization percentage of your reservation purchases in the Azure portal. With reservation utilization alerts, you can promptly take remedial actions to ensure optimal utilization of your reservation purchases.
 
@@ -31,9 +31,6 @@ You can create a reservation utilization alert rule at any of the following scop
 For more information, see [scopes and roles](understand-work-scopes.md).
 
 ## Manage an alert rule
-
->[!NOTE]
-> During the preview, enable the feature in [cost management labs](https://azure.microsoft.com/blog/azure-cost-management-updates-july-2019#labs). Select **Reservation utilization** alert. For more information, see [Explore preview features](enable-preview-features-cost-management-labs.md#explore-preview-features).
 
 To create a reservation utilization alert rule:
 

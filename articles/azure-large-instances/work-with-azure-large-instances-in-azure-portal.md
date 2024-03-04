@@ -16,16 +16,17 @@ ms.date: 06/01/2023
 In this article, you learn what to do in the Azure portal with your implementation of Azure Large Instances.
 
 > [!Note]
-> For now, BareMetal Infrastructure or BareMetal Instances are being used as synonyms with Azure Large Instances.
+> For now, BareMetal Infrastructure and BareMetal Instances are being used as synonyms for Azure Large Instances.
 
 ## Register the resource provider
 
-An Azure resource provider for Azure Large Instances enables you to see the instances in the Azure portal. By default, the Azure subscription you use for Azure Large Instances deployments registers the Azure Large Instances resource provider. If you don't see your deployed Azure Large Instances, register the resource provider with your subscription.
+An Azure resource provider for Azure Large Instances enables you to see the instances in the Azure portal.
+By default, the Azure subscription you use for Azure Large Instances deployments registers the Azure Large Instances resource provider.
+If you don't see your deployed Azure Large Instances, register the resource provider with your subscription.
 
 You can register the Azure Large Instance resource provider using the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
-
 
 You need to list your subscription in the Azure portal and then double-click the subscription used to deploy your Azure Large Instances tenant.
 
@@ -33,7 +34,7 @@ You need to list your subscription in the Azure portal and then double-click the
 2. On the Azure portal menu, select **All services**.
 3. In the **All services** box, enter **subscription**, and then select **Subscriptions**.
 4. Select the subscription from the subscription list.
-5. Select **Resource providers** and type **BareMetalInfrastructure** in the search box. The resource provider should be Registered, as the image shows. 
+5. Select **Resource providers** and type **BareMetalInfrastructure** in the search box. The resource provider should be registered, as the image shows.
 
 :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png" alt-text="Networking diagram of Azure Large Instances." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png"  border="false":::
 
@@ -46,22 +47,7 @@ To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-[comment]: <The following section duplicates the content provided by the INCLUDE above> 
-
-Use the Bash environment in [Azure Cloud Shell](../cloud-shell/overview.md).
-For more information, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md). 
-
-If you prefer to run CLI reference commands locally, [install](https://learn.microsoft.com/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](https://learn.microsoft.com/cli/azure/run-azure-cli-docker).
-
-If you're using a local installation, sign in to the Azure CLI by using the [az login command](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli).
-
-When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview).
-
-Run [az version](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-upgrade).
-
 For more information about resource providers, see [Azure resource providers and types](./../azure-resource-manager/management/resource-providers-and-types.md).
-
-[comment]: <End of Include content> 
 
 Sign in to the Azure subscription you use for the Azure Large Instances deployment through the Azure CLI.
 Register the BareMetalInfrastructure Azure Large Instance resource provider with the az provider register command:
@@ -73,8 +59,6 @@ az provider register --namespace Microsoft.BareMetalInfrastructure
 You can use the az provider list command to see all available providers.
 
 ---
-
-For more information about resource providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## Azure Large Instances in the Azure portal
 

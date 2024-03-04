@@ -2,6 +2,7 @@
 title: Migrate from Azure Monitor Application Insights classic URL ping tests to standard tests
 description: How to migrate from Azure Monitor Application Insights classic availability URL ping tests to standard tests.
 ms.topic:    conceptual
+ms.custom: devx-track-azurepowershell
 ms.date:     07/19/2023
 ms.reviewer: cogoodson
 ---

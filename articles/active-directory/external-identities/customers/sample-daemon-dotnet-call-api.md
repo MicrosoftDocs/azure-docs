@@ -8,9 +8,9 @@ manager: mwongerapk
 ms.author: shermanouko
 ms.service: active-directory
 ms.subservice: ciam
+ms.custom: devx-track-dotnet
 ms.topic: sample
 ms.date: 07/13/2023
-
 #Customer intent: As a dev, devops, I want to configure a sample .NET daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
 ---
 

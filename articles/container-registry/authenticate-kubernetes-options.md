@@ -12,7 +12,7 @@ ms.date: 10/11/2022
 
 You can use an Azure container registry as a source of container images for Kubernetes, including clusters you manage, managed clusters hosted in [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) or other clouds, and "local" Kubernetes configurations such as [minikube](https://minikube.sigs.k8s.io/) and [kind](https://kind.sigs.k8s.io/). 
 
-To pull images to your Kuberentes cluster from an Azure container registry, an authentication and authorization mechanism needs to be established. Depending on your cluster environment, choose one of the following methods:
+To pull images to your Kubernetes cluster from an Azure container registry, an authentication and authorization mechanism needs to be established. Depending on your cluster environment, choose one of the following methods:
 
 ## Scenarios
 

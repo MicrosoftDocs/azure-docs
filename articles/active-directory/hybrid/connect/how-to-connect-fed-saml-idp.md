@@ -4,7 +4,7 @@ description: This document describes using a SAML 2.0 compliant Idp for single s
 services: active-directory
 author: billmath
 manager: amycolannino
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

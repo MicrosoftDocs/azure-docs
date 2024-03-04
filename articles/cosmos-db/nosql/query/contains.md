@@ -50,5 +50,5 @@ The following example checks if various static substrings exist in a string.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`CONCAT`](concat.md)

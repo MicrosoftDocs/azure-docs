@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # What are service dependencies in Azure Active Directory Conditional Access? 
 
-With Conditional Access policies, you can specify access requirements to websites and services. For example, your access requirements can include requiring multifactor authentication (MFA) or [managed devices](require-managed-devices.md). 
+With Conditional Access policies, you can specify access requirements to websites and services. For example, your access requirements can include requiring multifactor authentication (MFA) or [managed devices](./concept-conditional-access-grant.md). 
 
 When you access a site or service directly, the impact of a related policy is typically easy to assess. For example, if you have a policy that requires multifactor authentication (MFA) for SharePoint Online configured, MFA is enforced for each sign-in to the SharePoint web portal. However, it isn't always straight-forward to assess the impact of a policy because there are cloud apps with dependencies to other cloud apps. For example, Microsoft Teams can provide access to resources in SharePoint Online. So, when you access Microsoft Teams in our current scenario, you're also subject to the SharePoint MFA policy. 
 

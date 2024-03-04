@@ -2,7 +2,7 @@
 title: Use simplified compute node communication
 description: Learn about the simplified compute node communication mode in the Azure Batch service and how to enable it.
 ms.topic: how-to
-ms.date: 04/14/2023
+ms.date: 08/14/2023
 ms.custom: references_regions
 ---
 
@@ -43,7 +43,7 @@ Batch pools with the *classic* communication mode require the following networki
   - Destination port `443` over TCP to `Storage.<region>`
   - Destination port `443` over TCP to `BatchNodeManagement.<region>` for certain workloads that require communication back to the Batch Service, such as Job Manager tasks
 
-Batch pools with the *simplified* communication mode require the following networking rules in NSGs, UDRs, and firewalls:
+Batch pools with the *simplified* communication mode only need outbound access to Batch account's node management endpoint (see [Batch account public endpoints](public-network-access.md#batch-account-public-endpoints)). They require the following networking rules in NSGs, UDRs, and firewalls:
 
 - Inbound:
   - None
@@ -177,3 +177,4 @@ The following are known limitations of the simplified communication mode:
 - Learn more about [pools in virtual networks](batch-virtual-network.md).
 - Learn how to [create a pool with specified public IP addresses](create-pool-public-ip.md).
 - Learn how to [create a pool without public IP addresses](simplified-node-communication-pool-no-public-ip.md).
+- Learn how to [configure public network access for Batch accounts](public-network-access.md).

@@ -12,7 +12,7 @@ ms.date: 06/15/2023
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.custom: enterprise-apps
+ms.custom: enterprise-apps, has-azure-ad-ps-ref
 ---
 
 # Configure Azure Active Directory SAML token encryption
@@ -245,5 +245,5 @@ To configure token encryption, follow these steps:
 
 ## Next steps
 
-* Find out [How Azure AD uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md)
+* Find out [How Azure AD uses the SAML protocol](../develop/saml-protocol-reference.md)
 * Learn the format, security characteristics, and contents of [SAML tokens in Azure AD](../develop/reference-saml-tokens.md)

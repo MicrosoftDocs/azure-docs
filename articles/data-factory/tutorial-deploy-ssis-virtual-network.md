@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Configure Azure-SSIS integration runtime to join a virtual network

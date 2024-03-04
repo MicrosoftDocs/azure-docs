@@ -6,6 +6,7 @@ author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: overview
 ms.date: 01/17/2023
 ms.subservice: hybrid

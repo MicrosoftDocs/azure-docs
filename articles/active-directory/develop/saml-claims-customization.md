@@ -62,6 +62,8 @@ Transient `nameID` is also supported, but isn't available in the dropdown and ca
 
 ### Attributes
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Select the desired source for the `NameIdentifier` (or `nameID`) claim. You can select from the options in the following table.
 
 | Name | Description |
@@ -71,7 +73,7 @@ Select the desired source for the `NameIdentifier` (or `nameID`) claim. You can 
 | `onpremisessamaccountname` | The SAM account name that has been synced from on-premises Azure AD. |
 | `objectid` | The object ID of the user in Azure AD. |
 | `employeeid` | The employee ID of the user. |
-| `Directory extensions` | The directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md). |
+| `Directory extensions` | The directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md). |
 | `Extension Attributes 1-15` | The on-premises extension attributes used to extend the Azure AD schema. |
 | `pairwiseid` | The persistent form of user identifier. |
 
@@ -79,7 +81,8 @@ For more information about identifier values, see the table that lists the valid
 
 Any constant (static) value can be assigned to any claim. Use the following steps to assign a constant value:
 
-1. In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the **User Attributes & Claims** section, select **Edit** to edit the claims.
 1. Select the required claim that you want to modify.
 1. Enter the constant value without quotes in the **Source attribute** as per your organization and select **Save**.
 
@@ -93,7 +96,9 @@ Any constant (static) value can be assigned to any claim. Use the following step
 
 You can also configure directory schema extension attributes as non-conditional/conditional attributes. Use the following steps to configure the single or multi-valued directory schema extension attribute as a claim:
 
-1.  In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the **User Attributes & Claims** section, select **Edit** to edit the claims.
 1. Select **Add new claim** or edit an existing claim.
 
     :::image type="content" source="./media/saml-claims-customization/mv-extension-1.jpg" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::
@@ -227,7 +232,7 @@ When the following conditions occur after **Add** or **Run test** is selected, a
 
 ## Add the UPN claim to SAML tokens
 
-The `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` claim is part of the [SAML restricted claim set](reference-claims-mapping-policy-type.md), so you can't add it in the **Attributes & Claims** section. As a workaround, you can add it as an [optional claim](active-directory-optional-claims.md) through **App registrations** in the Azure portal.  
+The `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` claim is part of the [SAML restricted claim set](reference-claims-mapping-policy-type.md), so you can't add it in the **Attributes & Claims** section. As a workaround, you can add it as an [optional claim](./optional-claims.md) through **App registrations** in the Azure portal.  
 
 Open the application in **App registrations**, select **Token configuration**, and then select **Add optional claim**. Select the **SAML** token type, choose **upn** from the list, and then click **Add** to add the claim to the token.
 
@@ -282,4 +287,4 @@ The following table lists other advanced options that can be configured for an a
 
 ## Next steps
 
-* [Configure single sign-on for applications that aren't in the Azure AD application gallery](../manage-apps/configure-saml-single-sign-on.md)
+* [Configure single sign-on for applications that aren't in the Azure AD application gallery](./single-sign-on-saml-protocol.md)

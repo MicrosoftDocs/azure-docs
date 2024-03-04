@@ -92,7 +92,7 @@ To begin migrating federated applications to Azure AD as the identity provider, 
 
 * The white paper [Migrating Your Applications to Azure Active Directory](https://aka.ms/migrateapps/whitepaper), which presents the benefits of migration and describes how to plan for migration in four clearly-outlined phases: discovery, classification, migration, and ongoing management. You'll be guided through how to think about the process and break down your project into easy-to-consume pieces. Throughout the document are links to important resources that will help you along the way.
 
-* The solution guide [Migrating Application Authentication from Active Directory Federation Services to Azure Active Directory](../../manage-apps/migrate-adfs-apps-to-azure.md) explores in more detail the same four phases of planning and executing an application migration project. In this guide, you'll learn how to apply those phases to the specific goal of moving an application from Active Directory Federation Services (AD FS) to Azure AD.
+* The solution guide [Migrating Application Authentication from Active Directory Federation Services to Azure Active Directory](../../manage-apps/migrate-adfs-apps-stages.md) explores in more detail the same four phases of planning and executing an application migration project. In this guide, you'll learn how to apply those phases to the specific goal of moving an application from Active Directory Federation Services (AD FS) to Azure AD.
 
 * The [Active Directory Federation Services Migration Readiness Script](https://aka.ms/migrateapps/adfstools) can be run on existing on-premises Active Directory Federation Services (AD FS) servers to determine the readiness of applications for migration to Azure AD.
 

@@ -6,6 +6,46 @@ ms.date: 02/28/2023
 ms.author: eur
 ---
 
+### July 2023 release
+
+#### Custom neural voice
+
+- [Multi-style voice](../../how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) is generally available.
+- Added two new locales in public preview for multi-style voice: `ja-JP` and `zh-CN`. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information. Refer to [the preset style list for different languages](../../how-to-custom-voice-create-voice.md?tabs=multistyle#available-preset-styles-across-different-languages).
+- [Cross-lingual voice](../../how-to-custom-voice-create-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) is generally available. 
+- Added two new locales for cross-lingual voice: `id-ID` and `nl-NL`. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information. 
+
+#### Prebuilt Neural TTS Voices
+
+Introducing new `en-US` gender neutral voice for public preview:
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `en-US` | English (United States) | `en-US-BlueNeural` (Neutral) |
+
+Introducing new multilingual voices for public preview:
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `en-US` | English (United States) | `en-US-JennyMultilingualV2Neural` (Female) |
+| `en-US` | English (United States) | `en-US-RyanMultilingualNeural` (Male) |
+
+The multilingual voices `en-US-JennyMultilingualV2Neural` and `en-US-RyanMultilingualNeural` auto-detect the language of the input text. However, you can still use the `<lang>` element to adjust the speaking language for these voices.
+
+These new multilingual voices can speak in 41 languages and accents: `Arabic (Egypt)`, `Arabic (Saudi Arabia)`, `Catalan (Spain)`, `Czech (Czechia)`, `Danish (Denmark)`, `German (Austria)`, `German (Switzerland)`, `German (Germany)`, `English (Australia)`, `English (Canada)`, `English (United Kingdom)`, `English (Hong Kong SAR)`, `English (Ireland)`, `English (India)`, `English (United States)`, `Spanish (Spain)`, `Spanish (Mexico)`, `Finnish (Finland)`, `French (Belgium)`, `French (Canada)`, `French (Switzerland)`, `French (France)`, `Hindi (India)`, `Hungarian (Hungary)`, `Indonesian (Indonesia)`, `Italian (Italy)`, `Japanese (Japan)`, `Korean (Korea)`, `Norwegian Bokmål (Norway)`, `Dutch (Belgium)`, `Dutch (Netherlands)`, `Polish (Poland)`, `Portuguese (Brazil)`, `Portuguese (Portugal)`, `Russian (Russia)`, `Swedish (Sweden)`, `Thai (Thailand)`, `Turkish (Turkey)`, `Chinese (Mandarin, Simplified)`, `Chinese (Cantonese, Traditional)`, `Chinese (Taiwanese Mandarin, Traditional)`.
+
+These multilingual voices don't fully support certain SSML elements, such as break, emphasis, silence, and sub.
+
+> [!IMPORTANT]
+> The `en-US-JennyMultilingualV2Neural` voice is provided temporarily in public preview soley for evaluation purposes. It will be removed in the future. 
+> 
+> In order to speak in a language other than English, the current implementation of the `en-US-JennyMultilingualNeural` voice requires that you set the `<lang xml:lang>` element. We anticipate that during Q4 calendar year 2023, the `en-US-JennyMultilingualNeural` voice will be updated to speak in the language of the input text without the `<lang xml:lang>` element. This will be in parity with the `en-US-JennyMultilingualV2Neural` voice.
+
+Introducing new features in public preview for below voices:
+- Added Latin input for Serbian (Serbia) `sr-RS` voices: `sr-latn-RS-SophieNeural` and `sr-latn-RS-NicholasNeural`.
+- Added English pronunciation support for Albanian (Albania) `sq-AL` voices: `sq-AL-AnilaNeural` and `sq-AL-IlirNeural`.
+
+
 ### May 2023 release
 
 #### Audio Content Creation

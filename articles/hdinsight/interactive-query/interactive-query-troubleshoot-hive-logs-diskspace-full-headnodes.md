@@ -52,26 +52,26 @@ Automatic hive log deletion is not configured in the advanced hive-log4j2 config
 - **Date**
     - You also can uncomment and switch the conditions. Then change `appender.RFA.strategy.action.condition.nested_condition.lastMod.age` to an age of your choice.
 
-	```
-	# Deletes logs based on total accumulated size, keeping the most recent 
-	#appender.RFA.strategy.action.condition.nested_condition.fileSize.type = IfAccumulatedFileSize 
-	#appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds = 60GB
-	# Deletes logs IfLastModified date is greater than number of days 
-	appender.RFA.strategy.action.condition.nested_condition.lastMod.type = IfLastModified 
-	appender.RFA.strategy.action.condition.nested_condition.lastMod.age = 30D
-	```
+    ```
+    # Deletes logs based on total accumulated size, keeping the most recent 
+    #appender.RFA.strategy.action.condition.nested_condition.fileSize.type = IfAccumulatedFileSize 
+    #appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds = 60GB
+    # Deletes logs IfLastModified date is greater than number of days 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.type = IfLastModified 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.age = 30D
+    ```
 
 - **Combination of Total Size and Date**
     - You can combine both options by uncommenting like below. The log4j2 will then behave as so: Start deleting logs when either condition is met.
     
-	```
-	# Deletes logs based on total accumulated size, keeping the most recent 
-	appender.RFA.strategy.action.condition.nested_condition.fileSize.type = IfAccumulatedFileSize 
-	appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds = 60GB
-	# Deletes logs IfLastModified date is greater than number of days 
-	appender.RFA.strategy.action.condition.nested_condition.lastMod.type = IfLastModified 
-	appender.RFA.strategy.action.condition.nested_condition.lastMod.age = 30D
-	```
+    ```
+    # Deletes logs based on total accumulated size, keeping the most recent 
+    appender.RFA.strategy.action.condition.nested_condition.fileSize.type = IfAccumulatedFileSize 
+    appender.RFA.strategy.action.condition.nested_condition.fileSize.exceeds = 60GB
+    # Deletes logs IfLastModified date is greater than number of days 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.type = IfLastModified 
+    appender.RFA.strategy.action.condition.nested_condition.lastMod.age = 30D
+    ```
 5. Save the configurations and restart the required components.
 
 ## Next steps

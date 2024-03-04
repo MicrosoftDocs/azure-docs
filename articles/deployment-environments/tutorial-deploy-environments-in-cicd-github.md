@@ -204,7 +204,7 @@ az role assignment create \
 
 ### 1.6 Create project environment types
 
-At the project level, dev infra admins specify which environment types are appropriate for the development team.
+At the project level, platform engineers specify which environment types are appropriate for the development team.
 
 Create a new Project Environment Type for each of the Environment Types we created on the dev center
 

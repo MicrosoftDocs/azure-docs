@@ -25,10 +25,13 @@ The remainder of this scenario assumes you done the following:
 To publish QlikSense, you will need to publish two applications in Azure.  
 
 ### Application #1: 
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md). 
 
 
-1. Sign in to the Azure portal as a global administrator. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**. 
 3. Select **Add** at the top of the blade. 
 4. Select **On-premises application**. 

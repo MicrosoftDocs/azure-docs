@@ -15,7 +15,7 @@ ms.author: rolyon
 
 If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes.
 
-Custom roles can be shared between subscriptions that trust the same Azure AD tenant. There is a limit of **5,000** custom roles per tenant. (For Azure China 21Vianet, the limit is 2,000 custom roles.) Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.
+Custom roles can be shared between subscriptions that trust the same Azure AD tenant. There is a limit of **5,000** custom roles per tenant. (For Microsoft Azure operated by 21Vianet, the limit is 2,000 custom roles.) Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.
 
 ## Steps to create a custom role
 
@@ -203,7 +203,7 @@ Here are steps to help find the role assignments before deleting a custom role:
 The following list describes the limits for custom roles.
 
 - Each tenant can have up to **5000** custom roles.
-- Azure China 21Vianet can have up to 2000 custom roles for each tenant.
+- Microsoft Azure operated by 21Vianet can have up to 2000 custom roles for each tenant.
 - You cannot set `AssignableScopes` to the root scope (`"/"`).
 - You cannot use wildcards (`*`) in `AssignableScopes`. This wildcard restriction helps ensure a user can't potentially obtain access to a scope by updating the role definition.
 - You can define only one management group in `AssignableScopes` of a custom role.

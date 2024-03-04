@@ -21,6 +21,8 @@ Workflow scheduling will automatically process the workflow for users meeting th
 
 ## Check execution user scope of a workflow using the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To check the users who fall under the execution scope of a workflow, you'd follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

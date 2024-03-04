@@ -4,6 +4,7 @@ description: Describes how to put your Microsoft 365 user resources close to the
 author: billmath
 ms.service: active-directory
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 manager: amycolannino
 ms.topic: how-to
 ms.date: 01/26/2023

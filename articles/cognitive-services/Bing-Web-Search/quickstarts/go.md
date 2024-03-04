@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a web search with Go - Bing Web Search REST API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send requests to the Bing Web Search REST API using Go, and receive a JSON response
 services: cognitive-services
 author: aahill

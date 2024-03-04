@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/29/2023
 ms.author: justinha 
-ms.custom:
+ms.custom: has-azure-ad-ps-ref
 ---
 # Harden an Azure Active Directory Domain Services managed domain
 

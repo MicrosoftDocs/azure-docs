@@ -21,8 +21,8 @@ This article describes how to apply Conditional Access policies to your Quick Ac
 ## Prerequisites
 
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
-   * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
-   * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies.
+   * [Global Secure Access Administrator role](/azure/active-directory/roles/permissions-reference)
+   * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies.
 * You need to have configured Quick Access or Private Access.
 * The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
@@ -50,7 +50,7 @@ You can create a Conditional Access policy for your Quick Access or Private Acce
 
 1. Configure the conditions, access controls, and assign users and groups as needed.
 
-You can also apply Conditional Access policies to a group of applications based on custom attributes. To learn more, go to [Filter for applications in Conditional Access policy (Preview)](../active-directory/conditional-access/concept-filter-for-applications.md).
+You can also apply Conditional Access policies to a group of applications based on custom attributes. To learn more, go to [Filter for applications in Conditional Access policy (Preview)](/azure/active-directory/conditional-access/concept-filter-for-applications).
 
 ### Assignments and Access controls example
 
@@ -63,7 +63,7 @@ Adjust the following policy details to create a Conditional Access policy requir
    1. Select **Require multifactor authentication**, **Require device to be marked as compliant**, and **Require hybrid Azure AD joined device**
 1. Confirm your settings and set **Enable policy** to **Report-only**.
    
-After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After administrators confirm the policy settings using [report-only mode](/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ### User exclusions
 

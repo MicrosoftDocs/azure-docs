@@ -191,6 +191,8 @@ Another use case for the API proxy module is to enable IoT Edge devices in lower
 
 This scenario uses the [Azure Blob Storage on IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/azure-blob-storage.edge-azure-blob-storage) module at the top layer to handle blob creation and upload.
 
+In a nested scenario, up to five layers are supported. Each upstream IoT Edge device in the nested hierarchy requires the *Azure Blob Storage on IoT Edge* module. For a sample multi-layer deployment, see the [Azure IoT Edge for Industrial IoT](https://github.com/Azure-Samples/iot-edge-for-iiot) sample.
+
 Configure the following modules at the **top layer**:
 
 * An Azure Blob Storage on IoT Edge module.

@@ -1,6 +1,6 @@
 ---
 title: How to use rankings to display search results - Bing Web Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use ranking to display search results from the Bing Web Search API.
 services: cognitive-services
 

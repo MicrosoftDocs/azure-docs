@@ -44,4 +44,4 @@ For more information, see [Enriched Office 365 logs](how-to-view-enriched-logs.m
 
 ## Next steps
 
-- [Learn how to access, store, and analyze Azure AD activity logs](../active-directory/reports-monitoring/howto-access-activity-logs.md)
+- [Learn how to access, store, and analyze Azure AD activity logs](/azure/active-directory/reports-monitoring/howto-access-activity-logs)

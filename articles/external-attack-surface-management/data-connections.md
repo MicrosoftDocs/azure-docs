@@ -50,7 +50,7 @@ This section presents general information on configuration.
 ### Access data connections
 On the leftmost pane in your Defender EASM resource pane, under **Manage**, select **Data Connections**. This page displays the data connectors for both Log Analytics and Azure Data Explorer. It lists any current connections and provides the option to add, edit, or remove connections.
 
-![Screenshot that shows the Data connections page.](media/data-connections/data-connector-1a.png)
+![Screenshot that shows the Data connections page.](media/data-connections/data-connector-1.png)
 
 ### Connection prerequisites
 To successfully create a data connection, you must first ensure that you've completed the required steps to grant Defender EASM permission to the tool of your choice. This process enables the application to ingest your exported data. It also provides the authentication credentials needed to configure the connection.

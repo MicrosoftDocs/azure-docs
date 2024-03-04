@@ -24,14 +24,14 @@ To configure a SaaS application for SAML-based SSO, see [Quickstart: Set up SAML
 
 Many SaaS applications have an [application-specific tutorial](../saas-apps/tutorial-list.md) that steps you through the configuration for SAML-based SSO.
 
-Some apps can be migrated easily. Apps with more complex requirements, such as custom claims, may require extra configuration in Azure AD and/or [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md). For information about supported claims mappings, see [How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)](../develop/active-directory-claims-mapping.md).
+Some apps can be migrated easily. Apps with more complex requirements, such as custom claims, may require extra configuration in Azure AD and/or [Azure AD Connect Health](../hybrid/connect/whatis-azure-ad-connect.md). For information about supported claims mappings, see [How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)](../develop/saml-claims-customization.md).
 
 Keep in mind the following limitations when mapping attributes:
 
-* Not all attributes that can be issued in AD FS show up in Azure AD as attributes to emit to SAML tokens, even if those attributes are synced. When you edit the attribute, the **Value** dropdown list shows you the different attributes that are available in Azure AD. Check [Azure AD Connect sync articles](../hybrid/how-to-connect-sync-whatis.md) configuration to ensure that a required attribute—for example, **samAccountName**—is synced to Azure AD. You can use the extension attributes to emit any claim that isn't part of the standard user schema in Azure AD.
+* Not all attributes that can be issued in AD FS show up in Azure AD as attributes to emit to SAML tokens, even if those attributes are synced. When you edit the attribute, the **Value** dropdown list shows you the different attributes that are available in Azure AD. Check [Azure AD Connect sync articles](../hybrid/connect/how-to-connect-sync-whatis.md) configuration to ensure that a required attribute—for example, **samAccountName**—is synced to Azure AD. You can use the extension attributes to emit any claim that isn't part of the standard user schema in Azure AD.
 * In the most common scenarios, only the **NameID** claim and other common user identifier claims are required for an app. To determine if any extra claims are required, examine what claims you're issuing from AD FS.
 * Not all claims can be issued, as some claims are protected in Azure AD.
-* The ability to use encrypted SAML tokens is now in preview. See [How to: customize claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization.md).
+* The ability to use encrypted SAML tokens is now in preview. See [How to: customize claims issued in the SAML token for enterprise applications](../develop/saml-claims-customization.md).
 
 ## Software as a service (SaaS) apps
 
@@ -45,7 +45,7 @@ For any issues with onboarding your SaaS apps, you can contact the [SaaS Applica
 
 ## SAML signing certificates for SSO
 
-Signing certificates are an important part of any SSO deployment. Azure AD creates the signing certificates to establish SAML-based federated SSO to your SaaS applications. Once you add either gallery or non-gallery applications, you'll configure the added application using the federated SSO option. See [Manage certificates for federated single sign-on in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md).
+Signing certificates are an important part of any SSO deployment. Azure AD creates the signing certificates to establish SAML-based federated SSO to your SaaS applications. Once you add either gallery or non-gallery applications, you'll configure the added application using the federated SSO option. See [Manage certificates for federated single sign-on in Azure Active Directory](./tutorial-manage-certificates-for-federated-single-sign-on.md).
 
 ## SAML token encryption
 
@@ -72,7 +72,7 @@ Apps that you can move easily today include SAML 2.0 apps that use the standard 
 * Email address
 * Given name
 * Surname
-* Alternate attribute as SAML **NameID**, including the Azure AD mail attribute, mail prefix, employee ID, extension attributes 1-15, or on-premises **SamAccountName** attribute. For more information, see [Editing the NameIdentifier claim](../develop/active-directory-saml-claims-customization.md).
+* Alternate attribute as SAML **NameID**, including the Azure AD mail attribute, mail prefix, employee ID, extension attributes 1-15, or on-premises **SamAccountName** attribute. For more information, see [Editing the NameIdentifier claim](../develop/saml-claims-customization.md).
 * Custom claims.
 
 The following require more configuration steps to migrate to Azure AD:
@@ -81,8 +81,8 @@ The following require more configuration steps to migrate to Azure AD:
 * Apps with multiple Reply URL endpoints. You configure them in Azure AD using PowerShell or the Entra portal interface.
 * WS-Federation apps such as SharePoint apps that require SAML version 1.1 tokens. You can configure them manually using PowerShell. You can also add a preintegrated generic template for SharePoint and SAML 1.1 applications from the gallery. We support the SAML 2.0 protocol.
 * Complex claims issuance transforms rules. For information about supported claims mappings, see:
-  * [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md).
-  * [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+  * [Claims mapping in Azure Active Directory](../develop/saml-claims-customization.md).
+  * [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/saml-claims-customization.md).
 
 ## Apps and configurations not supported in Azure AD today
 

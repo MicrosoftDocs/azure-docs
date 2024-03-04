@@ -1,5 +1,5 @@
 ---
-title: Configure Document Intelligence containers
+title: Configure Document Intelligence (formerly Form Recognizer) containers
 titleSuffix: Azure AI services
 description: Learn how to configure the Document Intelligence container to parse form and table data.
 author: laujan
@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: 'doc-intel-2.1.0'
 ---
 
 # Configure Document Intelligence containers
@@ -43,7 +43,7 @@ The `Billing` setting specifies the endpoint URI of the resource on Azure that's
 
  You can find these settings in the Azure portal on the **Keys and Endpoint** page.
 
-   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
+   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot of Azure portal keys and endpoint page.":::
 
 ## EULA setting
 

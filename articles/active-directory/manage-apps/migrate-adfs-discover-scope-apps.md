@@ -24,9 +24,9 @@ The first decision in the migration process is which apps to migrate, which if a
 
 Discover applications using ADFS:
 
-- **Use Azure AD Connect Health for ADFS**: If you have an Azure AD Premium license, we recommend deploying [Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md) to analyze the app usage in your on-premises environment. You can use the [ADFS application report](./migrate-adfs-application-activity.md) to discover ADFS applications that can be migrated and evaluate the readiness of the application to be migrated.
+- **Use Azure AD Connect Health for ADFS**: If you have an Azure AD Premium license, we recommend deploying [Azure AD Connect Health](../hybrid/connect/how-to-connect-health-adfs.md) to analyze the app usage in your on-premises environment. You can use the [ADFS application report](./migrate-adfs-application-activity.md) to discover ADFS applications that can be migrated and evaluate the readiness of the application to be migrated.
 
-- If you don’t have Azure AD Premium licenses, we recommend using the ADFS to Azure AD app migration tools based on [PowerShell](https://github.com/AzureAD/Deployment-Plans/tree/master/ADFS%20to%20AzureAD%20App%20Migration). Refer to [solution guide](./migrate-adfs-apps-to-azure.md):
+- If you don’t have Azure AD Premium licenses, we recommend using the ADFS to Azure AD app migration tools based on [PowerShell](https://github.com/AzureAD/Deployment-Plans/tree/master/ADFS%20to%20AzureAD%20App%20Migration). Refer to [solution guide](./migrate-adfs-apps-stages.md):
 
 > [!VIDEO https://www.youtube.com/embed/PxLIacDpHh4]
 
@@ -65,7 +65,7 @@ Once you've taken the automated approaches described in this article, you have a
 
 Once you find your apps, you identify these types of apps in your organization:
 
-- Apps that use modern authentication protocols such as [Security Assertion Markup Language (SAML)](../fundamentals/auth-saml.md) or [OpenID Connect (OIDC)](../fundamentals/auth-oidc.md).
+- Apps that use modern authentication protocols such as [Security Assertion Markup Language (SAML)](../architecture/auth-saml.md) or [OpenID Connect (OIDC)](../architecture/auth-oidc.md).
 - Apps that use legacy authentication such as [Kerberos](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889) or NT LAN Manager (NTLM) that you choose to modernize.
 - Apps that use legacy authentication protocols that you choose NOT to modernize
 - New Line of Business (LoB) apps
@@ -90,7 +90,7 @@ For certain apps using legacy authentication protocols, sometimes modernizing th
 - Apps connected to an on-premises identity or federation provider that you don't want to change.
 - Apps developed using on-premises authentication standards that you have no plans to move
 
-Azure AD can bring great benefits to these legacy apps. You can enable modern Azure AD security and governance features like [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md), [Conditional Access](../conditional-access/overview.md), [Identity Protection](../identity-protection/index.yml), [Delegated Application Access](./access-panel-manage-self-service-access.md), and [Access Reviews](../governance/manage-user-access-with-access-reviews.md#create-and-perform-an-access-review) against these apps without touching the app at all!
+Azure AD can bring great benefits to these legacy apps. You can enable modern Azure AD security and governance features like [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md), [Conditional Access](../conditional-access/overview.md), [Identity Protection](../identity-protection/index.yml), [Delegated Application Access](./manage-self-service-access.md), and [Access Reviews](../governance/manage-user-access-with-access-reviews.md#create-and-perform-an-access-review) against these apps without touching the app at all!
 
 - Start by extending these apps into the cloud with [Azure AD Application Proxy](../app-proxy/application-proxy.md).
 - Or explore using on of our [Secure Hybrid Access (SHA) partner integrations](secure-hybrid-access.md) that you might have deployed already.

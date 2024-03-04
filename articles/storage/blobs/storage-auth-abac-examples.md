@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Example Azure role assignment conditions for Blob Storage.
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.author: jammart
 ms.reviewer: nachakra

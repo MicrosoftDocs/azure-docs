@@ -11,9 +11,8 @@ ms.topic: how-to
 ms.date: 3/28/2023
 ms.author: jomondi
 ms.reviewer: phsignor, jawoods
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, has-azure-ad-ps-ref
 zone_pivot_groups: enterprise-apps-all
-
 #customer intent: As an admin, I want configure permission classifications for applications in Azure AD
 ---
 
@@ -25,8 +24,6 @@ Three permission classifications are supported: "Low", "Medium" (preview), and "
 
 The minimum permissions needed to do basic sign-in are `openid`, `profile`, `email`, and `offline_access`, which are all delegated permissions on the Microsoft Graph. With these permissions an app can read details of the signed-in user's profile, and can maintain this access even when the user is no longer using the app.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To configure permission classifications, you need:
@@ -35,6 +32,8 @@ To configure permission classifications, you need:
 - One of the following roles: Global Administrator, Application Administrator, or Cloud Application Administrator
 
 ## Manage permission classifications
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 :::zone pivot="portal"
 
@@ -241,4 +240,4 @@ DELETE https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0
 ## Next steps
 
 - [Manage app consent policies](manage-app-consent-policies.md)
-- [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
+- [Permissions and consent in the Microsoft identity platform](../develop/permissions-consent-overview.md)

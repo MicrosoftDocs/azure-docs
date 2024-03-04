@@ -7,7 +7,7 @@ ms.author: banders
 ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
-ms.subservice: common
+ms.subservice: finops
 ms.reviewer: micflan
 ---
 
@@ -88,6 +88,7 @@ As a starting point, we focus on tools available in the Azure portal and Microso
   - [Analyze resource usage metrics in Azure Monitor](../../azure-monitor/essentials/tutorial-metrics.md).
   - [Review resource configuration changes in Azure Resource Graph](../../governance/resource-graph/how-to/get-resource-changes.md).
 - If you need to build more advanced reports or merge cost data with other cloud or business data, [connect to Cost Management data in Power BI](/power-bi/connect-data/desktop-connect-azure-cost-management).
+  - If getting started with cost reporting in Power BI, consider using these [Power BI sample reports](https://github.com/flanakin/cost-management-powerbi).
 
 ## Building on the basics
 

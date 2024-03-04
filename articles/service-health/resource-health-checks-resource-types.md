@@ -51,7 +51,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.cognitiveservices/accounts
 |Executed Checks|
 |---|
-|<ul><li>Can the account be reached from within the datacenter?</li><li>Is the Cognitive Services Resource Provider available?</li><li>Is the Cognitive Service available in the appropriate region?</li><li>Can read operations be performed on the storage account holding the resource metadata?</li><li>Has the API call quota been reached?</li><li>Has the API call read-limit been reached?</li></ul>|
+|<ul><li>Can the account be reached from within the datacenter?</li><li>Is the Azure AI services resource provider available?</li><li>Is the Cognitive Service available in the appropriate region?</li><li>Can read operations be performed on the storage account holding the resource metadata?</li><li>Has the API call quota been reached?</li><li>Has the API call read-limit been reached?</li></ul>|
 
 ## Microsoft.compute/hostgroups/hosts
 |Executed Checks|

@@ -1,5 +1,5 @@
 ---
-title: Use Azure AI services Containers on-premises
+title: Use Azure AI services containers on-premises
 titleSuffix: Azure AI services
 description: Learn how to use Docker containers to use Azure AI services on-premises.
 services: cognitive-services

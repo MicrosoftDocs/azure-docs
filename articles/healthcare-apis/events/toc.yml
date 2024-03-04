@@ -4,12 +4,12 @@ items:
 - name: Overview
   expanded: true
   items: 
-  - name: What are Events?
+  - name: What are events?
     href: events-overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Events using the Azure portal
+  - name: Deploy events using the Azure portal
     href: events-deploy-portal.md
 - name: Tutorials
   expanded: true
@@ -26,12 +26,12 @@ items:
       href: events-use-metrics.md 
     - name: Enable diagnostic settings
       href: events-enable-diagnostic-settings.md
-  - name: Disable Events and delete workspaces
+  - name: Disable events and delete workspaces
     href: events-disable-delete-workspace.md 
   - name: Troubleshoot
     expanded: true
     items:
-    - name: Troubleshoot Events  
+    - name: Troubleshoot events  
       href: events-troubleshooting-guide.md
 - name: Concepts
   expanded: true

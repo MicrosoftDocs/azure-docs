@@ -369,8 +369,6 @@ private static void CreateIndex(string indexName, SearchIndexClient adminClient)
 }
 ```
 
-For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
-
 ## Next steps
 
 A detailed description of query execution can be found in [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md). The article uses examples to explain behaviors that might seem counter-intuitive on the surface.

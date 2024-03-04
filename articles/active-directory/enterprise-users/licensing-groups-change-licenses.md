@@ -38,9 +38,11 @@ Before you update the license assignments, it's important to verify certain assu
 
 ## Change user license assignments
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 On the **Update license assignments** page, if you see that some checkboxes are unavailable, it indicates services that can't be changed because they're inherited from a group license.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a License administrator account in your Azure AD organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a License administrator account in your Azure AD organization.
 1. Select **Azure Active Directory** > **Users**, and then open the **Profile** page for a user.
 1. Select **Licenses**.
 1. Select **Assignments** to edit license assignment for the user or group. The **Assignments** page is where you can resolve license assignment conflicts.
@@ -55,7 +57,7 @@ Azure AD applies the new licenses and removes the old licenses simultaneously to
 
 ## Change group license assignments
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a License administrator account in your Azure AD organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a License administrator account in your Azure AD organization.
 1. Select **Azure Active Directory** > **Groups**, and then open the **Overview** page for a group.
 1. Select **Licenses**.
 1. Select the **Assignments** command to edit license assignment for the user or group.

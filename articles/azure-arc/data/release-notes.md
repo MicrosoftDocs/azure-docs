@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/09/2023
+ms.date: 08/10/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -16,6 +16,20 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## August 8, 2023
+
+### Image tag
+
+`v1.22.0_2023-08-08`
+
+For complete release version information, review [Version log](version-log.md#august-8-2023).
+
+### Release notes
+
+- Support for configuring and managing Azure Failover groups between two Azure Arc-enabled SQL managed instances using Azure portal. For details, review [Configure failover group - portal](managed-instance-disaster-recovery-portal.md).
+- Upgraded OpenSearch and OpenSearch Dashboards from 2.7.0 to 2.8.0
+- Improvements and examples to [Back up and recover controller database](backup-controller-database.md).
 
 ## July 11, 2023
 

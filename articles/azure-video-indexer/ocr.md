@@ -134,6 +134,16 @@ When used responsibly and carefully, Azure AI Video Indexer is a valuable tool f
 - Keep a human in the loop. Don't use any solution as a replacement for human oversight and decision-making.   
 - Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations.  
 
+## Learn more about OCR
+
+- [Cognitive Services documentation](/azure/ai-services/computer-vision/overview-ocr)
+- [Transparency note](/legal/cognitive-services/computer-vision/ocr-transparency-note)  
+- [Use cases](/legal/cognitive-services/computer-vision/ocr-transparency-note#example-use-cases) 
+- [Capabilities and limitations](/legal/cognitive-services/computer-vision/ocr-characteristics-and-limitations) 
+- [Guidance for integration and responsible use with OCR technology](/legal/cognitive-services/computer-vision/ocr-guidance-integration-responsible-use)
+- [Data, privacy and security](/legal/cognitive-services/computer-vision/ocr-data-privacy-security)
+- [Meter: WER](/legal/cognitive-services/computer-vision/ocr-characteristics-and-limitations#word-level-accuracy-measure)  
+
 ## Next steps
 
 ### Learn More about Responsible AI

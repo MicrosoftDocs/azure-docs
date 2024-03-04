@@ -29,8 +29,8 @@ When a user tries to sign in to an application secured by Azure AD, and if Pass-
 
 1. The user tries to access an application, for example, [Outlook Web App](https://outlook.office365.com/owa/).
 2. If the user is not already signed in, the user is redirected to the Azure AD **User Sign-in** page.
-3. The user enters their username into the Azure AD sign in page, and then selects the **Next** button.
-4. The user enters their password into the Azure AD sign in page, and then selects the **Sign in** button.
+3. The user enters their username into the Azure AD sign-in page, and then selects the **Next** button.
+4. The user enters their password into the Azure AD sign-in page, and then selects the **Sign in** button.
 5. Azure AD, on receiving the request to sign in, places the username and password (encrypted by using the public key of the Authentication Agents) in a queue.
 6. An on-premises Authentication Agent retrieves the username and encrypted password from the queue. Note that the Agent doesn't frequently poll for requests from the queue, but retrieves requests over a pre-established persistent connection.
 7. The agent decrypts the password by using its private key.
@@ -52,7 +52,7 @@ The following diagram illustrates all the components and the steps involved:
 - [Frequently Asked Questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security Deep Dive](how-to-connect-pta-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
-- [Hybrid Azure AD join](../../devices/howto-hybrid-azure-ad-join.md): Configure Hybrid Azure AD join capability on your tenant for SSO across your cloud and on-premises resources.    
+- [Hybrid Azure AD join](../../devices/how-to-hybrid-join.md): Configure Hybrid Azure AD join capability on your tenant for SSO across your cloud and on-premises resources.    
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
 - [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Azure Active Directory Forum to file new feature requests.
 

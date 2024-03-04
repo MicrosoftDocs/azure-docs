@@ -12,8 +12,7 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 01/29/2023
 ms.author: justinha
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 # Enable Azure Active Directory Domain Services using PowerShell
 

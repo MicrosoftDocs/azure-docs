@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Connected Machine agent
 description: Release notes for Azure Connected Machine agent versions older than six months
 ms.topic: overview
-ms.date: 07/11/2023
+ms.date: 08/01/2023
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,23 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.29 - April 2023
+
+Download for [Windows](https://download.microsoft.com/download/2/7/0/27063536-949a-4b16-a29a-3d1dcb29cff7/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- The agent now compares the time on the local system and Azure service when checking network connectivity and creating the resource in Azure. If the clocks are offset by more than 120 seconds (2 minutes), a nonblocking error is shown. You may encounter TLS connection errors if the time of your computer doesn't match the time in Azure.
+- `azcmagent show` now supports an `--os` flag to print extra OS information to the console
+
+### Fixed
+
+- Fixed an issue that could cause the guest configuration service (gc_service) to repeatedly crash and restart on Linux systems
+- Resolved a rare condition under which the guest configuration service (gc_service) could consume excessive CPU resources
+- Removed "sudo" calls in internal install script that could be blocked if SELinux is enabled
+- Reduced how long network checks wait before determining a network endpoint is unreachable
+- Stopped writing error messages in "himds.log" referring to a missing certificate key file for the ATS agent, an inactive component reserved for future use.
 
 ## Version 1.28 - March 2023
 
@@ -160,7 +177,7 @@ Download for [Windows](https://download.microsoft.com/download/f/b/1/fb143ada-1b
 
 ### New features
 
-- Added support for connecting the agent to the Azure China cloud
+- Added support for connecting the agent to the Microsoft Azure operated by 21Vianet cloud
 - Added support for Debian 10
 - Updates to the [instance metadata](agent-overview.md#instance-metadata) collected on each machine:
   - GCP VM OS is no longer collected

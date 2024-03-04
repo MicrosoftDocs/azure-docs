@@ -156,37 +156,37 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing WiFi
-    	Module: ISM43362-M3G-L44-SPI
-	    MAC address: C4:7F:51:8F:67:F6
-    	Firmware revision: C3.5.2.5.STM
-	    Connecting to SSID 'iot'
+        Module: ISM43362-M3G-L44-SPI
+        MAC address: C4:7F:51:8F:67:F6
+        Firmware revision: C3.5.2.5.STM
+        Connecting to SSID 'iot'
     SUCCESS: WiFi connected to iot
 
     Initializing DHCP
-	    IP address: 192.168.0.22
-	    Gateway: 192.168.0.1
+        IP address: 192.168.0.22
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-	    DNS address: 75.75.75.75
+        DNS address: 75.75.75.75
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
-    	SNTP server 0.pool.ntp.org
-	    SNTP IP address: 108.62.122.57
-	    SNTP time update: May 21, 2021 22:42:8.394 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP IP address: 108.62.122.57
+        SNTP time update: May 21, 2021 22:42:8.394 UTC
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-	    DPS endpoint: global.azure-devices-provisioning.net
-	    DPS ID scope: ***
-	    Registration ID: mydevice
+        DPS endpoint: global.azure-devices-provisioning.net
+        DPS ID scope: ***
+        Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-	    Hub hostname: ***.azure-devices.net
-	    Device id: mydevice
-	    Model id: dtmi:azurertos:devkit:gsgstml4s5;1
+        Hub hostname: ***.azure-devices.net
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsgstml4s5;1
     Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
     ```
@@ -262,7 +262,7 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the STM DevKit device. You also used the IoT Central portal to create Azure resources, connect the STM DevKit securely to Azure, view telemetry, and send messages.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)

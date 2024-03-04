@@ -28,7 +28,7 @@ The identifier for a directory extension attribute is of the form `extension_xxx
 
 Register directory extension attributes in one of the following ways:
 
-- Configure Azure AD Connect to create them and to sync data into them from on-premises. See [Azure AD Connect Sync Directory Extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
+- Configure Azure AD Connect to create them and to sync data into them from on-premises. See [Azure AD Connect Sync Directory Extensions](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md).
 - Use Microsoft Graph to register, set the values of, and read from [directory extensions](/graph/extensibility-overview#directory-azure-ad-extensions). [PowerShell cmdlets](/powershell/azure/active-directory/using-extension-attributes-sample) are also available.
 
 ### Emit claims with data from Azure AD Connect
@@ -41,7 +41,7 @@ If a directory extension attribute is registered for using Microsoft Graph or Po
 
 Multi-tenant applications can then register directory extension attributes for their own use. When the application is provisioned into a tenant, the associated directory extensions become available and consumed for users in that tenant. After the directory extension is available, it can be used to store and retrieve data using Microsoft Graph. The directory extension can also map to claims in tokens the Microsoft identity platform emits to applications.
 
-If an application needs to send claims with data from an extension attribute that's registered on a different application, a [claims mapping policy](active-directory-claims-mapping.md) must be used to map the extension attribute to the claim. 
+If an application needs to send claims with data from an extension attribute that's registered on a different application, a [claims mapping policy](./saml-claims-customization.md) must be used to map the extension attribute to the claim. 
 
 A common pattern for managing directory extension attributes is to register an application specifically for all the directory extensions that you need. When you use this type of application, all the extensions have the same appID in their name.
 
@@ -71,4 +71,4 @@ Where `xxxxxxx` is the appID (or Client ID) of the application that the extensio
 > Case consistency is important when you set directory extension attributes on objects. Extension attribute names aren't case sensitive when being set up, but they are case sensitive when being read from the directory by the token service. If an extension attribute is set on a user object with the name "LegacyId" and on another user object with the name "legacyid", when the attribute is mapped to a claim using the name "LegacyId" the data is successfully retrieved and the claim included in the token for the first user but not the second.
 
 ## Next steps
-- Learn how to [customize claims emitted in tokens for a specific app](active-directory-claims-mapping.md).
+- Learn how to [customize claims emitted in tokens for a specific app](./saml-claims-customization.md).

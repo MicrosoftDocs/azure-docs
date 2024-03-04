@@ -191,7 +191,7 @@ Save your changes and run the pipeline.
 
 ## Deploy Azure resources
 
-Next, add a stage to the pipeline that deploys Azure resources.  The pipeline uses an [inline script](/azure/devops/pipelines/scripts/powershell) to create the App Service instance.  In a later step, the inline script creates an Azure AD app registration for App Service authentication.  An Azure CLI bash script is used because Azure Resource Manager (and Azure pipeline tasks) can't create an app registration.
+Next, add a stage to the pipeline that deploys Azure resources.  The pipeline uses an [inline script](/azure/devops/pipelines/scripts/powershell) to create the App Service instance.  In a later step, the inline script creates an Azure AD app registration for App Service authentication.  An Azure CLI bash script is used because Azure Resource Manager (and Azure Pipelines tasks) can't create an app registration.
 
 The inline script runs in the context of the pipeline, assign the [Application.Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) role to the app so the script can create app registrations:
 

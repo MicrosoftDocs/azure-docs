@@ -1,5 +1,5 @@
 ---
-title: What are protected actions in Azure AD? (preview)
+title: What are protected actions in Azure AD?
 description: Learn about protected actions in Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -8,15 +8,12 @@ ms.author: rolyon
 ms.service: active-directory
 ms.subservice: roles
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 04/10/2023
 ---
 
-# What are protected actions in Azure AD? (preview)
-
-> [!IMPORTANT]
-> Protected actions are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# What are protected actions in Azure AD?
 
 Protected actions in Azure Active Directory (Azure AD) are permissions that have been assigned [Conditional Access policies](../conditional-access/overview.md). When a user attempts to perform a protected action, they must first satisfy the Conditional Access policies assigned to the required permissions. For example, to allow administrators to update Conditional Access policies, you can require that they first satisfy the [Phishing-resistant MFA](../authentication/concept-authentication-strengths.md#built-in-authentication-strengths) policy.
 
@@ -36,9 +33,10 @@ We recommend using multi-factor authentication on all accounts, especially accou
 
 ## What permissions can be used with protected actions?
 
-For this preview, Conditional Access policies can be applied to limited set of permissions. You can use protected actions in the following areas:
+Conditional Access policies can be applied to limited set of permissions. You can use protected actions in the following areas:
 
 - Conditional Access policy management
+- Cross-tenant access settings management
 - Custom rules that define network locations
 - Protected action management
 
@@ -47,9 +45,23 @@ Here's the initial set of permissions:
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | --- | --- |
+> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/create | Create Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/delete | Delete Conditional Access policies |
 > | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for conditional access policies |
 > | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
 > | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
+> | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of the cross-tenant access policy|
+> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Azure AD B2B collaboration settings of the default cross-tenant access policy |
+> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of the default cross-tenant access policy |
+> | microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of the default cross-tenant access policy.
+> | microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update | Update tenant restrictions of the default cross-tenant access policy.
+> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Azure AD B2B collaboration settings of cross-tenant access policy for partners. |
+> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners. |
+> | microsoft.directory/crossTenantAccessPolicy/partners/create | Create cross-tenant access policy for partners. |
+> | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings  of cross-tenant access policy for partners. |
+> | microsoft.directory/crossTenantAccessPolicy/partners/delete | Delete cross-tenant access policy for partners. |
+> | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners. |
 > | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
 > | microsoft.directory/namedLocations/create | Create custom rules that define network locations |
 > | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
@@ -82,7 +94,7 @@ Here's the initial set of permissions:
 
 ## What happens with protected actions and applications?
 
-If an application or service attempts to perform a protection action, it must be able to handle the required Conditional Access policy. In some cases, a user might need to intervene and satisfy the policy. For example, they may be required to complete multi-factor authentication. In this preview, the following applications support step-up authentication for protected actions:
+If an application or service attempts to perform a protection action, it must be able to handle the required Conditional Access policy. In some cases, a user might need to intervene and satisfy the policy. For example, they may be required to complete multi-factor authentication. The following applications support step-up authentication for protected actions:
 
 - Azure Active Directory administrator experiences for the actions in the [Entra admin center](https://entra.microsoft.com) or the [Azure portal](https://portal.azure.com)
 - [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview?branch=main)

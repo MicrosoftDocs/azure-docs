@@ -1,34 +1,41 @@
 {
-    "redirections": [
+    "redirections": [          
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/best-practices/plan-network-monitoring.md",
             "redirect_url": "/azure/defender-for-iot/organizations/best-practices/plan-prepare-deploy",
             "redirect_document_id": false
-        },        {
+        },
+        {
                 "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-activate-and-set-up-your-on-premises-management-console.md",
             "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/activate-deploy-management",
             "redirect_document_id": false
-        },        {
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-activate-and-set-up-your-sensor.md",
             "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/activate-deploy-sensor",
             "redirect_document_id": false
-        },        {
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-deploy-certificates.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/activate-deploy-sensor#deploy-an-ssltls-certificate",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-individual-sensors#manage-ssltls-certificates",
             "redirect_document_id": false
-        },        {
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-enhance-port-and-vlan-name-resolution.md",
             "redirect_url": "/azure/defender-for-iot/organizations/how-to-control-what-traffic-is-monitored#customize-port-and-vlan-names",
             "redirect_document_id": false
-        },        {
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-gain-insight-into-global-regional-and-local-threats.md",
             "redirect_url": "/azure/defender-for-iot/organizations/monitor-zero-trust",
             "redirect_document_id": false
-        },        {
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/traffic-mirroring/configure-mirror-tap.md",
             "redirect_url": "/azure/defender-for-iot/organizations/best-practices/traffic-mirroring-methods#active-or-passive-aggregation-tap",
             "redirect_document_id": false
-        },        {
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/pre-deployment-checklist.md",
             "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/ot-deploy-path",
             "redirect_document_id": false
@@ -724,4 +731,3 @@
         }
     ]
 }
-

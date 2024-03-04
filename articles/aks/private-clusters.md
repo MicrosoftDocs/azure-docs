@@ -18,7 +18,7 @@ The purpose of this article is to help you deploy a private link-based AKS clust
 
 ## Region availability
 
-Private cluster is available in public regions, Azure Government, and Azure China 21Vianet regions where [AKS is supported][aks-supported-regions].
+Private cluster is available in public regions, Azure Government, and Microsoft Azure operated by 21Vianet regions where [AKS is supported][aks-supported-regions].
 
 ## Prerequisites
 
@@ -170,7 +170,9 @@ The API server endpoint has no public IP address. To manage the API server, you'
 
 ## Virtual network peering
 
-Virtual network peering is one way to access your private cluster. To use virtual network peering, you need to set up a link between the virtual network and the private DNS zone:
+Virtual network peering is one way to access your private cluster. To use virtual network peering, you need to set up a link between the virtual network and the private DNS zone.
+
+### [Azure portal](#tab/azure-portal)
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 1. From the Azure portal, go to the node resource group.  
@@ -181,6 +183,34 @@ Virtual network peering is one way to access your private cluster. To use virtua
 1. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
 1. In the left pane, select **Peerings**.  
 1. Select **Add**, add the virtual network of the VM, and then create the peering. For more information, see  [Virtual network peering][virtual-network-peering].
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Create a new link to add the virtual network of the VM to the private DNS zone using the [`az network private-dns link vnet create`][az-network-private-dns-link-vnet-create] command.
+
+    ```azurecli-interactive
+    az network private-dns link vnet create --name <new-link-name> --resource-group <node-resource-group-name> --zone-name <private-dns-zone-name> --virtual-network <vm-virtual-network-resource-id> --registration-enabled false
+    ```
+
+2. Create a peering between the virtual network of the VM and the virtual network of the node resource group using the [`az network vnet peering create`][az-network-vnet-peering-create] command.
+
+    ```azurecli-interactive
+    az network vnet peering create --name <new-peering-name-1> --resource-group <vm-virtual-network-resource-group-name> --vnet-name <vm-virtual-network-name> --remote-vnet <node-resource-group-virtual-network-resource-id> --allow-vnet-access
+    ```
+
+3. Create a second peering between the virtual network of the node resource group and the virtual network of the VM using the [`az network vnet peering create`][az-network-vnet-peering-create] command.
+
+    ```azurecli-interactive
+    az network vnet peering create --name <new-peering-name-2> --resource-group <node-resource-group-name> --vnet-name <node-resource-group-virtual-network-name> --remote-vnet <vm-virtual-network-resource-id> --allow-vnet-access
+    ```
+
+4. List the virtual network peerings you created using the [`az network vnet peering list`][az-network-vnet-peering-list] command.
+
+    ```azurecli-interactive
+    az network vnet peering list --resource-group <node-resource-group-name> --vnet-name <private-dns-zone-name>
+    ```
+
+---
 
 ## Hub and spoke with custom DNS
 
@@ -320,3 +350,6 @@ For associated best practices, see [Best practices for network connectivity and 
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [az-dns-zone]: ../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration
+[az-network-private-dns-link-vnet-create]: /cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create
+[az-network-vnet-peering-create]: /cli/azure/network/vnet/peering#az_network_vnet_peering_create
+[az-network-vnet-peering-list]: /cli/azure/network/vnet/peering#az_network_vnet_peering_list

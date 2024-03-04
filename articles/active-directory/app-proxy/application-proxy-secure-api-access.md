@@ -48,7 +48,9 @@ To publish the SecretAPI web API through Application Proxy:
 
 1. Build and publish the sample SecretAPI project as an ASP.NET web app on your local computer or intranet. Make sure you can access the web app locally.
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**. Then select **Enterprise applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **Azure Active Directory**, then select **Enterprise applications**.
 
 1. At the top of the **Enterprise applications - All applications** page, select **New application**.
 

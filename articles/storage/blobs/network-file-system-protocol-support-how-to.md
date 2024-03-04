@@ -126,7 +126,7 @@ Create a directory on your Linux system and then mount the container in the stor
    - For a temporary mount that doesn't persist across reboots, run the following command: 
     
      ```
-     mount -t aznfs -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdatain 
+     mount -t aznfs -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata
      ``` 
      
      > [!TIP]

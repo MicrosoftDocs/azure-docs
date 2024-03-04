@@ -75,4 +75,4 @@ In these rare cases the best next steps are
 
 ## Next steps
 
-You can review our article listing the [services that support managed identities](services-support-managed-identities.md) and our [frequently asked questions](managed-identities-faq.md)
+You can review our article listing the [services that support managed identities](./managed-identities-status.md) and our [frequently asked questions](managed-identities-faq.md)

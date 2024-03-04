@@ -13,6 +13,8 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Join your calling app to a Teams call queue
 
+[!INCLUDE [Public Preview](../../../communication-services/includes/public-preview-include-document.md)]
+
 In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams Call Queue. You are going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.

@@ -80,25 +80,26 @@ Notice a sample response from the REST API:
 
 ```json
 {
-	"totalCount": 2,
-	"value": [{
-			"id": "/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.CognitiveServices/accounts/test1",
-			"name": "test1",
-			"type": "microsoft.cognitiveservices/accounts",
-			"resourceGroup": "testrg",
-			"subscriptionId": "{subId}",
-			"subscriptionDisplayName": "TestSubscription"
-		},
-		{
-			"id": "/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.CognitiveServices/accounts/test2",
-			"name": "test2",
-			"type": "microsoft.cognitiveservices/accounts",
-			"resourceGroup": "testrg",
-			"subscriptionId": "{subId}",
-			"subscriptionDisplayName": "TestSubscription"
-		}
-	],
-	"nextLink": "https://management.azure.com/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testid?skiptoken=ew0KICAiJGlkIjogIjEiLA0KICAiTWF4Um93cyI6IDIsDQogICJSb3dzVG9Ta2lwIjogMiwNCiAgIkt1c3RvQ2x1c3RlclVybCI6ICJodHRwczovL2FybXRvcG9sb2d5Lmt1c3RvLndpbmRvd3MubmV0Ig0KfQ%253d%253d&api-version=2021"
+  "totalCount": 2,
+  "value": [
+    {
+      "id": "/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.CognitiveServices/accounts/test1",
+      "name": "test1",
+      "type": "microsoft.cognitiveservices/accounts",
+      "resourceGroup": "testrg",
+      "subscriptionId": "{subId}",
+      "subscriptionDisplayName": "TestSubscription"
+    },
+    {
+      "id": "/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.CognitiveServices/accounts/test2",
+      "name": "test2",
+      "type": "microsoft.cognitiveservices/accounts",
+      "resourceGroup": "testrg",
+      "subscriptionId": "{subId}",
+      "subscriptionDisplayName": "TestSubscription"
+    }
+  ],
+  "nextLink": "https://management.azure.com/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testid?skiptoken=ew0KICAiJGlkIjogIjEiLA0KICAiTWF4Um93cyI6IDIsDQogICJSb3dzVG9Ta2lwIjogMiwNCiAgIkt1c3RvQ2x1c3RlclVybCI6ICJodHRwczovL2FybXRvcG9sb2d5Lmt1c3RvLndpbmRvd3MubmV0Ig0KfQ%253d%253d&api-version=2021"
 }
 
 ```

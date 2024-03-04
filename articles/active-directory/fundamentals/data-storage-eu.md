@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 08/17/2023
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -29,7 +29,7 @@ The following sections provide information about customer data that doesn't meet
 
 ## Services permanently excluded from the EU Data Residency and EU Data Boundary
 
-* **Reason for customer data egress** - Some forms of communication rely on a network that is operated by global providers, such as phone calls and SMS. Device vendor-specific services such Apple Push Notifications, may be outside of Europe.
+* **Reason for customer data egress** - Some forms of communication, such as phone calls or text messaging platforms like SMS, RCS, or WhatsApp, rely on a network that is operated by global providers. Device vendor-specific services, such as push notifications from Apple or Google, may be outside of Europe.
 * **Types of customer data being egressed** - User account data (phone number).
 * **Customer data location at rest** - In EU Data Boundary.
 * **Customer data processing** - Some processing may occur globally.

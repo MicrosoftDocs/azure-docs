@@ -295,7 +295,7 @@ $webapp=Get-AzWebApp -ResourceGroupName <group-name> -Name <app-name>
 # Copy connection strings to a new hashtable
 $connStrings = @{}
 ForEach ($item in $webapp.SiteConfig.ConnectionStrings) {
-$connStrings[$item.Name] = @{value=$item.Value; type=item.Type}
+    $connStrings[$item.Name] = @{value=$item.ConnectionString; type=$item.Type.ToString()}
 }
 
 # Add or edit one or more connection strings

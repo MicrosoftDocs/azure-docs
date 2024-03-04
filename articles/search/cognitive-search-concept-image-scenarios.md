@@ -564,7 +564,7 @@ The [Azure Search Python samples](https://github.com/Azure-Samples/azure-search-
 
 ### Passing images to custom skills
 
-For scenarios where you require a custom skill to work on images, you can pass images to the custom skill, and have it return text or images. The [Python sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) image-processing demonstrates the workflow. The following skillset is from the sample.
+For scenarios where you require a custom skill to work on images, you can pass images to the custom skill, and have it return text or images. The following skillset is from a sample.
 
 The following skillset takes the normalized image (obtained during document cracking), and outputs slices of the image.
 
@@ -644,4 +644,3 @@ def base64EncodeImage(image):
 + [Text merge skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)
-+ [How to pass images to custom skills](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)

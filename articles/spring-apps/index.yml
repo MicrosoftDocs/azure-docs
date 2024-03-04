@@ -130,6 +130,16 @@ landingContent:
             url: quickstart-deploy-infrastructure-vnet-terraform.md
 
   # Card (optional)
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Architecture design
+            url: /azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+          - text: Landing zone accelerator
+            url: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+
+  # Card (optional)
   - title: Monitor end-to-end
     linkLists:
       - linkListType: tutorial

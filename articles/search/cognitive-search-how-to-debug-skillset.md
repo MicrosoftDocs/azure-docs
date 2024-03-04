@@ -7,7 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: how-to
 ms.date: 10/19/2022
 ---
@@ -42,7 +42,7 @@ A Debug Session works with all generally available [indexer data sources](search
 
 ## Create a debug session
 
-1. [Sign in to Azure portal](https://portal.azure.com) and find your search service.
+1. Sign in to the [Azure portal](https://portal.azure.com) and find your search service.
 
 1. In the **Overview** page of your search service, select the **Debug Sessions** tab.
 

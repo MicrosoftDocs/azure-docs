@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for images using the Bing Image Search REST API and Python"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using Python, and receive JSON responses.
 services: cognitive-services
 author: aahill

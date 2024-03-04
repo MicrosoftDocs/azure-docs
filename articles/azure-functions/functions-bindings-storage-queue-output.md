@@ -59,67 +59,6 @@ public static class QueueFunctions
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows an HTTP trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function creates a queue item with a **CustomQueueMessage** object payload for each HTTP request received.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "authLevel": "function",
-      "name": "input"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "$return",
-      "queueName": "outqueue",
-      "connection": "MyStorageConnectionAppSetting"
-    }
-  ]
-}
-```
-
-The [configuration](#configuration) section explains these properties.
-
-Here's C# script code that creates a single queue message:
-
-```cs
-public class CustomQueueMessage
-{
-    public string PersonName { get; set; }
-    public string Title { get; set; }
-}
-
-public static CustomQueueMessage Run(CustomQueueMessage input, ILogger log)
-{
-    return input;
-}
-```
-
-You can send multiple messages at once by using an `ICollector` or `IAsyncCollector` parameter. Here's C# script code that sends multiple messages, one with the HTTP request data and one with hard-coded values:
-
-```cs
-public static void Run(
-    CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItems, 
-    ILogger log)
-{
-    myQueueItems.Add(input);
-    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
-}
-```
-
 ---
 
 ::: zone-end
@@ -359,12 +298,12 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-The attribute that defines an output binding in C# libraries depends on the mode in which the C# class library runs. C# script instead uses a function.json configuration file.
+The attribute that defines an output binding in C# libraries depends on the mode in which the C# class library runs.
 
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](/dotnet/api/microsoft.azure.webjobs.queueattribute).
+In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](/dotnet/api/microsoft.azure.webjobs.queueattribute). C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#queue-output).
 
 The attribute applies to an `out` parameter or the return value of the function. The attribute's constructor takes the name of the queue, as shown in the following example:
 
@@ -398,19 +337,7 @@ When running in an isolated worker process, you use the [QueueOutputAttribute](h
 
 Only returned variables are supported when running in an isolated worker process. Output parameters can't be used. 
 
-# [C# script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes.
-
-The following table explains the binding configuration properties that you set in the *function.json* file and the `Queue` attribute.
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** |Must be set to `queue`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** |  Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
-|**name** |  The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
-|**queueName** | The name of the queue. |
-|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"
@@ -500,10 +427,6 @@ An in-process class library is a compiled C# function runs in the same process a
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.   
    
-# [C# script](#tab/csharp-script)
-
-C# script is used primarily when creating C# functions in the Azure portal.
-
 ---
 
 Choose a version to see usage details for the mode and version. 
@@ -553,40 +476,6 @@ You can write multiple messages to the queue by using one of the following types
 # [Extension 2.x+](#tab/extensionv2/isolated-process)
 
 Isolated worker process currently only supports binding to string parameters.
-
-# [Extension 5.x+](#tab/extensionv5/csharp-script)
-
-Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
-
-* An object serializable as JSON
-* `string`
-* `byte[]`
-* [QueueMessage]
-
-For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
-
-You can write multiple messages to the queue by using one of the following types: 
-
-* `ICollector<T>` or `IAsyncCollector<T>`
-* [QueueClient]
-
-For examples using [QueueMessage] and [QueueClient], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
-
-# [Extension 2.x+](#tab/extensionv2/csharp-script)
-
-Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
-
-* An object serializable as JSON
-* `string`
-* `byte[]`
-* [CloudQueueMessage] 
-
-If you try to bind to [CloudQueueMessage] and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
-
-You can write multiple messages to the queue by using one of the following types: 
-
-* `ICollector<T>` or `IAsyncCollector<T>`
-* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 ---
 

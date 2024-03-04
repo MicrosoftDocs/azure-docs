@@ -43,7 +43,7 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk</artifactId>
-            <version>1.30.0</version>
+            <version>1.31.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -122,7 +122,7 @@ java -cp ".;target\dependency\*" SpeechSynthesis
 ```
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
 

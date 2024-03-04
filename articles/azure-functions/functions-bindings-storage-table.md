@@ -204,7 +204,6 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 
 [ITableEntity]: /dotnet/api/azure.data.tables.itableentity
 [TableClient]: /dotnet/api/azure.data.tables.tableclient
-[TableEntity]: /dotnet/api/azure.data.tables.tableentity
 
 [CloudTable]: /dotnet/api/microsoft.azure.cosmos.table.cloudtable
 
@@ -222,9 +221,7 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 [Microsoft.Azure.Cosmos.Table]: /dotnet/api/microsoft.azure.cosmos.table
 [Microsoft.WindowsAzure.Storage.Table]: /dotnet/api/microsoft.windowsazure.storage.table
 
-[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
 [storage-4.x]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/4.0.5
-[storage-5.x]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0
 [table-api-package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Tables/
 
 [extension bundle]: ./functions-bindings-register.md#extension-bundles

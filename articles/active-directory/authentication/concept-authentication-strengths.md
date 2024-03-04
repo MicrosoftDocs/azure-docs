@@ -117,7 +117,7 @@ Next to **Allowed FIDO2 Keys** click **+**, copy the AAGUID value, and click **S
 
 ## Using authentication strength in Conditional Access
 After you determine the authentication strength you need, you'll need to create a Conditional Access policy to require that authentication strength to access a resource. When the Conditional Access policy gets applied, the authentication strength restricts which authentication methods are allowed.
-<!-- ### Place holder:How to create conditional access policy that uses authentication strength
+<!-- ### Place holder:How to create Conditional Access policy that uses authentication strength
 -	Add a note that you can use either require mfa or require auth strengths
 - (JF) Possibly add a reference doc that lists all the definitions of the things you can configure?
 -->
@@ -157,7 +157,7 @@ For example, let’s assume Contoso would like to require their users to always 
 As a result, users on a compliant device would be able to use a Temporary Access Pass to register FIDO2 security keys and then use the newly registered FIDO2 security key to authenticate to other resources (such as Outlook). 
 
 >[!NOTE] 
->If multiple conditional access policies target the **Register security information** user action, and they each apply an authentication strength, the user must satisfy all such authentication strengths to sign in. 
+>If multiple Conditional Access policies target the **Register security information** user action, and they each apply an authentication strength, the user must satisfy all such authentication strengths to sign in. 
 
 
 
@@ -191,7 +191,7 @@ The following authentication methods can't be registered as part of combined reg
 
 
 ### Federated user experience  
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider by setting the federatedIdpMfaBehavior. If the federatedIdpMfaBehavior setting is set to enforceMfaByFederatedIdp, the user must authenticate on their federated IdP and can only satisfy the **Federated Multi-Factor** combination of the authentication strength requirement. For more information about the federation settings, see [Plan support for MFA](../hybrid/migrate-from-federation-to-cloud-authentication.md#plan-support-for-mfa).
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider by setting the federatedIdpMfaBehavior. If the federatedIdpMfaBehavior setting is set to enforceMfaByFederatedIdp, the user must authenticate on their federated IdP and can only satisfy the **Federated Multi-Factor** combination of the authentication strength requirement. For more information about the federation settings, see [Plan support for MFA](../hybrid/connect/migrate-from-federation-to-cloud-authentication.md#plan-support-for-mfa).
 
 If a user from a federated domain has multifactor authentication settings in scope for Staged Rollout, the user can complete multifactor authentication in the cloud and satisfy any of the **Federated single-factor + something you have** combinations. For more information about staged rollout, see [Enable Staged Rollout using Azure portal](how-to-mfa-server-migration-utility.md#enable-staged-rollout-using-azure-portal).
 
@@ -252,4 +252,3 @@ As a result, users in Contoso can access most of the resources in the tenant usi
 ## Next steps
 
 - [Troubleshoot authentication strengths](troubleshoot-authentication-strengths.md) 
-

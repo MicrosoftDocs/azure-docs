@@ -200,7 +200,6 @@ The following screenshot shows the technical information to validate a successfu
 * [Install SAP NetWeaver high availability on a Windows failover cluster and file share for SAP ASCS/SCS instances on Azure](./sap-high-availability-installation-wsfc-file-share.md)
 * [Azure Virtual Machines high-availability architecture and scenarios for SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 * [Add a probe port in an ASCS cluster configuration](sap-high-availability-installation-wsfc-file-share.md)
-* [Installation of an (A)SCS Instance on a Failover Cluster with no Shared Disks](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html) (SAP documentation)
 
 [16083]:https://launchpad.support.sap.com/#/notes/16083
 [2273806]:https://launchpad.support.sap.com/#/notes/2273806

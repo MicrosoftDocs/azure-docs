@@ -104,7 +104,7 @@ Creating a gateway can often take 45 minutes or more, depending on the selected 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location "East US" -IpConfigurations $gwipconfig -GatewayType "Vpn" `
--VpnType "RouteBased" GatewaySku VpnGw2 -VpnGatewayGeneration "Generation2"
+-VpnType "RouteBased" -GatewaySku VpnGw2 -VpnGatewayGeneration "Generation2"
 ```
 
 ## <a name="viewgw"></a>View the VPN gateway

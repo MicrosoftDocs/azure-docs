@@ -160,7 +160,6 @@ In addition to device telemetry, message routing also enables sending non-teleme
 * Device job lifecycle events
 * Digital twin change events
 * Device connection state events
-* MQTT broker messages
 
 For example, if a route is created with the data source set to **Device Twin Change Events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with the data source set to **Device Lifecycle Events**, IoT Hub sends a message indicating whether the device or module was deleted or created. For more information about device lifecycle events, see [Device and module lifecycle notifications](./iot-hub-devguide-identity-registry.md#device-and-module-lifecycle-notifications). When using [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), a developer can create routes with the data source set to **Digital Twin Change Events** and IoT Hub sends messages whenever a digital twin property is set or changed, a digital twin is replaced, or when a change event happens for the underlying device twin. Finally, if a route is created with data source set to **Device Connection State Events**, IoT Hub sends a message indicating whether the device was connected or disconnected.
 
@@ -196,3 +195,5 @@ To learn how to create message routes, see:
 
 * [Create and delete routes and endpoints by using the Azure portal](./how-to-routing-portal.md)
 * [Create and delete routes and endpoints by using the Azure CLI](./how-to-routing-azure-cli.md)
+
+

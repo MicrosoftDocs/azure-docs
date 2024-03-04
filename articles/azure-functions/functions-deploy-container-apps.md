@@ -109,7 +109,7 @@ az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --envir
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 ```console
-az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 --registry-server <LOGIN_SERVER>  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
 ```
 ::: zone-end
 

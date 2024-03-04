@@ -30,6 +30,8 @@ To use this feature, you need:
 
 ## Stream logs to an event hub
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 1. Select **Azure Active Directory** > **Audit logs**. 

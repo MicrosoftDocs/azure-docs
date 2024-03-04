@@ -5,7 +5,7 @@ description: Learn how to log network traffic flow to and from a virtual machine
 author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 05/31/2023
+ms.date: 07/24/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, mvc, engagement-fy23
 # Customer intent: I need to log the network traffic to and from a virtual machine (VM) so I can analyze it for anomalies.
@@ -20,10 +20,10 @@ This tutorial helps you use NSG flow logs to log a virtual machine's network tra
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a virtual network and a Bastion host
+> * Create a virtual network
 > * Create a virtual machine with a network security group associated to its network interface
 > * Register Microsoft.insights provider
-> * Enable flow logging for a network security group using Network Watcher NSG flow logs
+> * Enable flow logging for a network security group using Network Watcher flow logs
 > * Download logged data
 > * View logged data
 
@@ -35,11 +35,11 @@ In this tutorial, you learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a virtual network and a Bastion host
+## Create a virtual network
 
-In this section, you create **myVNet** virtual network with two subnets and an Azure Bastion host. The first subnet is used for the virtual machine, and the second subnet is used for the Bastion host.
+In this section, you create **myVNet** virtual network with one subnet for the virtual machine.
 
-1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** from the search results.
 
     :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
@@ -52,25 +52,7 @@ In this section, you create **myVNet** virtual network with two subnets and an A
     | Resource Group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
     | **Instance details** |  |
     | Name | Enter *myVNet*. |
-    | Region | Select **East US**. |
-
-1. Select the **Security** tab, or select the **Next** button at the bottom of the page. 
-
-1. Under **Azure Bastion**, select **Enable Azure Bastion** and accept the default values:
-
-    | Setting | Value |
-    | --- | --- |
-    | Azure Bastion host name | **myVNet-Bastion**. |
-    | Azure Bastion public IP Address | **(New) myVNet-bastion-publicIpAddress**. |
-
-1. Select the **IP Addresses** tab, or select **Next** button at the bottom of the page.
-
-1. Accept the default IP address space **10.0.0.0/16** and rename the **default** subnet by selecting the pencil icon next to it. In the **Edit subnet** page, enter the subnet name:
-
-    | Setting | Value |
-    | --- | --- |
-    | **Subnet details** | |
-    | Name | Enter *mySubnet*. |
+    | Region | Select **(US) East US**. |
 
 1. Select **Review + create**.
 
@@ -80,11 +62,11 @@ In this section, you create **myVNet** virtual network with two subnets and an A
 
 In this section, you create **myVM** virtual machine.
 
-1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** from the search results.
 
-2. Select **+ Create** and then select **Azure virtual machine**.
+1. Select **+ Create** and then select **Azure virtual machine**.
 
-3. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
+1. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
 
     | Setting | Value |
     | --- | --- |
@@ -103,30 +85,34 @@ In this section, you create **myVM** virtual machine.
     | Password | Enter a password. |
     | Confirm password | Reenter password. |
 
-4. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
 
-5. In the Networking tab, select the following values:
+1. In the Networking tab, select the following values:
 
     | Setting | Value |
     | --- | --- |
     | **Network interface** |  |
     | Virtual network | Select **myVNet**. |
     | Subnet | Select **mySubnet**. |
-    | Public IP | Select **None**. |
+    | Public IP | Select **(new) myVM-ip**. |
     | NIC network security group | Select **Basic**. This setting creates a network security group named **myVM-nsg** and associates it with the network interface of **myVM** virtual machine. |
-    | Public inbound ports | Select **None**. |
+    | Public inbound ports | Select **Allow selected ports**. |
+    | Select inbound ports | Select **RDP (3389)**. |
 
-6. Select **Review + create**.
+    > [!CAUTION]
+    > Leaving the RDP port open to the internet is only recommended for testing. For production environments, it's recommended to restrict access to the RDP port to a specific IP address or range of IP addresses. You can also block internet access to the RDP port and use [Azure Bastion](../bastion/bastion-overview.md) to securely connect to your virtual machine from the Azure portal. 
 
-7. Review the settings, and then select **Create**. 
+1. Select **Review + create**.
 
-8. Once the deployment is complete, select **Go to resource** to go to the **Overview** page of **myVM**.  
+1. Review the settings, and then select **Create**. 
 
-9. Select **Connect** then select **Bastion**.
+1. Once the deployment is complete, select **Go to resource** to go to the **Overview** page of **myVM**.  
 
-10. Enter the username and password that you created in the previous steps. Leave **Open in new browser tab** checked.
+1. Select **Connect** then select **RDP**.
 
-11. Select **Connect** button.
+1. Select **Download RDP File** and open the downloaded file.
+
+1. Select **Connect** and then enter the username and password that you created in the previous steps. Accept the certificate if prompted.
 
 ## Register Insights provider
 
@@ -161,7 +147,7 @@ In this section, you create a storage account to use it to store the flow logs.
     | Storage account name | Enter a unique name. This tutorial uses **mynwstorageaccount**. |
     | Region | Select **(US) East US**. The storage account must be in the same region as the virtual machine and its network security group. |
     | Performance | Select **Standard**. NSG flow logs only support Standard-tier storage accounts. |
-    | Redundancy | Select **Locally-redundant storage (LRS)**. |
+    | Redundancy | Select **Locally-redundant storage (LRS)** or different replication strategy that matches your durability requirements. |
 
 1. Select the **Review** tab or select the **Review** button at the bottom.
 
@@ -205,9 +191,9 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
     :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png" alt-text="Screenshot of Flow logs page in the Azure portal showing the newly created flow log." lightbox="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png":::
 
-1. Go back to your browser tab of **myVM** virtual machine.
+1. Go back to your RDP session with **myVM** virtual machine.
 
-1. In **myVM**, open Microsoft Edge and go to `www.bing.com`.
+1. Open Microsoft Edge and go to `www.bing.com`.
 
 ## Download the flow log
 
@@ -223,7 +209,9 @@ In this section, you go to the storage account you previously selected and downl
 
 5. In the container, navigate the folder hierarchy until you get to the `PT1H.json` file. NSG log files are written to a folder hierarchy that follows the following naming convention:
 
-   **https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{networSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json**
+    ```
+    https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{networSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={acAddress}/PT1H.json
+    ```
 
 6. Select the ellipsis **...** to the right of the PT1H.json file, then select **Download**.
 
@@ -283,25 +271,18 @@ The comma-separated information for **flowTuples** is as follows:
 
 ## Clean up resources
 
-When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains and **myVM-nsg-myResourceGroup-flowlog** flow log:
+When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains:
 
-**Delete the flow log**:
-
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
-
-1. Under **Logs**, select **Flow logs**.
-
-1. In **Network Watcher | Flow logs**, select the checkbox of the flow log.
-
-1. Select **Delete**.
-
-**Delete the resource group**:
-
-1. In the search box at the top of the portal, enter *myResourceGroup*. When you see **myResourceGroup** in the search results, select it.
+1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
 
 1. Select **Delete resource group**.
 
-1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
+
+1. Select **Delete** to confirm the deletion of the resource group and all its resources.
+
+> [!NOTE]
+> The **myVM-nsg-myResourceGroup-flowlog** flow log is in the **NetworkWatcherRG** resource group, but it'll be deleted after deleting the **myVM-nsg** network security group (by deleting the **myResourceGroup** resource group).
 
 ## Next steps
 

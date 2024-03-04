@@ -4,8 +4,8 @@ description: Learn about connecting Azure Kubernetes Service with Azure Database
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 

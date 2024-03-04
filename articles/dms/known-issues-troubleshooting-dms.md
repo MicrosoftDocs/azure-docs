@@ -7,9 +7,7 @@ ms.reviewer: craigg
 ms.date: 02/20/2020
 ms.service: dms
 ms.topic: troubleshooting
-ms.custom:
-  - seo-lt-2019
-  - ignite-2022
+ms.custom: seo-lt-2019, ignite-2022, has-azure-ad-ps-ref
 ---
 
 # Troubleshoot common Azure Database Migration Service issues and errors

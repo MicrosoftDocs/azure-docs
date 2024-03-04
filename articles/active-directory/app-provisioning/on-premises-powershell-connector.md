@@ -72,7 +72,9 @@ If you have already downloaded the provisioning agent and configured it for anot
 
 ## Configure the On-premises ECMA app
 
- 1. Sign in to the Azure portal as an administrator.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+ 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
  2. Go to **Enterprise applications** and select **New application**.
  3. Search for the **On-premises ECMA app** application, give the app a name, and select **Create** to add it to your tenant.
  4. Navigate to the **Provisioning** page of your application.
@@ -256,10 +258,11 @@ Follow these steps to confirm that the connector host has started and has identi
 
 
 ## Test the connection from Azure AD to the connector host
+
  1. Return to the web browser window where you were configuring the application provisioning in the portal.
     >[!NOTE]
     >If the window had timed out, then you need to re-select the agent.
-     1. Sign in to the Azure portal.
+     1. Sign in to the [Azure portal](https://portal.azure.com).
      2. Go to **Enterprise applications** and the **On-premises ECMA app** application.
      3. Click on **Provisioning**.
      4. If **Get started** appears, then change the mode to **Automatic**,  on the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**, and wait 10 minutes. Otherwise go to **Edit Provisioning**.
@@ -276,12 +279,13 @@ Follow these steps to confirm that the connector host has started and has identi
  5. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.
 
 ## Configure the application connection in the Azure portal
+
 Return to the web browser window where you were configuring the application provisioning.
 
 >[!NOTE]
 >If the window had timed out, then you need to re-select the agent.
 
-   1. Sign in to the Azure portal.
+   1. Sign in to the [Azure portal](https://portal.azure.com).
    2. Go to **Enterprise applications** and the **On-premises ECMA app** application.
    3. Select on **Provisioning**.
    4. If **Get started** appears, then change the mode to **Automatic**,  on the **On-Premises Connectivity** section, select the agent that you deployed and select **Assign Agent(s)**. Otherwise go to **Edit Provisioning**.

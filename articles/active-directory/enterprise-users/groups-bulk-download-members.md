@@ -21,6 +21,8 @@ You can bulk download the members of a group in your organization to a comma-sep
 
 ## To bulk download group membership
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account in the organization.
 1. In Azure AD, select **Groups** > **All groups**.
 1. Open the group whose membership you want to download, and then select **Members**.

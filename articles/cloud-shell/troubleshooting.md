@@ -4,6 +4,7 @@ ms.contributor: jahelmic
 ms.date: 05/03/2023
 ms.topic: article
 tags: azure-resource-manager
+ms.custom: has-azure-ad-ps-ref
 title: Azure Cloud Shell troubleshooting
 ---
 # Troubleshooting & Limitations of Azure Cloud Shell

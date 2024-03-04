@@ -65,7 +65,7 @@ so that you can better understand the sentiments expressed.
 ## Analyze tweet text
 
 To detect the sentiment behind some text, 
-you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
+you can use [Azure AI services](https://azure.microsoft.com/services/cognitive-services/).
 
 1. In workflow designer, under the trigger, choose **New step**.
 
@@ -73,7 +73,7 @@ you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cogn
 
 3. Select the **Detect Sentiment** action.
 
-4. If prompted, provide a valid Cognitive Services 
+4. If prompted, provide a valid Azure AI services 
 key for the Text Analytics service.
 
 5. Under **Request Body**, select the **Tweet Text** 

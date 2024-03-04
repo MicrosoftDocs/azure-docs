@@ -26,7 +26,7 @@ This section lists the Azure resource types that Azure Load Testing supports for
 * Azure Application Insights
 * Azure Batch Service
 * Azure Cache for Redis
-* Azure Cognitive Services
+* Azure AI services
 * Azure Container Apps
 * Azure Container Instances
 * Azure Cosmos DB

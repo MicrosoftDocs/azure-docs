@@ -33,6 +33,8 @@ In the following sections, you learn how to:
 
 ## Remove an application authored by you or your organization
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Applications that you or your organization have registered are represented by both an application object and service principal object in your tenant. For more information, see [Application objects and service principal objects](./app-objects-and-service-principals.md).
 
 > [!NOTE]

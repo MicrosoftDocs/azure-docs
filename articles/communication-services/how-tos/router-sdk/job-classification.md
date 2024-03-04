@@ -7,9 +7,8 @@ ms.author: jassha
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 10/14/2021
-ms.custom: template-how-to, devx-track-extended-java, devx-track-js
+ms.custom: template-how-to, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
-
 #Customer intent: As a developer, I want Job Router to classify my Job for me.
 ---
 
@@ -27,7 +26,7 @@ Learn to use a classification policy in Job Router to dynamically resolve the qu
 
 ## Create a classification policy
 
-The following example will leverage [PowerFx Expressions](https://powerapps.microsoft.com/blog/what-is-microsoft-power-fx/) to select both the queue and priority. The expression will attempt to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE`.  Otherwise, the job will be sent to the fallback queue `XBOX_DEFAULT_QUEUE` as defined by `fallbackQueueId`.  Additionally, the priority will be `10` if a label called `Hardware_VIP` was matched, otherwise it will be `1`.
+The following example leverages [PowerFx Expressions](https://powerapps.microsoft.com/blog/what-is-microsoft-power-fx/) to select both the queue and priority. The expression attempts to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE`.  Otherwise, the job is sent to the fallback queue `XBOX_DEFAULT_QUEUE` as defined by `fallbackQueueId`.  Additionally, the priority is `10` if a label called `Hardware_VIP` was matched, otherwise it is `1`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -104,11 +103,9 @@ classification_policy: ClassificationPolicy = administration_client.create_class
 ClassificationPolicy classificationPolicy = administrationClient.createClassificationPolicy(
     new CreateClassificationPolicyOptions("XBOX_NA_QUEUE_Priority_1_10")
         .setName("Select XBOX Queue and set priority to 1 or 10")
-        .setQueueSelectors(List.of(new ConditionalQueueSelectorAttachment()
-            .setCondition(new ExpressionRouterRule().setExpression("job.Region = \"NA\""))
-            .setQueueSelectors(List.of(
-                new RouterQueueSelector().setKey("Id").setLabelOperator(LabelOperator.EQUAL).setValue("XBOX_NA_QUEUE"))
-            )))
+        .setQueueSelectors(List.of(new ConditionalQueueSelectorAttachment(
+            new ExpressionRouterRule("job.Region = \"NA\""),
+            List.of(new RouterQueueSelector("Id", LabelOperator.EQUAL, new LabelValue("XBOX_NA_QUEUE"))))))
         .setFallbackQueueId("XBOX_DEFAULT_QUEUE")
         .setPrioritizationRule(new ExpressionRouterRule().setExpression("If(job.Hardware_VIP = true, 10, 1)")));
 ```
@@ -117,7 +114,7 @@ ClassificationPolicy classificationPolicy = administrationClient.createClassific
 
 ## Submit the job
 
-The following example will cause the classification policy to evaluate the Job labels. The outcome will place the Job in the queue called `XBOX_NA_QUEUE` and set the priority to `1`.
+The following example causes the classification policy to evaluate the Job labels.  The outcome places the Job in the queue called `XBOX_NA_QUEUE` and sets the priority to `1`.  Before the classification policy is evaluated, the job's state is `pendingClassification`.  Once the classification policy is evaluated, the job's state is updated to `queued`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -189,11 +186,11 @@ client.createJob(new CreateJobWithClassificationPolicyOptions("job1", "voice", "
 
 ## Attaching Worker Selectors
 
-You can use the classification policy to attach additional worker selectors to a job.
+You can use the classification policy to attach more worker selectors to a job.
 
 ### Static Attachments
 
-In this example, the Classification Policy is configured with a static attachment, which will always attach the specified label selector to a job.
+In this example, the Classification Policy is configured with a static attachment, which always attaches the specified label selector to a job.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -243,15 +240,15 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new StaticWorkerSelectorAttachment()
-        .setWorkerSelector(new RouterWorkerSelector().setKey("Foo").setLabelOperator(LabelOperator.EQUAL).setValue("Bar")))));
+    .setWorkerSelectors(List.of(
+        new StaticWorkerSelectorAttachment(new RouterWorkerSelector("Foo", LabelOperator.EQUAL, new LabelValue("Bar"))))));
 ```
 
 ::: zone-end
 
 ### Conditional Attachments
 
-In this example, the Classification Policy is configured with a conditional attachment. So it will evaluate a condition against the job labels to determine if the said label selectors should be attached to the job.
+In this example, the Classification Policy is configured with a conditional attachment. So it evaluates a condition against the job labels to determine if the said label selectors should be attached to the job.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -310,9 +307,9 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new ConditionalRouterWorkerSelectorAttachment()
-        .setCondition(new ExpressionRouterRule().setExpression("job.Urgent = true"))
-        .setWorkerSelectors(List.of(new RouterWorkerSelector().setKey("Foo").setLabelOperator(LabelOperator.EQUAL).setValue("Bar"))))));
+    .setWorkerSelectors(List.of(new ConditionalRouterWorkerSelectorAttachment(
+        new ExpressionRouterRule("job.Urgent = true"),
+        List.of(new RouterWorkerSelector("Foo", LabelOperator.EQUAL, new LabelValue("Bar")))))));
 ```
 
 ::: zone-end
@@ -370,15 +367,14 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new PassThroughWorkerSelectorAttachment()
-        .setKey("Foo").setLabelOperator(LabelOperator.EQUAL))));
+    .setWorkerSelectors(List.of(new PassThroughWorkerSelectorAttachment("Foo", LabelOperator.EQUAL))));
 ```
 
 ::: zone-end
 
 ### Weighted Allocation Attachments
 
-In this example, the Classification Policy is configured with a weighted allocation attachment. This will divide up jobs according to the weightings specified and attach different selectors accordingly.  Here, 30% of jobs should go to workers with the label `Vendor` set to `A` and 70% should go to workers with the label `Vendor` set to `B`.
+In this example, the Classification Policy is configured with a weighted allocation attachment. This policy divides up jobs according to the weightings specified and attach different selectors accordingly.  Here, 30% of jobs should go to workers with the label `Vendor` set to `A` and 70% should go to workers with the label `Vendor` set to `B`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -449,10 +445,10 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new WeightedAllocationWorkerSelectorAttachment()
-        .setAllocations(List.of(new WorkerWeightedAllocation().setWeight(0.3).setWorkerSelectors(List.of(
-            new RouterWorkerSelector().setKey("Vendor").setLabelOperator(LabelOperator.EQUAL).setValue("A"),
-            new RouterWorkerSelector().setKey("Vendor").setLabelOperator(LabelOperator.EQUAL).setValue("B")
+    .setWorkerSelectors(List.of(new WeightedAllocationWorkerSelectorAttachment(
+        List.of(new WorkerWeightedAllocation(0.3, List.of(
+            new RouterWorkerSelector("Vendor", LabelOperator.EQUAL, new LabelValue("A")),
+            new RouterWorkerSelector("Vendor", LabelOperator.EQUAL, new LabelValue("B"))
         )))))));
 ```
 
@@ -460,7 +456,7 @@ administrationClient.createClassificationPolicy(new CreateClassificationPolicyOp
 
 ## Reclassify a job after submission
 
-Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way to increase the priority of the Job to `10`, simply by specifying the **Job ID**, calling the `UpdateJobAsync` method, and updating the classificationPolicyId and including the `Hardware_VIP` label.
+Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way of increasing the priority of the Job to `10`, simply by specifying the **Job ID**, calling the `UpdateJobAsync` method, and updating the classificationPolicyId and including the `Hardware_VIP` label.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -502,3 +498,6 @@ client.updateJob(new UpdateJobOptions("job1")
 ```
 
 ::: zone-end
+
+> [!NOTE]
+> If the job labels, queueId, channelId or worker selectors are updated, any existing offers on the job are revoked and you receive a [RouterWorkerOfferRevoked](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked) event for each offer from EventGrid.  The job is re-queued and you receive a [RouterJobQueued](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobqueued) event.  Job offers may also be revoked when a worker's total capacity is reduced, or the channel configurations are updated.

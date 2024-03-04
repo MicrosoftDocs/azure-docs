@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
@@ -32,6 +32,8 @@ When guest access is restricted, guests can view only their own user profile. Pe
 You must be in the Global Administrator role to configure guest user access. There are no additional licensing requirements to restrict guest access.
 
 ## Update in the Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 We’ve made changes to the existing Azure portal controls for guest user permissions.
 

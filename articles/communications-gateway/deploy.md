@@ -4,6 +4,7 @@ description: This article guides you through how to deploy an Azure Communicatio
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to 
 ms.date: 05/05/2023
 ---

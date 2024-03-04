@@ -108,7 +108,7 @@ Listen to Azure Communication Services PMs Ashwinder Bhatti and Anuj Bhatia talk
 
 [Watch the video](https://youtu.be/EYTjH1xrmtI)
 
-[Learn more about Azure Cognitive Services](https://azure.microsoft.com/products/cognitive-services/)
+[Learn more about Azure AI services](https://azure.microsoft.com/products/cognitive-services/)
 
 [Learn more about Azure Event Grid](../event-grid/overview.md)
 

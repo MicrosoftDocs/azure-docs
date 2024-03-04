@@ -419,7 +419,7 @@ Let's say you want to retrieve the following data sets from Workday and use them
 
 The above data sets aren't included by default. 
 To retrieve these data sets:
-1. Sign in to the Azure portal and open your Workday to AD/Azure AD user provisioning app. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and open your Workday to AD/Azure AD user provisioning app. 
 1. In the Provisioning blade, edit the mappings and open the Workday attribute list from the advanced section. 
 1. Add the following attributes definitions and mark them as "Required". These attributes aren't mapped to any attribute in AD or Azure AD. They serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
 
@@ -526,4 +526,3 @@ Use the steps to retrieve attributes associated with international job assignmen
 * [Learn how to configure Workday to Active Directory provisioning](../saas-apps/workday-inbound-tutorial.md)
 * [Learn how to configure write back to Workday](../saas-apps/workday-writeback-tutorial.md)
 * [Learn more about supported Workday Attributes for inbound provisioning](workday-attribute-reference.md)
-

@@ -4,7 +4,7 @@ description: Learn how to create a PowerShell function, then publish the local p
 ms.topic: quickstart
 ms.date: 06/22/2022
 ms.devlang: powershell
-ms.custom: mode-api, vscode-azure-extension-update-complete, devx-track-azurepowershell
+ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a PowerShell function in Azure using Visual Studio Code

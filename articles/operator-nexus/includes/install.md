@@ -1,4 +1,6 @@
-
+---
+ms.custom: devx-track-azurecli
+---
 ```bash
 
 #!/bin/bash

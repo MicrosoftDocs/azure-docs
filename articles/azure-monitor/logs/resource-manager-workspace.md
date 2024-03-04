@@ -5,7 +5,7 @@ ms.topic: sample
 ms.custom: devx-track-arm-template
 author: bwren
 ms.author: bwren
-ms.date: 06/23/2022
+ms.date: 08/08/2023
 ---
 
 # Resource Manager template samples for Log Analytics workspaces in Azure Monitor
@@ -198,15 +198,18 @@ resource table 'Microsoft.OperationalInsights/workspaces/tables@2021-12-01-previ
 }
 ```
 
-## Collect Windows events
+## Configure data collection for Log Analytics workspace
+The following samples show how to configure a Log Analytics workspace to collect data from the [Log Analytics agent](../agents/log-analytics-agent.md), which is on a deprecation path being replaced by [Azure Monitor agent](../agents/agents-overview.md). The Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to define its data collection and will ignore any of the configuration performed by these samples. For sample templates for data collection rules, see [Resource Manager template samples for data collection rules in Azure Monitor](../agents/resource-manager-data-collection-rules.md).
+
+### Collect Windows events
 
 The following sample adds collection of [Windows events](../agents/data-sources-windows-events.md) to an existing workspace.
 
-### Notes
+#### Notes
 
 - Add a **datasources** element for each event log to collect. You can specify different set of event types for each log.
 
-### Template file
+#### Template file
 
 # [Bicep](#tab/bicep)
 
@@ -338,7 +341,7 @@ resource WindowsEventApplicationDataSource 'Microsoft.OperationalInsights/worksp
 
 ---
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -355,15 +358,15 @@ resource WindowsEventApplicationDataSource 'Microsoft.OperationalInsights/worksp
 }
 ```
 
-## Collect syslog
+### Collect syslog
 
 The following sample adds collection of [syslog events](../agents/data-sources-syslog.md) to an existing workspace.
 
-### Notes
+#### Notes
 
 - Add a **datasources** element for each facility to collect. You can specify different set of severities for each facility.
 
-### Template file
+#### Template file
 
 # [Bicep](#tab/bicep)
 
@@ -564,7 +567,7 @@ resource syslogCollectionDataSource 'Microsoft.OperationalInsights/workspaces/da
 
 ---
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -581,15 +584,15 @@ resource syslogCollectionDataSource 'Microsoft.OperationalInsights/workspaces/da
 }
 ```
 
-## Collect Windows performance counters
+### Collect Windows performance counters
 
 The following sample adds collection of [Windows performance counters](../agents/data-sources-performance-counters.md) to an existing workspace.
 
-### Notes
+#### Notes
 
 - Add a **datasources** element for each counter and instance to collect. You can specify different collection rate for each counter and instance combination.
 
-### Template file
+#### Template file
 
 # [Bicep](#tab/bicep)
 
@@ -723,7 +726,7 @@ resource windowsPerfProcessorPercentageDataSource 'Microsoft.OperationalInsights
 
 ---
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -740,15 +743,15 @@ resource windowsPerfProcessorPercentageDataSource 'Microsoft.OperationalInsights
 }
 ```
 
-## Collect Linux performance counters
+### Collect Linux performance counters
 
 The following sample adds collection of [Linux performance counters](../agents/data-sources-performance-counters.md) to an existing workspace.
 
-### Notes
+#### Notes
 
 - Add a **datasources** element for each object and instance to collect. You can specify different set of counters for each object and instance combination, but you can only specify a single rate for all counters.
 
-### Template file
+#### Template file
 
 # [Bicep](#tab/bicep)
 
@@ -907,7 +910,7 @@ resource linuxPerformanceProcessorDataSource 'Microsoft.OperationalInsights/work
 
 ---
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -924,15 +927,15 @@ resource linuxPerformanceProcessorDataSource 'Microsoft.OperationalInsights/work
 }
 ```
 
-## Collect custom logs
+### Collect text logs
 
-The following sample adds collection of [custom logs](../agents/data-sources-custom-logs.md) to an existing workspace.
+The following sample adds collection of [text logs](../agents/data-sources-custom-logs.md) to an existing workspace.
 
-### Notes
+#### Notes
 
-- The configuration of delimiters and extractions can be complex. For help, you can define a custom log using the Azure portal and the retrieve its configuration using [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) with **-Kind** set to **CustomLog**.
+- The configuration of delimiters and extractions can be complex. For help, you can define a text log using the Azure portal and the retrieve its configuration using [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) with **-Kind** set to **CustomLog**.
 
-### Template file
+#### Template file
 
 # [Bicep](#tab/bicep)
 
@@ -1172,7 +1175,7 @@ resource armlogNewlineDatasource 'Microsoft.OperationalInsights/workspaces/dataS
 
 ---
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -1189,11 +1192,11 @@ resource armlogNewlineDatasource 'Microsoft.OperationalInsights/workspaces/dataS
 }
 ```
 
-## Collect IIS log
+### Collect IIS log
 
 The following sample adds collection of [IIS logs](../agents/data-sources-iis-logs.md) to an existing workspace.
 
-### Template file
+#### Template file
 
 # [Bicep](#tab/bicep)
 
@@ -1266,7 +1269,7 @@ resource IISLogDataSource 'Microsoft.OperationalInsights/workspaces/datasources@
 
 ---
 
-### Parameter file
+#### Parameter file
 
 ```json
 {

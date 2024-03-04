@@ -143,6 +143,8 @@ CanDelegate: False
 
 ### Get an access token
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 For the remainder of the tutorial, you will work from the VM we created earlier.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

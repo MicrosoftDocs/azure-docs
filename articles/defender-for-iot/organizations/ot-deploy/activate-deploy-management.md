@@ -96,7 +96,7 @@ The requirements for SSL/TLS certificates are the same for OT sensors and on-pre
 
 1. In the **SSL/TLS Certificates** dialog, select **Add Certificate**.
 
-1. In the **Import a trusted CA-signed certificate** area, enter a certificate name and optional passphrase, and then upload your CA-signed certificate files.
+1. In the **Import a trusted CA-signed certificate** area, enter a certificate name and optional [passphrase](../best-practices/certificate-requirements.md#supported-characters-for-keys-and-passphrases), and then upload your CA-signed certificate files.
 
 1. (Optional) Clear the **Enable certificate validation** option to avoid validating the certificate against a CRL server.
 

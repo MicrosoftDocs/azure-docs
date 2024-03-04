@@ -53,7 +53,9 @@ When the custom image is being created and distributed, Azure Image Builder uses
 
 You can choose whether you want the VM to connect to an existing virtual network and subnet, which will enable the VM to have access to other resources you may have available to that virtual network. If you don't specify an existing virtual network, a temporary virtual network, subnet, and public IP address are created for use by the VM. For more information on networking options, see [Azure VM Image Builder networking options](../virtual-machines/linux/image-builder-networking.md).
 
-The resource group is created when the custom image template is created. The default name is in the format `IT_<ResourceGroupName>_<TemplateName>_<GUID>` and stores the resources required during the build. Most of these resources are temporary and are deleted after the build is complete, except the storage account.
+### Resources
+
+A resource group is created when the custom image template is created. The default name is in the format `IT_<ResourceGroupName>_<TemplateName>_<GUID>` and stores the resources required during the build. Most of these resources are temporary and are deleted after the build is complete, except the storage account.
 
 In the storage account, up to three containers are created:
 

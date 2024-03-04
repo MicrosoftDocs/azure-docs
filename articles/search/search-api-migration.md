@@ -7,7 +7,7 @@ manager: nitinme
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: conceptual
 ms.date: 10/03/2022
 ---

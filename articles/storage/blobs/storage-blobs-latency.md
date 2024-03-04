@@ -5,7 +5,7 @@ description: Understand and measure latency for Blob storage operations, and lea
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: overview
 ms.date: 09/05/2019
 ms.author: tamram

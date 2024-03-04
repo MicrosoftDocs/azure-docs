@@ -26,7 +26,7 @@ Service Bus topics and subscriptions enable you to scale to process a large numb
 ## Prerequisites
 If you don't have an Azure subscription, you can create a [free account][free account] before you begin.
 
-In this quickstart, you use Azure Cloud Shell that you can launch after sign into the Azure portal. For details about Azure Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md). You can also [install](/cli/azure/install-azure-cli) and use Azure PowerShell on your machine. 
+In this quickstart, you use Azure Cloud Shell that you can launch after sign in to the Azure portal. For details about Azure Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md). You can also [install](/cli/azure/install-azure-cli) and use Azure PowerShell on your machine. 
 
 ## Create a Service Bus topic and subscriptions
 Each [subscription to a topic](service-bus-messaging-overview.md#topics) can receive a copy of each message. Topics are fully protocol and semantically compatible with Service Bus queues. Service Bus topics support a wide array of selection rules with filter conditions, with optional actions that set or modify message properties. Each time a rule matches, it produces a message. To learn more about rules, filters, and actions, follow this [link](topic-filters.md).

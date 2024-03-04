@@ -26,7 +26,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ## Connect to Azure Fluid Relay
 
-You can connect to Azure Fluid Relay by providing the tenant ID and key that is uniquely generated for you when creating the Azure resource. You can build your own token provider implementation or you can use the two token provider implementations that the Fluid Framework provides: [InsecureTokenProvider](https://fluidframework.com/docs/apis/test-client-utils/insecuretokenprovider-class) and [AzureFunctionTokenProvider](https://fluidframework.com/docs/apis/azure-client/azurefunctiontokenprovider-class).
+You can connect to Azure Fluid Relay by providing the tenant ID and key that is uniquely generated for you when creating the Azure resource. You can build your own token provider implementation or you can use the two token provider implementations that the Fluid Framework provides an [AzureFunctionTokenProvider](https://fluidframework.com/docs/apis/azure-client/azurefunctiontokenprovider-class).
 
 To learn more about using InsecureTokenProvider for local development, see [Connecting to the service](connect-fluid-azure-service.md#connecting-to-the-service) and [Authentication and authorization in your app](../concepts/authentication-authorization.md#the-token-provider).
 

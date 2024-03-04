@@ -15,114 +15,61 @@ ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 # How to create a Java application that uses Azure Cosmos DB for NoSQL and change feed processor
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-This how-to guide walks you through a simple Java application, which uses the Azure Cosmos DB for NoSQL to insert documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed and Change Feed Processor. The Java application communicates with the Azure Cosmos DB for NoSQL using Azure Cosmos DB Java SDK v4.
+Azure Cosmos DB is a fully managed NoSQL database service provided by Microsoft. It allows you to build globally distributed and highly scalable applications with ease. This how-to guide walks you through the process of creating a Java application that uses the Azure Cosmos DB for NoSQL database and implements the Change Feed Processor for real-time data processing. The Java application communicates with the Azure Cosmos DB for NoSQL using Azure Cosmos DB Java SDK v4.
 
 > [!IMPORTANT]  
-> This tutorial is for Azure Cosmos DB Java SDK v4 only. Please view the Azure Cosmos DB Java SDK v4 [Release notes](sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4.md), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
+> This tutorial is for Azure Cosmos DB Java SDK v4 only. Please view the Azure Cosmos DB Java SDK v4 [Release notes](sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), [Change feed processor in Azure Cosmos DB](change-feed-processor.md), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
 >
 
 ## Prerequisites
 
-* The URI and key for your Azure Cosmos DB account
+* Azure Cosmos DB Account: you can create it from the [Azure portal](https://portal.azure.com/) or you can use [Azure Cosmos DB Emulator](../local-emulator.md) as well.
 
-* Maven
+* Java Development Environment: Ensure you have Java Development Kit (JDK) installed on your machine with at least 8 version.
 
-* Java 8
+* [Azure Cosmos DB Java SDK V4](sdk-java-v4.md): provides the necessary features to interact with Azure Cosmos DB.
 
 ## Background
 
-The Azure Cosmos DB change feed provides an event-driven interface to trigger actions in response to document insertion. This has many uses. For example in applications, which are both read and write heavy, a chief use of change feed is to create a real-time **materialized view** of a container as it is ingesting documents. The materialized view container will hold the same data but partitioned for efficient reads, making the application both read and write efficient.
+The Azure Cosmos DB change feed provides an event-driven interface to trigger actions in response to document insertion that has many uses.
 
 The work of managing change feed events is largely taken care of by the change feed Processor library built into the SDK. This library is powerful enough to distribute change feed events among multiple workers, if that is desired. All you have to do is provide the change feed library a callback.
 
-This simple example demonstrates change feed Processor library with a single worker creating and deleting documents from a materialized view.
+This simple example of Java application is demonstrating real-time data processing with Azure Cosmos DB and the Change Feed Processor. The application inserts sample documents into a "feed container" to simulate a data stream. The Change Feed Processor, bound to the feed container, processes incoming changes and logs the document content. The processor automatically manages leases for parallel processing.
 
-## Setup
+## Source code
 
-If you haven't already done so, clone the app example repo:
-
-```bash
-git clone https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example.git
-```
-
-Open a terminal in the repo directory. Build the app by running
+You can clone the SDK example repo and find this example in `SampleChangeFeedProcessor.java`:
 
 ```bash
-mvn clean package
+git clone https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples.git
+cd azure-cosmos-java-sql-api-sample/src/main/java/com/azure/cosmos/examples/changefeed/
 ```
 
 ## Walkthrough
 
-1. As a first check, you should have an Azure Cosmos DB account. Open the **Azure portal** in your browser, go to your Azure Cosmos DB account, and in the left pane navigate to **Data Explorer**.
+1. Configure the [`ChangeFeedProcessorOptions`](/java/api/com.azure.cosmos.models.changefeedprocessoroptions) in a Java application using Azure Cosmos DB and Azure Cosmos DB Java SDK V4. The [`ChangeFeedProcessorOptions`](/java/api/com.azure.cosmos.models.changefeedprocessoroptions) provides essential settings to control the behavior of the Change Feed Processor during data processing.
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=ChangeFeedProcessorOptions)]
 
-   :::image type="content" source="media/how-to-java-change-feed/cosmos_account_empty.JPG" alt-text="Azure Cosmos DB account":::
+2. Initialize [`ChangeFeedProcessor`](/java/api/com.azure.cosmos.changefeedprocessor) with relevant configurations, including the host name, feed container, lease container, and data handling logic. The [`start()`](/java/api/com.azure.cosmos.changefeedprocessor#com-azure-cosmos-changefeedprocessor-start()) method initiates the data processing, enabling concurrent and real-time processing of incoming data changes from the feed container.
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=StartChangeFeedProcessor)]
 
-1. Run the app in the terminal using the following command:
+3. Specify the delegate handles incoming data changes using the `handleChanges()` method. The method processes the received JsonNode documents from the Change Feed. As a developer you have two options for handling the JsonNode document provided to you by Change Feed. One option is to operate on the document in the form of a JsonNode. This is great especially if you don't have a single uniform data model for all documents. The second option - transform the JsonNode to a POJO having the same structure as the JsonNode. Then you can operate on the POJO.
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=Delegate)]
 
-    ```bash
-    mvn exec:java -Dexec.mainClass="com.azure.cosmos.workedappexample.SampleGroceryStore" -DACCOUNT_HOST="your-account-uri" -DACCOUNT_KEY="your-account-key" -Dexec.cleanupDaemonThreads=false
-    ```
+4. Build and run the Java application. The application starts the Change Feed Processor, insert sample documents into the feed container, and process the incoming changes.
 
-1. Press enter when you see
+## Conclusion
 
-    ```bash
-    Press enter to create the grocery store inventory system...
-    ```
+In this guide, you learned how to create a Java application using [Azure Cosmos DB Java SDK V4](sdk-java-v4.md) that uses the Azure Cosmos DB for NoSQL database and uses the Change Feed Processor for real-time data processing. You can extend this application to handle more complex use cases and build robust, scalable, and globally distributed applications using Azure Cosmos DB.
 
-    then return to the Azure portal Data Explorer in your browser. You'll see a database **GroceryStoreDatabase** has been added with three empty containers: 
+## Additional resources
 
-    * **InventoryContainer** - The inventory record for our example grocery store, partitioned on item ```id```, which is a UUID.
-    * **InventoryContainer-pktype** - A materialized view of the inventory record, optimized for queries over item ```type```
-    * **InventoryContainer-leases** - A leases container is always needed for change feed; leases track the app's progress in reading the change feed.
+* [Azure Cosmos DB Java SDK V4](sdk-java-v4.md)
+* [Additional samples on GitHub](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)
 
-    :::image type="content" source="media/how-to-java-change-feed/cosmos_account_resources_lease_empty.JPG" alt-text="Empty containers":::
+## Next steps
 
-1. In the terminal, you should now see a prompt
+You can now proceed to learn more about change feed estimator in the following articles:
 
-    ```bash
-    Press enter to start creating the materialized view...
-    ```
-
-    Press enter. Now the following block of code will execute and initialize the change feed processor on another thread: 
-
-    ### <a id="java4-connection-policy-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
-
-    [!code-java[](~/azure-cosmos-java-sql-app-example/src/main/java/com/azure/cosmos/workedappexample/SampleGroceryStore.java?name=InitializeCFP)]
-
-    ```"SampleHost_1"``` is the name of the Change Feed processor worker. ```changeFeedProcessorInstance.start()``` is what actually starts the Change Feed processor.
-
-    Return to the Azure portal Data Explorer in your browser. Under the **InventoryContainer-leases** container, select **items** to see its contents. You'll see that Change Feed Processor has populated the lease container, that is, the processor has assigned the ```SampleHost_1``` worker a lease on some partitions of the **InventoryContainer**.
-
-    :::image type="content" source="media/how-to-java-change-feed/cosmos_leases.JPG" alt-text="Leases":::
-
-1. Press enter again in the terminal. This will trigger 10 documents to be inserted into **InventoryContainer**. Each document insertion appears in the change feed as JSON; the following callback code handles these events by mirroring the JSON documents into a materialized view:
-
-    ### <a id="java4-connection-policy-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
-
-    [!code-java[](~/azure-cosmos-java-sql-app-example/src/main/java/com/azure/cosmos/workedappexample/SampleGroceryStore.java?name=CFPCallback)]
-
-1. Allow the code to run 5-10 sec. Then return to the Azure portal Data Explorer and navigate to **InventoryContainer > items**. You should see that items are being inserted into the inventory container; note the partition key (```id```).
-
-    :::image type="content" source="media/how-to-java-change-feed/cosmos_items.JPG" alt-text="Feed container":::
-
-1. Now, in Data Explorer navigate to **InventoryContainer-pktype > items**. This is the materialized view - the items in this container mirror **InventoryContainer** because they were inserted programmatically by change feed. Note the partition key (```type```). So this materialized view is optimized for queries filtering over ```type```, which would be inefficient on **InventoryContainer** because it's partitioned on ```id```.
-
-    :::image type="content" source="media/how-to-java-change-feed/cosmos_materializedview2.JPG" alt-text="Screenshot shows the Data Explorer page for an Azure Cosmos DB account with Items selected.":::
-
-1. We're going to delete a document from both **InventoryContainer** and **InventoryContainer-pktype** using just a single ```upsertItem()``` call. First, take a look at Azure portal Data Explorer. We'll delete the document for which ```/type == "plums"```; it's encircled in red below
-
-    :::image type="content" source="media/how-to-java-change-feed/cosmos_materializedview-emph-todelete.JPG" alt-text="Screenshot shows the Data Explorer page for an Azure Cosmos DB account with a particular item ID selected.":::
-
-    Hit enter again to call the function ```deleteDocument()``` in the example code. This function, shown below, upserts a new version of the document with ```/ttl == 5```, which sets document Time-To-Live (TTL) to 5 sec. 
-    
-    ### <a id="java4-connection-policy-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
-
-    [!code-java[](~/azure-cosmos-java-sql-app-example/src/main/java/com/azure/cosmos/workedappexample/SampleGroceryStore.java?name=DeleteWithTTL)]
-
-    The change feed ```feedPollDelay``` is set to 100 ms; therefore, change feed responds to this update almost instantly and calls ```updateInventoryTypeMaterializedView()``` shown above. That last function call will upsert the new document with TTL of 5 sec into **InventoryContainer-pktype**.
-
-    The effect is that after about 5 seconds, the document will expire and be deleted from both containers.
-
-    This procedure is necessary because change feed only issues events on item insertion or update, not on item deletion.
-
-1. Press enter one more time to close the program and clean up its resources.
+* [Use the change feed estimator](how-to-use-change-feed-estimator.md)
