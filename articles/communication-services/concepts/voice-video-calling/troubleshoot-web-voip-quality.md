@@ -2,8 +2,8 @@
 title: Azure Communication Services Troubleshooting Web VOIP Calling Quality
 titleSuffix: An Azure Communication Services concept document
 description: Learn how to troubleshoot web VOIP calling quality with Azure Communication Services.
-author: v-vichapel
-ms.author: v-vichapel
+author: vac0224
+ms.author: vac0224
 manager: dacarte
 
 services: azure-communication-services
@@ -90,7 +90,7 @@ For more information, see [End of Call Survey overview](end-of-call-survey-conce
 
 ## Next steps
 
-For more information about using Call Quality Dashboard (CQD) to view interop call logs, see [Use CQD to manage call and meeting quality in Microsoft Teams](/microsoftteams/quality-of-experience-review-guide.md).
+For more information about using Call Quality Dashboard (CQD) to view interop call logs, see [Use CQD to manage call and meeting quality in Microsoft Teams](https://learn.microsoft.com/microsoftteams/quality-of-experience-review-guide).
 
 For more information about Calling SDK error codes, see [Troubleshooting in Azure Communication Services](../troubleshooting-info.md#calling-sdk-error-codes). You can use these codes to help determine why a call ended with disruptions.
 
