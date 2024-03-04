@@ -119,7 +119,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Se
 
 ### Disable Storage Sense
 
-For Azure Virtual Desktop session hosts that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. Disks where the operating system is installed are typically small in size and user data is stored remotely through profile roaming. This scenario results in Storage Sense believing that the disk is critically low on free space. You can disable Storage Sense in the image using the registry in, or use Group Policy or Intune to disable Storage Sense after the session hosts are deployed.
+For Azure Virtual Desktop session hosts that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. Disks where the operating system is installed are typically small in size and user data is stored remotely through profile roaming. This scenario results in Storage Sense believing that the disk is critically low on free space. You can disable Storage Sense in the image using the registry, or use Group Policy or Intune to disable Storage Sense after the session hosts are deployed.
 
 - For the registry, you can run the following command from an elevated PowerShell prompt to disable Storage Sense:
 
