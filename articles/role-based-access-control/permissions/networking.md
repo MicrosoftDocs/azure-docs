@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -289,7 +289,7 @@ Azure service: [Azure Private 5G Core](/azure/private-5g-core/)
 > | Microsoft.MobileNetwork/mobileNetworks/read | Gets information about the specified mobile network. |
 > | Microsoft.MobileNetwork/mobileNetworks/write | Creates or updates a mobile network. |
 > | Microsoft.MobileNetwork/mobileNetworks/delete | Deletes the specified mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/write | Updates mobile network tags. |
+> | Microsoft.MobileNetwork/mobileNetworks/write | Updates mobile network tags and managed identity. |
 > | Microsoft.MobileNetwork/mobileNetworks/read | Lists all the mobile networks in a subscription. |
 > | Microsoft.MobileNetwork/mobileNetworks/read | Lists all the mobile networks in a resource group. |
 > | Microsoft.MobileNetwork/mobileNetworks/dataNetworks/read | Gets information about the specified data network. |
@@ -332,6 +332,7 @@ Azure service: [Azure Private 5G Core](/azure/private-5g-core/)
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/rollback/action | Roll back the specified packet core control plane to the previous version, "rollbackVersion". Multiple consecutive rollbacks are not possible. This action may cause a service outage. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/reinstall/action | Reinstall the specified packet core control plane. This action will remove any transaction state from the packet core to return it to a known state. This action will cause a service outage. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/collectDiagnosticsPackage/action | Collect a diagnostics package for the specified packet core control plane. This action will upload the diagnostics to a storage account. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/reinstall/action | Reinstall the specified packet core control plane. This action will try to restore the packet core to the installed state that was disrupted by a transient failure. This action will cause a service outage. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/read | Gets information about the specified packet core control plane. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/write | Creates or updates a packet core control plane. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/delete | Deletes the specified packet core control plane. |
