@@ -9,11 +9,10 @@ ms.topic: reference
 
 This article describes the **DELL XE4 SFF** appliance deployment and installation for OT sensors monitoring production lines.
 
-<!-- check correct device number-->
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500 |
-|**Performance** | Max bandwidth: 25 Mbps <br>Max devices: **what is correct number here?** 10,000<br> Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
+|**Performance** | Max bandwidth: 25 Mbps <br>Max devices: N/A<br> Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
 |**Physical specifications** | Mounting: Small Form Factor <br> Ports: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors|
 |**Status** | Supported, available preconfigured |
 
