@@ -1103,7 +1103,7 @@ Some general system constraints might affect your workload:
 | Property | Limitation |
 |---|---|
 | Maximum number of Azure Synapse workspaces per subscription | [See limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-limits-for-workspaces). |
-| Maximum number of databases per serverless pool | 100 (not including databases synchronized from Apache Spark pool). |
+| Maximum number of databases per serverless pool | 100 (Not including databases synchronized from Apache Spark pool. 20 user-created databases and 80 databases synchronized from Apache Spark pool). |
 | Maximum number of databases synchronized from Apache Spark pool | Not limited. |
 | Maximum number of databases objects per database | The sum of the number of all objects in a database can't exceed 2,147,483,647. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects). |
 | Maximum identifier length in characters | 128. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects).|
@@ -1114,7 +1114,7 @@ Some general system constraints might affect your workload:
 
 ### Can't create a database in serverless SQL pool
 
-Serverless SQL pools have limitations, and you can't create more than 100 databases per workspace. If you need to separate objects and isolate them, use schemas.
+Serverless SQL pools have limitations, and you can't create more than 20 databases per workspace. If you need to separate objects and isolate them, use schemas.
 
 If you get the error `CREATE DATABASE failed. User database limit has been already reached` you've created the maximum number of databases that are supported in one workspace.
 
