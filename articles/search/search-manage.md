@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/12/2024
+ms.date: 03/04/2024
 ---
 
 # Service administration for Azure AI Search in the Azure portal
@@ -20,20 +20,25 @@ ms.date: 01/12/2024
 > * [PowerShell](search-manage-powershell.md)
 > * [Azure CLI](search-manage-azure-cli.md)
 > * [REST API](search-manage-rest.md)
-> * [Portal](search-manage.md)
-> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-This article covers the Azure AI Search administration tasks that you can perform in the [Azure portal](https://portal.azure.com).
+In Azure AI Search, the [Azure portal](https://portal.azure.com) supports a broad range of administrative and content management operations so that you don't have to write code unless you want automation. 
 
-Depending on your permission level, the portal provides coverage of most search service operations, including:
+Each search service is managed as a standalone resource. Your permissions and role assignment determine what operations are available to you.
 
-* [Service administration](#management-tasks)
-* Content management
-* Content exploration
+## Administrator permissions
 
-Each search service is managed as a standalone resource. The following image shows the portal pages for a single free search service called "demo-search-svc". 
+Portal access is through [role assignments](search-security-rbac.md). By default, all search services start with at least one Owner. Owners, service administrators, and co-administrators have permission to create other administrators and other role assignments. They have full access to all portal pages and operations.
 
-## Overview (home) page
+Contributors and Search Service Contributors have the same access to operations as Owner, minus the ability to assign roles.
+
+Readers have access to service information in the Essentials section and in the Monitoring tab. It's very limited. A reader can get basic information about a search service, but not enough to set up a connection or confirm the existance of objects on the service.
+
+Data plane roles such as Search Index Data Contributor and Search Index Data Reader don't have portal access.
+
+> [!TIP]
+> By default, any owner or administrator can create or delete services. To prevent accidental deletions, you can [lock resources](../azure-resource-manager/management/lock-resources.md).
+
+## Service information in the Azure portal
 
 The overview page is the "home" page of each service. In the following screenshot, the red boxes indicate tasks, tools, and tiles that you might use often, especially if you're new to the service.
 
@@ -46,28 +51,32 @@ The overview page is the "home" page of each service. In the following screensho
 | 3 | Tabbed pages in the center provide quick access to usage statistics and service health metrics.|
 | 4 | Navigation links to existing indexes, indexers, data sources, and skillsets. |
 
-### Read-only service properties
+You can't change the search service name, subuscription, resource group, region (location), or tier. Switching tiers requires creating a new service or filing a support ticket to request a tier upgrade, which is only supported for Basic and higher.
 
-Several aspects of a search service are determined when the service is provisioned and can't be easily changed:
+## Day-one management checklist
 
-* Service name
-* Service location <sup>1</sup>
-* Service tier <sup>2</sup>
+On a new search service, we recommend the following tasks:
 
-<sup>1</sup> Although there are ARM and bicep templates for service deployment, moving content is a manual effort.
+### Step one: Enable diagnostic logging
 
-<sup>2</sup> Switching a tier requires creating a new service or filing a support ticket to request a tier upgrade.
+[Enable diagnostic logging](monitor-azure-cognitive-search.md)
 
-## Management tasks
+### Step two: Configure access
 
-Service administration includes the following tasks:
+Initially, only an owner has access to search service information and operations. You must [assign roles](search-security-rbac.md) to extend access, or provide users with a search endpoint with an API key.
 
-* [Adjust capacity](search-capacity-planning.md) by adding or removing replicas and partitions
-* [Manage API keys](search-security-api-keys.md) used for content access
-* [Manage Azure roles](search-security-rbac.md) used for content and service access
-* [Configure IP firewall rules](service-configure-firewall.md) to restrict access by IP address
-* [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network
-* [Monitor service health and operations](monitor-azure-cognitive-search.md): storage, query volumes, and latency
+A search service is always created with [API keys](search-security-api-keys.md). An admin API key grants read-write access to all data plane operations. .
+
+### Step three: Check capacity and understand billing
+
+By default, a search service is created with the minimum configuration of one replica and partition each. You 
+* [Modify capacity](search-capacity-planning.md) by adding or removing replicas and partitions
+
+* Configure network security. By default, a search service accepts authenticated and authorized requests over public internet connections. Network security restricts access through firewall rules, or by disabling public connections and allowing requests only from Azure virtual networks.
+
+  * [Configure IP firewall rules](service-configure-firewall.md) to restrict access by IP address
+  * [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network
+
 
 There's feature parity across all modalities and languages except for preview management features. In general, preview management features are released through the Management REST API first. Programmatic support for service administration can be found in the following APIs and modules:
 
@@ -95,22 +104,7 @@ Internally, Microsoft collects telemetry data about your service and the platfor
 > [!NOTE]
 > See the ["Data residency"](search-security-overview.md#data-residency) section of the security overview article for more information about data location and privacy.
 
-## Administrator permissions
 
-When you open the search service overview page, the Azure role assigned to your account determines what portal content is available to you. The overview page at the beginning of the article shows the portal content available to an Owner or Contributor.
-
-Azure roles used for service administration include:
-
-* Owner
-* Contributor (same as Owner, minus the ability to assign roles)
-* Reader (provides access to service information in the Essentials section and in the Monitoring tab)
-
-By default, all search services start with at least one Owner. Owners, service administrators, and co-administrators have permission to create other administrators and other role assignments.
-
-Also by default, search services start with API keys for content-related tasks that an Owner or Contributor might perform in the portal. However, it's possible to turn off [API key authentication](search-security-api-keys.md) and use [Azure role-based access control](search-security-rbac.md#built-in-roles-used-in-search) exclusively. If you turn off API keys, be sure to set up data access role assignments so that all features in the portal remain operational.
-
-> [!TIP]
-> By default, any owner or administrator can create or delete services. To prevent accidental deletions, you can [lock resources](../azure-resource-manager/management/lock-resources.md).
 
 ## Next steps
 
