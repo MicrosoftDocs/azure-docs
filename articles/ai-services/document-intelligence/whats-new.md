@@ -45,8 +45,10 @@ The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.
   * Tax items support expansion (`de`,`es`,`pt`,`en-CA`)
 * [ID model](concept-id-document.md)
   * Expanded field support for EU IDs and driver licenses
-* [🆕 Mortgage model](concept-mortgage.md)
-  * New trio of prebuilts meant for mortgage automation (1003 end-user license agreement, 1008 underwriting, closing disclosure) 
+* [🆕 Mortgage documents](concept-mortgage.md)
+  * New prebuilt to extract information from 1003 end-user license agreement
+  * New prebuilt to extract information from 1008 underwriting
+  * New prebuilt to extract information from Mortgage closing disclosure
 * [🆕 Credit/Debit card model](concept-credit-card.md)
   * New prebuilt to extract information from bank cards. 
 * [🆕 Marriage certificate](concept-marriage-certificate.md)
