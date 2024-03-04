@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Use dynamic configuration using push refresh in a .NET Core app"
+title: "Tutorial: Use dynamic configuration using push refresh in a .NET app"
 titleSuffix: Azure App Configuration
-description: In this tutorial, you learn how to dynamically update the configuration data for .NET Core apps using push refresh
+description: In this tutorial, you learn how to dynamically update the configuration data for .NET apps using push refresh
 services: azure-app-configuration
 author: MBSolomon
 manager: zhenlan
@@ -9,19 +9,19 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.topic: tutorial
-ms.date: 02/03/2022
-ms.author: msolomon
+ms.date: 02/20/2024
+ms.author: malev
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
-# Tutorial: Use dynamic configuration using push refresh in a .NET Core app
+# Tutorial: Use dynamic configuration using push refresh in a .NET app
 
-The App Configuration .NET Core client library supports updating configuration on demand without causing an application to restart. An application can be configured to detect changes in App Configuration using one or both of the following two approaches.
+The App Configuration .NET client library supports updating configuration on demand without causing an application to restart. An application can be configured to detect changes in App Configuration using one or both of the following two approaches.
 
 1. Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `TryRefreshAsync` or `RefreshAsync` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
 
 1. Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events to Azure Event Grid, the application can use these events to optimize the total number of requests needed to keep the configuration updated. Applications can choose to subscribe to these either directly from Event Grid, or through one of the [supported event handlers](../event-grid/event-handlers.md) such as a webhook, an Azure function, or a Service Bus topic.
 
-This tutorial shows how you can implement dynamic configuration updates in your code using push refresh. It builds on the app introduced in the tutorial. Before you continue, finish Tutorial: [Use dynamic configuration in a .NET Core app](./enable-dynamic-configuration-dotnet-core.md) first.
+This tutorial shows how you can implement dynamic configuration updates in your code using push refresh. It builds on the app introduced in the tutorial. Before you continue, finish Tutorial: [Use dynamic configuration in a .NET app](./enable-dynamic-configuration-dotnet-core.md) first.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option that's available on the Windows, macOS, and Linux platforms.
 
@@ -29,12 +29,12 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Set up a subscription to send configuration change events from App Configuration to a Service Bus topic
-> * Set up your .NET Core app to update its configuration in response to changes in App Configuration.
+> * Set up your .NET app to update its configuration in response to changes in App Configuration.
 > * Consume the latest configuration in your application.
 
 ## Prerequisites
 
-* Tutorial: [Use dynamic configuration in a .NET Core app](./enable-dynamic-configuration-dotnet-core.md)
+* Tutorial: [Use dynamic configuration in a .NET app](./enable-dynamic-configuration-dotnet-core.md)
 * NuGet package `Microsoft.Extensions.Configuration.AzureAppConfiguration` version 5.0.0 or later
 
 ## Set up Azure Service Bus topic and subscription
@@ -171,7 +171,7 @@ The `ProcessPushNotification` method resets the cache expiration to a short rand
 
 The short random delay for cache expiration is helpful if you have many instances of your application or microservices connecting to the same App Configuration store with the push model. Without this delay, all instances of your application could send requests to your App Configuration store simultaneously as soon as they receive a change notification. This can cause the App Configuration Service to throttle your store. Cache expiration delay is set to a random number between 0 and a maximum of 30 seconds by default, but you can change the maximum value through the optional parameter `maxDelay` to the `ProcessPushNotification` method.
 
-The `ProcessPushNotification` method takes in a `PushNotification` object containing information about which change in App Configuration triggered the push notfication. This helps ensure all configuration changes up to the triggering event are loaded in the following configuration refresh. The `SetDirty` method does not gurarantee the change that triggers the push notification to be loaded in an immediate configuration refresh. If you are using the `SetDirty` method for the push model, we recommend using the `ProcessPushNotification` method instead.
+The `ProcessPushNotification` method takes in a `PushNotification` object containing information about which change in App Configuration triggered the push notification. This helps ensure all configuration changes up to the triggering event are loaded in the following configuration refresh. The `SetDirty` method does not guarantee the change that triggers the push notification to be loaded in an immediate configuration refresh. If you are using the `SetDirty` method for the push model, we recommend using the `ProcessPushNotification` method instead.
 
 ## Build and run the app locally
 
@@ -243,7 +243,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object contai
 
 ## Next steps
 
-In this tutorial, you enabled your .NET Core app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your .NET app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

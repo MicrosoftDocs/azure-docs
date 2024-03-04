@@ -51,12 +51,12 @@ pip install python-dotenv
 
    dotenv.load_dotenv()
 
-   openai.api_base = os.environ.get("AOAIEndpoint")
+   openai.api_base = os.environ.get("AZURE_OPENAI_ENDPOINT")
 
    # Azure OpenAI on your own data is only supported by the 2023-08-01-preview API version
    openai.api_version = "2023-08-01-preview"
    openai.api_type = 'azure'
-   openai.api_key = os.environ.get("AOAIKey")
+   openai.api_key = os.environ.get("AZURE_OPENAI_API_KEY")
 
    def setup_byod(deployment_id: str) -> None:
        """Sets up the OpenAI Python SDK to use your own data for the chat endpoint.
@@ -82,19 +82,19 @@ pip install python-dotenv
 
        openai.requestssession = session
 
-   aoai_deployment_id = os.environ.get("AOAIDeploymentId")
+   aoai_deployment_id = os.environ.get("AZURE_OPEN_AI_DEPLOYMENT_ID")
    setup_byod(aoai_deployment_id)
 
    completion = openai.ChatCompletion.create(
        messages=[{"role": "user", "content": "What are the differences between Azure Machine Learning and Azure AI services?"}],
-       deployment_id=os.environ.get("AOAIDeploymentId"),
+       deployment_id=os.environ.get("AZURE_OPEN_AI_DEPLOYMENT_ID"),
        dataSources=[  # camelCase is intentional, as this is the format the API expects
            {
                "type": "AzureCognitiveSearch",
                "parameters": {
-                   "endpoint": os.environ.get("SearchEndpoint"),
-                   "key": os.environ.get("SearchKey"),
-                   "indexName": os.environ.get("SearchIndex"),
+                   "endpoint": os.environ.get("AZURE_AI_SEARCH_ENDPOINT"),
+                   "key": os.environ.get("AZURE_AI_SEARCH_API_KEY"),
+                   "indexName": os.environ.get("AZURE_AI_SEARCH_INDEX"),
                }
            }
        ]
@@ -111,9 +111,9 @@ import dotenv
 
 dotenv.load_dotenv()
 
-endpoint = os.environ.get("AOAIEndpoint")
-api_key = os.environ.get("AOAIKey")
-deployment = os.environ.get("AOAIDeploymentId")
+endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
+api_key = os.environ.get("AZURE_OPENAI_API_KEY")
+deployment = os.environ.get("AZURE_OPEN_AI_DEPLOYMENT_ID")
 
 client = openai.AzureOpenAI(
     base_url=f"{endpoint}/openai/deployments/{deployment}/extensions",
@@ -134,9 +134,9 @@ completion = client.chat.completions.create(
             {
                 "type": "AzureCognitiveSearch",
                 "parameters": {
-                    "endpoint": os.environ["SearchEndpoint"],
-                    "key": os.environ["SearchKey"],
-                    "indexName": os.environ["SearchIndex"]
+                    "endpoint": os.environ["AZURE_AI_SEARCH_ENDPOINT"],
+                    "key": os.environ["AZURE_AI_SEARCH_API_KEY"],
+                    "indexName": os.environ["AZURE_AI_SEARCH_INDEX"]
                 }
             }
         ]

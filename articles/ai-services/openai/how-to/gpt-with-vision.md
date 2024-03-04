@@ -251,7 +251,7 @@ The **Optical character recognition (OCR)** integration allows the model to prod
 The **object grounding** integration brings a new layer to data analysis and user interaction, as the feature can visually distinguish and highlight important elements in the images it processes.
 
 > [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+> To use the Vision enhancement with an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource. If you're using an Azure AI Services resource, you don't need an additional Computer Vision resource.
 
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
@@ -445,13 +445,51 @@ GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored 
 Follow these steps to set up a video retrieval system and integrate it with your AI chat model.
 
 > [!IMPORTANT]
-> To use Vision enhancement, you need an Azure AI Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+> To use the Vision enhancement with an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource. If you're using an Azure AI Services resource, you don't need an additional Computer Vision resource.
 
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
 > [!TIP]
 > If you prefer, you can carry out the below steps using a Jupyter notebook instead: [Video chat completions notebook](https://github.com/Azure-Samples/azureai-samples/blob/main/scenarios/GPT-4V/video/video_chatcompletions_example_restapi.ipynb). 
+
+### Upload videos to Azure Blob Storage
+
+You need to upload your videos to an Azure Blob Storage container. [Create a new storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount) if you don't have one already.
+
+Once your videos are uploaded, you can get their SAS URLs, which you use to access them in later steps.
+
+#### Ensure proper read access
+
+Depending on your authentication method, you may need to do some extra steps to grant access to the Azure Blob Storage container. If you're using an Azure AI Services resource instead of an Azure OpenAI resource, you need to use Managed Identities to grant it **read** access to Azure Blob Storage:
+
+#### [using System assigned identities](#tab/system-assigned)
+
+Enable System assigned identities on your Azure AI Services resource by following these steps:
+1. From your AI Services resource in Azure portal select **Resource Management** -> **Identity** and toggle the status to **ON**.
+1. Assign **Storage Blob Data Read** access to the AI Services resource: From the **Identity** page, select **Azure role assignments**, and then **Add role assignment** with the following settings:
+    - scope: storage
+    - subscription: {your subscription}
+    - Resource: {select the Azure Blob Storage resource}
+    - Role: Storage Blob Data Reader
+1. Save your settings.
+
+#### [using User assigned identities](#tab/user-assigned)
+
+To use a User assigned identity on your Azure AI Services resource, follow these steps:
+1. Create a new Managed Identity resource in the Azure portal.
+1. Navigate to the new resource, then to **Azure Role Assignments**.
+1. Add a **New Role Assignment** with the following settings:
+    - scope: storage
+    - subscription: {your subscription}
+    - Resource: {select the Azure Blob Storage resource}
+    - Role: Storage Blob Data Reader
+1. Save your new configuration.
+1. Navigate to your AI Services resource's **Identity** page.
+1. Select the **User Assigned** Tab, then click **+Add** to select the newly created Managed Identity.
+1. Save your configuration.
+
+---
 
 ### Create a video retrieval index
 
@@ -632,6 +670,51 @@ response = client.chat.completions.create(
 print(response)
 ```
 ---
+
+> [!IMPORTANT]
+> The `"dataSources"` object's content varies depending on which Azure resource type and authentication method you're using. See the following reference:
+> 
+> #### [Azure OpenAI resource](#tab/resource)
+> 
+> ```json
+> "dataSources": [
+> {
+>     "type": "AzureComputerVisionVideoIndex",
+>     "parameters": {
+>     "endpoint": "<your_computer_vision_endpoint>",
+>     "computerVisionApiKey": "<your_computer_vision_key>",
+>     "indexName": "<name_of_your_index>",
+>     "videoUrls": ["<your_video_SAS_URL>"]
+>     }
+> }],
+> ```
+> 
+> #### [Azure AIServices resource + SAS authentication](#tab/resource-sas)
+> 
+> ```json
+> "dataSources": [
+> {
+>     "type": "AzureComputerVisionVideoIndex",
+>     "parameters": {
+>     "indexName": "<name_of_your_index>",
+>     "videoUrls": ["<your_video_SAS_URL>"]
+>     }
+> }],
+> ```	
+> 
+> #### [Azure AIServices resource + Managed Identities](#tab/resource-mi)
+> 
+> ```json
+> "dataSources": [
+> {
+>     "type": "AzureComputerVisionVideoIndex",
+>     "parameters": {
+>         "indexName": "<name_of_your_index>",
+>         "documentAuthenticationKind": "managedidentity",
+>     }
+> }],
+> ```	
+> ---
 
 ### Output
 

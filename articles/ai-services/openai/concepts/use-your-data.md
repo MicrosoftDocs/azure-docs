@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 01/09/2023
+ms.date: 02/26/2024
 recommendations: false
 ms.custom: references_regions 
 ---
@@ -125,7 +125,12 @@ If you're using your own index, you will be prompted in the Azure OpenAI Studio 
 
 In this example, the fields mapped to **Content data** and **Title** provide information to the model to answer questions. **Title** is also used to title citation text. The field mapped to **File name** generates the citation names in the response. 
 
-Mapping these fields correctly helps ensure the model has better response and citation quality. You can additionally configure this [in the API](../reference.md#completions-extensions) using the `fieldsMapping` parameter.   
+Mapping these fields correctly helps ensure the model has better response and citation quality. You can additionally configure this [in the API](../references/on-your-data.md) using the `fieldsMapping` parameter.   
+
+### Search filter (API)
+
+If you want to implement additional value-based criteria for query execution, you can set up a search filter using the `filter` parameter in the [REST API](../references/azure-search.md).
+
 
 # [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
 
@@ -232,7 +237,7 @@ Once you have added the URL/web address for data ingestion, the web pages from y
 
 Data is ingested into Azure AI search using the following process:
 
-1. Ingestion assets are created in Azure AI Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API (preview)](../reference.md#start-an-ingestion-job-preview).  
+1. Ingestion assets are created in Azure AI Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API (preview)](/rest/api/azureopenai/ingestion-jobs).  
 
 2. Data is read from the input container, contents are opened and chunked into small chunks with a maximum of 1,024 tokens each. If vector search is enabled, the service calculates the vector representing the embeddings on each chunk. The output of this step (called the "preprocessed" or "chunked" data) is stored in the chunks container created in the previous step. 
 
@@ -261,7 +266,7 @@ Use the following sections to learn how to improve the quality of responses give
 
 ### Runtime parameters
 
-You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../reference.md#completions-extensions). You don't need to reingest your data when you update these parameters. 
+You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../references/on-your-data.md). You don't need to reingest your data when you update these parameters. 
 
 
 |Parameter name  | Description  |
@@ -274,7 +279,7 @@ You can modify the following additional settings in the **Data parameters** sect
 
 You can define a system message to steer the model's reply when using Azure OpenAI On Your Data. This message allows you to customize your replies on top of the retrieval augmented generation (RAG) pattern that Azure OpenAI On Your Data uses. The system message is used in addition to an internal base prompt to provide the experience. To support this, we truncate the system message after a specific [number of tokens](#token-usage-estimation-for-azure-openai-on-your-data) to ensure the model can answer questions using your data. If you are defining extra behavior on top of the default experience, ensure that your system prompt is detailed and explains the exact expected customization. 
 
-Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio, or the `roleInformation` [parameter in the API](../reference.md#completions-extensions).
+Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio, or the `roleInformation` [parameter in the API](../references/on-your-data.md).
 
 :::image type="content" source="../media/use-your-data/system-message.png" alt-text="A screenshot showing the system message option in Azure OpenAI Studio." lightbox="../media/use-your-data/system-message.png":::
 
@@ -361,9 +366,9 @@ You can send a streaming request using the `stream` parameter, allowing data to 
         {
             "type": "AzureCognitiveSearch",
             "parameters": {
-                "endpoint": "'$SearchEndpoint'",
-                "key": "'$SearchKey'",
-                "indexName": "'$SearchIndex'"
+                "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
+                "key": "'$AZURE_AI_SEARCH_API_KEY'",
+                "indexName": "'$AZURE_AI_SEARCH_INDEX'"
             }
         }
     ],
@@ -386,9 +391,9 @@ When you chat with a model, providing a history of the chat will help the model 
         {
             "type": "AzureCognitiveSearch",
             "parameters": {
-                "endpoint": "'$SearchEndpoint'",
-                "key": "'$SearchKey'",
-                "indexName": "'$SearchIndex'"
+                "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
+                "key": "'$AZURE_AI_SEARCH_API_KEY'",
+                "indexName": "'$AZURE_AI_SEARCH_INDEX'"
             }
         }
     ],
@@ -415,7 +420,50 @@ When you chat with a model, providing a history of the chat will help the model 
 
 ## Token usage estimation for Azure OpenAI On Your Data
 
+Azure OpenAI On Your Data Retrieval Augmented Generation (RAG) service that leverages both a search service (such as Azure AI Search) and generation (Azure OpenAI models) to let users get answers for their questions based on provided data. 
 
+As part of this RAG pipeline, there are are three steps at a high-level: 
+
+1. Reformulate the user query into a list of search intents. This is done by making a call to the model with a prompt that includes instructions, the user question, and conversation history. Let's call this an *intent prompt*. 
+
+1. For each intent, multiple document chunks are retrieved from the search service. After filtering out irrelevant chunks based on the user-specified threshold of strictness and reranking/aggregating the chunks based on internal logic, the user-specified number of document chunks are chosen. 
+
+1. These document chunks, along with the user question, conversation history, role information, and instructions are sent to the model to generate the final model response. Let's call this the *generation prompt*. 
+
+In total, there are two calls made to the model: 
+
+* For processing the intent: The token estimate for the *intent prompt* includes those for the user question, conversation history and the instructions sent to the model for intent generation. 
+
+* For generating the response: The token estimate for the *generation prompt* includes those for the user question, conversation history, the retrieved list of document chunks, role information and the instructions sent to it for generation. 
+
+The model generated output tokens (both intents and response) need to be taken into account for total token estimation. Summing up all the four columns below gives the average total tokens used for generating a response. 
+
+| Model	| Generation prompt token count | Intent prompt token count | Response token count | Intent token count |
+|--|--|--|--|--|
+| gpt-35-turbo-16k | 4297 | 1366 | 111 | 25 |
+| gpt-4-0613 | 3997 | 1385 | 118 | 18 |
+| gpt-4-1106-preview | 4538 | 811 | 119 | 27 |
+| gpt-35-turbo-1106 | 4854 | 1372 | 110 | 26 |
+
+The above numbers are based on testing on a data set with:
+
+* 191 conversations 
+* 250 questions
+* 10 average tokens per question
+* 4 conversational turns per conversation on average 
+
+And the following [parameters](#runtime-parameters).
+
+|Setting  |Value  |
+|---------|---------|
+|Number of retrieved documents     | 5         |
+|Strictness     |     3    |
+|Chunk size     | 1024        |
+|Limit responses to ingested data?     | True         |
+
+These estimates will vary based on the values set for the above parameters. For example, if the number of retrieved documents is set to 10 and strictness is set to 1, the token count will go up. If returned responses aren't limited to the ingested data, there are fewer instructions given to the model and the number of tokens will go down.  
+
+The estimates also depend on the nature of the documents and questions being asked. For example, if the questions are open-ended, the responses are likely to be longer. Similarly, a longer system message would contribute to a longer prompt that consumes more tokens, and if the conversation history is long, the prompt will be longer.
 
 | Model | Max tokens for system message | Max tokens for model response |
 |--|--|--|
@@ -424,15 +472,17 @@ When you chat with a model, providing a history of the chat will help the model 
 | GPT-4-0613-8K | 400 | 1500 |
 | GPT-4-0613-32K | 2000 | 6400 |
 
-The table above shows the total number of tokens available for each model type. It also determines the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
+The table above shows the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
 
 
 
-* The meta prompt (MP): if you limit responses from the model to the grounding data content (`inScope=True` in the API), the maximum number of tokens is 4,036 tokens. Otherwise (for example if `inScope=False`) the maximum is 3,444 tokens. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt and the query rewriting prompts for retrieval.
+* The meta prompt: if you limit responses from the model to the grounding data content (`inScope=True` in the API), the maximum number of tokens higher. Otherwise (for example if `inScope=False`) the maximum is lower. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt and the query rewriting prompts for retrieval.
 * User question and history: Variable but capped at 2,000 tokens.
 * Retrieved documents (chunks): The number of tokens used by the retrieved document chunks depends on multiple factors. The upper bound for this is the number of retrieved document chunks multiplied by the chunk size. It will, however, be truncated based on the tokens available tokens for the specific model being used after counting the rest of fields. 
 
     20% of the available tokens are reserved for the model response. The remaining 80% of available tokens include the meta prompt, the user question and conversation history, and the system message. The remaining token budget is used by the retrieved document chunks. 
+
+In order to compute the number of tokens consumed by your input (such as your question, the system message/role information), use the following code sample.
 
 ```python 
 import tiktoken
@@ -446,6 +496,7 @@ class TokenEstimator(object):
       
 token_output = TokenEstimator.estimate_tokens(input_text)
 ```
+
 
 ## Troubleshooting 
 

@@ -199,6 +199,8 @@ items:
     items: 
       - name: Submit a job for queuing and routing
         href: quickstarts/router/get-started-router.md
+      - name: Integrate Azure OpenAI with Job Router
+        href: quickstarts/router/job-router-azure-openai-integration.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
