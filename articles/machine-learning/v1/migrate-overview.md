@@ -23,7 +23,7 @@ ms.date: 03/04/2024
 
 Learn how to migrate from Machine Learning Studio (classic) to Azure Machine Learning. Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
 
-This guide explains a basic *lift and shift* migration. If you want to optimize an existing machine learning workflow, or modernize a machine learning platform, see the [Azure Machine Learning adoption framework](https://aka.ms/mlstudio-classic-migration-repo) for more resources, including digital survey tools, worksheets, and planning templates.
+This guide walks through a basic *lift and shift* migration. If you want to optimize an existing machine learning workflow, or modernize a machine learning platform, see the [Azure Machine Learning adoption framework](https://aka.ms/mlstudio-classic-migration-repo) for more resources, including digital survey tools, worksheets, and planning templates.
 
 Please work with your cloud solution architect on the migration.
 
@@ -186,12 +186,12 @@ Azure Machine Learning uses *real-time endpoints* (managed endpoints) for real-t
 
 ## Related content
 
-In this article, you learned the high-level requirements for migrating to Azure Machine Learning. For detailed steps, see the other articles in the Studio (classic) migration series:
+In this article, you learned the high-level requirements for migrating to Azure Machine Learning. For detailed steps, see the other articles in the ML Studio (classic) migration series:
 
-1. [Migrate dataset](migrate-register-dataset.md)
-1. [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md)
-1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md)
-1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
-1. [Migrate Execute R Script modules](migrate-execute-r-script.md)
+- [Migrate dataset](migrate-register-dataset.md)
+- [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md)
+- [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md)
+- [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
+- [Migrate Execute R Script modules](migrate-execute-r-script.md)
 
 For more migration resources, see the [Azure Machine Learning Adoption Framework](https://aka.ms/mlstudio-classic-migration-repo).
