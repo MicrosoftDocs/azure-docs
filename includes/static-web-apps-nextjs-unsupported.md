@@ -10,7 +10,7 @@ ms.author: cshoe
 
 The following features of Static Web Apps are unsupported for Next.js with hybrid rendering:
 
-- Linked APIs using Azure Functions, Azure App Service, Azure Container Apps or Azure API Management.
+- Linked APIs using Azure Functions, Azure App Service, Azure Container Apps, or Azure API Management.
 - SWA CLI local emulation and deployment.
 - Partial support for `staticwebapp.config.json` file.
   - Navigation fallback is unsupported.
