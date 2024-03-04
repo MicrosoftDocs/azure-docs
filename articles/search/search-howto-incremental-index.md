@@ -24,7 +24,7 @@ Cached content is placed in Azure Storage using account information that you pro
 
 + [Azure Storage](/azure/storage/common/storage-account-create) for storing cached enrichments. The storage account must be [general purpose v2](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
-+ [For blob indexing only](search-howto-indexing-azure-blob-storage.md), if you require document removal from both cache and index when they're deleted from your data source, enable a [deletion policy](search-howto-index-changed-deleted-blobs.md) in the indexer. Without this policy, document deletion from the cache isn't supported.
++ [For blob indexing only](search-howto-indexing-azure-blob-storage.md), if you need synchronized document removal from both the cache and index when blobs are deleted from your data source, enable a [deletion policy](search-howto-index-changed-deleted-blobs.md) in the indexer. Without this policy, document deletion from the cache isn't supported.
 
 You should be familiar with setting up indexers. Start with [indexer overview](search-indexer-overview.md) and then continue on to [skillsets](cognitive-search-working-with-skillsets.md) to learn about enrichment pipelines. For more background on key concepts, see [incremental enrichment](cognitive-search-incremental-indexing-conceptual.md).
 
