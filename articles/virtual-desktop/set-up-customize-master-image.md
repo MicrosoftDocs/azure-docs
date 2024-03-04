@@ -72,7 +72,7 @@ To include the FSLogix container as part of the image, follow the instructions i
 
 ### Configure antivirus exclusions for FSLogix
 
-If Windows Defender is configured in the VM, make sure it's configured to not scan the entire contents of VHD and VHDX files during attachment. You can find a list of exclusions for FSLogix at [Configure Antivirus file and folder exclusions](/fslogix/overview-prerequisites.md#configure-antivirus-file-and-folder-exclusions).
+If Windows Defender is configured in the VM, make sure it's configured to not scan the entire contents of VHD and VHDX files during attachment. You can find a list of exclusions for FSLogix at [Configure Antivirus file and folder exclusions](/fslogix/overview-prerequisites#configure-antivirus-file-and-folder-exclusions).
 
 This configuration only removes scanning of VHD and VHDX files during attachment, but won't affect real-time scanning.
 
