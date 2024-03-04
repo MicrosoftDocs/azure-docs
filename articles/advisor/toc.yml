@@ -70,7 +70,7 @@
     href: advisor-azure-resource-graph.md
   - name: Consume Advisor score 
     href: azure-advisor-score.md
-  - name: Calculate cost savings
+  - name: Export cost savings
     href: advisor-how-to-calculate-total-cost-savings.md
 - name: Reference
   items:

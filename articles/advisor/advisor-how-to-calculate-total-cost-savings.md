@@ -11,7 +11,7 @@ To calculate aggregated potential yearly savings, follow these steps:
 
 1. Sign in to the [**Azure portal**](https://portal.azure.com).
 
-1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page./
+1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.\
 The Advisor **Overview** page opens.
 
 1. Export cost recommendations by navigating to the **Cost** tab on the left navigation menu and choosing **Download as CSV**.
