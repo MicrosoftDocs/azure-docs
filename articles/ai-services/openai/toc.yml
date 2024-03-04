@@ -95,6 +95,8 @@ items:
       displayName: ChatGPT, chatgpt
     - name: GPT-4 Turbo with Vision
       href: ./how-to/gpt-with-vision.md
+    - name: DALL-E
+      href: ./how-to/dall-e.md
     - name: Function calling
       href: ./how-to/function-calling.md
     - name: Completions
