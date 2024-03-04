@@ -407,6 +407,20 @@ The certificate for the emulator is available at the path `_explorer/emulator.pe
     ```bash
     cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
     ```
+1. Update CA certificates and regenerate the certificate bundle by using the appropriate command for your Linux distribution.
+    
+    For **Debian-based** systems (e.g., Ubuntu), use:
+
+    ```bash
+    sudo update-ca-certificates
+    ```
+
+    For **Red Hat-based** systems (e.g., CentOS, Fedora), use:
+    ```bash
+    sudo update-ca-trust
+    ```
+
+    For more detailed instructions, consult the documentation specific to your Linux distribution.
 
 ### [Windows (local)](#tab/windows)
 
@@ -559,12 +573,13 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
 
     1. Once you have identified the DEFAULT_CA_BUNDLE_PATH, open a **new terminal** and run the following commands to append the emulator certificate to the certificate bundle:
         > [!IMPORTANT]
-        > If DEFAULT_CA_BUNDLE_PATH variable points to a system directory, you might encounter a **"Permission denied"** error. In this case, you will need to run the commands with elevated privileges (as root).
-        >
+        > If DEFAULT_CA_BUNDLE_PATH variable points to a **system directory**, you might encounter a **"Permission denied"** error. In this case, you will need to run the commands with elevated privileges (as root). Also, you will need to [update and regenerate the certificate bundle](#import-the-emulators-tlsssl-certificate) after executing the provided commands.
+
         ```bash
         # Add a new line to the certificate bundle
         echo >> /path/to/ca_bundle
         ```
+
         ```bash
         # Append the emulator certificate to the certificate bundle
         cat /path/to/emulatorcert.crt >> /path/to/ca_bundle
