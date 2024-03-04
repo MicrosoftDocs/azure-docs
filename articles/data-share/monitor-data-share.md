@@ -22,14 +22,7 @@ For more information about the resource types for Azure Data Share, see [Data Sh
 
 ## Data Share metrics
 
-Select **Metrics** under **Monitoring** in the left navigation of your Data Share page in the Azure portal to access charts for the following Data Share metrics:
-
-- Received Shares
-- Received Share Failed Snapshots
-- Received Share Succeeded Snapshots
-- Sent Shares
-- Sent Share Failed Snapshots
-- Sent Share Succeeded Snapshots 
+Select **Metrics** under **Monitoring** in the left navigation of your Data Share page in the Azure portal to access charts for Data Share metrics.
 
 For a full listing and descriptions of the available metrics for Data Share, see [Data Share monitoring data reference](monitor-data-share-reference.md#metrics).
 
@@ -37,12 +30,7 @@ For a full listing and descriptions of the available metrics for Data Share, see
 
 ## Data Share logs
 
-You can configure diagnostic setting to save log data or events. Select **Diagnostic settings** under **Monitoring** in the left navigation of your Data Share page in the Azure portal to configure collection of the following Data Share log data:
-
-- Shares
-- Share Subscriptions
-- Sent Share Snapshots
-- Received Share Snapshots
+You can configure diagnostic setting to save log data or events. Select **Diagnostic settings** under **Monitoring** in the left navigation of your Data Share page in the Azure portal to configure collection of Data Share log data.
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Screenshot that shows the Diagnostic settings page in the Azure portal.":::
 
@@ -63,7 +51,7 @@ To track Data Share invitation status, share subscription status, and snapshot h
 
 To write queries and access example queries, select **Logs** under **Monitoring** in the left navigation of your Data Share page in the Azure portal, and then select the **Queries** tab. Here are a couple of example queries:
 
-**A list of sent snapshots sorted by duration time over the last seven days:**
+**List of sent snapshots sorted by duration time over the last seven days:**
 
 ```kusto
 // List sent snapshots by duration 
