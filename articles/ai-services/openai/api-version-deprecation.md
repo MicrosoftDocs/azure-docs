@@ -14,7 +14,10 @@ ms.custom:
 
 # Azure OpenAI API preview lifecycle
 
-This article is to help you understand the support lifecycle for the Azure OpenAI API previews.
+This article is to help you understand the support lifecycle for the Azure OpenAI API previews. New preview APIs are generally released on a monthly cadence. Going forward post April 2nd, 2024, The latest three preview APIs will remain supported while older APIs will no longer be supported at this time.
+
+> [!NOTE]
+> The `2023-06-01-preview` API will remain supported as DALLE-2 is only available in this API version. To use DALLE-3 we recommend the `2024-02-15-preview` API release. 
 
 ## Latest preview API release
 
