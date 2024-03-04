@@ -11,14 +11,19 @@ ms.date: 01/16/2024
 Application development continues to move toward a container-based approach, increasing our need to orchestrate and manage resources. As the leading platform, Kubernetes provides reliable scheduling of fault-tolerant application workloads. Azure Kubernetes Service (AKS), a managed Kubernetes offering, further simplifies container-based application deployment and management.
 
 This article introduces core concepts:
+
 * Kubernetes infrastructure components:
-    * *control plane*
-    * *nodes*
-    * *node pools*
-* Workload resources: 
-    * *pods*
-    * *deployments*
-    * *sets*
+
+  * *control plane*
+  * *nodes*
+  * *node pools*
+
+* Workload resources:
+
+  * *pods*
+  * *deployments*
+  * *sets*
+
 * Group resources using *namespaces*.
 
 ## What is Kubernetes?
@@ -365,18 +370,17 @@ When you create an AKS cluster, the following namespaces are available:
 | *kube-system* | Where core resources exist, such as network features like DNS and proxy, or the Kubernetes dashboard. You typically don't deploy your own applications into this namespace.                                      |  
 | *kube-public*                                                                            | Typically not used, but can be used for resources to be visible across the whole cluster, and can be viewed by any user.                                                                                    |  
 
-
 For more information, see [Kubernetes namespaces][kubernetes-namespaces].
 
 ## Next steps
 
 This article covers some of the core Kubernetes components and how they apply to AKS clusters. For more information on core Kubernetes and AKS concepts, see the following articles:
 
-- [Kubernetes / AKS access and identity][aks-concepts-identity]
-- [Kubernetes / AKS security][aks-concepts-security]
-- [Kubernetes / AKS virtual networks][aks-concepts-network]
-- [Kubernetes / AKS storage][aks-concepts-storage]
-- [Kubernetes / AKS scale][aks-concepts-scale]
+- [AKS access and identity][aks-concepts-identity]
+- [AKS security][aks-concepts-security]
+- [AKS virtual networks][aks-concepts-network]
+- [AKS storage][aks-concepts-storage]
+- [AKS scale][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 [cluster-api-provider-azure]: https://github.com/kubernetes-sigs/cluster-api-provider-azure

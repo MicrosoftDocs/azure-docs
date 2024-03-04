@@ -7,7 +7,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 09/01/2023
+ms.date: 02/26/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -82,7 +82,7 @@ For C# script, update the extension bundle reference in the host.json as follows
     "version": "2.0",
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
+        "version": "[4.0.0, 5.0.0)"
     }
 }
 ```
@@ -98,7 +98,7 @@ If you receive a warning about your extension bundle version not meeting a minim
     "version": "2.0",
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
+        "version": "[4.0.0, 5.0.0)"
     }
 }
 ```  

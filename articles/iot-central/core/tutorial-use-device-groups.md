@@ -3,7 +3,7 @@ title: Tutorial - Use Azure IoT Central device groups
 description: Tutorial - Learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2022
+ms.date: 03/04/2024
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -52,7 +52,7 @@ Add two cloud properties to the **Sensor Controller** model in the device templa
 
 1. Select **Save** to save your changes.
 
-Add a new form to the device template to manage the device:
+To manage the device, add a new form to the device template:
 
 1. Select the **Views** node, and then select the **Editing device and cloud data** tile to add a new view.
 
@@ -107,7 +107,7 @@ To analyze the telemetry for a device group:
 
 1. Select the **Contoso devices** device group you created. Then add both the **Temperature** and **SensorHumid** telemetry types.
 
-    Use the ellipsis icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
+    To select an aggregation type, use the ellipsis icons next to the telemetry types. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
 
 1. Select **Analyze** to view the average telemetry values.
 

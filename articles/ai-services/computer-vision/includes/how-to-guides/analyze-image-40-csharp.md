@@ -20,9 +20,9 @@ This guide assumes you've followed the steps mentioned in the [quickstart](/azur
 To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL. This guide assumes that you've defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
 > [!TIP]
-> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](/azure/ai-services/security-features) article for more authentication options like [Azure Key Vault](/azure/ai-services/use-key-vault). 
+> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](/azure/ai-services/security-features) article for more authentication options like [Azure Key Vault](/azure/ai-services/use-key-vault).
 
-Start by creating a **ImageAnalysisClient** object. For example:
+Start by creating a [ImageAnalysisClient](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisclient) object. For example:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_client)]
 
@@ -33,14 +33,14 @@ You can select an image by providing a publicly accessible image URL, or by pass
 
 ### Image URL
 
-Create a **Uri** object for the image you want to analyze.
+Create a [Uri](/dotnet/api/system.uri) object for the image you want to analyze.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_url)]
 
 
 ### Image buffer
 
-Alternatively, you can pass the image data to the SDK through a **BinaryData** object. For example, read from a local image file you want to analyze.
+Alternatively, you can pass the image data to the SDK through a [BinaryData](/dotnet/api/system.binarydata) object. For example, read from a local image file you want to analyze.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_file)]
 
@@ -49,7 +49,7 @@ Alternatively, you can pass the image data to the SDK through a **BinaryData** o
 
 ## Select visual features
 
-The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer.
+The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the [available visual features](/dotnet/api/azure.ai.vision.imageanalysis.visualfeatures), but for practical usage you likely need fewer.
 
 > [!IMPORTANT]
 > The visual features `Captions` and `DenseCaptions` are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
@@ -72,20 +72,20 @@ To use a custom model, create the [ImageAnalysisOptions](/dotnet/api/azure.ai.vi
 
 ## Select analysis options
 
-Use an **ImageAnalysisOptions** object to specify various options for the Analyze API call. 
+Use an [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object to specify various options for the Analyze API call.
 
 - **Language**: You can specify the language of the returned data. The language is optional, with the default being English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language. 
-- **Gender neutral captions**: If you're extracting captions or dense captions (using **VisualFeatures.Caption** or **VisualFeatures.DenseCaptions**), you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
-- **Crop aspect ratio**: An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when **VisualFeatures.SmartCrops** was selected as part the visual feature list. If you select **VisualFeatures.SmartCrops** but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
+- **Gender neutral captions**: If you're extracting captions or dense captions (using [VisualFeatures.Caption](/dotnet/api/azure.ai.vision.imageanalysis.visualfeatures) or [VisualFeatures.DenseCaptions](/dotnet/api/azure.ai.vision.imageanalysis.visualfeatures)), you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**.
+- **Crop aspect ratio**: An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when [VisualFeatures.SmartCrops](/dotnet/api/azure.ai.vision.imageanalysis.visualfeatures) was selected as part the visual feature list. If you select [VisualFeatures.SmartCrops](/dotnet/api/azure.ai.vision.imageanalysis.visualfeatures) but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_options)]
 
 ## Call the Analyze API
 
-This section shows you how to make an analysis call to the service. 
+This section shows you how to make an analysis call to the service.
 
-Call the **Analyze** method on the **ImageAnalysisClient** object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the non-blocking **AnalyzeAsync** method.
+Call the [Analyze](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisclient#methods) method on the [ImageAnalysisClient](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisclient) object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the non-blocking [AnalyzeAsync](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisclient#methods) method.
 
 Use the input objects created in the above sections. To analyze from an image buffer instead of URL, replace `imageURL` in the method call with the `imageData` variable.
 

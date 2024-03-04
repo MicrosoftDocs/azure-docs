@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 11/01/2021
+ms.date: 12/07/2023
 ---
 
 # Tutorial: Add authentication and permissions to your application when using Azure Web PubSub

@@ -5,7 +5,6 @@ services: notification-hubs
 author: sethmanheim
 manager: femila
 ms.service: notification-hubs
-ms.workload: mobile
 ms.topic: quickstart
 ms.date: 06/30/2023
 ms.author: sethm
@@ -169,4 +168,3 @@ To learn more about how to push notifications to various platforms, see these tu
 * [Send notifications to a UWP app running on a Windows device](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 * [Send notifications to a Windows Phone 8 app by using MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
 * [Send notifications by using Notification Hubs and Baidu cloud push](notification-hubs-baidu-china-android-notifications-get-started.md)
-

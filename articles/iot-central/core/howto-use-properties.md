@@ -3,7 +3,7 @@ title: Use properties in an Azure IoT Central solution
 description: Learn how to use read-only and writable properties in an Azure IoT Central solution. Define properties in IoT Central and use properties programmatically.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/06/2023
+ms.date: 02/27/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -19,11 +19,13 @@ Properties represent point-in-time values. For example, a device can use a prope
 
 You can also define cloud properties in an Azure IoT Central application. Cloud property values are never exchanged with a device and are out of scope for this article.
 
-To learn about the IoT Pug and Play property conventions, see [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md).
+To learn about the IoT Pug and Play property conventions, see [IoT Plug and Play conventions](../../iot/concepts-convention.md).
 
-To learn more about the property data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
+To learn more about the property data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
 To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md).
+
+To learn how to implement properties in a device without using the device SDKs, see [Communicate with an IoT hub using the MQTT protocol](../../iot/iot-mqtt-connect-to-iot-hub.md).
 
 ## Define your properties
 
@@ -50,7 +52,7 @@ The following table shows the configuration settings for a property capability.
 | Comment | Any comments about the property capability. |
 | Description | A description of the property capability. |
 
-To learn about the Digital Twin Definition Language (DTDL) that Azure IoT Central uses to define properties in a device template, see [IoT Plug and Play conventions > Read-only properties](../../iot-develop/concepts-convention.md#read-only-properties).
+To learn about the Digital Twin Definition Language (DTDL) that Azure IoT Central uses to define properties in a device template, see [IoT Plug and Play conventions > Read-only properties](../../iot/concepts-convention.md#read-only-properties).
 
 Optional fields, such as display name and description, let you add more details to the interface and capabilities.
 
@@ -68,7 +70,7 @@ By default, properties are read-only. Read-only properties let a device report p
 
 Azure IoT Central uses device twins to synchronize property values between the device and the Azure IoT Central application. Device property values use device twin reported properties. For more information, see [device twins](../../iot-hub/tutorial-device-twins.md).
 
-A device sends property updates as a JSON payload. For more information, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
+A device sends property updates as a JSON payload. For more information, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
 You can use the Azure IoT device SDK to send a property update to your Azure IoT Central application.
 
@@ -84,7 +86,7 @@ An IoT Central operator sets writable properties on a form. Azure IoT Central se
 
 For example implementations in multiple languages, see [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
-The response message should include the `ac` and `av` fields. The `ad` field is optional. To learn more, see [IoT Plug and Play conventions > Writable properties](../../iot-develop/concepts-convention.md#writable-properties).
+The response message should include the `ac` and `av` fields. The `ad` field is optional. To learn more, see [IoT Plug and Play conventions > Writable properties](../../iot/concepts-convention.md#writable-properties).
 
 When the operator sets a writable property in the Azure IoT Central UI, the application uses a device twin desired property to send the value to the device. The device then responds by using a device twin reported property. When Azure IoT Central receives the reported property value, it updates the property view with a status of **Accepted**.
 
@@ -106,6 +108,6 @@ You can update the writable properties in this view:
 
 Now that you've learned how to use properties in your Azure IoT Central application, see:
 
-* [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md)
-* [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md)
+* [IoT Plug and Play conventions](../../iot/concepts-convention.md)
+* [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md)
 * [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)

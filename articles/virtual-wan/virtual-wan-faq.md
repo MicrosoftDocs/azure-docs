@@ -149,7 +149,7 @@ Virtual WAN supports up to 20-Gbps aggregate throughput both for VPN and Express
 
 ### How is Virtual WAN different from an Azure virtual network gateway?
 
-A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per virtual hub with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can also have multiple virtual hubs per region, which means you can connect more than 1,000 branches to a single Azure Region by deploying multiple Virtual WAN hubs in that Azure Region, each with its own site-to-site VPN gateway.
+A virtual network gateway VPN is limited to 100 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per virtual hub with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can also have multiple virtual hubs per region, which means you can connect more than 1,000 branches to a single Azure Region by deploying multiple Virtual WAN hubs in that Azure Region, each with its own site-to-site VPN gateway.
 
 ### <a name="packets"></a>What is the recommended algorithm and Packets per second per site-to-site instance in Virtual WAN hub? How many tunnels is support per instance? What is the max throughput supported in a single tunnel?
 
@@ -364,9 +364,19 @@ The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub 
 
 * Configure AS-Path as the Hub Routing Preference for your Virtual Hub. This ensures traffic between the 2 hubs traverses through the Virtual hub router in each hub and uses the hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft Edge routers). For more information, see  [Configure virtual hub routing preference](howto-virtual-hub-routing-preference.md).
 
-### When there's an ExpressRoute circuit connected as a bow-tie to a Virtual WAN hub and a non Virtual WAN VNet, what is the path for the non Virtual WAN VNet to reach the Virtual WAN hub? 
+### When there's an ExpressRoute circuit connected as a bow-tie to a Virtual WAN hub and a standalone VNet, what is the path for the standalone VNet to reach the Virtual WAN hub? 
 
-The current behavior is to prefer the ExpressRoute circuit path for non Virtual WAN VNet to Virtual WAN connectivity. It's recommended that the customer [create a Virtual Network connection](howto-connect-vnet-hub.md) to directly connect the non Virtual WAN VNet to the Virtual WAN hub. Afterwards, VNet to VNet traffic will traverse through the Virtual WAN router instead of the ExpressRoute path (which traverses through the Microsoft Enterprise Edge routers/MSEE).
+The current behavior is to prefer the ExpressRoute circuit path for standalone (non-Virtual WAN) VNet to Virtual WAN connectivity. It's recommended that the customer [create a Virtual Network connection](howto-connect-vnet-hub.md) to directly connect the standalone VNet to the Virtual WAN hub. Afterwards, VNet to VNet traffic will traverse through the Virtual WAN hub router instead of the ExpressRoute path (which traverses through the Microsoft Enterprise Edge routers/MSEE).
+
+> [!NOTE]
+> As of February 1, 2024, the below toggle's backend functionality has not rolled out to all regions. As a result, you may see the toggle option, but enabling/disabling the toggle will not have any effect. The backend functionality is aimed to finish rolling out within the next several weeks. 
+>
+
+In Azure portal, the **Allow traffic from remote Virtual WAN networks** and **Allow traffic from non Virtual WAN networks** toggles allow connectivity between the standalone virtual network (VNet 4) and the spoke virtual networks directly connected to the Virtual WAN hub (VNet 2 and VNet 3). To allow this connectivity, both toggles need to be enabled: the **Allow traffic from remote Virtual WAN networks** toggle for the ExpressRoute gateway in the standalone virtual network and the **Allow traffic from non Virtual WAN networks** for the ExpressRoute gateway in the Virtual WAN hub. In the diagram below, if both of these toggles are enabled, then connectivity would be allowed between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3). If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/quickstart-configure-route-server-portal.md#configure-route-exchange) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
+
+Enabling or disabling the toggle will only affect the following traffic flow: traffic flowing between the Virtual WAN hub and standalone VNet(s) via the ExpressRoute circuit. Enabling or disabling the toggle will **not** incur downtime for all other traffic flows (Ex: on-premises site to spoke VNet 2 will not be impacted, VNet 2 to VNet 3 will not be impacted, etc). 
+
+:::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
 
 ### Can hubs be created in different resource groups in Virtual WAN?
 
@@ -429,6 +439,11 @@ No. Virtual WAN does not support ASN changes for VPN gateways.
 
 [!INCLUDE [ExpressRoute Performance](../../includes/virtual-wan-expressroute-performance.md)]
 
+### If I connect an ExpressRoute Local circuit to a Virtual WAN hub, will I only be able to access regions in the same metro location as the Local circuit? 
+
+Local circuits can only be connected to ExpressRoute gateways in their corresponding Azure region. However, there is no limitation to route traffic to spoke virtual networks in other regions. 
+
+
 ### <a name="update-router"></a>Why am I seeing a message and button called "Update router to latest software version" in portal?
 
 > [!NOTE]
@@ -445,12 +460,16 @@ There are several things to note with the virtual hub router upgrade:
 
 * If you have a network virtual appliance (NVA) in the virtual hub, you'll have to work with your NVA partner to obtain instructions on how to upgrade your Virtual WAN hub.
 
+* If your virtual hub is configured with more than 15 routing infrastructure units, please scale in your virtual hub to 2 routing infrastructure units before attempting to upgrade. You can scale back out your hub to more than 15 routing infrastructure units after upgrading your hub. 
+
 If the update fails for any reason, your hub will be auto recovered to the old version to ensure there's still a working setup.
 
 Additional things to note:
 * The user will need to have an **owner** or **contributor** role to see an accurate status of the hub router version. If a user is assigned a **reader** role to the Virtual WAN resource and subscription, the Azure portal displays to that user that the hub router needs to be upgraded to the latest version, even if the hub is already on the latest version. 
 
 * If you change your spoke virtual network's subscription status from disabled to enabled and then upgrade the virtual hub, you'll need to update your virtual network connection after the virtual hub upgrade (Ex: you can configure the virtual network connection to propagate to a dummy label).
+
+* If your hub is connected to a large number of spoke virtual networks (60 or more), then you may notice that 1 or more spoke VNet peerings will enter a failed state after the upgrade. To restore these VNet peerings to a successful state after the upgrade, you can configure the virtual network connections to propagate to a dummy label, or you can delete and recreate these respective VNet connections. 
 
 ### Is there a route limit for OpenVPN clients connecting to an Azure P2S VPN gateway?
 

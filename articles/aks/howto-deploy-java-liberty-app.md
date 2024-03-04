@@ -5,9 +5,9 @@ description: Deploy a Java application with Open Liberty/WebSphere Liberty on an
 author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
-ms.date: 12/21/2022
+ms.date: 01/16/2024
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, build-2023, devx-track-extended-java, devx-track-azurecli, linux-related-content
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java, devx-track-azurecli, linux-related-content
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -28,12 +28,16 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+* You can use Azure Cloud Shell or a local terminal.
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 > [!NOTE]
-> This guidance can also be executed from a local developer command line with Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+> You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed, with the exception of Docker.
+>
+> [![Image of button to launch Cloud Shell in a new window.](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
   * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
@@ -54,12 +58,30 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
 
    1. Create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
    1. Select *East US* as **Region**.
+   
+   Create environment variables in your shell for the resource group names for the cluster and the database.
 
-1. Select **Next**, enter the **AKS** pane. This pane allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. Leave all other values at the defaults.
+   ### [Bash](#tab/in-bash)
+
+   ```bash
+   export RESOURCE_GROUP_NAME=<your-resource-group-name>
+   export DB_RESOURCE_GROUP_NAME=<your-resource-group-name>
+   ```
+
+   ### [PowerShell](#tab/in-powershell)
+
+   ```powershell
+   $Env:RESOURCE_GROUP_NAME="<your-resource-group-name>"
+   $Env:DB_RESOURCE_GROUP_NAME="<your-resource-group-name>"
+   ```
+
+   ---
+
+1. Select **Next**, enter the **AKS** pane. This pane allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. The remaining values do not need to be changed from their default values.
 
 1. Select **Next**, enter the **Load Balancing** pane. Next to **Connect to Azure Application Gateway?** select **Yes**. This section lets you customize the following deployment options.
 
-   1. You can customize the **virtual network** and **subnet** into which the deployment will place the resources. Leave these values at their defaults.
+   1. You can customize the **virtual network** and **subnet** into which the deployment will place the resources. The remaining values do not need to be changed from their default values.
    1. You can provide the **TLS/SSL certificate** presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Don't go to production using a self-signed certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
    1. You can select **Enable cookie based affinity**, also known as sticky sessions. We want sticky sessions enabled for this article, so ensure this option is selected.
 
@@ -68,7 +90,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
    1. You can deploy WebSphere Liberty Operator by selecting **Yes** for option **IBM supported?**. Leaving the default **No** deploys Open Liberty Operator.
    1. You can deploy an application for your selected Operator by selecting **Yes** for option **Deploy an application?**. Leaving the default **No** doesn't deploy any application.
 
-1. Select **Review + create** to validate your selected options. In the ***Review + create** pane, when you see **Create** light up after validation pass, select **Create**. The deployment may take up to 20 minutes.
+1. Select **Review + create** to validate your selected options. In the ***Review + create** pane, when you see **Create** light up after validation pass, select **Create**. The deployment may take up to 20 minutes. While you wait for the deployment to complete, you can follow the steps in the section [Create an Azure SQL Database](#create-an-azure-sql-database). After completing that section, come back here and continue.
 
 ## Capture selected information from the deployment
 
@@ -107,16 +129,7 @@ These values will be used later in this article. Note that several other useful 
 
 ## Create an Azure SQL Database
 
-The following steps guide you through creating an Azure SQL Database single database for use with your app.
-
-1. Create a single database in Azure SQL Database by following the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences in the box below. Return to this article after creating and configuring the database server.
-
-   > [!NOTE]
-   > At the **Basics** step, write down **Resource group**, **Database name**, **_\<server-name>_.database.windows.net**, **Server admin login**, and **Password**. The database **Resource group** will be referred to as `<db-resource-group>` later in this article.
-   >
-   > At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
-   >
-   > :::image type="content" source="media/howto-deploy-java-liberty-app/create-sql-database-networking.png" alt-text="Screenshot of the Azure portal that shows the Networking tab of the Create SQL Database page with the Connectivity method and Firewall rules settings highlighted." lightbox="media/howto-deploy-java-liberty-app/create-sql-database-networking.png":::
+[!INCLUDE [create-azure-sql-database](includes/jakartaee/create-azure-sql-database.md)]
 
 Now that the database and AKS cluster have been created, we can proceed to preparing AKS to host your Open Liberty application.
 
@@ -135,7 +148,8 @@ There are a few samples in the repository. We'll use *java-app/*. Here's the fil
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
-git checkout 20240109
+export BASE_DIR=$PWD
+git checkout 20240220
 ```
 
 #### [PowerShell](#tab/in-powershell)
@@ -143,6 +157,7 @@ git checkout 20240109
 ```powershell
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
+$env:BASE_DIR=$PWD.Path
 git checkout 20240109
 ```
 
@@ -184,18 +199,18 @@ Now that you've gathered the necessary properties, you can build the application
 
 #### [Bash](#tab/in-bash)
 
-```bash
-cd <path-to-your-repo>/java-app
 
+```bash
+cd $BASE_DIR/java-app
 # The following variables will be used for deployment file generation into target.
 export LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
 export REGISTRY_NAME=<Azure-Container-Registry-name>
 export USER_NAME=<Azure-Container-Registry-username>
-export PASSWORD=<Azure-Container-Registry-password>
+export PASSWORD='<Azure-Container-Registry-password>'
 export DB_SERVER_NAME=<server-name>.database.windows.net
 export DB_NAME=<database-name>
 export DB_USER=<server-admin-login>@<server-name>
-export DB_PASSWORD=<server-admin-password>
+export DB_PASSWORD='<server-admin-password>'
 export INGRESS_TLS_SECRET=<ingress-TLS-secret-name>
 
 mvn clean install
@@ -204,7 +219,7 @@ mvn clean install
 #### [PowerShell](#tab/in-powershell)
 
 ```powershell
-cd <path-to-your-repo>/java-app
+cd $env:BASE_DIR\java-app
 
 # The following variables will be used for deployment file generation into target.
 $Env:LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
@@ -231,14 +246,14 @@ You can now run and test the project locally before deploying to Azure. For conv
    #### [Bash](#tab/in-bash)
 
    ```bash
-   cd <path-to-your-repo>/java-app
+   cd $BASE_DIR/java-app
    mvn liberty:run
    ```
 
    #### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   cd <path-to-your-repo>/java-app
+   cd $env:BASE_DIR\java-app
    mvn liberty:run
    ```
 
@@ -255,15 +270,15 @@ You can now run the `docker build` command to build the image.
 #### [Bash](#tab/in-bash)
 
 ```bash
-cd <path-to-your-repo>/java-app/target
+cd $BASE_DIR/java-app/target
 
-docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
+docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
 ```
 
 #### [PowerShell](#tab/in-powershell)
 
 ```powershell
-cd <path-to-your-repo>/java-app/target
+cd $env:BASE_DIR\java-app\target
 
 docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
 ```
@@ -339,14 +354,14 @@ Use the following steps to deploy and test the application:
    #### [Bash](#tab/in-bash)
 
    ```bash
-   cd <path-to-your-repo>/java-app/target
+   cd $BASE_DIR/java-app/target
    kubectl apply -f db-secret.yaml
    ```
 
    #### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   cd <path-to-your-repo>/java-app/target
+   cd $env:BASE_DIR\java-app\target
    kubectl apply -f db-secret.yaml
    ```
 
@@ -443,14 +458,14 @@ To avoid Azure charges, you should clean up unnecessary resources. When the clus
 
 ```bash
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
-az group delete --name <db-resource-group> --yes --no-wait
+az group delete --name $DB_RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
 ```powershell
 az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
-az group delete --name <db-resource-group> --yes --no-wait
+az group delete --name $Env:DB_RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ---

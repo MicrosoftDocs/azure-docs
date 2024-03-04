@@ -656,6 +656,16 @@ public class HomeController : Controller
 
 For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](./api-custom-events-metrics.md). A similar approach can be used for sending custom metrics to Application Insights by using the [GetMetric API](./get-metric.md).
 
+### How do I capture Request and Response body in my telemetry?
+
+ASP.NET Core has [built-in
+support](https://learn.microsoft.com/aspnet/core/fundamentals/http-logging) for
+logging HTTP Request/Response information (including body) via
+[`ILogger`](#ilogger-logs). It is recommended to leverage this. This may
+potentially expose personally identifiable information (PII) in telemetry, and
+can cause costs (performance costs and Application Insights billing) to
+significantly increase, so evaluate the risks carefully before using this.
+
 ### How do I customize ILogger logs collection?
 
 The default setting for Application Insights is to only capture **Warning** and more severe logs.
@@ -721,55 +731,10 @@ If the SDK is installed at build time as shown in this article, you don't need t
 Yes. Feature support for the SDK is the same in all platforms, with the following exceptions:
 
 * The SDK collects [event counters](./eventcounters.md) on Linux because [performance counters](./performance-counters.md) are only supported in Windows. Most metrics are the same.
-* Although `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or macOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel.
 
-### [ASP.NET Core 6.0](#tab/netcore6)
+### Is this SDK supported for Worker Services?
 
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-
-var builder = WebApplication.CreateBuilder(args);
-
-// The following will configure the channel to use the given folder to temporarily
-// store telemetry items during network or Application Insights server issues.
-// User should ensure that the given folder already exists
-// and that the application has read/write permissions.
-builder.Services.AddSingleton(typeof(ITelemetryChannel),
-                        new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
-builder.Services.AddApplicationInsightsTelemetry();
-
-var app = builder.Build();
-```
-
-### [ASP.NET Core 3.1](#tab/netcore3)
-
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-
-public void ConfigureServices(IServiceCollection services)
-{
-    // The following will configure the channel to use the given folder to temporarily
-    // store telemetry items during network or Application Insights server issues.
-    // User should ensure that the given folder already exists
-    // and that the application has read/write permissions.
-    services.AddSingleton(typeof(ITelemetryChannel),
-                            new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
-    services.AddApplicationInsightsTelemetry();
-}
-```
-
-> [!NOTE]
-> This .NET version is no longer supported.
-
----
-
-This limitation isn't applicable from version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) and later.
-
-### Is this SDK supported for the new .NET Core 3.X Worker Service template applications?
-
-This SDK requires `HttpContext`. It doesn't work in any non-HTTP applications, including the .NET Core 3.X Worker Service applications. To enable Application Insights in such applications by using the newly released Microsoft.ApplicationInsights.WorkerService SDK, see [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md).
+No. Please use [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md) for worker services.
 
 ### How can I uninstall the SDK?
 

@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: how-to
 ms.date: 12/23/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Connect Microsoft Entra data to Microsoft Sentinel

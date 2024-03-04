@@ -20,6 +20,8 @@ items:
       href: quickstarts/identity/access-tokens.md
     - name: Get a phone number
       href: quickstarts/telephony/get-phone-number.md
+    - name: Subscribe to events
+      href: quickstarts/events/subscribe-to-events.md
     - name: SDKs and APIs
       href: concepts/sdk-options.md
     - name: Designing your architecture
@@ -197,6 +199,8 @@ items:
     items: 
       - name: Submit a job for queuing and routing
         href: quickstarts/router/get-started-router.md
+      - name: Integrate Azure OpenAI with Job Router
+        href: quickstarts/router/job-router-azure-openai-integration.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
@@ -219,6 +223,16 @@ items:
     items:
     - name: Enable Managed Identity on Azure Communication Services resources
       href: how-tos/managed-identity.md
+  - name: Events and notifications
+    items:
+    - name: Subscribe to events
+      href: quickstarts/events/subscribe-to-events.md
+    - name: Validate events
+      href: how-tos/event-grid/view-events-request-bin.md
+    - name: Test events locally
+      href: how-tos/event-grid/local-testing-event-grid.md
+    - name: Deliver push notifications
+      href: concepts/notifications.md
 - name: Tutorials
   items:
   - name: SMS
@@ -245,10 +259,6 @@ items:
       items:
       - name: View SMS events
         href: quickstarts/sms/handle-sms-events.md
-      - name: Validate events
-        href: how-tos/event-grid/view-events-request-bin.md
-      - name: Local testing events
-        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -342,6 +352,8 @@ items:
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
       - name: Add video background effects
         href: quickstarts/voice-video-calling/get-started-video-effects.md
+      - name: Add Augmented Reality filters to your video calls
+        href: tutorials/add-video-augmented-reality-tutorial.md
     - name: Diagnostics
       items:
       - name: Diagnose your network
@@ -377,6 +389,11 @@ items:
         - name: 3. Microphone and camera setup before a call
           href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Migrating to Azure Communication Services
+      items:
+        - name: How to migrate from Twilio video to Azure Communication Services
+          href: tutorials/migrating-to-azure-communication-services-calling.md
+          displayName: migration, migrate, Twilio, move, shift
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS
@@ -407,10 +424,6 @@ items:
       items:
       - name: View calling events
         href: quickstarts/voice-video-calling/handle-calling-events.md
-      - name: Validate events
-        href: how-tos/event-grid/view-events-request-bin.md
-      - name: Local testing events
-        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -453,12 +466,6 @@ items:
         href: tutorials/add-chat-push-notifications.md
       - name: Using chat SDK with React Native
         href: quickstarts/chat/react-native.md
-    - name: Events
-      items:
-      - name: Validate events
-        href: how-tos/event-grid/view-events-request-bin.md
-      - name: Locally testing events
-        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -499,12 +506,6 @@ items:
         href: quickstarts/voice-video-calling/get-started-call-recording.md
       - name: Record every call in the resource
         href: how-tos/call-automation/record-every-call.md
-    - name: Events
-      items:
-      - name: Validate events
-        href: how-tos/event-grid/view-events-request-bin.md
-      - name: Locally testing events
-        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable logging with Azure Monitor
@@ -523,10 +524,6 @@ items:
       items:
       - name: View email events
         href: quickstarts/email/handle-email-events.md
-      - name: Validate events
-        href: how-tos/event-grid/view-events-request-bin.md
-      - name: Locally testing events
-        href: how-tos/event-grid/local-testing-event-grid.md
     - name: Analytics
       items:
       - name: Enable User Engagement Tracking
@@ -738,7 +735,7 @@ items:
       - name: Network recommendations
         href: concepts/voice-video-calling/network-requirements.md
         displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: Web best practices
+      - name: SDK best practices
         href: concepts/best-practices.md
         displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Call networking internals
@@ -783,8 +780,12 @@ items:
       href: ./concepts/voice-video-calling/retrieve-support-files.md
     - name: User experience
       href: concepts/voice-video-calling/user-experience.md
-    - name: Known issues
-      href: concepts/known-issues.md
+    - name: Known Issues
+      items:    
+      - name: WebJS calling SDK
+        href: concepts/voice-video-calling/known-issues-webjs.md
+      - name: Call Automation
+        href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Chat
     items:
     - name: Overview
@@ -805,10 +806,6 @@ items:
         href: ../event-grid/event-schema-communication-services.md
       - name: Chat events
         href: ../event-grid/communication-services-chat-events.md
-    - name: Mobile integrations
-      items:
-      - name: Push notifications
-        href: concepts/notifications.md
     - name: Analytics
       items:
       - name: Chat logs
@@ -1145,16 +1142,24 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
   - name: Country phone number management
     items:
+    - name: Phone number management for Argentina
+      href: concepts/numbers/phone-number-management-for-argentina.md
     - name: Phone number management for Australia
       href: concepts/numbers/phone-number-management-for-australia.md
     - name: Phone number management for Austria
       href: concepts/numbers/phone-number-management-for-austria.md
     - name: Phone number management for Belgium
       href: concepts/numbers/phone-number-management-for-belgium.md
+    - name: Phone number management for Brazil
+      href: concepts/numbers/phone-number-management-for-brazil.md
     - name: Phone number management for Canada
       href: concepts/numbers/phone-number-management-for-canada.md
+    - name: Phone number management for Chile
+      href: concepts/numbers/phone-number-management-for-chile.md
     - name: Phone number management for China
       href: concepts/numbers/phone-number-management-for-china.md
+    - name: Phone number management for Colombia
+      href: concepts/numbers/phone-number-management-for-colombia.md
     - name: Phone number management for Czech Republic
       href: concepts/numbers/phone-number-management-for-czech-republic.md
     - name: Phone number management for Denmark
@@ -1187,6 +1192,8 @@ items:
       href: concepts/numbers/phone-number-management-for-luxembourg.md
     - name: Phone number management for Malaysia
       href: concepts/numbers/phone-number-management-for-malaysia.md
+    - name: Phone number management for Mexico
+      href: concepts/numbers/phone-number-management-for-mexico.md
     - name: Phone number management for Netherlands
       href: concepts/numbers/phone-number-management-for-netherlands.md
     - name: Phone number management for New Zealand

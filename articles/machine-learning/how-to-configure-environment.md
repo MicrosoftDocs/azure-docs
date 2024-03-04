@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: larryfr, mattmcinnes
 ms.date: 04/25/2023
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, event-tier1-build-2022, ignite-2022, py-fresh-zinc
+ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Set up a Python development environment for Azure Machine Learning
@@ -120,8 +120,8 @@ When running a local Jupyter Notebook server, it's recommended that you create a
 
 1. Launch the Jupyter Notebook server
 
-    > [!TIP]
-    For example notebooks, see the [AzureML-Examples](https://github.com/Azure/azureml-examples) repository. SDK examples are located under [/sdk/python](https://github.com/Azure/azureml-examples/tree/main/sdk/python). For example, the [Configuration notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) example.
+> [!TIP]
+> For example notebooks, see the [AzureML-Examples](https://github.com/Azure/azureml-examples) repository. SDK examples are located under [/sdk/python](https://github.com/Azure/azureml-examples/tree/main/sdk/python). For example, the [Configuration notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) example.
 
 ### Visual Studio Code
 

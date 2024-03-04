@@ -4,8 +4,8 @@ description: Find out how to migrate from the Azure Monitor alertsSummary API, w
 ms.topic: how-to
 ms.date: 09/21/2023
 ms.author: abbyweisberg
+ms.reviewer: nolavime
 ---
-
 
 # Migrate from the alertsSummary API to ARG queries
 

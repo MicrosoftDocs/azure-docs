@@ -5,15 +5,23 @@ ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
 ms.date: 12/14/2023
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions
 ---
 
 # Containers support matrix in Defender for Cloud
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This article summarizes support information for Container capabilities in Microsoft Defender for Cloud.
 
 > [!NOTE]
-> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> - Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - Only the versions of AKS, EKS and GKE supported by the cloud vendor are officially supported by Defender for Cloud.
+
+> [!IMPORTANT]
+> The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is being retired. The retirement will be completed by March 6, and until that time partial results may still appear both in the Qualys recommendations, and Qualys results in the security graph. Any customers who were previously using this assessment should upgrade to to [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md). For information about transitioning to the container vulnerability assessment offering powered by Microsoft Defender Vulnerability Management, see [Transition from Qualys to Microsoft Defender Vulnerability Management](transition-to-defender-vulnerability-management.md).
 
 ## Azure
 
@@ -37,16 +45,13 @@ Following are the features for each of the domains in Defender for Containers:
 |--|--|--|--|--|--|--|--|--|
 | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| Vulnerability assessment for images in ACR | ACR, Private ACR | GA | Preview | Enable **Agentless container vulnerability assessment** toggle | Agentless | Defender for Containers or Defender CSPM | Commercial clouds<br/><br/> National clouds: Azure Government, Azure operated by 21Vianet |
 | Agentless/agent-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| Vulnerability assessment for running images in AKS | AKS | GA | Preview | Enable **Agentless container vulnerability assessment** toggle | Agentless (Requires Agentless discovery for Kubernetes) **OR/AND** Defender agent | Defender for Containers or Defender CSPM | Commercial clouds<br/><br/> National clouds: Azure Government, Azure operated by 21Vianet |
-| Deprecated: Agentless/agent-based runtime scan (powered by Qualys) [OS packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-qualys-deprecated) | Vulnerability assessment for running images in AKS | AKS | GA | Preview | Activated with plan | Defender agent | Defender for Containers | Commercial clouds |
-| Deprecated: Agentless registry scan (powered by Qualys) <BR>[Supported OS packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-qualys-deprecated) | Vulnerability assessment for images in ACR | ACR, Private ACR | GA | Preview | Activated with plan | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Deprecated: Agentless registry scan (powered by Qualys) <BR>[Supported language packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-qualys-deprecated) | Vulnerability assessment for images in ACR | ACR, Private ACR | Preview | - | Activated with plan | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 
 ### Runtime threat protection
 
 | Feature | Description | Supported resources | Linux release state | Windows release state   | Enablement method | Agent | Plans | Azure clouds availability |
 |--|--|--|--|--|--|--|--|--|
 | [Control plane](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) | Detection of suspicious activity for Kubernetes based on Kubernetes audit trail | AKS | GA | GA | Enabled with plan | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Workload | Detection of suspicious activity for Kubernetes for cluster level, node level, and workload level | AKS | GA | - | Enable **Defender Agent in Azure** toggle **OR** deploy Defender agent on individual clusters | Defender agent | Defender for Containers | Commercial clouds |
+| Workload | Detection of suspicious activity for Kubernetes for cluster level, node level, and workload level | AKS | GA | - | Enable **Defender Agent in Azure** toggle **OR** deploy Defender agent on individual clusters | Defender agent | Defender for Containers | Commercial clouds<br /><br />National clouds: Azure Government, Azure China 21Vianet |
 
 ### Deployment & monitoring
 
@@ -56,19 +61,11 @@ Following are the features for each of the domains in Defender for Containers:
 | Defender agent auto provisioning | Automatic deployment of Defender agent | AKS | GA | - | Enable **Defender Agent in Azure** toggle | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | Azure Policy for Kubernetes auto provisioning | Automatic deployment of Azure policy agent for Kubernetes | AKS | GA | - | Enable **Azure policy for Kubernetes** toggle | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 
-### Registries and images support for Azure - vulnerability assessment powered by Qualys (Deprecated)
-
-| Aspect | Details |
-|--|--|
-| Registries and images | **Supported**<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Windows images using Windows OS version 1709 and above (Preview). This is free while it's in preview, and will incur charges (based on the Defender for Containers plan) when it becomes generally available.<br><br>**Unsupported**<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) <br> • Providing image tag information for [multi-architecture images](https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/) is currently unsupported|
-| OS Packages | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6, 7, 8 <br> • CentOS 6, 7 <br> • Oracle Linux 6, 7, 8 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap 42, 15 <br> • SUSE Enterprise Linux 11, 12, 15 <br> • Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> • Ubuntu 10.10-22.04 <br> • FreeBSD 11.1-13.1  <br> • Fedora 32, 33, 34, 35|
-| Language specific packages (Preview) <br><br> (**Only supported for Linux images**) | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
-
 ### Registries and images support for Azure - Vulnerability assessment powered by Microsoft Defender Vulnerability Management
 
 | Aspect | Details |
 |--|--|
-| Registries and images | **Supported**<br> • ACR registries <br> • [ACR registries protected with Azure Private Link](/azure/container-registry/container-registry-private-link) (Private registries requires access to Trusted Services) <br> • Container images in Docker V2 format <br>  **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> is currently unsupported <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br> |
+| Registries and images | **Supported**<br> • ACR registries <br> • [ACR registries protected with Azure Private Link](/azure/container-registry/container-registry-private-link) (Private registries requires access to Trusted Services) <br> • Container images in Docker V2 format <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br> **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> is currently unsupported <br> |
 | Operating systems | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6-9 <br> • CentOS 6-9<br> • Oracle Linux 6-9 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap, openSUSE Tumbleweed <br> • SUSE Enterprise Linux 11-15 <br> • Debian GNU/Linux 7-12 <br> • Google Distroless (based on Debian GNU/Linux 7-12) <br> • Ubuntu 12.04-22.04 <br>  • Fedora 31-37<br> • Mariner 1-2<br> • Windows Server 2016, 2019, 2022|
 | Language specific packages <br><br>  | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
@@ -106,7 +103,6 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 | Security posture management | Docker CIS | EC2 | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Security posture management | Control plane hardening | - | - | - | - | - |
 | Security posture management | Kubernetes data plane hardening | EKS | GA| - | Azure Policy for Kubernetes | Defender for Containers |
-| Vulnerability Assessment | [Deprecated] Registry scan (powered by Trivy)| ECR | Preview | - | Agentless | Defender for Containers |
 | [Vulnerability assessment](agentless-vulnerability-assessment-aws.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-aws---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| ECR | Preview | Preview | Agentless | Defender for Containers or Defender CSPM |
 | [Vulnerability assessment](agentless-vulnerability-assessment-aws.md) | Agentless/agent-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-aws---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| EKS | Preview | Preview | Agentless **OR/AND** Defender agent | Defender for Containers or Defender CSPM |
 | Runtime protection| Control plane | EKS | Preview | Preview | Agentless | Defender for Containers |
@@ -119,11 +115,11 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 
 | Aspect | Details |
 |--|--|
-| Registries and images | **Supported**<br> • ECR registries <br> • Container images in Docker V2 format  <br> **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images is currently unsupported <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br>• Public repositories <br> • Manifest lists <br>|
+| Registries and images | **Supported**<br> • ECR registries <br> • Container images in Docker V2 format  <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br>  **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images is currently unsupported <br> • Public repositories <br> • Manifest lists <br>|
 | Operating systems | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6-9 <br> • CentOS 6-9<br> • Oracle Linux 6-9 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap, openSUSE Tumbleweed <br> • SUSE Enterprise Linux 11-15 <br> • Debian GNU/Linux 7-12 <br> • Google Distroless (based on Debian GNU/Linux 7-12)<br> • Ubuntu 12.04-22.04 <br>  • Fedora 31-37<br> • Mariner 1-2<br> • Windows server 2016, 2019, 2022|
 | Language specific packages <br><br>  | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
-### Kubernetes distributions/configurations support - AWS
+### Kubernetes distributions/configurations support for AWS - Runtime threat protection
 
 | Aspect | Details |
 |--|--|
@@ -163,11 +159,11 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 | Aspect | Details |
 |--|--|
-| Registries and images | **Supported**<br> • Google Registries (GAR, GCR) <br> • Container images in Docker V2 format  <br> **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images is currently unsupported <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br>• Public repositories <br> • Manifest lists <br>|
+| Registries and images | **Supported**<br> • Google Registries (GAR, GCR) <br> • Container images in Docker V2 format  <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br> **Unsupported**<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images is currently unsupported <br> • Public repositories <br> • Manifest lists <br>|
 | Operating systems | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6-9 <br> • CentOS 6-9<br> • Oracle Linux 6-9 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap, openSUSE Tumbleweed <br> • SUSE Enterprise Linux 11-15 <br> • Debian GNU/Linux 7-12 <br> • Google Distroless (based on Debian GNU/Linux 7-12)<br> • Ubuntu 12.04-22.04 <br>  • Fedora 31-37<br> • Mariner 1-2<br> • Windows server 2016, 2019, 2022|
 | Language specific packages <br><br>  | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
-### Kubernetes distributions/configurations support - GCP
+### Kubernetes distributions/configurations support for GCP - Runtime threat protection
 
 | Aspect | Details |
 |--|--|
@@ -231,7 +227,7 @@ Ensure your Kubernetes node is running on one of the verified supported operatin
 
 ### Defender agent limitations
 
-The Defender agent is currently not supported on ARM64 nodes.
+The Defender agent in AKS V1.28 and below is not supported on ARM64 nodes.
 
 ### Network restrictions
 

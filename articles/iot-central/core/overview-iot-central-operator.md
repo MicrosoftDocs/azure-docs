@@ -104,7 +104,7 @@ To automate device management tasks, you can use:
 
 ## Troubleshoot and remediate device issues
 
-The [troubleshooting guide](troubleshoot-connection.md) helps you to diagnose and remediate common issues. You can use the **Devices** page to block devices that appear to be malfunctioning until the problem is resolved.
+The [troubleshooting guide](troubleshooting.md) helps you to diagnose and remediate common issues. You can use the **Devices** page to block devices that appear to be malfunctioning until the problem is resolved.
 
 ## Next steps
 

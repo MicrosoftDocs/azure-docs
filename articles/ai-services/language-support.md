@@ -9,7 +9,6 @@ ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-ms.custom: seodec18
 ---
 
 # Natural language support for Azure AI services

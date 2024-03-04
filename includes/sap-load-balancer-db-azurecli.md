@@ -3,6 +3,7 @@ title: include file
 description: include file
 services: load-balancer
 ms.service: sap-on-azure
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 01/16/2024
 author: dennispadia

@@ -12,7 +12,6 @@ ms.reviewer: sgilley
 ms.date: 10/20/2023
 ms.custom:
   - sdkv2
-  - ignite-2022
   - build-2023
   - devx-track-python
   - ignite-2023

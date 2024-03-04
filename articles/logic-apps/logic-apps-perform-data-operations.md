@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 12/13/2023
-# As a developer using Azure Logic Apps, I want to perform various data operations on various data types for my workflow in Azure Logic Apps.
+# Customer intent: As a developer using Azure Logic Apps, I want to perform various data operations on various data types for my workflow in Azure Logic Apps.
 ---
 
 # Perform data operations in Azure Logic Apps

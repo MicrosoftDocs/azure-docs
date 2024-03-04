@@ -6,7 +6,7 @@ ms.author: varundhawan # Microsoft alias
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.date: 01/02/2024
+ms.date: 01/24/2024
 ---
 
 # Manage Azure Database for PostgreSQL - Flexible Server using automation tasks (preview)

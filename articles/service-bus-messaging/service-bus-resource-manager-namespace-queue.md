@@ -1,7 +1,6 @@
 ---
 title: Create Azure Service Bus namespace and queue using Azure template
 description: 'Quickstart: Create a Service Bus namespace and a queue using Azure Resource Manager template'
-documentationcenter: .net
 author: spelluru
 ms.author: spelluru
 ms.date: 08/25/2022
