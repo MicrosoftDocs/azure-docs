@@ -59,6 +59,14 @@ Azure Advisor also includes your recommendations from [Microsoft Defender for Cl
 
 To postpone or dismiss a recommendation, select the **Postpone**  or **Dismiss** link, and the recommendation is moved to the Postponed/Dismissed tab on the recommendation list page.
 
+### How do I adopt or resolve a recommendation?
+
+Once a recommendation is *Active*, it becomes visible to engineers and authorized users who can take the recommended action.
+
+### After I resolved the recommendation, why is it still showing in my list?
+
+Once you resolve a recommendation and mark it as *Completed*, it takes Advisor 24 hours to remove the recommendation from your list.
+
 ## Next steps
 
 To learn more about Advisor recommendations, see:
