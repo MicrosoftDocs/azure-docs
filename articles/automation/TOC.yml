@@ -123,8 +123,12 @@
           href: how-to/private-link-security.md
         - name: Manage role permissions and security
           href: automation-role-based-access-control.md
-        - name: Move Automation account to another subscription
-          href: how-to/move-account.md
+        - name: Relocate Automation
+          items:
+          - name: Move Automation account to another subscription
+            href: how-to/move-account.md
+          - name: Move Automation account to another region
+            href: ../operational-excellence/relocation-automation.md?toc=/azure/private-link/toc.json
         - name: Manage Automation account
           href: delete-account.md 
         - name: Migrate from Orchestrator to Azure Automation (Beta)
