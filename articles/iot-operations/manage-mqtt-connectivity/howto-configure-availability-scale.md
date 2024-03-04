@@ -158,19 +158,18 @@ If you don't specify settings, default values are used. The following table show
 
 | Name                                       | Required | Format           | Default| Description                                              |
 | ------------------------------------------ | -------- | ---------------- | -------|----------------------------------------------------------|
-| `brokerRef`                                | true    | String            |N/A     |The associated broker                                     |
-| `diagnosticServiceEndpoint`                | true    | String            |N/A     |An endpoint to send metrics/ traces to                    |
-| `enableMetrics`                            | false   | Boolean           |true    |Enable or disable broker metrics                          |
-| `enableTracing`                            | false   | Boolean           |true    |Enable or disable tracing                                 |
-| `logLevel`                                 | false   | String            | `info` |Log level. `trace`, `debug`, `info`, `warn`, or `error`   |
-| `enableSelfCheck`                          | false   | Boolean           |true    |Component that periodically probes the health of broker   |
-| `enableSelfTracing`                        | false   | Boolean           |true    |Automatically traces incoming messages at a frequency of 1 every `selfTraceFrequencySeconds`  |
-| `logFormat`                                | false   | String            | `text` |Log format in `json` or `text`                         |
+| `diagnosticServiceEndpoint`                | true    | String            | N/A    |An endpoint to send metrics/ traces to                    |
+| `enableMetrics`                            | false   | Boolean           | true   |Enable or disable broker metrics                          |
+| `enableTracing`                            | false   | Boolean           | true   |Enable or disable tracing                                 |
+| `logLevel`                                 | false   | String            |`info`  |Log level. `trace`, `debug`, `info`, `warn`, or `error`   |
+| `enableSelfCheck`                          | false   | Boolean           | true   |Component that periodically probes the health of broker   |
+| `enableSelfTracing`                        | false   | Boolean           | true   |Automatically traces incoming messages at a frequency of 1 every `selfTraceFrequencySeconds`  |
+| `logFormat`                                | false   | String            |`text`  |Log format in `json` or `text`                         |
 | `metricUpdateFrequencySeconds`             | false   | Integer           | 30     |The frequency to send metrics to diagnostics service endpoint, in seconds |
 | `selfCheckFrequencySeconds`                | false   | Integer           | 30     |How often the probe sends test messages|
-| `selfCheckTimeoutSeconds`                  | false   | Integer           |  15    |Timeout interval for probe messages  |
-| `selfTraceFrequencySeconds`                | false   | Integer           |30      |How often to automatically trace external messages if `enableSelfTracing` is true |  
-| `spanChannelCapacity`                      | false   | Integer           |1000    |Maximum number of spans that selftest can store before sending to the diagnostics service     |  
+| `selfCheckTimeoutSeconds`                  | false   | Integer           | 15     |Timeout interval for probe messages  |
+| `selfTraceFrequencySeconds`                | false   | Integer           | 30     |How often to automatically trace external messages if `enableSelfTracing` is true |  
+| `spanChannelCapacity`                      | false   | Integer           | 1000   |Maximum number of spans that selftest can store before sending to the diagnostics service     |  
 | `probeImage`                               | true    | String            |mcr.microsoft.com/azureiotoperations/diagnostics-probe:0.1.0-preview | Image used for self check |
 
 

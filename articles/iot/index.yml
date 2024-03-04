@@ -9,9 +9,9 @@ metadata:
   description: The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud and edge services that connect, monitor, and control billions of IoT assets.
   ms.service: iot
   ms.topic: hub-page
-  author: philmea
-  ms.author: philmea
-  ms.date: 04/18/2023
+  author: dominicbetts
+  ms.author: dobett
+  ms.date: 02/28/2024
 
 highlightedContent:
   items:

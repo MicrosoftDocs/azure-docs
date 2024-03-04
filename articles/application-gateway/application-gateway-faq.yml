@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 02/26/2024
+  ms.date: 02/28/2024
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
@@ -467,7 +467,7 @@ sections:
           
           If you're using the V2 SKU of the Application Gateway/WAF service, you don't have to upload the new certificate in the HTTP settings since V2 SKU uses "trusted root certificates", and no action needs to be taken here.
 
-  - name: Configuration - layer 4 proxy
+  - name: Configuration - TLS/TCP proxy
     questions:
       - question: Does Application Gateway’s Layer 7 and Layer 4 use the same frontend IP addresses?
         answer: Yes. Both Layer 7 and Layer 4 routing through application gateway use the same frontend IP configuration. This way, you can direct all your clients to a single IP address (public or private) and the same gateway resource will route them based on the configured listener protocols and the ports.
@@ -491,7 +491,7 @@ sections:
           > [!NOTE] 
           > You can't use any layer 4 properties for HTTP or HTTPS protocol settings.
 
-      - question: Can I use a TCP/TLS listener with an HTTP(S) backend betting?
+      - question: Can I map a TCP/TLS protocol listener with an HTTP(S) protocol Backend setting?
         answer: No. You can't cross-link Layer 4 and Layer 7 properties. Therefore, a routing rule will only allow you to link a Layer 4-type listener to a Layer 4-type Backend setting.
 
       - question: Can L7 and L4 properties have same names?
@@ -607,5 +607,5 @@ sections:
 
 additionalContent: |
     ## Next steps
-    * To learn more about Application Gateway, see [What is Azure Application Gateway?](overview.md).
+    * To learn more about Application Gateway, see [What is Azure Application Gateway](overview.md).
     * To learn about TLS termination and end-to-end TLS with Application Gateway, see [Enable end-to-end TLS on Azure Application Gateway](ssl-overview.md).

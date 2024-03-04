@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 24.1.0**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) <br><br>- [New OT appliance hardware profile](#new-ot-appliance-hardware-profile)|
+| **OT networks** | **Version 24.1.0**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) <br><br>- [New OT appliance hardware profile](#new-ot-appliance-hardware-profile) <br><br>- [New fields for SNMP MIB OIDs](#new-fields-for-snmp-mib-oids)|
 
 ### Alert suppression rules from the Azure portal (Public preview)
 
@@ -79,6 +79,10 @@ When the license for one or more of your OT sites is about to expire, a note is 
 The DELL XE4 SFF appliance is now supported for OT sensors monitoring production lines. This is part of the L500 hardware profile, a *Production line* environment, with six cores, 8-GB RAM, and 512-GB disk storage.
 
 For more information, see [DELL XE4 SFF](appliance-catalog/dell-xe4-sff.md).
+
+### New fields for SNMP MIB OIDs
+
+Additional standard, generic fields have been added to the SNMP MiB OIDs. For the full list of fields, see [OT sensor OIDs for manual SNMP configurations](how-to-set-up-snmp-mib-monitoring.md#ot-sensor-oids-for-manual-snmp-configurations).
 
 ## January 2024
 
