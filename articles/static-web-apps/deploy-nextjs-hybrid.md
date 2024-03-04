@@ -256,7 +256,7 @@ This Client Component fetches the API with a `useEffect` React hook to render th
 
 ## Configure the runtime version for Next.js
 
-Certain Next.js versions require specific Node.js versions. To configure this, you can set the 'engines' property of your `package.json` file to indicate the specific Node.js version required.
+Certain Next.js versions require specific Node.js versions. To configure a specific Node version, you can set the 'engines' property of your `package.json` file to designate a version.
 
 ```json
 {
