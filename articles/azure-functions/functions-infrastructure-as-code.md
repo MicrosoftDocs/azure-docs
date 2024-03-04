@@ -1670,7 +1670,7 @@ You can create your function app in a deployment where one or more of the resour
 When creating a deployment that uses a secured storage account, you must both explicitly set the `WEBSITE_CONTENTSHARE` setting and create the file share resource named in this setting. Make sure you create a `Microsoft.Storage/storageAccounts/fileServices/shares` resource using the value of `WEBSITE_CONTENTSHARE`, as shown in this example ([ARM template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-private-endpoints-storage-private-endpoints/azuredeploy.json#L467)|[Bicep file](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-private-endpoints-storage-private-endpoints/main.bicep#L351)). You'll also need to set the site property `vnetContentShareEnabled` to true. 
 
 > [!NOTE]
-> The absence of the above settings will cause the PreFlight validation to throw an error with the message, "Could not access storage account using provided connection string".
+> The absence of these settings now cause an error during deployment validation with the message: "Could not access storage account using provided connection string".
 
 These projects provide both Bicep and ARM template examples of how to deploy your function apps in a virtual network, including with network access restrictions:
 
