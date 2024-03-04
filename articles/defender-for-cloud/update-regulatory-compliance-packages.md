@@ -2,12 +2,11 @@
 title: Assign regulatory compliance standards in Microsoft Defender for Cloud
 description: Learn how to assign regulatory compliance standards in Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 02/26/2024
 ms.custom: ignite-2023
 ---
 
 # Assign security standards
-
 
 Defender for Cloud's regulatory standards and benchmarks are represented as [security standards](security-policy-concept.md). Each standard is an initiative defined in Azure Policy.
 
@@ -15,7 +14,7 @@ In Defender for Cloud, you assign security standards to specific scopes such as 
 
 Defender for Cloud continually assesses the environment-in-scope against standards. Based on assessments, it shows in-scope resources as being compliant or noncompliant with the standard, and provides remediation recommendations.
 
-This article describes how to add regulatory compliance standards as security standards in an Azure subscriptions, AWS account, or GCP project.
+This article describes how to add regulatory compliance standards as security standards in an Azure subscription, AWS account, or GCP project.
 
 ## Before you start
 

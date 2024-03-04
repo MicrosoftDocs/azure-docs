@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 2/12/2024
+ms.date: 2/22/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-cli-portal
 # Use the in-place migration feature to migrate App Service Environment v1 and v2 to App Service Environment v3
 
 > [!NOTE]
-> The migration feature described in this article is used for in-place (same subnet) automated migration of App Service Environment v1 and v2 to App Service Environment v3. If you're looking for information on the side by side migration feature, see [Migrate to App Service Environment v3 by using the side by side migration feature](side-by-side-migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
+> The migration feature described in this article is used for in-place (same subnet) automated migration of App Service Environment v1 and v2 to App Service Environment v3. If you're looking for information on the side-by-side migration feature, see [Migrate to App Service Environment v3 by using the side-by-side migration feature](side-by-side-migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
 
 You can automatically migrate App Service Environment v1 and v2 to [App Service Environment v3](overview.md) by using the in-place migration feature. To learn more about the migration process and to see if your App Service Environment supports migration at this time, see the [overview of the in-place migration feature](migrate.md).
@@ -245,7 +245,7 @@ Under **Get new IP addresses**, confirm that you understand the implications and
 
 When the previous step finishes, the IP addresses for your new App Service Environment v3 resource appear. Use the new IPs to update any resources and networking components so that your new environment functions as intended after migration is complete. It's your responsibility to make any necessary updates.
 
-This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes in moving to App Service Environment v3. These changes include the port change for Azure Load Balancer, which now uses port 80. Don't move to the next step until you confirm that you made these updates.
+This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes in moving to App Service Environment v3. These changes include the port change for Azure Load Balancer, which now uses port 80. Don't move to the next step until you confirmed that you made these updates.
 
 :::image type="content" source="./media/migration/ip-sample.png" alt-text="Screenshot that shows sample IPs generated during premigration.":::
 
@@ -301,9 +301,9 @@ After you complete all of the preceding steps, you can start the migration. Make
 This step takes three to six hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations, depending on the environment size. Scaling and modifications to your existing App Service Environment are blocked during this step.
 
 > [!NOTE]
-> In rare cases, you might see a notification in the portal that says "Migration to App Service Environment v3 failed" after you start the migration. There's a known bug that might trigger this notification even if the migration is progressing. Check the activity log for the App Service Environment to determine the validity of this error message.
+> In rare cases, you might see a notification in the portal that says "Migration to App Service Environment v3 failed" after you start the migration. There's a known bug that might trigger this notification even if the migration is progressing. Check the activity log for the App Service Environment to determine the validity of this error message. In most cases, refreshing the page resolves the issue, and the error message disappears. If the error message persists, contact support for assistance.
 >
-> :::image type="content" source="./media/migration/migration-error.png" alt-text="Screenshot that shows the potential error notification after migration starts.":::
+> :::image type="content" source="./media/migration/migration-error-2.png" alt-text="Screenshot that shows the potential error notification after migration starts.":::
 
 At this time, detailed migration statuses are available only when you're using the Azure CLI. For more information, see the [Azure CLI section for migrating to App Service Environment v3](#8-migrate-to-app-service-environment-v3-and-check-status).
 

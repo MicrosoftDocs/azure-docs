@@ -74,7 +74,7 @@ You need to install `Microsoft.Azure.WebJobs.Extensions.Redis`, the NuGet packag
 Install this package by going to the **Terminal** tab in VS Code and entering the following command:
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --version 0.3.1-preview
 ```
 
 ## Configure the cache

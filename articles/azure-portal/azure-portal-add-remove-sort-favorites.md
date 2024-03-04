@@ -21,7 +21,7 @@ In this example, we'll add **Cost Management + Billing** to the **Favorites** li
 
    :::image type="content" source="media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-new-all-services.png" alt-text="Screenshot showing All services in the Azure portal menu.":::
 
-1. Enter the word "cost" in the **Filter services** field near the top of the **All services** page. Services that have "cost" in the title or that have "cost" as a keyword are shown.
+1. Enter the word "cost" in the **Filter services** field near the top of the **All services** pane. Services that have "cost" in the title or that have "cost" as a keyword are shown.
 
    :::image type="content" source="media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-find-service.png" alt-text="Screenshot showing a search in All services in the Azure portal.":::
 
