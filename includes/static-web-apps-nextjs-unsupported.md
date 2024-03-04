@@ -18,4 +18,4 @@ The following features of Static Web Apps are unsupported for Next.js with hybri
   - The configuration within the `staticwebapp.config.json` file takes precedence over the configuration within `next.config.js`.
   - Configuration for the Next.js site should be handled using `next.config.js` for full feature compatibility.
 - `skip_app_build` and `skip_api_build` can't be used within the `Azure/static-web-apps-deploy@v1` deployment image.
-- Incremental static regeneration (ISR) does not support caching images.
+- Incremental static regeneration (ISR) doesn't support caching images.
