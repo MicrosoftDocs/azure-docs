@@ -300,6 +300,9 @@
           - name: Test MSIX packages
             displayName: msix app attach, app attach, applications, apps, appx packages, app packages
             href: app-attach-test-msix-packages.md
+          - name: Migrate from MSIX app attach to app attach
+            displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+            href: msix-app-attach-migration.md
           - name: MSIXMGR tool parameters
             displayName: msix app attach, app attach, applications, apps, appx packages, app packages
             href: msixmgr-tool-syntax-description.md 
