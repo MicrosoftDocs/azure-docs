@@ -26,7 +26,7 @@ This page is updated with the details about the upcoming release approximately a
 ## March 2024
 
 ### Azure Data Manager for Energy in Australia East Region
-Azure Data Manager for Energy is now available in the Australia East Region. This new region is enabled for both the Standard and Developer tiers of Azure Data Manager for Energy. You can now select Australia East as your preferred region when creating Azure Data Manage for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy)".
+Azure Data Manager for Energy is now available in the Australia East Region. This new region is enabled for both the Standard and Developer tiers of Azure Data Manager for Energy. You can now select Australia East as your preferred region when creating Azure Data Manage for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy).
 
 ## November 2023
 
