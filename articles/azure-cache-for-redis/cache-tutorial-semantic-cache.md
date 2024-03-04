@@ -12,7 +12,7 @@ ms.date: 01/08/2024
 
 # Tutorial: Use Azure Cache for Redis as a semantic cache
 
-In this tutorial, you use Azure Cache for Redis as a semantic cache with an AI-based large language model (LLM). You use Azure Open AI Service to generate LLM responses to queries and cache those responses using Azure Cache for Redis, delivering faster responses and lowering costs.
+In this tutorial, you use Azure Cache for Redis as a semantic cache with an AI-based large language model (LLM). You use Azure OpenAI Service to generate LLM responses to queries and cache those responses using Azure Cache for Redis, delivering faster responses and lowering costs.
 
 Because Azure Cache for Redis offers built-in vector search capability, you can also perform  _semantic caching_. You can return cached responses for identical queries and also for queries that are similar in meaning, even if the text isn't the same.
 
@@ -78,7 +78,7 @@ See [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web
 
 To successfully make a call against Azure OpenAI, you need an **endpoint** and a **key**. You also need an **endpoint** and a **key** to connect to Azure Cache for Redis.
 
-1. Go to your Azure Open AI resource in the Azure portal.
+1. Go to your Azure OpenAI resource in the Azure portal.
 
 1. Locate **Endpoint and Keys** in the **Resource Management** section of your Azure OpenAI resource. Copy your endpoint and access key because you need both for authenticating your API calls. An example endpoint is: `https://docs-test-001.openai.azure.com`. You can use either `KEY1` or `KEY2`.
 

@@ -15,17 +15,20 @@ ms.author: eur
 You can manage access and permissions to your Speech resources with Azure role-based access control (Azure RBAC). Assigned roles can vary across Speech resources. For example, you can assign a role to a Speech resource that should only be used to train a custom speech model. You can assign another role to a Speech resource that is used to transcribe audio files. Depending on who can access each Speech resource, you can effectively set a different level of access per application or user. For more information on Azure RBAC, see the [Azure RBAC documentation](../../role-based-access-control/overview.md).
 
 > [!NOTE]
-> A Speech resource can inherit or be assigned multiple roles. The final level of access to this resource is a combination of all roles permissions from the operation level.
+> A Speech resource can inherit or be assigned multiple roles. The final level of access to the resource is a combination of all role permissions.
 
 ## Roles for Speech resources
 
-A role definition is a collection of permissions. When you create a Speech resource, the built-in roles in this table are assigned by default. 
+A role definition is a collection of permissions. When you create a Speech resource, the built-in roles in the following table are available for assignment. 
+
+> [!WARNING]
+> Speech service architecture differs from other Azure AI services in the way it uses [Azure control plane and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Speech service is extensively using data plane comparing to other Azure AI services, and this requires different set up for the roles. Because of this some general Cognitive Services roles have actual access right set that doesn't exactly match their name when used in Speech services scenario. For instance *Cognitive Services User* provides in effect the Contributor rights, while *Cognitive Services Contributor* provides no access at all. The same is true for generic *Owner* and *Contributor* roles which have no data plane rights and consequently provide no access to Speech resource. To keep consistency we recommend to use roles containing *Speech* in their names. These roles are *Cognitive Services Speech User* and *Cognitive Services Speech Contributor*. Their access right sets were designed specifically for the Speech service. In case you would like to use general Cognitive Services roles and Azure generic roles, we ask you to very carefully study the following access right table.
 
 | Role | Can list resource keys | Access to data, models, and endpoints in custom projects| Access to speech transcription and synthesis APIs
 | ---| ---| ---| ---|
-|**Owner** |Yes |View, create, edit, and delete |Yes |
-|**Contributor** |Yes |View, create, edit, and delete |Yes |
-|**Cognitive Services Contributor** |Yes |View, create, edit, and delete |Yes |
+|**Owner** |Yes |None |No |
+|**Contributor** |Yes |None |No |
+|**Cognitive Services Contributor** |Yes |None |No |
 |**Cognitive Services User** |Yes |View, create, edit, and delete |Yes |
 |**Cognitive Services Speech Contributor** |No | View, create, edit, and delete |Yes |
 |**Cognitive Services Speech User** |No |View only |Yes |
