@@ -102,21 +102,12 @@ setx COMMUNICATION_SERVICES_CONNECTION_STRING "<your connection string>"
 
 For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
 
-Use the `npm install` command to install the dotenv package.
-
-```console
-npm install dotenv --save
-```
 
 To instantiate a MessageClient, add the following code to the `Main` method:
 ```javascript
 const MessageClient = require("@azure-rest/communication-messages").default;
 
-// Load the .env file if it exists
-import * as dotenv from "dotenv";
-dotenv.config();
-
-// Configure authentication by retrieving the environment variable
+// Set Connection string
 const connectionString = process.env["COMMUNICATION_SERVICES_CONNECTION_STRING"];
 
 // Instantiate the client
@@ -224,7 +215,7 @@ const recipientList = ["<to WhatsApp phone number>"];
 ```
 
 Example:
-```csharp
+```javascript
 // Example only
 const recipientList = ["+14255550199"];
 ```
@@ -265,7 +256,7 @@ For further WhatsApp requirements on templates, refer to the WhatsApp Business P
 
 ```javascript
 // Send template message
-const result = await client.path("/messages/notifications:send").post({
+const templateMessageResult = await client.path("/messages/notifications:send").post({
     contentType: "application/json",
     body: {
         channelRegistrationId: channelRegistrationId,
@@ -276,8 +267,8 @@ const result = await client.path("/messages/notifications:send").post({
 });
 
 // Process result
-if (result.status === "202") {
-    result.body.receipts.forEach((receipt) => {
+if (templateMessageResult.status === "202") {
+    templateMessageResult.body.receipts.forEach((receipt) => {
         console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
     });
 } else {
@@ -307,7 +298,7 @@ In the text message, provide text to send to the recipient. In this example, we 
 Assemble and send the media message:
 ```javascript
 // Send text message
-const result = await client.path("/messages/notifications:send").post({
+const textMessageResult = await client.path("/messages/notifications:send").post({
     contentType: "application/json",
     body: {
         channelRegistrationId: channelRegistrationId,
@@ -318,8 +309,8 @@ const result = await client.path("/messages/notifications:send").post({
 });
 
 // Process result
-if (result.status === "202") {
-    result.body.receipts.forEach((receipt) => {
+if (textMessageResult.status === "202") {
+    textMessageResult.body.receipts.forEach((receipt) => {
         console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
     });
 } else {
@@ -332,28 +323,27 @@ if (result.status === "202") {
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-To send a media message, provide a URI to an image.
-As an example, create a URI:
-```csharp
-var uri = new Uri("https://aka.ms/acsicon1");
+To send a media message, provide a URL to an image. As an example,
+```javascript
+const url = "https://aka.ms/acsicon1";
 ```
 
 Assemble and send the media message:
 ```javascript
 // Send media message
-const  result = await client.path("/messages/notifications:send").post({
+const mediaMessageResult = await client.path("/messages/notifications:send").post({
     contentType: "application/json",
     body: {
         channelRegistrationId: channelRegistrationId,
         to: recipientList,
         kind: "image",
-        mediaUri: uri
+        mediaUri: url
     }
 });
 
 // Process result
-if (result.status === "202") {
-    result.body.receipts.forEach((receipt) => {
+if (mediaMessageResult.status === "202") {
+    mediaMessageResult.body.receipts.forEach((receipt) => {
         console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
     });
 } else {

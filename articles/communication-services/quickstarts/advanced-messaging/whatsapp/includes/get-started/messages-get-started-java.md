@@ -27,7 +27,7 @@ To set up an environment for sending messages, take the steps in the following s
 Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the following command to generate the Java project from the maven-archetype-quickstart template.
 
 ```console
-mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+mvn archetype:generate -DgroupId="com.communication.quickstart" -DartifactId="communication-quickstart" -DarchetypeArtifactId="maven-archetype-quickstart" -DarchetypeVersion="1.4" -DinteractiveMode="false"
 ```
 
 The `generate` goal creates a directory with the same name as the `artifactId` value. Under this directory, the **src/main/java** directory contains the project source code, the **src/test/java directory** contains the test source, and the **pom.xml** file is the project's Project Object Model (POM).
@@ -51,14 +51,8 @@ Open **/src/main/java/com/communication/quickstart/App.java** in a text editor, 
 ```java
 package com.communication.quickstart;
 
+import com.azure.communication.messages.*;
 import com.azure.communication.messages.models.*;
-import com.azure.communication.messages.models.channels.WhatsAppMessageButtonSubType;
-import com.azure.communication.messages.models.channels.WhatsAppMessageTemplateBindings;
-import com.azure.communication.messages.models.channels.WhatsAppMessageTemplateBindingsButton;
-import com.azure.communication.messages.models.channels.WhatsAppMessageTemplateBindingsComponent;
-import com.azure.core.credential.AzureKeyCredential;
-import com.azure.core.credential.TokenCredential;
-import com.azure.identity.DefaultAzureCredentialBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -169,14 +163,21 @@ To create a `DefaultAzureCredential` object:
 
 NotificationMessage or MessageTemplate clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
 
-```java
-String endpoint = "https://<resource name>.communication.azure.com";
-AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access key>");
-NotificationMessagesClient notificationClient = new NotificationMessagesClientBuilder()
-    .endpoint(endpoint)
-    .credential(azureKeyCredential)
-    .buildClient();
-```
+1. Add the import
+   ```java
+   import com.azure.core.credential.AzureKeyCredential;
+   ``` 
+    
+1. To instantiate a `NotificationMessagesClient`, add the following code to the `Main` method.
+
+    ```java
+    String endpoint = "https://<resource name>.communication.azure.com";
+    AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access key>");
+    NotificationMessagesClient notificationClient = new NotificationMessagesClientBuilder()
+        .endpoint(endpoint)
+        .credential(azureKeyCredential)
+        .buildClient();
+    ```
 
 ---
 
@@ -244,10 +245,12 @@ MessageTemplate messageTemplate = new MessageTemplate(templateName, templateLang
 TemplateNotificationContent templateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplate);
 
 // Send template message
-SendMessageResult result = notificationClient.send(templateContent);
+SendMessageResult templateMessageResult = notificationClient.send(templateContent);
 
 // Process result
-result.getReceipts().forEach(r -> System.out.println("Message sent to:"+r.getTo() + " and message id:"+ r.getMessageId()));
+for (MessageReceipt messageReceipt : templateMessageResult.getReceipts()) {
+    System.out.println("Message sent to:" + messageReceipt.getTo() + " and message id:" + messageReceipt.getMessageId());
+}
 ```
 
 Now, the user needs to respond to the template message. From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
@@ -275,10 +278,12 @@ Assemble then send the text message:
 TextNotificationContent textContent = new TextNotificationContent(channelRegistrationId, recipientList, "“Thanks for your feedback.");
 
 // Send text message
-SendMessageResult result = notificationClient.send(textContent);
+SendMessageResult textMessageResult = notificationClient.send(textContent);
 
 // Process result
-result.getReceipts().forEach(r -> System.out.println("Message sent to:"+r.getTo() + " and message id:"+ r.getMessageId()));
+for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
+    System.out.println("Message sent to:" + messageReceipt.getTo() + " and message id:" + messageReceipt.getMessageId());
+}
 ```
 
 ### Send a media message to a WhatsApp user
@@ -298,10 +303,12 @@ Assemble then send the media message:
 MediaNotificationContent mediaContent = new MediaNotificationContent(channelRegistrationId, recipientList, mediaUrl);
 
 // Send media message
-SendMessageResult result = notificationClient.send(mediaContent);
+SendMessageResult mediaMessageResult = notificationClient.send(mediaContent);
 
 // Process result
-result.getReceipts().forEach(r -> System.out.println("Message sent to:"+r.getTo() + " and message id:"+ r.getMessageId()));
+for (MessageReceipt messageReceipt : mediaMessageResult.getReceipts()) {
+    System.out.println("Message sent to:" + messageReceipt.getTo() + " and message id:" + messageReceipt.getMessageId());
+}
 ```
 
 ## Run the code
@@ -310,12 +317,6 @@ result.getReceipts().forEach(r -> System.out.println("Message sent to:"+r.getTo(
 
    ```console
    mvn compile
-   ```
-
-1. Build the package.
-
-   ```console
-   mvn package
    ```
 
 1. Run the app by executing the following `mvn` command.
