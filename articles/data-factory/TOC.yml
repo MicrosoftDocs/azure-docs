@@ -562,8 +562,6 @@ items:
         href: connector-salesforce.md
       - name: Salesforce (legacy)
         href: connector-salesforce-legacy.md
-      - name: How to configure Salesforce connected App 
-        href: configure-salesforce-connected-app.md
     - name: Salesforce Service Cloud
       href: connector-salesforce-service-cloud.md
       items:
@@ -1251,6 +1249,9 @@ items:
         displayName: troubleshooting
       - name: REST
         href: connector-troubleshoot-rest.md
+        displayName: troubleshooting
+      - name: Salesforce and Salesforce Service Cloud
+        href: connector-troubleshoot-salesforce.md
         displayName: troubleshooting
       - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
         href: connector-troubleshoot-sap.md
