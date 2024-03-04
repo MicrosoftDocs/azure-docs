@@ -182,6 +182,8 @@
       href: sizes.md
     - name: General purpose
       items:
+      - name: Dasv6 and Dadsv6-series
+        href: dasv6-dadsv6-series.md
       - name: Overview
         displayName: General purpose, sizes, size, vm size
         href: sizes-general.md
@@ -253,6 +255,8 @@
         href: ev3-esv3-series.md
       - name: Eav4 and Easv4-series
         href: eav4-easv4-series.md
+      - name: Easv6 and Eadsv6-series
+        href: easv6-eadsv6-series.md
       - name: Edv4 and Edsv4-series
         href: edv4-edsv4-series.md
       - name: Ev4 and Esv4-series
