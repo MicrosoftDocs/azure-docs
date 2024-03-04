@@ -4,7 +4,7 @@ description: This article provides information on how to track the cost of your 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/16/2024
+ms.date: 03/04/2024
 ms.custom: UpdateFrequency2
 ---
 
@@ -38,7 +38,8 @@ DevTest Labs automatically propagates tags applied at the lab level to the resou
 
 :::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tags.png" alt-text="Screenshot that shows tags in DevTest Labs in the Azure portal.":::
 
-It’s important to remember that tags are propagated for any resources created _after_ the tag has been applied to the lab. If there are _existing resources_ that must be updated with the new tags, there's a script available to propagate the new/updated tags correctly. If you have existing resources and want to apply the lab tags, use the [Update-DevTestLabsTags script located in the DevTest Labs GitHub Repo](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/UpdateDtlTags). 
+> [!NOTE]
+> It’s important to remember that tags are propagated for any resources created _after_ the tag has been applied to the lab. If there are _existing resources_ that must be updated with the new tags, there's a script available to propagate the new/updated tags correctly. If you have existing resources and want to apply the lab tags, use the [Update-DevTestLabsTags script located in the DevTest Labs GitHub Repo](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/UpdateDtlTags). 
 
 ## Step 3: Provide permissions to allow users to view costs 
 
