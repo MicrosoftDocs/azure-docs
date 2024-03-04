@@ -34,15 +34,15 @@ You can set CORS rules for each Azure Data Manager for Energy instance. When you
 1.	An **Azure Data Manager for Energy** instance is created with CORS policy.
 1.	Next, once the instance is created the CORS policy set can be viewed in instance **overview** page.
 1. You can navigate to **Resource Sharing(CORS)** and see that CORS is enabled with required **Allowed Origins**.
-       [![Screenshot of viewing the CORS policy set out.](media/how-to-enable-cors/enable-cors-4.png)](media/how-to-enable-cors/enable-cors-4.png#lightbox)
+       [![Screenshot of navigation to CORS update page.](media/how-to-enable-cors/enable-cors-4.png)](media/how-to-enable-cors/enable-cors-4.png#lightbox)
 1. You can modify the Allowed Origins in CORS page at any time after Azure data manager for Energy instance is provisioned.
    1. For adding a new origin type on the box below.
-       [![Screenshot of viewing the CORS policy set out.](media/how-to-enable-cors/enable-cors-5.png)](media/how-to-enable-cors/enable-cors-5.png#lightbox)
+       [![Screenshot of adding new origin.](media/how-to-enable-cors/enable-cors-5.png)](media/how-to-enable-cors/enable-cors-5.png#lightbox)
    1. For deleting an existing allowed origin use the icon.
-      [![Screenshot of viewing the CORS policy set out.](media/how-to-enable-cors/enable-cors-6.png)](media/how-to-enable-cors/enable-cors-6.png#lightbox)
+      [![Screenshot of deleting the existing origin.](media/how-to-enable-cors/enable-cors-6.png)](media/how-to-enable-cors/enable-cors-6.png#lightbox)
    1. If * ( wildcard all) is added in any of the allowed origins then please ensure to delete all the other individual allowed origins.
 1. Once the Allowed origin is added, the state of resource provisioning is in “Accepted” and during this time further modifications of CORS policy will not be possible. It taken 15 mins for CORS policies to be updated before update CORS window is available again for modifications.
-     [![Screenshot of viewing the CORS policy set out.](media/how-to-enable-cors/enable-cors-7.png)](media/how-to-enable-cors/enable-cors-7.png#lightbox)
+     [![Screenshot of CORS update window set out.](media/how-to-enable-cors/enable-cors-7.png)](media/how-to-enable-cors/enable-cors-7.png#lightbox)
 
 ## How are CORS rules evaluated?
 CORS rules are evaluated as follows:
