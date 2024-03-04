@@ -31,7 +31,7 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to
 
 This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app to deploy to Azure Static Web Apps.
 
-1. Navigate to the following location to create a new repository:
+1. Navigate to the following location to create a new repository.
 
     [https://github.com/staticwebdev/nextjs-hybrid-starter/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Fnextjs-hybrid-starter%2Fgenerate)
 
