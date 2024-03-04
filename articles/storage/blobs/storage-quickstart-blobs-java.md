@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage cli
 author: pauljewellmsft
 ms.author: pauljewell
 ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
-ms.date: 02/28/2024
+ms.date: 03/04/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: java
@@ -428,7 +428,11 @@ export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 
 The code below retrieves the connection string for the storage account from the environment variable created earlier, and uses the connection string to construct a service client object.
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Add this code to the end of the `Main` method:
+
+::: zone-end
 
 ```java
 // Retrieve the connection string for use with the application. 
@@ -448,30 +452,32 @@ BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
 
 ### Create a container
 
-Decide on a name for the new container. The code below appends a UUID value to the container name to ensure that it's unique.
+Create a new container in your storage account by creating an instance of the [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) class and calling the [create](/java/api/com.azure.storage.blob.blobcontainerclient.create) method. In this example, the code appends a GUID value to the container name to ensure that it's unique.
 
-> [!IMPORTANT]
-> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-
-Next, create an instance of the [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) class, then call the [create](/java/api/com.azure.storage.blob.blobcontainerclient.create) method to actually create the container in your storage account.
+::: zone pivot="blob-storage-quickstart-scratch"
 
 Add this code to the end of the `Main` method:
+
+::: zone-end
 
 :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_CreateContainer":::
 
 To learn more about creating a container, and to explore more code samples, see [Create a blob container with Java](storage-blob-container-create-java.md).
 
+> [!IMPORTANT]
+> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+
 ### Upload blobs to a container
+
+Upload a blob to a container by calling the [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) method. The example code creates a text file in the local *data* directory to upload to the container.
+
+::: zone pivot="blob-storage-quickstart-scratch"
 
 Add this code to the end of the `Main` method:
 
+::: zone-end
+
 :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_UploadBlobFromFile":::
-
-The code snippet completes the following steps:
-
-1. Creates a text file in the local *data* directory.
-1. Gets a reference to a [BlobClient](/java/api/com.azure.storage.blob.blobclient) object by calling the [getBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
-1. Uploads the local text file to the blob by calling the [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) method. This method creates the blob if it doesn't already exist, but won't overwrite it if it does.
 
 To learn more about uploading blobs, and to explore more code samples, see [Upload a blob with Java](storage-blob-upload-java.md).
 
@@ -479,7 +485,11 @@ To learn more about uploading blobs, and to explore more code samples, see [Uplo
 
 List the blobs in the container by calling the [listBlobs](/java/api/com.azure.storage.blob.blobcontainerclient.listblobs) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Add this code to the end of the `Main` method:
+
+::: zone-end
 
 :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_ListBlobs":::
 
@@ -489,7 +499,11 @@ To learn more about listing blobs, and to explore more code samples, see [List b
 
 Download the previously created blob by calling the [downloadToFile](/java/api/com.azure.storage.blob.specialized.blobclientbase.downloadtofile) method. The example code adds a suffix of "DOWNLOAD" to the file name so that you can see both files in local file system.
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Add this code to the end of the `Main` method:
+
+::: zone-end
 
 :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_DownloadBlob":::
 
@@ -501,11 +515,17 @@ The following code cleans up the resources the app created by removing the entir
 
 The app pauses for user input by calling `System.console().readLine()` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were created correctly, before they're deleted.
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Add this code to the end of the `Main` method:
+
+::: zone-end
 
 :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_DeleteContainer":::
 
 To learn more about deleting a container, and to explore more code samples, see [Delete and restore a blob container with Java](storage-blob-container-delete-java.md).
+
+::: zone pivot="blob-storage-quickstart-scratch"
 
 ## Run the code
 
@@ -566,9 +586,27 @@ Done
 
 Before you begin the cleanup process, check your *data* folder for the two files. You can compare them and observe that they're identical.
 
+::: zone-end
+
 ## Clean up resources
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 After you've verified the files and finished testing, press the **Enter** key to delete the test files along with the container you created in the storage account. You can also use [Azure CLI](storage-quickstart-blobs-cli.md#clean-up-resources) to delete resources.
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+When you're done with the quickstart, you can clean up the resources you created by running the following command:
+
+```console
+azd down
+```
+
+You'll be prompted to confirm the deletion of the resources. Enter `y` to confirm.
+
+::: zone-end
 
 ## Next steps
 
