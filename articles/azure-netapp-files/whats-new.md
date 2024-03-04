@@ -16,10 +16,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2024
 
-* [NFS protocol version conversion](convert-nfsv3-nfsv41.md) is now generally available (GA).
-
-        You are still required to register the feature before using it for the first time.
-
 * [Volume and protocol enhancement](understand-volume-languages.md): extended language support for file and path names
 
     Azure NetApp Files uses a default volume language of C.UTF-8, which provides POSIX compliant UTF-8 encoding for character sets. The C.UTF-8 language natively supports characters with a size of 0-3 bytes, which includes a majority of the world’s languages on the Basic Multilingual Plane (BMP) (including Japanese, German, and most of Hebrew and Cyrillic). 

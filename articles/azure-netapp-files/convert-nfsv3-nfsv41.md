@@ -37,7 +37,7 @@ Converting a volume between NFSv3 and NFSv4.1 does not require that you create a
 
 ## Register the option 
 
-If you are using this option for the first time, register the option before using it. 
+The option to convert an NFS volume between NFSv3 and NFSv4.1 is currently in preview. If you are using this option for the first time, register the option before using it. 
 
 > [!IMPORTANT]
 > Until further communication, [Azure NetApp Files for Azure Government](azure-government.md) users should contact their account team to access this option instead of following the steps below.
