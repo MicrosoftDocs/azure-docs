@@ -33,7 +33,7 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
 ## Find URLs for your Data Product
 
 1. Note the ingestion storage URL for your Data Product. You can find the ingestion storage URL on your Data Product overview page in the Azure portal, in the form *`<account-name>.blob.core.windows.net`*.
-1. Note the URL of the Data Product Key Vault. You can find the URL by starting on the Data Product overview page in the Azure portal, then selecting the resource group, then selecting the Key Vault from the list of resources in the resource group. On the Key Vault overview page, you want the 'Vault URI' field, which appears as *`<vault-name>.vault.azure.net`*.
+1. Note the URL of the Data Product Key Vault. This Key Vault is in a resource group named <data-product-name>-HostedResources-<unique-id>. On the Key Vault overview page, you want the 'Vault URI' field, which appears as *`<vault-name>.vault.azure.net`*.
 
 ## Look up a public IP address for login.microsoft.com
 
