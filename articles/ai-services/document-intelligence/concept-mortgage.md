@@ -25,10 +25,9 @@ The Document Intelligence Mortgage model uses powerful Optical Character Recogni
 
 **Supported document types:**
 
-* Invoices
-* Utility bills
-* Sales orders
-* Purchase orders
+* 1003 End-User License Agreement (EULA)
+* Form 1008
+* Mortgage closing disclosure
 
 ## Automated Mortgage documents processing
 
