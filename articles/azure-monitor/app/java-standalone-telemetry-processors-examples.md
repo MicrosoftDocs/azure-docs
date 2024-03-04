@@ -407,9 +407,9 @@ Second configuration example with regular expression group name:
   }
 }
 ```
-### Non-string typed attributes samples
+### Nonstring typed attributes samples
 
-Starting 3.4.19 GA, telemetry processors support non-string typed attributes:
+Starting 3.4.19 GA, telemetry processors support nonstring typed attributes:
 `boolean`, `double`, `long`, `boolean-array`, `double-array`, `long-array`, and `string-array`.
 
 When `attributes.type` is not provided in the json, it's default to `string`.
@@ -461,7 +461,7 @@ The following sample inserts the new attribute `{"newAttributeKeyStrict": "newAt
 
 ```
 
-Additionally, non-string typed attributes support `regexp`. 
+Additionally, nonstring typed attributes support `regexp`.
 
 The following sample inserts the new attribute `{"newAttributeKeyRegexp": "newAttributeValueRegexp"}` into spans and logs where the attribute `longRegexpAttributeKey` matches the value from `400` to `499`.
 
