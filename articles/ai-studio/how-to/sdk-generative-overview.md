@@ -121,8 +121,11 @@ Detailed `DEBUG` level logging, including request/response bodies and unredacted
 
 The Azure AI Generative Python SDK includes a telemetry feature that collects usage and failure data about the SDK and sends it to Microsoft when you use the SDK in a Jupyter Notebook only. Telemetry won't be collected for any use of the Python SDK outside of a Jupyter Notebook.
 
-Telemetry data helps the SDK team understand how the SDK is used so it can be improved and the information about failures helps the team resolve problems and fix bugs. The SDK telemetry feature is enabled by default for Jupyter Notebook usage and can't be enabled for non-Jupyter scenarios. To opt out of the telemetry feature in a Jupyter scenario, set the environment variable `"AZURE_AI_GENERATIVE_ENABLE_LOGGING"` to `"False"`.
+Telemetry data helps the SDK team understand how the SDK is used so it can be improved and the information about failures helps the team resolve problems and fix bugs. The SDK telemetry feature is enabled by default for Jupyter Notebook usage and can't be enabled for non-Jupyter scenarios. 
 
+To opt out of the telemetry feature in a Jupyter scenario:
+- When using the `azure-ai-generative` package, set both of the following environment variables to `"False"`: `"AZURE_AI_GENERATIVE_ENABLE_LOGGING"` and `"AZURE_AI_RESOURCES_ENABLE_LOGGING"`. Both environment variables need to be set to `"False"` since `azure-ai-generative` is dependent on `azure-ai-resources`.
+- When using the `azure-ai-resources` package, set the environment variable `"AZURE_AI_RESOURCES_ENABLE_LOGGING"` to `"False"`. 
 
 ## Next steps
 

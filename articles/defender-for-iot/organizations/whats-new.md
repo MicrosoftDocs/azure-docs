@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 24.1.0**:<br>- [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) <br><br>- [New fields for SNMP MIB OIDs](#new-fields-for-snmp-mib-oids)|
+| **OT networks** | **Version 24.1.0**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) <br><br>- [New OT appliance hardware profile](#new-ot-appliance-hardware-profile) <br><br>- [New fields for SNMP MIB OIDs](#new-fields-for-snmp-mib-oids)|
 
 ### Alert suppression rules from the Azure portal (Public preview)
 
@@ -35,7 +35,7 @@ For more information, see [Suppress irrelevant alerts](how-to-accelerate-alert-i
 
 ### Focused alerts in OT/IT environments
 
-Organizations where sensors are deployed between OT and IT networks deal with many alerts, related to both OT and IT traffic. The amount of alerts, some of which are irrelevant, can cause alert fatigue and affect overall performance.
+Organizations where sensors are deployed between OT and IT networks deal with many alerts, related to both OT and IT traffic. The number of alerts, some of which are irrelevant, can cause alert fatigue and affect overall performance.
 
 To address these challenges, we've updated Defender for IoT's detection policy to automatically trigger alerts based on business impact and network context, and reduce low-value IT related alerts.  
 
@@ -73,6 +73,12 @@ To migrate from the L60 profile to a supported profile follow the [Back up and r
 When the license for one or more of your OT sites is about to expire, a note is visible at the top of Defender for IoT in the Azure portal, reminding you to renew your licenses. To continue to get security value from Defender for IoT, select the link in the note to renew the relevant licenses in the Microsoft 365 admin center. Learn more about [Defender for IoT billing](billing.md).
 
 :::image type="content" source="media/whats-new/license-renewal-note.png" alt-text="Screenshot of the license renewal reminder note." lightbox="media/whats-new/license-renewal-note.png":::
+
+### New OT appliance hardware profile
+
+The DELL XE4 SFF appliance is now supported for OT sensors monitoring production lines. This is part of the L500 hardware profile, a *Production line* environment, with six cores, 8-GB RAM, and 512-GB disk storage.
+
+For more information, see [DELL XE4 SFF](appliance-catalog/dell-xe4-sff.md).
 
 ### New fields for SNMP MIB OIDs
 
