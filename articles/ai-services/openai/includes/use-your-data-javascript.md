@@ -33,61 +33,47 @@ Your app's _package.json_ file will be updated with the dependencies.
 
 Open a command prompt where you want the new project, and create a new file named ChatWithOwnData.js. Copy the following code into the ChatWithOwnData.js file.
 
+
+
 ```javascript
-const { OpenAIClient } = require("@azure/openai");
-const { DefaultAzureCredential } = require("@azure/identity")
+const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 
 // Set the Azure and AI Search values from environment variables
-const endpoint = process.env["AOAIEndpoint"];
-const azureApiKey = process.env["AOAIKey"];
-const searchEndpoint = process.env["SearchEndpoint"];
-const searchKey = process.env["SearchKey"];
-const searchIndex = process.env["SearchIndex"];
-const deploymentId = process.env["AOAIDeploymentId"];
+const endpoint = process.env["AZURE_OPENAI_ENDPOINT"];
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"];
+const searchEndpoint = process.env["AZURE_AI_SEARCH_ENDPOINT"];
+const searchKey = process.env["AZURE_AI_SEARCH_API_KEY"];
+const searchIndex = process.env["AZURE_AI_SEARCH_INDEX"];
+const deploymentId = process.env["AZURE_OPEN_AI_DEPLOYMENT_ID"];
 
-async function main() {
-  console.log("== Chat Using Your Own Data Sample ==");
+async function main(){
   const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
 
   const messages = [
     { role: "user", content: "What are the differences between Azure Machine Learning and Azure AI services?" },
   ];
 
-  // Get chat responses from Azure OpenAI deployment using your own data via Azure AI Search
-  const events = client.listChatCompletions(deploymentId, messages, { 
+  console.log(`Messages: ${messages.map((m) => m.content).join("\n")}`);
+
+  const events = await client.streamChatCompletions(deploymentId, messages, { 
+    maxTokens: 128,
     azureExtensionOptions: {
       extensions: [
         {
           type: "AzureCognitiveSearch",
-          parameters: {
-            endpoint: searchEndpoint,
-            key: searchKey,
-            indexName: searchIndex,
-          },
+          endpoint: searchEndpoint,
+          key: searchKey,
+          indexName: searchIndex,
         },
       ],
     },
   });
-
-  // Display chat responses
   for await (const event of events) {
+    var response = "";
     for (const choice of event.choices) {
       const delta = choice.delta?.content;
-      const role = choice.delta?.role;
-      if (delta && role) {
-        console.log(`${role}: ${delta}`);
-
-        const contextMessages = choice.delta?.context?.messages;
-        if (!!contextMessages) {
-            console.log("===");
-
-            console.log("Context information (e.g. citations) from chat extensions:");
-            console.log("===");
-            for (const message of contextMessages) {
-                // Display context included with chat responses (such as citations)
-                console.log(message.content);
-            }
-        }
+      if (delta !== undefined) {
+        console.log(`Chatbot: ${delta}`);
       }
     }
   }
@@ -96,6 +82,8 @@ async function main() {
 main().catch((err) => {
   console.error("The sample encountered an error:", err);
 });
+
+
 
 module.exports = { main };
 ```
@@ -110,29 +98,15 @@ node.exe ChatWithOwnData.js
 ## Output
 
 ```output
-== Chat With Your Own Data Sample ==
-assistant: Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
-===
-Context information (e.g. citations) from chat extensions:
-===
-tool: {
-  'citations': [
-    {
-      'content': '...',
-      'id': null,
-      'title': '...',
-      'filepath': '...',
-      'url': '...',
-      'metadata': {
-        "chunking': 'orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38.'
-      },
-      'chunk_id': '2'
-    },
-    ...
-  ],
-  'intent': '[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]'
-}
-
+Messages: What are the differences between Azure Machine Learning and Azure AI services?
+Chatbot: Azure 
+Chatbot: Machine 
+Chatbot: Learning 
+Chatbot: is 
+Chatbot: a 
+Chatbot: cloud-based 
+Chatbot: service
+...
 ```
 
 > [!div class="nextstepaction"]
