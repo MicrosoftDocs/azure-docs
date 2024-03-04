@@ -269,7 +269,7 @@ Certain Next.js versions require specific Node.js versions. To configure this, y
 
 ## Set environment variables for Next.js
 
-Next.js uses environment variables at build time and at request time, to support both static page generation and dynamic page generation with server-side rendering. Therefore, environment variables need to be set both within the build and deploy task, as well as within the _Environment variables_ of you Azure Static Web Apps resource. 
+Next.js uses environment variables at build time and at request time, to support both static page generation and dynamic page generation with server-side rendering. Therefore, set environment variables both within the build and deploy task, and in the _Environment variables_ of your Azure Static Web Apps resource. 
 
 ```yml
 ...
