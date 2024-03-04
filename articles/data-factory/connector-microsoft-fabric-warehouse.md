@@ -11,7 +11,7 @@ ms.custom: synapse
 ms.date: 02/23/2024
 ---
 
-# Copy and Transform data in Microsoft Fabric Warehouse using Azure Data Factory or Azure Synapse Analytics
+# Copy and transform data in Microsoft Fabric Warehouse using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -388,7 +388,7 @@ Using [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?source=recom
 
 Microsoft Fabric Warehouse COPY statement directly supports Azure Blob, Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. If your source data meets the criteria described in this section, use COPY statement to copy directly from the source data store to Microsoft Fabric Warehouse. Otherwise, use [Staged copy by using COPY statement](#staged-copy-by-using-copy-statement). The service checks the settings and fails the copy activity run if the criteria is not met.
 
-1. The **source linked service and format** are with the following types and authentication methods:
+- The **source linked service and format** are with the following types and authentication methods:
 
     | Supported source data store type                             | Supported format           | Supported source authentication type                         |
     | :----------------------------------------------------------- | -------------------------- | :----------------------------------------------------------- |
@@ -396,20 +396,20 @@ Microsoft Fabric Warehouse COPY statement directly supports Azure Blob, Azure Da
     | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Account key authentication, shared access signature authentication |                                       
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Delimited text](format-delimited-text.md)<br/>[Parquet](format-parquet.md) | Account key authentication, shared access signature authentication |
 
-2. Format settings are with the following:
+- Format settings are with the following:
 
-   1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **``GZip``**.
-   1. For **Delimited text**:
-      1. `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
-      2. `nullValue` is left as default or set to **empty string** ("").
-      3. `encodingName` is left as default or set to **utf-8 or utf-16**.
-      4. `escapeChar` must be same as `quoteChar`, and is not empty.
-      5. `skipLineCount` is left as default or set to 0.
-      6. `compression` can be **no compression** or **``GZip``**.
+   - For **Parquet**: `compression` can be **no compression**, **Snappy**, or **``GZip``**.
+   - For **Delimited text**:
+      - `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
+      - `nullValue` is left as default or set to **empty string** ("").
+      - `encodingName` is left as default or set to **utf-8 or utf-16**.
+      - `escapeChar` must be same as `quoteChar`, and is not empty.
+      - `skipLineCount` is left as default or set to 0.
+      - `compression` can be **no compression** or **``GZip``**.
 
-3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*` or `*.*`. 
+- If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*` or `*.*`. 
 
-4. `wildcardFolderPath` , `wildcardFilename` (other than `*`or `*.*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` and `additionalColumns` are not specified.
+- `wildcardFolderPath` , `wildcardFilename` (other than `*`or `*.*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` and `additionalColumns` are not specified.
 
 The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
 
