@@ -7,7 +7,7 @@ ms.date: 08/25/2023
 ms.author: daknappe
 ---
 
-# Administrative template for Azure Virtual Desktop
+# Use the administrative template for Azure Virtual Desktop
 
 We've created an administrative template for Azure Virtual Desktop to configure some features of Azure Virtual Desktop. You can use the template with:
 

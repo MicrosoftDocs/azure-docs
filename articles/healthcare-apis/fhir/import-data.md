@@ -43,6 +43,7 @@ The `import` operation supports two modes: initial mode and incremental mode. Ea
 > Also, if multiple resources share the same resource ID, then only one of those resources is imported at random. An error is logged for the resources sharing the same resource ID.
 
 This table shows the difference between import modes
+
 |Areas|Initial mode  |Incremental mode  |
 |:------------- |:-------------|:-----|
 |Capability|Initial load of data into FHIR service|Continuous ingestion of data into FHIR service (Incremental or Near Real Time).|

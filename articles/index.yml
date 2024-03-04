@@ -110,7 +110,7 @@ productDirectory:
       imageSrc: ai-services/media/service-icons/content-safety.svg
       azureCategories:
         - ai-machine-learning
-      url: ai-services/content-moderator/index.yml
+      url: ai-services/content-safety/index.yml
     # Card
     - title: Azure AI Bot Service
       summary: Intelligent, serverless bot service that scales on demand
