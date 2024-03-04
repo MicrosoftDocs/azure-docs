@@ -46,8 +46,18 @@ The table below lists each product that offers migration guidance and/or informa
 | [Azure Cache for Redis](migrate-cache-redis.md)|
 | [Azure AI Search](migrate-search-service.md)|
 | [Azure Container Instances](migrate-container-instances.md)|
+| [Azure Container Registry](/azure/container-registry/zone-redundancy?toc=/azure/reliability) |
+| [Azure Cosmos DB](/azure/cosmos-db/high-availability?toc=/azure/reliability) |
 | [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md)|
+| [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/how-to-manage-high-availability-portal#enable-high-availability-during-server-creation)|
+| [Azure Elastic SAN](reliability-elastic-san.md#availability-zone-migration)|
+| [Azure Functions](reliability-functions.md#availability-zone-migration)|
+| [Azure HDInsight](reliability-hdinsight.md#availability-zone-migration)|
+| [Azure Key Vault](/azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability)|
+| [Azure Kubernetes Service](/azure/aks/availability-zones?toc=/azure/reliability)|
+| [Azure Logic Apps](/azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard&toc=/azure/reliability)|
 | [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md)|
+| [Azure Service Bus](/azure/service-bus-messaging/service-bus-geo-dr#availability-zones?toc=/azure/reliability)|
 | [Azure SQL Managed Instance](migrate-sql-managed-instance.md)|
 
 
