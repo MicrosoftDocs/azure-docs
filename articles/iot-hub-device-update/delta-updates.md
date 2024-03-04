@@ -37,7 +37,7 @@ An update handler integrates with the Device Update agent to perform the actual 
 
 ### Delta processor
 
-The delta processor re-creates the original SWU image file on your device after the delta file is downloaded, so your update handler can install the SWU file. You'll find all the delta processor code in the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo.
+The delta processor re-creates the original SWU image file on your device after the delta file is downloaded, so your update handler can install the SWU file. The delta processor code is available in the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo.
 
 To add the delta processor component to your device image and configure it for use, follow the README.md instructions to use CMAKE to build the delta processor from source. From there, install the shared object (libadudiffapi.so) directly by copying it to the `/usr/lib` directory:  
 
@@ -48,9 +48,9 @@ sudo ldconfig
 
 ## Add a source SWU image file to your device
 
-After a delta update is downloaded to a device, it must be compared against a valid _source SWU file_ that has been previously cached on the device. This is needed for the delta update to re-create the full target image. The simplest way to populate this cached image is to deploy a full image update to the device via the Device Update service (using the existing [import](import-update.md) and [deployment](deploy-update.md) processes). As long as the device is configured with the Device Update agent (version 1.0 or later) and delta processor, the Device Update agent caches the installed SWU file automatically for later delta update use.
+After a delta update is downloaded to a device, it must be compared against a valid _source SWU file_ that was previously cached on the device. This process is needed for the delta update to re-create the full target image. The simplest way to populate this cached image is to deploy a full image update to the device via the Device Update service (using the existing [import](import-update.md) and [deployment](deploy-update.md) processes). As long as the device is configured with the Device Update agent (version 1.0 or later) and delta processor, the Device Update agent caches the installed SWU file automatically for later delta update use.
 
-If you instead want to directly pre-populate the source image on your device, the path where the image is expected is:
+If you instead want to directly prepopulate the source image on your device, the path where the image is expected is:
 
 `[BASE_SOURCE_DOWNLOAD_CACHE_PATH]/sha256-[ENCODED HASH]`
 
@@ -110,9 +110,9 @@ The following table describes the arguments in more detail:
 |--|--|
 | [source_archive] | This is the image that the delta is based against when creating the delta. _Important_: this image must be identical to the image that is already present on the device (for example, cached from a previous update). |
 | [target_archive] | This is the image that the delta updates the device to. |
-| [output_path] | The path (including the desired name of the delta file being generated) on the host machine where the delta file is placed after creation.  If the path doesn't exist, the tool will create it. |
-| [log_folder] | The path on the host machine where logs creates. We recommend defining this location as a sub folder of the output path. If the path doesn't exist, the tool will create it. |
-| [working_folder] | The path on the machine where collateral and other working files are placed during the delta generation. We recommend defining this location as a subfolder of the output path. If the path doesn't exist, the tool will create it. |
+| [output_path] | The path (including the desired name of the delta file being generated) on the host machine where the delta file is placed after creation.  If the path doesn't exist, the tool creates it. |
+| [log_folder] | The path on the host machine where logs creates. We recommend defining this location as a sub folder of the output path. If the path doesn't exist, the tool creates it. |
+| [working_folder] | The path on the machine where collateral and other working files are placed during the delta generation. We recommend defining this location as a subfolder of the output path. If the path doesn't exist, the tool creates it. |
 | [recompressed_target_archive] | The path on the host machine where the recompressed target file is created. This file is used instead of <target_archive> as the target file for diff generation. If this path exists before calling DiffGenTool, the path is overwritten. We recommend defining this path as a file in the subfolder of the output path. |
 | "[signing_command]" _(optional)_ | A customizable command used for signing the sw-description file within the recompressed archive file. The sw-description file in the recompressed archive is used as an input parameter for the signing command; DiffGenTool expects the signing command to create a new signature file, using the name of the input with `.sig` appended. Surrounding the parameter in double quotes is needed so that the whole command is passed in as a single parameter. Also, avoid putting the '~' character in a key path used for signing, and use the full home path instead (for example, use /home/USER/keys/priv.pem instead of ~/keys/priv.pem). |
 
@@ -173,7 +173,7 @@ Use the `relatedFiles` object to specify information about the delta update file
 
 Both of these properties are specific to your _source SWU image file_ that you used as an input to the DiffGen tool when creating your delta update. The information about the source SWU image is needed in your import manifest even though you don't actually import the source image. The delta components on the device use this metadata about the source image to locate the image on the device once the delta is downloaded.
 
-Use the `downloadHandler` object to specify how the Device Update agent orchestrates the delta update, using the related files feature. Unless you are customizing your own version of the Device Update agent for delta functionality, you should only use this downloadHandler:
+Use the `downloadHandler` object to specify how the Device Update agent orchestrates the delta update, using the related files feature. Unless you're customizing your own version of the Device Update agent for delta functionality, you should only use this downloadHandler:
 
 ```json
 "downloadHandler": {
@@ -200,7 +200,7 @@ Once you create your import manifest, you're ready to import the delta update. T
 
 ## Deploy the delta update to your devices
 
-When you deploy a delta update, the experience in the Azure portal looks identical to deploying a regular image update. For more information on deploying updates, see  [Deploy an update by using Device Update for Azure IoT Hub](deploy-update.md)
+When you deploy a delta update, the experience in the Azure portal looks identical to deploying a regular image update. For more information on deploying updates, see  [Deploy an update by using Device Update for Azure IoT Hub](deploy-update.md).
 
 Once you create the deployment for your delta update, the Device Update service and client automatically identify if there's a valid delta update for each device you're deploying to. If a valid delta is found, the delta update is downloaded and installed on that device. If there's no valid delta update found, the full image update (the recompressed target SWU image) is downloaded instead as a fallback. This approach ensures that all devices you're deploying the update to get to the appropriate version.
 
@@ -234,7 +234,7 @@ If the update was unsuccessful, it shows an error status that can be interpreted
     | SOURCE_UPDATE_CACHE | 9 | 0x09 | Indicates errors in Delta Download handler extension Source Update Cache.   Example: 0x909XXXXX |
     | DELTA_PROCESSOR | 10 | 0x0A | Error code for errors from delta processor API.   Example: 0x90AXXXXX |
 
-  - If the error code isn't present in [result.h](https://github.com/Azure/iot-hub-device-update/blob/main/src/inc/aduc/result.h), it's likely an error in the delta processor component (separate from the Device Update agent). If so, the extendedResultCode will be a negative decimal value of the following hexadecimal format: 0x90AXXXXX
+  - If the error code isn't present in [result.h](https://github.com/Azure/iot-hub-device-update/blob/main/src/inc/aduc/result.h), it's likely an error in the delta processor component (separate from the Device Update agent). If so, the extendedResultCode is a negative decimal value of the following hexadecimal format: 0x90AXXXXX
 
     - 9 is "Delta Facility"
     - 0A is "Delta Processor Component" (ADUC_COMPONENT_DELTA_DOWNLOAD_HANDLER_DELTA_PROCESSOR)
