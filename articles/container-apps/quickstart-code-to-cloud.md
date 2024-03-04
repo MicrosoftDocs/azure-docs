@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 01/26/2024
+ms.date: 01/27/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-code-to-cloud-segmemts
 ---
@@ -195,8 +195,7 @@ Extract the download and change into the *containerapps-albumapi-csharp-buildpac
 Extract the download and change into the *containerapps-albumapi-java-buildpack/src* folder.
 
 > [!NOTE] 
-> The Java Builpack currently supports the [Maven tool](https://maven.apache.org/what-is-maven.html) to build your application.
-
+> The Java Buildpack uses [Maven](https://maven.apache.org/what-is-maven.html) with default settings to build your application. Alternatively, you can the [use `--build-env-vars` parameter to configure the image build from source code](java-build-environment-variables.md).
 
 # [JavaScript](#tab/javascript)
 
@@ -204,13 +203,11 @@ Extract the download and change into the *containerapps-albumapi-java-buildpack/
 
 Extract the download and change into the *containerapps-albumapi-javascript-buildpack/src* folder.
 
-
 # [Python](#tab/python)
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/buildpack) to your machine.
 
 Extract the download and change into the *containerapps-albumapi-python-buildpack/src* folder.
-
 
 # [Go](#tab/go)
 

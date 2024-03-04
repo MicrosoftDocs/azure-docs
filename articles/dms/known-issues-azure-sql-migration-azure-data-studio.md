@@ -378,7 +378,7 @@ This article provides a list of known issues and troubleshooting steps associate
 
 ## Azure Database Migration Service Naming Rules
 
-If your DMS service failed with "Error: Service name 'x_y_z' is not valid", then you need to follow the Azure Database Migration Service Naming Rules. As Azure Database Migration Service uses Azure Data factory for its compute, it follows the exact same naming rules as mentioned [here](https://learn.microsoft.com/azure/data-factory/naming-rules).
+If your DMS service failed with "Error: Service name 'x_y_z' is not valid", then you need to follow the Azure Database Migration Service Naming Rules. As Azure Database Migration Service uses Azure Data factory for its compute, it follows the exact same naming rules as mentioned [here](../data-factory/naming-rules.md).
 
 ## Azure SQL Database limitations
 

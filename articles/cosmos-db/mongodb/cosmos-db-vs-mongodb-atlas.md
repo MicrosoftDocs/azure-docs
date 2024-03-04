@@ -7,7 +7,7 @@ ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
-ms.date: 06/03/2023
+ms.date: 02/27/2024
 ---
 
 # Comparing MongoDB Atlas and Azure Cosmos DB for MongoDB
@@ -21,39 +21,40 @@ ms.date: 06/03/2023
 
 ## Azure Cosmos DB for MongoDB vs MongoDB Atlas
 
-| Feature | Azure Cosmos DB for MongoDB | Vendor-managed MongoDB Atlas |
+| Feature | Azure Cosmos DB for MongoDB | MongoDB Atlas by MongoDB, Inc |
 |---------|---------|----------------------------------|
 | MongoDB wire protocol | Yes | Yes |
 | Compatible with MongoDB tools and drivers | Yes | Yes |
-| Global Distribution | Yes, [globally distributed](../distribute-data-globally.md) with automatic and fast data replication across any number of Azure regions | Yes, globally distributed with manual and scheduled data replication across any number of cloud providers or regions |
-| SLA covers cloud platform | Yes | No. "Services, hardware, or software provided by a third party, such as cloud platform services on which MongoDB Atlas runs are not covered" |
-| 99.999% availability SLA | [Yes](../high-availability.md) | No |
-| Instantaneous Scaling | Yes, [database instantaneously scales](../provision-throughput-autoscale.md) with zero performance impact on your applications | No, requires 1+ hours to vertically scale up and 24+ hours to vertically scale down. Performance impact during scale up may be noticeable |
-| True active-active clusters | Yes, with [multi-primary writes](./how-to-configure-multi-region-write.md). Data for the same shard can be written to multiple regions  | No |
-| Vector Search for AI applications | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | Yes |
-| Vector Search in Free Tier | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | No |
+| Global Distribution | Yes, [globally distributed](../distribute-data-globally.md) with automatic and fast data replication across any number of Azure regions | Yes, globally distributed with automatic and fast data replication across supported cloud providers or regions |
+| 99.999% availability SLA | [Yes](../high-availability.md) | No. MongoDB Atlas offers a 99.995% availability SLA |
+| SLA covers cloud platform | Yes | No. For more details, read the MongoDB Atlas SLA |
+| Instantaneous and automatic scaling | Yes, ​Azure Cosmos DB RU-based deployments [automatically and instantaneously scale 10x with zero performance impact](../provision-throughput-autoscale.md) on your applications. Scaling of vCore-based instances is managed by users | ​​​Atlas dedicated instances managed by users, or scale automatically after analyzing the workload over a day. |
+| Multi-region writes (also known as multi-master) | ​​Yes. With multi-region writes, customers can update any document in any region, enabling 99.999% availability SLA  | ​​​Yes. With multi-region zones, customers can configure different write regions per shard. Data within a single shard is writable in a single region.​​  |
+| Limitless scale | ​​Azure Cosmos DB provides ability to scale RUs up to and beyond a billion requests per second, with unlimited storage, fully managed, as a service​. ​​vCore-based Azure Cosmos DB for MongoDB deployments support scaling through sharding | ​​​​MongoDB Atlas deployments support scaling through sharding​. |
+| Independent scaling for throughput and storage | Yes, with RU-based Azure Cosmos DB for MongoDB | No |
+| Vector Search for AI applications | Yes, with [vCore-based Azure Cosmos DB for MongoDB](./vcore/vector-search.md) | Yes, with MongoDB Atlas dedicated instances |
 | Integrated text search, geospatial processing | Yes | Yes |
-| Free tier | [1,000 request units (RUs) and 25 GB storage forever](../try-free.md). Prevents you from exceeding limits if you want. Azure Cosmos DB for MognoDB vCore offers Free Tier with 32GB storage forever. | Yes, with 512 MB storage |
+| Free tier | [1,000 request units (RUs) and 25 GB storage forever](../try-free.md). Prevents you from exceeding limits if you want. vCore-based Azure Cosmos DB for MongoDB offers Free Tier with 32GB storage forever. | Yes, with 512 MB storage |
 | Live migration | Yes | Yes |
-| Azure Integrations | Native [first-party integrations](./integrations-overview.md) with Azure services such as Azure Functions, Azure Logic Apps, Azure Stream Analytics, and Power BI and more | Limited number of third party integrations |
-| Choice of instance configuration | Yes, with [Azure Cosmos DB for MongoDB vCore](./vcore/introduction.md) | Yes |
-| Expert Support | Microsoft, with 24x7 support for Azure Cosmos DB. One support team to address all of your Azure products | MongoDB, Inc. with 24x7 support for MongoDB Atlas. Need separate support teams depending on the product. Support plans costs rise significantly depending on response time chosen |
-| Support for MongoDB multi-document ACID transactions | Yes, with [Azure Cosmos DB for MongoDB vCore](./vcore/introduction.md) | Yes | 
+| Azure Integrations | [Native first-party integrations with Azure services](./integrations-overview.md) | Third party integrations, including some native Azure services |
+| Choice of instance configuration | Yes, with [vCore-based Azure Cosmos DB for MongoDB](./vcore/introduction.md) | Yes |
+| Expert Support | 24x7 support provided by Microsoft for Azure Cosmos DB. An Azure Support contract covers all Azure products, including Azure Cosmos DB, which allows you to work with one support team without additional support costs  | 24x7 support provided by MongoDB for MongoDB Atlas with various SLA options available |
+| Support for MongoDB multi-document ACID transactions | Yes, with [vCore-based Azure Cosmos DB for MongoDB](./vcore/introduction.md) | Yes | 
 | JSON data type support | BSON (Binary JSON) | BSON (Binary JSON) |
-| Support for MongoDB aggregation pipeline | Yes | Yes |
+| Support for MongoDB aggregation pipeline | Yes. Supporting MongoDB wire protocol v5.0 in RU-based and 6.0 in vCore-based​ | Yes |
 | Maximum document size | 16 MB | 16 MB |
 | JSON schema for data governance controls | Currently in development | Yes |
 | Integrated text search | Yes | Yes |
 | Integrated querying of data in cloud object storage | Yes, with Synapse Link | Yes |
 | Blend data with joins and unions for analytics queries | Yes | Yes |
 | Performance recommendations | Yes, with native Microsoft tools | Yes |
-| Replica set configuration | Yes, with [Azure Cosmos DB for MongoDB vCore](./vcore/introduction.md) | Yes |
-| Automatic sharding support | Yes | Limited, since the number of shards must be configured by the developer. Extra costs apply for additional configuration servers. |
+| Replica set configuration | Yes, with [vCore-based Azure Cosmos DB for MongoDB](./vcore/introduction.md) | Yes |
+| Sharding support | Azure Cosmos DB supports automatic, server-side sharding. It manages shard creation, placement, and balancing automatically | Multiple sharding methodologies supported to fit various use cases. Sharding strategy can be changed without impacting the application |
 | Pause and resume clusters | Currently in development | Yes |
-| Data explorer | Yes, using native Azure tooling and MongoDB tooling such as Robo3T | Yes |
+| Data explorer | Yes, using native Azure tooling and Azure Cosmos DB Explorer. Support for third party tools such as Robo3T  | Yes, using native MongoDB tools such as Compass and Atlas Data Explorer. Support for third party tools such as Robo3T |
 | Cloud Providers | Azure. MongoDB wire protocol compatibility enables you to remain vendor-agnostic | Azure, AWS, and Google Cloud |
 | SQL-based connectivity | Yes | Yes |
-| Native data visualization without 3rd party BI tools | Yes, using Power BI | Yes |
+| Native data visualization without 3rd party BI tools | Yes, using Power BI | Yes, with Atlas Charts |
 | Database supported in on-premises and hybrid deployments | No | Yes |
 | Embeddable database with sync for mobile devices | No, due to low user demand | Yes |
 | Granular role-based access control | Yes | Yes |
@@ -62,6 +63,8 @@ ms.date: 06/03/2023
 | Client-side field level encryption | Yes | Yes |
 | LDAP Integration | Yes | Yes | 
 | Database-level auditing | Yes | Yes |
+| Multi-document ACID transactions across collections and partitions | Yes | Yes |
+| Continuous backup with on-demand restore | Yes | Yes |
 
 ## Next steps
 
