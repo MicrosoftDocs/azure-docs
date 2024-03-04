@@ -193,14 +193,13 @@
     - name: Create a pool with public IP addresses
       displayName: static
       href: create-pool-public-ip.md
-    - name: Create a pool without public IP addresses
-      displayName: private
-      href: batch-pool-no-public-ip-address.md
     - name: Create a simplified node communication pool without public IP addresses
       displayName: private
       href: simplified-node-communication-pool-no-public-ip.md
     - name: Create a pool with ephemeral OS disk nodes
       href: create-pool-ephemeral-os-disk.md
+    - name: Create an Azure Batch pool with Auto OS Upgrade
+      href: batch-upgrade-policy.md
     - name: Use extensions with pools
       href: create-pool-extensions.md
     - name: Configure managed identities
