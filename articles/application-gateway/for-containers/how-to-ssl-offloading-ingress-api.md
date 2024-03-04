@@ -1,5 +1,4 @@
 ---
-
 title: SSL offloading with Application Gateway for Containers - Ingress API
 description: Learn how to configure SSL offloading with Application Gateway for Containers using the Ingress API.
 services: application-gateway
