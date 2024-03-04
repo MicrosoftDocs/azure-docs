@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/29/2024
+ms.date: 03/15/2024
 ## Customer intent: As a developer, I want to automate builds and deployments for my Standard logic app workflows.
 ---
 
