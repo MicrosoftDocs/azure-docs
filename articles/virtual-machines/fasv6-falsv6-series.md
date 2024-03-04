@@ -80,4 +80,4 @@ The Falsv6, Fasv6, and Famsv6-series utilize AMD's 4th Generation EPYC<sup>TM</s
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+[Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
