@@ -37,9 +37,9 @@ You can use the Azure portal, preview APIs, or beta Azure SDKs are required to e
 
 ### [**Azure portal**](#tab/portal)
 
-1. On the left, select **Indexers** and then **Add indexer**.
-1. Specify an indexer name and an existing index, data source, and skillset.
-1. Enable incremental caching and specify an Azure Storage account:
+1. On the left, select **Indexers**, and then select **Add indexer**.
+1. Provide an indexer name and an existing index, data source, and skillset.
+1. Enable incremental caching and set the Azure Storage account.
 
    :::image type="content" source="media/search-incremental-index/portal-option.png" alt-text="Screenshot of the portal option for enrichment cache.":::
 

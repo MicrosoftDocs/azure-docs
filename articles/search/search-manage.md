@@ -55,13 +55,13 @@ You can't change the search service name, subscription, resource group, region (
 
 ## Day-one management checklist
 
-On a new search service, we recommend a checklist for configuration.
+On a new search service, we recommend these configuration tasks.
 
 ### Check capacity and understand billing
 
 By default, a search service is created in a minimum configuration of one replica and partition each. You can [modify capacity](search-capacity-planning.md) by adding or removing replicas and partitions, but we recommend waiting until volumes require it. Many customers run production workloads on the minimum configuration.
 
-Some features add to the cost of running the service. [How you're charged for Azure AI Search](search-sku-manage-costs#how-youre-charged-for-azure-ai-search) explains which features have billing impact. You can [disable semantic ranking](semantic-how-to-enable-disable.md) at the service level to prevent usage.
+Some features add to the cost of running the service. [How you're charged for Azure AI Search](search-sku-manage-costs.md#how-youre-charged-for-azure-ai-search) explains which features have billing impact. You can [disable semantic ranking](semantic-how-to-enable-disable.md) at the service level to prevent usage.
 
 ### Enable diagnostic logging
 
