@@ -5,7 +5,7 @@ author: glharper
 ms.author: glharper
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 09/06/2023
+ms.date: 03/04/2024
 ---
 
 [!INCLUDE [Set up required variables](./use-your-data-common-variables.md)]
