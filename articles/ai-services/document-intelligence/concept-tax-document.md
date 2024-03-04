@@ -229,7 +229,6 @@ Based on the provided JSON structure and converting it into the same table forma
 | `Box15`         | number  | Box 15 extracted from 1040.                      | 123456  |
 | `Box16FromForm` | string  | Value can be one of '[noSelection]', '8814', '4972', 'other' or '[multiSelection]'. | 8814  |
 | `Box16FromFormDetails` | object  | Object that contains details about the Box16 |  |
-The conversion of the provided JSON structure into the requested table format would result in the following:
 | `Box16OtherFormNumber` | string  | Box16 Other Form Number extracted from 1040.       | 8888    |
 | `Box16`              | number  | Box 16 extracted from 1040.                        | 123456  |
 | `Box17`              | number  | Box 17 extracted from 1040.                        | 123456  |
