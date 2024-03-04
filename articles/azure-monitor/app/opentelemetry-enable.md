@@ -83,6 +83,7 @@ Download the [applicationinsights-agent-3.5.0.jar](https://github.com/microsoft/
 > [!WARNING]
 >
 > If you are upgrading from an earlier 3.x version, you may be impacted by changing defaults or slight differences in the data we collect. For more information, see the migration section in the release notes.
+> [3.5.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.5.0),
 > [3.4.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.4.0),
 > [3.3.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.3.0),
 > [3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0), and
