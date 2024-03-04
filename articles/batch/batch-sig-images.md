@@ -106,7 +106,7 @@ To create an image requires purchase plan, see [Supply Azure Marketplace purchas
 > 
 > For the purchase plan information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties) VMs.
 > 
-> Use Azure PowerShell [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition) or Azure CLI  [az sig image-definition show](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-show) to check whether the gallery image has correct plan information.
+> Use Azure PowerShell [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition) or Azure CLI  [az sig image-definition show](/cli/azure/sig/image-definition#az-sig-image-definition-show) to check whether the gallery image has correct plan information.
 
 ## Create a pool from a Shared Image using the Azure CLI
 
