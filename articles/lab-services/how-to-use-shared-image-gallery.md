@@ -79,6 +79,23 @@ If instead you choose **Update existing image**, the original custom image's def
 
 ## Troubleshooting
 
+### Unable to save image to the Azure Compute Gallery
+
+Ensure the image name provided during the Export to Azure Compute Gallery request is valid. The virtual machine image name must consist of alpha-numeric characters, hyphens, and periods and no longer than 80 characters.
+
+:::image type="content" source="./media/how-to-use-shared-image-gallery/unable-to-save-image-error.png" alt-text="Screenshot that shows the error message 'Unable to save the image because an error has occured'":::
+
+### Export to gallery not supported across regions
+
+Verify that the lab and lab plan are located in the same region. An image can only be exported from a lab that's located in the same region as the lab plan. 
+
+:::image type="content" source="./media/how-to-use-shared-image-gallery/export-image-cross-region-error.png" alt-text="Screenshot that shows the error message 'Exporting to a gallery does not currently support region mismatches between the lab and the lab plan. Please deploy them in the same regions to use this feature.'"::: 
+
+### Unable to see images from gallery
+
+Images aren't listed in Azure Lab Services unless the appropriate permissions are assigned on an attached compute gallery. Ensure sufficient permissions are configured on an [existing compute gallery](./how-to-attach-detach-shared-image-gallery?tabs=azure-cli#attach-an-existing-compute-gallery-to-a-lab-plan).
+
+
 ### Unable to login with the credentials you used for creating the lab
 
 When you create a new lab from an exported lab VM image, perform the following steps:
