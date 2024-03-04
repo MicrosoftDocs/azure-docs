@@ -104,7 +104,6 @@ This Snowflake connector supports the following authentication types. See the co
 
 - [Basic authentication](#basic-authentication)
 - [Key pair authentication](#key-pair-authentication)
-- [Service Principal authentication](#service-principal-authentication)
 
 ### Basic authentication
 
@@ -205,52 +204,6 @@ In addition to the generic properties that are described in the preceding sectio
                 "type": "SecureString",
                 "value": "<privateKeyPassphrase>"
             },
-            "role": "<role>"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-### Service Principal authentication
-
-To use **Service Principal** authentication, set up the Snowflake Service-to-Service (S2S) authentication environment referring to [How to configure Azure to issue OAuth tokens on behalf of a client to access Snowflake](https://community.snowflake.com/s/article/Create-External-OAuth-Token-Using-Azure-AD-For-The-OAuth-Client-Itself). Afterwards, make note of these values, which you use to define the linked service:
-
-- Application (client) ID, which is **Client ID** in the linked service.
-- Client secret value, which is the **Client secret** in the linked service.
-- Tenant ID
-
-In addition to the generic properties that are described in the preceding section, specify the following properties:
-
-| Property         | Description                                                  | Required |
-| :--------------- | :----------------------------------------------------------- | :------- |
-| tenantId  | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering over the upper-right corner of the Azure portal.  | Yes |
-| clientId | Specify the application's client ID. | Yes |
-| clientSecret | Specify the application's client secret value. | Yes |
-| scope | The scope of the access required. It describes what kind of access will be requested. | Yes |
-
-**Example:**
-
-```json
-{
-    "name": "SnowflakeV2LinkedService",
-    "properties": {
-        "type": "SnowflakeV2",
-        "typeProperties": {
-            "accountIdentifier": "<accountIdentifier>",
-            "database": "<database>",
-            "warehouse": "<warehouse>",
-            "authenticationType": "AADServicePrincipal",
-            "tenantId": "<tenant ID>",
-            "clientId": "<client ID>",
-            "clientSecret": {
-                "type": "SecureString",
-                "value": "<client secret>"
-            },
-            "scope": "<scope>",
             "role": "<role>"
         },
         "connectVia": {
