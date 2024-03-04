@@ -83,7 +83,7 @@
   - name: App Service
     href: ../app-service/app-service-best-practices.md
   - name: REST API
-    href: /rest/api/advisor/
+    href: /rest/api/advisor/operation-groups?view=rest-advisor-2023-01-01&preserve-view=true
   - name: Azure CLI
     href: /cli/azure/advisor
   - name: PowerShell
