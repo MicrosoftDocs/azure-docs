@@ -174,7 +174,7 @@ To add server-rendered data in your Next.js project using the App Router, edit a
 
 ## Adding an API route
 
-In addition to Server Components, Next.js provides [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) which can be used to create API routes to your Next.js application. These APIs can be fetched in [Client Components](https://nextjs.org/docs/app/building-your-application/rendering/client-components).
+In addition to Server Components, Next.js provides [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) you can use to create API routes to your Next.js application. These APIs can be fetched in [Client Components](https://nextjs.org/docs/app/building-your-application/rendering/client-components).
 
 Begin by adding an API route.
 
