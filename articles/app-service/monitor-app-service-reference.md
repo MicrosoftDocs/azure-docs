@@ -1,7 +1,7 @@
 ---
 title: Azure App Service monitoring data reference
 description: This article contains important reference material you need when you monitor Azure App Service.
-ms.date: 02/29/2024
+ms.date: 03/04/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: msangapu-msft
@@ -33,78 +33,10 @@ The following tables list the automatically collected platform metrics for App S
 | App Service Environment Worker Pools | [Microsoft.Web/hostingEnvironments/workerPools](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-workerpools-metrics)
 
 >[!NOTE]
->Azure App Service, Functions, and Logic Apps share the Microsoft.Web/sites namespace dating back to when they were a single service. Refer to the following list or the **Metric** column in the overall linked table to see which metrics apply to which services. The **Metrics** interface in the Azure portal for each service shows only the metrics that apply to that service.
+>Azure App Service, Functions, and Logic Apps share the Microsoft.Web/sites namespace dating back to when they were a single service. Refer to the **Metric** column in the [Microsoft.Web/sites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-metrics) table to see which metrics apply to which services. The **Metrics** interface in the Azure portal for each service shows only the metrics that apply to that service.
 
-For web apps, the available metrics in Microsoft.Web/sites are:
-
-- Response Time
-- Average Response Time (deprecated)
-- Average memory working set
-- Connections
-- CPU Time
-- Current Assemblies
-- Data In
-- Data Out
-- File System Usage
-- Gen 0 Garbage Collections
-- Gen 1 Garbage Collections
-- Gen 2 Garbage Collections
-- Handle Count
-- Health Check Status
-- Http 2xx
-- Http 3xx
-- Http 401
-- Http 403
-- Http 404
-- Http 406
-- Http 4xx
-- Http Server Errors
-- IO Other Bytes Per Second
-- IO Other Operations Per Second
-- IO Read Bytes Per Second
-- IO Read Operations Per Second
-- IO Write Bytes Per Second
-- IO Write Operations Per Second
-- Memory working set
-- Private Bytes
-- Requests
-- Requests In Application Queue
-- Thread Count
-- Total App Domains
-- Total App Domains Unloaded
-
-For an App Service plan, the metrics in Microsoft.Web/serverfarms are:
-
-- Data In
-- Data Out
-- CPU Percentage
-- Disk Queue Length
-- Http Queue Length
-- Memory Percentage
-- Socket Count for Inbound Requests
-- Socket Count for Loopback Connections
-- Socket Count of Outbound Requests
-- Established Socket Count for Outbound Requests
-- Time Wait Socket Count for Outbound Requests
-- TCP Close Wait
-- TCP Closing
-- TCP Established
-- TCP Fin Wait 1
-- TCP Fin Wait 2
-- TCP Last Ack
-- TCP Syn Received
-- TCP Syn Sent
-- TCP Time Wait
-
-> [!NOTE]
-> App Service plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
-
-Two metrics reflect CPU usage:
-
-- CPU Time
-- CPU percentage
-
-These metrics are useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across all instances.
+>[!NOTE]
+>App Service Plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
