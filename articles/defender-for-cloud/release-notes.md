@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 02/28/2024
+ms.date: 03/06/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,13 +24,13 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
-| March 13 | [Compliance standards added to compliance dashboard](#compliance-standards-added-to-compliance-dashboard)  | 
+| March 6 | [Compliance standards added to compliance dashboard](#compliance-standards-added-to-compliance-dashboard)  | 
 | March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
 
 ### Compliance standards added to compliance dashboard
 
-February 29, 2024
+March 6, 2024
 
 Based on customer feedback, we've added the following standards to our compliance dashboard. As shown, these are for reviewing the compliance status of AWS and GCP resources protected by Defender for Cloud.
 
@@ -40,8 +40,8 @@ Based on customer feedback, we've added the following standards to our complianc
 | Brazilian General Personal Data Protection Law (LGPD) | 53/2018    | :white_check_mark:              | :white_check_mark:              |
 | California Consumer Privacy Act (CCPA)                | 2018       | :white_check_mark:              | :white_check_mark:              |
 | CIS Controls                                          | v8         | :x:                             | :white_check_mark:              |
-| CIS Google Cloud Platform Foundation Benchmark        | V2.0.0     | :x:                             | :white_check_mark:              |
-| CIS Google Kubernetes Engine (GKE) Benchmark          | v1.4.0     | :x:                             | :white_check_mark:              |
+| CIS Google Cloud Platform Foundation Benchmark        | v2.0.0     | :x:                             | :white_check_mark:              |
+| CIS Google Kubernetes Engine (GKE) Benchmark          | v1.5.0     | :x:                             | :white_check_mark:              |
 | CPS 234 (APRA)                                        | 2019       | :x:                             | :white_check_mark:              |
 | CRI Profile                                           | v1.2.1     | :white_check_mark:              | :white_check_mark:              |
 | CSA Cloud Controls Matrix (CCM)                       | v4.0.10    | :white_check_mark:              | :white_check_mark:              |
