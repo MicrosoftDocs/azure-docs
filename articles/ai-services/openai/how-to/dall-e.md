@@ -128,6 +128,7 @@ where:
 - `Content-Type`: `application/json`
 - `api-key`: `<your_API_key>`
 
+The response from this API call contains your generated image.
 
 ---
 
@@ -179,7 +180,7 @@ The output from a successful image generation API call looks like the following 
 
 Prompts and images are filtered based on our content policy, returning an error when a prompt or image is flagged.
 
-If your prompt is flagged, the system returns an operation status of `Failed`, and the `error.code` value in the message is set to `contentFilter`. Here's an example:
+If your prompt is flagged, the `error.code` value in the message is set to `contentFilter`. Here's an example:
 
 #### [DALL-E 3](#tab/dalle3)
 
@@ -269,10 +270,9 @@ DALL-E 3 includes built-in prompt rewriting to enhance images, reduce bias, and 
 |---|---|---|
 |"Watercolor painting of the Seattle skyline" | ![Watercolor painting of the Seattle skyline (simple).](../media/how-to/generated-seattle.png) | ![Watercolor painting of the Seattle skyline, with more detail and structure.](../media/how-to/generated-seattle-prompt-transformed.png) |
 
-While it is not currently possible to disable this feature, you can use special prompting to get outputs closer to your original prompt by adding the following to it: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`.
-
 The updated prompt is visible in the `revised_prompt` field of the data response object.
 
+While it is not currently possible to disable this feature, you can use special prompting to get outputs closer to your original prompt by adding the following to it: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`.
 
 #### [DALL-E 2](#tab/dalle2)
 
@@ -294,7 +294,7 @@ Specify the size of the generated images. Must be one of `1024x1024`, `1792x1024
 
 ### Style
 
-DALL-E 3 introduces two style options: `natural` and `vivid`. The `natural` style is more similar to the DALL-E 2 default style in its "blander" realism, while the `vivid` style is a generates more hyper-real and cinematic images.
+DALL-E 3 introduces two style options: `natural` and `vivid`. The `natural` style is more similar to the DALL-E 2 default style, while the `vivid` style generates more hyper-real and cinematic images.
 
 The `natural` style is useful in cases where DALL-E 3 over-exaggerates or confuses a subject that's meant to be more simple, subdued, or realistic.
 
@@ -308,7 +308,7 @@ The default value is `standard`.
 
 ### Number
 
-With DALL-E 3, you cannot generate more than one image in a single API call: the _n_ parameter must be set to `1`. If you need to generate multiple images at once, you can make parallel requests.
+With DALL-E 3, you cannot generate more than one image in a single API call: the _n_ parameter must be set to `1`. If you need to generate multiple images at once, make parallel requests.
 
 ### Response format
 
@@ -322,7 +322,7 @@ Specify the size of the generated images. Must be one of `256x256`, `512x512`, o
 
 ### Number
 
-Set the n parameter to an integer between 1 and 10 to generate multiple images at the same time using DALL-E 2. The images will share an operation ID; you receive them all with the same retrieval API call.
+Set the _n_ parameter to an integer between 1 and 10 to generate multiple images at the same time using DALL-E 2. The images will share an operation ID; you receive them all with the same retrieval API call.
 
 ---
 
