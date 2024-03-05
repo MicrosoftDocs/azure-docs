@@ -33,7 +33,7 @@ Contributors and Search Service Contributors have the same access as Owner, minu
 
 Readers have access to service information in the Essentials section and in the Monitoring tab. Access is limited. A reader can get basic information about a search service, but not enough to set up a connection or confirm the existence of objects on the service. 
 
-For data plane tasks, the portal attempts admin API keys first. If keys are disabled, it checks for Search Index Data Contributor and Search Index Data Reader permissions.
+For data plane tasks, the portal attempts admin API keys first. If keys are disabled, the operation succeeds if Search Index Data Contributor and Search Index Data Reader roles provide permission.
 
 > [!TIP]
 > By default, any owner or administrator can create or delete services. To prevent accidental deletions, you can [lock resources](../azure-resource-manager/management/lock-resources.md).
@@ -59,7 +59,7 @@ On a new search service, we recommend these configuration tasks.
 
 ### Check capacity and understand billing
 
-By default, a search service is created in a minimum configuration of one replica and partition each. You can [modify capacity](search-capacity-planning.md) by adding or removing replicas and partitions, but we recommend waiting until volumes require it. Many customers run production workloads on the minimum configuration.
+By default, a search service is created in a minimum configuration of one replica and partition each. You can [add capacity](search-capacity-planning.md) by adding replicas and partitions, but we recommend waiting until volumes require it. Many customers run production workloads on the minimum configuration.
 
 Some features add to the cost of running the service:
 
@@ -73,13 +73,13 @@ By default, a search service accepts authenticated and authorized requests over 
 * [Configure IP firewall rules](service-configure-firewall.md) to restrict access by IP address.
 * [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network.
 
-Review the [Security in Azure AI Search](search-security-overview.md) for details about inbound and outbound calls.
+[Security in Azure AI Search](search-security-overview.md) explains inbound and outbound calls in Azure AI Search.
 
 ### Enable diagnostic logging
 
-[Enable diagnostic logging](monitor-azure-cognitive-search.md) to track user activity. If you skip this step, you still get [**activity logs**](../azure-monitor/essentials/activity-log.md)  and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md#types-of-metrics) automatically, but if you want index and query usage information, you should enable diagnostic logging and choose a destination for logged operations. 
+[Enable diagnostic logging](monitor-azure-cognitive-search.md) to track user activity. If you skip this step, you still get [activity logs](../azure-monitor/essentials/activity-log.md)  and [platform metrics](../azure-monitor/essentials/data-platform-metrics.md#types-of-metrics) automatically, but if you want index and query usage information, you should enable diagnostic logging and choose a destination for logged operations. 
 
-We recommend Log Analytics Workspace for durable storage if you want to run system queries in the portal.
+We recommend Log Analytics Workspace for durable storage so that you can run system queries in the portal.
 
 Internally, Microsoft collects telemetry data about your service and the platform. It's stored internally in Microsoft data centers and made globally available to Microsoft support engineers when you open a support ticket.
 
@@ -103,9 +103,10 @@ A search service is always created with [API keys](search-security-api-keys.md).
 
 Developers need the following information to connect to Azure AI Search:
 
-+ Endpoint or URL, provided on the **Overview** page.
-+ API key from the **Keys** page, or a role assignment (Search Index Data Contributor is recommended).
-+ Recommended. A portal link for access to the following wizards and tools: [Import data wizard](search-get-started-portal.md), [Import and vectorize data](search-get-started-portal-import-vectors.md), [Search explorer](search-explorer.md).
++ An endpoint or URL, provided on the **Overview** page.
++ An API key from the **Keys** page, or a role assignment (Search Index Data Contributor is recommended).
+
+We recommend portal access for the following wizards and tools: [Import data wizard](search-get-started-portal.md), [Import and vectorize data](search-get-started-portal-import-vectors.md), [Search explorer](search-explorer.md).
 
 ## Next steps
 
