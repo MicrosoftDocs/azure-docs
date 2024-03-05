@@ -67,7 +67,7 @@ Create an Event Hub by using an Azure Resource Manager template in the Azure por
 
     The **Deploy to Azure** button takes you to the Azure portal.
 
-    ![Create an Event Hub form](../media/ingest-data-event-hub/deploy-to-azure.png)
+    ![Create an Event Hub form](~/articles/reusable-content/deploy-to-azure-button.svg)
 
 1. Select the subscription where you want to create the Event Hub, and create a resource group named *test-hub-rg*.
 

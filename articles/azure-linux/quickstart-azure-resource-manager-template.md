@@ -188,7 +188,7 @@ To add Azure Linux to an existing ARM template, you need to add `"osSKU": "Azure
 
 1. Select the following button to sign in to Azure and open a template.
 
-    [![Image of Deploy to Azure button.](./media/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks-mariner%2Fazuredeploy.json)
+    [![Image of Deploy to Azure button.](~/articles/reusable-content/deploy-to-azure-button.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks-mariner%2Fazuredeploy.json)
 
 1. Select or enter the following values.
 
