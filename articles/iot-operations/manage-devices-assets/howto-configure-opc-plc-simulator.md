@@ -22,7 +22,7 @@ In this article, you learn how to implement an OPC UA server simulator with diff
 
 ## Prerequisites
 
-Azure IoT Operations Preview - enabled by Azure Arc installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). If you deploy Azure IoT Operations as described, the process installs an OPC PLC simulator.
+Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). If you deploy Azure IoT Operations as described, the process installs an OPC PLC simulator.
 
 ## Get the certificate of the OPC PLC simulator
 If you deploy Azure IoT Operations with the OPC PLC simulator enabled, you can get the certificate of the PLC named `simulationPlc`.  By getting the certificate, you can run the simulator with mutual trust.  

@@ -17,7 +17,7 @@ ms.date: 11/15/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This walkthrough is an example of deploying Azure IoT Operations Preview - enabled by Azure Arc to a special environment that's different than the default [Azure IoT Operations scenario](../get-started/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are additional configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management Preview service.
+This walkthrough is an example of deploying Azure IoT Operations Preview to a special environment that's different than the default [Azure IoT Operations scenario](../get-started/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are additional configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management Preview service.
 
 >[!IMPORTANT]
 > This is an advanced scenario for Azure IoT Operations. You should complete the following quickstarts to get familiar with the basic concepts before you start this advanced scenario.

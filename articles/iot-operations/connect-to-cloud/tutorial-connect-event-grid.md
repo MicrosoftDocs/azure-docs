@@ -24,7 +24,7 @@ In this tutorial, you learn how to configure IoT MQ for bi-directional MQTT brid
 
 ## Create Event Grid namespace with MQTT broker enabled
 
-[Create Event Grid namespace](../../event-grid/create-view-manage-namespaces.md) with Azure CLI. Replace `<EG_NAME>`, `<RESOURCE_GROUP>`, and `<LOCATION>` with your own values. The location should be the same as the one you used to deploy Azure IoT Operations Preview - enabled by Azure Arc.
+[Create Event Grid namespace](../../event-grid/create-view-manage-namespaces.md) with Azure CLI. Replace `<EG_NAME>`, `<RESOURCE_GROUP>`, and `<LOCATION>` with your own values. The location should be the same as the one you used to deploy Azure IoT Operations.
 
 ```azurecli
 az eventgrid namespace create -n <EG_NAME> -g <RESOURCE_GROUP> --location <LOCATION> --topic-spaces-configuration "{state:Enabled,maximumClientSessionsPerAuthenticationName:3}"

@@ -13,7 +13,7 @@ ms.date: 01/22/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article contains troubleshooting tips for Azure IoT Operations Preview - enabled by Azure Arc.
+This article contains troubleshooting tips for Azure IoT Operations Preview.
 
 ## Deployment and configuration issues
 

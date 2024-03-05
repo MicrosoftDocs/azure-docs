@@ -14,7 +14,7 @@ ms.date: 10/24/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In Azure IoT Operations Preview - enabled by Azure Arc, a key task is to manage the assets that are part of your solution. This article defines what assets are, overviews the services you use to manage them, and explains the most common use cases for the services.
+In Azure IoT Operations Preview, a key task is to manage the assets that are part of your solution. This article defines what assets are, overviews the services you use to manage them, and explains the most common use cases for the services.
 
 ## Understand assets
 Assets are a core component of Azure IoT Operations.

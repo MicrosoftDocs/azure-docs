@@ -53,7 +53,7 @@ Azure IoT Akri employs standard Kubernetes primitives. The use of Kubernetes pri
 ## Using Azure IoT Akri Preview to discover OPC UA assets
 Azure IoT Akri is a turnkey solution that enables you to discover and create assets connected to an OPC UA server at the edge. Azure IoT Akri discovers devices at the edge and maps them to assets. The assets send telemetry to upstream connectors. By using Azure IoT Akri, you eliminate the painstaking process of manually configuring from the cloud and onboarding the assets to your cluster.  
 
-The Azure IoT Operations Preview - enabled by Azure Arc documentation provides guidance for detecting assets at the edge, by using the Azure IoT Operations OPC UA discovery handler and broker. You can use these components to process your OPC UA data and telemetry. 
+The Azure IoT Operations Preview documentation provides guidance for detecting assets at the edge, by using the Azure IoT Operations OPC UA discovery handler and broker. You can use these components to process your OPC UA data and telemetry. 
 
 ## Features
 This section highlights the key capabilities and supported features in Azure IoT Akri.

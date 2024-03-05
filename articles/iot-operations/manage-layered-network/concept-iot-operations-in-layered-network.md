@@ -17,7 +17,7 @@ ms.date: 11/29/2023
 
 ## Industrial scenario for the Azure IoT Operations Preview
 
-In the basic architecture described in [Azure IoT Operations Preview Architecture Overview](../get-started/overview-iot-operations.md#architecture-overview), all the Azure IoT Operations Preview - enabled by Azure Arc components are deployed to a single internet-connected cluster. In this type of environment, component-to-component and component-to-Azure connections are enabled by default.
+In the basic architecture described in [Azure IoT Operations Preview Architecture Overview](../get-started/overview-iot-operations.md#architecture-overview), all the Azure IoT Operations Preview components are deployed to a single internet-connected cluster. In this type of environment, component-to-component and component-to-Azure connections are enabled by default.
 
 However, in many industrial scenarios, computing units for different purposes are located in separate networks. For example:
 - Assets and servers on the factory floor

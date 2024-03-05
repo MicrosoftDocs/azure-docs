@@ -16,7 +16,7 @@ ms.date: 11/01/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Once you have Azure IoT Operations Preview - enabled by Azure Arc deployed to a connected cluster, you can use Azure IoT Orchestrator Preview to deploy custom workloads including K8s custom resources.
+Once you have Azure IoT Operations Preview deployed to a connected cluster, you can use Azure IoT Orchestrator Preview to deploy custom workloads including K8s custom resources.
 
 ## Prerequisites
 

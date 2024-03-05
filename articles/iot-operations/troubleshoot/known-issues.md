@@ -13,7 +13,7 @@ ms.date: 12/06/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article contains known issues for Azure IoT Operations Preview - enabled by Azure Arc.
+This article contains known issues for Azure IoT Operations Preview.
 
 ## Azure IoT Operations Preview
 

@@ -15,7 +15,7 @@ ms.date: 01/31/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Deploy Azure IoT Operations Preview - enabled by Azure Arc to a Kubernetes cluster using the Azure portal, Azure CLI, or GitHub actions. Once you have Azure IoT Operations deployed, then you can use the Azure IoT Orchestrator Preview service to manage and deploy additional workloads to your cluster.
+Deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure portal, Azure CLI, or GitHub actions. Once you have Azure IoT Operations deployed, then you can use the Azure IoT Orchestrator Preview service to manage and deploy additional workloads to your cluster.
 
 ## Prerequisites
 

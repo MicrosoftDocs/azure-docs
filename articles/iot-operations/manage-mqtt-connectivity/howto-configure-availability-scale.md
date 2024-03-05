@@ -89,7 +89,7 @@ Medium is the default profile.
 
 ## Default broker
 
-By default, Azure IoT Operations Preview - enabled by Azure Arc deploys a default Broker resource named `broker`. It's deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
+By default, Azure IoT Operations Preview deploys a default Broker resource named `broker`. It's deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
 
 ```bash
 kubectl get broker broker -n azure-iot-operations -o yaml

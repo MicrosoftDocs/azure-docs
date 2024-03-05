@@ -25,7 +25,7 @@ You can configure OPC UA authentication for the following areas:
 
 ## Prerequisites
 
-Azure IoT Operations Preview - enabled by Azure Arc installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). 
+Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). 
 
 ## Features supported
 The following table shows the feature support level for authentication in the current version of OPC UA Broker: 

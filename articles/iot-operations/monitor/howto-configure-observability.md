@@ -17,7 +17,7 @@ ms.date: 11/7/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Observability provides visibility into every layer of your Azure IoT Operations Preview - enabled by Azure Arc configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This article shows you how to configure the services you need for observability of your solution. 
+Observability provides visibility into every layer of your Azure IoT Operations Preview configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This article shows you how to configure the services you need for observability of your solution. 
 
 ## Prerequisites
 

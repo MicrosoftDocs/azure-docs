@@ -15,7 +15,7 @@ ms.custom: ignite-2023, devx-track-azurecli
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Secrets management in Azure IoT Operations Preview - enabled by Azure Arc uses Azure Key Vault as the managed vault solution on the cloud and uses the secrets store CSI driver to pull secrets down from the cloud and store them on the edge.
+Secrets management in Azure IoT Operations Preview uses Azure Key Vault as the managed vault solution on the cloud and uses the secrets store CSI driver to pull secrets down from the cloud and store them on the edge.
 
 ## Prerequisites
 

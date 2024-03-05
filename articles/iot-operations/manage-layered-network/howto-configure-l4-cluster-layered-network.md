@@ -16,7 +16,7 @@ ms.date: 11/15/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT Layered Network Management Preview is one of the Azure IoT Operations Preview - enabled by Azure Arc components. However, it can be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
+Azure IoT Layered Network Management Preview is one of the Azure IoT Operations Preview components. However, it can be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
 
 ## Prerequisites
 Meet the following minimum requirements for deploying the Layered Network Management individually on the system.

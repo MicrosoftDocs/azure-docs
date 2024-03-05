@@ -14,7 +14,7 @@ ms.date: 10/25/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use Azure IoT Orchestrator Preview to deploy, configure, and update the components of your Azure IoT Operations Preview - enabled by Azure Arc edge computing scenario.
+Use Azure IoT Orchestrator Preview to deploy, configure, and update the components of your Azure IoT Operations Preview edge computing scenario.
 
 :::image type="content" source="./media/overview-orchestrator/orchestrator-overview.svg" alt-text="Diagram that shows the architecture of Azure IoT Orchestrator components in the cloud and managing an Arc-enabled Kubernetes cluster.":::
 

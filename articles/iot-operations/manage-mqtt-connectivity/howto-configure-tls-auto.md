@@ -21,7 +21,7 @@ You can configure TLS to secure MQTT communication between the MQTT broker and c
 
 ## Verify cert-manager installation
 
-With automatic certificate management, you use cert-manager to manage the TLS server certificate. By default, cert-manager is installed alongside Azure IoT Operations Preview - enabled by Azure Arc in the `azure-iot-operations` namespace already. Verify the installation before proceeding.
+With automatic certificate management, you use cert-manager to manage the TLS server certificate. By default, cert-manager is installed alongside Azure IoT Operations Preview in the `azure-iot-operations` namespace already. Verify the installation before proceeding.
 
 1. Use `kubectl` to check for the pods matching the cert-manager app labels.
 
