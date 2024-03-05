@@ -116,7 +116,7 @@ Unlike Premium SSDs, Premium SSD v2 doesn't have dedicated sizes. You can set a 
 
 ### Premium SSD v2 performance
 
-Premium SSD v2 disks are designed to provide sub millisecond latencies and provisioned IOPS and throughput 99.9% of the time. With Premium SSD v2 disks, you can individually set the capacity, throughput, and IOPS of a disk based on your workload needs, providing you with more flexibility and reduced costs. Each of these values determines the cost of your disk. 
+Premium SSD v2 disks are designed to provide sub millisecond latencies and provisioned IOPS and throughput 99.9% of the time. With Premium SSD v2 disks, you can individually set the capacity, throughput, and IOPS of a disk based on your workload needs, providing you with more flexibility and reduced costs. Each of these values determines the cost of your disk. The performance of Premium SSD v2 can only be changed four times within a 24 hour period. 
 
 #### Premium SSD v2 capacities
 
