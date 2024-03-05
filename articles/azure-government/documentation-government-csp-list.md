@@ -469,6 +469,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
 |[Vistronix, LLC (ASRC Federal)](https://www.asrcfederal.com/asrc-federal-vistronix-cio-sp3/)|
 |[Vology Inc.](https://www.vology.com/)|
+|[VPLS](https://www.vpls.com/)|
 |[vSolvIT](https://www.vsolvit.com/)|
 |[Warren Averett Technology Group](https://warrenaverett.com/warren-averett-technology-group/)|
 |[Wintellisys, Inc.](https://wintellisys.com)|
@@ -486,7 +487,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ZL Technologies Inc.](https://www.zlti.com/)|
 |[Zolon Tech](https://www.zolontech.com/)|
 |[Zones Inc](https://www.zones.com/site/home/index.html)|
-|[ZR Systems Group LLC](https://zrsystems.com)|
+
 
 
 ## Approved indirect providers
