@@ -41,9 +41,7 @@ Some log ingestion errors will not be logged because they can't be associated wi
 - Certain internal server errors (HTTP response code 500)
 
 ### Enable DCR error logs
-DCR error logs are implemented as [resource logs](./resource-logs.md) in Azure Monitor. Enable log collection by creating a [diagnostic setting](./diagnostic-settings.md) for the DCR. Each DCR will require its own diagnostic setting.
-
-See [Create diagnostic settings in Azure Monitor](./create-diagnostic-settings.md) for the detailed process. Select **Send to Log Analytics workspace** as the destination and select a workspace. You may want to select the same workspace that's used by the DCR, or you may want to consolidate all of your error logs in a single workspace.
+DCR error logs are implemented as [resource logs](./resource-logs.md) in Azure Monitor. Enable log collection by creating a [diagnostic setting](./diagnostic-settings.md) for the DCR. Each DCR will require its own diagnostic setting. See [Create diagnostic settings in Azure Monitor](./create-diagnostic-settings.md) for the detailed process. Select the category **Log Errors** and **Send to Log Analytics workspace**. You may want to select the same workspace that's used by the DCR, or you may want to consolidate all of your error logs in a single workspace.
 
 ### Retrieve DCR error logs
 Error logs are written to the [DCRLogErrors](/azure/azure-monitor/reference/tables/dcrlogerrors) table in the Log Analytics workspace you specified in the diagnostic setting. Following are sample queries you can use in [Log Analytics](../logs/log-analytics-overview.md) to retrieve these logs.
@@ -67,8 +65,6 @@ DCRLogErrors
 ## DCR Metrics
 DCR metrics are collected automatically for all DCRs, and you can analyze them using [metrics explorer](./analyze-metrics.md) like the platform metrics for other Azure resources. *Input stream* is included as a dimension so if you have a DCR with multiple input streams, you can analyze each by [filtering or splitting](./analyze-metrics.md#use-dimension-filters-and-splitting). Some metrics include other dimensions as shown in the table below.
 
-
-The following table describes the metrics collected for each DCR.
 
 | Metric | Dimensions | Description |
 |---|---|---|
@@ -100,7 +96,7 @@ The following signals could be useful for monitoring the health of your log coll
 | Sudden change in `Logs Ingestion Bytes per Min` | - Changes in configuration of log ingestion on the client, including AMA settings.<br>- Changes in structure of logs sent.|
 | Sudden change in ratio between `Logs Ingestion Bytes per Min` and `Logs Rows Received per Min` | - Changes in the structure of logs sent. Examine the changes to make sure the data is properly processed with KQL transformation. |
 | Sudden change in `Logs Transformation Duration per Min` | - Changes in the structure of logs affecting the efficiency of log filtering criteria set in KQL transformation. Examine the changes to make sure the data is properly processed with KQL transformation. |
-| `Logs Ingestion Requests per Min` or `Logs Ingestion Bytes per Min` approaching Log Ingestion API service limits. | Examine and optimize your DCR configuration to avoid throttling. |
+| `Logs Ingestion Requests per Min` or `Logs Ingestion Bytes per Min` approaching Log Ingestion API service limits. | - Examine and optimize your DCR configuration to avoid throttling. |
 
 ## Alerts
 Rather than reactively troubleshooting issues, create alert rules to be proactively notified when a potential error condition occurs. The following table provides examples of alert rules you can create to monitor your log ingestion.
