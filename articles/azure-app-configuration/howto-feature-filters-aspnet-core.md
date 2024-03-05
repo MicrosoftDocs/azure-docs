@@ -18,10 +18,10 @@ Feature flags allow you to activate or deactivate functionality in your applicat
 
 In contrast, a _conditional feature flag_ allows the feature flag to be enabled or disabled dynamically. The application may behave differently, depending on the feature flag criteria. Suppose you want to show your new feature to a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. _Feature filters_ determine the state of the feature flag each time it's evaluated.
 
-The `Microsoft.FeatureManagement` library includes built-in feature filters accessible from the Azure App Configuration portal.
+The `Microsoft.FeatureManagement` library includes the following built-in feature filters accessible from the Azure App Configuration portal.
 
-- Time window filter enables the feature flag during a specified window of time.
-- Targeting filter enables the feature flag for specified users and groups.
+- **Time window filter** enables the feature flag during a specified window of time.
+- **Targeting filter** enables the feature flag for specified users and groups.
 
 You can also create your own feature filter that implements the `Microsoft.FeatureManagement.IFeatureFilter` interface. For more information, see [Implementing a Feature Filter](https://github.com/microsoft/FeatureManagement-Dotnet#implementing-a-feature-filter).
 
@@ -64,9 +64,9 @@ In this section, you will learn how to add a feature filter to the **Beta** feat
 
 1. The pane **Create a new filter** opens. Under **Filter type**, select **Time window filter**.
 
-1. Set the **Start date** to **Custom** and select a time a few minutes ahead of your current time. Set the **Expiry date** to **Never**
-
     :::image type="content" source="./media/feature-filters/add-time-window-filter.png" alt-text="Screenshot of the Azure portal, creating a new time window filter.":::
+
+1. Set the **Start date** to **Custom** and select a time a few minutes ahead of your current time. Set the **Expiry date** to **Never**
 
 1. Select **Add** to save the new feature filter and return to the **Edit feature flag** screen.
 
