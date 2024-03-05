@@ -4,7 +4,7 @@ metadata:
   description: This article discusses popular general questions about Azure Site Recovery.
   ms.topic: faq
   ms.service: site-recovery
-  ms.date: 09/20/2023
+  ms.date: 03/06/2024
 
 
 title: General questions about Azure Site Recovery
@@ -224,7 +224,7 @@ sections:
       - question: |
          Is disaster recovery supported for physical servers?
         answer: |
-              Yes, Site Recovery supports disaster recovery of on-premises physical servers running Windows and Linux to Azure or to a secondary site. Learn about requirements for disaster recovery to [Azure](vmware-physical-azure-support-matrix.md#replicated-machines), and to[a secondary site](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
+              Yes, Site Recovery supports disaster recovery of on-premises physical servers running Windows and Linux to Azure or to a secondary site. Learn about requirements for disaster recovery to [Azure](vmware-physical-azure-support-matrix.md#replicated-machines), and to [a secondary site](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
               Note that physical servers will run as VMs in Azure after failover. Failback from Azure to an on-premises physical server isn't currently supported. You can only fail back to a VMware virtual machine.
 
       - question: |
