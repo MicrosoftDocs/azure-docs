@@ -59,7 +59,7 @@ Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration
 To change the current policy setting to the immediate update track, you can use:
 
 ```powershell
-Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest -Day <day> -Hour <hour>
 ```
 
 #### Agent lifecycle and change management guarantees

@@ -9,7 +9,7 @@ ms.date: 02/07/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-ms.custom:
+ms.custom: devx-track-python
 ---
 
 # Assistants API (Preview) reference

@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 02/24/2024
+ms.date: 03/04/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -169,14 +169,18 @@ The Azure Communication Services Calling SDK supports the following streaming co
 While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
 
 ## Supported video resolutions
-The Azure Communication Services Calling SDK support up to the following video resolutions:
+The Azure Communication Services Calling SDK automatically adjusts resolutions of video and screen share streams during the call.
+
+> [!NOTE]
+> The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, hardware capabilities of local participant who renders remote video streans and other overall call parameters.
+
+The Azure Communication Services Calling SDK supports sending following video resolutions
 
 | Maximum video resolution | WebJS | iOS | Android | Windows |
 | ------------- | ----- | ----- | ------- | ------- |
-| **Receiving video** | 1080P | 1080P | 1080P   | 1080P   |
 | **Sending video**    | 720P  | 720P  | 720P    | 1080P   |
-
-The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, and other overall call parameters. 
+| **Sending screen share**    | 1080P  | 1080P  | 1080P    | 1080P   |
+| **Receiving a remote video stream or screen share** | 1080P | 1080P | 1080P   | 1080P   | 
 
 ## Number of participants on a call support
 - Up to 350 users can join a group call, Room or Teams + ACS call. The maximum number of users that can join through WebJS calling SDK or Teams web client is capped at 100 participants, the remaining calling end point will need to join using Android, iOS, or Windows calling SDK or related Teams desktop or mobile client apps.

@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 01/10/2024
 ms.author: helohr
 manager: femila
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 # Create and assign an autoscale scaling plan for Azure Virtual Desktop
 

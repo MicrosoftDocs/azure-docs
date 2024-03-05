@@ -87,8 +87,7 @@ dotnet add package Azure.Communication.Email
 Open **Program.cs** and replace the existing code with the following
 to add `using` directives for including the `Azure.Communication.Email` namespace and a starting point for execution for your program.
 
-
-  ```csharp
+```csharp
 
 using System;
 using System.Collections.Generic;
@@ -108,7 +107,6 @@ namespace SendEmail
     }
   }
 }
-
 ```
 
 There are a few different options available for authenticating an email client:
