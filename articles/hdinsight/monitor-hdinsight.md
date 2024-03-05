@@ -13,40 +13,42 @@ ms.service: hdinsight
 
 ## HDInsight monitoring options
 
-The specific metrics and logs available for your HDInsight cluster depend on the type of cluster, such as Hadoop, Spark, R Server, HBase, Kafka, or Storm clusters.
+The specific metrics and logs available for your HDInsight cluster depend on the type of cluster framework and tools. Azure HDInsights offers Apache Hadoop, Spark, Kafka, HBase, or Interactive Query cluster types. You can access monitoring data through the Apache Ambari web UI or in the Azure portal by enabling Azure Monitor integration.
 
 ### Apache Ambari monitoring
 
-[Apache Ambari](https://ambari.apache.org) simplifies the management, configuration, and monitoring of HDInsight clusters by providing a web UI and a REST API. Ambari is included on Linux-based HDInsight clusters. To use Ambari, select **Ambari home** on the **Overview** page of your HDInsight cluster in the Azure portal. For more information about how to use Ambari for monitoring, see the following articles:
+[Apache Ambari](https://ambari.apache.org) simplifies the management, configuration, and monitoring of HDInsight clusters by providing a web UI and a REST API. Ambari is included on all Linux-based HDInsight clusters. To use Ambari, select **Ambari home** on your HDInsight cluster's **Overview** page in the Azure portal.
+
+For information about how to use Ambari for monitoring, see the following articles:
 
 - [Monitor cluster performance in Azure HDInsight](hdinsight-key-scenarios-to-monitor.md)
 - [How to monitor cluster availability with Apache Ambari in Azure HDInsight](hdinsight-cluster-availability.md)
 
 ### Azure Monitor integration
 
-You can also use the Azure features described in this article to monitor your HDInsight clusters. A new Azure Monitor integration, now in preview, lets you view **Insights**, **Logs**, and **Workbooks** directly in your HDInsights cluster without needing to access your Log Analytics workspace.
+You can also use the Azure features described in this article to monitor your HDInsight clusters. A new Azure Monitor integration, now in preview, lets you view **Insights**, **Logs**, and **Workbooks** directly in your HDInsights cluster, without needing to access the Log Analytics workspace.
 
-You can enable the new Azure Monitor integration by using the Azure portal, PowerShell, or Azure CLI. For more information about how to enable Azure Monitor integration, see the following articles:
+You can enable and use the new Azure Monitor integration by using the Azure portal, PowerShell, or Azure CLI. For more information about how to enable Azure Monitor integration, see the following articles:
 
-- [Log Analytics migration guide for Azure HDInsight clusters](log-analytics-migration.md)
 - [Use Azure Monitor logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md)
+- [Log Analytics migration guide for Azure HDInsight clusters](log-analytics-migration.md)
 
-[!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)] -->
+[!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
 ### Insights cluster portal integration
 
-The **Insights** pane is new to the HDInsight cluster in the Azure portal. After enabling the new Azure Monitor integration, you can select **Insights** from the **Monitoring** section of the left menu on your HDInsight page in the Azure portal. An out-of-box logs and metrics visualization dashboard specific to the cluster's type automatically populates for you.
+After enabling Azure Monitor integration, you can select **Insights** from the **Monitoring** section of the left menu on your HDInsight page in the Azure portal. An out-of-box logs and metrics visualization dashboard specific to the cluster's type automatically populates for you.
 
 :::image type="content" source="./media/log-analytics-migration/visualization-dashboard.png" lightbox="./media/log-analytics-migration/visualization-dashboard.png" alt-text="Screenshot that shows the visualization dashboard.":::
 
-The insights dashboards use [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview) and have sections for each cluster type, YARN, system metrics, and component logs. These detailed graphs and visualizations give you deep insights into your cluster's performance and health. For more information, see [Use HDInsight out-of-box Insights to monitor a single cluster](hdinsight-hadoop-oms-log-analytics-tutorial.md#use-hdinsight-out-of-box-insights-to-monitor-a-single-cluster).
+The insights dashboards use a prebuilt [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview) that has sections for each cluster type, YARN, system metrics, and component logs. The detailed graphs and visualizations give you deep insights into your cluster's performance and health. For more information, see [Use HDInsight out-of-box Insights to monitor a single cluster](hdinsight-hadoop-oms-log-analytics-tutorial.md#use-hdinsight-out-of-box-insights-to-monitor-a-single-cluster).
 
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Azure HDInsight, see [HDInsight monitoring data reference](monitor-hdinsight-reference.md).
 
 [!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
-HDInsight stores its log files both in the cluster file system and in Azure Storage. Due to the number and size of log files, it's important to optimize log storage and archiving to help with cost management. For more information, see [Manage logs for an HDInsight cluster](hdinsight-log-management.md).
+HDInsight stores its log files both in the cluster file system and in Azure Storage. Due to the large number and size of log files, it's important to optimize log storage and archiving to help with cost management. For more information, see [Manage logs for an HDInsight cluster](hdinsight-log-management.md).
 
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
@@ -54,11 +56,15 @@ For a list of metrics automatically collected for HDInsight, see [HDInsight moni
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-An HDInsight cluster produces various log files. For example, Apache Hadoop and related services, such as Apache Spark, produce detailed job execution logs. Other logs include HDInsight security logs, Yarn Resource Manager, and system metrics. For more information, see [Manage logs for an HDInsight cluster](hdinsight-log-management.md).
+## HDInsight logs
 
-For HDInsight, Log Analytics is being replaced by new Azure Monitor integration (preview). You must configure Azure Monitor integration to collect and view **Logs** in your HDInsight cluster. For more information, see [Log Analytics migration guide for Azure HDInsight clusters](log-analytics-migration.md).
+An HDInsight cluster produces many large log files. For example, Hadoop and related services such as Spark produce detailed job execution logs. Other logs include HDInsight security logs, Yarn Resource Manager logs, and system metrics. For more information, see [Manage logs for an HDInsight cluster](hdinsight-log-management.md).
 
-For the available resource log categories, associated Log Analytics and Azure Monitor tables, and logs schemas for HDInsight, see [HDInsight monitoring data reference](monitor-hdinsight-reference.md#resource-logs).
+You must configure Azure Monitor integration to be able to view and use your cluster logs in analytics and queries in the Azure portal. For more information, see [How to monitor cluster availability with Azure Monitor logs in HDInsight](cluster-availability-monitor-logs.md).
+
+For HDInsight, Log Analytics is being replaced by a new Azure Monitor integration (preview). For more information, see [Log Analytics migration guide for Azure HDInsight clusters](log-analytics-migration.md).
+
+For available resource log categories, associated Log Analytics and Azure Monitor tables, and logs schemas for HDInsight, see [HDInsight monitoring data reference](monitor-hdinsight-reference.md#resource-logs).
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -68,7 +74,7 @@ For the available resource log categories, associated Log Analytics and Azure Mo
 
 ## HDInsight analytics
 
-Azure Monitor Logs collects data from resources in your cloud or on-premises environments and from other monitoring tools, and uses the data to provide analysis across multiple sources.
+Azure Monitor Logs collects data from your HDInsight cluster resources and from other monitoring tools, and uses the data to provide analysis across multiple sources.
 
 - To monitor HDInsight cluster availability by using Azure Monitor logs, see [How to monitor cluster availability with Azure Monitor logs in HDInsight](cluster-availability-monitor-logs.md). 
 
@@ -78,7 +84,7 @@ Azure Monitor Logs collects data from resources in your cloud or on-premises env
 
 ### Selective logging
 
-To help you save on monitoring costs, the new selective logging feature lets you turn on and off different logs and metric sources available through Log Analytics. With this feature, you only have to pay for what you use.
+HDInsights clusters can collect many verbose logs. To help you save on monitoring and storage costs, the HDInsight selective logging feature lets you turn on and off different logs and metric sources available through Log Analytics. With this feature, you only have to pay for what you use.
 
 You can enable the selective logging feature by using script actions for HDInsight in the Azure portal. Selective logging lets you configure log collection and analysis to enable or disable tables in the Log Analytics workspace and adjust the source type for each table. For detailed instructions, see [Use selective logging with a script action in Azure HDInsight](selective-logging-analysis.md).
 
@@ -102,7 +108,9 @@ LAQueryLogs
 ```
 
 > [!IMPORTANT]
-> The new Azure Monitor integration implements new tables in the Log Analytics workspace. To remove as much ambiguity as possible, there are fewer schemas, and the schema formatting is better organized and easier to understand. The new **Monitoring** integration in the Azure portal uses the new tables, but you must rework older queries and dashboards to use the new tables. For the log table mappings from the classic Azure Monitor integration to the new one, see [Log table mapping](monitor-hdinsight-reference.md#log-table-mapping).
+> The new Azure Monitor integration implements new tables in the Log Analytics workspace. To remove as much ambiguity as possible, there are fewer schemas, and the schema formatting is better organized and easier to understand.
+> 
+> The new monitoring integration in the Azure portal uses the new tables, but you must rework older queries and dashboards to use the new tables. For the log table mappings from the classic Azure Monitor integration to the new tables, see [Log table mapping](monitor-hdinsight-reference.md#log-table-mapping).
 
 [!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
