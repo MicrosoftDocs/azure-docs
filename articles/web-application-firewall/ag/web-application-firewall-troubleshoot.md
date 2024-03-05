@@ -4,7 +4,7 @@ description: This article provides troubleshooting information for Web Applicati
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/05/2023
+ms.date: 03/05/2024
 ms.author: victorh
 ms.topic: conceptual
 ---
