@@ -181,7 +181,7 @@ items:
       href: how-to-dev-guide-java-sdk.md
   - name: Develop with the Web SDK
     items:
-    - name: Web SDK v1 migration guide
+    - name: Web SDK migration guide
       href: web-sdk-migration-guide.md
     - name: Map control
       items:
@@ -283,6 +283,8 @@ items:
       href: web-sdk-best-practices.md
   - name: Develop with the Android SDK
     items:
+    - name: Android SDK migration guide
+      href: android-sdk-migration-guide.md
     - name: The Android map control
       href: how-to-use-android-map-control-library.md
     - name: Change the style of the map
@@ -319,6 +321,8 @@ items:
       href: android-map-events.md
   - name: Develop with the iOS SDK
     items:
+    - name: iOS SDK migration guide
+      href: ios-sdk-migration-guide.md
     - name: The iOS map control
       href: how-to-use-ios-map-control-library.md
     - name: Change the style of a map
