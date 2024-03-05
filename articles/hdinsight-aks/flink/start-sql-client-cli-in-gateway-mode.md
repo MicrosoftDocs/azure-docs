@@ -1,12 +1,12 @@
 ---
-title:  Start SQL Client CLI in gateway mode in our Apache Flink Cluster 1.17.0 on HDInsight on AKS
-description: Learn how to start SQL Client CLI in gateway mode in our Apache Flink Cluster 1.17.0 on HDInsight on AKS
+title:  Start SQL Client CLI in gateway mode in our Apache Flink Cluster 1.17.0 on HDInsight on AKS.
+description: Learn how to start SQL Client CLI in gateway mode in our Apache Flink Cluster 1.17.0 on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 03/07/2024
 ---
 
-# Start the SQL Client CLI in gateway mode in our Apache Flink Cluste
+# Start the SQL Client CLI in gateway mode in our Apache Flink Cluster
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -22,12 +22,12 @@ Any external connection will go via 443 port. But internally, it will reroute th
  
 Check sql gateway service in AKS side:
 
-image
+Image
  
  
 ## What is SQL Client in Flink?
  
-Flink’s Table & SQL API makes it possible to work with queries written in the SQL language, but these queries need to be embedded within a table program that is written in either Java or Scala. Moreover, these programs need to be packaged with a build tool before being submitted to a cluster. This more or less limits the usage of Flink to Java/Scala programmers.
+Flink’s Table & SQL API makes it possible to work with queries that written in the SQL language, but these queries need embed within a table program written in either Java or Scala. Moreover, these programs need to be packaged with a build tool before being submitted to a cluster. This more or less limit the usage of Flink to Java/Scala programmers.
  
 The SQL Client aims to provide an easy way of writing, debugging, and submitting table programs to a Flink cluster without a single line of Java or Scala code. The SQL Client CLI allows for retrieving and visualizing real-time results from the running distributed application on the command line.
  
@@ -51,9 +51,9 @@ or
 ./bin/sql-client.sh gateway --endpoint fqdn:443
 ```
  
-Get cluster endpoint(host or fqdn) on Azure portal 
+Get cluster endpoint(host or fqdn) on Azure portal.
  
-image
+Image
  
  
 ## Testing
@@ -75,7 +75,7 @@ tar -xvf flink-cli.tgz
 ```
  
 **Step2:** 
-set endpoint, tenant id and port 443 in flink-conf.yaml 
+set endpoint, tenant ID and port 443 in flink-conf.yaml 
 ```
 user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli$ cd conf
 user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli/conf$ ls -l
@@ -86,23 +86,23 @@ total 8
 user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli/conf$ cat flink-conf.yaml
  
 rest.address: <flink cluster endpoint on Azure portal>
-azure.tenant.id: <tenant id>
+azure.tenant.id: <tenant ID>
 rest.port: 443
 ```
  
 **Step3:** 
-Whitelist my Local Windows public IP with port 443 with VPN enabled into HDInsight on AKS cluster Subnet's Network sercurity inbound.
+Allowlist Local Windows public IP with port 443 with VPN enabled into HDInsight on AKS cluster Subnet's Network security inbound.
  
-image
+Image
  
 **Step4:** 
-Run the sql-client.sh in gateway mode on Flink-cli to Flink SQL
+Run the sql-client.sh in gateway mode on Flink-cli to Flink SQL.
  
 ```
 bin/sql-client.sh gateway --endpoint <fqdn>:443 
 ```
  
-example
+Example
 ```
 user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli$ bin/sql-client.sh gateway --endpoint <fqdn:443>
  
@@ -153,10 +153,10 @@ Command history file path: /home/user/.flink-sql-history
  
 **Step5:** 
 Before querying any table with external source, prepare the related jars.
-Following examples will query kafka table, mysql table in Flink SQL. Dowload the jar and put it in Flink cluster attached ADLS gen2 storage.
+Following examples query kafka table, mysql table in Flink SQL. Download the jar and put it in Flink cluster attached ADLS gen2 storage.
  
 Jars in ADLS gen2 in Azure portal: 
-image 
+Image 
  
  
 **Step6:** 
