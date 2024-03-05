@@ -19,8 +19,8 @@ Before deploying Microsoft Sentinel, make sure that your Azure tenant meets the 
 
 - Assign [relevant permissions](../role-based-access-control/index.yml) to your subscription. For new subscriptions, designate an [owner/contributor](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-  - To maintain the least privileged access, assign additional roles at resource group level.
-  - For more control over permissions and access, set up custom roles. For more information, see [Role-based access control](../role-based-access-control/custom-roles.md).
+  - To maintain the least privileged access, assign roles at resource group level.
+  - For more control over permissions and access, set up custom roles. For more information, see [Role-based access control](../role-based-access-control/custom-roles.md) (RBAC).
   - For extra separation between users and security users, consider [resource-context](resource-context-rbac.md) or [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043).
 
   For more information about other roles and permissions supported for Microsoft Sentinel, see [Permissions in Microsoft Sentinel](roles.md).
@@ -33,7 +33,7 @@ Before deploying Microsoft Sentinel, make sure that your Azure tenant meets the 
 
   A dedicated resource group allows for permissions to be assigned once, at the resource group level, with permissions automatically applied to dependent resources. With a dedicated resource group, access management of Microsoft Sentinel is efficient and less prone to improper permissions. Reducing permission complexity ensures users and service principals have the permissions required to complete actions and makes it easier to keep less privileged roles from accessing inappropriate resources.
 
-  Implement extra resource groups to control access by tiers. Use the extra resource groups to house resources that should be accessed only by groups with higher permissions. Use multiple tiers to separate access between resource groups even more granularly.
+  Implement extra resource groups to control access by tiers. Use the extra resource groups to house resources only accessible by groups with higher permissions. Use multiple tiers to separate access between resource groups even more granularly.
 
 ## Next steps
 
