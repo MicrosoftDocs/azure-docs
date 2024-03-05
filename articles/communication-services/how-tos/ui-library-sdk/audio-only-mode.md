@@ -16,9 +16,9 @@ zone_pivot_groups: acs-programming-languages-support-kotlin-swift
 
 # Enable Audio Only mode in the UI Library
 
-The UI Library provides the ability to disable all Audio in the call.
+The UI Library provides the ability to customize it's Audio Video mode. 
 
-In this article, you will learn how to enable Audio only mode, and disable all Call Composite video
+In this article, you will learn how to enable Audio only mode, which will disable local and remote video capabilities.
 
 ## Prerequisites
 
