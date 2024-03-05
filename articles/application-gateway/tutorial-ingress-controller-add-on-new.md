@@ -64,7 +64,7 @@ az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-ma
 appGatewayId=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "addonProfiles.ingressApplicationGateway.config.effectiveApplicationGatewayId")
 
 # Get Application Gateway subnet id
-appGatewaySubnetId=$(az network application-gateway show --ids $appGatewayId -o tsv --query "gatewayIpConfigurations[0].subnet.id")
+appGatewaySubnetId=$(az network application-gateway show --ids $appGatewayId -o tsv --query "gatewayIPConfigurations[0].subnet.id")
 
 # Get AGIC addon identity
 agicAddonIdentity=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "addonProfiles.ingressApplicationGateway.identity.clientId")
