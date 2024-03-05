@@ -46,7 +46,7 @@ TODO: Replace this picture with the actual one.
 
 [!INCLUDE [operator-call-protection-sub-ucaas-restriction](includes/operator-call-protection-sub-ucaas-restriction.md)]
 
-Provision your chosen subscribers with the Azure Operator Call Protection service on your subscribers by using the [Number Management Portal](../communications-gateway/manage-enterprise-operator-connect.md).
+Provision your chosen subscribers with Azure Operator Call Protection using the [Number Management Portal](../communications-gateway/manage-enterprise-operator-connect.md).
 
 ## Carry out integration testing and request changes
 
