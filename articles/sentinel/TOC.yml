@@ -1098,6 +1098,12 @@
       href: create-tasks-playbook.md
   - name: Bring your own machine learning
     href: bring-your-own-ml.md
+- name: Optimize your security operations
+  items:
+  - name: View and manage SOC optimizations
+    href: soc-optimization/soc-optimization-access.md
+  - name: SOC optimization reference
+    href: soc-optimization/soc-optimization-reference.md
 - name: Manage Microsoft Sentinel
   items:
   - name: Manage costs and billing
