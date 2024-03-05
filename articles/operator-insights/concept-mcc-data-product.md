@@ -44,6 +44,7 @@ The following data types are provided for all Quality of Experience - Affirmed M
   - `RTT`
   - `MME CRR`
   - `SGSN CRR`
+  
   Note: both kinds of `CRR` records are stored in the `all_mme_sgsn_events` table.
 - `edr-sanitized` contains data from the `edr` data type but with personal data suppressed. Sanitized data types can be used to support data analysis while also enforcing subscriber privacy.
 - `edr-validation`: This data type contains a subset of performance management statistics and provides you with the ability to optionally ingest a minimum number of PMstats tables for a data quality check.
