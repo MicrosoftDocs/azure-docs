@@ -19,10 +19,9 @@ This article provides suggestions to troubleshoot common problems with the Sales
 
 ## Error code: SalesforceOauth2ClientCredentialFailure
 
-- **Cause**: You encounter this error code as you don't complete the Salesforce Connected App Configuration.
+- **Cause**: You encounter this error code as you don't complete the Salesforce Connected App configuration.
 
-- **Recommendation**: 
-
+- **Recommendation**: <br/>To configure your Salesforce Connected App, follow these steps:
     1. Create your connected app, and complete its [basic information](https://help.salesforce.com/s/articleView?id=sf.connected_app_create_basics.htm&type=5) and [OAuth settings](https://help.salesforce.com/s/articleView?id=sf.connected_app_create_api_integration.htm&type=5) for the connected app.
         1. Configure the **Connected App Name**, **API Name** and **Contact Email**.
         1. Select **Enable OAuth Settings**.

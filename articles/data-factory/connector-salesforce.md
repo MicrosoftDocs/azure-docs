@@ -45,7 +45,7 @@ You can explicitly set the API version used to read/write data via [`apiVersion`
 ## Prerequisites
 
 - API permission must be enabled in Salesforce.
-- You need configure the Connected Apps in Salesforce portal referring to this [official doc](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) or refer to our step by step guideline in the recommendation in this [article](connector-troubleshoot-salesforce.md#error-code-salesforceoauth2clientcredentialfailure).
+- You need configure the Connected Apps in Salesforce portal referring to this [official doc](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) or our step by step guideline in the recommendation in this [article](connector-troubleshoot-salesforce.md#error-code-salesforceoauth2clientcredentialfailure).
 
     >[!IMPORTANT]
     > - The execution user must have the API Only permission.
