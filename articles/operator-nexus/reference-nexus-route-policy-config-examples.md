@@ -16,12 +16,12 @@ This article gives examples of how to configure route policies for Azure Operato
 
 The JSON format is a common way to define a route policy resource in Azure Operator Nexus. The JSON follows the schema of the route policy resource, which has the following properties:
 
--   **id**: The ID of the route policy resource in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/routePolicies/{routePolicyName}`.
--   **type**: The type of the resource, which is `microsoft.managednetworkfabric/routepolicies`.
--   **addressFamilyType**: The address family type of the route policy resource, which specifies the IP version of the route policy. It can be either IPv4 or IPv6.
--   **statements**: An array of statements that define the routing behavior of the route policy resource. Each statement has a sequence number, a condition, and an action property.
--   **defaultAction**: The default action of the route policy resource, which specifies the outcome for routes that don't match any statement in the route policy. It can be either Permit or Deny.
--   **configurationState**: The configuration state of the route policy resource, which indicates whether the route policy was successfully applied or not. It can be either Succeeded, Failed, or Updating.
+- **id**: The ID of the route policy resource in the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/routePolicies/{routePolicyName}`.
+- **type**: The type of the resource, which is `microsoft.managednetworkfabric/routepolicies`.
+- **addressFamilyType**: The address family type of the route policy resource, which specifies the IP version of the route policy. It can be either IPv4 or IPv6.
+- **statements**: An array of statements that define the routing behavior of the route policy resource. Each statement has a sequence number, a condition, and an action property.
+- **defaultAction**: The default action of the route policy resource, which specifies the outcome for routes that don't match any statement in the route policy. It can be either Permit or Deny.
+- **configurationState**: The configuration state of the route policy resource, which indicates whether the route policy was successfully applied or not. It can be either Succeeded, Failed, or Updating.
 
 Here's an example of a route policy resource specified in JSON format:
 
@@ -75,11 +75,8 @@ To use the Azure CLI commands or the REST API methods, you need to have an Azure
 Here are some examples of the Azure CLI commands or the REST API methods to create and manage route policy resources:
 
 - To create a route policy resource, you can use the `az networkfabric routepolicy create` command or the PUT method with the `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/routePolicies/{routePolicyName}` URI.
-
 - To show the details of a route policy resource, you can use the `az networkfabric routepolicy show` command or the GET method with the `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/routePolicies/{routePolicyName}` URI.
-
 - To update a route policy resource, you can use the `az networkfabric routepolicy update` command or the PATCH method with the `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/routePolicies/{routePolicyName}` URI.
-
 - To delete a route policy resource, you can use the `az networkfabric routepolicy delete` command or the DELETE method with the `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/routePolicies/{routePolicyName}` URI.
 
 ## Use the Permit, Deny, and Continue actions in the route policy
@@ -88,59 +85,59 @@ The Permit, Deny, and Continue actions are used in the route policy to control
 
 - The Permit action allows the matching routes and applies the IP community properties to the routes. The IP community properties specify how to add, remove, or overwrite community values and extended community values of the routes.
 
-For example, the operator can use the following statement to permit any route that has an IP prefix equal to the IP prefix resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}` and add the IP community value from the IP community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName}`.
+   For example, the operator can use the following statement to permit any route that has an IP prefix equal to the IP prefix resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}` and add the IP community value from the IP community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName}`.
 
-```json
-{
-  "sequenceNumber": 10,
-  "condition": {
-    "ipPrefixId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}"
-  },
-  "action": {
-    "actionType": "Permit",
-    "ipCommunityProperties": {
-      "set": {
-        "ipCommunityIds": [
-          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName}"
-        ]
+    ```json
+    {
+      "sequenceNumber": 10,
+      "condition": {
+        "ipPrefixId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}"
+      },
+      "action": {
+        "actionType": "Permit",
+        "ipCommunityProperties": {
+          "set": {
+            "ipCommunityIds": [
+              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName}"
+            ]
+          }
+        }
       }
     }
-  }
-}
-```
+    ```
 
 - The Deny action rejects the matching routes and stops the evaluation of the route policy.
 
-For example, the operator can use the following statement to deny any route that has an IP community value equal to the IP community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName}`.
-
-```json
-{
-  "sequenceNumber": 20,
-  "condition": {
-    "ipCommunityId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName}"
-  },
-  "action": {
-    "actionType": "Deny"
-  }
-}
-```
+   For example, the operator can use the following statement to deny any route that has an IP community value equal to the IP community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName}`.
+    
+    ```json
+    {
+      "sequenceNumber": 20,
+      "condition": {
+        "ipCommunityId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName}"
+      },
+      "action": {
+        "actionType": "Deny"
+      }
+    }
+    ```
 
 - The Continue action continues the evaluation of the route policy with the next statement and applies the IP community properties to the routes. The IP community properties specify how to add, remove, or overwrite community values and extended community values of the routes.
 
-For example, the operator can use the following statement to continue the evaluation of the route policy with the next statement:
+   For example, the operator can use the following statement to continue the evaluation of the route policy with the next statement:
 
-```json
-{
-  "sequenceNumber": 30,
-  "condition": {
-    "ipExtendedCommunityId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/{ipExtendedCommunityName}"
-  },
-  "action": {
-    "actionType": "Continue"
+    ```json
+    {
+      "sequenceNumber": 30,
+      "condition": {
+        "ipExtendedCommunityId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/{ipExtendedCommunityName}"
+      },
+      "action": {
+        "actionType": "Continue"
+        }
+      }
     }
-  }
-}
-```
+    ```
 
 ## Use the IP community properties to add, remove, or overwrite community values and extended community values of the routes
 
