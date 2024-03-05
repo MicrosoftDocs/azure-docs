@@ -779,12 +779,10 @@ items:
         href: concepts/ui-library/ui-library-overview.md
       - name: UI Library use cases
         href: concepts/ui-library/ui-library-use-cases.md
-      - name: Audio Only Mode
-        href: concepts/ui-library/audio_only_mode.md
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
-    - name: Log File Access
-      href: ./concepts/voice-video-calling/retrieve-support-files.md
+    - name: Providing end user support
+      href: ./concepts/voice-video-calling/user-support-flow.md
     - name: User experience
       href: concepts/voice-video-calling/user-experience.md
     - name: Known issues

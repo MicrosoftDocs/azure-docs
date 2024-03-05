@@ -166,7 +166,7 @@ Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 
 ## Accessing Support Files in the Calling SDK
 
-Calling SDK provides convenience methods to get access to the Log Files. To actively collect, it is encouraged to pair this functionality with your applications support tooling.
+Calling SDK provides convenience methods to get access to the Log Files. These files can serve valuable to Microsoft support specialists and engineers. Pro-actively collecting these logs when issues are detected is recommended.
 
 ## Enable and Access Call Logs
 
