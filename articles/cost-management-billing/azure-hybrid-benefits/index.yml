@@ -140,12 +140,14 @@ productDirectory:
   title: Useful links
   items:
     - title: Pricing
+      imageSrc: ./media/controls-horizontal.svg
       links:
         - url: https://www.microsoft.com/windows-server/pricing
           text: Windows Server 2022 - Pricing
         - url: https://www.microsoft.com/sql-server/sql-server-2022-pricing
           text: SQL Server 2022 - Pricing
     - title: Other ways to save on Azure services
+      imageSrc: ./media/controls-horizontal.svg
       links:
         - url: ../savings-plan/index.yml
           text: Save with Azure savings plans
