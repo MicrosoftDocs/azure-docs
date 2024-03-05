@@ -81,7 +81,7 @@ Confirm the `istiod` pod has a status of `Running`. For example:
 
 ```
 NAME                               READY   STATUS    RESTARTS   AGE
-istiod-asm-1-18-74f7f7c46c-xfdtl   1/1     Running   0          2m
+istiod-asm-1-19-74f7f7c46c-xfdtl   1/1     Running   0          2m
 ```
 
 ## Enable sidecar injection
@@ -89,17 +89,17 @@ istiod-asm-1-18-74f7f7c46c-xfdtl   1/1     Running   0          2m
 To automatically install sidecar to any new pods, annotate your namespaces:
 
 ```bash
-kubectl label namespace default istio.io/rev=asm-1-18
+kubectl label namespace default istio.io/rev=asm-1-19
 ```
 
 > [!IMPORTANT]
->  The default `istio-injection=enabled` labeling doesn't work. Explicit versioning (`istio.io/rev=asm-1-18`) is required.
+>  The default `istio-injection=enabled` labeling doesn't work. Explicit versioning (`istio.io/rev=asm-1-19`) is required.
 
 
 For manual injection of sidecar using `istioctl kube-inject`, you need to specify extra parameters for `istioNamespace` (`-i`) and `revision` (`-r`). Example:
 
 ```bash
-kubectl apply -f <(istioctl kube-inject -f sample.yaml -i aks-istio-system -r asm-1-18) -n foo
+kubectl apply -f <(istioctl kube-inject -f sample.yaml -i aks-istio-system -r asm-1-19) -n foo
 ```
 
 ## Deploy sample application
@@ -107,7 +107,7 @@ kubectl apply -f <(istioctl kube-inject -f sample.yaml -i aks-istio-system -r as
 Use `kubectl apply` to deploy the sample application on the cluster:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.18/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.19/samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 
 Confirm several deployments and services are created on your cluster. For example:
@@ -172,7 +172,7 @@ To test this sample application against ingress, check out [next-steps](#next-st
 Use `kubectl delete` to delete the sample application:
 
 ```bash
-kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.18/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.19/samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 
 If you don't intend to enable Istio ingress on your cluster and want to disable the Istio add-on, run the following command:
