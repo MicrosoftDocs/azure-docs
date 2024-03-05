@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 03/05/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -445,7 +445,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 # [Portal](#tab/azure-portal)
 
-Ultra disks offer a unique capability that allows you to adjust their performance. You can adjust the performance of an Ultra Disk four times within a 24 hour period. The performance of Ultra Disks can only be changed four times within a 24 hour period.
+Ultra disks offer a unique capability that allows you to adjust their performance. You can adjust the performance of an Ultra Disk four times within a 24 hour period.
 
 1. Navigate to your VM and select **Disks**.
 1. Select the ultra disk you'd like to modify the performance of.
