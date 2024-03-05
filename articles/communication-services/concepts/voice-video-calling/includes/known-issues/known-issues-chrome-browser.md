@@ -28,7 +28,7 @@ ms.custom: template-how-to
 **Browser version:** All.<br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** On Android 14, when the browser is put in the background or the device screen is locked, the outgoing audio disappears after approximately 5 seconds. This issue affects user experience as it interrupts the audio transmission during calls. Issue is not observed on Android 13 or other versions of Android.<br>
-**Recommended workaround:** Users are advised to keep the browser active in the foreground during calls. Await a forthcoming update or patch from Google.<br>
+**Recommended workaround:** Users are advised to keep the browser active in the foreground during calls.<br>
 
 ### Chrome M115 - No outgoing video in Group and Azure Communication Services-Microsoft Teams calls
 **Browser version:** Google Chrome version 115 (Jul 2023) installed on Android devices.<br>
