@@ -2,7 +2,7 @@
 title: Configure Istio-based service mesh add-on for Azure Kubernetes Service
 description: Configure Istio-based service mesh add-on for Azure Kubernetes Service
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.date: 02/14/2024
 ms.author: shasb
 author: shashankbarsin

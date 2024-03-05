@@ -182,20 +182,20 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
 
 1. Create a secret on your AKS cluster to access the AD server using the [`kubectl create secret`][kubectl-create-secret] command. This secret will be used by the Kubernetes persistent volume to access the Azure NetApp Files SMB volume. Use the following command to create the secret, replacing `USERNAME` with your username, `PASSWORD` with your password, and `DOMAIN_NAME` with your Active Directory domain name.
 
-    ```bash
-        kubectl create secret generic smbcreds --from-literal=username=USERNAME --from-literal=password="PASSWORD" --from-literal=domain='DOMAIN_NAME'
-    ```
+  ```bash
+  kubectl create secret generic smbcreds --from-literal=username=USERNAME --from-literal=password="PASSWORD" --from-literal=domain='DOMAIN_NAME'
+  ```
 
 2. To verify the secret has been created, run the [`kubectl get`][kubectl-get] command.
 
-    ```bash
-       kubectl get secret
-    ```
+  ```bash
+  kubectl get secret
+  ```
 
-   ```output
-       NAME       TYPE     DATA   AGE
-       smbcreds   Opaque   2      20h
-    ```
+ ```output
+ NAME       TYPE     DATA   AGE
+ smbcreds   Opaque   2      20h
+ ```
 
 ### Install an SMB CSI driver
 

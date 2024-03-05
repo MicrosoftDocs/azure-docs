@@ -154,13 +154,3 @@ Currently, you can only export snapshots using the Azure portal. The Azure Power
 1. Navigate to your elastic SAN and select **Volume snapshots**.
 1. Select a volume group, then select the snapshot you'd like to export.
 1. Select Export and fill out the details, then select **Export**.
-
-
-## Create volumes from disk snapshots
-
-Currently, you can only use the Azure portal to create Elastic SAN volumes from managed disks snapshots. The Azure PowerShell module and the Azure CLI can't be used to create Elastic SAN volumes from managed disk snapshots. Managed disk snapshots must be in the same region as your elastic SAN to create volumes with them.
-
-1. Navigate to your SAN and select **volumes**.
-1. Select **Create volume**.
-1. For **Source type** select **Disk snapshot** and fill out the rest of the values.
-1. Select **Create**.

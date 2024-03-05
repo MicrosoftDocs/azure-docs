@@ -4,9 +4,9 @@ description: Learn the high-level process to delete a network function deploymen
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
+ms.custom: devx-track-azurecli
 ms.topic: quickstart #required; leave this attribute/value as-is
 ms.date: 02/21/2024
-
 ---
 # Quickstart: Delete a network function deployment or ClusterServices in Azure Operator 5G Core Preview
 

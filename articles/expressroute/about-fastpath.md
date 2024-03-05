@@ -50,7 +50,7 @@ While FastPath supports most configurations, it doesn't support the following fe
 > * Traffic flows through the ExpressRoute gateway when these limits are reached.
 
 ## Limited General Availability (GA)
-FastPath support for Virtual Network Peering, User Defined Routes (UDRs) and Private Endpoint/Private Link connectivity is available for limited scenarios for 100/10Gbps ExpressRoute Direct connections in the following Azure regions:
+FastPath support for Virtual Network Peering, User Defined Routes (UDRs) and Private Endpoint/Private Link connectivity is available for limited scenarios for 100/10Gbps ExpressRoute Direct connections. Virtual Network Peering and UDR support is available globally across all Azure regions. Private Endpoint/ Private Link connectivity is available in the following Azure regions:
 - Australia East
 - East Asia
 - East US
