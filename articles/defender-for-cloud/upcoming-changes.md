@@ -54,10 +54,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Estimated date for change: April, 2024**
 
-**Defender for PostgreSQL Flexible Servers post-GA updates** - The update will provide customers with the ability to enforce protection for existing PostgreSQL Flexible Servers at the subscription level. This offers complete flexibility for enabling protection on a per-resource basis or for automatic protection of all resources at the subscription level. Accompanying this update will be billing provisions for the protected resources.
-
-If you're already protecting your subscription with Defender for OSS Databases, your flexible server resources will be automatically enabled, protected and billed.
-Specific notifications regarding billing have been dispatched via email for affected subscriptions.
+**Defender for PostgreSQL Flexible Servers post-GA updates** - The update enables customers to enforce protection for existing PostgreSQL flexible servers at the subscription level, allowing complete flexibility to enable protection on a per-resource basis or for automatic protection of all resources at the subscription level.
 
 **Defender for MySQL Flexible Servers Availability and GA** - Defender for Cloud is set to expand its support for Azure OSS databases by incorporating MySQL Flexible Servers. 
 This release will include:
@@ -67,7 +64,7 @@ This release will include:
 - Enablement at the subscription level.
 
 If you're already protecting your subscription with Defender for OSS Databases, your flexible server resources will be automatically enabled, protected and billed.
-Specific notifications regarding billing have been dispatched via email for affected subscriptions.
+Specific billing notifications have been sent via email for affected subscriptions.
 
 Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
