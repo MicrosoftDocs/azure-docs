@@ -96,7 +96,7 @@ These generic properties are supported for the Snowflake linked service:
 | accountIdentifier | The name of the account along with its organization. For example, myorg-account123.   | Yes |
 | database | The default database uesd for the session after connecting. | Yes |
 | warehouse | The default virtual warehouse used for the session after connecting. |Yes|
-| authenticationType | Type of authentication used to connect to the Snowflake service. Allowed values are: **Basic** (Default), **KeyPair**, and **AADServicePrincipal**. Refer to corresponding sections below on more properties and examples respectively.  | No |
+| authenticationType | Type of authentication used to connect to the Snowflake service. Allowed values are: **Basic** (Default) and  **KeyPair**. Refer to corresponding sections below on more properties and examples respectively.  | No |
 | role | The default security role used for the session after connecting. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No |
 
