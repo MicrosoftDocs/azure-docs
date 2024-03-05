@@ -79,4 +79,4 @@ The example that uses locally attached NVMe disks has a higher throughput capaci
 
 ## Next steps
 
-- [Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra using Client Configurator](configure-hybrid-cluster.md)
+- [Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra by using Client Configurator](configure-hybrid-cluster.md)
