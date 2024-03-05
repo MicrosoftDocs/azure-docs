@@ -9,7 +9,7 @@ ms.topic: reference
 ms.custom: cliv2, devx-track-python
 ms.author: amipatel
 author: amibp
-ms.date: 11/28/2022
+ms.date: 03/05/2024
 ms.reviewer: larryfr
 ---
 
@@ -29,9 +29,9 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
 | `type` | const | **Required.** The type of job. | `sweep` | `sweep` |
-| `name` | string | Name of the job. Must be unique across all jobs in the workspace. If omitted, Azure Machine Learning will autogenerate a GUID for the name. | | |
-| `display_name` | string | Display name of the job in the studio UI. Can be non-unique within the workspace. If omitted, Azure Machine Learning will autogenerate a human-readable adjective-noun identifier for the display name. | | |
-| `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure Machine Learning will default it to the name of the working directory where the job was created. | | |
+| `name` | string | Name of the job. Must be unique across all jobs in the workspace. If omitted, Azure Machine Learning autogenerates a GUID for the name. | | |
+| `display_name` | string | Display name of the job in the studio UI. Can be nonunique within the workspace. If omitted, Azure Machine Learning autogenerates a human-readable adjective-noun identifier for the display name. | | |
+| `experiment_name` | string | Experiment name to organize the job under. The run record of each job is organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure Machine Learning defaults it to the name of the working directory where the job was created. | | |
 | `description` | string | Description of the job. | | |
 | `tags` | object | Dictionary of tags for the job. | | |
 | `sampling_algorithm` | object | **Required.** The hyperparameter sampling algorithm to use over the `search_space`. One of [RandomSamplingAlgorithm](#randomsamplingalgorithm), [GridSamplingAlgorithm](#gridsamplingalgorithm),or [BayesianSamplingAlgorithm](#bayesiansamplingalgorithm). | | |
@@ -39,15 +39,15 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `search_space.<hyperparameter>` | object | See [Parameter expressions](#parameter-expressions) for the set of possible expressions to use. | | |
 | `objective.primary_metric` | string | **Required.** The name of the primary metric reported by each trial job. The metric must be logged in the user's training script using `mlflow.log_metric()` with the same corresponding metric name. | | |
 | `objective.goal` | string | **Required.** The optimization goal of the `objective.primary_metric`. | `maximize`, `minimize` | |
-| `early_termination` | object | The early termination policy to use. A trial job is canceled when the criteria of the specified policy are met. If omitted, no early termination policy will be applied. One of [BanditPolicy](#banditpolicy), [MedianStoppingPolicy](#medianstoppingpolicy),or [TruncationSelectionPolicy](#truncationselectionpolicy). | | |
+| `early_termination` | object | The early termination policy to use. A trial job is canceled when the criteria of the specified policy are met. If omitted, no early termination policy is applied. One of [BanditPolicy](#banditpolicy), [MedianStoppingPolicy](#medianstoppingpolicy),or [TruncationSelectionPolicy](#truncationselectionpolicy). | | |
 | `limits` | object | Limits for the sweep job. See [Attributes of the `limits` key](#attributes-of-the-limits-key). | | |
 | `compute` | string | **Required.** Name of the compute target to execute the job on, using the `azureml:<compute_name>` syntax. | | |
-| `trial` | object | **Required.** The job template for each trial. Each trial job will be provided with a different combination of hyperparameter values that the system samples from the `search_space`. See [Attributes of the `trial` key](#attributes-of-the-trial-key). | | |
+| `trial` | object | **Required.** The job template for each trial. Each trial job is provided with a different combination of hyperparameter values that the system samples from the `search_space`. See [Attributes of the `trial` key](#attributes-of-the-trial-key). | | |
 | `inputs` | object | Dictionary of inputs to the job. The key is a name for the input within the context of the job and the value is the input value. <br><br> Inputs can be referenced in the `command` using the `${{ inputs.<input_name> }}` expression. | | |
-| `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |
+| `inputs.<input_name>` | number, integer, boolean, string, or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |
 | `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Outputs can be referenced in the `command` using the `${{ outputs.<output_name> }}` expression. | |
-| `outputs.<output_name>` | object | You can leave the object empty, in which case by default the output will be of type `uri_folder` and Azure Machine Learning will system-generate an output location for the output. File(s) to the output directory will be written via read-write mount. If you want to specify a different mode for the output, provide an object containing the [job output specification](#job-outputs). | |
-| `identity` | object | The identity is used for data accessing. It can be [UserIdentityConfiguration](#useridentityconfiguration), [ManagedIdentityConfiguration](#managedidentityconfiguration) or None. If UserIdentityConfiguration, the identity of job submitter will be used to access input data and write result to output folder, otherwise, the managed identity of the compute target will be used. | |
+| `outputs.<output_name>` | object | You can leave the object empty, in which case by default the output is of type `uri_folder` and Azure Machine Learning system-generates an output location for the output. All files to the output directory are written via read-write mount. If you want to specify a different mode for the output, provide an object containing the [job output specification](#job-outputs). | |
+| `identity` | object | The identity is used for data accessing. It can be [User Identity Configuration](#useridentityconfiguration), [Managed Identity Configuration](#managedidentityconfiguration) or None. If UserIdentityConfiguration, the identity of job submitter is used to access input data and write result to output folder, otherwise, the managed identity of the compute target is used. | |
 
 ### Sampling algorithms
 
@@ -56,8 +56,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `type` | const | **Required.** The type of sampling algorithm. | `random` | |
-| `seed` | integer | A random seed to use for initializing the random number generation. If omitted, the default seed value will be null. | | |
-| `rule` | string | The type of random sampling to use. The default, `random`, will use simple uniform random sampling, while `sobol` will use the Sobol quasirandom sequence. | `random`, `sobol` | `random` |
+| `seed` | integer | A random seed to use for initializing the random number generation. If omitted, the default seed value is null. | | |
+| `rule` | string | The type of random sampling to use. The default, `random`, uses simple uniform random sampling, while `sobol` uses the Sobol quasi-random sequence. | `random`, `sobol` | `random` |
 
 #### GridSamplingAlgorithm
 
@@ -102,21 +102,21 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 ### Parameter expressions
 
-#### choice
+#### Choice
 
 | Key | Type | Description | Allowed values |
 | --- | ---- | ----------- | -------------- |
 | `type` | const | **Required.** The type of expression. | `choice` |
 | `values` | array | **Required.** The list of discrete values to choose from. | |
 
-#### randint
+#### Randint
 
 | Key | Type | Description | Allowed values |
 | --- | ---- | ----------- | -------------- |
 | `type` | const | **Required.** The type of expression. | `randint` |
 | `upper` | integer | **Required.** The exclusive upper bound for the range of integers. | |
 
-#### qlognormal, qnormal
+#### Qlognormal, qnormal
 
 | Key | Type | Description | Allowed values |
 | --- | ---- | ----------- | -------------- |
@@ -125,7 +125,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `sigma` | number | **Required.** The standard deviation of the normal distribution. | |
 | `q` | integer | **Required.** The smoothing factor. | |
 
-#### qloguniform, quniform
+#### Qloguniform, quniform
 
 | Key | Type | Description | Allowed values |
 | --- | ---- | ----------- | -------------- |
@@ -134,7 +134,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `max_value` | number | **Required.** The maximum value in the range (inclusive). | |
 | `q` | integer | **Required.** The smoothing factor. | |
 
-#### lognormal, normal
+#### Lognormal, normal
 
 | Key | Type | Description | Allowed values |
 | --- | ---- | ----------- | -------------- |
@@ -142,15 +142,15 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `mu` | number | **Required.** The mean of the normal distribution. | |
 | `sigma` | number | **Required.** The standard deviation of the normal distribution. | |
 
-#### loguniform
+#### Loguniform
 
 | Key | Type | Description | Allowed values |
 | --- | ---- | ----------- | -------------- |
 | `type` | const | **Required.** The type of expression. | `loguniform` |
-| `min_value` | number | **Required.** The minimum value in the range will be `exp(min_value)` (inclusive). | |
-| `max_value` | number | **Required.** The maximum value in the range will be `exp(max_value)` (inclusive). | |
+| `min_value` | number | **Required.** The minimum value in the range is `exp(min_value)` (inclusive). | |
+| `max_value` | number | **Required.** The maximum value in the range is `exp(max_value)` (inclusive). | |
 
-#### uniform
+#### Uniform
 
 | Key | Type | Description | Allowed values |
 | --- | ---- | ----------- | -------------- |
@@ -164,8 +164,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | ------------- |
 | `max_total_trials` | integer | The maximum number of trial jobs. | `1000` |
 | `max_concurrent_trials` | integer | The maximum number of trial jobs that can run concurrently. | Defaults to `max_total_trials`. |
-| `timeout` | integer | The maximum time in seconds the entire sweep job is allowed to run. Once this limit is reached, the system will cancel the sweep job, including all its trials. | `5184000` |
-| `trial_timeout` | integer | The maximum time in seconds each trial job is allowed to run. Once this limit is reached, the system will cancel the trial. | |
+| `timeout` | integer | The maximum time in seconds the entire sweep job is allowed to run. Once this limit is reached, the system cancels the sweep job, including all its trials. | `5184000` |
+| `trial_timeout` | integer | The maximum time in seconds each trial job is allowed to run. Once this limit is reached, the system cancels the trial. | |
 
 ### Attributes of the `trial` key
 
@@ -173,7 +173,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | ------------- |
 | `command` | string | **Required.** The command to execute. | |
 | `code` | string | Local path to the source code directory to be uploaded and used for the job. | |
-| `environment` | string or object | **Required.** The environment to use for the job. This can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br> <br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they aren't supported for inline environments. | |
+| `environment` | string or object | **Required.** The environment to use for the job. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br> <br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they aren't supported for inline environments. | |
 | `environment_variables` | object | Dictionary of environment variable name-value pairs to set on the process where the command is executed. | |
 | `distribution` | object | The distribution configuration for distributed training scenarios. One of [MpiConfiguration](#mpiconfiguration), [PyTorchConfiguration](#pytorchconfiguration), or [TensorFlowConfiguration](#tensorflowconfiguration). | |
 | `resources.instance_count` | integer | The number of nodes to use for the job. | `1` |
@@ -207,15 +207,15 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `type` | string | The type of job input. Specify `uri_file` for input data that points to a single file source, or `uri_folder` for input data that points to a folder source. [Learn more about data access.](concept-data.md)| `uri_file`, `uri_folder`, `mltable`, `mlflow_model` | `uri_folder` |
-| `path` | string | The path to the data to use as input. This can be specified in a few ways: <br><br> - A local path to the data source file or folder, for example, `path: ./iris.csv`. The data will get uploaded during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on using the `azureml://` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). <br><br> - An existing registered Azure Machine Learning data asset to use as the input. To reference a registered data asset, use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), for example, `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
-| `mode` | string | Mode of how the data should be delivered to the compute target. <br><br> For read-only mount (`ro_mount`), the data will be consumed as a mount path. A folder will be mounted as a folder and a file will be mounted as a file. Azure Machine Learning will resolve the input to the mount path. <br><br> For `download` mode the data will be downloaded to the compute target. Azure Machine Learning will resolve the input to the downloaded path. <br><br> If you only want the URL of the storage location of the data artifact(s) rather than mounting or downloading the data itself, you can use the `direct` mode. This will pass in the URL of the storage location as the job input. In this case you're fully responsible for handling credentials to access the storage. | `ro_mount`, `download`, `direct` | `ro_mount` |
+| `path` | string | The path to the data to use as input. This value can be specified in a few ways: <br><br> - A local path to the data source file or folder, for example, `path: ./iris.csv`. The data uploads during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on using the `azureml://` URI format, see [Core yaml syntax](reference-yaml-core-syntax.md). <br><br> - An existing registered Azure Machine Learning data asset to use as the input. To reference a registered data asset, use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), for example, `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
+| `mode` | string | Mode of how the data should be delivered to the compute target. <br><br> For read-only mount (`ro_mount`), the data is consumed as a mount path. A folder is mounted as a folder and a file is mounted as a file. Azure Machine Learning resolves the input to the mount path. <br><br> For `download` mode, the data is downloaded to the compute target. Azure Machine Learning resolves the input to the downloaded path. <br><br> If you only want the URL of the storage location of the data artifact or artifacts, rather than mounting or downloading the data itself, you can use the `direct` mode. This passes in the URL of the storage location as the job input. In this case, you're fully responsible for handling credentials to access the storage. | `ro_mount`, `download`, `direct` | `ro_mount` |
 
 ### Job outputs
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | The type of job output. For the default `uri_folder` type, the output will correspond to a folder. | `uri_file`, `uri_folder`, `mltable`, `mlflow_model`  | `uri_folder` |
-| `mode` | string | Mode of how output file(s) will get delivered to the destination storage. For read-write mount mode (`rw_mount`) the output directory will be a mounted directory. For upload mode the file(s) written will get uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
+| `type` | string | The type of job output. For the default `uri_folder` type, the output corresponds to a folder. | `uri_file`, `uri_folder`, `mltable`, `mlflow_model`  | `uri_folder` |
+| `mode` | string | Mode of how the output file or files are delivered to the destination storage. For the read-write mount mode (`rw_mount`), the output directory is a mounted directory. For the upload mode, all files written are uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
 
 ### Identity configurations
 
@@ -237,7 +237,7 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Several are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Several are shown here:
 
 ## YAML: hello sweep
 
