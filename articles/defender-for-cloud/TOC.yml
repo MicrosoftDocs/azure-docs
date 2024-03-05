@@ -208,6 +208,8 @@
         href: concept-easm.md
       - name: Enabling Permissions Management (Preview)
         href: enable-permissions-management.md
+      - name: Critical assets protection
+        href: critical-assets-protection.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
       - name: Supported resource types for multicloud in Foundational CSPM
