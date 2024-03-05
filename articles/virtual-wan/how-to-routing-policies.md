@@ -300,7 +300,14 @@ Using the sample VPN configuration and VPN site from above, create firewall rule
 |Destination Port| * |
 |Protocol| ANY|
 
-In addition, if your firewall device supports deep-packet inspection, it is recommended to exclude traffic between 192.168.1.4, 192.168.1.5 and 10.100.0.4 from deep-packet inspection. For information on how to configure Azure Firewall to exclude traffic from deep-packet inspection, reference [IDPS bypass list documentation](../firewall/premium-features.md#idps).
+### Performance
+
+Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP packets through the next hop security appliance deployed in the hub. As a result, you can expect Encrypted ExpressRoute VPN tunnel throughput of around 1 Gbps in both directions (inbound from on-premises and outbound from Azure). To maximize VPN tunnel throughput, consider the following deployment optimizations:
+
+* Deploy Azure Firewall Premium instead of Azure Firewall Standard or Azure Firewall Basic.
+* Ensure Azure Firewall processes the rule that allows traffic between the VPN tunnel endpoints (192.168.1.4 and 192.168.1.5 in the example above) first by making the rule have the highest priority in your Azure Firewall policy. For more information about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](../firewall/rule-processing.md#rule-processing-using-firewall-policy).
+* Turn off deep-packet for traffic between the VPN tunnel endpoints.For information on how to configure Azure Firewall to exclude traffic from deep-packet inspection, reference [IDPS bypass list documentation](../firewall/premium-features.md#idps).
+* Configure VPN devices to use GCMAES256 for both IPSEC Encryption and Integrity to maximize performance.
 
 
 ## Configuring routing intent through Azure portal
