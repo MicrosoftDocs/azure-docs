@@ -117,6 +117,9 @@ This command creates:
 * A minimum of 1 and a maximum of 3 replicas of the container app.
 * A connection from the self-hosted gateway to the API Management instance using configuration values passed in environment variables. For details, see the self-hosted gateway [container configuration settings](self-hosted-gateway-settings-reference.md).
 
+    > [!NOTE]
+    > Azure Container Apps ingress forwards HTTPS requests to the self-hosted gateway container app as HTTP. Here, the `net.server.http.forwarded.proto.enabled` environment variable is set to `true` so that the self-hosted gateway uses the `X-Forwarded-Proto` header to determine the original protocol of the request.
+
 ### Confirm that the container app is running
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your container app.
@@ -168,6 +171,7 @@ For example, deploy an example music album API to a container app. For later acc
     
     # [PowerShell](#tab/psh)
     ```azurecli
+    # PowerShell syntax
     az containerapp up --name albums-api `
         --resource-group myResourceGroup --location centralus `
         --environment my-environment --source .
@@ -219,14 +223,14 @@ Call the API using the FQDN of the self-hosted gateway running in the container 
 
 ```azurecli-interactive
 #!/bin/bash
-az containerapp show ----name my-gateway --resource-group myResourceGroup \
+az containerapp show --name my-gateway --resource-group myResourceGroup \
     --query "properties.configuration.ingress.fqdn" --output tsv
 ```
 
 # [PowerShell](#tab/psh)
 ```azurecli
 # PowerShell syntax
-az containerapp show ----name my-gateway --resource-group myResourceGroup `
+az containerapp show --name my-gateway --resource-group myResourceGroup `
     --query "properties.configuration.ingress.fqdn" --output tsv
 ```
 ---
