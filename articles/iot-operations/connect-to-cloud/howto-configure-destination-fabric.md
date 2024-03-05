@@ -72,25 +72,15 @@ For the destination stage to connect to Microsoft Fabric, it needs access to a s
 
 # [Managed identity](#tab/managedidentity)
 
-To find the application ID of the managed identity and your tenant ID, run the following commands. Replace the placeholders with your cluster name and resource group:
-
-```azurecli
-CLUSTER_NAME=<Your connected cluster name>
-RESOURCE_GROUP=<The resource group where your connected cluster is installed>
-EXTENSION_NAME=processor
-
-OBJECT_ID=$(az k8s-extension show --name $EXTENSION_NAME --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connected
-echo "App ID:    " `az ad sp show --query appId --id $OBJECT_ID -o tsv`
-echo "Tenant ID: " `az account show --query tenantId -o tsv`
-```
-
-Make a note of the `App ID` and `Tenant ID`, you need these values in the next step.
+[!INCLUDE [get-managed-identity](../includes/get-managed-identity.md)]
 
 To grant the service principal access to your Microsoft Fabric workspace:
 
-1. In your workspace, select **Manage access**.
+1. In your workspace, select **Manage access**. Then select **+ Add people or groups**.
 
-1. Select **Add people or groups**, then paste the **App ID** from the previous step and grant at least **Contributor** access to it.
+1. Search for your managed identity by typing _processor_ in the **Enter name or email** textbox. Check that the `App ID:` value matches the **App ID** you made a note of in the previous step.
+
+1. Grant at least **Contributor** access to the processor app.
 
 ---
 

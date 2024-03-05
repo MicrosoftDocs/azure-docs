@@ -41,19 +41,7 @@ Complete the following tasks to prepare your environment.
 
 Before you can write to Azure Data Explorer from a data pipeline, enable access for the managed identity associated with the data processor in your database. The advantage of using the managed identity instead of creating your own service principal is that you don't need to manage the lifecycle of the service principal. The managed identity is automatically created and managed by the data processor extension.
 
-To find the application ID of the managed identity and your tenant ID, run the following commands. Replace the placeholders with your cluster name and resource group:
-
-```azurecli
-CLUSTER_NAME=<Your connected cluster name>
-RESOURCE_GROUP=<The resource group where your connected cluster is installed>
-EXTENSION_NAME=processor
-
-OBJECT_ID=$(az k8s-extension show --name $EXTENSION_NAME --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connected
-echo "App ID:    " `az ad sp show --query appId --id $OBJECT_ID -o tsv`
-echo "Tenant ID: " `az account show --query tenantId -o tsv`
-```
-
-Make a note of the `App ID` and `Tenant ID`, you need these values in the next step.
+[!INCLUDE [get-managed-identity](../includes/get-managed-identity.md)]
 
 To add the managed identity to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of in the previous step:
 

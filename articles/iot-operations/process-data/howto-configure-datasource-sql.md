@@ -65,9 +65,11 @@ To find the principal ID of the managed identity, run the following commands. Re
 ```azurecli
 CLUSTER_NAME=<Your connected cluster name>
 RESOURCE_GROUP=<The resource group where your connected cluster is installed>
+SUBSCRIPTION=<The subscription where your connected cluster is installed>
 EXTENSION_NAME=processor
 
-OBJECT_ID=$(az k8s-extension show --name $EXTENSION_NAME --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connected>echo "Principal ID: " $OBJECT_ID
+OBJECT_ID=$(az k8s-extension show --name $EXTENSION_NAME --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --query identity.principalId -o tsv --subscription $SUBSCRIPTION)
+echo "Principal ID: " $OBJECT_ID
 ```
 
 To grant access to the **Principal ID** in your SQL Server database, run the following command in the database:
