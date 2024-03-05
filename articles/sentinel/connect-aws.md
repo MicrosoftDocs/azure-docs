@@ -185,7 +185,9 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
    
 3. Create an **IAM assumed role**. Follow these instructions in the AWS documentation:<br>[Creating a role for web identity or OpenID Connect Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create). 
 
-| Parameter |Selection/Value Commercial cloud| Selection/Value Gov Cloud| Comments |
+   **Use the values in this table for Azure Commercial Cloud.**
+
+   | Parameter | Selection/Value | Comments |
 | - | -------- | - | - |
 | **Trusted entity type** |*Web identity*| *Web identity* | Instead of default *AWS service*. |
 | **Identity provider** |`sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/`| `sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` | The provider you created in the previous step. |
