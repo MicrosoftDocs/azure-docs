@@ -4,13 +4,13 @@ titleSuffix: Azure Automation
 description: This article helps you get started on how to install Hybrid Worker extension on Azure portal.
 services: automation
 keywords: hybrid worker extension, automation
-ms.date: 03/04/2024
+ms.date: 03/05/2024
 ms.topic: quickstart
 author: SnehaSudhir 
 ms.author: sudhirsneha
 ---
 
-# Quickstart: Install Hybrid Worker extension on Virtual Machines using the Azure Portal
+# Quickstart: Install Hybrid Worker extension on Virtual Machines using the Azure portal
 
 The Azure Automation User Hybrid Worker enables the execution of PowerShell and Python scripts directly on machines for managing guest workloads or as a gateway to environments that aren't accessible from Azure. You can configure Windows and Linux Azure Virtual Machine. [Azure Arc-enabled Server](../../azure-arc/servers/overview.md), [Arc-enabled VMware vSphere VM](../../azure-arc/vmware-vsphere/overview.md), and [Azure Arc-enabled SCVMM](../../azure-arc/system-center-virtual-machine-manager/overview.md) as User Hybrid Worker by installing Hybrid Worker extension.
 
@@ -24,7 +24,7 @@ You can follow similar steps for installing Hybrid Worker extension on all other
 - A Windows Azure Virtual Machine on which Hybrid Worker extension would be installed.
 - Enable system-assigned managed identity on Azure Virtual Machine. If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process. For more information, see [detailed prerequisites](../extension-based-hybrid-runbook-worker-install.md).
 
-## Install Hybrid Worker Extension
+## Install Hybrid Worker extension
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and search for Virtual Machines.
 1. On the **Virtual Machines** page, from the list, select the machine on which you want to install Hybrid Worker extension.
