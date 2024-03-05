@@ -30,6 +30,7 @@ highlightedContent:
       url: https://azure.microsoft.com/pricing/hybrid-benefit/#calculator
     
 
+
 # additionalContent section (optional)
 # Card with links style
 additionalContent:
@@ -135,21 +136,17 @@ additionalContent:
           links:
             - text: RHEL subscription mobility with Azure Hybrid Benefit for Linux
               url: https://learn.microsoft.com/shows/inside-azure-for-it/rhel-subscription-mobility-with-azure-hybrid-benefit-for-linux
-
-productDirectory:
-  title: Useful links
-  items:
-    - title: Pricing
-      imageSrc: ./media/controls-horizontal.svg
-      links:
-        - url: https://www.microsoft.com/windows-server/pricing
-          text: Windows Server 2022 - Pricing
-        - url: https://www.microsoft.com/sql-server/sql-server-2022-pricing
-          text: SQL Server 2022 - Pricing
-    - title: Other ways to save on Azure services
-      imageSrc: ./media/controls-horizontal.svg
-      links:
-        - url: ../savings-plan/index.yml
-          text: Save with Azure savings plans
-        - url: ../reservations/save-compute-costs-reservations.md
-          text: What are Azure Reservations?
+        # Card
+        - title: Pricing
+          links:
+            - text: Windows Server 2022 - Pricing
+              url: https://www.microsoft.com/windows-server/pricing
+            - text: SQL Server 2022 - Pricing
+              url: https://www.microsoft.com/sql-server/sql-server-2022-pricing
+        # Card
+        - title: Other ways to save on Azure services
+          links:
+            - text: Save with Azure savings plans
+              url: ../savings-plan/index.yml
+            - text: What are Azure Reservations?
+              url: ../reservations/save-compute-costs-reservations.md
