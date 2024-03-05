@@ -87,7 +87,7 @@ Complete the following steps to install the plug-in on every Azure virtual machi
 
    - **PowerShell**: [Assign multiple IP addresses using PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)
 
-   - **Portal**: [Assign multiple IP addresses using the Azure portal](./ip-services/virtual-network-multiple-ip-addresses-portal.md)
+   - **Portal**: [Assign multiple IP addresses using the Azure portal](./ip-services/virtual-network-multiple-ip-addresses-portal.yml)
 
    - **Azure Resource Manager template**: [Assign multiple IP addresses using templates](./template-samples.md)
 

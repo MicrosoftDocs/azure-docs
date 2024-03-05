@@ -495,6 +495,11 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id
 
 ---
 
+## File upload API reference
+
+Assistants use the [same API for file upload as fine-tuning](/rest/api/azureopenai/files/upload?view=rest-azureopenai-2024-02-15-preview&tabs=HTTP). When uploading a file you have to specify an appropriate value for the [purpose parameter](/rest/api/azureopenai/files/upload?view=rest-azureopenai-2024-02-15-preview&tabs=HTTP#purpose).
+
+
 ## Assistant object
 
 | Field  | Type  | Description   |

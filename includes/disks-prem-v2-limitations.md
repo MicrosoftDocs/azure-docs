@@ -4,7 +4,7 @@
  author: roygara
  ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 02/19/2024
+ ms.date: 03/04/2024
  ms.author: rogarana
 ms.custom:
   - include file
@@ -20,3 +20,4 @@ ms.custom:
 - Azure Backup support for VMs with Premium SSD v2 disks is [generally available](/azure/backup/backup-support-matrix-iaas#vm-storage-support).
 - The size of a Premium SSD v2 can't be expanded without either deallocating the VM or detaching the disk.
 - Premium SSDv2 doesn't support host caching.
+- The performance of Premium SSD v2 can only be changed four times within a 24 hour period.

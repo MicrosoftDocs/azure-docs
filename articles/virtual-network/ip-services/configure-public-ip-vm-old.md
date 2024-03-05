@@ -115,7 +115,7 @@ In this section, you'll change the public IP address associated with the default
 
 In this section, you'll add a public IP configuration to the virtual machine. 
 
-For more information on adding multiple IP addresses, see [Assign multiple IP addresses to virtual machines using the Azure portal](./virtual-network-multiple-ip-addresses-portal.md). 
+For more information on adding multiple IP addresses, see [Assign multiple IP addresses to virtual machines using the Azure portal](./virtual-network-multiple-ip-addresses-portal.yml). 
 
 For more information for using both types of routing preference, see [Configure both routing preference options for a virtual machine](./routing-preference-mixed-network-adapter-portal.md).
 

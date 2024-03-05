@@ -97,7 +97,7 @@ Assign the VM Contributor role to the Azure account. This role provides permissi
 
 ### Create an Azure network
 
-[Set up](../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, the Azure VMs that are created are joined to the Azure virtual network that you specified when you set up migration.
+[Set up](../virtual-network/manage-virtual-network.yml#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, the Azure VMs that are created are joined to the Azure virtual network that you specified when you set up migration.
 
 ## Prepare AWS instances for migration
 

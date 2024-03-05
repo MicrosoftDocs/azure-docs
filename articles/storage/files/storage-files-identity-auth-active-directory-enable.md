@@ -1,15 +1,16 @@
 ---
 title: Overview - On-premises AD DS authentication to Azure file shares
-description: Learn about Active Directory Domain Services (AD DS) authentication to Azure file shares. This article goes over supported scenarios, availability, and explains how the permissions work between your AD DS and Microsoft Entra ID. 
+description: Learn about Active Directory Domain Services (AD DS) authentication to Azure file shares. This article goes over supported scenarios, availability, and explains how the permissions work between your AD DS and Microsoft Entra ID.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 03/04/2024
 ms.author: kendownie
 recommendations: false
 ---
 
 # Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares
+
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 We strongly recommend that you review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right AD source for authentication. The setup is different depending on the domain service you choose. This article focuses on enabling and configuring on-premises AD DS for authentication with Azure file shares.
@@ -17,6 +18,7 @@ We strongly recommend that you review the [How it works section](./storage-files
 If you're new to Azure Files, we recommend reading our [planning guide](storage-files-planning.md).
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -45,10 +47,9 @@ To help you set up identity-based authentication for some common use cases, we p
 |-|-|
 | [![Screencast of the replacing on-premises file servers video - click to play.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![Screencast of the Using Azure Files as the profile container video - click to play.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
 
-
 ## Prerequisites
 
-Before you enable AD DS authentication for Azure file shares, make sure you've completed the following prerequisites: 
+Before you enable AD DS authentication for Azure file shares, make sure you've completed the following prerequisites:
 
 - Select or create your [AD DS environment](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) and [sync it to Microsoft Entra ID](../../active-directory/hybrid/how-to-connect-install-roadmap.md) using either the on-premises [Microsoft Entra Connect Sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md), a lightweight agent that can be installed from the Microsoft Entra Admin Center.
 
@@ -58,7 +59,7 @@ Before you enable AD DS authentication for Azure file shares, make sure you've c
 
     If a machine isn't domain joined, you can still use AD DS for authentication if the machine has unimpeded network connectivity to the on-premises AD domain controller and the user provides explicit credentials. For more information, see [Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain](storage-files-identity-ad-ds-mount-file-share.md#mount-the-file-share-from-a-non-domain-joined-vm-or-a-vm-joined-to-a-different-ad-domain).
 
-- Select or create an Azure storage account.  For optimal performance, we recommend that you deploy the storage account in the same region as the client from which you plan to access the share. Then, [mount the Azure file share](storage-how-to-use-files-windows.md) with your storage account key. Mounting with the storage account key verifies connectivity.
+- Select or create an Azure storage account. For optimal performance, we recommend that you deploy the storage account in the same region as the client from which you plan to access the share. Then, [mount the Azure file share](storage-how-to-use-files-windows.md) with your storage account key. Mounting with the storage account key verifies connectivity.
 
     Make sure that the storage account containing your file shares isn't already configured for identity-based authentication. If an AD source is already enabled on the storage account, you must disable it before enabling on-premises AD DS.
 
@@ -76,21 +77,21 @@ If you plan to enable any networking configurations on your file share, we recom
 
 Enabling AD DS authentication for your Azure file shares allows you to authenticate to your Azure file shares with your on-premises AD DS credentials. Further, it allows you to better manage your permissions to allow granular access control. Doing this requires synching identities from on-premises AD DS to Microsoft Entra ID using either the on-premises [Microsoft Entra Connect Sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md), a lightweight agent that can be installed from the Microsoft Entra Admin Center. You assign share-level permissions to hybrid identities synced to Microsoft Entra ID while managing file/directory-level access using Windows ACLs.
 
-Follow these steps to set up Azure Files for AD DS authentication: 
+Follow these steps to set up Azure Files for AD DS authentication:
 
 1. [Enable AD DS authentication on your storage account](storage-files-identity-ad-ds-enable.md)
 
 1. [Assign share-level permissions to the Microsoft Entra identity (a user, group, or service principal) that is in sync with the target AD identity](storage-files-identity-ad-ds-assign-permissions.md)
 
 1. [Configure Windows ACLs over SMB for directories and files](storage-files-identity-ad-ds-configure-permissions.md)
- 
+
 1. [Mount an Azure file share to a VM joined to your AD DS](storage-files-identity-ad-ds-mount-file-share.md)
 
 1. [Update the password of your storage account identity in AD DS](storage-files-identity-ad-ds-update-password.md)
 
-The following diagram illustrates the end-to-end workflow for enabling AD DS authentication over SMB for Azure file shares. 
+The following diagram illustrates the end-to-end workflow for enabling AD DS authentication over SMB for Azure file shares.
 
-![Files AD workflow diagram](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
+:::image type="content" source="media/storage-files-active-directory-domain-services-enable/diagram-files-active-directory-domain-services.png" alt-text="Diagram showing AD DS authentication over SMB for Azure Files workflow." lightbox="media/storage-files-active-directory-domain-services-enable/diagram-files-active-directory-domain-services.png" border="false":::
 
 Identities used to access Azure file shares must be synced to Microsoft Entra ID to enforce share-level file permissions through the [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) model. Alternatively, you can use a default share-level permission. [Windows-style DACLs](/previous-versions/technet-magazine/cc161041(v=msdn.10)) on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD DS environment. As you replace on-premises file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
 
