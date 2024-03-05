@@ -21,7 +21,7 @@ highlightedContent:
   items: 
     - title: Benefits of the Hybrid Licensing offer - Windows Server
       itemType: training
-      url: https://learn.microsoft.com/training/modules/understand-windows-server-iaas-vm-cost-management/5-describe-azure-hybrid-license-benefits
+      url: /training/modules/understand-windows-server-iaas-vm-cost-management/5-describe-azure-hybrid-license-benefits
     - title: SQL Server on Azure Virtual Machines
       itemType: download
       url: https://msazurecourses.azurewebsites.net/eBooks/SQL%20Server%20on%20Azure%20Virtual%20Machines.pdf
@@ -42,25 +42,25 @@ additionalContent:
         - title: General guidance
           links:
             - text: Explore Azure Hybrid Benefit for Windows VMs
-              url: https://learn.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing
+              url: ../../virtual-machines/windows/hybrid-use-benefit-licensing.md
         # Card
         - title: Additional guidance and benefits
           links:
             - text: Explore Azure Hybrid Benefit for Windows Server VMs in Azure, Stack HCI, and AKS
-              url: https://learn.microsoft.com/windows-server/get-started/azure-hybrid-benefit
+              url: /windows-server/get-started/azure-hybrid-benefit
             - text: Azure Hybrid Benefit documentation
-              url: https://learn.microsoft.com/azure/cost-management-billing/scope-level/
+              url: ../scope-level/index.yml
         # Card
         - title: Deployment options
           links:
             - text: Azure Hybrid Benefit for Azure Kubernetes Service - AKS hybrid
-              url: https://learn.microsoft.com/azure/aks/hybrid/azure-hybrid-benefit
+              url: ../../aks/hybrid/azure-hybrid-benefit.md
             - text: Azure Hybrid Benefit for Azure Stack HCI - Azure Stack HCI
-              url: https://learn.microsoft.com/azure-stack/hci/concepts/azure-hybrid-benefit-hci
+              url: /azure-stack/hci/concepts/azure-hybrid-benefit-hci
             - text: Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptions
-              url: https://learn.microsoft.com/azure/azure-vmware/sql-server-hybrid-benefit
+              url: ../../azure-vmware/sql-server-hybrid-benefit.md
             - text: Overview of Azure Dedicated Hosts for virtual machines
-              url: https://learn.microsoft.com/azure/virtual-machines/dedicated-hosts
+              url: ../../virtual-machines/dedicated-hosts.md
     - title: SQL Server VMs on Azure  # < 60 chars (optional)
       items:
         # Card
@@ -72,45 +72,45 @@ additionalContent:
         - title: Additional guidance and benefits
           links:
             - text: Change the license model for a SQL VM in Azure
-              url: https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change
+              url: /azure/azure-sql/virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change
             - text: Register with SQL IaaS Agent Extension (Windows)
-              url: https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm
+              url: /azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm
             - text: Explore Centrally Managed Azure Hybrid Benefit for SQL Server
-              url: https://learn.microsoft.com/azure/cost-management-billing/scope-level/
+              url: ../scope-level/index.yml
             - text: High availability, disaster recovery, business continuity - SQL Server on Azure VMs
-              url: https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview#free-dr-replica-in-azure
+              url: /azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview#free-dr-replica-in-azure
             - text: Azure Hybrid Benefit documentation
-              url: https://learn.microsoft.com/azure/cost-management-billing/scope-level/
+              url: ../scope-level/index.yml
         # Card
         - title: Deployment options
           links:
             - text: Azure Hybrid Benefit - Azure SQL Database and SQL Managed Instance
-              url: https://learn.microsoft.com/azure/azure-sql/azure-hybrid-benefit
+              url: /azure/azure-sql/azure-hybrid-benefit
             - text: Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptions
-              url: https://learn.microsoft.com/azure/azure-vmware/sql-server-hybrid-benefit
+              url: /azure/azure-vmware/sql-server-hybrid-benefit
             - text: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
-              url: https://learn.microsoft.com/azure/azure-vmware/enable-sql-azure-hybrid-benefit
+              url: ../../azure-vmware/enable-sql-azure-hybrid-benefit.md
             - text: Run SQL Server VM on an Azure Dedicated Host - SQL Server on Azure VMs
-              url: https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/dedicated-host
+              url: /azure/azure-sql/virtual-machines/windows/dedicated-host
     - title: Linux Server VMs on Azure  # < 60 chars (optional)
       items:
         # Card
         - title: General guidance
           links:
             - text: Explore Azure Hybrid Benefit for Linux VMs
-              url: https://learn.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux
+              url: ../../virtual-machines/linux/azure-hybrid-benefit-linux.md
         - title: Additional guidance and benefits
           links:
             - text: Azure Hybrid Benefit for Linux Virtual Machine Scale Sets
-              url: https://learn.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux
+              url: ../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md
             - text: RHEL subscription mobility with Azure Hybrid Benefit for Linux
-              url: https://learn.microsoft.com/shows/inside-azure-for-it/rhel-subscription-mobility-with-azure-hybrid-benefit-for-linux
+              url: /shows/inside-azure-for-it/rhel-subscription-mobility-with-azure-hybrid-benefit-for-linux
         - title: Deployment options
           links:
             - text: Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptions
-              url: https://learn.microsoft.com/azure/azure-vmware/sql-server-hybrid-benefit
+              url: ../../azure-vmware/sql-server-hybrid-benefit.md
             - text: Overview of Azure Dedicated Hosts for virtual machines
-              url: https://learn.microsoft.com/azure/virtual-machines/dedicated-hosts
+              url: ../../virtual-machines/dedicated-hosts.md
     - title: Additional resources  # < 60 chars (optional)
       items:
         # Card
@@ -127,7 +127,7 @@ additionalContent:
         - title: SQL Server VMs on Azure
           links:
             - text: The Latest from Azure Hybrid Benefit
-              url: https://learn.microsoft.com/shows/data-exposed/the-latest-from-azure-hybrid-benefit-data-exposed
+              url: /shows/data-exposed/the-latest-from-azure-hybrid-benefit-data-exposed
             - text: Azure Enablement Show - Reduce costs and increase SQL license utilization using Azure Hybrid Benefit
               url: https://youtu.be/ReoLB9N76Lo?si=izGi35mBvGrGP2yC
             - text: Capitalize on your investments with the new centrally managed Azure Hybrid Benefit for SQL Server
@@ -135,7 +135,7 @@ additionalContent:
         - title: Linux Server VMs on Azure
           links:
             - text: RHEL subscription mobility with Azure Hybrid Benefit for Linux
-              url: https://learn.microsoft.com/shows/inside-azure-for-it/rhel-subscription-mobility-with-azure-hybrid-benefit-for-linux
+              url: /shows/inside-azure-for-it/rhel-subscription-mobility-with-azure-hybrid-benefit-for-linux
         # Card
         - title: Pricing
           links:
