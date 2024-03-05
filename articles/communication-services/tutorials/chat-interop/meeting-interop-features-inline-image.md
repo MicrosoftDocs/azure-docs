@@ -14,21 +14,33 @@ zone_pivot_groups: acs-js-csharp
 
 # Tutorial: Enable inline image support in your Chat app
 
-The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive inline images sent by users from Microsoft Teams. Currently this feature is only available in the Chat SDK for JavaScript and C#.
-
-## Add inline image support
+The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive inline images sent by users from Microsoft Teams. 
 
 Inline images are images that are copied and pasted directly into the send box of the Teams client. For images that were uploaded via the "Upload from this device" menu or via drag-and-drop, such as images dragged directly to the send box in Teams, you need to refer to [this tutorial](./meeting-interop-features-file-attachment.md) to enable it as the part of the file sharing feature. (See the section "Handling Image Attachment.") To copy an image, the Teams user can either use their operating system's context menu to copy the image file and then paste it into the send box of their Teams client or use keyboard shortcuts.
 
-The Chat SDK for JavaScript provides `previewUrl` and `url` for each inline image. Note that some GIF images fetched from `previewUrl` might not be animated, and a static preview image may be returned instead. Developers are expected to use the `url` if the intention is to fetch animated images only.
+There are 2 parts in this tutorial, you learn what you need to do:
+1. [when receiving an inline image](#handle-received-inline-images-in-new-message-event)
+2. [when sending out an inline image](#handle-sending-inline-images-in-new-message-request)
 
+
+Please note that the ability to send an inline image is currently available in public preview and it's only available for JavaScript only. And for receiving inline images, it's currently general available and available for both JavaScript and C# in a Teams interoperability chat. 
+
+## Handle received inline images in new message event
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Teams Inline Image Interop with JavaScript SDK](./includes/meeting-interop-features-inline-image-javascript.md)] 
+[!INCLUDE [Teams Inline Image Interop with JavaScript SDK](./includes/meeting-interop-features-inline-image-receiving-javascript.md)] 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp" 
-[!INCLUDE [Teams Inline Image Interop with C# SDK](./includes/meeting-interop-features-inline-image-csharp.md)] 
+[!INCLUDE [Teams Inline Image Interop with C# SDK](./includes/meeting-interop-features-inline-image-receiving-csharp.md)] 
+::: zone-end
+
+## Handle sending inline images in new message request
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Teams Inline Image Interop with JavaScript SDK](./includes/meeting-interop-features-inline-image-sending-javascript.md)] 
 ::: zone-end
 
 
