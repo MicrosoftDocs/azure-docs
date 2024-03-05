@@ -16,11 +16,11 @@ Run cross-service queries by using any client tools that support Kusto Query Lan
 
 ## Permissions required
 
-To run a cross-service query, you need:
+To run a cross-service query, your alert needs explicit:
 
 - `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](../logs/manage-access.md#log-analytics-reader), for example.
-- Reader permissions to the resources you query in Azure Resource Graph.
-- Viewer permissions to the tables you query in Azure Data Explorer.
+- Optional Reader permissions to the resources you query in Azure Resource Graph.
+- Optional Viewer permissions to the tables you query in Azure Data Explorer.
 
 ## Query data in Azure Data Explorer by using adx()
 
