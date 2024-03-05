@@ -63,9 +63,9 @@ The following decision charts highlight the features of each **Document Intellig
 |**Invoice** or billing statement.|You want to extract key information such as customer name, billing address, and amount due.|[**Invoice model**](concept-invoice.md)
 |**Receipt**, voucher, or single-page hotel receipt. |You want to extract key information such as merchant name, transaction date, and transaction total.|[**Receipt model**](concept-receipt.md)|
 |**Identity document (ID)** like a U.S. driver's license or international passport. |You want to extract key information such as first name, surname, date of birth, address, and signature. | [**Identity document (ID) model**](concept-id-document.md)|
-|**US Mortgage 1003** . |You want to extract key information from the Uniform Residential loan application. | [**1003 form model**](concept-mortgage.md)|
-|**US Mortgage 1008** . |You want to extract key information from the Uniform Underwriting and Transmittal summary. | [**1008 form model**](concept-mortgage.md)|
-|**US Mortgage Closing Disclosure** . |You want to extract key information from a mortgage closing disclosure form. | [**Mortgage closing disclosure form model**](concept-mortgage.md)|
+|**US Mortgage 1003** . |You want to extract key information from the Uniform Residential loan application. | [**1003 form model**](concept-mortgage-documents.md)|
+|**US Mortgage 1008** . |You want to extract key information from the Uniform Underwriting and Transmittal summary. | [**1008 form model**](concept-mortgage-documents.md)|
+|**US Mortgage Closing Disclosure** . |You want to extract key information from a mortgage closing disclosure form. | [**Mortgage closing disclosure form model**](concept-mortgage-documents.md)|
 |**Mixed-type document(s)** with structured, semi-structured, and/or unstructured elements. | You want to extract key-value pairs, selection marks, tables, signature fields, and selected regions not extracted by prebuilt or general document models.| [**Custom model**](concept-custom.md)|
 
 >[!Tip]

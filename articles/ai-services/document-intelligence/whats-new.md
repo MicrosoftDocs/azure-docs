@@ -25,34 +25,66 @@ ms.custom:
 Document Intelligence service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
 > [!IMPORTANT]
-> Preview API versions are retured once the GA API is released. The 2023-02-28-preview API version is being retired, if you are still using the preview API or the associated SDK versions, please update your code to target the 2023-07-31 API version.
+> Preview API versions are retired once the GA API is released. The 2023-02-28-preview API version is being retired, if you are still using the preview API or the associated SDK versions, please update your code to target the latest API version 2023-07-31 (GA).
 
 ## February 2024
 
-The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available. This preview API introduces new and updated capabilities:
+The Document Intelligence [**2024-02-29-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available. This preview API introduces new and updated capabilities:
 
-* Public preview version [**2023-10-31-preview**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) is currently only available in the following Azure regions:
+* Public preview version [**2024-02-29-preview**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) is currently available only in the following Azure regions:
 
   * **East US**
   * **West US2**
   * **West Europe**
-* [Custom Models](concept-custom.md)
-  * Custom models now support cell level confidence to custom models. 
-  * Custom models support office file types, specifically, Word, PPT, and excel for classification.
+
+* [Custom extraction models](concept-custom.md#custom-extraction-models)
+  * Custom extraction models now support cell, row and table level confidence scores. Learn more about [table, row, and cell confidence](concept-accuracy-confidence.md#table-row-and-cell-confidence).
+  * Custom extraction models have AI quality improvements for field extraction.
+  * Custom template extraction model now supports extracting overlapping fields. Learn more about [overlapping fields and how you use them](concept-custom-neural.md#overlapping-fields).
+* [Custom classification model](concept-custom.md#custom-classification-model)
+  * Custom classification model now supported incremental training for scenarios where you need to update the classifier model with additional samples or additional classes. Learn more about [incremental training](concept-custom-classifier.md#incremental-training).
+  * Custom classification model adds support for Office document types (.docx, .pptx, and .xls). Learn more about [expanded document type support](concept-custom-classifier.md#office-document-type-support).
 * [Invoice model](concept-invoice.md)
-  * Support for new locales (`ar`, `bg`, `mk`, `ry`, `sr`, `uk`, `ru`, `he`, `gr`, `ta`, `th`)
-  * Support for new currency codes (`BAM`, `BGN`,`ILS`,`MKD`, `RUB`,`THB`,`TRY`, `UAH`,`VND`)
-  * Tax items support expansion (`de`,`es`,`pt`,`en-CA`)
+  * Support for new locales:
+
+  |Locale| Code|
+  |---|---|
+  |Arabic | (`ar`)|
+  |Bulgarian| (`bg`)|
+  |Greek |(`el`)|
+  |Hebrew |(`he`)|
+  |Macedonian|(`mk`)|
+  |Russian (`ru`)| Serbian Cyrillic (`sr-cyrl`)|
+  |Ukrainian |(`uk`)|
+  |Thai|(`th`)|
+  |Turkish|(`tr`)|
+  |Vietnamese |(`vi`)|
+
+  * Support for new currency codes:
+  |Currency|Locale| Code|
+  |---|---|---|
+  |BAM | Bosnian Convertible Mark|(`ba`)|
+  |BGN | Bulgarian Lev| (`bg`)|
+  |ILS | Israeli New Shekel| (`il`)|
+  |MKD | Macedonian Denar |(`mk`)|
+  |RUB | Russian Ruble | (`ru`)|
+  |THB | Thai Baht |(`th`) |
+  |TRY | Turkish Lira| (`tr`)|
+  |UAH | Ukrainian Hryvnia |(`ua`)|
+  |VND | Vietnamese Dong| (`vn`) |
+
+  * Tax items support expansion for Germany (`de`), Spain (`es`),Portugal (`pt`), English Canada `en-CA`.
+
 * [ID model](concept-id-document.md)
-  * Expanded field support for EU IDs and driver licenses
-* [🆕 Mortgage documents](concept-mortgage.md)
-  * New prebuilt to extract information from 1003 end-user license agreement
-  * New prebuilt to extract information from 1008 underwriting
-  * New prebuilt to extract information from Mortgage closing disclosure
+  * [Expanded field support](concept-id-document.md#supported-document-types) for European Union IDs and driver license.
+* [🆕 Mortgage documents](concept-mortgage-documents.md)
+  * Extract information from 1003 end-user license agreement.
+  * Extract information from 1008 underwriting.
+  * Extract information from mortgage closing disclosure.
 * [🆕 Credit/Debit card model](concept-credit-card.md)
-  * New prebuilt to extract information from bank cards. 
+  * Extract information from bank cards.
 * [🆕 Marriage certificate](concept-marriage-certificate.md)
-  * New prebuilt to extract information from marriage certificates. 
+  * New prebuilt to extract information from marriage certificates.
 
 ## December 2023
 

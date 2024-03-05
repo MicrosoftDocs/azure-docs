@@ -187,7 +187,7 @@ items:
     href: concept-credit-card.md
   - name: 🆕 US mortgage documents
     displayName: 1003, 1008, closing, disclosure
-    href: concept-mortgage.md
+    href: concept-mortgage-documents.md
   - name: 🆕 Marriage certificate model
     displayName: license
     href: concept-marriage-certificate.md

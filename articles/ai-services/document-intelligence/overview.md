@@ -157,6 +157,10 @@ Prebuilt models enable you to add intelligent document processing to your apps a
       :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
     [**US Tax 1099 form**](concept-tax-document.md#field-extraction-1099-nec) | Extract information from variations of the 1099 form.
    :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
+    [**US Tax 1040 form**](concept-tax-document.md#field-extraction-1099-nec) | Extract information from variations of the 1040 form.
+   :::column-end:::
 :::row-end:::
 :::moniker-end
 
@@ -268,27 +272,7 @@ Document Intelligence supports optional features that can be enabled and disable
 
 ## Analysis features
 
-|Model ID|Content Extraction|Paragraphs|Paragraph Roles|Selection Marks|Tables|Figures|Sections|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|query fields|
-|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
-|prebuilt-read|✓|✓| | | | | | |O|O| | |O|O|O|
-|prebuilt-layout|✓|✓|✓|✓|✓|✓|✓|O|O|O| |O|O|O|✓|
-|prebuilt-idDocument|✓| | | | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-invoice|✓| | |✓|✓| | |O|O|O|✓|O|O|O|✓|
-|prebuilt-receipt|✓| | | | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-healthInsuranceCard.us|✓| | | | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.w2|✓| | |✓| | | | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1098|✓| | |✓| | | | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1098E|✓| | |✓| | | | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1098T|✓| | |✓| | | | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1099(Variations)|✓| | |✓| | | | |O|O|✓|O|O|O|✓|
-|prebuilt-contract|✓|✓|✓|✓| | | | |O|O|✓|O|O|O|✓|
-|{ customModelName }|✓|✓|✓|✓|✓| | | |O|O|✓|O|O|O|✓|
-|prebuilt-document (**deprecated </br>2023-10-31-preview**)|✓|✓|✓|✓|✓| | |✓|O|O| |O|O|O| |
-|prebuilt-businessCard (**deprecated </br>2023-10-31-preview**)|✓| | | | | | | | | |✓| | | | |
-
-✓ - Enabled</br>
-O - Optional</br>
-\* - Premium features incur extra costs.
+[!INCLUDE [model analysis features](includes/model-analysis-features.md)]
 
 ## Models and development options
 

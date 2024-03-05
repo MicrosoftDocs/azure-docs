@@ -223,7 +223,7 @@ See how data, including customer information, vendor details, and line items, is
 | KVKNumber(NL-only) | String | A unique identifier for businesses registered in the Netherlands|12345678|
 | PaymentDetails | Array | An array that holds Payment Option details such as `IBAN`,`SWIFT`, `BPay(AU)` |  |
 | TotalDiscount | Number | The total discount applied to an invoice | Integer |
-| TaxItems (Only supported in: en-IN, en-CA, de, es, pt) | Array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the en-in locale|  |
+| TaxItems | Array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the Germany (`de`),Spain (`es`), Portugal (`pt`),and English Canada (`en-CA`) locales| |
 
 ### Line items
 
