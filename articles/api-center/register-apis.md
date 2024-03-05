@@ -131,6 +131,8 @@ In this tutorial, you learned how to use the portal to:
 > * Register one or more APIs
 > * Add an API version with an API definition
 
+As you build out your API inventory, take advantage of other tools to register APIs, such as the [Azure API Center extension for Visual Studio Code](use-vscode-extension.md) and the [Azure CLI](manage-apis-azure-cli.md).
+
 ## Next steps
 
 Your API inventory is starting to take shape! Now you can add information about API environments and deployments.
