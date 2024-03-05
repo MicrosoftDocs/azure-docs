@@ -20,7 +20,6 @@ The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows
 The steps required to configure the Logs ingestion API are as follows:
 
 1. [Create a Microsoft Entra application](#create-azure-ad-application) to authenticate against the API.
-3. [Create a data collection endpoint (DCE)](#create-data-collection-endpoint) to receive data.
 2. [Create a custom table in a Log Analytics workspace](#create-new-table-in-log-analytics-workspace). This is the table you'll be sending data to. As part of this process, you will create a data collection rule (DCR) to direct the data to the target table.
 5. [Give the AD application access to the DCR](#assign-permissions-to-the-dcr).
 6. [Use sample code to send data to using the Logs ingestion API](#send-sample-data).
@@ -62,21 +61,6 @@ Start by registering a Microsoft Entra application to authenticate against the A
 1. Select **Add** to save the secret and then note the **Value**. Ensure that you record this value because you can't recover it after you move away from this page. Use the same security measures as you would for safekeeping a password because it's the functional equivalent.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" alt-text="Screenshot that shows the secret value for the new app.":::
-
-## Create data collection endpoint
-A [data collection endpoint](../essentials/data-collection-endpoint-overview.md) is required to accept the data from the script. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE needs to be in the same region as the Log Analytics workspace where the data will be sent or the data collection rule being used.
-
-1. To create a new DCE, go to the **Monitor** menu in the Azure portal. Select **Data Collection Endpoints** and then select **Create**.
-
-    :::image type="content" source="media/tutorial-logs-ingestion-portal/new-data-collection-endpoint.png" lightbox="media/tutorial-logs-ingestion-portal/new-data-collection-endpoint.png" alt-text="Screenshot that shows new DCE.":::
-
-1. Provide a name for the DCE and ensure that it's in the same region as your workspace. Select **Create** to create the DCE.
-
-    :::image type="content" source="media/tutorial-logs-ingestion-portal/data-collection-endpoint-details.png" lightbox="media/tutorial-logs-ingestion-portal/data-collection-endpoint-details.png" alt-text="Screenshot that shows DCE details.":::
-
-1. After the DCE is created, select it so that you can view its properties. Note the **Logs ingestion** URI because you'll need it in a later step.
-
-    :::image type="content" source="media/tutorial-logs-ingestion-portal/data-collection-endpoint-uri.png" lightbox="media/tutorial-logs-ingestion-portal/data-collection-endpoint-uri.png" alt-text="Screenshot that shows DCE URI.":::
 
 
 ## Create new table in Log Analytics workspace
@@ -187,7 +171,7 @@ With the DCR created, you need to collect its ID, which is needed in the API cal
     :::image type="content" source="media/tutorial-logs-ingestion-portal/data-collection-rule-immutable-id.png" lightbox="media/tutorial-logs-ingestion-portal/data-collection-rule-immutable-id.png" alt-text="Screenshot that shows collecting the immutable ID from the JSON view.":::
 
 ## Assign permissions to the DCR
-The final step is to give the application permission to use the DCR. Any application that uses the correct application ID and application key can now send data to the new DCE and DCR.
+The final step is to give the application permission to use the DCR. Any application that uses the correct application ID and application key can now send data to Azure Monitor using the DCR.
 
 1. Select **Access Control (IAM)** for the DCR and then select **Add role assignment**.
 
