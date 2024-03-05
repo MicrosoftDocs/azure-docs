@@ -100,25 +100,12 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
 
 1. Register `TargetingFilter` and `TestTargetingContextAccessor` created in the earlier step to the service collection. The `TargetingFilter` will use the `TestTargetingContextAccessor` to determine the targeting context every time that the feature flag is evaluated.
 
-    ### [Microsoft.FeatureManagement.AspNetCore 3.0.0+](#tab/fm3x)
-
     Since `Microsoft.FeatureManagement` 3.0.0, you can use `WithTargeting` method to register `TargetingFilter` and `ITargetingContextAccessor` at the same time.
 
     ```csharp
     services.AddFeatureManagement()
             .WithTargeting<TestTargetingContextAccessor>();
     ```
-
-    ### [Microsoft.FeatureManagement.AspNetCore 2.6.x](#tab/fm2x)
-
-    ```csharp
-    services.AddFeatureManagement()
-            .AddFeatureFilter<TargetingFilter>();
-    
-    services.AddSingleton<ITargetingContextAccessor, TestTargetingContextAccessor>();
-    ```
-
-    ---
     
     > [!NOTE]
     > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
