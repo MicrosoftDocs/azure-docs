@@ -30,11 +30,18 @@ The following table lists issues you might encounter while using Azure Container
 
 ## View logs
 
-One of the first steps to take as you look for issues with your container app is to view log messages. You can view the output of both console and system logs.
+One of the first steps to take as you look for issues with your container app is to view log messages. You can view the output of both console and system logs. Your container app's console log captures the app's `stdout` and `stderr` streams. Container Apps generates [system logs](./logging.md#system-logs) for service level events.
 
-### Console logs
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the **Search** bar, enter your container app's name.
+1. Under *Resources* section, select your container app's name.
+1. In the navigation bar, expand **Monitoring** and select **Log stream**.
+1. If the *Log stream* page says *This revision is scaled to zero.*, select the **Go to Revision Management** button. Deploy a new revision scaled to a minimum replica count of 1. For more information see [Scaling in Azure Container Apps](./scale-app.md).
+1. In the *Log stream* page, set *Logs* to either **Console** or **System**.
 
-Your container app's console log captures the app's `stdout` and `stderr` streams. Use the following steps to view the console logs:
+### Query console logs
+
+Your container app's console log captures the app's `stdout` and `stderr` streams. Use the following steps to query the console logs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar, enter your container app's name.
@@ -57,10 +64,9 @@ To view `stdout` or `stderr` messages, add the `Stream_s` parameter and set it t
 
 For instance, to view `stdout` messages your query looks like this:
 
+### Query system logs
 
-### System logs
-
-Container Apps generates [system logs](./logging.md#system-logs) for service level events. You can view the system logs as follows:
+Container Apps generates [system logs](./logging.md#system-logs) for service level events. Use the following steps to query the system logs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar, enter your container app's name.
@@ -97,11 +103,15 @@ If you receive an error message when you try to deploy a new revision, verify th
 
 - Ensure your container environment firewall isn't blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
 - If your existing VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./networking.md#dns).
-- For a Docker container that can run as a console application, verify that your image is publicly accessible by running the following command in an elevated command prompt.
-    ```
-    docker run --rm <YOUR_CONTAINER_IMAGE>
-    ```
-	Docker should be able to pull your image and run it without error. If you are running [Docker on Windows](https://docs.docker.com/desktop/install/windows-install/), make sure you have the Docker Engine running.
+- If you used the Container Apps cloud build feature to generate a container image for you (see [Code-to-cloud path for Azure Container Apps](./code-to-cloud-options.md#new-to-containers), your image is not publicly accessible, so this section does not apply.
+
+For a Docker container that can run as a console application, verify that your image is publicly accessible by running the following command in an elevated command prompt.
+
+```
+docker run --rm <YOUR_CONTAINER_IMAGE>
+```
+
+Docker should be able to pull your image and run it without error. If you are running [Docker on Windows](https://docs.docker.com/desktop/install/windows-install/), make sure you have the Docker Engine running.
 
 For more information, see [Networking in Azure Container Apps environment](./networking.md).
 
@@ -173,7 +183,7 @@ Here are the default values for each probe type.
 | Success threshold | 1 | 1 | n/a |
 | Failure threshold | 240 | 48 | n/a |
 
-If your container app takes an extended amount of time to start (which is common in Java) you might need to customize your liveness and readiness probe *Initial delay seconds* property accordingly.
+If your container app takes an extended amount of time to start (which is common in Java) you might need to customize your liveness and readiness probe *Initial delay seconds* property accordingly. You can [view the logs](#view-logs) to see the typical startup time for your container app.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar, enter your container app's name.
@@ -189,6 +199,8 @@ If your container app takes an extended amount of time to start (which is common
 1. If **Enable readiness probes** is selected, increase the value for **Initial delay seconds**.
 1. Select **Save**.
 1. In the *Create and deploy new revision* page, select the **Create** button.
+
+You can then [view the logs](#view-logs) to see if your container app starts successfully.
 
 For more information, see [Use Health Probes](./health-probes.md).
 
