@@ -185,7 +185,7 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **GoogleBigQueryV2Source**. | Yes |
-| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. For more information, go to [Query syntax](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. For more information, go to [Query syntax](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax). | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
