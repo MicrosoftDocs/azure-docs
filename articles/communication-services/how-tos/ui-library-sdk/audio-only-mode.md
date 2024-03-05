@@ -16,14 +16,15 @@ zone_pivot_groups: acs-programming-languages-support-kotlin-swift
 
 # Enable Audio Only mode in the UI Library
 
-The UI Library provides the ability to customize it's Audio Video mode. 
+The UI Library allows you to modify the Audio Video mode of a Call for a local user. 
 
-In this article, you will learn how to enable Audio only mode, which will disable local and remote video capabilities.
+In this article, you learn how to enable Audio only mode, which disables local and remote video capabilities.
 
 ## Prerequisites
 
-- An integration of the ACS Calling UI SDK
-- Alternative: Completion of the [quickstart for getting started with the ACS UI Library composites](../../quickstarts/ui-library/get-started-composites.md).
+- Application utilizing the ACS Calling UI SDK
+**or**
+- Completion of the [quickstart for getting started with the ACS UI Library composites](../../quickstarts/ui-library/get-started-composites.md).
 
 ## Set up the features
 
