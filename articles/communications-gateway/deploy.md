@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to 
-ms.date: 10/09/2023
+ms.date: 01/08/2024
 ---
 
 # Deploy Azure Communications Gateway
@@ -29,7 +29,8 @@ You must have completed [Prepare to deploy Azure Communications Gateway](prepare
  |The name of the Azure subscription to use to create an Azure Communications Gateway resource. You must use the same subscription for all resources in your Azure Communications Gateway deployment. |**Project details: Subscription**|
  |The Azure resource group in which to create the Azure Communications Gateway resource. |**Project details: Resource group**|
  |The name for the deployment. This name can contain alphanumeric characters and `-`. It must be 3-24 characters long. |**Instance details: Name**|
- |The management Azure region: the region in which your monitoring and billing data is processed. We recommend that you select a region near or colocated with the two regions for handling call traffic. |**Instance details: Region**
+ |The management Azure region: the region in which your monitoring and billing data is processed. We recommend that you select a region near or colocated with the two regions for handling call traffic. |**Instance details: Region** |
+ |The type of deployment. Choose from **Standard** (for production) or **Lab**. |**Instance details: SKU** |
  |The voice codecs to use between Azure Communications Gateway and your network. We recommend that you only specify any codecs if you have a strong reason to restrict codecs (for example, licensing of specific codecs) and you can't configure your network or endpoints not to offer specific codecs. Restricting codecs can reduce the overall voice quality due to lower-fidelity codecs being selected. |**Call Handling: Supported codecs**|
  |Whether your Azure Communications Gateway resource should handle emergency calls as standard calls or directly route them to the Emergency Routing Service Provider (US only; only for Operator Connect or Teams Phone Mobile). |**Call Handling: Emergency call handling**|
  |A comma-separated list of dial strings used for emergency calls. For Microsoft Teams, specify dial strings as the standard emergency number (for example `999`). For Zoom, specify dial strings in the format `+<country-code><emergency-number>` (for example `+44999`).|**Call Handling: Emergency dial strings**|
@@ -41,10 +42,13 @@ You must have completed [Prepare to deploy Azure Communications Gateway](prepare
 
 Collect all of the values in the following table for both service regions in which you want to deploy Azure Communications Gateway.
 
+> [!NOTE]
+> Lab deployments have one Azure region and connect to one site in your network.
+
  |**Value**|**Field name(s) in Azure portal**|
  |---------|---------|
- |The Azure regions to use for call traffic. |**Service Region One/Two: Region**|
- |The IPv4 address used by Azure Communications Gateway to contact your network from this region. |**Service Region One/Two: Operator IP address**|
+ |The Azure region to use for call traffic. |**Service Region One/Two: Region**|
+ |The IPv4 address belonging to your network that Azure Communications Gateway should use to contact your network from this region. |**Service Region One/Two: Operator IP address**|
  |The set of IP addresses/ranges that are permitted as sources for signaling traffic from your network. Provide an IPv4 address range using CIDR notation (for example, 192.0.2.0/24) or an IPv4 address (for example, 192.0.2.0). You can also provide a comma-separated list of IPv4 addresses and/or address ranges.|**Service Region One/Two: Allowed Signaling Source IP Addresses/CIDR Ranges**|
  |The set of IP addresses/ranges that are permitted as sources for media traffic from your network. Provide an IPv4 address range using CIDR notation (for example, 192.0.2.0/24) or an IPv4 address (for example, 192.0.2.0). You can also provide a comma-separated list of IPv4 addresses and/or address ranges.|**Service Region One/Two: Allowed Media Source IP Address/CIDR Ranges**|
 
