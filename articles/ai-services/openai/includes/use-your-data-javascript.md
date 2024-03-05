@@ -68,14 +68,18 @@ async function main(){
       ],
     },
   });
+  let response = "";
   for await (const event of events) {
     for (const choice of event.choices) {
-      const delta = choice.delta?.content;
-      if (delta !== undefined) {
-        console.log(`Chatbot: ${delta}`);
+      const newText = choice.delta?.content;
+      if (!!newText) {
+        response += newText;
+        // To see streaming results as they arrive, uncomment line below
+        // console.log(newText);
       }
     }
   }
+  console.log(chatGptAnswer);
 }
 
 main().catch((err) => {
