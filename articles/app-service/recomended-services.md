@@ -1,5 +1,5 @@
 ---
-title: Recommended Services
+title: Recommended services
 description: This feature suggests a set of services that are commonly deployed together for your specific app type.
 ms.topic: article
 ms.date: 03/04/2024
@@ -7,7 +7,7 @@ author: btardif
 ms.author: byvinyal
 ---
 
-# Recommended Services (Preview)
+# Recommended services (Preview)
 
 This feature suggests a set of services that are commonly deployed together for your specific app type. It offers guidance on structuring your app effectively using proven patterns. 
 
