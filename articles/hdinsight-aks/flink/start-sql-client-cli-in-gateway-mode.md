@@ -27,7 +27,7 @@ Image
  
 ## What is SQL Client in Flink?
  
-Flink’s Table & SQL API makes it possible to work with queries that written in the SQL language, but these queries need embed within a table program written in either Java or Scala. Moreover, these programs need to be packaged with a build tool before being submitted to a cluster. This more or less limit the usage of Flink to Java/Scala programmers.
+Flink’s Table & SQL API makes it possible to work with queries that written in the SQL language, but these queries need embed within a table program written in either Java or Scala. Moreover, these programs need to be packaged with a build tool before being submitted to a cluster. These feature limits the usage of Flink to Java/Scala programmers.
  
 The SQL Client aims to provide an easy way of writing, debugging, and submitting table programs to a Flink cluster without a single line of Java or Scala code. The SQL Client CLI allows for retrieving and visualizing real-time results from the running distributed application on the command line.
  
@@ -61,13 +61,13 @@ Image
 ### Preparation
 1. Download Flink cli from https://hdiconfigactions.blob.core.windows.net/hiloflink17blob/flink-cli.tgz in Local Windows machine.
  
-1. Install  WSL to make this work on my local Windows Machine.
+1. Install  Windows Subsystem for Linux to make this work on my local Windows Machine.
  
 **Step1:** 
 Open Windows command and run (replace JAVA_HOME and flink-cli path with your own) to download flink-cli:
 
 ```
-wsl --distribution Ubuntu 
+Windows Subsystem for Linux --distribution Ubuntu 
 export JAVA_HOME=/mnt/c/Work/99_tools/zulu11.56.19-ca-jdk11.0.15-linux_x64
 cd <folder>
 wget https://hdiconfigactions.blob.core.windows.net/hiloflink17blob/flink-cli.tgz
@@ -75,7 +75,7 @@ tar -xvf flink-cli.tgz
 ```
  
 **Step2:** 
-set endpoint, tenant ID and port 443 in flink-conf.yaml 
+set endpoint, tenant ID, and port 443 in flink-conf.yaml 
 ```
 user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli$ cd conf
 user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli/conf$ ls -l
@@ -153,9 +153,9 @@ Command history file path: /home/user/.flink-sql-history
  
 **Step5:** 
 Before querying any table with external source, prepare the related jars.
-Following examples query kafka table, mysql table in Flink SQL. Download the jar and put it in Flink cluster attached ADLS gen2 storage.
+Following examples query kafka table, mysql table in Flink SQL. Download the jar and put it in Flink cluster attached Azure Data Lake Storage gen2 storage.
  
-Jars in ADLS gen2 in Azure portal: 
+Jars in Azure Data Lake Storage gen2 in Azure portal: 
 Image 
  
  
