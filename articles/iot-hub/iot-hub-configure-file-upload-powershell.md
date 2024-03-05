@@ -30,7 +30,7 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 * Use the PowerShell environment in [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md).
 
-   [![Launch Cloud Shell.](~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png)](https://shell.azure.com)
+   [![Button to launch the Azure Cloud Shell.](~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png)](https://shell.azure.com)
 
 * If you prefer, [install](/powershell/scripting/install/installing-powershell) PowerShell locally.
 

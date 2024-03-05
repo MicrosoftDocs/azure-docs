@@ -54,7 +54,7 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 # [Azure Cloud Shell ](#tab/Cloud)
 
-[![Launch Cloud Shell.](~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png)](https://shell.azure.com)
+[![Button to launch the Azure Cloud Shell.](~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png)](https://shell.azure.com)
 
 ---
 

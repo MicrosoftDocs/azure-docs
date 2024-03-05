@@ -38,7 +38,7 @@ GEOMASTER_LOCATION="TODO: Why so many different locations for different resource
 
 Launch the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 
-[![Launch Cloud Shell.](~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png)](https://shell.azure.com)
+[![Button to launch the Azure Cloud Shell.](~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png)](https://shell.azure.com)
 
 Because these CLI commands are not yet part of the core CLI set, add them with the following commands.
 
