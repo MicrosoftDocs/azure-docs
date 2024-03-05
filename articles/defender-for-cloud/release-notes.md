@@ -24,8 +24,43 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
+| March 13 | [Compliance standards added to compliance dashboard](#compliance-standards-added-to-compliance-dashboard)  | 
 | March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
+
+### Compliance standards added to compliance dashboard
+
+February 29, 2024
+
+Based on customer feedback, we've added the following standards to our compliance dashboard. As shown, these are for reviewing the compliance status of AWS and GCP resources protected by Defender for Cloud.
+
+| Compliance standard                                   | Version    | AWS                             | GCP                             |
+| ----------------------------------------------------- | ---------- | ------------------------------- | ------------------------------- |
+| AWS Well-Architected Framework                        | N/A        | :white_check_mark:              | :x:                             |
+| Brazilian General Personal Data Protection Law (LGPD) | 53/2018    | :white_check_mark:              | :white_check_mark:              |
+| California Consumer Privacy Act (CCPA)                | 2018       | :white_check_mark:              | :white_check_mark:              |
+| CIS Controls                                          | v8         | :x:                             | :white_check_mark:              |
+| CIS Google Cloud Platform Foundation Benchmark        | V2.0.0     | :x:                             | :white_check_mark:              |
+| CIS Google Kubernetes Engine (GKE) Benchmark          | v1.4.0     | :x:                             | :white_check_mark:              |
+| CPS 234 (APRA)                                        | 2019       | :x:                             | :white_check_mark:              |
+| CRI Profile                                           | v1.2.1     | :white_check_mark:              | :white_check_mark:              |
+| CSA Cloud Controls Matrix (CCM)                       | v4.0.10    | :white_check_mark:              | :white_check_mark:              |
+| Cybersecurity Maturity Model Certification (CMMC)     | v2.0       | :x:                             | :white_check_mark:              |
+| FFIEC Cybersecurity Assessment Tool (CAT)             | 2017       | :x:                             | :white_check_mark:              |
+| GDPR                                                  | 2016/679   | :white_check_mark:              | :white_check_mark:              |
+| ISO/IEC 27001                                         | 27001:2022 | :white_check_mark:              | :white_check_mark: **(Update)** |
+| ISO/IEC 27002                                         | 27002:2022 | :white_check_mark:              | :white_check_mark:              |
+| ISO/IEC 27017                                         | 27017:2015 | :x:                             | :white_check_mark:              |
+| NIST Cybersecurity Framework (CSF)                    | v1.1       | :white_check_mark:              | :white_check_mark:              |
+| NIST SP 800-171                                       | Revision 2 | :x:                             | :white_check_mark:              |
+| NIST SP 800-172                                       | 2021       | :white_check_mark:              | :white_check_mark:              |
+| PCI-DSS                                               | v4.0.0     | :white_check_mark: **(Update)** | :white_check_mark: **(Update)** |
+| Sarbanes Oxley Act (SOX)                              | 2002       | :x:                             | :white_check_mark:              |
+| SOC 2                                                 | 2017       | :x:                             | :white_check_mark:              |
+
+We are continuously working on adding and updating new standards for Azure, AWS, and GCP environments.
+
+Learn how to [assign a security standard](update-regulatory-compliance-packages.md).
 
 ### Deprecation of two recommendations related to PCI
 
@@ -49,46 +84,12 @@ The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is 
 
 |Date | Update |
 |----------|----------|
-| February 29 | [Compliance standards added to compliance dashboard](#compliance-standards-added-to-compliance-dashboard)  | 
 | February 28 | [Updated security policy management expands support to AWS and GCP](#updated-security-policy-management-expands-support-to-aws-and-gcp) |
 | February 26 | [Cloud support for Defender for Containers](#cloud-support-for-defender-for-containers) |
 | February 20 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) |
 | February 18| [Open Container Initiative (OCI) image format specification support](#open-container-initiative-oci-image-format-specification-support) |
 | February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
 | February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
-
-### Compliance standards added to compliance dashboard
-
-February 29, 2024
-
-Based on customer feedback, we've added the following standards to our compliance dashboard. As shown, these are for reviewing the compliance status of AWS and GCP resources protected by Defender for Cloud.
-
-| Compliance standard                                   | Version    | AWS                             | GCP                             |
-| ----------------------------------------------------- | ---------- | ------------------------------- | ------------------------------- |
-| AWS Well-Architected Framework                        | N/A        | :white_check_mark:              | :x:                             |
-| Brazilian General Personal Data Protection Law (LGPD) | 53/2018    | :white_check_mark:              | :white_check_mark:              |
-| California Consumer Privacy Act (CCPA)                | 2018       | :white_check_mark:              | :white_check_mark:              |
-| CIS Controls                                          | v8         | :x:                             | :white_check_mark:              |
-| CIS Google Kubernetes Engine (GKE) Benchmark          | v1.4.0     | :x:                             | :white_check_mark:              |
-| CPS 234 (APRA)                                        | 2019       | :x:                             | :white_check_mark:              |
-| CRI Profile                                           | v1.2.1     | :white_check_mark:              | :white_check_mark:              |
-| CSA Cloud Controls Matrix (CCM)                       | v4.0.10    | :white_check_mark:              | :white_check_mark:              |
-| Cybersecurity Maturity Model Certification (CMMC)     | v2.0       | :x:                             | :white_check_mark:              |
-| FFIEC Cybersecurity Assessment Tool (CAT)             | 2017       | :x:                             | :white_check_mark:              |
-| GDPR                                                  | 2016/679   | :white_check_mark:              | :white_check_mark:              |
-| ISO/IEC 27001                                         | 27001:2022 | :white_check_mark:              | :white_check_mark: **(Update)** |
-| ISO/IEC 27002                                         | 27002:2022 | :white_check_mark:              | :white_check_mark:              |
-| ISO/IEC 27017                                         | 27017:2015 | :x:                             | :white_check_mark:              |
-| NIST Cybersecurity Framework (CSF)                    | v1.1       | :white_check_mark:              | :white_check_mark:              |
-| NIST SP 800-171                                       | Revision 2 | :x:                             | :white_check_mark:              |
-| NIST SP 800-172                                       | 2021       | :white_check_mark:              | :white_check_mark:              |
-| PCI-DSS                                               | v4.0.0     | :white_check_mark: **(Update)** | :white_check_mark: **(Update)** |
-| Sarbanes Oxley Act (SOX)                              | 2002       | :x:                             | :white_check_mark:              |
-| SOC 2                                                 | 2017       | :x:                             | :white_check_mark:              |
-
-We are continuously working on adding and updating new standards for Azure, AWS, and GCP environments.
-
-Learn how to [assign a security standard](update-regulatory-compliance-packages.md).
 
 ### Updated security policy management expands support to AWS and GCP
 
