@@ -110,7 +110,7 @@ The high-level steps involved in liveness orchestration are illustrated below:
                 "method": "POST",
                 "contentLength": 352568,
                 "contentType": "multipart/form-data; boundary=--------------------------482763481579020783621915",
-                "userAgent": "PostmanRuntime/7.34.0"
+                "userAgent": ""
             },
             "response": {
                 "body": {
@@ -243,7 +243,7 @@ The high-level steps involved in liveness with verification orchestration are il
                 "method": "POST",
                 "contentLength": 352568,
                 "contentType": "multipart/form-data; boundary=--------------------------590588908656854647226496",
-                "userAgent": "PostmanRuntime/7.34.0"
+                "userAgent": ""
             },
             "response": {
                 "body": {
