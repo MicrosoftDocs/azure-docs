@@ -54,7 +54,7 @@ additionalContent:
         - title: Deployment options
           links:
             - text: Azure Hybrid Benefit for Azure Kubernetes Service - AKS hybrid
-              url: ../../aks/hybrid/azure-hybrid-benefit.md
+              url: /azure-stack/aks/hybrid/azure-hybrid-benefit
             - text: Azure Hybrid Benefit for Azure Stack HCI - Azure Stack HCI
               url: /azure-stack/hci/concepts/azure-hybrid-benefit-hci
             - text: Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptions
