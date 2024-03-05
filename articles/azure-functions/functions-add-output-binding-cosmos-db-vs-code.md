@@ -34,8 +34,7 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 
 ## Create your Azure Cosmos DB account
 
-> [!IMPORTANT]
-> [Azure Cosmos DB serverless](../cosmos-db/serverless.md) is now generally available. This consumption-based mode makes Azure Cosmos DB a strong option for serverless workloads. To use Azure Cosmos DB in serverless mode, choose **Serverless** as the **Capacity mode** when creating your account.
+Now, you create an Azure Cosmos DB account as a [serverless account type](../cosmos-db/serverless.md). This consumption-based mode makes Azure Cosmos DB a strong option for serverless workloads. 
 
 1. In Visual Studio Code, select **View** > **Command Palette...** then in the command palette search for `Azure Databases: Create Server...`
 
@@ -145,7 +144,7 @@ To create a binding, right-click (Ctrl+select on macOS) the *function.json* file
 | **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
 | **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
 
-A binding is added to the `bindings` array in your *function.json*, which should look like the following after removing any `undefined` values present
+A binding is added to the `bindings` array in your *function.json*, which should look like the following after removing any `undefined` values present:
 
 ```json
 {
@@ -301,7 +300,7 @@ The document `{"id": "name"}` is created in the database collection specified in
 
 In Azure, *resources* refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group.
 
-You created resources to complete these quickstarts. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
+You created resources to complete these quickstarts. You might be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
 
 [!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
 
