@@ -37,7 +37,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](#directory-limit).  |    No    |   
 |  Maximum number of files [`maxfiles`](#maxfiles) per volume     |    106,255,630    |    Yes    |    
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
-|  Maximum number of quota rules per volume     |   100  |    Yes    | 
+|  Maximum number of quota rules per volume     |   100  |    No    | 
 |  Minimum assigned throughput for a manual QoS volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
 |  Number of cross-region replication data protection volumes (destination volumes)     |    50    |    Yes    |     

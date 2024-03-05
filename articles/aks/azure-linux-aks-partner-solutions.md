@@ -20,7 +20,7 @@ Our third party partners featured in this article have introduction guides to he
 | Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Tetrate](#tetrate)                      |
 | Observability      | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace)                  |
 | Security           | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Tetrate](#tetrate)   |
-| Storage            | [Veeam](#veeam)                                                                                |
+| Storage            | [Catalogic](#catalogic) <br> [Veeam](#veeam)                                                   |
 | Config Management  | [Corent](#corent)                                                                              |
 | Migration          | [Catalogic](#catalogic)                                                                        |
 
@@ -223,9 +223,9 @@ Migrate workloads to Azure Linux Container Host on AKS with confidence.
 
 | Solution | Categories |
 |----------|------------|
-| CloudCasa | Migration |
+| CloudCasa by Catalogic | Migration <br> Storage |
 
-CloudCasa is a Kubernetes backup, recovery, and migration solution that is fully compatible with AKS, as well as all other major Kubernetes distributions and managed services.
+CloudCasa by Catalogic is a Kubernetes backup, recovery, and migration solution that is fully compatible with AKS, as well as all other major Kubernetes distributions and managed services.
 
 <details> <summary> See more </summary><br>
 
@@ -237,7 +237,7 @@ CloudCasa can also centrally manage Azure Backup or Velero backup installations 
 
 </details>
 
-For more information, see [Catalogic Solutions](https://cloudcasa.io/) and [Catalogic on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/catalogicsoftware1625626770507.cloudcasa-aks-app).
+For more information, see [CloudCasa by Catalogic Solutions](https://cloudcasa.io/) and [CloudCasa by Catalogic on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/catalogicsoftware1625626770507.cloudcasa-aks-app).
 
 ## Next steps
 
