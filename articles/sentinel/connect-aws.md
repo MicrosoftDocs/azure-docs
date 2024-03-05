@@ -351,6 +351,7 @@ Setting up this connector has two steps:
 
    > [!IMPORTANT]
    > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
+
 ---
 
 ## Next steps
