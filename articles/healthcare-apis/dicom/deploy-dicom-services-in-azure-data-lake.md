@@ -10,7 +10,7 @@ ms.author: mmitrik
 ms.custom: mode-api, devx-track-arm-template
 ---
 
-# Deploy the DICOM service with Data Lake Storage (Preview)
+# Deploy the DICOM service with Data Lake Storage
 
 Deploying the [DICOM&reg; service with Azure Data Lake Storage](dicom-data-lake.md) enables organizations to store and process imaging data in a standardized, secure, and scalable way.
 
@@ -41,7 +41,7 @@ After deployment completes, you can use the Azure portal to see the details abou
 
 1. Enter a name for the DICOM service.
 
-1. Select **External (preview)** for the Storage Location.  
+1. Select **External** for the Storage Location.  
 
     :::image type="content" source="media/deploy-data-lake/dicom-deploy-options.png" alt-text="Screenshot showing the options in the Create DICOM service view." lightbox="media/deploy-data-lake/dicom-deploy-options.png":::
 
