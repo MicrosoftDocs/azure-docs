@@ -435,7 +435,7 @@ In the preceding GeoJSON response, the negative distance from the main site geof
       "invalidPeriodGeofenceGeometryId": [],
       "isEventPublished": false
     }
-    ````
+    ```
 
 In the preceding GeoJSON response, the equipment remained in the main site geofence and didn't enter the subsite geofence. As a result, the `isEventPublished` parameter is set to `false`, and the Operations Manager doesn't receive any email notifications.
 
@@ -483,7 +483,7 @@ In the preceding GeoJSON response, the equipment remained in the main site geofe
       "invalidPeriodGeofenceGeometryId": [],
       "isEventPublished": true
     }
-    ````
+    ```
 
 In the preceding GeoJSON response, the equipment remained in the main site geofence, and entered the subsite geofence. As a result, the `isEventPublished` parameter is set to `true`. The Operations Manager receives an email notification indicating that the equipment entered a geofence.
 
@@ -528,7 +528,7 @@ In the preceding GeoJSON response, the equipment remained in the main site geofe
       "invalidPeriodGeofenceGeometryId": [],
       "isEventPublished": false
     }
-    ````
+    ```
 
 In the preceding GeoJSON response, the equipment remained in the main site geofence, but exited the subsite geofence. Notice, however, that the `userTime` value is after the `expiredTime` as defined in the geofence data. As a result, the `isEventPublished` parameter is set to `false`, and the Operations Manager doesn't receive an email notification.
 
@@ -576,7 +576,7 @@ In the preceding GeoJSON response, the equipment remained in the main site geofe
       "invalidPeriodGeofenceGeometryId": [],
       "isEventPublished": true
     }
-    ````
+    ```
 
 In the preceding GeoJSON response, the equipment exited the main site geofence. As a result, the `isEventPublished` parameter is set to `true`, and the Operations Manager receives an email notification indicating that the equipment exited a geofence.
 
