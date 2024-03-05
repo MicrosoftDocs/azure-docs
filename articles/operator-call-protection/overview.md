@@ -12,101 +12,58 @@ ms.custom:
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
+## What is Azure Operator Call Protection?
 
-This template provides the basic structure of a Overview article pattern. See the [instructions - Overview](../level4/article-overview.md) in the pattern library.
+Azure Operator Call Protection is a service targeted at telecommunications operators that uses AI to perform real-time analysis of consumer phone calls to detect potential phone scams and alert subscribers when they are at risk of being scammed.
 
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
+[!INCLUDE [operator-call-protection-tsp-restriction](includes/operator-call-protection-tsp-restriction.md)]
 
-Overview is an article pattern that covers two aspects of a product or service:
+Azure Operator Call Protection harnesses the power and responsible AI safeguards of Azure speech-to-text and Azure OpenAI.
 
-* What is it?
-* What is it used for?
+It is built on the Azure Communications Gateway platform, enabling quick, reliable and secure integration between your landline or mobile voice network and the Call Protection service running in the Azure cloud.
 
-An Overview article talks about the product or service from a technical point of view. It's not intended to define the benefits or value proposition. That just duplicates marketing.
+This service is now available at Preview.
 
-<!-- 1. H1 -----------------------------------------------------------------------------
+> [!IMPORTANT]
+> Azure Operator Call Protection preview can be used in a live production environment.
 
-Required: This is the primary heading at the top of the article.
+## Architecture
 
-Use the format "What is <service>?" 
+Azure Operator Call Protection connects to your network over IP for the voice call, and via the global SMS network for the delivery of fraud call notifications.
 
-You can also use this in the TOC if your service name doesn't cause the phrase to wrap.
+![Azure Operator Call Protection architecture](media/azure-operator-call-protection-architecture.png)
 
--->
+Your network communicates with the Call Protection service deployed in a suitable Azure region. Connection is over any means using public IP addressing including:
+* Azure Internet Peering for Communications Services ("MAPS for Voice")
+* ExpressRoute Microsoft peering
 
-# What is /<product/service/>? 
-TODO: Add your heading
+The connection to Azure Operator Call Protection is over SIPREC.  The Call Protection service takes the role of the SIPREC Session Recording Server (SRS).  An element in your network, typically a session border controller (SBC), is set up as a SIPREC Session Recording Client (SRC).
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+Azure Operator Call Protection is supported in many Microsoft Azure regions globally. Please contact your account team to discuss which local regions support this service.
 
-Required: Lead with a light intro that describes what the article covers. Answer the fundamental "why would I want to know this?" question. Keep it short.
+Azure Operator Call Protection and Azure Communications Gateway are fully managed services. This simplifies network operations integration and accelerates the timeline for adding new network functions into production.
 
-Many services add artwork or videos below the Introduction.
+## Features
 
--->
+Azure Operator Call Protection is invoked on incoming calls to your subscribers.  It analyses the call content in real time to determine whether it is likely to be a scam or fraud call.
 
-[Introductory paragraph]
-TODO: Add your introductory paragraph
+If Azure Operator Call Protection determines at any point during the call that it is likely to be a scam or fraud, it sends an operator-branded SMS message notification to the subscriber via the global SMS network.
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info
-directly into the article text.
+This notification contains a warning that the current call is likely to be a scam or fraud, and an explanation of why that determination has been made. This enables the subscriber to make an informed decision about whether to proceed with the call.
 
---->
+## Privacy and security
 
-<!-- 3. H2s (Article body)------------------------------------------------------------ 
+> TODO: This might change depending on CELA input on Transparency FAQs.
 
-Required: The article body should discuss the features that answer the "Why should I care?" question with a bit more depth.
+Azure Operator Call Protection is architected to ensure the security and privacy of customer data.
 
-Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
-Add images, code blocks, or other graphical elements after the information it illustrates.
+Azure Operator Call Protection does not record the call or store the content of calls. No call content can be accessed or listened to by Microsoft.
 
-* Call out any basic requirements and dependencies.
-* Call out limitations or overhead.
-* Don't catalog every feature. Some might only need to be mentioned as available, without any discussion.
-* Give each H2 a heading that sets expectations for the content that follows.
-* Follow the H2 headings with a sentence about how the section contributes to the whole.
-* Images, code blocks, or other graphical elements come after the text block it illustrates.
-Don't number H2s.
+All customer data, including call content, is processed in the operator’s Azure subscription and is protected by Azure’s robust security and privacy measures, including encryption for data at rest and in transit, identity and access management, threat detection, and compliance certifications.
 
--->
-
-## [Section 1 heading]
-TODO: add your content
-
-## [Section 2 heading]
-TODO: add your content
-
-## [Section n heading]
-TODO: add your content
-
-<!-- 4. Next step/Related content ------------------------------------------------------------------------ 
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
-
--->
+No customer data, including call content, is used to train the AI.
 
 ## Next step
 
 > [!div class="nextstepaction"]
 > [Learn about deploying and setting up Azure Operator Call Protection](deployment-overview.md)
-
-<!-- OR -->
-
-<!--
-## Related content
-
-TODO: Add your next step link(s)
-
-- [Write concepts](article-concept.md)
-- 
---->
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
