@@ -1,16 +1,16 @@
 ---
-title: Cancel your Azure subscription
-description: Describes how to cancel your Azure subscription, like the Free Trial subscription
+title: Cancel and delete your Azure subscription
+description: Describes how to cancel or deleted your Azure subscription, like the Free Trial subscription.
 author: bandersmsft
-ms.reviewer: sgautam
+ms.reviewer: tomasa
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/26/2024
+ms.date: 03/05/2024
 ms.author: banders
 ---
 
-# Cancel your Azure subscription
+# Cancel and delete your Azure subscription
 
 You can cancel your Azure subscription in the Azure portal if you no longer need it.
 
@@ -24,16 +24,33 @@ Although not required, Microsoft *recommends* that you take the following action
     * You might be unable to delete all resources, depending on your configuration. For example, if you have immutable blobs. For more information, see [Immutable Blobs](../../storage/blobs/immutable-storage-overview.md#scenarios-with-version-level-scope).
 * If you have any custom roles that reference this subscription in `AssignableScopes`, you should update those custom roles to remove the subscription. If you try to update a custom role after you cancel a subscription, you might get an error. For more information, see [Troubleshoot problems with custom roles](../../role-based-access-control/troubleshooting.md#custom-roles) and [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
+Instead of canceling a subscription, you can remove all of its resources to [prevent unwanted charges](../understand/plan-manage-costs.md#prevent-unwanted-charges).
+
 > [!NOTE]
-> After you cancel your subscription, you'll receive a final invoice for the usage that you incurred in the last billing cycle.
+> After you cancel your last Azure subscription, you can delete it after all required conditions are met.
+
+## Final charges and last bill
+
+After you cancel your final subscription, Azure closes your current billing cycle within 72 hours, or three calendar days. When the billing cycle ends, you receive your final invoice (bill) for the usage you incurred in the last billing cycle. In other words, you might not get your final bill on the same day that you cancel your final subscription. Instead, you could get your final bill up to three days after you cancel your subscription.
+
+The following examples illustrate how billing periods could end:
+
+- Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
+- Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
+
+After your pay your final bill, keep the following points in mind.
+
+- Azure doesn’t immediately delete your data. Data is preserved temporarily in case you decide to reactivate your subscription later. Azure doesn't charge you for data that is temporarily kept.
+- Azure doesn't immediately delete the subscription.
+- Azure never automatically deletes your Azure account. If you want to delete your Azure account, see [How do I delete my Azure account](#how-do-i-delete-my-azure-account).
 
 If you cancel an Azure Support plan, you're billed for the rest of the month. Cancelling a support plan doesn't result in a prorated refund. For more information, see [Azure support plans](https://azure.microsoft.com/support/plans/).
-
-Instead of canceling a subscription, you can remove all of its resources to [prevent unwanted charges](#prevent-unwanted-charges).
 
 ## Who can cancel a subscription?
 
 The following table describes the permission required to cancel a subscription.
+
+If you’re not sure what type of subscription you have, see [Check your account type](view-all-accounts.md#check-the-type-of-your-account). If you don’t have permission to cancel your subscription, contact the person in your organization that does have permission to cancel the subscription.
 
 |Subscription type     |Who can cancel  |
 |---------|---------|
@@ -75,7 +92,13 @@ A subscription owner can navigate in the Azure portal to **Subscriptions** and t
 1. Select **Cancel subscription**.  
     :::image type="content" source="./media/cancel-azure-subscription/cancel-subscription-final.png" alt-text="Screenshot showing the Cancel subscription window options." lightbox="./media/cancel-azure-subscription/cancel-subscription-final.png" :::
 
-After the subscription is canceled, a notification shows that the cancellation is complete. If you have any outstanding charges that aren't invoiced yet, their estimated charges are shown. If you have any outstanding credits that aren't yet applied to your invoice, the estimated credits that apply to your invoice are shown. For more information about data update frequency, see [Cost and usage data updates and retention](../costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
+After the subscription is canceled, a notification shows that the cancellation is complete. 
+
+If you have any outstanding charges that aren't invoiced yet, their estimated charges are shown. As described previously, you get a final bill at the end of your billing cycle.
+
+If you have any outstanding credits that aren't yet applied to your invoice, the estimated credits that apply to your invoice are shown. For more information about data update frequency, see [Cost and usage data updates and retention](../costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
+
+The following example shows that credits were applied and pending estimated charges. In this example, the final bill is estimated at USD 50.50.
 
 :::image type="content" source="./media/cancel-azure-subscription/cancel-complete.png" alt-text="Screenshot showing that subscription cancellation status." lightbox="./media/cancel-azure-subscription/cancel-complete.png" :::
 
@@ -115,17 +138,8 @@ Depending on your subscription type, you might not be able to delete a subscript
 
 >[!NOTE]
 > - The subscription is automatically deleted 90 days after you cancel a subscription.
+> - You can also contact Microsoft Support to help you remove a subscription. However you must make sure that you don't need the subscription anymore because the process only allows seven days to reactivate the subscription.
 > - If you have deleted all resources but the Delete your subscription page shows that you still have active resources, you might have active *hidden resources*. You can't delete a subscription if you have active hidden resources. To delete them, navigate to **Subscriptions** > select the subscription > **Resources**. At the top of the page, select **Manage view** and then select **Show hidden types**. Then, delete the resources.
-
-## Prevent unwanted charges
-
-To prevent unwanted charges on a subscription, you can go to **Resources** menu for the subscription and select the resources that you want to delete. If you don't want to have any charges for the subscription, select all of the subscription resources and then **Delete** them. The subscription essentially becomes an empty container with no charges.
-
-:::image type="content" source="./media/cancel-azure-subscription/delete-resources.png" alt-text="Screenshot showing delete resources." lightbox="./media/cancel-azure-subscription/delete-resources.png" :::
-
-If you have a support plan, you might continue to get charged for it. To delete a support a plan, navigate to **Cost Management + Billing** and select **Recurring charges**. Select the support plan and turn off autorenewal.
-
-:::image type="content" source="./media/cancel-azure-subscription/change-renewal-settings.png" alt-text="Screenshot showing Change renewal settings." lightbox="./media/cancel-azure-subscription/change-renewal-settings.png" :::
 
 ## Reactivate a subscription
 
