@@ -14,19 +14,39 @@ You’ve set up [connectors and other means of collecting activity data](connect
 
 Microsoft Sentinel and its many [solutions provided in the Content hub](sentinel-solutions.md) offer templates for the most commonly used types of analytics rules, and you’re strongly encouraged to make use of those templates, customizing them to fit your specific scenarios. But it’s possible you might need something completely different, so in that case you can create a rule from scratch, either with the Analytics rule wizard, using the Azure command line (?), or by issuing REST API requests.
 
-This article walks you through the **Analytics rule wizard** and explains all the available options. It's accompanied by screenshots and directions to access the wizard in both the Azure portal, for standalone Microsoft Sentinel customers, and the Defender portal, for users of the Microsoft Defender unified security operations platform.
+This article walks you through the **Analytics rule wizard** and explains all the available options. It's accompanied by screenshots and directions to access the wizard in both the Azure portal, for Microsoft Sentinel users who aren't also Microsoft Defender subscribers, and the Defender portal, for users of the Microsoft Defender unified security operations platform.
 
 ## Prerequisites
 
-- You must have the Microsoft Sentinel Contributor role, or any other role that gives you write permissions on your Log Analytics workspace and its resource group.
+- You must have the Microsoft Sentinel Contributor role, or any other role or set of permissions that includes write permissions on your Log Analytics workspace and its resource group.
 
-- Before you do anything else, you should design and build a query in Kusto Query Language (KQL) that you’ll use in the rule to query one or more tables in your Log Analytics workspace.
+## Design and build your query
 
-  See [here](link) for help building Kusto queries.
+Before you do anything else, you should design and build a query in Kusto Query Language (KQL) that your rule will use to query one or more tables in your Log Analytics workspace.
 
-  Build and test your queries in the **Logs** screen. When you’re satisfied, save the query for use in your rule.
+1. Determine a data source that you want to search to detect unusual or suspicious activity. Find the name of the Log Analytics table into which data from that source is ingested. You can find the table name on the page of the data connector for that source. Use this table name (or a function based on it) as the basis for your query.
 
-## Create an analytics rule
+1. Decide what kind of analysis you want this query to perform on the table. This decision will determine which commands and functions you should use in the query.
+
+1. Decide which data elements (fields, columns) you want from the query results. This decision will determine how you structure the output of the query.
+
+### Best practices for analytics rule queries
+
+- It's recommended to use an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) as your query source, instead of using a native table. This will ensure that the query supports any current or future relevant data source or family of data sources, rather than relying on a single data source.
+
+- The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) to overcome the query length limitation.
+
+- Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
+
+- When using the **`bag_unpack`** function in a query, if you [project the columns](/azure/data-explorer/kusto/query/projectoperator) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/azure/data-explorer/kusto/query/projectoperator) as follows:
+
+   `project field1 = column_ifexists("field1","")`
+
+For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](kusto-overview.md) and [Best practices for Kusto Query Language queries](/azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
+
+Build and test your queries in the **Logs** screen. When you’re satisfied, save the query for use in your rule.
+
+## Create your analytics rule
 
 This section describes how to create a rule using the Azure or Defender portals.
 
@@ -94,114 +114,65 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
 ### Define the rule logic
 
-In the **Set rule logic** tab, you can either write a query directly in the **Rule query** field, or create the query in Log Analytics and then copy and paste it here.
+1. Paste the query you designed, built, and tested into the **Rule query** window. Every change you make in this window is instantly validated, so if there are any mistakes, you’ll see an indication right below the window.
 
-- Queries are written in Kusto Query Language (KQL). Learn more about KQL [concepts](/azure/data-explorer/kusto/concepts/) and [queries](/azure/data-explorer/kusto/query/), and see this handy [quick reference guide](/azure/data-explorer/kql-quick-reference).
+1. **Map entities**. This step is essential for detecting and investigating threats. Map the entity types recognized by Microsoft Sentinel onto fields in your query results. This mapping integrates the discovered entities into the [*Entities* field in your alert schema](security-alert-schema.md).
 
-- The example shown in this screenshot queries the *SecurityEvent* table to display a type of [failed Windows logon events](/windows/security/threat-protection/auditing/event-4625).
+    For complete instructions on mapping entities, see [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
 
-   # [Azure portal](#tab/azure)
+1. **Surface custom details** in your alerts. By default, only the alert entities and metadata are visible in incidents without drilling down into the raw events in the query results. This step takes other fields in your query results and integrates them into the [*ExtendedProperties* field in your alerts](security-alert-schema.md), causing them to be displayed up front in your alerts, and in any incidents created from those alerts.
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic.png" alt-text="Screenshot of rule logic screen of analytics rule wizard in the Azure portal." lightbox="media/tutorial-detect-threats-custom/set-rule-logic.png":::
+    For complete instructions on surfacing custom details, see [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md).
 
-   # [Defender portal](#tab/defender)
+1. **Customize alert details**. This setting allows you to customize otherwise-standard alert properties according to the content of various fields in each individual alert. These customizations are integrated into the [*ExtendedProperties* field in your alerts](security-alert-schema.md). For example, you can customize the alert name or description to include a username or IP address featured in the alert.
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/defender-set-rule-logic.png" alt-text="Screenshot of rule logic screen of analytics rule wizard in the Defender portal." lightbox="media/tutorial-detect-threats-custom/defender-set-rule-logic.png":::
+    For complete instructions on customizing alert details, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
 
-   ---
 
-- Here's another sample query, one that would alert you when an anomalous number of resources is created in [Azure Activity](../azure-monitor/essentials/activity-log.md).
+1. **Schedule and scope the query**. 
+    1. Set the following parameters in the **Query scheduling** section:
 
-    ```kusto
-    AzureActivity
-    | where OperationNameValue == "MICROSOFT.COMPUTE/VIRTUALMACHINES/WRITE" or OperationNameValue == "MICROSOFT.RESOURCES/DEPLOYMENTS/WRITE"
-    | where ActivityStatusValue == "Succeeded"
-    | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
-    ```
+        | Setting | Behavior |
+        | --- | --- |
+        | **Run query every** | Controls the **query interval**: how often the query is run. |
+        | **Lookup data from the last** | Determines the **lookback period**: the time period covered by the query. |
 
-    > [!IMPORTANT]
-    >
-    > We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a native table. This will ensure that the query supports any current or future relevant data source rather than a single data source.
-    >
+        - The allowed range for both of these parameters is from **5 minutes** to **14 days**.
 
-    > [!NOTE]
-    > **Rule query best practices**:
-    >
-    > - The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) to overcome the query length limitation.
-    >
-    > - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
-    >
-    > - When using the **`bag_unpack`** function in a query, if you [project the columns](/azure/data-explorer/kusto/query/projectoperator) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/azure/data-explorer/kusto/query/projectoperator) as follows:
-    >   - `project field1 = column_ifexists("field1","")`
+        - The query interval must be shorter than or equal to the lookback period. If it's shorter, the query periods will overlap and this may cause some duplication of results. The rule validation will not allow you to set an interval longer than the lookback period, though, as that would result in gaps in your coverage.
 
-#### Alert enhancement
+    1. Set **Start running**:
 
-The following section describes three ways you can enrich and enhance your alerts with essential, specific information to help you detect, classify, investigate, and respond to security threats. These enhancements also provide criteria by which you can group alerts together into incidents in the **Incident settings** section.
+        | Setting | Behavior |
+        | --- | --- |
+        | **Automatically** | The rule will run for the first time immediately upon being created, and after that at the interval set in the **Run query every** setting. |
+        | **At specific time** (Preview) | Set a date and time for the rule to first run, after which it will run at the interval set in the **Run query every** setting. |
 
-##### Entity mapping
+        - The **start running** time must be between 10 minutes and 30 days after the rule creation (or enablement) time.
 
-Use the **Entity mapping** configuration section to map elements of your query results to Microsoft Sentinel-recognized entities. This mapping allows Microsoft Sentinel to identify recurring objects&mdash;for example, users, hosts, addresses, files, processes&mdash;across alerts, in order to track them over time and correlate between occurrences.
+        - The line of text under the **Start running** setting (with the information icon at its left) summarizes the current query scheduling and lookback settings.
 
-For complete instructions on mapping entities, see [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
-
-Learn more about [entities in Microsoft Sentinel](entities.md).
-
-##### Custom details
-
-Use the **Custom details** configuration section to extract event data items from your query and surface them in the alerts produced by this rule, giving you immediate event content visibility in your alerts and incidents.
-
-For complete instructions on surfacing custom details in alerts, see [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md).
-
-##### Alert details
-
-Use the **Alert details** configuration section to override default values of the alert's properties with details from the underlying query results. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
-
-For complete instructions on customizing your alert details, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
-
-#### Schedule and scope the query
-
-- In the **Query scheduling** section, set the following parameters:
-
-  - Set **Run query every** to control how often the query is run&mdash;as frequently as every 5 minutes or as infrequently as once every 14 days.
-
-  - Set **Lookup data from the last** to determine the time period of the data covered by the query&mdash;for example, it can query the past 10 minutes of data, or the past 6 hours of data. The maximum is 14 days.
-  
-  - Set **Start running**:
-
-    | Setting | Behavior |
-    | --- | --- |
-    | **Automatically** | The rule will run for the first time immediately upon being created, and after that at the interval set in the **Run query every** setting. |
-    | **At specific time** (Preview) | Set a date and time for the rule to first run, after which it will run at the interval set in the **Run query every** setting. |
-
-    The line of text under the **Start running** setting (with the information icon at its left) summarizes the current query scheduling and lookback settings.
-
-    :::image type="content" source="media/tutorial-detect-threats-custom/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
+            :::image type="content" source="media/tutorial-detect-threats-custom/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
     
-   # [Azure portal](#tab/azure)
+       # [Azure portal](#tab/azure)
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Azure portal.":::
+       :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Azure portal.":::
 
-   # [Defender portal](#tab/defender)
+       # [Defender portal](#tab/defender)
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/defender-set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Defender portal.":::
+       :::image type="content" source="media/tutorial-detect-threats-custom/defender-set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Defender portal.":::
 
-   ---
+       ---
 
-    > [!NOTE]
-    >
-    > **Query intervals and lookback period**
-    >
-    >  These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
-    >
-    > **Ingestion delay**
-    >
-    > To account for **latency** that may occur between an event's generation at the source and its ingestion into Microsoft Sentinel, and to ensure complete coverage without data duplication, Microsoft Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
-    >
-    > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
+   > [!NOTE]
+   >
+   > **Ingestion delay**
+   >
+   > To account for **latency** that may occur between an event's generation at the source and its ingestion into Microsoft Sentinel, and to ensure complete coverage without data duplication, Microsoft Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
+   >
+   > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
 
-#### Set the threshold for creating alerts
-
-- Use the **Alert threshold** section to define the sensitivity level of the rule. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a threshold – that is, if you want your alert to register every event – enter 0 in the number field.
+1. **Set the threshold for creating alerts**. Use the **Alert threshold** section to define the sensitivity level of the rule. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a threshold – that is, if you want your alert to register every event – enter 0 in the number field.
 
 #### Group events into alerts and rule suppression
 
