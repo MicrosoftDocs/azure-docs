@@ -2858,10 +2858,10 @@ groups:
   title: Azure Virtual Desktop app attach version
   prompt: "Choose an app attach version:"
   pivots:
+  - id: app-attach
+    title: App attach
   - id: msix-app-attach
     title: MSIX app attach
-  - id: app-attach
-    title: App attach (preview)
 - id: azure-virtual-desktop-windows-client-troubleshoot
   title: Remote Desktop client for Windows troubleshoot
   prompt: "Choose the product you're connecting to:"

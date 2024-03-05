@@ -1,22 +1,18 @@
 ---
-title: Add and manage MSIX app attach and app attach applications - Azure Virtual Desktop
-description: Learn how to add and manage applications with MSIX app attach and app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell, where you can dynamically attach applications from an application package to a user session.
+title: Add and manage app attach and MSIX app attach applications - Azure Virtual Desktop
+description: Learn how to add and manage applications with app attach and MSIX app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell, where you can dynamically attach applications from an application package to a user session.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 zone_pivot_groups: azure-virtual-desktop-app-attach
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 12/08/2023
+ms.date: 03/04/2024
 ---
 
-# Add and manage MSIX app attach and app attach applications in Azure Virtual Desktop
-
-> [!IMPORTANT]
-> App attach is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Add and manage app attach and MSIX app attach applications in Azure Virtual Desktop
 
 > [!TIP]
-> A new version of app attach for Azure Virtual Desktop is available in preview. Select a button at the top of this article to choose between *MSIX app attach* (current) and *app attach* (preview) to see the relevant documentation.
+> A new version of app attach for Azure Virtual Desktop is available. Select a button at the top of this article to choose between *app attach* and *MSIX app attach* to see the relevant documentation.
 
 ::: zone pivot="app-attach"
 App attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, enabling you to create fewer custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with app attach also gives you greater control over which applications your users can access in a remote session.
@@ -27,15 +23,15 @@ MSIX app attach enables you to dynamically attach applications from an applicati
 ::: zone-end
 
 ::: zone pivot="app-attach"
-This article shows you how to add and manage applications with app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell. You can't add or manage app attach applications using Azure CLI. Before you start, make sure you read the overview for [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md).
+This article shows you how to add and manage applications with app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell. You can't add or manage app attach applications using Azure CLI. Before you start, make sure you read the overview for [app attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md).
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"
-This article shows you how to add and manage MSIX packages with MSIX app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell. You can't add or manage MSIX app attach applications using Azure CLI. Before you start, make sure you read the overview for [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md).
+This article shows you how to add and manage MSIX packages with MSIX app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell. You can't add or manage MSIX app attach applications using Azure CLI. Before you start, make sure you read the overview for [app attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md).
 ::: zone-end
 
 > [!IMPORTANT]
-> You have to choose whether you want to use MSIX app attach or app attach with a host pool. You can't use both versions with the same host pool.
+> You have to choose whether you want to use app attach or MSIX app attach with a host pool. You can't use both versions with the same host pool.
 
 ## Prerequisites
 
@@ -99,7 +95,7 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 >
 > - All MSIX and Appx application packages include a certificate. You're responsible for making sure the certificates are trusted in your environment. Self-signed certificates are supported with the appropriate chain of trust.
 >
-> - You have to choose whether you want to use MSIX app attach or app attach with a host pool. You can't use both versions with the same package in the same host pool.
+> - You have to choose whether you want to use app attach or MSIX app attach with a host pool. You can't use both versions with the same package in the same host pool.
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"
