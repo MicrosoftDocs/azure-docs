@@ -137,7 +137,7 @@
     - name: Manage NICs
       href: virtual-network-network-interface.md
     - name: Manage virtual network
-      href: manage-virtual-network.md
+      href: manage-virtual-network.yml
     - name: Manage subnets
       href: virtual-network-manage-subnet.md
     - name: Manage subnet delegation

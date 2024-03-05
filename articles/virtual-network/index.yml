@@ -53,7 +53,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create, change, or delete a virtual network
-            url: manage-virtual-network.md
+            url: manage-virtual-network.yml
           - text: Add, change, or delete a subnet
             url: virtual-network-manage-subnet.md
 

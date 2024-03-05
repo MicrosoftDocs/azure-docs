@@ -76,7 +76,7 @@ In addition, you can't add the following address ranges:
 
 ### Can I have public IP addresses in my virtual networks?
 
-Yes. For more information about public IP address ranges, see [Create a virtual network](manage-virtual-network.md#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
+Yes. For more information about public IP address ranges, see [Create a virtual network](manage-virtual-network.yml#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
 
 ### Is there a limit to the number of subnets in my virtual network?
 
@@ -366,7 +366,7 @@ Yes. You can use REST APIs for virtual networks in the [Azure Resource Manager](
 
 Yes. Learn more about using:
 
-* The Azure portal to deploy virtual networks through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) deployment models.
+* The Azure portal to deploy virtual networks through the [Azure Resource Manager](manage-virtual-network.yml#create-a-virtual-network) and [classic](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) deployment models.
 * PowerShell to manage virtual networks deployed through the [Resource Manager](/powershell/module/az.network) deployment model.
 * The Azure CLI or Azure classic CLI to deploy and manage virtual networks deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.
 

@@ -85,7 +85,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Next steps
 
-In this quickstart, you created a virtual network with two subnets: one that contains two VMs and the other for Bastion. You deployed Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
+In this quickstart, you created a virtual network with two subnets: one that contains two VMs and the other for Bastion. You deployed Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.yml).
 
 Private communication between VMs is unrestricted in a virtual network. To learn more about configuring various types of VM network communications, continue to the next article:
 
