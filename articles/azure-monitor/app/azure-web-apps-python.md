@@ -8,7 +8,7 @@ ms.custom: "devx-track-python"
 ms.reviewer: abinetabate
 ---
 
-# Application Monitoring for Azure App Service and Python (preview)
+# Application monitoring for Azure App Service and Python (preview)
 
 Monitor your Python web applications on Azure App Services without modifying the code. This guide shows you how to enable Azure Monitor Application Insights and offers tips for automating large-scale deployments.
 
@@ -129,10 +129,10 @@ In order to use the OpenTelemetry Django Instrumentation, you need to set the `D
 
 Here's our step-by-step troubleshooting guide for monitoring Python applications on Azure App Services using extensions/agents.
 
-### Step 1: Confirm that App Service Autoinstrumentation is enabled
+### Step 1: Confirm that App Service autoinstrumentation is enabled
 
 Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of `~3`.
-### Step 2: Check Autoinstrumentation diagnostics and status logs
+### Step 2: Check autoinstrumentation diagnostics and status logs
 Navigate to */var/log/applicationinsights/* and open *status.json*.
 
 Confirm that `AgentInitializedSuccessfully` is set to true and `IKey` to have a valid iKey.
