@@ -123,7 +123,7 @@ Save and run the app. A map should be shown within a WebView. Add any features o
 
 ## Communication between native code and WebView (optional)
 
-To enable communication between your iOS application and the WebView, you can use the `WKScriptMessageHandler` protocol provided by the `WKWebView` class. It allows you to establish a bridge for communication between JavaScript running in the WebView and your Swift code. For more information, see [WKScriptMessageHandler] in the iOS webkit documentation.
+To enable communication between your iOS application and the WebView, you can use the `WKScriptMessageHandler` protocol provided by the `WKWebView` class. It allows you to establish a bridge for communication between JavaScript running in the WebView and your Swift code. For more information, see [WKScriptMessageHandler] in the iOS WebKit documentation.
 
 ## Clean Up Native Map Implementation
 
