@@ -114,17 +114,19 @@ Use [Connect your Session Border Controller (SBC) to Direct Routing](/microsoftt
 
 | Teams Admin Center setting | PowerShell parameter | Value to use (Admin Center / PowerShell) |
 | -------------------------- | -------------------- | ------------ |
-| **Add an FQDN for the SBC** | `FQDN` |The regional domain of Azure Communications Gateway |
+| **Add an FQDN for the SBC** | `FQDN` | The regional domain of Azure Communications Gateway |
 | **Enabled** | `Enabled` | On / True |
 | **SIP signaling port** | `SipSignalingPort` | 5063 |
 | **Send SIP options** | `SendSIPOptions` | On / True |
-| **Forward call history** | `ForwardCallHistory` | On / True|
+| **Forward call history** | `ForwardCallHistory` | On / True |
 | **Forward P-Asserted-identity (PAI) header** | `ForwardPAI` | On / True |
-| **Concurrent call capacity** | `MaxConcurrentSessions` | Leave as default |
-| **Failover response codes** | `FailoverResponseCodes` |Leave as default|
-| **Failover times (seconds)** | `FailoverTimeSeconds` |Leave as default|
+| **Concurrent call capacity** | `MaxConcurrentSessions` | Use default |
+| **Failover response codes** | `FailoverResponseCodes` | Use default |
+| **Failover times (seconds)** | `FailoverTimeSeconds` | Use default |
 | **SBC supports PIDF/LO for emergency calls** | `PidfloSupported` | On / True |
-| - | `MediaBypass` |- / False|
+| **Media bypass** | `MediaBypass` | Off / False |
+
+Use the default values for all other settings.
 
 ## Next step
 
