@@ -12,7 +12,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Customer-managed keys in Azure Managed Instance for Apache Cassandra
 
-In Azure Managed Instance for Apache Cassandra, you can encrypt data on disk by using your own key. This article describes how to implement customer-managed keys by using Azure Key Vault.
+In Azure Managed Instance for Apache Cassandra, you can use your own key to encrypt data on disk. This article describes how to implement customer-managed keys by using Azure Key Vault.
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ This article requires Azure CLI version 2.30.0 or later. If you're using Azure C
 
    :::image type="content" source="./media/cmk/key-vault-access-policy-1.png" alt-text="Screenshot that shows the pane for access policies in the Azure portal." lightbox="./media/cmk/key-vault-access-policy-1.png" border="true":::
 
-1. For **Key permissions**, select **get**, **wrap**, and **unwrap**. Choose the **Select principal** box to open the **Principal** pane. Enter the cluster's `principalId` value that you retrieved earlier, and then choose the **Select** button. (In the portal, you can also look up the principal ID of the cluster by the cluster's name.)
+1. For **Key permissions**, select **get**, **wrap**, and **unwrap**. Select the **Select principal** box to open the **Principal** pane. Enter the cluster's `principalId` value that you retrieved earlier, and then select the **Select** button. (In the portal, you can also look up the principal ID of the cluster by the cluster's name.)
 
    :::image type="content" source="./media/cmk/key-vault-access-policy-2.png" alt-text="Screenshot that shows an example of adding a principal for an access policy." lightbox="./media/cmk/key-vault-access-policy-2.png" border="true":::
 
@@ -82,19 +82,19 @@ This article requires Azure CLI version 2.30.0 or later. If you're using Azure C
 
    :::image type="content" source="./media/cmk/save.png" alt-text="Screenshot that shows the button for saving an access policy." lightbox="./media/cmk/key-vault-access-policy-2.png" border="true":::
 
-1. To get the key identifier, select your key.
+1. To get the key identifier, select **Keys**, and then select your key.
 
-   :::image type="content" source="./media/cmk/select-key.png" alt-text="Select key" lightbox="./media/cmk/key-identifier-1.png" border="true":::
+   :::image type="content" source="./media/cmk/select-key.png" alt-text="Screenshot that shows the pane for selecting a key." lightbox="./media/cmk/key-identifier-1.png" border="true":::
 
-1. Select the current version:
+1. Select the current version.
 
-   :::image type="content" source="./media/cmk/current-version.png" alt-text="Select current version" lightbox="./media/cmk/key-identifier-1.png" border="true":::
+   :::image type="content" source="./media/cmk/current-version.png" alt-text="Screenshot that shows the box for selecting the current version of a key." lightbox="./media/cmk/key-identifier-1.png" border="true":::
 
 1. Save the key identifier for later use.
 
-   :::image type="content" source="./media/cmk/key-identifier-2.png" alt-text="Key identifier step 2" lightbox="./media/cmk/key-identifier-1.png" border="true":::
+   :::image type="content" source="./media/cmk/key-identifier-2.png" alt-text="Screenshot that shows copying a key identifier to the clipboard." lightbox="./media/cmk/key-identifier-1.png" border="true":::
 
-1. Create the datacenter by replacing `<key identifier>` with the same key (the uri you copied in previous step) for both managed disk (managed-disk-customer-key-uri) and backup storage (backup-storage-customer-key-uri) encryption as shown below (use the same value for `subnet` you used earlier):
+1. Create the datacenter by replacing `<key identifier>` with the same key (the URI that you copied in the previous step) for both managed disk (`managed-disk-customer-key-uri`) and backup storage (`backup-storage-customer-key-uri`) encryption. Use the same value for `subnet` that you used earlier.
 
     ```azurecli-interactive
     managedDiskKeyUri = "<key identifier>"
@@ -118,11 +118,11 @@ This article requires Azure CLI version 2.30.0 or later. If you're using Azure C
         --sku Standard_DS14_v2
     ```
 
-1. An existing cluster with no identity information can be assigned an identity as shown below:
+You can also assign an identity to an existing cluster with no identity information:
 
-    ```azurecli-interactive
-    az managed-cassandra cluster update --identity-type SystemAssigned -g $group -c $cluster
-    ```
+```azurecli-interactive
+az managed-cassandra cluster update --identity-type SystemAssigned -g $group -c $cluster
+```
 
 ## <a id="update-cluster"></a>Rotate the key
 
