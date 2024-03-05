@@ -3,14 +3,29 @@ title: "Quickstart: Azure Blob storage library - JavaScript"
 description: In this quickstart, you learn how to use the Azure Blob Storage for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 10/28/2022
+ms.date: 03/05/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js
+zone_pivot_groups: azure-blob-storage-quickstart-options
 ---
 
 # Quickstart: Azure Blob Storage client library for Node.js
+
+::: zone pivot="blob-storage-quickstart-scratch"
+
+> [!NOTE]
+> The **Build from scratch** option walks you step by step through the process of creating a new project, installing packages, writing the code, and running a basic console app. This approach is recommended if you want to understand all the details involved in creating an app that connects to Azure Blob Storage. If you prefer to automate deployment tasks and start with a completed project, choose [Start with a template](storage-quickstart-blobs-nodejs.md?pivots=blob-storage-quickstart-template).
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+> [!NOTE]
+> The **Start with a template** option uses the Azure Developer CLI to automate deployment tasks and starts you off with a completed project. This approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. If you prefer step by step instructions to build the app, choose [Build from scratch](storage-quickstart-blobs-nodejs.md?pivots=blob-storage-quickstart-scratch).
+
+::: zone-end
 
 Get started with the Azure Blob Storage client library for Node.js to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks.
 
@@ -19,9 +34,9 @@ Get started with the Azure Blob Storage client library for Node.js to manage blo
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
-- [Node.js LTS](https://nodejs.org/en/download/).
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure Storage account - [Create a storage account](../common/storage-account-create.md)
+- [Node.js LTS](https://nodejs.org/en/download/)
 
 ## Create the Node.js project
 
