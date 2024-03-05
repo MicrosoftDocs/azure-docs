@@ -27,7 +27,9 @@ The `import` operation supports two modes: initial mode and incremental mode. Ea
 
 - Optimized for loading data into the FHIR server periodically and doesn't block writes through the API.
 
-- Allows you to load `lastUpdated` and `versionId` from resource metadata if present in the resource JSON.
+- Allows you to load `lastUpdated` and `versionId` from resource metadata if present in the resource JSON. 
+
+- Allows you to load resources in non-sequential order of versions.
    
    * If import files don't have the `version` and `lastUpdated` field values specified, there's no guarantee of importing resources in FHIR service.
 
@@ -41,6 +43,7 @@ The `import` operation supports two modes: initial mode and incremental mode. Ea
 > Also, if multiple resources share the same resource ID, then only one of those resources is imported at random. An error is logged for the resources sharing the same resource ID.
 
 This table shows the difference between import modes
+
 |Areas|Initial mode  |Incremental mode  |
 |:------------- |:-------------|:-----|
 |Capability|Initial load of data into FHIR service|Continuous ingestion of data into FHIR service (Incremental or Near Real Time).|

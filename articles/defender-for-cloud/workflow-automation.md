@@ -18,11 +18,10 @@ This article describes the workflow automation feature of Microsoft Defender for
 - You must also have write permissions for the target resource.
 - To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:
 
-    - [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)
-    - [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) permissions are required for logic app creation and modification.
-    
-- If you want to use Logic Apps connectors, you might need other credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances).
+  - [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)
+  - [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) permissions are required for logic app creation and modification.
 
+- If you want to use Logic Apps connectors, you might need other credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances).
 
 ## Create a logic app and define when it should automatically run
 
@@ -79,7 +78,6 @@ The logic app designer supports the following Defender for Cloud triggers:
 > [!NOTE]
 > If you are using the legacy trigger "When a response to a Microsoft Defender for Cloud alert is triggered", your logic apps will not be launched by the Workflow Automation feature. Instead, use either of the triggers mentioned above.
 
-
 1. After you've defined your logic app, return to the workflow automation definition pane ("Add workflow automation").
 1. Select **Refresh** to ensure your new logic app is available for selection.
 1. Select your logic app and save the automation. The logic app dropdown only shows those with supporting Defender for Cloud connectors mentioned above.
@@ -92,7 +90,7 @@ To manually run a logic app, open an alert, or a recommendation and select **Tri
 
 [![Manually trigger a logic app.](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
-## Configure workflow automation at scale 
+## Configure workflow automation at scale
 
 Automating your organization's monitoring and incident response processes can greatly improve the time it takes to investigate and mitigate security incidents.
 
@@ -110,9 +108,7 @@ To implement these policies:
     |Workflow automation for security recommendations     |[Deploy Workflow Automation for Microsoft Defender for Cloud recommendations](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
     |Workflow automation for regulatory compliance changes|[Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
 
-    
     You can also find these by searching Azure Policy. In Azure Policy, select **Definitions** and search for them by name.
-    
 
 1. From the relevant Azure Policy page, select **Assign**.
     :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Assigning the Azure Policy.":::
