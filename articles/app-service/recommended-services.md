@@ -38,7 +38,7 @@ The database picked for you in this list is Runtime-aware and generate a default
 
 ## Azure Cache for Redis 
 
-Redis improves the performance and scalability of an app that uses backend data stores heavily. [Learn more about Azure Cache for Redis.](/azure-cache-for-redis/cache-overview.md) 
+Redis improves the performance and scalability of an app that uses backend data stores heavily. [Learn more about Azure Cache for Redis.](../azure-cache-for-redis/cache-overview.md)
 
 **Inputs:**  
 
