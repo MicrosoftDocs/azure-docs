@@ -4,19 +4,17 @@ description: Learn how to use the Trusted Access feature to give Azure resources
 author: schaffererin
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 12/04/2023
+ms.date: 03/05/2024
 ms.author: schaffererin
 ---
 
-# Get secure access for Azure resources in Azure Kubernetes Service by using Trusted Access (preview)
+# Get secure access for Azure resources in Azure Kubernetes Service by using Trusted Access
 
 Many Azure services that integrate with Azure Kubernetes Service (AKS) need access to the Kubernetes API server. To avoid granting these services admin access or making your AKS clusters public for network access, you can use the AKS Trusted Access feature.
 
-This feature gives services secure access to AKS and Kubernetes by using the Azure back end without requiring a private endpoint. Instead of relying on identities that have [Microsoft Entra](../active-directory/fundamentals/active-directory-whatis.md) permissions, this feature can use your system-assigned managed identity to authenticate with the managed services and applications that you want to use with your AKS clusters.
+This feature gives services secure access to AKS API server by using the Azure back end without requiring a private endpoint. Instead of relying on identities that have [Microsoft Entra](../active-directory/fundamentals/active-directory-whatis.md) permissions, this feature can use your system-assigned managed identity to authenticate with the managed services and applications that you want to use with your AKS clusters.
 
 This article shows you how to get secure access for your Azure services to your Kubernetes API server in AKS by using Trusted Access.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 > [!NOTE]
 > The Trusted Access API is generally available. We provide general availability (GA) support for the Azure CLI, but it's still in preview and requires using the aks-preview extension.
@@ -35,45 +33,11 @@ You can use Trusted Access to give explicit consent to your system-assigned mana
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Resource types that support [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md).
-  * If you're using the Azure CLI, the aks-preview extension version 0.5.74 or later is required.
+* Azure CLI version 2.53.0 or later. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 * To learn what roles to use in different scenarios, see these articles:
   * [Azure Machine Learning access to AKS clusters with special configurations](https://github.com/Azure/AML-Kubernetes/blob/master/docs/azureml-aks-ta-support.md)
   * [What is Azure Kubernetes Service backup?][aks-azure-backup]
   * [Turn on an agentless container posture](../defender-for-cloud/concept-agentless-containers.md)
-
-## Get started
-
-First, install the aks-preview extension:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-Then, register the TrustedAccessPreview feature flag by using the [az feature register][az-feature-register] command.
-
-Here's an example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview"
-```
-
-It takes a few minutes for the status to appear as **Registered**. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview"
-```
-
-When the status is **Registered**, refresh the registration of the Microsoft.ContainerService resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## Create an AKS cluster
 
@@ -171,3 +135,4 @@ az aks trustedaccess rolebinding delete --name <role binding name> --resource-gr
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-azure-backup]: ../backup/azure-kubernetes-service-backup-overview.md
+[azure-cli-install]: /cli/azure/install-azure-cli
