@@ -55,7 +55,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
     > [!NOTE]
     >
     > If you're using access policies with your key vault, considering
-    > [migrating to the Azure role-based access control permission model](../key-vault/general/rbac-migration).
+    > [migrating to the Azure role-based access control permission model](../key-vault/general/rbac-migration.md).
 
   * [Add the corresponding public certificate](#add-public-certificate) to your key vault. This certificate appears in your [agreement's **Send** and **Receive** settings for signing and encrypting messages](logic-apps-enterprise-integration-agreements.md). For example, review [Reference for AS2 messages settings in Azure Logic Apps](logic-apps-enterprise-integration-as2-message-settings.md).
 
