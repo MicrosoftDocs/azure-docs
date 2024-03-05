@@ -126,7 +126,7 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 * [Get datacenter details](#get-datacenter-details)
 * [Get datacenters in a cluster](#get-datacenters-cluster)
 * [Update or scale a datacenter](#update-datacenter)
-* [Get the Cassandra configuration](#get-the-cassandra-configuration)
+* [Get the Cassandra configuration](#get-yaml)
 * [Update the Cassandra configuration](#update-yaml)
 
 ### <a id="create-datacenter"></a>Create a datacenter
