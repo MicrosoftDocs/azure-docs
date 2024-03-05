@@ -72,8 +72,8 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
    ```azurecli
    az group create \
-       --name RESOURCE_GROUP \
-       --location LOCATION
+       --name ${RESOURCE_GROUP} \
+       --location ${LOCATION}
    ```
 
    For more information about resource groups, see [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md).
@@ -84,8 +84,8 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
    ```azurecli
    az spring create \
-       --resource-group RESOURCE_GROUP \
-       --name SERVICE_NAME \
+       --resource-group ${RESOURCE_GROUP} \
+       --name ${SERVICE_NAME} \
        --sku enterprise \
        --enable-application-configuration-service \
        --enable-service-registry \
@@ -97,23 +97,23 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
    ```azurecli
    az monitor log-analytics workspace create \
-       --resource-group RESOURCE_GROUP \
-       --workspace-name WORKSPACE_NAME \
-       --location LOCATION
+       --resource-group ${RESOURCE_GROUP} \
+       --workspace-name ${WORKSPACE_NAME} \
+       --location ${LOCATION}
    ```
 
 1. Use the following commands to retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Apps service instance:
 
    ```azurecli
    export LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
-       --resource-group RESOURCE_GROUP \
-       --workspace-name WORKSPACE_NAME \
+       --resource-group ${RESOURCE_GROUP} \
+       --workspace-name ${WORKSPACE_NAME} \
        --query id \
        --output tsv)
 
    export AZURE_SPRING_APPS_RESOURCE_ID=$(az spring show \
-       --resource-group RESOURCE_GROUP \
-       --name SERVICE_NAME \
+       --resource-group ${RESOURCE_GROUP} \
+       --name ${SERVICE_NAME} \
        --query id \
        --output tsv)
    ```
@@ -167,29 +167,29 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
    ```azurecli
    az spring app create \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name cart-service \
-       --service SERVICE_NAME
+       --service ${SERVICE_NAME}
 
    az spring app create \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name order-service \
-       --service SERVICE_NAME
+       --service ${SERVICE_NAME}
 
    az spring app create \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name payment-service \
-       --service SERVICE_NAME
+       --service ${SERVICE_NAME}
 
    az spring app create \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name catalog-service \
-       --service SERVICE_NAME
+       --service ${SERVICE_NAME}
 
    az spring app create \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name frontend \
-       --service SERVICE_NAME
+       --service ${SERVICE_NAME}
    ```
 
 ## Externalize configuration with Application Configuration Service
@@ -200,9 +200,9 @@ Use the following steps to configure Application Configuration Service.
 
    ```azurecli
    az spring application-configuration-service git repo add \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name acme-fitness-store-config \
-       --service SERVICE_NAME \
+       --service ${SERVICE_NAME} \
        --label main \
        --patterns "catalog/default,catalog/key-vault,identity/default,identity/key-vault,payment/default" \
        --uri "https://github.com/Azure-Samples/acme-fitness-store-config"
@@ -212,14 +212,14 @@ Use the following steps to configure Application Configuration Service.
 
    ```azurecli
    az spring application-configuration-service bind \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --app payment-service \
-       --service SERVICE_NAME
+       --service ${SERVICE_NAME}
 
    az spring application-configuration-service bind \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --app catalog-service \
-       --service SERVICE_NAME
+       --service ${SERVICE_NAME}
    ```
 
 ## Activate service registration and discovery
@@ -228,14 +228,14 @@ To active service registration and discovery, use the following commands to bind
 
 ```azurecli
 az spring service-registry bind \
-    --resource-group RESOURCE_GROUP \
+    --resource-group ${RESOURCE_GROUP} \
     --app payment-service \
-    --service SERVICE_NAME
+    --service ${SERVICE_NAME}
 
 az spring service-registry bind \
-    --resource-group RESOURCE_GROUP \
+    --resource-group ${RESOURCE_GROUP} \
     --app catalog-service \
-    --service SERVICE_NAME
+    --service ${SERVICE_NAME}
 ```
 
 ## Deploy polyglot applications with Tanzu Build Service
@@ -246,9 +246,9 @@ Use the following steps to deploy and build applications. For these steps, make 
 
    ```azurecli
    az spring build-service builder create \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name quickstart-builder \
-       --service SERVICE_NAME \
+       --service ${SERVICE_NAME} \
        --builder-file azure-spring-apps-enterprise/resources/json/tbs/builder.json
    ```
 
@@ -256,9 +256,9 @@ Use the following steps to deploy and build applications. For these steps, make 
 
    ```azurecli
    az spring app deploy \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name payment-service \
-       --service SERVICE_NAME \
+       --service ${SERVICE_NAME} \
        --config-file-pattern payment/default \
        --source-path apps/acme-payment \
        --build-env BP_JVM_VERSION=17
@@ -268,9 +268,9 @@ Use the following steps to deploy and build applications. For these steps, make 
 
    ```azurecli
    az spring app deploy \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name catalog-service \
-       --service SERVICE_NAME \
+       --service ${SERVICE_NAME} \
        --config-file-pattern catalog/default \
        --source-path apps/acme-catalog \
        --build-env BP_JVM_VERSION=17
@@ -280,9 +280,9 @@ Use the following steps to deploy and build applications. For these steps, make 
 
    ```azurecli
    az spring app deploy \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name order-service \
-       --service SERVICE_NAME \
+       --service ${SERVICE_NAME} \
        --builder quickstart-builder \
        --source-path apps/acme-order
    ```
@@ -291,9 +291,9 @@ Use the following steps to deploy and build applications. For these steps, make 
 
    ```azurecli
    az spring app deploy \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name cart-service \
-       --service SERVICE_NAME \
+       --service ${SERVICE_NAME} \
        --builder quickstart-builder \
        --env "CART_PORT=8080" \
        --source-path apps/acme-cart
@@ -303,9 +303,9 @@ Use the following steps to deploy and build applications. For these steps, make 
 
    ```azurecli
    az spring app deploy \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name frontend \
-       --service SERVICE_NAME \
+       --service ${SERVICE_NAME} \
        --source-path apps/acme-shopping
    ```
 
@@ -320,8 +320,8 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 
    ```azurecli
    az spring gateway update \
-       --resource-group RESOURCE_GROUP \
-       --service SERVICE_NAME \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${SERVICE_NAME} \
        --assign-endpoint true
    ```
 
@@ -329,14 +329,14 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 
    ```azurecli
    export GATEWAY_URL=$(az spring gateway show \
-       --resource-group RESOURCE_GROUP \
-       --service SERVICE_NAME \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${SERVICE_NAME} \
        --query properties.url \
        --output tsv)
 
    az spring gateway update \
-       --resource-group RESOURCE_GROUP \
-       --service SERVICE_NAME \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${SERVICE_NAME} \
        --api-description "Fitness Store API" \
        --api-title "Fitness Store" \
        --api-version "v1.0" \
@@ -348,9 +348,9 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 
    ```azurecli
    az spring gateway route-config create \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name cart-routes \
-       --service SERVICE_NAME \
+       --service ${SERVICE_NAME} \
        --app-name cart-service \
        --routes-file azure-spring-apps-enterprise/resources/json/routes/cart-service.json
    ```
@@ -359,9 +359,9 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 
    ```azurecli
    az spring gateway route-config create \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name order-routes \
-       --service SERVICE_NAME \
+       --service ${SERVICE_NAME} \
        --app-name order-service \
        --routes-file azure-spring-apps-enterprise/resources/json/routes/order-service.json
    ```
@@ -370,9 +370,9 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 
    ```azurecli
    az spring gateway route-config create \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name catalog-routes \
-       --service SERVICE_NAME \
+       --service ${SERVICE_NAME} \
        --app-name catalog-service \
        --routes-file azure-spring-apps-enterprise/resources/json/routes/catalog-service.json
    ```
@@ -381,9 +381,9 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 
    ```azurecli
    az spring gateway route-config create \
-       --resource-group RESOURCE_GROUP \
+       --resource-group ${RESOURCE_GROUP} \
        --name frontend-routes \
-       --service SERVICE_NAME \
+       --service ${SERVICE_NAME} \
        --app-name frontend \
        --routes-file azure-spring-apps-enterprise/resources/json/routes/frontend.json
    ```
@@ -392,8 +392,8 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 
    ```azurecli
    export GATEWAY_URL=$(az spring gateway show \
-       --resource-group RESOURCE_GROUP \
-       --service SERVICE_NAME \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${SERVICE_NAME} \
        --query properties.url \
        --output tsv)
 
@@ -410,8 +410,8 @@ Use the following steps to configure API Portal.
 
    ```azurecli
    az spring api-portal update \
-       --resource-group RESOURCE_GROUP \
-       --service SERVICE_NAME \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${SERVICE_NAME} \
        --assign-endpoint true
    ```
 
@@ -419,8 +419,8 @@ Use the following steps to configure API Portal.
 
    ```azurecli
    export PORTAL_URL=$(az spring api-portal show \
-       --resource-group RESOURCE_GROUP \
-       --service SERVICE_NAME \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${SERVICE_NAME} \
        --query properties.url \
        --output tsv)
 
