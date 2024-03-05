@@ -194,6 +194,7 @@ For the latest updates and bug fixes, [consult the release notes](web-app-extens
 [ot_instrumentation_urllib3_version]: https://github.com/open-telemetry/opentelemetry-python-contrib/blob/main/instrumentation/opentelemetry-instrumentation-urllib3/src/opentelemetry/instrumentation/urllib3/package.py#L16
 [opentelemetry_spec_resource]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk
 [opentelemetry_spec_resource_attributes]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#specifying-resource-information-via-an-environment-variable
+[opentelemetry_spec_service_name]: https://github.com/open-telemetry/semantic-conventions/blob/main/docs/resource/README.md#service
 [pypi_django]: https://pypi.org/project/Django/
 [pypi_fastapi]: https://pypi.org/project/fastapi/
 [pypi_flask]: https://pypi.org/project/Flask/
