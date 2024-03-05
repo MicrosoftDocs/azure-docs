@@ -1769,21 +1769,21 @@ Use a custom processor:
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
+# Create a SpanEnrichingProcessor instance.
+span_enrich_processor = SpanEnrichingProcessor()
+
 # Configure OpenTelemetry to use Azure Monitor with the specified connection string.
 # Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
+    # Configure the custom span processors to include span enrich processor.
+    span_processors=[span_enrich_processor],
 )
 
-# Create a SpanEnrichingProcessor instance.
-span_enrich_processor = SpanEnrichingProcessor()
-
-# Add the span enrich processor to the current TracerProvider.
-trace.get_tracer_provider().add_span_processor(span_enrich_processor)
 ...
 ```
 
-Add `SpanEnrichingProcessor.py` to your project with the following code:
+Add `SpanEnrichingProcessor` to your project with the following code:
 
 ```python
 # Import the SpanProcessor class from the opentelemetry.sdk.trace module.
@@ -2205,14 +2205,14 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     # Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
     configure_azure_monitor(
         connection_string="<your-connection-string>",
+        # Configure the custom span processors to include span filter processor.
+        span_processors=[span_filter_processor],
     )
-    
-    # Add a SpanFilteringProcessor to the tracer provider.
-    trace.get_tracer_provider().add_span_processor(SpanFilteringProcessor())
+
     ...
     ```
     
-    Add `SpanFilteringProcessor.py` to your project with the following code:
+    Add `SpanFilteringProcessor` to your project with the following code:
     
     ```python
     # Import the necessary libraries.
