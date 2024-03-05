@@ -472,7 +472,11 @@ items:
     - name: Google Ads
       href: connector-google-adwords.md
     - name: Google BigQuery
-      href: connector-google-bigquery.md
+      items:
+      - name: Google BigQuery
+        href: connector-google-bigquery.md
+      - name: Google BigQuery (Legacy)
+        href: connector-google-bigquery-legacy.md
     - name: Google Cloud Storage
       href: connector-google-cloud-storage.md
     - name: Google Sheets

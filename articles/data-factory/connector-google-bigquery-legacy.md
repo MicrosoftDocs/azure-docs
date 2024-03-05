@@ -1,5 +1,5 @@
 ---
-title: Copy data from Google BigQuery
+title: Copy data from Google BigQuery using legacy
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
@@ -11,14 +11,13 @@ ms.custom: synapse
 ms.date: 03/05/2024
 ---
 
-# Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics
-
+# Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics (legacy)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 >[!Important]
->The new Google BigQuery connector provides improved native Google BigQuery support. If you are using the legacy Google BigQuery connector in your solution, supported as-is for backward compatibility only, refer to [Google BigQuery connector (legacy)](connector-google-bigquery-legacy.md) article.
+>The service has released a new Google BigQuery connector which provides better native Google BigQuery support comparing to this ODBC-based implementation, refer to [Google BigQuery](connector-google-bigquery.md) article on details. This legacy Google BigQuery connector is kept supported as-is for backward compatibility, while for any new workload, please use the new connector.
 
 ## Supported capabilities
 
@@ -56,13 +55,13 @@ Use the following steps to create a linked service to Google BigQuery in the Azu
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for Google BigQuery and select the connector.
+2. Search for Google and select the Google BigQuery connector.
 
-    :::image type="content" source="media/connector-google-bigquery/google-bigquery-connector.png" alt-text="Screenshot of the Google BigQuery connector.":::    
+    :::image type="content" source="media/connector-google-bigquery-legacy/google-bigquery-legacy-connector.png" alt-text="Screenshot of the Google BigQuery connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-google-bigquery/configure-google-bigquery-linked-service.png" alt-text="Screenshot of linked service configuration for Google BigQuery.":::
+    :::image type="content" source="media/connector-google-bigquery-legacy/configure-google-bigquery-legacy-linked-service.png" alt-text="Screenshot of linked service configuration for Google BigQuery.":::
 
 ## Connector configuration details
 
@@ -74,9 +73,11 @@ The following properties are supported for the Google BigQuery linked service.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **GoogleBigQueryV2**. | Yes |
-| projectId | The project ID of the default BigQuery project to query against.  | Yes |
-| authenticationType | The OAuth 2.0 authentication mechanism used for authentication.</br>Allowed values are **UserAuthentication** and **ServiceAuthentication**. Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
+| type | The type property must be set to **GoogleBigQuery**. | Yes |
+| project | The project ID of the default BigQuery project to query against.  | Yes |
+| additionalProjects | A comma-separated list of project IDs of public BigQuery projects to access.  | No |
+| requestGoogleDriveScope | Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is **false**.  | No |
+| authenticationType | The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can be used only on Self-hosted Integration Runtime. <br/>Allowed values are **UserAuthentication** and **ServiceAuthentication**. Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
 
 ### Using user authentication
 
@@ -96,14 +97,16 @@ The minimum scope required to obtain an OAuth 2.0 refresh token is `https://www.
 {
     "name": "GoogleBigQueryLinkedService",
     "properties": {
-        "type": "GoogleBigQueryV2",
+        "type": "GoogleBigQuery",
         "typeProperties": {
-            "projectId" : "<project ID>",
+            "project" : "<project ID>",
+            "additionalProjects" : "<additional project IDs>",
+            "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
-            "clientId": "<client ID>",
+            "clientId": "<id of the application used to generate the refresh token>",
             "clientSecret": {
                 "type": "SecureString",
-                "value":"<client secret>"
+                "value":"<secret of the application used to generate the refresh token>"
             },
             "refreshToken": {
                 "type": "SecureString",
@@ -116,12 +119,14 @@ The minimum scope required to obtain an OAuth 2.0 refresh token is `https://www.
 
 ### Using service authentication
 
-Set "authenticationType" property to **ServiceAuthentication**, and specify the following properties along with generic properties described in the previous section.
+Set "authenticationType" property to **ServiceAuthentication**, and specify the following properties along with generic properties described in the previous section. This authentication type can be used only on Self-hosted Integration Runtime.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| keyFileContent | The key file in JSON format that is used to authenticate the service account. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-
+| email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
+| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address. | Yes |
+| trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over TLS. This property can be set only when you use TLS on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
+| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
 
 **Example:**
 
@@ -129,14 +134,17 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 {
     "name": "GoogleBigQueryLinkedService",
     "properties": {
-        "type": "GoogleBigQueryV2",
+        "type": "GoogleBigQuery",
         "typeProperties": {
-            "projectId": "<project ID>",
-            "authenticationType": "ServiceAuthentication",
-            "keyFileContent": {
-                "type": "SecureString",
-                "value": "<key file JSON string>"
-            }
+            "project" : "<project id>",
+            "requestGoogleDriveScope" : true,
+            "authenticationType" : "ServiceAuthentication",
+            "email": "<email>",
+            "keyFilePath": "<.p12 or .json key path on the IR machine>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Self-hosted Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -146,13 +154,14 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Google BigQuery dataset.
 
-To copy data from Google BigQuery, set the type property of the dataset to **GoogleBigQueryV2Object**. The following properties are supported:
+To copy data from Google BigQuery, set the type property of the dataset to **GoogleBigQueryObject**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **GoogleBigQueryV2Object** | Yes |
+| type | The type property of the dataset must be set to: **GoogleBigQueryObject** | Yes |
 | dataset | Name of the Google BigQuery dataset. |No (if "query" in activity source is specified)  |
 | table | Name of the table. |No (if "query" in activity source is specified)  |
+| tableName | Name of the table. This property is supported for backward compatibility. For new workload, use `dataset` and `table`. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -160,15 +169,12 @@ To copy data from Google BigQuery, set the type property of the dataset to **Goo
 {
     "name": "GoogleBigQueryDataset",
     "properties": {
-        "type": "GoogleBigQueryV2Object",
-        "linkedServiceName": {
-            "referenceName": "<Google BigQuery linked service name>",
-            "type": "LinkedServiceReference"
-        },
+        "type": "GoogleBigQueryObject",
+        "typeProperties": {},
         "schema": [],
-        "typeProperties": {
-            "dataset": "<dataset name>",
-            "table": "<table name>"
+        "linkedServiceName": {
+            "referenceName": "<GoogleBigQuery linked service name>",
+            "type": "LinkedServiceReference"
         }
     }
 }
@@ -180,12 +186,12 @@ For a full list of sections and properties available for defining activities, se
 
 ### GoogleBigQuerySource as a source type
 
-To copy data from Google BigQuery, set the source type in the copy activity to **GoogleBigQueryV2Source**. The following properties are supported in the copy activity **source** section.
+To copy data from Google BigQuery, set the source type in the copy activity to **GoogleBigQuerySource**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to **GoogleBigQueryV2Source**. | Yes |
-| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. For more information, go to [Query syntax](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) | No (if "tableName" in dataset is specified) |
+| type | The type property of the copy activity source must be set to **GoogleBigQuerySource**. | Yes |
+| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -196,7 +202,7 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Google BigQuery input dataset name>",
+                "referenceName": "<GoogleBigQuery input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -208,7 +214,7 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
         ],
         "typeProperties": {
             "source": {
-                "type": "GoogleBigQueryV2Source",
+                "type": "GoogleBigQuerySource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -223,11 +229,5 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Google BigQuery linked service
-
-Create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
-
-
 ## Related content
-
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
