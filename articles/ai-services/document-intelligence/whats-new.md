@@ -25,11 +25,7 @@ ms.custom:
 Document Intelligence service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
 > [!IMPORTANT]
-<<<<<<< HEAD
 > Preview API versions are retired once the GA API is released. The 2023-02-28-preview API version is being retired, if you are still using the preview API or the associated SDK versions, please update your code to target the latest API version 2023-07-31 (GA).
-=======
-> Preview API versions are retured once the GA API is released. The 2023-02-28-preview API version is being retired, if you are still using the preview API or the associated SDK versions, please update your code to target the latest API version: 2023-07-31 (GA).
->>>>>>> 49e29388c4e56e22f15afa77f9fa063c212568eb
 
 ## February 2024
 
@@ -40,7 +36,6 @@ The Document Intelligence [**2024-02-29-preview**](https://westus.dev.cognitive.
   * **East US**
   * **West US2**
   * **West Europe**
-<<<<<<< HEAD
 
 * [Custom extraction models](concept-custom.md#custom-extraction-models)
   * Custom extraction models now support cell, row and table level confidence scores. Learn more about [table, row, and cell confidence](concept-accuracy-confidence.md#table-row-and-cell-confidence).
@@ -49,12 +44,6 @@ The Document Intelligence [**2024-02-29-preview**](https://westus.dev.cognitive.
 * [Custom classification model](concept-custom.md#custom-classification-model)
   * Custom classification model now supported incremental training for scenarios where you need to update the classifier model with additional samples or additional classes. Learn more about [incremental training](concept-custom-classifier.md#incremental-training).
   * Custom classification model adds support for Office document types (.docx, .pptx, and .xls). Learn more about [expanded document type support](concept-custom-classifier.md#office-document-type-support).
-=======
-    
-* [Custom Models](concept-custom.md)
-  * Custom models now support cell level confidence to custom models. 
-  * Custom models support office file types, specifically, Word, PPT, and excel for classification.
->>>>>>> 49e29388c4e56e22f15afa77f9fa063c212568eb
 * [Invoice model](concept-invoice.md)
   * Support for new locales:
 
@@ -72,6 +61,7 @@ The Document Intelligence [**2024-02-29-preview**](https://westus.dev.cognitive.
   |Vietnamese |(`vi`)|
 
   * Support for new currency codes:
+
   |Currency|Locale| Code|
   |---|---|---|
   |BAM | Bosnian Convertible Mark|(`ba`)|
