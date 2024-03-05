@@ -183,7 +183,7 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [What API version should I use when creating images?](#what-api-version-should-i-use-when-creating-images)
 * [What API version should I use to create a VM or Virtual Machine Scale Set out of the image version?](#what-api-version-should-i-use-to-create-a-vm-or-virtual-machine-scale-set-out-of-the-image-version)
 * [Can I update my Virtual Machine Scale Set created using managed image to use Azure Compute Gallery images?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-azure-compute-gallery-images)
-* [How can I update my code to use the new property and ensure permissions are granted accurately during VM image creation?](#how-can-I-update-my-code-to-use-the-new-property-and-ensure-permissions-are-granted-accurately-during-vm-image-creation)
+* [How can I update my code to use the new property and ensure permissions are granted accurately during VM image creation?](#how-can-i-update-my-code-to-use-the-new-property-and-ensure-permissions-are-granted-accurately-during-vm-image-creation)
 
 ### How can I list all the Azure Compute Gallery resources across subscriptions?
 
