@@ -12,7 +12,7 @@ ms.custom:
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
-## What is Azure Operator Call Protection?
+# What is Azure Operator Call Protection?
 
 Azure Operator Call Protection is a service targeted at telecommunications operators that uses AI to perform real-time analysis of consumer phone calls to detect potential phone scams and alert subscribers when they are at risk of being scammed.
 
@@ -27,11 +27,11 @@ This service is now available at Preview.
 > [!IMPORTANT]
 > Azure Operator Call Protection preview can be used in a live production environment.
 
-# Architecture
+## Architecture
 
 Azure Operator Call Protection connects to your network over IP for the voice call, and via the global SMS network for the delivery of fraud call notifications.
 
-![Azure Operator Call Protection architecture](media/azure-operator-call-protection-architecture.png)
+![Azure Operator Call Protection architecture](media/azure-operator-call-protection-architecture.svg)
 
 Your network communicates with the Call Protection service deployed in a suitable Azure region. Connection is over any means using public IP addressing including:
 * Azure Internet Peering for Communications Services ("MAPS for Voice")
