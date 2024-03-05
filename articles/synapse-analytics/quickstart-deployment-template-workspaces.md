@@ -42,7 +42,7 @@ The template defines two resources:
 
 1. Select the following image to sign in to Azure and open the template. This template creates a Synapse workspace.
 
-   [![Deploy to Azure 2](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
+   [![Deploy to Azure 2](~/articles/reusable-content/deploy-to-azure-button.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 1. Enter or update the following values:
 

@@ -131,7 +131,7 @@ Following resources will be deployed by the template:
 
 If you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.batch%2Fbatch-pool-no-public-ip%2Fazuredeploy.json)
+[![Deploy to Azure](~/articles/reusable-content/deploy-to-azure-button.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.batch%2Fbatch-pool-no-public-ip%2Fazuredeploy.json)
 
 > [!NOTE]
 > If the private endpoint deployment failed due to invalid groupId "nodeManagement", please check if the region is in the supported list for [Simplified compute node communication](simplified-compute-node-communication.md). Choose the right region, and then retry the deployment.

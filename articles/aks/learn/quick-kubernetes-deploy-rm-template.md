@@ -86,7 +86,7 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 
 1. Select **Deploy to Azure** to sign in and open a template.
 
-    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks%2Fazuredeploy.json)
+    [![Deploy to Azure](~/articles/reusable-content/deploy-to-azure-button.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks%2Fazuredeploy.json)
 
 1. On the **Basics** page, leave the default values for the *OS Disk Size GB*, *Agent Count*, *Agent VM Size*, and *OS Type*, and configure the following template parameters:
 
