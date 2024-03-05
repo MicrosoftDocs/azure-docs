@@ -7,7 +7,7 @@ ms.service: iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 03/04/2024
 ms.author: patricka
 ms.reviewer: mattmcinnes
 ---
@@ -300,7 +300,7 @@ sudo docker ps -a
 Delete the containers from your device, including the two runtime containers.
 
 ```bash
-sudo docker rm -f <container name>
+sudo docker rm -f <container ID>
 ```
 
 Finally, remove the container runtime from your device.
