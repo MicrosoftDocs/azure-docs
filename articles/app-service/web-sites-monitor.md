@@ -110,6 +110,7 @@ For an App Service plan, the available metrics are:
 > [!NOTE]
 > App Service plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
 > 
+
 | Metric | Description |
 | --- | --- |
 | **CPU Percentage** | The average CPU used across all instances of the plan. |

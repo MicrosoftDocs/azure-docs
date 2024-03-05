@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure App Service
 description: Start here to learn how to monitor Azure App Service.
-ms.date: 03/02/2024
+ms.date: 03/05/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: msangapu-msft
@@ -15,14 +15,7 @@ ms.service: app-service
 
 ## App Service monitoring
 
-On the Azure portal page for your web app, you can select **Diagnose and solve problems** from the left nagivation to access complete **App Service Diagnostics** for your app. From this page, you can:
-
-- Check app availability and performance.
-- Find out if your app service is configured correctly.
-- Conduct risk assessments and run proactive mitigation tools.
-- Load test your app.
-
-For more information about the App Service diagnostics tool, see [Azure App Service diagnostics overview](overview-diagnostics.md).
+On the Azure portal page for your web app, you can select **Diagnose and solve problems** from the left nagivation to access complete App Service diagnostics for your app. For more information about the App Service diagnostics tool, see [Azure App Service diagnostics overview](overview-diagnostics.md).
 
 App Service provides built-in diagnostics logging to assist with debugging apps. See [Stream diagnostics logs](troubleshoot-diagnostic-logs.md#stream-logs) for more information about the built-in logs.
 
