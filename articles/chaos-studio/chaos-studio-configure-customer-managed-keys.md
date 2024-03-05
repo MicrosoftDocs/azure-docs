@@ -4,6 +4,7 @@ titleSuffix: Azure Chaos Studio
 description: Learn how to configure customer-managed keys (preview) for your Azure Chaos Studio experiment resource by using Azure Blob Storage.
 services: chaos-studio
 ms.service: chaos-studio
+ms.custom: devx-track-azurecli
 ms.author: abbyweisberg
 ms.reviewer: ninallam
 author: nikhilkaul-msft
