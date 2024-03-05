@@ -44,6 +44,10 @@ Release history is maintained in the Azure Cosmos DB .NET SDK source repo. For a
 
 Different sub versions of .NET SDKs are available under the 2.x.x version. Version 2.x of this SDK will be retired on 31 August 2024 and you’ll need to update your SDK to version 3 by that date. Version 3 of the Azure Cosmos DB .NET SDK includes updated features and improved performance. We recommend following the [instructions](migrate-dotnet-v3.md) to migrate to Azure Cosmos DB .NET SDK version 3.
 
+## FAQ
+
+[!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
+
 ## See Also
 
 To learn more about Azure Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
