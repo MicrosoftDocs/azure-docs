@@ -93,8 +93,7 @@ Verify that the lab and lab plan are located in the same region. An image can on
 
 ### Unable to see images from gallery
 
-Images aren't listed in Azure Lab Services unless the appropriate permissions are assigned on an attached compute gallery. Ensure sufficient permissions are configured on an [existing compute gallery](./how-to-attach-detach-shared-image-gallery?tabs=azure-cli#attach-an-existing-compute-gallery-to-a-lab-plan).
-
+Images aren't listed in Azure Lab Services unless the appropriate permissions are assigned on an attached compute gallery. Ensure sufficient permissions are configured on an [existing compute gallery](how-to-attach-detach-shared-image-gallery?tabs=portal#attach-an-existing-compute-gallery-to-a-lab-plan).
 
 ### Unable to login with the credentials you used for creating the lab
 
