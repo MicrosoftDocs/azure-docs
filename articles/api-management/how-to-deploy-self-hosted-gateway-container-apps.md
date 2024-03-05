@@ -49,12 +49,14 @@ First, create a container apps environment using the [az containerapp env create
 
 # [Bash](#tab/bash)
 ```azurecli-interactive
+#!/bin/bash
 az containerapp env create --name my-environment --resource-group myResourceGroup \
     --location centralus
 ```
 
 # [PowerShell](#tab/psh)
 ```azurecli
+# PowerShell syntax
 az containerapp env create --name my-environment --resource-group myResourceGroup `
     --location centralus
 ```
@@ -73,14 +75,12 @@ First set variables for the **Token** and **Configuration endpoint** values from
 # [Bash](#tab/bash)
 ```azurecli-interactive
 #!/bin/bash
-
 endpoint="<API Management configuration endpoint>"
 token="<API Management gateway token>"
 ```
 # [PowerShell](#tab/psh)
 ```azurecli
 # PowerShell syntax
-
 $endpoint="<API Management configuration endpoint>"
 $token="<API Management gateway token>"
 ```
@@ -90,6 +90,7 @@ Create the container app using the `az containerapp create` command:
 
 # [Bash](#tab/bash)
 ```azurecli-interactive
+#!/bin/bash
 az containerapp create --name my-gateway \
     --resource-group myResourceGroup --environment 'my-environment' \
     --image "mcr.microsoft.com/azure-api-management/gateway:2.5.0" \
@@ -100,11 +101,12 @@ az containerapp create --name my-gateway \
 
 # [PowerShell](#tab/psh)
 ```azurecli
-az containerapp create --name my-gateway \
-    --resource-group myResourceGroup --environment 'my-environment' \
-    --image "mcr.microsoft.com/azure-api-management/gateway:2.5.0" \
-    --target-port 8080 --ingress external \
-    --min-replicas 1 --max-replicas 3 \
+# PowerShell syntax
+az containerapp create --name my-gateway `
+    --resource-group myResourceGroup --environment 'my-environment' `
+    --image "mcr.microsoft.com/azure-api-management/gateway:2.5.0" `
+    --target-port 8080 --ingress external `
+    --min-replicas 1 --max-replicas 3 `
     --env-vars "config.service.endpoint"="$endpoint" "config.service.auth"="$token" "net.server.http.forwarded.proto.enabled"="true"
 ```
 ---
@@ -113,7 +115,7 @@ This command creates:
 * A container app named `my-gateway` in the `myResourceGroup` resource group. In this example, the container app is created using the `mcr.microsoft.com/azure-api-management/gateway:2.5.0` image. Learn more about the self-hosted gateway [container images](self-hosted-gateway-overview.md#packaging).
 * Support for external ingress to the container app on port 8080.
 * A minimum of 1 and a maximum of 3 replicas of the container app.
-* A connection from the self-hosted gateway to the API Management instance using configuration values passed in environment variables. For details, see [self-hosted gateway container configuration settings](self-hosted-gateway-settings-reference.md.).
+* A connection from the self-hosted gateway to the API Management instance using configuration values passed in environment variables. For details, see the self-hosted gateway [container configuration settings](self-hosted-gateway-settings-reference.md).
 
 ### Confirm that the container app is running
 
@@ -136,7 +138,7 @@ This command creates:
 1. In the left menu, under **Deployment and infrastructure**, select **Gateways**.
 1. Check the **Status** of your gateway. If the gateway is healthy, it reports regular gateway heartbeats.
 
-    :::image type="content" source="media/how-to-deploy-self-hosted-gateway-container-apps/gateway-heartbeat.png" alt-text="Screenshot of gateway status in the portal.":::
+    :::image type="content" source="media/how-to-deploy-self-hosted-gateway-container-apps/gateway-heartbeat.png" alt-text="Screenshot of gateway status in the portal." lightbox="media/how-to-deploy-self-hosted-gateway-container-apps/gateway-heartbeat.png":::
 
 ## Example scenario 
 
@@ -146,7 +148,7 @@ The following example shows how you can use the self-hosted gateway to access an
 
 * **Step 1.** Deploy a container app hosting an API in the same environment as the self-hosted gateway
 * **Step 2.** Add the API to your API Management instance 
-* **Step 4.** Call the API through the self-hosted gateway
+* **Step 3.** Call the API through the self-hosted gateway
 
 ### Step 1. Deploy a container app hosting an API in the same environment as the self-hosted gateway
 
@@ -198,14 +200,26 @@ The following are example steps to add an API to your API Management instance an
     1. **URL**: Select **Get** and enter `/albums` for the endpoint.
     1. Select **Save**.
 
-### Step 4. Call the API through the self-hosted gateway
+### Step 3. Call the API through the self-hosted gateway
 
 Call the API using the FQDN of the self-hosted gateway running in the container app. Find the FQDN on the container app's **Overview** page in the Azure portal, or run the following `az containerapp show` command.
 
+# [Bash](#tab/bash)
+
 ```azurecli-interactive
+#!/bin/bash
 az containerapp show ----name my-gateway --resource-group myResourceGroup \
     --query "properties.configuration.ingress.fqdn" --output tsv
 ```
+
+# [PowerShell](#tab/psh)
+```azurecli
+# PowerShell syntax
+az containerapp show ----name my-gateway --resource-group myResourceGroup `
+    --query "properties.configuration.ingress.fqdn" --output tsv
+```
+---
+
 
 For example, use the following `curl` command to call the API  at the `/albumapi/albums` endpoint. If your API requires a subscription key, pass a valid subscription key for your API Management instance as a header in the request:
 
