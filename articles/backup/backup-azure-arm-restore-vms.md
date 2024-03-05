@@ -320,22 +320,23 @@ If you choose to select system-assigned or user-assigned managed identities, che
 
 ```json
 "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Authorization/*/read",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-                ],
-                "notActions": [],
-                "dataActions": [
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
-                ],
-                "notDataActions": []
-            }
+  {
+    "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+    ],
+    "notActions": [],
+    "dataActions": [
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+    ],
+    "notDataActions": []
+  }
+]
 ```
 
 Or, add the role assignment on the staging location (Storage Account) to have [Storage account Backup Contributor](./blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts) and [Storage Blob data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) for the successful restore operation.
