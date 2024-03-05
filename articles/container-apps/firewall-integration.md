@@ -90,5 +90,4 @@ The following tables describe how to configure a collection of NSG allow rules. 
 #### Considerations
 
 - If you're running HTTP servers, you might need to add ports `80` and `443`.
-- Adding deny rules for some ports and protocols with lower priority than `65000` might cause service interruption and unexpected behavior.
 - Don't explicitly deny the Azure DNS address `168.63.128.16` in the outgoing NSG rules, or your Container Apps environment won't be able to function.
