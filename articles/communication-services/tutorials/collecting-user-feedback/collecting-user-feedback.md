@@ -236,11 +236,11 @@ The following section will explain how to take the events generated feedback and
 You will learn how to register for the event, serialize the data over the wire and receive it on your server. The end result is that your ACS Project will be able to dispatch these events to the Server we created in the first step, and receive a link to view the details.
 
 ::: zone pivot="programming-language-kotlin"
-[!INCLUDE [Android](./includes/collecting-user-feedback/android.md)]
+[!INCLUDE [Android](./includes/android.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
-[!INCLUDE [iOS](./includes/collecting-user-feedback/ios.md)]
+[!INCLUDE [iOS](./includes/ios.md)]
 ::: zone-end
 
 

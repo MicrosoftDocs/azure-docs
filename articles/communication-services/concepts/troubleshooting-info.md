@@ -203,7 +203,7 @@ For Calling Native SDK's please refer to [the log file access tutorials](../tuto
 
 If you are using the Azure Communication Services UI Libraries for Android or iOS, user feedback can be solicited through the built in support form.
 
-For more information on how to leverage the support functionality of the Calling UI Support form, please see [the Support Form integration tutorial](../quickstarts/ui-library/collecting-user-feedback.md). This document will guide you through adding the necessary event handler, and creating a basic client/server implementation for centralized storage of support information. This guide is designed to guide you on your path towards an integration with the support services your organization uses.
+For more information on how to leverage the support functionality of the Calling UI Support form, please see [the Support Form integration tutorial](../tutorials/collecting-user-feedback/collecting-user-feedback.md). This document will guide you through adding the necessary event handler, and creating a basic client/server implementation for centralized storage of support information. This guide is designed to guide you on your path towards an integration with the support services your organization uses.
 
 ## Building end to end Support Flows in your ACS Integrations
 
