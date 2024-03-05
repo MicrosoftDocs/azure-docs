@@ -3,7 +3,7 @@ title: Enforce Microsoft Entra multifactor authentication for Azure Virtual Desk
 description: How to enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access to help make it more secure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/12/2024
+ms.date: 03/05/2024
 ms.author: helohr
 ---
 
@@ -103,7 +103,7 @@ Here's how to create a Conditional Access policy that requires multifactor authe
 
 ## Configure sign-in frequency
 
-Sign-in frequency policies enable you to choose the time period before a user must prove their identity again when accessing Microsoft Entra-based resources. This can help secure your environment and is especially important for personal devices, where the local OS may not require MFA or may not lock automatically after inactivity.
+Sign-in frequency policies let you set the time period after which a user must prove their identity again when accessing Microsoft Entra-based resources. This can help secure your environment and is especially important for personal devices, where the local OS may not require MFA or may not lock automatically after inactivity.
 
 Sign-in frequency policies result in different behavior based on the Microsoft Entra app selected:
 
@@ -112,15 +112,15 @@ Sign-in frequency policies result in different behavior based on the Microsoft E
 | **Azure Virtual Desktop** | 9cdead84-a844-4324-93f2-b2e6bb768d07 | Enforces re-authentication when a user subscribes to Azure Virtual Desktop, manually refreshes their list of resources and authenticates to the Azure Virtual Desktop Gateway during a connection.<br /><br />Once the re-authentication period has passed, background feed refresh and diagnostics upload silently fails until a user completes their next interactive sign in to Microsoft Entra. |
 | **Microsoft Remote Desktop**<br /><br />**Windows Cloud Login** | a4a365df-50f1-4397-bc59-1a1564b8bb9c<br /><br />270efc09-cd0d-444b-a71f-39af4910ec45 | Enforces re-authentication when a user signs in to a session host when [single sign-on](configure-single-sign-on.md) is enabled.<br /><br />Both apps should be configured together as the Azure Virtual Desktop clients will soon switch from using the Microsoft Remote Desktop app to the Windows Cloud Login app to authenticate to the session host. |
 
-To configure the time period before a user is asked to sign-in again:
+To configure the time period after which a user is asked to sign-in again:
 
 1. Open the policy you created previously.
 1. Under **Access controls** > **Session**, select **0 controls selected**.
-1. On the new pane that opens, select **Sign-in frequency**.
+1. In the **Session** pane, select **Sign-in frequency**.
 1. Select **Periodic reauthentication** or **Every time**.
-    - If you select **Periodic reauthentication**, set the value for the time period before a user is asked to sign-in again, and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, requires multifactor authentication if a connection is launched over an hour after the last one.
-    - If you select **Every time**, users are prompted to re-authenticate after a period of 10 to 15 minutes since the last time they authenticated.
-1. At the bottom of the page, under **Enable policy** select **Save**.
+    - If you select **Periodic reauthentication**, set the value for the time period after which a user is asked to sign-in again, and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, requires multifactor authentication if a connection is launched more than an hour after the last one.
+    - The **Every time** option is currently available in public preview and is only supported when applied to the **Microsoft Remote Desktop** and **Windows Cloud Login** apps when single sign-on is enabled for your host pool. If you select **Every time**, users are prompted to re-authenticate after a period of 5 to 15 minutes after the last time they authenticated for the Microsoft Remote Desktop and Windows Cloud Login apps.
+1. At the bottom of the page, select **Save**.
 
 > [!NOTE]
 > - Re-authentication only happens when a user must authenticate to a resource. Once a connection is established, users aren't prompted even if the connection lasts longer than the sign-in frequency you've configured.
