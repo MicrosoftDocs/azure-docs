@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 03/07/2024
 ---
 
-# Start the SQL Client CLI in gateway mode in our Apache Flink Cluster
+# Start SQL Client CLI in gateway mode in our Apache Flink Cluster
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -27,7 +27,7 @@ Image
  
 ## What is SQL Client in Flink?
  
-Flink’s Table & SQL API makes it possible to work with queries that written in the SQL language, but these queries need embed within a table program written in either Java or Scala. Moreover, these programs need to be packaged with a build tool before being submitted to a cluster. These feature limits the usage of Flink to Java/Scala programmers.
+Flink’s Table & SQL API makes it possible to work with queries that written in the SQL language, but these queries need embed within a table program written in either Java or Scala. Moreover, these programs need to be packaged with a build tool before being submitted to a cluster. This feature limits the usage of Flink to Java/Scala programmers.
  
 The SQL Client aims to provide an easy way of writing, debugging, and submitting table programs to a Flink cluster without a single line of Java or Scala code. The SQL Client CLI allows for retrieving and visualizing real-time results from the running distributed application on the command line.
  
