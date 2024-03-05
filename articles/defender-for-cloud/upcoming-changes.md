@@ -63,7 +63,7 @@ This release will include:
 - Enablement of individual resources.
 - Enablement at the subscription level.
 
-If you're already protecting your subscription with Defender for OSS Databases, your flexible server resources will be automatically enabled, protected and billed.
+If you're already protecting your subscription with Defender for OSS Databases, your flexible server resources are automatically enabled, protected, and billed.
 Specific billing notifications have been sent via email for affected subscriptions.
 
 Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
@@ -76,7 +76,7 @@ Learn more about [Microsoft Defender for open-source relational databases](defen
 
 In February 2021, the deprecation of the MSCA task was communicated to all customers and has been past end of life support since [March 2022](https://devblogs.microsoft.com/premier-developer/microsoft-security-code-analysis/). As of February 26, 2024, MSCA is officially no longer operational.
 
-Customers can get the latest DevOps security tooling from Defender for Cloud through [Microsoft Security DevOps](azure-devops-extension.md) and additional security tooling through [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
+Customers can get the latest DevOps security tooling from Defender for Cloud through [Microsoft Security DevOps](azure-devops-extension.md) and more security tooling through [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
 
 ## Update recommendations to align with Azure AI Services resources
 
