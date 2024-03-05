@@ -283,56 +283,56 @@ When writing prompts, consider that the image generation APIs come with a conten
 
 ## Specify API options
 
+The following API body parameters are available for DALL-E image generation.
+
 #### [DALL-E 3](#tab/dalle3)
 
 ### Size
 
-The size of the generated images. Must be one of 256x256, 512x512, or 1024x1024 for DALL·E-2 models. Must be one of 1024x1024, 1792x1024, or 1024x1792 for DALL·E-3 models.
+Specify the size of the generated images. Must be one of `1024x1024`, `1792x1024`, or `1024x1792` for DALL-E 3 models. Square images are faster to generate.
 
-square images are faster to generate
 
 ### Style
 
-DALL·E-3 introduces two new styles: natural and vivid. The natural style is more similar to the DALL·E-2 style in its 'blander' realism, while the vivid style is a new style that leans towards generating hyper-real and cinematic images. For reference, all DALL·E generations in ChatGPT are generated in the 'vivid' style.
+DALL-E 3 introduces two style options: `natural` and `vivid`. The `natural` style is more similar to the DALL-E 2 default style in its "blander" realism, while the `vivid` style is a generates more hyper-real and cinematic images.
 
-The natural style is specifically useful in cases where DALL·E-3 over-exaggerates or confuses a subject that's supposed to be more simple, subdued, or realistic. I've often used it for logo generation, stock photos, or other cases where I'm trying to match a real-world object.
+The `natural` style is useful in cases where DALL-E 3 over-exaggerates or confuses a subject that's meant to be more simple, subdued, or realistic.
 
-Here's an example of the same prompt as above in the vivid style. The vivid is far more cinematic (and looks great), but might pop too much if you're not looking for that.
-
-
-The style of the generated images. Must be one of vivid or natural. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. Defaults to ‘vivid’.
-
+The default value is `vivid`.
 
 ### Quality
 
- The quality of the image that will be generated. ‘hd’ creates images with finer details and greater consistency across the image. Defaults to ‘standard’.
+There are two options for image quality: `hd` and `standard`. `hd` creates images with finer details and greater consistency across the image. `standard` images can be generated faster.
 
-By default, images are generated at standard quality, but when using DALL·E 3 you can set quality: "hd" for enhanced detail. Square, standard quality images are the fastest to generate.
+The default value is `standard`.
 
 ### Number
-You can request 1 image at a time with DALL·E 3 (request more by making parallel requests) or up to 10 images at a time using DALL·E 2 with the n parameter.
+
+With DALL-E 3, you cannot generate more than one image in a single API call: the _n_ parameter must be set to `1`. If you need to generate multiple images at once, you can make parallel requests.
 
 ### Response format
-The format in which the generated images are returned. Must be one of "url" or "b64_json". Defaults to "url".
+
+The format in which the generated images are returned. Must be one of `url` (a URL pointing to the image) or `b64_json` (the base 64-byte code in JSON format). The default is `url`.
 
 #### [DALL-E 2](#tab/dalle2)
 
 ### Size
 
-The size of the generated images. Must be one of 256x256, 512x512, or 1024x1024 for DALL·E-2 models. Must be one of 1024x1024, 1792x1024, or 1024x1792 for DALL·E-3 models.
-
-square images are faster to generate
+Specify the size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024` for DALL-E 2 models.
 
 ### Number
-You can request 1 image at a time with DALL·E 3 (request more by making parallel requests) or up to 10 images at a time using DALL·E 2 with the n parameter.
+
+Set the n parameter to an integer between 1 and 10 to generate multiple images at the same time using DALL-E 2. The images will share an operation ID; you receive them all with the same retrieval API call.
 
 ---
 
------
+## Next steps
 
-OAI HT guide https://platform.openai.com/docs/guides/images/usage
+tbd
 
 
-dall-e 3 features here: https://cookbook.openai.com/articles/what_is_new_with_dalle_3
+
+<!-- OAI HT guide https://platform.openai.com/docs/guides/images/usage
+dall-e 3 features here: https://cookbook.openai.com/articles/what_is_new_with_dalle_3 -->
 
 
