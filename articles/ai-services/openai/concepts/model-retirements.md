@@ -51,23 +51,11 @@ These models are currently available for use in Azure OpenAI Service.
 | `gpt-4` | vision-preview | To be upgraded starting no earlier than 4 weeks after `gpt-4` Vision stable version is available |
 | `gpt-4` | 0125-preview | To be upgraded starting no earlier than 4 weeks after stable version of `gpt-4` Turbo is released |
 | `gpt-3.5-turbo-instruct` | 0914 | No earlier than Sep 14, 2025 |
-| text-embedding-ada-002 | 2 |  |
-| text-embedding-ada-002 | 1 |  |
-| text-embedding-3-small |  |  |
-| text-embedding-3-large |  |  |
-| dalle-2 |  |  |
-| dall-e-3 |  |  |
-| whisper |  |  |
-| tts-1 |  |  |
-| tts-hd-1 |  |  |
+| `text-embedding-ada-002` | 2 | No earlier than April 3, 2025 |
+| `text-embedding-ada-002` | 1 | No earlier than April 3, 2025 |
+| `text-embedding-3-small` |  | No earlier than Feb 2, 2025 |
+| `text-embedding-3-large` |  | No earlier than Feb 2, 2025 |
 
-## Default Model Version Updates
-
-| Model | Default Version | Projected next default version | Projected default version change date |
-| ---- | ---- | ---- | ---- |
-| `gpt-3.5-turbo` | 0301 or 0613 <region dependent> | 0125 | No earlier than April 2024 |
-| `gpt-3.turbo-16k` | 0613 | 0125 | No earlier than April 2024 |
-| `gpt-4`<br>`gpt-4-32k` | 0613 | GPT-4 Turbo stable version | No earlier than May 2024 |
 
 ## Deprecated Models
 
