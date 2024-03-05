@@ -3,7 +3,7 @@ title: Understand Azure Disk Storage billing
 description: Learn about the billing factors that affect Azure managed disks, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 03/01/2024
+ms.date: 03/05/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -55,8 +55,8 @@ Ultra Disks can be used as shared disks, where you attach one disk to multiple V
 
 ### Ultra Disk billing example
 
-In this example, we provisioned an Ultra Disk with LRS redundancy with a total provisioned size of 3 TiB, a target performance of 100,000 IOPS and 2,000 MB/s of throughput. We also created and stored incremental snapshots. 
-We're billed for the provisioned size of the disk, the extra IOPS and throughput past the baseline values, and the used snapshot size that shows as the following tier and meters in our bill:
+In this example, we provisioned an Ultra Disk with LRS redundancy with a total provisioned capacity of 3 TiB, a target performance of 100,000 IOPS and 2,000 MB/s of throughput. We also created and stored incremental snapshots for our used capacity. 
+We're billed for the provisioned capacity of the disk, the extra IOPS and throughput past the baseline values, and the used snapshot capacity that shows as the following tier and meters in our bill:
 
 | Tier | Meter |
 |-|-|
@@ -67,7 +67,7 @@ We're billed for the provisioned size of the disk, the extra IOPS and throughput
 
 ## Premium SSD v2
 
-The price of an Azure Premium SSD v2 disk is determined by the combination of how large the disk is (its size) and what performance you select (IOPS and throughput) for your disk. If you share a Premium SSD v2 disk between multiple VMs that can affect its price as well. The following sections focus on these factors as they relate to the price of your Premium SSD v2 disk. For more information on how these factors work, see the [Premium SSD v2](disks-types.md#premium-ssd-v2) section of the [Azure managed disk types](disks-types.md) article.
+The price of an Azure Premium SSD v2 disk is determined by the combination of how large the disk is (its capacity) and what performance you select (IOPS and throughput) for your disk. If you share a Premium SSD v2 disk between multiple VMs that can affect its price as well. The following sections focus on these factors as they relate to the price of your Premium SSD v2 disk. For more information on how these factors work, see the [Premium SSD v2](disks-types.md#premium-ssd-v2) section of the [Azure managed disk types](disks-types.md) article.
 
 ### Premium SSD v2 capacities
 
@@ -75,7 +75,7 @@ Premium SSD v2 capacities range from 1 GiB to 64 TiBs, in 1-GiB increments. You'
 
 ### Premium SSD v2 IOPS
 
-All Premium SSD v2 disks have a baseline IOPS of 3000 that is free of charge. After 6 GiB, the maximum IOPS a disk can have increases at a rate of 500 per GiB, up to 80,000 IOPS. So an 8-GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To set 80,000 IOPS on a disk, that disk must have at least 160 GiBs. Increasing your IOPS beyond 3,000 increases the price of your disk.
+All Premium SSD v2 disks have a baseline IOPS of 3,000 that is free of charge. After 6 GiB, the maximum IOPS a disk can have increases at a rate of 500 per GiB, up to 80,000 IOPS. So an 8-GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To set 80,000 IOPS on a disk, that disk must have at least 160 GiBs. Increasing your IOPS beyond 3,000 increases the price of your disk.
 
 ### Premium SSD v2 throughput
 
@@ -85,10 +85,10 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 
 Premium SSD v2 managed disks can be used as shared disks, where you attach one disk to multiple VMs. For Premium SSD v2 disks there isn't an extra charge for each VM that the disk is mounted to. Premium SSD v2 disks that are shared are billed on the total IOPS and MB/s that the disk is configured for. Normally, a Premium SSD v2 disk has two performance throttles that determine its total IOPS/MB/s. However, when configured as a shared Premium SSD v2, two more performance throttles are exposed, for a total of four. These two extra throttles allow for increased performance at an extra expense and each meter has a default value, which raises the performance and cost of the disk. For more information, see [Share an Azure managed disk](disks-shared.md).
 
-### Example - Premium SSD v2
+### Premium SSD v2 billing example
 
-In this example, we provision a Premium SSD v2 Disk with LRS redundancy with a total provisioned size of 512 GiB, a target performance of 40,000 IOPS and 200 MB/s of throughput. We also create and store incremental snapshots for our current used size. 
-We're billed for the provisioned size of the disk, the IOPS and throughput past the baseline values, and the used snapshot size that show as the following tier and meters in our bill:
+In this example, we provision a Premium SSD v2 Disk with LRS redundancy with a total provisioned capacity of 512 GiB, a target performance of 40,000 IOPS and 200 MB/s of throughput. We also create and store incremental snapshots for our current used capacity. 
+We're billed for the provisioned capacity of the disk, the IOPS and throughput past the baseline values, and the used snapshot capacity that show as the following tier and meters in our bill:
 
 | Tier | Meter |
 |-|-|
@@ -103,7 +103,7 @@ The price of an Azure Premium SSD disk is determined by the performance tier of 
 
 ### Performance tier
 
-The initial billing of Premium SSD disks is determined by the performance tier of the disk. Generally, the performance tier is set when you select the size you require (if you deploy a 1 TiB Premium SSD disk, it has the P30 tier by default) but certain disk sizes can select higher performance tiers. When you select a higher performance tier, your disk is billed at that tier until you change its performance tier again. To learn more about performance tiers, see [Performance tiers for managed disks](disks-change-performance.md).
+The initial billing of Premium SSD disks is determined by the performance tier of the disk. Generally, the performance tier is set when you select the capacity you require (if you deploy a 1 TiB Premium SSD disk, it has the P30 tier by default) but certain disk sizes can select higher performance tiers. When you select a higher performance tier, your disk is billed at that tier until you change its performance tier again. To learn more about performance tiers, see [Performance tiers for managed disks](disks-change-performance.md).
 
 ### Premium SSD bursting
 
@@ -111,7 +111,7 @@ Premium SSD disks offer [two bursting models](disk-bursting.md#disk-level-bursti
 
 ### Premium SSD transactions
 
-For Premium SSD managed disks, each I/O operation less than or equal to 256 kB of throughput is considered a single I/O operation. I/O operations larger than 256 kB of throughput are considered multiple I/Os of size 256 kB.
+For Premium SSD managed disks, each I/O operation less than or equal to 256 kB of throughput is considered a single I/O operation. I/O operations larger than 256 kB of throughput are considered multiple I/Os of size 256 kB. Unless you enable on-demand bursting, there are no transaction costs for Premium SSD disks.
 
 ### Redundancy options
 
@@ -121,11 +121,11 @@ Premium SSD managed disks can be deployed either with [locally redundant storage
 
 Premium SSD managed disks can be used as shared disks, where you attach one disk to multiple VMs. For shared premium SSD disks, there's a charge that increases with each VM the SSD is mounted to. See [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
-### Example - Premium SSD
+### Premium SSD billing example
 
 In this example, we provision a Premium SSD Disk at 512 GiB with LRS redundancy with bursting enabled.
 
-We're billed for the provisioned size of the Premium SSD disk, the burst enablement flat fee, and transaction costs apply to any burst transactions beyond the provisioned target that show as the following tier and meters in our bill:
+We're billed for the provisioned capacity of the Premium SSD disk, the burst enablement flat fee, and transaction costs apply to any burst transactions beyond the provisioned target that show as the following tier and meters in our bill:
 
 | Tier | Meter |
 |-|-|
@@ -140,7 +140,7 @@ The price of an Azure Standard SSD is determined by the performance tier of the 
 
 ### Performance tier
 
-The initial billing of Standard SSDs is determined by the performance tier. The performance tier is set when you select the size you require (if you deploy a 1 TiB Standard SSD, it has the E30 tier), your disk is billed at that tier. If you increase the size of your disk into the next tier, it's then billed at that tier. For example, if you increased your 1-TiB disk to a 3-TiB disk, it's billed at the E50 tier.
+The initial billing of Standard SSDs is determined by the performance tier. The performance tier is set when you select the capacity you require (if you deploy a 1 TiB Standard SSD, it has the E30 tier), your disk is billed at that tier. If you increase the capacity of your disk into the next tier, it's then billed at that tier. For example, if you increased your 1-TiB disk to a 3-TiB disk, it's billed at the E50 tier.
 
 ### Standard SSD transactions
 
@@ -154,16 +154,17 @@ Standard SSDs can be deployed either with [locally redundant storage (LRS)](disk
 
 Standard SSDs can be used as shared disks, where you attach one disk to multiple VMs. For shared Standard SSDs, there's a charge that increases with each VM the SSD is mounted to. See [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
-### Example - Standard SSD
+### Standard SSD billing example
 
-In this example, we provision a 1 TiB Standard SSD Disk with LRS redundancy, where we also have snapshot created on the current used data size of 120 GiB. 
-We're billed for the provisioned size of the HDD disk, the transactions performed on the disk, and the used snapshot size that will show as the following tier and meters in our bill:
+In this example, we provision a 1 TiB Standard SSD Disk with LRS redundancy, where we also have snapshots created on the current used data capacity of 120 GiB. 
+We're billed for the provisioned capacity of the HDD disk, the transactions performed on the disk, and the used snapshot capacity that will show as the following tier and meters in our bill:
 
 | Tier | Meter |
 |-|-|
 |Standard SSD Managed Disks| E30 LRS Disk|
 |Standard SSD Managed Disks| E4 LRS Disk Operations|
 |Standard SSD Managed Disks| E10 LRS Disk |
+|Standard HDD managed disks| LRS snapshots |
 
 ## Standard HDD
 
@@ -171,15 +172,15 @@ The price of an Azure Standard HDD is determined by the performance tier of the 
 
 ### Performance tier
 
-The initial billing of Standard HDDs is determined by the performance tier. The performance tier is set when you select the size you require (if you deploy a 1 TiB Standard HDD, it has the S30 tier), your disk is billed at that tier. If you increase the size of your disk into the next tier, it's billed at that tier. For example, if you increased your 1-TiB disk to a 3-TiB disk, it's billed at the S50 tier.
+The initial billing of Standard HDDs is determined by the performance tier. The performance tier is set when you select the capacity you require (if you deploy a 1 TiB Standard HDD, it has the S30 tier), your disk is billed at that tier. If you increase the capacity of your disk into the next tier, it's billed at that tier. For example, if you increased your 1-TiB disk to a 3-TiB disk, it's billed at the S50 tier.
 
 ### Standard HDD Transactions
 For Standard HDDs, each I/O operation is considered as a single transaction, whatever the I/O size. These transactions have a billing impact.
 
 
-### Example - Standard HDD 
+### Standard HDD billing example 
 In this example, we provision a 512 GiB Standard HDD Disk with LRS redundancy. 
-We're billed for the provisioned size of the HDD disk and the transactions performed on the disk, which shows as the following tier and meters in our bill:
+We're billed for the provisioned capacity of the HDD disk and the transactions performed on the disk, which shows as the following tier and meters in our bill:
 
 | Tier | Meter |
 |-|-|
