@@ -13,11 +13,11 @@ At this time, a test or preview build is not available for the next release.
 --->
 
 
-March, 2024 test release is now available.
+March, 2024 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.28.0_2024-03-12`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
@@ -47,3 +47,4 @@ Arc SQL Server | Backups | Configure backups at DB level for Arc enabled SQL Ser
 
 Arc SQL Server | Set feature flags via the Azure CLI | GA
 
+Arc SQL Server | Billing | Support unlimited virtualization benefit for PAYG and Software Assurance customers | GA
