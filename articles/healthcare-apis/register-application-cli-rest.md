@@ -50,7 +50,7 @@ In practice, you'll define variables, assign values to them, and set references 
 ### Define app registration name, etc.
 appregname=myappregtest1
 clientid=$(az ad app create --display-name $appregname --query appId --output tsv)
-objectid=$(az ad app show --id $clientid --query objectId --output tsv)
+objectid=$(az ad app show --id $clientid --query Id --output tsv)
 ```
 
 You can use `echo $<variable name>` to display the value of a specified variable.

@@ -8,6 +8,41 @@ ms.author: eur
 
 ### February 2024 release
 
+#### Pronunciation Assessment
+
+- Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 23 languages generally available (with 5 new languages added), with 3 more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
+
+| Language | Locale (BCP-47) | 
+|--|--|
+|Arabic (Egypt)|`ar-EG`<sup>1</sup> |
+|Arabic (Saudi Arabia)|`ar-SA` |
+|Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
+|Chinese (Mandarin, Simplified)|`zh-CN`|
+|Dutch (Netherlands)|`nl-NL`<sup>1</sup>|
+|English (Australia)|`en-AU`|
+|English (Canada)|`en-CA` |
+|English (India)|`en-IN` |
+|English (United Kingdom)|`en-GB`|
+|English (United States)|`en-US`|  
+|French (Canada)|`fr-CA`| 
+|French (France)|`fr-FR`|  
+|German (Germany)|`de-DE`|
+|Hindi (India)|`hi-IN`|
+|Italian (Italy)|`it-IT`|
+|Japanese (Japan)|`ja-JP`|
+|Korean (Korea)|`ko-KR`|
+|Malay (Malaysia)|`ms-MY`|
+|Norwegian Bokmål (Norway)|`nb-NO`|
+|Portuguese (Brazil)|`pt-BR`|
+|Russian (Russia)|`ru-RU`|
+|Spanish (Mexico)|`es-MX` | 
+|Spanish (Spain)|`es-ES` | 
+|Swedish (Sweden)|`sv-SE`|
+|Tamil (India)|`ta-IN` | 
+|Vietnamese (Vietnam)|`vi-VN` |
+
+<sup>1</sup> The language is in public preview for pronunciation assessment.
+
 #### Phrase list
 
 Added phrase list support for the following locales: ar-SA, de-CH, en-IE, en-ZA, es-US, id-ID, nl-NL, pl-PL, pt-PT, ru-RU, sv-SE, th-TH, vi-VN, zh-HK, zh-TW.
@@ -50,35 +85,6 @@ We encourage you to explore these improvements and consider potential issues for
 
 - Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 18 languages generally available, with six more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
 
-  | Language | Locale (BCP-47) | 
-  |--|--|
-  |Arabic (Saudi Arabia)|`ar-SA` |
-  |Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
-  |Chinese (Mandarin, Simplified)|`zh-CN`|
-  |English (Australia)|`en-AU`|
-  |English (Canada)|`en-CA` |
-  |English (India)|`en-IN` |
-  |English (United Kingdom)|`en-GB`|
-  |English (United States)|`en-US`|  
-  |French (Canada)|`fr-CA`| 
-  |French (France)|`fr-FR`|  
-  |German (Germany)|`de-DE`|
-  |Hindi (India)|`hi-IN`<sup>1</sup>|
-  |Italian (Italy)|`it-IT`|
-  |Japanese (Japan)|`ja-JP`|
-  |Korean (Korea)|`ko-KR`|
-  |Malay (Malaysia)|`ms-MY`|
-  |Norwegian Bokmål (Norway)|`nb-NO`|
-  |Portuguese (Brazil)|`pt-BR`|
-  |Russian (Russia)|`ru-RU`<sup>1</sup>|
-  |Spanish (Mexico)|`es-MX` | 
-  |Spanish (Spain)|`es-ES` | 
-  |Swedish (Sweden)|`sv-SE`<sup>1</sup>|
-  |Tamil (India)|`ta-IN`<sup>1</sup> | 
-  |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
-
-  <sup>1</sup> The language is in public preview for pronunciation assessment.
-
 - We're excited to announce that Pronunciation Assessment is introducing new features starting November 1, 2023: Prosody, Grammar, Vocabulary, and Topic. These enhancements aim to provide an even more comprehensive language learning experience for both reading and speaking assessments. Explore further details in the [How to use pronunciation assessment](../../how-to-pronunciation-assessment.md) and [Pronunciation assessment in Speech Studio](../../pronunciation-assessment-tool.md).
 
 ### September 2023 release
@@ -110,8 +116,6 @@ Speech to text supports two new locales as shown in the following table. Refer t
 #### Pronunciation Assessment
 
 - Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 3 additional languages generally available in English (Canada), English (India), and French (Canada), with 3 additional languages available in preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
-
- 
 
 ### May 2023 release
 
