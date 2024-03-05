@@ -1,5 +1,5 @@
 ---
-title: Implementing Support Data Collection and Feedback in Calling SDK Applications
+title: Collecting User Feedback in Native Calling Scenarios
 description: Understand how to access Log Files for the creation of effective support tools
 author:      ahammer
 ms.author:   adamhammer
@@ -8,7 +8,7 @@ ms.topic:    conceptual
 ms.date:     07/17/2023
 ---
 
-# Streamlining Support Data Collection and User Feedback in Calling SDK Applications
+# Collecting User Feedback in Native Calling Scenarios
 
 ## Introduction
 
