@@ -549,7 +549,7 @@ Follow these steps to set up a video retrieval system and integrate it with your
         {
             "type": "AzureComputerVisionVideoIndex",
             "parameters": {
-                "endpoint": "<your_computer_vision_endpoint>",
+                "computerVisionBaseUrl": "<your_computer_vision_endpoint>",
                 "computerVisionApiKey": "<your_computer_vision_key>",
                 "indexName": "<name_of_your_index>",
                 "videoUrls": ["<your_video_SAS_URL>"]
@@ -564,12 +564,12 @@ Follow these steps to set up a video retrieval system and integrate it with your
                 "role": "user",
                 "content": [
                         {
-                            "type": "text",
-                            "text": "Describe this video:"
-                        },
-                        {
                             "type": "acv_document_id",
                             "acv_document_id": "<your_video_ID>"
+                        },
+                        {
+                            "type": "text",
+                            "text": "Describe this video:"
                         }
                     ]
             }
@@ -599,13 +599,13 @@ response = client.chat.completions.create(
     messages=[
         { "role": "system", "content": "You are a helpful assistant." },
         { "role": "user", "content": [  
-            { 
-                "type": "text", 
-                "text": "Describe this video:" 
-            },
             {
                 "type": "acv_document_id",
                 "acv_document_id": "<your_video_ID>"
+            },
+            { 
+                "type": "text", 
+                "text": "Describe this video:" 
             }
         ] } 
     ],
