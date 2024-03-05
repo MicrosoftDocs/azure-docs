@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 03/05/2024
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
