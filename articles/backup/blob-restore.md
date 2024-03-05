@@ -103,9 +103,6 @@ The restore operation shown in the image performs the following actions:
 - It restores blobs in the lexicographical range *blob1* through *blob5* in *container2*. This range restores blobs with names such as *blob1*, *blob11*, *blob100*, *blob2*, and so on. Because the end of the range is exclusive, it restores blobs whose names begin with *blob4*, but doesn't restore blobs whose names begin with *blob5*.
 - It restores all blobs in *container3* and *container4*. Because the end of the range is exclusive, this range doesn't restore *container5*.
 
->[!Note]
->This capability is currently supported only for operational backups.
-
 ## Next steps
 
 - [Overview of operational backup for Azure Blobs](blob-backup-overview.md)
