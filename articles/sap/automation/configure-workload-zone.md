@@ -4,7 +4,7 @@ description: Overview of the SAP workload zone configuration process within SAP 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 12/14/2023
+ms.date: 3/5/2024
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -21,8 +21,8 @@ The workload zone provides shared services to all of the SAP Systems in the work
 
 - Azure Virtual Network
 - Azure Key Vault
-- Shared Azure Storage Accounts for installation media
-- If Azure NetApp Files are used, the Azure NetApp Files account and capacity pool is hosted in the workload zone.
+- Shared Azure Storage Account for installation media
+- Azure NetApp Files account and capacity pool (optional)
 
 The workload zone is typically deployed in a spoke subscription and the deployment of all the artifacts in the workload zone is done using unique service principal. 
 
