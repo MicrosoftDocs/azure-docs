@@ -39,6 +39,7 @@ There are many new features that are only supported in the Azure WAF engine. The
   * WAF IP address ranges per match condition
   * Exclusions limit
 * [Rate-limit Custom Rules](rate-limiting-overview.md)
+* [Inspection Limit & Max Size Enforcement](application-gateway-waf-request-size-limits) can be turned on/off independently of each other and the values for each field can be set independently
 
 New WAF features are only released with later versions of CRS on the new WAF engine. 
 
