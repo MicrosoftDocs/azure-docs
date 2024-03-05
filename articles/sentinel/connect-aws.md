@@ -195,7 +195,15 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 | **Permissions to assign** |`AmazonSQSReadOnlyAccess`<li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy` Additional policies for ingesting the different types of AWS service logs| <ul><li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy`Additional policies for ingesting the different types of AWS service logs. | For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPoliciesForGov.md) for Government, in the Microsoft Sentinel GitHub repository. |
 | **Name** |Example: "OIDC_MicrosoftSentinelRole" | Example: "OIDC_*MicrosoftSentinelRole*". |The value of the parameter must have the exact prefix `OIDC_`, otherwise the connector will not function properly. |
 
-
+   **Use the values in this table for Azure Government Cloud.**
+   
+   | Parameter | Selection/Value | Comments |
+   | - | - | - |
+   | **Trusted entity type** | *Web identity* | Instead of default *AWS service*. |
+   | **Identity provider** | `sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` | The provider you created in the previous step. |
+   | **Audience** | `api://d4230588-5f84-4281-a9c7-2c15194b28f7` | The audience you defined for the identity provider in the previous step. |
+   | **Permissions to assign** | <ul><li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy`<li>Additional policies for ingesting the different types of AWS service logs. | For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPoliciesForGov.md) for Government, in the Microsoft Sentinel GitHub repository. |
+   | **Name** | Example: "*MicrosoftSentinelRole*". | Choose a meaningful name that includes a reference to Microsoft Sentinel. |
 1. Edit the new role's trust policy and add another condition:<br>`"sts:RoleSessionName": "MicrosoftSentinel_{WORKSPACE_ID)"`
 
    > [!IMPORTANT]
