@@ -10,7 +10,7 @@ ms.custom: cliv2, devx-track-python
 ms.author: amipatel
 author: amibp
 ms.date: 03/05/2024
-ms.reviewer: larryfr
+ms.reviewer: franksolomon
 ---
 
 # CLI (v2) sweep job YAML schema
