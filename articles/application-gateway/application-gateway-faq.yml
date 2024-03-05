@@ -126,7 +126,11 @@ sections:
           <sup>1</sup> We recommend a minimum instance count of 2 to be configured for Application Gateway v1 SKU deployments to ensure at least one instance can serve traffic while updates are applied.
           
       - question: Can I use Exchange Server as a backend with Application Gateway?
-        answer: Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3. HTTP/HTTPS services such as OWA, ActiveSync, and AutoDiscovery traffic might flow through Application Gateway, but WAF exclusions might be required if you're using a WAF SKU.
+        answer: |
+          Application Gateway supports [TLS/TCP protocol proxy](tcp-tls-proxy-overview.md) through its Layer 4 proxy in **Preview**.
+          
+          Application gateway's Layer 7 proxy with HTTP(S) protocols will not support email protocols such as SMTP, IMAP, and POP3. However, for some supporting email services, such as Outlook Web Access (OWA), ActiveSync, and AutoDiscovery traffic that uses HTTP(S) protocols, you can use Layer 7 proxy, and their traffic should flow through. (Note: Exclusions in the WAF rules might be required when using a WAF SKU).
+        
 
       - question: Is there guidance available to migrate from the v1 SKU to the v2 SKU?
         answer: |
