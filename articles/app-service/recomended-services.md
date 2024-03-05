@@ -3,7 +3,7 @@ title: Recommended Services
 description: This feature suggests a set of services that are commonly deployed together for your specific app type.
 ms.topic: article
 ms.date: 03/04/2024
-author: byvinyal
+author: btardif
 ms.author: byvinyal
 ---
 
