@@ -3,7 +3,7 @@ title: Quickstart - Export data from Azure IoT Central
 description: In this quickstart, you learn how to use the data export feature in IoT Central to integrate with other cloud services.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/28/2022
+ms.date: 03/01/2024
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 
 # Quickstart: Export data from an IoT Central application
 
-Get started with IoT Central data export to integrate your IoT Central application with another cloud service such as Azure Data Explorer. Azure Data Explorer lets you store, query, and process the telemetry from devices such as the **IoT Plug and Play** smartphone app.
+In this quickstart, you configure your IoT Central application to export data Azure Data Explorer. Azure Data Explorer lets you store, query, and process the telemetry from devices such as the **IoT Plug and Play** smartphone app.
 
 In this quickstart, you:
 
@@ -108,7 +108,7 @@ To configure the data export:
 
     :::image type="content" source="media/quick-export-data/data-transformation-query.png" alt-text="Screenshot that shows the data transformation query for the export." lightbox="media/quick-export-data/data-transformation-query.png":::
 
-    If you want to see how the transformation works and experiment with the query, paste the following sample telemetry message into **1. Add your input message**:
+    To see how the transformation works and experiment with the query, paste the following sample telemetry message into **1. Add your input message**:
 
     ```json
     {
@@ -171,7 +171,7 @@ To query the exported telemetry:
       | render timechart 
   ```
 
-You may need to wait for several minutes to collect enough data. Try holding your phone in different orientations to see the telemetry values change:
+You might need to wait for several minutes to collect enough data. To see the telemetry values change, try holding your phone in different orientations:
 
 :::image type="content" source="media/quick-export-data/acceleration-plot.png" alt-text="Screenshot of the query results for the accelerometer telemetry." lightbox="media/quick-export-data/acceleration-plot.png":::
 
@@ -185,7 +185,7 @@ To remove the Azure Data Explorer instance from your subscription and avoid bein
 az group delete --name IoTCentralExportData-rg
 ```
 
-## Next steps
+## Next step
 
 In this quickstart, you learned how to continuously export data from IoT Central to another Azure service.
 

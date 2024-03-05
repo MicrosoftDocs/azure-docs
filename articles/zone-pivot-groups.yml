@@ -1356,6 +1356,16 @@ groups:
     title: .NET
   - id: platform-powershell
     title: PowerShell
+- id: acs-js-csharp-java
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
 - id: acs-js-csharp-java-python
   title: Programming languages
   prompt: Choose a programming language
@@ -3040,7 +3050,29 @@ groups:
     title: Chrome browser
   - id: firefox-browser
     title: Firefox browser
-
+# Owner: sudhirsneha
+- id: vmware-discovery-requirements
+  title: Requirements to discover and assess servers in VMware environment
+  prompt: Choose support requirements
+  pivots:
+  - id: vmware-requirements
+    title: VMware
+  - id: server-requirements
+    title: Server
+  - id: migrate-appliance-requirements
+    title: Azure Migrate appliance
+  - id: port-access-requirements
+    title: Port access
+  - id: software-inventory-requirements
+    title: Software inventory
+  - id: sql-server-instance-database-discovery-requirements
+    title: SQL Server instance and database discovery
+  - id: web-apps-discovery
+    title: Web apps discovery
+  - id: dependency-analysis-agentless-requirements
+    title: Dependency analysis Agentless
+  - id: dependency-analysis-agent-based-requirements
+    title: Dependency analysis Agent based
 # Owner: tejaswikolli-web
 - id: container-registry-zones
   title: Container registry ide
