@@ -1,5 +1,5 @@
 ---
-title: Configure Question Answering service
+title: Configure the custom question answering service
 description: This document outlines advanced configurations for custom question answering enabled resources.
 ms.service: azure-ai-language
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.custom: language-service-question-answering
 
 # Configure custom question answering enabled resources
 
-You can configure question answering to use a different Azure AI Search resource.
+You can configure custom question answering to use a different Azure AI Search resource.
 
 ## Change Azure AI Search resource
 

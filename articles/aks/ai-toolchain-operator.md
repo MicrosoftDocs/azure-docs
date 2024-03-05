@@ -18,6 +18,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
 * This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for AKS](./concepts-clusters-workloads.md).
 * For ***all hosted model inference images*** and recommended infrastructure setup, see the [KAITO GitHub repository](https://github.com/Azure/kaito).
+* The AI toolchain operator add-on currently supports KAITO version **v0.1.0**, please make a note of this in considering your choice of model from the KAITO model repository.
 
 ## Prerequisites
 
@@ -189,16 +190,16 @@ The following sections describe how to create an AKS cluster with the AI toolcha
 
 ## Deploy a default hosted AI model
 
-1. Deploy the Falcon 7B model YAML file from the GitHub repository using the `kubectl apply` command.
+1. Deploy the Falcon 7B-instruct model from the KAITO model repository using the `kubectl apply` command.
 
     ```azurecli-interactive
-    kubectl apply -f https://raw.githubusercontent.com/Azure/kaito/main/examples/kaito_workspace_falcon_7b.yaml
+    kubectl apply -f https://raw.githubusercontent.com/Azure/kaito/main/examples/kaito_workspace_falcon_7b-instruct.yaml
     ```
 
 2. Track the live resource changes in your workspace using the `kubectl get` command.
 
     ```azurecli-interactive
-    kubectl get workspace workspace-falcon-7b -w
+    kubectl get workspace workspace-falcon-7b-instruct -w
     ```
 
     > [!NOTE]
@@ -207,13 +208,13 @@ The following sections describe how to create an AKS cluster with the AI toolcha
 3. Check your service and get the service IP address using the `kubectl get svc` command.
 
     ```azurecli-interactive
-    export SERVICE_IP=$(kubectl get svc workspace-falcon-7b -o jsonpath='{.spec.clusterIP}')
+    export SERVICE_IP=$(kubectl get svc workspace-falcon-7b-instruct -o jsonpath='{.spec.clusterIP}')
     ```
 
-4. Run the Falcon 7B model with a sample input of your choice using the following `curl` command:
+4. Run the Falcon 7B-instruct model with a sample input of your choice using the following `curl` command:
 
     ```azurecli-interactive
-    kubectl run -it --rm --restart=Never curl --image=curlimages/curl -- curl -X POST http://$CLUSTERIP/chat -H "accept: application/json" -H "Content-Type: application/json" -d "{"prompt":"YOUR QUESTION HERE"}"
+    kubectl run -it --rm --restart=Never curl --image=curlimages/curl -- curl -X POST http://$SERVICE_IP/chat -H "accept: application/json" -H "Content-Type: application/json" -d "{\"prompt\":\"YOUR QUESTION HERE\"}"
     ```
 
 ## Clean up resources
