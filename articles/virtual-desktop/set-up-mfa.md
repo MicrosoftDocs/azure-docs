@@ -43,7 +43,7 @@ Here's how to create a Conditional Access policy that requires multifactor authe
 1. On the new pane that opens, search for and choose the group that contains your Azure Virtual Desktop users as group members, then select **Select**.
 1. Under **Assignments** > **Target resources**, select **No target resources selected**.
 1. Under the **Include** tab, select **Select apps**, then under **Select**, select **None**.
-1. On the new pane that opens, search for and select the necessary apps based on the resources you are trying to protect. Select the relevant tab for your scenario. When searching for an application name on Azure, use search terms that begin with the application name in order instead of keywords the application name contains out of order. For example, when you want to use Azure Virtual Desktop, you need to enter '*Azure Virtual*', in that order. If you enter '*virtual*' by itself, the search won't return the desired application.
+1. On the new pane that opens, search for and select the necessary apps based on the resources you're trying to protect. Select the relevant tab for your scenario. When searching for an application name on Azure, use search terms that begin with the application name in order instead of keywords the application name contains out of order. For example, when you want to use Azure Virtual Desktop, you need to enter '*Azure Virtual*', in that order. If you enter '*virtual*' by itself, the search doesn't return the desired application.
 
    # [Azure Virtual Desktop](#tab/avd)
 
@@ -68,9 +68,9 @@ Here's how to create a Conditional Access policy that requires multifactor authe
        
    - **Windows Virtual Desktop** (app ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7).
 
-   - **Windows Virtual Desktop Client** (app ID fa4345a4-a730-4230-84a8-7d9651b86739), which will let you set policies on the web client.
+   - **Windows Virtual Desktop Client** (app ID fa4345a4-a730-4230-84a8-7d9651b86739), which lets you set policies on the web client.
 
-   - **Azure Virtual Desktop/Windows Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07). Not adding this app ID will block feed discovery of Azure Virtual Desktop (classic) resources.
+   - **Azure Virtual Desktop/Windows Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07). Not adding this app ID blocks feed discovery of Azure Virtual Desktop (classic) resources.
 
    > [!IMPORTANT]
    > Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID 50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.
