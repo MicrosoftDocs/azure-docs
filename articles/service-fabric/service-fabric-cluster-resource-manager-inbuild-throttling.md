@@ -11,11 +11,15 @@ ms.date: 02/28/2024
 
 # Throttling InBuild Replicas per Node
 
-Replicas of stateful services transition through several phases during their lifecycle: InBuild, Ready, Closing, and Dropped states. Replicas in the Ready and Closing states can declare load, either default or dynamic load. Replicas in the Dropped state are irrelevant in terms of resource utilization. The resource utilization of InBuild (IB) replicas is specific, so the Cluster Resource Manager provides additional support for handling that utilization. Since IB replicas cannot report dynamic load, and their resource utilization might be higher than less utilized replicas in the Ready state, especially for I/O and memory-related metrics, the CRM allows limiting the number of concurrent builds per node.
+Replicas of stateful services transition through several phases during their lifecycle: InBuild, Ready, Closing, and Dropped states. Only replicas in Ready and Closing states can declare either default or dynamic load. Replicas in the Dropped state are irrelevant in terms of resource utilization. The resource utilization of InBuild (IB) replicas is specific, so the Cluster Resource Manager provides additional support for handling that utilization. Since IB replicas can't report dynamic load, and their resource utilization might be higher than resource utilization of less utilized replicas in Ready state, especially for I/O and memory-related metrics, the CRM allows limiting the number of concurrent builds per node.
 
-The CRM provides support for limiting the number of IB replicas per node and defining the limit per node type or for all nodes that satisfy placement constraints. Depending on the constraint priority, according to general rules about constraint prioritization, the CRM will halt movements and creations of replicas on a node if the actions violate the defined IB limit for that node. The constraint blocks only operations that could cause high I/O and memory consumption during the InBuild phase, especially when extensively replicating context from other active replicas.
+The CRM provides support for limiting the number of IB replicas per node. Limits can be defined in two ways:
+* Per node type
+* For all nodes that satisfy placement constraint
 
-Movements of any kind and promotion of StandBy replicas are restricted operations that cause state replication and extensive resource utilization during the InBuild phase. On the other hand, the promotion of an active Secondary replica to Primary replica is not a problematic operation, so the constraint will not block such operations. During the promotion of a Secondary replica, the state of the replica is up-to-date with the Primary replica, eliminating the need for additional replication.   
+Depending on the constraint priority, according to general rules about constraint prioritization, the CRM will halt movements and creations of replicas on a node if the actions violate the defined IB limit for that node. The constraint blocks only operations that could cause high I/O and memory consumption during the InBuild phase, especially when extensively replicating context from other active replicas.
+
+Movements of any kind and promotion of StandBy replicas are restricted operations that cause state replication and extensive resource utilization during the InBuild phase. On the other hand, the promotion of an active Secondary replica to Primary replica isn't a problematic operation, so the constraint will not block such operations. During the promotion of a Secondary replica, the state of the replica is up-to-date with the Primary replica, eliminating the need for additional replication.   
 
 > [!NOTE]
 > The promotion of StandBy replicas could be blocked due to InBuild replicas per node throttling. The transition from StandBy to Ready replicas could cause extensive I/O and memory utilization, depending on the amount of context that needs to be replicated from active replicas. Thus, ignoring promotions of StandBy replicas could cause issues that the InBuild replicas per node throttling constraint aims to resolve.   
@@ -29,7 +33,7 @@ There are three different categories of actions that the Cluster Resource Manage
 
 * _Placement_: Controls placement of missing replicas, orchestrates swaps during upgrades, and removal of additional replicas.
 * _Constraint Check_: Enforces rules.
-* _Balancing_: Performs actions that reduce the imbalance of node total utilization in a cluster.
+* _Balancing_: Performs actions that reduce the imbalance of total node utilization in a cluster.
 
 The Cluster Resource Manager allows enabling/disabling throttling of IB replicas per node for each category. Configurations that control whether throttling is active for specific actions are *ThrottlePlacementPhase*, *ThrottleConstraintCheckPhase*, and *ThrottleBalancingPhase*, respectively. The value specified for these configurations is boolean. The cluster manifest section that explicitly defines these configurations is provided below:
 
@@ -79,7 +83,7 @@ For each option above, the Cluster Resource Manager provides an additional two o
 * Define IB limit for all nodes in a single node type.
 * Define IB limit for all nodes with a matching placement constraint.
 
-These rules allow you to define multiple values for a single category, and the CRM will always respect the most strict limit that you provided. The limit for each node in a specific phase is the lowest value according to node type or any placement property that corresponds to that node, for both global limits and category limits. If the limit for an action category for a specific node is not defined, the CRM will assume that there is no upper IB replica count for a node.
+These rules allow you to define multiple values for a single category, and the CRM will always respect the most strict limit that you provided. The limit for each node in a specific phase is the lowest value according to node type or any placement property that corresponds to that node, for both global limits and category limits. If the limit for an action category for a specific node isn't defined, the CRM will assume that there is no upper IB replica count for a node.
 
 The cluster manifest sections that explicitly define limits for each phase are provided below:
 
