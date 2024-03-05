@@ -10,11 +10,11 @@ ms.reviewer: prashabora
 ms.service: chaos-studio
 ---
 
-# Quickstart: Replicate a DNS outage by using the NSG fault
+# Replicate a DNS outage by using the NSG fault
 
 The network security group (NSG) fault enables you to modify your existing NSG rules as part of a chaos experiment in Azure Chaos Studio. By using this fault, you can block network traffic to your Azure resources and simulate a loss of connectivity or outages of dependent resources.
 
-In this quickstart, you create a chaos experiment that blocks all traffic to external (internet) DNS servers for 15 minutes. With this experiment, you can validate that resources connected to the Azure virtual network associated with the target NSG don't have a dependency on external DNS servers. In this way, you can validate one of the risk-threat model requirements.
+This article walks you through creating a chaos experiment that blocks all traffic to external (internet) DNS servers for 15 minutes. You can validate that resources connected to the Azure virtual network associated with the target NSG don't have a dependency on external DNS servers. In this way, you can validate one of the risk-threat model requirements.
 
 ## Prerequisites
 

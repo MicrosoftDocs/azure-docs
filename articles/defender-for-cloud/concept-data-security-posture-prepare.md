@@ -1,11 +1,11 @@
 ---
 title: Support and prerequisites for data-aware security posture
-description: Learn about the requirements for data-aware security posture in Microsoft Defender for Cloud
+description: Learn about the requirements for data-aware security posture in Microsoft Defender for Cloud.
 author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 01/28/2024
+ms.date: 03/04/2024
 ms.custom: references_regions
 ---
 
@@ -30,13 +30,13 @@ The table summarizes support for data-aware posture management.
 
 |**Support** | **Details**|
 |--- | ---|
-|What Azure data resources can I discover? | **Object storage:**<br /><br />[Block blob](../storage/blobs/storage-blobs-introduction.md) storage accounts in Azure Storage v1/v2<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Storage accounts behind private networks are supported.<br/><br/>  Storage accounts encrypted with a customer-managed server-side key are supported.<br/><br/> Accounts aren't supported if any of these settings are enabled: [Public network access is disabled](../storage/common/storage-network-security.md#change-the-default-network-access-rule); Storage account is defined as [Azure DNS Zone](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466); The storage account endpoint has a [custom domain mapped to it](../storage/blobs/storage-custom-domain-name.md).<br /><br /><br />**Databases**<br /><br />Azure SQL Databases |
-|What AWS data resources can I discover? | **Object storage:**<br /><br />AWS S3 buckets<br/><br/> Defender for Cloud can discover KMS-encrypted data, but not data encrypted with a customer-managed key.<br /><br />**Databases**<br /><br />- Amazon Aurora<br />- Amazon RDS for PostgreSQL<br />- Amazon RDS for MySQL<br />- Amazon RDS for MariaDB<br />- Amazon RDS for SQL Server (non-custom)<br />- Amazon RDS for Oracle Database (non-custom, SE2 Edition only) <br /><br />Prerequisites and limitations: <br />- Automated backups need to be enabled. <br />- The IAM role created for the scanning purposes (DefenderForCloud-DataSecurityPostureDB by default) needs to have permissions to the KMS key used for the encryption of the RDS instance. <br />- You can't share a DB snapshot that uses an option group with permanent or persistent options, except for Oracle DB instances that have the **Timezone** or **OLS** option (or both). [Learn more](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ShareSnapshot.html) |
+|What Azure data resources can I discover? | **Object storage:**<br /><br />[Block blob](../storage/blobs/storage-blobs-introduction.md) storage accounts in Azure Storage v1/v2<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Storage accounts behind private networks are supported.<br/><br/>  Storage accounts encrypted with a customer-managed server-side key are supported.<br/><br/> Accounts aren't supported if any of these settings are enabled: Storage account is defined as [Azure DNS Zone](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466); The storage account endpoint has a [custom domain mapped to it](../storage/blobs/storage-custom-domain-name.md).<br /><br /><br />**Databases**<br /><br />Azure SQL Databases |
+|What AWS data resources can I discover? | **Object storage:**<br /><br />AWS S3 buckets<br/><br/> Defender for Cloud can discover KMS-encrypted data, but not data encrypted with a customer-managed key.<br /><br />**Databases**<br /><br />- Amazon Aurora<br />- Amazon RDS for PostgreSQL<br />- Amazon RDS for MySQL<br />- Amazon RDS for MariaDB<br />- Amazon RDS for SQL Server (noncustom)<br />- Amazon RDS for Oracle Database (noncustom, SE2 Edition only) <br /><br />Prerequisites and limitations: <br />- Automated backups need to be enabled. <br />- The IAM role created for the scanning purposes (DefenderForCloud-DataSecurityPostureDB by default) needs to have permissions to the KMS key used for the encryption of the RDS instance. <br />- You can't share a DB snapshot that uses an option group with permanent or persistent options, except for Oracle DB instances that have the **Timezone** or **OLS** option (or both). [Learn more](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ShareSnapshot.html) |
 |What GCP data resources can I discover? | GCP storage buckets<br/> Standard Class<br/> Geo: region, dual region, multi region |
 |What permissions do I need for discovery? | Storage account: Subscription Owner<br/> **or**<br/> `Microsoft.Authorization/roleAssignments/*` (read, write, delete) **and** `Microsoft.Security/pricings/*` (read, write, delete) **and** `Microsoft.Security/pricings/SecurityOperators` (read, write)<br/><br/> Amazon S3 buckets  and RDS instances: AWS account permission to run Cloud Formation (to create a role). <br/><br/>GCP storage buckets: Google account permission to run script (to create a role). |
 |What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset) - .doc, .docm, .docx, .dot, .gz, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .csv, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.|
 |What Azure regions are supported? | You can discover Azure storage accounts in:<br/><br/> Asia East; Asia South East; Australia Central; Australia Central 2; Australia East; Australia South East; Brazil South; Brazil Southeast; Canada Central; Canada East; Europe North; Europe West; France Central; France South; Germany North; Germany West Central; India Central; India South; Japan East; Japan West; Jio India West; Korea Central; Korea South; Norway East; Norway West; South Africa North; South Africa West; Sweden Central; Switzerland North; Switzerland West; UAE North; UK South; UK West; US Central; US East; US East 2; US North Central; US South Central; US West; US West 2; US West 3; US West Central; <br/><br/> You can discover Azure SQL Databases in any region where Defender CSPM and Azure SQL Databases are supported. |
-|What AWS regions are supported? | S3:<br /><br />Asia Pacific (Mumbai); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Montreal); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); Europe (Stockholm); South America (São Paulo); US East (Ohio); US East (N. Virginia); US West (N. California): US West (Oregon).<br/><br/><br />RDS:<br /><br/>Africa (Capetown); Asia Pacific (Hong Kong SAR); Asia Pacific (Hyderabad); Asia Pacific (Melbourne); Asia Pacific (Mumbai); Asia Pacific (Osaka); Asia Pacific (Seoul); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Central); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); Europe (Stockholm); Europe (Zurich); Middle East (UAE); South America (São Paulo); US East (Ohio); US East (N. Virginia); US West (N. California): US West (Oregon).<br /><br /> Discovery is done locally within the region. |
+|What AWS regions are supported? | S3:<br /><br />Asia Pacific (Mumbai); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Montreal); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); Europe (Stockholm); South America (São Paulo); US East (Ohio); US East (N. Virginia); US West (N. California): US West (Oregon).<br/><br/><br />RDS:<br /><br/>Africa (Cape Town); Asia Pacific (Hong Kong SAR); Asia Pacific (Hyderabad); Asia Pacific (Melbourne); Asia Pacific (Mumbai); Asia Pacific (Osaka); Asia Pacific (Seoul); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Central); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); Europe (Stockholm); Europe (Zurich); Middle East (UAE); South America (São Paulo); US East (Ohio); US East (N. Virginia); US West (N. California): US West (Oregon).<br /><br /> Discovery is done locally within the region. |
 |What GCP regions are supported? | europe-west1, us-east1, us-west1, us-central1, us-east4, asia-south1, northamerica-northeast1|
 |Do I need to install an agent? | No, discovery requires no agent installation. |
 |What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t incur extra costs except for the respective plan costs. |
@@ -67,7 +67,7 @@ For object storage:
 For databases:
 
 - Databases are scanned on a weekly basis.
-- For newly enabled subscriptions, results will appear within 24 hours.
+- For newly enabled subscriptions, results appear within 24 hours.
 
 ### Discovering AWS S3 buckets
 
@@ -94,7 +94,7 @@ To protect AWS resources in Defender for Cloud, set up an AWS connector using a 
   - Use all KMS keys only for RDS on source account
   - Create & full control on all KMS keys with tag prefix *DefenderForDatabases*
   - Create alias for KMS keys
-- KMS keys are created once for each region that contains RDS instances. The creation of a KMS key may incur a minimal additional cost, according to AWS KMS pricing.
+- KMS keys are created once for each region that contains RDS instances. The creation of a KMS key may incur a minimal extra cost, according to AWS KMS pricing.
 
 ### Discovering GCP storage buckets
 

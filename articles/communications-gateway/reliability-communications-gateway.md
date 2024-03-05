@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom:
   - subject-reliability
   - references_regions
-ms.date: 11/06/2023
+ms.date: 01/08/2024
 ---
 
 # Reliability in Azure Communications Gateway
@@ -17,7 +17,9 @@ Azure Communications Gateway ensures your service is reliable by using Azure red
 
 ## Azure Communications Gateway's redundancy model
 
-Each Azure Communications Gateway deployment consists of three separate regions: a Management Region and two Service Regions. This article describes the two different region types and their distinct redundancy models. It covers both regional reliability with availability zones and cross-region reliability with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+Production Azure Communications Gateway deployments (also called standard deployments) consist of three separate regions: a _management region_ and two _service regions_. Lab deployments consist of one management region and one service region.
+
+This article describes the two different region types and their distinct redundancy models. It covers both regional reliability with availability zones and cross-region reliability with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 :::image type="complex" source="media/reliability/azure-communications-gateway-management-and-service-regions.png" alt-text="Diagram of two service regions, a management region and two operator sites.":::
     Diagram showing two operator sites and the Azure regions for Azure Communications Gateway. Azure Communications Gateway has two service regions and one management region. The service regions connect to the management region and to the operator sites. The management region can be colocated with a service region.
@@ -25,24 +27,30 @@ Each Azure Communications Gateway deployment consists of three separate regions:
 
 ## Service regions
 
-Service regions contain the voice and API infrastructure used for handling traffic between your network and your chosen communications services. Each instance of Azure Communications Gateway consists of two service regions that are deployed in an active-active mode (as required by the Operator Connect and Teams Phone Mobile programs). Fast failover between the service regions is provided at the infrastructure/IP level and at the application (SIP/RTP/HTTP) level.
+Service regions contain the voice and API infrastructure used for handling traffic between your network and your chosen communications services.
+
+Production Azure Communications Gateway deployments have two service regions that are deployed in an active-active mode (as required by the Operator Connect and Teams Phone Mobile programs). Fast failover between the service regions is provided at the infrastructure/IP level and at the application (SIP/RTP/HTTP) level.
 
 The service regions also contain the infrastructure for Azure Communications Gateway's [Provisioning API](provisioning-platform.md).
 
 > [!TIP]
-> You must always have two service regions, even if one of the service regions chosen is in a single-region Azure Geography (for example, Qatar). If you choose a single-region Azure Geography, choose a second Azure region in a different Azure Geography.
+> Production deployments must always have two service regions, even if one of the service regions chosen is in a single-region Azure Geography (for example, Qatar). If you choose a single-region Azure Geography, choose a second Azure region in a different Azure Geography.
 
-These service regions are identical in operation and provide resiliency to both Zone and Regional failures. Each service region can carry 100% of the traffic using the Azure Communications Gateway instance. As such, end users should still be able to make and receive calls successfully during any Zone or Regional downtime.
+The service regions are identical in operation and provide resiliency to both Zone and Regional failures. Each service region can carry 100% of the traffic using the Azure Communications Gateway instance. As such, end-users should still be able to make and receive calls successfully during any Zone or Regional downtime.
+
+Lab deployments have one service region.
 
 ### Call routing requirements
 
 Azure Communications Gateway offers a 'successful redial' redundancy model: calls handled by failing peers are terminated, but new calls are routed to healthy peers. This model mirrors the redundancy model provided by Microsoft Teams.
 
-We expect your network to have two geographically redundant sites. Each site should be paired with an Azure Communications Gateway region. The redundancy model relies on cross-connectivity between your network and Azure Communications Gateway service regions.
+For production deployments, we expect your network to have two geographically redundant sites. Each site should be paired with an Azure Communications Gateway region. The redundancy model relies on cross-connectivity between your network and Azure Communications Gateway service regions.
 
 :::image type="complex" source="media/reliability/azure-communications-gateway-service-region-redundancy.png" alt-text="Diagram of two operator sites and two service regions. Both service regions connect to both sites, with primary and secondary routes.":::
     Diagram of two operator sites (operator site A and operator site B) and two service regions (service region A and service region B). Operator site A has a primary route to service region A and a secondary route to service region B. Operator site B has a primary route to service region B and a secondary route to service region A.
 :::image-end:::
+
+Lab deployments must connect to one site in your network.
 
 Each Azure Communications Gateway service region provides an SRV record. This record contains all the SIP peers providing SBC functionality (for routing calls to communications services) within the region.
 
@@ -67,7 +75,7 @@ When your network routes calls to Azure Communications Gateway's SIP peers for S
 If your Azure Communications Gateway deployment includes integrated Mobile Control Point (MCP), your network must do as follows for MCP:
 
 > [!div class="checklist"]
-> - Detect when MCP in a region is unavailable, mark the targets for that region's SRV record as unavailable, and retry periodically to determine when the region is available again. MCP does not respond to SIP OPTIONS.
+> - Detect when MCP in a region is unavailable, mark the targets for that region's SRV record as unavailable, and retry periodically to determine when the region is available again. MCP doesn't respond to SIP OPTIONS.
 > - Handle 5xx responses from MCP according to your organization's policy. For example, you could retry the request, or you could allow the call to continue without passing through Azure Communications Gateway and into Microsoft Phone System.
 
 The details of this routing behavior are specific to your network. You must agree them with your onboarding team during your integration project.
@@ -90,9 +98,7 @@ During a zone-wide outage, calls handled by the affected zone are terminated, wi
 
 ## Disaster recovery: fallback to other regions
 
-
 [!INCLUDE [introduction to disaster recovery](../reliability/includes/reliability-disaster-recovery-description-include.md)]
-
 
 This section describes the behavior of Azure Communications Gateway during a region-wide outage.
 
@@ -104,6 +110,9 @@ The SBC function in Azure Communications Gateway provides OPTIONS polling to all
 
 Provisioning API clients contact Azure Communications Gateway using the base domain name for your deployment. The DNS record for this domain has a time-to-live (TTL) of 60 seconds. When a region fails, Azure updates the DNS record to refer to another region, so clients making a new DNS lookup receive the details of the new region. We recommend ensuring that clients can make a new DNS lookup and retry a request 60 seconds after a timeout or a 5xx response.
 
+> [!TIP]
+> Lab deployments don't offer cross-region failover (because they have only one service region).
+
 ### Disaster recovery: cross-region failover for management regions
 
 Voice traffic and provisioning through the Number Management Portal are unaffected by failures in the management region, because the corresponding Azure resources are hosted in service regions. Users of the Number Management Portal might need to sign in again.
@@ -112,7 +121,7 @@ Monitoring services might be temporarily unavailable until service has been rest
 
 ## Choosing management and service regions
 
-A single deployment of Azure Communications Gateway is designed to handle your traffic within a geographic area. Deploy both service regions within the same geographic area (for example North America). This model ensures that latency on voice calls remains within the limits required by the Operator Connect and Teams Phone Mobile programs.
+A single deployment of Azure Communications Gateway is designed to handle your traffic within a geographic area. Deploy both service regions in a production deployment within the same geographic area (for example North America). This model ensures that latency on voice calls remains within the limits required by the Operator Connect and Teams Phone Mobile programs.
 
 Consider the following points when you choose your service region locations:
 

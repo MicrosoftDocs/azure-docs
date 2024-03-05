@@ -621,7 +621,7 @@ Add the following code sample to your `index.js` file. **Make sure you update th
         params: {
             'api-version': '3.0',
             'from': 'en',
-            'to': ['fr', 'zu']
+            'to': 'fr,zu'
         },
         data: [{
             'text': 'I would really like to drive your car around the block a few times!'
