@@ -35,7 +35,7 @@ The data produced by the MCC varies according to the functionality. This variati
 
 The following data types are provided for all Quality of Experience - Affirmed MCC Data Products.
 
-- `edr` contains data from the Event Data Records (EDRs) written by the MCC network elements. EDRs record each significant event arising during calls or sessions handled by the MCC. They provide a comprehensive record of what happened, allowing operators to explore both individual problems and more general patterns. The set of EDRs supported by this Data Product are:
+- `edr` contains data from the Event Data Records (EDRs) written by the MCC network elements. EDRs record each significant event arising during calls or sessions handled by the MCC. They provide a comprehensive record of what happened, allowing operators to explore both individual problems and more general patterns. The Data Product supports the following EDRs.
   - `Status`
   - `Session`
   - `Bearer`
@@ -44,7 +44,7 @@ The following data types are provided for all Quality of Experience - Affirmed M
   - `RTT`
   - `MME CRR`
   - `SGSN CRR`
-    - Note, both kinds of `CRR` records are stored in the same table `all_mme_sgsn_events`
+  Note: both kinds of `CRR` records are stored in the `all_mme_sgsn_events` table.
 - `edr-sanitized` contains data from the `edr` data type but with personal data suppressed. Sanitized data types can be used to support data analysis while also enforcing subscriber privacy.
 - `edr-validation`: This data type contains a subset of performance management statistics and provides you with the ability to optionally ingest a minimum number of PMstats tables for a data quality check.
 - `device`: This optional data type contains device data (for example, device model, make and capabilities) that the Data Product can use to enrich the MCC Event Data Records. To use this data type, you must upload the device reference data in a CSV file. The CSV must conform to the [Device reference schema for the Quality of Experience Affirmed MCC Data Product](device-reference-schema.md).
