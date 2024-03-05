@@ -36,7 +36,7 @@ ___
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** The issue was introduced in macOS Ventura 13.0 when using the Safari browser (v16.1, v16.2, and v16.3), and a fix has been available starting from Safari version 16.4.<br>
 **Known issue reference:** This regression is a known issue introduced on [Safari](https://bugs.webkit.org/show_bug.cgi?id=247883).<br>
-**Recommended workaround:** Consider updating to the latest macOS/Safari version.<br>
+**Recommended workaround:** Users are advised to update to the latest macOS and Safari version (at least v16.4) where this issue has been resolved.<br>
 
 
 ## Safari iOS Mobile
