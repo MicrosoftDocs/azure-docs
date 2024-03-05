@@ -287,6 +287,20 @@
       href: network-proxy.md
     - name: Use a custom VNET
       href: vnet-custom.md
+- name: Languages and runtimes
+  items:
+    - name: Java
+      items:
+      - name: Overview
+        href: java-overview.md
+      - name: Automatic memory fitting
+        href: java-memory-fit.md
+      - name: Build environment variables
+        href: java-build-environment-variables.md
+      - name: Tutorials
+        items:
+          - name: Deploy a WAR file
+            href: java-deploy-war-file.md
 - name: Billing & quotas
   items:
     - name: Billing

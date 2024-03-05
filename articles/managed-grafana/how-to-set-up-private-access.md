@@ -29,7 +29,7 @@ In this guide, you'll learn how to disable public access to your Azure Managed G
 Public access is enabled by default when you create an Azure Grafana workspace. Disabling public access prevents all traffic from accessing the resource unless you go through a private endpoint.
 
 > [!NOTE]
-> When private access (preview) is enabled, pinging charts using the [*Pin to Grafana*](../azure-monitor/visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana) feature will no longer work as the Azure portal can’t access an Azure Managed Grafana workspace on a private IP address.
+> When private access (preview) is enabled, pinging charts using the [*Pin to Grafana*](../azure-monitor/visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana) feature will no longer work as the Azure portal can't access an Azure Managed Grafana workspace on a private IP address.
 
 ### [Portal](#tab/azure-portal)
 
@@ -82,7 +82,7 @@ Once you have disabled public access, set up a [private endpoint](../private-lin
 
 1. Select **Next : Virtual Network >**.
 
-   1. Select an existing **Virtual network** to deploy the private endpoint to. If you don't have a virtual network, [create a virtual network](../private-link/create-private-endpoint-portal.md#create-a-virtual-network-and-bastion-host).
+   1. Select an existing **Virtual network** to deploy the private endpoint to. If you don't have a virtual network, [create a virtual network](../private-link/create-private-endpoint-portal.md).
 
    1. Select a **Subnet** from the list.
 

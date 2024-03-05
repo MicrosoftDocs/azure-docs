@@ -189,7 +189,7 @@ This example reads the body of a POST request, as a `String`, and uses it to bui
 
 #### Read parameter from a route
 
-This example reads a mandatory parameter, named `id`, and an optional parameter `name` from the route path, and uses them to build a JSON document returned to the client, with content type `application/json`. T
+This example reads a mandatory parameter, named `id`, and an optional parameter `name` from the route path, and uses them to build a JSON document returned to the client, with content type `application/json`.
 
 ```java
 @FunctionName("TriggerStringRoute")
@@ -1003,6 +1003,12 @@ TypeScript samples are not documented for model v3.
 When you use route parameters, an `invoke_URL_template` is automatically created for your function. Your clients can use the URL template to understand the parameters they need to pass in the URL when calling your function using its URL. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
 
 You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](/rest/api/appservice/webapps/listfunctions) or [Get Function](/rest/api/appservice/webapps/getfunction).
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+### HTTP streams (preview)
+
+You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](functions-reference-node.md?pivots=nodejs-model-v4#http-streams-preview).   
+::: zone-end  
 
 ### Working with client identities
 
