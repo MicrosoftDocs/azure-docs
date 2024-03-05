@@ -75,7 +75,7 @@ You can configure with [OpenTelemetry environment variables][ot_env_vars] such a
 
 | **Environment Variable**                       | **Description**                                     |
 |--------------------------------------------|----------------------------------------------------|
-| [OTEL_SERVICE_NAME][opentelemetry_spec_service_name], [OTEL_RESOURCE_ATTRIBUTES][opentelemetry_spec_resource_attributes] | Specifies the OpenTelemetry [resource][opentelemetry_spec_resource] associated with your application. |
+| `OTEL_SERVICE_NAME`, `OTEL_RESOURCE_ATTRIBUTES` | Specifies the OpenTelemetry [Resource Attributes][opentelemetry_resource] associated with your application. You can set any Resource Attributes with [OTEL_RESOURCE_ATTRIBUTES][opentelemetry_spec_resource_attributes_env_var] or use [OTEL_SERVICE_NAME][opentelemetry_spec_service_name_env_var] to only set the `service.name`. |
 | `OTEL_LOGS_EXPORTER` | If set to `None`, disables collection and export of logging telemetry. |
 | `OTEL_METRICS_EXPORTER` | If set to `None`, disables collection and export of metric telemetry. |
 | `OTEL_TRACES_EXPORTER` | If set to `None`, disables collection and export of distributed tracing telemetry. |
@@ -192,9 +192,9 @@ For the latest updates and bug fixes, [consult the release notes](web-app-extens
 [ot_instrumentation_urllib]: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3
 [ot_instrumentation_urllib3]: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3
 [ot_instrumentation_urllib3_version]: https://github.com/open-telemetry/opentelemetry-python-contrib/blob/main/instrumentation/opentelemetry-instrumentation-urllib3/src/opentelemetry/instrumentation/urllib3/package.py#L16
-[opentelemetry_spec_resource]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk
-[opentelemetry_spec_resource_attributes]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#specifying-resource-information-via-an-environment-variable
-[opentelemetry_spec_service_name]: https://github.com/open-telemetry/semantic-conventions/blob/main/docs/resource/README.md#service
+[opentelemetry_resource]: https://opentelemetry.io/docs/specs/otel/resource/sdk/
+[opentelemetry_spec_resource_attributes_env_var]: https://opentelemetry-python.readthedocs.io/en/latest/sdk/environment_variables.html?highlight=OTEL_RESOURCE_ATTRIBUTES%20#opentelemetry-sdk-environment-variables
+[opentelemetry_spec_service_name_env_var]: https://opentelemetry-python.readthedocs.io/en/latest/sdk/environment_variables.html?highlight=OTEL_RESOURCE_ATTRIBUTES%20#opentelemetry.sdk.environment_variables.OTEL_SERVICE_NAME
 [pypi_django]: https://pypi.org/project/Django/
 [pypi_fastapi]: https://pypi.org/project/fastapi/
 [pypi_flask]: https://pypi.org/project/Flask/
