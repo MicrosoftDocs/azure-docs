@@ -49,8 +49,6 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Azure VM disaster recovery** | Added support for Oracle Linux 9.2, Oracle Linux 9.3, RHEL 9.2, Rocky Linux 9.0 and Rocky Linux 9.1 Linux distros.
 **VMware VM/physical disaster recovery to Azure** |   Added support for Oracle Linux 9.2, Oracle Linux 9.3, RHEL 9.2, Rocky Linux 9.0 and Rocky Linux 9.1 Linux distros. <br><br/> Added support for Windows 11 server. <br><br/> Enabled the proxy bypass capability in the ASR replication appliance. With this, customers can now bypass proxy settings from the Appliance configuration manager. 
 
-## Updates (February 2024)
-
 ### Update Rollup 71
 
 > [!Note]
