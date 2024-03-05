@@ -37,10 +37,6 @@ To uninstall the observability resources, complete the following steps.
     > [!NOTE]  
     > You might need to run the delete more than once for all resources to be successfully deleted. 
 
-    For a typical cluster resource group, the following screenshot shows what the list of resources looks like. The resources to delete are selected. 
-    
-    :::image type="content" source="media/howto-clean-up-observability-resources/cluster-resource-delete.png" alt-text="Screenshot that lists several resources to delete."  lightbox="media/howto-clean-up-observability-resources/cluster-resource-delete-expanded.png":::
-
 ## Delete the configuration from your cluster
 
 Finally, you can remove the configuration that was installed on your cluster. To do that, run the following command:
