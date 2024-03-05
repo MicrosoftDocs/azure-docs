@@ -24,9 +24,9 @@ To uninstall the observability resources, complete the following steps.
     - Log Analytics Workspace
     - Container Insights Solution
 
-For a resource group with a single cluster connected, the following screenshot shows what the list of resources looks like:
-
-:::image type="content" source="media/howto-clean-up-observability-resources/shared-resource-delete.png" alt-text="Screenshot that lists a set of shared resources."  lightbox="media/howto-clean-up-observability-resources/shared-resource-delete-expanded.png":::
+    For a resource group with a single cluster connected, the following screenshot shows what the list of resources looks like:
+    
+    :::image type="content" source="media/howto-clean-up-observability-resources/shared-resource-delete.png" alt-text="Screenshot that lists a set of shared resources."  lightbox="media/howto-clean-up-observability-resources/shared-resource-delete-expanded.png":::
 
 1. Navigate to the resource group where your cluster is located (if different from the resource group for the previous resources). Delete the following resources: 
 
