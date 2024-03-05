@@ -39,7 +39,8 @@ You must complete the following procedures.
 Navigate to your Azure Communications Gateway resource and find the "Call Protection" tab.
 If it's Disabled, update it to Enabled and notify your Microsoft onboarding team.
 
-TODO: Replace this picture with the actual one.
+> TODO: Replace this picture with the actual one.
+
 ![Azure Operator Call Protection on the Azure Communications Gateway resource](media/portal2.png)
 
 ## Provision subscribers
