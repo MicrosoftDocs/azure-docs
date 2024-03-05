@@ -2891,6 +2891,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-deploy-package-models.md",
+        "redirect_url": "/azure/machine-learning/how-to-package-models-app-service",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-no-code-deployment.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints",
         "redirect_document_id": false

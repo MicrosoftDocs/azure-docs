@@ -4,6 +4,7 @@ titleSuffix: Azure OpenAI
 description: Use the Azure OpenAI Whisper model for speech to text.
 manager: nitinme
 ms.service: azure-ai-openai
+ms.custom: devx-track-python
 ms.topic: quickstart
 ms.date: 2/1/2024
 ms.reviewer: v-baolianzou
