@@ -84,3 +84,9 @@ landingContent:
             url: ../../../dms/tutorial-mongodb-cosmos-db-online.md
           - text: Migrate using Azure Database Migration Service (offline)
             url: ../../../dms/tutorial-mongodb-cosmos-db.md
+  - title: Samples
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Solution accelerators
+            url: ../../solutions.md?pivots=api-mongodb
