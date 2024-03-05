@@ -174,7 +174,7 @@ Currently, configuration settings for the Service Bus built-in trigger are share
   }
   ```
 
-  In context of the Service Bus trigger, careful testing is required to ensure that runs are not waiting beyond the message lock timeout. Refer to [Concurrency and de-batching limits here](../logic-apps/logic-apps-limits-and-config.md#concurrency-and-debatching) for the default values.
+  With the Service Bus trigger, make sure that you carefully test these changes so that runs don't wait longer than the message lock timeout. For more information about the default values, see [Concurrency and de-batching limits here](../logic-apps/logic-apps-limits-and-config.md#concurrency-and-debatching).
 
 * If you enable concurrency, a 30-second delay exists between batch reads, by default. This delay slows down the trigger to achieve the following goals:
 
