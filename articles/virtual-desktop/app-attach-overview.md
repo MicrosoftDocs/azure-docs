@@ -105,7 +105,7 @@ MSIX app attach mounts disk images containing your applications from a file shar
 
 - **On-demand**: applications are only partially registered at sign-in and the full registration of an application is postponed until the user starts the application. On-demand is the registration type we recommend you use as it doesn't affect the time it takes to sign-in to Azure Virtual Desktop. On-demand is the default registration method.
 
-- **Log on blocking**: each application you assign to a user is fully registered. Registration happens while the user is signing in to their session, which might affect the sign-in time to Azure Virtual Desktop.
+- **Register at log on**: each application you assign to a user is fully registered. Registration happens while the user is signing in to their session, which might affect the sign-in time to Azure Virtual Desktop.
 
 ::: zone pivot="app-attach"
 > [!IMPORTANT]

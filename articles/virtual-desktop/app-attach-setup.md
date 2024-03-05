@@ -437,7 +437,7 @@ Here's how to change a package's registration type and state using the Azure por
 
 1. Select the name of the package you want to change.
 
-   1. To change the registration type, select **On-demand** or **Log on blocking**, then select **Save**.
+   1. To change the registration type, select **On-demand** or **Register at log on**, then select **Save**.
 
    1. To change the state, select **Inactive** or **Active**, then select **Save**.
 
@@ -447,7 +447,7 @@ Here's how to change a package's registration type and state using the [Az.Deskt
 
 1. In the same PowerShell session, you can change the registration type and state by running the following commands:
 
-   1. Change the registration type by running the following command. Set `IsRegularRegistration` to `$true` for **Log on blocking** or `$false` for **On-demand**.
+   1. Change the registration type by running the following command. Set `IsRegularRegistration` to `$true` for **Register at log on** or `$false` for **On-demand**.
 
       ```azurepowershell
       $parameters = @{
@@ -819,7 +819,7 @@ Here's how to change a package's registration type and state using the Azure por
 
 1. Select the name of the MSIX package you want to change.
 
-   1. To change the registration type, select **On-demand** or **Log on blocking**, then select **Save**.
+   1. To change the registration type, select **On-demand** or **Register at log on**, then select **Save**.
 
    1. To change the state, select **Inactive** or **Active**, then select **Save**.
 
@@ -848,7 +848,7 @@ Here's how to change a package's registration type and state using the [Az.Deskt
 
 1. Find the package you want to remove and use the value for the `Name` parameter, but remove the **host pool name** and `/` from the start. For example, `hp01/MyApp_1.0.0.0_neutral__abcdef123ghij` becomes `MyApp_1.0.0.0_neutral__abcdef123ghij`. Here are a couple of examples.
 
-   1. Change the registration type by running the following command. Set `IsRegularRegistration` to `$true` for **Log on blocking** or `$false` for **On-demand**.
+   1. Change the registration type by running the following command. Set `IsRegularRegistration` to `$true` for **Register at log on** or `$false` for **On-demand**.
 
       ```azurepowershell
       $parameters = @{
