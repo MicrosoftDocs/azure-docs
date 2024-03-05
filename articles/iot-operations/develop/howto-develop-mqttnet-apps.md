@@ -1,6 +1,5 @@
 ---
 title: Use MQTTnet to develop distributed application workloads
-titleSuffix: Azure IoT MQ Preview
 description: Develop distributed applications that talk with Azure IoT MQ using MQTTnet.
 author: PatAltimore
 ms.author: patricka
@@ -13,7 +12,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an developer, I want to understand how to use MQTTnet to develop distributed apps that talk with Azure IoT MQ.
 ---
 
-# Use MQTTnet to develop distributed application workloads
+# Use MQTTnet to develop distributed application workloads that talk with Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

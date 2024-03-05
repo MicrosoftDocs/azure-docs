@@ -1,6 +1,5 @@
 ---
 title: Configure Azure IoT MQ authentication
-titleSuffix: Azure IoT MQ Preview
 description: Configure Azure IoT MQ authentication.
 author: PatAltimore
 ms.author: patricka

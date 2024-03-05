@@ -1,7 +1,6 @@
 ---
-title: Configure Layered Network Management service to enable Azure IoT Operations Preview in an isolated network
-titleSuffix: Azure IoT Layered Network Management Preview
-description: Configure Layered Network Management service to enable Azure IoT Operations in an isolated network.
+title: Configure Layered Network Management to enable Azure IoT Operations in an isolated network
+description: Configure Azure IoT Layered Network Management service to enable Azure IoT Operations in an isolated network.
 author: PatAltimore
 ms.subservice: layered-network-management
 ms.author: patricka
@@ -13,7 +12,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to Azure Arc enable AKS Edge Essentials clusters using Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure Layered Network Management service to enable Azure IoT Operations Preview in an isolated network
+# Configure Layered Network Management Preview service to enable Azure IoT Operations Preview in an isolated network
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

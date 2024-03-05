@@ -1,6 +1,5 @@
 ---
 title: Test connectivity to IoT MQ with MQTT clients
-titleSuffix: Azure IoT MQ Preview
 description: Learn how to use common and standard MQTT tools to test connectivity to Azure IoT MQ.
 author: PatAltimore
 ms.author: patricka

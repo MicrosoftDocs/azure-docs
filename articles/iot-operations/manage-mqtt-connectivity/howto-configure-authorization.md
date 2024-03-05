@@ -1,6 +1,5 @@
 ---
 title: Configure Azure IoT MQ authorization
-titleSuffix: Azure IoT MQ Preview
 description: Configure Azure IoT MQ authorization using BrokerAuthorization.
 author: PatAltimore
 ms.author: patricka

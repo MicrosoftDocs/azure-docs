@@ -1,6 +1,5 @@
 ---
 title: "Quickstart: Configure Layered Network Management to Arc-enable a cluster in Azure environment"
-titleSuffix: Azure IoT Layered Network Management Preview
 description: Deploy Azure IoT Layered Network Management to an AKS cluster and Arc-enable a cluster on an Ubuntu VM.
 author: PatAltimore
 ms.subservice: layered-network-management
@@ -12,7 +11,7 @@ ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
-# Quickstart: Configure Layered Network Management Preview to Arc-enable a cluster in Azure environment
+# Quickstart: Configure Azure IoT Layered Network Management Preview to Arc-enable a cluster in Azure environment
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

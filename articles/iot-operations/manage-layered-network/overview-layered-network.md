@@ -1,6 +1,5 @@
 ---
 title: What is Azure IoT Layered Network Management?
-titleSuffix: Azure IoT Layered Network Management Preview
 description: Learn about Azure IoT Layered Network Management.
 author: PatAltimore
 ms.subservice: layered-network-management

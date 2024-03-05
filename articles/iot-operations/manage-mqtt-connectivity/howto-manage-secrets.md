@@ -1,7 +1,6 @@
 ---
 title: Manage secrets using Azure Key Vault or Kubernetes secrets
-titleSuffix: Azure IoT MQ Preview
-description: Learn how to manage secrets using Azure Key Vault or Kubernetes secrets.
+description: Learn how to manage secrets using Azure Key Vault or Kubernetes secrets in Azure IoT MQ.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: mq
@@ -13,7 +12,7 @@ ms.date: 01/16/2024
 #CustomerIntent: As an operator, I want to configure IoT MQ to use Azure Key Vault or Kubernetes secrets so that I can securely manage secrets.
 ---
 
-# Manage secrets using Azure Key Vault or Kubernetes secrets
+# Manage secrets using Azure Key Vault or Kubernetes secrets in Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

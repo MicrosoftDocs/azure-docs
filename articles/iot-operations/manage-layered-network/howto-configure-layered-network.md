@@ -1,6 +1,5 @@
 ---
-title: Create sample network environment for Azure IoT Layered Network Management
-titleSuffix: Azure IoT Layered Network Management Preview
+title: Create sample network environment for Layered Network Management
 description: Set up a test or sample network environment for Azure IoT Layered Network Management.
 author: PatAltimore
 ms.subservice: layered-network-management

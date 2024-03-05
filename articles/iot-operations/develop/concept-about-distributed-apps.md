@@ -1,6 +1,5 @@
 ---
 title: Develop highly available distributed applications
-titleSuffix: Azure IoT MQ Preview
 description: Learn how to develop highly available distributed applications that work with Azure IoT MQ.
 author: PatAltimore
 ms.subservice: mq
@@ -13,7 +12,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an developer, I want understand how to develop highly available distributed applications for my IoT Operations solution.
 ---
 
-# Develop highly available applications
+# Develop highly available applications using Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

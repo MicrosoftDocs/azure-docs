@@ -1,6 +1,5 @@
 ---
 title: Connect MQTT bridge cloud connector to other MQTT brokers
-titleSuffix: Azure IoT MQ Preview
 description: Bridge Azure IoT MQ to another MQTT broker.
 author: PatAltimore
 ms.author: patricka
@@ -13,7 +12,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to bridge Azure IoT MQ to another MQTT broker so that I can integrate Azure IoT MQ with other messaging systems.
 ---
 
-# Connect MQTT bridge cloud connector to other MQTT brokers
+# Connect Azure IoT MQ Preview MQTT bridge to other MQTT brokers
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

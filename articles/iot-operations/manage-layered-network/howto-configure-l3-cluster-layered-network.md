@@ -1,7 +1,6 @@
 ---
-title: Configure level 3 cluster in an Azure IoT Layered Network Management isolated network
-titleSuffix: Azure IoT Layered Network Management Preview
-description: Prepare a level 3 cluster and connect it to the IoT Layered Network Management service
+title: Configure level 3 cluster in an isolated network
+description: Prepare a level 3 cluster and connect it to the Azure IoT Layered Network Management service
 author: PatAltimore
 ms.subservice: layered-network-management
 ms.author: patricka
@@ -12,7 +11,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure level 3 cluster in an isolated network
+# Configure level 3 cluster in Azure IoT Layered Network Management Preview service
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

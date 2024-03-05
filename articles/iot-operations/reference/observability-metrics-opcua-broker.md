@@ -1,6 +1,5 @@
 ---
-title: Metrics for Azure IoT OPC UA Broker Preview
-titleSuffix: Azure IoT Operations Preview
+title: Metrics for Azure IoT OPC UA Broker
 description: Available observability metrics for Azure IoT OPC UA Broker to monitor the health and performance of your solution.
 author: timlt
 ms.author: timlt

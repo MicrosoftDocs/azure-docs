@@ -1,6 +1,5 @@
 ---
 title: Use Dapr to develop distributed applications
-titleSuffix: Azure IoT MQ Preview
 description: Develop distributed applications that talk with Azure IoT MQ using Dapr.
 author: timlt
 ms.author: timlt
@@ -13,11 +12,11 @@ ms.date: 11/14/2023
 # CustomerIntent: As an developer, I want to understand how to use Dapr to develop distributed apps that talk with Azure IoT MQ.
 ---
 
-# Use Dapr to develop distributed application workloads
+# Use Dapr to develop distributed application workloads that talk with Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed application. Dapr enables developers to build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): state management, service invocation, actors, pub/sub, and more.  Azure IoT MQ Preview supports two of these building blocks:
+The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed application. Dapr enables developers to build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): state management, service invocation, actors, pub/sub, and more. Azure IoT MQ Preview supports two of these building blocks:
 
 - Publish and Subscribe, powered by [Azure IoT MQ MQTT broker](../manage-mqtt-connectivity/overview-iot-mq.md)
 - State Management

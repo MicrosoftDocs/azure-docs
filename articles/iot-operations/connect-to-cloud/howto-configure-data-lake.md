@@ -1,6 +1,5 @@
 ---
 title: Send data from Azure IoT MQ to Data Lake Storage
-titleSuffix: Azure IoT MQ Preview
 description: Learn how to send data from Azure IoT MQ to Data Lake Storage.
 author: PatAltimore
 ms.subservice: mq

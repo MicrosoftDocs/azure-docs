@@ -1,6 +1,5 @@
 ---
-title: Send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka
-titleSuffix: Azure IoT MQ Preview
+title: Send receive messages between Azure IoT MQ and Event Hubs or Kafka
 description: Learn how to send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka.
 author: PatAltimore
 ms.author: patricka
@@ -13,7 +12,7 @@ ms.date: 01/16/2024
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ to send and receive messages between Azure IoT MQ and Kafka.
 ---
 
-# Send and receive messages between Azure IoT MQ Preview and Event Hubs or Kafka
+# Send and receive messages between Azure IoT MQ Preview and Azure Event Hubs or Kafka
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

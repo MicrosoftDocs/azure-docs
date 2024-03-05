@@ -1,6 +1,5 @@
 ---
 title: MQTT feature support in Azure IoT MQ
-titleSuffix: Azure IoT MQ Preview
 description: MQTT feature and control support in Azure IoT MQ.
 author: PatAltimore
 ms.author: patricka

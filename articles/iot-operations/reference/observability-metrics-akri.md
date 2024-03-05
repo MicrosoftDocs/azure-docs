@@ -1,7 +1,6 @@
 ---
-title: Metrics for Azure IoT Akri Preview
-titleSuffix: Azure IoT Operations Preview
-description: Available observability metrics for Azure IoT Akri Preview to monitor the health and performance of your solution.
+title: Metrics for Azure IoT Akri
+description: Available observability metrics for Azure IoT Akri to monitor the health and performance of your solution.
 author: timlt
 ms.author: timlt
 ms.topic: reference

@@ -1,7 +1,6 @@
 ---
 title: Build event-driven apps with Dapr
-titleSuffix: Azure IoT MQ Preview
-description: Learn how to create a Dapr application that aggregates data and publishing on another topic
+description: Learn how to create a Dapr application that aggregates data and publishing on another topic using Azure IoT MQ Preview.
 author: timlt
 ms.author: timlt
 ms.subservice: mq
@@ -11,7 +10,7 @@ ms.date: 11/13/2023
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
 
-# Build event-driven apps with Dapr
+# Build event-driven apps with Dapr for Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

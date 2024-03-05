@@ -1,6 +1,5 @@
 ---
 title: Configure MQ diagnostics service
-titleSuffix: Azure IoT MQ Preview
 description: How to configure Azure IoT MQ diagnostics service.
 author: timlt
 ms.author: timlt
