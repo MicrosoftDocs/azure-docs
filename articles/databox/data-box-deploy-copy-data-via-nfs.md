@@ -36,20 +36,20 @@ Before you begin, make sure that:
 ## Connect to Data Box
 
 Based on the storage account selected, Data Box creates up to:
-- Three shares for each associated storage account for GPv1 and GPv2.
-- One share for premium storage. 
-- One share for blob storage account. 
+
+* Three shares for each associated storage account for GPv1 and GPv2.
+* One share for premium storage.
+* Four shares for a blob storage account.
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
 The following table shows the UNC path to the shares on your Data Box and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
-| Azure Storage type| Data Box shares                                       |
+|Azure Storage types  | Data Box shares            |
 |-------------------|--------------------------------------------------------------------------------|
-| Azure Block blobs | <li>UNC path to shares: `//<DeviceIPAddress>/<storageaccountname_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
-| Azure Page blobs  | <li>UNC path to shares: `//<DeviceIPAddress>/<storageaccountname_PageBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Azure Files       |<li>UNC path to shares: `//<DeviceIPAddress>/<storageaccountname_AzFile>/<ShareName>/files/a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
-| Azure Block blobs (Archive)       |  <li>UNC path to shares: `//<DeviceIPAddress>/<storageaccountname_BlockBlobArchive>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      |
+| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob>\<accessTier>\<ContainerName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myFile.txt`</li> |  
+| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_PageBlob>\<ContainerName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myFile.txt`</li>   |  
+| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_AzFile>\<ShareName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/myFile.txt`</li>        | 
 
 If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
 
@@ -75,7 +75,13 @@ If you are using a Linux host computer, perform the following steps to configure
     
     `sudo mount -t nfs -o sec=sys,resvport 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
-    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
+        
+    > [!IMPORTANT]
+    > You can't copy files directly to the storage account's *root* folder. Within a block blob storage account's root folder, you'll find a folder corresponding to each of the available access tiers. 
+    > 
+    > To copy you data to Azure Data Box, you must first select the folder corresponding to one of the access tiers. Next, create a sub-folder within that tier's folder to store your data. Finally, copy your data to the newly created sub-folder. Your new sub-folder represents the container created within the storage account during ingestion. Your data is uploaded to this container as blobs.
+
+    <!--**Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.-->
 
 ## Copy data to Data Box
 
@@ -88,7 +94,7 @@ Once you are connected to the Data Box shares, the next step is to copy data. Be
   * Use different storage accounts for SMB and NFS.
   * Don't copy the same data to the same end destination in Azure using both SMB and NFS. In these cases, the final outcome can't be determined.
   * Although copying via both SMB and NFS in parallel can work, we don't recommend doing that as it's prone to human error. Wait until your SMB data copy is complete before you start an NFS data copy.
-* **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
+* When copying data to the block blob share, create a sub-folder within the desired access tier, then copy data to the newly created sub-folder. The sub-folder represents a container to which your data is uploaded as blobs. You cannot copy files directly to the *root* folder in the storage account.
 * If ingesting case-sensitive directory and file names from an NFS share to NFS on Data Box:
   * The case is preserved in the name.
   * The files are case-insensitive.

@@ -57,7 +57,7 @@ Based on the storage account selected, Data Box creates up to:
 
 <!--Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.-->
 
-Within block blob and page blob shares, first-level entities are folders for each access tier type. Second-level entities are containers, and third-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
+Within a block blob share, the first-level entity is a folder for each access tier type. Second-level entities are containers, and third-level entities are blobs. Under all other shares, first-level entities are shares, second-level entities are files.
 
 The following table shows the UNC path to the shares on your Data Box and the corresponding Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
@@ -108,7 +108,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     > [!IMPORTANT]
     > You can't copy files directly to the storage account's *root* folder. Within a block blob storage account's root folder, you'll find a folder corresponding to each of the available access tiers. 
     > 
-    > To copy you data to Azure Data Box, you must first select the folder corresponding to one of the access tiers. Next, create a sub-folder within that tier's folder to store your data. Finally, copy your data to the newly created sub-folder. Your new sub-folder represents the container created within the storage account during ingestion. Your data is uploaded to this container as blobs.
+    > To copy your data to Azure Data Box, you must first select the folder corresponding to one of the access tiers. Next, create a sub-folder within that tier's folder to store your data. Finally, copy your data to the newly created sub-folder. Your new sub-folder represents the container created within the storage account during ingestion. Your data is uploaded to this container as blobs.
 
 If using a Linux client, use the following command to mount the SMB share. The `vers` parameter below is the version of SMB that your Linux host supports. Insert the appropriate version into the sample command below. To see a list of SMB versions supported by Data Box, see [Supported file systems for Linux clients](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
@@ -331,3 +331,5 @@ Advance to the next tutorial to learn how to ship your Data Box back to Microsof
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md)
 
 ::: zone-end
+
+

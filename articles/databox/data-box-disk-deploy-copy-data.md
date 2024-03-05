@@ -59,13 +59,14 @@ Before you begin, make sure that:
 
 Review the following considerations before you copy the data to the disks:
 
-- It is your responsibility to ensure that you copy your local data to the folders that correspond to the appropriate data format. For instance, copy block blob data to the *BlockBlob* folder. Block blobs being archived should be copied to the *BlockBlob_Archive* folder. If the local data format doesn't match the appropriate folder for the chosen storage type, the data upload to Azure fails in a later step.
-- While copying data, ensure that the data size conforms to the size limits described within in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md) article.
-- To preserve metadata such as ACLs, timestamps, and file attributes when transferring data to Azure Files, follow the guidance within the [Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk](data-box-disk-file-acls-preservation.md) article.
-- If you use both Data Box Disk and other applications to upload data simultaneously, you may experience upload job failures and data corruption.
+- It is your responsibility to ensure that you copy your local data to the folders that correspond to the appropriate data format. For instance, copy block blob data to the folder corrresponding to the appropriate access tier within the *BlockBlob* folder. Frequently used block blobs should be copies to the *Hot* tier's folder within *BlockBlob*. Blobs being archived should be copied to the *BlockBlob_Archive* folder. If the local data format doesn't match the appropriate folder for the chosen storage type, the data upload to Azure fails in a later step.
 
    > [!IMPORTANT]
    > Data uploaded to the archive tier remains offline and needs to be rehydrated before reading or modifying. Data copied to the archive tier must remain for at least 180 days or be subject to an early deletion charge. Archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts.
+    
+- While copying data, ensure that the data size conforms to the size limits described within in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md) article.
+- To preserve metadata such as ACLs, timestamps, and file attributes when transferring data to Azure Files, follow the guidance within the [Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk](data-box-disk-file-acls-preservation.md) article.
+- If you use both Data Box Disk and other applications to upload data simultaneously, you may experience upload job failures and data corruption.
 
    > [!IMPORTANT]
    >  If you specified managed disks as one of the storage destinations during order creation, the following section is applicable.
@@ -81,23 +82,23 @@ Perform the following steps to connect and copy data from your computer to the D
 
     |Selected storage destination  |Storage account type|Staging storage account type |Folders and subfolders  |
     |------------------------------|--------------------|-----------------------------|------------------------|
-    |Storage account               |GPv1 or GPv2        | NA                          | BlockBlob<br>BlockBlob_Archive<br>PageBlob<br>AzureFile |
-    |Storage account               |Blob storage account| NA                          | BlockBlob<br>BlockBlob_Archive |
+    |Storage account               |GPv1 or GPv2        | NA                          | BlockBlob<br>PageBlob<br>AzureFile |
+    |Storage account               |Blob storage account| NA                          | BlockBlob |
     |Managed disks                 |NA                  | GPv1 or GPv2                | ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
-    |Storage account<br>Managed disks |GPv1 or GPv2     | GPv1 or GPv2                | BlockBlob<br/>BlockBlob_Archive<br/>PageBlob<br/>AzureFile<br/>ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>|
-    |Storage account <br> Managed disks |Blob storage account | GPv1 or GPv2          |BlockBlob<br>BlockBlob_Archive<br>ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
+    |Storage account<br>Managed disks |GPv1 or GPv2     | GPv1 or GPv2                | BlockBlob<br/>PageBlob<br/>AzureFile<br/>ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>|
+    |Storage account <br> Managed disks |Blob storage account | GPv1 or GPv2          |BlockBlob<br>ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
 
     The following screenshot shows an order where a GPv2 storage account and archive tier were specified:
 
     :::image type="content" source="media/data-box-disk-deploy-copy-data/content-sml.png" alt-text="Screenshot of the contents of the disk drive." lightbox="media/data-box-disk-deploy-copy-data/content.png":::
 
-1. Copy data to be imported as block blobs into the *BlockBlob* folder. Copy data to be stored as block blobs with the archive tier into the *BlockBlob_Archive* folder. Similarly, copy VHD or VHDX data to the *PageBlob* folder, and file share data into *AzureFile* folder.
+1.  Copy VHD or VHDX data to the *PageBlob* folder. All files copied to the *PageBlob* folder are copied into a default `$root` container within the Azure Storage account. A container is created in the Azure storage account for each subfolder within the *PageBlob* folder.
 
-   A container is created in the Azure storage account for each subfolder within the *BlockBlob* and *PageBlob* folders. All files copied to the *BlockBlob* and *PageBlob* folders are copied into a default `$root` container within the Azure Storage account. Any files in the `$root` container are always uploaded as block blobs.
+    Copy data to be placed in Azure file shares to a subfolder within the *AzureFile* folder. All files copied to the *AzureFile* folder are copied as files to a default container of type `databox-format-[GUID]`, for example, `databox-azurefile-7ee19cfb3304122d940461783e97bf7b4290a1d7`.
 
-   Copy data to be placed in Azure file shares to a subfolder within the *AzureFile* folder. All files copied to the *AzureFile* folder are copied as files to a default container of type `databox-format-[GUID]`, for example, `databox-azurefile-7ee19cfb3304122d940461783e97bf7b4290a1d7`.
+    You can't copy files directly to the *BlockBlob*'s *root* folder. Within the root folder, you'll find a sub-folder corresponding to each of the available access tiers. To copy your blob data, you must first select the folder corresponding to one of the access tiers. Next, create a sub-folder within that tier's folder to store your data. Finally, copy your data to the newly created sub-folder. Your new sub-folder represents the container created within the storage account during ingestion. Your data is uploaded to this container as blobs. As with the *AzureFile* share, a new blob storage container will be created for each sub-folder located at the *BlockBlob*'s *root* folder. The data within these folders will be saved according to the storage account's default access tier.
 
-   Before you begin to copy data, you need to move any files and folders that exist in the root directory to a different folder.
+    Before you begin to copy data, you need to move any files and folders that exist in the root directory to a different folder.
 
     > [!IMPORTANT]
     > All the containers, blobs, and filenames should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). If these rules are not followed, the data upload to Azure will fail.

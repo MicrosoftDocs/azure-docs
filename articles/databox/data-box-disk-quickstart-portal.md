@@ -166,11 +166,15 @@ This step takes roughly 5 minutes.
 
 The time to complete this operation depends upon your data size.
 
-1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, and *DataBoxDiskImport* folders. Drag and drop to copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, drag and drop data such as VHD/VHDX to *PageBlob* folder, and appropriate data to *AzureFile*. Copy the VHDs that you want to upload as managed disks to a folder under *ManagedDisk*.
+1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, and *DataBoxDiskImport* folders. Within the *BlockBBlob* root folder, you'll find a sub-folder corresponding to each of the available access tiers. 
 
-    A container is created in the Azure storage account for each sub-folder under *BlockBlob* and *PageBlob* folder. A file share is created for a sub-folder under *AzureFile*.
+    Drag and drop data such as VHD/VHDX to *PageBlob* folder, and appropriate data to *AzureFile*. Copy any VHDs that you want to upload as managed disks to a folder under *ManagedDisk*.
 
-    All files under *BlockBlob* and *PageBlob* folders are copied into a default container `$root` under the Azure Storage account. Copy files into a folder within *AzureFile*. Any files copied directly to the *AzureFile* folder fail and are uploaded as block blobs.
+    To copy your blob data, you must first select the sub-folder within the *BlockBlob* share which corresponds to one of the access tiers. Next, create a sub-folder within that tier's folder to store your data. Finally, copy your data to the newly created sub-folder. Your new sub-folder represents a container created within the storage account during ingestion. Your data is uploaded to this container as blobs.
+
+    To copy files to the *AzureFile* share, first create a folder to contain your files, then copy your data to the newly created folder. A file share is created for a sub-folder under *AzureFile*. Any files copied directly to the *AzureFile* folder fail and are uploaded as block blobs with the storage account's default access tier.
+
+    All files under *PageBlob* folders are copied into a default container `$root` under the Azure Storage account. Just as with the *AzureFile* share, a container is created in the Azure storage account for each sub-folder within the *PageBlob* folder.  
 
     > [!NOTE]
     > - All the containers, blobs, and files should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). If these rules are not followed, the data upload to Azure will fail.

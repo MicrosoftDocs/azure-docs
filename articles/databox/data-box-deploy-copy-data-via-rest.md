@@ -190,7 +190,7 @@ Use AzCopy to upload all files in a folder to Blob storage on Windows or Linux. 
 ```azcopy
 azcopy \
     --source /mnt/myfolder \
-    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/ \
     --dest-key <key> \
     --recursive
 ```
@@ -198,7 +198,7 @@ azcopy \
 #### Windows
 
 ```azcopy
-AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/ /DestKey:<key> /S
 ```
 
 Replace `<key>` with your account key. To get your account key, in the Azure portal, go to your storage account. Go to **Settings > Access keys**, select a key, and paste it into the AzCopy command.
@@ -218,7 +218,7 @@ If you only want to copy source resources that do not exist in the destination, 
 ```azcopy
 azcopy \
 --source /mnt/myfolder \
---destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+--destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/ \
 --dest-key <key> \
 --recursive \
 --exclude-older
@@ -227,7 +227,7 @@ azcopy \
 #### Windows
 
 ```azcopy
-AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/ /DestKey:<key> /S /XO
 ```
 
 If there are any errors during the connect or copy operation, see [Troubleshoot issues with Data Box Blob storage](data-box-troubleshoot-rest.md).
