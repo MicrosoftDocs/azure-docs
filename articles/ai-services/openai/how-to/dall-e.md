@@ -328,8 +328,9 @@ Set the n parameter to an integer between 1 and 10 to generate multiple images a
 
 ## Next steps
 
-tbd
-
+* [Learn more about Azure OpenAI](../overview.md).
+* [DALL-E quickstart](../dall-e-quickstart.md)
+* [Image generation API reference](/azure/ai-services/openai/reference#image-generation)
 
 
 <!-- OAI HT guide https://platform.openai.com/docs/guides/images/usage
