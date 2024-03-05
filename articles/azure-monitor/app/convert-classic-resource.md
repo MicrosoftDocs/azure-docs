@@ -197,7 +197,10 @@ Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -Ingesti
 
 ### Azure Resource Manager templates
 
-This section provides templates.
+This section provides templates. 
+
+   > [!CAUTION]
+   > Ensure that you have removed all Continous Export settings from your resource before running the migration templates. See [Prerequisites](#prerequisites) 
 
 #### Template file
 
