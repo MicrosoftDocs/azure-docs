@@ -782,7 +782,7 @@ items:
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
     - name: Providing end user support
-      href: ./concepts/voice-video-calling/user-support-flow.md
+      href: ./concepts/voice-video-calling/retrieve-support-files.md
     - name: User experience
       href: concepts/voice-video-calling/user-experience.md
     - name: Known issues
