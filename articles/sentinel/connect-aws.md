@@ -188,7 +188,7 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
    **Use the values in this table for Azure Commercial Cloud.**
 
    | Parameter | Selection/Value | Comments |
-| - | -------- | - | - |
+   | - | - | - |
 | **Trusted entity type** |*Web identity*| *Web identity* | Instead of default *AWS service*. |
 | **Identity provider** |`sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/`| `sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` | The provider you created in the previous step. |
 | **Audience** |`api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`| `api://d4230588-5f84-4281-a9c7-2c15194b28f7` | The audience you defined for the identity provider in the previous step. |
