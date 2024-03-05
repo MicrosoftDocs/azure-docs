@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan. 
 ms.topic: overview
-ms.date: 02/21/2024
+ms.date: 03/05/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Post-GA updates for PostgreSQL and MySQL Flexible Servers](#post-ga-updates-for-postgresql-and-mysql-flexible-servers) | March 6, 2024 | April, 2024 |
 | [Microsoft Security Code Analysis (MSCA) is no longer operational](#microsoft-security-code-analysis-msca-is-no-longer-operational) | February 26, 2024 | February 26, 2024 |
 | [Update recommendations to align with Azure AI Services resources](#update-recommendations-to-align-with-azure-ai-services-resources) | February 20, 2024 | February 28, 2024 |
 | [Deprecation of data recommendation](#deprecation-of-data-recommendation) | February 12, 2024 | March 14, 2024 |
@@ -46,6 +47,29 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Post-GA updates for PostgreSQL and MySQL Flexible Servers
+
+**Announcement date: March 6, 2024**
+
+**Estimated date for change: April, 2024**
+
+**Defender for PostgreSQL Flexible Servers post-GA updates** - The update will provide customers with the ability to enforce protection for existing PostgreSQL Flexible Servers at the subscription level. This offers complete flexibility for enabling protection on a per-resource basis or for automatic protection of all resources at the subscription level. Accompanying this update will be billing provisions for the protected resources.
+
+If you're already protecting your subscription with Defender for OSS Databases, your flexible server resources will be automatically enabled, protected and billed.
+Specific notifications regarding billing have been dispatched via email for affected subscriptions.
+
+**Defender for MySQL Flexible Servers Availability and GA** - Defender for Cloud is set to expand its support for Azure OSS databases by incorporating MySQL Flexible Servers. 
+This release will include:
+
+- Alert compatibility with existing alerts for Defender for MySQL Single Servers.
+- Enablement of individual resources.
+- Enablement at the subscription level.
+
+If you're already protecting your subscription with Defender for OSS Databases, your flexible server resources will be automatically enabled, protected and billed.
+Specific notifications regarding billing have been dispatched via email for affected subscriptions.
+
+Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
 ## Microsoft Security Code Analysis (MSCA) is no longer operational
 
