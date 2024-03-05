@@ -1,0 +1,36 @@
+- name: Edge Storage Accelerator
+  href: index.yml
+- name: Overview
+  href: overview.md
+- name: Prepare Linux
+  items:
+  - name: Prepare Linux prerequisites
+    href: prepare-linux.md
+  - name: Prepare Linux using a single-node cluster
+    href: single-node-cluster.md
+  - name: Prepare Linux using a multi-node cluster
+    href: multi-node-cluster.md
+- name: Install
+  items:
+  - name: Install Edge Storage Accelerator
+    href: install-edge-storage-accelerator.md
+  - name: Installation troubleshooting
+    href: installation-troubleshooting.md
+- name: Attach applications
+  items:
+  - name: Create a persistent volume
+    href: create-pv.md
+  - name: Create persistent volume claim
+    href: create-pvc.md
+  - name: Attach your app
+    href: attach-app.md
+- name: Monitor deployment
+  items:
+  - name: Third-party monitoring with Prometheus and Grafana
+    href: third-party-monitoring.md
+  - name: Azure Monitor and Kubernetes monitoring
+    href: azure-monitor-kubernetes.md
+  - name: Operational troubleshooting
+    href: operational-troubleshooting.md
+- name: Release notes
+  href: release-notes.md

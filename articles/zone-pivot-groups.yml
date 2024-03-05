@@ -3091,3 +3091,31 @@ groups:
     title: Portal 
   - id: development-environment-azure-cli
     title: CLI
+# Owner: sethm
+- id: platform-select
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: aks
+    title: AKS enabled by Arc
+  - id: aks-ee
+    title: AKS Edge Essentials
+  - id: ubuntu
+    title: Ubuntu
+- id: identity-select
+  title: Authentication
+  prompt: Choose authentication
+  pivots:
+  - id: storage-key
+    title: Storage key
+  - id: workload-identity
+    title: Workload identity
+- id: attach-app
+  title: Attach method
+  prompt: Choose an attach method
+  pivots:
+  - id: attach-iot-op
+    title: IoT Operations
+  - id: attach-kubernetes
+    title: Kubernetes native
+

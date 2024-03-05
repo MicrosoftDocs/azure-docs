@@ -1,0 +1,40 @@
+### YamlMime:Landing
+
+title: Edge Storage Accelerator documentation
+summary: Edge Storage Accelerator (ESA) is a 1P storage system designed for Arc-connected Kubernetes clusters.
+
+metadata:
+  title: Edge Storage Accelerator documentation
+  description: Edge Storage Accelerator (ESA) is a 1P storage system designed for Arc-connected Kubernetes clusters.
+  ms.topic: landing-page
+  author: sethmanheim
+  ms.author: sethm 
+  ms.date: 02/26/2024
+
+landingContent:
+  - title: About Edge Storage Accelerator
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Edge Storage Accelerator?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Install Edge Storage Accelerator
+            url: install-edge-storage-accelerator.md
+  - title: Get started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Prepare Linux
+            url: prepare-linux.md
+          - text: Create a persistent volume claim
+            url: create-pvc.md
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Installation troubleshooting
+            url: installation-troubleshooting.md
+          - text: Operational troubleshooting
+            url: operational-troubleshooting.md
