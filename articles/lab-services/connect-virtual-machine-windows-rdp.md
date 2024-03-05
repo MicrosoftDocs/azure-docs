@@ -16,7 +16,7 @@ In this article, you learn how to connect to a lab VM in Azure Lab Services from
 
 ## Connect to VM from Windows using RDP
 
-You can use RDP to connect to your lab VMs in Azure Lab Services. If the lab VM is a Linux VM, the lab creator must [enable RDP for the lab](how-to-enable-remote-desktop-linux.md) and install GUI packages for a Linux graphical desktop. For Windows-based lab VMs, no additional configuration is needed.
+You can use RDP to connect to your lab VMs in Azure Lab Services. If the lab VM is a Linux VM, the lab creator must [enable RDP for the lab](how-to-enable-remote-desktop-linux.md) and install GUI packages for a Linux graphical desktop. For Windows-based lab VMs, no extra configuration is needed.
 
 Typically, the [Remote Desktop client software](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) is already present on Windows. To connect to the lab VM, you open the RDP connection file to start the remote session.
 
@@ -44,7 +44,7 @@ The RDP client software has various settings for optimizing your connection expe
 
 Learn more about the [RDP client's **Experience** settings](/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings).
 
-If you're using a Linux lab VM with a graphical desktop and the RDP client, the following settings may help to optimize performance:
+If you're using a Linux lab VM with a graphical desktop and the RDP client, the following settings might help to optimize performance:
 
 - On the **Display** tab, set the color depth to **High Color (15 bit)**.
 
@@ -54,7 +54,7 @@ If you're using a Linux lab VM with a graphical desktop and the RDP client, the 
 
     :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-experience-settings.png" alt-text="Screenshot of experience tab of the Windows RDP client, highlighting the connection speed setting.":::
 
-## Next steps
+## Related content
 
 - [As an educator, enabled RDP on Linux](how-to-enable-remote-desktop-linux.md)
 - [As a student, stop the VM](how-to-use-lab.md#start-or-stop-the-vm)
