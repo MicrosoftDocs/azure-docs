@@ -99,7 +99,7 @@ additionalContent:
           links:
             - text: Explore Azure Hybrid Benefit for Linux VMs
               url: https://learn.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux
-        - title: Additional guidance and related benefits
+        - title: Additional guidance and benefits
           links:
             - text: Azure Hybrid Benefit for Linux Virtual Machine Scale Sets
               url: https://learn.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux
