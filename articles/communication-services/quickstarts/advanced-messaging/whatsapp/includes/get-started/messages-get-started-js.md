@@ -2,12 +2,12 @@
 title: Include file
 description: Include file
 services: azure-communication-services
-author: glorialimicrosoft
+author: arifibrahim4
 ms.service: azure-communication-services
 ms.date: 02/29/2024
 ms.topic: include
 ms.custom: include file
-ms.author: memontic
+ms.author: armohamed
 ---
 
 ## Prerequisites
@@ -15,118 +15,63 @@ ms.author: memontic
 - [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
 - Active WhatsApp phone number to receive messages
 
-- .NET development environment (such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/download))
+- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended)
+    - In a terminal or command window, run `node --version` to check that Node.js is installed
 
 ## Setting up
 
-### Create the .NET project
+To set up an environment for sending messages, take the steps in the following sections.
 
-#### [Visual Studio](#tab/visual-studio)
+### Create a new Node.js application
 
-To create your project, follow the tutorial at [Create a .NET console application using Visual Studio](/dotnet/core/tutorials/with-visual-studio).
+1. Create a new directory for your app and navigate to it by opening your terminal or command window, then run the following command.
 
-To compile your code, press <kbd>Ctrl</kbd>+<kbd>F7</kbd>.
+   ```console
+   mkdir advance-messages-quickstart && cd advance-messages-quickstart
+   ```
 
-#### [Visual Studio Code](#tab/vs-code)
+1. Run the following command to create a **package.json** file with default settings.
 
-To create your project, follow the tutorial at [Create a .NET console application using Visual Studio Code](/dotnet/core/tutorials/with-visual-studio-code).
+   ```console
+   npm init -y
+   ```
 
-Build and run your program by running the following commands in the Visual Studio Code Terminal (View > Terminal).
-```console
-dotnet build
-dotnet run
-```
+1. Use a text editor to create a file called **send-messages.js** in the project root directory.
+1. Add the following code snippet to the file **send-messages.js**.
+   ```javascript
+   async function main() {
+       // Quickstart code goes here.
+   }
 
-#### [.NET CLI](#tab/dotnet-cli)
+   main().catch((error) => {
+       console.error("Encountered an error while sending message: ", error);
+       process.exit(1);
+   });
+   ```
 
-First, create your project.
-```console
-dotnet new console -o AdvancedMessagingQuickstart
-```
-
-Next, navigate to your project directory and build your project.
-
-```console
-cd AdvancedMessagingQuickstart
-dotnet build
-```
-
----
+In the following sections, you added all the source code for this quickstart to the **send-messages.js** file that you created.
 
 ### Install the package
 
-Install the Azure.Communication.Messages NuGet package to your C# project.
+Use the `npm install` command to install the Azure Communication Services Advance Messaging SDK for JavaScript.
 
-#### [Visual Studio](#tab/visual-studio)
- 
-1. Open the NuGet Package Manager at `Project` > `Manage NuGet Packages...`.   
-2. Search for the package `Azure.Communication.Messages`.   
-3. Install the latest release.
-
-#### [Visual Studio Code](#tab/vs-code)
-
-1. Open the Visual Studio Code terminal ( `View` > `Terminal` ).
-2. Install the package by running the following command.
 ```console
-dotnet add package Azure.Communication.Messages
+npm install @azure-rest/communication-messages --save
 ```
 
-#### [.NET CLI](#tab/dotnet-cli)
-
-Install the package by running the following command.
-```console
-dotnet add package Azure.Communication.Messages
-```
-
----
-
-### Set up the app framework
-
-Open the *Program.cs* file in a text editor.   
-
-Replace the contents of your *Program.cs* with the following code:
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Azure;
-using Azure.Communication.Messages;
-
-namespace AdvancedMessagingQuickstart
-{
-    class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            Console.WriteLine("Azure Communication Services - Send WhatsApp Messages");
-
-            // Quickstart code goes here
-        }
-    }
-}
-```
-
-To use the Advanced Messaging features, we add a `using` directive to include the `Azure.Communication.Messages` namespace.
-
-```csharp
-using Azure.Communication.Messages;
-```
+The `--save` option lists the library as a dependency in your **package.json** file.
 
 ## Object model
-The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for .NET.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for JavaScript.
 
-| Name                        | Description                                                                                            |
-|-----------------------------|--------------------------------------------------------------------------------------------------------|
-| NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
-| MessageTemplate             | This class defines which template you use and the content of the template properties for your message. |
-| TemplateNotificationContent | This class defines the "who" and the "what" of the template message you intend to send.                |
-| TextNotificationContent     | This class defines the "who" and the "what" of the text message you intend to send.                    |
-| MediaNotificationContent    | This class defines the "who" and the "what" of the media message you intend to send.                   |
+| Name            | Description                                                                                            |
+|-----------------|--------------------------------------------------------------------------------------------------------|
+| MessageClient   | This class connects to your Azure Communication Services resource. It sends the messages.              |
+| MessageTemplate | This class defines which template you use and the content of the template properties for your message. |
 
 ## Code examples
 
-Follow these steps to add the necessary code snippets to the Main function of your *Program.cs* file.
+Follow these steps to add the necessary code snippets to the main function of your *send-messages.js* file.
 
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
@@ -137,15 +82,15 @@ Follow these steps to add the necessary code snippets to the Main function of yo
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
 - [Send a media message to a WhatsApp user](#send-a-media-message-to-a-whatsapp-user)
 
-### Authenticate the client   
-
-The `NotificationMessagesClient` is used to connect to your Azure Communication Services resource.    
+### Authenticate the client
 
 #### [Connection String](#tab/connection-string)
 
+The following code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING` using the dotenv package. 
+
 For simplicity, this quickstart uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../../identity/service-principal.md).
 
-Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the primary key. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
+Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
 
 :::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" lightbox="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
 
@@ -154,27 +99,30 @@ Open a console window and enter the following command:
 ```console
 setx COMMUNICATION_SERVICES_CONNECTION_STRING "<your connection string>"
 ```
-After you add the environment variable, you might need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
 
-To instantiate a `NotificationMessagesClient`, add the following code to the `Main` method:
-```csharp
-// Retrieve connection string from environment variable
-string connectionString = 
-    Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
+
+To instantiate a MessageClient, add the following code to the `Main` method:
+```javascript
+const MessageClient = require("@azure-rest/communication-messages").default;
+
+// Set Connection string
+const connectionString = process.env["COMMUNICATION_SERVICES_CONNECTION_STRING"];
 
 // Instantiate the client
-var notificationMessagesClient = new NotificationMessagesClient(connectionString);
+const client = MessageClient(connectionString);
 ```
+
+<a name='azure-active-directory'></a>
 
 #### [Microsoft Entra ID](#tab/aad)
 
-You can also authenticate with Microsoft Entra ID using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity). 
+You can also authenticate with Microsoft Entra ID using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). 
 
-The [`Azure.Identity`](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/dotnet/api/overview/azure/identity-readme#credentials) and [Azure Identity - Authenticate the client](/dotnet/api/overview/azure/identity-readme#authenticate-the-client). This option walks through one way of using the [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential).
- 
-The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.   
+The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/javascript/api/overview/azure/identity-readme#credentials) and [Azure Identity - Authenticate the client](/javascript/api/overview/azure/identity-readme#authenticate-the-client). This option walks through one way of using the [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). 
+
+The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/javascript/api/overview/azure/identity-readme#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.    
 
 To create a `DefaultAzureCredential` object:
 1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
@@ -188,20 +136,22 @@ To create a `DefaultAzureCredential` object:
     ```
     After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
-1. To use the [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `Azure.Identity` NuGet package and add the following `using` directive to your *Program.cs* file.
-    ```csharp
-    using Azure.Identity;
+1. To use the [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential) provider, or other credential providers provided with the Azure SDK, install the `@azure/identity` package.
+    ```bash
+    npm install @azure/identity
     ```
 
-1. To instantiate a `NotificationMessagesClient`, add the following code to the `Main` method.
-    ```csharp
+1. To instantiate a `MessageClient`, add the following code to the `Main` method.
+    ```javascript
+    const DefaultAzureCredential = require("@azure/identity").DefaultAzureCredential;
+    const MessageClient = require("@azure-rest/communication-messages").default;
+    
     // Configure authentication
-    var endpoint = new Uri("https://<resource name>.communication.azure.com");
-    var credential = new DefaultAzureCredential();
-
+    const endpoint = "https://<resource name>.communication.azure.com";
+    let credential = new DefaultAzureCredential();
+    
     // Instantiate the client
-    var notificationMessagesClient = 
-        new NotificationMessagesClient(endpoint, credential);
+    const client = MessageClient(endpoint, credential);
     ```
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
@@ -221,32 +171,30 @@ After you add the environment variable, you might need to restart any running pr
 
 For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
 
-To instantiate a `NotificationMessagesClient`, add the following code to the `Main` method:
-```csharp
-// Retrieve key from environment variable
-string key = 
-    Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_KEY");
+To instantiate a `MessageClient`, add the following code to the `Main` method:
+```javascript
+const AzureKeyCredential = require("@azure/core-auth").AzureKeyCredential;
+const MessageClient = require("@azure-rest/communication-messages").default;
 
 // Configure authentication
-var endpoint = new Uri("https://<resource name>.communication.azure.com");
-var credential = new AzureKeyCredential(key);
+const endpoint = "https://<resource name>.communication.azure.com";
+const credential = new AzureKeyCredential("<your key credential>");
 
 // Instantiate the client
-var notificationMessagesClient = 
-    new NotificationMessagesClient(endpoint, credential);
+const client = MessageClient(endpoint, credential);
 ```
 
 ---
 
-### Set channel registration ID   
+### Set channel registration ID  
 
 The Channel Registration ID GUID was created during [channel registration](../../connect-whatsapp-business-account.md). You can look it up in the portal on the Channels tab of your Azure Communication Services resource.
 
 :::image type="content" source="../../media/get-started/get-messages-channel-id.png" lightbox="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
 
 Assign it to a variable called channelRegistrationId.
-```csharp
-var channelRegistrationId = new Guid("<your channel registration ID GUID>");
+```javascript
+const channelRegistrationId = "<your channel registration id GUID>";
 ```
 
 ### Set recipient list
@@ -262,14 +210,14 @@ The phone number should include the country code. For more information on phone 
 > Only one phone number is currently supported in the recipient list.
 
 Create the recipient list like this:
-```csharp
-var recipientList = new List<string> { "<to WhatsApp phone number>" };
+```json
+const recipientList = ["<to WhatsApp phone number>"];
 ```
 
 Example:
-```csharp
+```javascript
 // Example only
-var recipientList = new List<string> { "+14255550199" };
+const recipientList = ["+14255550199"];
 ```
 
 ### Start sending messages between a business and a WhatsApp user
@@ -290,11 +238,12 @@ First, create a MessageTemplate using the values for a template.
 
 Here's MessageTemplate creation using a default template, `sample_template`.   
 If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
-```csharp
+```javascript
 // Assemble the template content
-string templateName = "sample_template";
-string templateLanguage = "en_us";
-var messageTemplate = new MessageTemplate(templateName, templateLanguage);
+const template = {
+    name: "sample_template",
+    language: "en_US"
+};
 ```
 
 For more examples of how to assemble your MessageTemplate and how to create your own template, refer to the following resource:
@@ -305,15 +254,26 @@ For further WhatsApp requirements on templates, refer to the WhatsApp Business P
 - [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components)
 - [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates)
 
-Assemble then send the template message:
-```csharp
-// Assemble template message
-var templateContent = 
-    new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplate);
-
+```javascript
 // Send template message
-Response<SendMessageResult> sendTemplateMessageResult = 
-    await notificationMessagesClient.SendAsync(templateContent);
+const templateMessageResult = await client.path("/messages/notifications:send").post({
+    contentType: "application/json",
+    body: {
+        channelRegistrationId: channelRegistrationId,
+        to: recipientList,
+        kind: "template",
+        template: template
+    }
+});
+
+// Process result
+if (templateMessageResult.status === "202") {
+    templateMessageResult.body.receipts.forEach((receipt) => {
+        console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
+    });
+} else {
+    throw new Error("Failed to send message");
+}
 ```
 
 Now, the user needs to respond to the template message. From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
@@ -335,15 +295,27 @@ To do so, from your personal WhatsApp account, send a message to your business n
 
 In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.".
 
-Assemble then send the text message:
-```csharp
-// Assemble text message
-var textContent = 
-    new TextNotificationContent(channelRegistrationId, recipientList, "Thanks for your feedback.");
-
+Assemble and send the media message:
+```javascript
 // Send text message
-Response<SendMessageResult> sendTextMessageResult = 
-    await notificationMessagesClient.SendAsync(textContent);
+const textMessageResult = await client.path("/messages/notifications:send").post({
+    contentType: "application/json",
+    body: {
+        channelRegistrationId: channelRegistrationId,
+        to: recipientList,
+        kind: "text",
+        content: "Thanks for your feedback."
+    }
+});
+
+// Process result
+if (textMessageResult.status === "202") {
+    textMessageResult.body.receipts.forEach((receipt) => {
+        console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
+    });
+} else {
+    throw new Error("Failed to send message");
+}
 ```
 
 ### Send a media message to a WhatsApp user
@@ -351,55 +323,43 @@ Response<SendMessageResult> sendTextMessageResult =
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-To send a media message, provide a URI to an image.
-As an example, create a URI:
-```csharp
-var uri = new Uri("https://aka.ms/acsicon1");
+To send a media message, provide a URL to an image. As an example,
+```javascript
+const url = "https://aka.ms/acsicon1";
 ```
 
-Assemble then send the media message:
-```csharp
-// Assemble media message
-var mediaContent = 
-    new MediaNotificationContent(channelRegistrationId, recipientList, uri);
-
+Assemble and send the media message:
+```javascript
 // Send media message
-Response<SendMessageResult> sendMediaMessageResult = 
-    await notificationMessagesClient.SendAsync(mediaContent);
+const mediaMessageResult = await client.path("/messages/notifications:send").post({
+    contentType: "application/json",
+    body: {
+        channelRegistrationId: channelRegistrationId,
+        to: recipientList,
+        kind: "image",
+        mediaUri: url
+    }
+});
+
+// Process result
+if (mediaMessageResult.status === "202") {
+    mediaMessageResult.body.receipts.forEach((receipt) => {
+        console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
+    });
+} else {
+    throw new Error("Failed to send message");
+}
 ```
 
 ## Run the code
 
-Build and run your program.  
+Use the node command to run the code you added to the send-messages.js file.
 
-To send a text or media message to a WhatsApp user, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user.  
-If you don't have an active conversation, for the purposes of this quickstart, you should add a wait between sending the template message and sending the text message. This added delay gives you enough time to reply to the business on the user's WhatsApp account. For reference, the full example at [Sample code](#sample-code) prompts for manual user input before sending the next message.
-  
-If successful, you receive three messages on the user's WhatsApp account.
-
-#### [Visual Studio](#tab/visual-studio)
-
-1. To compile your code, press <kbd>Ctrl</kbd>+<kbd>F7</kbd>.
-1. To run the program without debugging, press <kbd>Ctrl</kbd>+<kbd>F5</kbd>.
-
-#### [Visual Studio Code](#tab/vs-code)
-
-Build and run your program by running the following commands in the Visual Studio Code Terminal (View > Terminal).
 ```console
-dotnet build
-dotnet run
+node ./send-messages.js
 ```
-
-#### [.NET CLI](#tab/dotnet-cli)
-
-Build and run your program.
-```console
-dotnet build
-dotnet run
-```
-
----
 
 ## Sample code
 
-[!INCLUDE [Full code example with .NET](./messages-get-started-full-example-net.md)]
+You can download the sample app from [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/7efc61a0414c6f898409e355d0ba8d228882625f/sdk/communication/communication-messages-rest/samples-dev).
+
