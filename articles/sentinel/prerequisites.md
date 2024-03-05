@@ -31,7 +31,7 @@ Before deploying Microsoft Sentinel, make sure that your Azure tenant meets the 
 
 - To reduce complexity, we recommend a dedicated [resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) for your Microsoft Sentinel workspace. This resource group should only contain the resources that Microsoft Sentinel uses, including the Log Analytics workspace, any playbooks, workbooks, and so on.
 
-  A dedicated resource group allows for permissions to be assigned once, at the resource group level, with permissions automatically applied to dependent resources. With a dedicated resource group, access management of Microsoft Sentinel is efficient and less prone to improper permissions. Reducing permission complexity ensures users and service principals have the permissions required to complete actions and makes it easier to keep less privileged roles from accessing inappropriate resource.
+  A dedicated resource group allows for permissions to be assigned once, at the resource group level, with permissions automatically applied to dependent resources. With a dedicated resource group, access management of Microsoft Sentinel is efficient and less prone to improper permissions. Reducing permission complexity ensures users and service principals have the permissions required to complete actions and makes it easier to keep less privileged roles from accessing inappropriate resources.
 
   Implement extra resource groups to control access by tiers. Use the extra resource groups to house resources that should be accessed only by groups with higher permissions. Use multiple tiers to separate access between resource groups even more granularly.
 
