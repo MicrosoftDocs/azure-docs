@@ -91,7 +91,7 @@ az network nic ip-config create --resource-group myResourceGroup --name myIpConf
 ---
 
 > [!NOTE]
-> After adding a private IP address by creating a secondary IP configuration, manually add the private IP address to the virtual machine operating system by completing the instructions in [Assign multiple IP addresses to virtual machine operating systems](virtual-network-multiple-ip-addresses-portal.md#os-config). See [private](#private) IP addresses for special considerations before manually adding IP addresses to a virtual machine operating system. Do not add any public IP addresses to the virtual machine operating system.
+> After adding a private IP address by creating a secondary IP configuration, manually add the private IP address to the virtual machine operating system by completing the instructions in [Assign multiple IP addresses to virtual machine operating systems](virtual-network-multiple-ip-addresses-portal.yml#os-config). See [private](#private) IP addresses for special considerations before manually adding IP addresses to a virtual machine operating system. Do not add any public IP addresses to the virtual machine operating system.
 
 ## Change IP address settings
 
@@ -140,7 +140,7 @@ az network nic ip-config update --resource-group myResourceGroup --nic-name myNi
 ---
 
 >[!NOTE]
->If the primary network interface has multiple IP configurations and you change the private IP address of the primary IP configuration, you must manually reassign the primary and secondary IP addresses to the network interface within Windows (not required for Linux). To manually assign IP addresses to a network interface within an operating system, see [Assign multiple IP addresses to virtual machines](virtual-network-multiple-ip-addresses-portal.md#os-config). For special considerations before manually adding IP addresses to a virtual machine operating system, see [private](#private) IP addresses. Do not add any public IP addresses to the virtual machine operating system.
+>If the primary network interface has multiple IP configurations and you change the private IP address of the primary IP configuration, you must manually reassign the primary and secondary IP addresses to the network interface within Windows (not required for Linux). To manually assign IP addresses to a network interface within an operating system, see [Assign multiple IP addresses to virtual machines](virtual-network-multiple-ip-addresses-portal.yml#os-config). For special considerations before manually adding IP addresses to a virtual machine operating system, see [private](#private) IP addresses. Do not add any public IP addresses to the virtual machine operating system.
 
 ## Remove IP addresses
 
@@ -213,12 +213,12 @@ Private [IPv4](#ipv4) or IPv6 addresses enable a virtual machine to communicate 
 
 By default, the Azure DHCP servers assign the private IPv4 address for the [primary IP configuration](#primary) of the Azure network interface to the network interface within the virtual machine operating system. Unless necessary, you should never manually set the IP address of a network interface within the virtual machine's operating system.
 
-There are scenarios where it's necessary to manually set the IP address of a network interface within the virtual machine's operating system. For example, you must manually set the primary and secondary IP addresses of a Windows operating system when adding multiple IP addresses to an Azure virtual machine. For a Linux virtual machine, you must only need to manually set the secondary IP addresses. See [Add IP addresses to a VM operating system](virtual-network-multiple-ip-addresses-portal.md#os-config) for details. If you ever need to change the address assigned to an IP configuration, it's recommended that you:
+There are scenarios where it's necessary to manually set the IP address of a network interface within the virtual machine's operating system. For example, you must manually set the primary and secondary IP addresses of a Windows operating system when adding multiple IP addresses to an Azure virtual machine. For a Linux virtual machine, you must only need to manually set the secondary IP addresses. See [Add IP addresses to a VM operating system](virtual-network-multiple-ip-addresses-portal.yml#os-config) for details. If you ever need to change the address assigned to an IP configuration, it's recommended that you:
 
 1. Ensure that the virtual machine is receiving a primary IP address from the Azure DHCP servers. Don't set this address in the operating system if running a Linux VM.
 2. Delete the IP configuration to be changed.
 3. Create a new IP configuration with the new address you would like to set.
-4. [Manually configure](virtual-network-multiple-ip-addresses-portal.md#os-config) the secondary IP addresses within the operating system (and also the primary IP address within Windows) to match what you set within Azure. Don't manually set the primary IP address in the OS network configuration on Linux, or it may not be able to connect to the Internet when the configuration is reloaded.
+4. [Manually configure](virtual-network-multiple-ip-addresses-portal.yml#os-config) the secondary IP addresses within the operating system (and also the primary IP address within Windows) to match what you set within Azure. Don't manually set the primary IP address in the OS network configuration on Linux, or it may not be able to connect to the Internet when the configuration is reloaded.
 5. Reload the network configuration on the guest operating system. This can be done by rebooting the system, or by running 'nmcli con down "System eth0 && nmcli con up "System eth0"' in Linux systems running NetworkManager.
 6. Verify the networking set-up is as desired. Test connectivity for all IP addresses of the system.
 

@@ -255,7 +255,7 @@ The address is released from a VM deployed through either deployment model when 
 
 ### Can I manually assign IP addresses to NICs within the VM operating system?
 
-Yes, but we don't recommend it unless it's necessary, such as when you're assigning multiple IP addresses to a virtual machine. For details, see [Assign multiple IP addresses to virtual machines](./ip-services/virtual-network-multiple-ip-addresses-portal.md#os-config).
+Yes, but we don't recommend it unless it's necessary, such as when you're assigning multiple IP addresses to a virtual machine. For details, see [Assign multiple IP addresses to virtual machines](./ip-services/virtual-network-multiple-ip-addresses-portal.yml#os-config).
 
 If the IP address assigned to an Azure NIC that's attached to a VM changes, and the IP address within the VM operating system is different, you lose connectivity to the VM.
 

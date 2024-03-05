@@ -766,7 +766,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md",
+            "source_path_from_root": "/articles/virtual-network/virtual-network-multiple-ip-addresses-portal.yml",
             "redirect_url": "/azure/virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal",
             "redirect_document_id": false
         },
