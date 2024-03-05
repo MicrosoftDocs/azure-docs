@@ -68,7 +68,7 @@ This article shows you how to create a Windows VM cluster (containing three Wind
 
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
 
-Cost information isn't presented during the virtual machine creation process for Terraform like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
+Cost information isn't presented during the virtual machine creation process for Terraform like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../cost-optimization-plan-to-manage-costs.md).
 
 ## Verify the results
 
