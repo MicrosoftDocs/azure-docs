@@ -36,9 +36,9 @@ Key features of Azure Communication Services SMS SDKs include:
 
 ## Sender types supported
 
-Sending SMS to any recipient requires getting a phone number. Choosing the right number type is critical to the success of your messaging campaign. Few of the factors to consider when choosing a number type include destination(s) of the message, throughput requirement of your messaging campaign, and the timeline when you want to start sending messages. Azure Communication Services enables you to send SMS using a variety of sender types - toll-free number (1-8XX), short codes (12345), and alphanumeric sender ID (CONTOSO). The following table walks you through the features of each number type:
+Sending SMS to any recipient requires getting a phone number. Choosing the right number type is critical to the success of your messaging campaign. Some factors to consider when choosing a number type include destination(s) of the message, throughput requirement of your messaging campaign, and the timeline when you want to start sending messages. Azure Communication Services enables you to send SMS using a variety of sender types - toll-free number (1-8XX), short codes (12345), and alphanumeric sender ID (CONTOSO). The following table walks you through the features of each number type:
 
-|Factors              | Toll-Free| Short Code | Dynamic Alphanumeric Sender ID| Pre-registered Alphanumeric Sender ID|
+|Factors              | Toll-Free| Short Code | Dynamic Alphanumeric Sender ID| Preregistered Alphanumeric Sender ID|
 |---------------------|----------|------------|-----------------------|-----------------------|
 |**Description**|Toll free numbers are telephone numbers with distinct three-digit codes that can be used for business to consumer communication without any charge to the consumer| Short codes are 5-6 digit numbers used for business to consumer messaging such as alerts, notifications, and marketing |  Alphanumeric Sender IDs are displayed as a custom alphanumeric phrase like the company’s name (CONTOSO, MyCompany) on the recipient handset. Alphanumeric sender IDs can be used for a variety of use cases like one-time passcodes, marketing alerts, and flight status notifications. Dynamic alphanumeric sender ID is supported in countries that do not require registration for use.| Alphanumeric Sender IDs are displayed as a custom alphanumeric phrase like the company’s name (CONTOSO, MyCompany) on the recipient handset. Alphanumeric sender IDs can be used for a variety of use cases like one-time passcodes, marketing alerts, and flight status notifications. Pre-registered alphanumeric sender ID is supported in countries that require registration for use. |
 |**Format**|+1 (8XX) XYZ PQRS| 12345  | CONTOSO*       |CONTOSO*       |
@@ -56,11 +56,12 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 > [!div class="nextstepaction"]
 > [Get started with sending sms](../../quickstarts/sms/send.md)
 
-The following documents might be interesting to you:
+See the following articles for more information:
 
+- [Number lookup overview](../../concepts/numbers/number-lookup-concept.md)
 - Check SMS FAQ for questions regarding [SMS](../sms/sms-faq.md)
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
 - Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
 - Get a [short code](../../quickstarts/sms/apply-for-short-code.md)
-- [Phone number types in Azure Communication Services](../telephony/plan-solution.md)
+- Learn about [Phone number types in Azure Communication Services](../telephony/plan-solution.md)
 - Apply for [Toll-free verification](./sms-faq.md#toll-free-verification)
