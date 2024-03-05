@@ -43,17 +43,17 @@ The following command shows the most basic way to use DALL-E with code. If this 
 
 #### [DALL-E 3](#tab/dalle3)
 
-TBD create a deployment. 
 
 Send a POST request to:
 
 ```
-https://<your_resource_name>.openai.azure.com/openai/images/generations:submit?api-version=<api_version>
+https://<your_resource_name>.deployments/<your_deployment_name>/images/generations?api-version=<api_version>
 ```
 
 where:
 - `<your_resource_name>` is the name of your Azure OpenAI resource.
-- `<api_version>` is the version of the API you want to use. For example, `2022-02-16`.
+- `<your_deployment_name>` is the name of your DALL-E 3 model deployment.
+- `<api_version>` is the version of the API you want to use. For example, `2023-12-01-preview`.
 
 **Required headers**:
 - `Content-Type`: `application/json`
@@ -61,7 +61,7 @@ where:
 
 **Body**:
 
-The following is a sample request body. You specify the text prompt, output image size, and number of images to generate. TBD n must =1
+The following is a sample request body. You specify a number of options, defined in later sections.
 
 ```json
 {
@@ -76,6 +76,25 @@ The following is a sample request body. You specify the text prompt, output imag
 
 #### [DALL-E 2](#tab/dalle2)
 
+Image generation with DALL-E 2 is asynchronous and requires two API calls.
+
+First, send a POST request to:
+
+```
+https://<your_resource_name>.openai.azure.com/openai/images/generations:submit?api-version=<api_version>
+```
+
+where:
+- `<your_resource_name>` is the name of your Azure OpenAI resource.
+- `<api_version>` is the version of the API you want to use. For example, `2023-06-01-preview`.
+
+**Required headers**:
+- `Content-Type`: `application/json`
+- `api-key`: `<your_API_key>`
+
+**Body**:
+
+The following is a sample request body. You specify a number of options, defined in later sections.
 
 ```json
 {
@@ -84,8 +103,33 @@ The following is a sample request body. You specify the text prompt, output imag
     "n": 1
 }
 ```
----
 
+The operation returns a `202` status code and a JSON object containing the ID and status of the operation
+
+```json
+{
+  "id": "f508bcf2-e651-4b4b-85a7-58ad77981ffa",
+  "status": "notRunning"
+}
+```
+
+To retrieve the image generation results, make a GET request to:
+
+```
+GET https://<your_resource_name>.openai.azure.com/openai/operations/images/<operation_id>?api-version=<api_version>
+```
+
+where:
+- `<your_resource_name>` is the name of your Azure OpenAI resource.
+- `<operation_id>` is the ID of the operation returned in the previous step.
+- `<api_version>` is the version of the API you want to use. For example, `2023-06-01-preview`.
+
+**Required headers**:
+- `Content-Type`: `application/json`
+- `api-key`: `<your_API_key>`
+
+
+---
 
 
 ## Output
@@ -93,7 +137,6 @@ The following is a sample request body. You specify the text prompt, output imag
 The output from a successful image generation API call looks like the following example. The `url` field contains a URL where you can download the generated image. The URL stays active for 24 hours.
 
 
-```json
 #### [DALL-E 3](#tab/dalle3)
 
 ```json
@@ -114,7 +157,7 @@ The output from a successful image generation API call looks like the following 
 {
     "created": 1685130482,
     "expires": 1685216887,
-    "id": "088e4742-89e8-4c38-9833-c294a47059a3",
+    "id": "<operation_id>",
     "result":
     {
         "data":
@@ -132,39 +175,11 @@ The output from a successful image generation API call looks like the following 
 
 
 
+### API call rejection
 
-## Writing prompts
-
-TBD When authoring prompts, consider the following:
-
-also link to the handbook. https://dallery.gallery/wp-content/uploads/2022/07/The-DALL%C2%B7E-2-prompt-book-v1.02.pdf 
-
-The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
-
-### Prompt transformation
-DALL-E 3 includes built-in prompt rewriting to enhance images, reduce bias, and increase natural variation.
-
-With the release of DALL·E 3, the model now takes in the default prompt provided and automatically re-write it for safety reasons, and to add more detail (more detailed prompts generally result in higher quality images).
-
-While it is not currently possible to disable this feature, you can use prompting to get outputs closer to your requested image by adding the following to your prompt: I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:.
-
-The updated prompt is visible in the revised_prompt field of the data response object.
-
-
-**DALL·E 3 Prompt transformation**: This embedded safety and quality mitigation is applied to every prompt sent to Azure OpenAI DALL·E 3. Prompt transformation enhances your prompts, which might lead to more diverse and higher-quality images.
-
-| **Example text prompt** | **Example generated image without prompt transformation** | **Example generated image with prompt transformation** |
-|---|---|---|
-|"Watercolor painting of the Seattle skyline" | ![Watercolor painting of the Seattle skyline (simple).](./media/generated-seattle.png) | ![Watercolor painting of the Seattle skyline, with more detail and structure.](./media/generated-seattle-prompt-transformed.png) |
-
-
-### Rejected images
-
-Content moderation
 Prompts and images are filtered based on our content policy, returning an error when a prompt or image is flagged.
 
-The system returns an operation status of `Failed` and the `error.code` value in the message is set to `contentFilter`. Here's an example:
-
+If your prompt is flagged, the system returns an operation status of `Failed`, and the `error.code` value in the message is set to `contentFilter`. Here's an example:
 
 #### [DALL-E 3](#tab/dalle3)
 
@@ -193,11 +208,9 @@ The system returns an operation status of `Failed` and the `error.code` value in
 }
 ```
 
-
 ---
 
 It's also possible that the generated image itself is filtered. In this case, the error message is set to `Generated image was filtered as a result of our safety system.`. Here's an example:
-
 
 #### [DALL-E 3](#tab/dalle3)
 
@@ -237,14 +250,47 @@ It's also possible that the generated image itself is filtered. In this case, th
 
 ---
 
+## Writing image prompts
 
-## Specify options
+Your image prompts should describe the content you want to see in the image, as well as the visual style of image. 
+
+> [!TIP]
+> For a thorough look at how you can tweak your text prompts to generate different kinds of images, see the [Dallery DALL-E 2 prompt book](https://dallery.gallery/wp-content/uploads/2022/07/The-DALL%C2%B7E-2-prompt-book-v1.02.pdf)
+
+#### [DALL-E 3](#tab/dalle3)
+
+When writing prompts, consider that the image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
+
+### Prompt transformation
+
+DALL-E 3 includes built-in prompt rewriting to enhance images, reduce bias, and increase natural variation of images.
+
+| **Example text prompt** | **Example generated image without prompt transformation** | **Example generated image with prompt transformation** |
+|---|---|---|
+|"Watercolor painting of the Seattle skyline" | ![Watercolor painting of the Seattle skyline (simple).](../media/how-to/generated-seattle.png) | ![Watercolor painting of the Seattle skyline, with more detail and structure.](../media/how-to/generated-seattle-prompt-transformed.png) |
+
+While it is not currently possible to disable this feature, you can use special prompting to get outputs closer to your original prompt by adding the following to it: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`.
+
+The updated prompt is visible in the `revised_prompt` field of the data response object.
+
+
+#### [DALL-E 2](#tab/dalle2)
+
+When writing prompts, consider that the image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
+
+---
+
+
+## Specify API options
+
+#### [DALL-E 3](#tab/dalle3)
 
 ### Size
 
 The size of the generated images. Must be one of 256x256, 512x512, or 1024x1024 for DALL·E-2 models. Must be one of 1024x1024, 1792x1024, or 1024x1792 for DALL·E-3 models.
 
 square images are faster to generate
+
 ### Style
 
 DALL·E-3 introduces two new styles: natural and vivid. The natural style is more similar to the DALL·E-2 style in its 'blander' realism, while the vivid style is a new style that leans towards generating hyper-real and cinematic images. For reference, all DALL·E generations in ChatGPT are generated in the 'vivid' style.
@@ -269,6 +315,18 @@ You can request 1 image at a time with DALL·E 3 (request more by making paralle
 ### Response format
 The format in which the generated images are returned. Must be one of "url" or "b64_json". Defaults to "url".
 
+#### [DALL-E 2](#tab/dalle2)
+
+### Size
+
+The size of the generated images. Must be one of 256x256, 512x512, or 1024x1024 for DALL·E-2 models. Must be one of 1024x1024, 1792x1024, or 1024x1792 for DALL·E-3 models.
+
+square images are faster to generate
+
+### Number
+You can request 1 image at a time with DALL·E 3 (request more by making parallel requests) or up to 10 images at a time using DALL·E 2 with the n parameter.
+
+---
 
 -----
 
