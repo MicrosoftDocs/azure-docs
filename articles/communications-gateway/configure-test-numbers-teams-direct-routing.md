@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 03/31/2024
 
 #CustomerIntent: As someone deploying Azure Communications Gateway, I want to test my deployment so that I can be sure that calls work.
 ---
@@ -30,15 +30,43 @@ You must complete the following procedures.
 - [Connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md)
 - [Configure a test customer for Microsoft Teams Direct Routing](configure-test-customer-teams-direct-routing.md)
 
-Your organization must [integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md). Someone in your organization must be able to make requests using the Provisioning API during this procedure.
+You must provision Azure Communications Gateway with numbers for integration testing during this procedure.
+
+[!INCLUDE [communications-gateway-provisioning-permissions](includes/communications-gateway-provisioning-permissions.md)]
 
 You must be able to sign in to the Microsoft 365 admin center for your test customer tenant as a Global Administrator.
 
-## Configure the test numbers on Azure Communications Gateway with the Provisioning API
+## Configure the test numbers on Azure Communications Gateway
 
 In [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md), you configured Azure Communications Gateway with an account for the test customer.
 
+We recommend using the Number Management Portal to provision the test numbers. Alternatively, you can use Azure Communications Gateway's Provisioning API.
+
+# [Number Management Portal](#tab/number-management-portal)
+
+1. If you're uploading multiple test numbers, prepare a `.csv` file with the heading `Numbers` and one number per line (up to 10,000 numbers), as in the following example.
+    ```
+    Numbers
+    +441632960000
+    +441632960001
+    +441632960002
+    +441632960003
+    +441632960004
+    ```
+
+1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar. Select **Accounts**.
+1. Select the enterprise **Account name** and select **View numbers**.
+1. Select **Upload numbers**.
+1. In **Add numbers**:
+    1. Select **Enable Teams Direct Routing**.
+    1. Select **Manual input** and enter each test number individually or select **Upload CSV file** and select the `.csv` file containing multiple test numbers.
+    1. Select **Review and upload** and **Upload**.
+
+# [Provisioning API](#tab/api)
+
 Use Azure Communications Gateway's Provisioning API to provision the details of the numbers you chose under the account. Enable each number for Teams Direct Routing. For example API requests, see [Add one number to the account](/rest/api/voiceservices/#add-one-number-to-the-account) or [Add or update multiple numbers at once](/rest/api/voiceservices/#add-or-update-multiple-numbers-at-once) in the _API Reference_ for the Provisioning API.
+
+---
 
 ## Update your network's routing configuration
 

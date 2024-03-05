@@ -26,10 +26,9 @@ You must complete the following procedures.
 - [Deploy Azure Communications Gateway](deploy.md)
 - [Connect Azure Communications Gateway to Zoom Phone Cloud Peering](connect-zoom.md)
 
-You must provision Azure Communications Gateway with the numbers for integration testing during the procedure.
+You must provision Azure Communications Gateway with the numbers for integration testing during this procedure.
 
-- If you plan to use Azure Communications Gateway's Number Management Portal for this provisioning (recommended), you must have **Reader** access to the Azure Communications Gateway resource and **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser** roles for the AzureCommunicationsGateway enterprise application.
-- If you plan to use Azure Communications Gateway's Provisioning API, you must be able to make requests using [a client integrated with the API](integrate-with-provisioning-api.md). You must also have access to the [API Reference](/rest/api/voiceservices).
+[!INCLUDE [communications-gateway-provisioning-permissions](includes/communications-gateway-provisioning-permissions.md)]
 
 You must be an owner or admin of a Zoom account that you want to use for testing.
 
