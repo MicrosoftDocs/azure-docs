@@ -24,6 +24,7 @@ Whether you need to integrate with the REST API depends on your chosen communica
 |Operator Connect|Recommended|- (Recommended) Flow-through provisioning of Operator Connect customers through interoperation with Operator Connect APIs  (using backend service sync). <br>- (Optional) Configuring a custom header for messages to your network. |
 |Teams Phone Mobile|Recommended|- (Recommended) Flow-through provisioning of Teams Phone Mobile customers through interoperation with Operator Connect APIs (using backend service sync). <br>- (Optional) Configuring a custom header for messages to your network. |
 |Zoom Phone Cloud Peering |Required |- Indicating that numbers are enabled for Zoom. <br>- (Optional) Configuring a custom header for messages to your network.|
+| Azure Operator Call Protection (preview) | Unsupported | - N/A |
 
 > [!TIP]
 > You can also use the Number Management Portal (preview) for Operator Connect and Teams Phone Mobile.

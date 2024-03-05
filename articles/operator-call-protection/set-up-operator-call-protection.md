@@ -36,8 +36,7 @@ For example: "Migrate data from regular tables to ledger tables" or "Create a ne
 
 -->
 
-# "\<verb\> * \<noun\>"
-TODO: Add your heading
+# Set up Azure Operator Call Protection
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 
@@ -53,11 +52,17 @@ Example: In this article, you will migrate your user databases from IBM Db2 to S
 
 -->
 
-TODO: Add your introductory paragraph
+Before you can launch your Azure Operator Call Protection service, you and your onboarding team must:
 
-* This article explains how you manage your AOCP deployment going forward.
-* That includes things like checking to see if it's healthy, what logs/metrics are available.
-* Should note how you make support/change requests?
+- Provision your subscribers.
+- Test your service.
+- Prepare for launch.
+
+In this article, you learn about the steps that you and your Azure Communications Gateway onboarding team must take.
+
+> [!IMPORTANT]
+> Some steps can require days or weeks to complete. We recommend that you read through these steps in advance to work out a timeline.
+
 
 <!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
 
@@ -75,7 +80,10 @@ Required: Make Prerequisites the first H2 after the H1.
 
 ## Prerequisites
 
-TODO: List the prerequisites
+You must have completed the following procedures.
+
+- [Prepare to deploy Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md)
+- [Deploy Azure Communications Gateway](../communications-gateway/deploy.md) - with Azure Operator Call Protection enabled
 
 <!-- 4. Task H2s ------------------------------------------------------------------------------
 
@@ -101,51 +109,37 @@ For portal-based procedures, minimize bullets and numbering.
 > [!NOTE]
 > If you selected Azure Operator Call Protection when you [deployed Azure Communications Gateway](../communications-gateway/deploy.md), skip this step and go to [Provision subscribers](#provision-subscribers).
 
+Navigate to your Azure Communications Gateway resource and find the "Call Protection" tab.
+If it is currently set to Disabled, update it to be Enabled and notify your Microsoft onboarding team.
+
 TODO: Replace this picture with the actual one.
 ![Azure Operator Call Protection on the Azure Communications Gateway resource](media/portal2.png)
 
 ## Provision subscribers
 
-1. Go to NMP?
-1. Upload subscribers?
-1. ???
+[!INCLUDE [operator-call-protection-sub-ucaas-restriction](includes/operator-call-protection-sub-ucaas-restriction.md)]
 
-## Route traffic for those subscribers
-You must update your network to fork calls for the relevant subscribers, and send ACG a SIPREC stream of these calls.
+Enable the Azure Operator Call Protection service on your subscribers by using the [Number Management Portal](../communications-gateway/manage-enterprise-operator-connect.md).
 
-1. Step 1
-1. Step 2
-1. Step 3
+## Carry out integration testing and request changes
 
-<!-- 5. Next step/Related content------------------------------------------------------------------------
+Network integration includes identifying SIP interoperability requirements and configuring devices to meet these requirements. For example, this process often includes interworking header formats and/or the signaling & media flows used for call hold and session refresh.
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
+The connection to Azure Operator Call Protection is over SIPREC.  The Call Protection service takes the role of the SIPREC Session Recording Server (SRS).  An element in your network, typically a session border controller (SBC), is set up as a SIPREC Session Recording Client (SRC).
 
--->
+Work with your onboarding team to produce a network architecture plan where an element in your network can act as an SRC for calls being routed to your Azure Operator Call Protection enabled subscribers.
 
-## Next step
+- If you decide that you need changes to Azure Communications Gateway, ask your onboarding team. Microsoft must make the changes for you.
+- If you need changes to the configuration of devices in your core network, you must make those changes.
 
-TODO: Add your next step link(s)
+## Test raising a ticket
 
-<!--
+You must test that you can raise tickets in the Azure portal to report problems with Azure Communications Gateway. See [Get support or request changes for Azure Communications Gateway](../communications-gateway/request-changes.md).
 
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
+## Learn about monitoring Azure Operator Call Protection
 
--->
+Your staff can use a selection of key metrics to monitor Azure Operator Call Protection through your Azure Communications Gateway. These metrics are available to anyone with the Reader role on the subscription for Azure Communications Gateway. See [Monitoring Azure Communications Gateway](../communications-gateway/monitor-azure-communications-gateway.md).
 
-<!-- OR -->
+## Next steps
 
-## Related content
-
-TODO: Add your next step link(s)
-<!--
-- [Write concepts](article-concept.md)
- -->
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
-
+- Learn about [monitoring Azure Operator Call Protection with Azure Communications Gateway](../communications-gateway/monitor-azure-communications-gateway.md).

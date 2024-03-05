@@ -61,6 +61,8 @@ Collect the values for the communications services that you're planning to suppo
 > [!IMPORTANT]
 > Some options apply to multiple services, as shown by **Options common to multiple communications services** in the following tables. You must choose configuration that is suitable for all the services that you plan to support.
 
+[!INCLUDE [operator-call-protection-ucaas-restriction](../operator-call-protection/includes/operator-call-protection-ucaas-restriction.md)]
+
 For Microsoft Teams Direct Routing:
 
 |**Value**|**Field name(s) in Azure portal**|
@@ -93,7 +95,7 @@ For Zoom Phone Cloud Peering:
 | Whether to add a custom SIP header to messages entering your network by using Azure Communications Gateway's Provisioning API | **Options common to multiple communications services: Add custom SIP header** |
 | (Only if you choose to add a custom SIP header) The name of any custom SIP header | **Options common to multiple communications services: Custom SIP header name** |
 
-There are no configuration options required for Azure Operator Call Protection.
+There are no configuration options required for Azure Operator Call Protection (preview).
 
 ## Collect values for service verification numbers
 

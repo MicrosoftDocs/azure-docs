@@ -27,7 +27,7 @@ This service is now available at Preview.
 > [!IMPORTANT]
 > Azure Operator Call Protection preview can be used in a live production environment.
 
-## Architecture
+# Architecture
 
 Azure Operator Call Protection connects to your network over IP for the voice call, and via the global SMS network for the delivery of fraud call notifications.
 

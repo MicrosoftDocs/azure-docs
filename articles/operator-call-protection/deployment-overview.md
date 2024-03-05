@@ -97,7 +97,7 @@ Required: In a series of H2 sections, the article body should discuss the ideas 
 
 [!INCLUDE [operator-call-protection-ucaas-restriction](includes/operator-call-protection-ucaas-restriction.md)]
 
-The following articles will guide you through the process of deploying an Azure Communications Gateway resource.
+The following articles explain how to deploy an Azure Communications Gateway resource.
 When given the option, you must enable the Call Protection settings.
 
 ![Enabling Azure Operator Call Protection when creating an Azure Communications Gateway](media/portal3.png)
