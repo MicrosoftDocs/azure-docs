@@ -46,11 +46,12 @@ const searchKey = process.env["AZURE_AI_SEARCH_API_KEY"];
 const searchIndex = process.env["AZURE_AI_SEARCH_INDEX"];
 const deploymentId = process.env["AZURE_OPEN_AI_DEPLOYMENT_ID"];
 
+
 async function main(){
   const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
 
   const messages = [
-    { role: "user", content: "What are the differences between Azure Machine Learning and Azure AI services?" },
+    { role: "user", content: "Tell me something interesting" },
   ];
 
   console.log(`Message: ${messages.map((m) => m.content).join("\n")}`);
@@ -79,7 +80,7 @@ async function main(){
       }
     }
   }
-  console.log(chatGptAnswer);
+  console.log(response);
 }
 
 main().catch((err) => {
