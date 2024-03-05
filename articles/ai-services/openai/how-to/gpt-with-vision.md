@@ -763,7 +763,7 @@ Base Pricing for GPT-4 Turbo with Vision is:
   
 Video prompt integration with Video Retrieval Add-on:
 - Ingestion: $0.05 per minute of video
-- Transactions: $0.25 per 1000 queries of the Video Retrieval indexer
+- Transactions: $0.25 per 1000 queries of the Video Retrieval
 
 ## Next steps
 
