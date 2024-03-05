@@ -191,7 +191,7 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 > Limitation: If you have a batch that contains the following sequence, the rebuild will not work in this case because of the update statistics. Instead start with UPDATE STATISTICS then at the end trigger the rebuild operation:
 > 
 > ```sql
-> -- Incorrect sequence. The rebuild operation will fail. Ensure that the rebuild operation is the last statement within the batch.
+> -- Incorrect sequence. Ensure that the rebuild operation is the last statement within the batch.
 > BEGIN
 > SELECT TOP 1 * FROM [ReplicatedTable]
 > 
