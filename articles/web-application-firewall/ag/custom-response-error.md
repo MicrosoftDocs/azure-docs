@@ -126,6 +126,8 @@ az network application-gateway waf-policy policy-setting update \
 	--custom-body=QWNjZXNzIGRlbmllZC4gVGhlIHJlcXVlc3QgaXMgYmxvY2tlZC4=	
 ```
 
+---
+
 ## Next steps
 
-- Learn more about [Azure Web Application Firewall logs](web-application-firewall-logs.md).
+Learn more about [Azure Web Application Firewall logs](web-application-firewall-logs.md).
