@@ -36,7 +36,7 @@ One of the first steps to take as you look for issues with your container app is
 1. In the **Search** bar, enter your container app's name.
 1. Under *Resources* section, select your container app's name.
 1. In the navigation bar, expand **Monitoring** and select **Log stream**.
-1. If the *Log stream* page says *This revision is scaled to zero.*, select the **Go to Revision Management** button. Deploy a new revision scaled to a minimum replica count of 1. For more information see [Scaling in Azure Container Apps](./scale-app.md).
+1. If the *Log stream* page says *This revision is scaled to zero.*, select the **Go to Revision Management** button. Deploy a new revision scaled to a minimum replica count of 1. For more information, see [Scaling in Azure Container Apps](./scale-app.md).
 1. In the *Log stream* page, set *Logs* to either **Console** or **System**.
 
 ### Query console logs
@@ -103,7 +103,7 @@ If you receive an error message when you try to deploy a new revision, verify th
 
 - Ensure your container environment firewall isn't blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
 - If your existing VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./networking.md#dns).
-- If you used the Container Apps cloud build feature to generate a container image for you (see [Code-to-cloud path for Azure Container Apps](./code-to-cloud-options.md#new-to-containers), your image is not publicly accessible, so this section does not apply.
+- If you used the Container Apps cloud build feature to generate a container image for you (see [Code-to-cloud path for Azure Container Apps](./code-to-cloud-options.md#new-to-containers), your image isn't publicly accessible, so this section doesn't apply.
 
 For a Docker container that can run as a console application, verify that your image is publicly accessible by running the following command in an elevated command prompt.
 
@@ -111,13 +111,13 @@ For a Docker container that can run as a console application, verify that your i
 docker run --rm <YOUR_CONTAINER_IMAGE>
 ```
 
-Docker should be able to pull your image and run it without error. If you are running [Docker on Windows](https://docs.docker.com/desktop/install/windows-install/), make sure you have the Docker Engine running.
+Docker should be able to pull your image and run it without error. If you're running [Docker on Windows](https://docs.docker.com/desktop/install/windows-install/), make sure you have the Docker Engine running.
 
 For more information, see [Networking in Azure Container Apps environment](./networking.md).
 
 ## Review ingress configuration
 
-Your container app's ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app. If you are unable to connect to your container app, review these ingress settings to make sure they are not blocking requests that you want to allow.
+Your container app's ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app. If you're unable to connect to your container app, review these ingress settings to make sure they aren't blocking requests that you want to allow.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the *Search* bar, enter your container app's name.
@@ -178,7 +178,7 @@ Here are the default values for each probe type.
 | Protocol | TCP | TCP | TCP |
 | Port | Ingress target port | Ingress target port | Ingress target port |
 | Timeout | 3 seconds | 5 seconds | n/a | 
-| Period | 1 seconds | 5 seconds | n/a |
+| Period | 1 second | 5 seconds | n/a |
 | Initial delay | 1 second | 3 seconds | n/a |
 | Success threshold | 1 | 1 | n/a |
 | Failure threshold | 240 | 48 | n/a |
@@ -206,7 +206,7 @@ For more information, see [Use Health Probes](./health-probes.md).
 
 ## Verify traffic is routed to the correct revision
 
-If your container app does not behave as expected, the issue might be that requests are being routed to an outdated revision.
+If your container app doesn't behave as expected, the issue might be that requests are being routed to an outdated revision.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar, enter your container app's name.
