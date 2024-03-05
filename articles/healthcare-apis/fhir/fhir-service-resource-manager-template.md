@@ -119,7 +119,7 @@ You can deploy the FHIR service resource by **removing** the workspaces resource
         {
             "type": "Microsoft.HealthcareApis/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2020-11-01-preview",
+            "apiVersion": "2023-11-01",
             "location": "[parameters('region')]",
             "properties": {}
         },
@@ -127,7 +127,7 @@ You can deploy the FHIR service resource by **removing** the workspaces resource
             "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
             "kind": "fhir-R4",
             "name": "[concat(parameters('workspaceName'), '/', parameters('fhirServiceName'))]",
-            "apiVersion": "2020-11-01-preview",
+            "apiVersion": "2023-11-01",
             "location": "[parameters('region')]",
             "dependsOn": [
                 "[resourceId('Microsoft.HealthcareApis/workspaces', parameters('workspaceName'))]"
@@ -205,7 +205,7 @@ You can create a new resource group, or use an existing one by skipping the step
 $resourcegroupname="your resource group"
 $location="South Central US"
 $workspacename="your workspace name"
-$servicename="your fhir service name"
+$fhirservicename="your fhir service name"
 $tenantid="xxx"
 $subscriptionid="xxx"
 $storageaccountname="storage account name"

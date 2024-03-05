@@ -3,7 +3,7 @@ title: "Quickstart: Create policy assignment using ARM template"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using an Azure Resource Manager template (ARM template).
 ms.date: 02/26/2024
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a policy assignment to identify non-compliant resources by using ARM template
@@ -371,10 +371,9 @@ az logout
 
 ## Next steps
 
-In this quickstart, you assigned a built-in policy definition to a resource group scope and reviewed its compliance state. The policy definition audits if the virtual machines in the resource group are compliant and identifies resources that aren't compliant.
+In this quickstart, you assigned a policy definition to identify non-compliant resources in your Azure environment.
 
-To learn more about assigning policies to validate that new resources are compliant, continue to the
-tutorial.
+To learn more about how to assign policies that validate resource compliance, continue to the tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and manage policies to enforce compliance](./tutorials/create-and-manage.md)

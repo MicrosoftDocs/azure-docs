@@ -118,6 +118,7 @@ Gesture video clips are optional, and customers who have the need to insert cert
 | Gestures                       | Samples                |
 |--------------------------------|------------------------|
 | Delivering sell link/promotion code | ![An animated graphic depicting sample of delivering sell link.](media/delivering-sell-link.gif)       |
+| Praising the product         |  ![An animated graphic depicting sample of praising the product](media/commending-the-product.gif)       |
 | Introducing the product          | ![An animated graphic depicting sample of introducing the product.](media/introducing-the-product.gif)       |
 | Displaying the price (number from 1 to 10-fist-number with each hand) | Right hand ![An animated graphic depicting sample of displaying the price with right hand.](media/displaying-the-price-with-right-hand.gif) Left hand ![An animated graphic depicting sample of displaying the price with left hand.](media/displaying-the-price-with-left-hand.gif) |
 
