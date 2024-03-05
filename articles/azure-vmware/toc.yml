@@ -228,7 +228,11 @@ items:
     - name: Disaster recovery solutions for VMs
       href: ecosystem-disaster-recovery-vms.md
     - name: External storage solutions
-      href: ecosystem-external-storage-solutions.md
+      items:
+      - name: External storage solutions
+        href: ecosystem-external-storage-solutions.md
+      - name: Pure Cloud Block Store
+        href: configure-pure-cloud-block-store.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
     - name: Security solutions for Azure VMware Solution
