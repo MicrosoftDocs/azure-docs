@@ -30,10 +30,10 @@ Azure Key Vault provides two types of resources to store and manage cryptographi
 
 Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are:
 
--   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JSON Web Encryption (JWE)](https://datatracker.ietf.org/doc/html/draft-jones-json-web-encryption)  
--   [JSON Web Algorithms (JWA)](https://datatracker.ietf.org/doc/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
+- [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+- [JSON Web Encryption (JWE)](https://datatracker.ietf.org/doc/html/draft-jones-json-web-encryption)  
+- [JSON Web Algorithms (JWA)](https://datatracker.ietf.org/doc/html/draft-ietf-jose-json-web-algorithms)  
+- [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
 The base JWK/JWA specifications are also extended to enable key types unique to the Azure Key Vault and Managed HSM implementations. 
 
@@ -71,10 +71,10 @@ Key Vault supports RSA and EC keys. Managed HSM supports RSA, EC, and symmetric 
 
 |Key type and destination|Compliance|
 |---|---|
-|Software-protected (hsmPlatform 0) keys in vaults | FIPS 140-2 Level 1|
-|hsmPlatform 1 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 2|
-|hsmPlatform 2 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 3|
-|Keys in Managed HSM are always HSM protected|FIPS 140-2 Level 3|
+|Software-protected (hsmPlatform 0) keys in vaults | FIPS 140-2 Level 1 |
+|hsmPlatform 1 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 2 |
+|hsmPlatform 2 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 3 |
+|Keys in Managed HSM are always HSM protected | FIPS 140-2 Level 3 |
 |||
 
 See [Key types, algorithms, and operations](about-keys-details.md) for details about each key type, algorithms, operations, attributes, and tags.
