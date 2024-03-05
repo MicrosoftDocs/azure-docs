@@ -90,7 +90,7 @@ An individual assistant can access up to 128 tools including `code interpreter`,
     ```csharp
     // Create an assistant
     Assistant assistant = await client.CreateAssistantAsync(
-        new AssistantCreationOptions("gpt-4")
+        new AssistantCreationOptions("gpt-4-1106-preview") // Replace this with the name of your model deployment
         {
             Name = "Math Tutor",
             Instructions = "You are a personal math tutor. Write and run code to answer math questions.",
@@ -168,5 +168,3 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 * Learn more about how to use Assistants with our [How-to guide on Assistants](../how-to/assistant.md).
 * [Azure OpenAI Assistants API samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
-
--->
