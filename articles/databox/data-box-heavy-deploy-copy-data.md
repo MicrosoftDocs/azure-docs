@@ -65,7 +65,7 @@ Based on the storage account selected, Data Box Heavy creates up to:
 
 These shares are created on both the nodes of the device.
 
-Under block blob and page blob shares:
+Under page blob shares:
 - First-level entities are containers.
 - Second-level entities are blobs.
 
@@ -73,13 +73,18 @@ Under shares for Azure Files:
 - First-level entities are shares.
 - Second-level entities are files.
 
+Under block blob shares:
+- First-level entities are access tiers
+- Second-level entities are containers
+- Third-level entities are blobs.
+
 The following table shows the UNC path to the shares on your Data Box Heavy and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
 | Storage           | UNC path                                                                       |
 |-------------------|--------------------------------------------------------------------------------|
-| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
-| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
+| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\<AccessTierName>\file.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/file.txt`</li> |  
+| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/file.txt`</li>   |  
+| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/file.txt`</li>        |
 
 The steps to connect using a Windows or a Linux client are different.
 
@@ -119,11 +124,13 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     
     ![Connect to share via File Explorer](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 
-    You should now see the shares as folders.
+    You should now see the shares as folders. Note that in this example the *BlockBlob* share is being used. Accordingly, the four folders representing the four available access tiers are present. These folders are not available in other shares.
     
     ![Connect to share via File Explorer 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-2.png)
 
-    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
+    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**.  You cannot copy files directly to the *root* folder in the storage account. Any folders created under the *PageBlob* share represents containers into which data is uploaded as blobs. Similarly, any sub-folders created within the folders representing access tiers in the *BlockBlob* share also represents a blob storage container. Folders created within the *AzFile* share represent file shares.
+
+    Folders created at the *root* of the *BlockBlob* share will be created as a blob containers. The access tier of these container will be inherited from the storage account.
     
 ### Connect on a Linux system
 
