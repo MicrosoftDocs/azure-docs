@@ -111,7 +111,7 @@ az managed-cassandra cluster list\
 List clusters by subscription ID by using the [az managed-cassandra cluster list](/cli/azure/managed-cassandra) command:
 
 ```azurecli-interactive
-# set your subscription id
+# Set your subscription ID
 az account set -s <subscriptionID>
 
 az managed-cassandra cluster list
@@ -172,7 +172,7 @@ Choose the value for `--sku` from the following available virtual machine (VM) o
 * Standard_L16as_v3
 * Standard_L32as_v3
 
-Currently, Azure Managed Instance for Apache Cassandra doesn't support transitioning across VM families. For instance, if you currently have a Standard_DS13_v2 VM and are interested in upgrading to a larger VM such as Standard_DS14_v2, this option isn't available. However, you can open a support ticket to request an upgrade to the larger VM.
+Currently, Azure Managed Instance for Apache Cassandra doesn't support transitioning across VM families. For instance, if you currently have a Standard_DS13_v2 VM and are interested in upgrading to a larger VM such as Standard_DS14_v2, this option isn't available. However, you can open a support ticket to request the upgrade.
 
 In the preceding command, `--availability-zone` is set to `false`. To enable availability zones, set this value to `true`. Availability zones increase the service-level agreement (SLA) for availability of the service. For more information, review the [full SLA details](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/).
 

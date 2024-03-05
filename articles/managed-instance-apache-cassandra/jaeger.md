@@ -75,7 +75,7 @@ This article details the use of the sample application HotROD and Jaeger alongsi
 
 ## Support
 
-If you have problems running or testing Jaeger, open a support ticket. Provide the subscription ID and account name where your Jaeger test is running.
+If you have problems running or testing Jaeger, open a support ticket. Provide the subscription ID and account name where your Jaeger instance is running.
 
 ## Next steps
 

@@ -22,7 +22,7 @@ You can visualize metrics for Azure Managed Instance for Apache Cassandra in the
 
 ## Diagnostic settings in Azure
 
-Azure Monitor uses diagnostic settings to collect resource logs, which are also called *data plane logs*. An Azure resource emits resource logs to provide rich, frequent data about its operation. Azure Monitor captures these logs per request. Examples of data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
+Azure Monitor uses diagnostic settings to collect resource logs, which are also called *data plane logs*. An Azure resource emits resource logs to provide rich, frequent data about its operations. Azure Monitor captures these logs per request. Examples of data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
 
 Platform metrics and activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or to forward them outside Azure Monitor. You can turn on diagnostic settings for Azure Managed Instance for Apache Cassandra cluster resources and send resource logs to the following sources:
 
@@ -33,7 +33,7 @@ Platform metrics and activity logs are collected automatically, whereas you must
 > [!NOTE]
 > We recommend creating the diagnostic setting in resource-specific mode.
 
-## <a id="create-setting-portal"></a> Create diagnostic settings via the Azure portal
+### <a id="create-setting-portal"></a> Create diagnostic settings via the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -60,7 +60,7 @@ Platform metrics and activity logs are collected automatically, whereas you must
 
     :::image type="content" source="./media/azure-monitor/query.png" alt-text="Screenshot that shows query logs.":::
 
-## <a id="create-setting-cli"></a> Create a diagnostic setting via Azure CLI
+### <a id="create-setting-cli"></a> Create a diagnostic setting via the Azure CLI
 
 To create a diagnostic setting by using the Azure CLI, use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command:
 
@@ -72,21 +72,21 @@ To create a diagnostic setting by using the Azure CLI, use the [az monitor diagn
     az monitor diagnostic-settings create  --name tvk-diagnostic-logs-cassandra --resource $resourceId --logs  $logs --workspace $workspace --export-to-resource-specific true
 ```
 
-## <a id="create-diagnostic-setting"></a> Create a diagnostic setting via REST API
+### <a id="create-diagnostic-setting"></a> Create a diagnostic setting via the REST API
 
 Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorupdate) for creating a diagnostic setting via the interactive console.
 
 > [!NOTE]
 > We recommend setting the `logAnalyticsDestinationType` property to `Dedicated` for enabling resource-specific tables.
 
-### Request
+#### Request
 
 ```HTTP
 PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-### Headers
+#### Headers
 
 |Parameters/Headers  | Value/Description  |
 |---------|---------|
@@ -95,7 +95,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |`api-version`     |    `2017-05-01-preview`     |
 |`Content-Type`     |    `application/json`     |
 
-### Body
+#### Body
 
 ```json
 {
@@ -177,7 +177,7 @@ Examples:
 
 ### Cassandra 4 and later
 
-In Cassandra 4 and later, you can configure your whitelist in the Cassandra configuration. For detailed guidance, see [Update Cassandra Configuration](create-cluster-portal.md#update-cassandra-configuration). The available options are as follows (reference: [Cassandra documentation for audit logging](https://cassandra.apache.org/doc/stable/cassandra/operating/audit_logging.html)):
+In Cassandra 4 and later, you can configure your whitelist in the Cassandra configuration. For detailed guidance, see [Update Cassandra configuration](create-cluster-portal.md#update-cassandra-configuration). The available options are as follows (reference: [Cassandra documentation for audit logging](https://cassandra.apache.org/doc/stable/cassandra/operating/audit_logging.html)):
 
 ```
 audit_logging_options:

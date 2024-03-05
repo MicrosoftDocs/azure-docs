@@ -18,7 +18,7 @@ In Azure Managed Instance for Apache Cassandra, you can use your own key to encr
 
 - Set up a secret by using Azure Key Vault. For more information, see [About Azure Key Vault secrets](../key-vault/secrets/about-secrets.md).
 - Deploy a virtual network in your resource group.
-- Apply the network contributor role with the Azure Cosmos DB service principal as a member. Use the following command:
+- Apply the Network Contributor role with the Azure Cosmos DB service principal as a member. Use the following command:
 
   ```azurecli-interactive  
       az role assignment create \
@@ -67,7 +67,7 @@ This article requires Azure CLI version 2.30.0 or later. If you're using Azure C
       }
     ```
 
-1. In the Azure portal, go to your key vault and select **Access policies**. Then select **Add Access Policy** to create an access policy for your keys:
+1. In the Azure portal, go to your key vault and select **Access policies**. Then select **Add Access Policy** to create an access policy for your keys.
 
    :::image type="content" source="./media/cmk/key-vault-access-policy-1.png" alt-text="Screenshot that shows the pane for access policies in the Azure portal." lightbox="./media/cmk/key-vault-access-policy-1.png" border="true":::
 

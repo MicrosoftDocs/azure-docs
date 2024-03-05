@@ -39,7 +39,7 @@ However, if you have internal security concerns about data exfiltration, your se
     --cluster-name "vpn-test-cluster"
     ```
 
-    From the output, make a copy of the `privateLinkResourceId` ID.
+    From the output, make a copy of the `privateLinkResourceId` value.
 
 1. In the Azure portal, [create a private endpoint](../cosmos-db/how-to-configure-private-endpoints.md) by using these details:
     1. On the **Resource** tab, select **Connect to an Azure resource by resource ID or alias** as the connection method and **Microsoft.Network/privateLinkServices** as the resource type. Enter the `privateLinkResourceId` value from the previous step.
