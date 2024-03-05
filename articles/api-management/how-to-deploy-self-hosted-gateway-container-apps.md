@@ -136,7 +136,7 @@ This command creates:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
 1. In the left menu, under **Deployment and infrastructure**, select **Gateways**.
-1. Check the **Status** of your gateway. If the gateway is healthy, it reports regular gateway heartbeats.
+1. On the **Overview** page, check the **Status** of your gateway. If the gateway is healthy, it reports regular gateway heartbeats.
 
     :::image type="content" source="media/how-to-deploy-self-hosted-gateway-container-apps/gateway-heartbeat.png" alt-text="Screenshot of gateway status in the portal." lightbox="media/how-to-deploy-self-hosted-gateway-container-apps/gateway-heartbeat.png":::
 
@@ -157,12 +157,23 @@ For example, deploy an example music album API to a container app. For later acc
 1. Download [Python source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/main) to your local machine. If you prefer, download the source code in another language of your choice.
 1. Extract the source code to a local folder and change to the *containerapps-albumapi-python-main/src* folder.
 1. Run the following [az containerapp up](/cli/azure/containerapp#az-containerapp-up) command to deploy the API to a container app in the same environment as the self-hosted gateway. Note the `.` at the end of the command, which specifies the current folder as the source for the container app.
-
+    
+    # [Bash](#tab/bash)
     ```azurecli-interactive
+    #!/bin/bash
     az containerapp up --name albums-api \
         --resource-group myResourceGroup --location centralus \
         --environment my-environment --source .
     ```
+    
+    # [PowerShell](#tab/psh)
+    ```azurecli
+    az containerapp up --name albums-api `
+        --resource-group myResourceGroup --location centralus `
+        --environment my-environment --source .
+    ```
+    ---
+    
 1. Confirm that the container app is running and accessible externally at the FQDN returned in the command output. By default the API is accessible at the `/albums` endpoint. Example: `https://albums-api.happyvalley-abcd1234.centralus.azurecontainerapps.io/albums/albums`.
 
 ### Configure the API for internal ingress
@@ -221,7 +232,7 @@ az containerapp show ----name my-gateway --resource-group myResourceGroup `
 ---
 
 
-For example, use the following `curl` command to call the API  at the `/albumapi/albums` endpoint. If your API requires a subscription key, pass a valid subscription key for your API Management instance as a header in the request:
+For example, run the following `curl` command to call the API  at the `/albumapi/albums` endpoint. If your API requires a subscription key, pass a valid subscription key for your API Management instance as a header in the request:
 
 ```bash
 curl -i https://my-gateway.happyvalley-abcd1234.centralus.azurecontainerapps.io/albumapi/albums -H "Ocp-Apim-Subscription-Key: <subscription-key>"
