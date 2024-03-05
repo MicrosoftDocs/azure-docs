@@ -33,8 +33,8 @@ March 5, 2024
 
 The following two recommendations related to Permission Creep Index (PCI) are being deprecated:
 
-- [Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/CloudKnoxAwsRecommendationDetailsBlade/assessmentKey/2482620f-f324-4add-af68-2e01e27485e9)
-- [Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/CloudKnoxRecommendationDetailsBlade/assessmentKey/d103537b-9f3d-4658-a568-31dd66eb05cb)
+- Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)
+- Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)
 
 See the [list of deprecated security recommendations](recommendations-reference.md#deprecated-recommendations).
 
