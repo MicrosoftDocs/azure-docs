@@ -5,7 +5,7 @@ author: chasecrum
 ms.collection: linux
 ms.service: virtual-machines
 ms.devlang: azurecli
-ms.custom: innovation-engine, linux-related-content
+ms.custom: innovation-engine, linux-related-content, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 2/29/2024
 ms.author: chasecrum

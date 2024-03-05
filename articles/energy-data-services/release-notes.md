@@ -23,6 +23,11 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## March 2024
+
+### Azure Data Manager for Energy in Australia East Region
+Azure Data Manager for Energy is now available in the Australia East Region. This new region is enabled for both the Standard and Developer tiers of Azure Data Manager for Energy. You can now select Australia East as your preferred region when creating Azure Data Manage for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy).
+
 ## November 2023
 
 ### Compliant with M18 OSDU&trade; release
@@ -31,7 +36,7 @@ Azure Data Manager for Energy is now compliant with the M18 OSDU&trade; mileston
 ## September 2023
 
 ### Azure Data Manager for Energy in Brazil South Region
-Azure Data Manager for Energy is now available in Brazil South Region. Both developer tier and standard tier are available in Brazil South region. You can now select Brazil South as your preferred region when creating Azure Data Manage for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy)".
+Azure Data Manager for Energy is now available in Brazil South Region. Both developer tier and standard tier are available in Brazil South region. You can now select Brazil South as your preferred region when creating Azure Data Manager for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy)".
 
 ### Audit Logs for DDMS 
 You can now access Audit Logs for create, read, update and delete events for Petrel Data Services, Seismic DMS, and Wellbore DMS Public APIs. This allows you to trace user actions, compile relevant metadata, and use this to run internal audits. [Learn More](./how-to-manage-audit-logs.md)  
