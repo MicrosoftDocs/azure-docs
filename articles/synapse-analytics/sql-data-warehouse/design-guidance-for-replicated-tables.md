@@ -188,7 +188,7 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 > [!NOTE]
 > If you are planning to rebuild the statistics of the uncached replicated table, make sure to update the statistics before triggering the cache. Updating statistics will invalidate the cache, so the sequence is important.
 > 
-> Limitation: If you have a batch that contains the following sequence, the rebuild will not work in this case because of the update statistics. Instead start with UPDATE STATISTICS then at the end trigger the rebuild operation:
+> Example: Start with `UPDATE STATISTICS`, then trigger the rebuild of the cache. In the following examples, the correct sample updates the statistics then triggers the rebuild of the cache.
 > 
 > ```sql
 > -- Incorrect sequence. Ensure that the rebuild operation is the last statement within the batch.
