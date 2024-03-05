@@ -151,7 +151,7 @@ Start by preparing your environment for PowerShell. You can either run PowerShel
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
-   [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+   [![Launch Cloud Shell.](~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png)](https://shell.azure.com)
 
 Use these commands to create the resource:
 
