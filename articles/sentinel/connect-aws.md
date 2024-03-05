@@ -171,28 +171,9 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
 ### Create an AWS assumed role and grant access to the AWS Sentinel account
 
-The following instructions apply for public **Azure Commercial clouds** only. For granting access to AWS from Azure Government clouds, see [For Azure Government: Use identity federation](#for-azure-government-use-identity-federation).
-
 1. In a different browser window or tab, open the AWS console.
 
-1. Create an **IAM assumed role**. Follow these instructions in the AWS documentation:<br>[Creating a role to delegate permissions to an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html).
-
-   | Parameter | Selection/Value | Comments |
-   | - | - | - |
-   | **Trusted entity type** | *AWS account* | Instead of default *AWS service*. |
-   | **Which account** | *Another AWS account*,<br>Account ID `197857026523` | Instead of the default *This account*,<br>Microsoft Sentinel's application service account.|
-   | **Options** | *Require external ID* | *Do not* select *Require MFA* |
-   | **External ID** | Your Microsoft Sentinel *Workspace ID*,<br>pasted from your clipboard. | This identifies *your specific Microsoft Sentinel account* to AWS. |
-   | **Permissions to assign** | <ul><li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy`<li>Additional policies for ingesting the different types of AWS service logs. | For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md) in the Microsoft Sentinel GitHub repository. |
-   | **Name** | Example: "*MicrosoftSentinelRole*". | Choose a meaningful name that includes a reference to Microsoft Sentinel. |
-
-1. Continue with [Add the AWS role and queue information to the S3 data connector](#add-the-aws-role-and-queue-information-to-the-s3-data-connector) below.
-
-#### For Azure Government: Use identity federation
-
-1. In a different browser window or tab, open the AWS console.
-
-1. Create a **web identity provider**. Follow these instructions in the AWS documentation:<br>[Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
+1. Create a **web identity provider**. Follow these instructions in the AWS documentation:<br>[Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html). 
 
    | Parameter | Selection/Value | Comments |
    | - | - | - |
@@ -202,15 +183,15 @@ The following instructions apply for public **Azure Commercial clouds** only. Fo
    | **Thumbprint** | `626d44e704d1ceabe3bf0d53397464ac8080142c` | If created in the IAM console, selecting **Get thumbprint** should give you this result. |
    | **Audience** | `api://d4230588-5f84-4281-a9c7-2c15194b28f7` |  |
    
-1. Create an **IAM assumed role**. Follow these instructions in the AWS documentation:<br>[Creating a role for web identity or OpenID Connect Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create).
+3. Create an **IAM assumed role**. Follow these instructions in the AWS documentation:<br>[Creating a role for web identity or OpenID Connect Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create). 
 
-   | Parameter | Selection/Value | Comments |
-   | - | - | - |
-   | **Trusted entity type** | *Web identity* | Instead of default *AWS service*. |
-   | **Identity provider** | `sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` | The provider you created in the previous step. |
-   | **Audience** | `api://d4230588-5f84-4281-a9c7-2c15194b28f7` | The audience you defined for the identity provider in the previous step. |
-   | **Permissions to assign** | <ul><li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy`<li>Additional policies for ingesting the different types of AWS service logs. | For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPoliciesForGov.md) for Government, in the Microsoft Sentinel GitHub repository. |
-   | **Name** | Example: "*MicrosoftSentinelRole*". | Choose a meaningful name that includes a reference to Microsoft Sentinel. |
+| Parameter |Selection/Value Commercial cloud| Selection/Value Gov Cloud| Comments |
+| - | -------- | - | - |
+| **Trusted entity type** |*Web identity*| *Web identity* | Instead of default *AWS service*. |
+| **Identity provider** |`sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/`| `sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` | The provider you created in the previous step. |
+| **Audience** |`api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`| `api://d4230588-5f84-4281-a9c7-2c15194b28f7` | The audience you defined for the identity provider in the previous step. |
+| **Permissions to assign** |`AmazonSQSReadOnlyAccess`<li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy` Additional policies for ingesting the different types of AWS service logs| <ul><li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy`Additional policies for ingesting the different types of AWS service logs. | For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPoliciesForGov.md) for Government, in the Microsoft Sentinel GitHub repository. |
+| **Name** |Example: "OIDC_MicrosoftSentinelRole" | Example: "OIDC_*MicrosoftSentinelRole*". |The value of the parameter must have the exact prefix `OIDC_`, otherwise the connector will not function properly. |
 
 
 1. Edit the new role's trust policy and add another condition:<br>`"sts:RoleSessionName": "MicrosoftSentinel_{WORKSPACE_ID)"`
@@ -358,10 +339,8 @@ Setting up this connector has two steps:
 
 1. To use the relevant schema in Log Analytics for AWS events, search for **AWSCloudTrail**.
 
-    > [!IMPORTANT]
-    > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
-
-
+   > [!IMPORTANT]
+   > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
 ---
 
 ## Next steps
