@@ -2,7 +2,7 @@
 title: Azure Communication Services Troubleshooting Web VOIP Calling Quality
 titleSuffix: An Azure Communication Services concept document
 description: Learn how to troubleshoot web VOIP calling quality with Azure Communication Services.
-author: drohmetra; vac0224
+author: Cardiohater1
 ms.author: drohmetra
 manager: dacarte
 
