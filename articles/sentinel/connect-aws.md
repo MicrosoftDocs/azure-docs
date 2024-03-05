@@ -169,7 +169,7 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
 1. Under **Configuration**, expand **Setup with PowerShell script (recommended)**, then copy the **External ID (Workspace ID)** to your clipboard.
 
-### Create an AWS assumed role and grant access to the AWS Sentinel account
+### Create an Open ID Connect (OIDC) web identity provider
 
 1. In a different browser window or tab, open the AWS console.
 
