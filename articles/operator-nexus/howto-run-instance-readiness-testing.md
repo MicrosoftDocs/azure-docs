@@ -101,11 +101,11 @@ The Instance Readiness Test (IRT) framework is an optional/add-on tool for the N
 - Validate deleting a PVC before removing the pod using it (scale down sts), remove pod naks-storage-statefulset-1.
 - Validate that Block Storage PVC can be deleted.
 
-## How to Run IRT
+## How to run IRT
 
 IRT requires gaining access to the software package hosted in the GitHub Nexus-Samples repository. Users should navigate to the 'Releases' section and choose the release with the 'latest' tag. A copy of this README is also available inside the release package for convenient reference in the execution environment.
 
-### Request Access to Nexus-samples GitHub repository
+### Request access to nexus-samples GitHub repository
 -------------------------------------------------
 
 For access to the nexus-samples GitHub repository
@@ -116,11 +116,7 @@ For access to the nexus-samples GitHub repository
 
 3. Send an email request to be added to nexus-samples GitHub repo to afoncamalgamatesall\@microsoft.com
 
-## Execution Details
-<details>
-<summary>Expand to see details for executing IRT. </summary>
-
-## Environment Requirements
+## Environment requirements
 
 - A Linux environment (Ubuntu suggested) capable of calling Azure APIs.
 - Support for other Linux distros, for example, RedHat, Mariner, etc. depends on being able to install the necessary tooling. See [Install Dependencies](#install-dependencies) section.
@@ -132,7 +128,7 @@ For access to the nexus-samples GitHub repository
 - The ability to read secrets from the KeyVault, see [Service Principal] (#create-service-principal-and-security-group) section for more details.
 - The ability to create security groups in your Active Directory tenant.
 
-## Input Configuration
+## Input configuration
 
 Start by building your input file. The IRT tarball provides `irt-input.example.yml` as an example. Download the tarball by following the [instructions](#download-irt). The example values **will not work for your instances**. You need to manually change them and rename the file to `irt-input.yml`. We provide the example input file as a stub to help you configure new input files. The example outlines overridable values and their usage. The **[One Time Setup](#one-time-setup)** assists you in setting input values by writing key/value pairs to the config file as they execute.
 
@@ -144,7 +140,7 @@ You can provide the network information in a `networks-blueprint.yml` file, simi
 * One (1) Trunked Network
 * All VLANs should be greater than 500
 
-## One Time Setup
+## One time setup
 
 ### Download IRT
 IRT is distributed via tarball from the release section of the [nexus-samples](https://aka.ms/nexus-irt) GitHub repo.
@@ -153,7 +149,7 @@ IRT is distributed via tarball from the release section of the [nexus-samples](h
 1. Switch to the new directory `cd irt`.
 1. See RELEASE-CHANGELOG.md for any notable updates or changes.
 
-### Install Dependencies
+### Install dependencies
 There are multiple dependencies expected to be available during execution. Review this list;
 
 * `jq` version 1.6 or greater
@@ -166,30 +162,27 @@ There are multiple dependencies expected to be available during execution. Revie
 
 The `setup.sh` script is provided to aid with installing the listed dependencies. It installs any dependencies that aren't available in PATH. It doesn't upgrade any dependencies that don't meet the minimum required versions.
 
-> **_NOTE:_**  `setup.sh` assumes a nonroot user and attempts to use `sudo`
+> [!NOTE]
+> `setup.sh` assumes a nonroot user and attempts to use `sudo`
 
-### All-in-One Setup (Recommended)
+### All-in-One setup (recommended)
 
 `all-in-one-setup.sh` is provided to create all the Azure resources required to run IRT. This process includes creating a service principal, a security group, and isolation domains. Each of the scripts called in `all-in-one-setup.sh` can be individually executed. These scripts write updates to your `irt-input.yml` file with the key-value pairs needed to utilize the resources you created. Review the `irt-input.example.yml` file for the inputs required by one or more scripts, regardless of your chosen approach. All of the scripts are idempotent and allow you to use existing resources if desired.
 
-### Step-By-Step Setup
-<details>
-<summary>Expand to see step-by-step setup. </summary>
+### Step-By-Step setup
 
-> **_NOTE:_**  Use this section only if you're not using all-in-one.setup.sh
+> [!NOTE]
+> Use this section only if you're not using all-in-one.setup.sh
 
 If your workflow is incompatible with `all-in-one-setup.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one-setup.sh`, running these scripts writes key/value pairs to your `irt-input.yml` for you to use during your run. These four scripts constitute the `all-in-one-setup.sh` script."
 
 IRT makes commands against your resources and needs permission to do so. IRT requires a service principal to execute. It also requires that the service principal is a member of the Azure AD Security Group that is also provided as input.
 
-### Authentication and Runtime Permissions
+### Authentication and runtime permissions
 
 IRT requires a service principal with the correct permissions in order to interact with various Azure and NetworkCloud Resources.
-</details>
 
-#### Create Service Principal and Security Group
-<details>
-<summary>Expand to see how to create service principal and security group. </summary>
+#### Create service principal and security group
 
 The supplemental script, `create-service-principal.sh` creates a service principal with these role assignments or add role assignments to an existing service principal. The following role assignments are used:
 
@@ -216,15 +209,16 @@ SERVICE_PRINCIPAL:
 * `SERVICE_PRINCIPAL.KV_NAME` - The KeyVault to store the service principal password.
 * `SERVICE_PRINCIPAL.KV_ID` - The KeyVault secret where the service principal password is stored.
 
-> **_NOTE:_** Please ensure that you have already created a KeyVault (KV_NAME) and/or a Secret (KV_ID) with a dummy value prior to executing `create-service-principal.sh`.
-> The `az login` user (person executing IRT) should also be granted access to this KeyVault so secrets can be pulled at runtime.
+> [!NOTE]
+> Please ensure that you have already created a KeyVault (KV_NAME) and/or a Secret (KV_ID) with a dummy value prior to executing `create-service-principal.sh`. The `az login` user (person executing IRT) should also be granted access to this KeyVault so secrets can be pulled at runtime.
 
 ```bash
 # Example execution of the script
 ./create-service-principal.sh irt-input.yml
 ```
 
-> **_NOTE:_** if all `SP_ID`,`SP_OBJECT_ID`,`SP_TENANT_ID`,`ADMIN_GROUP_OBJECT_ID`,`KV_NAME`,`KV_ID` are set in the yaml or as an environment variable the script skips creating them.
+> [!NOTE]
+> If all `SP_ID`,`SP_OBJECT_ID`,`SP_TENANT_ID`,`ADMIN_GROUP_OBJECT_ID`,`KV_NAME`,`KV_ID` are set in the yaml or as an environment variable the script skips creating them.
 
 **RESULT:** This script prints values for `ADMIN_GROUP_OBJECT_ID`, `SP_ID`, `SP_OBJECT_ID`, `SP_TENANT`, `KV_NAME`, and `KV_ID`. The script sets the values back to the input yaml.
 See [Input Configuration](#input-configuration).
@@ -237,29 +231,26 @@ ADMIN_GROUP_OBJECT_ID: "<generated-aad-group-id>"
 KV_NAME: "<provided-key-vault-name>" # If SP already exists please fill it in to retrieve the SP Password.
 KV_ID: "<provided-key-valut-secret>" # If SP already exists please fill it in to retrieve the SP Password.
 ```
-</details>
 
-#### Creating a Custom Role for Execution
-<details>
-<summary>Expand to see details for using a custom role. </summary>
+#### Creating a custom role for execution
 
 If you have an existing service principal and would like the convenience of only having to assign one role for IRT execution, you can follow the directions in this section.
 
 ##### Prerequisites
 
-1. Azure Subscription
+- Azure Subscription
     - Ensure you have access to an Azure subscription.
-1. Azure CLI
+- Azure CLI
     - Ensure Azure CLI exists on your local machine
 
 ##### Steps
 
 1. Prepare Your Environment
-   - Open a Bash Shell:
-   - You can use any terminal that supports Bash
+   1. Open a Bash Shell:
+   2. You can use any terminal that supports Bash
 
 1. Sign in to Azure
-   - Execute the following command to sign in to your Azure account:
+   1. Execute the following command to sign in to your Azure account:
 
     ```bash
     # Start az CLI session
@@ -311,9 +302,7 @@ If you have an existing service principal and would like the convenience of only
       --role "$(az role definition list --name "$roleName" --query "[0].id" --output tsv | awk -F'/' '{print $NF}')" \
       --scope "/subscriptions/$(az account show --query id --output tsv --only-show-errors)"
 
-#### Create L3 Isolation Domains
-<details>
-<summary>Expand to see how to create l3 isolation. </summary>
+#### Create L3 isolation domains
 
 The testing framework doesn't create, destroy, or manipulate isolation domains. Therefore, existing isolation domains can be used for execution. Each isolation domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks, for example, L3, trunked, etc. are created, manipulated, and destroyed through the course of testing.
 
@@ -329,8 +318,6 @@ Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to
 # the network-blueprint should exist under NETWORK_BLUEPRINT node.
 ./create-l3-isolation-domains.sh irt-input.yml
 ```
-</details>
-</details>
 
 ## Execution
 
@@ -340,7 +327,7 @@ Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to
 ./irt.sh irt-input.yml
 ```
 
-## How to Read the IRT Summary Results
+## How to read the IRT summary results
 
 The IRT summary page is an html page that is generated after the
 execution of IRT and can be viewed from any browser.
@@ -357,32 +344,33 @@ The top of the Summary Results displays the Total tests run in the IRT
 test suites, the number of extras sections and total number of tests
 that passed and failed along with percentage value.
 
-> **_NOTE:_**  The number of total tests depends on the version of IRT being
+> [!NOTE]
+> The number of total tests depends on the version of IRT being
 executed, different prerequisite test commands, so totals may not always be the same.
 
-![irt summary header success](./media/irt/irt-header-success.png)
+![Screenshot of summary report header success.](./media/instance-readiness-testing/instance-readiness-testing-header-success.png)
 
 If there's any failures in the tests, the values represent accordingly.
 
-![irt summary header failure](./media/irt/irt-header-failure.png)
+![Screenshot of summary report header failure.](./media/instance-readiness-testing/instance-readiness-testing-header-failure.png)
 
-### Test Results
+### Test results
 
 The Test Results section provides all the tests (assertions) that IRT
 executes. The Asserters section expands to view the list of tests (assertions) that are run and available.
 Each asserter can be further expanded that loads an accordion pane, which provides more details of the asserter, including the description of the test and any thresholds to be measured and asserted against.
 
-### Display of Test Results
+### Display of test results
 
 Display of Test results section with all successful tests:
 
-![test results success](./media/irt/irt-test-success.png)
+![Screenshot of test results success.](./media/instance-readiness-testing/instance-readiness-testing-test-success.png)
 
 If there are any failures, the assertions are highlighted in red.
 
-![test results failure](./media/irt/irt-test-failure.png)
+![Screenshot of test results failure.](./media/instance-readiness-testing/instance-readiness-testing-test-failure.png)
 
-### Interpretation of Asserter
+### Interpreting asserters
 
 Every asserter presents a significant title of the test and the
 description of it under standard log.
@@ -396,15 +384,15 @@ The above example of an assert reads as the Rx (receive)-pps (packets
 per seconds) for l3network-704 is 17668558, which is greater than the
 expected 8000000.
 
-![irt success details](./media/irt/irt-detail-success.png)
+![Screenshot of assert success details.](./media/instance-readiness-testing/instance-readiness-testing-detail-success.png)
 
 A failed asserter is displayed in red and the Rx-pps value is expected
 to be smaller in value than 8000000 pps received. The error is displayed
 under the Error Message tab.
 
-![irt failure details](./media/irt/irt-detail-failure.png)
+![Screenshot of assert failure details.](./media/instance-readiness-testing/instance-readiness-testing-detail-failure.png)
 
-### Debug Section
+### Debug section
 
 The debug section serves to pinpoint the cause of asserter/test failures
 for debugging purposes. It consists of four test suites and every suite
@@ -427,9 +415,9 @@ Failures of any specific tests are highlighted in red.
   - Deletes the Nexus resources created for the tests
     after the data is collected.
 
-![irt debug section](./media/irt/irt-debug-section.png)
+![Screenshot of summary report debug section.](./media/instance-readiness-testing/instance-readiness-testing-debug-section.png)
 
-## Extras Section
+## Extras section
 
 This section is an informational only, that provides extra details about the Nexus instance.
 There are no assertions/tests that represent this section.
