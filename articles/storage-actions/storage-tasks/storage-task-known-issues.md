@@ -103,7 +103,7 @@ Storage Actions operate on blobs in a hierarchical namespace-enabled account at 
 
 ## Operating on storage accounts in a private network is unsupported
 
-When you apply storage task assignments to storage accounts that have IP or network rules for access control, the task execution may fail. This is because the storage task assignments needs to access the storage account through the public endpoint, which may be blocked by the firewall or virtual network rules. To avoid this issue, you need to configure the network access to your storage account properly.
+When you apply storage task assignments to storage accounts that have IP or network rules for access control, the task execution might fail. This is because the storage task assignments needs to access the storage account through the public endpoint, which might be blocked by the firewall or virtual network rules. To avoid this issue, you need to configure the network access to your storage account properly.
 
 ## See Also
 
