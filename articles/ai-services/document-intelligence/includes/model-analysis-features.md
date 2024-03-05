@@ -20,17 +20,17 @@ ms.author: lajanuar
 |prebuilt-idDocument|✓|✓|| | | | |O|O|✓|O|O|O|
 |prebuilt-invoice|✓|✓| | |✓|✓|O|O|O|✓|O|O|O|
 |prebuilt-receipt|✓|✓| | | | | |O|O|✓|O|O|O|
-|prebuilt-marriageCertificate.us|✓| | | | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-creditCard|✓| | | | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-mortgage.us.1003|✓| | |✓| | | | |O|O|✓|O|O|O|✓|
-|prebuilt-mortgage.us.1008|✓| | |✓| | | | |O|O|✓|O|O|O|✓|
-|prebuilt-mortgage.us.closingDisclosure|✓| | |✓| | | | |O|O|✓|O|O|O|✓|
+|prebuilt-marriageCertificate.us | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-creditCard | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-mortgage.us.1003 | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-mortgage.us.1008 | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-mortgage.us.closingDisclosure | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-tax.us.w2|✓|✓| | |✓| | |O|O|✓|O|O|O|
 |prebuilt-tax.us.1098|✓|✓| | |✓| | |O|O|✓|O|O|O|
 |prebuilt-tax.us.1098E|✓|✓| | |✓| | |O|O|✓|O|O|O|
 |prebuilt-tax.us.1098T|✓|✓| | |✓| | |O|O|✓|O|O|O|
 |prebuilt-tax.us.1099(variations)|✓|✓| | |✓| | |O|O|✓|O|O|O|
-|prebuilt-tax.us.1040(variations)|✓| | |✓| | | | |O|O|✓|O|O|O|✓|
+|prebuilt-tax.us.1040(variations) | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |{ customModelName }|✓|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|
 
 ✓ - Enabled</br>

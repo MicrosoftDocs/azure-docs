@@ -172,43 +172,43 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 | Currency Code | Details |
 |:----------------------|:---------|
-| &bullet; ARS | Argentine Peso (`ar`) |
-| &bullet; AUD | Australian Dollar (`au`) |
-| &bullet; BAM | Bosnian Convertible Mark (`ba`) |
-| &bullet; BRL | Brazilian Real (`br`) |
-| &bullet; GBP | British Pound Sterling (`gb`) |
-| &bullet; BGN | Bulgarian Lev (`bg`) |
-| &bullet; CAD | Canadian Dollar (`ca`) |
-| &bullet; CLP | Chilean Peso (`cl`) |
-| &bullet; CNY | Chinese Yuan (`cn`) |
-| &bullet; COP | Colombian Peso (`co`) |
-| &bullet; CRC | Costa Rican Coldón (`us`) |
-| &bullet; CZK | Czech Koruna (`cz`) |
-| &bullet; DKK | Danish Krone (`dk`) |
-| &bullet; EUR | Euro (`eu`) |
-| &bullet; GGP | Guernsey Pound (`gg`) |
-| &bullet; HUF | Hungarian Forint (`hu`) |
-| &bullet; ISK | Icelandic Króna (`us`) |
-| &bullet; INR | Indian Rupee (`in`) |
-| &bullet; IDR | Indonesian Rupiah (`id`) |
-| &bullet; ILS | Israeli New Shekel (`il`) |
-| &bullet; JPY | Japanese Yen (`jp`) |
-| &bullet; MKD | Macedonian Denar (`mk`) |
-| &bullet; TWD | New Taiwan Dollar (`tw`) |
-| &bullet; NOK | Norwegian Krone (`no`) |
-| &bullet; PAB | Panamanian Balboa (`pa`) |
-| &bullet; PEN | Peruvian Sol (`pe`) |
-| &bullet; PLN | Polish Zloty (`pl`) |
-| &bullet; RON | Romanian Leu (`ro`) |
-| &bullet; RUB | Russian Ruble (`ru`) |
-| &bullet; RSD | Serbian Dinar (`rs`) |
-| &bullet; KRW | South Korean Won (`kr`) |
-| &bullet; SEK | Swedish Krona (`se`) |
-| &bullet; THB | Thai Baht (`th`) |
-| &bullet; TRY | Turkish Lira (`tr`) |
-| &bullet; UAH | Ukrainian Hryvnia (`ua`) |
-| &bullet; USD | United States Dollar (`us`) |
-| &bullet; VND | Vietnamese Dong (`vn`) |
+| &bullet; `ARS` | Argentine Peso (`ar`) |
+| &bullet; `AUD` | Australian Dollar (`au`) |
+| &bullet; `BAM` | Bosnian Convertible Mark (`ba`) |
+| &bullet; `BRL` | Brazilian Real (`br`) |
+| &bullet; `GBP` | British Pound Sterling (`gb`) |
+| &bullet; `BGN` | Bulgarian Lev (`bg`) |
+| &bullet; `CAD` | Canadian Dollar (`ca`) |
+| &bullet; `CLP` | Chilean Peso (`cl`) |
+| &bullet; `CNY` | Chinese Yuan (`cn`) |
+| &bullet; `COP` | Colombian Peso (`co`) |
+| &bullet; `CRC` | Costa Rican Coldón (`us`) |
+| &bullet; `CZK` | Czech Koruna (`cz`) |
+| &bullet; `DKK` | Danish Krone (`dk`) |
+| &bullet; `EUR` | Euro (`eu`) |
+| &bullet; `GGP` | Guernsey Pound (`gg`) |
+| &bullet; `HUF` | Hungarian Forint (`hu`) |
+| &bullet; `ISK` | Icelandic Króna (`us`) |
+| &bullet; `INR` | Indian Rupee (`in`) |
+| &bullet; `IDR` | Indonesian Rupiah (`id`) |
+| &bullet; `ILS` | Israeli New Shekel (`il`) |
+| &bullet; `JPY` | Japanese Yen (`jp`) |
+| &bullet; `MKD` | Macedonian Denar (`mk`) |
+| &bullet; `TWD` | New Taiwan Dollar (`tw`) |
+| &bullet; `NOK` | Norwegian Krone (`no`) |
+| &bullet; `PAB` | Panamanian Balboa (`pa`) |
+| &bullet; `PEN` | Peruvian Sol (`pe`) |
+| &bullet; `PLN` | Polish Zloty (`pl`) |
+| &bullet; `RON` | Romanian Leu (`ro`) |
+| &bullet; `RUB` | Russian Ruble (`ru`) |
+| &bullet; `RSD` | Serbian Dinar (`rs`) |
+| &bullet; `KRW` | South Korean Won (`kr`) |
+| &bullet; `SEK` | Swedish Krona (`se`) |
+| &bullet; `THB` | Thai Baht (`th`) |
+| &bullet; `TRY` | Turkish Lira (`tr`) |
+| &bullet; `UAH` | Ukrainian Hryvnia (`ua`) |
+| &bullet; `USD` | United States Dollar (`us`) |
+| &bullet; `VND` | Vietnamese Dong (`vn`) |
 
 ---
 :::moniker-end
@@ -229,13 +229,13 @@ Azure AI Document Intelligence models provide multilingual document processing s
 ### [Supported Currency Codes](#tab/currency)
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
-| &bullet; BRL | Brazilian Real (`br`) |
-| &bullet; GBP | British Pound Sterling (`gb`) |
-| &bullet; CAD | Canada (`ca`) |
-| &bullet; EUR | Euro (`eu`) |
-| &bullet; GGP | Guernsey Pound (`gg`) |
-| &bullet; INR | Indian Rupee (`in`) |
-| &bullet; USD | United States (`us`) |
+| &bullet; `BRL` | Brazilian Real (`br`) |
+| &bullet; `GBP` | British Pound Sterling (`gb`) |
+| &bullet; `CAD` | Canada (`ca`) |
+| &bullet; `EUR` | Euro (`eu`) |
+| &bullet; `GGP` | Guernsey Pound (`gg`) |
+| &bullet; `INR` | Indian Rupee (`in`) |
+| &bullet; `USD` | United States (`us`) |
 ---
 :::moniker-end
 

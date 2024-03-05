@@ -1,7 +1,7 @@
 ---
 title: US Tax document data extraction – Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Automate US tax document data extraction with Document Intelligence's US tax document models
+description: Automate US tax document data extraction with Document Intelligence's US tax document models.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -36,7 +36,7 @@ The Document Intelligence contract model uses powerful Optical Character Recogni
 * 1098-E
 * 1098-T
 * 1099 and variations (A, B, C, CAP, DIV, G, H, INT, K, LS, LTC, MISC,  NEC, OID, PATR, Q, QA, R, S, SA, SB​)
-* 1040 and variations (Schedule 1, Schedule 2, Schedule 3, Schedule 8812, Schedule A, Schedule B, Schedule C, Schedule D, Schedule E, Schedule EIC, Schedule F, Schedule H, Schedule J, Schedule R, Schedule SE, Schedule Senior)
+* 1040 and variations (Schedule 1, Schedule 2, Schedule 3, Schedule 8812, Schedule A, Schedule B, Schedule C, Schedule D, Schedule E, Schedule `EIC`, Schedule F, Schedule H, Schedule J, Schedule R, Schedule SE, and Schedule Senior)
 
 ## Automated tax document processing
 
@@ -79,7 +79,7 @@ Document Intelligence v3.0 supports the following tools, applications, and libra
 
 See how data, including customer information, vendor details, and line items, is extracted from invoices. You need the following resources:
 
-* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
 * A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
@@ -106,14 +106,14 @@ See how data, including customer information, vendor details, and line items, is
 
 The following are the fields extracted from a W-2 tax form in the JSON output response.
 
-|Name| Type | Description | Example output |
+|Name| Type | Description | Example output |dependents
 |:-----|:----|:----|:---:|
 | `W-2FormVariant`| String | IR W-2 Form variant. This field can have the one of the following values: `W-2`, `W-2AS`, `W-2CM`, `W-2GU`, or `W-2VI`| W-2 |
 | `TaxYear` | Number | Form tax year| 2021 |
 | `W2Copy` | String | W-2 tax copy version along with printed instruction related to this copy| Copy A—For Social Security Administration |
 | `Employee`| object | Object that contains social security number, name, and address| |
 | `ControlNumber` | string | W-2 control number. IRS W-2 field d| 0AB12 D345 7890 |
-| `Employer` | Object | Object that contains employer identification number, name and address|  |
+| `Employer` | Object | Object that contains employer identification number, name, and address|  |
 | `WagesTipsAndOtherCompensation` | Number | Wages, tips, and other compensation amount in USD. IRS W-2 field 1| 1234567.89 |
 | `FederalIncomeTaxWithheld` | Number | Federal income tax withheld amount in USD. IRS W-2 field 2| 1234567.89 |
 | `SocialSecurityWages` | Number | Social security wages amount in USD. IRS W-2 field 3| 1234567.89 |
@@ -125,9 +125,9 @@ The following are the fields extracted from a W-2 tax form in the JSON output re
 | `VerificationCode` | Number |W-2 verification code. IRS W-2 field 9| 1234567.89 |
 | `DependentCareBenefits` | Number | Dependent care benefits amount in USD. IRS W-2 field 10| 1234567.89 |
 | `NonQualifiedPlans` | Number | Non qualified plans amount in USD. IRS W-2 field 11| 1234567.89 |
-| `IsStatutoryEmployee` |String| Part of IRS W-2 field 13. Can be 'true' or 'false'| true |
-| `IsRetirementPlan` |String| Part of IRS W-2 field 13. Can be 'true' or 'false'| true |
-| `IsThirdPartySickPay` |String| Part of IRS W-2 field 13. Can be 'true' or 'false'| true |
+| `IsStatutoryEmployee` |String| Part of IRS W-2 field 13. Can be true or false| true |
+| `IsRetirementPlan` |String| Part of IRS W-2 field 13. Can be true or false| true |
+| `IsThirdPartySickPay` |String| Part of IRS W-2 field 13. Can be true or false| true |
 | `Other` | String | Content of IRS W-2 field 14| SICK LV WAGES SBJT TO $511/DAY LIMIT 1356 |
 | `StateTaxInfos` | Array | State tax-related information. content of IRS W-2 field 15 to 17| |
 | `LocaleTaxInfos` | Array |Local tax-related information. Content of IRS W-2 field 18 to 20| |
@@ -141,12 +141,12 @@ The following are the fields extracted from a 1098 tax form in the JSON output r
 | TaxYear | Number | Form tax year| 2021 |
 | Borrower | Object | An object that contains the borrower's TIN, Name, Address, and AccountNumber | |
 | Lender | Object | An object that contains the lender's TIN, Name, Address, and Telephone| |
-| MortgageInterest |Number| Mortgage Interest amount received from  payer(s)/borrower(s) (box 1)| 1,234,567.89
+| MortgageInterest |Number| Mortgage Interest amount received from  payers/borrower(s) (box 1)| 1,234,567.89
 |OutstandingMortgagePrincipal |Number| Outstanding mortgage principal (box 2) |1,234,567.89|
 | MortgageOriginationDate |Date| Origination date of the mortgage (box 3) |2022-01-01|
-| OverpaidInterestRefund |Number| Refund amount of overpaid interest (box 4)| 1,234,567.89
-| MortgageInsurancePremium |Number| Mortgage insurance premium amount (box 5) | 1,234,567.89
-| PointsPaid |Number| Points paid on purchase of principal residence (Box 6)| 1,234,567.89
+| OverpaidInterestRefund |Number| Refund amount of overpaid interest (box 4)| 1,234,567.89|
+| MortgageInsurancePremium |Number| Mortgage insurance premium amount (box 5) | 1,234,567.89|
+| PointsPaid |Number| Points paid on purchase of principal residence (Box 6)| 1,234,567.89|
 | IsPropertyAddressSameAsBorrower |String| Is the address of the property securing the mortgage the same as the payer's/borrower's mailing address (box 7)| true|
 | PropertyAddress |String| Address or description of the property securing the mortgage (box 8) | 123 Main St., Redmond WA 98052 |
 | MortgagedPropertiesCount |Number| Number of mortgaged properties (box 9)| 1|
@@ -169,55 +169,55 @@ The following are the fields extracted from a 1099-nec tax form in the JSON outp
 | `Box4` |number|Box 4 extracted from Form 1099-NEC.| 123456 |
 | `StateTaxesWithheld` |array| State Taxes Withheld extracted from Form 1099-NEC (boxes 5, 6, and 7)| |
 
-## Field extraction 1040 form
+## Field extraction 1040 tax form
 
 The following are the fields extracted from a 1040 tax form in the JSON output response. The other variations of 1040 are also supported.
 
 |Name| Type | Description | Example output |
 |:-----|:----|:----|:---:|
 | `TaxPayer` | Object | An object that contains the taxpayer's information such as SSN, Last Name, and Address | |
-| `Spouse` | Object | An object that contains the spouse's information such as SSN, last name, and first name and initials Name| |
-| `Dependants` |array|An array that contains a list of dependants including information such as Name, SSN, and Credit Type |  |
-| `ThirdPartyDesignee` |object|An object that contains informationabout the third party designee|  |
-| `SignatureDetails` |object|An object that contains information about the Signees such as phone numbers and emails|  |
+| `Spouse` | Object | An object that contains the spouse's information such as SSN, surname, and first name and initials Name| |
+| `Dependents` |array|An array that contains a list of dependents including information such as Name, SSN, and Credit Type |  |
+| `ThirdPartyDesignee` |object|An object that contains information about the third-party designee|  |
+| `SignatureDetails` |object|An object that contains information about the signee such as phone numbers and emails|  |
 | `PaidPreparer` |object|An object that contains information about the preparer. | |
-| `FillingStatus` | String |Value can be one of '[noSelection]', 'single', 'marriedFilingJointly', 'marriedFillingSeparately', 'headOfHousehold', 'qualifyingSurvivingSpouse' or '[multiSelection]'.| single |
+| `FillingStatus` | String |Value can be one of noSelection, single, marriedFilingJointly, marriedFillingSeparately, headOfHousehold, qualifyingSurvivingSpouse or multiSelection.| single |
 | `FilingStatusDetails` |object|An object that contains information about the filing status. | |
 | `NameOfSpouseOrQualifyingPerson` | String |Name Of Spouse Or Qualifying Person extracted from Form 1040.| John Smith |
-| `PresidentilElectionCampaign` | String |Value can be one of '[noSelection]', 'taxpayer', 'spouse' or '[multiSelection]'.| Taxpayer |
+| `PresidentialElectionCampaign` | String |Value can be one of noSelection, taxpayer, spouse, or multiSelection.| Taxpayer |
 | `PresidentialElectionCampaignDetails` | object | An object that contains details about the presidential election campaign. |  |
-| `DigitalAssets` | String |Value can be one of '[noSelection]', 'yes', 'no' or '[multiSelection]'.| yes |
+| `DigitalAssets` | String |Value can be one of noSelection, yes, no or multiSelection.| yes |
 | `DigitalAssetsDetails` | object | An object that contains details about the digital assets. |  |
-| `ClaimStatus` | String |Value can be one of '[noSelection]', 'taxpayerAsDependent', 'spouseAsDependent', 'spouseItemizesSeparatelyOrDualStatusAlien' or '[multiSelection]'.| taxpayerAsDependent |
+| `ClaimStatus` | String |Value can be one of noSelection, taxpayerAsDependent, spouseAsDependent, spouseItemizesSeparatelyOrDualStatusAlien or multiSelection.| taxpayerAsDependent |
 | `ClaimStatusDetails` | object | An object that contains details about the claim status. |  |
-| `TaxpayerAgeBlindness` | String |Value can be one of '[noSelection]', 'above64', 'blind' or '[multiSelection]'.| above64 |
+| `TaxpayerAgeBlindness` | String |Value can be one of noSelection, `above64`, blind or multiSelection.| above64 |
 | `TaxPayerAgeBlindnessDetails` | object | An object that contains details about the taxpayer age blindness. |  |
-| `SpouseAgeBlindness` | String | Value can be one of '[noSelection]', 'above64', 'blind' or '[multiSelection]'. | above64 |
+| `SpouseAgeBlindness` | String | Value can be one of noSelection, `above64`, blind or multiSelection. | above64 |
 | `TaxPayerAgeBlindnessDetails` | object | An object that contains details about the spouse age blindness. |  |
-| `MoreThanFourDependents` | boolean | More Than Four Dependents extracted from Form 1040.. | true |
-| `Box1a` | number | Box 1a extracted from 1040. | 123456 |
-Based on the provided JSON structure and converting it into the same table format as requested, the result would look like this:
-| `Box1b`         | number  | Box 1b extracted from 1040.                      | 123456  |
-| `Box1c`         | number  | Box 1c extracted from 1040.                      | 123456  |
-| `Box1d`         | number  | Box 1d extracted from 1040.                      | 123456  |
-| `Box1e`         | number  | Box 1e extracted from 1040.                      | 123456  |
-| `Box1f`         | number  | Box 1f extracted from 1040.                      | 123456  |
-| `Box1g`         | number  | Box 1g extracted from 1040.                      | 123456  |
-| `Box1h`         | number  | Box 1h extracted from 1040.                      | 123456  |
-| `Box1i`         | number  | Box 1i extracted from 1040.                      | 123456  |
-| `Box1z`         | number  | Box 1z extracted from 1040.                      | 123456  |
-| `Box2a`         | number  | Box 2a extracted from 1040.                      | 123456  |
-| `Box2b`         | number  | Box 2b extracted from 1040.                      | 123456  |
-| `Box3a`         | number  | Box 3a extracted from 1040.                      | 123456  |
-| `Box3b`         | number  | Box 3b extracted from 1040.                      | 123456  |
-| `Box4a`         | number  | Box 4a extracted from 1040.                      | 123456  |
-| `Box4b`         | number  | Box 4b extracted from 1040.                      | 123456  |
-| `Box5a`         | number  | Box 5a extracted from 1040.                      | 123456  |
-| `Box5b`         | number  | Box 5b extracted from 1040.                      | 123456  |
-| `Box6a`         | number  | Box 6a extracted from 1040.                      | 123456  |
-| `Box6b`         | number  | Box 6b extracted from 1040.                      | 123456  |
-| `Box6cCheckbox` | boolean | Box6c Checkbox extracted from 1040.              | true    |
-| `Box7Checkbox`  | boolean | Box7 Checkbox extracted from 1040.               | true    |
+| `MoreThanFourDependents` | boolean | More Than Four Dependents extracted from Form 1040. | true |
+| `Box1a` | number | Box `1a` extracted from 1040. | 123456 |
+|Based on the provided JSON structure and converting it into the same table format as requested, the result is as follows:||||
+| `Box1b`         | number  | Box `1b` extracted from 1040.                      | 123456  |
+| `Box1c`         | number  | Box `1c` extracted from 1040.                      | 123456  |
+| `Box1d`         | number  | Box `1d` extracted from 1040.                      | 123456  |
+| `Box1e`         | number  | Box `1e` extracted from 1040.                      | 123456  |
+| `Box1f`         | number  | Box `1f` extracted from 1040.                      | 123456  |
+| `Box1g`         | number  | Box `1g` extracted from 1040.                      | 123456  |
+| `Box1h`         | number  | Box `1h` extracted from 1040.                      | 123456  |
+| `Box1i`         | number  | Box `1i` extracted from 1040.                      | 123456  |
+| `Box1z`         | number  | Box `1z` extracted from 1040.                      | 123456  |
+| `Box2a`         | number  | Box `2a` extracted from 1040.                      | 123456  |
+| `Box2b`         | number  | Box `2b` extracted from 1040.                      | 123456  |
+| `Box3a`         | number  | Box `3a` extracted from 1040.                      | 123456  |
+| `Box3b`         | number  | Box `3b` extracted from 1040.                      | 123456  |
+| `Box4a`         | number  | Box `4a` extracted from 1040.                      | 123456  |
+| `Box4b`         | number  | Box `4b` extracted from 1040.                      | 123456  |
+| `Box5a`         | number  | Box `5a` extracted from 1040.                      | 123456  |
+| `Box5b`         | number  | Box `5b` extracted from 1040.                      | 123456  |
+| `Box6a`         | number  | Box `6a` extracted from 1040.                      | 123456  |
+| `Box6b`         | number  | Box `6b` extracted from 1040.                      | 123456  |
+| `Box6cCheckbox` | boolean | Box `6c` Checkbox extracted from 1040.              | true    |
+| `Box7Checkbox`  | boolean | Box 7 Checkbox extracted from 1040.               | true    |
 | `Box7`          | number  | Box 7 extracted from 1040.                       | 123456  |
 | `Box8`          | number  | Box 8 extracted from 1040.                       | 123456  |
 | `Box9`          | number  | Box 9 extracted from 1040.                       | 123456  |
@@ -227,9 +227,9 @@ Based on the provided JSON structure and converting it into the same table forma
 | `Box13`         | number  | Box 13 extracted from 1040.                      | 123456  |
 | `Box14`         | number  | Box 14 extracted from 1040.                      | 123456  |
 | `Box15`         | number  | Box 15 extracted from 1040.                      | 123456  |
-| `Box16FromForm` | string  | Value can be one of '[noSelection]', '8814', '4972', 'other' or '[multiSelection]'. | 8814  |
-| `Box16FromFormDetails` | object  | Object that contains details about the Box16 |  |
-| `Box16OtherFormNumber` | string  | Box16 Other Form Number extracted from 1040.       | 8888    |
+| `Box16FromForm` | string  | Value can be one of noSelection, 8814, 4972, other or multiSelection. | 8814  |
+| `Box16FromFormDetails` | object  | Object that contains details about the Box 16 |  |
+| `Box16OtherFormNumber` | string  | Box 16 Other Form Number extracted from 1040.       | 8888    |
 | `Box16`              | number  | Box 16 extracted from 1040.                        | 123456  |
 | `Box17`              | number  | Box 17 extracted from 1040.                        | 123456  |
 | `Box18`              | number  | Box 18 extracted from 1040.                        | 123456  |
@@ -239,10 +239,10 @@ Based on the provided JSON structure and converting it into the same table forma
 | `Box22`              | number  | Box 22 extracted from 1040.                        | 123456  |
 | `Box23`              | number  | Box 23 extracted from 1040.                        | 123456  |
 | `Box24`              | number  | Box 24 extracted from 1040.                        | 123456  |
-| `Box25a`             | number  | Box 25a extracted from 1040.                       | 123456  |
-| `Box25b`             | number  | Box 25b extracted from 1040.                       | 123456  |
-| `Box25c`             | number  | Box 25c extracted from 1040.                       | 123456  |
-| `Box25d`             | number  | Box 25d extracted from 1040.                       | 123456  |
+| `Box25a`             | number  | Box `25a` extracted from 1040.                       | 123456  |
+| `Box25b`             | number  | Box `25b` extracted from 1040.                       | 123456  |
+| `Box25c`             | number  | Box `25c` extracted from 1040.                       | 123456  |
+| `Box25d`             | number  | Box `25d` extracted from 1040.                       | 123456  |
 | `Box26`              | number  | Box 26 extracted from 1040.                        | 123456  |
 | `Box27`              | number  | Box 27 extracted from 1040.                        | 123456  |
 | `Box28`              | number  | Box 28 extracted from 1040.                        | 123456  |
@@ -251,22 +251,22 @@ Based on the provided JSON structure and converting it into the same table forma
 | `Box32`              | number  | Box 32 extracted from 1040.                        | 123456  |
 | `Box33`              | number  | Box 33 extracted from 1040.                        | 123456  |
 | `Box34`              | number  | Box 34 extracted from 1040.                        | 123456  |
-| `Box35Checkbox`      | boolean | Box35 Checkbox extracted from 1040.                | true    |
-| `Box35a`             | number  | Box 35a extracted from 1040.                       | 123456  |
-| `Box35b`             | number  | Box 35b extracted from 1040.                       | 123456  |
-| `Box35c`             | string  | Value can be one of '[noSelection]', 'checking', 'saving' or '[multiSelection]'. | checking |
-| `Box35cDetails` | object  | Object that contains details about box35c |  |
-| `Box35d`                     | number  | Box 35d extracted from 1040.                   | 123456  |
+| `Box35Checkbox`      | boolean | Box 35 Checkbox extracted from 1040.                | true    |
+| `Box35a`             | number  | Box `35a` extracted from 1040.                       | 123456  |
+| `Box35b`             | number  | Box `35b` extracted from 1040.                       | 123456  |
+| `Box35c`             | string  | Value can be one of noSelection, checking, savings, or multiSelection. | checking |
+| `Box35cDetails` | object  | Object that contains details about Box `35c` |  |
+| `Box35d`                     | number  | Box `35d` extracted from 1040.                   | 123456  |
 | `Box36`                      | number  | Box 36 extracted from 1040.                    | 123456  |
 | `Box37`                      | number  | Box 37 extracted from 1040.                    | 123456  |
 | `Box38`                      | number  | Box 38 extracted from 1040.                    | 123456  |
-| `HasAssignedThirdPartyDesignee` | string  | Value can be one of '[noSelection]', 'yes', 'no' or '[multiSelection]'. | yes  |
-| `HasAssignedThirdPartyDesigneeDetails` | object  | Object that contains information on what was selected for the has assigned third party designee |  |
+| `HasAssignedThirdPartyDesignee` | string  | Value can be one of noSelection, yes, no or multiSelection. | yes  |
+| `HasAssignedThirdPartyDesigneeDetails` | object  | Object that contains information on what was selected for the assigned third-party designee |  |
 
 The tax documents key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
 ## Next steps
 
-* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.

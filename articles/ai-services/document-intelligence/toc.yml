@@ -161,7 +161,7 @@ items:
   - name: Analyze document API response
     displayName: words, lines, pages, bounding regions, documents
     href: concept-analyze-document-response.md
-  - name: Read OCR model
+  - name: Read model
     displayName: text
     href: concept-read.md
   - name: General document model
