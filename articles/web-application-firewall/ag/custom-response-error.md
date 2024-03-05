@@ -6,7 +6,7 @@ ms.topic: article
 author: duongau
 ms.service: web-application-firewall
 ms.date: 02/26/2024
-ms.author: duongau 
+ms.author: duau
 ---
 
 # Configure a custom response page for Azure Web Application Firewall
@@ -81,7 +81,7 @@ You can configure custom responses for WAF by using the Azure portal, PowerShell
 
 ## Configure existing WAF policy with a custom response
 
-1. Use the [New-AzApplicationGatewayFirewallPolicySettings](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicysetting) to create the policy settings for the WAF policy.
+1. Use the [New-AzApplicationGatewayFirewallPolicySetting](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicysetting) to create the policy settings for the WAF policy.
 
     ```azurepowershell-interactive
     $policySettings = New-AzApplicationGatewayFirewallPolicySetting `
@@ -89,10 +89,10 @@ You can configure custom responses for WAF by using the Azure portal, PowerShell
         -CustomBlockResponseBody "Access denied. The request is blocked."
     ```
 
-1. Use the [Set-AzApplicationGatewayFirewallPolicySetting](/powershell/module/az.network/set-azapplicationgatewayfirewallpolicysetting) cmdlet to update the custom response settings for an existing WAF policy.
+1. Use the [Set-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/set-azapplicationgatewayfirewallpolicy) cmdlet to update the custom response settings for an existing WAF policy.
 
 ```azurepowershell-interactive
-Set-AzApplicationGatewayFirewallPolicySetting `
+Set-AzApplicationGatewayFirewallPolicy `
     -Name myWAFPolicy `
     -ResourceGroupName myResourceGroup `
     -PolicySetting $policySettings
@@ -102,7 +102,7 @@ Set-AzApplicationGatewayFirewallPolicySetting `
 
 ## Create a new WAF policy with a custom response
 
-Use the [az network application-gateway waf-policy create](/cli/azure/network/application-gateway/waf-policy) command to create a new WAF policy with custom response settings. The custom body must be base64 encoded.
+Use the [az network application-gateway waf-policy create](/cli/azure/network/application-gateway/waf-policy) command to create a new WAF policy with custom response settings. The custom body must be **base64** encoded.
 
 ```azurecli-interactive
 az network application-gateway waf-policy create \
@@ -116,7 +116,7 @@ az network application-gateway waf-policy create \
 
 ## Configure existing WAF policy with a custom response
 
-Use the [az network application-gateway waf-policy policy-setting update](/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest#az-network-application-gateway-waf-policy-update) command to update the custom response settings for an existing WAF policy. The custom body must be base64 encoded.
+Use the [az network application-gateway waf-policy policy-setting update](/cli/azure/network/application-gateway/waf-policy#az-network-application-gateway-waf-policy-update) command to update the custom response settings for an existing WAF policy. The custom body must be **base64** encoded.
 
 ```azurecli-interactive
 az network application-gateway waf-policy policy-setting update \
