@@ -200,7 +200,7 @@ spec:
 EOF
 ```
 
-Once the IngressExtension resource is created, ensure the resource has No validation errros and is valid.
+Once the IngressExtension resource is created, ensure the resource returns _No validation errors_ and is valid.
 
 ```bash
 kubectl get IngressExtension header-rewrite -n test-infra -o yaml
