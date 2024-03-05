@@ -27,10 +27,10 @@ Azure Policy evaluates resources in Azure by comparing the properties of those r
 
 Creating and implementing a policy in Azure Policy begins with creating a policy definition resource. Every policy definition has conditions under which it's enforced, and a defined effect that takes place if the conditions are met.
 
-With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The `addToNetworkGroup` effect is used to place resources in the destination network group. Here's a sample of a policy rule definition with the `addToNetworkGroup` effect. 
+With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The `addToNetworkGroup` effect is used to place resources in the destination network group. Here's a sample of a policy rule definition with the `addToNetworkGroup` effect. For all custom policies, the `mode` property is set to `Microsoft.Network.Data` to target the network group resource provider and is required for creating a policy definition for Azure Virtual Network Manager.
 
 ```json
-
+"mode": "Microsoft.Network.Data",
 "policyRule": {
       "if": {
         "allOf": [
@@ -50,9 +50,7 @@ With network groups, your policy definition includes your conditional expression
 
 ```
 > [!IMPORTANT]
-> When defining a policy, the `networkGroupId` must be the full resource ID of the target network group as seen in the sample definition. It does not support parameterization in the policy definition. 
->
->If you need to parameterize the network group, you can utilize an Azure Resource Manager template to create the policy definition and assignment.
+> When defining a policy, the `networkGroupId` must be the full resource ID of the target network group as seen in the sample definition. It does not support parameterization in the policy definition. If you need to parameterize the network group, you can utilize an Azure Resource Manager template to create the policy definition and assignment.
 
 When Azure Policy is used with Azure Virtual Network Manager, the policy targets a [Resource Provider property](../governance/policy/concepts/definition-structure.md#resource-provider-modes) of `Microsoft.Network.Data`. Because of this, you need to specify a *policyType* of `Custom` in your policy definition. When you [create a policy to dynamically add members](how-to-exclude-elements.md) in Virtual Network Manager, this is applied automatically when the policy is created. You only need to choose `custom` when [creating a new policy definition](../governance/policy/tutorials/create-and-manage.md) through Azure Policy or other tooling outside of the Virtual Network Manager dashboard.
 
