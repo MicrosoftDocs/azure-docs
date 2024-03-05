@@ -268,8 +268,8 @@ After you create the function, in the function.json configuration file, add `"so
        ) {
              context.getLogger().info("Java Blob trigger function processed a blob. Name: " + name + "\n  Size: " + content.length + " Bytes");
          }
-    }
-    ```
+   }
+   ```
 1. Remove the associated unit test file, which no longer applies to the new trigger type.
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
