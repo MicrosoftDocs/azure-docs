@@ -48,7 +48,7 @@ Complete [part one of the tutorial](tutorial-designer-automobile-price-train-sco
 To deploy your pipeline, you must first convert the training pipeline into a real-time inference pipeline. This process removes training components and adds web service inputs and outputs to handle requests.
 
 > [!NOTE]
-> Create inference pipeline only supports training pipelines which contain only the designer built-in components and must have a component like **Train Model**  which outputs the trained model.
+> The **Create inference pipeline** feature supports training pipelines that only contain the designer built-in components and that have a component like **Train Model** that outputs the trained model.
 
 ### Create a real-time inference pipeline
 
@@ -68,14 +68,14 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
     * **Web Service Input** and **Web Service Output** components are added. These components show where user data enters the pipeline and where data is returned.
 
     > [!NOTE]
-    > By default, the **Web Service Input** expects the same data schema as the component output data which connects to the same downstream port as it. In this sample, **Web Service Input** and **Automobile price data (Raw)** connect to the same downstream component, so **Web Service Input** expects the same data schema as **Automobile price data (Raw)** and target variable column `price` is included in the schema.
+    > By default, the **Web Service Input** expects the same data schema as the component output data that connects to the same downstream port. In this sample, **Web Service Input** and **Automobile price data (Raw)** connect to the same downstream component, so **Web Service Input** expects the same data schema as **Automobile price data (Raw)** and target variable column `price` is included in the schema.
     > However, when you score the data, you won't know the target variable values. In that case, you can remove the target variable column in the inference pipeline using the **Select Columns in Dataset** component. Make sure that the output of **Select Columns in Dataset** removing target variable column is connected to the same port as the output of the **Web Service Input** component.
 
 1. Select **Configure & Submit**, and use the same compute target and experiment that you used in part one.
 
     If this is the first job, it might take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline jobs take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
 
-1. Go to the real-time inference pipeline job detail by selecting **Job detail** link in the left pane.
+1. Go to the real-time inference pipeline job detail by selecting **Job detail** in the left pane.
 
 1. Select **Deploy** in the job detail page.
 
@@ -190,7 +190,7 @@ You can update the online endpoint with new model trained in the designer. On th
 
 ## Limitations
 
-* Due to datastore access limitation, if your inference pipeline contains **Import Data** or **Export Data** component, they're auto-removed when deployed to real-time endpoint.
+* Due to datastore access limitation, if your inference pipeline contains **Import Data** or **Export Data** components, they're auto-removed when deployed to real-time endpoint.
 
 * If you have datasets in the real-time inference pipeline and want to deploy it to real-time endpoint, currently this flow only supports datasets registered from **Blob** datastore. If you want to use datasets from other type datastores, you can use **Select Column** to connect with your initial dataset with settings of selecting all columns, register the outputs of **Select Column** as File dataset and then replace the initial dataset in the real-time inference pipeline with this newly registered dataset.
 
