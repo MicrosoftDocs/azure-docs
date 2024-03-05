@@ -27,7 +27,7 @@ The Azure Data Manager for Energy supports availability zones in the following r
 
 | Americas            | Europe               | Asia Pacific   |
 |----------------------|----------------------|----------------
-| South Central US         | North Europe       | Australia East | South Africa North | Australia East |
+| South Central US         | North Europe       | Australia East
 | East US   | West Europe |   |                    |  |
 | Brazil South       |           |       |           
 ### Zone down experience
