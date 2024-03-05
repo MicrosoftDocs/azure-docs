@@ -279,6 +279,8 @@ To find and run your pipeline, follow these steps:
 
 1. On your pipeline's toolbar, select **Run pipeline**.
 
+   :::image type="content" source="media/automate-build-deployment-standard/run-pipeline.png" alt-text="Screenshot shows the pane for the created pipeline and the selected option for Run pipeline." lightbox="media/automate-build-deployment-standard/run-pipeline.png":::
+
 For more information, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 
 ## See also
