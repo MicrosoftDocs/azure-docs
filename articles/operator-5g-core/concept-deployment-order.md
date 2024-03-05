@@ -4,6 +4,7 @@ description: Outlines the deployment order for components on Azure Kubernetes Se
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
+ms.custom: devx-track-azurecli
 ms.topic: concept-article #required; leave this attribute/value as-is.
 ms.date: 02/21/2024
 
@@ -37,4 +38,3 @@ Use the following Azure CLI commands to deploy resources.
 
 - [Complete the prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md)
 - [Complete the prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service](how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md)
-
