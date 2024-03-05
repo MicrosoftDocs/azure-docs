@@ -259,6 +259,8 @@ items:
         href: ./hdinsight-config-for-vscode.md
     - name: Monitoring
       items:
+      - name: Monitor
+        href: monitor-hdinsight.md
       - name: Use Azure Monitor logs
         href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
       - name: Use selective logging to monitor logs
@@ -271,8 +273,10 @@ items:
         href: ./hdinsight-cluster-availability.md
       - name: Cluster availability - Azure Monitor logs
         href: ./cluster-availability-monitor-logs.md
-      - name: Azure Monitor table updates
+      - name: Enable new Azure Monitor integration
         href: ./log-analytics-migration.md
+      - name: Monitoring data reference
+        href: monitor-hdinsight-reference.md
     - name: Troubleshoot
       items:
       - name: Known issues 
