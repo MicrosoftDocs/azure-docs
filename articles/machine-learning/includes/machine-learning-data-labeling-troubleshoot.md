@@ -12,20 +12,31 @@ If you have errors creating a data labeling project, or accessing data once the 
 
 In many cases, an error creating the project may be due to access issues.  To resolve this, add the Storage Blob Data Contributor role to the workspace with these steps:
 
-1. In the Azure Machine Learning studio, select the workspace name in the top right of the workspace.
-1. At the bottom of the section that appears, select **View all properties in Azure Portal**
-1. In the Azure Portal, select link for **Storage**.
-1. In the storage account left menu, select **Access Control (IAM)**.
-1. In the top toolbar, select **+ Add** then **Add role assignment**. 
-1. Search for "Storage Blob Data Contributor"
-1. Select **Storage Blob Data Contributor** from the list of roles.
-1. Select **Next**
-1. In the Members tab, select **+Select members**
-1. Search for name of workspace.
-1. Select the Enterprise application with the workspace name.
-1. Select the **Select** button at the bottom of the page.
-1. Select **Review + assign** to review the entry.
-1. Select **Review + assign** again and wait for the assignment to complete.
+1. Select the storage account in the Azure Portal
+
+    1. In the Azure Machine Learning studio, on the top right banner, select the workspace name.
+    1. At the bottom of the section that appears, select **View all properties in Azure Portal**
+    1. In the Azure Portal page for your workspace, select link for **Storage**.
+
+1. Add role assignment
+    
+    1. In the storage account left menu, select **Access Control (IAM)**.
+    1. In the top toolbar of the Access control settings, select **+ Add** then **Add role assignment**. 
+    1. Search for "Storage Blob Data Contributor".
+    1. Select **Storage Blob Data Contributor** from the list of roles.
+    1. Select **Next**.
+
+1. Select members
+
+    1. In the Members page, select **+Select members**.
+    1. Search for name of workspace.
+    1. Select the Enterprise application with the workspace name.
+    1. Select the **Select** button at the bottom of the page.
+
+1. Review and assign the role
+    
+    1. Select **Review + assign** to review the entry.
+    1. Select **Review + assign** again and wait for the assignment to complete.
 
 ### Set datastore to use workspace managed identity
 
