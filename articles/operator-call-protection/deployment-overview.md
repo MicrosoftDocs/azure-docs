@@ -1,6 +1,6 @@
 ---
 title: Learn about deploying and setting up Azure Operator Call Protection
-description: Understand how to get started with Azure Operator Call Protection to protect your customers against fraud
+description: Understand how to get started with Azure Operator Call Protection to protect your customers against fraud.
 author: rcdun
 ms.author: rdunstan
 ms.service: azure
@@ -27,9 +27,11 @@ You need to deploy an Azure Communications Gateway resource and enable Azure Ope
 The following articles explain how to deploy an Azure Communications Gateway resource.
 When given the option, you must enable the Call Protection settings.
 
-The connection to Azure Operator Call Protection is over SIPREC.  The Call Protection service takes the role of the SIPREC Session Recording Server (SRS).  An element in your network, typically a session border controller (SBC), is set up as a SIPREC Session Recording Client (SRC).
+The connection to Azure Operator Call Protection is over SIPREC.
+The Call Protection service takes the role of the SIPREC Session Recording Server (SRS).
+An element in your network, typically a session border controller (SBC), is set up as a SIPREC Session Recording Client (SRC).
 
-This type of connection is different to other Azure Communication Gateway services - make sure that your network design takes this into account.
+This SIPREC connection is different to other Azure Communication Gateway services - make sure that your network design takes this into account.
 
 > TODO - fix picture below.
 
