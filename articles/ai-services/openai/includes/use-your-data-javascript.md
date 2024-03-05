@@ -103,13 +103,7 @@ node.exe ChatWithOwnData.js
 
 ```output
 Message: What are the differences between Azure Machine Learning and Azure AI services?
-Chatbot: Azure 
-Chatbot: Machine 
-Chatbot: Learning 
-Chatbot: is 
-Chatbot: a 
-Chatbot: cloud-based 
-Chatbot: service
+Based on the retrieved document, an interesting fact is...
 ...
 ```
 
