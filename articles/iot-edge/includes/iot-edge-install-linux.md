@@ -126,7 +126,21 @@ By default, the container engine doesn't set container log size limits. Over tim
 
 The following steps show you how to configure your container to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
 
-1. Create (if the file's not there already) or open the Docker [daemon's config file](https://docs.docker.com/config/daemon/) at `/etc/docker/daemon.json`. If you're using a snap, the file is located at `/var/snap/docker/current/config/daemon.json`.
+1. Create or edit the existing Docker [daemon's config file](https://docs.docker.com/config/daemon/)
+
+    # [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+
+    ```bash
+    sudo nano /etc/docker/daemon.json
+    ```
+
+    # [Ubuntu Core snaps](#tab/snaps)
+
+    ```bash
+    sudo nano /var/snap/docker/current/config/daemon.json
+    ```
+
+    ---
 
 1. Set the default logging driver to the `local` logging driver as shown in the example.
    
