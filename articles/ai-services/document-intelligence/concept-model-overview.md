@@ -77,6 +77,8 @@ The following table shows the available models for each current preview and stab
 |Key value pairs|Free| ✔️|n/a|n/a| n/a|
 |Query fields|Add-On*| ✔️|n/a|n/a| n/a|
 
+### Model analysis features
+
 [!INCLUDE [model analysis features](includes/model-analysis-features.md)]
 
 Add-On* - Query fields are priced differently than the other add-on features. See [pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/) for details.
