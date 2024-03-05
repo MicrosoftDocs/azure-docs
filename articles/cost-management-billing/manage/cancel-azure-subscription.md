@@ -48,9 +48,10 @@ If you cancel an Azure Support plan, you're billed for the rest of the month. Ca
 
 ## Who can cancel a subscription?
 
-The following table describes the permission required to cancel a subscription.
+- If you’re not sure what type of subscription you have, see [Check your account type](view-all-accounts.md#check-the-type-of-your-account). 
+- If you don’t have permission to cancel your subscription, contact the person in your organization that does have permission to cancel the subscription.
 
-If you’re not sure what type of subscription you have, see [Check your account type](view-all-accounts.md#check-the-type-of-your-account). If you don’t have permission to cancel your subscription, contact the person in your organization that does have permission to cancel the subscription.
+The following table describes the permission required to cancel a subscription.
 
 |Subscription type     |Who can cancel  |
 |---------|---------|

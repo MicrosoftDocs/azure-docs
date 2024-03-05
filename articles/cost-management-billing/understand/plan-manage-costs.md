@@ -120,11 +120,11 @@ Review the [Optimize costs from recommendations](../costs/tutorial-acm-opt-recom
 
 To prevent unwanted charges on a subscription, you can go to **Resources** menu for the subscription and select the resources that you want to delete. If you don't want to have any charges for the subscription, select all of the subscription resources and then **Delete** them. The subscription essentially becomes an empty container with no charges.
 
-:::image type="content" source="./media/plan-manage-costs/delete-resources.png" alt-text="Screenshot showing delete resources." lightbox="./media/cancel-azure-subscription/delete-resources.png" :::
+:::image type="content" source="./media/plan-manage-costs/delete-resources.png" alt-text="Screenshot showing delete resources." lightbox="./media/plan-manage-costs/delete-resources.png" :::
 
 If you have a support plan, you might continue to get charged for it. To delete a support a plan, navigate to **Cost Management + Billing** and select **Recurring charges**. Select the support plan and turn off autorenewal.
 
-:::image type="content" source="./media/plan-manage-costs/change-renewal-settings.png" alt-text="Screenshot showing Change renewal settings." lightbox="./media/cancel-azure-subscription/change-renewal-settings.png" :::
+:::image type="content" source="./media/plan-manage-costs/change-renewal-settings.png" alt-text="Screenshot showing Change renewal settings." lightbox="./media/plan-manage-costs/change-renewal-settings.png" :::
 
 
 ## Integrate with billing and Cost Management APIs
