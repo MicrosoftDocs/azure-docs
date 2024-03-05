@@ -37,7 +37,7 @@ For a list of data stores that are supported as sources or sinks, see the [Suppo
 Specifically, this Salesforce Service Cloud connector supports:
 
 - Salesforce Developer, Professional, Enterprise, or Unlimited editions.
-- Copying data from and to custom domain (Custom domain can be configured in both production and sanbox environments).
+- Copying data from and to custom domain (Custom domain can be configured in both production and sandbox environments).
 
 You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When copying data to Salesforce Service Cloud, the connector uses BULK API 2.0.
 

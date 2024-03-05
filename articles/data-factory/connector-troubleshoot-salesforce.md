@@ -30,21 +30,21 @@ This article provides suggestions to troubleshoot common problems with the Sales
         1. Setup OAuth access token scope, it's better to set up "**Full access**" for Azure Data Factory in case of permission issue.
         <br/>If you want to keep the mini scope, at least the "**Manage user data via APIs (api)**" should be added.
         <br/>If you don't set proper scope, you may get following similar message like: **Unauthorized, This session is not valid for use with the REST API**
-        1. Select **Enable Client Credentails FLow**.
+        1. Select **Enable Client Credentials Flow**.
     
         :::image type="content" source="media/connector-salesforce/configure-basic-information.png" alt-text="Screenshot of configuring basic information for the Salesforce connector app.":::
 
-    1. Get Client Id and Secret through **Manage Consumer Details**.
+    1. Get Client ID and Secret through **Manage Consumer Details**.
 
         :::image type="content" source="media/connector-salesforce/manage-consumer-details.png" alt-text="Screenshot of the manage consumer details.":::
 
-    1. Copy the client id and secret to a txt file for Azure Data Factory linked service.
+    1. Copy the client ID and secret to a txt file for Azure Data Factory linked service.
 
-        :::image type="content" source="media/connector-salesforce/client-id-secret.png" alt-text="Screenshot of the Client Id and Secret.":::
+        :::image type="content" source="media/connector-salesforce/client-id-secret.png" alt-text="Screenshot of the Client ID and Secret.":::
 
     1. Create a user who has the API Only User permission.
 
-        1. Set up a permission set which only have API only permission.
+        1. Set up a permission set which only has API only permission.
         :::image type="content" source="media/connector-salesforce/set-up-a-permission.png" alt-text="Screenshot of setting system permissions.":::
         1. Specify the **API Enabled** and **Api Only User**.
         :::image type="content" source="media/connector-salesforce/system-permissions.png" alt-text="Screenshot of the system permissions.":::
@@ -52,7 +52,7 @@ This article provides suggestions to troubleshoot common problems with the Sales
     1. Create a new user and link the permission set in the user detail page: **Permission Set Assignments**.
         :::image type="content" source="media/connector-salesforce/permission-set-assignments.png" alt-text="Screenshot of the permission set assignments.":::
 
-    1. From the connected app detail page, click Manage, Click **Edit Policies**. For **Run As**, select an execution user who has the API Only User permission. Set the **Timeout Value** value to None.
+    1. From the connected app detail page, click Manage, click **Edit Policies**. For **Run As**, select an execution user who has the API Only User permission. Set the **Timeout Value** value to None.
 
         :::image type="content" source="media/connector-salesforce/connected-app-detail.png" alt-text="Screenshot of the connected app detail.":::
         
