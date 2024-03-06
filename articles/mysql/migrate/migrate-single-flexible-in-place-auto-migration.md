@@ -100,7 +100,7 @@ Following described are the ways to review your migration schedule once you have
 
 **Q. How can I set up or view in-place migration alerts?​**
 
-**A.** Following are the ways you can set up alerts :
+**A.** Following are the ways you can set up alerts:
 
 * Configure service health alerts to receive in-place migration schedule and progress notifications via email/SMS by following steps [here](../single-server/concepts-planned-maintenance-notification.md#to-receive-planned-maintenance-notification).
 * Check the in-place migration notification on the Azure portal by following steps [here](../single-server/concepts-planned-maintenance-notification.md#check-planned-maintenance-notification-from-azure-portal).
@@ -111,7 +111,7 @@ Following described are the ways to review your migration schedule once you have
 
 **Q. What are some post-migration activities I need to perform?​**
 
-**A.** Following are some post-migration activities :
+**A.** Following are some post-migration activities:
 
 * Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
 * Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
