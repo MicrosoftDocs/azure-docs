@@ -23,7 +23,7 @@ To install the Microsoft Remote Desktop app:
 
 1. Open the app store on your Chromebook, and search for **Microsoft Remote Desktop**.
 
-    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/install-remote-desktop-chromebook.png" alt-text="Screenshot of the Microsoft Remote Desktop app in the app store.":::
+    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/install-remote-desktop-chromebook.png" alt-text="Screenshot of the Microsoft Remote Desktop app in the app store." lighbox="./media/connect-virtual-machine-chromebook-remote-desktop/install-remote-desktop-chromebook.png":::
 
 1. Select **Install** to install the latest version of the Remote Desktop application by Microsoft Corporation.
 
@@ -35,23 +35,23 @@ Connect to the lab VM by using the remote desktop application. You can retrieve 
 
 1. On the tile for your VM, ensure the [VM is running](how-to-use-lab.md#start-or-stop-the-vm) and select the **Connect** icon.
 
-    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/connect-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services. The connect icon button on the VM tile is highlighted.":::
+    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/connect-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services with the connect icon button on the VM tile highlighted." lightbox="./media/connect-virtual-machine-chromebook-remote-desktop/connect-vm.png":::
 
 1. When you connect to a Linux VM, you see two options to connect to the VM: SSH and RDP. Select the **Connect via RDP** option. If you're connecting to a Windows VM, you don't need to choose a connection option. The RDP file downloads.
 
-    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/student-vm-connect-options.png" alt-text="Screenshot that shows V M tile for student with the RDP and SSH connection options highlighted.":::
+    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/student-vm-connect-options.png" alt-text="Screenshot that shows VM tile for student with the RDP and SSH connection options highlighted." lightbox="./media/connect-virtual-machine-chromebook-remote-desktop/student-vm-connect-options.png":::
 
 1. Open the **RDP** file on your computer with **Microsoft Remote Desktop** installed. It should start connecting to the VM.
 
-    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/connect-vm-chromebook.png" alt-text="Screenshot of the Microsoft Remote Desktop app connecting to VM.":::
+    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/connect-vm-chromebook.png" alt-text="Screenshot of the Microsoft Remote Desktop app connecting to VM." lightbox="./media/connect-virtual-machine-chromebook-remote-desktop/connect-vm-chromebook.png":::
 
 1. When prompted, enter your user name and password.
 
-    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/password-chromebook.png" alt-text="Screenshot that shows the Logon screen where you enter your username and password.":::
+    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/password-chromebook.png" alt-text="Screenshot that shows the Logon screen where you enter your username and password." lightbox="./media/connect-virtual-machine-chromebook-remote-desktop/password-chromebook.png":::
 
 1. If you receive a certificate warning, you can select **Continue**.
 
-    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/certificate-error-chromebook.png" alt-text="Screenshot that shows certificate warning when connecting to lab VM.":::
+    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/certificate-error-chromebook.png" alt-text="Screenshot that shows certificate warning when connecting to lab VM." lightbox="./media/connect-virtual-machine-chromebook-remote-desktop/certificate-error-chromebook.png":::
 
 1. After the connection is established, you see the desktop of your lab VM.
 

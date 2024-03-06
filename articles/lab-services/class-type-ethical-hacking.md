@@ -128,17 +128,17 @@ To install the Metasploitable nested VM on the template VM:
    1. On the **Before You Begin** page of the **New Virtual Machine Wizard**, select **Next**.
    1. On the **Specify Name and Location** page, enter **Metasploitable** for the **name**, and select **Next**.
 
-      :::image type="content" source="./media/class-type-ethical-hacking/new-vm-wizard-1.png" alt-text="Screenshot of New Virtual Machine Wizard in Hyper V.":::
+      :::image type="content" source="./media/class-type-ethical-hacking/new-vm-wizard-1.png" alt-text="Screenshot of New Virtual Machine Wizard in Hyper V." lightbox="./media/class-type-ethical-hacking/new-vm-wizard-1.png":::
 
    1. On the **Specify Generation** page, accept the defaults, and select **Next**.
    1. On the **Assign Memory** page, enter **512 MB** for the **startup memory**, and select **Next**.
 
-      :::image type="content" source="./media/class-type-ethical-hacking/assign-memory-page.png" alt-text="Screenshot of Assign Memory page of New Virtual Machine Wizard in Hyper V.":::
+      :::image type="content" source="./media/class-type-ethical-hacking/assign-memory-page.png" alt-text="Screenshot of Assign Memory page of New Virtual Machine Wizard in Hyper V." lightbox="./media/class-type-ethical-hacking/assign-memory-page.png":::
 
    1. On the **Configure Networking** page, leave the connection as **Not Connected**. Set the network adapter later.
    1. On the **Connect Virtual Hard Disk** page, select **Use an existing virtual hard disk**. Browse to the location for the *Metasploitable.vhdx* file in the previous step, and select **Next**.
 
-      :::image type="content" source="./media/class-type-ethical-hacking/connect-virtual-network-disk.png" alt-text="Screenshot of Connect Virtual Hard Disk  page of New Virtual Machine Wizard in Hyper V.":::
+      :::image type="content" source="./media/class-type-ethical-hacking/connect-virtual-network-disk.png" alt-text="Screenshot of Connect Virtual Hard Disk  page of New Virtual Machine Wizard in Hyper V." lightbox="./media/class-type-ethical-hacking/connect-virtual-network-disk.png":::
 
    1. On the **Completing the New Virtual Machine Wizard** page, and select **Finish**.
    1. After the virtual machine is created, select it in the Hyper-V Manager. Don't turn on the VM yet.  
@@ -146,11 +146,11 @@ To install the Metasploitable nested VM on the template VM:
    1. On the **Settings for Metasploitable** page, select **Add Hardware**.
    1. Select **Legacy Network Adapter**, and select **Add**.
 
-      :::image type="content" source="./media/class-type-ethical-hacking/network-adapter-page.png" alt-text="Screenshot of settings dialog for Hyper V VM.":::
+      :::image type="content" source="./media/class-type-ethical-hacking/network-adapter-page.png" alt-text="Screenshot of settings dialog for Hyper V VM." lightbox="./media/class-type-ethical-hacking/network-adapter-page.png":::
 
    1. On the **Legacy Network Adapter** page, select **Default Switch** for the **Virtual Switch** setting, and select **OK**.
 
-      :::image type="content" source="./media/class-type-ethical-hacking/legacy-network-adapter-page.png" alt-text="Screenshot of Legacy Network adapter settings page for Hyper V VM.":::
+      :::image type="content" source="./media/class-type-ethical-hacking/legacy-network-adapter-page.png" alt-text="Screenshot of Legacy Network adapter settings page for Hyper-V VM." lightbox="./media/class-type-ethical-hacking/legacy-network-adapter-page.png":::
 
    1. The Metasploitable image is now ready for use. From **Hyper-V Manager**, choose **Action** > **Start**, then choose **Action** > **Connect** to connect to the virtual machine. The default username is `msfadmin` and the password is `msfadmin`.
 
