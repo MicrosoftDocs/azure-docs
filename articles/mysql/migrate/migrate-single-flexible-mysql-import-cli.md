@@ -28,7 +28,7 @@ This tutorial shows how to use the Azure Database for MySQL Import CLI command t
 
 ## What's new?
 
-- Azure Database for MySQL Import operation for Single Servers with Legacy Storage architecture (General Purpose storage V1) is now supported. (Feb 2024)
+- Azure Database for MySQL Import operation for Single Servers with Legacy Storage architecture (General Purpose storage V1) is now supported. You need to set the parameter log_bin=ON for your Single Server instance with Legacy Storage before initiating the import operation. In order to do so, create a read replica for your Single Server instance and then delete it. This operation will set the parameter log_bin to ON and you can then trigger an import operation to migrate to Flexible Server. (Feb 2024)
 
 ## Launch Azure Cloud Shell
 
@@ -63,6 +63,7 @@ az account set --subscription <subscription id>
 - For CMK enabled Single Server instances, Azure Database for MySQL Import command requires you to provide mandatory input parameters for enabling CMK on target Flexible Server.
 - If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with Azure Database for MySQL Import CLI input parameters or post migration as well.
 - If the Single Server instance has 'Query Store' enabled, enabling slow query logs on target Flexible Server instance is recommended to support similar functionality. You can configure slow query logs on the target flexible server by following steps [here](/azure/mysql/flexible-server/tutorial-query-performance-insights#configure-slow-query-logs-by-using-the-azure-portal). You can then view query insights by using [workbooks template](/azure/mysql/flexible-server/tutorial-query-performance-insights#view-query-insights-by-using-workbooks).
+- If your Single Server instance has Legacy Storage architecture (General Purpose storage V1), you need to set the parameter log_bin=ON for your Single Server instance before initiating the import operation. In order to do so, create a read replica for your Single Server instance and then delete it. This operation will set the parameter log_bin to ON and you can then trigger an import operation to migrate to Flexible Server.
 - Only instance-level import is supported. No option to import selected databases within an instance is provided.
 - Below items should be copied from source to target by the user post the Import operation:
   - Read-Replicas
