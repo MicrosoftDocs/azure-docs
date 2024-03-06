@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure HDInsight
 description: This article contains important reference material you need when you monitor Azure HDInsight.
-ms.date: 03/01/2024
+ms.date: 03/05/2024
 ms.custom: horz-monitor
 ms.topic: reference
 ms.service: hdinsight
@@ -89,10 +89,10 @@ The available logs and metrics vary depending on your HDInsight cluster type.
 
 The new Azure Monitor integration implements new tables in the Log Analytics workspace. The following tables show the log table mappings from the classic Azure Monitor integration to the new one.
 
-The **Workload** column describes which workload each table is associated with. The **New Table** row shows the name of the new table. The **Description** row describes the type of logs/metrics that are available in this table. The **Old Table** row is a list of all the tables from the classic Azure Monitor integration whose data will now be present in the table listed in the **New Table** row.
+The **New table** column shows the name of the new table. The **Description** row describes the type of logs/metrics that are available in this table. The **Classic table** column is a list of all the tables from the classic Azure Monitor integration whose data is now present in the new table.
 
 > [!NOTE]
-> Some tables are new and not based on old tables.
+> Some tables are completely new and not based on previous tables.
 
 ### General workload tables
 
@@ -102,12 +102,12 @@ The **Workload** column describes which workload each table is associated with. 
 | HDInsightAmbariClusterAlerts | Ambari Cluster Alerts from each node in the cluster (except for edge nodes). Each alert is a record in this table. | metrics\_cluster\_alerts\_CL |
 | HDInsightSecurityLogs | Records from the Ambari Audit and Auth Logs. | log\_ambari\_audit\_CL, log\_auth\_CL |
 | HDInsightRangerAuditLogs | All records from the Ranger Audit log for ESP clusters. | ranger\_audit\_logs\_CL |
-| HDInsightGatewayAuditLogs\_CL | The Gateway nodes audit information. It's the same format as the classic table and is still located in the Custom Logs section. | log\_gateway\_Audit\_CL |
+| HDInsightGatewayAuditLogs\_CL | The Gateway nodes audit information. Same format as the classic table, and still located in the Custom Logs section. | log\_gateway\_Audit\_CL |
 
 ### Spark workload
 
 > [!NOTE]
-> Spark application related tables have been replaced with 11 new Spark tables (starting with HDInsightSpark) that give more in-depth information about your Spark workloads.
+> Spark application related tables have been replaced with 11 new Spark tables starting with HDInsightSpark that give more in-depth information about your Spark workloads.
 
 
 | New table | Description | Classic table |
@@ -129,7 +129,7 @@ The **Workload** column describes which workload each table is associated with. 
 
 | New table | Description | Classic table |
 | --- | --- | --- |
-| HDInsightHadoopAndYarnMetrics | JMX metrics from the Hadoop and YARN frameworks. Contains all the same JMX metrics as the previous Custom Logs tables, plus more important metrics: Timeline Server, Node Manager, and Job History Server metrics. Contains one metric per record. | metrics\_resourcemanager\_clustermetrics\_CL, metrics\_resourcemanager\_jvm\_CL, metrics\_resourcemanager\_queue\_root\_CL, metrics\_resourcemanager\_queue\_root\_joblauncher\_CL, metrics\_resourcemanager\_queue\_root\_default\_CL, metrics\_resourcemanager\_queue\_root\_thriftsvr\_CL |
+| HDInsightHadoopAndYarnMetrics | JMX metrics from the Hadoop and YARN frameworks. Contains all the same JMX metrics as the previous Custom Logs tables, plus more important metrics: Timeline Server, Node Manager, and Job History Server. Contains one metric per record. | metrics\_resourcemanager\_clustermetrics\_CL, metrics\_resourcemanager\_jvm\_CL, metrics\_resourcemanager\_queue\_root\_CL, metrics\_resourcemanager\_queue\_root\_joblauncher\_CL, metrics\_resourcemanager\_queue\_root\_default\_CL, metrics\_resourcemanager\_queue\_root\_thriftsvr\_CL |
 | HDInsightHadoopAndYarnLogs | All logs generated from the Hadoop and YARN frameworks. | log\_mrjobsummary\_CL, log\_resourcemanager\_CL, log\_timelineserver\_CL, log\_nodemanager\_CL |
 
  
@@ -145,14 +145,14 @@ The **Workload** column describes which workload each table is associated with. 
 
 | New table | Description | Classic table |
 | --- | --- | --- |
-| HDInsightKafkaMetrics | JMX metrics from Kafka. Contains all the same JMX metrics as the old Custom Logs tables, plus other important metrics, one metric per record. | metrics\_kafka\_CL |
+| HDInsightKafkaMetrics | JMX metrics from Kafka. Contains all the same JMX metrics as the old Custom Logs tables, plus other important metrics. One metric per record. | metrics\_kafka\_CL |
 | HDInsightKafkaLogs | All logs generated from the Kafka Brokers. | log\_kafkaserver\_CL, log\_kafkacontroller\_CL |
 
 ### HBase workload
 
 | New table | Description | Classic table |
 | --- | --- | --- |
-| HDInsightHBaseMetrics | JMX metrics from HBase. Contains all the same JMX metrics from the previous tables. In contrast with the previous tables, each row contains one metric. | metrics\_regionserver\_CL, metrics\_regionserver\_wal\_CL, metrics\_regionserver\_ipc\_CL, metrics\_regionserver\_os\_CL, metrics\_regionserver\_replication\_CL, metrics\_restserver\_CL, metrics\_restserver\_jvm\_CL, metrics\_hmaster\_assignmentmanager\_CL, metrics\_hmaster\_ipc\_CL, metrics\_hmaser\_os\_CL, metrics\_hmaster\_balancer\_CL, metrics\_hmaster\_jvm\_CL, metrics\_hmaster\_CL,metrics\_hmaster\_fs\_CL |
+| HDInsightHBaseMetrics | JMX metrics from HBase. Contains all the same JMX metrics from the previous tables. In contrast with the previous tables, each row contains one metric. | metrics\_regionserver\_CL, metrics\_regionserver\_wal\_CL, metrics\_regionserver\_ipc\_CL, metrics\_regionserver\_os\_CL, metrics\_regionserver\_replication\_CL, metrics\_restserver\_CL, metrics\_restserver\_jvm\_CL, metrics\_hmaster\_assignmentmanager\_CL, metrics\_hmaster\_ipc\_CL, metrics\_hmaser\_os\_CL, metrics\_hmaster\_balancer\_CL, metrics\_hmaster\_jvm\_CL, metrics\_hmaster\_CL, metrics\_hmaster\_fs\_CL |
 | HDInsightHBaseLogs | Logs from HBase and its related components: Phoenix and HDFS. | log\_regionserver\_CL, log\_restserver\_CL, log\_phoenixserver\_CL, log\_hmaster\_CL, log\_hdfsnamenode\_CL, log\_garbage\_collector\_CL |
 
 ### Oozie workload
