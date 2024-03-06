@@ -1,6 +1,6 @@
 ---
 title: Azure API Center as Event Grid source
-description: Describes the properties that are provided for Azure API Management events with Azure Event Grid
+description: Describes the properties that are provided for Azure API Center events with Azure Event Grid
 ms.topic: conceptual
 ms.date: 03/05/2024
 author: dlepow
@@ -31,7 +31,7 @@ When an event is triggered, the API Center service sends data about that event t
 ```json
 [{
   "source": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services",
-  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/{api_center_name}/workspaces/default/apis/{api-name}/versions/{version_name}/definitions/{definition_name}",
+  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/{api_center_name}/workspaces/default/apis/{api_name}/versions/{version_name}/definitions/{definition_name}",
   "type": "Microsoft.ApiCenter.ApiDefinitionAdded",
   "time": "2024-03-01T00:00:00.0000000Z",
   "id": "00000000-0000-0000-0000-000000000000",
@@ -52,7 +52,7 @@ When an event is triggered, the API Center service sends data about that event t
 ```json
 [{
   "source": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services",
-  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/{api_center_name}/workspaces/default/apis/{api-name}/versions/{version_name}/definitions/{definition_name}",
+  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/{api_center_name}/workspaces/default/apis/{api_name}/versions/{version_name}/definitions/{definition_name}",
   "type": "Microsoft.ApiCenter.ApiDefinitionUpdated",
   "time": "2024-03-01T00:00:00.0000000Z",
   "id": "00000000-0000-0000-0000-000000000000",
@@ -76,7 +76,7 @@ When an event is triggered, the API Center service sends data about that event t
 ```json
 [{
   "topic": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services",
-  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/contoso/workspaces/default/apis/echo-api/versions/2023-01-01/definitions/openapi",
+  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/{api_center_name}/workspaces/default/apis/{api_name}/versions/2023-01-01/definitions/openapi",
   "eventType": "Microsoft.ApiCenter.ApiDefinitionAdded",
   "id": "00000000-0000-0000-0000-000000000000",
   "data": {
@@ -98,7 +98,7 @@ When an event is triggered, the API Center service sends data about that event t
 ```json
 [{
   "topic": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services",
-  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/contoso/workspaces/default/apis/echo-api/versions/2023-01-01/definitions/openapi",
+  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/{api_center_name}/workspaces/default/apis/{api_name}/versions/2023-01-01/definitions/openapi",
   "eventType": "Microsoft.ApiCenter.ApiDefinitionUpdated",
   "id": "00000000-0000-0000-0000-000000000000",
   "data": {
@@ -119,9 +119,7 @@ When an event is triggered, the API Center service sends data about that event t
 
 ## Event properties
 
-
 # [Cloud event schema](#tab/cloud-event-schema)
-
 
 An event has the following top-level data:
 
@@ -149,8 +147,8 @@ An event has the following top-level data:
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |
----
 
+---
 
 The data object has the following properties:
 
