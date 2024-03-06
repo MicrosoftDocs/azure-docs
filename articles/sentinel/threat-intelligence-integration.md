@@ -102,7 +102,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### EclecticIQ Platform
 
-- EclecticIQ Platform integrates with Microsoft Sentinel to enhance threat detection, hunting and response. Learn more about the [benefits and use cases](https://www.eclecticiq.com/resources/azure-sentinel-and-eclecticiq-intelligence-center) of this two-way integration.
+- EclecticIQ Platform integrates with Microsoft Sentinel to enhance threat detection, hunting and response. Learn more about the [benefits and use cases](https://www.eclecticiq.com/resources/microsoft-sentinel-and-eclecticiq-intelligence-center) of this two-way integration.
 
 ### GroupIB Threat Intelligence and Attribution
 
