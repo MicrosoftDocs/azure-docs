@@ -23,6 +23,7 @@ Generative AI (GenAI) refers to a class of Artificial Intelligence algorithms th
 
 GenAI is used in image and music synthesis, healthcare, common tasks such as text autocompletion, text summarization and translation. GenAI techniques enable features on data such as clustering and segmentation, semantic search and recommendations, topic modeling, question answering and anomaly detection. 
 
+
 >[!Video https://www.youtube.com/embed/em0PKDGzzlQ?si=cT0VVzVv_2xV1Mi_]
 
 ## OpenAI
