@@ -14,7 +14,7 @@ ms.date: 01/03/2024
 
 # What are Azure Machine Learning environments?
 
-Azure Machine Learning environments are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, and software settings around your training and scoring scripts. The environments are managed and versioned entities within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of compute targets.
+Azure Machine Learning environments are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, and software settings around your training and scoring scripts. The environments are managed and versioned entities within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across various compute targets.
 
 You can use an `Environment` object to:
 * Develop your training script.
@@ -65,11 +65,11 @@ Azure Machine Learning builds environment definitions into Docker images. It als
 
 ### Submitting a job using an environment
 
-When you first submit a remote job using an environment or create environment instance manually, the Azure Machine Learning will build an image for the provided specification. Result image will be cached in the container registry instance associated with the workspace. Curated environments are already cached in the AzureML Registry. At the start of the job execution, the image is retrieved by the compute target from the relevant container registry.
+When you first submit a remote job using an environment or create environment instance manually, the Azure Machine Learning builds an image for the provided specification. Result image is cached in the container registry instance associated with the workspace. Curated environments are already cached in the AzureML Registry. At the start of the job execution, the image is retrieved by the compute target from the relevant container registry.
 
 ### Building environments as Docker images
 
-If the image for a particular environment definition doesn't already exist in the container registry instance associated with AzureML Workspace, a new image will be built. For system managed environmetns, the image build consists of two steps:
+If the image for a particular environment definition doesn't already exist in the container registry instance associated with AzureML Workspace, a new image is built. For system managed environmetns, the image build consists of two steps:
 
  1. Downloading a base image, and executing any Docker steps
  2. Building a conda environment according to conda dependencies specified in the environment definition.
@@ -88,18 +88,18 @@ To determine whether to reuse a cached image or build a new one, Azure Machine L
  * Custom docker steps
  * Python packages
 
-The hash isn't affected by the environment name or version. If you rename your environment or create a new one with the same settings and packages as another environment, then the hash value will remain the same. However, environment definition changes like adding or removing a Python package or changing a package version will result cause the resulting hash value to change. Changing the order of dependencies or channels in an environment will also change the hash and require a new image build. Similarly, any change to a curated environment will result in the creation of a new "non-curated" environment. 
+The hash isn't affected by the environment name or version. If you rename your environment or create a new one with the same settings and packages as another environment, then the hash value remains the same. However, environment definition changes like adding or removing a Python package or changing a package version changes the resulting hash value. Changing the order of dependencies or channels in an environment will also change the hash and require a new image build. Similarly, any change to a curated environment results in the creation of a new "non-curated" environment. 
 
 > [!NOTE]
 > You will not be able to submit any local changes to a curated environment without changing the name of the environment. The prefixes "AzureML-" and "Microsoft" are reserved exclusively for curated environments, and your job submission will fail if the name starts with either of them.
 
-The environment's computed hash value is compared with those in the Workspace container registry. If there is a match then the cached image is pulled and used, otherwise an image build is triggered.
+The environment's computed hash value is compared with those in the Workspace container registry. If there is a match, then the cached image is pulled and used, otherwise an image build is triggered.
 
 The following diagram shows three environment definitions. Two of them have different names and versions but identical base images and Python packages, which results in the same hash and corresponding cached image. The third environment has different Python packages and versions, leading to a different hash and cached image.
 
 ![Diagram of environment caching and Docker images](./media/concept-environments/environment-caching.png)
 
-Actual cached images in your workspace container registry will have names similar to `azureml/azureml_e9607b2514b066c851012848913ba19f` with the hash appearing at the end.
+Actual cached images in your workspace container registry has names similar to `azureml/azureml_e9607b2514b066c851012848913ba19f` with the hash appearing at the end.
 
 >[!IMPORTANT]
 > * If you create an environment with an unpinned package dependency (for example, `numpy`), the environment uses the package version that was *available when the environment was created*. Any future environment that uses a matching definition will use the original version. 
@@ -112,7 +112,7 @@ Actual cached images in your workspace container registry will have names simila
 
 Microsoft is responsible for patching the base images for known security vulnerabilities. Updates for supported images are released every two weeks, with a commitment of no unpatched vulnerabilities older than 30 days in the latest version of the image. Patched images are released with a new immutable tag and the `:latest` tag is updated to the latest version of the patched image. 
 
-You'll need to update associated Azure Machine Learning assets to use the newly patched image. For example, when working with a managed online endpoint, you'll need to redeploy your endpoint to use the patched image.
+You need to update associated Azure Machine Learning assets to use the newly patched image. For example, when working with a managed online endpoint, you need to redeploy your endpoint to use the patched image.
 
 If you provide your own images, you're responsible for updating them and updating the Azure Machine Learning assets that use them.
 
