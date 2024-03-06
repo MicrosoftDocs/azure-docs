@@ -7,24 +7,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this tutorial, you learn how to send inline images using the Azure Communication Services Chat SDK for JavaScript.
-
-## Sample Code
-Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
-
-## Prerequisites 
-
-* You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
-* Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
-* You've set up a Teams meeting using your business account and have the meeting URL ready.
-* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.4.0 or latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
-
-## Goal
-
-1. Be able to render preview images in the message thread
-2. Be able to render full scale image upon click on preview images
-
-## Handle inline images for new messages
+## Handle sending images
 
 
 In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we've created an event handler for `chatMessageReceived` event, which would be trigger when we receive a new message from the Teams user. We have also appended incoming message content to `messageContainer` directly upon receiving the `chatMessageReceived` event from the `chatClient` like this:
