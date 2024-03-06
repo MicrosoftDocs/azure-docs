@@ -229,7 +229,7 @@ items:
       href: ecosystem-disaster-recovery-vms.md
     - name: External storage solutions
       items:
-      - name: External storage solutions
+      - name: Storage solution overview
         href: ecosystem-external-storage-solutions.md
       - name: Pure Cloud Block Store
         href: configure-pure-cloud-block-store.md
