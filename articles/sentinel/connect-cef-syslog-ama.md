@@ -46,11 +46,11 @@ This diagram shows Syslog messages being collected from a single individual Linu
 
 The data ingestion process using the Azure Monitor Agent uses the following components and data flows:
 
-- **Log sources:** These are your various Linux VMs in your environment that produce Syslog messages. These messages are collected by the local Syslog daemon on TCP or UDP port 514 (per your preference).
+- **Log sources:** These are your various Linux VMs in your environment that produce Syslog messages. These messages are collected by the local Syslog daemon on TCP or UDP port 514 (or another port per your preference).
 
-- The local **Syslog daemon** (either `rsyslog` or `syslog-ng`) collects the log messages on TCP or UDP port 514 (per your preference). The daemon then sends these logs\* to the **Azure Monitor Agent**.
+- The local **Syslog daemon** (either `rsyslog` or `syslog-ng`) collects the log messages on TCP or UDP port 514 (or another port per your preference). The daemon then sends these logs to the **Azure Monitor Agent** (see note below).
 
-- The **Azure Monitor Agent** that you install on each Linux VM you want to collect Syslog messages from, by [setting up the data connector according to the instructions below](tabs=single%2Csyslog%2Cportal#set-up-the-syslog-via-ama-connector). The agent parses the logs and then sends them to your **Microsoft Sentinel (Log Analytics) workspace**.
+- The **Azure Monitor Agent** that you install on each Linux VM you want to collect Syslog messages from, by [setting up the data connector according to the instructions below](?tabs=single%2Csyslog%2Cportal#set-up-the-syslog-via-ama-connector). The agent parses the logs and then sends them to your **Microsoft Sentinel (Log Analytics) workspace**.
 
 - Your **Microsoft Sentinel (Log Analytics) workspace:** Syslog messages sent here end up in the *Syslog* table, where you can query the logs and perform analytics on them to detect and respond to security threats.
 
@@ -62,11 +62,12 @@ This diagram shows Syslog and CEF messages being collected from a Linux-based lo
 
 The data ingestion process using the Azure Monitor Agent uses the following components and data flows:
 
-- **Log sources:** These are your various security devices and appliances in your environment that produce log messages in CEF format, or in plain Syslog. These devices are [configured](#run-the-installation-script) to send their log messages over TCP or UDP port 514 (per your preference), *not* to their local Syslog daemon, but instead to the **Syslog daemon on the Log forwarder**.
+- **Log sources:** These are your various security devices and appliances in your environment that produce log messages in CEF format, or in plain Syslog. These devices are [configured](#run-the-installation-script) to send their log messages over TCP or UDP port 514 (or another port per your preference), *not* to their local Syslog daemon, but instead to the **Syslog daemon on the Log forwarder**.
 
 - **Log forwarder:** This is a dedicated Linux VM that your organization sets up to collect the log messages from your Syslog and CEF log sources. The VM can be on-premises, in Azure, or in another cloud. This log forwarder itself has two components:
-    - The **Syslog daemon** (either `rsyslog` or `syslog-ng`) collects the log messages on TCP or UDP port 514 (per your preference). The daemon then sends these logs\* to the **Azure Monitor Agent**.
-    - The **Azure Monitor Agent** that you install on the log forwarder by setting up the Syslog and/or CEF data connectors according to the instructions below ([Syslog](tabs=forwarder%2Csyslog%2Cportal#set-up-the-syslog-via-ama-connector) | [CEF](?tabs=forwarder%2Ccef%2Cportal#set-up-the-common-event-format-cef-via-ama-connector)). The agent parses the logs and then sends them to your **Microsoft Sentinel (Log Analytics) workspace**.
+    - The **Syslog daemon** (either `rsyslog` or `syslog-ng`) collects the log messages on TCP or UDP port 514 (or another port per your preference). The daemon then sends these logs to the **Azure Monitor Agent** (see note below).
+
+    - The **Azure Monitor Agent** that you install on the log forwarder by setting up the Syslog and/or CEF data connectors according to the instructions below ([Syslog](?tabs=forwarder%2Csyslog%2Cportal#set-up-the-syslog-via-ama-connector) | [CEF](?tabs=forwarder%2Ccef%2Cportal#set-up-the-common-event-format-cef-via-ama-connector)). The agent parses the logs and then sends them to your **Microsoft Sentinel (Log Analytics) workspace**.
 
 - Your **Microsoft Sentinel (Log Analytics) workspace:** CEF logs sent here end up in the *CommonSecurityLog* table, and Syslog messages in the *Syslog* table. There you can query the logs and perform analytics on them to detect and respond to security threats.
 
@@ -74,9 +75,13 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 
 > [!NOTE]
 > 
-> \* The Syslog daemon sends logs to the Azure Monitor Agent in two different ways, depending on the AMA version:
-> - AMA versions **1.28.11** and above receive logs on **TCP port 28330**.
-> - Earlier versions of AMA receive logs via Unix domain socket.
+> - The Azure Monitor Agent supports Syslog RFCs 3164 and 5424.
+>
+> - If you want to use a port other than 514 for receiving Syslog/CEF messages, make sure that the port configuration on the Syslog daemon matches that of the application generating the messages.
+>
+> - The Syslog daemon sends logs to the Azure Monitor Agent in two different ways, depending on the AMA version:
+>    - AMA versions **1.28.11** and above receive logs on **TCP port 28330**.
+>    - Earlier versions of AMA receive logs via Unix domain socket.
 
 ## Set up the data connectors
 
