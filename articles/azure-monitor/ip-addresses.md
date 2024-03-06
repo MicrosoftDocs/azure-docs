@@ -53,7 +53,7 @@ Application Insights Agent configuration is needed only when you're making chang
 
 ## Availability tests
 
-This is the list of addresses from which [availability web tests](./app/availability-overview.md) are run. If you want to run web tests on your app but your web server is restricted to serving specific clients, you'll have to permit incoming traffic from our availability test servers.
+This is the list of addresses from which [availability web tests](./app/availability-overview.md) are run. If you want to run web tests on your app but your web server is restricted to serving specific clients, you must permit incoming traffic from our availability test servers.
 
 > [!NOTE]
 > For resources located inside private virtual networks that can't allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](app/availability-azure-functions.md#review-trackavailability-test-results).
@@ -71,7 +71,7 @@ If you're using Azure network security groups, add an *inbound port rule* to all
 Open port 80 (HTTP) and port 443 (HTTPS) for incoming traffic from these addresses. IP addresses are grouped by location.
 
 > [!NOTE]
-> Validate your Azure App Service access restrictions, as you might need to also enable access for the availability test IP addresses. For more information, see [https://learn.microsoft.com/en-us/azure/app-service/overview-access-restrictions#app-access](/azure/app-service/overview-access-restrictions).
+> Validate your Azure App Service access restrictions, as you might need to also enable access for availability test IP addresses. For more information, see [https://learn.microsoft.com/en-us/azure/app-service/overview-access-restrictions#app-access](../app-service/overview-access-restrictions).
 
 ### IP addresses
 
