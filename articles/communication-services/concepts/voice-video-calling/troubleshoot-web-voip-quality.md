@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Troubleshooting Web VOIP Calling Quality
+title: Azure Communication Services Troubleshooting VoIP Call Quality
 titleSuffix: An Azure Communication Services concept document
-description: Learn how to troubleshoot web VOIP calling quality with Azure Communication Services.
+description: Learn how to troubleshoot web VoIP call quality with Azure Communication Services.
 author: Cardiohater1
 ms.author: drohmetra
 manager: dacarte
@@ -14,13 +14,13 @@ ms.subservice: calling
 ---
 
 
-# Troubleshooting quality issues for Azure Communication Services Web VOIP calling
+# Troubleshooting VoIP call quality 
 
-This article describes how to troubleshoot and improve web VOIP call quality in Azure Communication Services.
+This article describes how to troubleshoot and improve web VoIP call quality in Azure Communication Services.
 
-Voice and video calling experiences are an essential communication tool for businesses, organizations, and individuals in today's world. However, customers can experience quality issues. Quality in calls can be impacted based on four network parameters:  bandwidth available, round-trip time (RTT), packet loss, and jitter. 
+Voice and video calling experiences are an essential communication tool for businesses, organizations, and individuals in today's world. However, customers can experience quality issues. Quality in calls can be impacted based on four network parameters: bandwidth available, round-trip time (RTT), packet loss, and jitter. 
 
-VOIP calling using Azure Communication Services is an efficient and reliable way to communicate. If quality issues arise, follow the troubleshooting steps in this article to ensure the best possible user experience. 
+VoIP calling using Azure Communication Services is an efficient and reliable way to communicate. If quality issues arise, follow the troubleshooting steps in this article to ensure the best possible user experience. 
 
 ## Pre call check-up 
 
@@ -100,17 +100,3 @@ For more information about preparing your network or your customers’ network, 
  
 For best practices regarding Azure Communication Services web calling, see [Best practices: Azure Communication Services calling SDKs](../best-practices.md). 
 
-
-
-
-
-
-
-<!-- Comment this out - add to the toc.yml file at row ???.
-
-    - name: Monitor and manage call quality
-      items:
-      - name: Azure Communication Services Troubleshooting Web VOIP Calling Quality
-        href: concepts/voice-video-calling/troubleshoot-web-voip-quality.md
-        displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
- -->
