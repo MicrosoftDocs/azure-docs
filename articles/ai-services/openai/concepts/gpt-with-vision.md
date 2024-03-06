@@ -47,7 +47,7 @@ Enhancements let you incorporate other Azure AI services (such as Azure AI Visio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RW1eHRf]
 
 > [!NOTE]
-> In order to use the video prompt enhancement, you need both an Azure AI Vision resource and an Azure Video Indexer resource, in the paid (S1) tier, in addition to your Azure OpenAI resource.
+> In order to use the video prompt enhancement, you need both an Azure AI Vision resource, in the paid (S1) tier, in addition to your Azure OpenAI resource.
 
 ## Special pricing information
 

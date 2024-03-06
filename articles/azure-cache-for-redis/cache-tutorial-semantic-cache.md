@@ -266,9 +266,9 @@ Finally, query the LLM to get an AI generated response. If you're using a Jupyte
    ```python
    # Code cell 4
 
-    redis_url = "rediss://:" + REDIS_PASSWORD + "@"+ REDIS_ENDPOINT
-    set_llm_cache(RedisSemanticCache(redis_url = redis_url, embedding=embeddings, score_threshold=0.01))
-    ```
+   redis_url = "rediss://:" + REDIS_PASSWORD + "@"+ REDIS_ENDPOINT
+   set_llm_cache(RedisSemanticCache(redis_url = redis_url, embedding=embeddings, score_threshold=0.01))
+   ```
 
 1. Try the query `Please write a poem about cute puppies` again. You should receive a new output that's specific to puppies:
 

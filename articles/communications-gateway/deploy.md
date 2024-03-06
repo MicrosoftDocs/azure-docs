@@ -179,7 +179,7 @@ When your resource has been provisioned, you can connect Azure Communications Ga
     1. Go to the **Overview** page for your Azure Communications Gateway resource.
     1. In each **Service Location** section, find the **MCP hostname** field.
     1. Configure your test numbers with an iFC of the following form, replacing *`<mcp-hostname>`* with the MCP hostname for the preferred region for that subscriber.
-       ```xml
+        ```xml
         <InitialFilterCriteria>
             <Priority>0</Priority>
             <TriggerPoint>
