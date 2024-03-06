@@ -3,7 +3,7 @@ title: Concepts - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 3/4/2024
+ms.date: 3/6/2024
 ms.custom: engagement-fy23
 ---
 
@@ -60,12 +60,13 @@ The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tag
 | Australia East | AZ01 | AV36P | Yes |
 | Australia East | AZ02 | AV36 | No |
 | Australia East | AZ03 | AV36P | Yes |
-| Australia South East | N/A | AV36 | No |
+| Australia South East | AZ01 | AV36 | No |
 | Brazil South | AZ02 | AV36 | No |
 | Canada Central | AZ02 | AV36, AV36P | No |
 | Canada East | N/A | AV36 | No |
 | Central US | AZ01 | AV36P | No |
 | Central US | AZ02 | AV36 | No |
+| Central US | AZ03 | AV36P | No |
 | East Asia | AZ01 | AV36 | No |
 | East US | AZ01 | AV36P | No |
 | East US | AZ02 | AV36P | No |
@@ -73,10 +74,11 @@ The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tag
 | East US 2 | AZ01 | AV36, AV64 | No |
 | East US 2 | AZ02 | AV36P, AV52, AV64 | No |
 | France Central | AZ01 | AV36 | No |
+| Germany West Central | AZ01 | AV36P | Yes |
 | Germany West Central | AZ02 | AV36 | Yes |
 | Germany West Central | AZ03 | AV36, AV36P | Yes |
-| Japan East | N/A | AV36 | No |
-| Japan West | N/A | AV36 | No |
+| Japan East | AZ02 | AV36 | No |
+| Japan West | AZ01 | AV36 | No |
 | North Central US | AZ01 | AV36 | No |
 | North Central US | AZ02 | AV36P | No |
 | North Europe | AZ02 | AV36, AV64 | No |
@@ -87,7 +89,7 @@ The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tag
 | South East Asia | AZ02 | AV36 | No |
 | Sweden Central | AZ01 | AV36 | No |
 | Switzerland North | AZ01 | AV36, AV64 | No |
-| Switzerland West | N/A | AV36, AV64 | No |
+| Switzerland West | AZ01 | AV36, AV64 | No |
 | UK South | AZ01 | AV36, AV36P, AV52, AV64 | Yes |
 | UK South | AZ02 | AV36, AV64 | Yes |
 | UK South | AZ03 | AV36P, AV64 | No |
