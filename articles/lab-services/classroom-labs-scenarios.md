@@ -8,12 +8,12 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: conceptual
 ms.date: 02/28/2024
-#customer intent: As a training specialist, I want to map organizational roles to permissions as a part of organizing training for my enterprise.
+#customer intent: As a training specialist, I want to learn how organizational roles map to permissions, so that I can determine the roles and responsibilities for setting up a training environment for my enterprise.
 ---
 
 # Use labs for trainings in Azure Lab Services
 
-In this article, you learn about the different features and steps for using Azure Lab Services for conducting classes. Azure Lab Services supports educators, such as teachers, professors, trainers, or teaching assistants. An educator can quickly and easily create an online lab to provision preconfigured learning environments for the trainees.
+In this article, you learn about the different features and steps for using Azure Lab Services for conducting classes. Azure Lab Services supports educators, such as teachers, professors, training specialists, trainers, and teaching assistants. An educator can quickly and easily create an online lab to provision preconfigured learning environments for the trainees.
 
 :::image type="content" source="./media/classroom-labs-scenarios/classroom.png" alt-text="Conceptual artwork that shows a teacher and students in a classroom, using Azure Lab Services.":::
 
@@ -30,7 +30,7 @@ Labs meet the following requirements for conducting training in any virtual envi
 - You can easily share the training lab with each trainee
 - You can reuse the training lab again and again
 
-### Mapping organizational roles to permissions
+## Map organizational roles to permissions
 
 Azure Lab Services uses Azure Role-Based Access (Azure RBAC) to manage access to Azure Lab Services. For more information, see the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles). Azure RBAC lets you clearly separate roles and responsibilities for creating and managing labs across different teams and people in your organization.
 

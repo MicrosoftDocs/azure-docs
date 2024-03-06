@@ -49,6 +49,8 @@ Follow these steps to [enable nested virtualization on a template VM](./how-to-e
 
 ## Recommendations
 
+Keep the following recommendations in mind when you configure nested virtualization.
+
 ### Non-admin user
 
 You might choose to create a user without admin privileges when you create a lab. Consider the following issues when you use nested virtualization with such an account.
