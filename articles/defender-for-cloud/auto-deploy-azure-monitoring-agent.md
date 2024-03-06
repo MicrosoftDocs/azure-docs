@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure Monitor Agent on your Azure, multiclo
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 11/02/2023
+ms.date: 02/28/2024
 ms.custom: template-how-to
 ---
 
@@ -19,7 +19,9 @@ In this article, we give an overview of AMA preferences for when you deploy Defe
 
 ## Azure Monitor Agent in Defender for Servers
 
-Azure Monitor Agent (AMA) is still available for deployment on your servers but is not required to receive Defender for Servers features and capabilities. To ensure your servers are secured, receive all the security content of Defender for Servers, verify [Defender for Endpoint (MDE) integration](integration-defender-for-endpoint.md) and [agentless disk scanning](concept-agentless-data-collection.md) are enabled on your subscriptions. This will ensure you’ll seamlessly be up to date and receive all the alternative deliverables once they are provided.
+Azure Monitor Agent (AMA) is still available for deployment on your servers but isn't required to receive Defender for Servers features and capabilities. To ensure your servers are secured, receive all the security content of Defender for Servers, verify [Defender for Endpoint (MDE) integration](integration-defender-for-endpoint.md) and [agentless disk scanning](concept-agentless-data-collection.md) are enabled on your subscriptions. This ensures you’ll seamlessly be up to date and receive all the alternative deliverables once they're provided.
+
+AMA provisioning is available through the Microsoft Defender for Cloud platform only through  Defender for SQL servers on machines. Learn how to [deploy AMA on your servers using standard methods including PowerShell, CLI, and Resource Manager templates](/azure/azure-monitor/vm/monitor-virtual-machine-agent#agent-deployment-options).
 
 ## Availability
 

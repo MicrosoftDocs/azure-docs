@@ -188,9 +188,7 @@ In this example, a script takes the input of a Network Security Group (NSG) and 
     }
     ```
 
-For each recovery plan, create independent variables so that you can reuse the script. Add a prefix by using the recovery plan name. 
-
-For a complete, end-to-end script for this scenario, review [this script](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
+For each recovery plan, create independent variables so that you can reuse the script. Add a prefix by using the recovery plan name.
 
 ### Use a complex variable to store more information
 
@@ -263,7 +261,6 @@ To deploy sample scripts to your Automation account, select the **Deploy to Azur
 - Learn about:
     - [Running failovers](site-recovery-failover.md)
 - Review:
-    -  [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
     - [A few tasks you might want to run during an Azure Site Recovery DR](https://github.com/WernerRall147/RallTheory/tree/main/AzureSiteRecoveryDRRunbooks).
 
 
