@@ -107,13 +107,13 @@ The following list presents the set of features that are currently available in 
 
 The following table represents the set of supported browsers, which are currently available. **We support the most recent three major versions of the browser (most recent three minor versions for Safari)**  unless otherwise indicated.
 
-| Platform     | Chrome | Safari | Edge  | Firefox |  Webview |
-| ------------ | ------ | ------ | ------ | ------- | ------- |
-| Android      | ✔️      | ❌      | ✔️           | ❌      | ✔️     |
-| iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      |
-| macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      |
-| Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
-| Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      |
+| Platform     | Chrome | Safari | Edge  | Firefox |  Webview |  Electron |
+| ------------ | ------ | ------ | ------ | ------- | ------- |  ------- |
+| Android      | ✔️      | ❌      | ✔️           | ❌      | ✔️     | ❌      |
+| iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      | ❌      |
+| macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      | ✔️     |
+| Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      | ✔️     |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      | ✔️     |
 
 - Outgoing Screen Sharing isn't supported on iOS or Android mobile browsers.
 - Firefox support is in public preview.
