@@ -17,6 +17,9 @@ adobe-target-content: ./webjobs-create-ieux
 
 # Run background tasks with WebJobs in Azure App Service
 
+> [!NOTE]
+> WebJobs for Windows container, Linux code, and Linux container is in preview. WebJobs for Windows code is generally available and not in preview.
+
 Deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. You can run background tasks in the Azure App Service.
 
 If instead of the Azure App Service, you're using Visual Studio to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
@@ -34,13 +37,19 @@ Azure Functions provides another way to run programs and scripts. For a comparis
 
 ### <a name="acceptablefiles"></a>Supported file types for scripts or programs
 
+### [Windows code](#tab/windowscode)
 The following file types are supported:
-
-| App type | Windows code | Windows container | Linux code | Linux container |
-|----------|--------------|-------------------|------------|-----------------|
-| Supported file types |.cmd, .bat, .exe (using Windows cmd)<br>.ps1 (using PowerShell)<br>.sh (using Bash)<br>.php (using PHP)<br>.py (using Python)<br>.js (using Node.js)<br>.jar (using Java)<br>|Linux code types | Linux container types |
-|Description|win code | win cont | linux code | linux cont |
-
+**.cmd**, **.bat**, **.exe** (using Windows cmd)<br>**.ps1** (using PowerShell)<br>**.sh** (using Bash)<br>**.php** (using PHP)<br>**.py** (using Python)<br>**.js** (using Node.js)<br>**.jar** (using Java)<br><br>The necessary runtimes to run these file types are already installed on the web app instance.
+### [Windows container (preview)](#tab/windowscontainer)
+The following file types are supported:
+**.cmd**, **.bat**, **.exe** (using Windows cmd)<br><br>In addition to these file types, WebJobs written in the language runtime of the Windows container app.<br>Example: .jar and .war scripts if the container is a Java app.
+### [Linux code (preview)](#tab/linuxcode)
+The following file types are supported:
+**.sh** (using Bash) <br><br>In addition to shell scripts (.sh), WebJobs written in the language of the selected runtime are also supported.<br>Example: Python (.py) scripts if the main site is a Python code app.
+### [Linux container (preview)](#tab/linuxcontainer)
+ The following file types are supported:
+**.sh** (using Bash) <br><br>In addition to shell scripts (.sh), WebJobs written in the language runtime of the Linux container app are also supported. <br>Example: Node (.js) scripts if the site is a Node.js app.
+---
 ### Continuous vs. triggered WebJobs
 
 The following table describes the differences between *continuous* and *triggered* WebJobs:
