@@ -76,7 +76,7 @@ When an event is triggered, the API Center service sends data about that event t
 ```json
 [{
   "topic": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services",
-  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/{api_center_name}/workspaces/default/apis/{api_name}/versions/2023-01-01/definitions/openapi",
+  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/{api_center_name}/workspaces/default/apis/{api_name}/versions/{version_name}/definitions/{definition_name}",
   "eventType": "Microsoft.ApiCenter.ApiDefinitionAdded",
   "id": "00000000-0000-0000-0000-000000000000",
   "data": {
@@ -98,7 +98,7 @@ When an event is triggered, the API Center service sends data about that event t
 ```json
 [{
   "topic": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services",
-  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/{api_center_name}/workspaces/default/apis/{api_name}/versions/2023-01-01/definitions/openapi",
+  "subject": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ApiCenter/services/{api_center_name}/workspaces/default/apis/{api_name}/versions/{version_name}/definitions/{definition_name}",
   "eventType": "Microsoft.ApiCenter.ApiDefinitionUpdated",
   "id": "00000000-0000-0000-0000-000000000000",
   "data": {
