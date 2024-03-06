@@ -108,7 +108,7 @@ United States | Central US or West US 2
 > [!NOTE]
 > For Switzerland geography, Switzerland West is only available for REST API users and need an approved subscription.
 
-#### [Azure Government](#tab/gov)
+#### [Azure for US Government](#tab/gov)
 
 ### Azure Government
 
