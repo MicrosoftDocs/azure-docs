@@ -12,15 +12,15 @@ ms.topic: how-to
 
 # Private DNS information in Azure Resource Graph
 
-[Azure Resource Graph](../governance/resource-graph/overview.md) is an Azure service that allows you to query your Azure resources with complex filtering, grouping, and sorting. Azure Resource Graph (ARG) provides detailed information about your resources and can display results in several ways. 
+[Azure Resource Graph](../governance/resource-graph/overview.md) (ARG) is an Azure service that allows you to query your Azure resources with complex filtering, grouping, and sorting. ARG queries provide detailed information about your resources and you can display the results in several ways. 
 
-You can use the `dnsresources` table to query information about your private zones, including:
+You can display information about your DNS zones, including:
 
 - The type and number of resource records in one or all zones
 - Virtual network links
 - Resource record names and IP addresses
 
-To get started with Resource Graph, search and select **Resource Graph Explorer** in the Azure portal. In the left-hand navigation pane, select the **Table** tab and review the **dnsresources** table. Select **dnsresources** to create a basic query and then click **Run** to return the results.
+To use Resource Graph in the Azure portal, search and select **Resource Graph Explorer**. In the left-hand navigation pane, select the **Table** tab and review the **dnsresources** table. This table is used to query private DNS zone data. Select **dnsresources** to create a basic query and then click **Run query** to return the results. See the following example:
 
 ![Screenshot of a basic ARG query.](./media/private-dns-arg/basic-query.png)
 
@@ -28,7 +28,7 @@ To replace IDs with display names and show values as links where possible, toggl
 
 ## Count resource records by type
 
-To list the types of resource record by type, run the following query:
+The following query uses the **dnsresources** table to provide a count of private zone resource records by type:
 
 ```Kusto
 dnsresources
