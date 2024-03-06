@@ -1,5 +1,5 @@
 --- 
-title: Storage solution overview
+title: External storage solutions overview
 description: Learn about external storage solutions for Azure VMware Solution private cloud.
 ms.topic: how-to
 author: jjaygbay1
@@ -9,7 +9,7 @@ ms.date: 3/06/2024
 ms.custom: engagement-fy23
 --- 
 
-# External storage solutions 
+# External storage solutions overview 
 
 ## External storage solutions for Azure VMware Solution 
 
