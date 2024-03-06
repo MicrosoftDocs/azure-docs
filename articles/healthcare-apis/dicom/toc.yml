@@ -13,13 +13,13 @@ items:
 - name: Get started
   expanded: true
   items: 
-    - name: Get started with the DICOM service
+    - name: [Outdated Getting Started article]
       href: get-started-with-dicom.md
-    - name: Azure Data Lake Storage integration for the DICOM service (Preview)
+    - name: Get started with the DICOM service
       href: dicom-data-lake.md
     - name: Deploy the DICOM service
       href: deploy-dicom-services-in-azure.md
-    - name: Deploy the DICOM service with Data Lake Storage (Preview)
+    - name: Deploy the DICOM service with Data Lake Storage
       href: deploy-dicom-services-in-azure-data-lake.md
     - name: Get an access token
       href: get-access-token.md
