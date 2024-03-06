@@ -30,8 +30,6 @@ ms.date: 06/01/2023
     > - Defenders for Containers customers who joined before August 2023 and don't have Agentless discovery for Kubernetes enabled as part of Defender CSPM when they enabled the plan, must manually enable the Agentless discovery for Kubernetes extension within the Defender for Containers plan.
     > - When you turn off Defender for Containers, the components are set to off and are not deployed to any more containers but they are not removed from containers that they are already installed on.
 
-<BR>
-
 ### Enablement method per capability
 
 By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to automatically enable all capabilities and install all required components to provide the protections offered by the plan, including the assignment of a default workspace.
@@ -39,7 +37,7 @@ By default, when enabling the plan through the Azure portal, [Microsoft Defender
 If you don't want to enable all capabilities of the plans, you can manually select which specific capabilities to enable by selecting **Edit configuration** for the **Containers** plan. Then, in the **Settings & monitoring** page, select the capabilities you want to enable.
 In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) after initial configuration of the plan.
 
-For detailed information on the enablement method for each one the capabilities, see the [support matrix](/azure/defender-for-cloud/support-matrix-defender-for-containers#aws).
+For detailed information on the enablement method for each one the capabilities, see the [support matrix](../support-matrix-defender-for-containers.md#aws).
 
 ### Roles and permissions
 
