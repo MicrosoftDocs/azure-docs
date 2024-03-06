@@ -93,7 +93,7 @@ sections:
         answer: Yes. The Application Gateway v2 SKU supports static public IP addresses and static internal IPs. The v1 SKU supports static internal IPs.
 
       - question: Does Application Gateway support multiple public IPs on the gateway?
-        answer: An application gateway supports  only one public IP address per IP protocol. If the Application Gateway is DualStack, it will support two Public IPs: one for IPv4 and another for IPv6.
+        answer: An application gateway supports  one public IP address per IP protocol.  If the Application Gateway is configured as DualStack, it will provide support for two Public IPs: one for IPv4 and another for IPv6.
 
       - question: How large should I make my subnet for Application Gateway?
         answer: |
