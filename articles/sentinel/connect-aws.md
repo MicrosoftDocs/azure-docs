@@ -18,10 +18,6 @@ This connector is available in two versions: the legacy connector for CloudTrail
 - [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) - [Management](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) and [data](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) events
 - [AWS CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) - [CloudWatch logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
 
-> [!IMPORTANT]
->
-> - The Amazon Web Services S3 connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 # [S3 connector (new)](#tab/s3)
 
 This tab explains how to configure the AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side. Each side's process produces information used by the other side. This two-way authentication creates secure communication.
@@ -52,9 +48,7 @@ This graphic and the following text show how the parts of this connector solutio
 
 - The connector reads the message with the path, then fetches the files from the S3 bucket.
 
-- To connect to the SQS queue and the S3 bucket, Microsoft Sentinel uses AWS credentials and connection information embedded in the AWS S3 connector's configuration. The AWS credentials are configured with a role and a permissions policy giving them access to those resources. Similarly, the Microsoft Sentinel workspace ID is embedded in the AWS configuration, so there is in effect two-way authentication.
-
-  For customers in **Azure Government clouds**, Microsoft Sentinel uses a federated web identity provider (Microsoft Entra ID) for authenticating with AWS through OpenID Connect (OIDC), and assuming an AWS IAM role.
+- To connect to the SQS queue and the S3 bucket, Microsoft Sentinel uses a federated web identity provider (Microsoft Entra ID) for authenticating with AWS through OpenID Connect (OIDC), and assuming an AWS IAM role. The role is configured with a permissions policy giving it access to those resources.
 
 ## Connect the S3 connector
 
@@ -64,9 +58,11 @@ This graphic and the following text show how the parts of this connector solutio
 
     - Create a **Simple Queue Service (SQS) queue** to provide notification.
 
-    - Create an **assumed role** to grant permissions to your Microsoft Sentinel account (external ID) to access your AWS resources.
+    - Create a **web identity provider** to authenticate users to AWS through OpenID Connect (OIDC).
 
-    - Attach the appropriate **IAM permissions policies** to grant Microsoft Sentinel access to the appropriate resources (S3 bucket, SQS).
+    - Create an **assumed role** to grant permissions to users authenticated by the OIDC web identity provider to access your AWS resources.
+
+    - Attach the appropriate **IAM permissions policies** to grant the assumed role access to the appropriate resources (S3 bucket, SQS).
 
     We have made available, in our GitHub repository, a script that **automates the AWS side of this process**. See the instructions for [automatic setup](#automatic-setup) later in this document.
 
@@ -80,7 +76,9 @@ To simplify the onboarding process, Microsoft Sentinel has provided a [PowerShel
 
 The script takes the following actions:
 
-- Creates an *IAM assumed role* with the minimal necessary permissions, to grant Microsoft Sentinel access to your logs in a given S3 bucket and SQS queue.
+- Creates an OIDC web identity provider, to authenticate Microsoft Entra ID users to AWS.
+
+- Creates an *IAM assumed role* with the minimal necessary permissions, to grant OIDC-authenticated users access to your logs in a given S3 bucket and SQS queue.
 
 - Enables specified AWS services to send logs to that S3 bucket, and notification messages to that SQS queue.
 
@@ -88,7 +86,7 @@ The script takes the following actions:
 
 - Configures any necessary IAM permissions policies and applies them to the IAM role created above.
 
-For Azure Government clouds, a specialized script first creates an OIDC identity provider, to which it assigns the IAM assumed role. It then performs all the other steps above.
+For Azure Government clouds, a specialized script creates a different OIDC web identity provider, to which it assigns the IAM assumed role.
 
 ### Prerequisites for automatic setup
 
@@ -169,7 +167,7 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
 1. Under **Configuration**, expand **Setup with PowerShell script (recommended)**, then copy the **External ID (Workspace ID)** to your clipboard.
 
-### Create an AWS assumed role and an Open ID Connect (OIDC) web identity provider
+### Create an Open ID Connect (OIDC) web identity provider and an AWS assumed role
 
 1. In a different browser window or tab, open the AWS console.
 
@@ -177,11 +175,11 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
    | Parameter | Selection/Value | Comments |
    | - | - | - |
-   | **Client ID** | Ignore this, you already have it. See **Audience** line below. |  |
+   | **Client ID** | - | Ignore this, you already have it. See **Audience** line below. |
    | **Provider type** | *OpenID Connect* | Instead of default *SAML*.|
-   | **Provider URL** | `https://sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` |  |
+   | **Provider URL** | `sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/`<br><br>`sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` | for commercial<br><br>for government |
    | **Thumbprint** | `626d44e704d1ceabe3bf0d53397464ac8080142c` | If created in the IAM console, selecting **Get thumbprint** should give you this result. |
-   | **Audience** | `api://d4230588-5f84-4281-a9c7-2c15194b28f7` |  |
+   | **Audience** | `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`<br><br>`api://d4230588-5f84-4281-a9c7-2c15194b28f7` | for commercial<br><br>for government |
    
 3. Create an **IAM assumed role**. Follow these instructions in the AWS documentation:<br>[Creating a role for web identity or OpenID Connect Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create). 
 
