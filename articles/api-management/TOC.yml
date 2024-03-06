@@ -660,6 +660,8 @@
       href: breaking-changes/identity-provider-adal-retirement-sep-2025.md
     - name: CAPTCHA endpoint update (September 2025)
       href: breaking-changes/captcha-endpoint-change-sep-2025.md
+    - name: Analytics dashboard retirement (March 2027)
+      href: breaking-changes/analytics-dashboard-retirement-march-2027.md
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Microsoft Q&A question page
