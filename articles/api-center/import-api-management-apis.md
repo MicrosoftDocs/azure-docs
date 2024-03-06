@@ -6,7 +6,7 @@ ms.service: api-center
 ms.topic: how-to
 ms.date: 01/25/2024
 ms.author: danlep 
-ms.custom: 
+ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to add APIs that are managed in my Azure API Management instance to my API center.
 ---
 

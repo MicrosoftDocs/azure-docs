@@ -20,10 +20,13 @@
       href: quickstart-update-runbook-in-runtime-environment.md   
     - name: Run Azure CLI commands in PowerShell 7.2 runbooks
       href: quickstart-cli-support-powershell-runbook-runtime-environment.md
+    - name: Install Hybrid Worker extension - Azure portal
+      href: quickstarts/install-hybrid-worker-extension.md
     - name: Enable managed identities - Azure portal
       href: quickstarts/enable-managed-identity.md
     - name: Enable Desired State Configuration for a machine
       href: quickstarts/dsc-configuration.md
+
 - name: Tutorials
   items:
     - name: Create PowerShell runbook using managed identity
