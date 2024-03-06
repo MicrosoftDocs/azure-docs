@@ -8,7 +8,7 @@ ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 01/23/2017
-ms.author: mazha
+ms.author: erikre
 
 ---
 # Real-time alerts in Microsoft Azure CDN

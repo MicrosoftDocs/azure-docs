@@ -72,7 +72,7 @@ No, the dependency visualization report in agent-based visualization can't be ex
 For agent-based dependency visualization:
 
 - Use a [script to install the Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md#install-or-upgrade-dependency-agent).
-- For MMA, [use the command line or automation](../azure-monitor/agents/log-analytics-agent.md#installation-options), or use a [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+- For MMA, [use the command line or automation](../azure-monitor/agents/log-analytics-agent.md#installation-options), or use a [script](https://www.powershellgallery.com/).
 - In addition to scripts, you can use deployment tools like Microsoft Configuration Manager and Intigua to deploy the agents.
 
 ## What operating systems does MMA support?

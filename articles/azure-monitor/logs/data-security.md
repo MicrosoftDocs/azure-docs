@@ -95,7 +95,7 @@ Azure Monitor has an incident management process that all Microsoft services adh
 
 While rare, Microsoft notifies each customer within one day if significant loss of any customer data occurs. 
 
-For more information about how Microsoft responds to security incidents, see [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
+For more information about how Microsoft responds to security incidents, see [Introduction to Azure security](/azure/security/fundamentals/overview).
 
 ## Compliance
 The Azure Monitor software development and service team's information security and governance program supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). How Azure Monitor Logs establishes security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we review policies, standards, procedures, and guidelines.

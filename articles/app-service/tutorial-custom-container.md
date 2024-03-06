@@ -87,7 +87,7 @@ At the end of the file, add the following line and save the file:
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
-You can find *InstallFont.ps1* in the **CustomFontSample** project. It's a simple script that installs the font. You can find a more complex version of the script in the [Script Center](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
+You can find *InstallFont.ps1* in the **CustomFontSample** project. It's a simple script that installs the font. You can find a more complex version of the script in the [PowerShell Gallery](/powershell/scripting/gallery/overview).
 
 > [!NOTE]
 > To test the Windows container locally, ensure that Docker is started on your local machine.
