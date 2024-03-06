@@ -13,7 +13,7 @@ items:
 - name: Get started
   expanded: true
   items: 
-    - name: [Outdated Getting Started article]
+    - name: Original Getting Started article
       href: get-started-with-dicom.md
     - name: Get started with the DICOM service
       href: dicom-data-lake.md
