@@ -39,6 +39,9 @@ To complete this quickstart, you need:
 
 ## Connect your Azure DevOps organization
 
+> [!NOTE]
+> After connecting Azure DevOps to Defender for Cloud, the Microsoft Defender for DevOps Container Mapping extension will be automatically shared and installed on all connected Azure DevOps organizations. This extension allows Defender for Cloud to extract metadata from pipelines, such as a container's digest ID and name. This metadata is used to connect DevOps entities with their related cloud resources. [Learn more about container mapping.](container-image-mapping.md)
+
 To connect your Azure DevOps organization to Defender for Cloud by using a native connector:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).

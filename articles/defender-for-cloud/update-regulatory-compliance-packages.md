@@ -8,7 +8,6 @@ ms.custom: ignite-2023
 
 # Assign security standards
 
-
 Defender for Cloud's regulatory standards and benchmarks are represented as [security standards](security-policy-concept.md). Each standard is an initiative defined in Azure Policy.
 
 In Defender for Cloud, you assign security standards to specific scopes such as Azure subscriptions, AWS accounts, and GCP projects that have Defender for Cloud enabled.

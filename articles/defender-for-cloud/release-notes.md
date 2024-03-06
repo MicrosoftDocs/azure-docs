@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 02/26/2024
+ms.date: 03/06/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,6 +20,66 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## March 2024
+
+|Date | Update |
+|----------|----------|
+| March 6 | [(Preview) Compliance standards added to compliance dashboard](#preview-compliance-standards-added-to-compliance-dashboard)  | 
+| March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
+| March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
+
+### (Preview) Compliance standards added to compliance dashboard 
+
+March 6, 2024
+
+Based on customer feedback, we've added the following compliance standards in preview to our compliance dashboard. As shown, these are for reviewing the compliance status of AWS and GCP resources protected by Defender for Cloud.
+
+| Compliance standard                                   | Version    | AWS                             | GCP                             |
+| ----------------------------------------------------- | ---------- | ------------------------------- | ------------------------------- |
+| AWS Well-Architected Framework                        | N/A        | :white_check_mark:              | :x:                             |
+| Brazilian General Personal Data Protection Law (LGPD) | 53/2018    | :white_check_mark:              | :white_check_mark:              |
+| California Consumer Privacy Act (CCPA)                | 2018       | :white_check_mark:              | :white_check_mark:              |
+| CIS Controls                                          | v8         | :x:                             | :white_check_mark:              |
+| CIS Google Cloud Platform Foundation Benchmark        | v2.0.0     | :x:                             | :white_check_mark:              |
+| CIS Google Kubernetes Engine (GKE) Benchmark          | v1.5.0     | :x:                             | :white_check_mark:              |
+| CPS 234 (APRA)                                        | 2019       | :x:                             | :white_check_mark:              |
+| CRI Profile                                           | v1.2.1     | :white_check_mark:              | :white_check_mark:              |
+| CSA Cloud Controls Matrix (CCM)                       | v4.0.10    | :white_check_mark:              | :white_check_mark:              |
+| Cybersecurity Maturity Model Certification (CMMC)     | v2.0       | :x:                             | :white_check_mark:              |
+| FFIEC Cybersecurity Assessment Tool (CAT)             | 2017       | :x:                             | :white_check_mark:              |
+| GDPR                                                  | 2016/679   | :white_check_mark:              | :white_check_mark:              |
+| ISO/IEC 27001                                         | 27001:2022 | :white_check_mark:              | :white_check_mark: **(Update)** |
+| ISO/IEC 27002                                         | 27002:2022 | :white_check_mark:              | :white_check_mark:              |
+| ISO/IEC 27017                                         | 27017:2015 | :x:                             | :white_check_mark:              |
+| NIST Cybersecurity Framework (CSF)                    | v1.1       | :white_check_mark:              | :white_check_mark:              |
+| NIST SP 800-171                                       | Revision 2 | :x:                             | :white_check_mark:              |
+| NIST SP 800-172                                       | 2021       | :white_check_mark:              | :white_check_mark:              |
+| PCI-DSS                                               | v4.0.0     | :white_check_mark: **(Update)** | :white_check_mark: **(Update)** |
+| Sarbanes Oxley Act (SOX)                              | 2002       | :x:                             | :white_check_mark:              |
+| SOC 2                                                 | 2017       | :x:                             | :white_check_mark:              |
+
+We are continuously working on adding and updating new standards for Azure, AWS, and GCP environments.
+
+Learn how to [assign a security standard](update-regulatory-compliance-packages.md).
+
+### Deprecation of two recommendations related to PCI
+
+March 5, 2024
+
+The following two recommendations related to Permission Creep Index (PCI) are being deprecated:
+
+- Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)
+- Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)
+
+See the [list of deprecated security recommendations](recommendations-reference.md#deprecated-recommendations).
+
+
+### Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement
+
+March 3, 2024
+
+The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is being retired. The retirement will be completed by March 6, and until that time partial results may still appear both in the Qualys recommendations, and Qualys results in the security graph. Any customers who were previously using this assessment should upgrade to [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md). For information about transitioning to the container vulnerability assessment offering powered by Microsoft Defender Vulnerability Management, see [Transition from Qualys to Microsoft Defender Vulnerability Management](transition-to-defender-vulnerability-management.md).
+
 ## February 2024
 
 |Date | Update |
@@ -35,10 +95,11 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 February 28, 2024
 
-The updated experience for managing security policies, initially released in Preview for Azure, is expanding its support to cross cloud (AWS and GCP) environments. This Preview release includes: 
+The updated experience for managing security policies, initially released in Preview for Azure, is expanding its support to cross cloud (AWS and GCP) environments. This Preview release includes:
+
 - Managing [regulatory compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud across Azure, AWS, and GCP environments.
 - Same cross cloud interface experience for creating and managing [Microsoft Cloud Security Benchmark(MCSB) custom recommendations](manage-mcsb.md).
-- The updated experience is applied to AWS and GCP for [creating custom recommendations with a KQL query](create-custom-recommendations.md). 
+- The updated experience is applied to AWS and GCP for [creating custom recommendations with a KQL query](create-custom-recommendations.md).
 
 ### Cloud support for Defender for Containers
 

@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Deploy an application to Azure Kubernetes 
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy a multi-container application to your cluster using images stored in Azure Container Registry.
 ms.topic: tutorial
 ms.date: 02/20/2023
-ms.custom: mvc
+ms.custom: mvc, devx-track-extended-azdevcli
 #Customer intent: As a developer, I want to learn how to deploy apps to an Azure Kubernetes Service (AKS) cluster so that I can deploy and run my own applications.
 ---
 
@@ -68,14 +68,14 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     ```yaml
     containers:
     ...
-   - name: order-service
-     image: <acrName>.azurecr.io/aks-store-demo/order-service:latest
+    - name: order-service
+      image: <acrName>.azurecr.io/aks-store-demo/order-service:latest
     ...
-   - name: product-service
-     image: <acrName>.azurecr.io/aks-store-demo/product-service:latest
+    - name: product-service
+      image: <acrName>.azurecr.io/aks-store-demo/product-service:latest
     ...
-   - name: store-front
-     image: <acrName>.azurecr.io/aks-store-demo/store-front:latest
+    - name: store-front
+      image: <acrName>.azurecr.io/aks-store-demo/store-front:latest
     ...
     ```
 
@@ -100,14 +100,14 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     ```yaml
     containers:
     ...
-   - name: order-service
-     image: <acrName>.azurecr.io/aks-store-demo/order-service:latest
+    - name: order-service
+      image: <acrName>.azurecr.io/aks-store-demo/order-service:latest
     ...
-   - name: product-service
-     image: <acrName>.azurecr.io/aks-store-demo/product-service:latest
+    - name: product-service
+      image: <acrName>.azurecr.io/aks-store-demo/product-service:latest
     ...
-   - name: store-front
-     image: <acrName>.azurecr.io/aks-store-demo/store-front:latest
+    - name: store-front
+      image: <acrName>.azurecr.io/aks-store-demo/store-front:latest
     ...
     ```
 

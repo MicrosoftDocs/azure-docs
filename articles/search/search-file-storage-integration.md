@@ -31,7 +31,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + Read permissions on Azure Storage. A "full access" connection string includes a key that grants access to the content.
 
-+ Use a REST client, such as [Postman app](https://www.postman.com/downloads/), if you want to formulate REST calls similar to the ones shown in this article.
++ Use a [REST client](search-get-started-rest.md) to formulate REST calls similar to the ones shown in this article.
 
 ## Supported document formats
 

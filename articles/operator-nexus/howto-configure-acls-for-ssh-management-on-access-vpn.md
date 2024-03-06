@@ -2,7 +2,7 @@
 title: Create ACLs on an NNI in Azure Operator Nexus
 description: Get instructions on setting up network access control lists (ACLs) to control SSH access on a management VPN.
 ms.service: azure-operator-nexus
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/07/2024
 author: sushantjrao
