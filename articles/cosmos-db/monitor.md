@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Cosmos DB
 description: Start here to learn how to monitor Azure Cosmos DB.
-ms.date: 03/02/2024
+ms.date: 03/05/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.author: esarroyo
@@ -30,31 +30,25 @@ For more information about the resource types for Azure Cosmos DB, see [Azure Co
 [!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+
+Azure Monitor collects Azure Cosmos DB metrics by default. You don't need to explicitly configure anything. Most of the metrics are available from the Azure Cosmos DB portal page or from the Azure Monitor page. By default, the metrics are collected with one-minute granularity. The granularity might vary based on the metric you choose. By default, these metrics have a retention period of 30 days.
+
+Azure Cosmos DB server-side metrics include throughput, storage, availability, latency, consistency, and system level metrics. On the client side, you can collect details for request charge, activity ID, exception and stack trace information, HTTP status and substatus code, and diagnostic string. By default, these metrics have a retention period of seven days. You can use this data to debug issues or if you need to contact the Azure Cosmos DB support team.
+
+The dimension values for the metrics, such as container name, are case insensitive. This situation can result in confusion or collision of telemetry and actions on containers with such names. Use case insensitive comparison when doing string comparisons on these dimension values.
+
 For a list of available metrics for Azure Cosmos DB, see [Azure Cosmos DB monitoring data reference](monitor-reference.md#metrics).
 
-## Azure Cosmos DB metrics
-
-In Azure Cosmos DB, you can monitor your client-side and server-side metrics data by selecting **Metrics** on your Azure Cosmos DB portal page navigation. Server-side metrics include throughput, storage, availability, latency, consistency, and system level metrics. By default, these metrics have a retention period of seven days.
-
-Azure Monitor also collects the Azure Cosmos DB metrics by default. Most of the metrics that are available from the Azure Cosmos DB portal page are also available in these metrics. You don't need to explicitly configure anything. The metrics are collected with one-minute granularity. The granularity might vary based on the metric you choose. By default, these metrics have a retention period of 30 days.
-
-The dimension values for the metrics, such as container name, are case insensitive. Use case insensitive comparison when doing string comparisons on these dimension values.
-
-> [!NOTE]
-> Some parts of the Azure platform aren't case sensitive. This situation can result in confusion or collision of telemetry and actions on containers with such names.
-
-On the client side, you can collect the details for request charge, activity ID, exception and stack trace information, HTTP status and substatus code, and diagnostic string. You can use this data to debug issues or if you need to contact the Azure Cosmos DB support team.
-
 [!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
+
 - For information about partner solutions and tools that can help monitor Azure Cosmos DB, see [Monitor Azure Cosmos DB using third-party solutions](monitoring-solutions.md).
 - To implement Micrometer metrics in the Java SDK for Azure Cosmos DB by consuming Prometheus metrics, see [Use Micrometer client metrics for Java](nosql/client-metrics-java.md).
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
-For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Cosmos DB, see [Azure Cosmos DB monitoring data reference](monitor-reference.md#resource-logs).
-
-## Azure Cosmos DB logs
 
 You can monitor diagnostic logs from your Azure Cosmos DB account and create dashboards from Azure Monitor. Data such as events and traces that occur at a second granularity are stored as logs. For example, if the throughput of a container changes, the properties of an Azure Cosmos DB account change. The logs capture these events. You can analyze these logs by running queries on the gathered data.
+
+For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Cosmos DB, see [Azure Cosmos DB monitoring data reference](monitor-reference.md#resource-logs).
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -117,7 +111,7 @@ See the following articles for more information about working with Azure Monitor
 
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-Prior to using Log Analytics to issue Kusto queries, you must [enable diagnostic logs for control plane operations](audit-control-plane-logs.md#enable-diagnostic-logs-for-control-plane-operations). When you enable diagnostic logs, you select between storing your data in a [resource-specific tables](/azure/azure-monitor/essentials/resource-logs#resource-specific) or single [AzureDiagnostics table (legacy)](/azure/azure-monitor/essentials/resource-logs#azure-diagnostics-mode). The exact text of Kusto queries depends on the [collection mode](/azure/azure-monitor/essentials/resource-logs#select-the-collection-mode) you select.
+Prior to using Log Analytics to issue Kusto queries, you must [enable diagnostic logs for control plane operations](audit-control-plane-logs.md#enable-diagnostic-logs-for-control-plane-operations). When you enable diagnostic logs, you select between storing your data in [resource-specific tables](/azure/azure-monitor/essentials/resource-logs#resource-specific) or the single [AzureDiagnostics table (legacy)](/azure/azure-monitor/essentials/resource-logs#azure-diagnostics-mode). The exact text of Kusto queries depends on the [collection mode](/azure/azure-monitor/essentials/resource-logs#select-the-collection-mode) you select.
 
 Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos DB resources. 
 
