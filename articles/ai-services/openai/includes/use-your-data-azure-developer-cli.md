@@ -22,11 +22,11 @@ azd init --template openai-your-own-data-python
 azd init --template openai-your-own-data-javascript
 ```
 
-###
+---
 
 The `azd init` command prompts you for the following information:
 
-    * Environment name: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
+* Environment name: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
 
 ## Use the Azure Developer CLI template to deploy resources
 
@@ -44,8 +44,8 @@ azd up
 
 `azd` prompts you for the following information:
 
-    * Subscription: The Azure subscription that your resources are deployed to.
-    * Location: The Azure region where your resources are deployed.
+* Subscription: The Azure subscription that your resources are deployed to.
+* Location: The Azure region where your resources are deployed.
 
 > [!NOTE]
 > The provisioning process may take several minutes to complete. Wait for the task to finish before you proceed to the next steps.
@@ -71,40 +71,40 @@ The `azd` template includes a complete sample chat app in the `src` directory. W
 
 # [C#](#tab/csharp)
 
-    Open a terminal in the `src` directory of the `azd` template and run the following command:
-    
-    ```bash
-    dotnet run
-    ```
-    
-    You should see the following response content in the output:
-    
-    ```output
-    Answer from assistant:
-    ===
-    Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
-    ===
-    Context information (e.g. citations) from chat extensions:
-    ===
-    tool: {
-      "citations": [
-        {
-          "content": "...",
-          "id": null,
-          "title": "...",
-          "filepath": "...",
-          "url": "...",
-          "metadata": {
-            "chunking": "orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38."
-          },
-          "chunk_id": "2"
+Open a terminal in the `src` directory of the `azd` template and run the following command:
+
+```bash
+dotnet run
+```
+
+You should see the following response content in the output:
+
+```output
+Answer from assistant:
+===
+Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
+===
+Context information (e.g. citations) from chat extensions:
+===
+tool: {
+    "citations": [
+    {
+        "content": "...",
+        "id": null,
+        "title": "...",
+        "filepath": "...",
+        "url": "...",
+        "metadata": {
+        "chunking": "orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38."
         },
-        ...
-      ],
-      "intent": "[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]"
-    }
-    ===
-    ---
+        "chunk_id": "2"
+    },
+    ...
+    ],
+    "intent": "[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]"
+}
+===
+```
 
 # [Python](#tab/python)
 
@@ -116,4 +116,4 @@ tbd
 
 tbd
 
-###
+---
