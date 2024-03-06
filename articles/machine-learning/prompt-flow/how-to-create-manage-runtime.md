@@ -280,6 +280,9 @@ If you want to use a private feed in Azure DevOps, follow these steps:
         
         2. [Add or update user-assigned identities to a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
+            > [!NOTE]
+            > Please make sure the user-assigned managed identity has `Microsoft.KeyVault/vaults/read` on the workspace linked keyvault.
+  
     2. Use compute instance as automatic runtime, you need [assign a user-assigned managed identity to a compute instance](../how-to-create-compute-instance.md#assign-managed-identity).
 
 2. Add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure DevOps, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`:
