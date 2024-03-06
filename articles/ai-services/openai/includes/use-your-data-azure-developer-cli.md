@@ -4,26 +4,26 @@ The Azure Developer CLI (`azd`) is an open-source, command-line tool that stream
 
 1. For the steps ahead, select and initialize the template for your desired language.
 
-## [C#](#tab/csharp)
-
-```bash
-azd init --template openai-your-own-data-csharp
-```
-
-## [Python](#tab/python)
-
-```bash
-azd init --template openai-your-own-data-python
-```
-
-## [JavaScript](#tab/javascript)
-
-```bash
-azd init --template openai-your-own-data-javascript
-```
+    ## [C#](#tab/csharp)
     
----
-
+    ```bash
+    azd init --template openai-your-own-data-csharp
+    ```
+    
+    ## [Python](#tab/python)
+    
+    ```bash
+    azd init --template openai-your-own-data-python
+    ```
+    
+    ## [JavaScript](#tab/javascript)
+    
+    ```bash
+    azd init --template openai-your-own-data-javascript
+    ```
+    
+    ---
+    
 2. The `azd init` command prompts you for the following information:
 
     * Environment name: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
