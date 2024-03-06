@@ -63,8 +63,8 @@ You can also view the total count of resource records visually by selecting the 
 
 ```Kusto
 dnsresources
-| where subscriptionId == "186ffd69-c40a-4dec-87ff-1495378be90e"
-| where resourceGroup == "myresourcegroup"
+| where subscriptionId == "<subscription ID>"
+| where resourceGroup == "<resource group name>"
         | project id, name, type, properties
         |  order by name asc
 ```
