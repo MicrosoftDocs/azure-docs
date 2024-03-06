@@ -259,7 +259,7 @@ If you use the Service Bus managed connector, you need this endpoint URL if you 
 
 1. On the namespace menu, under **Settings**, select **Properties**.
 
-1. Under **Properties**, nex to **Service bus endpoint**, copy the endpoint URL, and save for later use when you have to provide the service bus endpoint URL.
+1. Under **Properties**, next to the **Service Bus endpoint**, copy the endpoint URL, and save for later use when you have to provide the service bus endpoint URL.
 
 <a name="get-fully-qualified-namespace"></a>
 
