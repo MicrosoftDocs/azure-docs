@@ -4,6 +4,7 @@ description: Install Salt Minion on Linux or Windows VMs using the VM Extension.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: devx-track-arm-template, devx-track-azurecli, devx-track-terraform
 ms.author: gabsta
 author: GabstaMSFT
 ms.date: 01/24/2024
@@ -138,4 +139,3 @@ SETTINGS
 * For commercial support or assistance with Salt, you can visit the extension creator, [TurtleTraction](https://turtletraction.com/salt-open-support)
 * The source code of this extension is available on [GitLab](https://gitlab.com/turtletraction-oss/azure-salt-vm-extensions/)
 * For Azure related issues, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support
-

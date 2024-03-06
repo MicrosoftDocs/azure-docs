@@ -79,6 +79,20 @@ See [Modify SMB share permissions](azure-netapp-files-create-volumes-smb.md#modi
 
 Azure NetApp Files also supports [access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) and [non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) on SMB and dual-protocol volumes. You can enable these features during or after the creation of an SMB or dual-protocol volume.
 
+## Can I use the same share name for multiple volumes? 
+
+The same share name can be used for:
+* volumes deployed in different regions
+* volumes deployed to different availability zones within the same region 
+
+If you are using:
+* regional volumes (without availability zones) or
+* volumes within the same availability zone, 
+
+the same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
+
+For more information, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
+
 ## Can I change the SMB share name after the SMB volume has been created?
 
 No. However, you can create a new SMB volume with the new share name from a snapshot of the SMB volume with the old share name.   

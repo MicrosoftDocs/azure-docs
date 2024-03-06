@@ -4,6 +4,7 @@ description: PowerShell scripts for throughput (RU/s) operations for Azure Cosmo
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: sidandrews
