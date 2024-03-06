@@ -71,7 +71,7 @@ If you're using Azure network security groups, add an *inbound port rule* to all
 Open port 80 (HTTP) and port 443 (HTTPS) for incoming traffic from these addresses. IP addresses are grouped by location.
 
 > [!NOTE]
-> Validate your Azure App Service access restrictions, as you might need to also enable access for availability test IP addresses. For more information, see [https://learn.microsoft.com/en-us/azure/app-service/overview-access-restrictions#app-access](../app-service/overview-access-restrictions).
+> Validate your Azure App Service access restrictions, as you might need to also enable access for availability test IP addresses. For more information, see [https://learn.microsoft.com/en-us/azure/app-service/overview-access-restrictions#app-access](../app-service/overview-access-restrictions.md).
 
 ### IP addresses
 
