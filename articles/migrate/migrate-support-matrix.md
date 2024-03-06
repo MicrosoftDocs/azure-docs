@@ -73,7 +73,7 @@ Create a key vault for VMware agentless migration | To migrate VMware VMs with a
 
 ## Supported geographies 
 
-#### [Public cloud](#tab/public)
+#### [Azure Public cloud](#tab/public)
 
 ### Public cloud
 
