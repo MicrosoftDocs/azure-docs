@@ -1,20 +1,20 @@
 ---
-title: Connect to COBOL and RPG programs on IBM Midranges
-description: Integrate COBOL and RPG programs on IBM midranges with Standard workflows in Azure Logic Apps using the IBM i connector.
+title: Connect to COBOL and RPG programs on IBM midrange systems
+description: Integrate COBOL and RPG programs on IBM midrange systems with Standard workflows in Azure Logic Apps using the IBM i connector.
 services: logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/07/2024
+ms.date: 03/07/2024
 ---
 
-# Integrate COBOL and RPG programs on IBM midranges with Standard workflows in Azure Logic Apps
+# Integrate COBOL and RPG programs on IBM midrange systems with Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-To access and run COBOL and RPG programs on IBM midranges from Standard workflows in Azure Logic Apps, you can use the **IBM i Program Call** built-in, service provider-based connector. IBM i provides a a DPC server. The connector communicates with the IBM i DPC server to execute COBOL and RPG programs by using TCP/IP. The IBM i connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
+To access and run COBOL and RPG programs on IBM midrange systems from Standard workflows in Azure Logic Apps, you can use the **IBM i Program Call** built-in, service provider-based connector. The IBM i operating system provides a Distributed Program Calls (DPC) server. The connector communicates with the IBM i DPC server to execute COBOL and RPG programs by using TCP/IP. The IBM i connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
 
 This how-to guide describes the following aspects about the IBM i connector:
 
@@ -26,15 +26,15 @@ This how-to guide describes the following aspects about the IBM i connector:
 
 ## Why use this connector?
 
-More than 50 years ago, IBM released the first midrange systems. IBM advertised them as “Small in size, small in price and Big in performance. It is a system for now and for the future”. Over the years, the midranges evolved and became pervasive in medium size businesses or in large enterprises to extend Mainframe environments. Midranges running IBM i (typically Power systems), support TCP/IP and SNA. 
+More than 50 years ago, IBM released the first midrange systems. IBM advertised them as “Small in size, small in price and Big in performance. It is a system for now and for the future”. Over the years, the midrange systems evolved and became pervasive in medium-sized businesses or in large enterprises to extend mainframe environments. Midrange systems running IBM i, typically Power Systems, support TCP/IP and SNA.
 
-IBM i includes the Distributed Program Calls (DPC) server feature that allows most IBM System i applications to interact with clients such as Azure Logic Apps in request-reply fashion (client-initiated only) with minimum modifications. DPC is a documented protocol that supports program to program integration on an IBM System i, which can be accessed easily from client applications using the TCP/IP networking protocol.
+The IBM i system includes the DPC server feature that allows most IBM i applications to interact with clients such as Azure Logic Apps using the client-initiated only request-reply pattern with minimum modifications. DPC is a documented protocol that supports program-to-program integration on an IBM i system, which client applications can easily access using the TCP/IP networking protocol.
 
-Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IBM i systems using TCP/IP and APPC LU6.2. Customers have used the HIS Transaction Integrator (TI) to integrate IBM i systems with Windows on premises for many years. The **IBM i Program Call** connector uses TCP/IP [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with IBM i COBOL and RPG programs.
+Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IBM i systems using TCP/IP and APPC LU6.2. For many years, customers have used the HIS Transaction Integrator (TI) to integrate IBM i systems and Windows on premises. The **IBM i Program Call** connector uses the TCP/IP [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with IBM i COBOL and RPG programs.
 
 The following diagram shows how the IBM i connector interacts with an IBM i system:
 
-:::image type="content" source="media/integrate-ibmi-apps-dpc/ibmi-connector-overview.png" alt-text="Conceptual diagram shows how the IBM i Program Call connector works with IBM Midrange system." lightbox="media/integrate-ibmi-apps-dpc/ibmi-connector-overview.png":::
+:::image type="content" source="media/integrate-ibmi-apps-dpc/ibmi-connector-overview.png" alt-text="Conceptual diagram shows how the IBM i Program Call connector works with an IBM midrange system." lightbox="media/integrate-ibmi-apps-dpc/ibmi-connector-overview.png":::
 
 To extend these hybrid cloud scenarios, the IBM i connector in a Standard workflow works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *program definition* or *program map* of the COBOL or RPG program. For this task, the HIS Designer uses a [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) that determines the characteristics of the data exchange between the midrange and the workflow. The HIS Designer converts that information into metadata that the IBM i connector uses when running an action in your workflow.
 
