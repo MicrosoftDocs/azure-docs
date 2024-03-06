@@ -283,6 +283,12 @@ For example, if invoked with a `text` set to `'PostgreSQL features transactions 
 azure_cognitive.translate(text text, target_language text, timeout_ms integer DEFAULT NULL, throw_on_error boolean DEFAULT true, source_language text DEFAULT NULL, text_type text DEFAULT 'plain', profanity_action text DEFAULT 'NoAction', profanity_marker text DEFAULT 'Asterisk', suggested_source_language text DEFAULT NULL , source_script text DEFAULT NULL , target_script text DEFAULT NULL)
 ```
 
+> [!NOTE]
+> Translation is only available in version 0.2.0 of azure_ai extension. To check the version
+```postgresql
+select * from pg_available_extensions where name = 'azure_ai';
+```
+
 #### Arguments
 For more details on parameters see [Translator API](../../ai-services/translator/reference/v3-0-translate.md). 
 ##### `text`
