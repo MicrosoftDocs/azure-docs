@@ -61,7 +61,7 @@ The Azure resource defined in this Bicep file:
     ---
 
     > [!NOTE]
-    > Replace **\<service-name\>** with the name of the Search service. The service name must only contain lowercase letters, digits, or dashes. You can't use a dash as the first two characters or the last character. The name has a minimum length of 2 characters and a maximum length of 60 characters.
+    > Replace **\<service-name\>** with the name of the Search service. The service name must only contain lowercase letters, digits, dashes, or underscores. You can't use a dash as the first two characters or the last character. The name has a minimum length of 2 characters and a maximum length of 60 characters.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 

@@ -4,6 +4,7 @@ description: Examples of configuring and creating Azure Operator Nexus Access Co
 author: joemarshallmsft
 ms.author: joemarshall
 ms.service: azure-operator-nexus
+ms.custom: devx-track-azurecli
 ms.topic: reference
 ms.date: 02/09/2024
 ---
@@ -143,4 +144,3 @@ az networkfabric acl delete \
     --name acl-egress \
     --resource-group myResourceGroup
 ```
-
