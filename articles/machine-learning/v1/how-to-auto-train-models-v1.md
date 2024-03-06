@@ -9,7 +9,7 @@ ms.topic: how-to
 author: manashgoswami
 ms.author: magoswam
 ms.reviewer: ssalgado
-ms.date: 01/25/2023
+ms.date: 03/05/2024
 ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv1
 ---
 
@@ -40,7 +40,7 @@ For no-code AutoML, try the following tutorials:
 
 If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
 
-* Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace or a compute instance.
+* Complete the [Create a workspace section](./concept-workspace.md) and [Create a compute instance](concept-compute-instance.md) if you don't already have an Azure Machine Learning workspace or a compute instance.
 * After you complete the quickstart:
     1. Select **Notebooks** in the studio.
     1. Select the **Samples** tab.
@@ -174,9 +174,9 @@ from sklearn.model_selection import train_test_split
 x_train, x_test = train_test_split(final_df, test_size=0.2, random_state=223)
 ```
 
-The purpose of this step is to have data points to test the finished model that haven't been used to train the model, in order to measure true accuracy.
+The purpose of this step is to collect data points to test the finished model that are different from the data points used train the model, in order to measure true accuracy.
 
-In other words, a well-trained model should be able to accurately make predictions from data it hasn't already seen. You now have data prepared for auto-training a machine learning model.
+In other words, a well-trained model should be able to accurately make predictions on data it hasn't seen (to avoid overfitting). You now have data prepared for auto-training a machine learning model.
 
 ## Automatically train a model
 
