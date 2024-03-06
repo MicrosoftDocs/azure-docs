@@ -48,7 +48,7 @@ In this quickstart, you create a policy assignment with a built-in policy defini
 
    | Tab name | Options |
    | ---- | ---- |
-   | **Advanced** | Includes options for [resource selectors](./concepts/assignment-structure.md#resource-selectors-preview) and [overrides](./concepts/assignment-structure.md#overrides-preview). |
+   | **Advanced** | Includes options for [resource selectors](./concepts/assignment-structure.md#resource-selectors) and [overrides](./concepts/assignment-structure.md#overrides). |
    | **Parameters** | If the policy definition you selected on the **Basics** tab included parameters, they're configured on **Parameters** tab. This example doesn't use parameters. |
    | **Remediation** | You can create a managed identity. For this example, **Create a Managed Identity** is unchecked. <br><br> This box _must_ be checked when a policy or initiative includes a policy with either the [deployIfNotExists](./concepts/effects.md#deployifnotexists) or [modify](./concepts/effects.md#modify) effect. For more information, go to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and [how remediation access control works](./how-to/remediate-resources.md#how-remediation-access-control-works). |
 
