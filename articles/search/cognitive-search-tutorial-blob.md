@@ -127,7 +127,7 @@ All HTTP requests to a search service require an API key. A valid key establishe
 
 ## 2 - Set up Postman
 
-1. Start Postman, import the collection, and set up the environment variables. If you're unfamiliar with this tool, see [Quickstart: Text search with REST](search-get-started-rest.md).
+1. Start Postman, import the collection, and set up the environment variables. If you're unfamiliar with this tool, see [Quickstart: Text search using REST](search-get-started-rest.md).
 
 1. You'll need to provide a search service name, an admin API key, an index name, a connection string to your Azure Storage account, and the container name.
 
