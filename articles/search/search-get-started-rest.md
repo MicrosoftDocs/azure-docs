@@ -69,15 +69,15 @@ If you're not familiar with the REST client for Visual Studio Code, this section
 
    :::image type="content" source="media/search-get-started-rest/rest-client-request-setup.png" lightbox="media/search-get-started-rest/rest-client-request-setup.png" alt-text="Screenshot of a REST client configured for a search service request.":::
 
-**Key points:**
-
-+ Parameters are specified using an `@` prefix.
-+ `###` designates a REST call. The next line contains the request, which must include `HTTP/1.1`.
-+ `Send request` should appear above the request.
+    **Key points:**
+  
+    + Parameters are specified using an `@` prefix.
+    + `###` designates a REST call. The next line contains the request, which must include `HTTP/1.1`.
+    + `Send request` should appear above the request.
 
 ## Create an index
 
-Add a second request to create a search index. [Create Index (REST)](/rest/api/searchservice/create-index) creates a search index and sets up the physical data structures on your search service.
+Add a second request to your `.rest` file. [Create Index (REST)](/rest/api/searchservice/create-index) creates a search index and sets up the physical data structures on your search service.
 
 1. Paste in the following example to create the hotels-quickstart index on your search service.
 

@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 + Optionally, to run the query example that invokes [semantic reranking](semantic-search-overview.md), your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-+ Optionally, an [Azure OpenAI](https://aka.ms/oai/access) resource with a deployment of **text-embedding-ada-002**. The quickstart includes an optional step for generating new text embeddings, but we provide existing embeddings so that you can skip this step.
++ Optionally, an [Azure OpenAI](https://aka.ms/oai/access) resource with a deployment of **text-embedding-ada-002**. The source `.rest` file includes an optional step for generating new text embeddings, but we provide existing embeddings so that you can omit this dependency.
 
 ## Copy a key and URL
 
@@ -48,22 +48,6 @@ REST calls require the search service endpoint and an API key on every request. 
 
 A valid API key establishes trust, on a per request basis, between the application sending the request and the search service handling it.
 
-<!-- ## About the sample data and queries
-
-Sample data consists of text and vector descriptions for seven fictitious hotels.
-
-+ Textual data is used for keyword search, semantic ranking, and capabilities that depend on text (filters, facets, and sorting). 
-
-+ Vector data (text embeddings) is used for vector queries. Currently, Azure AI Search doesn't generate vectors for you in the generally available REST APIs and SDKs. For this quickstart, vector data was generated previously and copied into the "Upload Documents" request and into the query requests.
-
-To create vector query strings, we used the **Generate Embedding** request to an [Azure OpenAI](https://aka.ms/oai/access) resource. If you want to formulate your own vector queries against the sample data, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. 
-
-For this quickstart, the following parameters were used: 
-  
-+ Model name: **text-embedding-ada-002**
-+ Model version: **2**
-+ API version: **2023-08-01-preview**.
- -->
 ## Create a vector index
 
 [Create Index (REST)](/rest/api/searchservice/create-index) creates a vector index and sets up the physical data structures on your search service. 
@@ -228,24 +212,24 @@ The index schema is organized around hotels content. Sample data consists of vec
 
 1. Select **Send request**. You should have an `HTTP/1.1 201 Created` response and the response body should include the JSON representation of the index schema. 
 
-**Key points:**
+    **Key points:**
 
-+ The `"fields"` collection includes a required key field, text and vector fields (such as `"Description"`, `"DescriptionVector"`) for text and vector search. Colocating vector and nonvector fields in the same index enables hybrid queries. For instance, you can combine filters, text search with semantic ranking, and vectors into a single query operation.
+    + The `"fields"` collection includes a required key field, text and vector fields (such as `"Description"`, `"DescriptionVector"`) for text and vector search. Colocating vector and nonvector fields in the same index enables hybrid queries. For instance, you can combine filters, text search with semantic ranking, and vectors into a single query operation.
 
-+ Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchProfile"` properties. 
+    + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchProfile"` properties. 
 
-+ The `"vectorSearch"` section is an array of Approximate Nearest Neighbors (ANN) algorithm configurations and profiles. Supported algorithms include HNSW and exhaustive KNN. See [Relevance scoring in vector search](vector-search-ranking.md) for details.
+    + The `"vectorSearch"` section is an array of Approximate Nearest Neighbors (ANN) algorithm configurations and profiles. Supported algorithms include HNSW and exhaustive KNN. See [Relevance scoring in vector search](vector-search-ranking.md) for details.
 
-+ [Optional]: The `"semantic"` configuration enables reranking of search results. You can rerank results in queries of type `"semantic"` for string fields that are specified in the configuration. See [Semantic ranking overview](semantic-search-overview.md) to learn more.
+    + [Optional]: The `"semantic"` configuration enables reranking of search results. You can rerank results in queries of type `"semantic"` for string fields that are specified in the configuration. See [Semantic ranking overview](semantic-search-overview.md) to learn more.
 
 ## Upload documents
 
 Creating and loading the index are separate steps. In Azure AI Search, the index contains all searchable data and queries execute on the search service. For REST calls, the data is provided as JSON documents. Use [Documents- Index REST API](/rest/api/searchservice/documents/) for this task. 
 
-The URI is extended to include the `docs` collections and `index` operation.
+The URI is extended to include the `docs` collection and `index` operation.
 
 > [!IMPORTANT]
-> The following example isn't runnable code. For readability, we excluded vector values associated with `HotelNameVector` and `DescriptionVector`. Each vector field contains 1536 embeddings, which is too long for this article. For this step, copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/quickstart-vectors).
+> The following example isn't runnable code. For readability, we excluded vector values because each one contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/quickstart-vectors) if you want to try this step.
 
 ```http
 ### Upload documents
@@ -344,7 +328,7 @@ api-key: {{apiKey}}
         {
             "@search.action": "mergeOrUpload",
             "HotelId": "48",
-            "HotelName": "Nordick's Hotel",
+            "HotelName": "Nordicks Hotel",
             "HotelNameVector": [VECTOR ARRAY OMITTED],
             "Description": 
                 "Only 90 miles (about 2 hours) from the nation's capital and nearby 
@@ -404,7 +388,7 @@ The vector queries in this section are based on two strings:
 The vector query string is semantically similar to the search string, but includes terms that don't exist in the search index. If you do a keyword search for "classic lodging near running trails, eateries, retail", results are zero. We use this example to show how you can get relevant results even if there are no matching terms.
 
 > [!IMPORTANT]
-> The following examples aren't runnable code. For readability, we excluded vector values associated with `vectorQueries.vector`. A vector array includes 1536 embeddings, which is too long for this article. For this step, copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/quickstart-vectors).
+> The following examples aren't runnable code. For readability, we excluded vector values because each array contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/quickstart-vectors) if you want to try these queries.
 
 ### Single vector search
 
@@ -800,13 +784,13 @@ Here's the last query in the collection: a hybrid query, with semantic ranking, 
     }
     ```
 
-**Key points:**
+    **Key points:**
 
-+ Vector search is specified through the vector `"vectors.value"` property. Keyword search is specified through `"search"` property.
+    + Vector search is specified through the vector `"vectors.value"` property. Keyword search is specified through `"search"` property.
 
-+ In a hybrid search, you can integrate vector search with full text search over keywords. Filters, spell check, and semantic ranking apply to textual content only, and not vectors. In this final query, there's no semantic `"answer"` because the system didn't produce one that was sufficiently strong.
+    + In a hybrid search, you can integrate vector search with full text search over keywords. Filters, spell check, and semantic ranking apply to textual content only, and not vectors. In this final query, there's no semantic `"answer"` because the system didn't produce one that was sufficiently strong.
 
-+ Actual results include more detail, including semantic captions and highlights. Results have been modified for readability. You should run the request in the REST client to get the full structure of the response.
+    + Actual results include more detail, including semantic captions and highlights. Results have been modified for readability. You should run the request in the REST client to get the full structure of the response.
 
 ## Clean up
 
