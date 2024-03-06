@@ -10,14 +10,14 @@ ms.date: 02/06/2024
 
 The sharded SQL connector allows queries to be executed over data distributed across any number of SQL servers. 
 
-## Requirements
+## Prerequisites 
 
 To connnect to sharded SQL servers, you need.
 
    - SQL Server 2012 or higher, or Azure SQL Database.
    - Network access from the Trino coordinator and workers to SQL Server. Port 1433 is the default port.
 
-## General configuration
+### General configuration
 
 The connector can query multiple SQL servers as a single data source, Create a catalog properties file and use `connector.name=sharded-sql` to use sharded SQl connector
 example configuration
@@ -137,19 +137,19 @@ This example describes:
 -  Shards is an array of connectionUrl, each memeber of the array represents a replicaSet, during query execution trino selects a shard randomly from the array to query data.
 
 
-## Partition and Bucket Pruning
+### Partition and Bucket Pruning
 
 Connector evalutes the query constraints during the pllanning and performs elminiation based on the provided query predicates, this helps speed up query performance and allows connector to query large amounts of data.
 
 Bucketing formula to determine assignments using murmurhash function implementation described [here](https://commons.apache.org/proper/commons-codec/apidocs/src-html/org/apache/commons/codec/digest/MurmurHash3.html#line.388)
 
-## Type Mapping
+### Type Mapping
 
 
 Sharded SQL connector supports the same type mappings at SQL server connector [type mappings](https://trino.io/docs/current/connector/sqlserver.html#type-mapping).
 
 
-## Pushddown
+### Pushddown
 
 The following pushdown optimizations are supported:
 -  limit pushdown
