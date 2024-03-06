@@ -6,11 +6,11 @@ ms.topic: how-to
 ms.date: 03/07/2024
 ---
 
-# Start SQL Client CLI in gateway mode in our Apache Flink Cluster
+# Start SQL Client CLI in gateway mode
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This tutorial guides you how to start the SQL Client CLI in gateway mode in our Apache Flink Cluster 1.17.0 on HDInsight on AKS. In the gateway mode, the CLI submits the SQL to the specified remote gateway to execute statements.
+This tutorial guides you how to start the SQL Client CLI in gateway mode in Apache Flink Cluster 1.17.0 on HDInsight on AKS. In the gateway mode, the CLI submits the SQL to the specified remote gateway to execute statements.
  
 ```
 ./bin/sql-client.sh gateway --endpoint <gateway address>
@@ -59,7 +59,7 @@ Image
 ## Testing
  
 ### Preparation
-1. Download Flink cli from https://hdiconfigactions.blob.core.windows.net/hiloflink17blob/flink-cli.tgz in Local Windows machine.
+1. Download Flink cli from https://aka.ms/hdionaksflink117clilinux in Local Windows machine.
  
 1. Install  Windows Subsystem for Linux to make this work on my local Windows Machine.
  
