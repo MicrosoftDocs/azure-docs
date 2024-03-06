@@ -59,7 +59,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
 1. Select a location. This location must be a location supporting the Azure Spring Apps Enterprise plan. For more information, see the [Azure Spring Apps FAQ](faq.md).
 
-1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
+1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values. The name of your Azure Spring Apps service instance must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
    ```azurecli
    export LOCATION="<location>"
@@ -77,8 +77,6 @@ Use the following steps to provision an Azure Spring Apps service instance.
    ```
 
    For more information about resource groups, see [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md).
-
-1. Prepare a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
 1. Use the following command to create an Azure Spring Apps service instance:
 
