@@ -40,6 +40,7 @@ Database servers with mission-critical workloads demand robust performance, requ
 
 - During the preview phase,  you can't enable the accelerated logs feature on servers that have the following features enabled.
     - [High Availability](./concepts-high-availability.md) (HA) servers.
+    - [Read Replica](./concepts-read-replicas.md) servers.
     - Servers enabled with [Customer Managed Keys](./concepts-customer-managed-key.md)  (CMK).
     - Servers enabled with [Microsoft Entra ID](./concepts-azure-ad-authentication.md) authentication.
 

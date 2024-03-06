@@ -36,6 +36,7 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
         --outbound-type managedNATGateway \
         --nat-gateway-managed-outbound-ip-count 2 \
         --nat-gateway-idle-timeout 4
+   ```
 
 * Update the outbound IP address or idle timeout using the [`az aks update`][az-aks-update] command with the `--nat-gateway-managed-outbound-ip-count` or `--nat-gateway-idle-timeout` parameter.
 
