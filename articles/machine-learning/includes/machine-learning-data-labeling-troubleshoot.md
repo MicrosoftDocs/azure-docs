@@ -18,7 +18,7 @@ In many cases, an error creating the project could be due to access issues. To r
     1. At the bottom of the section that appears, select **View all properties in Azure portal**.
     1. In the Azure portal page for your workspace, select link for **Storage**.
 
-1. Add role assignment.
+1. <a name="add"></a> Add role assignment.
     
     1. In the storage account left menu, select **Access Control (IAM)**.
     1. In the top toolbar of the Access control settings, select **+ Add** then **Add role assignment**.
@@ -39,6 +39,13 @@ In many cases, an error creating the project could be due to access issues. To r
     
     1. Select **Review + assign** to review the entry.
     1. Select **Review + assign** again and wait for the assignment to complete.
+
+### Set access for external datastore
+
+If the data for your labeling project is accessed from an external datastore, set access for that datastore as well as the default datastore.  
+
+1. Navigate to your external datastore in the Azure portal.
+1. Follow steps above starting with [Add role assignment](#add) to add the Storage Blob Data Contributor role to the workspace identity.
 
 ### Set datastore to use workspace managed identity
 
