@@ -4,25 +4,7 @@ The Azure Developer CLI (`azd`) is an open-source, command-line tool that stream
 
 1. For the steps ahead, select and initialize the template for your desired language.
 
-    ## [C#](#tab/csharp)
-    
-    ```bash
-    azd init --template openai-your-own-data-csharp
-    ```
-    
-    ## [Python](#tab/python)
-    
-    ```bash
-    azd init --template openai-your-own-data-python
-    ```
-    
-    ## [JavaScript](#tab/javascript)
-    
-    ```bash
-    azd init --template openai-your-own-data-javascript
-    ```
-    
-    ---
+    [!INCLUDE [use-your-data-azure-developer-cli-tabs-init](use-your-data-azure-developer-cli-tabs-init.md)]
     
 2. The `azd init` command prompts you for the following information:
 
@@ -69,53 +51,4 @@ The Azure Developer CLI (`azd`) is an open-source, command-line tool that stream
 
 The `azd` template includes a complete sample chat app in the `src` directory. When the `azd` template ran, it also created the necessary environment variables for the sample app to run locally. Complete the following steps to run the app locally:
 
-## [C#](#tab/csharp)
-    
-Open a terminal in the `src` directory of the `azd` template and run the following command:
-
-```bash
-dotnet run
-```
-
-You should see the following response content in the output:
-
-```output
-Answer from assistant:
-===
-Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
-===
-Context information (e.g. citations) from chat extensions:
-===
-tool: {
-    "citations": [
-    {
-        "content": "...",
-        "id": null,
-        "title": "...",
-        "filepath": "...",
-        "url": "...",
-        "metadata": {
-        "chunking": "orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38."
-        },
-        "chunk_id": "2"
-    },
-    ...
-    ],
-    "intent": "[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]"
-}
-===
-```
-
-## [Python](#tab/python)
-
-Open a terminal in the `src` directory of the `azd` template and run the following command:
-
-tbd
-
-## [JavaScript](#tab/javascript)
-
-Open a terminal in the `src` directory of the `azd` template and run the following command:
-
-tbd
-
----
+[!INCLUDE [use-your-data-azure-developer-cli-tabs-run](use-your-data-azure-developer-cli-tabs-run.md)]
