@@ -1,6 +1,6 @@
 ---
-title: Project lifecycle - question answering
-description: Question answering learns best in an iterative cycle of model changes, utterance examples, deployment, and gathering data from endpoint queries.
+title: Project lifecycle - custom question answering
+description: Custom question answering learns best in an iterative cycle of model changes, utterance examples, deployment, and gathering data from endpoint queries.
 ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 12/19/2023
 ---
 
-# Question answering project lifecycle
+# Custom question answering project lifecycle
 
-Question answering learns best in an iterative cycle of model changes, utterance examples, deployment, and gathering data from endpoint queries.
+Custom question answering learns best in an iterative cycle of model changes, utterance examples, deployment, and gathering data from endpoint queries.
 
 ## Creating a project
 
-Question answering projects provide a best-match answer to a user query based on the content of the project. Creating a project is a one-time action to setting up a content repository of questions, answers, and associated metadata. A project can be created by crawling pre-existing content such the following sources:
+Custom question answering projects provide a best-match answer to a user query based on the content of the project. Creating a project is a one-time action to setting up a content repository of questions, answers, and associated metadata. A project can be created by crawling pre-existing content such the following sources:
 
 - FAQ pages
 - Product manuals
@@ -47,7 +47,7 @@ Based on what you learn from your analytics, make appropriate updates to your pr
 
 ## Version control for data in your project
 
-Version control for data is provided through the import/export features on the project page in the question answering section of Language Studio.
+Version control for data is provided through the import/export features on the project page in the custom question answering section of Language Studio.
 
 You can back up a project by exporting the project, in either `.tsv` or `.xls` format. Once exported, include this file as part of your regular source control check.
 
@@ -55,7 +55,7 @@ When you need to go back to a specific version, you need to import that file fro
 
 ## Test and production project
 
-A project is the repository of questions and answer sets created, maintained, and used through question answering. Each language resource can hold multiple projects.
+A project is the repository of questions and answer sets created, maintained, and used through custom question answering. Each language resource can hold multiple projects.
 
 A project has two states: *test* and *published*.
 

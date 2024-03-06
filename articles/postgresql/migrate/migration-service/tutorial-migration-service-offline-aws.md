@@ -7,6 +7,7 @@ ms.reviewer: maghan
 ms.date: 01/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ---
 
@@ -287,4 +288,3 @@ After migration, you can perform the following tasks:
 - [Known Issues and limitations](concepts-known-issues-migration-service.md)
 - [Network setup](how-to-network-setup-migration-service.md)
 - [premigration validations](concepts-premigration-migration-service.md)
-

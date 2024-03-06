@@ -633,9 +633,6 @@
       - name: Kubernetes data plane hardening
         displayName: k8s, containers, aks
         href: kubernetes-workload-protections.md
-      - name: Vulnerability assessment for Azure powered by Qualys (Deprecated)
-        displayName: ACR, registry, images, qualys
-        href: defender-for-containers-vulnerability-assessment-azure.md
       - name: Defender for Kubernetes (deprecated)
         displayName: clusters, k8s, aks
         href: defender-for-kubernetes-introduction.md
