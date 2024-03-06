@@ -22,12 +22,21 @@ ___
 **Description:** A bug was found in one of the updates of the macOS Safari 17 that is causing our background effects implementation frame capture to skip frames and hence might cause video flashing both in the local preview and the remote side.<br>
 **Recommended workaround:** Await a forthcoming update or patch from Apple.
 
-### Screen sharing does not work on macOS Ventura with Safari versions up to 16.3.
+### Incoming and outgoing video blinking issue on macOS Sonoma with Safari versions up to 17.1
+
+**Browser version:** Safari v17.0, v17.1 (macOS Sonoma 14).<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** Users on macOS Sonoma 14.0 experience a video blinking issue in Safari versions 17.0 and 17.1 when joining a call with video turned on. The incoming video blinks when a Safari user joins a call, affecting what is received from other call participants. Additionally, the outgoing video from the Safari user blinks for remote participants already in the call. This issue disrupts the visual quality of the call.
+- A fix is available starting from Safari version 17.2.<br>
+
+**Recommended workaround:** Users are advised to update to the latest macOS and Safari version (at least v17.2) where this issue has been resolved.
+
+### Screen sharing does not work on macOS Ventura with Safari versions up to 16.3
 **Browser version:** Safari v16.1, v16.2, v16.3 (macOS Ventura 13.0).<br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** The issue was introduced in macOS Ventura 13.0 when using the Safari browser (v16.1, v16.2, and v16.3), and a fix has been available starting from Safari version 16.4.<br>
 **Known issue reference:** This regression is a known issue introduced on [Safari](https://bugs.webkit.org/show_bug.cgi?id=247883).<br>
-**Recommended workaround:** Consider updating to the latest macOS/Safari version..<br>
+**Recommended workaround:** Users are advised to update to the latest macOS and Safari version (at least v16.4) where this issue has been resolved.<br>
 
 
 ## Safari iOS Mobile

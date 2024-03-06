@@ -145,7 +145,7 @@ Run the following code.
    
    # Set variables
    local_file_name = "<local_file_name>"
-   ADLS_Store_Path = "abfs[s]://<filesystemname>@<account name>.dfs.windows.cor.net/"+local_file_name
+   ADLS_Store_Path = "abfs[s]://<filesystemname>@<account name>.dfs.windows.core.net/"+local_file_name
    
    # Generate local file for testing 
    with open(local_file_name, mode='w') as f:

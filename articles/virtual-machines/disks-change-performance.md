@@ -4,7 +4,7 @@ description: Learn about performance tiers for managed disks.
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 03/04/2024
 ms.author: rogarana
 ms.custom: references_regions
 ---
@@ -13,7 +13,10 @@ ms.custom: references_regions
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The performance of your Azure managed disk is set when you create your disk, in the form of its performance tier. When you set the provisioned size of your disk, a performance tier is automatically selected. The performance tier determines the IOPS and throughput your managed disk has. The performance tier can be changed at deployment or afterwards, without changing the size of the disk and without downtime.
+> [!NOTE]
+> This article focuses on how to change performance tiers. To learn how to change the performance of disks that don't use performance tiers, like Ultra Disks or Premium SSD v2, see either [Adjust the performance of an ultra disk](disks-enable-ultra-ssd.md#adjust-the-performance-of-an-ultra-disk) or [Adjust disk performance of a Premium SSD v2](disks-deploy-premium-v2.md#adjust-disk-performance)
+
+The performance of Premium solid-state drives (SSD) is set when you create your disk, in the form of their performance tier. When you set the provisioned size of your disk, a performance tier is automatically selected. The performance tier determines the IOPS and throughput your managed disk has. For Premium SSD disks only, the performance tier can be changed at deployment or afterwards, without changing the size of the disk, and without downtime.
 
 Changing the performance tier allows you to prepare for and meet higher demand without using your disk's bursting capability. It can be more cost-effective to change your performance tier rather than rely on bursting, depending on how long the additional performance is necessary. This is ideal for events that temporarily require a consistently higher level of performance, like holiday shopping, performance testing, or running a training environment. To handle these events, you can switch a disk to a higher performance tier without downtime, for as long as you need the additional performance. You can then return to the original tier without downtime when the additional performance is no longer necessary.
 
