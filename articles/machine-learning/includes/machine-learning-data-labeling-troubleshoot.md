@@ -8,9 +8,9 @@ ms.author: sdgilley
 
 If you have errors creating a data labeling project, or accessing data once the project is created, try the following two troubleshooting steps:
 
-### Add Storage Blob Data Contributor access to the workspace
+### Add Storage Blob Data Contributor access to the workspace identity
 
-In many cases, an error creating the project could be due to access issues. To resolve access problems, add the Storage Blob Data Contributor role to the workspace with these steps:
+In many cases, an error creating the project could be due to access issues. To resolve access problems, add the Storage Blob Data Contributor role to the workspace identity with these steps:
 
 1. Select the storage account in the Azure portal.
 
@@ -29,8 +29,10 @@ In many cases, an error creating the project could be due to access issues. To r
 1. Select members.
 
     1. In the Members page, select **+Select members**.
-    1. Search for name of workspace.
-    1. Select the Enterprise application with the workspace name.
+    1. Search for your workspace identity.  
+        1. By default, the workspace identity is the same as the workspace name.
+        1. If the workspace was created with user assigned identity, search for the user identity name.
+    1. Select the **Enterprise application** with the workspace identity name.
     1. Select the **Select** button at the bottom of the page.
 
 1. Review and assign the role.
