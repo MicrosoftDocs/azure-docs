@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Data Share
 description: Start here to learn how to monitor Azure Data Share.
-ms.date: 02/28/2024
+ms.date: 03/05/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: sidontha
@@ -20,21 +20,15 @@ For more information about the resource types for Azure Data Share, see [Data Sh
 
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-## Data Share metrics
-
-Select **Metrics** under **Monitoring** in the left navigation of your Data Share page in the Azure portal to access charts for Data Share metrics.
+To view charts for Data Share-specific metrics, select **Metrics** under **Monitoring** in the left navigation of your Data Share page in the Azure portal.
 
 For a full listing and descriptions of the available metrics for Data Share, see [Data Share monitoring data reference](monitor-data-share-reference.md#metrics).
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-## Data Share logs
-
-You can configure diagnostic setting to save log data or events. Select **Diagnostic settings** under **Monitoring** in the left navigation of your Data Share page in the Azure portal to configure collection of Data Share log data.
+You can configure diagnostic settings to save log data or events. Select **Diagnostic settings** under **Monitoring** in the left navigation of your Azure portal Data Share page, and then select the appropriate resource log categories to collect.
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Screenshot that shows the Diagnostic settings page in the Azure portal.":::
-
-For more information on how to create diagnostic settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
 For more information about the available resource log categories, their associated Log Analytics tables, and the logs schemas for Data Share, see [Data Share monitoring data reference](monitor-data-share-reference.md#resource-logs).
 
@@ -51,7 +45,7 @@ To track Data Share invitation status, share subscription status, and snapshot h
 
 To write queries and access example queries, select **Logs** under **Monitoring** in the left navigation of your Data Share page in the Azure portal, and then select the **Queries** tab. Here are a couple of example queries:
 
-**List of sent snapshots sorted by duration time over the last seven days:**
+List of sent snapshots sorted by duration over the last seven days:
 
 ```kusto
 // List sent snapshots by duration 
@@ -62,7 +56,7 @@ MicrosoftDataShareSentSnapshotLog
 | sort by DurationSeconds desc nulls last
 ```
 
-**Top 10 most frequent errors over the last seven days:**
+Top 10 most frequent errors over the last seven days:
 
 ```kusto
 // Frequent errors in received snapshots 
