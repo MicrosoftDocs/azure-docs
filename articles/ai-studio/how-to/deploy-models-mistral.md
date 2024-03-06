@@ -5,21 +5,24 @@ description: Learn how to deploy Mistral Large with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 02/23/2024
-ms.reviewer: shubhiraj
-reviewer: shubhirajMsft
+ms.date: 3/6/2024
+ms.reviewer: shubhirajMsft
 ms.author: mopeakande
 author: msakande
 ms.custom: [references_regions]
-
 ---
+
 # How to deploy Mistral models with Azure AI Studio
 
-Mistral AI offers two categories of models in AI Studio:
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
+In this article, you learn how to use Azure AI Studio to deploy the Mistral Large model as a service with pay-as you go billing.
+
+Mistral AI offers two categories of models in [Azure AI Studio](https://ai.azure.com):
 * Premium models: Mistral Large. These models are available with pay-as-you-go token based billing with Models as a Service in the AI Studio model catalog. 
 * Open models: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models are also available in the AI Studio model catalog and can be deployed to dedicated VM instances in your own Azure subscription with Managed Online Endpoints.
 
-You can browse the Mistral family of models in the Model Catalog by filtering on the Mistral collection.
+You can browse the Mistral family of models in the [Model Catalog](model-catalog.md) by filtering on the Mistral collection.
 
 ## Mistral Large 
 
@@ -29,18 +32,16 @@ Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can b
 
 Additionally, mistral-large is:
 
-* Specialized in RAG. Crucial information isn't lost in the middle of long context windows (up to 32 K tokens).
+* Specialized in RAG. Crucial information isn't lost in the middle of long context windows (up to 32-K tokens).
 * Strong in coding. Code generation, review, and comments. Supports all mainstream coding languages.
 * Multi-lingual by design. Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
-* Responsible AI. Efficient guardrails baked in the model, with additional safety layer with safe_mode option.
-
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+* Responsible AI. Efficient guardrails baked in the model and another safety layer with the `safe_mode` option.
 
 ## Deploy Mistral Large with pay-as-you-go
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-Mistral Large can be deployed as a service with pay-as-you-go, and is offered by Mistral AI through the Microsoft Azure Marketplace. Note that Mistral AI can change or update the terms of use and pricing of this model.
+Mistral Large can be deployed as a service with pay-as-you-go, and is offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
@@ -48,10 +49,10 @@ Mistral Large can be deployed as a service with pay-as-you-go, and is offered by
 - An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > Pay-as-you-go model deployment offering is only available in AI hubs created in **East US 2** and **France Central** regions.
+    > For Mistral family models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **France Central** regions.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the Resouce Group.
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group.
 
     For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
@@ -61,22 +62,22 @@ Mistral Large can be deployed as a service with pay-as-you-go, and is offered by
 To create a deployment:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Go to the Azure AI Studio [model catalog](https://ai.azure.com/explore/models) under the **Explore** tab and search for Mistral-large. 
+1. Select **Model catalog** from the **Explore** tab and search for *Mistral-large*. 
 
-    Alternatively, you can initiate a deployment by starting from your project in AI Studio. From the **Build** tab of your project, select the **Deployments** option, then select **+ Create**.
+    Alternatively, you can initiate a deployment by starting from your project in AI Studio. From the **Build** tab of your project, select **Deployments** > **+ Create**.
 
 1. In the model catalog, on the model's **Details** page, select **Deploy** and then **Pay-as-you-go**.
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png":::
 
-1. Select the project in which you want to deploy your model. To deploy the Mistral-large model your project must belong to the **East US 2** or **France Central** regions.
+1. Select the project in which you want to deploy your model. To deploy the Mistral-large model your project must be in the **East US 2** or **France Central** regions.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
 1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
 1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/mistral/mistral-deploy-marketplace-terms.png":::
 
-1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, you will see a **Continue to deploy** option to select (Currently you can have only one deployment for each model within a project).
+1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, you'll see a **Continue to deploy** option to select (Currently you can have only one deployment for each model within a project).
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go-project.png":::
 
@@ -235,7 +236,7 @@ The following is an example response:
     }
 }
 ```
-#### Additional inference examples
+#### More inference examples
 
 | **Sample Type**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
@@ -259,7 +260,7 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md).
+Models deployed as a service with pay-as-you-go are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
 
 ## Next steps
 
