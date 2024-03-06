@@ -18,8 +18,14 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Architectural overview
-            url: architectural-overview.md
+          - text: Fleets and member clusters
+            url: concept-fleet.md
+          - text: Update orchestration across multiple member clusters
+            url: concept-update-orchestration.md
+          - text: Kubernetes resource propagation from hub cluster to member clusters
+            url: concept-resource-propagation.md
+          - text: Multi-cluster layer-4 load balancing
+            url: concept-l4-load-balancing.md
           - text: Frequently asked questions
             url: faq.md
 

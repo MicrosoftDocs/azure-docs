@@ -23,6 +23,8 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 
+* Read the [conceptual overview of this feature](./concept-l4-load-balancing.md), which provides an explanation of `ServiceExport` and `MultiClusterService` objects referenced in this document.
+
 * You must have a Fleet resource with member clusters to which a workload has been deployed. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](resource-propagation.md)
 
 * These target clusters should be using [Azure CNI networking](../aks/configure-azure-cni.md).
@@ -30,8 +32,6 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 * The target AKS clusters on which the workloads are deployed need to be present on either the same [virtual network](../virtual-network/virtual-networks-overview.md) or on [peered virtual networks](../virtual-network/virtual-network-peering-overview.md).
 
 * These target clusters have to be [added as member clusters to the Fleet resource](./quickstart-create-fleet-and-members.md#join-member-clusters).
-
-* Follow the [conceptual overview of this feature](./architectural-overview.md#multi-cluster-load-balancing), which provides an explanation of `ServiceExport` and `MultiClusterService` objects referenced in this document.
 
 * Set the following environment variables and obtain the kubeconfigs for the fleet and all member clusters:
 

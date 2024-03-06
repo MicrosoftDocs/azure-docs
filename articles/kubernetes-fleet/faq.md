@@ -61,4 +61,4 @@ The roadmap for Azure Kubernetes Fleet Manager resource is available [here](http
 
 ## Next steps
 
-* Create an [Azure Kubernetes Fleet Manager resource and join member clusters](./quickstart-create-fleet-and-members.md)
+* [Create a fleet and join member clusters](./quickstart-create-fleet-and-members.md).

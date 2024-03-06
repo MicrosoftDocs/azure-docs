@@ -16,6 +16,8 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 
 ## Prerequisites
 
+* Read the [conceptual overview of this feature](./concept-fleet.md), which provides an explanation of fleets and member clusters referenced in this document.
+
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * A basic understanding of [Kubernetes core concepts](../aks/concepts-clusters-workloads.md).
@@ -428,5 +430,6 @@ To access the Fleet cluster's Kubernetes API, run the following commands:
 
 ## Next steps
 
-* Learn how to use [Update orchestration](./update-orchestration.md)
-* Learn how to use [Kubernetes resource object propagation](./resource-propagation.md)
+* [Orchestrate updates across multiple member clusters](./update-orchestration.md).
+* [Set up Kubernetes resource propagation from hub cluster to member clusters](./resource-propagation.md).
+* [Set up multi-cluster layer-4 load balancing](./l4-load-balancing.md).
