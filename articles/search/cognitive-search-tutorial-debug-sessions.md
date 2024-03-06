@@ -72,7 +72,7 @@ All requests require an api-key on every request sent to your service. Having a 
 
 In this section, you will import a Postman collection containing a "buggy" workflow that you will fix in this tutorial. 
 
-1. Start Postman and import the [DebugSessions.postman_collection.json](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Debug-sessions) collection.  If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md).
+1. Start Postman and import the [DebugSessions.postman_collection.json](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Debug-sessions) collection.  If you're unfamiliar with this tool, see [Quickstart: Text search using REST](search-get-started-rest.md).
 
 1. Under **Files** > **New**, select the collection.
 
