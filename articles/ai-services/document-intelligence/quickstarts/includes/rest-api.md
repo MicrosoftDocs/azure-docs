@@ -99,7 +99,7 @@ Before you run the cURL command, make the following changes to the [post request
 :::moniker range="doc-intel-4.0.0"
 
 ```bash
-curl -v -i POST "{endpoint}/documentintelligence/documentModels/{modelId}:analyze?api-version=2023-10-31-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
+curl -v -i POST "{endpoint}/documentintelligence/documentModels/{modelId}:analyze?api-version=2024-02-29-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 ```
 
 :::moniker-end
@@ -130,7 +130,7 @@ You receive a `202 (Success)` response that includes a read-only **Operation-Loc
 
 :::moniker range="doc-intel-4.0.0"
 
-After you call the [**Analyze document**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) API, call the [**Get analyze result**](/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you call the [**Analyze document**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) API, call the [**Get analyze result**](/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
@@ -155,7 +155,7 @@ After you call the [**Analyze document**](https://westus.dev.cognitive.microsoft
 :::moniker range="doc-intel-4.0.0"
 
 ```bash
-curl -v -X GET "{endpoint}/documentintelligence/documentModels/{modelId}/analyzeResults/{resultId}?api-version=2023-10-31-preview" -H "Ocp-Apim-Subscription-Key: {key}"
+curl -v -X GET "{endpoint}/documentintelligence/documentModels/{modelId}/analyzeResults/{resultId}?api-version=2024-02-29-preview" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 :::moniker-end
@@ -192,7 +192,7 @@ You receive a `200 (Success)` response with JSON output. The first field, `"stat
     "createdDateTime": "2023-11-25T19:31:37Z",
     "lastUpdatedDateTime": "2023-11-25T19:31:43Z",
     "analyzeResult": {
-        "apiVersion": "2023-10-31-preview",
+        "apiVersion": "2024-02-29-preview",
         "modelId": "prebuilt-invoice",
         "stringIndexType": "textElements"...
     ..."pages": [

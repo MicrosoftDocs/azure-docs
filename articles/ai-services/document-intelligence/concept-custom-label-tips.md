@@ -63,10 +63,6 @@ Overlapping fields are supported for fields and table cells. If you expect your 
 
 When creating a field, select the right subtype to minimize post processing, for instance select the ```dmy``` option for dates to extract the values in a ```dd-mm-yyyy``` format.
 
-## Batch layout
-
-When creating a project, select the batch layout option to prepare all documents in your dataset for labeling. This feature ensures that you no longer have to select on each document and wait for the layout results before you can start labeling.
-
 ## Next steps
 
 * Learn more about custom labeling:

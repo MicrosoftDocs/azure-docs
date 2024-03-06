@@ -57,11 +57,11 @@ Markdown is a structured and formatted markup language and a popular input for e
 
 ## Get started
 
-The Document Intelligence Layout model **2023-10-31-preview** supports the following development options:
+The Document Intelligence Layout model **2024-02-29-preview** and **2023-10-31-preview** supports the following development options:
 
 * [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio).
 
-* [REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&branch=main&tabs=HTTP&preserve-view=true).
+* [REST API](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&branch=docintelligence&tabs=HTTP).
 
 * [.NET &bull; Java &bull; JavaScript &bull; Python programming language client libraries (SDKs).](sdk-overview-v4-0.md#supported-programming-languages)
 
@@ -119,7 +119,7 @@ If you're looking for a specific section in a document, you can use semantic chu
 
 ```python
 
-# Using SDK targeting 2023-10-31-preview, make sure your resource is in one of these regions: East US, West US2, West Europe
+# Using SDK targeting 2024-02-29-preview or 2023-10-31-preview, make sure your resource is in one of these regions: East US, West US2, West Europe
 # pip install azure-ai-documentintelligence==1.0.0b1
 # pip install langchain langchain-community azure-ai-documentintelligence
 

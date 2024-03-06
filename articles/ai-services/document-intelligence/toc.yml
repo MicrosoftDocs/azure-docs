@@ -179,9 +179,6 @@ items:
   - name: 🆕 Retrieval-Augmented Generation (RAG)
     displayName: RAG, LLM, semantic, chunk, LangChain, language model
     href: concept-retrieval-augmented-generation.md
-  - name: 🆕 Batch document analysis
-    displayName: documents
-    href: concept-batch-analysis.md
   - name: 🆕 Credit card model
     displayName: debit
     href: concept-credit-card.md
@@ -288,6 +285,8 @@ items:
   items:
   - name: REST APIs
     items:
+    - name: 2024-02-29-preview (v4.0)
+      href: /rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&branch=docintelligence&tabs=HTTP
     - name: 2023-10-31-preview (v4.0)
       href: /rest/api/aiservices/operation-groups?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
     - name: 2023-07-31 (v3.1)

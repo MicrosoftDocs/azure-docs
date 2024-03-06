@@ -80,7 +80,7 @@ All Document Intelligence APIs are asynchronous, polling the returned operation 
 
 Upon successful completion:
 
-* The successful `POST` method returns a `202 OK` response code indicating that the service created the batch request.
+* The successful `POST` method returns a `202 OK` response code indicating that the service created the request.
 * The translated documents are located in your target container.
 * The `POST` request also returns response headers including `Operation-Location`. The value of this header contains a `resultId` that can be queried to get the status of the asynchronous operation and retrieve the results using a `GET` request with your same resource subscription key.
 
@@ -97,7 +97,7 @@ Upon successful completion:
   "description": "Classifier description",
   "createdDateTime": "2022-07-30T00:00:00Z",
   "expirationDateTime": "2023-01-01T00:00:00Z",
-  "apiVersion": "2023-10-31-preview",
+  "apiVersion": "2024-02-29-preview",
 
   "baseClassifierId": "myOriginalClassifier",
 

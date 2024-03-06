@@ -31,7 +31,7 @@ monikerRange: '>=doc-intel-3.1.0'
 
 > [!IMPORTANT]
 >
-> * Starting with the `2023-10-31-preview` API, analyzing documents with the custom classification model won't split documents by default.
+> * The `2024-02-29-preview` API, custom classification model won't split documents by default during the analyzing process.
 > * You need to explicitly set the ``splitMode`` property to auto to preserve the behavior from previous releases. The default for `splitMode` is `none`.
 > * If your input file contains multiple documents, you need to enable splitting by setting the ``splitMode`` to ``auto``.
 
@@ -101,7 +101,7 @@ Supported file formats:
 |Model | PDF |Image:<br>jpeg/jpg, png, bmp, tiff, heif| Microsoft Office:<br> Word (docx), Excel (xlxs), PowerPoint (pptx)|
 |--------|:----:|:-----:|:---------------:|
 |Read            | ✔    | ✔    | ✔  |
-|Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
+|Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview, and later)  |
 |General&nbsp;Document| ✔  | ✔ |   |
 |Prebuilt        |  ✔  | ✔ |   |
 |Custom extraction|  ✔  | ✔ |   |
@@ -146,7 +146,7 @@ The classifier attempts to assign each document to one of the classes, if you ex
 
 ## Training a model
 
-Custom classification models are supported by **v4.0:2023-10-31-preview** and **v3.1:2023-07-31 (GA)** APIs. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier. Follow the [how to guide](how-to-guides/build-a-custom-classifier.md) to get started.
+Custom classification models are supported by **v4.0:2024-02-29-preview** and **v3.1:2023-07-31 (GA)** APIs. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier. Follow the [how to guide](how-to-guides/build-a-custom-classifier.md) to get started.
 
 When using the REST API, if you organize your documents by folders, you can use the `azureBlobSource` property of the request to train a classification model.
 
@@ -154,7 +154,7 @@ When using the REST API, if you organize your documents by folders, you can use 
 
 ```json
 
-https://{endpoint}/documentintelligence/documentClassifiers:build?api-version=2023-10-31-preview
+https://{endpoint}/documentintelligence/documentClassifiers:build?api-version=2024-02-29-preview
 
 {
   "classifierId": "demo2.1",
@@ -266,7 +266,7 @@ Analyze an input file with the document classification model.
 :::moniker range="doc-intel-4.0.0"
 
 ```json
-https://{endpoint}/documentintelligence/documentClassifiers/{classifier}:analyze?api-version=2023-10-31-preview
+https://{endpoint}/documentintelligence/documentClassifiers/{classifier}:analyze?api-version=2024-02-29-preview
 ```
 
 :::moniker-end

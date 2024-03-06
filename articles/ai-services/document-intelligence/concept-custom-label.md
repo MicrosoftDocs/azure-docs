@@ -133,7 +133,7 @@ Tabular fields are also useful when extracting repeating information within a do
 * View the REST APIs:
 
     > [!div class="nextstepaction"]
-    > [Document Intelligence API v4.0:2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)
+    > [Document Intelligence API v4.0:2024-02-29-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)
 
     > [!div class="nextstepaction"]
     > [Document Intelligence API v3.1:2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
