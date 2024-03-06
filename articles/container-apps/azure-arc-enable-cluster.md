@@ -149,8 +149,8 @@ The following steps help you get started understanding the service, but for prod
 
     # [Azure CLI](#tab/azure-cli)
 
-     ```azurecli-interactive
-        az group create --name $GROUP_NAME --location $LOCATION
+    ```azurecli-interactive
+    az group create --name $GROUP_NAME --location $LOCATION
     ```
 
     # [PowerShell](#tab/azure-powershell)
@@ -165,7 +165,7 @@ The following steps help you get started understanding the service, but for prod
 
     # [Azure CLI](#tab/azure-cli)
 
-     ```azurecli-interactive
+    ```azurecli-interactive
     CLUSTER_NAME="${GROUP_NAME}-cluster" # Name of the connected cluster resource
 
     az connectedk8s connect --resource-group $GROUP_NAME --name $CLUSTER_NAME

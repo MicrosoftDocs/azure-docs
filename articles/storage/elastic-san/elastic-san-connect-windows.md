@@ -63,7 +63,7 @@ Enable-MSDSMAutomaticClaim -BusType iSCSI
 
 # Set the default load balancing policy based on your requirements. In this example, we set it to round robin
 # which should be optimal for most workloads.
-Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
+mpclaim -L -M 2
 ```
 
 ### Attach Volumes to the client

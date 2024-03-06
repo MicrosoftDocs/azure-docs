@@ -232,6 +232,7 @@ The following table lists common and recommended alert rules for Azure Files and
 |Metric | File share size is 80% of capacity. | File Capacity<br>Dimension name: FileShare (premium file share only) |
 |Metric | File share egress exceeds 500 GiB in one day. | Egress<br>Dimension name: FileShare (premium file share only) |
 |Metric | High server latency. | Success Server Latency<br>Dimension name: API Name, for example Read and Write API|
+|Metric | File share availability is less than 99.9%. | Availability<br>Dimension name: FileShare (premium file share only) |
 
 For instructions on how to create alerts on throttling, capacity, egress, and high server latency, see [Create monitoring alerts for Azure Files](files-monitoring-alerts.md).
 

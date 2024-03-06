@@ -45,6 +45,8 @@
     href: manage/ea-understand-pricesheet.md
   - name: Request Withholding Tax credit - India
     href: manage/withholding-tax-credit-india.md
+  - name: Plan to manage Azure costs
+    href: understand/plan-manage-costs.md
 - name: How-to guides
   items:
   - name: Configure billing
@@ -121,7 +123,7 @@
         href: manage/add-change-subscription-administrator.md
       - name: Switch subscription offer
         href: manage/switch-azure-offer.md
-      - name: Cancel subscription
+      - name: Cancel and delete subscription
         displayName: delete azure account, delete azure subscription
         href: manage/cancel-azure-subscription.md
       - name: Manage subscription policies

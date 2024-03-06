@@ -10,7 +10,7 @@ ms.custom: subject-monitoring
 
 ---
 
-# Monitoring Virtual WAN data reference
+# Monitoring Virtual WAN - Data reference
 
 This article provides a reference of log and metric data collected to analyze the performance and availability of Virtual WAN. See [Monitoring Virtual WAN](monitor-virtual-wan.md) for instructions and additional context on monitoring data for Virtual WAN.
 

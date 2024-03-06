@@ -5,7 +5,7 @@ description: Discover partner-tested solutions that enable you to build, test, d
 ms.author: schaffererin
 author: schaffererin
 ms.topic: article
-ms.date: 02/15/2024
+ms.date: 02/16/2024
 ---
 
 # Azure Linux AKS Container Host partner solutions
@@ -20,7 +20,7 @@ Our third party partners featured in this article have introduction guides to he
 | Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Tetrate](#tetrate)                      |
 | Observability      | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace)                  |
 | Security           | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Tetrate](#tetrate)   |
-| Storage            | [Veeam](#veeam)                                                                                |
+| Storage            | [Catalogic](#catalogic) <br> [Veeam](#veeam)                                                   |
 | Config Management  | [Corent](#corent)                                                                              |
 | Migration          | [Catalogic](#catalogic)                                                                        |
 
@@ -30,7 +30,7 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 
 ### Advantech
 
-:::image type="content" source="./media/azure-linux-aks-partner-solutions/advantech.png" alt-text="Advantech logo" border="true":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/advantech.png":::
 
 | Solution | Categories |
 |----------|------------|
@@ -42,7 +42,7 @@ For more information, see [Advantech & iFactoryEHS](https://page.advantech.com/e
 
 ### Hashicorp
 
-:::image type="content" source="./media/azure-linux-aks-partner-solutions/hashicorp.png" alt-text="Hashicorp logo" border="true":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/hashicorp.png":::
 
 | Solution | Categories |
 |----------|------------|
@@ -60,7 +60,7 @@ For more information, see [Hashicorp solutions](https://hashicorp.com/) and [Has
 
 ### Akuity
 
-:::image type="content" source="./media/azure-linux-aks-partner-solutions/akuity.png" alt-text="Akuity logo" border="true":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/akuity.png":::
 
 | Solution | Categories |
 |----------|------------|
@@ -80,7 +80,7 @@ For more information, see [Akuity Solutions](https://akuity.io/).
 
 ### Kong
 
-:::image type="content" source="./media/azure-linux-aks-partner-solutions/kong.png" alt-text="Kong logo" border="true":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/kong.png":::
 
 | Solution | Categories |
 |----------|------------|
@@ -111,7 +111,7 @@ Ensure efficient traffic management, enhanced security, and optimal network perf
 
 ### Buoyant
 
-:::image type="content" source="./media/azure-linux-aks-partner-solutions/buoyant.png" alt-text="Buoyant logo" border="true":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/buoyant.png":::
 
 | Solution | Categories |
 |----------|------------|
@@ -123,7 +123,7 @@ For more information, see [Buoyant Solutions](https://buoyant.io/cloud) and [Buo
 
 ### Isovalent
 
-:::image type="content" source="./media/azure-linux-aks-partner-solutions/isovalent.png" alt-text="Isovalent logo" border="true":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/isovalent.png":::
 
 | Solution | Categories |
 |----------|------------|
@@ -149,7 +149,7 @@ Observability provides deep insights into your systems, enabling rapid issue det
 
 ### Dynatrace
 
-:::image type="content" source="./media/azure-linux-aks-partner-solutions/dynatrace.png" alt-text="Dynatrace logo" border="true":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/dynatrace.png":::
 
 | Solution | Categories |
 |----------|------------|
@@ -165,7 +165,7 @@ Ensure the integrity and confidentiality of applications and foster trust and co
 
 ### Tetrate
 
-:::image type="content" source="./media/azure-linux-aks-partner-solutions/tetrate.png" alt-text="Tetrate logo" border="true":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/tetrate.png":::
 
 | Solution | Categories |
 |----------|------------|
@@ -187,7 +187,7 @@ Storage enables standardized and seamless storage interactions, ensuring high ap
 
 ### Veeam
 
-:::image type="content" source="./media/azure-linux-aks-partner-solutions/veeam.png" alt-text="Veeam logo" border="true":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/veeam.png":::
 
 | Solution | Categories |
 |----------|------------|
@@ -203,7 +203,7 @@ Automate and standardize the system settings across your environments to enhance
 
 ### Corent
 
-:::image type="content" source="./media/azure-linux-aks-partner-solutions/corent.png" alt-text="Corent logo" border="true":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/corent.png":::
 
 | Solution | Categories |
 |----------|------------|
@@ -219,13 +219,13 @@ Migrate workloads to Azure Linux Container Host on AKS with confidence.
 
 ### Catalogic
 
-:::image type="content" source="./media/azure-linux-aks-partner-solutions/catalogic.png" alt-text="Catalogic logo" border="true":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/catalogic.png":::
 
 | Solution | Categories |
 |----------|------------|
-| CloudCasa | Migration |
+| CloudCasa by Catalogic | Migration <br> Storage |
 
-CloudCasa is a Kubernetes backup, recovery, and migration solution that is fully compatible with AKS, as well as all other major Kubernetes distributions and managed services.
+CloudCasa by Catalogic is a Kubernetes backup, recovery, and migration solution that is fully compatible with AKS, as well as all other major Kubernetes distributions and managed services.
 
 <details> <summary> See more </summary><br>
 
@@ -237,7 +237,7 @@ CloudCasa can also centrally manage Azure Backup or Velero backup installations 
 
 </details>
 
-For more information, see [Catalogic Solutions](https://cloudcasa.io/) and [Catalogic on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/catalogicsoftware1625626770507.cloudcasa-aks-app).
+For more information, see [CloudCasa by Catalogic Solutions](https://cloudcasa.io/) and [CloudCasa by Catalogic on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/catalogicsoftware1625626770507.cloudcasa-aks-app).
 
 ## Next steps
 
