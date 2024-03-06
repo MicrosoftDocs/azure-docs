@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.topic: how-to
 ms.date: 03/03/2024
 ms.author: cwatson
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal.
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ---
 
 # Restore archived logs from search
@@ -60,7 +60,7 @@ View the status and results of the log data restore by going to the **Restoratio
 To save costs, we recommend you delete the restored table when you no longer need it. When you delete a restored table, Azure doesn't delete the underlying source data.
 
 
-1. In your Microsoft Sentinel, select **Search** > **Restoration**.
+1. In Microsoft Sentinel, select **Search** > **Restoration**.
 1. Identify the table you want to delete.
 1. Select **Delete** for that table row.
 

@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.topic: conceptual
 ms.date: 03/03/2024
 ms.author: cwatson
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal.
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ---
 
 # Start an investigation by searching for events in large datasets
