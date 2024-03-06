@@ -24,15 +24,15 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
-| March 6 | [Compliance standards added to compliance dashboard](#compliance-standards-added-to-compliance-dashboard)  | 
+| March 6 | [(Preview) Compliance standards added to compliance dashboard](#preview-compliance-standards-added-to-compliance-dashboard)  | 
 | March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
 
-### Compliance standards added to compliance dashboard
+### (Preview) Compliance standards added to compliance dashboard 
 
 March 6, 2024
 
-Based on customer feedback, we've added the following standards to our compliance dashboard. As shown, these are for reviewing the compliance status of AWS and GCP resources protected by Defender for Cloud.
+Based on customer feedback, we've added the following compliance standards in preview to our compliance dashboard. As shown, these are for reviewing the compliance status of AWS and GCP resources protected by Defender for Cloud.
 
 | Compliance standard                                   | Version    | AWS                             | GCP                             |
 | ----------------------------------------------------- | ---------- | ------------------------------- | ------------------------------- |
