@@ -371,9 +371,9 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Migrate the Salesforce linked service 
+## Upgrade the Salesforce linked service 
 
-Migrating your Salesforce linked service is highly recommended if you use the legacy version. Take the following steps:  
+Here are steps that help you upgrade your linked service and related queries:
 
 1. Configure the connected apps in Salesforce portal by referring to [Prerequisites](connector-salesforce.md#prerequisites).
 

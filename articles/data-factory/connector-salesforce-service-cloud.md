@@ -326,9 +326,9 @@ When you copy data from Salesforce Service Cloud, the following mappings are use
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Migrate the Salesforce Service Cloud linked service 
+## Upgrade the Salesforce Service Cloud linked service 
 
-Migrating your Salesforce Service Cloud linked service is highly recommended if you use the legacy version. Take the following steps:  
+Here are steps that help you upgrade your linked service and related queries:
 
 1. Configure the connected apps in Salesforce portal by referring to [Prerequisites](connector-salesforce-service-cloud.md#prerequisites).
 
