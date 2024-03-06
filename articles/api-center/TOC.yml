@@ -53,5 +53,7 @@
             href: /java/api/overview/azure/apicenter
           - name: Python
             href: https://pypi.org/project/azure-mgmt-apicenter
+      - name: Event Grid schema
+        href: ../event-grid/event-schema-api-center.md
       - name: Resource Manager template
         href: /azure/templates/microsoft.apicenter/allversions
