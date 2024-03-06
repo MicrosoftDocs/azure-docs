@@ -44,7 +44,7 @@ dnsresources
 | where subscriptionId == "<your subscription ID>"
 | summarize count() by recordType = tostring(type)
 ```
-You can also view the total count of resource records visually by selecting the **Chart** tab and then selecting the chart type. The following is an example of a **Donut chart**:
+You can also view the total count of resource records visually by selecting the **Charts** tab and then selecting the chart type. The following is an example of a **Donut chart**:
 
 ![Screenshot of a resource record count query donut chart.](./media/private-dns-arg/count-donut.png)
 
