@@ -177,7 +177,7 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
    | - | - | - |
    | **Client ID** | - | Ignore this, you already have it. See **Audience** line below. |
    | **Provider type** | *OpenID Connect* | Instead of default *SAML*.|
-   | **Provider URL** | `sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/`<br><br>`sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` | for commercial<br><br>for government |
+   | **Provider URL** | Commercial:<br>`sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/`<br><br>Government:<br>`sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` |  |
    | **Thumbprint** | `626d44e704d1ceabe3bf0d53397464ac8080142c` | If created in the IAM console, selecting **Get thumbprint** should give you this result. |
    | **Audience** | `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`<br><br>`api://d4230588-5f84-4281-a9c7-2c15194b28f7` | for commercial<br><br>for government |
    
