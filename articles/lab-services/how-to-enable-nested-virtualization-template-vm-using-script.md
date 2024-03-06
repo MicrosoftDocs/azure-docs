@@ -135,6 +135,8 @@ Enable connection with RDP from lab VM 2, or its nested VMs, to nested lab VM 1-
 
 ## Troubleshooting
 
+These suggestions might address some common issues.
+
 ### The Linux VM is only showing a black screen
 
 Perform the following steps to verify your nested VM configuration:
