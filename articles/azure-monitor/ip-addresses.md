@@ -70,6 +70,9 @@ If you're using Azure network security groups, add an *inbound port rule* to all
 
 Open port 80 (HTTP) and port 443 (HTTPS) for incoming traffic from these addresses. IP addresses are grouped by location.
 
+> [!NOTE]
+> Validate your Azure App Service access restrictions, as you might need to also enable access for the availability test IP addresses. For more information, see [https://learn.microsoft.com/en-us/azure/app-service/overview-access-restrictions#app-access](/azure/app-service/overview-access-restrictions).
+
 ### IP addresses
 
 If you're looking for the actual IP addresses so that you can add them to the list of allowed IPs in your firewall, download the JSON file that describes Azure IP ranges. These files contain the most up-to-date information. After you download the appropriate file, open it by using your favorite text editor. Search for **ApplicationInsightsAvailability** to go straight to the section of the file that describes the service tag for availability tests.
