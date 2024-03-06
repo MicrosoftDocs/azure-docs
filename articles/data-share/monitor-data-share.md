@@ -20,7 +20,7 @@ For more information about the resource types for Azure Data Share, see [Data Sh
 
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-To view charts for Data Share-specific metrics, select **Metrics** under **Monitoring** in the left navigation of your Data Share page in the Azure portal.
+To view charts for Data Share metrics, select **Metrics** under **Monitoring** in the left navigation of your Data Share page in the Azure portal.
 
 For a full listing and descriptions of the available metrics for Data Share, see [Data Share monitoring data reference](monitor-data-share-reference.md#metrics).
 
@@ -43,7 +43,7 @@ To track Data Share invitation status, share subscription status, and snapshot h
 
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-To write queries and access example queries, select **Logs** under **Monitoring** in the left navigation of your Data Share page in the Azure portal, and then select the **Queries** tab. Here are a couple of example queries:
+To write queries and access example queries, select **Logs** under **Monitoring** in the left navigation of your Data Share page in the Azure portal, and then select the **Queries** tab. Here are a couple of example queries.
 
 List of sent snapshots sorted by duration over the last seven days:
 
