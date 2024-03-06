@@ -143,7 +143,7 @@ The following JSON format response is an example returned by the tool that inclu
 
 
 ## How to migrate from legacy tools to the Index Lookup tool
-Previously, in prompt flow for Azure AI Studio there were three different tools for looking up a vector index: the Faiss Index Lookup tool, the Vector DB Lookup Tool, and the Vector Index Lookup tool. We have combined and simplified these three tools into one new tool, known as the [*Index Lookup* tool](./index-lookup-tool.md). The *Index Lookup* tool enables the usage of common vector indices (such as Azure AI Search, FAISS, and Pinecone) for retrieval augmented generation (RAG) in prompt flow. The tool automatically detects the indices in the workspace and allows the selection of the index to be used in the flow. This article will help guide you through the process of upgrading from the legacy lookup tools to the new *Index Lookup* tool.
+Previously, in prompt flow for Azure AI Studio there were three different tools for looking up a vector index: the Faiss Index Lookup tool, the Vector DB Lookup Tool, and the Vector Index Lookup tool. We have combined and simplified these three tools into one new tool, known as the *Index Lookup* tool. The *Index Lookup* tool enables the usage of common vector indices (such as Azure AI Search, FAISS, and Pinecone) for retrieval augmented generation (RAG) in prompt flow. The tool automatically detects the indices in the workspace and allows the selection of the index to be used in the flow. The next section will guide you through the process of upgrading from the legacy lookup tools to the new *Index Lookup* tool.
 
 ## Upgrade your tools
 
