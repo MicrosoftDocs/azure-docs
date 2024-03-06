@@ -26,7 +26,7 @@ ms.date: 02/16/2023
 
 ## Create a server that has public access
 
-Create an *azuredeploy.json* file with the following content to create an Azure Database for MySQL flexible server instance using public access connectivity method and also create a database on the server. Update the **firewallRules** default value if needed.
+To create an Azure Database for MySQL flexible server instance by using the public access connectivity method and create a database on the server, reate an *azuredeploy.json* file that has the following code examples. If necessary, update the `firewallRules` default value.
 
 ```json
 {
@@ -73,7 +73,7 @@ Create an *azuredeploy.json* file with the following content to create an Azure 
         "MemoryOptimized"
       ],
       "metadata": {
-        "description": "The tier of the particular SKU. High Availability is available only for GeneralPurpose and MemoryOptimized sku."
+        "description": "The tier of the specific SKU. High vailability is available only for GeneralPurpose and MemoryOptimized SKUs."
       }
     },
     "version": {
@@ -91,7 +91,7 @@ Create an *azuredeploy.json* file with the following content to create an Azure 
       "type": "string",
       "defaultValue": "1",
       "metadata": {
-        "description": "Availability Zone information of the server. (Leave blank for No Preference)."
+        "description": "Availability zone information of the server. (If you don't have a preference, leave leave blank.)"
       }
     },
     "haEnabled": {
@@ -103,14 +103,14 @@ Create an *azuredeploy.json* file with the following content to create an Azure 
         "ZoneRedundant"
       ],
       "metadata": {
-        "description": "High availability mode for a server : Disabled, SameZone, or ZoneRedundant"
+        "description": "High availability mode for a server: Disabled, SameZone, or ZoneRedundant"
       }
     },
     "standbyAvailabilityZone": {
       "type": "string",
       "defaultValue": "2",
       "metadata": {
-        "description": "Availability zone of the standby server."
+        "description": "The availability zone of the standby server."
       }
     },
     "storageSizeGB": {
@@ -133,7 +133,7 @@ Create an *azuredeploy.json* file with the following content to create an Azure 
       "type": "string",
       "defaultValue": "Standard_B1ms",
       "metadata": {
-        "description": "The name of the sku, e.g. Standard_D32ds_v4."
+        "description": "The name of the SKU. For example, Standard_D32ds_v4."
       }
     },
     "backupRetentionDays": {
@@ -256,7 +256,7 @@ Create an *azuredeploy.json* file with the following content to create an Azure 
 
 ## Create a server that has private access
 
-Modify the following code samples to create an Azure Database for MySQL flexible server that has private access connectivity inside a virtual network:
+Modify the following code examples to create an Azure Database for MySQL flexible server that has private access connectivity inside a virtual network:
 
 ```json
 {
@@ -488,14 +488,14 @@ Modify the following code samples to create an Azure Database for MySQL flexible
 
 Deploy the JSON file by using either the Azure CLI or Azure PowerShell.
 
-# [Azure CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group create --name exampleRG --location eastus
 az deployment group create --resource-group exampleRG --template-file azuredeploy.json
 ```
 
-# [Azure PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name exampleRG -Location eastus
@@ -510,14 +510,14 @@ Complete the steps to enter the parameter values. When the deployment finishes, 
 
 To verify that your Azure Database for MySQL flexible server was created in the resource group:
 
-# [Azure CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az resource list --resource-group exampleRG
 
 ```
 
-# [Azure PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzResource -ResourceGroupName exampleRG
@@ -529,13 +529,13 @@ Get-AzResource -ResourceGroupName exampleRG
 
 To delete the resource group and all the resources that are in the resource group:
 
-# [Azure CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group delete --name exampleRG
 ```
 
-# [Azure PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name exampleRG

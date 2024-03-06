@@ -345,7 +345,7 @@ Follow the instructions to enter the parameter values. When the deployment finis
 
 ## Review deployed resources
 
-Follow these steps to verify if your Azure Database for MySQL flexible server instance was created in the resource group.
+To verify that your Azure Database for MySQL flexible server was created in the resource group:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -364,7 +364,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-To delete the resource group and the resources contained in the resource group:
+To delete the resource group and the resources that are contained in the resource group:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -372,7 +372,7 @@ To delete the resource group and the resources contained in the resource group:
 az group delete --name exampleRG
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name exampleRG
@@ -382,5 +382,5 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Related content
 
-- For a step-by-step tutorial that guides you through the process of creating a Bicep template, see [Quickstart: Create Bicep files with Visual Studio Code](../../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md).
+- For a step-by-step tutorial that guides you through the process of creating a Bicep template, see [Quickstart: Create Bicep files by using Visual Studio Code](../../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md).
 - For a step-by-step tutorial that shows how to build an app by using Azure App Service and MySQL, see[Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md).
