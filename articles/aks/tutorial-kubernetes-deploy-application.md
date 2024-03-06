@@ -178,9 +178,20 @@ AZD doesn't require a container registry step since it's in the template.
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-Deployment in AZD in broken down into multiple stages represented by hooks. Run `azd up` as an all-in-one command.
+Deployment in AZD in broken down into multiple stages represented by hooks. Run `azd up` to deploy all hooks.
+
+    ```azurecli-interactive
+    azd up
+    ```
 
 When you first run azd up, you're prompted to select which Subscription and Region to host your Azure resources.
+
+    ```output
+    ? Select an Azure Subscription to use:  [Use arrows to move, type to filter]
+    > 1. My Azure Subscription (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+    Select an Azure location to use:  [Use arrows to move, type to filter]
+    > 43. (US) East US 2 (eastus2)
+    ```
 
 You can update these variables for `AZURE_LOCATION` and `AZURE_SUBSCRIPTION_ID` from inside the `.azure/<your-env-name>/.env` file.
 

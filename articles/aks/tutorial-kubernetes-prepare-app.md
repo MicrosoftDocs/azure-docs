@@ -66,21 +66,21 @@ The [sample application][sample-application] used in this tutorial is a basic st
 
 1. If you are using AZD locally, create an empty directory named `aks-store-demo` to host the azd template files.
 
-    ```azurecli
+    ```azurecli-interactive
     mkdir aks-store-demo
     ```
 
 1. Change into the new directory to load all the files from the azd template.
 
-    ```azurecli
+    ```azurecli-interactive
     cd aks-store-demo
     ```
 
 1. Run the Azure Developer CLI ([azd][]) init command which clones the sample application into your empty directory.
 
-    Here, the `--template` flag is specified to point to the aks-store-demo application.
+    Use the `--template` flag to clone from the aks-store-demo in Azure-Samples.
 
-    ```azurecli
+    ```azurecli-interactive
     azd init --template aks-store-demo
     ```
 

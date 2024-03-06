@@ -76,7 +76,7 @@ AZD Environments in a codespace automatically download all dependencies found in
 
 * To install `kubectl` locally, use the [`az aks install-cli`][az aks install-cli] command.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks install-cli
     ```
 
