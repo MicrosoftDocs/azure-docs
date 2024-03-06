@@ -61,7 +61,7 @@ Enable deletion protection to protect your Application Load Balancer from deleti
 
 ### [AWS accounts should have Azure Arc auto provisioning enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/882a80f0-943f-473e-b6d7-40c7a625540e)
 
-**Description**: For full visibility of the security content from Microsoft Defender for servers, EC2 instances should be connected to Azure Arc. To ensure that all eligible EC2 instances automatically receive Azure Arc, enable autoprovisioning from Defender for Cloud at the AWS account level. Learn more about [Azure Arc](/../azure-arc/servers/overview.md), and [Microsoft Defender for Servers](plan-defender-for-servers.md).
+**Description**: For full visibility of the security content from Microsoft Defender for servers, EC2 instances should be connected to Azure Arc. To ensure that all eligible EC2 instances automatically receive Azure Arc, enable autoprovisioning from Defender for Cloud at the AWS account level. Learn more about [Azure Arc](../azure-arc/servers/overview.md), and [Microsoft Defender for Servers](plan-defender-for-servers.md).
 
 **Severity**: High
 
@@ -104,7 +104,7 @@ Authentication credentials `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` shoul
 
 ### [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3)
 
-**Description**: Connect your EC2 instances to Azure Arc in order to have full visibility to Microsoft Defender for Servers security content. Learn more about [Azure Arc](/../azure-arc/servers/overview.md), and about [Microsoft Defender for Servers](plan-defender-for-servers.md) on hybrid-cloud environment.
+**Description**: Connect your EC2 instances to Azure Arc in order to have full visibility to Microsoft Defender for Servers security content. Learn more about [Azure Arc](../azure-arc/servers/overview.md), and about [Microsoft Defender for Servers](plan-defender-for-servers.md) on hybrid-cloud environment.
 
 **Severity**: High
 
@@ -169,8 +169,8 @@ To learn more about the supported runtimes that this control checks for the supp
 
 ### [EKS clusters should have Microsoft Defender's extension for Azure Arc installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/38307993-84fb-4636-8ce7-3a64466bb5cc)
 
-**Description**: Microsoft Defender's [cluster extension](/../azure-arc/kubernetes/extensions.md) provides security capabilities for your EKS clusters. The extension collects data from a cluster and its nodes to identify security vulnerabilities and threats.
- The extension works with [Azure Arc-enabled Kubernetes](/../azure-arc/kubernetes/overview.md).
+**Description**: Microsoft Defender's [cluster extension](../azure-arc/kubernetes/extensions.md) provides security capabilities for your EKS clusters. The extension collects data from a cluster and its nodes to identify security vulnerabilities and threats.
+ The extension works with [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
 Learn more about [Microsoft Defender for Cloud's security features for containerized environments](defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks).
 
 **Severity**: High

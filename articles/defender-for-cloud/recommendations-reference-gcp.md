@@ -238,13 +238,13 @@ At least business critical VMs should have VM disks encrypted with CSEK.
 
 ### [GCP projects should have Azure Arc auto provisioning enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1716d754-8d50-4b90-87b6-0404cad9b4e3)
 
-**Description**: For full visibility of the security content from Microsoft Defender for servers, GCP VM instances should be connected to Azure Arc. To ensure that all eligible VM instances automatically receive Azure Arc, enable autoprovisioning from Defender for Cloud at the GCP project level. Learn more about [Azure Arc](/../azure-arc/servers/overview.md), and [Microsoft Defender for Servers](plan-defender-for-servers.md).
+**Description**: For full visibility of the security content from Microsoft Defender for servers, GCP VM instances should be connected to Azure Arc. To ensure that all eligible VM instances automatically receive Azure Arc, enable autoprovisioning from Defender for Cloud at the GCP project level. Learn more about [Azure Arc](../azure-arc/servers/overview.md), and [Microsoft Defender for Servers](plan-defender-for-servers.md).
 
 **Severity**: High
 
 ### [GCP VM instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9bbe2f0f-d6c6-48e8-b4d0-cf25d2c50206)
 
-**Description**: Connect your GCP Virtual Machines to Azure Arc in order to have full visibility to Microsoft Defender for Servers security content. Learn more about [Azure Arc](/../azure-arc/), and about [Microsoft Defender for Servers](plan-defender-for-servers.md) on hybrid-cloud environment.
+**Description**: Connect your GCP Virtual Machines to Azure Arc in order to have full visibility to Microsoft Defender for Servers security content. Learn more about [Azure Arc](../azure-arc/), and about [Microsoft Defender for Servers](plan-defender-for-servers.md) on hybrid-cloud environment.
 
 **Severity**: High
 
@@ -282,8 +282,8 @@ At least business critical VMs should have VM disks encrypted with CSEK.
 
 ### [GKE clusters should have Microsoft Defender's extension for Azure Arc installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0faf27b6-f1d5-4f50-b22a-5d129cba0113)
 
-**Description**: Microsoft Defender's [cluster extension](/../azure-arc/kubernetes/extensions.md) provides security capabilities for your GKE clusters. The extension collects data from a cluster and its nodes to identify security vulnerabilities and threats.
- The extension works with [Azure Arc-enabled Kubernetes](/../azure-arc/kubernetes/overview.md).
+**Description**: Microsoft Defender's [cluster extension](../azure-arc/kubernetes/extensions.md) provides security capabilities for your GKE clusters. The extension collects data from a cluster and its nodes to identify security vulnerabilities and threats.
+ The extension works with [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
 Learn more about [Microsoft Defender for Cloud's security features for containerized environments](defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks).
 
 **Severity**: High
@@ -291,7 +291,7 @@ Learn more about [Microsoft Defender for Cloud's security features for container
 ### [GKE clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/6273e20b-8814-4fda-a297-42a70b16fcbf)
 
 **Description**: Azure Policy extension for Kubernetes extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner.
- The extension works with [Azure Arc-enabled Kubernetes](/../azure-arc/kubernetes/overview.md).
+ The extension works with [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
 
 **Severity**: High
 

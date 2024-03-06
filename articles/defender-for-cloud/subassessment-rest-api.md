@@ -13,9 +13,9 @@ ms.topic: how-to
 ## Overview
 
 Azure Resource Graph (ARG) provides a REST API that can be used to programmatically access vulnerability assessment results for both Azure registry and runtime vulnerabilities recommendations.
-Learn more about [ARG references and query examples](/../governance/resource-graph/overview.md).
+Learn more about [ARG references and query examples](../governance/resource-graph/overview.md).
 
-Azure, AWS, and GCP container registry vulnerabilities sub-assessments are published to ARG as part of the security resources. Learn more about [security sub-assessments](/../governance/resource-graph/samples/samples-by-category.md?tabs=azure-cli#list-container-registry-vulnerability-assessment-results).
+Azure, AWS, and GCP container registry vulnerabilities sub-assessments are published to ARG as part of the security resources. Learn more about [security sub-assessments](../governance/resource-graph/samples/samples-by-category.md?tabs=azure-cli#list-container-registry-vulnerability-assessment-results).
 
 ## ARG query examples
 

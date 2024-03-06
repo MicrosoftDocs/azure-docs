@@ -78,7 +78,7 @@ There are two approaches to ensuring your Defender for Cloud data is represented
 
 - **Sentinel connectors** - Microsoft Sentinel includes built-in connectors for Microsoft Defender for Cloud at the subscription and tenant levels:
 
-  - [Stream alerts to Microsoft Sentinel at the subscription level](/../sentinel/connect-azure-security-center.md)
+  - [Stream alerts to Microsoft Sentinel at the subscription level](../sentinel/connect-azure-security-center.md)
   - [Connect all subscriptions in your tenant to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539)
 
   > [!TIP]
@@ -86,9 +86,9 @@ There are two approaches to ensuring your Defender for Cloud data is represented
 
 - **Stream your audit logs** - An alternative way to investigate Defender for Cloud alerts in Microsoft Sentinel is to stream your audit logs into Microsoft Sentinel:
 
-  - [Connect Windows security events](/../sentinel/connect-windows-security-events.md)
+  - [Connect Windows security events](../sentinel/connect-windows-security-events.md)
   - [Collect data from Linux-based sources using Syslog](../sentinel/connect-syslog.md)
-  - [Connect data from Azure Activity log](/../sentinel/data-connectors-reference.md#azure-activity)
+  - [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity)
 
 #### Stream alerts with Microsoft Graph Security API
 

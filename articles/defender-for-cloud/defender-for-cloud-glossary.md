@@ -35,7 +35,7 @@ Azure DevOps provides developer services for allowing teams to plan work, collab
 
 ### **AKS**
 
-Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications. See [Kubernetes concepts](/..-stack/aks-hci/kubernetes-concepts).
+Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications. See [Kubernetes concepts](..-stack/aks-hci/kubernetes-concepts).
 
 ### **Alerts**
 
@@ -51,7 +51,7 @@ Advanced Persistent Threats See the [video: Understanding APTs](/events/teched-2
 
 ### **Arc-enabled Kubernetes**
 
-Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center. See [What is Azure Arc-enabled Kubernetes](/../azure-arc/kubernetes/overview.md).
+Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center. See [What is Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
 
 ### **ARG**
 
@@ -75,7 +75,7 @@ To make sure that your server resources are secure, Microsoft Defender for Cloud
 
 ### Azure Policy for Kubernetes
 
-A pod that extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) and registers as a web hook to Kubernetes admission control making it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. It's deployed as an AKS add-on in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. For more information, see [Protect your Kubernetes workloads](kubernetes-workload-protections.md) and [Understand Azure Policy for Kubernetes clusters](/../governance/policy/concepts/policy-for-kubernetes.md).
+A pod that extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) and registers as a web hook to Kubernetes admission control making it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. It's deployed as an AKS add-on in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. For more information, see [Protect your Kubernetes workloads](kubernetes-workload-protections.md) and [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md).
 
 ## B
 
@@ -285,7 +285,7 @@ Regulatory compliance refers to the discipline and process of ensuring that a co
 
 ### **SAS**
 
-Shared access signature that provides secure delegated access to resources in your storage account.[Storage SAS Overview](/../storage/common/storage-sas-overview.md).
+Shared access signature that provides secure delegated access to resources in your storage account.[Storage SAS Overview](../storage/common/storage-sas-overview.md).
 
 ### **SaaS**
 

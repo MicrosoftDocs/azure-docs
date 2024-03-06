@@ -36,7 +36,7 @@ The following table summarizes how Defender for Servers features will be provide
 | File integrity monitoring | Log Analytics agent, AMA (Preview) | Defender for Endpoint agent integration | Functionality with the Defender for Endpoint agent will be available around April 2024.<br/>- Functionality with the Log Analytics agent will be deprecated in August 2024.<br/>- Functionality with AMA will deprecate when the Defender for Endpoint integration is released. |
 
 The [500-MB benefit](faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) for data ingestion over the defined tables remains supported via the AMA agent for the machines under subscriptions covered by Defender for Servers Plan 2. Every machine is eligible for the benefit only once, even if both Log Analytics agent and Azure Monitor agent are installed on it.
-Learn more about how to [deploy AMA](/../azure-monitor/vm/monitor-virtual-machine-agent.md#agent-deployment-options).
+Learn more about how to [deploy AMA](../azure-monitor/vm/monitor-virtual-machine-agent.md#agent-deployment-options).
 
 For SQL servers on machines, we recommend to [migrate to SQL server-targeted Azure Monitoring Agent's (AMA) autoprovisioning process](defender-for-sql-autoprovisioning.md).
 

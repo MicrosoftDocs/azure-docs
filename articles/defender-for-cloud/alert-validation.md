@@ -168,7 +168,7 @@ You can also learn more about defending your Kubernetes nodes and clusters with 
 
 ## Simulate alerts for App Service
 
-You can simulate alerts for resources running on [App Service](/../app-service/overview.md).
+You can simulate alerts for resources running on [App Service](../app-service/overview.md).
 
 1. Create a new website and wait 24 hours for it to be registered with Defender for Cloud, or use an existing web site.
 
@@ -207,7 +207,7 @@ You can simulate alerts for resources running on [App Service](/../app-service/o
 
 ## Validate Azure Key Vault Threat Detection
 
-1. If you don’t have a Key Vault created yet, make sure to [create one](/../key-vault/general/quick-create-portal.md).
+1. If you don’t have a Key Vault created yet, make sure to [create one](../key-vault/general/quick-create-portal.md).
 1. After finishing creating the Key Vault and the secret, go to a VM that has Internet access and [download the TOR Browser](https://www.torproject.org/download/).
 1. Install the TOR Browser on your VM.
 1. Once you finished the installation, open your regular browser, sign-in to the Azure portal, and access the Key Vault page. Select the highlighted URL and copy the address.

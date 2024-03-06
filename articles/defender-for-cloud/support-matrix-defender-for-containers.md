@@ -65,7 +65,7 @@ Following are the features for each of the domains in Defender for Containers:
 
 | Aspect | Details |
 |--|--|
-| Registries and images | **Supported**<br> • ACR registries <br> • [ACR registries protected with Azure Private Link](/../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Container images in Docker V2 format <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br> **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> is currently unsupported <br> |
+| Registries and images | **Supported**<br> • ACR registries <br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Container images in Docker V2 format <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br> **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> is currently unsupported <br> |
 | Operating systems | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6-9 <br> • CentOS 6-9<br> • Oracle Linux 6-9 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap, openSUSE Tumbleweed <br> • SUSE Enterprise Linux 11-15 <br> • Debian GNU/Linux 7-12 <br> • Google Distroless (based on Debian GNU/Linux 7-12) <br> • Ubuntu 12.04-22.04 <br>  • Fedora 31-37<br> • Mariner 1-2<br> • Windows Server 2016, 2019, 2022|
 | Language specific packages <br><br>  | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
@@ -73,7 +73,7 @@ Following are the features for each of the domains in Defender for Containers:
 
 | Aspect | Details |
 |--|--|
-| Kubernetes distributions and configurations | **Supported**<br> • [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) with [Kubernetes RBAC](../aks/concepts-identity.md#kubernetes-rbac) <br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br> • [Azure Kubernetes Service hybrid](/../aks/hybrid/aks-hybrid-options-overview.md)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br /> |
+| Kubernetes distributions and configurations | **Supported**<br> • [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) with [Kubernetes RBAC](../aks/concepts-identity.md#kubernetes-rbac) <br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br> • [Azure Kubernetes Service hybrid](../aks/hybrid/aks-hybrid-options-overview.md)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br /> |
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested on Azure.
 
@@ -197,7 +197,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 | Aspect | Details |
 |--|--|
-| Kubernetes distributions and configurations | **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br>• [Azure Kubernetes Service hybrid](/../aks/hybrid/aks-hybrid-options-overview.md)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/)<br> |
+| Kubernetes distributions and configurations | **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br>• [Azure Kubernetes Service hybrid](../aks/hybrid/aks-hybrid-options-overview.md)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/)<br> |
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
 
