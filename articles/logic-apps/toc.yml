@@ -343,6 +343,8 @@ items:
       href: ../connectors/connectors-create-api-db2.md
     - name: IBM Host File
       href: ../connectors/integrate-host-files-ibm-mainframe.md
+    - name: IBM i
+      href: ../connectors/integrate-ibmi-apps-dpc.md
     - name: IBM IMS
       href: ../connectors/integrate-ims-apps-ibm-mainframe.md
     - name: IBM Informix
