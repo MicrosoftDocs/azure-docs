@@ -1,6 +1,6 @@
 ---
 title: Project best practices
-description: Best practices for Question Answering
+description: Best practices for custom question answering
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
@@ -28,7 +28,7 @@ The following list of QnA pairs will be used to represent a project to highlight
 
 ## When should you add alternate questions to a QnA?
 
-- Question answering employs a transformer-based ranker that takes care of user queries that are semantically similar to questions in the project. For example, consider the following question answer pair:
+- Custom question answering employs a transformer-based ranker that takes care of user queries that are semantically similar to questions in the project. For example, consider the following question answer pair:
 
    **Question: “What is the price of Microsoft Stock?”**
 
@@ -54,13 +54,13 @@ The following list of QnA pairs will be used to represent a project to highlight
 
 - Users can add up to 10 alternate questions depending on their scenario. Alternate questions beyond the first 10 aren’t considered by our core ranker. However, they are evaluated in the other processing layers resulting in better output overall. All the alternate questions will be considered in the preprocessing step to look for an exact match.
 
-- Semantic understanding in question answering should be able to take care of similar alternate questions.
+- Semantic understanding in custom question answering should be able to take care of similar alternate questions.
 
 - The return on investment will start diminishing once you exceed 10 questions. Even if you’re adding more than 10 alternate questions, try to make the initial 10 questions as semantically dissimilar as possible so that all intents for the answer are captured by these 10 questions. For the project above, in QNA #1, adding alternate questions such as "How can I buy a car?", "I wanna buy a car." are not required. Whereas adding alternate questions such as "How to purchase a car.", "What are the options for buying a vehicle?" can be useful.
 
 ## When to add synonyms to a project
 
-- Question answering provides the flexibility to use synonyms at the project level, unlike QnA Maker where synonyms are shared across projects for the entire service.
+- Custom question answering provides the flexibility to use synonyms at the project level, unlike QnA Maker where synonyms are shared across projects for the entire service.
 
 - For better relevance, the customer needs to provide a list of acronyms that the end user intends to use interchangeably. For instance, the following is a list of acceptable acronyms:
 
@@ -78,11 +78,11 @@ If we receive user queries like "Microsoft stock value", "Microsoft share value"
 
 ## How are lowercase/uppercase characters treated?
 
-Question answering takes casing into account but it's intelligent enough to understand when it is to be ignored. You should not be seeing any perceivable difference due to wrong casing.
+Custom question answering takes casing into account but it's intelligent enough to understand when it is to be ignored. You should not be seeing any perceivable difference due to wrong casing.
 
 ## How are QnAs prioritized for multi-turn questions?
 
-When a KB has hierarchical relationships (either added manually or via extraction) and the previous response was an answer related to other QnAs, for the next query we give slight preference to all the children QnAs, sibling QnAs and grandchildren QnAs in that order. Along with any query, the [Question Answering API] (/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) expects a "context" object with the property "previousQnAId" which denotes the last top answer. Based on this previous QnA ID, all the related QnAs are boosted.
+When a KB has hierarchical relationships (either added manually or via extraction) and the previous response was an answer related to other QnAs, for the next query we give slight preference to all the children QnAs, sibling QnAs and grandchildren QnAs in that order. Along with any query, the [custom question Answering API] (/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) expects a "context" object with the property "previousQnAId" which denotes the last top answer. Based on this previous QnA ID, all the related QnAs are boosted.
 
 ## How are accents treated?
 
