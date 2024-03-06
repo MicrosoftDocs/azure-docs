@@ -95,7 +95,7 @@ when making changes in one don't forget the other two.
    | **Name** | myContinuousWebJob | A name that is unique within an App Service app. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
    | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
    | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
-   | **Scale** | Multi Instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
+   | **Scale** | Multi Instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
 
@@ -182,7 +182,7 @@ To learn more, see [Scheduling a triggered WebJob](webjobs-dotnet-deploy-vs.md#s
 
 ## Manage WebJobs
 
-You can manage the running state individual WebJobs running in your site in the [Azure portal](https://portal.azure.com). Just go to **Settings** > **WebJobs**, choose the WebJob, and you can start and stop the WebJob. You can also view and modify the password of the webhook that runs the WebJob.  
+You can manage the running state individual WebJobs running in your site in the [Azure portal](https://portal.azure.com). Go to **Settings** > **WebJobs**, choose the WebJob, and you can start and stop the WebJob. You can also view and modify the password of the webhook that runs the WebJob.  
 
 You can also [add an application setting](configure-common.md#configure-app-settings) named `WEBJOBS_STOPPED` with a value of `1` to stop all WebJobs running on your site. You can use this method to prevent conflicting WebJobs from running both in staging and production slots. You can similarly use a value of `1` for the `WEBJOBS_DISABLE_SCHEDULE` setting to disable triggered WebJobs in the site or a staging slot. For slots, remember to enable the **Deployment slot setting** option so that the setting itself doesn't get swapped.    
 
@@ -200,14 +200,14 @@ You can also [add an application setting](configure-common.md#configure-app-sett
 
 ## WebJob statuses
 
-Below is a list of common WebJob statuses:
+The following is a list of common WebJob statuses:
 
-- **Initializing**  The app has just started and the WebJob is going through its initialization process.
+- **Initializing**  The app has started and the WebJob is going through its initialization process.
 - **Starting**  The WebJob is starting up.
 - **Running**  The WebJob is running.
 - **PendingRestart**  A continuous WebJob exits in less than two minutes since it started for any reason, and App Service waits 60 seconds before restarting the WebJob. If the continuous WebJob exits after the two-minute mark, App Service doesn't wait the 60 seconds and restarts the WebJob immediately. 
 - **Stopped**  The WebJob was stopped (usually from the Azure portal) and is currently not running and won't run until you start it again manually, even for a continuous or scheduled WebJob.
-- **Aborted**  This can occur for a number of reasons, such as when a long-running WebJob reaches the timeout marker.
+- **Aborted**  This can occur for many of reasons, such as when a long-running WebJob reaches the timeout marker.
 
 ## <a name="NextSteps"></a> Next steps
 
