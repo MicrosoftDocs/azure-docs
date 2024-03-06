@@ -178,7 +178,7 @@ For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](..
 
 - **Supported distributions**: AKS enabled by Azure Arc, AKS Edge Essentials, Ubuntu
 
-[Edge Storage Accelerator (ESA)](../edge-storage-accelerator/index.yml) is a 1P storage system designed for Arc-connected Kubernetes clusters. ESA can be deployed to write files to a "ReadWriteMany" persistent volume claim (PVC) where they are then transferred to Azure Blob Storage. ESA offers a range of features to support Azure IoT Operations and other Arc Services.
+[Edge Storage Accelerator (ESA)](../edge-storage-accelerator/index.yml) is a first-party storage system designed for Arc-connected Kubernetes clusters. ESA can be deployed to write files to a "ReadWriteMany" persistent volume claim (PVC) where they are then transferred to Azure Blob Storage. ESA offers a range of features to support Azure IoT Operations and other Arc Services.
 
 For more information, see [What is Edge Storage Accelerator?](../edge-storage-accelerator/overview.md).
 
