@@ -111,12 +111,9 @@ The following table shows more limits in the platform. Reach out to the Azure Ma
 
 Azure Machine Learning provides a shared quota pool from which users across various regions can access quota to perform testing for a limited amount of time, depending upon availability. The specific time duration depends on the use case. By temporarily using quota from the quota pool, you no longer need to file a support ticket for a short-term quota increase or wait for your quota request to be approved before you can proceed with your workload.
 
-Use of the shared quota pool is available for running Spark jobs and for testing inferencing for Llama-2, Phi, Nemotron, Mistral, Dolly, and Deci-DeciLM models from the Model Catalog. Before you can deploy these models via the shared quota, you must have an [Enterprise Agreement subscription](/azure/cost-management-billing/manage/create-enterprise-subscription). For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
+Use of the shared quota pool is available for running Spark jobs and for testing inferencing for Llama-2, Phi, Nemotron, Mistral, Dolly, and Deci-DeciLM models from the Model Catalog for a short time. Before you can deploy these models via the shared quota, you must have an [Enterprise Agreement subscription](/azure/cost-management-billing/manage/create-enterprise-subscription). For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
 
 You should use the shared quota only for creating temporary test endpoints, not production endpoints. For endpoints in production, you should request dedicated quota by [filing a support ticket](https://ml.azure.com/quota). Billing for shared quota is usage-based, just like billing for dedicated virtual machine families. To opt out of shared quota for Spark jobs, fill out the [Azure Machine Learning Shared Capacity Allocation Opt Out Form](https://forms.office.com/r/n2DFPMeZYW) form.
-
-Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access quota to perform testing for a limited time. When you use the studio to deploy Llama-2, Phi, Nemotron, Mistral, Dolly and Deci-DeciLM models from the model catalog to a managed online endpoint, Azure Machine Learning allows you to access this shared quota for a short time. 
-
 
 
 ### Azure Machine Learning online endpoints and batch endpoints
