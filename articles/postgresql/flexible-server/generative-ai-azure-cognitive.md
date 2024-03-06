@@ -291,9 +291,6 @@ For more details on parameters see [Translator API](../../ai-services/translator
 ##### `target_language`
 `text` two-letter ISO 639-1 representation of the language that the input text is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-##### `target_language`
-`text` two-letter ISO 639-1 representation of the language that the input text is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
-
 ##### `timeout_ms`
 `integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
 
