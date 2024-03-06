@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 12/12/2022
 ms.author: allensu
-ms.custom: mode-arm, FY23 content-maintenance
+ms.custom: mode-arm, FY23 content-maintenance, devx-track-arm-template
 ---
 
 # Quickstart: Use a Resource Manager template to create a virtual network
