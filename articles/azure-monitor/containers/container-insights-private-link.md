@@ -37,7 +37,7 @@ This article describes how to configure Container insights to use Azure Private 
     | AKS: `workspaceResourceId`<br>Arc: `workspaceResourceId` | Resource ID of the  Azure Log Analytics workspace. |
     | AKS: `workspaceRegion`<br>Arc: `workspaceRegion` | Region of the Log Analytics workspace. |
     |  Arc: `workspaceDomain`	| Domain of the Log Analytics workspace.<br>`opinsights.azure.com` for Azure public cloud<br>`opinsights.azure.us` for AzureUSGovernment<br>`opinsights.azure.cn` for Azure China Cloud |
-    | AKS: `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-<clusterName>-<clusterRegion> and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
+    | AKS: `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
     | AKS: `useAzureMonitorPrivateLinkScope`<br>Arc:`useAzureMonitorPrivateLinkScope` | Boolean flag to indicate Azure Monitor link scope to used or not |
     | AKS: `azureMonitorPrivateLinkScopeResourceId`<br>Arc: `azureMonitorPrivateLinkScopeResourceId` | Resource ID of the Azure Monitor Private link scope.   This only used if the useAzureMonitorPrivateLinkScope set to true. |
 
