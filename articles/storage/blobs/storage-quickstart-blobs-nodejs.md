@@ -72,19 +72,19 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 Create a JavaScript application named *blob-quickstart*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project.
+1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project:
 
     ```console
     mkdir blob-quickstart
     ```
 
-1. Switch to the newly created *blob-quickstart* directory.
+1. Switch to the newly created *blob-quickstart* directory:
 
     ```console
     cd blob-quickstart
     ```
 
-1. Create a *package.json*. 
+1. Create a *package.json* file: 
 
     ```console
     npm init -y
@@ -122,10 +122,10 @@ From the project directory, install the following packages using the `npm instal
 
 From the project directory:
 
-1. Create a new file named `index.js`.
-1. Copy the following code into the file. More code will be added as you go through this quickstart.
+1. Create a new file named `index.js`
+1. Copy the following code into the file:
 
-    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/boilerplate.js" :::
+    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/boilerplate.js":::
 
 ::: zone-end
 
@@ -135,7 +135,7 @@ With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) ins
 
 ### Initialize the Azure Developer CLI template and deploy resources
 
-From an empty directory, follow these steps to initialize the `azd` template, provision Azure resources, and get started with the code:
+From an empty directory, follow these steps to initialize the `azd` template, create Azure resources, and get started with the code:
 
 - Clone the quickstart repository assets from GitHub and initialize the template locally:
 
@@ -147,7 +147,7 @@ From an empty directory, follow these steps to initialize the `azd` template, pr
 
     - **Environment name**: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
 
-- Log in to Azure:
+- Sign in to Azure:
 
     ```console
     azd auth login
@@ -239,7 +239,7 @@ Sample code is also available on [GitHub](https://github.com/Azure-Samples/Azure
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
 
-For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
+For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it's deployed to Azure. No code changes are required for this transition.
 
 <a name='assign-roles-to-your-azure-ad-user-account'></a>
 
@@ -263,7 +263,7 @@ You can authorize access to data in your storage account using the following ste
 
     #### [Visual Studio Code](#tab/sign-in-visual-studio-code)
 
-    You'll need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio Code.
+    [Install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio Code.
 
     On the main menu of Visual Studio Code, navigate to **Terminal > New Terminal**.
 
@@ -329,7 +329,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
-The code below retrieves the connection string for the storage account from the environment variable created earlier, and uses the connection string to construct a service client object.
+The following code retrieves the connection string for the storage account from the environment variable created earlier, and uses the connection string to construct a service client object.
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
@@ -379,7 +379,7 @@ To learn more about uploading blobs, and to explore more code samples, see [Uplo
 
 ## List the blobs in a container
 
-List the blobs in the container. The following code calls the [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
+List the blobs in the container. The following code calls the [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) method. In this case, only one blob is in the container, so the listing operation returns just that one blob.
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
@@ -433,32 +433,32 @@ To learn more about deleting a container, and to explore more code samples, see 
 
 ## Run the code
 
-1. From a Visual Studio Code terminal, run the app.
+From a Visual Studio Code terminal, run the app.
 
-    ```console
-    node index.js
-    ```
+```console
+node index.js
+```
 
-2. The output of the app is similar to the following example:
+The output of the app is similar to the following example:
 
-    ```output
-    Azure Blob storage - JavaScript quickstart sample
+```output
+Azure Blob storage - JavaScript quickstart sample
     
-    Creating container...
-             quickstart4a0780c0-fb72-11e9-b7b9-b387d3c488da
+Creating container...
+    quickstart4a0780c0-fb72-11e9-b7b9-b387d3c488da
     
-    Uploading to Azure Storage as blob:
-             quickstart4a3128d0-fb72-11e9-b7b9-b387d3c488da.txt
+Uploading to Azure Storage as blob:
+    quickstart4a3128d0-fb72-11e9-b7b9-b387d3c488da.txt
     
-    Listing blobs...
-             quickstart4a3128d0-fb72-11e9-b7b9-b387d3c488da.txt
+Listing blobs...
+    quickstart4a3128d0-fb72-11e9-b7b9-b387d3c488da.txt
     
-    Downloaded blob content...
-             Hello, World!
+Downloaded blob content...
+    Hello, World!
     
-    Deleting container...
-    Done
-    ```
+Deleting container...
+Done
+```
 
 Step through the code in your debugger and check your [Azure portal](https://portal.azure.com) throughout the process. Check to see that the container is being created. You can open the blob inside the container and view the contents.
 
