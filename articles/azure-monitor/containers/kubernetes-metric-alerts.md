@@ -1,20 +1,21 @@
 ---
-title: Recommended alert rules for Kubernetes clusters (preview)
+title: Recommended alert rules for Kubernetes clusters
 description: Describes how to enable recommended metric alerts rules for a Kubernetes cluster in Azure Monitor.
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 03/05/2024
 ms.reviewer: aul
 ---
 
-# Recommended alert rules for Kubernetes clusters (preview)
-
+# Recommended alert rules for Kubernetes clusters
 [Alerts](../alerts/alerts-overview.md) in Azure Monitor proactively identify issues related to the health and performance of your Azure resources. This article describes how to enable and edit a set of recommended metric alert rules that are predefined for your Kubernetes clusters. 
 
 ## Types of alert rules
 There are two types of metric alert rules used with Kubernetes clusters.
 
-- [Prometheus metric alert rules](../alerts/alerts-types.md#prometheus-alerts) use metric data collected from your Kubernetes cluster in a [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). These rules require [Prometheus to be enabled on your cluster](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) and are stored in a [Prometheus rule group](../essentials/prometheus-rule-groups.md).
-- [Platform metric alert rules](../alerts/alerts-types.md#metric-alerts) use metrics that are automatically collected from your AKS cluster and are stored as [Azure Monitor alert rules](../alerts/alerts-overview.md).
+| Alert rule type | Description |
+|:---|:---|
+| [Prometheus metric alert rules (preview)](../alerts/alerts-types.md#prometheus-alerts) | Use metric data collected from your Kubernetes cluster in a [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). These rules require [Prometheus to be enabled on your cluster](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) and are stored in a [Prometheus rule group](../essentials/prometheus-rule-groups.md). |
+| [Platform metric alert rules](../alerts/alerts-types.md#metric-alerts) | Use metrics that are automatically collected from your AKS cluster and are stored as [Azure Monitor alert rules](../alerts/alerts-overview.md). |
 
 ## Enable recommended alert rules
 Use one of the following methods to enable the recommended alert rules for your cluster. You can enable both Prometheus and platform metric alert rules for the same cluster.
@@ -131,6 +132,23 @@ Set the **enabled** flag to false for the rule group in the ARM template describ
 
 The following table lists the details of each recommended Prometheus alert rule. Source code for each is available in [GitHub](https://aka.ms/azureprometheus-communityalerts).
 
+### Cluster level alerts
+
+| Alert name | Description | Default threshold |
+|:---|:---|:---|
+| Average PV usage is greater than 80% | Average PV usage is greater than 80% | 80 |
+| KubeDeploymentReplicasMismatch | Deployment has not matched the expected number of replicas. | NA |
+| KubeStatefulSetReplicasMismatch | StatefulSet has not matched the expected number of replicas. | NA |
+| KubeHpaReplicasMismatch | Horizontal Pod Autoscaler has not matched the desired number of replicas for longer than 15 minutes. | NA |
+| KubeHpaMaxedOut | Horizontal Pod Autoscaler has been running at max replicas for longer than 15 minutes. | NA |
+| KubeCPUQuotaOvercommit | Cluster has overcommitted CPU resource requests for Namespaces and cannot tolerate node failure. | 1.5 |
+| KubeMemoryQuotaOvercommit | Cluster has overcommitted memory resource requests for Namespaces. | 1.5 |
+| KubeVersionMismatch | Different semantic versions of Kubernetes components running. | NA |
+| KubeClientErrors | Kubernetes API server client is experiencing errors. | 0.01 |
+| KubePersistentVolumeFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} is only {{ $value \| humanizePercentage }} free. | NA |
+| KubePersistentVolumeInodesFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} only has {{ $value \| humanizePercentage }} free inodes. | NA |
+| KubePersistentVolumeErrors | The persistent volume {{ $labels.persistentvolume }} has status {{ $labels.phase }} | 0 |
+
 ### Pod level alerts
 
 | Alert name | Description | Default threshold |
@@ -149,22 +167,6 @@ The following table lists the details of each recommended Prometheus alert rule.
 | KubeletPodStartUpLatencyHigh | Kubelet Pod startup 99th percentile latency is {{ $value }} seconds on node {{ $labels.node }}. \| 60 |
 
 
-### Cluster level alerts
-
-| Alert name | Description | Default threshold |
-|:---|:---|:---|
-| Average PV usage is greater than 80% | Average PV usage is greater than 80% | 80 |
-| KubeDeploymentReplicasMismatch | Deployment has not matched the expected number of replicas. | NA |
-| KubeStatefulSetReplicasMismatch | StatefulSet has not matched the expected number of replicas. | NA |
-| KubeHpaReplicasMismatch | Horizontal Pod Autoscaler has not matched the desired number of replicas for longer than 15 minutes. | NA |
-| KubeHpaMaxedOut | Horizontal Pod Autoscaler has been running at max replicas for longer than 15 minutes. | NA |
-| KubeCPUQuotaOvercommit | Cluster has overcommitted CPU resource requests for Namespaces and cannot tolerate node failure. | 1.5 |
-| KubeMemoryQuotaOvercommit | Cluster has overcommitted memory resource requests for Namespaces. | 1.5 |
-| KubeVersionMismatch | Different semantic versions of Kubernetes components running. | NA |
-| KubeClientErrors | Kubernetes API server client is experiencing errors. | 0.01 |
-| KubePersistentVolumeFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} is only {{ $value \| humanizePercentage }} free. | NA |
-| KubePersistentVolumeInodesFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} only has {{ $value \| humanizePercentage }} free inodes. | NA |
-| KubePersistentVolumeErrors | The persistent volume {{ $labels.persistentvolume }} has status {{ $labels.phase }} | 0 |
 
 ### Node level alerts
 
