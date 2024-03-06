@@ -13,7 +13,8 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Configure Azure CNI Networking for static allocation of CIDR blocks and enhanced subnet support in Azure Kubernetes Service (AKS) - (Preview)
 
-A limitation of [Azure CNI Dynamic IP Allocation](configure-azure-cni-dynamic-ip-allocation.md) is the exhaustion of pod IP addresses as the AKS cluster grows, which results in the need to rebuild your entire cluster in a bigger subnet. Even with a large subnet, large clusters may still be limited to 65k pods due to an azure address mapping limit. The new static block allocation capability in Azure CNI solves this problem by assigning CIDR blocks to Nodes rather than individual IPs.
+A limitation of [Azure CNI Dynamic IP Allocation](configure-azure-cni-dynamic-ip-allocation.md) is the scalability of the pod subnet size beyond a /16 subnet. Even with a large subnet, large clusters may still be limited to 65k pods due to an azure address mapping limit. 
+The new static block allocation capability in Azure CNI solves this problem by assigning CIDR blocks to Nodes rather than individual IPs.
 
 It offers the following benefits:
 
@@ -67,14 +68,14 @@ The planning of IPs for Kubernetes services and Docker bridge remain unchanged.
 
 The [deployment parameters][azure-cni-deployment-parameters]for configuring basic Azure CNI networking in AKS are all valid, with two exceptions:
 
-* The **subnet** parameter now refers to the subnet related to the cluster's nodes.
+* The **vnet subnet id** parameter now refers to the subnet related to the cluster's nodes.
 * The parameter **pod subnet id** is used to specify the subnet whose IP addresses will be statically or dynamically allocated to pods in the node pool.
 * The **pod ip allocation mode** parameter specifies whether to use dynamic individual or static block allocation.
 
 ## Before you begin
 
 - If using the Azure CLI, you need the `aks-preview` extension. See [Install the `aks-preview` Azure CLI extension](#install-the-aks-preview-azure-cli-extension).
-- If using ARM or the REST API, the AKS API version must be *2022-08-02-preview or later*.
+- If using ARM or the REST API, the AKS API version must be *2024-01-02-preview or later*.
 - You need to register the `KubeProxyConfigurationPreview` feature flag. See [Register the `KubeProxyConfigurationPreview` feature flag](#register-the-kubeproxyconfigurationpreview-feature-flag).
 
 ### Install the `aks-preview` Azure CLI extension
