@@ -25,7 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| [Post-GA updates for PostgreSQL and MySQL Flexible Servers](#post-ga-updates-for-postgresql-and-mysql-flexible-servers) | March 6, 2024 | April, 2024 |
+| [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) | March 6, 2024 | April, 2024 |
 | [Microsoft Security Code Analysis (MSCA) is no longer operational](#microsoft-security-code-analysis-msca-is-no-longer-operational) | February 26, 2024 | February 26, 2024 |
 | [Update recommendations to align with Azure AI Services resources](#update-recommendations-to-align-with-azure-ai-services-resources) | February 20, 2024 | February 28, 2024 |
 | [Deprecation of data recommendation](#deprecation-of-data-recommendation) | February 12, 2024 | March 14, 2024 |
@@ -48,7 +48,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
-## Post-GA updates for PostgreSQL and MySQL Flexible Servers
+## Defender for open-source relational databases updates
 
 **Announcement date: March 6, 2024**
 
@@ -56,14 +56,14 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Defender for PostgreSQL Flexible Servers post-GA updates** - The update enables customers to enforce protection for existing PostgreSQL flexible servers at the subscription level, allowing complete flexibility to enable protection on a per-resource basis or for automatic protection of all resources at the subscription level.
 
-**Defender for MySQL Flexible Servers Availability and GA** - Defender for Cloud is set to expand its support for Azure OSS databases by incorporating MySQL Flexible Servers. 
+**Defender for MySQL Flexible Servers Availability and GA** - Defender for Cloud is set to expand its support for Azure open-source relational databases by incorporating MySQL Flexible Servers. 
 This release will include:
 
 - Alert compatibility with existing alerts for Defender for MySQL Single Servers.
 - Enablement of individual resources.
 - Enablement at the subscription level.
 
-If you're already protecting your subscription with Defender for OSS Databases, your flexible server resources are automatically enabled, protected, and billed.
+If you're already protecting your subscription with Defender for open-source relational databases, your flexible server resources are automatically enabled, protected, and billed.
 Specific billing notifications have been sent via email for affected subscriptions.
 
 Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
