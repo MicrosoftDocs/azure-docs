@@ -18,7 +18,7 @@ NSG flow logs are stored in a storage account in [block blobs](/rest/api/storage
 
 ## Scenario
 
-In the following scenario, you have an example flow log that is stored in a storage account. You learn how to selectively read the latest events in NSG flow logs. In this article you use PowerShell, however, the concepts discussed in the article are not limited to the programming language, and are applicable to all languages supported by the Azure Storage APIs.
+In the following scenario, you have an example flow log that is stored in a storage account. You learn how to selectively read the latest events in NSG flow logs. In this article you use PowerShell, however, the concepts discussed in the article aren't limited to the programming language, and are applicable to all languages supported by the Azure Storage APIs.
 
 ## Setup
 
@@ -147,7 +147,7 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-Now the `$valuearray` array contains the string value of each block. To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`. You do not want the last value, because it is the closing bracket.
+Now the `$valuearray` array contains the string value of each block. To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`. You don't want the last value, because it's the closing bracket.
 
 The results of this value are shown in the following example:
 
@@ -171,7 +171,7 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 		}
 ```
 
-This scenario is an example of how to read entries in NSG flow logs without having to parse the entire log. You can read new entries in the log as they are written by using the block ID or by tracking the length of blocks stored in the block blob. This allows you to read only the new entries.
+This scenario is an example of how to read entries in NSG flow logs without having to parse the entire log. You can read new entries in the log as they're written by using the block ID or by tracking the length of blocks stored in the block blob. This allows you to read only the new entries.
 
 ## Next steps
 
