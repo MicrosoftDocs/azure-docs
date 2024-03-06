@@ -624,6 +624,7 @@ The following table lists services that can access your storage account data if 
 | Azure Event Grid                | `Microsoft.EventGrid/partnerTopics`     | Enables access to storage accounts. |
 | Azure Event Grid                | `Microsoft.EventGrid/systemTopics`      | Enables access to storage accounts. |
 | Azure Event Grid                | `Microsoft.EventGrid/topics`            | Enables access to storage accounts. |
+| Microsoft Fabric                | `Microsoft.Fabric`                      | Enables access to storage accounts. |
 | Azure Healthcare APIs           | `Microsoft.HealthcareApis/services`     | Enables access to storage accounts. |
 | Azure Healthcare APIs           | `Microsoft.HealthcareApis/workspaces`   | Enables access to storage accounts. |
 | Azure IoT Central               | `Microsoft.IoTCentral/IoTApps`          | Enables access to storage accounts. |

@@ -77,7 +77,7 @@
       href: tutorial-kubernetes-prepare-acr.md
     - name: 3 - Create Kubernetes cluster
       href: tutorial-kubernetes-deploy-cluster.md
-    - name: 4 - Run application
+    - name: 4 - Deploy containerized application
       href: tutorial-kubernetes-deploy-application.md
     - name: 5 - Use PaaS services
       href: tutorial-kubernetes-paas-services.md        
@@ -471,7 +471,7 @@
               href: egress-udr.md
             - name: Use an HTTP proxy
               href: http-proxy.md
-            - name: Managed NAT Gateway
+            - name: Use a NAT Gateway
               href: nat-gateway.md
             - name: Outbound network and FQDN rules for AKS clusters
               href: outbound-rules-control-egress.md
@@ -783,6 +783,8 @@
           href: open-ai-quickstart.md
         - name: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
           href: open-ai-secure-access-quickstart.md
+        - name: Deploy an AI model with the AI toolchain operator
+          href: ai-toolchain-operator.md
     - name: DevOps
       items:
         - name: Azure DevOps Project

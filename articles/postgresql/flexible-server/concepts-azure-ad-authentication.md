@@ -88,13 +88,13 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 ## Other considerations
 
-- Microsoft user assigned tokens are 
-- Multiple Microsoft Entra principals (a user, group, service principal or managed identity) can be configured as Microsoft Entra Administrator for an Azure Database for PostgreSQL flexible server instance at any time.
+-  If you want the Microsoft Entra Principals to assume ownership of the user databases within any deployment procedure, then please add explicit dependencies within your deployment(terraform/ARM) module to ensure that Microsoft Entra authentication is enabled  before creating any user databases.
+-  Multiple Microsoft Entra principals (a user, group, service principal or managed identity) can be configured as Microsoft Entra Administrator for an Azure Database for PostgreSQL flexible server instance at any time.
 - Only a Microsoft Entra administrator for PostgreSQL can initially connect to the Azure Database for PostgreSQL flexible server instance using a Microsoft Entra account. The Active Directory administrator can configure subsequent Microsoft Entra database users.
--  If a Microsoft Entra principal is deleted from Microsoft Entra ID, it still remains as PostgreSQL role, but it will no longer be able to acquire new access token. In this case, although the matching role still exists in the database it won't be able to authenticate to the server. Database administrators need to transfer ownership and drop roles manually.
+-  If a Microsoft Entra principal is deleted from Microsoft Entra ID, it remains as a PostgreSQL role, but it will no longer be able to acquire a new access token. In this case, although the matching role still exists in the database it won't be able to authenticate to the server. Database administrators need to transfer ownership and drop roles manually.
 
 > [!NOTE]  
-> Login with the deleted Microsoft Entra user can still be done till the token expires (up to 60 minutes from token issuing).  If you also remove the user from Azure Database for PostgreSQL flexible server this access is revoked immediately.
+> Login with the deleted Microsoft Entra user can still be done till the token expires (up to 60 minutes from token issuing).  If you also remove the user from the Azure Database for PostgreSQL flexible server this access is revoked immediately.
 
 - Azure Database for PostgreSQL flexible server matches access tokens to the database role using the user’s unique Microsoft Entra user ID, as opposed to using the username. If a Microsoft Entra user is deleted and a new user is created with the same name, Azure Database for PostgreSQL flexible server considers that a different user. Therefore, if a user is deleted from Microsoft Entra ID and a new user is added with the same name the new user won't be able to connect with the existing role.
 

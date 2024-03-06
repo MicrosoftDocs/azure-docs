@@ -78,5 +78,11 @@
       href: how-to-create-indexes.md
 - name: Reference
   items:
+    - name: Release notes
+      href: release-notes.md
     - name: Troubleshoot common issues
       href: troubleshoot-common-issues.md
+- name: Samples
+  items:
+    - name: Solution accelerators
+      href: ../../solutions.md?pivots=api-mongodb

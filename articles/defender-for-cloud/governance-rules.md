@@ -1,5 +1,5 @@
 ---
-title: Drive remediation of security recommendations with governance rules in Microsoft Defender for Cloud
+title: Drive remediation of recommendations with governance rules
 description: Learn how to drive remediation of security recommendations with governance rules in Microsoft Defender for Cloud
 services: defender-for-cloud
 ms.service: defender-for-cloud
@@ -37,8 +37,7 @@ For tracking, you can review the progress of the remediation tasks by subscripti
 
 - The [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md) must be enabled.
 - You need **Contributor**, **Security Admin**, or **Owner** permissions on the Azure subscriptions.
-- For AWS accounts and GCP projects,  you need **Contributor**, **Security Admin**, or **Owner** permissions on the Defender for Cloud AWS or GCP connectors. 
-
+- For AWS accounts and GCP projects,  you need **Contributor**, **Security Admin**, or **Owner** permissions on the Defender for Cloud AWS or GCP connectors.
 
 ## Define a governance rule
 
@@ -68,7 +67,7 @@ For tracking, you can review the progress of the remediation tasks by subscripti
 1. Specify how recommendations are impacted by the rule.
 
     - **By severity** - The rule assigns the owner and due date to any recommendation in the subscription that doesn't already have them assigned.
-    - **By specific recommendations** - Select the specific built-in or custom recommendations that the rule applies to. 
+    - **By specific recommendations** - Select the specific built-in or custom recommendations that the rule applies to.
 
     :::image type="content" source="./media/governance-rules/create-rule-conditions.png" alt-text="Screenshot of page for adding conditions for a governance rule." lightbox="media/governance-rules/create-rule-conditions.png":::
 
@@ -106,11 +105,11 @@ You can view the effect of government rules in your environment.
 1. You can search for rules, or filter rules.
 
      - Filter on **Environment** to identify rules for Azure, AWS, and GCP.
-     
+
      - Filter on rule name, owner, or time between the recommendation being issued and due date.
-     
+
      - Filter on **Grace period** to find MCSB recommendations that won't affect your secure score.
-     
+
      - Identify by status.
 
         :::image type="content" source="./media/governance-rules/view-filter-rules.png" alt-text="Screenshot of page for viewing and filtering rules." lightbox="media/governance-rules/view-filter-rules.png":::
@@ -131,6 +130,6 @@ The governance report lets you select subscriptions that have governance rules a
 
 From the governance report, you can drill down into recommendations by scope, display name, priority, remediation timeframe, owner type, owner details, grace period and cloud.
 
-## Next steps
+## Next step
 
 Learn how to [Implement security recommendations](implement-security-recommendations.md).
