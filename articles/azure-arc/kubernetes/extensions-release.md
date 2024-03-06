@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 02/14/2024
+ms.date: 03/06/2024
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -173,6 +173,14 @@ Changes made for this version:
 [Dapr](https://dapr.io/) is a portable, event-driven runtime that simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. The Dapr extension eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters.
 
 For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](../../aks/dapr.md).
+
+## Edge Storage Accelerator
+
+- **Supported distributions**: AKS enabled by Azure Arc, AKS Edge Essentials, Ubuntu
+
+[Edge Storage Accelerator (ESA)](../edge-storage-accelerator/index.yml) is a 1P storage system designed for Arc-connected Kubernetes clusters. ESA can be deployed to write files to a "ReadWriteMany" persistent volume claim (PVC) where they are then transferred to Azure Blob Storage. ESA offers a range of features to support Azure IoT Operations and other Arc Services.
+
+For more information, see [What is Edge Storage Accelerator?](../edge-storage-accelerator/overview.md).
 
 ## Next steps
 
