@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 02/07/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
-ms.custom: engagement-fy23, references_regions
+ms.custom: engagement-fy23, references_regions, devx-track-azurepowershell
 ---
 
 <!--

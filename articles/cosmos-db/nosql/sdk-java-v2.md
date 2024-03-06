@@ -8,6 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: java
+ms.custom: devx-track-extended-java
 ms.date: 02/12/2024
 ---
 
