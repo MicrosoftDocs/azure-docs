@@ -51,7 +51,7 @@ or
  
 Get cluster endpoint(host or fqdn) on Azure portal.
  
-:::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/get-cluster-endpoint.png" alt-text="Screenshot showing cluster endpoint." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/get-cluster-endpointy.png":::
+:::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/get-cluster-endpoint.png" alt-text="Screenshot showing cluster endpoint." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/get-cluster-endpoint.png":::
   
 ## Testing
  
