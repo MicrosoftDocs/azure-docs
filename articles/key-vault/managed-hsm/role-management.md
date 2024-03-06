@@ -2,13 +2,12 @@
 title: Managed HSM data plane role management - Azure Key Vault | Microsoft Docs
 description: Use this article to manage role assignments for your managed HSM. 
 services: key-vault
-author: mbaldwin
-
+author: msmbaldwin
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 11/14/2022
+ms.date: 02/20/2024
 ms.author: mbaldwin
 ---
 # Managed HSM role management

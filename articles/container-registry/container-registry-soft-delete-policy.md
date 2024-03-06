@@ -29,12 +29,6 @@ The default retention period for soft deleted artifacts is seven days, but it’
 
 The autopurge runs every 24 hours and always considers the current value of retention days before permanently deleting the soft deleted artifacts. For example, after five days of soft deleting the artifact, if you change the value of retention days from seven to 14 days, the artifact will only expire after 14 days from the initial soft delete.
 
-
-
-:::image type="content" source="./media/container-registry-delete/02-soft-delete.png" alt-text="Diagram of soft delete artifacts lifecycle.":::
-
-
-
 ## Availability and pricing information
 
 This feature is available in all the service tiers (also known as SKUs). For information about registry service tiers, see [Azure Container Registry service tiers](container-registry-skus.md).

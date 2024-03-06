@@ -241,7 +241,9 @@ To allow installation of __Python packages for training and deployment__, add ou
 | `*.tensorflow.org` | Used by some examples based on Tensorflow. |
 
 ### Scenario: Use Visual Studio Code
+Visual Studio Code relies on specific hosts and ports to establish a remote connection.
 
+#### Hosts
 If you plan to use __Visual Studio Code__ with Azure AI, add outbound _FQDN_ rules to allow traffic to the following hosts:
 
 > [!WARNING]
@@ -261,6 +263,9 @@ If you plan to use __Visual Studio Code__ with Azure AI, add outbound _FQDN_ rul
 * `marketplace.visualstudio.com`
 * `pkg-containers.githubusercontent.com`
 * `github.com`
+
+#### Ports
+You must allow network traffic to ports 8704 to 8710. The VS Code server dynamically selects the first available port within this range.
 
 ### Scenario: Use HuggingFace models
 
@@ -317,6 +322,7 @@ The Azure AI managed VNet feature is free. However, you're charged for the follo
 
 ## Limitations
 
+* Azure AI Studio currently doesn't support bring your own virtual network, it only supports managed VNet isolation.
 * Azure AI services provisioned with Azure AI and Azure AI Search attached with Azure AI should be public.
 * The "Add your data" feature in the Azure AI Studio playground doesn't support private storage account.
 * Once you enable managed VNet isolation of your Azure AI, you can't disable it.

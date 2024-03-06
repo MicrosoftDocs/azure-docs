@@ -359,6 +359,8 @@
         href: service-fabric-cluster-resource-manager-metrics.md
       - name: Use service affinity
         href: service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md
+      - name: Service sensitivity
+        href: service-fabric-cluster-resource-manager-sensitivity.md
       - name: Service placement policies
         href: service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md
       - name: Manage a cluster

@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/15/2024
+ms.date: 2/24/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -92,7 +92,7 @@ This can happen if you are trying to create an index using an **Owner**, **Contr
 
 If the Azure AI hub resource the project uses was created through Azure AI Studio:
 1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
-1. Select **Settings** from the collapsible left menu.
+1. Select **AI project settings** from the collapsible left menu.
 1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
 1. In the Azure portal under **Overview** > **Resources** select the Azure AI service type. It's named similar to "YourAzureAIResourceName-aiservices."
 
@@ -108,7 +108,7 @@ If the Azure AI hub resource the project uses was created through Azure AI Studi
 
 If the Azure AI hub resource the project uses was created through Azure portal:
 1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
-1. Select **Settings** from the collapsible left menu.
+1. Select **AI project settings** from the collapsible left menu.
 1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
 1. Select **Access control (IAM)** > **+ Add** to add a role assignment.
 1. Add the **Cognitive Services OpenAI User** role to the user who wants to make an index. `Cognitive Services OpenAI Contributor` and `Cognitive Services Contributor` also work, but they assign more permissions than needed for creating an index in Azure AI Studio.
@@ -116,8 +116,9 @@ If the Azure AI hub resource the project uses was created through Azure portal:
 
 ## Use an index in prompt flow
 
-1. Open your AI Studio project.
-1. In **Flows**, create a new flow or open an existing flow.
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. 
+1. From the collapsible left menu, select **Prompt flow**.
+1. Open an existing prompt flow or select **+ Create** to create a new flow.
 1. On the top menu of the flow designer, select **More tools**, and then select ***Index Lookup***.
 
     :::image type="content" source="../media/index-retrieve/index-lookup-tool.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/index-retrieve/index-lookup-tool.png":::
