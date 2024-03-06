@@ -66,7 +66,7 @@ When you use the Azure portal to configure cost optimization, you can select fro
 | Standard | 1 m | None | Not enabled | All standard container insights tables |
 | Cost-optimized | 5 m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled | All standard container insights tables |
 | Syslog | 1 m | None | Enabled by default | All standard container insights tables |
-| Logs and Events | 1 m | None | Not enabled | ContainerLog or ContainerLogV2, KubeEvents, KubePodInventory |
+| Logs and Events | 1 m | None | Not enabled | ContainerLog/ContainerLogV2<br> KubeEvents<br>KubePodInventory |
 
 ### Collected data
 The **Collected data** option allows you to select the tables that are populated for the cluster. This is the equivalent of the `streams` parameter when performing the configuration with CLI or ARM. If you select any option other than **All (Default)**, the Container insights experience becomes unavailable, and you must use Grafana or other methods to analyze collected data.
