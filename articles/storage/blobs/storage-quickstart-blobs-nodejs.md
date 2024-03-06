@@ -118,7 +118,7 @@ From the project directory, install the following packages using the `npm instal
     npm install uuid dotenv
     ```
 
-### Create JavaScript file
+### Set up the app framework
 
 From the project directory:
 
