@@ -24,6 +24,8 @@ This list describes just a few example tasks, business processes, and workloads 
 
 * Monitor tweets, analyze the sentiment, and create alerts or tasks for items that need review.
 
+The following partial example enterprise workflow uses conditions and switches to determine the next action. Suppose you have an order system, and your workflow processes incoming orders. You want to manually review orders above a certain cost. Your workflow already has previous steps that determine how much an incoming order costs. So, you create an initial condition based on that cost value, for example:
+
 :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
 If you're ready to try creating your first logic app workflow, see [Get started](#get-started).
@@ -150,9 +152,9 @@ When you create an ISE, Azure *injects* or deploys that ISE into your Azure virt
 
 ## How logic apps work
 
-In a logic app, a workflow always starts with a single [trigger](#logic-app-concepts). The trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. After the trigger fires, one or more [actions](#logic-app-concepts) run operations that process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step. Azure Logic Apps implements and uses the "at-least-once" message delivery semantic. Rarely does the service deliver a message more than one time, but no messages are lost. If your business doesn't or can't handle duplicate messages, you need to implement idempotence, so that repeating the same exact operation doesn't change the result after the first execution.
+A logic app workflow always starts with a single [trigger](#logic-app-concepts). The trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. After the trigger fires, one or more [actions](#logic-app-concepts) run operations that process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step. Azure Logic Apps implements and uses the "at-least-once" message delivery semantic. Rarely does the service deliver a message more than one time, but no messages are lost. If your business doesn't or can't handle duplicate messages, you need to implement idempotence, so that repeating the same exact operation doesn't change the result after the first execution.
 
-The following example describes a partial example enterprise workflow. This workflow uses conditions and switches to determine the next action. Suppose you have an order system, and your workflow processes incoming orders. You want to review orders above a certain cost manually. Your workflow already has previous steps that determine how much an incoming order costs. So, you create an initial condition based on that cost value, for example:
+The following section describes the logic for the example enterprise workflow, which is part of an order system where the workflow processes incoming orders. The workflow already has steps that determine how much an incoming order costs. Your goal is to manually review orders above a certain cost, so you create an initial condition based on that cost value, for example:
 
 * If the order is below a certain amount, the condition is false. So, the workflow processes the order.
 
