@@ -308,7 +308,7 @@ This tab explains how to configure the AWS CloudTrail connector. The process of 
 ## Connect AWS CloudTrail
 
 Setting up this connector has two steps:
-- [Create an AWS assumed role and grant access to the AWS Sentinel account](#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account-1)
+- [Create an AWS assumed role and grant access to the AWS Sentinel account](#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account)
 - [Add the AWS role information to the AWS CloudTrail data connector](#add-the-aws-role-information-to-the-aws-cloudtrail-data-connector)
 
 #### Create an AWS assumed role and grant access to the AWS Sentinel account
