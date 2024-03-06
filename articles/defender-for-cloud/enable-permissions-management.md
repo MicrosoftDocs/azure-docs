@@ -130,4 +130,4 @@ The applicable Permissions Management recommendations appear on your subscriptio
 ## Next step
 
 > [!div class="nextstepaction"]
-> Learn more about [Microsoft Entra Permissions Management](/entra/permissions-management/).
+> [Microsoft Entra Permissions Management](/entra/permissions-management/).
