@@ -3,7 +3,7 @@ title: "Quickstart: Azure Blob storage library - JavaScript"
 description: In this quickstart, you learn how to use the Azure Blob Storage for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/05/2024
+ms.date: 03/06/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: javascript
@@ -27,18 +27,48 @@ zone_pivot_groups: azure-blob-storage-quickstart-options
 
 ::: zone-end
 
-Get started with the Azure Blob Storage client library for Node.js to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks.
+Get started with the Azure Blob Storage client library for Node.js to manage blobs and containers.
+
+::: zone pivot="blob-storage-quickstart-scratch"
+
+In this article, you follow steps to install the package and try out example code for basic tasks.
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+In this article, you use the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to deploy Azure resources and run a completed console app with just a few commands.
+
+::: zone-end
 
 [API reference](/javascript/api/@azure/storage-blob) |
 [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples)
 
 ## Prerequisites
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 - Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Azure Storage account - [Create a storage account](../common/storage-account-create.md)
 - [Node.js LTS](https://nodejs.org/en/download/)
 
-## Create the Node.js project
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- [Node.js LTS](https://nodejs.org/en/download/)
+- [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
+
+::: zone-end
+
+## Setting up
+
+::: zone pivot="blob-storage-quickstart-scratch"
+
+This section walks you through preparing a project to work with the Azure Blob Storage client library for Node.js.
+
+### Create the Node.js project
 
 Create a JavaScript application named *blob-quickstart*.
 
@@ -66,7 +96,7 @@ Create a JavaScript application named *blob-quickstart*.
     code .
     ```
 
-## Install the packages
+### Install the packages
 
 From the project directory, install the following packages using the `npm install` command. 
 
@@ -88,7 +118,7 @@ From the project directory, install the following packages using the `npm instal
     npm install uuid dotenv
     ```
 
-## Create JavaScript file
+### Create JavaScript file
 
 From the project directory:
 
@@ -96,6 +126,65 @@ From the project directory:
 1. Copy the following code into the file. More code will be added as you go through this quickstart.
 
     :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/boilerplate.js" :::
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can create a storage account and run the sample code with just a few commands. You can run the project in your local development environment, or in a [DevContainer](https://code.visualstudio.com/docs/devcontainers/containers).
+
+### Initialize the Azure Developer CLI template and deploy resources
+
+From an empty directory, follow these steps to initialize the `azd` template, provision Azure resources, and get started with the code:
+
+- Clone the quickstart repository assets from GitHub and initialize the template locally:
+
+    ```console
+    azd init --template blob-storage-quickstart-nodejs
+    ```
+
+    You'll be prompted for the following information:
+
+    - **Environment name**: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
+
+- Log in to Azure:
+
+    ```console
+    azd auth login
+    ```
+- Provision and deploy the resources to Azure:
+
+    ```console
+    azd up
+    ```
+
+    You'll be prompted for the following information:
+
+    - **Subscription**: The Azure subscription that your resources are deployed to.
+    - **Location**: The Azure region where your resources are deployed.
+
+    The deployment might take a few minutes to complete. The output from the `azd up` command includes the name of the newly created storage account, which you'll need later to run the code.
+
+## Run the sample code
+
+At this point, the resources are deployed to Azure and the code is almost ready to run. Follow these steps to install packages, update the name of the storage account in the code, and run the sample console app:
+
+1. **Install packages**: Navigate to the local `blob-quickstart` directory. Install packages for the Azure Blob Storage and Azure Identity client libraries, along with other packages used in the quickstart, using the following command:
+    ```console
+    npm install @azure/storage-blob @azure/identity uuid dotenv
+    ```
+1. **Update the storage account name**: In the local `blob-quickstart` directory, edit the file named **index.js**. Find the `<storage-account-name>` placeholder and replace it with the actual name of the storage account created by the `azd up` command. Save the changes.
+1. **Run the project**: Execute the following command to run the app:
+    ```console
+    node index.js
+    ```
+1. **Observe the output**: This app creates a container and uploads a text string as a blob to the container. The example then lists the blobs in the container and downloads the blob and displays the blob contents. The app then deletes the container and all its blobs.
+
+To learn more about how the sample code works, see [Code examples](#code-examples).
+
+When you're finished testing the code, see the [Clean up resources](#clean-up-resources) section to delete the resources created by the `azd up` command.
+
+::: zone-end
 
 ## Object model
 
@@ -127,7 +216,18 @@ These example code snippets show you how to do the following tasks with the Azur
 - [Download blobs](#download-blobs)
 - [Delete a container](#delete-a-container)
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Sample code is also available on [GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/quickstarts/JavaScript/V12/nodejs).
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+> [!NOTE]
+> The Azure Developer CLI template includes a file with sample code already in place. The following examples provide detail for each part of the sample code. The template implements the recommended passwordless authentication method, as described in the [Authenticate to Azure](#authenticate-to-azure-and-authorize-access-to-blob-data) section. The connection string method is shown as an alternative, but isn't used in the template and isn't recommended for production code.
+
+::: zone-end
 
 ### Authenticate to Azure and authorize access to blob data
 
@@ -231,7 +331,11 @@ AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 
 The code below retrieves the connection string for the storage account from the environment variable created earlier, and uses the connection string to construct a service client object.
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Add this code inside the `try` block:
+
+::: zone-end
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_StorageAcctInfo__with_secrets":::
 
@@ -242,62 +346,90 @@ Add this code inside the `try` block:
 
 ## Create a container
 
-1. Decide on a name for the new container.  Container names must be lowercase. 
+Create a new container in the storage account. The following code example takes a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object and calls the [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) method to get a reference to a container. Then, the code calls the [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) method to actually create the container in your storage account.
 
-    For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+::: zone pivot="blob-storage-quickstart-scratch"
 
-1. Add this code to the end of the `main` function:
+Add this code to the end of the `try` block:
 
-    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_CreateContainer":::
+::: zone-end
 
-    The preceding code takes a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object and calls the [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) method to get a reference to a container. Finally, the code calls [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) to actually create the container in your storage account.
+:::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_CreateContainer":::
 
 To learn more about creating a container, and to explore more code samples, see [Create a blob container with JavaScript](storage-blob-container-create-javascript.md).
 
+> [!IMPORTANT]
+> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+
 ## Upload blobs to a container
 
-Copy the following code to the end of the `main` function to upload a text string to a blob:
+Upload a blob to the container. The following code gets a reference to a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object by calling the [getBlockBlobClient](/javascript/api/@azure/storage-blob/containerclient#getblockblobclient-string-) method on the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) from the [Create a container](#create-a-container) section.
+
+The code uploads the text string data to the blob by calling the [upload](/javascript/api/@azure/storage-blob/blockblobclient#upload-httprequestbody--number--blockblobuploadoptions-) method.
+
+::: zone pivot="blob-storage-quickstart-scratch"
+
+Add this code to the end of the `try` block:
+
+::: zone-end
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_UploadBlobs":::
-
-The preceding code gets a reference to a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object by calling the [getBlockBlobClient](/javascript/api/@azure/storage-blob/containerclient#getblockblobclient-string-) method on the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) from the [Create a container](#create-a-container) section.
-The code uploads the text string data to the blob by calling the [upload](/javascript/api/@azure/storage-blob/blockblobclient#upload-httprequestbody--number--blockblobuploadoptions-) method.
 
 To learn more about uploading blobs, and to explore more code samples, see [Upload a blob with JavaScript](storage-blob-upload-javascript.md).
 
 ## List the blobs in a container
 
-Add the following code to the end of the `main` function to list the blobs in the container. 
+List the blobs in the container. The following code calls the [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
+
+::: zone pivot="blob-storage-quickstart-scratch"
+
+Add this code to the end of the `try` block:
+
+::: zone-end
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_ListBlobs":::
-
-The preceding code calls the [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
 To learn more about listing blobs, and to explore more code samples, see [List blobs with JavaScript](storage-blobs-list-javascript.md).
 
 ## Download blobs
 
-1. Add the following code to the end of the `main` function to download the previously created blob into the app runtime.
+Download the blob and display the contents. The following code calls the [download](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-) method to download the blob.
 
-    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_DownloadBlobs":::
+::: zone pivot="blob-storage-quickstart-scratch"
 
-    The preceding code calls the [download](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-) method. 
+Add this code to the end of the `try` block:
 
-2. Copy the following code *after* the `main` function to convert a stream back into a string.
+::: zone-end
 
-    :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_ConvertStreamToText":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_DownloadBlobs":::
+
+The following code converts a stream back into a string to display the contents.
+
+::: zone pivot="blob-storage-quickstart-scratch"
+
+Add this code *after* the `main` function:
+
+::: zone-end
+
+:::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_ConvertStreamToText":::
 
 To learn more about downloading blobs, and to explore more code samples, see [Download a blob with JavaScript](storage-blob-download-javascript.md).
 
 ## Delete a container
 
-Add this code to the end of the `main` function to delete the container and all its blobs:
+Delete the container and all blobs within the container. The following code cleans up the resources created by the app by removing the entire container using the [​delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) method.
+
+::: zone pivot="blob-storage-quickstart-scratch"
+
+Add this code to the end of the `try` block:
+
+::: zone-end
 
 :::code language="javascript" source="~/azure_storage-snippets//blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_DeleteContainer":::
 
-The preceding code cleans up the resources the app created by removing the entire container using the [​delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) method. You can also delete the local files, if you like.
-
 To learn more about deleting a container, and to explore more code samples, see [Delete and restore a blob container with JavaScript](storage-blob-container-delete-javascript.md).
+
+::: zone pivot="blob-storage-quickstart-scratch"
 
 ## Run the code
 
@@ -330,10 +462,28 @@ To learn more about deleting a container, and to explore more code samples, see 
 
 Step through the code in your debugger and check your [Azure portal](https://portal.azure.com) throughout the process. Check to see that the container is being created. You can open the blob inside the container and view the contents.
 
+::: zone-end
+
 ## Clean up 
+
+::: zone pivot="blob-storage-quickstart-scratch"
 
 1. When you're done with this quickstart, delete the `blob-quickstart` directory.
 1. If you're done using your Azure Storage resource, use the [Azure CLI to remove the Storage resource](storage-quickstart-blobs-cli.md#clean-up-resources). 
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+When you're done with the quickstart, you can clean up the resources you created by running the following command:
+
+```console
+azd down
+```
+
+You'll be prompted to confirm the deletion of the resources. Enter `y` to confirm.
+
+::: zone-end
 
 ## Next steps
 
