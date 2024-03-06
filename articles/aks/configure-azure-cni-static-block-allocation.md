@@ -76,7 +76,6 @@ The [deployment parameters][azure-cni-deployment-parameters]for configuring basi
 
 - If using the Azure CLI, you need the `aks-preview` extension. See [Install the `aks-preview` Azure CLI extension](#install-the-aks-preview-azure-cli-extension).
 - If using ARM or the REST API, the AKS API version must be *2024-01-02-preview or later*.
-- You need to register the `KubeProxyConfigurationPreview` feature flag. See [Register the `KubeProxyConfigurationPreview` feature flag](#register-the-kubeproxyconfigurationpreview-feature-flag).
 
 ### Install the `aks-preview` Azure CLI extension
 
