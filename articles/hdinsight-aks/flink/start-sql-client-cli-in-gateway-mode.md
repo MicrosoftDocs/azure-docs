@@ -1,6 +1,6 @@
 ---
-title:  Start SQL Client CLI in gateway mode in our Apache Flink Cluster 1.17.0 on HDInsight on AKS.
-description: Learn how to start SQL Client CLI in gateway mode in our Apache Flink Cluster 1.17.0 on HDInsight on AKS.
+title:  Start SQL Client CLI in gateway mode in Apache Flink Cluster 1.17.0 on HDInsight on AKS.
+description: Learn how to start SQL Client CLI in gateway mode in Apache Flink Cluster 1.17.0 on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 03/07/2024
@@ -17,8 +17,7 @@ This tutorial guides you how to start the SQL Client CLI in gateway mode in Apac
 ```
  
 > [!NOTE]
-> In our Apache Flink Cluster on HDInsight on AKS,
-Any external connection will go via 443 port. But internally, it will reroute the request to sql-gateway service listening to port 8083.
+> In Apache Flink Cluster on HDInsight on AKS, any external connection will go via 443 port. But internally, it will reroute the request to sql-gateway service listening to port 8083.
  
 Check sql gateway service in AKS side:
 
@@ -216,5 +215,4 @@ Flink SQL> select * from mysql_user_orders;
 ```
 
 ### Reference
-...
-...
+[Apache Flink® Command-Line Interface (CLI) on HDInsight on AKS clusters](./use-flink-cli-to-submit-jobs.md)
