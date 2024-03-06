@@ -6,13 +6,13 @@ ms.author: sethm
 ms.service: notification-hubs
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
-ms.date: 02/23/2024
+ms.date: 03/06/2024
 
 ---
 
 # Reliability in Azure Notification Hubs
 
-This article describes reliability support in Azure Notification Hubs and covers both regional resiliency with availability zones and disaster recovery and business continuity.
+This article describes reliability support in Azure Notification Hubs and covers both regional resiliency with [availability zones](#availability-zone-support) and [disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity)
 
 
 ## Availability zone support
@@ -118,10 +118,6 @@ To enable or disable disaster recovery for an an existing namespace:
    > With a paired recovery region, the region is displayed but greyed out. You cannot edit the region.
 
    :::image type="content" source="./media/reliability-notification-hubs/paired-recovery.png" alt-text="Screenshot of edit recovery options screen." :::
-
-
-
-
 
 
 ## Next steps
