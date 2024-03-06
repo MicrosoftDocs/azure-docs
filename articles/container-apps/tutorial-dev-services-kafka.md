@@ -394,7 +394,7 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
     ```
 
     > [!TIP]
-    > The output `kafkaLogs` outputs a CLI command to help you view the logs of postgres after deployment is complete. You can run the command to view the initialization logs of the new Postgres service.
+    > The output `kafkaLogs` outputs a CLI command to help you view the logs of kafka after deployment is complete. You can run the command to view the initialization logs of the new Kafka service.
 
     # [azd](#tab/azd)
 
@@ -457,7 +457,7 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
 
 When you create the app, you'll set it up to use `./kafka-topics.sh`, `./kafka-console-producer.sh`, and `kafka-console-consumer.sh` to connect to the Kafka instance.
 
-1. Create a `kafka-cli-app` app that binds to the PostgreSQL service.
+1. Create a `kafka-cli-app` app that binds to the Kafka service.
 
     # [Bash](#tab/bash)
 
@@ -475,7 +475,7 @@ When you create the app, you'll set it up to use `./kafka-topics.sh`, `./kafka-c
 
     # [Bicep](#tab/bicep)
 
-    Add the following to values `postgres-dev.bicep`.
+    Add the following to values `kafka-dev.bicep`.
 
     ```bicep
     resource kafkaCli 'Microsoft.App/containerApps@2023-04-01-preview' = {
@@ -837,7 +837,7 @@ azd up
 
 ---
 
-:::image type="content" source="media/tutorial-dev-services-kafka/azure-container-apps-kafka-ui-data.png" alt-text="Screenshot of pgweb Container App connecting to PostgreSQL service.":::
+:::image type="content" source="media/tutorial-dev-services-kafka/azure-container-apps-kafka-ui-data.png" alt-text="Screenshot of pgweb Container App connecting to Kafka service.":::
 
 ## Deploy all resources
 
@@ -847,7 +847,7 @@ Use the following examples to if you want to deploy all resources at once.
 
 The following Bicep template contains all the resources in this tutorial.
 
-You can create a `postgres-dev.bicep` file with this content.
+You can create a `kafka-dev.bicep` file with this content.
 
 ```bicep
 targetScope = 'resourceGroup'
