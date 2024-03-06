@@ -135,7 +135,7 @@ To customize the pipeline you:
 - Specify the Service Connection to use, and The pipeline uses the Azure CLI to create the environment.
 - Use an Inline script to run an Azure CLI command that creates the environment. 
 
-The Azure CLI is a command-line tool that provides a set of commands for working with Azure resources. To discover more Azure CLI commands, see [az devcenter](https://learn.microsoft.com/en-us/cli/azure/devcenter?view=azure-cli-latest).
+The Azure CLI is a command-line tool that provides a set of commands for working with Azure resources. To discover more Azure CLI commands, see [az devcenter](/cli/azure/devcenter?view=azure-cli-latest&preserve-view=true).
 
 1. In your Azure DevOps project, select **Repos** > **Files**.
 1. In the **Files** pane, from the `.ado` folder, select `azure-pipelines.yml` file.
@@ -166,7 +166,7 @@ Next, you run the pipeline to create the ADE environment.
 1. You can also check the progress of the environment creation in the Azure portal by selecting your dev center, selecting your project, and then selecting **Environments**.
 
 
-You can insert this job anywhere in a Continuous Integration (CI) and/or a Continuous Delivery (CD) pipeline. Get started with the [Azure Pipelines documentation](https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops) to learn more about creating and managing pipelines.
+You can insert this job anywhere in a Continuous Integration (CI) and/or a Continuous Delivery (CD) pipeline. Get started with the [Azure Pipelines documentation](/azure/devops/pipelines/?view=azure-devops&preserve-view=true) to learn more about creating and managing pipelines.
 
 ## Clean up resources
 
