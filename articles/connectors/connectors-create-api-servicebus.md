@@ -136,7 +136,7 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
 
 ### Service Bus built-in connector triggers
 
-Currently, configuration settings for the Service Bus built-in trigger are shared between the [Azure Functions host extension](../azure-functions/functions-bindings-service-bus.md#hostjson-settings.md), which is defined in your logic app's [**host.json** file](../logic-apps/edit-app-settings-host-settings.md), and the trigger settings defined in your logic app's workflow, which you can set up either through the designer or code view. This section covers both settings locations.
+Currently, configuration settings for the Service Bus built-in trigger are shared between the [Azure Functions host extension](../azure-functions/functions-bindings-service-bus.md#hostjson-settings), which is defined in your logic app's [**host.json** file](../logic-apps/edit-app-settings-host-settings.md), and the trigger settings defined in your logic app's workflow, which you can set up either through the designer or code view. This section covers both settings locations.
 
 * In Standard workflows, some triggers, such as the **When messages are available in a queue** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages. For this type of trigger and where the **Maximum message count** parameter isn't supported, you can still control the number of messages received by using the **maxMessageBatchSize** property in the **host.json** file. To find this file, see [Edit host and app settings for Standard logic apps](../logic-apps/edit-app-settings-host-settings.md).
 
