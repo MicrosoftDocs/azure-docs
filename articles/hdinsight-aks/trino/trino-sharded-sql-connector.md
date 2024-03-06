@@ -45,8 +45,8 @@ The connector uses user-password authentication to query SQL servers. The same u
 
 ## Schema Definition
 
-Connector assumes a 2D partition/bucketed layout of the physical data across SQL servers. Schema definitiondescribes this layout.
-Currently only file based sharding schema definitionis supported. 
+Connector assumes a 2D partition/bucketed layout of the physical data across SQL servers. Schema definition describes this layout.
+Currently only file based sharding schema definition supported. 
 
 You can specify the location of the sharding schema json in the catalog properties like `shard-config-location=etc/shard-schema.json`
 configure sharding schema json with desired properties to specify the layout.
@@ -69,7 +69,7 @@ This JSON file describes the configuration for a Trino sharded SQL connector. He
       - **connectionUrl**: The JDBC connection URL to the shard's database.
 
 
-For example, if two tables `lineitem` and `part` that you want to query using this connector, you can specify them as follows.
+For example, if two tables `line item` and `part` that you want to query using this connector, you can specify them as follows.
 
 ```json
 	"tables": [
@@ -139,9 +139,9 @@ This example describes:
 
 ### Partition and Bucket Pruning
 
-Connector evaluates the query constraints during the planning and performs  based on the provided query predicates, this helps speed-up query performance and allows connector to query large amounts of data.
+Connector evaluates the query constraints during the planning and performs  based on the provided query predicates, this helps speed-up query performance, and allows connector to query large amounts of data.
 
-Bucketing formula to determine assignments using murmur hash function implementation described [here](https://commons.apache.org/proper/commons-codec/apidocs/src-html/org/apache/commons/codec/digest/MurmurHash3.html#line.388)
+Bucketing formula to determine assignments using murmur hash function implementation described [here](https://commons.apache.org/proper/commons-codec/apidocs/src-html/org/apache/commons/codec/digest/MurmurHash3.html#line.388).
 
 ### Type Mapping
 
@@ -156,8 +156,8 @@ The following pushdown optimizations are supported:
 -  Distributive aggregates
 -  Join pushdown 
 
-`JOIN` operation can be pushed down to server only when the connector determines the data is co-located for the build and probe table.
-Connector determines the data is co-located when
+`JOIN` operation can be pushed down to server only when the connector determines the data is colocated for the build and probe table.
+Connector determines the data is colocated when
 - the sharding_schema for both `left` and the `right` table is the same.
 - join conditions are superset of partitioning and bucketing keys.
 
