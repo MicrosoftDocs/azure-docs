@@ -307,7 +307,7 @@ For more details on parameters see [Translator API](../../ai-services/translator
 `boolean DEFAULT 'NoAction'` Specifices how profanities are treated in translations. Valid values are 'NoAction' , 'Marked', or 'Deleted'. 'NoAction' is the default behavior and profanity passes from source to target. 'Deleted' indicates that profane words are removed without replacement. 'Marked' replaces the marked word in the output with the profanity_marker parameter.
 
 ##### `profanity_marker`
-`boolean DEFAULT 'Asterisk'` Specifices how profanities are marked in translations. Possible values are 'Asterisk' which replaces profane words with *** or 'Tag' which replaces profane words with '<profanity> </profanity>' tags.
+`boolean DEFAULT 'Asterisk'` Specifices how profanities are marked in translations. Possible values are 'Asterisk' which replaces profane words with *** or 'Tag' which replaces profane words with '\<profanity> \</profanity>' tags.
 
 ##### `suggested_source_language`
 `text DEFAULT NULL` Specifices fallback language if the language of input text cannot be identified.
