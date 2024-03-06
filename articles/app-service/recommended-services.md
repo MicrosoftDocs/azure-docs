@@ -7,7 +7,7 @@ author: btardif
 ms.author: byvinyal
 ---
 
-# Recommended services (Preview)
+# Recommended services (preview)
 
 This feature suggests a set of services that are commonly deployed together for your specific app type. It offers guidance on structuring your app effectively using proven patterns. 
 
@@ -16,7 +16,6 @@ The upcoming version of this feature will provide better smart defaults and grea
 **Your app will be deployed as**
 
 - Secure-by-default 
-
 - On a new App Service plan
 
 **Requirements to use this feature**
@@ -35,15 +34,13 @@ The database picked for you in this list is Runtime-aware and generate a default
 **Inputs:**
 
 - `Name`: a default name is generated and can be customized 
-
 - `Database Type`: the database default matches community preferences for each Runtime 
 
 ## Azure Cache for Redis 
 
-Redis improves the performance and scalability of an app that uses backend data stores heavily. [Learn more about Azure Cache for Redis.]( https://learn.microsoft.com/azure/azure-cache-for-redis/cache-overview) 
+Redis improves the performance and scalability of an app that uses backend data stores heavily. [Learn more about Azure Cache for Redis.](../azure-cache-for-redis/cache-overview.md)
 
 **Inputs:**  
 
 - `Name`: a default name is generated and can be customized 
-
 - `SKU`: Dev/Test, Production, or Free

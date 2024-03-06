@@ -54,8 +54,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     
 * [Customer-managed keys](configure-customer-managed-keys.md) is now generally available (GA).
 
-    You still must register the feature before using it for the first time.
-
 ## November 2023
 
 * [Capacity pool enhancement:](azure-netapp-files-set-up-capacity-pool.md) New lower limits

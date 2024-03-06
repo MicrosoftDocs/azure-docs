@@ -66,9 +66,11 @@ export MY_AZURE_USER=$(az account show --query user.name --output tsv)
 export FQDN="${MY_DNS_LABEL}.${REGION}.cloudapp.azure.com"
 ```
 
-<!--```bash
+<!--
+```bash
 export MY_AZURE_USER_ID=$(az ad user list --filter "mail eq '$MY_AZURE_USER'" --query "[0].id" -o tsv)
-```-->
+```
+-->
 
 ## Create a resource group
 
