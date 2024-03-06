@@ -47,8 +47,8 @@ Agents are used in the Defender for Servers plan as follows:
 - Log Analytics workspace:
   - You define the Log Analytics workspace you use at the subscription level. It can be either a default workspace, or a custom-created workspace.
   - There are [several reasons](../azure-monitor/logs/workspace-design.md) to select the default workspace rather than the custom workspace.
-  - The location of the default workspace depends on your Azure Arc machine region. [Learn more](/azure/defender-for-cloud/faq-data-collection-agents#where-is-the-default-log-analytics-workspace-created-).
-  - The location of the custom-created workspace is set by your organization. [Learn more](/azure/defender-for-cloud/faq-data-collection-agents#how-can-i-use-my-existing-log-analytics-workspace-) about using a custom workspace.
+  - The location of the default workspace depends on your Azure Arc machine region. [Learn more](/../defender-for-cloud/faq-data-collection-agents#where-is-the-default-log-analytics-workspace-created-).
+  - The location of the custom-created workspace is set by your organization. [Learn more](/../defender-for-cloud/faq-data-collection-agents#how-can-i-use-my-existing-log-analytics-workspace-) about using a custom workspace.
 
 ## Defender for Containers plan
 

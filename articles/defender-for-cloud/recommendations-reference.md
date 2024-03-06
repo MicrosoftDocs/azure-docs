@@ -240,7 +240,7 @@ Only clients that have a valid certificate will be able to reach the app.
 
 ### [Authentication to Linux machines should require SSH keys](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/22441184-2f7b-d4a0-e00b-4c5eaef4afc9)
 
-**Description**: Although SSH itself provides an encrypted connection, using passwords with SSH still leaves the VM vulnerable to brute-force attacks. The most secure option for authenticating to an Azure Linux virtual machine over SSH is with a public-private key pair, also known as SSH keys. Learn more in [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](/azure/virtual-machines/linux/create-ssh-keys-detailed).
+**Description**: Although SSH itself provides an encrypted connection, using passwords with SSH still leaves the VM vulnerable to brute-force attacks. The most secure option for authenticating to an Azure Linux virtual machine over SSH is with a public-private key pair, also known as SSH keys. Learn more in [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](/../virtual-machines/linux/create-ssh-keys-detailed.md).
 (Related policy: [Audit Linux machines that are not using SSH key for authentication](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f630c64f9-8b6b-4c64-b511-6544ceff6fd6)).
 
 **Severity**: Medium
@@ -320,7 +320,7 @@ When you restore from a recovery point, you can restore the whole VM or specific
 
 ### [Endpoint protection health issues on machines should be resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000)
 
-**Description**: Resolve endpoint protection health issues on your virtual machines to protect them from latest threats and vulnerabilities. See the documentation for the [endpoint protection solutions supported by Defender for Cloud](/supported-machines-endpoint-solutions-clouds.md#supported-endpoint-protection-solutions-) and the [endpoint protection assessments](endpoint-protection-recommendations-technical.md).
+**Description**: Resolve endpoint protection health issues on your virtual machines to protect them from latest threats and vulnerabilities. See the documentation for the [endpoint protection solutions supported by Defender for Cloud](support-matrix-defender-for-servers.md#endpoint-protection-support) and the [endpoint protection assessments](endpoint-protection-recommendations-technical.md).
 (No related policy)
 
 **Severity**: Medium
@@ -362,7 +362,7 @@ When the file integrity monitoring solution is enabled, create data collection r
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](/../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -374,7 +374,7 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](/../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -386,7 +386,7 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](/../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -398,7 +398,7 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](/../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -447,14 +447,14 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 
 ### [Log Analytics agent should be installed on virtual machine scale sets](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/45cfe080-ceb1-a91e-9743-71551ed24e94)
 
-**Description**: Defender for Cloud collects data from your Azure virtual machines (VMs) to monitor for security vulnerabilities and threats. Data is collected using the [Log Analytics agent](/azure/azure-monitor/platform/log-analytics-agent), formerly known as the Microsoft Monitoring Agent (MMA), which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. You'll also need to follow that procedure if your VMs are used by an Azure managed service such as Azure Kubernetes Service or Azure Service Fabric. You cannot configure auto-provisioning of the agent for Azure virtual machine scale sets. To deploy the agent on virtual machine scale sets (including those used by Azure managed services such as Azure Kubernetes Service and Azure Service Fabric), follow the procedure in the remediation steps.
+**Description**: Defender for Cloud collects data from your Azure virtual machines (VMs) to monitor for security vulnerabilities and threats. Data is collected using the [Log Analytics agent](/../azure-monitor/platform/log-analytics-agent.md), formerly known as the Microsoft Monitoring Agent (MMA), which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. You'll also need to follow that procedure if your VMs are used by an Azure managed service such as Azure Kubernetes Service or Azure Service Fabric. You cannot configure auto-provisioning of the agent for Azure virtual machine scale sets. To deploy the agent on virtual machine scale sets (including those used by Azure managed services such as Azure Kubernetes Service and Azure Service Fabric), follow the procedure in the remediation steps.
 (Related policy: [Log Analytics agent should be installed on your virtual machine scale sets for Azure Security Center monitoring](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa3a6ea0c-e018-4933-9ef0-5aaa1501449b)).
 
 **Severity**: High
 
 ### [Log Analytics agent should be installed on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d1db3318-01ff-16de-29eb-28b344515626)
 
-**Description**: Defender for Cloud collects data from your Azure virtual machines (VMs) to monitor for security vulnerabilities and threats. Data is collected using the [Log Analytics agent](/azure/azure-monitor/platform/log-analytics-agent), formerly known as the Microsoft Monitoring Agent (MMA), which reads various security-related configurations and event logs from the machine and copies the data to your Log Analytics workspace for analysis. This agent is also required if your VMs are used by an Azure managed service such as Azure Kubernetes Service or Azure Service Fabric. We recommend configuring [auto-provisioning](enable-data-collection.md) to automatically deploy the agent. If you choose not to use auto-provisioning, manually deploy the agent to your VMs using the instructions in the remediation steps.
+**Description**: Defender for Cloud collects data from your Azure virtual machines (VMs) to monitor for security vulnerabilities and threats. Data is collected using the [Log Analytics agent](/../azure-monitor/platform/log-analytics-agent.md), formerly known as the Microsoft Monitoring Agent (MMA), which reads various security-related configurations and event logs from the machine and copies the data to your Log Analytics workspace for analysis. This agent is also required if your VMs are used by an Azure managed service such as Azure Kubernetes Service or Azure Service Fabric. We recommend configuring [auto-provisioning](enable-data-collection.md) to automatically deploy the agent. If you choose not to use auto-provisioning, manually deploy the agent to your VMs using the instructions in the remediation steps.
 (Related policy: [Log Analytics agent should be installed on your virtual machine for Azure Security Center monitoring](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa4fe33eb-e377-4efb-ab31-0784311bc499)).
 
 **Severity**: High
@@ -530,7 +530,7 @@ Learn more in [Introduction to Microsoft Defender for servers](defender-for-serv
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](/../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -600,9 +600,9 @@ Because Azure Resource Manager now has full IaaS capabilities and other advancem
 To view all affected classic VMs make sure to select all your Azure subscriptions under 'directories + subscriptions' tab.
 
 Available resources and information about this tool & migration:
-[Overview of Virtual machines (classic) deprecation, step by step process for migration & available Microsoft resources.](/azure/virtual-machines/classic-vm-deprecation?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
-[Details about Migrate to Azure Resource Manager migration tool.](/azure/virtual-machines/migration-classic-resource-manager-deep-dive?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
-[Migrate to Azure Resource Manager migration tool using PowerShell.](/azure/virtual-machines/windows/migration-classic-resource-manager-ps)
+[Overview of Virtual machines (classic) deprecation, step by step process for migration & available Microsoft resources.](/../virtual-machines/classic-vm-deprecation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
+[Details about Migrate to Azure Resource Manager migration tool.](/../virtual-machines/migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
+[Migrate to Azure Resource Manager migration tool using PowerShell.](/../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 (Related policy: [Virtual machines should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1d84d5fb-01f6-4d12-ba4f-4a26081d403d)).
 
 **Severity**: High
@@ -628,7 +628,7 @@ Learn more in [Server-side encryption of Azure Disk Storage](https://aka.ms/disk
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](/../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -677,7 +677,7 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 
 ### [Virtual machines and virtual machine scale sets should have encryption at host enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/efbbd784-656d-473a-9863-ea7693bfcd2a)
 
-**Description**: Use encryption at host to get end-to-end encryption for your virtual machine and virtual machine scale set data. Encryption at host enables encryption at rest for your temporary disk and OS/data disk caches. Temporary and ephemeral OS disks are encrypted with platform-managed keys when encryption at host is enabled. OS/data disk caches are encrypted at rest with either customer-managed or platform-managed key, depending on the encryption type selected on the disk. Learn more at [Use the Azure portal to enable end-to-end encryption using encryption at host](/azure/virtual-machines/disks-enable-host-based-encryption-portal). (Related policy: [Virtual machines and virtual machine scale sets should have encryption at host enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc4d8e41-e223-45ea-9bf5-eada37891d87)).
+**Description**: Use encryption at host to get end-to-end encryption for your virtual machine and virtual machine scale set data. Encryption at host enables encryption at rest for your temporary disk and OS/data disk caches. Temporary and ephemeral OS disks are encrypted with platform-managed keys when encryption at host is enabled. OS/data disk caches are encrypted at rest with either customer-managed or platform-managed key, depending on the encryption type selected on the disk. Learn more at [Use the Azure portal to enable end-to-end encryption using encryption at host](/../virtual-machines/disks-enable-host-based-encryption-portal.md). (Related policy: [Virtual machines and virtual machine scale sets should have encryption at host enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc4d8e41-e223-45ea-9bf5-eada37891d87)).
 
 **Severity**: Medium
 
@@ -750,7 +750,7 @@ Learn more in [Introduction to Microsoft Defender for Containers](defender-for-c
 ### [Azure Kubernetes Service clusters should have the Azure Policy add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
 
 **Description**: Azure Policy add-on for Kubernetes extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner.
-Defender for Cloud requires the Add-on to audit and enforce security capabilities and compliance inside your clusters. [Learn more](/azure/governance/policy/concepts/policy-for-kubernetes).
+Defender for Cloud requires the Add-on to audit and enforce security capabilities and compliance inside your clusters. [Learn more](/../governance/policy/concepts/policy-for-kubernetes.md).
 Requires Kubernetes v1.14.0 or later.
 (Related policy: [Azure Policy Add-on for Kubernetes service (AKS) should be installed and enabled on your clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0a15ec92-a229-4763-bb14-0ea34a568f8d)).
 
@@ -787,7 +787,7 @@ Requires Kubernetes v1.14.0 or later.
 
 ### [Kubernetes API server should be configured with restricted access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1a2b5b4c-f80d-46e7-ac81-b51a9fb363de)
 
-**Description**: To ensure that only applications from allowed networks, machines, or subnets can access your cluster, restrict access to your Kubernetes API server. You can restrict access by defining authorized IP ranges, or by setting up your API servers as private clusters as explained in [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
+**Description**: To ensure that only applications from allowed networks, machines, or subnets can access your cluster, restrict access to your Kubernetes API server. You can restrict access by defining authorized IP ranges, or by setting up your API servers as private clusters as explained in [Create a private Azure Kubernetes Service cluster](/../aks/private-clusters.md).
 (Related policy: [Authorized IP ranges should be defined on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e246bcf-5f6f-4f87-bc6f-775d4712c7ea)).
 
 **Severity**: High
@@ -796,7 +796,7 @@ Requires Kubernetes v1.14.0 or later.
 
 ### [Role-Based Access Control should be used on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b0fdc63a-38e7-4bab-a7c4-2c2665abbaa9)
 
-**Description**: To provide granular filtering on the actions that users can perform, use [Role-Based Access Control (RBAC)](/azure/aks/concepts-identity#role-based-access-controls-rbac) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies.
+**Description**: To provide granular filtering on the actions that users can perform, use [Role-Based Access Control (RBAC)](/../aks/concepts-identity.md#role-based-access-controls-rbac) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies.
 (Related policy: [Role-Based Access Control (RBAC) should be used on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fac4a19c2-fa67-49b4-8ae5-0b2e78c49457)).
 
 **Severity**: High
@@ -1558,7 +1558,7 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 ### [Storage accounts should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/47bb383c-8e25-95f0-c2aa-437add1d87d3)
 
-**Description**: To benefit from new capabilities in Azure Resource Manager, you can migrate existing deployments from the Classic deployment model. Resource Manager enables security enhancements such as: stronger access control (RBAC), better auditing, ARM-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication, and support for tags and resource groups for easier security management. [Learn more](/azure/virtual-machines/windows/migration-classic-resource-manager-overview)
+**Description**: To benefit from new capabilities in Azure Resource Manager, you can migrate existing deployments from the Classic deployment model. Resource Manager enables security enhancements such as: stronger access control (RBAC), better auditing, ARM-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication, and support for tags and resource groups for easier security management. [Learn more](/../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 (Related policy: [Storage accounts should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f37e0d2fe-28a5-43d6-a273-67d37d1f5606)).
 
 **Severity**: Low
@@ -1614,14 +1614,14 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 ### [Azure Cosmos DB should disable public network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/334a182c-7c2c-41bc-ae1e-55327891ab50)
 
-**Description**: Disabling public network access improves security by ensuring that your Cosmos DB account isn't exposed on the public internet. Creating private endpoints can limit exposure of your Cosmos DB account. [Learn more](/azure/cosmos-db/how-to-configure-private-endpoints#blocking-public-network-access-during-account-creation).
+**Description**: Disabling public network access improves security by ensuring that your Cosmos DB account isn't exposed on the public internet. Creating private endpoints can limit exposure of your Cosmos DB account. [Learn more](/../cosmos-db/how-to-configure-private-endpoints.md#blocking-public-network-access-during-account-creation).
 (Related policy: [Azure Cosmos DB should disable public network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f797b37f7-06b8-444c-b1ad-fc62867f335a)).
 
 **Severity**: Medium
 
 ### [Cosmos DB accounts should use private link](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/80dc29d6-9887-4071-a66c-e763376c2de3)
 
-**Description**: Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to your Cosmos DB account, data leakage risks are reduced. Learn more about [private links](/azure/cosmos-db/how-to-configure-private-endpoints).
+**Description**: Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to your Cosmos DB account, data leakage risks are reduced. Learn more about [private links](/../cosmos-db/how-to-configure-private-endpoints.md).
 (Related policy: [Cosmos DB accounts should use private link](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f58440f8a-10c5-4151-bdce-dfbaad4a20b7)).
 
 **Severity**: Medium
@@ -1658,7 +1658,7 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 ### [Accounts with owner permissions on Azure resources should be MFA enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/6240402e-f77c-46fa-9060-a7ce53997754)
 
-**Description**: If you only use passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](multi-factor-authentication-enforcement.md) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for another form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [owner permissions](/azure/role-based-access-control/built-in-roles#owner) on Azure resources, to prevent breach and attacks.
+**Description**: If you only use passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](multi-factor-authentication-enforcement.md) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for another form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [owner permissions](/../role-based-access-control/built-in-roles#owner) on Azure resources, to prevent breach and attacks.
  More details and frequently asked questions are available here: [Manage multifactor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md)
 (No related policy).
 
@@ -1666,7 +1666,7 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 ### [Accounts with read permissions on Azure resources should be MFA enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c)
 
-**Description**: If you only use passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](multi-factor-authentication-enforcement.md) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for an additional form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [read permissions](/azure/role-based-access-control/built-in-roles#owner) on Azure resources, to prevent breach and attacks.
+**Description**: If you only use passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](multi-factor-authentication-enforcement.md) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for an additional form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [read permissions](/../role-based-access-control/built-in-roles.md#owner) on Azure resources, to prevent breach and attacks.
  More details and frequently asked questions are available [here](multi-factor-authentication-enforcement.md).
 (No related policy)
 
@@ -1674,7 +1674,7 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 ### [Accounts with write permissions on Azure resources should be MFA enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c0cb17b2-0607-48a7-b0e0-903ed22de39b)
 
-**Description**: If you only use passwords to authenticate your users, you are leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](multi-factor-authentication-enforcement.md) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for an additional form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [write permissions](/azure/role-based-access-control/built-in-roles#owner) on Azure resources, to prevent breach and attacks.
+**Description**: If you only use passwords to authenticate your users, you are leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](multi-factor-authentication-enforcement.md) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for an additional form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [write permissions](/../role-based-access-control.md/built-in-roles.md#owner) on Azure resources, to prevent breach and attacks.
  More details and frequently asked questions are available here: [Manage multifactor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md)
 (No related policy).
 
@@ -2028,7 +2028,7 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 
 ### API endpoints in Azure API Management should be authenticated
 
-**Description & related policy**: API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses authentication through verifying the presence of Azure API Management subscription keys for APIs or products where subscription is required, and the execution of policies for validating [JWT](/azure/api-management/validate-jwt-policy), [client certificates](/azure/api-management/validate-client-certificate-policy), and [Microsoft Entra](/azure/api-management/validate-azure-ad-token-policy) tokens. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation.
+**Description & related policy**: API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses authentication through verifying the presence of Azure API Management subscription keys for APIs or products where subscription is required, and the execution of policies for validating [JWT](/../api-management/validate-jwt-policy.md), [client certificates](/../api-management/validate-client-certificate-policy.md), and [Microsoft Entra](/../api-management/validate-azure-ad-token-policy.md) tokens. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation.
 
 **Severity**: High
 
@@ -2092,7 +2092,7 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 
 ### Azure Machine Learning Workspaces should disable public network access (Preview)
 
-**Description & related policy**: Disabling public network access improves security by ensuring that the Machine Learning Workspaces aren't exposed on the public internet. You can control exposure of your workspaces by creating private endpoints instead. For more information, see [Configure a private endpoint for an Azure Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link).
+**Description & related policy**: Disabling public network access improves security by ensuring that the Machine Learning Workspaces aren't exposed on the public internet. You can control exposure of your workspaces by creating private endpoints instead. For more information, see [Configure a private endpoint for an Azure Machine Learning workspace](/../machine-learning/how-to-configure-private-link.md).
 
 **Severity**: Medium
 
@@ -2104,13 +2104,13 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 
 ### Azure Machine Learning Computes should have local authentication methods disabled (Preview)
 
-**Description & related policy**: Disabling local authentication methods improves security by ensuring that Machine Learning Computes require Azure Active Directory identities exclusively for authentication. For more information, see [Azure Policy Regulatory Compliance controls for Azure Machine Learning](/azure/machine-learning/security-controls-policy).
+**Description & related policy**: Disabling local authentication methods improves security by ensuring that Machine Learning Computes require Azure Active Directory identities exclusively for authentication. For more information, see [Azure Policy Regulatory Compliance controls for Azure Machine Learning](/../machine-learning/security-controls-policy.md).
 
 **Severity**: Medium
 
 ### Azure Machine Learning compute instances should be recreated to get the latest software updates (Preview)
 
-**Description & related policy**: Ensure Azure Machine Learning compute instances run on the latest available operating system. Security is improved and vulnerabilities reduced by running with the latest security patches. For more information, see [Vulnerability management for Azure Machine Learning](/azure/machine-learning/concept-vulnerability-management#compute-instance).
+**Description & related policy**: Ensure Azure Machine Learning compute instances run on the latest available operating system. Security is improved and vulnerabilities reduced by running with the latest security patches. For more information, see [Vulnerability management for Azure Machine Learning](/../machine-learning/concept-vulnerability-management#compute-instance.md).
 
 **Severity**: Medium
 

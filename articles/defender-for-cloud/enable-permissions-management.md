@@ -89,7 +89,7 @@ Follow these steps to [connect your AWS account to Defender for Cloud](quickstar
 - Unused identities in your AWS environment should be removed
 
 > [!NOTE]
-> The recommendations offered through the Permissions Management (Preview) integration are programmatically available from [Azure Resource Graph](/azure/governance/resource-graph/overview).
+> The recommendations offered through the Permissions Management (Preview) integration are programmatically available from [Azure Resource Graph](/../governance/resource-graph/overview.md).
 
 ## Enable Permissions Management for GCP
 

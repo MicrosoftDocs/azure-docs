@@ -42,7 +42,7 @@ To track changes to your files on machines with AMA:
 
 - Enable [Defender for Servers Plan 2](defender-for-servers-introduction.md).
 
-- [Install AMA](/azure/azure-monitor/vm/monitor-virtual-machine-agent) on machines that you want to monitor.
+- [Install AMA](/../azure-monitor/vm/monitor-virtual-machine-agent.md) on machines that you want to monitor.
 
 ## Enable File Integrity Monitoring with AMA
 

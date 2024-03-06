@@ -138,9 +138,9 @@ Private Endpoint support is now available as part of the Malware Scanning public
 
 Private endpoints provide secure connectivity to your Azure Storage services, effectively eliminating public internet exposure, and are considered a security best practice.
 
-For storage accounts with private endpoints that have Malware Scanning already enabled, you'll need to disable and [enable the plan with Malware Scanning](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription) for this to work.
+For storage accounts with private endpoints that have Malware Scanning already enabled, you'll need to disable and [enable the plan with Malware Scanning](/../storage/common/azure-defender-storage-configure.md?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription) for this to work.
 
-Learn more about using [private endpoints](/azure/private-link/private-endpoint-overview) in [Defender for Storage](defender-for-storage-introduction.md) and how to secure your storage services further.
+Learn more about using [private endpoints](/../private-link/private-endpoint-overview.md) in [Defender for Storage](defender-for-storage-introduction.md) and how to secure your storage services further.
 
 ### Recommendation released for preview: Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)
 
@@ -168,7 +168,7 @@ For more information on compliance controls, see [Tutorial: Regulatory complianc
 
 June 11, 2023
 
-Now you can discover potential cost savings in security by applying Defender for Cloud within the context of an [Azure Migrate business case](/azure/migrate/concepts-business-case-calculation).
+Now you can discover potential cost savings in security by applying Defender for Cloud within the context of an [Azure Migrate business case](/../migrate/concepts-business-case-calculation.md).
 
 ### Express configuration for vulnerability assessments in Defender for SQL is now Generally Available
 
@@ -321,8 +321,8 @@ We recommend updating your custom scripts, workflows, and governance rules to co
 
 ### Deprecation of legacy standards in compliance dashboard
 
-Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative-based compliance standards.
-We have fully deprecated support of [PCI DSS](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Microsoft Azure operated by 21Vianet.
+Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](/../compliance/offerings/offering-soc-2.md) initiative and [PCI DSS v4](/../compliance/offerings/offering-pci-dss.md) initiative-based compliance standards.
+We have fully deprecated support of [PCI DSS](/../compliance/offerings/offering-pci-dss.md) standard/initiative in Microsoft Azure operated by 21Vianet.
 
 Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
@@ -651,14 +651,14 @@ We're updating these standards for customers in Azure Government and Microsoft A
 
 **Azure Government**:
 
-- [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss)
-- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
-- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
+- [PCI DSS v4](/../compliance/offerings/offering-pci-dss.md)
+- [SOC 2 Type 2](/../compliance/offerings/offering-soc-2.md)
+- [ISO 27001:2013](/../compliance/offerings/offering-iso-27001.md)
 
 **Microsoft Azure operated by 21Vianet**:
 
-- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
-- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
+- [SOC 2 Type 2](/../compliance/offerings/offering-soc-2.md)
+- [ISO 27001:2013](/../compliance/offerings/offering-iso-27001.md)
 
 Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
