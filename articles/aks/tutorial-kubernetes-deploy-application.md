@@ -178,7 +178,7 @@ AZD doesn't require a container registry step since it's in the template.
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-Deployment in AZD in broken down into multiple stages represented by hooks. Run `azd up` to deploy all hooks.
+Deployment in AZD in broken down into multiple stages represented by hooks. By default, azd deploys with all hooks.
 
     ```azurecli-interactive
     azd up
