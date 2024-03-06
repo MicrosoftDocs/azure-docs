@@ -55,7 +55,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 > [!IMPORTANT]
 > Automatic runtime is currently in public preview. This preview is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-- Select **Start**. Start creating an automatic runtime (preview) by using the environment defined in `flow.dag.yaml` in the flow folder on the virtual machine (VM) size using serverless compute which you have enough quota in the workspace.
+- Select **Start**. Start creating an automatic runtime (preview) by using the environment defined in `flow.dag.yaml` in the flow folder, it use on the virtual machine (VM) size of serverless compute which you have enough quota in the workspace.
 
   :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
@@ -72,11 +72,11 @@ Automatic is the default option for a runtime. You can start an automatic runtim
             :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
 
     - If you choose compute instance, you can only set idle shutdown time. 
-        - As it is running on a existing compute instance the VM size is fixed and can not change in runtime side.
+        - As it is running on an existing compute instance the VM size is fixed and cannot change in runtime side.
         - Identity used for this runtime also is defined in compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../how-to-create-compute-instance.md#assign-managed-identity)
         - For the idle shutdown time it is used to define life cycle of the runtime, if the runtime is idle for the time you set, it will be deleted automatically. And of you have idle shut down enabled on compute instance, then it will continue 
 
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-ci-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-ci-settings.png":::
+            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png":::
 
 
 ### Create a compute instance runtime on a runtime page
@@ -140,12 +140,26 @@ Same as authoring UI, you can also specify the runtime in CLI/SDK when you submi
 
 In your `run.yml` you can specify the runtime name or use the automatic runtime. If you specify the runtime name, it uses the runtime with the name you specified. If you specify automatic, it uses the automatic runtime. If you don't specify the runtime, it uses the automatic runtime by default.
 
-In automatic runtime case, you can also specify the instance type or compute instance name under resource part, if you don't specify the them,  Azure Machine Learning chooses an instance type (VM size) based on factors like quota, cost, performance and disk size, learn more about [serverless compute](../how-to-use-serverless-compute.md).
+In automatic runtime case, you can also specify the instance type or compute instance name under resource part. If you don't specify the instance type or compute instance name,  Azure Machine Learning chooses an instance type (VM size) based on factors like quota, cost, performance and disk size. Learn more about [serverless compute](../how-to-use-serverless-compute.md).
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
 flow: <path_to_flow>
 data: <path_to_flow>/data.jsonl
+
+# specify identity used by serverless compute for automatic runtime.
+# default value
+# identity:
+#   type: user_identity 
+
+# use workspace primary UAI
+# identity:
+#   type: managed
+  
+# use specified client_id's UAI
+# identity:
+#   type: managed
+#   client_id: xxx
 
 column_mapping:
   url: ${data.url}
@@ -177,8 +191,10 @@ data = "<path_to_flow>/data.jsonl"
 
 
 # define cloud resource
+
 # runtime = <runtime_name>
-define instance type
+
+# define instance type
 # case 1: use automatic runtime
 resources = {"instance_type": <instance_type>}
 # case 2: use compute instance runtime
@@ -188,6 +204,7 @@ resources = {"instance_type": <instance_type>}
 base_run = pf.run(
     flow=flow,
     data=data,
+    # identity = {'type': 'managed', 'client_id': '<client_id>'}, # specify identity used by serverless compute for automatic runtime.
     # runtime=runtime, # if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
    resources = resources, # only work for automatic runtime, will be ignored if you specify the runtime name.
     column_mapping={
@@ -200,6 +217,9 @@ print(base_run)
 Learn full end to end code first example: [Integrate prompt flow with LLM-based application DevOps](./how-to-integrate-with-llm-app-devops.md)
 
 ---
+
+  > [!NOTE]
+  > If you are using automatic runtime to submit promptflow run, the idle shutdown is 1 hour.
 
 ### Reference files outside of the flow folder - automatic runtime only
 Sometimes, you might want to reference a `requirements.txt` file that is outside of the flow folder. For example, you might have complex project that includes multiple flows, and they share the same `requirements.txt` file. To do this, You can add this field `additional_includes` into the `flow.dag.yaml`. The value of this field is a list of the relative file/folder path to the flow folder. For example, if requirements.txt is in the parent folder of the flow folder, you can add `../requirements.txt` to the `additional_includes` field.
@@ -301,7 +321,7 @@ To get the best experience and performance, try to keep your runtime up to date.
 
 If you select **Use customized environment**, you first need to rebuild the environment by using the latest prompt flow image. Then update your runtime with the new custom environment.
 
-## Relationship between runtime, compute resource, flow and user.
+## Relationship between runtime, compute resource, flow and user
 
 - One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size. You can find 
 - One compute resource can only be used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resources. In AI studio case, different user can join different project and data and other asset need to be isolated, so we didn't allow multiple user share same compute resources.
