@@ -47,7 +47,7 @@ The following file types are supported:
 The following file types are supported:
 **.sh** (using Bash) <br><br>In addition to shell scripts (.sh), WebJobs written in the language of the selected runtime are also supported.<br>Example: Python (.py) scripts if the main site is a Python code app.
 ### [Linux container (preview)](#tab/linuxcontainer)
- The following file types are supported:
+The following file types are supported:
 **.sh** (using Bash) <br><br>In addition to shell scripts (.sh), WebJobs written in the language runtime of the Linux container app are also supported. <br>Example: Node (.js) scripts if the site is a Node.js app.
 ---
 ### Continuous vs. triggered WebJobs
