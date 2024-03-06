@@ -33,7 +33,7 @@ Blob indexers are frequently used for both [AI enrichment](cognitive-search-conc
 
   By default, both search and storage accept requests from public IP addresses. If network security isn't an immediate concern, you can index blob data using just the connection string and read permissions. When you're ready to add network protections, see [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for guidance about data access.
 
-+ Use a REST client, such as [Postman app](https://www.postman.com/downloads/), if you want to formulate REST calls similar to the ones shown in this article.
++ Use a [REST client](search-get-started-rest.md) to formulate REST calls similar to the ones shown in this article.
 
 <a name="SupportedFormats"></a>
 

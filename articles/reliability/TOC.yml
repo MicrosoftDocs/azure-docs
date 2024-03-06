@@ -22,24 +22,52 @@
         href: migrate-app-configuration.md
       - name: Azure Application Gateway
         href: migrate-app-gateway-v2.md
+      - name: Azure App Service
+        href: reliability-app-service.md#availability-zone-migration
       - name: Azure Functions
         href: migrate-functions.md
       - name: Azure Cache for Redis
         href: migrate-cache-redis.md
       - name: Azure AI Search
         href: migrate-search-service.md
+      - name: Azure Backup
+        href: migrate-recovery-services-vault.md
+      - name: Azure Batch
+        href: reliability-batch.md#availability-zone-migration
+      - name: Azure Container Apps
+        href: reliability-azure-container-apps.md#availability-zone-migration
       - name: Azure Container instances
         href: migrate-container-instances.md
+      - name: Azure Container Registry
+        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
+      - name: Azure Cosmos DB
+        href: /azure/cosmos-db/high-availability?toc=/azure/reliability
       - name: Azure Database for MySQL - Flexible Server
         href: migrate-database-mysql-flex.md
+      - name: Azure Database for PostgreSQL
+        href: /azure/postgresql/flexible-server/how-to-manage-high-availability-portal#enable-high-availability-during-server-creation
+      - name: Azure Elastic SAN
+        href: reliability-elastic-san.md#availability-zone-migration
+      - name: Azure Functions
+        href: reliability-functions.md#availability-zone-migration
+      - name: Azure HDInsight
+        href: reliability-hdinsight.md#availability-zone-migration
+      - name: Azure Key Vault
+        href: /azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability
+      - name: Azure Kubernetes Service
+        href: /azure/aks/availability-zones?toc=/azure/reliability
       - name: Azure Load Balancer 
         href: migrate-load-balancer.md
       - name: Azure Log Analytics workspaces
         href: migrate-monitor-log-analytics.md
+      - name: Azure Logic Apps
+        href: /azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard&toc=/azure/reliability
       - name: Azure Recovery Services vault
         href: migrate-recovery-services-vault.md
       - name: Azure Service Fabric
         href: migrate-service-fabric.md
+      - name: Azure Service Bus
+        href: /azure/service-bus-messaging/service-bus-geo-dr#availability-zones?toc=/azure/reliability
       - name: Azure SQL Database
         href: migrate-sql-database.md
       - name: Azure Storage accounts

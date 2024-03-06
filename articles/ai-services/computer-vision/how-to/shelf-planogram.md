@@ -22,7 +22,7 @@ A planogram is a diagram that indicates the correct placement of retail products
 
 ## Prerequisites
 * You must have already set up and run basic [Product Understanding analysis](./shelf-analyze.md) with the Product Understanding API.
-* [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
+* [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Swagger or the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension for VS Code.
 
 ## Prepare a planogram schema
 
