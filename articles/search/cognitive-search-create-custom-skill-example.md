@@ -314,7 +314,7 @@ Of course, you may rename the file from `Function1.cs` to `BingEntitySearch.cs`.
 
 ## Test the function from Visual Studio
 
-Press **F5** to run the program and test function behaviors. In this case, we'll use the function below to look up two entities. Use Postman or Fiddler to issue a call like the one shown below:
+Press **F5** to run the program and test function behaviors. In this case, we'll use the function below to look up two entities. Use a REST client to issue a call like the one shown below:
 
 ```http
 POST https://localhost:7071/api/EntitySearch
