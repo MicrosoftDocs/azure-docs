@@ -11,9 +11,10 @@ ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-ja
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you learn to:
 
+- Download and run Azure Developer Templates.
 - Deploy an AKS cluster using the Azure Developer CLI (AZD).
-- Run a sample multi-container application with a group of microservices simulating a retail app.
-- Teardown and clean up containers using AZD.
+- Run a sample multi-container application with a group of microservices that simulates a retail app.
+- Delete and cleanup containers made from AZD templates.
 
 > [!NOTE]
 > To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
@@ -49,13 +50,13 @@ The quickstart application includes the following Kubernetes deployments and ser
 The AZD CLI provides an interface to clone the files directly from GitHub or register existing folders as templates. 
 You can quickly clone the sample application with `azd init` followed by the name of the repository as the template argument.
 
-1. Clone the AKS Store Demo in Azure-Samples.
+1. Create the AKS Store Demo by cloning from Azure-Samples/aks-store-demo through azd.
 
     ```azurecli-interactive
     azd init --template aks-store-demo
     ```
 
-2. Enter an environment name for your project using only alphanumeric characters and hyphens.
+2. Choose an environment name for your project that uses only alphanumeric characters and hyphens.
 
     ```output
     Enter a new environment name: [? for help] 
@@ -65,20 +66,20 @@ You can quickly clone the sample application with `azd init` followed by the nam
 
 The Azure Development Template contains all the code needed to create the services, but you need to sign in to your Azure account in order to host the application on AKS.
 
-1. Login to your console with azd.
+1. Sign in to your account with azd.
 
     ```azurecli-interactive
     azd auth login
     ```
 
-1. Copy the device code that appears and then press enter to log in.
+1. Copy the device code that appears then press enter to sign-in.
 
     ```output
     Start by copying the next code: B8APV276M
     Then press enter and continue to log in from your browser...
     ```
 
-1. Enter your login credentials on your organization's sign in page.
+1. Authenticate with your credentials on your organization's sign in page.
 
 1. Confirm that it's you trying to connect to Azure CLI. If you encounter any issues, skip to the Troubleshooting section.
 
@@ -132,7 +133,7 @@ The step can take longer depending on your internet speed.
 
 ## Test the application
 
-When your application is created, a Kubernetes service exposes the application's front end service to the internet. This process can take a few minutes to complete. Once completed, follow these steps verify and test the application by opening up the store-front page.
+When your application is created, a Kubernetes service exposes the application's front end service to the internet. This process can take a few minutes to complete.
 
 1. Set your namespace as the demo namespace `pets` with the `kubectl set-context` command.
 
@@ -142,13 +143,13 @@ When your application is created, a Kubernetes service exposes the application's
 
 1. View the status of the deployed pods with the [kubectl get pods][kubectl-get] command. 
 
-    Check that all pods are in the `Running` state before proceeding:
+    Display all deployed pods in your namespace:
 
     ```console
     kubectl get pods
     ```
 
-    Look for the status of running in these critical pods:
+    Inspect the status in these services are `Running`:
 
     ```output
     NAME                               READY   STATUS 
@@ -163,7 +164,7 @@ When your application is created, a Kubernetes service exposes the application's
 
     Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument:
 
-    ```azurecli
+    ```console
     kubectl get service store-front --watch
     ```
 
@@ -215,7 +216,7 @@ Once you're finished with the quickstart, remember to clean up all your resource
     ? Would you like to permanently delete these resources instead, allowing their names to be reused? (y/N)
     ```
 
-1. Close the terminal once the clean up process has been completed.
+1. Close the terminal once the cleanup process is complete.
 
     ```output
     SUCCESS: Your application was removed from Azure in 14 minutes 30 seconds.
