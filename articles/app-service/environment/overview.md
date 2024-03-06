@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 02/06/2024
+ms.date: 03/06/2024
 ms.author: madsd
 ms.custom: "UpdateFrequency3, references_regions"
 ---
@@ -159,7 +159,7 @@ App Service Environment v3 is available in the following regions:
 | US DoD Central       | ✅                           |                             | ✅                          |
 | US DoD East          | ✅                           |                             | ✅                          |
 | US Gov Arizona       | ✅                           |                             | ✅                         |
-| US Gov Iowa          |                              |                             | ✅                          |
+| US Gov Iowa          |                              |                             |                             |
 | US Gov Texas         | ✅                           |                             | ✅                         |
 | US Gov Virginia      | ✅                           |✅                          | ✅                         |
 

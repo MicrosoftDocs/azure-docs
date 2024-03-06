@@ -81,6 +81,19 @@ To configure more than one HA port frontend for the same backend pool, use the f
 
 You can configure **one** public standard load balancer resource for the backend resources with a single internal standard load balancer with HA ports.
 
+## Flow symmetry
+
+ Flow symmetry is only supported in the architecture described in the above diagram, for the following configurations:
+ 
+- When the load balancer backend pool contains instances that only have one NIC and one IP configuration each
+
+- When the load balancer backend pool contains instances that have multiple NICs with only one IP configuration on each NIC
+
+- Dual-stack scenarios, where each backend instance only has one NIC and only one IPv4 and IPv6 configuration on each NIC. Please note that flow symmetry is only guaranteed for IPv4 and IPv6 flows independently, as these IP configurations would be configured with two separate backend pools and frontend IP configurations, respectively.
+
+Flow symmetry isn't guaranteed in any scenarios that involve two or more load balancer components, such as across two different load balancers, multiple backend pools, or multiple frontend IP configurations. Since traffic is distributed based on load balancing rules, which make independent decisions and aren't coordinated, flow symmetry cannot be guaranteed in such scenarios. As a result, flow symmetry isn't supported when placing NVAs between a public and internal load balancer. If you need flow symmetry in such scenarios, consider leveraging [Gateway Load Balancer](gateway-overview.md) instead.
+
+
 ## Limitations
 
 - HA ports load-balancing rules are available only for an internal standard load balancer.
@@ -89,7 +102,6 @@ You can configure **one** public standard load balancer resource for the backend
 
 - IP fragmenting isn't supported. 
 
-- Flow symmetry for NVA scenarios with a backend instance and a single IP/single NIC configuration is supported only when used as shown in the diagram above. Flow symmetry isn't provided in any other scenario. Two or more load balancer resources and their rules make independent decisions and aren't coordinated. Flow symmetry isn't available with the use of multiple IP configurations. Flow symmetry isn't available when placing the NVA between a public and internal load balancer. We recommend the use of a single IP/single NIC configuration referenced in the architecture above.
 
 ## Next steps
 
