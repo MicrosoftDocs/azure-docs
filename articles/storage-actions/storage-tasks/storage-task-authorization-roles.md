@@ -53,13 +53,13 @@ The following table shows the least privileged built-in Azure role as well as th
 
 | Permission | Built-in role | RBAC actions for a custom role |
 |---|---|---|
-| SetBlobTier | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)| Microsoft.Storage/storageAccounts/blobServices/read<br>Microsoft.Storage/storageAccounts/blobServices/write<br>Microsoft.Storage/storageAccounts/blobServices/containers/write<br>Microsoft.Storage/storageAccounts/blobServices/containers/read<br>Microsoft.Storage/storageAccounts/blobServices/containers/read<br>Microsoft.Storage/storageAccounts/blobServices/containers/write<br>Microsoft.Storage/storageAccounts/blobServices/containers/delete |
+| SetBlobTier | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write<br>|
 | SetBlobExpiry | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write |
 | SetBlobTags | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write |
-| SetBlobImmutabilityPolicy | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/write<br>Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/read<br>Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/delete<br>Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/extend/action<br>Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/lock/action |
-| SetBlobLegalHold | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Microsoft.Storage/storageAccounts/blobServices/containers/setLegalHold/action<br>Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action |
-| DeleteBlob | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Microsoft.Storage/storageAccounts/blobServices/containers/delete |
-| UndeleteBlob | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Microsoft.Storage/storageAccounts/blobServices/containers/write<br>Microsoft.Storage/storageAccounts/blobServices/containers/delete |
+| SetBlobImmutabilityPolicy | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Microsoft.Storage/storageAccounts/blobServices/containers/write<br>|
+| SetBlobLegalHold | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Microsoft.Storage/storageAccounts/blobServices/containers/write<br> |
+| DeleteBlob | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete |
+| UndeleteBlob | [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Microsoft.Storage/storageAccounts/blobServices/containers/write<br>|
 
 ## See also
 
