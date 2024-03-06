@@ -97,16 +97,18 @@ To create a managed image from a snapshot, use Azure command-line tools such as 
 
 To create an image from a VM in the portal, see [Capture an image of a VM](../virtual-machines/capture-image-portal.md).
 
-To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md).
-
-To create an image requires purchase plan, see [Supply Azure Marketplace purchase plan information when creating images](../virtual-machines/marketplace-images.md).
+To create an image which requires purchase plan, see [Supply Azure Marketplace purchase plan information when creating images](../virtual-machines/marketplace-images.md).
 
 > [!NOTE]
-> If the base image requires purchase plan, Batch will need the required purchased image plan information when creating pools. You have to make sure that the image has the correct plan information when you create it.
+> If the base image does not require a purchase plan, the purchase plan information must be left empty. In other words, specifying a purchase plan is not required.
+>
+> If the base image requires purchase plan, ensure that the correct plan information is provided when you create it.
 > 
 > For the purchase plan information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties) VMs.
 > 
 > Use Azure PowerShell [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition) or Azure CLI  [az sig image-definition show](/cli/azure/sig/image-definition#az-sig-image-definition-show) to check whether the gallery image has correct plan information.
+
+To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md).
 
 ## Create a pool from a Shared Image using the Azure CLI
 
