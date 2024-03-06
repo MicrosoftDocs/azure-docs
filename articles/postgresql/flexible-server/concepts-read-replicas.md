@@ -4,7 +4,7 @@ description: This article describes the read replica feature in Azure Database f
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 01/16/2024
+ms.date: 03/06/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -214,6 +214,9 @@ Virtual Endpoints offer two distinct types of connection points:
 
 **Read-Only Endpoint**: This endpoint can be configured by users to point either to a read replica or the primary server. However, it can only target one server at a time. Load balancing between multiple servers isn't supported. You can adjust the target server for this endpoint anytime, whether before or after promotion.
 
+> [!NOTE]  
+> You can create only one writer and one read-only endpoint per primary and one of its replica.
+
 ### Virtual Endpoints and Promote Behavior
 
 In the event of a promote action, the behavior of these endpoints remains predictable.
@@ -248,7 +251,7 @@ Learn how to [create virtual endpoints](how-to-read-replicas-portal.md#create-vi
 Read replica feature in Azure Database for PostgreSQL flexible server relies on replication slots mechanism. The main advantage of replication slots is the ability to adjust the number of transaction logs automatically (WAL segments) needed by all replica servers and, therefore, avoid situations when one or more replicas go out of sync because WAL segments that weren't yet sent to the replicas are being removed on the primary. The disadvantage of the approach is the risk of going out of space on the primary in case the replication slot remains inactive for an extended time. In such situations, primary accumulates WAL files causing incremental growth of the storage usage. When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to read-only mode to avoid errors associated with disk-full situations.  
 Therefore, monitoring the replication lag and replication slots status is crucial for read replicas.
 
-We recommend setting alert rules for storage used or storage percentage, and for replication lags, when they exceed certain thresholds so that you can proactively act, increase the storage size, and delete lagging read replicas. For example, you can set an alert if the storage percentage exceeds 80% usage, and if the replica lag is higher than 1 h. The [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric shows you if the WAL files accumulation is the main reason of the excessive storage usage.
+We recommend setting alert rules for storage used or storage percentage, and for replication lags, when they exceed certain thresholds so that you can proactively act, increase the storage size, and delete lagging read replicas. For example, you can set an alert if the storage percentage exceeds 80% usage, and if the replica lag is higher than 5 minutes. The [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric shows you if the WAL files accumulation is the main reason of the excessive storage usage.
 
 Azure Database for PostgreSQL flexible server provides [two metrics](concepts-monitoring.md#replication) for monitoring replication. The two metrics are **Max Physical Replication Lag** and **Read Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](how-to-read-replicas-portal.md#monitor-a-replica).
 
@@ -328,7 +331,7 @@ A read replica is created as a new Azure Database for PostgreSQL flexible server
 
 ### Resource move
 
-Users can create read replicas in a different resource group than the primary. However, moving read replicas to another resource group after their creation is unsupported. Additionally, moving replica(s) to a different subscription, and moving the primary that has read replica(s) to another resource group or subscription, needs to be supported.
+Users can create read replicas in a different resource group than the primary. However, moving read replicas to another resource group after their creation is unsupported. Additionally, moving replica(s) to a different subscription, and moving the primary that has read replica(s) to another resource group or subscription, it's not supported.
 
 ### Promote
 
