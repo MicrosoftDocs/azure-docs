@@ -1,7 +1,7 @@
 ---
 title:  Microsoft Copilot for Azure (preview) capabilities
 description: Learn about the things you can do with Microsoft Copilot for Azure (preview).
-ms.date: 11/15/2023
+ms.date: 03/06/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
@@ -58,7 +58,7 @@ While Microsoft Copilot for Azure (preview) can perform many types of tasks, it'
 
 Keep in mind these current limitations:
 
-- For each user, interactions are currently limited to ten questions per conversation, and five conversations per day.
+- The number of conversations per day that a user can have, and the number of requests per conversation, are limited. When you open Microsoft Copilot for Azure (preview), you'll see details about these limitations.
 - Some responses that display lists will be limited to the top five items.
 - For some tasks and queries, using a resource's name will not work, and the Azure resource ID must be provided.
 - Microsoft Copilot for Azure (preview) is currently available in English only.
