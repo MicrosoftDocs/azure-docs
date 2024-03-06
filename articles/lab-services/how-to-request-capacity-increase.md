@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/06/2024
-#customer intent: As a lab administrator, I want more VM cores available for my subscription so that I can support more students.
+#customer intent: As a subscription owner for labs, I want to learn how to request an increase in cores available for my subscription in order to meet my lab needs.
 ---
 
 # Request a core limit increase
 
-This article describes how to collect the information and how to submit a support request for increasing the number of cores for Azure Lab Services in your Azure subscription.
+This article describes how to submit a support request to increase the number of cores for Azure Lab Services in your Azure subscription. First, collect the necessary information for the request.
 
-When you reach the cores limit for your subscription, you can request a core limit increase (sometimes called an increase in capacity, or a quota increase) to continue using Azure Lab Services. The request process allows the Azure Lab Services team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments.
+When you reach the cores limit for your subscription, you can request a core limit increase to continue using Azure Lab Services. An increase is sometimes called an *increase in capacity* or a *quota increase*. The request process allows the Azure Lab Services team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments.
 
 ## Prerequisites
 
-- [!INCLUDE [Create support request](./includes/lab-services-prerequisite-create-support-request.md)]
+[!INCLUDE [Create support request](./includes/lab-services-prerequisite-create-support-request.md)]
 
 ## Prepare to submit a request
 
-Before you create a support request for a core limit increase, you need to gather additional information, such as the number and size of cores and the Azure regions. You might also have to perform some preparation steps before creating the request.
+Before you create a support request for a core limit increase, you need to gather additional information, such as the number and size of cores and the Azure regions. You might also have to do some preparation before you create the request.
 
 ## [Lab plan](#tab/Labplans/)
 
@@ -33,7 +33,7 @@ To create a request for Azure Lab Services capacity, you need to have a lab plan
 
 ### Verify available capacity
 
-Before you begin calculating the number of extra cores you require, verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md). You're able to see exactly where your current capacity is used, and might discover extra capacity in an unused lab plan or lab.
+Before you calculate the number of extra cores that you need, verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md). You can see exactly where your current capacity is used. You might discover extra capacity in an unused lab plan or lab.
 
 ### Determine the regions for your labs
 
@@ -41,7 +41,7 @@ Azure Lab Services resources can exist in many regions. You can choose to deploy
 
 ### Determine the number of VM cores in your request
 
-In your support request, you need to provide the *total* number of cores. This total includes both your existing number of cores, and the cores you want to add.
+In your support request, provide the *total* number of cores. This total includes both your existing number of cores and the cores you want to add.
 
 Azure Lab Services groups VM sizes together in size groups:
 
@@ -53,7 +53,11 @@ Azure Lab Services groups VM sizes together in size groups:
 
 You request VM cores for a specific Azure region. When you select the region in the support request, you can view your current usage and current limit per size group.
 
-To determine the total number of cores for your request: `total VM cores = (current # cores for the size group) + ((# cores for the selected VM size) * (# VMs))`
+To determine the total number of cores for your request, use this equation:
+
+```output
+total VM cores = (current # cores for the size group) + ((# cores for the selected VM size) * (# VMs))`
+```
 
 For example, you need more capacity for 20 *Medium* VMs. You already have the following VMs:
 
@@ -63,9 +67,9 @@ For example, you need more capacity for 20 *Medium* VMs. You already have the fo
 | Medium    | 4            | 20    | 80          |
 | Small GPU | 6            | 5     | 30          |
 
-The current #cores for the Small/Medium/Large size group is 20 (Small) + 80 (Medium) = 100 cores. You don't count the *Small GPU* cores because they're in a different size group.
+The current #cores for the Small/Medium/Large size group is `20 (Small) + 80 (Medium) = 100 cores`. You don't count the *Small GPU* cores because they're in a different size group.
 
-The total number of VM cores for 20 more Medium VMs is 100 + (4 cores per Medium VM) * 20 = 180 cores.
+The total number of VM cores for 20 more Medium VMs is `100 + (4 cores per Medium VM) * 20 = 180 cores`.
 
 ## [Lab account](#tab/LabAccounts/)
 
@@ -85,7 +89,7 @@ In your support request, you need to provide the number of *extra* VM cores. Eac
 
 To determine the total number of cores for your request: `total VM cores = (# cores for the selected VM size) * (# VMs)`
 
-For example, you need more capacity for 20 *Medium* VMs. The number of extra VM cores for 20 Medium VMs is then 80 (4 cores per VM * 20).
+For example, you need more capacity for 20 *Medium* VMs. The number of extra VM cores for 20 Medium VMs is then 80: `(4 cores per VM * 20)`.
 
 ---
 
@@ -115,7 +119,7 @@ You can follow these steps to request a core limit increase:
 
 ## Make core limit increase request
 
-When you request core limit increase, you must supply some information to help the Azure Lab Services team evaluate and action your request as quickly as possible. The more information you can supply and the earlier you supply it, the more quickly the Azure Lab Services team is able to process your request. 
+When you request a core limit increase, supply information to help the Azure Lab Services team evaluate and act on your request as quickly as possible. The more information you can supply and the earlier you supply it, the quicker the Azure Lab Services team can process your request.
 
 Depending on whether you use lab accounts or lab plans, you need to provide different information on the **Quota details** page.
 
@@ -131,14 +135,14 @@ Depending on whether you use lab accounts or lab plans, you need to provide diff
 | **Virtual machine size** | Select the virtual machine size that you require for the new cores. |
 | **Requested total core limit** | Enter the total number of cores you require. This number includes your existing cores + the number of extra cores you're requesting. To learn how to calculate the total number of cores, see [Determine the total number of cores in your request](#prepare-to-submit-a-request). |
 
-## [Lab account](#tab/LabAccounts/)
+#### [Lab account](#tab/LabAccounts/)
 
 :::image type="content" source="./media/how-to-request-capacity-increase/lab-account-pane.png" alt-text="Screenshot of the Quota details page for Lab accounts.":::
 
 | Name      | Value     |
 | --------- | --------- |
 | **Deployment Model** | *Lab Account (Classic)* |
-| **Region** | Select one or more regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) you would like to increase. |
+| **Region** | Select one or more regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) where you want the extra cores. |
 | **Alternate regions** | Select one or more alternate regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services), in case your preferred regions have no available capacity. |
 | **Virtual network regions** | Select one or more alternate regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) where you might host virtual networks for [advanced networking](./how-to-connect-peer-virtual-network.md). |
 | **Virtual machine size** | Select the VM size for which you need more capacity. |
@@ -155,35 +159,35 @@ After you enter the required information and details, select **Save and continue
 
 To complete the support request, enter the following information:
 
-1. Complete the remainder of the support request **Additional details** tab using the following information:
+1. Complete the remainder of the support request **Additional details** tab:
 
    ### Advanced diagnostic information
 
-   |Name |Value |
-   |---------|---------|
-   |**Allow collection of advanced diagnostic information**|Select yes or no.|
+   | Name | Value |
+   |:-----|:------|
+   | **Allow collection of advanced diagnostic information** | Select yes or no. |
 
    ### Support method
 
-   |Name |Value |
-   |---------|---------|
-   |**Support plan**|Select your support plan.|
-   |**Severity**|Select the severity of the issue.|
-   |**Preferred contact method**|Select email or phone.|
-   |**Your availability**|Enter your availability.|
-   |**Support language**|Select your language preference.|
+   | Name | Value |
+   |:-----|:------|
+   | **Support plan** | Select your support plan. |
+   | **Severity** | Select the severity of the issue. |
+   | **Preferred contact method** | Select email or phone. |
+   | **Your availability** | Enter your availability. |
+   | **Support language** | Select your language preference. |
 
    ### Contact information
 
-   |Name |Value |
-   |---------|---------|
-   |**First name**|Enter your first name.|
-   |**Last name**|Enter your last name.|
-   |**Email**|Enter your contact email.|
-   |**Additional email for notification**|Enter an email for notifications.|
-   |**Phone**|Enter your contact phone number.|
-   |**Country/region**|Enter your location.|
-   |**Save contact changes for future support requests.**|Select the check box to save changes.|
+   | Name | Value |
+   |:-----|:------|
+   | **First name** | Enter your first name. |
+   | **Last name** | Enter your last name. |
+   | **Email** | Enter your contact email. |
+   | **Additional email for notification** | Enter an email for notifications. |
+   | **Phone** | Enter your contact phone number. |
+   | **Country/region** | Enter your location. |
+   | **Save contact changes for future support requests.** | Select the check box to save changes. |
 
 1. Select **Next**.
 
