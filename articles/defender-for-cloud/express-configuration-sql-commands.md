@@ -13,7 +13,7 @@ This article contains the PowerShell wrapper for SQL vulnerability assessment ex
 
 You should make a local copy of the script and save the file with the following file name `SqlVulnerabilityAssessmentCommands.psm1`.
 
-After you have made a local copy of the wrapper you should use the [Express configuration PowerShell commands reference](express-configuration-powershell-commands.md).
+After you made a local copy of the wrapper, you should use the [Express configuration PowerShell commands reference](express-configuration-powershell-commands.md).
 
 ## SqlVulnerabilityAssessmentCommands.psm1
 
@@ -341,7 +341,7 @@ function Get-SqlVulnerabilityAssessmentScanResults([parameter(mandatory)] [strin
                     . Database-level firewall rules grant access to the specific database based on the originating IP address
                     of each request.\n\nDatabase-level firewall rules for master and user databases can only be created and ma
                     naged through Transact-SQL (unlike server-level firewall rules which can also be created and managed using
-                    the Azure portal or PowerShell). For more details please see: https://docs.microsoft.com/en-us/azure/sql-
+                    the Azure portal or PowerShell). For more details please see: https://docs.microsoft.com/azure/sql-
                     database/sql-database-firewall-configure\n\nThis check verifies that each database-level firewall rule doe
                     s not grant access to more than 255 IP addresses.","rationale":"Often, administrators add rules that grant
                     excessive access as part of a troubleshooting process - to eliminate the firewall as the source of a prob
@@ -685,4 +685,4 @@ Export-ModuleMember -Function Remove-SqlVulnerabilityAssessmentServerSetting
 
 ## Next steps
 
-[Express configuration PowerShell commands reference](express-configuration-powershell-commands.md)
+[Express configuration PowerShell commands reference](express-configuration-powershell-commands.md).
