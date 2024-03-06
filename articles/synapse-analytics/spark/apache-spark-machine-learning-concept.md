@@ -5,9 +5,8 @@ author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
-ms.date: 11/13/2020
+ms.date: 03/06/2023
 ms.author: midesa
-ms.reviewer: sngun
 ---
 
 # Machine learning with Apache Spark

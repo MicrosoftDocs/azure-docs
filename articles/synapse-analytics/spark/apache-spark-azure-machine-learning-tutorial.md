@@ -6,10 +6,10 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: machine-learning
 ms.custom: devx-track-python
-ms.date: 06/30/2020
+ms.date: 03/06/2024
 ms.author: midesa
-ms.reviewer: sngun
 ---
+
 # Tutorial: Train a model in Python with automated machine learning
 
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. 
