@@ -4,6 +4,7 @@ description: Learn the high-level process to deploy a network function on Azure 
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
+ms.custom: devx-track-azurecli
 ms.topic: quickstart #required; leave this attribute/value as-is
 ms.date: 02/21/2024
 

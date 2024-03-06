@@ -614,6 +614,9 @@ items:
     - name: Structure
       displayName: Data collection rules
       href: essentials/data-collection-rule-structure.md
+    - name: Monitor
+      displayName: Data collection rules
+      href: essentials/data-collection-monitor.md
   - name: Stream resource log data
     href: essentials/resource-logs.md
   - name: Stream activity log data
