@@ -4,10 +4,11 @@ titleSuffix: Azure Lab Services
 description: Learn how to connect using remote desktop (RDP) from Windows to a virtual machine in Azure Lab Services.
 services: lab-services
 ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
-ms.date: 02/17/2023
+ms.date: 03/06/2024
+#customer intent: As a learner, I want to connect to virtual machines in a lab by using RDP in order to use the lab resources. 
 ---
 
 # Connect to a VM using Remote Desktop Protocol on Windows
@@ -26,11 +27,11 @@ To connect to a lab VM in Azure Lab Services:
 
 1. On the tile for your VM, select the **Connect** icon.
 
-    To connect to a lab VM, the vm must be running. Learn how you can [start a VM](how-to-use-lab.md#start-or-stop-the-vm).
+    To connect to a lab VM, the virtual machine must be running. Learn how you can [start a VM](how-to-use-lab.md#start-or-stop-the-vm).
 
     :::image type="content" source="./media/connect-virtual-machine-windows-rdp/connect-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the connect button on the VM tile.":::
 
-1. If you’re connecting to a Linux VM, select the **Connect via RDP** option.
+1. To connect to a Linux VM, select the **Connect via RDP** option.
 
     :::image type="content" source="./media/connect-virtual-machine-windows-rdp/student-vm-connect-options.png" alt-text="Screenshot that shows VM tile for student, highlighting the connect button and showing the SSH and RDP connection options.":::
 

@@ -1,26 +1,25 @@
 ---
-title:  Request a core limit increase
+title: Request a core limit increase
 titleSuffix: Azure Lab Services
 description: Learn how to request a core limit (quota) increase to expand capacity for your labs in Azure Lab Services.
 services: lab-services
 ms.service: lab-services
 ms.topic: how-to
-ms.author: nicktrog
-author: ntrogh
-ms.date: 03/03/2023
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 03/06/2024
+#customer intent: As a lab administrator, I want more VM cores available for my subscription so that I can support more students.
 ---
-
-<!-- As a lab administrator, I want more VM cores available for my subscription so that I can support more students. -->
 
 # Request a core limit increase
 
 This article describes how to collect the information and how to submit a support request for increasing the number of cores for Azure Lab Services in your Azure subscription.
 
-When you reach the cores limit for your subscription, you can request a core limit increase (sometimes called an increase in capacity, or a quota increase) to continue using Azure Lab Services. The request process allows the Azure Lab Services team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
+When you reach the cores limit for your subscription, you can request a core limit increase (sometimes called an increase in capacity, or a quota increase) to continue using Azure Lab Services. The request process allows the Azure Lab Services team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments.
 
-### Prerequisites
+## Prerequisites
 
-[!INCLUDE [Create support request](./includes/lab-services-prerequisite-create-support-request.md)]
+- [!INCLUDE [Create support request](./includes/lab-services-prerequisite-create-support-request.md)]
 
 ## Prepare to submit a request
 
@@ -112,7 +111,7 @@ You can follow these steps to request a core limit increase:
 
 1. On the **Additional details** tab, select **Enter details** in the **Problem details** section.
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/enter-details-link.png" alt-text="Screenshot of the Additional details page with Enter details highlighted."::: 
+    :::image type="content" source="./media/how-to-request-capacity-increase/enter-details-link.png" alt-text="Screenshot of the Additional details page with Enter details highlighted.":::
 
 ## Make core limit increase request
 
@@ -189,7 +188,7 @@ To complete the support request, enter the following information:
 1. Select **Next**.
 
 1. On the **Review + create** tab, review the information, and then select **Create**.
- 
+
 ## Related content
 
 - For more information about capacity limits, see [Capacity limits in Azure Lab Services](capacity-limits.md).
