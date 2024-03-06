@@ -109,7 +109,7 @@ az mysql flexible-server import create --data-source-type
                                 [--zone]
 ```
 
-The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of the source Single Server) and performs an import from source to target. Azure Database MySQL Import command maps over the corresponding tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password  properties from Single Server to Flexible Server as smart defaults if no inputs are provided to the CLI command. You can chose to override the smart defaults by providing inputs for these optional parameters.
+The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of the source Single Server) and performs an import from source to target. Azure Database MySQL Import command maps over the corresponding tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password  properties from Single Server to Flexible Server as smart defaults if no inputs are provided to the CLI command. You can choose to override the smart defaults by providing inputs for these optional parameters.
 
 ```azurecli-interactive
 az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server"
@@ -171,7 +171,7 @@ tier | Burstable | Compute tier of the target Azure Database for MySQL Flexible 
 public-access | 0.0.0.0 | Determines the public access for the target Azure Database for MySQL Flexible Server. Enter single or range of IP addresses to be included in the allowed list of IPs. IP address ranges must be dash-separated and not contain any spaces. Specifying 0.0.0.0 allows public access from any resources deployed within Azure to access your server. Setting it to "None" sets the server in public access mode but doesn't create a firewall rule.
 vnet | myVnet | Name or ID of a new or existing virtual network. If you want to use a vnet from different resource group or subscription, please provide a resource ID. The name must be between 2 to 64 characters. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens.
 subnet | mySubnet | Name or resource ID of a new or existing subnet. If you want to use a subnet from different resource group or subscription, please provide resource ID instead of name. Please note that the subnet will be delegated to flexibleServers. After delegation, this subnet cannot be used for any other type of Azure resources.
-private-dns-zone | myserver.private.contoso.com | The name or id of new or existing private dns zone. You can use the private dns zone from same resource group, different resource group, or different subscription. If you want to use a zone from different resource group or subscription, please provide resource Id. CLI creates a new private dns zone within the same resource group as virtual network if not provided by users.
+private-dns-zone | myserver.private.contoso.com | The name or ID of new or existing private dns zone. You can use the private dns zone from same resource group, different resource group, or different subscription. If you want to use a zone from different resource group or subscription, please provide resource ID. CLI creates a new private dns zone within the same resource group as virtual network if not provided by users.
 key | key identifier of testKey | The resource ID of the primary keyvault key for data encryption.
 identity | testIdentity | The name or resource ID of the user assigned identity for data encryption.
 storage-size | 32 | The storage capacity of the target Azure Database for MySQL Flexible Server. The minimum is 20 GiB, and max is 16 TiB.
@@ -185,7 +185,7 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 
 ## Steps for online migration
 
-After completing the above-stated Azure Database for MySQL Import operation :
+After completing the above-stated Azure Database for MySQL Import operation:
 
 - Log in to the target Azure Database for MySQL Flexible Server and run the following command to get the bin-log filename and position corresponding to the backup snapshot used by Azure Database for MySQL Import CLI to restore to the target server.
 
