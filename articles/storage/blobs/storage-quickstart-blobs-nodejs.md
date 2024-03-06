@@ -464,7 +464,7 @@ Step through the code in your debugger and check your [Azure portal](https://por
 
 ::: zone-end
 
-## Clean up 
+## Clean up resources
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
