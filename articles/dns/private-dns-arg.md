@@ -37,11 +37,16 @@ dnsresources
 
 ![Screenshot of a resource record count query.](./media/private-dns-arg/count-query.png)
 
-The query results display all records that the current subscription has permission to view. To specify a subscription ID, use the following query:
+The query results display all records that the current subscription has permission to view. You can also specify parameters such as the subscription ID, resource group, or record type. For example, the following example query returns a count of A or CNAME records in a given subscription and resource group:
 
 ```Kusto
 dnsresources
 | where subscriptionId == "<your subscription ID>"
+| where resourceGroup == "<your resource group name>"
+| where type in (
+    "microsoft.network/privatednszones/a",
+    "microsoft.network/privatednszones/cname"
+)
 | summarize count() by recordType = tostring(type)
 ```
 You can also view the total count of resource records visually by selecting the **Charts** tab and then selecting the chart type. The following is an example of a **Donut chart**:
