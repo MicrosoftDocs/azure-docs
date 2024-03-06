@@ -225,8 +225,7 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Upgrade the Google BigQuery linked service
 
-Create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
-
+To upgrade the Google BigQuery linked service, create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
 ## Related content
 
