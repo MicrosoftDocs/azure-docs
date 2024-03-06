@@ -23,7 +23,7 @@ You can browse the Mistral family of models in the Model Catalog by filtering on
 
 ## Mistral Large 
 
-In this article, you learn how to use Azure AI Studio to deploy the Mistral Large model as a service with pay-as you go billing.
+In this article, you learn how to use Azure AI Studio to deploy the Mistral Large model as a service with pay-as-you-go billing.
 
 Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task thanks to its state-of-the-art reasoning and knowledge capabilities.
 
@@ -166,7 +166,7 @@ __Body__
 
 #### Response schema
 
-The response payload is a dictionary with the following fields.
+The response payload is a dictionary with the following fields:
 
 | Key       | Type      | Description                                                                |
 |-----------|-----------|----------------------------------------------------------------------------|
@@ -181,7 +181,7 @@ The response payload is a dictionary with the following fields.
 > In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`. In each `choices` object, the key for `messages` is changed by `delta`.
 
 
-The `choices` object is a dictionary with the following fields. 
+The `choices` object is a dictionary with the following fields:
 
 | Key     | Type      | Description  |
 |---------|-----------|--------------|
@@ -191,7 +191,7 @@ The `choices` object is a dictionary with the following fields.
 | `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
 
 
-The `usage` object is a dictionary with the following fields. 
+The `usage` object is a dictionary with the following fields:
 
 | Key                 | Type      | Value                                         |
 |---------------------|-----------|-----------------------------------------------|
@@ -206,7 +206,7 @@ The `logprobs` object is a dictionary with the following fields:
 | `text_offsets`   | `array` of `integers`   | The position or index of each token in the completion output. |
 | `token_logprobs` | `array` of `float`      | Selected `logprobs` from dictionary in `top_logprobs` array.   |
 | `tokens`         | `array` of `string`     | Selected tokens.   |
-| `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the prob. |
+| `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the probability. |
 
 #### Example
 
