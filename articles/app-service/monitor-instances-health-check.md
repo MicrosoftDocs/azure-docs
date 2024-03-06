@@ -107,7 +107,6 @@ def header_matches_env_var(header_value):
 ##### [Java](#tab/java)
 
 ```java
-import java.io.Console;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
@@ -117,7 +116,7 @@ public static Boolean headerMatchesEnvVar(String headerValue) throws NoSuchAlgor
     MessageDigest digest = MessageDigest.getInstance("SHA-256");
     String envVar = System.getenv("WEBSITE_AUTH_ENCRYPTION_KEY");
     String hash = new String(Base64.getDecoder().decode(digest.digest(envVar.getBytes(StandardCharsets.UTF_8))));
-    return hash == headerValue;
+    return hash.equals(headerValue);
 }
 ```
 
