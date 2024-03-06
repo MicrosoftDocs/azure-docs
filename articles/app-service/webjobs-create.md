@@ -48,12 +48,13 @@ The following file types are supported:<br>
 ### [Linux code](#tab/linuxcode)
 > [!NOTE]
 > WebJobs for Linux code is in preview. 
-**.sh** scripts are supported. <br><br>In addition to shell scripts, WebJobs written in the language of the selected runtime are also supported.<br>Example: Python (.py) scripts if the main site is a Python code app.
+**.sh** scripts are supported.<br><br>In addition to shell scripts, WebJobs written in the language of the selected runtime are also supported.<br>Example: Python (.py) scripts if the main site is a Python code app.
 ### [Linux container](#tab/linuxcontainer)
 > [!NOTE]
 > WebJobs for Linux container is in preview. 
 **.sh** scripts are supported. <br><br>In addition to shell scripts, WebJobs written in the language runtime of the Linux container app are also supported. <br>Example: Node (.js) scripts if the site is a Node.js app.
 ---
+
 ### Continuous vs. triggered WebJobs
 
 The following table describes the differences between *continuous* and *triggered* WebJobs:
