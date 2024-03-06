@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Deploy environments with Azure Pipelines'
-description: Learn how to integrate Azure Deployment Environments into your CI/CD pipeline by using Azure DevOps.
+description: Learn how to integrate Azure Deployment Environments into your Azure Pipelines CI/CD pipeline and streamline your software development process.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
@@ -12,7 +12,7 @@ ms.date: 02/26/2024
 
 # Tutorial: Deploy environments in CI/CD by using Azure Pipelines
 
-In this tutorial, you learn how to integrate Azure Deployment Environments into your Azure DevOps CI/CD pipeline.
+In this tutorial, you will learn how to integrate Azure Deployment Environments (ADE) into your Azure Pipelines CI/CD pipeline.
 
 Continuous integration and continuous delivery (CI/CD) is a software development approach that helps teams to automate the process of building, testing, and deploying software changes. CI/CD enables you to release software changes more frequently and with greater confidence. 
 
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 - An Azure DevOps subscription.
   - [Create an account for free](https://azure.microsoft.com/services/devops/?WT.mc_id=A261C142F).
   - An Azure DevOps organization and project.
-- Azure Deployment Environments
+- Azure Deployment Environments.
     - [Dev center and project](./quickstart-create-and-configure-devcenter.md).
     - [Sample catalog](https://github.com/Azure/deployment-environments) attached to the dev center.
 
@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
 1. In **Import a repository**, select **Import**. 
 1. In **Import a Git repository**, select or enter the following:
     - **Repository type**: Git
-    - **Clone URL**: https://github.com/Azure/deployment-environments.
+    - **Clone URL**: https://github.com/Azure/deployment-environments
 
 
 ## Configure environment types
@@ -88,7 +88,7 @@ Create project environment types:
 1. Confirm that the environment type was added by checking your Azure portal notifications.
 
 
-## Configure service connection
+## Configure a service connection
 
 In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates a Microsoft Entra service principal object.
 
@@ -111,9 +111,9 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
 1. In the Azure portal, copy the **Display name** value.
     You use this value in the next step to grant permissions for running load tests to the service principal.
 
-### Grant access to ADE project
+### Grant access to an ADE project
 
-Azure Deployment Environments uses Azure RBAC to grant permissions for performing specific activities on your ADE resource. To make changes from a CI/CD pipeline, you grant the Deployment Environments User role to the service principal.
+Azure Deployment Environments uses role-based access control to grant permissions for performing specific activities on your ADE resource. To make changes from a CI/CD pipeline, you grant the Deployment Environments User role to the service principal.
 
 1. In the [Azure portal](https://portal.azure.com/), go to your ADE project.
 1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
@@ -129,20 +129,28 @@ You can now use the service connection in your Azure Pipelines workflow definiti
 
 Edit the `azure-pipelines.yml` file in your Azure Repos repository to customize your pipeline.
 
+In the pipeline, you define the steps to create the environment. In this pipeline, you define the steps to create the environment as a job, which is a series of steps that run sequentially as a unit. 
+
+To customize the pipeline you:
+- Specify the Service Connection to use, and The pipeline uses the Azure CLI to create the environment.
+- Use an Inline script to run an Azure CLI command that creates the environment. 
+
+The Azure CLI is a command-line tool that provides a set of commands for working with Azure resources. To discover more Azure CLI commands, see [az devcenter](https://learn.microsoft.com/en-us/cli/azure/devcenter?view=azure-cli-latest).
+
 1. In your Azure DevOps project, select **Repos** > **Files**.
 1. In the **Files** pane, from the `.ado` folder, select `azure-pipelines.yml` file.
 1. In the `azure-pipelines.yml` file, edit the existing content with the following code:
    - Replace `<AzureServiceConnectionName>` with the name of the service connection you created earlier.
    - In the `Inline script`, replace each of the following placeholders with values appropriate to your Azure environment:
    
-    | Placeholder                     | Value |
-    | ------------------------------- | ----- |
-    | `<dev-center-name>`             | The name of your dev center. |
-    | `<project-name>`                | The name of your project. |
-    | `<catalog-name>`                | The name of your catalog. |
-    | `<environment-definition-name>` | Do not change. Defines the environment type that is used. |
-    | `<environment-name>`            | The name of the environment. |
-    | `<parameters>`                  | Do not change. References the json file that defines parameters for the environment. |
+      | Placeholder                     | Value |
+      | ------------------------------- | ----- |
+      | `<dev-center-name>`             | The name of your dev center. |
+      | `<project-name>`                | The name of your project. |
+      | `<catalog-name>`                | The name of your catalog. |
+      | `<environment-definition-name>` | Do not change. Defines the environment type that is used. |
+      | `<environment-name>`            | The name of the environment. |
+      | `<parameters>`                  | Do not change. References the json file that defines parameters for the environment. |
 
 1. Select **Commit** to save your changes.
 1. In the **Commit changes** pane, enter a commit message, and then select **Commit**.
@@ -158,11 +166,20 @@ Next, you run the pipeline to create the ADE environment.
 1. You can also check the progress of the environment creation in the Azure portal by selecting your dev center, selecting your project, and then selecting **Environments**.
 
 
+You can insert this job anywhere in a Continuous Integration (CI) and/or a Continuous Delivery (CD) pipeline. Get started with the [Azure Pipelines documentation](https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops) to learn more about creating and managing pipelines.
+
 ## Clean up resources
 
-[!INCLUDE [alt-delete-resource-group](includes/alt-delete-resource-group.md)]
+When you're done with the resources you created in this tutorial, you can delete them to avoid incurring charges.
+
+Use the following command to delete the environment you created in this tutorial:
+
+```azurecli
+az devcenter dev environment delete --dev-center <DevCenterName> --project-name <DevCenterProjectName> --name <DeploymentEnvironmentInstanceToCreateName> --yes
+```
 
 ## Related content
 
+- [Install the devcenter Azure CLI extension](how-to-install-devcenter-cli-extension.md)
 - [Create and access an environment by using the Azure CLI](how-to-create-access-environments.md)
-- For complete command listings, see the [Microsoft Dev Box and Azure Deployment Environments Azure CLI documentation](https://aka.ms/CLI-reference)
+- [Microsoft Dev Box and Azure Deployment Environments Azure CLI documentation](https://aka.ms/CLI-reference)
