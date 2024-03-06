@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure AI Language Services with Azure Database for PostgreSQL
-description: Implement scenarios like sentiment analysis with Cognitive Services and Azure Database for PostgreSQL.
+description: Create AI applications with sentiment analysis, summarization or key phrase extraction using Azure AI Language and Azure Database for PostgreSQL - Flexible Server.
 author: mulander
 ms.author: adamwolk
 ms.date: 2/26/2024

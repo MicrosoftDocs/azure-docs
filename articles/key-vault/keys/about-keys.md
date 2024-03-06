@@ -37,7 +37,7 @@ Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. T
 
 The base JWK/JWA specifications are also extended to enable key types unique to the Azure Key Vault and Managed HSM implementations. 
 
-HSM Keys in vaults are protected". The Software keys are not protected by HSMs.
+HSM Keys in vaults are protected; Software keys are not protected by HSMs.
 
 - Keys stored in vaults benefit from robust protection using **[FIPS 140 validated HSM](/azure/key-vault/keys/about-keys#compliance)**. There are two distinct HSM platforms available: 1, which protects key versions with **FIPS 140-2 Level 2**, and 2, which protects keys with **FIPS 140-2 Level 3** HSMs depending on when the key was created. All new keys and key versions are now created using platform 2 (except UK geo). To determine which HSM Platform is protecting a key version, get it's [hsmPlatform](about-keys-details.md#key-attributes). 
 - Managed HSM uses **FIPS 140-2 Level 3** validated HSM modules to protect your keys. Each HSM pool is an isolated single-tenant instance with its own [security domain](../managed-hsm/security-domain.md) providing complete cryptographic isolation from all other HSMs sharing the same hardware infrastructure.
