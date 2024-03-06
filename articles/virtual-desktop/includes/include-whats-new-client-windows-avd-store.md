@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 02/20/2024
+ms.date: 03/05/2024
 ---
 
 ## Supported client versions
@@ -11,12 +11,24 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5112 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5248 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Public | 1.2.5252 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider | 1.2.5252 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5248 (Insider)
+## Updates for version 1.2.5252
 
-*Date published: February 13, 2024* 
+*Date published: February 29, 2024*
+
+In this release, we've made the following changes:
+
+- Devices no longer go into idle mode when video playback is active. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+## Updates for version 1.2.5248
+
+*Date published: February 13, 2024*
+
+>[!NOTE]
+>This version was an Insiders version that was replaced by version 1.2.5252 and never released to Public.
 
 In this release, we've made the following changes:
 
@@ -28,6 +40,9 @@ In this release, we've made the following changes:
 ## Updates for version 1.2.5126
 
 *Published: January 24, 2024*
+
+>[!NOTE]
+>This version was an Insiders version that was replaced by version 1.2.5248 and never released to Public.
 
 In this release, we've made the following changes:
 
