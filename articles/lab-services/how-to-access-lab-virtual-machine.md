@@ -63,7 +63,7 @@ To access your lab in Teams:
 
 1. Select the **Azure Lab Services** tab to view your lab virtual machines.
 
-    :::image type="content" source="./media/how-to-access-lab-virtual-machine/teams-view-lab.png" alt-text="Screenshot of lab in Teams after you publish it.":::
+    :::image type="content" source="./media/how-to-access-lab-virtual-machine/teams-view-lab.png" alt-text="Screenshot of lab in Teams after you publish it." lightbox="./media/how-to-access-lab-virtual-machine/teams-view-lab.png":::
 
     You might see a message that the lab isn't available. This error can occur when the lab isn't published yet, or if the Teams membership information still needs to synchronize.
 
@@ -77,7 +77,7 @@ To access your lab in Canvas:
 
 1. Go to the course, and then open the **Azure Lab Services** app.
 
-    :::image type="content" source="./media/how-to-access-lab-virtual-machine/canvas-view-lab.png" alt-text="Screenshot of a lab in the Canvas portal.":::
+    :::image type="content" source="./media/how-to-access-lab-virtual-machine/canvas-view-lab.png" alt-text="Screenshot of a lab in the Canvas portal." lightbox="./media/how-to-access-lab-virtual-machine/canvas-view-lab.png":::
 
     You might see a message that the lab isn't available. This error can occur when the lab isn't published yet, or if the Canvas course membership still needs to synchronize.
 
@@ -87,7 +87,7 @@ To access your lab in Canvas:
 
 When you access your lab, either through the Azure Lab Services website, Microsoft Teams, or Canvas, you get the list of lab virtual machines that are assigned to you.
 
-:::image type="content" source="./media/how-to-access-lab-virtual-machine/lab-services-virtual-machine-tile.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.":::
+:::image type="content" source="./media/how-to-access-lab-virtual-machine/lab-services-virtual-machine-tile.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services." lightbox="./media/how-to-access-lab-virtual-machine/lab-services-virtual-machine-tile.png":::
 
 For each lab VM, you can view the following information:
 
@@ -110,10 +110,10 @@ On the lab VM tile, you can view your consumption of [quota hours](how-to-manage
 
 | Status    | Description |
 | --------- | ----------- |
-| The progress bar is grayed out | A class is in progress, based on the lab schedule. You don't consume any quota hours during scheduled hours.<br/><br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when a schedule started the VM."::: | 
-| The progress bar is red | You've consumed all your quota hours. If there's a lab schedule, then you can only access the lab VM during the scheduled hours.<br/><br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when there's quota usage."::: |
-| The progress bar is blue | No class is currently in progress and you still have quota hours available to access the lab VM.<br/><br/> :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota is partially used."::: |
-| The text **Available during classes only** is shown | There are no quota hours allocated to the lab. You can only access the lab VM during the scheduled hours for the lab.<br/><br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/available-during-class.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when there's no quota."::: |
+| The progress bar is grayed out | A class is in progress, based on the lab schedule. You don't consume any quota hours during scheduled hours.<br/><br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when a schedule started the VM." lightbox="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png"::: | 
+| The progress bar is red | You've consumed all your quota hours. If there's a lab schedule, then you can only access the lab VM during the scheduled hours.<br/><br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when there's quota usage." lightbox="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png"::: |
+| The progress bar is blue | No class is currently in progress and you still have quota hours available to access the lab VM.<br/><br/> :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota is partially used." lightbox="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png"::: |
+| The text **Available during classes only** is shown | There are no quota hours allocated to the lab. You can only access the lab VM during the scheduled hours for the lab.<br/><br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/available-during-class.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when there's no quota." lightbox="./media/tutorial-connect-vm-in-classroom-lab/available-during-class.png"::: |
 
 ## Start or stop the lab VM
 
@@ -134,11 +134,11 @@ To start or stop a lab VM:
 
     Starting or stopping the lab VM might take some time to complete.
 
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/start-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the status toggle and status label on the VM tile.":::
+    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/start-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the status toggle and status label on the VM tile." lightbox="./media/tutorial-connect-vm-in-classroom-lab/start-vm.png":::
 
 1. After the operation finishes, confirm that the lab VM status is correct.
 
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/vm-running.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the status label on the VM tile.":::
+    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/vm-running.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the status label on the VM tile." lightbox="./media/tutorial-connect-vm-in-classroom-lab/vm-running.png":::
 
 ## Connect to the lab VM
 

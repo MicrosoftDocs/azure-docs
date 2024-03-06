@@ -61,11 +61,11 @@ If you create a lab template VM with an account without administrator privileges
 
 1. Make sure to select **GNS3 VM** in the **Choose Components** page:
 
-    :::image type="content" source="./media/class-type-networking-gns3/gns3-select-vm.png" alt-text="Screenshot that shows the Choose Components page in the GNS3 installation wizard, with the GNS3 VM option selected.":::
+    :::image type="content" source="./media/class-type-networking-gns3/gns3-select-vm.png" alt-text="Screenshot that shows the Choose Components page in the GNS3 installation wizard, with the GNS3 VM option selected." lightbox="./media/class-type-networking-gns3/gns3-select-vm.png":::
 
 1. On the **GNS3 VM** page, select the **Hyper-V** option:
 
-    :::image type="content" source="./media/class-type-networking-gns3/gns3-vm-hyper-v.png" alt-text="Screenshot that shows the GNS3 VM page in the GNS3 installation wizard, with the Hyper-V option selected.":::
+    :::image type="content" source="./media/class-type-networking-gns3/gns3-vm-hyper-v.png" alt-text="Screenshot that shows the GNS3 VM page in the GNS3 installation wizard, with the Hyper-V option selected." lightbox="./media/class-type-networking-gns3/gns3-vm-hyper-v.png":::
 
     When you select the Hyper-V option, the installer downloads the PowerShell script and VHD files to create the GNS3 VM in the Hyper-V manager.
 
@@ -88,7 +88,7 @@ To create the GNS 3 VM:
 
 1. When the `Execution Policy Change` request shows, enter **Y** to execute the script.
 
-    :::image type="content" source="./media/class-type-networking-gns3/powershell-execution-policy-change.png" alt-text="Screenshot that shows the PowerShell command line, asking for an Execution Policy change.":::
+    :::image type="content" source="./media/class-type-networking-gns3/powershell-execution-policy-change.png" alt-text="Screenshot that shows the PowerShell command line, asking for an Execution Policy change." lightbox="./media/class-type-networking-gns3/powershell-execution-policy-change.png":::
 
 1. After the script completes, confirm that the **GNS3 VM** virtual machine is available in Hyper-V Manager.
 
@@ -106,13 +106,13 @@ After you install GNS3 and add the GNS3 VM, configure GNS 3 to use the Hyper-V v
 
 1. When you get the **VMware vmrun tool cannot be found** error, select **Ok**, and then **Cancel** out of the wizard.
 
-    :::image type="content" source="./media/class-type-networking-gns3/gns3-vmware-vmrun-tool-not-found.png" alt-text="Screenshot that shows a VMware error message in the GNS3 Setup wizard.":::
+    :::image type="content" source="./media/class-type-networking-gns3/gns3-vmware-vmrun-tool-not-found.png" alt-text="Screenshot that shows a VMware error message in the GNS3 Setup wizard." lightbox="./media/class-type-networking-gns3/gns3-vmware-vmrun-tool-not-found.png":::
 
 1. To complete the connection to the Hyper-V VM, select **Edit** > **Preferences** > **GNS3 VM**.
 
 1. Select **Enable the GNS3 VM**. Then, under **Virtualization engine**, select the **Hyper-V** option.
 
-    :::image type="content" source="./media/class-type-networking-gns3/gns3-preference-vm.png" alt-text="Screenshot that shows the GNS3 VM preferences page, showing the GNS3 VM option enabled, and Hyper-V selected.":::
+    :::image type="content" source="./media/class-type-networking-gns3/gns3-preference-vm.png" alt-text="Screenshot that shows the GNS3 VM preferences page, showing the GNS3 VM option enabled, and Hyper-V selected." lightbox="./media/class-type-networking-gns3/gns3-preference-vm.png":::
 
 1. Select **OK**.
 

@@ -103,7 +103,7 @@ You can follow these steps to request a core limit increase:
 
 1. In the Azure portal, navigate to your lab plan or lab account, and then select **Request core limit increase**.
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/request-from-lab-plan.png" alt-text="Screenshot of the Lab plan overview page in the Azure portal, highlighting the Request core limit increase button.":::
+    :::image type="content" source="./media/how-to-request-capacity-increase/request-from-lab-plan.png" alt-text="Screenshot of the Lab plan overview page in the Azure portal, highlighting the Request core limit increase button." lightbox="./media/how-to-request-capacity-increase/request-from-lab-plan.png":::
 
 1. On the **New support request** page, enter the following information, and then select **Next**.
 
@@ -115,7 +115,7 @@ You can follow these steps to request a core limit increase:
 
 1. On the **Additional details** tab, select **Enter details** in the **Problem details** section.
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/enter-details-link.png" alt-text="Screenshot of the Additional details page with Enter details highlighted.":::
+    :::image type="content" source="./media/how-to-request-capacity-increase/enter-details-link.png" alt-text="Screenshot of the Additional details page with Enter details highlighted." lightbox="./media/how-to-request-capacity-increase/enter-details-link.png":::
 
 ## Make core limit increase request
 
@@ -125,7 +125,7 @@ Depending on whether you use lab accounts or lab plans, you need to provide diff
 
 #### [Lab plan](#tab/Labplans/)
 
-:::image type="content" source="./media/how-to-request-capacity-increase/lab-plan-pane.png" alt-text="Screenshot of the Quota details page for Lab Services v2.":::
+:::image type="content" source="./media/how-to-request-capacity-increase/lab-plan-pane.png" alt-text="Screenshot of the Quota details page for Lab Services v2." lightbox="./media/how-to-request-capacity-increase/lab-plan-pane.png":::
 
 | Name      | Value     |
 | --------- | --------- |
@@ -137,7 +137,7 @@ Depending on whether you use lab accounts or lab plans, you need to provide diff
 
 #### [Lab account](#tab/LabAccounts/)
 
-:::image type="content" source="./media/how-to-request-capacity-increase/lab-account-pane.png" alt-text="Screenshot of the Quota details page for Lab accounts.":::
+:::image type="content" source="./media/how-to-request-capacity-increase/lab-account-pane.png" alt-text="Screenshot of the Quota details page for Lab accounts." lightbox="./media/how-to-request-capacity-increase/lab-account-pane.png":::
 
 | Name      | Value     |
 | --------- | --------- |

@@ -29,11 +29,11 @@ To connect to a lab VM in Azure Lab Services:
 
     To connect to a lab VM, the virtual machine must be running. Learn how you can [start a VM](how-to-use-lab.md#start-or-stop-the-vm).
 
-    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/connect-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the connect button on the VM tile.":::
+    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/connect-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the connect button on the VM tile." lightbox="./media/connect-virtual-machine-windows-rdp/connect-vm.png":::
 
 1. To connect to a Linux VM, select the **Connect via RDP** option.
 
-    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/student-vm-connect-options.png" alt-text="Screenshot that shows VM tile for student, highlighting the connect button and showing the SSH and RDP connection options.":::
+    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/student-vm-connect-options.png" alt-text="Screenshot that shows VM tile for student, highlighting the connect button and showing the SSH and RDP connection options." lightbox="./media/connect-virtual-machine-windows-rdp/student-vm-connect-options.png":::
 
 1. After the RDP connection file download finishes, open the RDP file to launch the RDP client.
 
@@ -49,11 +49,11 @@ If you're using a Linux lab VM with a graphical desktop and the RDP client, the 
 
 - On the **Display** tab, set the color depth to **High Color (15 bit)**.
 
-    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-display-settings.png" alt-text="Screenshot of display tab of the Windows R D P client, highlighting the color depth setting.":::
+    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-display-settings.png" alt-text="Screenshot of display tab of the Windows R D P client, highlighting the color depth setting." lightbox="./media/connect-virtual-machine-windows-rdp/rdp-display-settings.png":::
 
 - On the **Experience** tab, set the connection speed to **Modem (56 kbps)**.
 
-    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-experience-settings.png" alt-text="Screenshot of experience tab of the Windows RDP client, highlighting the connection speed setting.":::
+    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-experience-settings.png" alt-text="Screenshot of experience tab of the Windows RDP client, highlighting the connection speed setting." lightbox="./media/connect-virtual-machine-windows-rdp/rdp-experience-settings.png":::
 
 ## Related content
 
