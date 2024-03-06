@@ -202,21 +202,7 @@ Azure App Service captures all messages output to the console to assist you in d
 
 ---
 
-The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
-
-### [Azure portal](#tab/azure-portal)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Stream logs from Azure portal 1](./includes/quickstart-python/stream-logs-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-1-240px.png" alt-text="A screenshot of the location in the Azure portal where to enable streaming logs." lightbox="./media/quickstart-python/stream-logs-azure-portal-1.png"::: |
-| [!INCLUDE [Stream logs from Azure portal 2](./includes/quickstart-python/stream-logs-azure-portal-2.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-2-240px.png" alt-text="A screenshot of how to view logs in the Azure portal." lightbox="./media/quickstart-python/stream-logs-azure-portal-2.png"::: |
-
-### [VS Code](#tab/vscode-aztools)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](./includes/quickstart-python/stream-logs-visual-studio-code-1.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-vs-code-1-240px.png" alt-text="A screenshot of how to start streaming logs with the VS Code extension." lightbox="./media/quickstart-python/stream-logs-vs-code-1.png"::: |
-| [!INCLUDE [Stream logs from VS Code 2](./includes/quickstart-python/stream-logs-visual-studio-code-2.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-vs-code-2-240px.png" alt-text="A screenshot of an example of streaming logs in the VS Code Output window." lightbox="./media/quickstart-python/stream-logs-vs-code-2.png"::: |
+The contents of the App Service diagnostic logs can be reviewed using the Azure CLI, VS Code, or Azure portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -244,6 +230,20 @@ Starting Live Log Stream ---
 2021-12-23T02:16:01.398399251Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0 "https://msdocs-python-webapp-quickstart-123.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
 2021-12-23T02:16:01.430740060Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "GET /static/images/azure-icon.svg HTTP/1.1" 304 0 "https://msdocs-python-webapp-quickstart-123.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
 ```
+
+### [VS Code](#tab/vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from VS Code 1](./includes/quickstart-python/stream-logs-visual-studio-code-1.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-vs-code-1-240px.png" alt-text="A screenshot of how to start streaming logs with the VS Code extension." lightbox="./media/quickstart-python/stream-logs-vs-code-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](./includes/quickstart-python/stream-logs-visual-studio-code-2.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-vs-code-2-240px.png" alt-text="A screenshot of an example of streaming logs in the VS Code Output window." lightbox="./media/quickstart-python/stream-logs-vs-code-2.png"::: |
+
+### [Azure portal](#tab/azure-portal)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from Azure portal 1](./includes/quickstart-python/stream-logs-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-1-240px.png" alt-text="A screenshot of the location in the Azure portal where to enable streaming logs." lightbox="./media/quickstart-python/stream-logs-azure-portal-1.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 2](./includes/quickstart-python/stream-logs-azure-portal-2.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-2-240px.png" alt-text="A screenshot of how to view logs in the Azure portal." lightbox="./media/quickstart-python/stream-logs-azure-portal-2.png"::: |
 
 ---
 
