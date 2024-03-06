@@ -14,9 +14,9 @@ appliesto: Microsoft Sentinel in both the Azure and Microsoft Defender portals
 
 # Optimize your security operations with Microsoft Defender XDR (Preview)
 
-Security operations center (SOC) teams actively look for opportunities to optimize both processes and outcomes. You want to ensure that you have all the data you need to take action against risks in your environment, while also ensuring that you're not paying to ingest *more* data than you need. At the same time, your teams must regularly adjust security controls as threat landscapes and business priorities change, and make adjustments quickly and efficiently to keep your return on investments high.
+Security operations center (SOC) teams actively look for opportunities to optimize both processes and outcomes. You want to ensure that you have all the data you need to take action against risks in your environment, while also ensuring that you're not paying to ingest *more* data than you need. At the same time, your teams must regularly adjust security controls as threat landscapes and business priorities change, adjusting quickly and efficiently to keep your return on investments high. SOC optimization surfaces ways you can optimize your security controls, gaining more and more value from Microsoft security services as time goes on.
 
-Microsoft Sentinel SOC optimizations provide you with high-fidelity and actionable recommendations to help you identify areas where you can reduce costs, without affecting SOC needs or coverage, or where you can add security controls and data where its found to be missing. SOC optimizations are tailored to your environment and based on your current coverage and threat landscape.
+SOC optimizations are high-fidelity and actionable recommendations to help you identify areas where you can reduce costs, without affecting SOC needs or coverage, or where you can add security controls and data where its found to be missing. SOC optimizations are tailored to your environment and based on your current coverage and threat landscape.
 
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
@@ -53,19 +53,19 @@ Supported metrics at the top of the **Overview** tab include:
 
 ## View and manage optimization recommendations
 
-Optimization recommendations are listed in the **Your Optimizations** area on the **SOC optimizations** tab.
+Optimization recommendations are listed in the **Your Optimizations** area on the **SOC optimizations** tab. Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
 
 ### Filter optimizations
 
-Filter the optimizations based on optimization type, or search for a specific recommendation using the search box on the right. Optimization types include:
+Filter the optimizations based on optimization type, or search for a specific optimization title using the search box on the right. Optimization types include:
 
-- **Coverage**: Includes threat-based recommendations for adding security controls to help close coverage gaps.
+- **Coverage**: Includes threat-based recommendations for adding security controls to help close coverage gaps for various types of attacks.
 
-- **Data value**: Include cost-based optimizations that suggest ways to improve your data usage or a better data plan for your organization.
+- **Data value**: Include cost-based optimizations that suggest ways to improve your data usage for maximizing security value from ingested data, or suggest a better data plan for your organization.
 
 ### View optimization details and take action
 
-In each optimization card, select **View full details** to see a full description of the recommended action and estimated improvements in your environment.
+In each optimization card, select **View full details** to see a full description of the observation that led to the recommendation, and the value you'd see in your environment when that recommendation is implemented.
 
 Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example, if an optimization includes recommendations to add analytics rules, select the link at the bottom of the details pane to go to the **Content hub** for those analytics rules.
 
@@ -87,7 +87,6 @@ If you've marked a specific optimization as *Completed* or *Dismissed*, they're 
 
 From here, either select the options menu or select **View full details** to provide further feedback, as needed.
 
-Moving an optimization from the **Completed** or **Dismissed** tabs back to the **Your Optimizations** area is not supported.
 
 ## Related content
 
