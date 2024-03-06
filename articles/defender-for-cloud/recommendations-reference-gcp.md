@@ -284,7 +284,7 @@ At least business critical VMs should have VM disks encrypted with CSEK.
 
 **Description**: Microsoft Defender's [cluster extension](/azure/azure-arc/kubernetes/extensions) provides security capabilities for your GKE clusters. The extension collects data from a cluster and its nodes to identify security vulnerabilities and threats.
  The extension works with [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
-Learn more about [Microsoft Defender for Cloud's security features for containerized environments](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks).
+Learn more about [Microsoft Defender for Cloud's security features for containerized environments](defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks).
 
 **Severity**: High
 

@@ -146,7 +146,7 @@ To learn more about the supported runtimes that this control checks for the supp
 
 ### [Management ports of EC2 instances should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9b26b102-ccde-4697-aa30-f0621f865f99)
 
-**Description**: Microsoft Defender for Cloud identified some overly permissive inbound rules for management ports in your network. Enable just-in-time access control to protect your Instances from internet-based brute-force attacks. [Learn more.](/azure/defender-for-cloud/just-in-time-access-usage?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation)
+**Description**: Microsoft Defender for Cloud identified some overly permissive inbound rules for management ports in your network. Enable just-in-time access control to protect your Instances from internet-based brute-force attacks. [Learn more.](just-in-time-access-usage.md)
 
 **Severity**: High
 
@@ -171,7 +171,7 @@ To learn more about the supported runtimes that this control checks for the supp
 
 **Description**: Microsoft Defender's [cluster extension](/azure/azure-arc/kubernetes/extensions) provides security capabilities for your EKS clusters. The extension collects data from a cluster and its nodes to identify security vulnerabilities and threats.
  The extension works with [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
-Learn more about [Microsoft Defender for Cloud's security features for containerized environments](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks).
+Learn more about [Microsoft Defender for Cloud's security features for containerized environments](defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks).
 
 **Severity**: High
 

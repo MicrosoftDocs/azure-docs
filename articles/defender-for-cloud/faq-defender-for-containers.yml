@@ -196,7 +196,7 @@ sections:
                   - Destination: `0.0.0.0/0`; Target: Internet Gateway with the tag `name` and the value `defender-for-containers-va`
                   - Destination: `10.0.0.0/16`; Target: `local`
 
-          To get vulnerability assessments for running images, either enable [Agentless discovery for Kubernetes](/azure/defender-for-cloud/defender-for-containers-enable#enablement-method-per-capability) or deploy the [Defender agent](/azure/defender-for-cloud/defender-for-containers-enable#enablement-method-per-capability) on your Kubernetes clusters.
+          To get vulnerability assessments for running images, either enable [Agentless discovery for Kubernetes](defender-for-containers-enable.md#enablement-method-per-capability) or deploy the [Defender agent](defender-for-containers-enable.md#enablement-method-per-capability) on your Kubernetes clusters.
 
         
 

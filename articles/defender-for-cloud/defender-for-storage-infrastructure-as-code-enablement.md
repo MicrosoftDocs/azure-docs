@@ -246,7 +246,7 @@ Learn more about the [Microsoft.Security/DefenderForStorageSettings API](/rest/a
 > [!TIP]
 > Malware Scanning can be configured to send scanning results to the following: <br>  **Event Grid custom topic** - for near-real time automatic response based on every scanning result. Learn more how to [configure malware scanning to send scanning events to an Event Grid custom topic](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-event-grid-for-malware-scanning). <br> **Log Analytics workspace** - for storing every scan result in a centralized log repository for compliance and audit. Learn more how to [configure malware scanning to send scanning results to a Log Analytics workspace](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-logging-for-malware-scanning).
 
-Learn more on how to [set up response for malware scanning results.](/azure/defender-for-cloud/defender-for-storage-configure-malware-scan)
+Learn more on how to [set up response for malware scanning results.](defender-for-storage-configure-malware-scan.md)
 
 ### ARM template - storage account
 
