@@ -158,7 +158,7 @@ The data object has the following properties:
 | -------- | ---- | ----------- |
 | `title` | string | The title of the API definition. |
 | `description` | string | The description of the API definition. |
-| `specification` | string | The API specification properties, consisting of `name` (specification name) and `version` (specification properties) |
+| `specification` | string | The API specification properties, consisting of `name` (specification name) and `version` (specification version) |
 
 ## Tutorials and how-tos
 
