@@ -20,7 +20,7 @@ You can use the `dnsresources` table to query information about your private zon
 - Virtual network links
 - Resource record names and IP addresses
 
-To get started with Resource Graph, search and select **Resource Graph Explorer** in the Azure portal. In the left-hand navigation pane, select the **Table** tab and review the [microsoft.network/dnsresources](#microsoftresourcehealthavailabilitystatuses) table. Select **dnsresources** to create a basic query and then click **Run** to return the records.
+To get started with Resource Graph, search and select **Resource Graph Explorer** in the Azure portal. In the left-hand navigation pane, select the **Table** tab and review the **dnsresources** table. Select **dnsresources** to create a basic query and then click **Run** to return the results.
 
 ![Screenshot of a basic ARG query.](./media/private-dns-arg/basic-query.png)
 
