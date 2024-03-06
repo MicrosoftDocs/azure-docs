@@ -104,17 +104,17 @@ sections:
       - question: |
           What data types are included in the daily allowance?
         answer: |
-          Defender for Cloud billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides an allocation of 500 MB per node per day for machines against the following subset of [security data types](azure/azure-monitor/reference/tables/tables-category#security):
+          Defender for Cloud billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides an allocation of 500 MB per node per day for machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 
-          - [SecurityAlert](azure/azure-monitor/reference/tables/securityalert)
-          - [SecurityBaseline](azure/azure-monitor/reference/tables/securitybaseline)
-          - [SecurityBaselineSummary](azure/azure-monitor/reference/tables/securitybaselinesummary)
-          - [SecurityDetection](azure/azure-monitor/reference/tables/securitydetection)
-          - [SecurityEvent](azure/azure-monitor/reference/tables/securityevent)
-          - [WindowsFirewall](azure/azure-monitor/reference/tables/windowsfirewall)
-          - [SysmonEvent](azure/azure-monitor/reference/tables/sysmonevent)
-          - [ProtectionStatus](azure/azure-monitor/reference/tables/protectionstatus)
-          - [Update](azure/azure-monitor/reference/tables/update.md) and [UpdateSummary](azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.
+          - [SecurityAlert](/azure/azure-monitor/reference/tables/securityalert)
+          - [SecurityBaseline](/azure/azure-monitor/reference/tables/securitybaseline)
+          - [SecurityBaselineSummary](/azure/azure-monitor/reference/tables/securitybaselinesummary)
+          - [SecurityDetection](/azure/azure-monitor/reference/tables/securitydetection)
+          - [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)
+          - [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall)
+          - [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
+          - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
+          - [Update](/azure/azure-monitor/reference/tables/update.md) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.
 
           If the workspace is in the legacy per-node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
 
@@ -289,17 +289,17 @@ sections:
       - question: |
           What data types are included in the 500-MB data daily allowance?
         answer: |
-          Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for machines against the following subset of [security data types](azure/azure-monitor/reference/tables/tables-category#security):
+          Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 
-          - [SecurityAlert](azure/azure-monitor/reference/tables/securityalert)
-          - [SecurityBaseline](azure/azure-monitor/reference/tables/securitybaseline)
-          - [SecurityBaselineSummary](azure/azure-monitor/reference/tables/securitybaselinesummary)
-          - [SecurityDetection](azure/azure-monitor/reference/tables/securitydetection)
-          - [SecurityEvent](azure/azure-monitor/reference/tables/securityevent)
-          - [WindowsFirewall](azure/azure-monitor/reference/tables/windowsfirewall)
-          - [SysmonEvent](azure/azure-monitor/reference/tables/sysmonevent)
-          - [ProtectionStatus](azure/azure-monitor/reference/tables/protectionstatus)
-          - [Update](azure/azure-monitor/reference/tables/update) and [UpdateSummary](azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.
+          - [SecurityAlert](/azure/azure-monitor/reference/tables/securityalert)
+          - [SecurityBaseline](/azure/azure-monitor/reference/tables/securitybaseline)
+          - [SecurityBaselineSummary](/azure/azure-monitor/reference/tables/securitybaselinesummary)
+          - [SecurityDetection](/azure/azure-monitor/reference/tables/securitydetection)
+          - [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)
+          - [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall)
+          - [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
+          - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
+          - [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.
 
           If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data. To learn more on how Microsoft Sentinel customers can benefit, please see the [Microsoft Sentinel Pricing page](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 

@@ -35,7 +35,7 @@ Azure DevOps provides developer services for allowing teams to plan work, collab
 
 ### **AKS**
 
-Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications. See [Kubernetes concepts](azure/aks/hybrid/kubernetes-concepts).
+Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications. See [Kubernetes concepts](/azure/aks/hybrid/kubernetes-concepts).
 
 ### **Alerts**
 
