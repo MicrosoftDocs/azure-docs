@@ -28,7 +28,7 @@ The Azure Developer CLI (`azd`) is an open-source, command-line tool that stream
 
     * Environment name: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
 
-## Use the Azure Developer CLI template to deploy resources
+## Use the template to deploy resources
 
 1. Sign-in to Azure:
 
