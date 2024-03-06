@@ -40,7 +40,7 @@ shard-config-location=<path-to-sharding-schema>
 
 ## Data source authentication
 
-The connector uses user-password authentication to query SQL servers. The same user specified in the configuration is expected to authenticate against all the SQL servers .
+The connector uses user-password authentication to query SQL servers. The same user specified in the configuration is expected to authenticate against all the SQL servers.
 
 ## Schema Definition
 
@@ -133,7 +133,7 @@ This example describes:
 -  Each partition is bucketed_by `partkey` column.
 -  Buckets `1-7` for partition value `AIR` is located in `test1` database.
 -  Buckets `8-10` for partition value `AIR` is located in `test2` database.
--  Shards are an array of `connectionUrl`. Each member of the array represents a replicaSet. Dduring query execution trino selects a shard randomly from the array to query data.
+-  Shards are an array of `connectionUrl`. Each member of the array represents a replicaSet. During query execution, Trino selects a shard randomly from the array to query data.
 
 
 ### Partition and Bucket Pruning
