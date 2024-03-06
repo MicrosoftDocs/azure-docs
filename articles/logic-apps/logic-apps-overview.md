@@ -28,9 +28,9 @@ The following partial example enterprise workflow uses conditions and switches t
 
 :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
-If you're ready to try creating your first logic app workflow, see [Get started](#get-started).
+If you're ready to try creating your first logic app workflow, see [Get started](#get-started). To continue learning more, try this video:
 
-> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/player]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=integrate-your-mainframes-and-midranges-with-azure-logic-apps]
 
 For more information, visit [Azure Logic Apps on the Azure website](https://azure.microsoft.com/services/logic-apps) and other [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/).
 
@@ -195,12 +195,6 @@ You might also want to explore other quickstart guides for Azure Logic Apps:
 * [Create a multitenant Consumption logic app workflow using an ARM template](quickstart-create-deploy-azure-resource-manager-template.md)
 
 * [Create a multitenant Consumption logic app workflow using the Azure CLI](quickstart-logic-apps-azure-cli.md)
-
-## Other resources
-
-Learn more about Azure Logic Apps with this introductory video:
-
-> [!VIDEO https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=integrate-your-mainframes-and-midranges-with-azure-logic-apps]
 
 ## Next steps
 
