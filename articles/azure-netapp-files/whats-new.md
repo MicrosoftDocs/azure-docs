@@ -14,14 +14,12 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-<<<<<<< HEAD
 <!-- DATE TBD -->
 
 * [Multiple Active Directory accounts per subscription](create-active-directory-connections.md#multi-ad) (Preview)
 
     Previously, only one Active Directory domain connection could be configured within an Azure subscription using Azure NetApp Files. The Multiple Active Directory accounts per subscription feature now allows you to configure each NetApp account in a subscription with its own Active Directory connection by creating multiple Active Directory configurations. Once enabled, you can choose the desired Active Directory connection when creating an SMB volume, NFSv4.1 Kerberos volume, or dual-protocol volume. This feature is in preview. 
   
-=======
 ## March 2024
 
 * [Volume enhancement: create volumes with the same file path, share name, or volume path in different availability zones](manage-availability-zone-volume-placement.md#file-path-uniqueness) (Preview)
@@ -64,7 +62,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     You still must register the feature before using it for the first time.
 
->>>>>>> 135368b4c45269c8bf09ed070ef79adf1a18e5f3
 ## November 2023
 
 * [Capacity pool enhancement:](azure-netapp-files-set-up-capacity-pool.md) New lower limits
