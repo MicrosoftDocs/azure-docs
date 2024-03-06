@@ -33,13 +33,13 @@ CMKs for Backup vaults are currently available in all Azure public regions.
 
   - A built-in [Crypto Service Encryption User role](/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-user) assigned, if your key vault is using a role-based access control (RBAC) configuration that's based on identity and access management (IAM).
   - **Get**, **Wrap**, and **Unwrap** permissions if your key vault is using a configuration that's based on access policies.
-  - **Get**, **Wrap**, and **Unwrap** permissions granted via local RBAC on the key if you're using a managed HSM. [Learn more](/azure/key-vault/managed-hsm/overview).
+  - **Get**, **Wrap**, and **Unwrap** permissions granted via local RBAC on the key if you're using a managed HSM. [Learn more](../key-vault/managed-hsm/overview.md).
 
 - Ensure that you have a valid, enabled Key Vault key. Don't use an expired or disabled key, because it can't be used for encryption at rest and will lead to failures of backup and restore operations. The Key Vault term also indicates a managed HSM if you didn't note it earlier.
 
 - Key Vault must have soft delete and purge protection enabled.
 
-- Encryption settings support Azure Key Vault RSA and RSA-HSM keys only of sizes 2,048, 3,072, and 4,096. [Learn more about keys](/azure/key-vault/keys/about-keys). Before you consider Key Vault regions for encryption settings, see [Key Vault disaster recovery scenarios](/azure/key-vault/general/disaster-recovery-guidance) for regional failover support.
+- Encryption settings support Azure Key Vault RSA and RSA-HSM keys only of sizes 2,048, 3,072, and 4,096. [Learn more about keys](../key-vault/keys/about-keys.md). Before you consider Key Vault regions for encryption settings, see [Key Vault disaster recovery scenarios](../key-vault/general/disaster-recovery-guidance.md) for regional failover support.
 
 ### Known limitations
 
