@@ -1,6 +1,6 @@
 ---
 title: Configure a pipeline HTTP endpoint source stage
-description: Configure a pipeline source stage to read data from an HTTP endpoint for processing. The source stage is the first stage in a Data Processor pipeline.
+description: Configure a pipeline source stage to read data from an HTTP endpoint for processing. The source stage is the first stage in an Azure IoT Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 10/23/2023
 #CustomerIntent: As an operator, I want to configure an HTTP endpoint source stage so that I can read messages from an HTTP endpoint for processing.
 ---
 
-# Configure a pipeline HTTP endpoint source stage
+# Configure an Azure IoT Data Processor Preview pipeline HTTP endpoint source stage
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

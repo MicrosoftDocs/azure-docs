@@ -1,6 +1,6 @@
 ---
 title: Call a gRPC endpoint from a pipeline
-description: Configure a gRPC call out pipeline stage to make an HTTP request from a pipeline to incorporate custom processing logic.
+description: Configure a gRPC call out pipeline stage to make an HTTP request from a pipeline to incorporate custom processing logic using Azure IoT Data Processor.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 10/09/2023
 #CustomerIntent: As an operator, I want to call a gRPC endpoint from within a pipeline stage so that I can incorporate custom processing logic.
 ---
 
-# Call out to a gRPC endpoint from a pipeline
+# Call out to a gRPC endpoint from an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

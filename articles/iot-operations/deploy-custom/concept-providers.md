@@ -1,5 +1,5 @@
 ---
-title: Providers - Azure IoT Orchestrator Preview
+title: How Azure IoT Orchestrator uses providers and components
 description: Understand how Azure IoT Orchestrator uses providers and components to define resources to deploy to your edge solution
 author: kgremban
 ms.author: kgremban
@@ -12,7 +12,7 @@ ms.date: 11/02/2023
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
-# Providers and components
+# Azure IoT Orchestrator Preview - providers and components
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

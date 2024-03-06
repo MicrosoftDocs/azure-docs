@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Akri Preview architecture
-description: Understand the key components in Azure IoT Akri Preview architecture.
+title: Azure IoT Akri architecture
+description: Understand the key components in Azure IoT Akri architecture.
 author: timlt
 ms.author: timlt
 ms.subservice: akri

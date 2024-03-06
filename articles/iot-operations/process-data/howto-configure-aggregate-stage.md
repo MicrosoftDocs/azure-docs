@@ -1,6 +1,6 @@
 ---
 title: Aggregate data in a pipeline
-description: Configure an aggregate pipeline stage to aggregate data in a Data Processor pipeline to enable batching and down-sampling scenarios.
+description: Configure an aggregate pipeline stage to aggregate data in an Azure IoT Data Processor pipeline to enable batching and down-sampling scenarios.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 10/03/2023
 #CustomerIntent: As an operator, I want to aggregate data in a pipeline so that I can down-sample or batch messages.
 ---
 
-# Aggregate data in a pipeline
+# Aggregate data in an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

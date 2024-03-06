@@ -12,7 +12,7 @@ ms.date: 09/07/2023
 #CustomerIntent: As an operator, I want understand how to reference parts of a message so that I can configure pipeline stages.
 ---
 
-# What are jq path expressions?
+# What are jq path expressions in Azure IoT Data Processor Preview?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

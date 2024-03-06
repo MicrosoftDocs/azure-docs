@@ -1,5 +1,5 @@
 ---
-title: Discover OPC UA data sources using Azure IoT Akri Preview
+title: Discover OPC UA data sources using Azure IoT Akri
 description: How to discover OPC UA data sources by using Azure IoT Akri
 author: timlt
 ms.author: timlt

@@ -1,5 +1,5 @@
 ---
-title: What is Azure IoT Operations Preview?
+title: What is Azure IoT Operations?
 description: Azure IoT Operations is a unified data plane for the edge. It's composed of various data services that run on Azure Arc-enabled edge Kubernetes clusters.
 author: dominicbetts
 ms.author: dobett

@@ -1,6 +1,6 @@
 ---
 title: Publish data to an MQTT broker from a pipeline
-description: Configure a pipeline destination stage to publish the pipeline output to an MQTT broker and make it available to other subscribers.
+description: Configure a pipeline destination stage to publish the pipeline output to an MQTT broker and make it available to other subscribers using Azure IoT Data Processor.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -13,7 +13,7 @@ ms.date: 10/09/2023
 ---
 
 
-# Publish data to an MQTT broker
+# Publish data to an MQTT broker using Azure IoT Data Processor Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

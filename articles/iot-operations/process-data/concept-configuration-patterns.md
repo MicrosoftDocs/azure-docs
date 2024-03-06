@@ -12,7 +12,7 @@ ms.date: 09/07/2023
 #CustomerIntent: As an operator I want to understand common configuration patterns so I can configure a pipeline to process my data.
 ---
 
-# What are configuration patterns?
+# What are configuration patterns in Azure IoT Data Processor Preview?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

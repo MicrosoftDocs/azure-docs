@@ -1,6 +1,6 @@
 ---
 title: Configure a pipeline SQL Server source stage
-description: Configure a pipeline source stage to read data from Microsoft SQL Server for processing. The source stage is the first stage in a Data Processor pipeline.
+description: Configure a pipeline source stage to read data from Microsoft SQL Server for processing. The source stage is the first stage in an Azure IoT Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 10/23/2023
 #CustomerIntent: As an operator, I want to configure a SQL Server source stage so that I can read messages from an SQL Server database for processing.
 ---
 
-# Configure a SQL Server source stage
+# Configure a SQL Server source stage in Azure IoT Data Processor Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

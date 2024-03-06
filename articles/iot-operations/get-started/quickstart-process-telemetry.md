@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: process data from your OPC UA assets"
-description: "Quickstart: Use a Data Processor pipeline to process data from your OPC UA assets before sending the data to a Microsoft Fabric OneLake lakehouse."
+description: "Quickstart: Use an Azure IoT Data Processor pipeline to process data from your OPC UA assets before sending the data to a Microsoft Fabric OneLake lakehouse."
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart

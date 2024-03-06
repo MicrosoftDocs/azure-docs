@@ -1,5 +1,5 @@
 ---
-title: Manifests - Azure IoT Orchestrator Preview
+title: How Azure IoT Orchestrator uses manifests
 description: Understand how Azure IoT Orchestrator uses manifests to define resources and deployments for Azure IoT Operations
 author: kgremban
 ms.author: kgremban
@@ -12,7 +12,7 @@ ms.date: 10/25/2023
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
-# Azure IoT Orchestrator Preview manifests
+# Azure IoT Orchestrator Preview - manifests
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

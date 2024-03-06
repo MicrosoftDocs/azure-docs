@@ -12,7 +12,7 @@ ms.date: 09/07/2023
 #CustomerIntent: As an operator, I want understand how internal messages in Data Processor are structured so that I can configure pipelines and pipeline stages to process my telemetry.
 ---
 
-# Data Processor message structure overview
+# Azure IoT Data Processor Preview - message structure overview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

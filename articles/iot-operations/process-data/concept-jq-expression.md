@@ -12,7 +12,7 @@ ms.date: 09/07/2023
 #CustomerIntent: As an operator, I want to understand the jq expressions used by Data Processor so that I can configure my pipeline stages.
 ---
 
-# What are jq expressions?
+# What are jq expressions in Azure IoT Data Processor Preview?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

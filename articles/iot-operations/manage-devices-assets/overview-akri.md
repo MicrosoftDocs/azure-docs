@@ -1,6 +1,6 @@
 ---
-title: Detect assets with Azure IoT Akri Preview
-description: Understand how Azure IoT Akri Preview enables you to discover devices and assets at the edge, and expose them as resources on your cluster.
+title: Detect assets with Azure IoT Akri
+description: Understand how Azure IoT Akri enables you to discover devices and assets at the edge, and expose them as resources on your cluster.
 author: timlt
 ms.author: timlt
 ms.subservice: akri
