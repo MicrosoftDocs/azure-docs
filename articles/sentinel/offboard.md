@@ -3,7 +3,7 @@ title: Remove Microsoft Sentinel from your workspace
 description: Learn how to delete your Microsoft Sentinel instance.
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/28/2024
+ms.date: 03/06/2024
 ms.author: cwatson
 ---
 
@@ -76,7 +76,7 @@ The following resources are removed after 30 days:
 
 Your playbooks, saved workbooks, saved hunting queries, and notebooks aren't removed. Some of these resources might break due to the removed data. Remove those resources manually.
 
-After you remove the service, there's a grace period of 30 days to re-enable the solution. Your data and analytics rules are restored, but the configured connectors that were disconnected must be reconnected.
+After you remove the service, there's a grace period of 30 days to re-enable Microsoft Sentinel. Your data and analytics rules are restored, but the configured connectors that were disconnected must be reconnected.
 
 ### Microsoft Sentinel tables deleted
 
