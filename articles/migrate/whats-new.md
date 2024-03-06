@@ -6,7 +6,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 02/13/2024
+ms.date: 02/26/2024
 ms.custom: mvc, engagement-fy24
 ---
 
@@ -16,7 +16,7 @@ ms.custom: mvc, engagement-fy24
 
 ## Update (February 2024)
 
-- Public preview: Envision savings with Azure Hybrid Benefits by bringing your existing Enterprise Linux subscriptions to Azure using Azure VM assessments and business case.
+- Public preview: Envision savings with Azure Hybrid Benefits by bringing your existing Enterprise Linux subscriptions (RHEL and SLES) to Azure using Azure VM assessments and business case.
 
 ## Update (January 2024)
 

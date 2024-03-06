@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 02/28/2024
 ms.custom: engagement-fy23
 ---
 
@@ -198,7 +198,7 @@ To create a connection when you add a Service Bus trigger or action, you need to
 
 ### Get endpoint URL for Service Bus namespace
 
-If you use the Service Bus managed connector, you need this endpoint URL if you select either authentication type for **Microsoft Entra integrated** or **Logic Apps Managed Identity**. The endpoint URL starts with the **https://** prefix.
+If you use the Service Bus managed connector, you need this endpoint URL if you select either authentication type for **Microsoft Entra integrated** or **Logic Apps Managed Identity**. The endpoint URL starts with the **sb://** prefix.
 
 1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
 

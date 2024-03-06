@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 01/08/2024
 ---
 
 # Prepare to deploy Azure Communications Gateway
@@ -19,6 +19,8 @@ The following sections describe the information you need to collect and the deci
 [!INCLUDE [communications-gateway-tsp-restriction](includes/communications-gateway-tsp-restriction.md)]
 
 [!INCLUDE [communications-gateway-deployment-prerequisites](includes/communications-gateway-deployment-prerequisites.md)]
+
+If you want to set up a lab deployment, you must have deployed a standard deployment or be about to deploy one. You can't use a lab deployment as a standalone Azure Communications Gateway deployment.
 
 ## Arrange onboarding
 
@@ -36,11 +38,16 @@ We recommend that you use an existing Microsoft Entra tenant for Azure Communica
 
 The Operator Connect and Teams Phone Mobile environments inherit identities and configuration permissions from your Microsoft Entra tenant through a Microsoft application called Project Synergy. You must add this application to your Microsoft Entra tenant as part of [Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile](connect-operator-connect.md) (if your tenant does not already contain this application).
 
+> [!IMPORTANT]
+> For Operator Connect and Teams Phone Mobile, production deployments and lab deployments must connect to the same Microsoft Entra tenant. Microsoft Teams configuration for your tenant shows configuration for your lab deployments and production deployments together.
+
+
 ## Get access to Azure Communications Gateway for your Azure subscription
 
-Access to Azure Communications Gateway is restricted. When you've completed the previous steps in this article, contact your onboarding team and ask them to enable your subscription. If you don't already have an onboarding team, contact azcog-enablement@microsoft.com with your Azure subscription ID and contact details.
+Access to Azure Communications Gateway is restricted. When you've completed the previous steps in this article:
 
-Wait for confirmation that Azure Communications Gateway is enabled before moving on to the next step.
+1. Contact your onboarding team and ask them to enable your subscription. If you don't already have an onboarding team, contact azcog-enablement@microsoft.com with your Azure subscription ID and contact details.
+2. Wait for confirmation that Azure Communications Gateway is enabled before moving on to the next step.
 
 ## Create a network design
 
@@ -65,9 +72,9 @@ If you plan to route emergency calls through Azure Communications Gateway, read 
 - [Operator Connect and Teams Phone Mobile](emergency-calls-operator-connect.md)
 - [Zoom Phone Cloud Peering](emergency-calls-zoom.md)
 
-## Configure Microsoft Azure Peering Service Voice or ExpressRoute
+## Connect your network to Azure
 
-Connect your network to Azure:
+Configure connections between your network and Azure:
 
 - To configure Microsoft Azure Peering Service Voice (sometimes called MAPS Voice), follow the instructions in [Internet peering for Peering Service Voice walkthrough](../internet-peering/walkthrough-communications-services-partner.md).
 - To configure ExpressRoute Microsoft Peering, follow the instructions in [Tutorial: Configure peering for ExpressRoute circuit](../../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md).

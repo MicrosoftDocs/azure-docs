@@ -257,7 +257,8 @@ Here are some API payload examples:
           "branch": <repo branch to sync>,
           "username": <username>,
           "credential": <personal access token>
-  }```
+  }
+  ```
 
 - Git sync properties for ADO with service principal:
 
@@ -270,7 +271,8 @@ Here are some API payload examples:
           "username": < service principal app id >,
           "credential": <service principal secret value>
           "tenantId": <service principal tenant id>
-  }```
+  }
+  ```
 
 - Git sync properties for a GitHub public repo:
 
@@ -280,7 +282,8 @@ Here are some API payload examples:
           "gitCredentialType": "None",
           "repo":  <repo url>,
           "branch": <repo branch to sync>
-  }```
+  }
+  ```
 
 ## Import a private package with Git sync
 
