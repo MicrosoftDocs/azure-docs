@@ -83,8 +83,8 @@ In **Replicate** > **Web apps**, you can see a list of ASP.NET apps discovered o
     | Account password | Password of the above user. |
     | Domain DNS server | IP address of the DNS server which can resolve your Active Directory domain name. |
     | Domain FQDN | Fully qualified domain name of your Active Directory domain. |
-    | Domain controller address | IP address of the Active Directory Domain Controller. Connection is established to remotely to allow the specified domain user to retrieve credentials for the specified gMSA. |
-    | Domain admin username | Username of a user that has sufficient privileges remotely validate the gMSA account and domain user. |
+    | Domain controller address | IP address of the Active Directory Domain Controller. Connection is established to remotely allow the specified domain user to retrieve credentials for the specified gMSA. |
+    | Domain admin username | Username of a user that has sufficient privileges to remotely validate the gMSA account and domain user. |
     | Domain admin password | Password for the admin user above. |
 
 
