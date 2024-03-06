@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Setting up Key Vault for Managed Credential Rotation in Operator Nexus
 
-To keep the rotated credentials in their own key vault, the user has to set up the key vault for the Azure Operator Nexus instance. Once created, the user needs to add a role assignment on the Customer Key Vault to allow the credential manager to write updated credentials and additionally link the key vault as a secret archive to the Nexus cluster resource.
+To keep the rotated credentials in their own key vault, the user has to set up the key vault for the Azure Operator Nexus instance. Once created, the user needs to add a role assignment on the Customer Key Vault to allow the credential manager to write updated credentials, and additionally link the key vault as a secret archive to the Nexus cluster resource.
 
 ## Prerequisites
 
