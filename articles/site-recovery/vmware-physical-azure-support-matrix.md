@@ -268,7 +268,7 @@ BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com
 **Action** | **Details**
 --- | ---
 Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Resizing should be performed before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captures.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
-Add disk on replicated VM | Supported.<br/> You can manually enable relication on a disk added after a VMware VM has been protected. [Learn more](vmware-azure-enable-replication-added-disk.md).
+Add disk on replicated VM | Supported.<br/> You can manually enable replication on a disk added after a VMware VM has been protected. [Learn more](vmware-azure-enable-replication-added-disk.md).
 Exclude disk before replicating VM | Supported for VMware machines. <br/><br/> Not supported for Physical machines, if using modernized experience. 
 
 > [!NOTE]
@@ -391,7 +391,7 @@ Guest operating system | Verify [supported operating systems](#replicated-machin
 Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB for Generation 1 machines. <br> Up to 4,095 GB for Generation 2 machines. | Check fails if unsupported.
 Operating system disk count | 1 </br> boot and system partition on different disks isn't supported | Check fails if unsupported.
-Data disk count | 64 or less. | The number of supported disk could get affected if the count of logical volumes is large. In such scenarios, use the below formula to calculate maximum supported count of data disks. </br></br> If all disks share a logical volume: </br></br> D < 627790 / (450 + (Count of Logical Volume * 317))</br></br> If logical volume shared by disks is varying: </br></br> D < (627790 - (Count of times Logical Volume is repeated * Count of Logical Volume * 317)) / 450 </br></br> Here **D** is the maximum count of data disks that can be protected.
+Data disk count | 64 or less. | The number of supported disks could be affected if the count of logical volumes is large. In such scenarios, use the below formula to calculate maximum supported count of data disks. </br></br> If all disks share a logical volume: </br></br> D < 627790 / (450 + (Count of Logical Volume * 317))</br></br> If logical volume shared by disks is varying: </br></br> D < (627790 - (Count of times Logical Volume is repeated * Count of Logical Volume * 317)) / 450 </br></br> Here **D** is the maximum count of data disks that can be protected.
 Data disk size | Up to 32 TB when replicating to managed disk (9.41 version onwards)<br> Up to 4 TB when replicating to storage account </br> Each premium storage account can host up to 35 TB of data </br> Minimum disk size requirement - at least 1 GB  | Check fails if unsupported.
 RAM | Site Recovery driver consumes 6% of RAM.
 Network adapters | Multiple adapters are supported. |
