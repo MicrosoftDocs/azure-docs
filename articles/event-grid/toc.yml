@@ -319,6 +319,8 @@ items:
           href: system-topics.md
         - name: Event sources (publishers)
           items:
+          - name: Azure API Center
+            href: event-schema-api-center.md
           - name: Azure API Management
             href: event-schema-api-management.md
           - name: Azure App Configuration
