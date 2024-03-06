@@ -83,13 +83,13 @@ If instead you choose **Update existing image**, the original custom image's def
 
 Ensure the image name provided during the Export to Azure Compute Gallery request is valid. The virtual machine image name must consist of alpha-numeric characters, hyphens, and periods and no longer than 80 characters.
 
-:::image type="content" source="./media/how-to-use-shared-image-gallery/unable-to-save-image-error.png" alt-text="Screenshot that shows the error message 'Unable to save the image because an error has occured'":::
+:::image type="content" source="./media/how-to-use-shared-image-gallery/unable-to-save-image-error.png" alt-text="Screenshot that shows the error message 'Unable to save the image because an error has occurred.'":::
 
 ### Export to gallery not supported across regions
 
 Verify that the lab and lab plan are located in the same region. An image can only be exported from a lab that's located in the same region as the lab plan. 
 
-:::image type="content" source="./media/how-to-use-shared-image-gallery/export-image-cross-region-error.png" alt-text="Screenshot that shows the error message 'Exporting to a gallery doesn't currently support region mismatches between the lab and the lab plan. Deploy them in the same regions to use this feature.'"::: 
+:::image type="content" source="./media/how-to-use-shared-image-gallery/export-image-cross-region-error.png" alt-text="Screenshot that shows the error message 'Exporting to a gallery doesn't currently support region mismatches between the lab and the lab plan. Deploy them in the same regions to use this feature.'" lightbox="./media/how-to-use-shared-image-gallery/export-image-cross-region-error.png"::: 
 
 ### Unable to see images from gallery
 
