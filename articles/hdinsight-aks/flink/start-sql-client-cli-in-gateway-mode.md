@@ -21,10 +21,9 @@ This tutorial guides you how to start the SQL Client CLI in gateway mode in Apac
  
 Check sql gateway service in AKS side:
 
-Image
+:::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/check-sql-gateway.png" alt-text="Screenshot showing how to check SQL gateway." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/check-sql-gateway.png":::
  
- 
-## What is SQL Client in Flink?
+ ## What is SQL Client in Flink?
  
 Flink’s Table & SQL API makes it possible to work with queries that written in the SQL language, but these queries need embed within a table program written in either Java or Scala. Moreover, these programs need to be packaged with a build tool before being submitted to a cluster. This feature limits the usage of Flink to Java/Scala programmers.
  
@@ -52,9 +51,8 @@ or
  
 Get cluster endpoint(host or fqdn) on Azure portal.
  
-Image
- 
- 
+:::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/get-cluster-endpoint.png" alt-text="Screenshot showing cluster endpoint." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/get-cluster-endpointy.png":::
+  
 ## Testing
  
 ### Preparation
@@ -92,7 +90,7 @@ rest.port: 443
 **Step3:** 
 Allowlist Local Windows public IP with port 443 with VPN enabled into HDInsight on AKS cluster Subnet's Network security inbound.
  
-Image
+:::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/allow-public-ip.png" alt-text="Screenshot showing how to allow public IP address." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/allow-public-ip.png":::
  
 **Step4:** 
 Run the sql-client.sh in gateway mode on Flink-cli to Flink SQL.
@@ -155,7 +153,8 @@ Before querying any table with external source, prepare the related jars.
 Following examples query kafka table, mysql table in Flink SQL. Download the jar and put it in Flink cluster attached Azure Data Lake Storage gen2 storage.
  
 Jars in Azure Data Lake Storage gen2 in Azure portal: 
-Image 
+
+ :::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png" alt-text="Screenshot showing jar files in Azure portal." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png":::
  
  
 **Step6:** 
