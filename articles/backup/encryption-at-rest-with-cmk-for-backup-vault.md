@@ -2,7 +2,7 @@
 title: Encrypt backup data in a Backup vault by using customer-managed keys
 description: Learn how to use Azure Backup to encrypt your backup data by using customer-managed keys (CMKs) in a Backup vault.
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 03/06/2024
 ms.custom: references_regions, devx-track-azurepowershell-azurecli
 ms.service: backup
 author: AbhishekMallick-MS
@@ -23,7 +23,7 @@ Support for CMK configuration for a Backup vault is in preview.
 
 ### Supported regions
 
-CMKs for Backup vaults are currently available in the following regions: West Central US, Switzerland North, Australia East, North Europe, South Central US.
+CMKs for Backup vaults are currently available in all Azure public regions.
 
 ### Key Vault and managed HSM key requirements
 
