@@ -69,8 +69,8 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 - Kubelet configuration through Node pool configuration
 - IPv6 clusters
 - [Service Principals](./kubernetes-service-principal.md)
-> [!NOTE]
-  > You can use either a system-assigned or user-assigned managed identity
+   > [!NOTE]
+   > You can use either a system-assigned or user-assigned managed identity.
 - Disk encryption sets
 - CustomCATrustCertificates
 - [Start Stop mode](./start-stop-cluster.md)
