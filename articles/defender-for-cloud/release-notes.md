@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 02/26/2024
+ms.date: 03/06/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,8 +24,51 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
+| March 12 | [Enhanced AWS and GCP recommendations with automated remediation scripts](#enhanced-aws-and-gcp-recommendations-with-automated-remediation-scripts) |
+| March 6 | [(Preview) Compliance standards added to compliance dashboard](#preview-compliance-standards-added-to-compliance-dashboard)  | 
 | March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
+
+### Enhanced AWS and GCP recommendations with automated remediation scripts
+
+March 12, 2024
+
+We're enhancing the AWS and GCP recommendations with automated remediation scripts that allow you to remediate them programmatically and at scale. 
+Learn more about [automated remediation scripts](implement-security-recommendations.md#use-the-automated-remediation-scripts). 
+
+### (Preview) Compliance standards added to compliance dashboard 
+
+March 6, 2024
+
+Based on customer feedback, we've added the following compliance standards in preview to our compliance dashboard. As shown, these are for reviewing the compliance status of AWS and GCP resources protected by Defender for Cloud.
+
+| Compliance standard                                   | Version    | AWS                             | GCP                             |
+| ----------------------------------------------------- | ---------- | ------------------------------- | ------------------------------- |
+| AWS Well-Architected Framework                        | N/A        | :white_check_mark:              | :x:                             |
+| Brazilian General Personal Data Protection Law (LGPD) | 53/2018    | :white_check_mark:              | :white_check_mark:              |
+| California Consumer Privacy Act (CCPA)                | 2018       | :white_check_mark:              | :white_check_mark:              |
+| CIS Controls                                          | v8         | :x:                             | :white_check_mark:              |
+| CIS Google Cloud Platform Foundation Benchmark        | v2.0.0     | :x:                             | :white_check_mark:              |
+| CIS Google Kubernetes Engine (GKE) Benchmark          | v1.5.0     | :x:                             | :white_check_mark:              |
+| CPS 234 (APRA)                                        | 2019       | :x:                             | :white_check_mark:              |
+| CRI Profile                                           | v1.2.1     | :white_check_mark:              | :white_check_mark:              |
+| CSA Cloud Controls Matrix (CCM)                       | v4.0.10    | :white_check_mark:              | :white_check_mark:              |
+| Cybersecurity Maturity Model Certification (CMMC)     | v2.0       | :x:                             | :white_check_mark:              |
+| FFIEC Cybersecurity Assessment Tool (CAT)             | 2017       | :x:                             | :white_check_mark:              |
+| GDPR                                                  | 2016/679   | :white_check_mark:              | :white_check_mark:              |
+| ISO/IEC 27001                                         | 27001:2022 | :white_check_mark:              | :white_check_mark: **(Update)** |
+| ISO/IEC 27002                                         | 27002:2022 | :white_check_mark:              | :white_check_mark:              |
+| ISO/IEC 27017                                         | 27017:2015 | :x:                             | :white_check_mark:              |
+| NIST Cybersecurity Framework (CSF)                    | v1.1       | :white_check_mark:              | :white_check_mark:              |
+| NIST SP 800-171                                       | Revision 2 | :x:                             | :white_check_mark:              |
+| NIST SP 800-172                                       | 2021       | :white_check_mark:              | :white_check_mark:              |
+| PCI-DSS                                               | v4.0.0     | :white_check_mark: **(Update)** | :white_check_mark: **(Update)** |
+| Sarbanes Oxley Act (SOX)                              | 2002       | :x:                             | :white_check_mark:              |
+| SOC 2                                                 | 2017       | :x:                             | :white_check_mark:              |
+
+We are continuously working on adding and updating new standards for Azure, AWS, and GCP environments.
+
+Learn how to [assign a security standard](update-regulatory-compliance-packages.md).
 
 ### Deprecation of two recommendations related to PCI
 
@@ -37,7 +80,6 @@ The following two recommendations related to Permission Creep Index (PCI) are be
 - Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)
 
 See the [list of deprecated security recommendations](recommendations-reference.md#deprecated-recommendations).
-
 
 ### Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement
 
@@ -430,7 +472,7 @@ November 20, 2023
 
 In preparation for the Microsoft Monitoring Agent (MMA) deprecation in August 2024, Defender for Cloud released a SQL Server-targeted Azure Monitoring Agent (AMA) autoprovisioning process. The new process is automatically enabled and configured for all new customers, and also provides the ability for resource level enablement for Azure SQL VMs and Arc-enabled SQL Servers.
 
-Customers using the MMA autoprovisioning process are requested to [migrate to the new Azure Monitoring Agent for SQL server on machines autoprovisioning process](/azure/defender-for-cloud/defender-for-sql-autoprovisioning). The migration process is seamless and provides continuous protection for all machines.  
+Customers using the MMA autoprovisioning process are requested to [migrate to the new Azure Monitoring Agent for SQL server on machines autoprovisioning process](defender-for-sql-autoprovisioning.md). The migration process is seamless and provides continuous protection for all machines.  
 
 ### General availability of Defender for APIs
 
@@ -686,7 +728,7 @@ You can now exempt recommendations for the following Defender for APIs security 
 | (Preview) API endpoints that are unused should be disabled and removed from the Azure API Management service | As a security best practice, API endpoints that haven't received traffic for 30 days are considered unused, and should be removed from the Azure API Management service. Keeping unused API endpoints might pose a security risk. These might be APIs that should have been deprecated from the Azure API Management service, but have accidentally been left active. Such APIs typically do not receive the most up-to-date security coverage. | Low |
 | (Preview) API endpoints in Azure API Management should be authenticated | API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses the execution of authentication via the Subscription Keys, JWT, and Client Certificate configured within Azure API Management. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation. | High |
 
-Learn more about [exempting recommendations in Defender for Cloud](/azure/defender-for-cloud/exempt-resource).
+Learn more about [exempting recommendations in Defender for Cloud](exempt-resource.md).
 
 ### Create sample alerts for Defender for APIs detections
 
