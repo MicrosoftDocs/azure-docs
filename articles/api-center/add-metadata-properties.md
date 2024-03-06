@@ -6,7 +6,6 @@ ms.service: api-center
 ms.topic: tutorial
 ms.date: 11/07/2023
 ms.author: danlep 
-ms.custom: 
 ---
 
 # Tutorial: Customize metadata properties

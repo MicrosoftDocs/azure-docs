@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the principal value of the arctangent of `y/x`, expressed in radians.
 
 ## Syntax
 
-```sql
+```nosql
 ATN2(<numeric_expr>, <numeric_expr>)  
 ```  
 
@@ -39,7 +40,7 @@ Returns a numeric expression.
 
 The following example calculates the arctangent for the specified `x` and `y` components.  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/atn2/query.sql" highlight="2":::  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/atn2/query.sql" highlight="2":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/atn2/result.json":::
 

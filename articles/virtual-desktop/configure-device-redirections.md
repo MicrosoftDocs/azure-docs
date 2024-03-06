@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 01/08/2024
 ms.author: helohr
-manager: femila
 ---
 # Configure device redirection
 

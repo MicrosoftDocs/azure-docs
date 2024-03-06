@@ -84,6 +84,7 @@ This sample script walks through the creation of a scale set and associated reso
 New-AzVmssConfig `
   -Location "VMSSLocation" `
   -SkuCapacity 2 `
+  -OrchestrationMode "Flexible" `
   -SkuName "Standard_DS2" `
   -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 10

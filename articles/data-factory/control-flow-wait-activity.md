@@ -68,7 +68,7 @@ In this example, the pipeline has two activities: **Until** and **Wait**. The Wa
                         "value": "@equals('Failed', coalesce(body('MyUnauthenticatedActivity')?.status, actions('MyUnauthenticatedActivity')?.status, 'null'))",
                         "type": "Expression"
                     },
-                    "timeout": "00:00:01",
+                    "timeout": "00:10:00",
                     "activities": [
                         {
                             "name": "MyUnauthenticatedActivity",

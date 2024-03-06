@@ -85,7 +85,7 @@
         href: vpn-gateway-delete-vnet-gateway-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-delete-vnet-gateway-powershell.md
-  - name: Site-to-site connections
+  - name: Site-to-site
     items:
     - name: Configure site-to-site connections
       items:
@@ -109,7 +109,7 @@
         href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=/azure/vpn-gateway/toc.json
     - name: VPN over private peering
       href: site-to-site-vpn-private-peering.md
-  - name: VNet-to-VNet connections
+  - name: VNet-to-VNet
     items:
     - name: Configure VNet-to-VNet connections
       items:
@@ -125,7 +125,7 @@
         href: vpn-gateway-connect-different-deployment-models-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-connect-different-deployment-models-powershell.md
-  - name: Point-to-site connections
+  - name: Point-to-site
     items:
     - name: Server configuration
       items:
@@ -183,17 +183,27 @@
         href: create-custom-policies-p2s-ps.md
     - name: Client configuration
       items:
-      - name: Certificate authentication clients
+      - name: Certificate authentication
         items:
-        - name: Windows
-          href: point-to-site-vpn-client-cert-windows.md
-        - name: macOS-iOS
-          href: point-to-site-vpn-client-cert-mac.md
-        - name: Linux
-          href: point-to-site-vpn-client-cert-linux.md
-        - name: Install client certificates
-          href: point-to-site-how-to-vpn-client-install-azure-cert.md
-      - name: RADIUS authentication clients
+        - name: Client workflow and configuration files
+          items:
+          - name: Windows computers
+            href: point-to-site-vpn-client-cert-windows.md
+          - name: macOS-iOS
+            href: point-to-site-vpn-client-cert-mac.md
+          - name: Linux
+            href: point-to-site-vpn-client-cert-linux.md
+        - name: Configure a VPN client
+          items:
+          - name: Windows native VPN client
+            href: point-to-site-vpn-client-certificate-windows-native.md
+          - name: OpenVPN client
+            href: point-to-site-vpn-client-certificate-windows-openvpn-client.md
+          - name: Azure VPN Client
+            href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
+          - name: Install client certificates
+            href: point-to-site-how-to-vpn-client-install-azure-cert.md
+      - name: RADIUS authentication
         items:
         - name: Certificate authentication clients
           href: point-to-site-vpn-client-configuration-radius-certificate.md
@@ -201,7 +211,7 @@
           href: point-to-site-vpn-client-configuration-radius-password.md
         - name: Other authentication protocols
           href: point-to-site-vpn-client-configuration-radius-other.md
-      - name: Microsoft Entra authentication clients
+      - name: Microsoft Entra authentication
         items:
         - name: Windows
           href: openvpn-azure-ad-client.md
@@ -281,6 +291,8 @@
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
     - name: Set up alerts based on resource logs
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
+    - name: Monitoring - Data reference
+      href: monitor-vpn-gateway-reference.md
     - name: Configure packet captures 
       href: packet-capture.md
   - name: Configure customer-controlled gateway maintenance
@@ -337,8 +349,6 @@
     href: /previous-versions/azure/reference/jj154113(v=azure.100)
   - name: Azure CLI
     href: /cli/azure/network/vnet-gateway
-  - name: Monitoring data
-    href: monitor-vpn-gateway-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

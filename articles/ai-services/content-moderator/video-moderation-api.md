@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: how-to
-ms.date: 10/27/2021
+ms.date: 01/18/2024
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet

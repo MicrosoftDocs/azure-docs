@@ -7,9 +7,9 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 06/08/2023
 ms.author: cherylmc
-# Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
-ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
 ---
 
 # Deploy Bastion using Azure CLI
@@ -58,7 +58,7 @@ This section helps you deploy Azure Bastion using Azure CLI.
 
 1. Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create the subnet to which Bastion will be deployed. The subnet you create must be named **AzureBastionSubnet**. This subnet is reserve exclusively for Azure Bastion resources. If you don't have a subnet with the naming value **AzureBastionSubnet**, Bastion won't deploy.
 
-   [!INCLUDE [Note about BastionSubnet size.](../../includes/bastion-subnet-size.md)]
+   [!INCLUDE [Note about BastionSubnet size](../../includes/bastion-subnet-size.md)]
 
    ```azurecli-interactive
    az network vnet subnet create --name AzureBastionSubnet --resource-group TestRG1 --vnet-name VNet1 --address-prefix 10.1.1.0/26

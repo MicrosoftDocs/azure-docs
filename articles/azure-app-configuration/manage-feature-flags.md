@@ -3,11 +3,10 @@ title: "Tutorial: Use Azure App Configuration to manage feature flags"
 titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to manage feature flags separately from your application by using Azure App Configuration.
 services: azure-app-configuration
-documentationcenter: ''
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 10/18/2023
+ms.date: 02/20/2024
 ms.author: malev
 ms.custom: "devx-track-csharp, mvc"
 
@@ -16,13 +15,12 @@ ms.custom: "devx-track-csharp, mvc"
 
 # Tutorial: Manage feature flags in Azure App Configuration
 
-You can store all feature flags in Azure App Configuration and administer them from a single place. App Configuration has a portal UI named **Feature Manager** that's designed specifically for feature flags. App Configuration also natively supports the .NET Core feature-flag data schema.
+You can create feature flags in Azure App Configuration and manage them from the **Feature Manager** in the Azure portal.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Define and manage feature flags in App Configuration.
-> * Access feature flags from your application.
 
 ## Create feature flags
 

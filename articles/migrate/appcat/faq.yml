@@ -4,7 +4,6 @@ metadata:
   description: Answers to frequently asked questions about Azure Migrate application and code assessment.
   author: yenchiho
   ms.service: azure-migrate
-  ms.workload: Application Innovation
   ms.topic: faq
   ms.date: 11/15/2023
   ms.author: yenchiho

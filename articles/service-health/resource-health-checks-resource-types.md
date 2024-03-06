@@ -195,6 +195,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 | - Is the ExpressRoute circuit healthy?|
 
+## Microsoft.Network/expressRouteGateways (ExpressRoute Gateways in Virtual WAN)
+|Executed Checks|
+|---|
+| - Is the ExpressRoute Gateway up and running?|
+
 ## Microsoft.network/frontdoors
 |Executed Checks|
 |---|
@@ -215,6 +220,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 | - Are there any issues impacting the Traffic Manager profile?|
+
+## Microsoft.Network/virtualHubs
+|Executed Checks|
+|---|
+| - Is the virtual hub router up and running?|
 
 ## Microsoft.network/virtualNetworkGateways
 |Executed Checks|

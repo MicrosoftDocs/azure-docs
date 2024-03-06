@@ -2,16 +2,9 @@
 title: Auditing and Logging - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Learn about auditing and logging mitigation in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-
-ms.assetid: na
 ms.service: information-protection
 ms.subservice: aiplabels
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib

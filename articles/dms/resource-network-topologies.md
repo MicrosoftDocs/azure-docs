@@ -9,7 +9,6 @@ ms.date: 01/08/2020
 ms.service: dms
 ms.topic: reference
 ms.custom:
-  - seo-lt-2019
   - sql-migration-content
 ---
 

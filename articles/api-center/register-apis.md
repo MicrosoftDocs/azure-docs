@@ -6,7 +6,6 @@ ms.service: api-center
 ms.topic: tutorial
 ms.date: 11/07/2023
 ms.author: danlep 
-ms.custom: 
 ---
 
 # Tutorial: Register APIs in your API inventory
@@ -131,6 +130,8 @@ In this tutorial, you learned how to use the portal to:
 > [!div class="checklist"]    
 > * Register one or more APIs
 > * Add an API version with an API definition
+
+As you build out your API inventory, take advantage of other tools to register APIs, such as the [Azure API Center extension for Visual Studio Code](use-vscode-extension.md) and the [Azure CLI](manage-apis-azure-cli.md).
 
 ## Next steps
 

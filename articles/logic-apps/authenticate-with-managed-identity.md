@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 12/07/2023
-ms.custom: subject-rbac-steps, ignite-fall-2021, devx-track-arm-template
+ms.custom: subject-rbac-steps, devx-track-arm-template
 ## As a logic app developer, I want to authenticate connections for my logic app workflow using a managed identity so I don't have to use credentials or secrets.
 ---
 

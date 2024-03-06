@@ -4,8 +4,6 @@
   href: choose-model.md
 - name: Comparing MongoDB Atlas
   href: cosmos-db-vs-mongodb-atlas.md
-- name: FAQ
-  href: faq.yml
 - name: RU
   items:
     - name: MongoDB RU documentation
@@ -27,7 +25,7 @@
             - name: Upgrade API version
               href: upgrade-version.md
         - name: FAQ
-          href: mongodb-faq.yml
+          href: faq.yml
         - name: Change log
           href: change-log.md
     - name: Quickstarts
@@ -78,7 +76,8 @@
           href: tutorial-delete.md
         - name: Create Jupyter notebooks
           href: ../nosql/tutorial-create-notebook.md
-        - name: KQL transformations for workspace data
+        - name: Kusto Query Language (KQL) transformations
+          displayName: KQL, workspace, data
           href: ../tutorial-log-transformation.md
     - name: Samples
       items:
@@ -295,6 +294,8 @@
               href: ../notebooks-faq.yml              
         - name: Emulator
           href: ../emulator.md
+        - name: Network bandwidth
+          href: ../network-bandwidth.md
     - name: How to
       items:
         - name: Develop with the emulator
@@ -538,7 +539,7 @@
                   href: ../how-to-alert-on-logical-partition-key-storage-size.md
             - name: Monitoring data reference
               href: ../monitor-reference.md
-            - name: Third-party monitoring solutions
+            - name: Partner monitoring solutions
               href: ../monitoring-solutions.md
     - name: Reference
       items:
@@ -566,7 +567,7 @@
           href: ../whitepapers.md
         - name: Partners
           href: ../partners-migration.md
-        - name: Microsoft Q&A question page
+        - name: Microsoft Questions and Answers
           href: /answers/topics/azure-cosmos-db.html
         - name: Videos
           href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db

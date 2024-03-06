@@ -2,7 +2,7 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: conceptual
-ms.date: 05/24/2023
+ms.date: 03/04/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -93,7 +93,7 @@ You can also use the following FQDNs to allow access to the required services fr
 | -------------- | ------------------------------------------------------------ | ---
 | Azure  Backup  | `*.backup.windowsazure.com`                             | 443
 | Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 443
-| Azure  AD      | `*.australiacentral.r.login.microsoft.com` <br><br> Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | 443 <br><br> As applicable
+| Azure  AD      | `*.login.microsoft.com` <br><br> Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | 443 <br><br> As applicable
 
 #### Allow connectivity for servers behind internal load balancers
 
@@ -116,6 +116,7 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
   - Semicolon (;)
   - Forward slash (/)
 
+- SQL Backup configuration doesn't support the single quotation in the database name and causes deployment failure. If there is any database with single quote, we recommend that you rename the database or take the native backup approach.
 - Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 - Multiple databases on the same SQL instance with casing difference aren't supported.

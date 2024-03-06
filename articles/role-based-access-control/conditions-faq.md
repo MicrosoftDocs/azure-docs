@@ -1,17 +1,13 @@
 ---
 title: FAQ for Azure role assignment conditions - Azure ABAC
 description: Frequently asked questions for Azure role assignment conditions
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.workload: identity
 ms.date: 05/09/2023
 ms.author: rolyon
-
-#Customer intent: 
 ---
 
 # FAQ for Azure role assignment conditions

@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.subservice: spark
 ms.date: 10/18/2021
 ms.author: nidutta
-ms.custom: ignite-fall-2021, mode-ui
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create an Apache Spark GPU-enabled Pool in Azure Synapse Analytics using the Azure portal
@@ -15,6 +15,11 @@ ms.custom: ignite-fall-2021, mode-ui
 An Apache Spark pool provides open-source big data compute capabilities where data can be loaded, modeled, processed, and distributed for faster analytic insight. Synapse now offers the ability to create Apache Spark pools that use GPUs on the backend to run your Spark workloads on GPUs for accelerated processing.
 
 In this quickstart, you learn how to use the Azure portal to create an Apache Spark GPU-enabled pool in an Azure Synapse Analytics workspace.
+
+> [!WARNING]
+> - The GPU accelerated preview is limited to the [Azure Synapse 3.1 (unsupported)](./spark/apache-spark-3-runtime.md) and [Apache Spark 3.2 (EOLA)](./spark/apache-spark-32-runtime.md) runtimes.
+> - Azure Synapse Runtime for Apache Spark 3.1 has reached its end of life (EOL) as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
+> - End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of life announced (EOLA) runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime will be retired and disabled as of July 8, 2024.
 
 > [!NOTE]
 > Azure Synapse GPU-enabled pools are currently in Public Preview.
@@ -46,7 +51,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     |Setting | Suggested value | Description |
     | :------ | :-------------- | :---------- |
     | **Apache Spark pool name** | A valid pool name | This is the name that the Apache Spark pool will have. |
-    | **Node size family** | Hardware Accelerated | Choose Hardware Accelerated from the drop down menu |
+    | **Node size family** | Hardware Accelerated | Choose Hardware Accelerated from the drop-down menu |
     | **Node size** | Large (16 vCPU / 110 GB / 1 GPU) | Set this to the smallest size to reduce costs for this quickstart |
     | **Autoscale** | Disabled | We don't need autoscale for this quickstart |
     | **Number of nodes** | 3 | Use a small size to limit costs for this quickstart |

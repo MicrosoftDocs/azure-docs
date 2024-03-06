@@ -3,7 +3,7 @@ title: Use TLS with an ingress controller on Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an ingress controller that uses TLS in an Azure Kubernetes Service (AKS) cluster.
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 author: asudbring
 ms.author: allensu
 ms.topic: how-to
@@ -505,7 +505,7 @@ In the following example, traffic is routed as such:
             backend:
               service:
                 name: aks-helloworld-one
-                port: 
+                port:
                   number: 80
     ```
 
@@ -573,8 +573,8 @@ Alternatively, you can delete the resource individually.
     $ helm list --namespace ingress-basic
 
     NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-    cert-manager            ingress-basic   1               2020-01-15 10:23:36.515514 -0600 CST    deployed        cert-manager-v0.13.0    v0.13.0    
-    nginx                   ingress-basic   1               2020-01-15 10:09:45.982693 -0600 CST    deployed        nginx-ingress-1.29.1    0.27.0  
+    cert-manager            ingress-basic   1               2020-01-15 10:23:36.515514 -0600 CST    deployed        cert-manager-v0.13.0    v0.13.0
+    nginx                   ingress-basic   1               2020-01-15 10:09:45.982693 -0600 CST    deployed        nginx-ingress-1.29.1    0.27.0
     ```
 
 3. Uninstall the releases using the `helm uninstall` command. The following example uninstalls the NGINX ingress and cert-manager deployments.

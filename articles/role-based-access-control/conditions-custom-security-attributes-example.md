@@ -1,17 +1,14 @@
 ---
 title: Scale the management of Azure role assignments by using conditions and custom security attributes - Azure ABAC
 description: Scale the management of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Microsoft Entra custom security attributes for principals.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.workload: identity
 ms.date: 11/15/2023
 ms.author: rolyon
-
-#Customer intent: As a dev, devops, or it admin, I want to 
+#Customer intent: As a dev, devops, or it admin, I want to
 ---
 
 # Scale the management of Azure role assignments by using conditions and custom security attributes

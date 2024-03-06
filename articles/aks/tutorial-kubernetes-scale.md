@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Scale applications in Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods and implement horizontal pod autoscaling.
 ms.topic: tutorial
-ms.date: 10/23/2023
+ms.date: 03/05/2023
 ms.custom: mvc
 #Customer intent: As a developer or IT pro, I want to learn how to scale my applications in an Azure Kubernetes Service (AKS) cluster so I can provide high availability or respond to customer demand and application load.
 ---
@@ -76,7 +76,7 @@ This tutorial requires Azure PowerShell version 5.9.0 or later. Run `Get-Install
 
 ## Autoscale pods
 
-To use the horizontal pod autoscaler, All containers must have defined CPU requests and limits, and pads have specified requests. In the `aks-store-quickstart` deployment, the *front-end* container requests 1m CPU with a limit of 1000m CPU.
+To use the horizontal pod autoscaler, all containers must have defined CPU requests and limits, and pods must have specified requests. In the `aks-store-quickstart` deployment, the *front-end* container requests 1m CPU with a limit of 1000m CPU.
 
 These resource requests and limits are defined for each container, as shown in the following condensed example YAML:
 
@@ -114,7 +114,13 @@ These resource requests and limits are defined for each container, as shown in t
         apiVersion: apps/v1
         kind: Deployment
         name: store-front
-        metrics: 50 # target CPU utilization
+        metrics:
+        - type: Resource
+          resource:
+            name: cpu
+            target:
+              type: Utilization
+              averageUtilization: 50
     ```
 
 2. Apply the autoscaler manifest file using the `kubectl apply` command.
@@ -160,7 +166,6 @@ The following example increases the number of nodes to three in the Kubernetes c
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,
-        "storageProfile": "ManagedDisks",
         "vmSize": "Standard_D2_v2",
         "vnetSubnetId": null
       }

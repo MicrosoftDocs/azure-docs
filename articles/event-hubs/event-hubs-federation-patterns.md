@@ -1,11 +1,8 @@
 ---
 title: Event replication task patterns - Azure Event Hubs | Microsoft Docs
-description:
-  This article provides detail guidance for implementing specific event
-  replication task patterns
+description: This article provides detail guidance for implementing specific event replication task patterns
 ms.topic: article
 ms.date: 09/28/2021
-ms.custom: ignite-2022
 ---
 
 # Event replication tasks patterns

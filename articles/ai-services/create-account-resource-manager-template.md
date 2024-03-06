@@ -1,5 +1,5 @@
 ---
-title: Create an Azure AI services resource using ARM templates | Microsoft Docs
+title: Create an Azure AI services resource using ARM templates
 description: Create an Azure AI service resource with ARM template.
 keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
 #services: cognitive-services
@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: quickstart
-ms.date: 09/01/2022
+ms.date: 01/20/2024
 ms.author: aahi
 ms.custom:
   - subject-armqs
@@ -16,9 +16,9 @@ ms.custom:
   - ignite-2023
 ---
 
-# Quickstart: Create an Azure AI services resource using an ARM template
+# Create an Azure AI services resource using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create Azure AI services.
+This quickstart shows you how to use an Azure Resource Manager template (ARM template) to create Azure AI services.
 
 Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
@@ -86,7 +86,7 @@ read
 
 ---
 
-> [!Tip]
+> [!TIP]
 > If your subscription doesn't allow you to create an Azure AI services resource, you may need to enable the privilege of that [Azure resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) using the [Azure portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [PowerShell command](../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or an [Azure CLI command](../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). If you are not the subscription owner, ask the *Subscription Owner* or someone with a role of *admin* to complete the registration for you or ask for the **/register/action** privileges to be granted to your account.
 
 ## Review deployed resources

@@ -2,7 +2,6 @@
 title: Onboard an Azure Arc-enabled server to Azure Automanage with an ARM template
 description: Learn how to onboard an Azure Arc-enabled server to Azure Automanage with an Azure Resource Manager template.
 ms.service: automanage
-ms.workload: infrastructure
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 02/25/2022
