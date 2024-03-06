@@ -41,28 +41,28 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
       name: nfs-volume 
     - mountPath: /var/lib/bluefin/local 
       name: runner-local
-    ### EDIT THE NEXT 2 LINES ###
+    ### ADD THE NEXT 2 LINES ###
     - mountPath: /mnt/esa 
       name: esa4 
     
     volumes: 
     - configMap: 
-      defaultMode: 420 
-      name: file-config 
-    name: config-volume 
+        defaultMode: 420 
+        name: file-config 
+      name: config-volume 
     - name: nfs-volume 
     persistentVolumeClaim: 
       claimName: nfs-provisioner
-    ### EDIT THE NEXT 3 LINES ### 
+    ### ADD THE NEXT 3 LINES ### 
     - name: esa4 
-    persistentVolumeClaim: 
-      claimName: esa4  
+      persistentVolumeClaim: 
+        claimName: esa4
     ```
 
 1. Delete the existing statefulSet:
 
     ```bash
-    kubectl delete statefulset -n azure-aio-operations aio-dp-runner-worker
+    kubectl delete statefulset -n azure-iot-operations aio-dp-runner-worker
     ```
 
     This deletes all aio-dp-runner-worker-n pods. This is an outage-level event.  
@@ -70,7 +70,7 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
 1. Create a new statefulSet of aio-dp-runner-worker(s) with the ESA mounts:
 
     ```bash
-    kubectl apply -f stateful_worker.yaml
+    kubectl apply -f stateful_worker.yaml -n azure-iot-operations
     ```
 
     When the aio-dp-runner-worker-n pods start, they include mounts to ESA. The PVC should convey this in the state.

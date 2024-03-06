@@ -35,7 +35,7 @@ az k8s-extension create --resource-group "${YOUR-RESOURCE-GROUP}" --cluster-name
 ```
 
 > [!NOTE]
-> If you created a `config.json` to increase your cache disk size and/or for Edge Essentials, append `--config-file "config.json"` to the previous `az k8s-extension create` command.
+> If you created a `config.json` from previous steps in [Prepare Linux](prepare-linux.md), append `--config-file "config.json"` to the previous `az k8s-extension create` command.
 
 ## Next steps
 
