@@ -66,7 +66,7 @@ Managed online endpoints can help streamline your deployment process and provide
 
 - Monitoring and logs
     - Monitor model availability, performance, and SLA using [native integration with Azure Monitor](how-to-monitor-online-endpoints.md).
-    - Debug deployments using the logs and native integration with [Azure Log Analytics](../azure-monitor/logs/log-analytics-overview).
+    - Debug deployments using the logs and native integration with [Azure Log Analytics](../azure-monitor/logs/log-analytics-overview.md).
 
     :::image type="content" source="media/concept-endpoints/log-analytics-and-azure-monitor.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency." lightbox="media/concept-endpoints/log-analytics-and-azure-monitor.png":::
 
@@ -251,7 +251,7 @@ def init():
 
 Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access quota to perform testing for a limited time. When you use the studio to deploy Llama models (from the model catalog) to a managed online endpoint, Azure Machine Learning allows you to access this shared quota for a short time. 
 
-To deploy a _Llama-2-70b_ or _Llama-2-70b-chat_ model, however, you must have an [Enterprise Agreement subscription](../cost-management-billing/manage/create-enterprise-subscription) before you can deploy using the shared quota. For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
+To deploy a _Llama-2-70b_ or _Llama-2-70b-chat_ model, however, you must have an [Enterprise Agreement subscription](../cost-management-billing/manage/create-enterprise-subscription.md) before you can deploy using the shared quota. For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
 
 For more information on quotas and limits for resources in Azure Machine Learning, see [Manage and increase quotas and limits for resources with Azure Machine Learning](how-to-manage-quotas.md).
 
