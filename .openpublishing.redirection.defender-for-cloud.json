@@ -921,6 +921,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md",
+            "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/concept-aws-connector.md",
             "redirect_url": "/azure/defender-for-cloud/quickstart-onboard-aws",
             "redirect_document_id": false

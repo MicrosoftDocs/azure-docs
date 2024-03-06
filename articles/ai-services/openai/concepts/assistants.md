@@ -3,7 +3,8 @@ title: Azure OpenAI Service Assistant API concepts
 titleSuffix: Azure OpenAI Service
 description: Learn about the concepts behind the Azure OpenAI Assistants API.
 ms.topic: conceptual
-ms.date: 02/05/2023
+ms.date: 03/04/2024
+ms.service: azure-ai-openai
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
