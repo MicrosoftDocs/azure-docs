@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure Operator Insights Data Product
 description: In this article, learn how to create an Azure Operator Insights Data Product resource. 
 author: rcdun
@@ -7,7 +7,7 @@ ms.reviewer: rathishr
 ms.service: operator-insights
 ms.topic: quickstart
 ms.date: 10/16/2023
-ms.custom: template-quickstart #Required; leave this attribute/value as-is.
+ms.custom: template-quickstart, devx-track-azurecli #Required; leave this attribute/value as-is.
 ---
 
 # Create an Azure Operator Insights Data Product

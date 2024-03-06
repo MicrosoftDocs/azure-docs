@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -512,10 +512,13 @@ Azure service: [Azure App Configuration](/azure/azure-app-configuration/)
 > | Microsoft.AppConfiguration/configurationStores/RegenerateKey/action | Regenerates of the API key's for the specified configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/ListKeyValue/action | Lists a key-value for the specified configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/PrivateEndpointConnectionsApproval/action | Auto-Approve a private endpoint connection under the specified configuration store. |
+> | Microsoft.AppConfiguration/configurationStores/keyValues/action | Performs an action on an existing key-value from the configuration store. This also grants the ability to read key values. |
 > | Microsoft.AppConfiguration/configurationStores/joinPerimeter/action | Determines if a user is allowed to associate an Azure App Configuration with a Network Security Perimeter. |
 > | Microsoft.AppConfiguration/configurationStores/eventGridFilters/read | Gets the properties of the specified configuration store event grid filter or lists all the configuration store event grid filters under the specified configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/eventGridFilters/write | Create or update a configuration store event grid filter with the specified parameters. |
 > | Microsoft.AppConfiguration/configurationStores/eventGridFilters/delete | Deletes a configuration store event grid filter. |
+> | Microsoft.AppConfiguration/configurationStores/keyValues/write | Creates or updates a key-value in the configuration store. |
+> | Microsoft.AppConfiguration/configurationStores/keyValues/delete | Deletes an existing key-value from the configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/networkSecurityPerimeterAssociationProxies/read | Get the properties of the specific network security perimeter association proxy or lists all the network security perimeter association proxies under the specified configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/networkSecurityPerimeterAssociationProxies/write | Create or update a network security perimeter association proxy under the specified configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/networkSecurityPerimeterAssociationProxies/delete | Delete a network security perimeter association proxy under the specified configuration store. |
@@ -944,9 +947,6 @@ Azure service: [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/)
 > | Microsoft.HealthcareApis/workspaces/dicomservices/read |  |
 > | Microsoft.HealthcareApis/workspaces/dicomservices/write |  |
 > | Microsoft.HealthcareApis/workspaces/dicomservices/delete |  |
-> | Microsoft.HealthcareApis/workspaces/dicomservices/dicomcasts/read |  |
-> | Microsoft.HealthcareApis/workspaces/dicomservices/dicomcasts/write |  |
-> | Microsoft.HealthcareApis/workspaces/dicomservices/dicomcasts/delete |  |
 > | Microsoft.HealthcareApis/workspaces/dicomservices/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic settings for the Azure service. |
 > | Microsoft.HealthcareApis/workspaces/dicomservices/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic settings for the Azure service. |
 > | Microsoft.HealthcareApis/workspaces/dicomservices/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the Azure service. |
@@ -1056,6 +1056,10 @@ Azure service: [Logic Apps](/azure/logic-apps/)
 > | Microsoft.Logic/integrationAccounts/partners/write | Creates or updates the partner in integration account. |
 > | Microsoft.Logic/integrationAccounts/partners/delete | Deletes the partner in integration account. |
 > | Microsoft.Logic/integrationAccounts/partners/listContentCallbackUrl/action | Gets the callback URL for partner content in integration account. |
+> | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/read | Gets the Private Endpoint Connection Proxies. |
+> | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/write | Creates or Updates the Private Endpoint Connection Proxies. |
+> | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/delete | Deletes the Private Endpoint Connection Proxies. |
+> | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/validate/action | Validates the Private Endpoint Connection Proxies. |
 > | Microsoft.Logic/integrationAccounts/providers/Microsoft.Insights/logDefinitions/read | Reads the Integration Account log definitions. |
 > | Microsoft.Logic/integrationAccounts/rosettaNetProcessConfigurations/read | Reads the RosettaNet process configuration in integration account. |
 > | Microsoft.Logic/integrationAccounts/rosettaNetProcessConfigurations/write | Creates or updates the  RosettaNet process configuration in integration account. |

@@ -189,7 +189,7 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     aks-nodepool1-20786768-vmss000000   Ready    agent   22h   v1.27.7   10.224.0.4    <none>        Ubuntu 22.04.3 LTS               5.15.0-1052-azure   containerd://1.7.5-1
     aks-nodepool1-20786768-vmss000001   Ready    agent   22h   v1.27.7   10.224.0.33   <none>        Ubuntu 22.04.3 LTS               5.15.0-1052-azure   containerd://1.7.5-1
     aksnpwin000000                      Ready    agent   20h   v1.27.7   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.2159     containerd://1.6.21+azure
-        ```
+    ```
 
     > [!NOTE]
     > The container runtime for each node pool is shown under *CONTAINER-RUNTIME*. The container runtime values begin with `containerd://`, which means that they each use `containerd` for the container runtime.
