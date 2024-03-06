@@ -149,11 +149,11 @@ The following example shows how you can use the self-hosted gateway to access an
 
 :::image type="content" source="media/how-to-deploy-self-hosted-gateway-container-apps/scenario.png" alt-text="Diagram of example scenario with self-hosted gateway.":::
 
-* **Step 1.** Deploy a container app hosting an API in the same environment as the self-hosted gateway
-* **Step 2.** Add the API to your API Management instance 
-* **Step 3.** Call the API through the self-hosted gateway
+1. Deploy a container app hosting an API in the same environment as the self-hosted gateway
+1. Add the API to your API Management instance 
+1. Call the API through the self-hosted gateway
 
-### Step 1. Deploy a container app hosting an API in the same environment as the self-hosted gateway
+### Deploy a container app hosting an API in the same environment as the self-hosted gateway
 
 For example, deploy an example music album API to a container app. For later access to the API using the self-hosted gateway, deploy the API in the same environment as the self-hosted gateway. For detailed steps and information about the resources used in this example, see [Quickstart: Build and deploy from local source code to Azure Container Apps](../container-apps/quickstart-code-to-cloud.md). Abbreviated steps follow:
 
@@ -190,7 +190,7 @@ Now update the container app hosting the sample API to enable ingress only in th
 1. In **Ingress traffic**, select **Limited to Container Apps Environment**.
 1. Review the remaining settings and select **Save**.
 
-### Step 2. Add the API to your API Management instance 
+### Add the API to your API Management instance 
 
 The following are example steps to add an API to your API Management instance and configure an API backend. For more information, see [Add an API to Azure API Management](add-api-manually.md).
 
@@ -215,7 +215,7 @@ The following are example steps to add an API to your API Management instance an
     1. **URL**: Select **Get** and enter `/albums` for the endpoint.
     1. Select **Save**.
 
-### Step 3. Call the API through the self-hosted gateway
+### Call the API through the self-hosted gateway
 
 Call the API using the FQDN of the self-hosted gateway running in the container app. Find the FQDN on the container app's **Overview** page in the Azure portal, or run the following `az containerapp show` command.
 
