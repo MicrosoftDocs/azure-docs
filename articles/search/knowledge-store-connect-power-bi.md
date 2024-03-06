@@ -18,7 +18,7 @@ In this article, learn how to connect to and query a knowledge store using Power
 
 A knowledge store that's composed of tables in Azure Storage work best in Power BI. If the tables contain projections from the same skillset and projection group, you can easily "join" them to build table visualizations that include fields from related tables.
 
-Follow the steps in this article using sample data and a knowledge store as [created in this portal quickstart](knowledge-store-create-portal.md) or through [Postman and REST APIs](knowledge-store-create-rest.md). 
+Follow the steps in this article using sample data and a knowledge store as [created in this portal quickstart](knowledge-store-create-portal.md) or through [REST APIs](knowledge-store-create-rest.md). 
 
 ## Connect to Azure Storage
 

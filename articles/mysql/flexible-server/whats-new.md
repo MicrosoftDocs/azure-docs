@@ -26,6 +26,17 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 
 ## February 2024
 
+
+- **Accelerated Logs is now available for exisiting servers and available in three new regions.**
+    
+  Accelerated Logs, previously limited to servers created after November 14th, is now accessible for all existing Business Critical tier's **standalone** servers in preview phase. Accelerated logs now also supports [Microsoft Entra ID](./concepts-azure-ad-authentication.md). Additionally, this feature has been extended to include three new regions: Japan East, Korea Central, and Poland Central. [Learn more.](./concepts-accelerated-logs.md) 
+
+
+- **Known Issues**
+
+  Due to a technical issue in this month's deployment, primary servers with read-replica are temporarily restricted from enabling the [accelerated logs](./concepts-accelerated-logs.md) feature. Users are advised to disable accelerated logs feature before creating a replica server. If you require assistance with accelerated logs and replica creation, please open a [support ticket](https://azure.microsoft.com/support/create-ticket) for assistance. [Learn more](./concepts-accelerated-logs.md#limitations).
+
+
 - **Audit logs now supports wild card entries**
 
   The server parameters now supports wildcards in `audit_log_include_users` and `audit_log_exclude_users`, enhancing flexibility for specifying user inclusions and exclusions in audit logs. [Learn more](./concepts-audit-logs.md#configure-audit-logging)
