@@ -22,6 +22,7 @@ The following list contains Ultra Disks's limitations:
 - Currently only supports Single VM and Availability zone infrastructure options.
 - Snapshots are supported with [additional limitations](../articles/virtual-machines/disks-incremental-snapshots.md#incremental-snapshots-of-premium-ssd-v2-and-ultra-disks).
 - Azure Backup support for VMs with Ultra Disks is [generally available](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support). Azure Backup has limitations when using Ultra Disks, see [VM storage support](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support) for details.
+- Doesn't support existing Virtual Machines that previously had Azure disk encryption.
 
 Ultra disks support a 4k physical sector size by default but also supports a 512E sector size. Most applications are compatible with 4k sector sizes, but some require 512-byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512-byte sector size is required.
 
