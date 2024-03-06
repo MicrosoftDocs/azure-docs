@@ -23,7 +23,7 @@ To install the Microsoft Remote Desktop app:
 
 1. Open the app store on your Chromebook, and search for **Microsoft Remote Desktop**.
 
-    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/install-remote-desktop-chromebook.png" alt-text="Screenshot of the Microsoft Remote Desktop app in the app store." lighbox="./media/connect-virtual-machine-chromebook-remote-desktop/install-remote-desktop-chromebook.png":::
+    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/install-remote-desktop-chromebook.png" alt-text="Screenshot of the Microsoft Remote Desktop app in the app store." lightbox="./media/connect-virtual-machine-chromebook-remote-desktop/install-remote-desktop-chromebook.png":::
 
 1. Select **Install** to install the latest version of the Remote Desktop application by Microsoft Corporation.
 

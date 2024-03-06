@@ -166,11 +166,11 @@ If you're using the **Medium (Nested Virtualization)** VM size for the lab, cons
 
 - Check if the host VM (lab VM) has the DHCP role installed if you're using Windows Server.
 
-  Running a lab VM as a DHCP server isn't supported. See [Can I deploy a DHCP server in a virtual network?](/azure/virtual-network/virtual-networks-faq). Changing the settings of the lab VM can cause issues with other lab VMs.
+  Running a lab VM as a DHCP server isn't supported. See [Can I deploy a DHCP server in a virtual network?](../virtual-network/virtual-networks-faq.md). Changing the settings of the lab VM can cause issues with other lab VMs.
 
 - Check the network adapter settings for the Hyper-V VM.
 
-  - Set the IP address of the DNS server and DHCP server to [168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16).
+  - Set the IP address of the DNS server and DHCP server to [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md).
   - If the guest VM IPv4 address is set manually, verify that it's in the range of the NAT network connected to the Hyper-V switch.
   - Try enabling Hyper-V [DHCP guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingdhcp-guard) and [Router guard](/archive/blogs/virtual_pc_guy/hyper-v-networkingrouter-guard).
 
