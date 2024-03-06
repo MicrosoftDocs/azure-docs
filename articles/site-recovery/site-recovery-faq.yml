@@ -224,8 +224,8 @@ sections:
       - question: |
          Is disaster recovery supported for physical servers?
         answer: |
-              Yes, Site Recovery supports disaster recovery of on-premises physical servers running Windows and Linux to Azure or to a secondary site. Learn about requirements for disaster recovery to [Azure](vmware-physical-azure-support-matrix.md#replicated-machines), and to [a secondary site](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
-              The physical servers will run as virtual machines in Azure after failover. Failback from Azure to an on-premises physical server isn't currently supported. You can only fail back to a VMware virtual machine.
+              Yes, Site Recovery supports disaster recovery of on-premises physical servers running Windows and Linux to Azure. Learn about requirements for disaster recovery to [Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
+              The physical servers runs as virtual machines in Azure after failover. Failback from Azure to an on-premises physical server isn't currently supported. You can only fail back to a VMware virtual machine. 
 
       - question: |
           Can I move the Recovery Services vault across subscriptions?
