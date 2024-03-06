@@ -153,7 +153,7 @@ During indexing, an indexer only checks field names and types. There's no valida
 
 ## Create an indexer
 
-When you're ready to create an indexer on a remote search service, you need a search client. A search client can be the Azure portal, Postman or another REST client, or code that instantiates an indexer client. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
+When you're ready to create an indexer on a remote search service, you need a search client. A search client can be the Azure portal, a REST client, or code that instantiates an indexer client. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
 
 ### [**Azure portal**](#tab/portal)
 
@@ -171,7 +171,7 @@ When you're ready to create an indexer on a remote search service, you need a se
 
 ### [**REST**](#tab/indexer-rest)
 
-The Postman app can function as an indexer client. Using the app, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) requests. 
+Visual Studio Code with a REST client can send indexer requests. Using the app, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) requests. 
 
 ```http
 POST /indexers?api-version=[api-version]
@@ -188,7 +188,7 @@ POST /indexers?api-version=[api-version]
 }
 ```
 
-There are numerous tutorials and examples that demonstrate REST clients for creating objects. [Create a search index using REST and Postman](search-get-started-rest.md) can get you started.
+There are numerous tutorials and examples that demonstrate REST clients for creating objects. [Create a search index using REST](search-get-started-rest.md) can get you started.
 
 ### [**.NET SDK**](#tab/indexer-csharp)
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure Operator Insights Data Product
 description: In this article, learn how to create an Azure Operator Insights Data Product resource. 
 author: rcdun
@@ -7,7 +7,7 @@ ms.reviewer: rathishr
 ms.service: operator-insights
 ms.topic: quickstart
 ms.date: 10/16/2023
-ms.custom: template-quickstart #Required; leave this attribute/value as-is.
+ms.custom: template-quickstart, devx-track-azurecli #Required; leave this attribute/value as-is.
 ---
 
 # Create an Azure Operator Insights Data Product
@@ -319,9 +319,9 @@ The consumption URL also allows you to write your own Kusto query to get insight
       | render linechart
       ```
 
-## Delete Azure resources
+## Optionally, delete Azure resources
 
-When you have finished exploring Azure Operator Insights Data Product, you should delete the resources you've created to avoid unnecessary Azure costs.
+If you're using this data product to explore Azure Operator Insights, you should delete the resources you've created to avoid unnecessary Azure costs.
 
 # [Portal](#tab/azure-portal)
 
@@ -336,3 +336,10 @@ When you have finished exploring Azure Operator Insights Data Product, you shoul
 az group delete --name "ResourceGroup"
 ```
 ---
+
+## Next step
+
+Upload data to your data product. If you're planning to do this with the Azure Operator Insights ingestion agent:
+
+1. Read the documentation for your data product to determine the requirements.
+1. [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).

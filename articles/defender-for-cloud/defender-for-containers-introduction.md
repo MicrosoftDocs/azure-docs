@@ -50,7 +50,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 
   :::image type="content" source="media/defender-for-containers/resource-filter.png" alt-text="Screenshot showing you where the resource filter is located." lightbox="media/defender-for-containers/resource-filter.png":::
 
-  For details included with this capability, check out the [containers section](recommendations-reference.md#recs-container) of the recommendations reference table, and look for recommendations with type "Control plane"
+  For details included with this capability, check out the [containers section](recommendations-reference.md#container-recommendations) of the recommendations reference table, and look for recommendations with type "Control plane"
 
 ### Agent-based capabilities
 
@@ -67,11 +67,6 @@ You can learn more about [Kubernetes data plane hardening](kubernetes-workload-p
 Defender for Containers scans the container images in Azure Container Registry (ACR), Amazon AWS Elastic Container Registry (ECR), Google Artifact Registry (GAR), and Google Container Registry (GCR) to provide agentless vulnerability assessment for your container images, including registry and runtime recommendations, remediation guidance, quick scans of new images, real-world exploit insights, exploitability insights, and more.
 
 Vulnerability information powered by Microsoft Defender Vulnerability Management is added to the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph) for contextual risk, calculation of attack paths, and hunting capabilities.
-
-> [!NOTE]
-> The Qualys offering is only available to customers who onboarded to Defender for Containers before November 15, 2023.
-
-There are two solutions for vulnerability assessment in Azure, one powered by Microsoft Defender Vulnerability Management and one powered by Qualys.
 
 Learn more about:
 
@@ -99,7 +94,7 @@ The security alerts page opens:
 
    :::image type="content" source="media/defender-for-containers/view-containers-alerts.png" alt-text="Screenshot showing you where to view the list of alerts." lightbox="media/defender-for-containers/view-containers-alerts.png":::
 
-Security alerts for runtime workload in the clusters can be recognized by the `K8S.NODE_` prefix of the alert type.  For a full list of the cluster level alerts, see the [reference table of alerts](alerts-reference.md#alerts-k8scluster).
+Security alerts for runtime workload in the clusters can be recognized by the `K8S.NODE_` prefix of the alert type.  For a full list of the cluster level alerts, see the [reference table of alerts](alerts-reference.md#alerts-for-containers---kubernetes-clusters).
 
 Defender for Containers also includes host-level threat detection with over 60 Kubernetes-aware analytics, AI, and anomaly detections based on your runtime workload.
 

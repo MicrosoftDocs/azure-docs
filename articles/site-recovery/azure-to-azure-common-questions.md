@@ -4,7 +4,7 @@ description: This article answers common questions about Azure VM disaster recov
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: rochakm
-ms.date: 10/06/2023
+ms.date: 02/27/2024
 ms.topic: conceptual
 ms.service: site-recovery
 
@@ -76,7 +76,7 @@ Yes, you can replicate VMs in availability zones to another Azure region.
 
 ### Can I replicate non-zone VMs to a zone within the same region?
 
-This isn't supported in the portal. You can use the REST API/PowerShell to do this.
+This isn't supported.
 
 ### Can I replicate zoned VMs to a different zone in the same region?
 

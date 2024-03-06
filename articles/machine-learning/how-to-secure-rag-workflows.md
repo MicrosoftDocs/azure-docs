@@ -38,7 +38,7 @@ Depending on your setup and scenario, RAG workflows in Azure Machine Learning ma
 
 2. Navigate to the [Azure portal](https://ms.portal.azure.com) and select **Networking** under the **Settings** tab in the left-hand menu.
 
-3. To allow your RAG workflow to communicate with [<u>private</u> Azure Cognitive Services](./../ai-services/cognitive-services-virtual-networks.md) such as Azure Open AI or Azure AI Search during Vector Index creation, you need to define a related user outbound rule to a related resource. Select **Workspace managed outbound access** at the top of networking settings. Then select **+Add user-defined outbound rule**. Enter in a **Rule name**. Then select your resource you want to add the rule to using the **Resource name** text box.
+3. To allow your RAG workflow to communicate with [<u>private</u> Azure Cognitive Services](./../ai-services/cognitive-services-virtual-networks.md) such as Azure OpenAI or Azure AI Search during Vector Index creation, you need to define a related user outbound rule to a related resource. Select **Workspace managed outbound access** at the top of networking settings. Then select **+Add user-defined outbound rule**. Enter in a **Rule name**. Then select your resource you want to add the rule to using the **Resource name** text box.
 
    The Azure Machine Learning workspace creates a private endpoint in the related resource with autoapprove. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
 
@@ -52,7 +52,7 @@ Depending on your setup and scenario, RAG workflows in Azure Machine Learning ma
 
 7. (optional) To add an outgoing FQDN rule, in the Azure portal, select **Networking** under the **Settings** tab in the left-hand menu. Select **Workspace managed outbound access** at the top of networking settings. Then select **+Add user-defined outbound rule**. Select **FQDN Rule** under **Destination type**. Enter your endpoint URL in **FQDN Destination**. To find your endpoint URL, navigate to deployed endpoints in the Azure portal, select your desired endpoints and copy the endpoint URL from the details section.
 
-If you're using an **Allow only approved outbound** Managed Vnet workspace and a `public` Azure Open AI resource, you need to **add an outgoing FQDN rule** for your Azure Open AI endpoint. This enables data plane operations, which are required to perform Embeddings in RAG. Without this, the AOAI resource, even if public, isn't allowed to be accessed.
+If you're using an **Allow only approved outbound** Managed Vnet workspace and a `public` Azure OpenAI resource, you need to **add an outgoing FQDN rule** for your Azure OpenAI endpoint. This enables data plane operations, which are required to perform Embeddings in RAG. Without this, the AOAI resource, even if public, isn't allowed to be accessed.
 
 7. (optional) In order to upload data files beforehand or to use **Local Folder Upload** for RAG when the storage account is made is private, the workspace must be accessed from a Virtual Machine behind a Vnet, and subnet must be allow-listed in the Storage Account. This can be done by selecting **Storage Account**, then **Networking setting**. Select **Enable for selected virtual network and IPs**, then add your workspace Subnet.
 

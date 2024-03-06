@@ -78,8 +78,6 @@ The Azure Container Apps extension for Visual Studio Code enables you to choose 
 
 Congratulations! You successfully created and deployed your first container app using Visual Studio Code.
 
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
-
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services at once by removing the resource group.
