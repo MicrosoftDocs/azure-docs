@@ -46,6 +46,21 @@ Application volume group for SAP HANA helps you simplify the deployment process 
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.
     * This deployment method provides better performance and throughput for the SAP HANA database.
 
+### <a name="extension-one-features"></a> Extension one features (preview)
+
+Application volume group for SAP HANA extension one offers support for:
+
+* [Availability zone volume placement](use-availability-zones.md)
+
+    Designating the same availability zone for the volumes ensures that virtual machines and Azure NetApp Files volumes reside in the same availability zone and meet the latency requirements for SAP HANA. This improvement simplifies the deployment process, avoiding the manual AvSet pinning process and eliminating the requirement for availability sets. 
+    
+* [Standard network features](azure-netapp-files-network-topologies.md) 
+
+Application volume group for SAP HANA now supports selecting Standard network features for all volumes in the volume group. 
+
+his will further simplifyies the deployment process, avoiding the a manual process for computeAvSet  pinning requirement and do not require no longer requires the the use of availability sets.
+
+
 ## Next steps
 
 * [Requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md)

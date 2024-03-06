@@ -16,6 +16,9 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
 
 ## Before you begin
 
+>[!IMPORTANT]
+>The following examples assume you haven't registered Application volume group for SAP HANA extension 1. If you have registered for this feature, some of the screens appear differently, showing the additional features.
+
 You should understand the [requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). 
 
 Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** and have at least one HANA VM in the availability set started. 
