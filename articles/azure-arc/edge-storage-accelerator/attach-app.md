@@ -32,7 +32,7 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
 
 1. Edit the statefulSet to include the new mounts for ESA in volumeMounts and volumes:
 
-    ```bash
+    ```yaml
     volumeMounts: 
     - mountPath: /etc/bluefin/config 
       name: config-volume 
@@ -85,7 +85,7 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
    > [!NOTE]
    > See the comments in the following YAML to populate the values with your environment details.
 
-   ```yml
+   ```yaml
    kind: Deployment
    apiVersion: apps/v1
    metadata:
