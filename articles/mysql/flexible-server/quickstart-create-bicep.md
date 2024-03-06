@@ -24,9 +24,9 @@ ms.date: 02/16/2023
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-## Create server with public access
+## Create a server that has public access
 
-Modify the following code samples to create a *main.bicep* file and a *CreateFirewallRules.bicep* file. Use the files to create an Azure Database for MySQL flexible server that has public access and to create a database on the server. You might need to modify the `firewallRules` default value.
+Modify the following code examples to create a *main.bicep* file and a *CreateFirewallRules.bicep* file. Use the files to create an Azure Database for MySQL flexible server that has public access and to create a database on the server. You might need to modify the default value of `firewallRules`.
 
 *main.bicep*:
 
@@ -217,7 +217,7 @@ param serverVersion string = '8.0.21'
 @description('The availability zone information for the server. (If you don't have a preference, leave blank.)')
 param availabilityZone string = '1'
 
-@description('Provide the high availability mode for a server : Disabled, SameZone, or ZoneRedundant')
+@description('Provide the high availability mode for a server: Disabled, SameZone, or ZoneRedundant.')
 @allowed([
   'Disabled'
   'SameZone'

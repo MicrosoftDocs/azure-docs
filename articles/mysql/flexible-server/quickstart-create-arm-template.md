@@ -26,7 +26,7 @@ ms.date: 02/16/2023
 
 ## Create a server that has public access
 
-To create an Azure Database for MySQL flexible server instance by using the public access connectivity method and create a database on the server, reate an *azuredeploy.json* file that has the following code examples. If necessary, update the `firewallRules` default value.
+To create an Azure Database for MySQL - Flexible Server instance by using the public access connectivity method and create a database on the server, create an *azuredeploy.json* file that has the following code examples. If necessary, update the default value for `firewallRules`.
 
 ```json
 {
@@ -73,7 +73,7 @@ To create an Azure Database for MySQL flexible server instance by using the publ
         "MemoryOptimized"
       ],
       "metadata": {
-        "description": "The tier of the specific SKU. High vailability is available only for GeneralPurpose and MemoryOptimized SKUs."
+        "description": "The tier of the specific SKU. High availability is available only for GeneralPurpose and MemoryOptimized SKUs."
       }
     },
     "version": {
@@ -91,7 +91,7 @@ To create an Azure Database for MySQL flexible server instance by using the publ
       "type": "string",
       "defaultValue": "1",
       "metadata": {
-        "description": "Availability zone information of the server. (If you don't have a preference, leave leave blank.)"
+        "description": "The availability zone information of the server. (If you don't have a preference, leave this setting blank.)"
       }
     },
     "haEnabled": {
@@ -103,7 +103,7 @@ To create an Azure Database for MySQL flexible server instance by using the publ
         "ZoneRedundant"
       ],
       "metadata": {
-        "description": "High availability mode for a server: Disabled, SameZone, or ZoneRedundant"
+        "description": "High availability mode for a server: Disabled, SameZone, or ZoneRedundant."
       }
     },
     "standbyAvailabilityZone": {
@@ -504,7 +504,7 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile azurede
 
 ---
 
-Complete the steps to enter the parameter values. When the deployment finishes, message indicates a successful deployment.
+Complete the steps to enter the parameter values. When the deployment finishes, a message indicates a successful deployment.
 
 ## Review deployed resources
 
@@ -546,4 +546,4 @@ Remove-AzResourceGroup -Name exampleRG
 ## Related content
 
 - For a step-by-step tutorial that guides you through the process of creating an ARM template, see [Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
-- For a step-by-step tutorial to build an app by using Azure App Service and MySQL, see [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md).
+- For a step-by-step tutorial that demonstrates how to build an app by using Azure App Service and MySQL, see [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md).

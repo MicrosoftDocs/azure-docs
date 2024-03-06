@@ -24,7 +24,7 @@ In the [Azure portal](https://portal.azure.com), enter your credentials to sign 
 
 ## Create an Azure Database for MySQL flexible server
 
-You create an instance of Azure Database for MySQL - Flexible Server by using a defined set of [compute and storage resources](./concepts-compute-storage.md) to create a flexible server. You create the server within an [Azure resource group](../../azure-resource-manager/management/overview.md).
+You create an instance of Azure Database for MySQL - Flexible Server by using a defined set of [compute and storage resources](./concepts-compute-storage.md) to create a flexible server. Create the server within an [Azure resource group](../../azure-resource-manager/management/overview.md).
 
 Complete these steps to create an Azure Database for MySQL flexible server:
 
@@ -64,7 +64,7 @@ Complete these steps to create an Azure Database for MySQL flexible server:
 
    When you use public access, access to your server is limited to the allowed IP addresses that you add to a firewall rule. Using this method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range of IP addresses. When you select **Create an azuredeploy.json file**, access to your server is limited to your virtual network. For more information about private access, see the [concepts](./concepts-networking.md) article.
 
-   In this quickstart, you learn how to set public access to connect to the server. On the **Networking tab**, for **Connectivity method**, select **Public access**. To set **Firewall rules**, select **Add current client IP address**.
+   In this quickstart, you learn how to set public access to connect to the server. On the **Networking tab**, for **Connectivity method**, select **Public access**. To set firewall rules, select **Add current client IP address**.
 
    > [!NOTE]
    > You can't change the connectivity method after you create the server. For example, if you select **Public access (allowed IP addresses)** when you create the server, you can't change the setting to **Private access (VNet Integration)** after the server is deployed. We highly recommend that you create your server to use private access to help secure access to your server via virtual network integration. For more information about private access, see the [concepts](./concepts-networking.md) article.
@@ -96,7 +96,7 @@ After you select **Connect**, you can see details about how to connect locally b
 :::image type="content" source="./media/quickstart-create-server-portal/connect-mysql-flexible-server.png" alt-text="Screenshot that shows the Connect pane.":::
 
 > [!IMPORTANT]
-> If you see the following error message when you connect to your Azure Database for MySQL flexible server, either you didn't select the **Allow public access from any Azure service within Azure to this server** checkbox when you set up your firewall rules, or the option isn't saved. Try again to set the firewall rules, and then try again.
+> If you see the following error message when you connect to your Azure Database for MySQL flexible server, either you didn't select the **Allow public access from any Azure service within Azure to this server** checkbox when you set up your firewall rules, or the option isn't saved. Set the firewall rules, and then try again.
 >
 > `ERROR 2002 (HY000): Can't connect to MySQL server on <servername> (115)`
 
