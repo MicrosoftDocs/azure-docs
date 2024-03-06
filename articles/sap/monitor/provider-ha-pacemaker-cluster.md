@@ -133,6 +133,9 @@ To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow
 1. Click on "Start test" under "Pre-requisite check (Preview) - highly-recommended" - This test will help validate the connectivity from AMS subnet to the SAP source system and list out if any error's found - which need to be addressed before provider creation otherwise the provider creation will fail with error.
 1. Select **Create** to finish creating the Provider.
 
+1. Create provider for each of the servers in the cluster to be able to see the metrics in the workbook
+For example - If the Cluster has 3 servers configured, Create 3 providers for each of the 3 servers with all of the above steps followed.
+
 ## Troubleshooting
 
 Use the following troubleshooting steps for common errors.
