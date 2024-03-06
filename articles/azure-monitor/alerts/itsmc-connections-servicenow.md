@@ -132,7 +132,7 @@ When you're successfully connected and synced:
 
 - Selected work items from the ServiceNow instance are imported into Log Analytics. You can view the summary of these work items on the **IT Service Management Connector** tile.
 
-- You can create incidents from Log Analytics alerts or log records, or from Azure alerts in this ServiceNow instance.
+- You can create incidents from log search alerts or log records, or from Azure alerts in this ServiceNow instance.
 
 > [!NOTE]
 > ServiceNow has a rate limit for requests per hour. To configure the limit, define **Inbound REST API rate limiting** in the ServiceNow instance.
@@ -143,7 +143,7 @@ The payload that is sent to ServiceNow has a common structure. The structure has
 
 The structure of the payload for all alert types except log search V1 alert is [common schema](./alerts-common-schema.md).
 
-For Log Search Alerts (V1 only), the structure is:
+For Log search alerts (V1 only), the structure is:
 
 - Alert  (alert rule name) : \<value>
 - Search Query : \<value>

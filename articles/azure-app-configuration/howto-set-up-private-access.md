@@ -70,7 +70,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 1. Select **Next : Virtual Network >**.
 
-   1. Select an existing **Virtual network** to deploy the private endpoint to. If you don't have a virtual network, [create a virtual network](../private-link/create-private-endpoint-portal.md#create-a-virtual-network-and-bastion-host).
+   1. Select an existing **Virtual network** to deploy the private endpoint to. If you don't have a virtual network, [create a virtual network](../private-link/create-private-endpoint-portal.md).
 
    1. Select a **Subnet** from the list.
 

@@ -511,6 +511,8 @@ items:
       href: connector-microsoft-access.md
     - name: Microsoft Fabric Lakehouse
       href: connector-microsoft-fabric-lakehouse.md
+    - name: Microsoft Fabric Warehouse
+      href: connector-microsoft-fabric-warehouse.md
     - name: MongoDB
       href: connector-mongodb.md
       items:

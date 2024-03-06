@@ -5,7 +5,7 @@ description: You use Cost Management + Billing features to conduct billing admin
 author: bandersmsft
 ms.author: banders
 ms.reviewer: micfaln
-ms.date: 08/07/2023
+ms.date: 02/28/2024
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
@@ -116,7 +116,7 @@ Organizing and allocating costs are critical to ensuring invoices are routed to 
 - **Subscriptions** and **resource groups** are the lowest level at which you can organize your cloud solutions. At Microsoft, every product – sometimes even limited to a single region – is managed within its own subscription. It simplifies cost governance but requires more overhead for subscription management. Most organizations use subscriptions for business units and separating dev/test from production or other environments, then use resource groups for the products. It complicates cost management because resource group owners don't have a way to manage cost across resource groups. On the other hand, it's a straightforward way to understand who's responsible for most resource-based charges. Keep in mind that not all charges come from resources and some don't have resource groups or subscriptions associated with them. It also changes as you move to MCA billing accounts.
 - **Resource tags** are the only way to add your own business context to cost details and are perhaps the most flexible way to map resources to applications, business units, environments, owners, etc. For more information, see [How tags are used in cost and usage data](./costs/understand-cost-mgt-data.md#how-tags-are-used-in-cost-and-usage-data) for limitations and important considerations.
 
-In addition to organizing resources and subscriptions using the subscription hierarchy and metadata (tags), Cost Management also offers the ability to *move* or split shared costs via cost allocation rules. Cost allocation doesn't change the invoice. Cost allocation simply moves charges from one subscription, resource group, or tag to another subscription, resource group, or tag. The goal of cost allocation is to split and move shared costs to reduce overhead. And, to more accurately report on where charges are ultimately coming from (albeit indirectly), which should drive more complete accountability. For more information, see [Allocate Azure costs](./costs/allocate-costs.md).
+Cost allocation is the set of practices to divide up a consolidated invoice. Or, to bill the people responsible for its various component parts. It's the process of assigning costs to different groups within an organization based on their consumption of resources and application of benefits. By providing visibility into costs to groups who are responsible for it, cost allocation helps organizations track and optimize their spending, improve budgeting and forecasting, and increase accountability and transparency. For more information, see [Cost allocation](./costs/cost-allocation-introduction.md).
 
 How you organize and allocate costs plays a huge role in how people within your organization can manage and optimize costs. Be sure to plan ahead and revisit your allocation strategy yearly.
 

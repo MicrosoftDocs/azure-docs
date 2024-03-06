@@ -32,6 +32,8 @@
     href: tutorials/deploy-chat-web-app.md
   - name: Build your own copilot using prompt flow
     href: tutorials/deploy-copilot-ai-studio.md
+  - name: Build your own copilot using Azure AI CLI and SDK
+    href: tutorials/deploy-copilot-sdk.md
   - name: Using Azure AI Studio with a screen reader
     href: tutorials/screen-reader.md
 - name: How-to
@@ -107,6 +109,8 @@
         href: how-to/flow-develop.md
       - name: Tune prompts using variants
         href: how-to/flow-tune-prompts-using-variants.md
+      - name: Process images in a flow
+        href: how-to/flow-process-image.md
     - name: Use prompt flow tools
       items:
       - name: Overview of prompt flow tools
@@ -171,6 +175,9 @@
     - name: Deploy Llama 2 family models
       href: how-to/deploy-models-llama.md
       displayName: maas, as a service
+    - name: Deploy Mistral family models
+      href: how-to/deploy-models-mistral.md
+      displayName: maas, as a service
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
@@ -208,6 +215,8 @@
         href: ../ai-services/rotate-keys.md?context=/azure/ai-studio/context/context
       - name: Configure customer-managed keys
         href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context
+    - name: Vulnerability management
+      href: concepts/vulnerability-management.md
 - name: Responsible AI
   items:
   - name: Overview
