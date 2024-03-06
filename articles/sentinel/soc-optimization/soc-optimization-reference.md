@@ -25,7 +25,7 @@ Microsoft Sentinel SOC optimizations in the Microsoft Defender portal include th
 This article provides a reference of the SOC optimization recommendations available.
 
 > [!NOTE]
-> SOC optimization is available for Microsoft Sentinel customers, with Microsoft Sentinel integrated into Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR (preview)](microsoft-sentinel-onboard.md).
+> SOC optimization is available for Microsoft Sentinel customers, with Microsoft Sentinel integrated into Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR (preview)](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 >
 
 ## Cost-based optimizations

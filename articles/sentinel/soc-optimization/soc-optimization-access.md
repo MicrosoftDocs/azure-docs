@@ -21,14 +21,14 @@ Microsoft Sentinel SOC optimizations provide you with high-fidelity and actionab
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
 > [!NOTE]
-> SOC optimization is available for Microsoft Sentinel customers, with Microsoft Sentinel integrated into Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR (preview)](microsoft-sentinel-onboard.md).
+> SOC optimization is available for Microsoft Sentinel customers, with Microsoft Sentinel integrated into Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR (preview)](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 >
 
 ## Prerequisites
 
 To access SOC optimization in the Microsoft Defender portal, you must be a Microsoft Sentinel customer, with Microsoft Sentinel integrated into Microsoft Defender XDR.
 
-For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR (preview)](microsoft-sentinel-onboard.md).
+For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR (preview)](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 <!--roles?-->
 
@@ -36,7 +36,7 @@ For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR 
 
 In the Microsoft Defender portal, select **SOC optimization** from the left-side navigation menu. For example:
 
-:::image type="content" source="media/security-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR.":::
+:::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR.":::
 
 ## Understand SOC optimization overview metrics
 
