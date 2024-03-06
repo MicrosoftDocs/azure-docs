@@ -19,8 +19,6 @@ Resources that are deployed in Azure run continuously. It's difficult to activel
 
 By using Network Watcher alerts and functions from within the Azure ecosystem, you can proactively respond with the data and tools to solve problems in your network.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
 - The latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell).
