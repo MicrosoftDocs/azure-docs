@@ -30,11 +30,11 @@ A: The virtual network and the resources in the affected region remains inaccess
 
 A: Virtual networks are fairly lightweight resources. You can invoke Azure APIs to create a virtual network with the same address space in a different region. To recreate the same environment that was present in the affected region, redeploy the virtual machines and other resources.  If you have on-premises connectivity, such as in a hybrid deployment, you have to deploy a new VPN Gateway, and connect to your on-premises network.
 
-To create a virtual network, see [Create a virtual network](manage-virtual-network.md#create-a-virtual-network).
+To create a virtual network, see [Create a virtual network](manage-virtual-network.yml#create-a-virtual-network).
 
 **Q: Can a replica of a virtual network in a given region be re-created in another region ahead of time?**
 
 A: Yes, you can create two virtual networks using the same private IP address space and resources in two different regions ahead of time. If you're hosting internet-facing services in the virtual network, you could have set up Traffic Manager to geo-route traffic to the region that is active. However, you can't connect two virtual networks with the same address space to your on-premises network, as it would cause routing issues. At the time of a disaster and loss of a virtual network in one region, you can connect the other virtual network in the available region, with the matching address space to your on-premises network.
 
-To create a virtual network, see [Create a virtual network](manage-virtual-network.md#create-a-virtual-network).
+To create a virtual network, see [Create a virtual network](manage-virtual-network.yml#create-a-virtual-network).
 

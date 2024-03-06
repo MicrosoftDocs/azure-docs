@@ -159,7 +159,7 @@ items:
       - name: Create VM - multiple IPs
         items:
         - name: Azure portal
-          href: virtual-network-multiple-ip-addresses-portal.md
+          href: virtual-network-multiple-ip-addresses-portal.yml
         - name: Azure PowerShell
           href: virtual-network-multiple-ip-addresses-powershell.md
         - name: Azure CLI

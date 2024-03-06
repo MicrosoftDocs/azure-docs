@@ -123,7 +123,7 @@ The pages collection is a list of pages within the document. Each page is repres
 | --- | --- | --- |
 |Images (JPEG/JPG, PNG, BMP, HEIF) | Each image = 1 page unit | Total images  |
 |PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
-|TIFF | Each image in the TIFF = 1 page unit | Total images in the PDF |
+|TIFF | Each image in the TIFF = 1 page unit | Total images in the TIFF |
 |Word (DOCX)  | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 |Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets |
 |PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides |

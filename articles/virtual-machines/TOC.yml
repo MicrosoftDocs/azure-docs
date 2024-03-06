@@ -182,6 +182,8 @@
       href: sizes.md
     - name: General purpose
       items:
+      - name: Dasv6 and Dadsv6-series
+        href: dasv6-dadsv6-series.md
       - name: Overview
         displayName: General purpose, sizes, size, vm size
         href: sizes-general.md
@@ -221,6 +223,8 @@
         href: ddv5-ddsv5-series.md
       - name: Dasv5 and Dadsv5-series
         href: dasv5-dadsv5-series.md
+      - name: Dalsv6 and Daldsv6-series
+        href: dalsv6-daldsv6-series.md
       - name: DCasv5 and DCadsv5-series
         href: dcasv5-dcadsv5-series.md
       - name: DCas_cc_v5 and DCads_cc_v5-series
@@ -253,6 +257,8 @@
         href: ev3-esv3-series.md
       - name: Eav4 and Easv4-series
         href: eav4-easv4-series.md
+      - name: Easv6 and Eadsv6-series
+        href: easv6-eadsv6-series.md
       - name: Edv4 and Edsv4-series
         href: edv4-edsv4-series.md
       - name: Ev4 and Esv4-series
@@ -1619,7 +1625,7 @@
   - name: Create VM - multiple IPs
     items:
     - name: Azure portal
-      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md?toc=/azure/virtual-machines/toc.json
+      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.yml?toc=/azure/virtual-machines/toc.json
     - name: Azure PowerShell
       href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md?toc=/azure/virtual-machines/toc.json
     - name: Azure CLI
