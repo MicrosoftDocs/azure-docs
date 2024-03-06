@@ -14,7 +14,7 @@ ms.date: 03/07/2024
 
 The Change log for the API for MongoDB is meant to inform you about our feature updates. This document covers more granular updates and complements [Azure Updates](https://azure.microsoft.com/updates/).
 
-## [3 March'24] Enhancements to `Explain` plan & Vector filtering abilities
+## 3 March 2024: Enhancements to `Explain` plan and Vector filtering abilities
 
 * Azure Cosmos DB for MongoDB vCore allows filtering by metadata columns while performing vector searches. 
 * `Explain` plan now offer different modes
