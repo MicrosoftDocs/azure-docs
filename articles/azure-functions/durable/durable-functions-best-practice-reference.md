@@ -59,14 +59,21 @@ To mitigate the impact of large inputs and outputs to APIs, you may choose to de
 
 That said the best practice for dealing with _large_ data is to keep it in external storage and to only materialize that data inside Activities, when needed. When taking this approach, instead of communicating the data itself as inputs and/or outputs of Durable Functions APIs, you can pass in some lightweight identifier that allows you to retrieve that data from external storage when needed in your Activities.
 
+### Keep Entity data small
+
+Just like for inputs and outputs to Durable Functions APIs, if an entity's explicit state is too large, you may run into memory issues. In particular, an Entity state needs to be serialized and de-serialized from storage on any request, so large states add serialization latency to each invocation. Therefore, if an Entity needs to track large data, it is recommended to offload the data to external storage and simply track some lightweight identifier in the entity that allows you to materialize the data from storage when needed.
+
 ### Fine tune your Durable Functions concurrency settings
 
 A single worker instance can execute multiple work items concurrently to increase efficiency. However, processing too many work items concurrently risks exhausting resources like CPU capacity, network connections, etc. In many cases, this shouldn’t be a concern because scaling and limiting work items are handled automatically for you. That said, if you’re experiencing performance issues (such as orchestrators taking too long to finish, are stuck in pending, etc.) or are doing performance testing, you could [configure concurrency limits](durable-functions-perf-and-scale.md#configuration-of-throttles) in the host.json file.
 
 > [!NOTE]
 > This is not a replacement for fine-tuning the performance and concurrency settings of your language runtime in Azure Functions. The Durable Functions concurrency settings only determine how much work can be assigned to a given VM at a time, but it does not determine the degree of parallelism in processing that work inside the VM. The latter requires fine-tuning the language runtime performance settings.
- 
- 
+
+### Invest in stress testing
+
+As with anything performance related, the ideal concurrency settings and architechture of your app ultimately depends on your application's workload. Therefore, it is recommended that users to invest in a performance testing harness that simulates their expected workload and to use it to run performance and reliability experiments for their app. 
+
 ## Diagnostic tools
 
 There are several tools available to help you diagnose problems.
