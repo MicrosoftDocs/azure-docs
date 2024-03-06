@@ -15,7 +15,7 @@ The following table lists the current versions available for the public and Insi
 | Insider | 1.2.5252 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
 >[!IMPORTANT]
->As of March 6, 2024, the client has rolled back to [version 1.2.5112](#updates-for-version-125112). We've deleted the entries for versions 1.2.5252, 1.2.5248, and 1.2.5126 because they are no longer available to users.
+>As of March 6, 2024, the public version of the client has rolled back to [version 1.2.5112](#updates-for-version-125112). Version 1.2.5252 has reverted to an Insider version.
 
 ## Updates for version 1.2.5252 (Insider)
 
