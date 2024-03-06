@@ -310,19 +310,19 @@ For more details on parameters see [Translator API](../../ai-services/translator
 `boolean DEFAULT 'plain'` Defines the type of text being translated. Valid values are 'plain' or 'html'. Any HTML needs to be well-formed.
 
 ##### `profanity_action`
-`boolean DEFAULT 'NoAction'` Specificies how profanities are treated in translations. Valid values are 'NoAction' , 'Marked', or 'Deleted'. 'NoAction' is the default behavior and profanity passes from source to target. 'Deleted' indicates that profane words are removed without replacement. 'Marked' replaces the marked word in the output with the profanity_marker parameter.
+`boolean DEFAULT 'NoAction'` Specifies how profanities are treated in translations. Valid values are 'NoAction' , 'Marked', or 'Deleted'. 'NoAction' is the default behavior and profanity passes from source to target. 'Deleted' indicates that profane words are removed without replacement. 'Marked' replaces the marked word in the output with the profanity_marker parameter.
 
 ##### `profanity_marker`
-`boolean DEFAULT 'Asterisk'` Specificies how profanities are marked in translations. Possible values are 'Asterisk' which replaces profane words with *** or 'Tag' which replaces profane words with '\<profanity> \</profanity>' tags.
+`boolean DEFAULT 'Asterisk'` Specifies how profanities are marked in translations. Possible values are 'Asterisk' which replaces profane words with *** or 'Tag' which replaces profane words with '\<profanity> \</profanity>' tags.
 
 ##### `suggested_source_language`
-`text DEFAULT NULL` Specificies fallback language if the language of input text cannot be identified.
+`text DEFAULT NULL` Specifies fallback language if the language of input text cannot be identified.
 
 ##### `source_script`
-`text DEFAULT NULL` Specificies script of the input text.
+`text DEFAULT NULL` Specific script of the input text.
 
 ##### `target_script`
-`text DEFAULT NULL` Specificies script of the input text.
+`text DEFAULT NULL` Specific script of the input text.
 
 ## Next steps
 
