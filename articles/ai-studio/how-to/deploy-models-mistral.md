@@ -23,7 +23,7 @@ You can browse the Mistral family of models in the Model Catalog by filtering on
 
 ## Mistral Large 
 
-In this article, you learn how to use Azure AI Studio to deploy the Mistral Large model as a service with pay-as you go billing.
+In this article, you learn how to use Azure AI Studio to deploy the Mistral Large model as a service with pay-as-you-go billing.
 
 Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task thanks to its state-of-the-art reasoning and knowledge capabilities.
 
