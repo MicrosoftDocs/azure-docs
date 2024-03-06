@@ -30,15 +30,15 @@ This article provides a reference of the SOC optimization recommendations availa
 
 ## Cost-based optimizations
 
-To optimize your costs, SOC optimization surfaces hardly-used data connectors or tables, and suggests ways to either reduce the cost of a table or improve its value, depending on your coverage. This type of optimization is also called *data value optimization*.
+To optimize your cost to security value ratio, SOC optimization surfaces hardly-used data connectors or tables, and suggests ways to either reduce the cost of a table or improve its value, depending on your coverage. This type of optimization is also called *data value optimization*.
 
-SOC optimization <!--is this general or only for cost-based optimizations?--> only looks at data from billable tables that ingested data in the past 30 days.
+Cost-based optimizations only look at billable tables that ingested data in the past 30 days.
 
 The following table lists the available cost-based SOC optimization recommendations:
 
 |Observation  |Action  |
 |---------|---------|
-|The table wasn’t used by analytic rules or detections in the last 30 days but was used by other sources, such as workbooks, log queries, hunting queries.     |    Turn on analytics rule templates <br>OR<br>Move to basic logs if you're eligible    |
+|The table wasn’t used by analytic rules or detections in the last 30 days but was used by other sources, such as workbooks, log queries, hunting queries.     |    Turn on analytics rule templates <br>OR<br>Move to basic logs if the table is eligible    |
 |The table wasn’t used at all in the last 30 days     | Turn on analytics rule templates <br>OR<br> Stop data ingestion or archive the table       |
 |The table was only used by Azure Monitor     |  Turn on any relevant analytics rule templates for tables with security value <br>OR<br>Move to a non-security Log Analytics workspace       |
 
@@ -51,7 +51,7 @@ If a table is chosen for [UEBA](/azure/sentinel/enable-entity-behavior-analytics
 
 To optimize data value, SOC optimization recommends adding security controls to your environment in the form of extra detections and data sources, using a threat-based approach.
 
-To provide threat-based recommendations, SOC optimization looks at the first- and third-party coverage, and compares it to specific use cases based on Microsoft's security research. This optimization type is also known as *coverage optimization*.
+To provide threat-based recommendations, SOC optimization looks at your ingested logs and enabled analytics rules, and compares it to the logs and detections that are required to protect, detect, and respond to specific types of attacks. This optimization type is also known as *coverage optimization*, and is based on Microsoft's security research.
 
 The following table lists the available threat-based SOC optimization recommendations:
 
