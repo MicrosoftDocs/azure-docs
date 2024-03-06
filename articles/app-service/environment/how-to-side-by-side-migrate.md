@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 2/21/2024
+ms.date: 3/6/2024
 ms.author: jordanselig
 # zone_pivot_groups: app-service-cli-portal
 ---
@@ -67,7 +67,7 @@ az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=Validation&api-ve
 
 If there are no errors, your migration is supported, and you can continue to the next step.
 
-## 4. Generate IP addresses for your new App Service Environment v3
+## 4. Generate outbound IP addresses for your new App Service Environment v3
 
 Create a file called *zoneredundancy.json* with the following details for your region and zone redundancy selection.
 
@@ -94,9 +94,17 @@ Run the following command to check the status of this step:
 az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.status
 ```
 
-If the step is in progress, you get a status of `Migrating`. When the step is complete, you get a status of `Ready`.
+If the step is in progress, you get a status of `Migrating`. After you get a status of `Ready`, run the following command to view your new outbound IPs. If you don't see the new IPs immediately, wait a few minutes and try again.
 
-## 5. Delegate your App Service Environment subnet
+```azurecli
+az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01"
+```
+
+## 5. Update dependent resources with new outbound IPs
+
+By using the new outbound IPs, update any of your resources or networking components to ensure that your new environment functions as intended after migration is complete. It's your responsibility to make any necessary updates.
+
+## 6. Delegate your App Service Environment subnet
 
 App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You need to confirm that your subnet is delegated properly and update the delegation (if necessary) before migrating. You can update the delegation either by running the following command or by going to the subnet in the [Azure portal](https://portal.azure.com).
 
@@ -104,7 +112,7 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 az network vnet subnet update --resource-group $VNET_RG --name <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
 ```
 
-## 6. Confirm there are no locks on the virtual network
+## 7. Confirm there are no locks on the virtual network
 
 Virtual network locks block platform operations during migration. If your virtual network has locks, you need to remove them before migrating. If necessary, you can add back the locks after migration is complete.
 
@@ -124,7 +132,7 @@ az lock delete --resource-group $VNET_RG --name <lock-name> --resource <vnet-nam
 
 For related commands to check if your subscription or resource group has locks, see the [Azure CLI reference for locks](../../azure-resource-manager/management/lock-resources.md#azure-cli).
 
-## 7. Prepare your configurations
+## 8. Prepare your configurations
 
 If your existing App Service Environment uses a custom domain suffix, you can [configure one for your new App Service Environment v3 resource during the migration process](./side-by-side-migrate.md#add-a-custom-domain-suffix-optional). Configuring a custom domain suffix is optional. If your App Service Environment v2 has a custom domain suffix and you don't want to use it on your new App Service Environment v3, skip this step. If you previously didn't have a custom domain suffix but want one, you can configure one at this point or at any time once migration is complete. For more information on App Service Environment v3 custom domain suffixes, including requirements, step-by-step instructions, and best practices, see [Custom domain suffix for App Service Environments](./how-to-custom-domain-suffix.md).
 
@@ -132,7 +140,7 @@ If your existing App Service Environment uses a custom domain suffix, you can [c
 > If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment v3's new subnet.
 >
 
-To set these configurations, including identifying the subnet you selected earlier, create another file called *parameters.json* with the following details based on your scenario. Be sure to use the new subnet that you selected for your new App Service Environment v3. Don't include the properties for a custom domain suffix if this feature doesn't apply to your migration. Pay attention to the value of the `zoneRedundant` property and set it to the same value you used in the outbound IP generation step. **You must use the same value for zone redundancy that you used in the IP generation step.**
+To set these configurations, including identifying the subnet you selected earlier, create another file called *parameters.json* with the following details based on your scenario. Be sure to use the new subnet that you selected for your new App Service Environment v3. Don't include the properties for a custom domain suffix if this feature doesn't apply to your migration. Pay attention to the value of the `zoneRedundant` property and set it to the same value you used in the outbound IP generation step. **You must use the same value for zone redundancy that you used in the outbound IP generation step.**
 
 If you're migrating without a custom domain suffix, use this code:
 
@@ -183,7 +191,7 @@ If you're using a system assigned managed identity for your custom domain suffix
 }
 ```
 
-## 8. Migrate to App Service Environment v3 and check status
+## 9. Migrate to App Service Environment v3 and check status
 
 After you complete all of the preceding steps, you can start the migration. Make sure that you understand the [implications of migration](side-by-side-migrate.md#migrate-to-app-service-environment-v3).
 
@@ -202,31 +210,31 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 ```
 After you get a status of `MigrationPendingDnsChange`, migration is done, and you have an App Service Environment v3 resource. Your apps are now running in your new environment as well as in your old environment.
 
-Get the details of your new environment by running the following command or by going to the [Azure portal](https://portal.azure.com).
+Get the details of your new environment by running the following command:
 
 ```azurecli
 az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 ```
 
-## 9. Get the new IP addresses for your new App Service Environment v3 and update dependent resources
-
-You have two App Service Environments at this stage in the migration process. Your apps are running in both environments. You need to update any dependent resources to use the new IP addresses for your new App Service Environment v3. For internal facing (ILB) App Service Environments, you need to update your private DNS zones to point to the new inbound IP address.
-
-You can get the new IP addresses for your new App Service Environment v3 by running the following command. It's your responsibility to make any necessary updates.
-
 > [!IMPORTANT]
-> During the preview, the new inbound IP is returned incorrectly due to a known bug. Open a support ticket to receive the correct IP addresses for your App Service Environment v3.
+> During the migration as well as during the `MigrationPendingDnsChange` step, the Azure portal shows incorrect information about your App Service Environment and your apps. Use the Azure CLI to check the status of your migration. If you have any questions about the status of your migration or your apps, contact support.
 > 
+
+## 10. Get the inbound IP addresses for your new App Service Environment v3 and update dependent resources
+
+You have two App Service Environments at this stage in the migration process. Your apps are running in both environments. You need to update any dependent resources to use the new IP inbound address for your new App Service Environment v3. For internal facing (ILB) App Service Environments, you need to update your private DNS zones to point to the new inbound IP address. You should account for both the old and new inbound IP at this point. You can remove the dependencies on the previous IP address after you complete the next step.
+
+You can get the new inbound IP address for your new App Service Environment v3 by running the following command. It's your responsibility to make any necessary updates. 
 
 ```azurecli
 az rest --method get --uri "${ASE_ID}?api-version=2022-03-01"
 ```
 
-## 10. Redirect customer traffic and complete migration
+## 11. Redirect customer traffic and complete migration
 
-This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 frontends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration.
+This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration. In order to test the new inbound IP, you need to create DNS records to ensure you go through the App Service Environment v3 front ends.
 
-Once you confirm your apps are working as expected, you can redirect customer traffic to your new App Service Environment v3 frontends by running the following command. This command also deletes your old environment.
+Once you confirm your apps are working as expected, you can redirect customer traffic to your new App Service Environment v3 front ends by running the following command. This command also deletes your old environment.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=DnsChange&api-version=2022-03-01"
