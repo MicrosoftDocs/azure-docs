@@ -9,7 +9,7 @@ metadata:
 
 title: General questions about Azure Site Recovery
 summary: |
-  This article summarizes frequently asked questions about Azure Site Recovery. For specific scenarios review these articles
+  This article summarizes frequently asked questions about Azure Site Recovery. For specific scenarios, review these articles
 
   - [Questions about Azure virtual machine disaster recovery to Azure](azure-to-azure-common-questions.md)
   - [Questions about VMware virtual machine disaster recovery to Azure](vmware-azure-common-questions.md)
@@ -47,7 +47,7 @@ sections:
       - question: |
          What is the Microsoft Azure Recovery Services agent used for?
         answer: |
-             Microsoft Azure Recovery Services agent is used for configuring/registering with Site Recovery services, and for monitoring the health of all the components. This component is one of the basic building blocks of the entire Azure Site Recovery on-premises infrastructure. It helps to replicate your workloads to another Azure region from an on-premises site, and fail over to Azure in case of a disaster.
+             Microsoft Azure Recovery Services agent is used for configuring/registering with Site Recovery services, and for monitoring the health of all the components. This component is one of the basic building blocks of the entire Azure Site Recovery on-premises infrastructure. It helps to replicate your workloads to another Azure region from an on-premises site, and fail over to Azure in a disaster.
 
 
   - name: Service providers
@@ -73,9 +73,9 @@ sections:
              No. Azure's billing relationship is directly with the service provider. Service providers are responsible for generating specific bills for their tenants.
 
       - question: |
-         If I'm replicating to Azure, do we need to run virtual machines in Azure at all times?
+         If I'm replicating to Azure, do we need to run virtual machines in Azure at always?
         answer: |
-             No, Data is replicated to Azure storage in your subscription. When you perform a test failover (DR drill) or an actual failover, Site Recovery automatically creates virtual machines in your subscription.
+             No, Data is replicated to Azure storage in your subscription. When you perform a test failover (disaster recovery drill) or an actual failover, Site Recovery automatically creates virtual machines in your subscription.
 
       - question: |
          Do you ensure tenant-level isolation when I replicate to Azure?
@@ -109,7 +109,7 @@ sections:
       - question: |
          Do I also incur charges for the cache storage account when using Site Recovery?
         answer: |
-             Yes, there are additional charges for cache storage account usage when replicating virtual machines using Site Recovery. Note that the cache storage account costs will remain same when the replica storage is of type managed disks or unmanaged disks.  
+             Yes, there are extra charges for cache storage account usage when replicating virtual machines using Site Recovery. Note that the cache storage account costs will remain same when the replica storage is of type managed disks or unmanaged disks.  
 
       - question: |
          I have been an Azure Site Recovery user for over a month. Do I still get the first 31 days free for every protected instance?
@@ -124,7 +124,7 @@ sections:
       - question: |
          Is there a cost associated to perform disaster recovery drills/test failover?
         answer: |
-              There is no separate cost for DR drill. There will be compute charges after the virtual machine is created after the test failover.
+              There is no separate cost for disaster recovery drill. There will be compute charges after the virtual machine is created after the test failover.
 
 
   - name: Security
@@ -209,7 +209,7 @@ sections:
       - question: |
          Is disaster recovery supported for Azure virtual machines?
         answer: |
-              Yes, Site Recovery supports disaster for Azure virtual machines between Azure regions. [Review common questions](azure-to-azure-common-questions.md) about Azure virtual machine disaster recovery. If you want to replicate between two Azure regions on the same continent, please use our Azure to Azure DR offering. No need to set up configuration server/process server and ExpressRoute connections.
+              Yes, Site Recovery supports disaster for Azure virtual machines between Azure regions. [Review common questions](azure-to-azure-common-questions.md) about Azure virtual machine disaster recovery. If you want to replicate between two Azure regions on the same continent, please use our Azure to Azure disaster recovery offering. No need to set up configuration server/process server and ExpressRoute connections.
 
       - question: |
          Is disaster recovery supported for VMware virtual machines?
@@ -225,7 +225,7 @@ sections:
          Is disaster recovery supported for physical servers?
         answer: |
               Yes, Site Recovery supports disaster recovery of on-premises physical servers running Windows and Linux to Azure or to a secondary site. Learn about requirements for disaster recovery to [Azure](vmware-physical-azure-support-matrix.md#replicated-machines), and to [a secondary site](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
-              Note that physical servers will run as virtual machines in Azure after failover. Failback from Azure to an on-premises physical server isn't currently supported. You can only fail back to a VMware virtual machine.
+              The physical servers will run as virtual machines in Azure after failover. Failback from Azure to an on-premises physical server isn't currently supported. You can only fail back to a VMware virtual machine.
 
       - question: |
           Can I move the Recovery Services vault across subscriptions?
@@ -420,7 +420,7 @@ sections:
       - question: |
          Does increasing the retention period of recovery points increase the storage cost?
         answer: |
-             Yes, if you increase the retention period from one day to three days, Site Recovery will save the recovery points for an additional two days. The added time will incur storage charges since there will be 12 additional recovery points that need to be saved with increase in retention period from one day to three days. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 12 per month.
+             Yes, if you increase the retention period from one day to three days, Site Recovery will save the recovery points for an extra two days. The added time will incur storage charges since there will be 12 additional recovery points that need to be saved with increase in retention period from one day to three days. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 12 per month.
 
   - name: Failover
     questions:
