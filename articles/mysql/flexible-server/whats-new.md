@@ -27,9 +27,9 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 ## February 2024
 
 
-- **Accelerated Logs is now available for exisiting servers and  available in three new regions.**
+- **Accelerated Logs is now available for exisiting servers and available in three new regions.**
     
-  Accelerated Logs, previously limited to servers created after November 14th, is now accessible for all existing Business Critical tier's **standalone** servers in preview phase. Additionally, this feature has been extended to include three new regions: Japan East, Korea Central, and Poland Central. [Learn more.](./concepts-accelerated-logs.md)
+  Accelerated Logs, previously limited to servers created after November 14th, is now accessible for all existing Business Critical tier's **standalone** servers in preview phase. Accelerated logs now also supports [Microsoft Entra ID](./concepts-azure-ad-authentication.md). Additionally, this feature has been extended to include three new regions: Japan East, Korea Central, and Poland Central. [Learn more.](./concepts-accelerated-logs.md) 
 
 
 - **Known Issues**
