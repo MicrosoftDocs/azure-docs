@@ -31,7 +31,9 @@ This service is now available at Preview.
 
 Azure Operator Call Protection connects to your network over IP for the voice call, and via the global SMS network for the delivery of fraud call notifications.
 
-![Azure Operator Call Protection architecture](media/azure-operator-call-protection-architecture.svg)
+:::image type="complex" source="media/azure-operator-call-protection-architecture.svg" alt-text="Diagram of an operator network invoking Azure Operator Call Protection for a subscriber, showing SIP,  RTP and SMS flows" lightbox="media/azure-operator-call-protection-architecture.svg":::
+    A subscriber in an operator network receives a call from an off-net or on-net calling party. The switch, TAS, or IMS core in the operator network causes a SIPREC recording client to contact Azure Communications Gateway with SIP and RTP. Azure Communications Gateway forwards the SIP and RTP to Azure Operator Call Protection. If Azure Operator Call Protection determines that the call might be a scam, it sends an SMS to the subscriber through the global SMS network to alert the subscriber to the potential scam.
+:::image-end:::
 
 Your network communicates with the Call Protection service deployed in a suitable Azure region.
 Connection is over any means using public IP addressing including:
@@ -64,7 +66,7 @@ Azure Operator Call Protection is architected to ensure the security and privacy
 
 Azure Operator Call Protection does not record the call or store the content of calls. No call content can be accessed or listened to by Microsoft.
 
-All customer data, including call content, is processed in the operator’s Azure subscription and is protected by Azure’s robust security and privacy measures, including encryption for data at rest and in transit, identity and access management, threat detection, and compliance certifications.
+All customer data, including call content, is processed in the operator's Azure subscription and is protected by Azure's robust security and privacy measures, including encryption for data at rest and in transit, identity and access management, threat detection, and compliance certifications.
 
 No customer data, including call content, is used to train the AI.
 
