@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, devx-track-python
+ms.custom: cliv2, devx-track-python, update-code
 ms.author: amipatel
 author: amibp
 ms.date: 03/05/2024
@@ -18,6 +18,7 @@ ms.reviewer: franksolomon
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json.
+
 
 [!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -45,7 +46,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `inputs.<input_name>` | number, integer, boolean, string, or object | One of a literal value (of type number, integer, boolean, or string) or an object that contains a [job input data specification](#job-inputs). | | |
 | `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Outputs can be referenced in the `command` using the `${{ outputs.<output_name> }}` expression. | |
 | `outputs.<output_name>` | object | You can leave the object empty, and in that case, by default the output is of `uri_folder` type and Azure Machine Learning system-generates an output location for the output. All files to the output directory are written via read-write mount. To specify a different mode for the output, provide an object that contains the [job output specification](#job-outputs). | |
-| `identity` | object | The identity is used for data accessing. It can be [User Identity Configuration](#useridentityconfiguration), [Managed Identity Configuration](#managedidentityconfiguration) or None. If UserIdentityConfiguration, the identity of job submitter is used to access input data and write result to output folder. Otherwise, the managed identity of the compute target is used. | |
+| `identity` | object | The identity is used for data accessing. It can be [User Identity Configuration](#useridentityconfiguration), [Managed Identity Configuration](#managedidentityconfiguration) or None. For UserIdentityConfiguration, the identity of job submitter is used to access input data and write result to output folder. Otherwise, the managed identity of the compute target is used. | |
 
 ### Sampling algorithms
 
