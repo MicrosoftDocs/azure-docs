@@ -25,7 +25,7 @@ The fastest way to start using Product Recognition is to use the built-in pretra
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. It must be deployed in the **East US** or **West US 2** region. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service. You'll paste your key and endpoint into the code below later in the guide.
 * An Azure Storage resource with a blob storage container. [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
-* [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
+* [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Swagger or the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension for VS Code.
 * A shelf image. You can download our [sample image](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/shelf-analysis/shelf.png) or bring your own images. The maximum file size per image is 20 MB.
 
 ## Analyze shelf images
