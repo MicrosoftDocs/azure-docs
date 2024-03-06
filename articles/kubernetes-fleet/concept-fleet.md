@@ -1,6 +1,6 @@
 ---
 title: "Fleets and member clusters"
-description: This article describes the concepts of fleets and member clusters
+description: This article describes the concept of fleets and member clusters
 ms.date: 03/04/2024
 author: shashankbarsin
 ms.author: shasb
@@ -25,7 +25,7 @@ A fleet is a regional Azure resource you can use to manage multiple Kubernetes c
 You can join AKS clusters to a fleet.
 Once joined, they become member clusters of the fleet.
 
-Member clusters must reside in the same Microsoft Entra tenant as the fleet. But they can be in different regions, different resource groups, and/or different subscription
+Member clusters must reside in the same Microsoft Entra tenant as the fleet. But they can be in different regions, different resource groups, and/or different subscriptions.
 
 ## What is a hub cluster (preview)?
 
@@ -47,11 +47,11 @@ The following table lists the differences between a fleet without hub cluster an
 
 ### Hub cluster lockdown
 
-Fleet automatically creates hub clusters in the same subscription as the fleet resource under managed resource groups with the name prefix `FL_`.
+Upon the creation of a feet, a hub cluster is automatically created in the same subscription as the fleet under a managed resource group named as `FL_*`.
 
-To ensure reliability of hub clusters, Fleet locks down hub clusters by denying any user initiated mutations to the corresponding AKS clusters (under Fleet-managed resource group `FL_`) and their underlying Azure resources like VMs (under AKS-managed resource group with name prefix `MC_FL_`) via Azure deny assignments.
+To improve reliability, hub clusters are locked down by denying any user initiated mutations to the corresponding AKS clusters (under the Fleet-managed resource group `FL_*`) and their underlying Azure resources like VMs (under the AKS-managed resource group `MC_FL_*`) via Azure deny assignments.
 
-Fleet also exempts hub clusters from Azure policies to avoid undesirable policy effects upon hub clusters.
+Hub clusters are exempted from Azure policies to avoid undesirable policy effects upon hub clusters.
 
 ## Billing
 

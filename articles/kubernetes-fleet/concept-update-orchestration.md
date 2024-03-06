@@ -1,6 +1,6 @@
 ---
 title: "Update orchestration across multiple member clusters"
-description: This article describes the concepts of update orchestration across multiple clusters
+description: This article describes the concept of update orchestration across multiple clusters
 ms.date: 03/04/2024
 author: shashankbarsin
 ms.author: shasb

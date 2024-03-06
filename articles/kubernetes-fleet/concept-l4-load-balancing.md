@@ -1,6 +1,6 @@
 ---
 title: "Multi-cluster layer-4 load balancing (preview)"
-description: This article describes the concepts of multi-cluster layer-4 load balancing
+description: This article describes the concept of multi-cluster layer-4 load balancing
 ms.date: 03/04/2024
 author: shashankbarsin
 ms.author: shasb

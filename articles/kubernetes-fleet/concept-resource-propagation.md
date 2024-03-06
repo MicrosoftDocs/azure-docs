@@ -1,6 +1,6 @@
 ---
 title: "Kubernetes resource propagation from hub cluster to member clusters (preview)"
-description: This article describes the concepts of Kubernetes resource propagation from hub cluster to member clusters
+description: This article describes the concept of Kubernetes resource propagation from hub cluster to member clusters
 ms.date: 03/04/2024
 author: shashankbarsin
 ms.author: shasb
@@ -14,11 +14,11 @@ ms.topic: conceptual
 
 Platform admins often need to deploy Kubernetes resources into multiple clusters, for example:
 * Roles and role bindings to manage who can access what.
-* An infrastructure application that needs to be on all clusters in the fleet, e.g., Prometheus, Flux.
+* An infrastructure application that needs to be on all clusters, e.g., Prometheus, Flux.
 
 Application developers often need to deploy Kubernetes resources into multiple clusters, for example:
-* Deploy a video serving app into multiple clusters, one per region to offer low latency watching experience.
-* Deploy a shopping cart app into two paired regions for customers to continue to shop during a single region outage.
+* Deploy a video serving application into multiple clusters, one per region to offer low latency watching experience.
+* Deploy a shopping cart application into two paired regions for customers to continue to shop during a single region outage.
 * Deploy a batch compute application into clusters with inexpensive spot node pools available.
 
 It is tedious to create and update these Kubernetes resources across tens or even hundreds of clusters, and track their current status in each cluster.
@@ -32,7 +32,7 @@ These custom resources are offered by Fleet based on an [open-source cloud-nativ
 Once a cluster joins a fleet, a corresponding `MemberCluster` custom resource is created on the hub cluster.
 You can use it to select target clusters in resource propagation.
 
-The following labels are added automatically to all member clusters, which can then be used for target cluster selection in resource propagation.
+The following labels are added automatically to all member clusters, which can be used for target cluster selection in resource propagation.
 
 * `fleet.azure.com/location`
 * `fleet.azure.com/resource-group`
@@ -45,12 +45,12 @@ You can find the API reference of `MemberCluster` [here](membercluster-api).
 Fleet provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters.
 
 Via `ClusterResourcePlacement`, you can:
-- Select which cluster-scoped Kubernetes resources to be propagated to member clusters
+- Select which cluster-scoped Kubernetes resources to propagate to member clusters
 - Specify placement policies to manually or automatically select a subset or all of the member clusters as target clusters
 - Specify rollout strategies to safely roll out any updates of the selected Kubernetes resources to multiple target clusters
-- View the progress of propagation towards each target cluster
+- View the propagation progress towards each target cluster
 
-In order to propagate namespace-scoped resources, you can select a namespace which means propagating the namespace and all the namespace-scoped resources under it.
+In order to propagate namespace-scoped resources, you can select a namespace which by default selecting both the namespace and all the namespace-scoped resources under it.
 
 The following diagram shows a sample `ClusterResourcePlacement`.
 [ ![Diagram that shows how Kubernetes resource are propagated to member clusters.](./media/conceptual-resource-propagation.png) ](./media/conceptual-resource-propagation.png#lightbox)
