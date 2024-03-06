@@ -185,11 +185,11 @@ IoT Edge agent makes excessive identity calls to Azure IoT Hub.
 
 #### Cause
 
-Device deployment manifest misconfiguration causes an unsuccessful deployment on the device. IoT Edge Agent retry logic continues to retry deployment. Each retry makes identity calls until the deployment is successful.
+Device deployment manifest misconfiguration causes an unsuccessful deployment on the device. IoT Edge Agent retry logic continues to retry deployment. Each retry makes identity calls until the deployment is successful. For example, if the deployment manifest specifies a module URI that that doesn't exist in the container registry or is mistyped, the IoT Edge agent retries the deployment until the deployment manifest is corrected.
 
 #### Solution
 
-Verify the deployment manifest.
+Verify the deployment manifest in the Azure portal. Correct any errors and redeploy the manifest to the device.
 
 ### IoT Edge hub fails to start
 
