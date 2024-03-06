@@ -64,8 +64,11 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OVERVIEW&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Prerequisites)
 
+::: zone pivot="programming-language-studio, programming-language-csharp, programming-language-python, programming-language-go, programming-language-csharp-javascript, programming-language-csharp-powershell, programming-language-csharp-spring, programming-language-rest"
 
 [!INCLUDE [Connect your data to OpenAI](includes/connect-your-data-studio.md)]
+
+::: zone-end
 
 ::: zone pivot="programming-language-studio"
 
@@ -112,6 +115,12 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 ::: zone pivot="rest-api"
 
 [!INCLUDE [REST API quickstart](includes/use-your-data-rest.md)]
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+[!INCLUDE [Azure Developer CLI](includes/azure-developer-cli.md)]
 
 ::: zone-end
 

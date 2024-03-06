@@ -1903,6 +1903,8 @@ groups:
     title: PowerShell
   - id: rest-api
     title: REST
+  - id: azure-developer-cli
+    title: Azure Developer CLI
 - id: openai-chat
   title: API Options
   prompt: Chat API options
