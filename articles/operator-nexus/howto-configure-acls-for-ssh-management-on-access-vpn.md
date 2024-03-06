@@ -2,7 +2,7 @@
 title: "Azure Operator Nexus: How to Configure Network Access Control Lists (ACLs) for SSH Access on Management VPN."
 description: Instructions on setting up network access control lists (ACLs) to control SSH access on a management VPN.
 ms.service: azure-operator-nexus
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/07/2024
 author: sushantjrao
@@ -423,5 +423,3 @@ Upon successful execution, the command will return information about the created
 ```
 
 This output provides details of the created ACL, including its configuration, state, and other relevant information. Adjust the parameters as required for your use case.
-
-

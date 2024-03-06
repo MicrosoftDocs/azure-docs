@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected System Center Virtual Machine Manager 
 description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager.
-ms.date: 12/19/2023
+ms.date: 02/26/2024
 ms.topic: conceptual
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
@@ -40,7 +40,7 @@ To Arc-enable a System Center VMM management server, deploy [Azure Arc resource 
 
 The following image shows the architecture for the Arc-enabled SCVMM:
 
-:::image type="content" source="media/architecture/arc-scvmm-architecture-inline.png" alt-text="Screenshot of Arc enabled SCVMM - architecture." lightbox="media/architecture/arc-scvmm-architecture-expanded.png":::
+:::image type="content" source="media/architecture/azure-arc-scvmm-architecture.png" alt-text="Screenshot of Arc enabled SCVMM - architecture." lightbox="media/architecture/azure-arc-scvmm-architecture.png":::
 
 ## How is Arc-enabled SCVMM different from Arc-enabled Servers
 
@@ -93,7 +93,8 @@ In addition, SCVMM requires the following exception:
 
 | **Service** | **Port** | **URL** | **Direction** | **Notes**|
 | --- | --- | --- | --- | --- |
-| SCVMM management Server | 443 | URL of the SCVMM management server | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
+| SCVMM Management Server | 443 | URL of the SCVMM management server. | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
+| WinRM | WinRM Port numbers (Default: 5985 and 5986). | URL of the WinRM service. | IPs in the IP Pool used by the Appliance VM and control plane need connection with the VMM server. | Used by the SCVMM server to communicate with the Appliance VM. |
 
 [!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
 
@@ -105,4 +106,4 @@ Azure Arc-enabled SCVMM doesn't store/process customer data outside the region t
 
 ## Next steps
 
-[Create an Azure Arc VM](create-virtual-machine.md)
+[Create an Azure Arc VM](create-virtual-machine.md).

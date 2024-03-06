@@ -172,7 +172,7 @@ If you made any changes, remember to publish the device template.
 
 ### Create a new device template
 
-To create a new device template, select **+ New**, and follow the steps. You can create a custom device template from scratch, or you can choose a device template from the Azure device catalog.
+To create a new device template, select **+ New**, and follow the steps. You can create a custom device template from scratch, or you can choose a device template from the device catalog.
 
 ### Explore simulated devices
 

@@ -181,7 +181,7 @@ In this example, source fields from a CSV file include customer reviews about ho
 In the hotel reviews example, a "document" within the enrichment process represents a single hotel review.
 
 > [!TIP]
-> You can create a search index and knowledge store for this data in [Azure portal](knowledge-store-create-portal.md) or through [Postman and the REST APIs](knowledge-store-create-rest.md). You can also use [Debug Sessions](cognitive-search-debug-session.md) for insights into skillset composition, dependencies, and effects on an enrichment tree. Images in this article are pulled from Debug Sessions.
+> You can create a search index and knowledge store for this data in [Azure portal](knowledge-store-create-portal.md) or [REST APIs](knowledge-store-create-rest.md). You can also use [Debug Sessions](cognitive-search-debug-session.md) for insights into skillset composition, dependencies, and effects on an enrichment tree. Images in this article are pulled from Debug Sessions.
 
 Conceptually, the initial enrichment tree looks as follows:
 
