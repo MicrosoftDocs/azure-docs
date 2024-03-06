@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 02/26/2024
+ms.date: 03/05/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,20 +24,14 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
-| March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
+| March 13 | [General availability of Permissions Management in Defender for Cloud](#general-availability-of-permissions-management-in-defender-for-cloud) | 
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
 
-### Deprecation of two recommendations related to PCI
+### General availability of Permissions Management in Defender for Cloud
 
-March 5, 2024
+March 13, 2024
 
-The following two recommendations related to Permission Creep Index (PCI) are being deprecated:
-
-- Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)
-- Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)
-
-See the [list of deprecated security recommendations](recommendations-reference.md#deprecated-recommendations).
-
+We're announcing the general availability (GA) of [Pemrissions Management](permissions-management.md) in Defender for Cloud.
 
 ### Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement
 
