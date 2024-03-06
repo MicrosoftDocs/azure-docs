@@ -13,6 +13,7 @@ This article summarizes support information for DevOps security capabilities in 
 ## Cloud and region support
 
 DevOps security is available in the Azure commercial cloud, in these regions:
+
 * Asia (East Asia)
 * Australia (Australia East)
 * Canada (Canada Central)
@@ -23,6 +24,7 @@ DevOps security is available in the Azure commercial cloud, in these regions:
 ## DevOps platform support
 
 DevOps security currently supports the following DevOps platforms:
+
 * [Azure DevOps Services](https://azure.microsoft.com/products/devops/)
 * [GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)
 * [GitLab SaaS](https://docs.gitlab.com/ee/subscriptions/gitlab_com/)
@@ -48,6 +50,7 @@ The following tables summarize the availability and prerequisites for each featu
 
 > [!NOTE]
 > Starting March 7, 2024, [Defender CSPM](concept-cloud-security-posture-management.md) must be enabled on at least one subscription or multicloud connector in the tenant to benefit from premium DevOps security capabilities which include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See details below to learn more.
+
 ### Azure DevOps
 
 | Feature                          | Foundational CSPM                         | Defender CSPM                             | Prerequisites |
@@ -64,7 +67,6 @@ The following tables summarize the availability and prerequisites for each featu
 | [Attack path analysis](how-to-manage-attack-path.md) | | ![Yes Icon](./media/icons/yes-icon.png) |Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP Connector in the same tenant as the DevOps Connector |
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | | ![Yes Icon](./media/icons/yes-icon.png) |Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP connector in the same tenant as the DevOps Connector|
 
-
 ### GitHub
 
 | Feature                          | Foundational CSPM                         | Defender CSPM                             | Prerequisites |
@@ -79,7 +81,6 @@ The following tables summarize the availability and prerequisites for each featu
 | [Code to cloud mapping for Infrastructure as Code templates](iac-template-mapping.md) | | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps action](github-action.md) |
 | [Attack path analysis](how-to-manage-attack-path.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP connector in the same tenant as the DevOps Connector |
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP connector in the same tenant as the DevOps Connector |
-
 
 ### GitLab
 

@@ -102,7 +102,7 @@ node.exe ChatWithOwnData.js
 ## Output
 
 ```output
-Message: What are the differences between Azure Machine Learning and Azure AI services?
+Message: Tell me something interesting
 Based on the retrieved document, an interesting fact is...
 
 ```
