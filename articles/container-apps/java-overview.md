@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 03/04/2024
 ms.author: cshoe
 ---
 
@@ -19,7 +19,7 @@ When you use Container Apps for your containerized Java applications, you get:
 
 - **Deployment options**: Azure Container Apps integrates with [Buildpacks](https://buildpacks.io), which allows you to deploy directly from a Maven build, via artifact files, or with your own Dockerfile.
 
-- **Automatic memory fitting**: Container Apps optimizes how the Java Virtual Machines (JVM) [manages memory](java-memory-fit.md), making the most possible memory available to your Java applications.
+- **Automatic memory fitting**: Container Apps optimizes how the Java Virtual Machine (JVM) [manages memory](java-memory-fit.md), making the most possible memory available to your Java applications.
 
 - **Build environment variables**: You can configure [custom key-value pairs](java-build-environment-variables.md) to control the Java image build from source code.
 
