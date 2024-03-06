@@ -37,6 +37,10 @@ Only requests with Content-Type of *multipart/form-data* are considered for file
 
 To set request size limits in the Azure portal, configure **Global parameters** in the WAF policy resource's **Policy settings** page.
 
+>[!NOTE]
+>If you are running CRS 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, this will take precedence over any max request size, or max file upload size, limits. This optimization let's the WAF run high priority custom rules that don't require reading, and/or measuring, the full WAF request of file upload.
+
+
 ## Request body inspection
 
 WAF offers a configuration setting to enable or disable the request body inspection. By default, the request body inspection is enabled. If the request body inspection is disabled, WAF doesn't evaluate the contents of an HTTP message's body. In such cases, WAF continues to enforce WAF rules on headers, cookies, and URI. In WAFs running CRS 3.1 (or lower) if the request body inspection is turned off, then maximum request body size field isn't applicable and can't be set. 
