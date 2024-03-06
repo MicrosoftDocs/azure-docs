@@ -43,9 +43,9 @@ The IPv6 Application Gateway is available to all public cloud regions where Appl
 * IPv6 backends are currently not supported
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
-* Deletion of frontend IP addresses aren't supported
-* Application Gateway Ingress Controller (AGIC) does not support IPv6 configuration
-* Existing IPv4 Application Gateways cannot be upgraded to dual stack Application Gateways
+* Deletion of frontend IP addresses isn't supported
+* Application Gateway Ingress Controller (AGIC) doesn't support IPv6 configuration
+* Existing IPv4 Application Gateways can't be upgraded to dual stack Application Gateways
 
 > [!NOTE]
 > If you use WAF v2 SKU for a frontend with both IPv4 and IPv6 addresses, WAF rules only apply to IPv4 traffic. IPv6 traffic bypasses WAF and may get blocked by some custom rule.
@@ -121,7 +121,7 @@ Create the application gateway using the tabs on the **Create application gatewa
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multitenant backends like Azure App Service. In this example, you create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 

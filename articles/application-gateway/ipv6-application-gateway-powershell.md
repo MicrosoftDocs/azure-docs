@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 [Azure Application Gateway](overview.md) supports dual stack (IPv4 and IPv6) frontend connections from clients. To use IPv6 frontend connectivity, you need to create a new Application Gateway. Currently you can’t upgrade existing IPv4 only Application Gateways to dual stack (IPv4 and IPv6) Application Gateways. Also, currently backend IPv6 addresses aren't supported.
 
-To support IPv6 frontend support, you must create a dual stack VNet. This dual stack VNet will have subnets for both IPv4 and IPv6. Azure VNets already [provide dual-stack capability](../virtual-network/ip-services/ipv6-overview.md). 
+To support IPv6 frontend support, you must create a dual stack VNet. This dual stack VNet has subnets for both IPv4 and IPv6. Azure VNets already [provide dual-stack capability](../virtual-network/ip-services/ipv6-overview.md). 
 
 > 
 
@@ -29,7 +29,7 @@ You learn how to:
 
 Azure PowerShell is used to create an IPv6 Azure Application Gateway and perform testing to ensure it works correctly. Application gateway can manage and secure web traffic to servers that you maintain. A [virtual machine scale set](../virtual-machine-scale-sets/overview.md) is for backend servers to manage web traffic. The scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md). 
 
-You can also complete this quickstart using the [Azure portal](ipv6-application-gateway-portal.md)
+You can also complete this quickstart using the [Azure portal](ipv6-application-gateway-portal.md).
 
 ## Prerequisites
 
@@ -47,9 +47,9 @@ The IPv6 Application Gateway is available to all public cloud regions where Appl
 * IPv6 backends are currently not supported
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
-* Deletion of frontend IP addresses aren't supported
-* Application Gateway Ingress Controller (AGIC) does not support IPv6 configuration
-* Existing IPv4 Application Gateways cannot be upgraded to dual stack Application Gateways
+* Deletion of frontend IP addresses isn't supported
+* Application Gateway Ingress Controller (AGIC) doesn't support IPv6 configuration
+* Existing IPv4 Application Gateways can't be upgraded to dual stack Application Gateways
 
 > [!NOTE]
 > If you use WAF v2 SKU for a frontend with both IPv4 and IPv6 addresses, WAF rules only apply to IPv4 traffic. IPv6 traffic bypasses WAF and may get blocked by some custom rule.
@@ -188,7 +188,7 @@ $frontendRulev6 = New-AzApplicationGatewayRequestRoutingRule `
 
 ### Create the application gateway
 
-Now that you have created the necessary supporting resources, you can specify parameters for the application gateway using [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). The new application gateway is created using [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).  Creating the application gateway takes a few minutes.
+Now that you've created the necessary supporting resources, you can specify parameters for the application gateway using [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). The new application gateway is created using [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).  Creating the application gateway takes a few minutes.
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -212,7 +212,7 @@ New-AzApplicationGateway `
 
 ## Backend servers
 
-Now that you have created the application gateway, you can create the backend virtual machines to host websites. A backend can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service.
+Now that you've created the application gateway, you can create the backend virtual machines to host websites. A backend can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multitenant backends like Azure App Service.
 
 
 
