@@ -816,12 +816,8 @@
       href: connect-azure-functions-template.md    
     - name: CEF/Syslog        
       items:
-      - name: CEF/Syslog options
-        href: connect-cef-syslog-options.md
-      - name: CEF via AMA
-        href: connect-cef-ama.md        
-      - name: CEF and Syslog
-        href: connect-cef-syslog.md
+      - name: CEF and Syslog via AMA
+        href: connect-cef-syslog-ama.md        
       - name: CEF over Syslog sources (legacy)
         href: connect-common-event-format.md
       - name: Deploy a log forwarder (legacy)
@@ -1236,6 +1232,8 @@
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference
       href: dns-ama-fields.md
+    - name: Sample API requests for creating Data Collection Rules (DCRs)
+      href: api-dcr-reference.md
     - name: Microsoft Purview Information Protection reference
       href: microsoft-purview-record-types-activities.md
     - name: Microsoft 365 Defender connector data type support
