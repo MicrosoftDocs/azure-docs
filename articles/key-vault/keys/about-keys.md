@@ -30,17 +30,17 @@ Azure Key Vault provides two types of resources to store and manage cryptographi
 
 Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are:
 
--   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JSON Web Encryption (JWE)](https://datatracker.ietf.org/doc/html/draft-jones-json-web-encryption)  
--   [JSON Web Algorithms (JWA)](https://datatracker.ietf.org/doc/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
+- [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+- [JSON Web Encryption (JWE)](https://datatracker.ietf.org/doc/html/draft-jones-json-web-encryption)  
+- [JSON Web Algorithms (JWA)](https://datatracker.ietf.org/doc/html/draft-ietf-jose-json-web-algorithms)  
+- [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
 The base JWK/JWA specifications are also extended to enable key types unique to the Azure Key Vault and Managed HSM implementations. 
 
-HSM Keys in vaults are protected". The Software keys are not protected by HSMs.
+HSM Keys in vaults are protected; Software keys are not protected by HSMs.
 
-- Keys stored in vaults benefit from robust protection using **FIPS 140-2 HSMs**. There are two distinct HSM platforms available: 1, which protects key versions with **FIPS 140-2 Level 2**  and 2, which protects keys with **FIPS 140-2 Level 3** HSMs depending on when the key was created. All new keys and key versions are now created using platform 2 (except UK geo). To determine which HSM Platform is protecting a key version, get it's [hsmPlatform](about-keys-details.md#key-attributes). 
-- Managed HSM  uses **FIPS 140-2 Level 3** validated HSM modules to protect your keys. Each HSM pool is an isolated single-tenant instance with its own [security domain](../managed-hsm/security-domain.md) providing complete cryptographic isolation from all other HSMs sharing the same hardware infrastructure.
+- Keys stored in vaults benefit from robust protection using **[FIPS 140 validated HSM](/azure/key-vault/keys/about-keys#compliance)**. There are two distinct HSM platforms available: 1, which protects key versions with **FIPS 140-2 Level 2**, and 2, which protects keys with **FIPS 140-2 Level 3** HSMs depending on when the key was created. All new keys and key versions are now created using platform 2 (except UK geo). To determine which HSM Platform is protecting a key version, get it's [hsmPlatform](about-keys-details.md#key-attributes). 
+- Managed HSM uses **FIPS 140-2 Level 3** validated HSM modules to protect your keys. Each HSM pool is an isolated single-tenant instance with its own [security domain](../managed-hsm/security-domain.md) providing complete cryptographic isolation from all other HSMs sharing the same hardware infrastructure.
 
 These keys are protected in single-tenant HSM-pools. You can import an RSA, EC, and symmetric key, in soft form or by exporting from a supported HSM device. You can also generate keys in HSM pools. When you import HSM keys using the method described in the [BYOK (bring your own key) specification](../keys/byok-specification.md), it enables secure transportation key material into Managed HSM pools. 
 
@@ -71,10 +71,10 @@ Key Vault supports RSA and EC keys. Managed HSM supports RSA, EC, and symmetric 
 
 |Key type and destination|Compliance|
 |---|---|
-|Software-protected (hsmPlatform 0) keys in vaults | FIPS 140-2 Level 1|
-|hsmPlatform 1 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 2|
-|hsmPlatform 2 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 3|
-|Keys in Managed HSM are always HSM protected|FIPS 140-2 Level 3|
+|Software-protected (hsmPlatform 0) keys in vaults | FIPS 140-2 Level 1 |
+|hsmPlatform 1 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 2 |
+|hsmPlatform 2 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 3 |
+|Keys in Managed HSM are always HSM protected | FIPS 140-2 Level 3 |
 |||
 
 See [Key types, algorithms, and operations](about-keys-details.md) for details about each key type, algorithms, operations, attributes, and tags.
