@@ -136,7 +136,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Visually monitor Azure data factories
-            url: ./author-visually.md
+            url: ./monitor-visually.md
           - text: Troubleshoot Azure Data Factory connectors
             url: ./connector-troubleshoot-guide.md
           - text: Continuous integration and delivery
