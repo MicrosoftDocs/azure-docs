@@ -3,7 +3,7 @@ title: Understand Azure Disk Storage billing
 description: Learn about the billing factors that affect Azure managed disks, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 03/05/2024
+ms.date: 03/08/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -131,6 +131,7 @@ We're billed for the provisioned capacity of the Premium SSD disk, the burst ena
 |-|-|
 |Premium SSD Managed Disks| P20 LRS Disk|
 |Premium SSD Managed Disks| LRS Burst Enablement* |
+|Premium SSD Managed Disks| LRS Burst Transactions*|
 
 *To see a more detailed example of how bursting is billed, see [Disk-level bursting](disk-bursting.md#disk-level-bursting).
 
@@ -163,7 +164,6 @@ We're billed for the provisioned capacity of the HDD disk, the transactions perf
 |-|-|
 |Standard SSD Managed Disks| E30 LRS Disk|
 |Standard SSD Managed Disks| E4 LRS Disk Operations|
-|Standard SSD Managed Disks| E10 LRS Disk |
 |Standard HDD managed disks| LRS snapshots |
 
 ## Standard HDD
