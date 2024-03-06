@@ -26,7 +26,7 @@ With the v3.1 (GA) and later APIs, custom models introduce a expirationDateTime 
 
 With the v3.1 API, custom models introduce a new model expiration property. The model expiration is set to two years from the date the model is built for all requests that use a GA API to build a model. To continue to use the model past the expiration date, you need to  train the model with a current GA API version. The API version can be the one that the model was originally trained with or a later API version. The following figure illustrates the options when you need to retrain an expiring or expired model.
 
-[ ![Screenshot showing how to chose an API version to re-train a model.](media/model-lifecycle.png) ](media/model-lifecycle.png)
+:::image type="content" source="media/model-lifecycle.png" alt-text="Screenshot showing how to chose an API version to re-train a model.":::
 
 ## Models trained with preview API version
 

@@ -119,8 +119,8 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 ::: moniker range="doc-intel-2.1.0"
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF.
-* For PDF and TIFF, Document Intelligence can process up to 2,000 pages for standard tier subscribers or only the first two pages for free-tier subscribers.
-* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+* Supported page allowance for PDF and TIFF: Document Intelligence can process up to 2,000 pages for standard tier subscribers or only the first two pages for free-tier subscribers.
+* Supported file size: less than 50 MB; minimum pixels 50 x 50 px;  maximum pixels 10,000 x 10,000 px.
 
 ::: moniker-end
 

@@ -48,7 +48,7 @@ For query field extraction, specify the fields you want to extract and Document 
 
 ## Query fields REST API request**
 
-Use the query fields feature with the [general document model](concept-general-document.md), to add fields to the extraction process without having to train a custom model:
+Use the query fields feature with the [general document model](concept-general-document.md), and add fields to the extraction process without having to train a custom model:
 
 ```http
 POST https://{endpoint}/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=queryFields&queryFields=Terms,PaymentDate HTTP/1.1

@@ -61,7 +61,7 @@ The Document Intelligence Layout model **2024-02-29-preview** and **2023-10-31-p
 
 * [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio).
 
-* [REST API](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&branch=docintelligence&tabs=HTTP).
+* [REST API](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP).
 
 * [.NET &bull; Java &bull; JavaScript &bull; Python programming language client libraries (SDKs).](sdk-overview-v4-0.md#supported-programming-languages)
 
@@ -73,13 +73,13 @@ You can follow the [Document Intelligence Studio quickstart](quickstarts/try-doc
 
 * Start with the [Layout model](https://documentintelligence.ai.azure.com/studio/layout). You need to select the following **Analyze options** to use RAG in the studio:
 
-  **Required**
+  `**Required**`
 
   * Run analysis range → **Current document**.
   * Page range → **All pages**.
   * Output format style → **Markdown**.
 
-  **Optional**
+  `**Optional**`
 
   * You can also select relevant optional detection parameters.
 
@@ -109,7 +109,7 @@ You can follow the [Document Intelligence Studio quickstart](quickstarts/try-doc
 
 * [Azure OpenAI on your data](../openai/concepts/use-your-data.md) enables you to run supported chat on your documents. Azure OpenAI on your data applies the Document Intelligence Layout model to extract and parse document data by chunking long text based on tables and paragraphs. You can also customize your chunking strategy using [Azure OpenAI sample scripts](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) located in our GitHub repo.
 
-* Azure AI Document Intelligence is now integrated with [LangChain](https://python.langchain.com/docs/integrations/document_loaders/azure_document_intelligence) as one of its document loaders. You can use it to easily load the data and output to Markdown format. For more information, see our [sample code ](https://github.com/microsoft/Form-Recognizer-Toolkit/blob/main/SampleCode/Python/sample_rag_langchain.ipynb) that shows a simple demo for RAG pattern with Azure AI Document Intelligence as document loader and Azure Search as retriever in LangChain.
+* Azure AI Document Intelligence is now integrated with [LangChain](https://python.langchain.com/docs/integrations/document_loaders/azure_document_intelligence) as one of its document loaders. You can use it to easily load the data and output to Markdown format. For more information, see our [sample code](https://github.com/microsoft/Form-Recognizer-Toolkit/blob/main/SampleCode/Python/sample_rag_langchain.ipynb) that shows a simple demo for RAG pattern with Azure AI Document Intelligence as document loader and Azure Search as retriever in LangChain.
 
 * The chat with your data solution accelerator [code sample](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) demonstrates an end-to-end baseline RAG pattern sample. It uses Azure AI Search as a retriever and Azure AI Document Intelligence for document loading and semantic chunking.
 

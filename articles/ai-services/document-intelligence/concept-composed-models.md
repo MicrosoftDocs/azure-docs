@@ -66,12 +66,11 @@ With the introduction of [**custom classification models**](./concept-custom-cla
 |**Custom Neural models v3.0**|Not Supported|Not Supported|Supported|Supported|
 |**Custom Neural models v3.1**|Not Supported|Not Supported|Supported|Supported|
 
-
 * To compose a model trained with a prior version of the API (v2.1 or earlier), train a model with the v3.0 API using the same labeled dataset. That addition ensures that the v2.1 model can be composed with other models.
 
-* Models composed with v2.1 of the API continues to be supported, requiring no updates.
+* With models composed using v2.1 of the API continues to be supported, requiring no updates.
 
-* The limit for maximum number of custom models that can be composed is 100.
+* For custom models, the maximum number that can be composed is 100.
 
 ::: moniker-end
 

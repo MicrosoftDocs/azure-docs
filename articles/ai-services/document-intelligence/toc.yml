@@ -286,7 +286,7 @@ items:
   - name: REST APIs
     items:
     - name: 2024-02-29-preview (v4.0)
-      href: /rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&branch=docintelligence&tabs=HTTP
+      href: /rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP
     - name: 2023-10-31-preview (v4.0)
       href: /rest/api/aiservices/operation-groups?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
     - name: 2023-07-31 (v3.1)

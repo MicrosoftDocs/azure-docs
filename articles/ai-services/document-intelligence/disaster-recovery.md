@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 03/06/2024
 ms.author: lajanuar
 ---
 
@@ -37,7 +37,7 @@ ms.author: lajanuar
 
 When you create a Document Intelligence resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Document Intelligence resources in different regions and the ability to sync custom models across regions.
 
-The Copy API enables this scenario by allowing you to copy custom models from one Document Intelligence account or into others, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL. You can also use an HTTP request service like Postman to issue the requests.
+The Copy API enables this scenario by allowing you to copy custom models from one Document Intelligence account or into others, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL. You can also use an HTTP request service to issue the requests.
 
 ## Business scenarios
 
@@ -58,7 +58,7 @@ The process for copying a custom model consists of the following steps:
 
 1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that receives the copied model. You receive back the URL of the newly created target model that receives the copied model.
 1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied with the payload (copy authorization) returned from the previous call. You receive back a URL that you can query to track the progress of the operation.
-1. You use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model
+1. You use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model.
 
 ## Generate Copy authorization request
 
@@ -225,7 +225,7 @@ The process for copying a custom model consists of the following steps:
 
 1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that receives the copied model. You receive back the URL of the newly created target model that receives the copied model.
 1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied with the payload (copy authorization) returned from the previous call. You receive back a URL that you can query to track the progress of the operation.
-1. You use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model
+1. You use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model.
 
 ## Generate Copy authorization request
 
@@ -508,7 +508,7 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 |*Authorization failure due to missing or invalid authorization claims*.| Occurs when the `copyAuthorization` payload or content is modified from the `copyAuthorization` API. Ensure that the payload is the same exact content that was returned from the earlier `copyAuthorization` call.|
 |*Couldn't retrieve authorization metadata*.| Indicates that the `copyAuthorization` payload is being reused with a copy request. A copy request that succeeds doesn't allow any further requests that use the same `copyAuthorization` payload. If you raise a separate error and you later retry the copy with the same authorization payload, this error gets raised. The resolution is to generate a new `copyAuthorization` payload and then reissue the copy request.|
 |*Data transfer request isn't allowed as it downgrades to a less secure data protection scheme*.| Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
-|"Couldn't fetch information for Cognitive resource with ID...". | Indicates that the Azure resource indicated by the `targetResourceId` isn't a valid Cognitive resource or doesn't exist. Verify and reissue the copy request to resolve this issue.</br> Ensure the resource is valid and exists in the specified region, such as, `westus2`|
+|"Couldn't fetch information for Cognitive resource with ID...". | Indicates that the Azure resource indicated by the `targetResourceId` isn't a valid Cognitive resource or doesn't exist. To resolve this issue, verify and reissue the copy request.</br> Ensure the resource is valid and exists in the specified region, such as, `westus2`|
 
 ::: moniker-end
 
