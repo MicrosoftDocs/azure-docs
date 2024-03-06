@@ -18,11 +18,11 @@ ms.custom: how-to, devplatv2, cliv2, sdkv2, update-code
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll learn to deploy your model to an online endpoint for use in real-time inferencing. You'll begin by deploying a model on your local machine to debug any errors. Then, you'll deploy and test the model in Azure. You'll also learn to view the deployment logs and monitor the service-level agreement (SLA). By the end of this article, you'll have a scalable HTTPS/REST endpoint that you can use for real-time inference.
+In this article, you learn to deploy your model to an online endpoint for use in real-time inferencing. You begin by deploying a model on your local machine to debug any errors. Then, you deploy and test the model in Azure, view the deployment logs, and monitor the service-level agreement (SLA). By the end of this article, you'll have a scalable HTTPS/REST endpoint that you can use for real-time inference.
 
 Online endpoints are endpoints that are used for real-time inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
-Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure.
+Managed online endpoints help to deploy your machine learning models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure.
 
 The main example in this doc uses managed online endpoints for deployment. To use Kubernetes instead, see the notes in this document that are inline with the managed online endpoint discussion. 
 
@@ -69,9 +69,10 @@ Before following the steps in this article, make sure you have the following pre
 
 ---
 
-* Ensure that you have enough virtual machine (VM) quota allocated for deployment. Azure Machine Learning reserves 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12 for each number of cores for the VM SKU. Failure to account for the extra compute resources will result in an error. There are some VM SKUs that are exempt from extra quota. For more information on quota allocation, see [virtual machine quota allocation for deployment](how-to-manage-quotas.md#virtual-machine-quota-allocation-for-deployment).
+* Ensure that you have enough virtual machine (VM) quota allocated for deployment. Azure Machine Learning reserves 20% of your compute resources for performing upgrades on sone VM SKUs. For example, if you request 10 instances in a deployment, you must have a quota for 12 for each number of cores for the VM SKU. Failure to account for the extra compute resources will result in an error. There are some VM SKUs that are exempt from the extra quota reservation. For more information on quota allocation, see [virtual machine quota allocation for deployment](how-to-manage-quotas.md#virtual-machine-quota-allocation-for-deployment).
 
 * Alternatively, you could use quota from Azure Machine Learning's shared quota pool for a limited time. Users can access quota from this pool to perform testing for a limited time. When you use the studio to deploy Llama-2, Phi, Nemotron, Mistral, Dolly, and Deci-DeciLM models from the model catalog to a managed online endpoint, Azure Machine Learning allows you to access its shared quota pool for a short time so that you can perform testing. For more information on the shared quota pool, see [Azure Machine Learning shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota).
+
 
 ## Prepare your system
 
