@@ -1,7 +1,7 @@
 ---
 title: Use Azure Resource Graph Explorer to query Azure Private DNS
 titleSuffix: Azure DNS
-description: Learn how to query Azure Private DNS zones using Azure Resource Graph Explorer
+description: Learn how to query Azure Private DNS zones using Azure Resource Graph Explorer.
 services: dns
 author: greg-lindsay
 ms.service: dns
@@ -14,13 +14,13 @@ ms.topic: how-to
 
 [Azure Resource Graph](../governance/resource-graph/overview.md) is an Azure service that allows you to query your Azure resources with complex filtering, grouping, and sorting. Azure Resource Graph (ARG) provides detailed information about your resources and can display results in several ways. 
 
-You can use the `dnsresources` tabhle to query information about your private zones, including:
+You can use the `dnsresources` table to query information about your private zones, including:
 
 - The type and number of resource records in one or all zones
 - Virtual network links
 - Resource record names and IP addresses
 
-To get started with Resource Graph, search and select **Resource Graph Explorer** in the Azure portal. In the left-hand navigation pane, select the **Table** tab and review the [microsoft.network/dnsresources](#microsoftresourcehealthavailabilitystatuses) table. Select **dnsresources** to create a simple query and then click **Run** to return the records.
+To get started with Resource Graph, search and select **Resource Graph Explorer** in the Azure portal. In the left-hand navigation pane, select the **Table** tab and review the [microsoft.network/dnsresources](#microsoftresourcehealthavailabilitystatuses) table. Select **dnsresources** to create a basic query and then click **Run** to return the records.
 
 ![Screenshot of a basic ARG query.](./media/private-dns-arg/basic-query.png)
 
