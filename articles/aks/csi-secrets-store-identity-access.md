@@ -133,6 +133,9 @@ In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID
     > [!NOTE]
     > If you use `objectAlias` instead of `objectName`, update the YAML script to account for it.
 
+    > [!NOTE]
+    > In order for the `SecretProviderClass` to function properly, make sure to populate your Azure Key Vault with secrets, keys, or certificates before referencing them in the `objects` section.
+
 8. Deploy a sample pod using the `kubectl apply` command and the following YAML script.
 
     ```bash
@@ -176,10 +179,11 @@ In this security model, you can grant access to your cluster's resources to team
 
 ### Configure managed identity
 
-1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity created by the add-on.
+1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity created by the add-on. You should also retrieve the identity's `clientId`, which you'll use in later steps when creating a `SecretProviderClass`.
 
     ```azurecli-interactive
     az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.objectId -o tsv
+    az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv
     ```
 
     Alternatively, you can create a new managed identity and assign it to your virtual machine (VM) scale set or to each VM instance in your availability set using the following commands.
@@ -188,9 +192,11 @@ In this security model, you can grant access to your cluster's resources to team
     az identity create -g <resource-group> -n <identity-name>
     az vmss identity assign -g <resource-group> -n <agent-pool-vmss> --identities <identity-resource-id>
     az vm identity assign -g <resource-group> -n <agent-pool-vm> --identities <identity-resource-id>
+
+    az identity show -g <resource-group> --name <identity-name> --query 'clientId' -o tsv
     ```
 
-2. Create a role assignment that grants the identity permission access to the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
+2. Create a role assignment that grants the identity permission access to the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command. 
 
     ```azurecli-interactive
     export IDENTITY_OBJECT_ID="$(az identity show -g <resource-group> --name <identity-name> --query 'principalId' -o tsv)"
@@ -230,6 +236,9 @@ In this security model, you can grant access to your cluster's resources to team
 
     > [!NOTE]
     > If you use `objectAlias` instead of `objectName`, make sure to update the YAML script.
+    
+    > [!NOTE]
+    > In order for the `SecretProviderClass` to function properly, make sure to populate your Azure Key Vault with secrets, keys, or certificates before referencing them in the `objects` section.
 
 4. Apply the `SecretProviderClass` to your cluster using the `kubectl apply` command.
 
