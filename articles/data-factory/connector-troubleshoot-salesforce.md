@@ -51,10 +51,10 @@ This article provides suggestions to troubleshoot common problems with the Sales
     1. Create a new user and link the permission set in the user detail page: **Permission Set Assignments**.
         :::image type="content" source="media/connector-salesforce/permission-set-assignments.png" alt-text="Screenshot of the permission set assignments.":::
 
-    1. From the connected app detail page, click Manage, click **Edit Policies**.  
+    1. From the connected app detail page, click Manage, click **Edit Policies**. For **Run As**, select an execution user who has the API Only User permission. For **Timeout Value**, you can select a proper value or remain default None.
     
         :::image type="content" source="media/connector-salesforce/connected-app-detail.png" alt-text="Screenshot of the connected app detail.":::
-        For **Run As**, select an execution user who has the API Only User permission. For **Timeout Value**, you can select a proper value or remain default None.
+        
         :::image type="content" source="media/connector-salesforce/edit-policies.png" alt-text="Screenshot of the edit policies.":::
 
 ## Related content
