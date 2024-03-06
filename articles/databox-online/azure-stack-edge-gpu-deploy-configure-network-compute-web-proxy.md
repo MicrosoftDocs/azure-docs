@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/27/2024
+ms.date: 03/06/2024
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -63,8 +63,7 @@ In this tutorial, you learn about:
 Before you configure and set up your Azure Stack Edge Pro device with GPU, make sure that:
 
 * You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
-* You've connected to the local web UI of the device as detailed in [Connect to Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-connect.md)
-
+* You've connected to the local web UI of the device as detailed in [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md).
 
 ::: zone pivot="single-node"
 
@@ -73,8 +72,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 1. Go to the **Get started** page.
 1. In the **Set up a single node device** tile, select **Start**.
 
-    ![Screenshot of local web UI "Get started" page for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/setup-type-single-node-1.png)   
-
+    :::image type="content" source="./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/setup-type-single-node-1.png" alt-text="Screenshot of local web UI 'Get started' page for one node." lightbox="./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/setup-type-single-node-1.png":::
 
 ## Configure network
 
@@ -84,13 +82,13 @@ Follow these steps to configure the network for your device.
 
 1. In the local web UI of your device, go to the **Get started** page. 
 
-2. On the **Network** tile, select **Configure**.  
+2. On the **Network** tile, select **Needs setup**.  
     
-    ![Screenshot of local web UI "Network" tile for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-1.png)
+    :::image type="content" source="./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-1.png" alt-text="Screenshot of local web UI 'Network' tile for one node." lightbox="./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-1.png":::
 
-    On your physical device, there are six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 6 are all data ports. For a new device, the **Network** page is as shown below.
+    On your physical device, there are six network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces. Port 3, Port 4, Port 5, and Port 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 1 is automatically configured as a management-only port, and Port 2 to Port 6 are all data ports. For a new device, the **Network** page is as shown below.
     
-    ![Screenshot of local web UI "Network" page for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png)
+    :::image type="content" source="./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png" alt-text="Screenshot of local web UI 'Network' page for one node." lightbox="./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png":::
 
 3. To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. 
 
@@ -133,7 +131,10 @@ Follow these steps to configure the network for your device.
 
 Follow these steps to add or delete virtual switches.
 
-1. In the  local UI, go to **Advanced networking** page. 
+> [!NOTE]
+> There is no restriction on the number of virtual switches that you can create on your device. However, you can enable compute only on one virtual switch at a time.
+
+1. In the local UI of your device, go to the **Advanced networking** page. 
 1. In the **Virtual switch** section, add or delete virtual switches. Select **Add virtual switch** to create a new switch.
 
    ![Screenshot of the Add a virtual switch option on the Advanced networking page in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch.png)
@@ -193,7 +194,6 @@ You can add or delete virtual networks associated with your virtual switches. To
 
 1. Select **Next: Kubernetes >** to next configure your compute IPs for Kubernetes.
 
-
 ## Configure compute IPs
 
 After the virtual switches are created, you can enable the switches for Kubernetes compute traffic.
@@ -236,7 +236,6 @@ After the virtual switches are created, you can enable the switches for Kubernet
 
 ::: zone-end
 
-
 ::: zone pivot="two-node"
 
 ## Configure setup type
@@ -251,10 +250,11 @@ After the virtual switches are created, you can enable the switches for Kubernet
 
     ![Local web UI "Prepare a node" on "Get started" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/setup-type-prepare-node-1m.png) 
 
-
 ## Configure network, topology
 
 You'll configure network as well as network topology on both the nodes. These steps can be done in parallel. The cabling on both nodes should be identical and should conform with the network topology you choose.
+
+For more information about selecting a network topology, see [Supported networking topologies](azure-stack-edge-gpu-clustering-overview.md?tabs=1#supported-networking-topologies).
 
 ### Configure network on first node
 
@@ -264,11 +264,13 @@ To configure the network for a 2-node device, follow these steps on the first no
 
     ![Local web UI "Network" tile](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-1m.png)
 
-1. In the **Network** page, configure the IP addresses for your network interfaces. On your physical device, there are six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 6 are all data ports. For a new device, the **Network settings** page is as shown below.
+1. In the **Network** page, configure the IP addresses for your network interfaces. On your physical device, there are six network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces. Port 3, Port 4, Port 5, and Port 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 1 is automatically configured as a management-only port, and Port 2 to Port 6 are all data ports. 
+
+    For a new device, the **Network settings** page is as shown below.
     
     ![Local web UI "Advanced networking" page for a new device 1](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-interface-1.png)
 
-    To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. You can configure your network interface as IPv4.
+1. To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. You can configure your network interface as IPv4.
 
     ![Local web UI "Advanced networking" page for a new device 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-settings-1m.png)
 
@@ -320,6 +322,7 @@ You'll now prepare the second node for clustering. You'll first need to configur
 
     ![Local web UI "Network" tile on second node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-2.png)
 
+1. Configure the network on the second node in a similar way that you configured the first node.
 
 ### Configure network topology on second node
 
@@ -328,7 +331,6 @@ You'll now prepare the second node for clustering. You'll first need to configur
     ![Local web UI "Network" page with "Use switches and NIC teaming" option selected on second node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-topology-2.png)
 
 1. Select **Back to get started**.
-
 
 ## Get authentication token
 
@@ -343,11 +345,9 @@ You'll now get the authentication token that will be needed when adding this nod
 
     ![Local web UI "Get authentication token" on second node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/get-authentication-token-1m.png)
 
-
 ## Configure cluster 
 
 To configure the cluster, you'll need to establish a cluster witness and then add a prepared node. You'll also need to configure virtual IP settings so that you can connect to a cluster as opposed to a specific node.
-
 
 ### Configure cluster witness
 
@@ -395,8 +395,6 @@ Follow these steps to configure the cluster witness.
 
     ![Local web UI "Cluster" page with local witness type selected in "Modify cluster witness" blade on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-local-1m.png)
 
-
-
 ### Add prepared node to cluster
 
 You'll now add the prepared node to the first node and form the cluster. Before you add the prepared node, make sure the networking on the incoming node is configured in the same way as that of this node where you initiated cluster creation.
@@ -404,7 +402,6 @@ You'll now add the prepared node to the first node and form the cluster. Before 
 1. In the local UI of the first node, go to the **Cluster** page. Under **Existing nodes**, select **Add node**.
 
     ![Local web UI "Cluster" page with "Add node" option selected for "Existing" on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-node-1m.png)
-
 
 1. In the **Add node** blade, input the following information for the incoming node: 
 
@@ -418,7 +415,6 @@ You'll now add the prepared node to the first node and form the cluster. Before 
     You see a notification when the node is successfully validated.
 
 1. The node is now ready to join the cluster. Select **Apply**. The cluster creation takes several minutes. Once the cluster is created, the page updates to show both the nodes are added.
-
 
 ## Configure virtual IPs
 
@@ -646,4 +642,4 @@ In this tutorial, you learned about:
 To learn how to set up your Azure Stack Edge Pro GPU device, see:
 
 > [!div class="nextstepaction"]
-> [Configure device settings](./azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
+> [Configure device settings](./azure-stack-edge-gpu-deploy-set-up-device-update-time.md).
