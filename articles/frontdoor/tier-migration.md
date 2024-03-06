@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 05/26/2023
+ms.date: 03/04/2024
 ms.author: duau
 ---
 
@@ -32,6 +32,9 @@ The migration tool checks to see if your Azure Front Door (classic) profile is c
 * Session affinity gets enabled in the origin group settings for an Azure Front Door Standard or Premium profile. In Azure Front Door (classic), session affinity is set at the domain level. As part of the migration, session affinity is based on the Front Door (classic) profile settings. If you have two domains in your Front Door (classic) profile that shares the same backend pool, session affinity has to be consistent across both domains in order for migration validation to pass.
 
 * If you're using BYOC (Bring Your Own Certificate) for Azure Front Door (classic), you need to [grant Key Vault access](standard-premium/how-to-configure-https-custom-domain.md#register-azure-front-door) to Azure Front Door Standard or Premium. This step is required for Azure Front Door Standard or Premium to access your certificate in Key Vault. If you're using Azure Front Door managed certificate, you don't need to grant Key Vault access.
+
+    > [!NOTE]
+    > Managed certificate is currently **not supported** for Azure Front Door Standard or Premium in Azure Government Cloud. You need to use BYOC for Azure Front Door Standard or Premium in Azure Government Cloud or wait until this capability is available..
 
 #### Prepare for migration
 
