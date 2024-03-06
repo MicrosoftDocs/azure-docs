@@ -1,27 +1,27 @@
 ## Select and initialize the Azure Developer CLI template
 
-The Azure Developer CLI (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. The template contains infrastructure files to provision the necessary Azure OpenAI resources and configurations, as well as the completed sample app code. This automated approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. With `azd`, you can provision OpenAI resources and run the sample code with just a few commands.
+The Azure Developer CLI (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. The template contains infrastructure files to provision the necessary Azure OpenAI resources and configurations, as well as the completed sample app code. This automated approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. 
 
-For the steps ahead, select and initialize the template for your desired language.
+With `azd`, you can provision OpenAI resources and run the sample code with just a few commands. For the steps ahead, select and initialize the template for your desired language.
 
-# [C#](#tab/csharp)
+## [C#](#tab/csharp)
 
-```bash
-azd init --template openai-your-own-data-csharp
-```
+    ```bash
+    azd init --template openai-your-own-data-csharp
+    ```
 
-# [Python](#tab/python)
+## [Python](#tab/python)
 
-```bash
-azd init --template openai-your-own-data-python
-```
+    ```bash
+    azd init --template openai-your-own-data-python
+    ```
 
-# [JavaScript](#tab/javascript)
+## [JavaScript](#tab/javascript)
 
-```bash
-azd init --template openai-your-own-data-javascript
-```
-
+    ```bash
+    azd init --template openai-your-own-data-javascript
+    ```
+    
 ---
 
 The `azd init` command prompts you for the following information:
@@ -69,51 +69,53 @@ azd up
 
 The `azd` template includes a complete sample chat app in the `src` directory. When the `azd` template ran, it also created the necessary environment variables for the sample app to run locally. Complete the following steps to run the app locally:
 
-# [C#](#tab/csharp)
-
-Open a terminal in the `src` directory of the `azd` template and run the following command:
-
-```bash
-dotnet run
-```
-
-You should see the following response content in the output:
-
-```output
-Answer from assistant:
-===
-Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
-===
-Context information (e.g. citations) from chat extensions:
-===
-tool: {
-    "citations": [
-    {
-        "content": "...",
-        "id": null,
-        "title": "...",
-        "filepath": "...",
-        "url": "...",
-        "metadata": {
-        "chunking": "orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38."
+## [C#](#tab/csharp)
+    
+    Open a terminal in the `src` directory of the `azd` template and run the following command:
+    
+    ```bash
+    dotnet run
+    ```
+    
+    You should see the following response content in the output:
+    
+    ```output
+    Answer from assistant:
+    ===
+    Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
+    ===
+    Context information (e.g. citations) from chat extensions:
+    ===
+    tool: {
+        "citations": [
+        {
+            "content": "...",
+            "id": null,
+            "title": "...",
+            "filepath": "...",
+            "url": "...",
+            "metadata": {
+            "chunking": "orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38."
+            },
+            "chunk_id": "2"
         },
-        "chunk_id": "2"
-    },
-    ...
-    ],
-    "intent": "[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]"
-}
-===
-```
+        ...
+        ],
+        "intent": "[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]"
+    }
+    ===
+    ```
 
-# [Python](#tab/python)
+## [Python](#tab/python)
 
-Open a terminal in the `src` directory of the `azd` template and run the following command:
+    Open a terminal in the `src` directory of the `azd` template and run the following command:
+    
+    tbd
 
-tbd
+## [JavaScript](#tab/javascript)
 
-# [JavaScript](#tab/javascript)
-
-tbd
+    Open a terminal in the `src` directory of the `azd` template and run the following command:
+    
+    tbd
 
 ---
