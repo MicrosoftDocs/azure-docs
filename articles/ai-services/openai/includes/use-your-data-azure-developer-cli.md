@@ -1,32 +1,32 @@
 ## Select and initialize the Azure Developer CLI template
 
-The Azure Developer CLI (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. The template contains infrastructure files to provision the necessary Azure OpenAI resources and configurations, as well as the completed sample app code. This automated approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. 
+The Azure Developer CLI (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. The template contains infrastructure files to provision the necessary Azure OpenAI resources and configurations and includes the completed sample app code. This automated approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. 
 
-With `azd`, you can provision OpenAI resources and run the sample code with just a few commands. For the steps ahead, select and initialize the template for your desired language.
+1. For the steps ahead, select and initialize the template for your desired language.
 
 ## [C#](#tab/csharp)
 
-    ```bash
-    azd init --template openai-your-own-data-csharp
-    ```
+```bash
+azd init --template openai-your-own-data-csharp
+```
 
 ## [Python](#tab/python)
 
-    ```bash
-    azd init --template openai-your-own-data-python
-    ```
+```bash
+azd init --template openai-your-own-data-python
+```
 
 ## [JavaScript](#tab/javascript)
 
-    ```bash
-    azd init --template openai-your-own-data-javascript
-    ```
+```bash
+azd init --template openai-your-own-data-javascript
+```
     
 ---
 
-The `azd init` command prompts you for the following information:
+2. The `azd init` command prompts you for the following information:
 
-* Environment name: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
+    * Environment name: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
 
 ## Use the Azure Developer CLI template to deploy resources
 
