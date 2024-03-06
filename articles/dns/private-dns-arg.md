@@ -20,7 +20,9 @@ You can display information about your DNS zones, including:
 - Virtual network links
 - Resource record names and IP addresses
 
-To use Resource Graph in the Azure portal, search and select **Resource Graph Explorer**. In the left-hand navigation pane, select the **Table** tab and review the **dnsresources** table. This table is used to query private DNS zone data. Select **dnsresources** to create a basic query and then click **Run query** to return the results. See the following example:
+## The dnsresources table
+
+To use Resource Graph in the Azure portal, search and select **Resource Graph Explorer**. In the left-hand navigation pane, select the **Table** tab and review the **dnsresources** table. This table is used to query private DNS zone data. Public DNS zones are not queried when you use this table. Select **dnsresources** to create a basic query and then click **Run query** to return the results. See the following example:
 
 ![Screenshot of a basic ARG query.](./media/private-dns-arg/basic-query.png)
 
