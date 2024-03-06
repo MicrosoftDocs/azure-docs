@@ -1,7 +1,7 @@
 ---
 title: 'Create a search service in the portal'
 titleSuffix: Azure AI Search
-description: Learn how to set up an Azure AI Search resource in the Azure portal. Choose resource groups, regions, and the SKU or pricing tier.
+description: Learn how to set up an Azure AI Search resource in the Azure portal. Choose resource groups, regions, and a pricing tier.
 
 manager: nitinme
 author: HeidiSteen
@@ -61,7 +61,7 @@ A resource group is a container that holds related resources for your Azure solu
 
 Over time, you can track current and projected costs all-up or you can view charges for individual resources. The following screenshot shows the kind of cost information you can expect to see when you combine multiple resources into one group.
 
-:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" lightbox="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Screenshot of the Manage costs page in the portal." border="true":::
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" lightbox="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Screenshot of the Managing costs page in the portal." border="true":::
 
 > [!TIP]
 > Resource groups simplify cleanup because deleting a resource group deletes everything within it.
@@ -161,7 +161,7 @@ Adding resources increases your monthly bill. The [pricing calculator](https://a
 1. In the left-navigation pane, select **Settings** > **Scale**.
 1. Use the slidebar to add resources of either type.
 
-:::image type="content" source="media/search-create-service-portal/settings-scale.png" lightbox="media/search-create-service-portal/settings-scale.png" alt-text="Screenshot of the Add capacity page." border="true":::
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" lightbox="media/search-create-service-portal/settings-scale.png" alt-text="Screenshot of the scale page." border="true":::
 
 ## When to add a second service
 

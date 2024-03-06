@@ -30,7 +30,7 @@ This article uses REST examples. For code samples in other languages, see the [a
 
 + [A vector store on Azure AI Search](vector-search-how-to-create-index.md).
 
-+ Visual Studio Code with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) and sample data if you want to run these examples on your own. See [Quickstart: Create a search index in Azure AI Search using REST](search-get-started-rest.md) for help getting started.
++ Visual Studio Code with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) and sample data if you want to run these examples on your own. See [Quickstart: Create a search index in Azure AI Search using REST](search-get-started-rest.md) for help with getting started.
 
 > [!TIP]
 > To quickly determine whether your index has vectors, look for fields of type `Collection(Edm.Single)`, with a `dimensions` attribute, and a `vectorSearchProfile` assignment.
@@ -296,7 +296,7 @@ If you do want vector fields in the result, here's the basic structure of a resp
 
 + The **`@search.score`** is determined by the [vector search algorithm](vector-search-ranking.md). 
 
-+ Fields in search results are either all `retrievable` fields, or fields in a `select` clause. During vector query execution, the match is made on vector data alone. However, a response can include any `retrievable` field in an index. Because there's no facility for decoding a vector field result, the inclusion of nonvector text fields is helpful for their human readable values..
++ Fields in search results are either all `retrievable` fields, or fields in a `select` clause. During vector query execution, the match is made on vector data alone. However, a response can include any `retrievable` field in an index. Because there's no facility for decoding a vector field result, the inclusion of nonvector text fields is helpful for their human readable values.
 
 ## Vector query with filter
 
