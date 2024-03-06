@@ -80,7 +80,12 @@ spec:
 1. Inside the pod's shell, run the following command to publish a message to the broker:
 
     ```console
-    $ mosquitto_pub -h aio-mq-dmqtt-frontend -p 8883 -m "hello" -t "world" -u '$sat' -P $(cat /var/run/secrets/tokens/mq-sat) -d --cafile /var/run/certs/ca.crt
+    mosquitto_pub -h aio-mq-dmqtt-frontend -p 8883 -m "hello" -t "world" -u '$sat' -P $(cat /var/run/secrets/tokens/mq-sat) -d --cafile /var/run/certs/ca.crt
+    ```
+
+    The output should look similar to the following:
+
+    ```Output    
     Client (null) sending CONNECT
     Client (null) received CONNACK (0)
     Client (null) sending PUBLISH (d0, q0, r0, m1, 'world', ... (5 bytes))
@@ -92,7 +97,12 @@ spec:
 1. To subscribe to the topic, run the following command:
 
     ```console
-    $ mosquitto_sub -h aio-mq-dmqtt-frontend -p 8883 -t "world" -u '$sat' -P $(cat /var/run/secrets/tokens/mq-sat) -d --cafile /var/run/certs/ca.crt
+    mosquitto_sub -h aio-mq-dmqtt-frontend -p 8883 -t "world" -u '$sat' -P $(cat /var/run/secrets/tokens/mq-sat) -d --cafile /var/run/certs/ca.crt
+    ```
+
+    The output should look similar to the following:
+
+    ```Output
     Client (null) sending CONNECT
     Client (null) received CONNACK (0)
     Client (null) sending SUBSCRIBE (Mid: 1, Topic: world, QoS: 0, Options: 0x00)
@@ -105,7 +115,7 @@ spec:
 1. To use *mqttui*, the command is similar:
 
     ```console
-    $ mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure
+    mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure
     ```
 
     With the above command, mqttui connects to the broker using the service account token. The `--insecure` flag is required because mqttui doesn't support TLS certificate chain verification with a custom root CA cert.
@@ -116,13 +126,15 @@ spec:
 
 ### TLS trust chain
 
-Since the broker uses TLS, the client must trust the broker's TLS certificate chain. To do so, you must configure the client to trust the root CA cert used by the broker. To use the default root CA cert, download it from the `aio-ca-trust-bundle-test-only` ConfigMap:
+Since the broker uses TLS, the client must trust the broker's TLS certificate chain. You need to configure the client to trust the root CA certificate used by the broker.
+
+To use the default root CA certificate, download it from the `aio-ca-trust-bundle-test-only` ConfigMap:
 
 ```bash
 kubectl get configmap aio-ca-trust-bundle-test-only -n azure-iot-operations -o jsonpath='{.data.ca\.crt}' > ca.crt
 ```
 
-Then, use the `ca.crt` file to configure your client to trust the broker's TLS certificate chain.
+Use the downloaded `ca.crt` file to configure your client to trust the broker's TLS certificate chain.
 
 ### Authenticate with the broker
 
@@ -231,7 +243,12 @@ If you understand the risks and need to use an insecure port in a well-controlle
 1. Wait for the service to be updated. You should see output similar to the following:
 
     ```console
-    $ kubectl get service my-unique-service-name -n azure-iot-operations
+    kubectl get service my-unique-service-name -n azure-iot-operations
+    ```
+
+    Output should look similar to the following:
+
+    ```Output
     NAME                     TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
     my-unique-service-name   LoadBalancer   10.43.144.182   XXX.XX.X.X    1883:31001/TCP   5m11s
     ```
