@@ -15,9 +15,9 @@ ms.service: app-service
 
 ## App Service monitoring
 
-On the Azure portal page for your web app, you can select **Diagnose and solve problems** from the left nagivation to access complete App Service diagnostics for your app. For more information about the App Service diagnostics tool, see [Azure App Service diagnostics overview](overview-diagnostics.md).
+On the Azure portal page for your web app, you can select **Diagnose and solve problems** from the left navigation to access complete App Service diagnostics for your app. For more information about the App Service diagnostics tool, see [Azure App Service diagnostics overview](overview-diagnostics.md).
 
-App Service provides built-in diagnostics logging to assist with debugging apps. See [Stream diagnostics logs](troubleshoot-diagnostic-logs.md#stream-logs) for more information about the built-in logs.
+App Service provides built-in diagnostics logging to assist with debugging apps. For more information about the built-in logs, see [Stream diagnostics logs](troubleshoot-diagnostic-logs.md#stream-logs).
 
 You can also use Azure Health check to monitor App Service instances. For more information, see [Monitor App Service instances using Health check](monitor-instances-health-check.md).
 
@@ -27,9 +27,9 @@ For a complete overview and summary of App Service monitoring options, see [Azur
 
 ### Application Insights
 
-Application Insights leverages the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations. Application Insights monitors the availability, performance, and usage of your web applications, so you can identify and diagnose errors without waiting for a user to report them.
+Application Insights uses the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations. Application Insights monitors the availability, performance, and usage of your web applications, so you can identify and diagnose errors without waiting for a user to report them.
 
-Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes. For more information, see [Application monitoring for App Service](/azure/azure-monitor/app/azure-web-apps).
+Application Insights includes connection points to various development tools and integrates with Visual Studio to support your DevOps processes. For more information, see [Application monitoring for App Service](/azure/azure-monitor/app/azure-web-apps).
 
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for App Service, see [App Service monitoring data reference](monitor-app-service-reference.md).
