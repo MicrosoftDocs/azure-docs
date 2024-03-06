@@ -71,7 +71,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
    az postgres flexible-server create \
        --resource-group ${RESOURCE_GROUP} \
        --name ${POSTGRES_SERVER_NAME} \
-       --location <location> \
+       --location ${REGION} \
        --admin-user ${POSTGRES_USERNAME} \
        --admin-password ${POSTGRES_PASSWORD} \
        --yes
