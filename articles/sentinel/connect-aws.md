@@ -179,7 +179,7 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
    | **Provider type** | *OpenID Connect* | Instead of default *SAML*.|
    | **Provider URL** | Commercial:<br>`sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/`<br><br>Government:<br>`sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` |  |
    | **Thumbprint** | `626d44e704d1ceabe3bf0d53397464ac8080142c` | If created in the IAM console, selecting **Get thumbprint** should give you this result. |
-   | **Audience** | `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`<br><br>`api://d4230588-5f84-4281-a9c7-2c15194b28f7` | for commercial<br><br>for government |
+   | **Audience** | Commercial:<br>`api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`<br><br>Government:<br>`api://d4230588-5f84-4281-a9c7-2c15194b28f7` |  |
    
 3. Create an **IAM assumed role**. Follow these instructions in the AWS documentation:<br>[Creating a role for web identity or OpenID Connect Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create). 
 
