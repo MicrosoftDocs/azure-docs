@@ -168,7 +168,7 @@
       href: dns-protect-private-zones-recordsets.md
     - name: Import and export a DNS zone file
       href: private-dns-import-export.md
-    - name: Query zones with Azure Resource Graph Explorer
+    - name: Use Azure Resource Graph Explorer
       href: private-dns-arg.md
   - name: Private Resolver
     items:

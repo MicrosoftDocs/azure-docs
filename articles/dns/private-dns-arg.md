@@ -5,80 +5,52 @@ description: Learn how to query Azure Private DNS zones using Azure Resource Gra
 services: dns
 author: greg-lindsay
 ms.service: dns
-ms.date: 02/26/2024
+ms.date: 03/05/2024
 ms.author: greglin
 ms.topic: how-to
 ---
 
 # Private DNS information in Azure Resource Graph
 
-[Azure Resource Graph](../governance/resource-graph/overview.md) is an Azure service that allows you to use the same KQL query language used in log queries to query your Azure resources at scale with complex filtering, grouping, and sorting by resource properties. You can use Azure Resource Graph (ARG) to provide detailed information about your private zones including the following:
+[Azure Resource Graph](../governance/resource-graph/overview.md) is an Azure service that allows you to query your Azure resources with complex filtering, grouping, and sorting. Azure Resource Graph (ARG) provides detailed information about your resources and can display results in several ways. 
 
-- Query the type and number of DNS resource records in one or all zones. 
-- 
+You can use the `dnsresources` tabhle to query information about your private zones, including:
 
-To get started with Resource Graph, open **Resource Graph Explorer** in the Azure portal. Select the **Table** tab and have a look at the [microsoft.resourcehealth/availabilitystatuses](#microsoftresourcehealthavailabilitystatuses) and [microsoft.resourcehealth/resourceannotations](#microsoftresourcehealthresourceannotations) tables which are described below. Click on **healthresources** to create a simple query and then click **Run** to return the records.
+- The type and number of resource records in one or all zones
+- Virtual network links
+- Resource record names and IP addresses
 
-:::image type="content" source="media/monitor-vm/resource-graph-explorer-healthresources.png" alt-text="Screenshot of Azure Resource Graph with simple healthresources query." lightbox="media/monitor-vm/resource-graph-explorer-healthresources.png" :::
+To get started with Resource Graph, search and select **Resource Graph Explorer** in the Azure portal. In the left-hand navigation pane, select the **Table** tab and review the [microsoft.network/dnsresources](#microsoftresourcehealthavailabilitystatuses) table. Select **dnsresources** to create a simple query and then click **Run** to return the records.
 
-To view the details for a record, scroll to the right and select **See details**.
+![Screenshot of a basic ARG query.](./media/private-dns-arg/basic-query.png)
 
-:::image type="content" source="media/monitor-vm/resource-graph-explorer-healthresources-detail.png" alt-text="Screenshot of Azure Resource Graph healthresources detailed record." lightbox="media/monitor-vm/resource-graph-explorer-healthresources-detail.png" :::
+To replace IDs with display names and show values as links where possible, toggle **Formatted results** to **On** in the upper right corner of the display. To view the details for a record, scroll to the right and select **See details**. The first few records shown in the previous example are PTR records (type = microsoft.network/privatednszones/ptr).
 
-There will be two  types of events populated in the HealthResources table:
+## Count resource records by type
 
-## microsoft.resourcehealth/availabilitystatuses
-This event denotes the latest availability status of a VM, based on the [health checks](../service-health/resource-health-checks-resource-types.md#microsoftcomputevirtualmachines) performed by the underlying Azure platform. The [availability states](../service-health/resource-health-overview.md#health-status) currently emitted for VMs are as follows:
+To list the types of resource record by type, run the following query:
 
-- **Available**: The VM is up and running as expected.
-- **Unavailable**: A disruption to the normal functioning of the VM has been detected.
-- **Unknown**: The platform is unable to accurately detect the health of the VM. Check back in a few minutes.
-
-The availability state is in the `properties` field of the record which includes the following properties:
-
-| Field | Description |
-|:---|:---|
-| targetResourceType | Type of resource for which health data is flowing |
-| targetResourceId | Resource ID |
-| occurredTime | Timestamp when the latest availability state is emitted by the platform |
-| previousAvailabilityState | Previous availability state of the VM |
-| availabilityState | Current availability state of the VM |
-
-A sample `properties` value looks similar to the following:
-
-```json
-{
-    "targetResourceType": "Microsoft.Compute/virtualMachines",
-    "targetResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/virtualMachines/<VMName>",
-    "occurredTime": "2022-10-11T11:13:59.9570000Z",
-    "previousAvailabilityState": "Available",
-    "availabilityState": "Unavailable"
-}
+```Kusto
+dnsresources
+| summarize count() by recordType = tostring(type)
 ```
 
-## microsoft.resourcehealth/resourceannotations
-This event contextualizes any changes to VM availability, by detailing necessary failure attributes to help you investigate and mitigate the disruption as needed. The full list of VM health annotations are listed at [Resource Health virtual machine Health Annotations] (../service-health/resource-health-vm-annotation.md).
+![Screenshot of a resource record count query.](./media/private-dns-arg/count-query.png)
 
-These annotations can be broadly classified into the following:
+The query results display all records that the current subscription has permission to view. To specify a subscription ID, use the following query:
 
-- **Downtime Annotations**: Emitted when the platform detects VM availability transitioning to Unavailable. Examples include host crashes or reboot operations.
-- **Informational Annotations**: Emitted during control plane activities with no impact to VM availability. Examples include VM allocation, stop, delete, start. Usually, no additional customer action is required in response.
-- **Degraded Annotations**: Emitted when VM availability is detected to be at risk. Examples include when failure prediction models predict a degraded hardware component that can cause the VM to reboot at any given time. You should redeploy by the deadline specified in the annotation message to avoid any unanticipated loss of data or downtime.
+```Kusto
+dnsresources
+| where subscriptionId == "<your subscription ID>"
+| summarize count() by recordType = tostring(type)
+```
+You can also view the total count of resource records visually by selecting the **Chart** tab and then selecting the chart type. The following is an example of a **Donut chart**:
 
-| Field | Description |
-|:---|:---|
-| targetResourceType | Type of resource for which health data is flowing |
-| targetResourceId | Resource ID |
-| occurredTime | Timestamp when the latest availability state is emitted by the platform |
-| annotationName | Name of the Annotation emitted |
-| reason | Brief overview of the availability impact observed by the customer |
-| category | Denotes whether the platform activity triggering the annotation was either planned maintenance or unplanned repair. This field is not applicable to customer/VM-initiated events.<br><br>Possible values: Planned \| Unplanned \| Not Applicable \| Null |
-| context | Denotes whether the activity triggering the annotation was due to an authorized user or process (customer initiated), due to the Azure platform (platform initiated), or due to activity in the guest OS that has resulted in availability impact (VM initiated).<br><br>Possible values: Platform-Initiated \| User-initiated \| VM-initiated \| Not Applicable \| Null |
-| summary | Statement detailing the cause for annotation emission, along with remediation steps that can be taken by users |
+![Screenshot of a resource record count query donut chart.](./media/private-dns-arg/count-donut.png)
 
-See [Azure Resource Graph sample queries by table](../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli#healthresources) for sample queries using this data.
+## Zones with virtual network links
 
-## Next steps
+## Resource record names and IP addresses
 
 ## Next steps
 
