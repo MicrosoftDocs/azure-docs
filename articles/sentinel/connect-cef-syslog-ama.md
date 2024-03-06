@@ -119,7 +119,7 @@ The setup process for the CEF via AMA connector has two parts:
 
   | Built-in role | Scope | Reason |
   | ------------- | ----- | ------ |
-  | - [Virtual Machine Contributor](../role-based-access-control/built-in-roles/compute.md#virtual-machine-contributor)<br>- [Azure Connected Machine<br>&nbsp;&nbsp;&nbsp;Resource Administrator](../role-based-access-control/built-in-roles/management-and-governance.md#azure-connected-machine-resource-administrator) | <li>Virtual machines<li>VM scale sets<li>Azure Arc-enabled servers | To deploy the agent |
+  | - [Virtual Machine Contributor](../role-based-access-control/built-in-roles/compute.md#virtual-machine-contributor)<br>- [Azure Connected Machine<br>&nbsp;&nbsp;&nbsp;Resource Administrator](../role-based-access-control/built-in-roles/management-and-governance.md#azure-connected-machine-resource-administrator) | <li>Virtual machines<li>Virtual Machine Scale Sets<li>Azure Arc-enabled servers | To deploy the agent |
   | Any role that includes the action<br>*Microsoft.Resources/deployments/\** | <li>Subscription<li>Resource group<li>Existing data collection rule | To deploy Azure Resource Manager templates |
   | [Monitoring Contributor](../role-based-access-control/built-in-roles/monitor.md#monitoring-contributor) | <li>Subscription<li>Resource group<li>Existing data collection rule | To create or edit data collection rules |
 
