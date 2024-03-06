@@ -26,5 +26,5 @@ The Change log for the API for MongoDB is meant to inform you about our feature 
 ## Next steps
 
 * Learn how to [use Studio 3T](../connect-using-mongochef.md) with Azure Cosmos DB for MongoDB.
-* Learn how to [use Robo 3T](/articles/cosmos-db/mongodb/connect-using-robomongo.md) with Azure Cosmos DB for MongoDB.
-* Explore MongoDB [samples](/articles/cosmos-db/mongodb/nodejs-console-app.md) with Azure Cosmos DB for MongoDB.
+* Learn how to [use Robo 3T](../connect-using-robomongo.md) with Azure Cosmos DB for MongoDB.
+* Explore MongoDB [samples](../nodejs-console-app.md) with Azure Cosmos DB for MongoDB.
