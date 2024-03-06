@@ -206,7 +206,7 @@ The `logprobs` object is a dictionary with the following fields:
 | `text_offsets`   | `array` of `integers`   | The position or index of each token in the completion output. |
 | `token_logprobs` | `array` of `float`      | Selected `logprobs` from dictionary in `top_logprobs` array.   |
 | `tokens`         | `array` of `string`     | Selected tokens.   |
-| `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the prob. |
+| `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the probability. |
 
 #### Example
 
