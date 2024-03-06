@@ -61,7 +61,8 @@ That said the best practice for dealing with _large_ data is to keep it in exter
 
 ### Keep Entity data small
 
-Just like for inputs and outputs to Durable Functions APIs, if an entity's explicit state is too large, you may run into memory issues. In particular, an Entity state needs to be serialized and de-serialized from storage on any request, so large states add serialization latency to each invocation. Therefore, if an Entity needs to track large data, it is recommended to offload the data to external storage and simply track some lightweight identifier in the entity that allows you to materialize the data from storage when needed.
+Just like for inputs and outputs to Durable Functions APIs, if an entity's explicit state is too large, you may run into memory issues. In particular, an Entity state needs to be serialized and de-serialized from storage on any request, so large states add serialization latency to each invocation. Therefore, if an Entity needs to track large data, it's recommended to offload the data to external storage and track some lightweight identifier in the entity that allows you to materialize the data from storage when needed.
+
 
 ### Fine tune your Durable Functions concurrency settings
 
@@ -72,7 +73,7 @@ A single worker instance can execute multiple work items concurrently to increas
 
 ### Invest in stress testing
 
-As with anything performance related, the ideal concurrency settings and architechture of your app ultimately depends on your application's workload. Therefore, it is recommended that users to invest in a performance testing harness that simulates their expected workload and to use it to run performance and reliability experiments for their app. 
+As with anything performance related, the ideal concurrency settings and architechture of your app ultimately depends on your application's workload. Therefore, it's recommended that users to invest in a performance testing harness that simulates their expected workload and to use it to run performance and reliability experiments for their app.
 
 ## Diagnostic tools
 
