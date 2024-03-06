@@ -5,8 +5,8 @@ ms.subservice: logs
 ms.topic: article
 author: guywild
 ms.author: guywild
-ms.reviewer: roygal
-ms.date: 06/22/2022
+ms.reviewer: ilanawaitser
+ms.date: 12/28/2023
 ---
 
 # Use queries in Log Analytics
@@ -58,7 +58,9 @@ The filter and group by functionalities are designed to work in tandem. They pro
 ---
 
 ## Query properties
-Each query has multiple properties that help you group and find them. These properties are available for sorting and filtering. You can define several of them when you [save your own query](save-query.md). The types of properties are:
+Each query has multiple properties that help you group and find them. These properties are available for sorting and filtering. For more information, see [Find and filter queries](#find-and-filter-queries).
+
+You can define several of them when you [save your own query](save-query.md). The types of properties are:
 
 | Query property | Description |
 | :--- | :--- |
@@ -69,6 +71,12 @@ Each query has multiple properties that help you group and find them. These prop
 | Query type | Defines the type of the query. Query type might be Example queries, Query pack queries, or Legacy queries. |
 | Labels | Custom labels that you can define and assign when you [save your own query](save-query.md). |
 | Tags | Custom properties that you can define when you [create a query pack](query-packs.md). You can use tags to create your own taxonomies for organizing queries. |
+
+### View query properties
+
+From the **Queries** pane on the left sidebar of Log Analytics, hover over a query name to see its properties.
+
+:::image type="content" source="media/queries/query-properties.png" lightbox="media/queries/query-properties.png" alt-text="Screenshot that shows the query properties for a query.":::
 
 ## Favorites
 You can identify frequently used queries as favorites to give you quicker access. Select the star next to the query to add it to **Favorites**. View your favorite queries from the **Favorites** option in the query interface.

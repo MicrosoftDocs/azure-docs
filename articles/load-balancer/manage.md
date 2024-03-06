@@ -4,15 +4,14 @@ description: Get started learning about Azure Load Balancer portal settings.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 12/06/2022
+ms.date: 01/19/2024
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
 ---
 
 # Azure Load Balancer portal settings
 
-As you create Azure Load Balancer, information in this article will help you learn more about the individual settings and what the right configuration is for you.
+As you create Azure Load Balancer, information in this article helps you learn more about the individual settings and what the right configuration is for you.
 
 ## Create load balancer
 
@@ -21,7 +20,7 @@ To create a load balancer in the portal, at the top of the page select the searc
 
 ### Basics
 
-In the **Basics** tab of the create load balancer portal page, you'll see the following information:
+In the **Basics** tab of the create load balancer portal page, you see the following information:
 
 | Setting |  Details |
 | ---------- | ---------- |
@@ -29,7 +28,7 @@ In the **Basics** tab of the create load balancer portal page, you'll see the fo
 | Resource group | Select **Create new** and type in the name for your resource group in the text box. If you have an existing resource group created, select it. |
 | Name | This setting is the name for your Azure Load Balancer. |
 | Region | Select an Azure region you'd like to deploy your load balancer in. |
-| SKU  | Select **Standard**. </br> Load balancer has three SKUs: </br> **Basic** </br>**Standard** </br> **Gateway**. </br> Basic has limited functionality. </br> Standard is recommended for production workloads. </br> Gateway caters to third-party network virtual appliances (NVAs) </br> Learn more about [SKUs](skus.md). |
+| SKU  | Select **Standard**. </br> Load balancer has three SKUs: </br> **Basic** </br>**Standard** </br> **Gateway**. </br> Basic has limited functionality. </br> Standard is recommended for production workloads. </br> Gateway caters to non-Microsoft network virtual appliances (NVAs) </br> Learn more about [SKUs](skus.md). |
 | Type | Load balancer has two types: </br> **Internal (Private)** </br> **Public (External)**.</br> An internal load balancer (ILB) routes traffic to backend pool members via a private IP address.</br> A public load balancer directs requests from clients over the internet to the backend pool.</br> Learn more about [load balancer types](components.md#frontend-ip-configuration-).|
 | Tier | Load balancer has two tiers: </br> **Regional** </br> **Global** </br> A regional load balancer is constrained to load balancing within a region. Global refers to a cross-region load balancer that load-balances across regions. </br> For more information on the **Global** tier, see [Cross-region load balancer (preview)](cross-region-overview.md)
 
@@ -44,11 +43,11 @@ In the **Frontend IP configuration** tab of the create load balancer portal page
 #### **Add frontend IP configuration**
 ##### Public load balancer
 
-If you select **Public** as your load balancer type in the **Basics** tab, you'll see the following information:
+If you select **Public** as your load balancer type in the **Basics** tab, you see the following information:
 
 | Setting | Details |
 | ------- | ------- |
-| Name | The name of the frontend that will be added to the load balancer. |
+| Name | The name of the frontend added to the load balancer. |
 | IP version | **IPv4** </br> **IPv6** </br> Load balancer supports IPv4 and IPv6 frontends. </br> Learn more about [load Balancer and IPv6](load-balancer-ipv6-overview.md). |
 | IP type | **IP address** </br> **IP prefix** </br> Load balancer supports an IP address or an IP prefix for the frontend IP address. For more information, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md). |
 | Gateway Load Balancer | If you're using a Gateway Load Balancer, choose the **Azure Resource Manager ID** of the Gateway Load Balancer you want to chain to your frontend IP Configuration. |
@@ -57,14 +56,14 @@ If you select **Public** as your load balancer type in the **Basics** tab, you'l
 
 ###### IP address
 
-If you select **IP address** for **IP type**, you'll see the following information:
+If you select **IP address** for **IP type**, you see the following information:
 
 | Setting | Details |
 | ------- | ------- |
 | Public IP address | Select **Create new** to create a public IP address for your public load balancer. </br> If you have an existing public IP, select it in the pull-down box. |
 | Name | The name of the public IP address resource. |
 | SKU | Public IP addresses have two SKUs: **Basic** and **Standard**. </br> Basic doesn't support zone-resiliency and zonal attributes. </br> **Standard** is recommended for production workloads. </br> Load balancer and public IP address SKUs **must match**. |
-| Tier | **Regional** </br> **Global** </br> Depending on type of load balancer tier will determine what is selected. Regional for traditional load balancer, global for cross-region. |
+| Tier | **Regional** </br> **Global** </br> Depending on type of load balancer tier determines what is selected. Regional for traditional load balancer, global for cross-region. |
 | Assignment | **Static** is auto selected for standard. </br> Basic public IPs have two types: **Dynamic** and **Static**. </br> Dynamic public IP addresses aren't assigned until creation. </br> IPs can be lost if the resource is deleted. </br> Static IP addresses are recommended. |
 | Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IPs support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md). </br> You won't see zone selection for basic. Basic load balancer doesn't support zones. |
 | Routing preference | Select **Microsoft Network**. </br> Microsoft Network means that traffic is routed via the Microsoft global network. </br> Internet means that traffic is routed through the internet service provider network. </br> Learn more about [Routing Preferences](../virtual-network/ip-services/routing-preference-overview.md)|
@@ -73,14 +72,14 @@ If you select **IP address** for **IP type**, you'll see the following informati
 
 ###### IP Prefix
 
-If you select **IP prefix** for **IP type**, you'll see the following information:
+If you select **IP prefix** for **IP type**, you see the following information:
 
 | Setting | Details |
 | ------- | ------- |
 | Public IP prefix | Select **Create new** to create a public IP prefix for your public load balancer. </br> If you have an existing public prefix, select it in the pull-down box. |
 | Name | The name of the public IP prefix resource. |
 | SKU | Public IP prefixes have one SKU, **Standard**. |
-| IP version | **IPv4** or **IPv6**. </br> The version displayed will correspond to the version chosen above. |
+| IP version | **IPv4** or **IPv6**. </br> The version displayed corresponds to the version chosen. |
 | Prefix size | IPv4 or IPv6 prefixes are displayed depending on the selection above. </br> **IPv4** </br> /24 (256 addresses) </br> /25 (128 addresses) </br> /26 (64 addresses) </br> /27 (32 addresses) </br> /28 (16 addresses) </br> /29 (8 addresses) </br> /30 (4 addresses) </br> /31 (2 addresses) </br> **IPv6** </br> /124 (16 addresses) </br> /125 (8 addresses) </br> 126 (4 addresses) </br> 127 (2 addresses) |
 | Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IP prefixes support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md).
 
@@ -88,11 +87,11 @@ If you select **IP prefix** for **IP type**, you'll see the following informatio
 
 ##### Internal load balancer
 
-If you select **Internal** as your load balancer type in the **Basics** tab, you'll see the following information:
+If you select **Internal** as your load balancer type in the **Basics** tab, you see the following information:
 
 | Setting |  Details |
 | ---------- | ---------- |
-| Virtual network | The virtual network you want your internal load balancer to be part of. </br> The private frontend IP address you select for your internal load balancer will be from this virtual network. |
+| Virtual network | The virtual network your internal load balancer will connect to. </br> The private frontend IP address you select for your internal load balancer is from this virtual network. |
 | Subnet | The subnets available for the IP address of the frontend IP are displayed here. |
 | Assignment | Your options are **Static** or **Dynamic**. </br> Static ensures the IP doesn't change. A dynamic IP could change. |
 | Availability zone | Your options are: </br> **Zone redundant** </br> **Zone 1** </br> **Zone 2** </br> **Zone 3** </br> To create a load balancer that is highly available and resilient to availability zone failures, select a **zone-redundant** IP. |
@@ -146,8 +145,8 @@ The following is displayed in the **Add load balancing rule** creation page:
 | Protocol | Azure Load Balancer is a layer 4 network load balancer. </br> Your options are: **TCP** or **UDP**. |
 | Port | This setting is the port associated with the frontend IP that you want traffic to be distributed based on this load-balancing rule. |
 | Backend port | This setting is the port on the instances in the backend pool you would like the load balancer to send traffic to. This setting can be the same as the frontend port or different if you need the flexibility for your application. |
-| Health probe | Select **Create new**, to create a new probe.  </br> Only healthy instances will receive new traffic. |
-| Session persistence |  Your options are: </br> **None** </br> **Client IP** </br> **Client IP and protocol**</br> </br> Maintain traffic from a client to the same virtual machine in the backend pool. This traffic will be maintained during the session. </br> **None** specifies that successive requests from the same client may be handled by any virtual machine. </br> **Client IP** specifies that successive requests from the same client IP address will be handled by the same virtual machine. </br> **Client IP and protocol** ensure that successive requests from the same client IP address and protocol will be handled by the same virtual machine. </br> Learn more about [distribution modes](load-balancer-distribution-mode.md). |
+| Health probe | Select **Create new**, to create a new probe.  </br> Only healthy instances receive new traffic. |
+| Session persistence |  Your options are: </br> **None** </br> **Client IP** </br> **Client IP and protocol**</br> </br> Maintain traffic from a client to the same virtual machine in the backend pool. This traffic is maintained during the session. </br> **None** specifies that successive requests from the same client can be handled by any virtual machine. </br> **Client IP** specifies that successive requests from the same client IP address are handled by the same virtual machine. </br> **Client IP and protocol** ensure that successive requests from the same client IP address and protocol are handled by the same virtual machine. </br> Learn more about [distribution modes](load-balancer-distribution-mode.md). |
 | Idle timeout (minutes) | Keep a **TCP** or **HTTP** connection open without relying on clients to send keep-alive messages |  
 | TCP reset | Load balancer can send **TCP resets** to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md)|
 | Floating IP | Floating IP is Azure's terminology for a portion of what is known as **Direct Server Return (DSR)**. </br> DSR consists of two parts: <br> 1. Flow topology </br> 2. An IP address-mapping scheme at a platform level. </br></br> Azure Load Balancer always operates in a DSR flow topology whether floating IP is enabled or not. </br> This operation means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin. </br> Without floating IP, Azure exposes a traditional load-balancing IP address-mapping scheme, the VM instances' IP. </br> Enabling floating IP changes the IP address mapping to the frontend IP of the load Balancer to allow for more flexibility. </br> For more information, see [Multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).|
@@ -161,9 +160,9 @@ If you selected **Create new** in the health probe configuration of the load-bal
 | Setting | Details |
 | ---------- | ---------- |
 | Name | The name of your health probe. |
-| Protocol | The protocol you select determines the type of check used to determine if the backend instance(s) are healthy. </br> Your options are: </br> **TCP** </br> **HTTPS** </br> **HTTP** </br> Ensure you're using the right protocol. This selection will depend on the nature of your application. </br> The configuration of the health probe and probe responses determines which backend pool instances will receive new flows. </br> You can use health probes to detect the failure of an application on a backend endpoint. </br> Learn more about [health probes](load-balancer-custom-probe-overview.md). |
-| Port | The destination port for the health probe. </br> This setting is the port on the backend instance the health probe will use to determine the instance's health. |
-| Interval | The number of seconds in between probe attempts. </br> The interval will determine how frequently the health probe will attempt to reach the backend instance. </br> If you select 5, the second probe attempt will be made after 5 seconds and so on. |
+| Protocol | The protocol you select determines the type of check used to determine if the backend instance(s) are healthy. </br> Your options are: </br> **TCP** </br> **HTTPS** </br> **HTTP** </br> Ensure you're using the right protocol. This selection depends on the nature of your application. </br> The configuration of the health probe and probe responses determines which backend pool instances receive new flows. </br> You can use health probes to detect the failure of an application on a backend endpoint. </br> Learn more about [health probes](load-balancer-custom-probe-overview.md). |
+| Port | The destination port for the health probe. </br> This setting is the port on the backend instance the health probe uses to determine the instance's health. |
+| Interval | The number of seconds in between probe attempts. </br> The interval determines how frequently the health probe attempts to reach the backend instance. </br> If you select 5, the second probe attempt is made after 5 seconds and so on. |
 
 :::image type="content" source="./media/manage/add-health-probe.png" alt-text="Screenshot of add health probe." border="true":::
 
@@ -183,7 +182,7 @@ The following is displayed in the **Add an inbound NAT rule** creation page for 
 | Frontend IP address | Select the frontend IP address. </br> The frontend IP address of your load balancer you want the inbound NAT rule associated to. |
 | Frontend Port | This setting is the port associated with the frontend IP that you want traffic to be distributed based on this inbound NAT rule. |
 | Service Tag | Enter a service tag to use for your rule. The frontend port value is populated based on Service Tag chosen. |
-| Backend port | Enter a port on the backend virtual machine that traffic will be sent to. |
+| Backend port | Enter a port for traffic sent to the backend virtual machine. |
 | Protocol | Azure Load Balancer is a layer 4 network load balancer. </br> Your options are: TCP or UDP. |
 | Enable TCP Reset | Load Balancer can send TCP resets to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md) |
 | Idle timeout (minutes) | Keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
@@ -201,10 +200,10 @@ The following is displayed in the **Add an inbound NAT rule** creation page for 
 |Target backend pool | Select the backend pool this rule applies to from the dropdown menu. |
 | Frontend IP address | Select the frontend IP address. </br> The frontend IP address of your load balancer you want the inbound NAT rule associated to. |
 | Frontend port range start | Enter the starting port of a range of frontend ports pre-allocated for the specific backend pool. |
-| Current number of machines in backend pool | The number of machines in the selected backend pool will be displayed. The displayed value is for information only; you can't modify this value. |
+| Current number of machines in backend pool | The displayed value is the number of machines in the selected backend pool, and for information only; you can't modify this value. |
 | Maximum number of machines in backend pool | Enter the maximum number of instances in the backend pool when scaling out. |
-| Backend port | Enter a port on the backend pool that traffic will be sent to. |
-| Protocol | Azure Load Balancer is a layer 4 network load balancer. </br> Your options are: TCP or UDP. |
+| Backend port | Enter a port for traffic sent to on backend pool. |
+| Protocol | Azure Load Balancer is a layer 4 network lod balancer. </br> Your options are: TCP or UDP. |
 | Enable TCP Reset | Load Balancer can send TCP resets to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md) |
 | Idle timeout (minutes) | Keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
 | Enable Floating IP | Some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. If you want to reuse the backend port across multiple rules, you must enable [Floating IP](load-balancer-floating-ip.md) in the rule definition.|
@@ -233,17 +232,18 @@ The following is displayed in the **Add outbound rule** creation page:
 | TCP Reset | Load balancer can send **TCP resets** to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md) |
 | Backend pool | The backend pool you would like this outbound rule to be applied on. |
 | **Port allocation** |   |
-| Port allocation | Your choices are: </br> **Manually choose number of outbound ports** </br> **Use the default number of outbound ports** </br> The recommended selection is the default of **Manually choose number of outbound ports** to prevent SNAT port exhaustion. If choose **Use the default number of outbound ports**, the **Outbound ports** selection is disabled. |
+| Port allocation | Your choices are: </br> **Manually choose number of outbound ports** </br> **Use the default number of outbound ports** </br> The recommended selection is the default of **Manually choose number of outbound ports** to prevent SNAT port exhaustion. If **Use the default number of outbound ports** is chosen, the **Outbound ports** selection is disabled. |
 | Outbound ports | Your choices are: </br> **Ports per instance** </br> **Maximum number of backend instances**. </br> The recommended selections are select **Ports per instance** and enter **10,000**. |
 
 :::image type="content" source="./media/manage/add-outbound-rule.png" alt-text="Screenshot of add outbound rule." border="true":::
 
 ## Portal settings
+
 ### Frontend IP configuration
 
 The IP address of your Azure Load Balancer. It's the point of contact for clients. 
 
-You can have one or many frontend IP configurations. If you went through the create section above, you would have already created a frontend for your load balancer. 
+You can have one or many frontend IP configurations. If you went through the create section in this article, you created a frontend for your load balancer. 
 
 If you want to add a frontend IP configuration to your load balancer, go to your load balancer in the Azure portal, select **Frontend IP configuration**, and then select **+Add**.
 
@@ -282,10 +282,10 @@ If you want to add a health probe to your load balancer, go to your load balance
 | Setting | Details |
 | ---------- | ---------- |
 | Name | The name of your health probe. |
-| Protocol | The protocol you select determines the type of check used to determine if the backend instance(s) are healthy. </br> Your options are: </br> **TCP** </br> **HTTPS** </br> **HTTP** </br> Ensure you're using the right protocol. This selection will depend on the nature of your application. </br> The configuration of the health probe and probe responses determines which backend pool instances will receive new flows. </br> You can use health probes to detect the failure of an application on a backend endpoint. </br> Learn more about [health probes](load-balancer-custom-probe-overview.md). |
-| Port | The destination port for the health probe. </br> This setting is the port on the backend instance the health probe will use to determine the instance's health. |
-| Interval | The number of seconds in between probe attempts. </br> The interval will determine how frequently the health probe will attempt to reach the backend instance. </br> If you select 5, the second probe attempt will be made after 5 seconds and so on. |
-| Unhealthy threshold | The number of consecutive probe failures that must occur before a VM is considered unhealthy.</br> If you select 2, no new flows will be set to this backend instance after two consecutive failures. |
+| Protocol | The protocol you select determines the type of check used to determine if the backend instance(s) are healthy. </br> Your options are: </br> **TCP** </br> **HTTPS** </br> **HTTP** </br> Ensure you're using the right protocol. This selection depends on the nature of your application. </br> The configuration of the health probe and probe responses determines which backend pool instances receive new flows. </br> You can use health probes to detect the failure of an application on a backend endpoint. </br> Learn more about [health probes](load-balancer-custom-probe-overview.md). |
+| Port | The destination port for the health probe. </br> This setting is the port on the backend instance the health probe uses to determine the instance's health. |
+| Interval | The number of seconds in between probe attempts. </br> The interval determines how frequently the health probe attempts to reach the backend instance. </br> If you select 5, the second probe attempt is made after 5 seconds and so on. |
+| Unhealthy threshold | The number of consecutive probe failures that must occur before a VM is considered unhealthy.</br> If you select 2, no new flows are sent to this backend instance after two consecutive failures. |
 
 :::image type="content" source="./media/manage/health-probe.png" alt-text="Screenshot of create add health probe." border="true":::
 
@@ -304,8 +304,8 @@ If you want to add a load balancer rule to your load balancer, go to your load b
 | Port | This setting is the port associated with the frontend IP that you want traffic to be distributed based on this load-balancing rule. |
 | Backend port | This setting is the port on the instances in the backend pool you would like the load balancer to send traffic to. This setting can be the same as the frontend port or different if you need the flexibility for your application. |
 | Backend pool | The backend pool you would like this load balancer rule to be applied on. |
-| Health probe | The health probe you created to check the status of the instances in the backend pool. </br> Only healthy instances will receive new traffic. |
-| Session persistence |  Your options are: </br> **None** </br> **Client IP** </br> **Client IP and protocol**</br> </br> Maintain traffic from a client to the same virtual machine in the backend pool. This traffic will be maintained during the session. </br> **None** specifies that successive requests from the same client may be handled by any virtual machine. </br> **Client IP** specifies that successive requests from the same client IP address will be handled by the same virtual machine. </br> **Client IP and protocol** ensure that successive requests from the same client IP address and protocol will be handled by the same virtual machine. </br> Learn more about [distribution modes](load-balancer-distribution-mode.md). |
+| Health probe | The health probe you created to check the status of the instances in the backend pool. </br> Only healthy instances receive new traffic. |
+| Session persistence |  Your options are: </br> **None** </br> **Client IP** </br> **Client IP and protocol**</br> </br> Maintain traffic from a client to the same virtual machine in the backend pool. This traffic is maintained during the session. </br> **None** specifies that successive requests from the same client can be handled by any virtual machine. </br> **Client IP** specifies that successive requests from the same client IP address are handled by the same virtual machine. </br> **Client IP and protocol** ensure that successive requests from the same client IP address and protocol are handled by the same virtual machine. </br> Learn more about [distribution modes](load-balancer-distribution-mode.md). |
 | Idle timeout (minutes) | Keep a **TCP** or **HTTP** connection open without relying on clients to send keep-alive messages |  
 | TCP reset | Load balancer can send **TCP resets** to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md)|
 | Floating IP | Floating IP is Azure's terminology for a portion of what is known as **Direct Server Return (DSR)**. </br> DSR consists of two parts: <br> 1. Flow topology </br> 2. An IP address-mapping scheme at a platform level. </br></br> Azure Load Balancer always operates in a DSR flow topology whether floating IP is enabled or not. </br> This operation means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin. </br> Without floating IP, Azure exposes a traditional load-balancing IP address-mapping scheme, the VM instances' IP. </br> Enabling floating IP changes the IP address mapping to the frontend IP of the load Balancer to allow for more flexibility. </br> For more information, see [Multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).|
@@ -330,7 +330,7 @@ If you want to add an inbound nat rule to your load balancer, go to your load ba
 | Name | The name of your inbound NAT rule |
 | Frontend IP address | Select the frontend IP address. </br> The frontend IP address of your load balancer you want the inbound NAT rule associated to. |
 | IP Version | Your options are **IPv4** and **IPv6**. |
-| Service | The type of service you'll be running on Azure Load Balancer. </br> A selection here will update the port information appropriately. |
+| Service | The type of service you're running on Azure Load Balancer. </br> A selection here updates the port information appropriately. |
 | Protocol | Azure Load Balancer is a layer 4 network load balancer. </br> Your options are: TCP or UDP. |
 | Idle timeout (minutes) | Keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
 | TCP Reset | Load Balancer can send TCP resets to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md) |
@@ -354,9 +354,9 @@ If you want to add an outbound rule to your load balancer, go to your load balan
 | Idle timeout (minutes) | Keep a **TCP** or **HTTP** connection open without relying on clients to send keep-alive messages. |
 | TCP Reset | Load balancer can send **TCP resets** to create a more predictable application behavior when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md) |
 | Backend pool | The backend pool you would like this outbound rule to be applied on. |
-| Port allocation | Your options are **Manually choose number of outbound ports** or **Use the default number of outbound ports**. </br> When you use default port allocation, Azure may drop existing connections when you scale out. Manually allocate ports to avoid dropped connections. |
+| Port allocation | Your options are **Manually choose number of outbound ports** or **Use the default number of outbound ports**. </br> When you use default port allocation, Azure can drop existing connections when you scale out. Manually allocate ports to avoid dropped connections. |
 | **Outbound Ports** |   |
-| Choose by | Your options are **Ports per instance** or **Maximum number of backend instances**. </br> When you use default port allocation, Azure may drop existing connections when you scale out. Manually allocate ports to avoid dropped connections. |
+| Choose by | Your options are **Ports per instance** or **Maximum number of backend instances**. </br> When you use default port allocation, Azure can drop existing connections when you scale out. Manually allocate ports to avoid dropped connections. |
 | Ports per instance | Enter number of ports to be used per instance. This entry is only available when choosing **Ports per instance** for outbound ports above. |
 | Available Frontend ports | Displayed value of total available frontend ports based on selected port allocation. |
 | Maximum number of backend instances | Enter the maximum number of back end instances. This entry is only available when choosing **Maximum number of backend instances** for outbound ports above. </br> You can't scale your backend pool above this number of instances. Increasing the number of instances decreases the number of ports per instance unless you also add more frontend IP addresses. |

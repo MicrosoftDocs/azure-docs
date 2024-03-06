@@ -2,14 +2,15 @@
 title: Serp API tool for flows in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces the Serp API tool for flows in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
-ms.date: 11/15/2023
-ms.author: eur
+ms.topic: how-to
+ms.date: 2/6/2024
+ms.reviewer: keli19
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Serp API tool for flows in Azure AI Studio
@@ -26,9 +27,14 @@ Sign up at [SERP API homepage](https://serpapi.com/)
 
 Create a Serp connection:
 1. Sign in to [Azure AI Studio](https://studio.azureml.net/).
-1. Go to **Settings** > **Connections**.
+1. Go to **AI project settings** > **Connections**.
 1. Select **+ New connection**.
-1. Complete all steps in the **Create a new connection** dialog box. 
+1. Add the following custom keys to the connection:
+    - `azureml.flow.connection_type`: `Custom`
+    - `azureml.flow.module`: `promptflow.connections`
+    - `api_key`: Your_Serp_API_key. You must check the **is secret** checkbox to keep the API key secure.
+    
+    :::image type="content" source="../../media/prompt-flow/serp-custom-connection-keys.png" alt-text="Screenshot that shows add extra meta to custom connection in AI Studio." lightbox = "../../media/prompt-flow/serp-custom-connection-keys.png"::: 
 
 The connection is the model used to establish connections with Serp API. Get your API key from the SerpAPI account dashboard. 
 
@@ -38,7 +44,7 @@ The connection is the model used to establish connections with Serp API. Get you
 
 ## Build with the Serp API tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
+1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Serp API** to add the Serp API tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/serp-api-tool.png" alt-text="Screenshot of the Serp API tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/serp-api-tool.png":::

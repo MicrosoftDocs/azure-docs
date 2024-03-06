@@ -18,12 +18,11 @@ We simplify this process by providing clear step-by-step instructions to ensure 
 The following steps walk you through the process of creating [standard tests](availability-standard-tests.md) that replicate the functionality of your [URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability). It allows you to more easily start using the advanced features of [standard tests](availability-standard-tests.md) using your previously created [URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability).
 
 > [!IMPORTANT]
-> 
-> On September 30th, 2026, **[URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) retire**. Transition to **[standard tests](/editor/availability-standard-tests.md)** before then.
-> 
+> On September 30th, 2026, **[URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) will be retired**. Transition to **[standard tests](/editor/availability-standard-tests.md)** before then.
 > - A cost is associated with running **[standard tests](/editor/availability-standard-tests.md)**. Once you create a **[standard test](/editor/availability-standard-tests.md)**, you will be charged for test executions.
+> 
 > - Refer to **[Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing)** before starting this process.
-
+> 
 ### Prerequisites
 
 - Any [URL ping test](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) within Application Insights
@@ -59,13 +58,10 @@ The following steps walk you through the process of creating [standard tests](av
     $dynamicParameters = @{};
     
     if ($pingTestRequest.IgnoreHttpStatusCode -eq [bool]::FalseString) {
-    
     $dynamicParameters["RuleExpectedHttpStatusCode"] = [convert]::ToInt32($pingTestRequest.ExpectedHttpStatusCode, 10);
-    
     }
     
     if ($pingTestValidationRule -and $pingTestValidationRule.DisplayName -eq "Find Text" `
-    
     -and $pingTestValidationRule.RuleParameters.RuleParameter[0].Name -eq "FindText" `
     -and $pingTestValidationRule.RuleParameters.RuleParameter[0].Value) {
     $dynamicParameters["ContentMatch"] = $pingTestValidationRule.RuleParameters.RuleParameter[0].Value;
@@ -77,7 +73,6 @@ The following steps walk you through the process of creating [standard tests](av
     -RequestUrl $pingTestRequest.Url -RequestHttpVerb "GET" -GeoLocation $pingTest.PropertiesLocations -Frequency $pingTest.Frequency `
     -Timeout $pingTest.Timeout -RetryEnabled:$pingTest.RetryEnabled -Enabled:$pingTest.Enabled `
     -RequestParseDependent:($pingTestRequest.ParseDependentRequests -eq [bool]::TrueString);
-    
     ```
 
 5. The new standard test doesn't have alert rules by default, so it doesn't create noisy alerts. No changes are made to your URL ping test so you can continue to rely on it for alerts.

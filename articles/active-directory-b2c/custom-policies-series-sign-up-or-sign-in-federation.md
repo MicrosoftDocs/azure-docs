@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 11/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: As a developer, I want to set up a sign-up and sign-in flow with a social account using Azure Active Directory B2C custom policy, so that users can sign in to my application using their social media credentials.
+
 ---
 
 # Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy
@@ -221,7 +225,7 @@ Notice the claims transformations we defined in [step 3.2](#step-32---define-cla
 
 Just like in sign-in with a local account, you need to configure the [Microsoft Entra Technical Profiles](active-directory-technical-profile.md), which you use to connect to Microsoft Entra ID storage, to store or read a user social account. 
 
-1. In the `ContosoCustomPolicy.XML` file, locate the `AAD-UserUpdate` technical profile and then add a new technical profile by using the following code: 
+1. In the `ContosoCustomPolicy.XML` file, locate the `AAD-UserRead` technical profile and then add a new technical profile by using the following code: 
 
     ```xml
         <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">

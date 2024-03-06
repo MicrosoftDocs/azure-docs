@@ -4,7 +4,7 @@ description: This article describes how to install Azure Data Lake Tools for Vis
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 12/20/2023
 ---
 # Install Data Lake Tools for Visual Studio
 

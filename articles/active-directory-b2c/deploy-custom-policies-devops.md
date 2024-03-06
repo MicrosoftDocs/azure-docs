@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 03/25/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer managing Azure AD B2C custom policies, I want to automate the deployment process using Azure Pipelines, so that I can consistently test, build, and ship my code to any target.
+
 ---
 
 # Deploy custom policies with Azure Pipelines

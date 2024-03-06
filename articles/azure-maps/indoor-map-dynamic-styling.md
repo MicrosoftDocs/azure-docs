@@ -137,7 +137,7 @@ Learn more by reading:
 > [!div class="nextstepaction"]
 > [Creator for indoor maps](creator-indoor-maps.md)
 
-[Feature State service]: /rest/api/maps/v2/feature-state
+[Feature State service]: /rest/api/maps-creator/feature-state
 [Indoor Web module]: how-to-use-indoor-module.md
 <!--[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
@@ -147,7 +147,8 @@ Learn more by reading:
 [Postman]: https://www.postman.com/
 [How to create a feature stateset]: how-to-creator-feature-stateset.md
 [See live demo]: https://samples.azuremaps.com/?sample=creator-indoor-maps
-[Feature Update States API]: /rest/api/maps/v2/feature-state/update-states
+[Feature Update States API]: /rest/api/maps-creator/feature-state/update-states
 [Create an indoor map]: tutorial-creator-indoor-maps.md
-[WFS API]: /rest/api/maps/v2/wfs
+[WFS API]: /rest/api/maps-creator/wfs
 [Creator for indoor maps]: creator-indoor-maps.md
+[What is Azure Maps Creator?]: about-creator.md

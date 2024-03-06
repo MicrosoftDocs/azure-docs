@@ -11,7 +11,6 @@ ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: pafarley
 zone_pivot_groups: programming-languages-content-safety
-keywords: 
 ---
 
 # QuickStart: Analyze text content

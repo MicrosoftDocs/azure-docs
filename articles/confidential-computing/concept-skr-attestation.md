@@ -1,13 +1,12 @@
 ---
 title: Secure Key Release with Azure Key Vault and Azure Confidential Computing
 description: Concept guide on what SKR is and its usage with Azure Confidential Computing Offerings
-author: agowdamsft
+author: angarg05
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 8/22/2023
-ms.author: amgowda
+ms.author: ananyagarg
 ---
 
 # Secure Key Release feature with AKV and Azure Confidential Computing (ACC)

@@ -61,7 +61,7 @@ You can switch from Network Protection to IP Protection using the Azure portal. 
 The DDoS protection plan must be disassociated from the protected resources before you can delete the plan. 
 
 >[!WARNING]
->To maintain DDoS Protection during migration, ensure IP protection is enabled on all pubic IPs protected by Network Protection.
+>To maintain DDoS Protection during migration, ensure IP protection is enabled on all public IPs protected by Network Protection.
 
 1. In the search box at the top of the portal, enter **DDoS protection plans**. Select your DDoS protection plan.
 1. In the **Settings** page, select the **Protected Resources** tab, then select the **Dissociate** icon next to the virtual network that contains the resources you are protecting. When prompted, select **Yes** to confirm.

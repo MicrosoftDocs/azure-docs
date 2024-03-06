@@ -3,7 +3,6 @@ title: Restrictions and details of API formats support
 titleSuffix: Azure API Management
 description: Details of known issues and restrictions on OpenAPI, WSDL, and WADL formats support in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -253,6 +252,9 @@ Namespaces other than the target aren't preserved on export. While you can impor
 
 ### Multiple endpoints
 WSDL files can define multiple services and endpoints (ports) by one or more `wsdl:service` and `wsdl:port` elements. However, the API Management gateway is able to import and proxy requests to only a single service and endpoint. If multiple services or endpoints are defined in the WSDL file, identify the target service name and endpoint when importing the API by using the [wsdlSelector](/rest/api/apimanagement/apis/create-or-update#wsdlselector) property.
+
+> [!TIP]
+> If you want to load-balance requests across multiple services and endpoints, consider configuring a [load-balanced backend pool](backends.md#load-balanced-pool-preview).
 
 ### Arrays 
 SOAP-to-REST transformation supports only wrapped arrays shown in the example below:

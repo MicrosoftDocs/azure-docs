@@ -42,6 +42,8 @@
     href: ./resource-graph-samples.md
 - name: How-to guides
   items:
+  - name: Use Azure Well Architected Framework Assessments
+    href: advisor-assessments.md
   - name: Optimize virtual machine spend by resizing or shutting down underutilized instances
     href: advisor-cost-recommendations.md
   - name: Optimize your Azure costs using the cost optimization workbook 
@@ -81,7 +83,7 @@
   - name: App Service
     href: ../app-service/app-service-best-practices.md
   - name: REST API
-    href: /rest/api/advisor/
+    href: /rest/api/advisor/operation-groups?view=rest-advisor-2023-01-01&preserve-view=true
   - name: Azure CLI
     href: /cli/azure/advisor
   - name: PowerShell

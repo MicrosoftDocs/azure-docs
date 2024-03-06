@@ -11,6 +11,9 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy23, references_regions
 
 # Tutorial: Discover Spring Boot applications running in your datacenter (preview)
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This article describes how to discover Spring Boot applications running on servers in your datacenter, using Azure Migrate: Discovery and assessment tool. The discovery process is completely agentless; no agents are installed on the target servers.
 
 In this tutorial, you learn how to:
@@ -91,7 +94,7 @@ After you have performed server discovery and software inventory using the Azure
     ---- | ----
     **Supported Linux OS** | Ubuntu 20.04, RHEL 9
     **Hardware configuration required** | 6 GB RAM, with 30 GB storage on root volume, 4 Core CPU
-    **Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
+    **Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
 
 5.	After copying the script, go to your Linux server, save the script as *Deploy.sh* on the server.
 

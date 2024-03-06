@@ -1,12 +1,11 @@
 ---
 title: Build real-time dashboard with Azure Stream Analytics no-code editor, Synapse Analytics and Power BI
-description: Use no code editor to compute aggregations and write to Azure Synapse Analytics and build real-time dashboards using Power BI 
+description: Use no code editor to compute aggregations and write to Azure Synapse Analytics and build real-time dashboards using Power BI
 author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/23/2023
-ms.custom: seodec18
 ---
 
 # Build real-time Power BI dashboards with Stream Analytics no code editor

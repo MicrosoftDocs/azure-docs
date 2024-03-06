@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.author: vaidyas
 author: vaidya-s
 ms.reviewer: larryfr
-ms.date: 09/09/2022
+ms.date: 01/05/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
@@ -56,7 +56,7 @@ Azure Machine Learning provides events in the various points of machine learning
 
 These events are published through Azure Event Grid. Using Azure portal, PowerShell or Azure CLI, customers can easily subscribe to events by [specifying one or more event types, and filtering conditions](../event-grid/event-filtering.md). 
 
-When setting up your events, you can apply filters to only trigger on specific event data. In the example below, for run status changed events, you can filter by run types. The event only triggers when the criteria is met. Refer to the [Azure Machine Learning event grid schema](../event-grid/event-schema-machine-learning.md) to learn about event data you can filter by. 
+When setting up your events, you can apply filters to only trigger on specific event data. In the example below, for run status changed events, you can filter by run types. The event only triggers when the criteria is met. Refer to the [Azure Machine Learning Event Grid schema](../event-grid/event-schema-machine-learning.md) to learn about event data you can filter by. 
 
 Subscriptions for Azure Machine Learning events are protected by Azure role-based access control (Azure RBAC). Only [contributor or owner](how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription) of the event subscription or at a later time. 
 
@@ -172,15 +172,14 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to configure emails for all your
 
 1. Next, add a step to consume this event and search for email. There are several different mail accounts you can use to receive events. You can also configure conditions on when to send an email alert.
 
-    ![Screenshot shows the Choose an action dialog box with email entered in the search line.](./media/how-to-use-event-grid/select-email-action.png)
+    :::image type="content" source="./media/how-to-use-event-grid/select-email-action.png" alt-text="Screenshot shows the Choose an action dialog box with email entered in the search line.":::
 
-1. Select __Send an email__ and fill in the parameters. In the subject, you can include the __Event Type__ and __Topic__ to help filter events. You can also include a link to the workspace page for runs in the message body. 
+1. Select __Send an email__ and fill in the parameters. In the subject, you can include the __Event Type__ and __Topic__ to help filter events. You can also include a link to the workspace page for runs in the message body.
 
-    ![Screenshot shows the Send an email dialog box with Topic and Event Type added to the subject line from the list to the right.](./media/how-to-use-event-grid/configure-email-body.png)
+    To save this action, select **Save As** on the left corner of the page.
 
-1. To save this action, select **Save As** on the left corner of the page. From the right bar  that appears, confirm creation of this action.
+    :::image type="content" source="./media/how-to-use-event-grid/configure-email-body.png" alt-text="Screenshot shows the Send an email dialog box with Topic and Event Type added to the subject line from the list to the right.":::
 
-    ![Screenshot shows the Save As and Create buttons in the Logic Apps Designer.](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 :::moniker range="azureml-api-1"
 ### Example: Data drift triggers retraining
@@ -190,7 +189,7 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to configure emails for all your
 
 Models go stale over time, and not remain useful in the context it is running in. One way to tell if it's time to retrain the model is detecting data drift. 
 
-This example shows how to use event grid with an Azure Logic App to trigger retraining. The example triggers an Azure Data Factory pipeline when data drift occurs between a model's training and serving datasets.
+This example shows how to use Event Grid with an Azure Logic App to trigger retraining. The example triggers an Azure Data Factory pipeline when data drift occurs between a model's training and serving datasets.
 
 Before you begin, perform the following actions:
 

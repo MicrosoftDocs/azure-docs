@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 01/10/2024
 ---
 
 # Generate schemas for SAP artifacts in Azure Logic Apps

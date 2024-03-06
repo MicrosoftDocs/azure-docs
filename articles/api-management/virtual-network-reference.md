@@ -38,7 +38,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / [80], 443                  | Inbound            | TCP                | Internet / VirtualNetwork           | **Client communication to API Management**                     | External only            |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VirtualNetwork       | **Management endpoint for Azure portal and PowerShell**         | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
-| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Microsoft Entra ID](api-management-howto-aad.md) and Azure Key Vault dependency (optional)              | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Microsoft Entra ID, Microsoft Graph,](api-management-howto-aad.md) and Azure Key Vault dependency (optional)              | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureConnectors | [managed connections](credentials-overview.md) dependency (optional)              | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VirtualNetwork / Sql                 | **Access to Azure SQL endpoints**                           | External & Internal  |
 | * / 443                     | Outbound           | TCP                | VirtualNetwork / AzureKeyVault                | **Access to Azure Key Vault**                         | External & Internal  |
@@ -58,7 +58,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / [80], 443                  | Inbound            | TCP                | Internet / VirtualNetwork            | **Client communication to API Management**                     | External only          |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VirtualNetwork       | **Management endpoint for Azure portal and PowerShell**       | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
-| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Microsoft Entra ID](api-management-howto-aad.md) and Azure Key Vault dependency  (optional)                | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Microsoft Entra ID, Microsoft Graph,](api-management-howto-aad.md) and Azure Key Vault dependency  (optional)                | External & Internal  |
 | * / 443                     | Outbound           | TCP                | VirtualNetwork / AzureKeyVault                | Access to Azure Key Vault for [named values](api-management-howto-properties.md) integration (optional)                         | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureConnectors | [managed connections](credentials-overview.md) dependency (optional)              | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VirtualNetwork / Sql                 | **Access to Azure SQL endpoints**                           | External & Internal  |
@@ -117,7 +117,7 @@ Enable publishing the [developer portal](api-management-howto-developer-portal.m
   You're not required to allow inbound requests from service tag `AzureLoadBalancer` for the Developer SKU, since only one compute unit is deployed behind it. However, inbound connectivity from `AzureLoadBalancer` becomes **critical** when scaling to a higher SKU, such as Premium, because failure of the health probe from load balancer then blocks all inbound access to the control plane and data plane.
 
 ## Application Insights  
-  If you enabled [Azure Application Insights](api-management-howto-app-insights.md) monitoring on API Management, allow outbound connectivity to the [telemetry endpoint](../azure-monitor/app/ip-addresses.md#outgoing-ports) from the VNet.
+  If you enabled [Azure Application Insights](api-management-howto-app-insights.md) monitoring on API Management, allow outbound connectivity to the [telemetry endpoint](../azure-monitor/ip-addresses.md#outgoing-ports) from the VNet.
 
 ## KMS endpoint
 

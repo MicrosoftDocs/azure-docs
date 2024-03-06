@@ -2,7 +2,7 @@
 title: Artifact Cache - Overview
 description: An overview on Artifact Cache feature, its limitations and benefits of enabling the feature in your Registry.
 ms.topic: tutorial
-ms.date: 04/19/2022
+ms.date: 10/31/2023
 ms.author: tejaswikolli
 ms.service: container-registry
 ---

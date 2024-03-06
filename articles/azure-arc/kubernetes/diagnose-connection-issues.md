@@ -1,6 +1,6 @@
 ---
 title: "Diagnose connection issues for Azure Arc-enabled Kubernetes clusters"
-ms.date: 12/06/2022
+ms.date: 12/15/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues when connecting Kubernetes clusters to Azure Arc."

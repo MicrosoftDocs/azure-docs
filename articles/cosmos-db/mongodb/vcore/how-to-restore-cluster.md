@@ -43,7 +43,7 @@ The restore process creates a new cluster with the same configuration in the sam
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to the **Help + support** section and select **Create a support request**. For more information, see [create an Azure support request](../../../azure-portal/supportability/how-to-create-azure-support-request.md#go-to-help--support-from-the-global-header).
+1. Navigate to the **Help + support** section and select **Create a support request**. For more information, see [create an Azure support request](../../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 1. Once the support ticket is submitted, our team guides you through the process of restoring your data from the backup.
 

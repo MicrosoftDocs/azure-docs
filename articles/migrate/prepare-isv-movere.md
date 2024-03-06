@@ -1,8 +1,8 @@
 ---
 title: Prepare Azure Migrate to work with an ISV tool/Movere 
 description: This article describes how to prepare Azure Migrate to work with an ISV tool or Movere, and then how to start using the tool. 
-author: jyothisuri
-ms.author: jsuri
+author: MaryMichael-MS
+ms.author: v-michaelar
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 10/15/2020

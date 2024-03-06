@@ -5,7 +5,6 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
 ms.date: 01/05/2023
-ms.custom: 
 ---
 # Log sources to use for Basic Logs ingestion
 

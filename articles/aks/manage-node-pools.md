@@ -2,7 +2,7 @@
 title: Manage node pools in Azure Kubernetes Service (AKS)
 description: Learn how to manage node pools for a cluster in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023
 ms.date: 07/19/2023
 ---
 
@@ -181,73 +181,76 @@ As your application workload demands change, you may need to scale the number of
 
 AKS offers a separate feature to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). You can enable this feature with unique minimum and maximum scale counts per node pool.
 
-For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
+For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use-the-cluster-autoscaler-on-multiple-node-pools).
 
-## Associate capacity reservation groups to node pools (preview)
+## Associate capacity reservation groups to node pools 
 
 As your workload demands change, you can associate existing capacity reservation groups to node pools to guarantee allocated capacity for your node pools.  
 
-For more information, see [capacity reservation groups][capacity-reservation-groups].
+## Prerequisites to use capacity reservation groups with AKS
 
-### Register preview feature
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-1. Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
+- Use CLI version 2.56 or above and API version 2023-10-01 or higher. 
+- The capacity reservation group should already exist and should contain minimum one capacity reservation, otherwise the node pool is added to the cluster with a warning and no capacity reservation group gets associated. For more information, see [capacity reservation groups][capacity-reservation-groups].
+- You need to create a user-assigned managed identity for the resource group that contains the capacity reservation group (CRG). System-assigned managed identities won't work for this feature. In the following example, replace the environment variables with your own values.
 
     ```azurecli-interactive
-    az extension add --name aks-preview
+    IDENTITY_NAME=myID
+    RG_NAME=myResourceGroup
+    CLUSTER_NAME=myAKSCluster
+    VM_SKU=Standard_D4s_v3
+    NODE_COUNT=2
+    LOCATION=westus2
+    az identity create --name $IDENTITY_NAME --resource-group $RG_NAME  
+    IDENTITY_ID=$(az identity show --name $IDENTITY_NAME --resource-group $RG_NAME --query identity.id -o tsv)
     ```
+- You need to assign the `Contributor` role to the user-assigned identity created above. For more details, see [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps#privileged-administrator-roles).
+- Create a new cluster and assign the newly created identity.
+  ```azurecli-interactive
+    az aks create --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
+        --node-vm-size $VM_SKU --node-count $NODE_COUNT \
+        --assign-identity $IDENTITY_ID --enable-managed-identity         
+  ```
+- You can also assign the user-managed identity on an existing managed cluster with update command.
 
-2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command.
+  ```azurecli-interactive
+    az aks update --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
+            --node-vm-size $VM_SKU --node-count $NODE_COUNT \
+            --assign-identity $IDENTITY_ID --enable-managed-identity         
+  ```
 
-    ```azurecli-interactive
-    az extension update --name aks-preview
-    ```
+### Associate an existing capacity reservation group with a node pool
 
-3. Register the `CapacityReservationGroupPreview` feature flag using the [`az feature register`][az-feature-register] command.
+Associate an existing capacity reservation group with a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command and specify a capacity reservation group with the `--crg-id` flag. The following example assumes you have a CRG named "myCRG".
 
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "CapacityReservationGroupPreview"
-    ```
+```azurecli-interactive
+RG_NAME=myResourceGroup
+CLUSTER_NAME=myAKSCluster
+NODEPOOL_NAME=myNodepool
+CRG_NAME=myCRG
+CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
+az aks nodepool add --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --name $NODEPOOL_NAME --crg-id $CRG_ID
+```
 
-    It takes a few minutes for the status to show *Registered*.
+### Associate an existing capacity reservation group with a system node pool
 
-4. Verify the registration status using the [`az feature show][az-feature-show`] command.
+To associate an existing capacity reservation group with a system node pool, associate the cluster with the user-assigned identity with the Contributor role on your CRG and the CRG itself during cluster creation. Use the [`az aks create`][az-aks-create] command with the `--assign-identity` and `--crg-id` flags.
 
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "CapacityReservationGroupPreview"
-    ```
-
-5. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
-
-### Manage capacity reservations
-
-> [!NOTE]
-> The capacity reservation group should already exist, otherwise the node pool is added to the cluster with a warning and no capacity reservation group gets associated.
-
-#### Associate an existing capacity reservation group to a node pool
-
-* Associate an existing capacity reservation group to a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command and specify a capacity reservation group with the `--capacityReservationGroup` flag.
-
-    ```azurecli-interactive
-    az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
-    ```
-
-#### Associate an existing capacity reservation group to a system node pool
-
-* Associate an existing capacity reservation group to a system node pool using the [`az aks create`][az-aks-create] command.
-
-    ```azurecli-interactive
-    az aks create -g MyRG --cluster-name MyMC --capacityReservationGroup myCRG
-    ```
+```azurecli-interactive
+IDENTITY_NAME=myID
+RG_NAME=myResourceGroup
+CLUSTER_NAME=myAKSCluster
+NODEPOOL_NAME=myNodepool
+CRG_NAME=myCRG
+CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
+IDENTITY_ID=$(az identity show --name $IDENTITY_NAME --resource-group $RG_NAME --query identity.id -o tsv)
+az aks create --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --crg-id $CRG_ID --assign-identity $IDENTITY_ID --enable-managed-identity
+```
 
 > [!NOTE]
 > Deleting a node pool implicitly dissociates that node pool from any associated capacity reservation group before the node pool is deleted. Deleting a cluster implicitly dissociates all node pools in that cluster from their associated capacity reservation groups.
+
+> [!NOTE]
+> You cannot update an existing node pool with a capacity reservation group. The recommended approach is to associate a capacity reservation group during the node pool creation.  
 
 ## Specify a VM size for a node pool
 
@@ -499,7 +502,6 @@ When you use an Azure Resource Manager template to create and manage resources, 
                     "count": "[variables('agentPoolProfiles').agentCount]",
                     "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
                     "osType": "[variables('agentPoolProfiles').osType]",
-                    "storageProfile": "ManagedDisks",
                     "type": "VirtualMachineScaleSets",
                     "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
                     "orchestratorVersion": "1.15.7"

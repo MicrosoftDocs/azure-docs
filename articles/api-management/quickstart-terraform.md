@@ -4,11 +4,12 @@ description: Use this quickstart to create an Azure API Management instance usin
 ms.topic: quickstart
 ms.service: api-management
 ms.date: 12/12/2023
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-azurecli, devx-track-azurepowershell
 author: TomArcherMsft
 ms.author: tarcher
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure API Management instance using Terraform

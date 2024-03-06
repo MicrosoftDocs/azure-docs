@@ -1,14 +1,13 @@
 ---
 title: Isolated Image Builds for Azure VM Image Builder
-description: Isolated Image Builds is achieved by transitioning core process of VM image customization/validation from shared infrastructure to dedicated Azure Container Instances resources in your subscription providing compute and network isolation. 
-ms.date: 11/10/2023
+description: Isolated Image Builds is achieved by transitioning core process of VM image customization/validation from shared infrastructure to dedicated Azure Container Instances resources in your subscription providing compute and network isolation.
+ms.date: 02/13/2024
 ms.topic: sample
 author: kof-f
-ms.author: erd
-ms.reviewer: erd
+ms.author: jushiman
+ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: image-builder
-
 ---
 
 # What is Isolated Image Builds for Azure Image Builder?
@@ -30,18 +29,27 @@ Isolated Image Builds enable defense-in-depth by limiting network access of your
 
 This is a platform level change and doesn't affect AIB's interfaces. So, your existing Image Template and Trigger resources continue to function and there's no change in the way you deploy new resources of these types. Similarly, customization logs continue to be available in the storage account.
 
-You might observe a few new resources temporarily appear in the staging resource group (for example, Azure Container Instance, and Private Endpoint) while some other resource will no longer appear (for example, Public IP Address). As earlier, these temporary resources exist only during the build and will be deleted by Image Builder thereafter.
+You might observe a few new resources temporarily appear in the staging resource group (for example, Azure Container Instance, Virtual Network, Network Security Group, and Private Endpoint) while some other resource may no longer appear (for example, Public IP Address). As earlier, these temporary resources exist only during the build and will be deleted by Image Builder thereafter.
 
 Your image builds will automatically be migrated to Isolated Image Builds and you need to take no action to opt in.
 
 > [!NOTE]
-> Image Builder is in the process of rolling this change out to all locations and customers. Some of these details might change as the process is fine-tuned based on service telemetry and feedback. Please refer to the [troubleshooting guide](./linux/image-builder-troubleshoot.md#troubleshoot-build-failures) for more information.
+> Image Builder is in the process of rolling this change out to all locations and customers. Some of these details (especially around deployment of new Networking related resources) might change as the process is fine-tuned based on service telemetry and feedback. Please refer to the [troubleshooting guide](./linux/image-builder-troubleshoot.md#troubleshoot-build-failures) for more information.
 
 > [!IMPORTANT] 
 > Make sure your subscription is registered for `Microsoft.ContainerInstance provider`: 
 > - Azure CLI: `az provider register -n Microsoft.ContainerInstance`
 > - PowerShell: `Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance`
+>
+> After successfully registering your subscription, make sure there are no Azure Policies in your subscription that deny deployment of required resources. Policies allowing only a restricted set of resource types not including Azure Container Instance would block deployment. 
+>
+> Ensure that your subscription also has a sufficient [quota of resources](../container-instances/container-instances-resource-and-quota-limits.md) required for deployment of Azure Container Instance resources.
+>
 
+> [!IMPORTANT]
+> Image Builder may need to deploy temporary networking related resources in the staging resource group in your subscription. Ensure that no Azure Policies deny the deployment of such resources (Virtual Network with Subnets, Network Security Group, Private endpoint) in the resource group.
+>
+> If you have Azure Policies applying DDoS protection plans to any newly created Virtual Network, either relax the Policy for the resource group or ensure that the Template Managed Identity has permissions to join the plan.
 
 ## Next steps
 

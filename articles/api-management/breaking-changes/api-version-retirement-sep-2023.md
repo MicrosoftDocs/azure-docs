@@ -2,7 +2,6 @@
 title: Azure API Management - API version retirements (September 2023) | Microsoft Docs
 description: The Azure API Management service is retiring all API versions prior to 2021-08-01. If you use one of these API versions, you must update your tools, scripts, or programs to use the latest versions.
 services: api-management
-documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: reference
@@ -56,7 +55,7 @@ We also recommend setting the **Minimum API version** in your API Management ins
 
 ### Update Minimum API version setting on your API Management instance
 
-We recommend setting the **Minimum API version** for your API Management instance using the Azure portal. This setting limits control plane API calls to your instance with an API version equal to or newer than this value. Currently you can set this to **2019-12-01**.
+We recommend setting the **Minimum API version** for your API Management instance using the Azure portal. This setting limits control plane API calls to your instance with an API version equal to or newer than this value. Currently you can set this to **2021-08-01**.
 
 To set the **Minimum API version** in the portal:
 

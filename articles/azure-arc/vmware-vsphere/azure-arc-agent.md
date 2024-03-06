@@ -8,7 +8,6 @@ ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
 ms.author: v-farhabano
 manager: jsuri
-
 ---
 
 # Azure Arc agent

@@ -1,14 +1,13 @@
 ---
 title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
-author: Heidilohr
 ms.topic: release-notes
-ms.date: 12/14/2023
-ms.author: helohr
-ms.reviewer: thhickli; darank
-manager: femila
 ms.custom: references_regions
+author: Heidilohr
+ms.author: helohr
+ms.date: 03/01/2024
 ---
+
 # What's new in Azure Virtual Desktop?
 
 Azure Virtual Desktop updates regularly. This article is where you find out about:
@@ -22,6 +21,42 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## February 2024
+
+Here's what changed in February 2024:
+
+### Azure Virtual Desktop for Azure Stack HCI now generally available 
+
+Azure Virtual Desktop for Azure Stack HCI extends the capabilities of the Microsoft Cloud to your datacenters. Bringing the benefits of Azure Virtual Desktop and Azure Stack HCI together, organizations can securely run virtualized desktops and apps on-premises in their datacenter and at the edges of their organization. This versatility is especially useful for organizations with data residency and proximity requirements or latency-sensitive workloads.
+
+For more information, see [Azure Virtual Desktop for Azure Stack HCI now available!](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/azure-virtual-desktop-for-azure-stack-hci-now-available/ba-p/4038030)
+
+### New Azure Virtual Desktop web client is now available
+
+We've updated the Azure Virtual Desktop web client to the new web client. All users automatically migrate to this new version of the web client to access their resources.
+
+For more information about the new features available in the new web client, see [Use features of the Remote Desktop Web client](./users/client-features-web.md).  
+
+## January 2024
+
+There were no major releases or new features in January 2024.
+
+## December 2023
+
+Here's what changed in December 2023:
+
+### New app attach features for Azure Virtual Desktop in public preview
+
+The preview of *app attach* is now available. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host.
+
+For more information, see [New app attach features for Azure Virtual Desktop in public preview](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-app-attach-features-for-azure-virtual-desktop-in-public/ba-p/4002826) and [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+
+### The new Microsoft Teams desktop client is now generally available to use with Azure Virtual Desktop
+
+The [new Microsoft Teams desktop client](/microsoftteams/new-teams-desktop-admin) is now generally available to use with Azure Virtual Desktop. The new Teams desktop client has feature parity with the classic Teams app and improved performance, reliability, and security.
+
+For more information, see [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
 
 ## November 2023
 
@@ -45,7 +80,9 @@ Windows 11 Enterprise multi-session, versions 23H2 and 22H2 with Microsoft 365 a
 
 ### Autoscale for personal host pools is now generally available
 
-Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule, optimizing deployment costs. Autoscale now also supports the hibernate feature (preview), which can pause session hosts you aren't using. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule, optimizing deployment costs. Autoscale now also supports the hibernate feature (preview), which can pause session hosts you aren't using.
+
+For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
 
 ### Updated preview of Azure Virtual Desktop on Azure Stack HCI
 
@@ -53,11 +90,15 @@ We've updated the preview of Azure Virtual Desktop on Azure Stack HCI. You can n
 
 ### Single sign-on using Microsoft Entra authentication is now generally available
 
-Single sign-on using Microsoft Entra authentication is now generally available. Single sign-on enables users to automatically sign the user into Windows, without prompting them for their credentials for every connection. For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
+Single sign-on using Microsoft Entra authentication is now generally available. Single sign-on enables users to automatically sign the user into Windows, without prompting them for their credentials for every connection.
+
+For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
 
 ### In-session passwordless authentication is now generally available
 
-In-session passwordless authentication is now generally available. Azure Virtual Desktop supports in-session passwordless authentication using Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-authentication).
+In-session passwordless authentication is now generally available. Azure Virtual Desktop supports in-session passwordless authentication using Windows Hello for Business or security devices like FIDO keys.
+
+For more information, see [In-session passwordless authentication](authentication.md#in-session-authentication).
 
 ### Windows App preview
 

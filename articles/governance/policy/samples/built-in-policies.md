@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 12/13/2023
+ms.date: 02/27/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -49,6 +49,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Azure Active Directory
 
 [!INCLUDE [azure-policy-reference-policies-azure-active-directory](../../../../includes/policy/reference/bycat/policies-azure-active-directory.md)]
+
+## Azure Ai Services
+
+[!INCLUDE [azure-policy-reference-policies-azure-ai-services](../../../../includes/policy/reference/bycat/policies-azure-ai-services.md)]
 
 ## Azure Arc
 
@@ -153,6 +157,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Desktop Virtualization
 
 [!INCLUDE [azure-policy-reference-policies-desktop-virtualization](../../../../includes/policy/reference/bycat/policies-desktop-virtualization.md)]
+
+## ElasticSan
+
+[!INCLUDE [azure-policy-reference-policies-elasticsan](../../../../includes/policy/reference/bycat/policies-elasticsan.md)]
 
 ## Event Grid
 
@@ -266,6 +274,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 
 [!INCLUDE [azure-policy-reference-policies-security-center](../../../../includes/policy/reference/bycat/policies-security-center.md)]
 
+## Security Center - Granular Pricing
+
+[!INCLUDE [azure-policy-reference-policies-security-center---granular-pricing](../../../../includes/policy/reference/bycat/policies-security-center---granular-pricing.md)]
+
 ## Service Bus
 
 [!INCLUDE [azure-policy-reference-policies-service-bus](../../../../includes/policy/reference/bycat/policies-service-bus.md)]
@@ -294,6 +306,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 
 [!INCLUDE [azure-policy-reference-policies-sql-server](../../../../includes/policy/reference/bycat/policies-sql-server.md)]
 
+## Stack HCI
+
+[!INCLUDE [azure-policy-reference-policies-stack-hci](../../../../includes/policy/reference/bycat/policies-stack-hci.md)]
+
 ## Storage
 
 [!INCLUDE [azure-policy-reference-policies-storage](../../../../includes/policy/reference/bycat/policies-storage.md)]
@@ -309,6 +325,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Tags
 
 [!INCLUDE [azure-policy-reference-policies-tags](../../../../includes/policy/reference/bycat/policies-tags.md)]
+
+## VirtualEnclaves
+
+[!INCLUDE [azure-policy-reference-policies-virtualenclaves](../../../../includes/policy/reference/bycat/policies-virtualenclaves.md)]
 
 ## VM Image Builder
 

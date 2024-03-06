@@ -59,6 +59,15 @@ If you don't know your spacecraft's pass timings or which ground station sites a
 
    :::image type="content" source="media/orbital-eos-view-scheduled-contacts.png" alt-text="View scheduled contacts page" lightbox="media/orbital-eos-view-scheduled-contacts.png":::
 
+> [!NOTE]
+> The new contact resource includes two properties: Provisioning State and Contact Status.
+>
+> [Provisioning state](/rest/api/orbital/azureorbitalgroundstation/contacts/create#provisioningstate) is the current state of the resource's creation, deletion, or modification in Azure.
+>
+> [Contact Status](/rest/api/orbital/azureorbitalgroundstation/contacts/create#contactsstatus) is the execution status of the contact resource. Values include scheduled, cancelled, providerCancelled, succeeded, and failed.
+>
+> The value of these properties can be found under the **Essentials** section of the contact overview page.
+
 ## API method
 
 Use the Contacts REST Operation Group to [create a contact](/rest/api/orbital/azureorbitalgroundstation/contacts/create/) with the Azure Orbital Ground Station API.

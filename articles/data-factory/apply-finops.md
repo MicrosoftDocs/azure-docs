@@ -7,7 +7,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 02/16/2023
+ms.date: 01/05/2024
 ---
 
 # Applying FinOps to Azure Data Factory

@@ -7,7 +7,7 @@ ms.service: network-function-manager
 ms.topic: article
 ms.date: 11/02/2021
 ms.author: tobiaw
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions
 ---
 # Azure Network Function Manager FAQ
 

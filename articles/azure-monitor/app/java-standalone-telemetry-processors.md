@@ -260,7 +260,7 @@ The `mask` action requires the following settings:
 * `replace`
 * `action`: `mask`
 
-`pattern` can contain a named group placed betwen `?<` and `>:`. Example: `(?<userGroupName>[a-zA-Z.:\/]+)\d+`? The group is `(?<userGroupName>[a-zA-Z.:\/]+)` and `userGroupName` is the name of the group. `pattern` can then contain the same named group placed between `${` and `}` followed by the mask. Example where the mask is **: `${userGroupName}**`.
+`pattern` can contain a named group placed between `?<` and `>:`. Example: `(?<userGroupName>[a-zA-Z.:\/]+)\d+`? The group is `(?<userGroupName>[a-zA-Z.:\/]+)` and `userGroupName` is the name of the group. `pattern` can then contain the same named group placed between `${` and `}` followed by the mask. Example where the mask is **: `${userGroupName}**`.
 
 See  [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md) for masking examples.
 
@@ -397,11 +397,11 @@ This section lists some common span attributes that telemetry processors can use
 
 | Attribute  | Type | Description | 
 |---|---|---|
-| `http.method` | string | HTTP request method.|
-| `http.url` | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. The fragment isn't usually transmitted over HTTP. But if the fragment is known, it should be included.|
-| `http.status_code` | number | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).|
-| `http.flavor` | string | Type of HTTP protocol. |
-| `http.user_agent` | string | Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client. |
+| `http.request.method` (used to be `http.method`) | string | HTTP request method.|
+| `url.full` (client span) or `url.path` (server span) (used to be `http.url`) | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. The fragment isn't usually transmitted over HTTP. But if the fragment is known, it should be included.|
+| `http.response.status_code` (used to be `http.status_code`) | number | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).|
+| `network.protocol.version` (used to be `http.flavor`) | string | Type of HTTP protocol. |
+| `user_agent.original` (used to be `http.user_agent`) | string | Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client. |
 
 ### JDBC spans
 
@@ -616,6 +616,8 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
 
 ### Sample usage
 
+The following sample shows how to exclude metrics with names "metricA" and "metricB".
+
 ```json
 "processors": [
   {
@@ -630,6 +632,23 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
   }
 ]
 ```
+
+The following sample show how to turn off all metrics including the default auto-collected performance metrics like cpu and memory.
+
+```json
+"processors": [
+  {
+    "type": "metric-filter",
+    "exclude": {
+      "matchType": "regexp",
+      "metricNames": [
+        ".*"
+      ]
+    }
+  }
+]
+```
+
 ### Default metrics captured by Java agent
 
 | Metric name  | Metric type | Description  | Filterable |

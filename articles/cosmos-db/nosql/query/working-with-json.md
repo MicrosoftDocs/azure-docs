@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -63,7 +64,7 @@ In this case, the ``sku``, ``colors``, and ``sizes`` properties are all nested w
 
 This first example projects two nested properties.
 
-```sql
+```nosql
 SELECT
     p.name,
     p.metadata.sku,
@@ -87,7 +88,7 @@ In addition to nested properties, JSON also supports arrays. When working with a
 
 This example accesses an array element at a specific position.
 
-```sql
+```nosql
 SELECT
     p.name,
     p.metadata.colors
@@ -113,7 +114,7 @@ In most cases, however, you use a [subquery](subquery.md) or [self-join](join.md
 
 For example, here's a query that returns multiple permutations using the potential array values and a *cross-join*, 
 
-```sql
+```nosql
 SELECT
     p.name,
     c AS color
@@ -138,7 +139,7 @@ JOIN
 
 As another example, the query could also use [``EXISTS``](subquery.md#exists-expression) with a subquery.
 
-```sql
+```nosql
 SELECT VALUE
     p.name
 FROM
@@ -169,7 +170,7 @@ Azure Cosmos DB for NoSQL supports two helpful type checking system functions fo
 
 Here's an example query that checks for two fields on each item in the container.
 
-```sql
+```nosql
 SELECT
     IS_NULL(p.releaseDate) AS isReleaseDateNull,
     IS_DEFINED(p.releaseDate) AS isReleaseDateDefined,
@@ -198,7 +199,7 @@ You can access properties using the quoted property operator ``[]``. For example
 
 For example, here's a query that references a property a few distinct ways.
 
-```sql
+```nosql
 SELECT
     p.manufacturer.name AS dotNotationReference,
     p["manufacturer"]["name"] AS bracketReference,
@@ -221,7 +222,7 @@ FROM
 
 Query projection supports JSON expressions and syntax.
 
-```sql
+```nosql
 SELECT {
     "productName": p.name,
     "largeSizeInFeet": p.metadata.sizes.large.feet
@@ -245,7 +246,7 @@ In this example, the ``SELECT`` clause creates a JSON object. Since the sample p
 
 This example explicitly names the same field.
 
-```sql
+```nosql
 SELECT {
     "productName": p.name,
     "largeSizeInFeet": p.metadata.sizes.large.feet
@@ -267,7 +268,7 @@ FROM
 
 Alternatively, the query can flatten the object to avoid naming a redundant field.
 
-```sql
+```nosql
 SELECT VALUE {
     "productName": p.name,
     "largeSizeInFeet": p.metadata.sizes.large.feet
@@ -293,7 +294,7 @@ You can explicitly alias values in queries. If a query has two properties with t
 
 The ``AS`` keyword used for aliasing is optional, as shown in the following example.
 
-```sql
+```nosql
 SELECT
     p.name,
     p.metadata.sku AS modelNumber
@@ -316,7 +317,7 @@ You can't use aliasing to project a value as a property name with a space, speci
 
 Here's an example:
 
-```sql
+```nosql
 SELECT VALUE {
     "Product's name | ": p.name,
     "Model number => ": p.metadata.sku

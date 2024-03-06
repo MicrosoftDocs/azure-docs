@@ -5,14 +5,12 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/29/2023
+ms.date: 01/05/2024
 ms.author: franlanglois 
 ---
 # How to administer Azure Cache for Redis
 
 This article describes how to do administration tasks such as [rebooting](#reboot) and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Cache for Redis instances.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Reboot
 

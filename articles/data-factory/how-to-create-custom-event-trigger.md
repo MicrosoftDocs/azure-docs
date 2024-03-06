@@ -7,7 +7,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 01/05/2024
 ---
 
 # Create a custom event trigger to run a pipeline in Azure Data Factory

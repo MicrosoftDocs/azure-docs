@@ -3,7 +3,6 @@ title: About Azure Automanage Machine Best Practices
 description: Learn about Azure Automanage machine best practices.
 author: mmccrory
 ms.service: automanage
-ms.workload: infrastructure
 ms.topic: overview
 ms.date: 9/07/2022
 ms.author: memccror

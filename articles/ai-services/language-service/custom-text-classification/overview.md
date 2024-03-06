@@ -3,13 +3,13 @@ title: Custom text classification - Azure AI services
 titleSuffix: Azure AI services
 description: Customize an AI model to classify documents and other content using Azure AI services.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 06/17/2022
-ms.author: aahi
-ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: language-service-custom-classification
 ---
 
 # What is custom text classification?

@@ -6,7 +6,6 @@ summary: Learn how to configure, create, and manage an Azure VPN gateway. Create
 metadata:
   title: VPN Gateway documentation
   description: Learn how to configure, create, and manage an Azure VPN gateway.
-  services: vpn-gateway
   ms.service: vpn-gateway
   ms.topic: landing-page
   author: cherylmc

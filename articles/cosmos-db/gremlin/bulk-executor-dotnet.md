@@ -7,8 +7,9 @@ ms.topic: how-to
 ms.date: 05/10/2022
 author: manishmsfte
 ms.author: mansha
-ms.devlang: csharp, java
-ms.custom: ignite-2022, devx-track-dotnet, devx-track-extended-java
+ms.devlang: csharp
+# ms.devlang: csharp, java
+ms.custom: devx-track-dotnet, devx-track-extended-java
 ---
 
 # Ingest data in bulk in the Azure Cosmos DB for Gremlin by using a bulk executor library

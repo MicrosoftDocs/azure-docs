@@ -1,16 +1,9 @@
 ---
-title: Configure application volume groups for SAP HANA using REST API 
-description: Setting up your application volume groups for the SAP HANA API requires special configurations. 
+title: Configure application volume groups for SAP HANA using REST API
+description: Setting up your application volume groups for the SAP HANA API requires special configurations.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/09/2023
 ms.author: b-ahibbard

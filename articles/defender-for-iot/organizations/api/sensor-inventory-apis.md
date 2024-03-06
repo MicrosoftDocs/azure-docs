@@ -639,7 +639,7 @@ This section lists the supported fields for the [protocols](#protocol) object in
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **id** | Numeric. Defines the protocol's internal ID. |  Not nullable | - |
-|<a name="protocol-name"></a>**name** |String. Defines the device name. |Not nullable | For more information, see below. <br><br>**Note**: To extend Defender for IoT support to proprietary protocols, create a Horizon plugin. For more information, see [Extend support to proprietary protocols](../overview.md#extend-support-to-proprietary-ot-protocols).|
+|<a name="protocol-name"></a>**name** |String. Defines the device name. |Not nullable | For more information, see below. |
 |**ipAddresses** | JSON array of strings of protocol IP addresses. |Not nullable | - |
 
 The following values are supported as [protocol names](#protocol-name) out-of-the-box:

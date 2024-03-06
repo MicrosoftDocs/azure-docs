@@ -2,7 +2,7 @@
 title: Configure Azure NetApp Files for Azure Kubernetes Service
 description: Learn how to configure Azure NetApp Files for an Azure Kubernetes Service cluster.
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 05/08/2023
 ---
 
@@ -30,11 +30,11 @@ The following considerations apply when you use Azure NetApp Files:
 * The Azure CLI version 2.0.59 or higher installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * After the initial deployment of an AKS cluster, you can choose to provision Azure NetApp Files volumes statically or dynamically.
 * To use dynamic provisioning with Azure NetApp Files with Network File System (NFS), install and configure [Astra Trident][astra-trident] version 19.07 or higher. To use dynamic provisioning with Azure NetApp Files with Secure Message Block (SMB), install and configure Astra Trident version 22.10 or higher. Dynamic provisioning for SMB shares is only supported on windows worker nodes.
-* Before you deploy Azure NetApp Files SMB volumes, you must identify the AD DS integration requirements for Azure NetApp Files to ensure that Azure NetApp Files is well connected to AD DS. For more information, see [Understand guidelines for Active Directory Domain Services site design and planning](../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md). Both the AKS cluster and Azure NetApp Files must have connectivity to the same AD. 
+* Before you deploy Azure NetApp Files SMB volumes, you must identify the AD DS integration requirements for Azure NetApp Files to ensure that Azure NetApp Files is well connected to AD DS. For more information, see [Understand guidelines for Active Directory Domain Services site design and planning](../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md). Both the AKS cluster and Azure NetApp Files must have connectivity to the same AD.
 
 ## Configure Azure NetApp Files for AKS workloads
 
-This section describes how to set up Azure NetApp Files for AKS workloads. It's applicable for all scenarios within this article. 
+This section describes how to set up Azure NetApp Files for AKS workloads. It's applicable for all scenarios within this article.
 
 1. Define variables for later usage. Replace *myresourcegroup*, *mylocation*, *myaccountname*, *mypool1*, *poolsize*, *premium*, *myvnet*, *myANFSubnet*, and *myprefix* with appropriate values for your environment.
 
@@ -49,7 +49,7 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It's 
     SUBNET_NAME="myANFSubnet"
     ADDRESS_PREFIX="myprefix"
     ```
-    
+
 2. Register the *Microsoft.NetApp* resource provider by running the following command:
 
     ```azurecli-interactive
@@ -80,7 +80,7 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It's 
         --service-level $SERVICE_LEVEL
     ```
 
-5. Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using the command [`az network vnet subnet create`][az-network-vnet-subnet-create]. Specify the resource group hosting the existing virtual network for your AKS cluster. Replace the variables shown in the command with your Azure NetApp Files information. 
+5. Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using the command [`az network vnet subnet create`][az-network-vnet-subnet-create]. Specify the resource group hosting the existing virtual network for your AKS cluster. Replace the variables shown in the command with your Azure NetApp Files information.
 
     > [!NOTE]
     > This subnet must be in the same virtual network as your AKS cluster.
@@ -97,7 +97,7 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It's 
 ## Statically or dynamically provision Azure NetApp Files volumes for NFS or SMB
 
 After you [configure Azure NetApp Files for AKS workloads](#configure-azure-netapp-files-for-aks-workloads), you can statically or dynamically provision Azure NetApp Files using NFS, SMB, or dual-protocol volumes within the capacity pool. Follow instructions in:
-* [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md) 
+* [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md)
 * [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md)
 * [Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service](azure-netapp-files-dual-protocol.md)
 

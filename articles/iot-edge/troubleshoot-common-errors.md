@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure IoT Edge common errors 
+title: Troubleshoot Azure IoT Edge common errors
 description: Resolve common issues encountered when using an IoT Edge solution
 author: PatAltimore
 
@@ -12,6 +12,9 @@ ms.custom:  [amqp, mqtt]
 ---
 
 # Solutions to common issues for Azure IoT Edge
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
@@ -129,12 +132,12 @@ Some networks have packet overhead, which makes the default docker network MTU (
 
 #### Solution
 
-1. Check the MTU setting for your docker network. 
-    
+1. Check the MTU setting for your docker network.
+
    `docker network inspect <network name>`
 
 1. Check the MTU setting for the physical network adaptor on your device.
-   
+
     `ip addr show eth0`
 
 >[!NOTE]
@@ -192,7 +195,7 @@ Or
 ```output
 info: edgelet_docker::runtime -- Starting module edgeHub...
 warn: edgelet_utils::logging -- Could not start module edgeHub
-warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
+warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:
         The process cannot access the file because it is being used by another process. (0x20)
 ```
 
@@ -292,15 +295,15 @@ For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to 
 
 In the Azure portal:
 
-1. In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**. 
-1. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* with type *True/False* that is set to *False*. 
+1. In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**.
+1. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* with type *True/False* that is set to *False*.
 
    :::image type="content" source="./media/troubleshoot/optimizeforperformance-false.png" alt-text="Screenshot that shows where to add the OptimizeForPerformance environment variable in the Azure portal.":::
 
-1. Select **Apply** to save changes, then select **Review + create**. 
+1. Select **Apply** to save changes, then select **Review + create**.
 
    The environment variable is now in the `edgeHub` property of the deployment manifest:
-   
+
    ```json
       "edgeHub": {
          "env": {
@@ -333,7 +336,7 @@ The security daemon fails to start and module containers aren't created. The `ed
 
 #### Cause
 
-For all Linux distros except CentOS 7, IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself. 
+For all Linux distros except CentOS 7, IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself.
 
 #### Solution
 
@@ -451,7 +454,7 @@ Make sure the parent IoT Edge device can receive incoming requests from the down
 
 #### Symptoms
 
-When attempting to migrate a hierarchy of IoT Edge devices from one IoT hub to another, the top level parent IoT Edge device can connect to IoT Hub, but downstream IoT Edge devices can't. The logs report `Unable to authenticate client downstream-device/$edgeAgent with module credentials`. 
+When attempting to migrate a hierarchy of IoT Edge devices from one IoT hub to another, the top level parent IoT Edge device can connect to IoT Hub, but downstream IoT Edge devices can't. The logs report `Unable to authenticate client downstream-device/$edgeAgent with module credentials`.
 
 #### Cause
 
@@ -460,7 +463,7 @@ The credentials for the downstream devices weren't updated properly when the mig
 #### Solution
 
 When migrating to the new IoT hub (assuming not using DPS), follow these steps in order:
-1. Follow [this guide to export and then import device identities](../iot-hub/iot-hub-bulk-identity-mgmt.md) from the old IoT hub to the new one 
+1. Follow [this guide to export and then import device identities](../iot-hub/iot-hub-bulk-identity-mgmt.md) from the old IoT hub to the new one
 1. Reconfigure all IoT Edge deployments and configurations in the new IoT hub
 1. Reconfigure all parent-child device relationships in the new IoT hub
 1. Update each device to point to the new IoT hub hostname (`iothub_hostname` under `[provisioning]` in `config.toml`)

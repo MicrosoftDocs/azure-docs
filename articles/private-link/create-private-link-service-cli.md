@@ -2,11 +2,11 @@
 title: 'Quickstart - Create an Azure Private Link service - Azure CLI'
 description: In this quickstart, learn how to create an Azure Private Link service using Azure CLI.
 services: private-link
-author: asudbring
+author: abell
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2023
-ms.author: allensu
+ms.author: abell
 ms.devlang: azurecli
 ms.custom: mode-api, devx-track-azurecli, template-quickstart
 #Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI

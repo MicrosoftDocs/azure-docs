@@ -1,7 +1,7 @@
 ---
 title: Fuzzy search
 titleSuffix: Azure AI Search
-description: Implement a fuzzy search query for a "did you mean" search experience. Fuzzy search auto-corrects a misspelled term or typo on the query.
+description: Implement a fuzzy search query for a "did you mean" search experience. Fuzzy search autocorrects a misspelled term or typo on the query.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 02/16/2024
 ---
 # Fuzzy search to correct misspellings and typos
 
@@ -18,11 +18,11 @@ Azure AI Search supports fuzzy search, a type of query that compensates for typo
 
 ## What is fuzzy search?
 
-It's a query expansion exercise that produces a match on terms having a similar composition. When a fuzzy search is specified, the search engine builds a graph (based on [deterministic finite automaton theory](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)) of similarly composed terms, for all whole terms in the query. For example, if your query includes three terms "university of washington", a graph is created for every term  in the query `search=university~ of~ washington~` (there's no stop-word removal in fuzzy search, so "of" gets a graph).
+It's a query expansion exercise that produces a match on terms having a similar composition. When a fuzzy search is specified, the search engine builds a graph (based on [deterministic finite automaton theory](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)) of similarly composed terms, for all whole terms in the query. For example, if your query includes three terms `"university of washington"`, a graph is created for every term  in the query `search=university~ of~ washington~` (there's no stop-word removal in fuzzy search, so `"of"` gets a graph).
 
 The graph consists of up to 50 expansions, or permutations, of each term, capturing both correct and incorrect variants in the process. The engine then returns the topmost relevant matches in the response. 
 
-For a term like "university", the graph might have "unversty, universty, university, universe, inverse". Any documents that match on those in the graph are included in results. In contrast with other queries that analyze the text to handle different forms of the same word ("mice" and "mouse"), the comparisons in a fuzzy query are taken at face value without any linguistic analysis on the text. "Universe" and "inverse", which are semantically different, will match because the syntactic discrepancies are small.
+For a term like "university", the graph might have `"unversty, universty, university, universe, inverse"`. Any documents that match on those in the graph are included in results. In contrast with other queries that analyze the text to handle different forms of the same word ("mice" and "mouse"), the comparisons in a fuzzy query are taken at face value without any linguistic analysis on the text. "Universe" and "inverse", which are semantically different, will match because the syntactic discrepancies are small.
 
 A match succeeds if the discrepancies are limited to two or fewer edits, where an edit is an inserted, deleted, substituted, or transposed character. The string correction algorithm that specifies the differential is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric. It's described as the "minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
 
@@ -60,7 +60,7 @@ Fuzzy queries are constructed using the full Lucene query syntax, invoking the [
 Here's an example of a query request that invokes fuzzy search. It includes four terms, two of which are misspelled:
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "seatle~ waterfront~ view~ hotle~",
     "queryType": "full",
@@ -81,7 +81,7 @@ Optionally, you can improve query performance by scoping the request to specific
 
 ## Testing fuzzy search
 
-For simple testing, we recommend [Search explorer](search-explorer.md) or [Postman](search-get-started-rest.md) for iterating over a query expression. Both tools are interactive, which means you can quickly step through multiple variants of a term and evaluate the responses that come back.
+For simple testing, we recommend [Search explorer](search-explorer.md) or a [REST client](search-get-started-rest.md) for iterating over a query expression. Both tools are interactive, which means you can quickly step through multiple variants of a term and evaluate the responses that come back.
 
 When results are ambiguous, [hit highlighting](search-pagination-page-layout.md#hit-highlighting) can help you identify the match in the response. 
 
@@ -105,24 +105,26 @@ In the response, because you added hit highlighting, formatting is applied to "s
     "Description": [
         "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
     ]
+}
 ```
 
-Try the request again, misspelling "special" by taking out several letters ("pe"):
+Try the request again, misspelling "special" by taking out several letters (`"pe"`):
 
 ```console
 search=scial~&highlight=Description
 ```
 
-So far, no change to the response. Using the default of 2 degrees distance, removing two characters "pe" from "special" still allows for a successful match on that term.
+So far, no change to the response. Given the default of 2 degrees distance, removing two characters `"pe"` from "special" still allows for a successful match on that term.
 
 ```output
 "@search.highlights": {
     "Description": [
         "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
     ]
+}
 ```
 
-Trying one more request, further modify the search term by taking out one last character for a total of three deletions (from "special" to "scal"):
+Trying one more request, further modify the search term by taking out one last character for a total of three deletions (from "special" to `"scal"`):
 
 ```console
 search=scal~&highlight=Description
@@ -131,11 +133,12 @@ search=scal~&highlight=Description
 Notice that the same response is returned, but now instead of matching on "special", the fuzzy match is on "SQL".
 
 ```output
-        "@search.score": 0.4232868,
-        "@search.highlights": {
-            "Description": [
-                "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
-            ]
+"@search.score": 0.4232868,
+"@search.highlights": {
+    "Description": [
+        "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
+    ]
+}
 ```
 
 The point of this expanded example is to illustrate the clarity that hit highlighting can bring to ambiguous results. In all cases, the same document is returned. Had you relied on document IDs to verify a match, you might have missed the shift from "special" to "SQL".

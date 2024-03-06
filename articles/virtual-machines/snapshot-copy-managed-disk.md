@@ -4,7 +4,6 @@ description: Learn how to create a copy of an Azure VM to use as a backup or for
 author: roygara
 ms.author: rogarana
 ms.service: azure-disk-storage
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/22/2022
 ---

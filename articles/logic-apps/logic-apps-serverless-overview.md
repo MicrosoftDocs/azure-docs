@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # Azure serverless overview: Create cloud-based apps and solutions with Azure Logic Apps and Azure Functions

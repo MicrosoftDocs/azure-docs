@@ -2,7 +2,7 @@
 title: Rotate and revoke a customer-managed key 
 description: Learn how to rotate, update, and revoke a customer-managed key on Azure Container Registry.
 ms.topic: tutorial
-ms.date: 08/5/2022
+ms.date: 10/31/2023
 ms.custom: subject-rbac-steps, devx-track-azurecli
 ms.author: tejaswikolli
 ms.service: container-registry

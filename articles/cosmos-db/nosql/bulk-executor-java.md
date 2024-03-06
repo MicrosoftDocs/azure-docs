@@ -35,7 +35,7 @@ Currently, the bulk executor library is supported only by Azure Cosmos DB for No
   
   - On Ubuntu, you can run `apt-get install maven` to install Maven.
 
-* Create an Azure Cosmos DB for NoSQL account by using the steps described in the [create database account](quickstart-java.md#create-a-database-account) section of the Java quickstart article.
+* Create an Azure Cosmos DB for NoSQL account by using the steps described in the [create database account](quickstart-java.md) section of the Java quickstart article.
 
 ## Clone the sample application
 

@@ -1,14 +1,12 @@
 ---
 title: Overview of Maintenance Configurations for Azure virtual machines
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 10/06/2021
-ms.author: cynthn
-#pmcontact: ApnaLakshay
+ms.author: jushiman
 ---
 
 # Managing VM updates with Maintenance Configurations
@@ -59,6 +57,7 @@ This scope is integrated with [Update Manager](../update-center/overview.md), wh
 - The upper maintenance window is 3 hours 55 mins.
 - A minimum of 1 hour and 30 minutes is required for the maintenance window.
 - The value of **Repeat** should be at least 6 hours.
+- The start time for a schedule should be at least 10 minutes after the schedule's creation time.
 
 >[!IMPORTANT]
 > The minimum maintenance window has been increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value has been set to 6 hours for new schedules. **Please note that your existing schedules will not get impacted; however, we strongly recommend updating existing schedules to include these new changes.**
@@ -70,7 +69,6 @@ To learn more about this topic, checkout [Update Manager and scheduled patching]
 > [!NOTE]
 > 1. The count of characters of Resource Group name along with Maintenance Configuration name should be less than 128 characters
 > 2. If you move a VM to a different resource group or subscription, the scheduled patching for the VM stops working as this scenario is currently unsupported by the system. You can delete the older association of the moved VM and create the new association to include the moved VMs in a maintenance configuration.
-> 3. Schedules triggered on machines deleted and recreated with the same resource ID within 8 hours may fail with ShutdownOrUnresponsive error due to a known limitation. It will be resolved by December, 2023.
 
 ## Shut Down Machines
 

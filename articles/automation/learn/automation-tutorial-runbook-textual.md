@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/21/2022
 ms.topic: tutorial
-ms.custom:
+ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want use workflow runbooks so that I can automate the parallel starting of VMs.
 ---
 
@@ -235,11 +235,11 @@ Your runbook currently starts the VM that you've hardcoded in the runbook. It wi
 
 1. Replace line 3, `$resourceGroup = "resourceGroupName"`, with the following:
 
-    ```powershell
-    Param(
-        [string]$resourceGroup,
-        [string]$VMName
-    )
+   ```powershell
+   Param(
+       [string]$resourceGroup,
+       [string]$VMName
+   )
    ```
 
 1. Replace the previous `Start-AzVM` command with the following:

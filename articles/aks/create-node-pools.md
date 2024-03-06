@@ -2,7 +2,7 @@
 title: Create node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create multiple node pools for a cluster in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023
 ms.date: 12/08/2023
 ---
 
@@ -32,7 +32,7 @@ The following limitations apply when you create AKS clusters that support multip
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools. This feature isn't supported with Basic SKU load balancers.
 * The AKS cluster must use Virtual Machine Scale Sets for the nodes.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter.
-  * For Linux node pools, the length must be between 1-11 characters.
+  * For Linux node pools, the length must be between 1-12 characters.
   * For Windows node pools, the length must be between 1-6 characters.
 * All node pools must reside in the same virtual network.
 * When you create multiple node pools at cluster creation time, the Kubernetes versions for the node pools must match the version set for the control plane.
@@ -155,21 +155,10 @@ The Azure Linux container host for AKS is an open-source Linux distribution avai
 
 ### Migrate Ubuntu nodes to Azure Linux nodes
 
-1. [Add an Azure Linux node pool into your existing cluster](#add-an-azure-linux-node-pool).
+You can migrate your existing Ubuntu nodes to Azure Linux using one of the following methods:
 
-    > [!NOTE]
-    > When adding a new Azure Linux node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
-
-2. [Cordon the existing Ubuntu nodes](resize-node-pool.md#cordon-the-existing-nodes).
-3. [Drain the existing Ubuntu nodes](resize-node-pool.md#drain-the-existing-nodes).
-4. Remove the existing Ubuntu nodes using the [`az aks delete`][az-aks-delete] command.
-
-    ```azurecli-interactive
-    az aks nodepool delete \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --name mynodepool
-    ```
+* [Remove existing node pools and add new Azure Linux node pools](../azure-linux/tutorial-azure-linux-migration.md#add-azure-linux-node-pools-and-remove-existing-node-pools).
+* [In-place OS SKU migration (preview)](../azure-linux/tutorial-azure-linux-migration.md#in-place-os-sku-migration-preview).
 
 ## Node pools with unique subnets
 

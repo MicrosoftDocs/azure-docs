@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: container-registry
-ms.date: 05/31/2023
+ms.date: 10/31/2023
 ---
 
 # Pull images from a container registry to an AKS cluster in a different Microsoft Entra tenant

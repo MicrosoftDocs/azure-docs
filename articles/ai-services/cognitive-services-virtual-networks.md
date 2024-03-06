@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-services
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 02/13/2024
 ms.author: aahi
 ---
 
@@ -401,11 +401,11 @@ You can manage IP network rules for Azure AI services resources through the Azur
 
    ```azurepowershell-interactive
    $parameters = @{
-    "ResourceGroupName" = "myresourcegroup"
-    "Name" = "myaccount"
-    }
-    (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).IPRules
-    ```
+     "ResourceGroupName" = "myresourcegroup"
+     "Name" = "myaccount"
+   }
+   (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).IPRules
+   ```
 
 1. Add a network rule for an individual IP address.
 
@@ -595,6 +595,9 @@ curl -i -X PATCH https://management.azure.com$rid?api-version=2023-10-01-preview
 ```
 
 To revoke the exception, set `networkAcls.bypass` to `None`. 
+
+> [!NOTE]
+> The trusted service feature is only available using the command line described above, and cannot be done using the Azure portal.
 
 ### Pricing
 

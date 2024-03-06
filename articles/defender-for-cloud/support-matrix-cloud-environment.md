@@ -13,7 +13,6 @@ This article indicates which Defender for Cloud features are supported in Azure 
 
 In the support table, **NA** indicates that the feature isn't available.
 
-
 |**Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**|
 |--- | --- | --- | --- |
 |**GENERAL FEATURES** | | ||
@@ -31,6 +30,8 @@ In the support table, **NA** indicates that the feature isn't available.
 |[Recommendation exemptions](exempt-resource.md) | Preview | NA | NA|
 |[Secure score](secure-score-security-controls.md) | GA | GA | GA|
 |[DevOps security posture](concept-devops-environment-posture-management-overview.md) | Preview | NA | NA|
+| **DEFENDER CSPM FEATURES** | | | |
+| [Data security dashboard](data-aware-security-dashboard-overview.md) | Preview | NA | NA |
 |**DEFENDER FOR CLOUD PLANS** | | ||
 |[Defender CSPM](concept-cloud-security-posture-management.md)| GA | NA | NA|
 |[Defender for APIs](defender-for-apis-introduction.md).  | GA | NA | NA|

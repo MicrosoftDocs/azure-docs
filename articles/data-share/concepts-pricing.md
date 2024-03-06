@@ -5,7 +5,7 @@ author:  sidontha
 ms.author: sidontha
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 12/19/2023
 ---
 
 # Understand Azure Data Share pricing

@@ -4,7 +4,6 @@ description: In this article, you'll learn how to restore SAP HANA database inst
 ms.topic: conceptual
 ms.date: 11/02/2023
 ms.service: backup
-ms.custom: ignite-2022
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -57,7 +56,7 @@ Learn about the [SAP HANA instance snapshot restore architecture](azure-backup-a
 
 ## Restore the entire system to a snapshot restore point
 
-[!INCLUDE [How to restore the entire SAP HANA system to a snapshot restore point.](../../includes/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point.md)]
+[!INCLUDE [How to restore the entire SAP HANA system to a snapshot restore point](../../includes/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point.md)]
 
 ## Restore the database to a different logpoint-in-time over a snapshot
 

@@ -7,9 +7,9 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 06/14/2023
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-ner, ignite-fall-2021
+ms.custom: language-service-ner
 ---
 
 # Preview API changes
@@ -79,4 +79,3 @@ You can see a comparison between the structure of the entity categories/types in
 | CulturalEvent  | Event, CulturalEvent                   |
 | SportsEvent    | Event, SportsEvent                     |
 | NaturalEvent   | Event, NaturalEvent                    |
-
