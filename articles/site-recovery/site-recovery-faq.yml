@@ -109,7 +109,7 @@ sections:
       - question: |
          Do I also incur charges for the cache storage account when using Site Recovery?
         answer: |
-             Yes, there are extra charges for cache storage account usage when replicating virtual machines using Site Recovery. Note that the cache storage account costs will remain same when the replica storage is of type managed disks or unmanaged disks.  
+             Yes, there are extra charges for cache storage account usage when replicating virtual machines using Site Recovery. The cache storage account costs remains same when the replica storage is of type managed disks or unmanaged disks.  
 
       - question: |
          I have been an Azure Site Recovery user for over a month. Do I still get the first 31 days free for every protected instance?
@@ -155,7 +155,7 @@ sections:
       - question: |
          How can I enforce TLS 1.2 on VMware-to-Azure and Physical Server-to-Azure Site Recovery scenarios?
         answer: |
-              Mobility agents installed on the replicated items communicate to Process Server only on TLS 1.2. However, communication from Configuration Server to Azure and from Process Server to Azure could be on TLS 1.1 or 1.0. Please follow the [guidance](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) to enforce TLS 1.2 on all Configuration Servers and Process Servers set up by you.
+              Mobility agents installed on the replicated items communicate to Process Server only on TLS 1.2. However, communication from Configuration Server to Azure and from Process Server to Azure could be on TLS 1.1 or 1.0. Follow the [guidance](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) to enforce TLS 1.2 on all Configuration Servers and Process Servers set up by you.
               
               >[!Note]
               >The modernized experience uses TLS 1.2 for all the communication and enforces it by default. 
@@ -209,7 +209,7 @@ sections:
       - question: |
          Is disaster recovery supported for Azure virtual machines?
         answer: |
-              Yes, Site Recovery supports disaster for Azure virtual machines between Azure regions. [Review common questions](azure-to-azure-common-questions.md) about Azure virtual machine disaster recovery. If you want to replicate between two Azure regions on the same continent, please use our Azure to Azure disaster recovery offering. No need to set up configuration server/process server and ExpressRoute connections.
+              Yes, Site Recovery supports disaster for Azure virtual machines between Azure regions. [Review common questions](azure-to-azure-common-questions.md) about Azure virtual machine disaster recovery. If you want to replicate between two Azure regions on the same continent, use our Azure to Azure disaster recovery offering. No need to set up configuration server/process server and ExpressRoute connections.
 
       - question: |
          Is disaster recovery supported for VMware virtual machines?
@@ -307,7 +307,7 @@ sections:
       - question: |
          Can I enable replication with app-consistency in Linux servers?
         answer: |
-              Yes. Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post-options will be used by the Azure Site Recovery Mobility Agent during app-consistency. Below are the steps to enable it.
+              Yes. Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post-options is used by the Azure Site Recovery Mobility Agent during app-consistency. Below are the steps to enable it.
 
               1. Sign in as root into the machine.
               2. Change directory to Azure Site Recovery Mobility Agent install location. Default is "/usr/local/ASR"<br>
@@ -405,12 +405,12 @@ sections:
       - question: |
          I have a replication policy of one day. What will happen if a problem prevents Site Recovery from generating recovery points for more than one day? Will my previous recovery points be lost?
         answer: |
-             No, Site Recovery will keep all your previous recovery points. Depending on the recovery points' retention window, Site Recovery replaces the oldest point only if it generates new points. Because of the problem, Site Recovery can't generate any new recovery points. Until there are new recovery points, all the old points will remain after you reach the window of retention.
+             No, Site Recovery keeps all your previous recovery points. Depending on the recovery points' retention window, Site Recovery replaces the oldest point only if it generates new points. Because of the problem, Site Recovery can't generate any new recovery points. Until there are new recovery points, all the old points remain after you reach the window of retention.
 
       - question: |
          After replication is enabled on a virtual machine, how do I change the replication policy?
         answer: |
-             Go to **Site Recovery Vault** > **Site Recovery Infrastructure** > **Replication policies**. Select the policy that you want to edit, and save the changes. Any change will apply to all the existing replications too.
+             Go to **Site Recovery Vault** > **Site Recovery Infrastructure** > **Replication policies**. Select the policy that you want to edit, and save the changes. Any change applies to all the existing replications too.
 
       - question: |
          Are all the recovery points a complete copy of the virtual machine or a differential?
@@ -420,7 +420,7 @@ sections:
       - question: |
          Does increasing the retention period of recovery points increase the storage cost?
         answer: |
-             Yes, if you increase the retention period from one day to three days, Site Recovery will save the recovery points for an extra two days. The added time will incur storage charges since there will be 12 additional recovery points that need to be saved with increase in retention period from one day to three days. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 12 per month.
+             Yes, if you increase the retention period from one day to three days, Site Recovery saves the recovery points for an extra two days. The added time will incur storage charges since there will be 12 additional recovery points that need to be saved with increase in retention period from one day to three days. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 12 per month.
 
   - name: Failover
     questions:
@@ -463,7 +463,7 @@ sections:
         answer: |
               Once a machine from source location has been failed over to the target location then there are three options available for you to choose from. All three serve different purposes -
 
-              1.	**Complete Migration** means that you will not go back to the source location anymore. You migrated over to the target region and now you're done. Clicking on Complete Migration triggers Commit and then Disable Replication, internally.
+              1.	**Complete Migration** means that you won't go back to the source location anymore. You migrated over to the target region and now you're done. Clicking on Complete Migration triggers Commit and then Disable Replication, internally.
               2.	**Commit** means that this isn't the end of your replication process. The replication item along with all the configuration will remain, and you can hit **Re-protect** at a later point in time to enable the replication of your machines back to the source region.
               3.	**Disable Replication** will disable the replication and remove all the related configuration. It won’t affect the already existing machine in the target region.
 
