@@ -18,7 +18,7 @@ ms.date: 01/16/2024
 
 The `pgvector` extension adds an open-source vector similarity search to Azure Database for PostgreSQL flexible server.
 
-This article explores the limitations and tradeoffs of [`pgvector`](https://github.com/pgvector/pgvector) and shows how to use partitioning, indexing and search settings to improve performance.
+This article explores the limitations and tradeoffs of [`pgvector`](https://github.com/pgvector/pgvector) and shows how to use partitioning, indexing, and search settings to improve performance.
 
 For more on the extension itself, see [basics of `pgvector`](how-to-use-pgvector.md). You might also want to refer to the official [README](https://github.com/pgvector/pgvector/blob/master/README.md) of the project.
 
