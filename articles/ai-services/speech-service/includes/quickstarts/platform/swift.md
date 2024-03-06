@@ -34,7 +34,7 @@ The macOS CocoaPod package is available for download and use with the [Xcode 9.4
    use_frameworks!
     
    target 'AppName' do
-     pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.35.0'
+     pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.36.0'
    end
    ```
 
@@ -65,7 +65,7 @@ The macOS CocoaPod package is available for download and use with the [Xcode 9.4
     use_frameworks!
     
     target 'AppName' do
-      pod 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.35.0'
+      pod 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.36.0'
     end
     ```
 
