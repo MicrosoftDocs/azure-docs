@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
 ms.date: 01/30/2024
 ---
 

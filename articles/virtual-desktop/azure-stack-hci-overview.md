@@ -85,6 +85,8 @@ Azure Virtual Desktop with Azure Stack HCI has the following limitations:
 
 - Azure Stack HCI supports many types of hardware and on-premises networking capabilities, so performance and user density might vary compared to session hosts running on Azure. Azure Virtual Desktop's [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should use them for initial performance estimates and monitor after deployment.
 
+- You can only join session hosts on Azure Stack HCI to an Active Directory Domain Services domain.
+
 ## Next steps
 
 To learn how to deploy Azure Virtual Desktop with Azure Stack HCI, see [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md).

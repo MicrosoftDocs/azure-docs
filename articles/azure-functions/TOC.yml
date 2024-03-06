@@ -1015,6 +1015,8 @@
             href: errors-diagnostics/diagnostic-events/azfd0010.md
           - name: AZFD0011
             href: errors-diagnostics/diagnostic-events/azfd0011.md
+          - name: AZFD0012
+            href: errors-diagnostics/diagnostic-events/azfd0012.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference

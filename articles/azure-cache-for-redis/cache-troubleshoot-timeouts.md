@@ -101,8 +101,8 @@ Because of optimistic TCP settings in Linux, client applications hosted on Linux
 
 If you're using `RedisSessionStateProvider`, ensure you set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
- ```xml
- <add 
+```xml
+<add 
     name="AFRedisCacheSessionStateProvider"
     type="Microsoft.Web.Redis.RedisSessionStateProvider"
     host="enbwcache.redis.cache.windows.net"
@@ -114,7 +114,7 @@ If you're using `RedisSessionStateProvider`, ensure you set the retry timeout co
     connectionTimeoutInMilliseconds = "5000"
     operationTimeoutInMilliseconds = "1000"
     retryTimeoutInMilliseconds="3000"
-    >
+>
 ```
 
 ## Server-side troubleshooting
