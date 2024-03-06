@@ -166,7 +166,7 @@ __Body__
 
 #### Response schema
 
-The response payload is a dictionary with the following fields.
+The response payload is a dictionary with the following fields:
 
 | Key       | Type      | Description                                                                |
 |-----------|-----------|----------------------------------------------------------------------------|
@@ -181,7 +181,7 @@ The response payload is a dictionary with the following fields.
 > In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`. In each `choices` object, the key for `messages` is changed by `delta`.
 
 
-The `choices` object is a dictionary with the following fields. 
+The `choices` object is a dictionary with the following fields:
 
 | Key     | Type      | Description  |
 |---------|-----------|--------------|
@@ -191,7 +191,7 @@ The `choices` object is a dictionary with the following fields.
 | `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
 
 
-The `usage` object is a dictionary with the following fields. 
+The `usage` object is a dictionary with the following fields:
 
 | Key                 | Type      | Value                                         |
 |---------------------|-----------|-----------------------------------------------|
