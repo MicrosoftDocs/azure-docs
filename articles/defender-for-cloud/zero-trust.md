@@ -88,7 +88,7 @@ There are two approaches to ensuring your Defender for Cloud data is represented
 
   - [Connect Windows security events](../sentinel/connect-windows-security-events.md)
   - [Collect data from Linux-based sources using Syslog](../sentinel/connect-syslog.md)
-  - [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity)
+  - [Connect data from Azure Activity log](../sentinel/data-connectors/azure-activity.md)
 
 #### Stream alerts with Microsoft Graph Security API
 

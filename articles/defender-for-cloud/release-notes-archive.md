@@ -321,8 +321,8 @@ We recommend updating your custom scripts, workflows, and governance rules to co
 
 ### Deprecation of legacy standards in compliance dashboard
 
-Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](../compliance/offerings/offering-soc-2.md) initiative and [PCI DSS v4](../compliance/offerings/offering-pci-dss.md) initiative-based compliance standards.
-We have fully deprecated support of [PCI DSS](../compliance/offerings/offering-pci-dss.md) standard/initiative in Microsoft Azure operated by 21Vianet.
+Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative-based compliance standards.
+We have fully deprecated support of [PCI DSS](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Microsoft Azure operated by 21Vianet.
 
 Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
@@ -651,14 +651,14 @@ We're updating these standards for customers in Azure Government and Microsoft A
 
 **Azure Government**:
 
-- [PCI DSS v4](../compliance/offerings/offering-pci-dss.md)
-- [SOC 2 Type 2](../compliance/offerings/offering-soc-2.md)
-- [ISO 27001:2013](../compliance/offerings/offering-iso-27001.md)
+- [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss)
+- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
+- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
 
 **Microsoft Azure operated by 21Vianet**:
 
-- [SOC 2 Type 2](../compliance/offerings/offering-soc-2.md)
-- [ISO 27001:2013](../compliance/offerings/offering-iso-27001.md)
+- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
+- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
 
 Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
