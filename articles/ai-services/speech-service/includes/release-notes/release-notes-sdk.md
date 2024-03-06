@@ -14,6 +14,24 @@ ms.author: eur
 * With the End of Life for **OpenSSL 1.1.1** on September 11th, we are working on changes to support OpenSSL 3.0 that will release soon. This streamlines usage on Linux Distributions that only have OpenSSL 3.0 pre-installed (such as Ubuntu 22.04).
 * **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04 soon.
 
+### Speech SDK 1.36.0: 2024-March release
+
+####  New features
+
+* Add support  for language identification in multi-lingual translation on v2 endpoints using AutoDetectSourceLanguageConfig::FromOpenRange().
+
+####  Bug fixes
+
+* Fix SynthesisCanceled event not fired if stop is called during SynthesisStarted event.
+* Fix a noise issue in embedded speech synthesis.
+* Fix a crash in embedded speech recognition when running multiple recognizers in parallel.
+
+* Fix the phrase detection mode setting on v1/v2 endpoints.
+* Fixes to various issues with Microsoft Audio Stack.
+####  Samples
+
+* Updates for new features.
+
 ### Speech SDK 1.35.0: February 2024 release
 
 #### New features
