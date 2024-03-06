@@ -26,7 +26,7 @@ ms.date: 02/16/2023
 
 ## Create a server that has public access
 
-Create an **azuredeploy.json** file with the following content to create an Azure Database for MySQL flexible server instance using public access connectivity method and also create a database on the server. Update the **firewallRules** default value if needed.
+Create an *azuredeploy.json* file with the following content to create an Azure Database for MySQL flexible server instance using public access connectivity method and also create a database on the server. Update the **firewallRules** default value if needed.
 
 ```json
 {
@@ -303,7 +303,7 @@ Modify the following code samples to create an Azure Database for MySQL flexible
         "MemoryOptimized"
       ],
       "metadata": {
-        "description": "The tier of the particular SKU. High Availability is available only for GeneralPurpose and MemoryOptimized sku."
+        "description": "The tier of the specific SKU. High availability is available only for GeneralPurpose and MemoryOptimized SKUs."
       }
     },
     "version": {
@@ -321,7 +321,7 @@ Modify the following code samples to create an Azure Database for MySQL flexible
       "type": "string",
       "defaultValue": "1",
       "metadata": {
-        "description": "Availability Zone information of the server. (Leave blank for No Preference)."
+        "description": "The availability zone information of the server. (If you have no preference, leave blank.)"
       }
     },
     "haEnabled": {
@@ -333,14 +333,14 @@ Modify the following code samples to create an Azure Database for MySQL flexible
         "ZoneRedundant"
       ],
       "metadata": {
-        "description": "High availability mode for a server : Disabled, SameZone, or ZoneRedundant"
+        "description": "High availability mode for a server: Disabled, SameZone, or ZoneRedundant"
       }
     },
     "standbyAvailabilityZone": {
       "type": "string",
       "defaultValue": "2",
       "metadata": {
-        "description": "Availability zone of the standby server."
+        "description": "The availability zone of the standby server."
       }
     },
     "storageSizeGB": {
@@ -363,7 +363,7 @@ Modify the following code samples to create an Azure Database for MySQL flexible
       "type": "string",
       "defaultValue": "Standard_B1ms",
       "metadata": {
-        "description": "The name of the sku, e.g. Standard_D32ds_v4."
+        "description": "The name of the SKU. For example, Standard_D32ds_v4."
       }
     },
     "backupRetentionDays": {
@@ -486,16 +486,16 @@ Modify the following code samples to create an Azure Database for MySQL flexible
 
 ## Deploy the template
 
-Deploy the JSON file using either Azure CLI or Azure PowerShell.
+Deploy the JSON file by using either the Azure CLI or Azure PowerShell.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/CLI)
 
 ```azurecli
 az group create --name exampleRG --location eastus
 az deployment group create --resource-group exampleRG --template-file azuredeploy.json
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 New-AzResourceGroup -Name exampleRG -Location eastus
@@ -504,37 +504,38 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile azurede
 
 ---
 
-Follow the instructions to enter the parameter values. When the deployment finishes, you should see a message indicating the deployment succeeded.
+Complete the steps to enter the parameter values. When the deployment finishes, message indicates a successful deployment.
 
 ## Review deployed resources
 
-Follow these steps to verify if your Azure Database for MySQL flexible server instance was created in the resource group.
+To verify that your Azure Database for MySQL flexible server was created in the resource group:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/CLI)
 
 ```azurecli
 az resource list --resource-group exampleRG
 
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 Get-AzResource -ResourceGroupName exampleRG
 ```
+
 ---
 
 ## Clean up resources
 
-To delete the resource group and the resources contained in the resource group:
+To delete the resource group and all the resources that are in the resource group:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/CLI)
 
 ```azurecli
 az group delete --name exampleRG
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name exampleRG
@@ -542,14 +543,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
-## Next steps
+## Related content
 
-For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
-
-> [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
-
-For a step-by-step tutorial to build an app with App Service using MySQL, see:
-
-> [!div class="nextstepaction"]
-> [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)
+- For a step-by-step tutorial that guides you through the process of creating an ARM template, see [Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+- For a step-by-step tutorial to build an app by using Azure App Service and MySQL, see [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md).

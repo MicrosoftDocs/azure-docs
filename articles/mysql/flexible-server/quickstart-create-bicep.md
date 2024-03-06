@@ -73,7 +73,7 @@ param serverEdition string = 'Burstable'
 ])
 param version string = '8.0.21'
 
-@description('The availability zone information for the server. (For no preference, leave blank.)')
+@description('The availability zone information for the server. (If you don't have a preference, leave blank.)')
 param availabilityZone string = '1'
 
 @description('High availability mode for a server: Disabled, SameZone, or ZoneRedundant.')
@@ -325,14 +325,14 @@ resource database 'Microsoft.DBforMySQL/flexibleServers/databases@2021-12-01-pre
 
 Deploy the Bicep file by using either the Azure CLI or Azure PowerShell.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group create --name exampleRG --location eastus
 az deployment group create --resource-group exampleRG --template-file main.bicep
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [AzurePowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name exampleRG -Location eastus
@@ -347,14 +347,14 @@ Follow the instructions to enter the parameter values. When the deployment finis
 
 Follow these steps to verify if your Azure Database for MySQL flexible server instance was created in the resource group.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az resource list --resource-group exampleRG
 
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzResource -ResourceGroupName exampleRG
@@ -366,13 +366,13 @@ Get-AzResource -ResourceGroupName exampleRG
 
 To delete the resource group and the resources contained in the resource group:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group delete --name exampleRG
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name exampleRG
