@@ -14,7 +14,7 @@ ms.date: 03/05/2024
 
 # Create a vector query in Azure AI Search
 
-In Azure AI Search, if you [have vector fields](vector-search-how-to-create-index.md) in a search index, you can follow the instructions in this article to learn how to:
+In Azure AI Search, if you [have vector fields](vector-search-how-to-create-index.md) in a search index, this article explains how to:
 
 > [!div class="checklist"]
 > + [Query vector fields](#vector-query-request)
@@ -22,7 +22,7 @@ In Azure AI Search, if you [have vector fields](vector-search-how-to-create-inde
 > + [Query multiple vector fields at once](#multiple-vector-fields)
 > + [Query with integrated vectorization (preview)](#query-with-integrated-vectorization-preview)
 
-This article uses REST examples. For code samples in other languages, see the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repository for end-to-end workflows that include vector queries.
+This article uses REST examples. For code samples in other languages, see the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) GitHub repository for end-to-end solutions that include vector queries.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ This article uses REST examples. For code samples in other languages, see the [a
 
 + [A vector store on Azure AI Search](vector-search-how-to-create-index.md).
 
-+ Visual Studio Code with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) and sample data if you want to run these examples on your own. This article assumes the stable API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions?view=rest-searchservice-2023-11-01).
++ Visual Studio Code with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) and sample data if you want to run these examples on your own. See [Quickstart: Create a search index in Azure AI Search using REST](search-get-started-rest.md) for help getting started.
 
 > [!TIP]
 > To quickly determine whether your index has vectors, look for fields of type `Collection(Edm.Single)`, with a `dimensions` attribute, and a `vectorSearchProfile` assignment.
@@ -48,12 +48,12 @@ POST https://{{openai-service-name}}.openai.azure.com/openai/deployments/{{opena
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "input": "what azure services support full text search"
+    "input": "what azure services support generative AI'"
 }
 ```
 
 The expected response is 202 for a successful call to the deployed model. 
-The "embedding" field in the body of the response is the vector representation of the  query string "input". For testing purposes, you would copy the value of the "embedding" array into "vector.value" in a query request, using syntax shown in the next several sections. 
+The "embedding" field in the body of the response is the vector representation of the  query string "input". For testing purposes, you would copy the value of the "embedding" array into "vectorQueries.vector" in a query request, using syntax shown in the next several sections. 
 
 The actual response for this POST call to the deployed model includes 1536 embeddings, trimmed here to just the first few vectors for readability.
 
@@ -163,7 +163,7 @@ api-key: {{admin-api-key}}
 ### [**2023-07-01-Preview**](#tab/query-vector-query)
 
 > [!IMPORTANT]
-> The vector query syntax for this version is obsolete in later versions.
+> The vector query syntax for this version is obsolete in later versions. We recommend [upgrading to the latest REST API](search-api-migration.md).
 
 [**2023-07-01-Preview**](/rest/api/searchservice/index-preview) first introduced vector query support to [Search Documents](/rest/api/searchservice/preview-api/search-documents). This version added:
 
@@ -416,7 +416,7 @@ api-key: {{admin-api-key}}
 
 ---
 
-## Multiple vector fields in a query
+## Multiple vector fields
 
 You can set the "vectorQueries.fields" property to multiple vector fields. The vector query executes against each vector field that you provide in the `fields` list. When querying multiple vector fields, make sure each one contains embeddings from the same embedding model, and that the query is also generated from the same embedding model.
 
@@ -445,7 +445,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-## Multiple vector queries in parallel
+## Multiple vector queries
 
 Multi-query vector search sends multiple queries across multiple vector fields in your search index. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multimodal vector search where the same model can vectorize image and text content.
 
@@ -492,7 +492,7 @@ Search results would include a combination of text and images, assuming your sea
 
 ## Query with integrated vectorization (preview)
 
-This section shows a vector query that invokes the new [integrated vectorization](vector-search-integrated-vectorization.md) preview feature. Use [**2023-10-01-Preview** REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) or an updated beta Azure SDK package.
+This section shows a vector query that invokes the new [integrated vectorization](vector-search-integrated-vectorization.md) preview feature that converts a text query into a vector. Use [**2023-10-01-Preview** REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) or an updated beta Azure SDK package.
 
 A prerequisite is a search index having a [vectorizer configured and assigned](vector-search-how-to-configure-vectorizer.md) to a vector field. The vectorizer provides connection information to an embedding model used at query time.
 
@@ -573,7 +573,7 @@ The examples in this article used a "select" statement to specify text (nonvecto
 > [!NOTE]
 > Vectors aren't designed for readability, so avoid returning them in the response. Instead, choose non-vector fields that are representative of the search document. For example, if the query targets a "descriptionVector" field, return an equivalent text field if you have one ("description") in the response. -->
 
-## Number of ranked results in a vector query response
+## Quantity of ranked results in a vector query response
 
 A vector query specifies the `k` parameter, which determines how many matches are returned in the results. The search engine always returns `k` number of matches. If `k` is larger than the number of documents in the index, then the number of documents determines the upper limit of what can be returned.
 
@@ -588,7 +588,7 @@ Query parameters affecting result count include:
 
 Both "k" and "top" are optional. Unspecified, the default number of results in a response is 50. You can set "top" and "skip" to [page through more results](search-pagination-page-layout.md#paging-results) or change the default.
 
-## Ranking algorithms in a vector query
+## Ranking algorithms used in a vector query
 
 Ranking of results is computed by either:
 

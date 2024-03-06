@@ -74,9 +74,9 @@ Service name requirements:
 
 + Unique within the search.windows.net namespace
 + Between 2 and 60 characters in length
-+ Consist of lowercase letters, digits, dashes (`-`), or underscores (`_`)
-+ Don't use dashes or underscores in the first 2 characters or as the last single character
-+ Don't use consecutive dashes or underscores anywhere
++ Consist of lowercase letters, digits, or dashes (`-`)
++ Don't use dashes in the first 2 characters or as the last single character
++ Don't use consecutive dashes anywhere
 
 > [!TIP]
 > If you have multiple search services, it helps to include the region (or location) in the service name as a naming convention. A name like `mysearchservice-westus` can save you a trip to the properties page when deciding how to combine or attach resources.
