@@ -30,28 +30,28 @@ The `azd init` command prompts you for the following information:
 
 ## Use the Azure Developer CLI template to deploy resources
 
-* Sign-in to Azure:
+1. Sign-in to Azure:
 
-```bash
-azd auth login
-```
+    ```bash
+    azd auth login
+    ```
 
-* Provision and deploy the OpenAI resource to Azure:
+1. Provision and deploy the OpenAI resource to Azure:
 
-```bash
-azd up
-```
-
-`azd` prompts you for the following information:
-
-* Subscription: The Azure subscription that your resources are deployed to.
-* Location: The Azure region where your resources are deployed.
-
-> [!NOTE]
-> The provisioning process may take several minutes to complete. Wait for the task to finish before you proceed to the next steps.
+    ```bash
+    azd up
+    ```
     
-* Click the link `azd` outputs to navigate to the new resource group in the Azure portal. You should see the following top level resources:
-
+    `azd` prompts you for the following information:
+    
+    * Subscription: The Azure subscription that your resources are deployed to.
+    * Location: The Azure region where your resources are deployed.
+    
+    > [!NOTE]
+    > The provisioning process may take several minutes to complete. Wait for the task to finish before you proceed to the next steps.
+        
+1. Click the link `azd` outputs to navigate to the new resource group in the Azure portal. You should see the following top level resources:
+    
     * An Azure OpenAI service with a GPT-4 model deployed
     * An Azure Storage account you can use to upload your own data files
     * An Azure AI Search service configured with the proper indexes and data sources
@@ -60,10 +60,10 @@ azd up
 
 `azd` provisioned all of the required resources for you to chat with your own data, but you still need to upload the data files you want to make available to your AI service.
 
-* Navigate to the new storage account in the Azure portal.
-* On the left navigation, select **Storage browser**.
-* Select **Blob containers** and then navigate into the **File uploads** container.
-* Click the **Upload** button at the top of the screen. In the flyout menu that opens, upload the files you wish to make available to your OpenAI service.
+1. Navigate to the new storage account in the Azure portal.
+1. On the left navigation, select **Storage browser**.
+1. Select **Blob containers** and then navigate into the **File uploads** container.
+1. Click the **Upload** button at the top of the screen. In the flyout menu that opens, upload the files you wish to make available to your OpenAI service.
 
 ## Run the app locally
 
@@ -71,51 +71,51 @@ The `azd` template includes a complete sample chat app in the `src` directory. W
 
 ## [C#](#tab/csharp)
     
-    Open a terminal in the `src` directory of the `azd` template and run the following command:
-    
-    ```bash
-    dotnet run
-    ```
-    
-    You should see the following response content in the output:
-    
-    ```output
-    Answer from assistant:
-    ===
-    Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
-    ===
-    Context information (e.g. citations) from chat extensions:
-    ===
-    tool: {
-        "citations": [
-        {
-            "content": "...",
-            "id": null,
-            "title": "...",
-            "filepath": "...",
-            "url": "...",
-            "metadata": {
-            "chunking": "orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38."
-            },
-            "chunk_id": "2"
+Open a terminal in the `src` directory of the `azd` template and run the following command:
+
+```bash
+dotnet run
+```
+
+You should see the following response content in the output:
+
+```output
+Answer from assistant:
+===
+Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
+===
+Context information (e.g. citations) from chat extensions:
+===
+tool: {
+    "citations": [
+    {
+        "content": "...",
+        "id": null,
+        "title": "...",
+        "filepath": "...",
+        "url": "...",
+        "metadata": {
+        "chunking": "orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38."
         },
-        ...
-        ],
-        "intent": "[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]"
-    }
-    ===
-    ```
+        "chunk_id": "2"
+    },
+    ...
+    ],
+    "intent": "[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]"
+}
+===
+```
 
 ## [Python](#tab/python)
 
-    Open a terminal in the `src` directory of the `azd` template and run the following command:
-    
-    tbd
+Open a terminal in the `src` directory of the `azd` template and run the following command:
+
+tbd
 
 ## [JavaScript](#tab/javascript)
 
-    Open a terminal in the `src` directory of the `azd` template and run the following command:
-    
-    tbd
+Open a terminal in the `src` directory of the `azd` template and run the following command:
+
+tbd
 
 ---
