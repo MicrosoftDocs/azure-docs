@@ -35,6 +35,49 @@ Disable **ACStor** by creating a file named **config.json** with the following c
 
 This section describes how to prepare Linux with AKS Edge Essentials if you run a single-node cluster.
 
+1. For Edge Essentials to support Azure IoT Operations and Edge Storage Accelerator, the Kubernetes hosts must be modified to support more memory. You can also increase vCPU and disk allocations at this time if you anticipate requiring additional resources for your Kubernetes uses.
+
+   Start by following the [How-To guide here](/azure/aks/hybrid/aks-edge-howto-single-node-deployment). The QuickStart uses the default configuration and should be avoided.  
+
+   Following [Step 1: single machine configuration parameters](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-1-single-machine-configuration-parameters), you have a file in your working directory called **aksedge-config.json**. Open this file in Notepad or another text editor:
+
+   ```json
+   "SchemaVersion": "1.11",
+   "Version": "1.0",
+   "DeploymentType": "SingleMachineCluster",
+   "Init": {
+       "ServiceIPRangeSize": 0
+   },
+   "Machines": [
+   {
+       "LinuxNode": {
+           "CpuCount": 4,
+           "MemoryInMB": 4096,
+           "DataSizeInGB": 10,
+       }
+   }
+   ]
+   ```
+
+   Increase `MemoryInMB` to at least 16384 and `DataSizeInGB` to 40G. Set `ServiceIPRangeSize` to 15. If you intend to run many PODs, you can increase the `CpuCount` as well.
+
+   ```json
+   "Init": {
+       "ServiceIPRangeSize": 15
+      },
+   "Machines": [
+   {
+       "LinuxNode": {
+           "CpuCount": 4,
+           "MemoryInMB": 16384,
+           "DataSizeInGB": 40,
+       }
+   }
+   ]
+   ```
+
+   Continue with the remaining steps in [create a single machine cluster](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-2-create-a-single-machine-cluster). Next, [connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
+
 1. Set up Local Path Provisioner storage using:
 
    ```bash
