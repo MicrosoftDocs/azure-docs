@@ -3,7 +3,7 @@ title: Deploy Helm chart workloads with IoT Orchestrator
 description: Use Helm charts to deploy custom workloads to Azure IoT Operations clusters with the Azure IoT Orchestrator
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom:
   - ignite-2023

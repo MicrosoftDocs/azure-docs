@@ -3,7 +3,7 @@ title: How Azure IoT Orchestrator uses manifests
 description: Understand how Azure IoT Orchestrator uses manifests to define resources and deployments for Azure IoT Operations
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: concept-article
 ms.custom:
   - ignite-2023

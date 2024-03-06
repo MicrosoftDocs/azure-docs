@@ -3,7 +3,7 @@ title: Troubleshoot Azure IoT Orchestrator
 description: Guidance and suggested steps for troubleshooting an Orchestrator deployment of Azure IoT Operations components.
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom:
   - ignite-2023

@@ -3,7 +3,7 @@ title: How Azure IoT Orchestrator uses providers and components
 description: Understand how Azure IoT Orchestrator uses providers and components to define resources to deploy to your edge solution
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: concept-article
 ms.custom:
   - ignite-2023

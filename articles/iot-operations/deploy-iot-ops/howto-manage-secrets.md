@@ -3,7 +3,7 @@ title: Manage secrets
 description: Create, update, and manage secrets that are required to give your Arc-connected cluster access to Azure resources.
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.custom: ignite-2023, devx-track-azurecli

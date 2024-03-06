@@ -3,7 +3,7 @@ title: Deploy an edge solution
 description: Deploy Azure IoT Operations to your edge environment. Use Azure IoT Orchestrator to deploy edge data services to your Kubernetes cluster.
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
