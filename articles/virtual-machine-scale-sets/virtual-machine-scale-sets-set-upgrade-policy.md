@@ -12,11 +12,11 @@ ms.custom: upgradepolicy
 # Set the Upgrade Policy on Virtual Machine Scale Sets
 
 > [!IMPORTANT]
-> **Upgrade Policies for Virtual Machine Scale Sets with Flexible Orchestration are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
+> Automatic, Manual and Rolling Upgrade Policy are available for Virtual Machine Scale Sets with Uniform Orchestration Mode. 
+>
+>**If using Virtual Machine scale Sets with Flexible Orchestration mode, only Manual Upgrade Policy is supported. Manual Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
 >
 > If using Rolling Upgrade Policy, see **[Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)** for more information. 
->
->Upgrade Policies for Virtual Machine Scale Sets with Uniform Orchestration are generally available (GA). 
 
 The Upgrade Policy can be set during scale set creation or changed post deployment. If you don't explicitly set the Upgrade Policy, it defaults to Manual. To change the Upgrade Policy of an existing scale set deployment, see [Changing the Upgrade Policy](virtual-machine-scale-sets-change-upgrade-policy.md).
 
@@ -61,7 +61,7 @@ New-AzVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicyMode "Automatic"
+  -UpgradePolicyMode "Manual"
 ```
 
 ### [ARM Template](#tab/template)

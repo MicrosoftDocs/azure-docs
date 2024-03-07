@@ -14,7 +14,7 @@ ms.custom: upgradepolicy
 > [!IMPORTANT]
 > **Manual Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 >
->Upgrade Policies for Virtual Machine Scale Sets with Uniform Orchestration mode are generally available (GA). 
+>Manual Upgrade Policy for Virtual Machine Scale Sets with Uniform Orchestration mode is generally available (GA). 
  
 If you have the Upgrade Policy set to manual, any changes made to the scale set model will not be applied automatically. You need to manually trigger upgrades on each individual virtual machine.
 
