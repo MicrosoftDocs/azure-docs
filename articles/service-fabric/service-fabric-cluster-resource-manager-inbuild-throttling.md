@@ -1,5 +1,5 @@
 ---
-title: InBuild Throttling
+title: InBuild throttling
 description: Configure, understand, and apply InBuild Throttling constraint.
 ms.topic: conceptual
 ms.author: vladelekic
