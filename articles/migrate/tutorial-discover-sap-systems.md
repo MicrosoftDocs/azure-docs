@@ -57,7 +57,7 @@ and import the discovery file in portal as shown below:
 1. In **Discover** page, in **File type**, select **SAP® inventory (XLS)**.
 1. Select **Download** to download the excel template.
 
-    :::image type="content" source="./media/tutorial-discover-sap-systems/download_template.png/" alt-text="Screenshot that shows how to download a template." lightbox="./media/tutorial-discover-sap-systems/download_template.png":::
+    :::image type="content" source="./media/tutorial-discover-sap-systems/download_template.png" alt-text="Screenshot that shows how to download a template." lightbox="./media/tutorial-discover-sap-systems/download_template.png":::
 
 > [!Note]
    > Recommended to use a new file for every discovery that you plan to run to avoid any duplication or inadvertent errors propagating from one discovery file to another discovery.
@@ -71,7 +71,7 @@ After adding information to the excel template, import the excel file.
 1. In **How do you want to discover**, select **Import based**.
 1. In **Import type**, select **.xls file for SAP Inventory**.
 
-    :::image type="content" source="./media/tutorial-discover-sap-systems/import_excel.png/" alt-text="Screenshot that shows how to import SAP inventory." lightbox="./media/tutorial-discover-sap-systems/import_excel.png":::
+    :::image type="content" source="./media/tutorial-discover-sap-systems/import_excel.png" alt-text="Screenshot that shows how to import SAP inventory." lightbox="./media/tutorial-discover-sap-systems/import_excel.png":::
  
 
 
