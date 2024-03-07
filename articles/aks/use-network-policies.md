@@ -19,7 +19,7 @@ You need the Azure CLI version 2.0.61 or later installed and configured. Run `az
 
 ### Uninstall Azure Network Policy Manager or Calico (Preview)
 Requirements:
- - aks-preview Azure CLI extension version 0.5.166 or later. See [Install the aks-preview Azure CLI extension](#Install-the-aks-preview-Azure-CLI-extension).
+ - aks-preview Azure CLI extension version 0.5.166 or later. See [Install the aks-preview Azure CLI extension](#install-the-aks-preview-azure-cli-extension).
  - Azure CLI version 2.54 or later
  - AKS REST API version 2023-08-02-preview or later
 
