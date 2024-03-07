@@ -58,10 +58,10 @@ For code samples, see the "Manage environments" section of [How to use environme
 
 ## Environment building, caching, and reuse
 
-Azure Machine Learning builds environment definitions into Docker images. It also caches the environments so they can be reused in subsequent training jobs and service endpoint deployments. Running a training script remotely requires the creation of a Docker image. 
+Azure Machine Learning builds environment definitions into Docker images. It also caches the environments so they can be reused in subsequent training jobs and service endpoint deployments. Running a training script remotely requires the creation of a Docker image. By default, AzureML will manage image build target on available workspace [serverless compute quota](how-to-use-serverless-compute.md) if no dedicated compute set for the workspace.
 
 > [!NOTE]
-> Any network restrictions in AzureML Workspace might require dedicated user managed image build compute setup. Please follow the steps to [secure workspace resources](how-to-secure-workspace-vnet.md). AzureML will be managing image build target on available workspace [serverless compute quota](how-to-use-serverless-compute.md) if no dedicated compute set for the workspace.
+> Any network restrictions in AzureML Workspace might require dedicated user managed image build compute setup. Please follow the steps to [secure workspace resources](how-to-secure-workspace-vnet.md).
 
 ### Submitting a job using an environment
 
@@ -69,12 +69,12 @@ When you first submit a remote job using an environment or create environment in
 
 ### Building environments as Docker images
 
-If the image for a particular environment definition doesn't already exist in the container registry instance associated with AzureML Workspace, a new image is built. For system managed environmetns, the image build consists of two steps:
+If the image for a particular environment definition doesn't already exist in the container registry instance associated with AzureML Workspace, a new image is built. For system managed environments, the image build consists of two steps:
 
  1. Downloading a base image, and executing any Docker steps
  2. Building a conda environment according to conda dependencies specified in the environment definition.
 
-For user managed environments provided docker context will be build as is. In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps. You're also responsible for specifying the correct location for the Python executable. It is also possible to use a [custom Docker base image](./how-to-deploy-custom-container.md).
+For user managed environments provided docker context will be build as is. In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps. You're also responsible for specifying the correct location for the Python executable. It is also possible to use a [custom Docker base image](./how-to-deploy-custom-container.md#enable-azure-container-registry-acr).
 
 ### Image caching and reuse
 
@@ -82,13 +82,13 @@ If you use the same environment definition for another job, Azure Machine Learni
 
 To view the details of a cached image, check the Environments page in Azure Machine Learning studio or use [`MLClient.environments`](/python/api/azure-ai-ml/azure.ai.ml.mlclient#azure-ai-ml-mlclient-environments) to get and inspect the environment.
 
-To determine whether to reuse a cached image or build a new one, Azure Machine Learning computes a [hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on the environment definition's:
+To determine whether to reuse a cached image or build a new one, Azure Machine Learning computes a [hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash serves as a unique identifier for an environment and is based on the environment definition's:
  
  * Base image
  * Custom docker steps
  * Python packages
 
-The hash isn't affected by the environment name or version. If you rename your environment or create a new one with the same settings and packages as another environment, then the hash value remains the same. However, environment definition changes like adding or removing a Python package or changing a package version changes the resulting hash value. Changing the order of dependencies or channels in an environment will also change the hash and require a new image build. Similarly, any change to a curated environment results in the creation of a new "non-curated" environment. 
+The hash isn't affected by the environment name or version. If you rename your environment or create a new one with the same settings and packages as another environment, then the hash value remains the same. However, environment definition changes like adding or removing a Python package or changing a package version changes the resulting hash value. Changing the order of dependencies or channels in an environment will also change the hash and require a new image build. Similarly, any change to a curated environment results in the creation of a custom environment. 
 
 > [!NOTE]
 > You will not be able to submit any local changes to a curated environment without changing the name of the environment. The prefixes "AzureML-" and "Microsoft" are reserved exclusively for curated environments, and your job submission will fail if the name starts with either of them.
