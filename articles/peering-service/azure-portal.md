@@ -50,7 +50,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Configure the Peering Service connection
 
-1. On the **Configuration** page, select the **Provider** that you're using to enable the Peering Service. For more information, see [Peering Service partners](location-partners.md)
+1. On the **Configuration** page, select the **Provider** that you're using to enable the Peering Service. For more information, see [Peering Service partners](location-partners.md).
 
 1. Select the **provider primary peering location** closest to your network location. This peering location is between Microsoft and the Partner.
 
