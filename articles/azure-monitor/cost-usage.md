@@ -27,6 +27,7 @@ Several other features don't have a direct cost, but you instead pay for the ing
 | Alerts | Alerts are charged based on the type and number of [signals](alerts/alerts-overview.md) used by the alert rule, its frequency, and the type of [notification](alerts/action-groups.md) used in response. For [log search alerts](alerts/alerts-types.md#log-alerts) configured for [at scale monitoring](alerts/alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1), the cost will also depend on the number of time series created by the dimensions resulting from your query. |
 | Web tests | There is a cost for [standard web tests](app/availability-standard-tests.md) and [multi-step web tests](app/availability-multistep.md) in Application Insights. Multi-step web tests have been deprecated.
 
+A list of Azure Monitor billing meter names is available [here](cost-meters.md). 
 
 ### Data transfer charges 
 Sending data to Azure Monitor can incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. Data transfer charges for Azure Monitor though are typically very small compared to the costs for data ingestion and retention. You should focus more on your ingested data volume to control your costs.
@@ -52,7 +53,7 @@ To get started analyzing your Azure Monitor charges, open [Cost Management + Bil
 
 :::image type="content" source="media/usage-estimated-costs/010.png" lightbox="media/usage-estimated-costs/010.png" alt-text="Screenshot that shows Azure Cost Management with cost information.":::
 
-To limit the view to Azure Monitor charges, [create a filter](../cost-management-billing/costs/group-filter.md) for the following **Service names**. See [Azure Monitor billing meter names](cost-meters.md) for the different charges that are included in each service.
+To limit the view to Azure Monitor charges, [create a filter](../cost-management-billing/costs/group-filter.md) for the following **Service names**. See [Azure Monitor billing meter names](cost-meters.md) for the different billing meters that are included in each service.
 
 - Azure Monitor
 - Log Analytics

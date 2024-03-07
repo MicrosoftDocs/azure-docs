@@ -79,6 +79,8 @@ To add a table to the `bakery_ops` database to store the anomaly data, navigate 
 
 ### Add a secret to your cluster
 
+To access the Azure Data Explorer database from a Data Processor pipeline, you need to enable your cluster to access the service principal details you created earlier. You need to configure your Azure Key Vault with the service principal details so that the cluster can retrieve them.
+
 [!INCLUDE [add-cluster-secret](../includes/add-cluster-secret.md)]
 
 ## Assets and measurements

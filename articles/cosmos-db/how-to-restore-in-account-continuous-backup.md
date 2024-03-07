@@ -277,20 +277,20 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
 
     ```azurecli
     az cosmosdb gremlin database restore \
-         --resource-group <resource-group-name> \ 
-         --account-name <account-name> \  
-         --name <database-name> \ 
+        --resource-group <resource-group-name> \ 
+        --account-name <account-name> \  
+        --name <database-name> \ 
         --restore-timestamp <timestamp>
     ```
 
 1. Initiate a restore operation for a deleted graph by using [az cosmosdb gremlin graph restore](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-restore):
 
     ```azurecli
-    az cosmosdb gremlin database restore \
-         --resource-group <resource-group-name> \ 
-         --account-name <account-name> \  
-         --database-name <database-name> \ 
-         --name <graph-name> \ 
+    az cosmosdb gremlin graph restore \
+        --resource-group <resource-group-name> \ 
+        --account-name <account-name> \  
+        --database-name <database-name> \ 
+        --name <graph-name> \ 
         --restore-timestamp <timestamp>
     ```
 

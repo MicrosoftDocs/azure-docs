@@ -58,6 +58,8 @@ Make a note of your workspace ID and lakehouse ID, you need them later. You can 
 
 ### Add a secret to your cluster
 
+To access the lakehouse from a Data Processor pipeline, you need to enable your cluster to access the service principal details you created earlier. You need to configure your Azure Key Vault with the service principal details so that the cluster can retrieve them.
+
 [!INCLUDE [add-cluster-secret](../includes/add-cluster-secret.md)]
 
 ## Understand the scenario and data

@@ -44,7 +44,7 @@ You must manually provide the Application Insights connection string to the Orde
 1. Use the following commands to retrieve the Application Insights connection string and set it in Key Vault:
 
    ```azurecli
-   export INSTRUMENTATION_KEY=$(az monitor app-insights component show \
+   export CONNECTION_STRING=$(az monitor app-insights component show \
        --resource-group <resource-group-name> \
        --app <app-insights-name> \
        --query "connectionString" \
@@ -53,7 +53,7 @@ You must manually provide the Application Insights connection string to the Orde
    az keyvault secret set \
        --vault-name <key-vault-name> \
        --name "ApplicationInsights--ConnectionString" \
-       --value ${INSTRUMENTATION_KEY}
+       --value ${CONNECTION_STRING}
    ```
 
    > [!NOTE]
@@ -68,7 +68,7 @@ You must manually provide the Application Insights connection string to the Orde
        --builder-name default \
        --name default \
        --type ApplicationInsights \
-       --properties sampling-rate=100 connection_string=${INSTRUMENTATION_KEY}
+       --properties sampling-rate=100 connection_string=${CONNECTION_STRING}
    ```
 
 1. Use the following commands to restart applications to reload configuration:

@@ -102,7 +102,7 @@ The following list contains some examples of permission strings for various scen
 
 ## Configure a custom data access policy for your application
 
-1. In the Azure portal, select the Azure Cache for Redis instance that where you want to configure Microsoft Entra token-based authentication.
+1. In the Azure portal, select the Azure Cache for Redis instance where you want to configure Microsoft Entra token-based authentication.
 
 1. From the Resource menu, select **(PREVIEW) Data Access configuration**.
 
