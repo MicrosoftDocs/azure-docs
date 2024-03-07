@@ -496,7 +496,7 @@ All configuration items must be set up before you create the application gateway
 
 ## Create an application gateway
 
-1. Create an application gateway with all the configuration objects from the preceding steps.
+1. Create an application gateway with all the configuration objects from the preceding steps. It can take 15 minutes to create an instance.
 
     ```powershell    
     $appgw = New-AzApplicationGateway `
