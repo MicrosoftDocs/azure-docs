@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Deploy the first SAP HANA host using application volume group for SAP HANA
 
-All deployments start with the volumes for a single SAP HANA host. This is the case even for large, multiple-host installations. The shared, log-backup, and data-backup volumes will be created only for the first host. All other hosts in a multiple-host environment will share these volumes, and they will add only data and log volumes for each additional host.
+All deployments start with the volumes for a single SAP HANA host. This is the case even for large, multiple-host installations. The shared, log-backup, and data-backup volumes are created only for the first host. All other hosts in a multiple-host environment share these volumes, and they add only data and log volumes for each additional host.
 
 This article describes how to deploy the first SAP HANA host using Azure NetApp Files application volume group for SAP HANA.
 
@@ -21,13 +21,13 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
 
 You should understand the [requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). 
 
-Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** and have at least one HANA VM in the availability set started. 
+Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** and have at least one HANA virtual machine (VM) in the availability set started. 
 
 ### Register for extension 1 
 
 Azure NetApp Files application volume group for SAP HANA Extension 1 is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background.
 
-1.  Register the feature
+1. Register the feature
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFHANAVolumeGroupExtension1 
@@ -58,14 +58,14 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **SAP ID (SID**):    
         The three alphanumeric-character SAP HANA system identifier.
     * **Group name**: 
-        The volume group name. For a multiple-host SAP HANA system, each host will create its own group. Because you are creating the first host, the group name starts with `'Name-proposal'-00001`.
+        The volume group name. For a multiple-host SAP HANA system, each host creates its own group. Because you're creating the first host, the group name starts with `'Name-proposal'-00001`.
     * **SAP node memory**:  
-        This value defines the size of the SAP HANA database on the host. It is used to calculate the required volume size and throughput. 
+        This value defines the size of the SAP HANA database on the host. It's used to calculate the required volume size and throughput. 
     * **Capacity overhead (%)**:  
-        When you use snapshots for data protection, you need to plan for extra capacity. This field will add an additional size (%) for the data volume.  
+        When you use snapshots for data protection, you need to plan for extra capacity. This field adds an additional size (%) for the data volume. 
         You can estimate this value by using `"change rate per day" X "number of days retention"`.
     * **Single-host**:  
-        Select this option for an SAP HANA single-host system or the first host for a multiple-host system. Only the shared, log-backup, and data-backup volumes will be created with the first host.
+        Select this option for an SAP HANA single-host system or the first host for a multiple-host system. Only the shared, log-backup, and data-backup volumes are created with the first host.
     * **Multiple-host**:
         Select this option for adding additional hosts to a multiple-hosts HANA system.
 
@@ -80,12 +80,12 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **Proximity placement group (PPG)**:  
         Specifies that the data, log, and shared volumes are to be created close to the VMs.
     * **Capacity pool**:  
-        All volumes will be placed in a single manual QoS capacity pool.  
+        All volumes are placed in a single manual QoS capacity pool. 
         If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
     * **Virtual network**:  
         Specify an existing VNet where the VMs are placed. 
     * **Subnet**:  
-        Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
+        Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
 
     Select **Next: Tags**. 
 
@@ -106,7 +106,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
         
     * **Capacity pool**:  
-        All volumes will be placed in a single manual QoS capacity pool.  
+        All volumes are placed in a single manual QoS capacity pool. 
         If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
     * **Virtual network**:  
         Specify an existing VNet where the VMs are placed. 
@@ -115,13 +115,13 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     Select **Next: Tags**. 
 
-5. In the **Tags** section of the Volume Group tab, you can add tags as needed for the volumes.   
+5. In the **Tags** section of the Volume Group tab, you can add tags as needed for the volumes.  
 
     Select **Next: Protocol**. 
 
     [ ![Screenshot that shows how to add tags.](./media/application-volume-group-deploy-first-host/application-add-tags.png) ](./media/application-volume-group-deploy-first-host/application-add-tags.png#lightbox)
 
-6. In the **Protocols** section of the Volume Group tab, you can modify the **Export Policy**, which should be common to all volumes.  
+6. In the **Protocols** section of the Volume Group tab, you can modify the **Export Policy**, which should be common to all volumes. 
 
     Select **Next: Volumes**. 
 
@@ -129,20 +129,20 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 7. The **Volumes** tab summarizes the volumes that are being created with proposed volume name, quota, and throughput. 
 
-    The Volumes tab also shows that only the data, log, and shared volumes will be created close to the HANA VMs.  The other volumes (data-backup and log-backup) are created at a different location within the region.
+    The Volumes tab also shows that only the data, log, and shared volumes are created close to the HANA VMs. The other volumes (data-backup and log-backup) are created at a different location within the region.
 
     The creation for the data-backup and log-backup volumes is optional.
 
     [ ![Screenshot that shows a list of volumes being created.](./media/application-volume-group-deploy-first-host/application-volume-list.png) ](./media/application-volume-group-deploy-first-host/application-volume-list.png#lightbox)
 
-8. In the **Volumes** tab, you can select each volume to view or change the volume details. For example, select "data-*volume-name*".  
+8. In the **Volumes** tab, you can select each volume to view or change the volume details. For example, select "data-*volume-name*". 
 
     Not all settings can be changed because of SAP HANA certification restrictions.
  
     When you select a volume, you can change the following values in the **Basics** tab:  
 
     * **Volume Name**:   
-        It is recommended that you retain the suggested naming conventions.
+        It's recommended that you retain the suggested naming conventions.
     * **Quota**:   
         The size of the volume.
     * **Throughput**:  
@@ -160,7 +160,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     [ ![Screenshot that shows the Protocol tab of Create a Volume Group page.](./media/application-volume-group-deploy-first-host/application-create-volume-protocol-tab.png) ](./media/application-volume-group-deploy-first-host/application-create-volume-protocol-tab.png#lightbox)
 
-10.	The **Volumes** page displays volume details.  
+10.	The **Volumes** page displays volume details. 
 
     [ ![Screenshot that shows Volumes page with volume details.](./media/application-volume-group-deploy-first-host/application-volume-details.png) ](./media/application-volume-group-deploy-first-host/application-volume-details.png#lightbox)
 
@@ -173,17 +173,17 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     Select **Volumes** to return to the Volume overview page. Select **Next: Review + create**.
 
-11.	The **Review + Create** tab lists all the volumes and how they will be created. Select **Create Volume Group** to start the volume group creation.
+11.	The **Review + Create** tab lists all the volumes and their creation method. Select **Create Volume Group** to start the volume group creation.
 
     [ ![Screenshot that shows the Review and Create tab.](./media/application-volume-group-deploy-first-host/application-review-create.png) ](./media/application-volume-group-deploy-first-host/application-review-create.png#lightbox)
 
-12. The **Volume Groups** deployment workflow starts, and the progress is displayed. This process can take a few minutes to complete.
+12. The **Volume Groups** deployment workflow starts. You can monitor the progress. This process can take a few minutes to complete.
 
     [ ![Screenshot that shows the Deployment in Progress window.](./media/application-volume-group-deploy-first-host/application-deployment-in-progress.png) ](./media/application-volume-group-deploy-first-host/application-deployment-in-progress.png#lightbox)
 
     You can display the list of volume groups to see the new volume group. You can select the new volume group to see the details and status of each of the volumes being created.
 
-    Creating a volume group is an "all-or-none" operation. If one volume cannot be created, all remaining volumes will be removed as well.
+    Creating a volume group is an "all-or-none" operation. If one volume cannot be created, all remaining volumes are removed.
 
     [ ![Screenshot that shows the new volume group.](./media/application-volume-group-deploy-first-host/application-new-volume-group.png) ](./media/application-volume-group-deploy-first-host/application-new-volume-group.png#lightbox)
 
