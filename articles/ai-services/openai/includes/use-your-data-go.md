@@ -76,7 +76,7 @@ ms.date: 03/07/2024
    
    	resp, err := client.GetChatCompletions(context.TODO(), azopenai.ChatCompletionsOptions{
    		Messages: []azopenai.ChatRequestMessageClassification{
-   			&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("What are the differences between Azure Machine Learning and Azure AI services?")},
+   			&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("What are my available health plans?")},
    		},
    		MaxTokens: to.Ptr[int32](512),
    		AzureExtensionsOptions: []azopenai.AzureChatExtensionConfigurationClassification{
