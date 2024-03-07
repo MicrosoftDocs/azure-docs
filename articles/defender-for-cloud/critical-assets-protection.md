@@ -7,8 +7,6 @@ ms.date: 03/03/2024
 
 # Critical assets protection in Microsoft Defender for Cloud (Preview)
 
-## Overview
-
 Defender for Cloud now has business criticality concept added to its security posture management capabilities. This feature helps you to identify and protect your most important assets. It uses the critical assets engine created by Microsoft Security Exposure Management (MSEM). You can define critical asset rules in MSEM, and Defender for Cloud can then them in scenarios such as risk prioritization, attack path analysis, and cloud security explorer.
 
 ## Availability
