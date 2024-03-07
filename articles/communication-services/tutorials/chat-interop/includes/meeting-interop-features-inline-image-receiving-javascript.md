@@ -9,7 +9,7 @@ ms.service: azure-communication-services
 
 In this tutorial, you learn how to enable inline image support using the Azure Communication Services Chat SDK for JavaScript.
 
-Inline images are images that are copied and pasted directly into the send box of the Teams client. For images that were uploaded via the "Upload from this device" menu or via drag-and-drop, such as images dragged directly to the send box in Teams, you need to refer to [this tutorial](./meeting-interop-features-file-attachment.md) to enable it as the part of the file sharing feature. (See the section "Handling Image Attachment.") To copy an image, the Teams user can either use their operating system's context menu to copy the image file and then paste it into the send box of their Teams client or use keyboard shortcuts.
+Inline images are images that are copied and pasted directly into the send box of the Teams client. For images that were uploaded via the "Upload from this device" menu or via drag-and-drop, such as images dragged directly to the send box in Teams, you need to refer to [this tutorial](../meeting-interop-features-file-attachment.md) to enable it as the part of the file sharing feature. (See the section "Handling Image Attachment.") To copy an image, the Teams user can either use their operating system's context menu to copy the image file and then paste it into the send box of their Teams client or use keyboard shortcuts.
 
 There are 2 parts in this tutorial, you learn what you need to do:
 1. [when receiving an inline image](#handle-received-inline-images-in-new-message-event)
@@ -463,17 +463,16 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Open your browser and navigate to `http://localhost:8080/`. Noticing we have a new section in the send box to attach images:
 
-:::image type="content" source="./media/meeting-interop-features-inline-4.png" alt-text="A screenshot of Teams client shown a sent message reads: Here are some ideas, let me know what you think! The message also contains two inline images of room interior mockups.":::
+:::image type="content" source="./media/meeting-interop-features-inline-5.png" alt-text="5":::
 
-Then we cab select images we wanted to attach:
+Then we can select images we wanted to attach:
 
-:::image type="content" source="./media/meeting-interop-features-inline-5.png" alt-text="A screenshot of sample app shown an incoming message with inline images being presented.":::
+:::image type="content" source="./media/meeting-interop-features-inline-6.png" alt-text="6.":::
 
-:::image type="content" source="./media/meeting-interop-features-inline-6.png" alt-text="A screenshot of sample app shown an incoming message with inline images being presented.":::
+:::image type="content" source="./media/meeting-interop-features-inline-7.png" alt-text="7.":::
 
 Upon clicking send button, the Teams user should now receive the image we just sent out:
 
-:::image type="content" source="./media/meeting-interop-features-inline-7.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented.":::
+:::image type="content" source="./media/meeting-interop-features-inline-8.png" alt-text="8.":::
 
-:::image type="content" source="./media/meeting-interop-features-inline-8.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented.":::
-
+:::image type="content" source="./media/meeting-interop-features-inline-9.png" alt-text="9.":::
