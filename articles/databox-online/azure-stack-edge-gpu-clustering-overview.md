@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/18/2023
+ms.date: 03/07/2024
 ms.author: alkohli
 ---
 
@@ -77,12 +77,10 @@ The following network topologies are available:
 
     In this option, Port 3 and Port 4 are connected back-to-back without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic and aren't available for workload traffic. <!--For example, these ports can't be enabled for compute--> Optionally you can also provide IP addresses for these ports.
 
-
 1. **Using switches and NIC teaming** - Use this option when you have high speed switches available for use with your device nodes for storage and cluster traffic. 
 
     Each of ports 3 and 4 of the two nodes of your device are connected via an external switch. The Port 3 and Port 4 are teamed on each node and a virtual switch and two virtual NICs are created that allow for port-level redundancy for storage and cluster traffic. These ports can be used for workload traffic as well.
 
- 
 1. **Using switches and without NIC teaming** - Use this option when you need an extra dedicated port for workload traffic and port-level redundancy isn’t required for storage and cluster traffic. 
 
     Port 3 on each node is connected via an external switch. If Port 3 fails, the cluster may go offline. Separate virtual switches are created on Port 3 and Port 4. 
@@ -91,12 +89,29 @@ For more information, see how to [Choose a network topology for your device node
 
 ### [Azure Stack Edge Pro 2](#tab/2) 
 
-On your Azure Stack Edge Pro 2 device node: 
+On your Azure Stack Edge Pro 2 device node, the following network topologies are supported:
 
-- Port 1 is used for initial configuration. Port 1 is then reconfigured and assigned an IP address that may or may not be in the same subnet as the Port 2. Port 1 and Port 2 are used for clustering, storage and management traffic. 
-- Port 3 and Port 4 may be used for are used for Private Multi-Access Edge Computing workload deployment or for storage traffic.
+- **Option 1** - Port 1 and Port 2 in separate subnets, Port 3 and Port 4 use and external virtual switch.
+ 
+- **Option 2** - Port 1 and Port 2 in the same subnet, Port 3 and Port 4 use an external virtual switch.
 
-The following network topologies are available:
+- **Option 3** - Port 1 and Port 2 in separate subnets, Port 3 and Port 4 are connected back-to-back, switchless.
+
+- **Option 4** - Port 1 and Port 2 in the same subnet, Port 3 and Port 4 are connected back-to-back, switchless.
+
+Usage considerations:
+
+- Port 1 is used for initial configuration. Port 1 is then reconfigured and assigned an IP address that may or may not be in the same subnet as the Port 2.
+- Port 1 and Port 2 are used for clustering, storage and management traffic. 
+- If you select the **Using external switches** option, Port 1 and Port 2 are used for storage in both teaming and non-teaming modes.
+- **Switchless** and **Using external switches** options are for Port 3 and Port 4. 
+- When using the **Switchless** option, Port 3 and Port 4 are connected back-to-back directly without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic. Port 3 and Port 4 aren't available for workload traffic.
+- For Private Multi-Access Edge Computing (PMEC) workload deployments:
+  - If you run PMEC workloads, use option 1 or option 2.
+  - Port 3 and Port 4 are used for PMEC workload deployments or for storage traffic.
+  - For PMEC/AP5GC workload deployments, select the **Using external switches** option. In this case, Port 3 and Port 4 are reserved for PMEC/AP5GC workloads.
+  - Port 3 and Port 4 are used for PMEC workload deployments or for storage traffic.
+
 
 - **Switchless** - Use this option when you don't have high speed switches available in the environment for storage and cluster traffic. There are further sub-options:
 
@@ -106,14 +121,13 @@ The following network topologies are available:
 
     In each case, Port 3 and Port 4 are connected back-to-back directly without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic and aren't available for workload traffic. 
 
-
 - **Using external switches** - Use this option when you have high speed switches (10 GbE switches) available for use with your device nodes for storage and cluster traffic. There are further sub-options:
 
     - **With Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
     
     - **With Port 1 and Port 2 in same subnets** - In this case, Port 1 and Port 2 have a teamed virtual switch and both the ports are in the same subnet.
 
-    In each case, Port 3 and Port 4 are reserved for Private Multi-Access Edge Computing workload deployments. 
+    In each case, Port 3 and Port 4 are reserved for PMEC workload deployments. 
 
 The pros and cons for each of the above supported topologies can be summarized as follows:
 
@@ -136,7 +150,6 @@ The pros and cons for each of the above supported topologies can be summarized a
 |                                                                | Higher fault toelerance.                                                 | Can't be deployed in an   environment with different subnets.         |
 |                                                                | Two independent, redundant paths   between the nodes.                    |                                                                       |
 |                                                                | Clients do not need to   reconnect.                                      |                                                                       |
-
 
 ---
 
