@@ -48,6 +48,28 @@ If your log search alert didn't fire when it should have, check the following it
     
     :::image type="content" source="media/alerts-troubleshoot-log/LogAlertSuppress.png" lightbox="media/alerts-troubleshoot-log/LogAlertSuppress.png" alt-text="Suppress alerts":::
 
+1. **Was the alert rule resource moved or deleted?**
+
+    If an alert rule resource moves, gets renamed, or is deleted, all log alert rules referring to that resource will break. To fix this issue, alert rules need to be recreated using a valid target resource for the scope.
+
+1. **Does the alert rule use a system-assigned managed identity?** 
+
+    When you create a log alert rule with system-assigned managed identity, the identity is created without any permissions. After you create the rule, you need to assign the appropriate roles to the rule’s identity so that it can access the data you want to query. For example, you might need to give it a Reader role for the relevant Log Analytics workspaces, or a Reader role and a Database Viewer role for the relevant ADX cluster. See [managed identities](/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information about using managed identities in log alerts.
+
+1. **Is the query used in the log search alert rule valid?**
+
+    When a log alert rule is created, the query is validated for correct syntax. But sometimes the query provided in the log alert rule can start to fail. Some common reasons are:
+
+    - Rules were created via the API, and the user skipped validation.
+    - The query [runs on multiple resources](../logs/cross-workspace-query.md), and one or more of the resources was deleted or moved.
+    - The [query fails](../logs/api/errors.md) because:
+        - The logging solution wasn't [deployed to the workspace](../insights/solutions.md#install-a-monitoring-solution), so tables aren't created.
+        - Data stopped flowing to a table in the query for more than 30 days.
+        - [Custom logs tables](../agents/data-sources-custom-logs.md) haven't been created because the data flow hasn't started.
+    - Changes in the [query language](/azure/kusto/query/) include a revised format for commands and functions, so the query provided earlier is no longer valid.
+    
+    [Azure Advisor](../../advisor/advisor-overview.md) warns you about this behavior. It adds a recommendation about the affected log search alert rule. The category used is 'High Availability' with medium impact and a description of 'Repair your log alert rule to ensure monitoring'.
+
 1. **Was the the log search alert rule disabled?**
 
     If a log search alert rule query fails to evaluate continuously for a week, Azure Monitor disables it automatically. 
@@ -116,29 +138,6 @@ If your log search alert didn't fire when it should have, check the following it
     "relatedEvents": []
 }
 ```
-
-1. **Was the alert rule resource moved or deleted?**
-
-    If an alert rule resource moves, gets renamed, or is deleted, all log alert rules referring to that resource will break. To fix this issue, alert rules need to be recreated using a valid target resource for the scope.
-
-1. **Does the alert rule uses a system-assigned managed identity?** 
-
-    When you create a log alert rule with system-assigned managed identity, the identity is created without any permissions. After you create the rule, you need to assign the appropriate roles to the rule’s identity so that it can access the data you want to query. For example, you might need to give it a Reader role for the relevant Log Analytics workspaces, or a Reader role and a Database Viewer role for the relevant ADX cluster. See [managed identities](/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information about using managed identities in log alerts.
-
-1. **Is the query used in the log search alert rule valid?**
-
-    When a log alert rule is created, the query is validated for correct syntax. But sometimes the query provided in the log alert rule can start to fail. Some common reasons are:
-
-    - Rules were created via the API, and the user skipped validation.
-    - The query [runs on multiple resources](../logs/cross-workspace-query.md), and one or more of the resources was deleted or moved.
-    - The [query fails](../logs/api/errors.md) because:
-        - The logging solution wasn't [deployed to the workspace](../insights/solutions.md#install-a-monitoring-solution), so tables aren't created.
-        - Data stopped flowing to a table in the query for more than 30 days.
-        - [Custom logs tables](../agents/data-sources-custom-logs.md) haven't been created because the data flow hasn't started.
-    - Changes in the [query language](/azure/kusto/query/) include a revised format for commands and functions, so the query provided earlier is no longer valid.
-    
-    [Azure Advisor](../../advisor/advisor-overview.md) warns you about this behavior. It adds a recommendation about the affected log search alert rule. The category used is 'High Availability' with medium impact and a description of 'Repair your log alert rule to ensure monitoring'.
-
 
 ## A log search alert fired when it shouldn't have
 
