@@ -124,7 +124,7 @@ Organizations that typically choose this approach focus on locking time, migrati
 
 - Migrations can take months or even years.
 
-- Deployments to Production are riskier.
+- Deployments to production are riskier.
 
 - The analysis that you perform at the start of the migration journey or during planning is no longer accurate because that information is usually outdated.
 
