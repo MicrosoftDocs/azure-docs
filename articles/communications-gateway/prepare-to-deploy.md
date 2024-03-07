@@ -74,6 +74,9 @@ If you plan to route emergency calls through Azure Communications Gateway, read 
 - [Operator Connect and Teams Phone Mobile](emergency-calls-operator-connect.md)
 - [Zoom Phone Cloud Peering](emergency-calls-zoom.md)
 
+> [!IMPORTANT]
+> Emergency calls must not be routed to Azure Operator Call Protection
+
 ## Connect your network to Azure
 
 Configure connections between your network and Azure:

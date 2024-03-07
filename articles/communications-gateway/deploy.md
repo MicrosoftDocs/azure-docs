@@ -18,8 +18,6 @@ You must have completed [Prepare to deploy Azure Communications Gateway](prepare
 
 [!INCLUDE [communications-gateway-tsp-restriction](includes/communications-gateway-tsp-restriction.md)]
 
-[!INCLUDE [operator-call-protection-ucaas-restriction](../operator-call-protection/includes/operator-call-protection-ucaas-restriction.md)]
-
 [!INCLUDE [communications-gateway-deployment-prerequisites](includes/communications-gateway-deployment-prerequisites.md)]
 
 ## Collect basic information for deploying an Azure Communications Gateway
@@ -175,6 +173,7 @@ When your resource has been provisioned, you can connect Azure Communications Ga
     1. The root CA certificate for Azure Communications Gateway's certificate is the DigiCert Global Root G2 certificate. If your network doesn't have this root certificate, download it from https://www.digicert.com/kb/digicert-root-certificates.htm and install it in your network.
 1. Configure your infrastructure to meet the call routing requirements described in [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
     * Depending on your network, you might need to configure SBCs, softswitches and access control lists (ACLs).
+    * If you are using Azure Operator Call Protection, a component in your network (typically an SBC), must act as a SIPREC Session Recording Client (SRC).
     * Your network needs to send SIP traffic to per-region FQDNs for Azure Communications Gateway. To find these FQDNs:
         1. Sign in to the [Azure portal](https://azure.microsoft.com/).
         1. In the search bar at the top of the page, search for your Communications Gateway resource.

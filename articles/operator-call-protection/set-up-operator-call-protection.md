@@ -19,8 +19,6 @@ Before you can launch your Azure Operator Call Protection service, you and your 
 - Test your service.
 - Prepare for launch.
 
-In this article, you learn about the steps that you and your Azure Communications Gateway onboarding team must take.
-
 > [!IMPORTANT]
 > Some steps can require days or weeks to complete. We recommend that you read through these steps in advance to work out a timeline.
 
@@ -49,6 +47,8 @@ If it's Disabled, update it to Enabled and notify your Microsoft onboarding team
 
 Provision your chosen subscribers with Azure Operator Call Protection using the [Number Management Portal](../communications-gateway/manage-enterprise-operator-connect.md).
 
+> TODO - more context needed for the NMP usage. Andy has asked James Silk for more information.
+
 ## Carry out integration testing and request changes
 
 Network integration includes identifying SIP interoperability requirements and configuring devices to meet these requirements.
@@ -62,6 +62,9 @@ Work with your onboarding team to produce a network architecture plan where an e
 
 - If you decide that you need changes to Azure Communications Gateway, ask your onboarding team. Microsoft must make the changes for you.
 - If you need changes to the configuration of devices in your core network, you must make those changes.
+
+> [!NOTE]
+> Remove Azure Operator Call Protection support from a subscriber by updating your network routing routing, then removing the subscribers using the [Number Management Portal](../communications-gateway/manage-enterprise-operator-connect.md#manage-numbers-for-the-enterprise)
 
 ## Test raising a ticket
 
