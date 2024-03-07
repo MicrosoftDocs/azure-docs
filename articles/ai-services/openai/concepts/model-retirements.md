@@ -16,7 +16,7 @@ recommendations: false
 
 ## Overview
 
-Azure OpenAI Service models are continually refreshed with newer and more capable models.  As we roll out new models, we mark older models for retirement. This document provides information about models that are marked for retirement, models that have been deprecated, and models that have been retired.
+Azure OpenAI Service models are continually refreshed with newer and more capable models.  As part of this process, we deprecate and retire older models.  This document provides information about the models that are currently available, deprecated, and retired.
 
 ### Terminology
 
@@ -27,7 +27,13 @@ Azure OpenAI Service models are continually refreshed with newer and more capabl
 
 ### Pre-retirement Notification
 
-Azure OpenAI notifies subscription {role} of active Azure OpenAI Service deployments with models that are set for retirement at least 60 days before retirement, with a notice 30 days before retirement as well.  We also publish the impending retirement of a model on the What's New page of our documentation.
+Azure OpenAI notifies subscription {role} of active Azure OpenAI Service deployments for models with upcoming retirements.  We notify customers of upcoming retirements as follows:
+
+* At least 60 days before retirement
+* A reminder 30 days before retirement
+* After the model is retired for each deployment
+
+Retirements are normally done on a rolling basis, region by region.  We also publish the impending retirement of a model on the What's New page of our documentation.
 
 ## How to get ready for model retirements and version upgrades
 
@@ -47,9 +53,9 @@ These models are currently available for use in Azure OpenAI Service.
 | `gpt-3.5-turbo` | 0125 | No earlier than Feb 22, 2025 |
 | `gpt-4`<br>`gpt-4-32k` | 0314 | No earlier than July 13, 2024 |
 | `gpt-4`<br>`gpt-4-32k` | 0613 | No earlier than Sep 30, 2024 |
-| `gpt-4` | 1106-preview | To be upgraded starting no earlier than March 8, 2024 |
-| `gpt-4` | vision-preview | To be upgraded starting no earlier than 4 weeks after `gpt-4` Vision stable version is available |
-| `gpt-4` | 0125-preview | To be upgraded starting no earlier than 4 weeks after stable version of `gpt-4` Turbo is released |
+| `gpt-4` | 1106-preview | To be upgraded to a stable version with date to be announced |
+| `gpt-4` | 0125-preview | To be upgraded to a stable version with date to be announced |
+| `gpt-4` | vision-preview | To be upgraded to a stable version with date to be announced |
 | `gpt-3.5-turbo-instruct` | 0914 | No earlier than Sep 14, 2025 |
 | `text-embedding-ada-002` | 2 | No earlier than April 3, 2025 |
 | `text-embedding-ada-002` | 1 | No earlier than April 3, 2025 |
