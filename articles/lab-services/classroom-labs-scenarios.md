@@ -19,7 +19,7 @@ In this article, you learn about the different features and steps for using Azur
 
 Each trainee can use identical and isolated environments for the training. Educators can apply policies to ensure that the training environments are available to each trainee only when they need them. The environments contain enough resources, such as virtual machines, required for the training.
 
-## Map organizational roles to permissions
+## Mapping organizational roles to permissions
 
 Labs meet the following requirements for conducting training in any virtual environment:
 
