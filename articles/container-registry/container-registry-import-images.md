@@ -364,11 +364,11 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 ### Troubleshoot Import Container Images
 #### Symptoms and Causes
 - `The remote server may not be RFC 7233 compliant`
-  - [Distribution-spec](https://github.com/distribution/distribution/blob/5cb406d511b7b9163bff9b6439072e4892e5ae3b/docs/spec/api.md#:~:text=This%20endpoint%20may%20also%20support%20RFC7233%20compliant%20range%20requests.%20Support%20can%20be%20detected%20by%20issuing%20a%20HEAD%20request.%20If%20the%20header%20Accept%2DRange%3A%20bytes%20is%20returned%2C%20range%20requests%20can%20be%20used%20to%20fetch%20partial%20content.) allows range header form of "Range: bytes=<start>-<end>". However, the remote server may still not RFC 7233 compliant.
+  - [Distribution-spec](https://github.com/opencontainers/distribution-spec/blob/main/spec.md) is based on the [specification for the Docker Registry HTTP API V2 protocol]. [Docker Registry HTTP API V2 spec](https://github.com/docker/distribution/blob/5cb406d511b7b9163bff9b6439072e4892e5ae3b/docs/spec/api.md) allows range header form of "Range: bytes=<start>-<end>". However, the remote server may still not RFC 7233 compliant.
 - `Unexpected response status code`
   - Get an unexpected response status code from source repository when doing range query.
 - `Unexpected length of body in response`
-  - The received content length does not match the requested size.
+  - The received content length does not match the size expected. Expected size is decided by blob size and range header.
 
 ---
 
