@@ -154,7 +154,7 @@ An Agile waves migration typically has the following sprints:
 
 Shared elements, such as jobs and interdependencies, exist and have impact across the entire environment. A successful strategy focuses on partially enabling jobs, redesigning applications for modernization, and leaving the systems with most interdependencies until the end to first reduce the amount of migration work and then complete the scope of the modernization effort.
 
-Microsoft recommends modernizing mainframe and midranges workloads by following an iterative, agile waves-based model, focused on investing in the new platform while limiting growth of the legacy systems. This approach reduces the implementation risks considerably by focusing on preserving the existing business value while the modernized environment is introduced. It also allows focusing on leveraging skills in technologies that will allow the business to be more competitive. This is where Azure Logic Apps helps our customers in their modernization journey.
+Microsoft recommends modernizing mainframe and midrange system workloads by following an iterative, Agile waves-based model by focusing on investments in the new platform, while limiting the growth of legacy systems. This approach considerably reduces implementation risks by preserving the existing business value, while introducing the modernized environment.  That way, your team can also leverage technology skills that help your business be more competitive. This scenario is where Azure Logic Apps can help you in your modernization journey.
 
 
 ## Modernization patterns
