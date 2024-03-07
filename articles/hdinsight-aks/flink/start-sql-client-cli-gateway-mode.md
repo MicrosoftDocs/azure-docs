@@ -62,8 +62,7 @@ Get cluster endpoint(host or fqdn) on Azure portal.
  
 #### Install  Windows Subsystem for Linux to make this work on local Windows machine.
  
-1. Step1:
-   Open Windows command and run (replace JAVA_HOME and flink-cli path with your own) to download flink-cli:
+1. Open Windows command and run (replace JAVA_HOME and flink-cli path with your own) to download flink-cli:
     
    ```
    Windows Subsystem for Linux --distribution Ubuntu 
@@ -72,8 +71,7 @@ Get cluster endpoint(host or fqdn) on Azure portal.
    wget https://hdiconfigactions.blob.core.windows.net/hiloflink17blob/flink-cli.tgz
    tar -xvf flink-cli.tgz
    ```    
-1. Step2:
-      Set endpoint, tenant ID, and port 443 in flink-conf.yaml 
+1. Set endpoint, tenant ID, and port 443 in flink-conf.yaml 
       ```
       user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli$ cd conf
       user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli/conf$ ls -l
@@ -87,13 +85,11 @@ Get cluster endpoint(host or fqdn) on Azure portal.
       azure.tenant.id: <tenant ID>
       rest.port: 443
       ```
- 1. Step3:
-      Allowlist Local Windows public IP with port 443 with VPN enabled into HDInsight on AKS cluster Subnet's Network security inbound.
+ 1. Allowlist Local Windows public IP with port 443 with VPN enabled into HDInsight on AKS cluster Subnet's Network security inbound.
     
       :::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/allow-public-ip.png" alt-text="Screenshot showing how to allow public IP address." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/allow-public-ip.png":::
     
-   1. Step4:
-       Run the sql-client.sh in gateway mode on Flink-cli to Flink SQL.
+   1. Run the sql-client.sh in gateway mode on Flink-cli to Flink SQL.
      
          ```
          bin/sql-client.sh gateway --endpoint <fqdn>:443 
@@ -148,17 +144,14 @@ Get cluster endpoint(host or fqdn) on Azure portal.
          Command history file path: /home/user/.flink-sql-history
          ```
           
-   1. Step5:
-         Before querying any table with external source, prepare the related jars.
+   1. Before querying any table with external source, prepare the related jars.
          Following examples query kafka table, mysql table in Flink SQL. Download the jar and put it in Flink cluster attached Azure Data Lake Storage gen2 storage.
           
          Jars in Azure Data Lake Storage gen2 in Azure portal: 
          
          :::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png" alt-text="Screenshot showing jar files in Azure portal." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png":::
           
-   1. Step6:
-          
-         Use the table already created and put it into Hive metastore for management, then run the query.
+   1. Use the table already created and put it into Hive metastore for management, then run the query.
           
          ``` SQL
          CREATE CATALOG myhive WITH (
