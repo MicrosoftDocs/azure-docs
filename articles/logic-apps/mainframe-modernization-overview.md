@@ -77,7 +77,7 @@ This Azure Logic Apps connector for MQ enables connections between Standard work
 
 ## Challenges for mainframe and midrange systems modernization
 
-Mainframes and Midranges host multiple environments that contain programs, data, files and tools. Over the years, these environments, may have not been refactored or left them to grow to reach their limits, despite the hardware upgrades. Those environments might have also been maintained by multiple developers and IT admins, following different programming patterns, techniques or incorporating third parties to aid in tasks that require expertise scarce in the market. All of this, added to a shriking pool of experienced professionals, makes of mainframes and midranges, complex environments to modernize.
+Mainframe and midrange systems can host multiple environments that contain programs, data, files, and tools. Over the years, these environments might not have been refactored or were left to grow and reach their limits, despite hardware upgrades. These environments might also have been maintained by multiple developers and IT admins, who follow different programming patterns and techniques, or recruited other parties to help with tasks that require expertise scarce in the market. Along with a shrinking pool of experienced professionals, all these factors create a complex and challenging job of modernizing mainframe and midrange environments.
 
 While this is not a comprehensive list, defining a successful modernization strategy should at least, include ways to handle the following:
 
