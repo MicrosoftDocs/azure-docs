@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions about Azure Monitor metric alerts
+title: Troubleshoot Azure Monitor metric alerts
 description: Common issues with Azure Monitor metric alerts and possible solutions. 
 ms.author: abbyweisberg
 ms.topic: troubleshooting
@@ -22,38 +22,37 @@ If you believe a metric alert should have fired but it didn't, and it isn't list
     - Check that **Aggregation type** and **Aggregation granularity (Period)** are configured as expected. **Aggregation type** determines how metric values are aggregated. To learn more, see [Azure Monitor Metrics aggregation and display explained](../essentials/metrics-aggregation-explained.md#aggregation-types). **Aggregation granularity (Period)** controls how far back the evaluation aggregates the metric values each time the alert rule runs. 
     - Check that **Threshold value** or **Sensitivity** are configured as expected.
     - For an alert rule that uses Dynamic Thresholds, check if advanced settings are configured. **Number of violations** might filter alerts, and **Ignore data before** can affect how the thresholds are calculated.
-
-       > [!NOTE]
-       > Dynamic thresholds require at least 3 days and 30 metric samples before they become active.
-
+    
+        > [!NOTE]
+        > Dynamic thresholds require at least 3 days and 30 metric samples before they become active.
+    
 1. **Check if the alert fired but didn't send the notification.**
 
-Review the [fired alerts list](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) to see if you can locate the fired alert. If you can see the alert in the list but have an issue with some of its actions or notifications, see [Troubleshooting problems in Azure Monitor alerts](./alerts-troubleshoot.md).
+    Review the [fired alerts list](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) to see if you can locate the fired alert. If you can see the alert in the list but have an issue with some of its actions or notifications, see [Troubleshooting problems in Azure Monitor alerts](./alerts-troubleshoot.md).
 
 1. **Check if the alert is already active.**
 
-Check if there's already a fired alert on the metric time series for which you expected to get an alert. Metric alerts are stateful, which means that once an alert is fired on a specific metric time series, more alerts on that time series won't be fired until the issue is no longer observed. This design choice reduces noise. The alert is resolved automatically when the alert condition isn't met for three consecutive evaluations.
+    Check if there's already a fired alert on the metric time series for which you expected to get an alert. Metric alerts are stateful, which means that once an alert is fired on a specific metric time series, more alerts on that time series won't be fired until the issue is no longer observed. This design choice reduces noise. The alert is resolved automatically when the alert condition isn't met for three consecutive evaluations.
 
 1. **Check the dimensions used.**
 
-If you've selected some [dimension values for a metric](./alerts-metric-overview.md#using-dimensions), the alert rule monitors each individual metric time series (as defined by the combination of dimension values) for a threshold breach. To also monitor the aggregate metric time series, without any dimensions selected, configure another alert rule on the metric without selecting dimensions.
+    If you've selected some [dimension values for a metric](./alerts-metric-overview.md#using-dimensions), the alert rule monitors each individual metric time series (as defined by the combination of dimension values) for a threshold breach. To also monitor the aggregate metric time series, without any dimensions selected, configure another alert rule on the metric without selecting dimensions.
 
 1. **Check the aggregation and time granularity.**
 
-If you're using [metrics charts](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics), ensure that:
-
-   * The selected **Aggregation** in the metric chart is the same as **Aggregation type** in your alert rule.
-   * The selected **Time granularity** is the same as **Aggregation granularity (Period)** in your alert rule, and isn't set to **Automatic**.
+    If you're using [metrics charts](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics), ensure that:
+    - The selected **Aggregation** in the metric chart is the same as **Aggregation type** in your alert rule.
+    - The selected **Time granularity** is the same as **Aggregation granularity (Period)** in your alert rule, and isn't set to **Automatic**.
 
 1. **Check if the alert rule is missing the first evaluation period in a time series.**
 
-You can reduce the likelihood of missing the first evaluation of added time series by making sure that you choose an **Aggregation granularity (Period)** that's larger than the **Frequency of evaluation**  in the following cases:
+    You can reduce the likelihood of missing the first evaluation of added time series by making sure that you choose an **Aggregation granularity (Period)** that's larger than the **Frequency of evaluation**  in the following cases:
 
-- When a new dimension value combination is added to a metric alert rule that monitors multiple dimensions.
-- When a new resource is added to the scope to a metric alert rule that monitors multiple resources.
-- When the metric is emitted after a period longer than 24 hours in which it wasn't emitted for metric alert rule that monitors a metric that isn't emitted continuously (sparse metric). 
+    - When a new dimension value combination is added to a metric alert rule that monitors multiple dimensions.
+    - When a new resource is added to the scope to a metric alert rule that monitors multiple resources.
+    - When the metric is emitted after a period longer than 24 hours in which it wasn't emitted for metric alert rule that monitors a metric that isn't emitted continuously (sparse metric).
 
-## The metric alert is not triggered every time my condition is met
+## The metric alert is not triggered every time the condition is met
 
 Metric alerts are stateful by default, so other alerts aren't fired if there's already a fired alert on a specific time series. To make a specific metric alert rule stateless and get alerted on every evaluation in which the alert condition is met, use one of these options:
 
@@ -198,9 +197,10 @@ This error indicates an issue with the alert rule scope. This can happen when ed
 ## The service limits for metric alert rules is too small
 
 The allowed number of metric alert rules per subscription is subject to [service limits](../service-limits.md).
+
 See [Check the number of metric alert rules in use](alerts-manage-alert-rules.md#check-the-number-of-metric-alert-rules-in-use) to see how many metric alert rules are currently in use.
 
-If you've reached the quota limit, the following steps might help resolve the issue:
+If you've reached the service limit, the following steps might help resolve the issue:
 
    1. Try deleting or disabling metric alert rules that aren't used anymore.
    1. Switch to using metric alert rules that monitor multiple resources. With this capability, a single alert rule can monitor multiple resources by using only one alert rule counted against the quota. For more information about this capability and the supported resource types, see [metric-alerts](./alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions).
