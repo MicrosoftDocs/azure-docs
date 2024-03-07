@@ -41,12 +41,12 @@ Application volume group for SAP HANA is supported for all regions. It provides 
 Application volume group for SAP HANA helps you simplify the deployment process and increase the storage performance for SAP HANA workloads. Some of the new features are as follows:
 
 * Use of proximity placement group (PPG) instead of manual pinning.
-    * You will anchor the SAP HANA VMs using a PPG to guaranty lowest possible latency. This PPG will be used to enforce that the data, log, and shared volumes are created in the close proximity to the SAP HANA VMs. See [Best practices about Proximity Placement Groups](application-volume-group-considerations.md#best-practices-about-proximity-placement-groups) for detail.
+    * You anchor the SAP HANA VMs using a PPG to guaranty lowest possible latency. This PPG enforces that the data, log, and shared volumes are created in the close proximity to the SAP HANA VMs. See [Best practices about Proximity Placement Groups](application-volume-group-considerations.md#best-practices-about-proximity-placement-groups) for detail.
 
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.
     * This deployment method provides better performance and throughput for the SAP HANA database.
 
-### <a name="extension-one-features"></a> Extension one features (preview)
+### <a name="extension-1-features"></a> Extension 1 features (preview)
 
 Application volume group for SAP HANA extension one offers support for:
 
@@ -56,10 +56,8 @@ Application volume group for SAP HANA extension one offers support for:
     
 * [Standard network features](azure-netapp-files-network-topologies.md) 
 
-Application volume group for SAP HANA now supports selecting Standard network features for all volumes in the volume group. 
-
-his will further simplifyies the deployment process, avoiding the a manual process for computeAvSet  pinning requirement and do not require no longer requires the the use of availability sets.
-
+    Application volume group for SAP HANA now supports selecting Standard network features for all volumes in the volume group. The availability of Standard network features simplifies deployment, avoiding the manual process for AvSet pinning and eliminating the need for availability sets.
+    
 
 ## Next steps
 

@@ -23,6 +23,26 @@ You should understand the [requirements and considerations for application volum
 
 Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** and have at least one HANA VM in the availability set started. 
 
+### Register for extension 1 
+
+Azure NetApp Files application volume group for SAP HANA Extension 1 is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background.
+
+1.  Register the feature
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFHANAVolumeGroupExtension1 
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFHANAVolumeGroupExtension1 
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
 ## Steps 
 
 1. From your NetApp account, select **Application volume groups**, then **+Add Group**.
@@ -55,6 +75,8 @@ Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** 
 
 4. In the **Volume group** tab, provide information for creating the volume group:  
 
+### [Without extension 1](#tab/without-extension-one)
+
     * **Proximity placement group (PPG)**:  
         Specifies that the data, log, and shared volumes are to be created close to the VMs.
     * **Capacity pool**:  
@@ -68,6 +90,30 @@ Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** 
     Select **Next: Tags**. 
 
     [ ![Screenshot that shows the Volume Group tag.](./media/application-volume-group-deploy-first-host/application-volume-group-tag.png) ](./media/application-volume-group-deploy-first-host/application-volume-group-tag.png#lightbox)
+
+### [With extension 1](#tab/with-extension-one)
+
+
+    * **Availability option**:
+        Select either **Availability zone** or **Proximity placement group**. 
+        When selecting **Availability zone**, you must select the appropriate availability zone in the next field. 
+        * **Proximity placement group (PPG)**:  
+            Specifies that the data, log, and shared volumes are to be created close to the VMs.
+        * **Availability Zone**: 
+            This option lets you deploy the volumes in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+    * **Network features**: 
+        Standard network features is the default, however you can still use Basic network features. 
+        See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
+        
+    * **Capacity pool**:  
+        All volumes will be placed in a single manual QoS capacity pool.  
+        If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
+    * **Virtual network**:  
+        Specify an existing VNet where the VMs are placed. 
+    * **Subnet**:  
+        Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
+
+    Select **Next: Tags**. 
 
 5. In the **Tags** section of the Volume Group tab, you can add tags as needed for the volumes.   
 
