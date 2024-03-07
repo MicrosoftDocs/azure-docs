@@ -79,7 +79,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 To deploy the template from the Azure portal, select the **Deploy to Azure** button.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Illustration of the Deploy to Azure button." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json":::
+:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to Deploy the ARM template to Azure." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json":::
 
 ## View custom resource provider and resource
 
