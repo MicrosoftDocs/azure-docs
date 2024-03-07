@@ -27,7 +27,7 @@ You can deploy new or scale existing private clouds through the Azure portal or 
 
 The AV64 is a new Azure VMware Solution host SKU, which is available to expand (not to create) the Azure VMware Solution private cloud built with the existing AV36, AV36P, or AV52 SKU. Use the [Microsoft documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware) to check for availability of the AV64 SKU in the region. 
 
-:::image type="content" source="media/introduction/av64-mixed-sku-topology.png" alt-text="Diagram showing Azure VMware Solution private cloud with AV64 SKU in mixed SKU configuration." border="false":::
+:::image type="content" source="media/introduction/av64-mixed-sku-topology.png" alt-text="Diagram showing Azure VMware Solution private cloud with AV64 SKU in mixed SKU configuration." border="false" lightbox="media/introduction/av64-mixed-sku-topology.png":::
 
 ### Prerequisite for AV64 usage 
 
