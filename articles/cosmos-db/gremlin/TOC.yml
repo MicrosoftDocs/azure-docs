@@ -7,7 +7,7 @@
     - name: Wire protocol support
       href: support.md
     - name: FAQ
-      href: gremlin-api-faq.yml
+      href: faq.yml
 - name: Quickstarts
   items:
     - name: Console

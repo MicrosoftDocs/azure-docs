@@ -148,8 +148,12 @@
   items:
   - name: Split traffic
     href: traffic-splitting.md
-  - name: Azure Front Door
-    href: front-door-manual.md
+  - name: Enterprise-grade edge
+    href: enterprise-edge.md
+  - name: Tutorials
+    items:
+    - name: Add a CDN
+      href: front-door-manual.md
 - name: Hosting & development
   items:
   - name: Use external providers
@@ -161,8 +165,6 @@
   - name: Deploy with external source control providers
     href: external-providers.md
     displayName: Jenkins, Jekyll
-  - name: Enterprise-grade edge
-    href: enterprise-edge.md
   - name: Tutorials
     items:
     - name: Bitbucket

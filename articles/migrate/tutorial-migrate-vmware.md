@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 01/22/2024
+ms.date: 02/22/2024
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -136,7 +136,7 @@ Enable replication as follows:
 ## Track and monitor
 
 1. Track job status in the portal notifications.
-2. Monitor replication status by clicking on **Replicating servers** in **Migration and modernization**.
+2. Monitor replication status by clicking on the numerical value next to **Azure VM** in **Migration and modernization**.
 
      ![Monitor replication](./media/tutorial-migrate-vmware/replicating-servers.png)
 
@@ -157,7 +157,7 @@ When delta replication begins, you can run a test migration for the VMs, before 
 Do a test migration as follows:
 
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select **Test migrated servers**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select the numerical value next to **Azure VM**.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/test-migrated-servers.png" alt-text="Screenshot of Test migrated servers.":::
 
@@ -185,7 +185,7 @@ Do a test migration as follows:
 
 After you've verified that the test migration works as expected, you can migrate the on-premises machines.
 
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Replicating servers**.
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select numerical value next to **Azure VM**.
 
     ![Replicating servers](./media/tutorial-migrate-vmware/replicate-servers.png)
 

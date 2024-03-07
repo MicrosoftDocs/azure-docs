@@ -5,7 +5,7 @@ author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
-ms.date: 04/19/2022
+ms.date: 02/27/2024
 ms.author: midesa
 ---
 
@@ -13,13 +13,18 @@ ms.author: midesa
 
 Apache Spark in Azure Synapse Analytics enables machine learning with big data, providing the ability to obtain valuable insight from large amounts of structured, unstructured, and fast-moving data. There are several options when training machine learning models using Azure Spark in Azure Synapse Analytics: Apache Spark MLlib, Azure Machine Learning, and various other open-source libraries.
 
+> [!WARNING]
+> - The GPU accelerated preview is limited to the [Azure Synapse 3.1 (unsupported)](../spark/apache-spark-3-runtime.md) and [Apache Spark 3.2 (EOLA)](../spark/apache-spark-32-runtime.md) runtimes.
+> - Azure Synapse Runtime for Apache Spark 3.1 has reached its end of life (EOL) as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
+> - Azure Synapse Runtime for Apache Spark 3.2 has reached its end of life (EOL) as of July 8, 2023, with no further bug or feature fixes, but security fixes may be backported based on risk assessment, and it will be retired and disabled as of July 8, 2024.
+
 ## GPU-enabled Apache Spark pools
 
 To simplify the process for creating and managing pools, Azure Synapse takes care of pre-installing low-level libraries and setting up all the complex networking requirements between compute nodes. This integration allows users to get started with GPU- accelerated pools within just a few minutes. To learn more about how to create a GPU-accelerated pool, you can visit the quickstart on how to [create a GPU-accelerated pool](../quickstart-create-apache-gpu-pool-portal.md).
 
 > [!NOTE]
 >  - GPU-accelerated pools can be created in workspaces located in East US, Australia East, and North Europe.
->  - GPU-accelerated pools are only available with the Apache Spark 3.1 and 3.2 runtime.
+>  - GPU-accelerated pools are only available with the Apache Spark 3.1 (unsupported) and 3.2 runtime.
 >  - You might need to request a [limit increase](../spark/apache-spark-rapids-gpu.md#quotas-and-resource-constraints-in-azure-synapse-gpu-enabled-pools) in order to create GPU-enabled clusters.
 
 ## GPU ML Environment

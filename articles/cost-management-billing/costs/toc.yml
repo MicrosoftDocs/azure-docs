@@ -175,6 +175,10 @@
       href: billing-tags.md
     - name: Split shared costs
       href: allocate-costs.md
+  - name: Concepts
+    items:
+    - name: Introduction to cost allocation
+      href: cost-allocation-introduction.md
   - name: Reference
     items:
     - name: Cost allocation rules API

@@ -3,7 +3,7 @@ metadata:
   title: Azure Resource Manager frequently asked questions
   description: Answers to common questions about using Azure Resource Manager to manage resources.
   ms.topic: faq
-  ms.date: 02/16/2024
+  ms.date: 02/22/2024
   content_well_notification: 
     - AI-contribution
   ai-usage: ai-assisted
@@ -46,7 +46,7 @@ sections:
       - question: What happens if two operations update the same resource at the same time?
         answer: |
           Azure Resource Manager detects the conflict and permits only one operation to complete successfully. The other operation fails and returns a 409 conflict error.
-          If the blocked operation has the correct state, you can retry the operation.``
+          If the blocked operation has the correct state, you can retry the operation.
 
 additionalContent: |
     ## Related content

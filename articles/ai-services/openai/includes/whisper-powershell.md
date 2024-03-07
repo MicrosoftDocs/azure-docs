@@ -16,7 +16,7 @@ Run the following command. You need to replace `YourDeploymentName` with the dep
 ```powershell-interactive
 # Azure OpenAI metadata variables
 $openai = @{
-    api_key     = $Env:AZURE_OPENAI_KEY
+    api_key     = $Env:AZURE_OPENAI_API_KEY
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     api_version = '2023-09-01-preview' # this may change in the future
     name        = 'YourDeploymentName' #This will correspond to the custom name you chose for your deployment when you deployed a model.

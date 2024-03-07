@@ -20,9 +20,9 @@ To trigger a response from the model, you should end with a user message indicat
 > There are several parameters you can use to change the model's response, such as `temperature` or `top_p`. See the [reference documentation](../reference.md#completions-extensions) for more information.
 
 ```bash
-curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/chat/completions?api-version=2023-06-01-preview \
+curl -i -X POST $AZURE_OPENAI_ENDPOINT/openai/deployments/$AZURE_OPEN_AI_DEPLOYMENT_ID/extensions/chat/completions?api-version=2023-06-01-preview \
 -H "Content-Type: application/json" \
--H "api-key: $AOAIKey" \
+-H "api-key: $AZURE_OPENAI_API_KEY" \
 -d \
 '
 {
@@ -30,9 +30,9 @@ curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/ch
         {
             "type": "AzureCognitiveSearch",
             "parameters": {
-                "endpoint": "'$SearchEndpoint'",
-                "key": "'$SearchKey'",
-                "indexName": "'$SearchIndex'"
+                "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
+                "key": "'$AZURE_AI_SEARCH_API_KEY'",
+                "indexName": "'$AZURE_AI_SEARCH_INDEX'"
             }
         }
     ],

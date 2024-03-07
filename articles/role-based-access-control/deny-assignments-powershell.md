@@ -1,7 +1,6 @@
 ---
 title: List Azure deny assignments using Azure PowerShell - Azure RBAC
 description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using Azure PowerShell and Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 

@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: linux-related-content
 ms.topic: troubleshooting
-ms.date: 08/01/2023
+ms.date: 01/31/2024
 ms.author: greglin
 ---
 
@@ -18,7 +18,7 @@ and AGIC installation. Launch your shell from [shell.azure.com](https://shell.az
 [![Embed launch](./media/launch-cloud-shell/launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Test with a simple Kubernetes app
 
