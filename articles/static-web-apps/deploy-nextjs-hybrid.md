@@ -292,6 +292,32 @@ Next.js uses environment variables at build time and at request time, to support
 ...
 ```
 
+## Enable standalone feature
+
+When your application size exceeds 250Mb, the Next.js [Output File Tracing](https://nextjs.org/docs/advanced-features/output-file-tracing) feature helps optimize the app size and enhance performance.
+
+Output File Tracing creates a compressed version of the whole application with necessary package dependencies built into a folder named *.next/standalone*. This folder is meant to deploy on its own without additional *node_modules* dependencies.
+
+In order to enable the `standalone` feature, add the following additional property to your `next.config.js`:
+```js
+module.exports ={
+    output:"standalone",
+}
+```
+
+You will also need to configure the `build` command in the `package.json` file in order to copy static files to your standalone output. 
+```json
+{
+  ...
+  "scripts": {
+    ...
+    "build": "next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/"
+    ...
+  }
+  ...
+}
+```
+
 ## Enable logging for Next.js
 
 Following best practices for Next.js server API troubleshooting, add logging to the API to catch these errors. Logging on Azure uses **Application Insights**. In order to preload this SDK, you need to create a custom start up script. To learn more:
