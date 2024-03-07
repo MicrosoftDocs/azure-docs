@@ -21,7 +21,7 @@ items:
 
 - name: SDKs and tools
   items:
-  - name: CLI
+  - name: Azure CLI
     href: /cli/azure/service-page/astronomer
   - name: Go
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/astro/armastro@v0.1.0#section-readme
