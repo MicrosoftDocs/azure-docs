@@ -123,7 +123,7 @@ Later in this guide, when you add a **IBM i Program Call** connector action to y
    | **Port Number** | Yes | <*port-number*> | The port number to use for connection authentication |
    | **Server Name** | Yes | <*server-name*> | The server name |
    | **Timeout** | No | <*time-out*> | The timeout period in seconds while waiting for responses from the server |
-   | **User Name** | No | <*user-Name*> | The optional username for connection authentication |
+   | **User Name** | No | <*user-name*> | The optional username for connection authentication |
    | **Use TLS** | No | True or false | Secure the connection with Transport Security Layer (TLS). |
    | **Validate Server certificate** | No | True or false | Validate the server's certificate. |
 
