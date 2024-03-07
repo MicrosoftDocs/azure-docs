@@ -28,7 +28,7 @@ If you believe a metric alert should have fired but it didn't, it isn't listed i
 
 1. **Check if the alert fired but didn't send the notification**
 
-Review the [fired alerts list](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) to see if you can locate the fired alert. If you can see the alert in the list but have an issue with some of its actions or notifications, see [Troubleshooting problems in Azure Monitor alerts](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
+Review the [fired alerts list](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) to see if you can locate the fired alert. If you can see the alert in the list but have an issue with some of its actions or notifications, see [Troubleshooting problems in Azure Monitor alerts](./alerts-troubleshoot.md).
 
 1. **Check if the alert is already active**
 

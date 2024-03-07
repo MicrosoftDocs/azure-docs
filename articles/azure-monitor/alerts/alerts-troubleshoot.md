@@ -204,7 +204,7 @@ Also, check the payload format (JSON) for [activity log alerts](../alerts/activi
 
    As of log search alerts API version 2021-08-01, search results were removed from alert notification payload. 
    Search results are only available for alert rules created with older API versions (2018-04-16). Creation of new alert rules through the Azure portal will, by default, create the rule with the newer version.
-   Follow [Changes to the log alert rule creation experience](./alerts-manage-alerts-previous-version.md#changes-to-the-log-alert-rule-creation-experience) to learn about the changes and recommended adjustments for using the updated version.
+   Follow [Changes to the log alert rule creation experience](./alerts-manage-alerts-previous-version.md#changes-to-the-log-search-alert-rule-creation-experience) to learn about the changes and recommended adjustments for using the updated version.
 
 ### **The `MetricValue` field contains "null" for resolved log search alert notifications.**
 
@@ -216,11 +216,11 @@ Also, check the payload format (JSON) for [activity log alerts](../alerts/activi
  
 ### Information is missing in an activity log alert
 
-    [Activity log alerts](./alerts-types.md#activity-log-alerts) are alerts that are based on events written to the Azure activity log, such as events about creating, updating, or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields aren't included in the corresponding alert. 
+[Activity log alerts](./alerts-types.md#activity-log-alerts) are alerts that are based on events written to the Azure activity log, such as events about creating, updating, or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields aren't included in the corresponding alert. 
 
 ### The custom properties are missing from email, SMS, or push notifications.
 
-   Custom properties are only passed to the payload for actions, such as webhook, Azure function or logic apps. Custom properties aren't included in for notifications (email/SMS/push).
+Custom properties are only passed to the payload for actions, such as webhook, Azure function or logic apps. Custom properties aren't included in for notifications (email/SMS/push).
 
 ## Alert processing rule isn't working as expected
 

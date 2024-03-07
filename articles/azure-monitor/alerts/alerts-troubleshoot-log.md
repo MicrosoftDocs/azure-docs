@@ -14,7 +14,7 @@ This article describes how to resolve common issues with log search alerts in Az
 You can use log alerts to evaluate resources logs every set frequency by using a [Log Analytics](../logs/log-analytics-tutorial.md) query, and fire an alert that's based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). To learn more about functionality and terminology of log search alerts, see [Log alerts in Azure Monitor](alerts-types.md#log-alerts).
 
 > [!NOTE]
-> This article doesn't consider cases where the Azure portal shows that an alert rule was triggered but a notification isn't received. For such cases, see [Action or notification on my alert did not work as expected](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
+> This article doesn't discuss cases where the alert rule was triggered, you can see it in the Azure portal, but the notification was not sent. See [troubleshooting alerts](alerts-troubleshoot.md) for cases like these.
 
 ## A log search alert didn't fire when it should have
 
@@ -59,7 +59,7 @@ Logs are semi-structured data and are inherently more latent than metrics. If yo
 
 Log search alerts work best when you are try to detect specific data in the logs. They are less effective when you are trying to detect lack of data in the logs, like alerting on virtual machine heartbeat. 
 
-1. **Was the the Log search alert rule disabled?**
+1. **Was the the log search alert rule disabled?**
 
 If a log search alert rule query fails to evaluate continuously for a week, Azure Monitor disables it automatically. 
 The following sections list some reasons why Azure Monitor might disable a log search alert rule. Additionally, there's an example of the [Activity log](../../azure-monitor/essentials/activity-log.md) event that is submitted when a rule is disabled.
