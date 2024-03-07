@@ -10,7 +10,7 @@ ms.date: 04/07/2022
 Learn about the key capabilities of Azure Advisor and get answers to frequently asked questions.
 
 ## What is Advisor?
-Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, reliability, and security of your Azure resources.
+Advisor is a digital cloud assistant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, reliability, and security of your Azure resources.
 
 With Advisor, you can:
 
@@ -22,7 +22,7 @@ You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordas
 
 The Advisor dashboard displays personalized recommendations for all your subscriptions. The recommendations are divided into five categories: 
 
-* **Reliability (formerly called High Availability)**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor Reliability recommendations](advisor-high-availability-recommendations.md).
+* **Reliability**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor Reliability recommendations](advisor-high-availability-recommendations.md).
 * **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
 * **Performance**: To improve the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-performance-recommendations.md).
 * **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
