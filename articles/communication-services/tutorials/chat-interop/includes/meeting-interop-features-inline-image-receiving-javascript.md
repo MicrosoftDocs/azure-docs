@@ -334,7 +334,7 @@ Upon clicking the preview image by the Azure Communication Services user, an ove
 
  ## Handle sending inline images in new message request
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 
 In addition to handle messages with inline images, Chat SDK for JavaScript also provides a solution to allow the Communication User to send image attachments or inline images to the Microsoft Teams user in an interoperability chat.
  
