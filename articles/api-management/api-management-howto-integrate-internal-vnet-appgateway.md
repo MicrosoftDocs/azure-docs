@@ -37,7 +37,7 @@ For architectural guidance, see:
 
 To follow the steps described in this article, you must have:
 
-* An active Azure subscription.
+* An active Azure subscription
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,6 +46,7 @@ To follow the steps described in this article, you must have:
      - A CER file for the root certificate of the PFX certificates.
      
     For more information, see [Certificates for the back end](../application-gateway/certificates-for-backend-authentication.md). For testing purposes, optionally generate [self-signed certificates](../application-gateway/self-signed-certificates.md).
+  
 * The latest version of Azure PowerShell. If you haven't already, [install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Scenario
@@ -56,7 +57,7 @@ In the first setup example, all your APIs are managed only from within your virt
 
 ![Diagram that shows the URL route.](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-### What's required to integrate API Management and Application Gateway?
+### What is required to integrate API Management and Application Gateway?
 
 * **Back-end server pool**: This server pool is the internal virtual IP address of API Management.
 * **Back-end server pool settings**: Every pool has settings like port, protocol, and cookie-based affinity. These settings are applied to all servers within the pool.
@@ -82,7 +83,7 @@ If you use Microsoft Entra ID or third-party authentication, enable the [cookie-
 
 ## Setting Variables
 
-Throughout this guide, you will need to define several variables. Naming is based on the [Cloud Adoption Framework abbreviation](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations) guidance.
+Throughout this guide, you need to define several variables. Naming is based on the [Cloud Adoption Framework abbreviation](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations) guidance.
 
 ```powershell
 # These variables must be changed.
@@ -517,7 +518,7 @@ All configuration items must be set up before you create the application gateway
       -WebApplicationFirewallConfig $config
     ```
 
-1. After the application gateway deploys, confirm the health status of the API Management back ends in the portal or by running the following command:
+1. Confirm the health status of the API Management back ends.
 
     ```powershell
     Get-AzApplicationGatewayBackendHealth -Name $appgwName -ResourceGroupName $resGroupName
@@ -538,7 +539,7 @@ For quick testing purposes, consider temporarily amending your computer's hosts 
 
 ## DNS considerations
 
-The Application Gateway now has private and public pathways. As the same domains and ports are used, this creates a split-brain DNS situation in which an external DNS resolver should be set to resolve `api.contoso.net` to the application gateway's external IP address whereas an internal DNS resolver should resolve the same domain to the application gateway's internal IP address. This setup provides an advantage in that applications do not need to alter domain or port for internal or external targeting of applications and APIs. The responsibility for targeting is appropriately deferred to the DNS resolvers.
+The Application Gateway now has private and public pathways. Using the same domains and ports creates a split-brain DNS situation in which an external DNS resolver should be set to resolve `api.contoso.net` to the application gateway's external IP address whereas an internal DNS resolver should resolve the same domain to the application gateway's internal IP address. This setup provides an advantage in that applications don't need to alter domain or port for internal or external targeting of applications and APIs. The responsibility for targeting is appropriately deferred to the DNS resolvers.
 
 ## Summary
 
