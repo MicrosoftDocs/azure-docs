@@ -48,7 +48,7 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
    | Resource | Limit |
    |---|---|
    |  Number of routes each BGP peer can advertise to the virtual hub.| The hub can only accept a maximum number of 10,000 routes (total) from its connected resources. For example, if a virtual hub has a total of 6000 routes from the connected virtual networks, branches, virtual hubs etc., then when a new BGP peering is configured with an NVA, the NVA can only advertise up to 4000 routes. |
-| Number of BGP peers | A maximum of 8 BGP Peers can be connected to a single Virtual WAN Hub |
+   | Number of BGP peers | A maximum of 8 BGP peers can be connected to a single Virtual WAN Hub |
 
 * Routes from NVA in a virtual network that are more specific than the virtual network address space, when advertised to the virtual hub through BGP aren't propagated further to on-premises.
 * Currently we only support 4,000 routes from the NVA to the virtual hub.
