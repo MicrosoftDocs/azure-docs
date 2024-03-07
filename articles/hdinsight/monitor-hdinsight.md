@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure HDInsight
 description: Start here to learn how to monitor Azure HDInsight.
-ms.date: 03/05/2024
+ms.date: 03/07/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.service: hdinsight
@@ -56,9 +56,20 @@ For a list of metrics automatically collected for HDInsight, see [HDInsight moni
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-An HDInsight cluster produces many log files. For example, Hadoop and related services such as Spark produce detailed job execution logs. Other logs include HDInsight security logs, Yarn Resource Manager logs, and system metrics. For more information about the logs collected, see [Manage logs for an HDInsight cluster](hdinsight-log-management.md).
+An HDInsight cluster produces many log files, such as:
 
-For available resource log categories, associated Log Analytics and Azure Monitor tables, and logs schemas for HDInsight, see [HDInsight monitoring data reference](monitor-hdinsight-reference.md#resource-logs).
+- Job execution logs
+- YARN log Resource Manager files
+- Script action logs
+- Ambari cluster alerts status
+- Ambari system metrics
+- Security logs
+- Hadoop activity logged to the controller, stderr, and syslog log files
+
+The specific logs available depend on your cluster framework and tools. Once you enable Azure Monitor integration for your cluster, you can view and query on any of these logs.
+
+- For more information about the logs collected, see [Manage logs for an HDInsight cluster](hdinsight-log-management.md).
+- For available Log Analytics and Azure Monitor tables and logs schemas for HDInsight, see [HDInsight monitoring data reference](monitor-hdinsight-reference.md#resource-logs).
 
 ### Selective logging
 
