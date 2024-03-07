@@ -29,6 +29,12 @@ If you are currently using a preview API version to take advantage of the latest
 
 ## February 2024
 
+### Update to GPT-4-1106-Preview upgrade plans
+
+The deployment upgrade of `gpt-4` 1106-Preview to `gpt-4` 0125-Preview scheduled for March 8, 2024 is no longer taking place. Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded after a stable version of the model is released.  
+
+For more information on the upgrade process refer to the [models page](./concepts/models.md).
+
 ### GPT-3.5-turbo-0125 model available
 
 This model has various improvements, including higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.
