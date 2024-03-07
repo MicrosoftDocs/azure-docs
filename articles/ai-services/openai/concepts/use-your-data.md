@@ -422,7 +422,7 @@ When you chat with a model, providing a history of the chat will help the model 
 
 Azure OpenAI On Your Data Retrieval Augmented Generation (RAG) service that leverages both a search service (such as Azure AI Search) and generation (Azure OpenAI models) to let users get answers for their questions based on provided data. 
 
-As part of this RAG pipeline, there are are three steps at a high-level: 
+As part of this RAG pipeline, there are three steps at a high-level: 
 
 1. Reformulate the user query into a list of search intents. This is done by making a call to the model with a prompt that includes instructions, the user question, and conversation history. Let's call this an *intent prompt*. 
 
