@@ -536,6 +536,10 @@ For quick testing purposes, consider temporarily amending your computer's hosts 
 1. Modify the hosts files. For example, if the application gateway's public IP is `172.203.129.101`, the entry may be `172.203.129.101 api.contoso.net`.
 1. Execute a curl command against API Management's status endpoint (the same path that was used for the health probe earlier): `curl -v https://api.contoso.net/status-0123456789abcdef` This should return a `200 Service Operational` status, which indicates successful communication to API Management through Application Gateway.
 
+## DNS considerations
+
+The Application Gateway now has private and public pathways. As the same domains and ports are used, this creates a split-brain DNS situation in which an external DNS resolver should be set to resolve `api.contoso.net` to the application gateway's external IP address whereas an internal DNS resolver should resolve the same domain to the application gateway's internal IP address. This setup provides an advantage in that applications do not need to alter domain or port for internal or external targeting of applications and APIs. The responsibility for targeting is appropriately deferred to the DNS resolvers.
+
 ## Summary
 
 API Management configured in a virtual network provides a single gateway interface for all configured APIs, whether they're hosted on-premises or in the cloud. Integrating Application Gateway with API Management provides you with the flexibility to selectively enable particular APIs to be accessible on the internet. Integration also provides a WAF as a front end to your API Management instance.
