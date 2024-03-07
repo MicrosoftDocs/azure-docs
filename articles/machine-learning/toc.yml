@@ -353,7 +353,7 @@
         href: how-to-add-users.md
       - name: Troubleshoot data labeling projects
         displayName: data, dataset, labeling
-        href: troubleshooting-data-labeling-projects.md
+        href: how-to-troubleshoot-data-labeling-projects.md
     - name: Manage labeling projects
       displayName: data, dataset
       href: how-to-manage-labeling-projects.md      
