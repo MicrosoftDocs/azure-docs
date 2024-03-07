@@ -51,26 +51,37 @@ curl -i -X POST $AZURE_OPENAI_ENDPOINT/openai/deployments/$AZURE_OPENAI_DEPLOYME
 ```json
 {
     "id": "12345678-1a2b-3c4e5f-a123-12345678abcd",
-    "model": "",
-    "created": 1684304924,
-    "object": "chat.completion",
+    "model": "gpt-4",
+    "created": 1709835345,
+    "object": "extensions.chat.completion",
     "choices": [
         {
             "index": 0,
-            "messages": [
-                {
-                    "role": "tool",
-                    "content": "{\"citations\": [{\"content\": \"\\nAzure AI services are cloud-based artificial intelligence (AI) services...\", \"id\": null, \"title\": \"What is Azure AI services\", \"filepath\": null, \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=250. Scores=0.4314117431640625 and 1.72564697265625.Org Highlight count=4.\"}, \"chunk_id\": \"0\"}], \"intent\": \"[\\\"Learn about Azure AI services.\\\"]\"}",
-                    "end_turn": false
-                },
-                {
-                    "role": "assistant",
-                    "content": " \nAzure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. [doc1]. Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle. [doc1].",
-                    "end_turn": true
+            "finish_reason": "stop",
+            "message": {
+                "role": "assistant",
+                "content": "An interesting fact from the retrieved document is... [doc1].",
+                "end_turn": true,
+                "context": {
+                    "citations": [
+                        {
+                            "content": "...",
+                            "title": "...",
+                            "url": "https://mysearch.blob.core.windows.net/xyz/001.txt",
+                            "filepath": "001.txt",
+                            "chunk_id": "0"
+                        }
+                    ],
+                    "intent": "[\"Interesting facts\"]"
                 }
-            ]
+            }
         }
-    ]
+    ],
+    "usage": {
+        "prompt_tokens": 3779,
+        "completion_tokens": 105,
+        "total_tokens": 3884
+    }
 }
 ```
 
