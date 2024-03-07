@@ -1,6 +1,6 @@
 ---
 title: "Fleets and member clusters"
-description: This article describes the concept of fleets and member clusters
+description: This article describes the concept of fleets and member clusters.
 ms.date: 03/04/2024
 author: shashankbarsin
 ms.author: shasb
@@ -22,7 +22,7 @@ A fleet is a regional Azure resource you can use to manage multiple Kubernetes c
 
 ## What are member clusters?
 
-You can join AKS clusters to a fleet.
+You can join Azure Kubernetes Service (AKS) clusters to a fleet.
 Once joined, they become member clusters of the fleet.
 
 Member clusters must reside in the same Microsoft Entra tenant as the fleet. But they can be in different regions, different resource groups, and/or different subscriptions.
@@ -31,13 +31,13 @@ Member clusters must reside in the same Microsoft Entra tenant as the fleet. But
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
-You can create a fleet with or without a hub cluster. The hub cluster is a special AKS cluster whose lifecycle (i.e., creation, updating, upgrading, and deletion) is fully managed by Fleet.
+You can create a fleet with or without a hub cluster. The hub cluster is a special AKS cluster. Fleet fully manages the lifecycle (that is, creation, updating, upgrading, and deletion) of the hub cluster.
 The hub cluster serves as the control plane for member clusters.
 Certain Fleet features require the existence of the hub cluster.
 
 The following table lists the differences between a fleet without hub cluster and a fleet with hub cluster.
 
-| | Without hub cluster | With hub cluster (preview) |
+| Feature Dimension | Without hub cluster | With hub cluster (preview) |
 |-|-|-|
 | Hub cluster hosting (preview) | :x: | :white_check_mark: |
 | Member cluster limit | Up to 100 clusters | Up to 20 clusters |
@@ -47,7 +47,7 @@ The following table lists the differences between a fleet without hub cluster an
 
 ### Hub cluster lockdown
 
-Upon the creation of a feet, a hub cluster is automatically created in the same subscription as the fleet under a managed resource group named as `FL_*`.
+Upon the creation of a fleet, a hub cluster is automatically created in the same subscription as the fleet under a managed resource group named as `FL_*`.
 
 To improve reliability, hub clusters are locked down by denying any user initiated mutations to the corresponding AKS clusters (under the Fleet-managed resource group `FL_*`) and their underlying Azure resources like VMs (under the AKS-managed resource group `MC_FL_*`) via Azure deny assignments.
 
@@ -62,7 +62,7 @@ If your fleet contains a hub cluster, the hub cluster is a standard tier AKS clu
 ## FAQs
 
 ### Can I change a fleet without hub cluster to a fleet with hub cluster?
-No during hub cluster preview. It will be supported once hub clusters become generally available.
+No during hub cluster preview, to be supported once hub clusters become generally available.
 
 ## Next steps
 

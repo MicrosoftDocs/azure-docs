@@ -1,6 +1,6 @@
 ---
 title: "Kubernetes resource propagation from hub cluster to member clusters (preview)"
-description: This article describes the concept of Kubernetes resource propagation from hub cluster to member clusters
+description: This article describes the concept of Kubernetes resource propagation from hub cluster to member clusters.
 ms.date: 03/04/2024
 author: shashankbarsin
 ms.author: shasb
@@ -38,7 +38,7 @@ The following labels are added automatically to all member clusters, which can b
 * `fleet.azure.com/resource-group`
 * `fleet.azure.com/subscription-id`
 
-You can find the API reference of `MemberCluster` [here](membercluster-api).
+You can find the API reference of `MemberCluster` [here][membercluster-api].
 
 ## What is `ClusterResourcePlacement`?
 
@@ -55,7 +55,7 @@ In order to propagate namespace-scoped resources, you can select a namespace whi
 The following diagram shows a sample `ClusterResourcePlacement`.
 [ ![Diagram that shows how Kubernetes resource are propagated to member clusters.](./media/conceptual-resource-propagation.png) ](./media/conceptual-resource-propagation.png#lightbox)
 
-You can find the API reference of `ClusterResourcePlacement` [here](clusterresourceplacement-api).
+You can find the API reference of `ClusterResourcePlacement` [here][clusterresourceplacement-api].
 
 ## Next Steps
 

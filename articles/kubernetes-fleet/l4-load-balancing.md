@@ -13,7 +13,7 @@ ms.custom:
 
 # Set up multi-cluster layer 4 load balancing across Azure Kubernetes Fleet Manager member clusters (preview)
 
-After an application has been deployed across multiple clusters, admins often want to set up load balancing for incoming traffic across these application endpoints on member clusters.
+After deploying an application across multiple clusters, admins often want to set up load balancing for incoming traffic across these application endpoints on member clusters.
 
 In this how-to guide, you'll set up layer 4 load balancing across workloads deployed across a fleet's member clusters.
 
@@ -25,11 +25,11 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 * Read the [conceptual overview of this feature](./concept-l4-load-balancing.md), which provides an explanation of `ServiceExport` and `MultiClusterService` objects referenced in this document.
 
-* You must have a Fleet resource with member clusters to which a workload has been deployed. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](resource-propagation.md)
+* You must have a fleet resource with member clusters with deployed workload. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](resource-propagation.md).
 
 * These target clusters should be using [Azure CNI networking](../aks/configure-azure-cni.md).
 
-* The target AKS clusters on which the workloads are deployed need to be present on either the same [virtual network](../virtual-network/virtual-networks-overview.md) or on [peered virtual networks](../virtual-network/virtual-network-peering-overview.md).
+* The target Azure Kubernetes Service (AKS) clusters on which the workloads are deployed need to be present on either the same [virtual network](../virtual-network/virtual-networks-overview.md) or on [peered virtual networks](../virtual-network/virtual-network-peering-overview.md).
 
 * These target clusters have to be [added as member clusters to the Fleet resource](./quickstart-create-fleet-and-members.md#join-member-clusters).
 
@@ -61,7 +61,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     KUBECONFIG=fleet kubectl create namespace kuard-demo
     ```
 
-    Output will look similar to the following example:
+    Output looks similar to the following example:
 
     ```console
     namespace/kuard-demo created
@@ -73,7 +73,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     KUBECONFIG=fleet kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-export-service.yaml
     ```
 
-    The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, the service and all its endpoints will be synced to the fleet cluster and can then be used to set up multi-cluster load balancing across these endpoints. The output will look similar to the following example:
+    The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, the service and all its endpoints are synced to the fleet cluster and can then be used to set up multi-cluster load balancing across these endpoints. The output will look similar to the following example:
 
     ```console
     deployment.apps/kuard created
@@ -109,7 +109,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     KUBECONFIG=fleet kubectl apply -f crp-2.yaml
     ```
 
-    If successful, the output will look similar to the following example:
+    If successful, the output looks similar to the following example:
 
     ```console
     clusterresourceplacement.fleet.azure.com/kuard-demo created
@@ -122,7 +122,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     KUBECONFIG=fleet kubectl get clusterresourceplacements
     ```
 
-    If successful, the output will look similar to the following example:
+    If successful, the output looks similar to the following example:
 
     ```console
     NAME            GEN   SCHEDULED   SCHEDULEDGEN   APPLIED   APPLIEDGEN   AGE
@@ -138,7 +138,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     KUBECONFIG=aks-member-1 kubectl get serviceexport kuard --namespace kuard-demo
     ```
 
-    Output will look similar to the following example:
+    Output looks similar to the following example:
 
     ```console
     NAME    IS-VALID   IS-CONFLICTED   AGE
@@ -149,7 +149,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     KUBECONFIG=aks-member-2 kubectl get serviceexport kuard --namespace kuard-demo
     ```
 
-    Output will look similar to the following example:
+    Output looks similar to the following example:
 
     ```console
     NAME    IS-VALID   IS-CONFLICTED   AGE
@@ -182,7 +182,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     > ```
 
 
-    Output will look similar to the following example:
+    Output looks similar to the following example:
 
     ```console
     multiclusterservice.networking.fleet.azure.com/kuard created
