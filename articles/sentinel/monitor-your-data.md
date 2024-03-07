@@ -45,7 +45,7 @@ Use a template installed from the content hub to create a workbook.
 
 1. Select the **Edit** button in the workbook toolbar to customize the workbook according to your needs.
 
-    [ ![Screenshot that shows the saved workbook](media/monitor-your-data/workbook-graph.png) ](media/monitor-your-data/workbook-graph.png#lightbox)
+    [ ![Screenshot that shows the saved workbook.](media/monitor-your-data/workbook-graph.png) ](media/monitor-your-data/workbook-graph.png#lightbox)
 
    To clone your workbook, select **Edit** and then **Save as**. Save the clone with another name, under the same subscription and resource group. Cloned workbooks are displayed under the **My workbooks** tab.
 
@@ -61,7 +61,7 @@ Create a workbook from scratch in Microsoft Sentinel.
 1. Select **Add workbook**.
 1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). 
 
-    [ ![Screenshot that shows ew workbook.](media/monitor-your-data/create-workbook.png) ](media/monitor-your-data/create-workbook.png#lightbox)
+    [ ![Screenshot that shows a new workbook.](media/monitor-your-data/create-workbook.png) ](media/monitor-your-data/create-workbook.png#lightbox)
 
 1. When building a query, set the **Data source** to **Logs** and **Resource type** to **Log Analytics**, and then choose one or more workspaces.
 
