@@ -113,7 +113,7 @@ The following table represents the set of supported browsers, which are currentl
 | iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      | ❌      |
 | macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      | ✔️     |
 | Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      | ✔️     |
-| Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      | ✔️     |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      | ❌     |
 
 - Outgoing Screen Sharing isn't supported on iOS or Android mobile browsers.
 - Firefox support is in public preview.
