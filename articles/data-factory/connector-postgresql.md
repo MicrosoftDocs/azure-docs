@@ -81,7 +81,7 @@ The following properties are supported for PostgreSQL linked service:
 | database | Your PostgreSQL database name. | Yes |
 | username | Your user name. Not required if using IntegratedSecurity. | Yes |
 | password | The password to connect with. Not required if using IntegratedSecurity. | Yes |
-| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: Fail the connection if the server doesn't support SSL.<br/>- **Verify-ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2)**(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
+| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: Fail the connection if the server doesn't support SSL.<br/>- **Verify-ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 More properties you can set per your case:
@@ -244,55 +244,55 @@ When copying data from PostgreSQL, the following mappings are used from PostgreS
 
 |PostgreSql data type | Interim service data type | Interim service data type (for the legacy driver version) |
 |:---|:---|:---|
-|SmallInt|Int16|Int16|
-|Integer|Int32|Int32|
-|BigInt|Int64|Int64|
-|Decimal (Precision <= 28)|Decimal|Decimal|
-|Decimal (Precision > 28)|Unsupport |String|
-|Numeric|Decimal|Decimal|
-|Real|Single|Single|
-|Double|Double|Double|
-|SmallSerial|Int16|Int16|
-|Serial|Int32|Int32|
-|BigSerial|Int64|Int64|
-|Money|Decimal|String|
-|Char|String|String|
-|Varchar|String|String|
-|Text|String|String|
-|Bytea|Byte[]|Byte[]|
-|Timestamp|DateTime|DateTime|
-|Timestamp with time zone|DateTime|String|
-|Date|DateTime|DateTime|
-|Time|TimeSpan|TimeSpan|
-|Time with time zone|DateTimeOffset|String|
-|Interval|TimeSpan|String|
-|Boolean|Boolean|Boolean|
-|Point|String|String|
-|Line|String|String|
-|Iseg|String|String|
-|Box|String|String|
-|Path|String|String|
-|Polygon|String|String|
-|Circle|String|String|
-|Cidr|String|String|
-|Inet|String|String|
-|Macaddr|String|String|
-|Macaddr8|String|String|
-|Tsvector|String|String|
-|Tsquery|String|String|
-|UUID|Guid|Guid|
-|Json|String|String|
-|Jsonb|String|String|
-|Array|String|String|
-|Bit|Byte[]|Byte[]|
-|Bit varying|Byte[]|Byte[]|
-|XML|String|String|
-|IntArray|String|String|
-|TextArray|String|String|
-|NumbericArray|String|String|
-|DateArray|String|String|
-|Range|String|String|
-|Bpchar|String|String|
+|`SmallInt`|`Int16`|`Int16`|
+|`Integer`|`Int32`|`Int32`|
+|`BigInt`|`Int64`|`Int64`|
+|`Decimal` (Precision <= 28)|`Decimal`|`Decimal`|
+|`Decimal` (Precision > 28)|Unsupport |`String`|
+|`Numeric`|`Decimal`|`Decimal`|
+|`Real`|`Single`|`Single`|
+|`Double`|`Double`|`Double`|
+|`SmallSerial`|`Int16`|`Int16`|
+|`Serial`|`Int32`|`Int32`|
+|`BigSerial`|`Int64`|`Int64`|
+|`Money`|`Decimal`|`String`|
+|`Char`|`String`|`String`|
+|`Varchar`|`String`|`String`|
+|`Text`|`String`|`String`|
+|`Bytea`|`Byte[]`|`Byte[]`|
+|`Timestamp`|`DateTime`|`DateTime`|
+|`Timestamp with time zone`|`DateTime`|`String`|
+|`Date`|`DateTime`|`DateTime`|
+|`Time`|`TimeSpan`|`TimeSpan`|
+|`Time with time zone`|`DateTimeOffset`|`String`|
+|`Interval`|`TimeSpan`|`String`|
+|`Boolean`|`Boolean`|`Boolean`|
+|`Point`|`String`|`String`|
+|`Line`|`String`|`String`|
+|`Iseg`|`String`|`String`|
+|`Box`|`String`|`String`|
+|`Path`|`String`|`String`|
+|`Polygon`|`String`|`String`|
+|`Circle`|`String`|`String`|
+|`Cidr`|`String`|`String`|
+|`Inet`|`String`|`String`|
+|`Macaddr`|`String`|`String`|
+|`Macaddr8`|`String`|`String`|
+|`Tsvector`|`String`|`String`|
+|`Tsquery`|`String`|`String`|
+|`UUID`|`Guid`|`Guid`|
+|`Json`|`String`|`String`|
+|`Jsonb`|`String`|`String`|
+|`Array`|`String`|`String`|
+|`Bit`|`Byte[]`|`Byte[]`|
+|`Bit varying`|`Byte[]`|`Byte[]`|
+|`XML`|`String`|`String`|
+|`IntArray`|`String`|`String`|
+|`TextArray`|`String`|`String`|
+|`NumbericArray`|`String`|`String`|
+|`DateArray`|`String`|`String`|
+|`Range`|`String`|`String`|
+|`Bpchar`|`String`|`String`|
 
 ## Lookup activity properties
 
