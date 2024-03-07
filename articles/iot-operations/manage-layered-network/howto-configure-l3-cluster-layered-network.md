@@ -45,11 +45,6 @@ You should complete this step in an *internet facing environment outside of the 
 
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/).
 
-1. Install `nfs-common` on the host machine.
-
-    ```bash
-    sudo apt install nfs-common
-    ```
 1. Run the following command to increase the [user watch/instance limits](https://www.suse.com/support/kb/doc/?id=000020048).
 
     ```bash

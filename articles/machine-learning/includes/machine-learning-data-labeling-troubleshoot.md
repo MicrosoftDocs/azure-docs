@@ -6,7 +6,7 @@ ms.date: 03/04/2024
 ms.author: sdgilley
 ---
 
-If you have errors creating a data labeling project, or accessing data once the project is created, try the following two troubleshooting steps:
+If you have errors creating a data labeling project try the following troubleshooting steps:
 
 ### Add Storage Blob Data Contributor access to the workspace identity
 

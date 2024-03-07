@@ -144,7 +144,7 @@ Consider the following example. Arina creates a virtual machine in East Asia. Bo
 
 ## License requirements
 
-[!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
+[!INCLUDE [Free license](./includes/license-free.md)]
 
 ## Next steps
 
