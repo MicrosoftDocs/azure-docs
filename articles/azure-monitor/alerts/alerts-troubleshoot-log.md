@@ -47,18 +47,6 @@ A common issue is that you think that the alert didn't fire, but the rule was co
 
 :::image type="content" source="media/alerts-troubleshoot-log/LogAlertSuppress.png" lightbox="media/alerts-troubleshoot-log/LogAlertSuppress.png" alt-text="Suppress alerts":::
 
-## A log search alert fired when it shouldn't have
-
-A configured [log alert rule in Azure Monitor](./alerts-log.md) might be triggered unexpectedly. The following sections describe some common reasons.
-
-1. **Was the alert triggered due to latency issues?**
-
-Azure Monitor processes terabytes of customer logs globally, which can cause [logs ingestion latency](../logs/data-ingestion-time.md). There are built-in capabilities to prevent false alerts, but they can still occur on very latent data (over ~30 minutes) and data with latency spikes.
-
-Logs are semi-structured data and are inherently more latent than metrics. If you're experiencing many misfires in fired alerts, consider using [metric alerts](alerts-types.md#metric-alerts). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
-
-Log search alerts work best when you are try to detect specific data in the logs. They are less effective when you are trying to detect lack of data in the logs, like alerting on virtual machine heartbeat. 
-
 1. **Was the the log search alert rule disabled?**
 
 If a log search alert rule query fails to evaluate continuously for a week, Azure Monitor disables it automatically. 
@@ -148,6 +136,20 @@ When a log alert rule is created, the query is validated for correct syntax. But
 - Changes in the [query language](/azure/kusto/query/) include a revised format for commands and functions, so the query provided earlier is no longer valid.
 
 [Azure Advisor](../../advisor/advisor-overview.md) warns you about this behavior. It adds a recommendation about the affected log search alert rule. The category used is 'High Availability' with medium impact and a description of 'Repair your log alert rule to ensure monitoring'.
+
+
+## A log search alert fired when it shouldn't have
+
+A configured [log alert rule in Azure Monitor](./alerts-log.md) might be triggered unexpectedly. The following sections describe some common reasons.
+
+1. **Was the alert triggered due to latency issues?**
+
+Azure Monitor processes terabytes of customer logs globally, which can cause [logs ingestion latency](../logs/data-ingestion-time.md). There are built-in capabilities to prevent false alerts, but they can still occur on very latent data (over ~30 minutes) and data with latency spikes.
+
+Logs are semi-structured data and are inherently more latent than metrics. If you're experiencing many misfires in fired alerts, consider using [metric alerts](alerts-types.md#metric-alerts). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
+
+Log search alerts work best when you are try to detect specific data in the logs. They are less effective when you are trying to detect lack of data in the logs, like alerting on virtual machine heartbeat. 
+
 
 ## Error messages when configuring log search alert rules
 
