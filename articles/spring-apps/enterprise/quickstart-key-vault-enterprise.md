@@ -152,6 +152,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
    az keyvault set-policy \
        --name ${KEY_VAULT_NAME} \
        --object-id ${CART_SERVICE_APP_IDENTITY} \
+       --resource-group ${RESOURCE_GROUP} \
        --secret-permissions get list
    ```
 
@@ -175,6 +176,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
    az keyvault set-policy \
        --name ${KEY_VAULT_NAME} \
        --object-id ${ORDER_SERVICE_APP_IDENTITY} \
+       --resource-group ${RESOURCE_GROUP} \
        --secret-permissions get list
    ```
 
@@ -198,6 +200,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
    az keyvault set-policy \
        --name ${KEY_VAULT_NAME} \
        --object-id ${CATALOG_SERVICE_APP_IDENTITY} \
+       --resource-group ${RESOURCE_GROUP} \
        --secret-permissions get list
    ```
 
@@ -221,6 +224,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
    az keyvault set-policy \
        --name ${KEY_VAULT_NAME} \
        --object-id ${IDENTITY_SERVICE_APP_IDENTITY} \
+       --resource-group ${RESOURCE_GROUP} \
        --secret-permissions get list
    ```
 
