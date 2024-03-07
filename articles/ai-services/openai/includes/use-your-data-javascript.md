@@ -51,7 +51,7 @@ async function main(){
   const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
 
   const messages = [
-    { role: "user", content: "Tell me something interesting" },
+    { role: "user", content: "What are my available health plans?" },
   ];
 
   console.log(`Message: ${messages.map((m) => m.content).join("\n")}`);
@@ -102,8 +102,8 @@ node.exe ChatWithOwnData.js
 ## Output
 
 ```output
-Message: Tell me something interesting
-Based on the retrieved document, an interesting fact is...
+Message: What are my available health plans?
+The available health plans in the Contoso Electronics plan and benefit packages are the Northwind Health Plus and Northwind Standard plans.
 
 ```
 

@@ -55,7 +55,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 - Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource.
 
-- Download the example dataset from [GitHub](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/famous-speeches-pdf).
+- Download the example dataset from [GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/openai/contoso_benefits_document_example.pdf).
 
 ::: zone pivot="programming-language-javascript"
 

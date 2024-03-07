@@ -31,13 +31,11 @@ The **Advanced settings** on the left are [runtime parameters](../concepts/use-y
 - When **Limit responses to your data** is enabled, the model attempts to only rely on your documents for responses. This is set to true by default.
 :::image type="content" source="../media/quickstarts/studio-advanced-settings.png" alt-text="Screenshot of the advanced settings.":::
 
-Send your first query. The chat models perform best in question and answer exercises. For example, "*What was the revenue last year?.*" or "*when was revenue reported?*".
+Send your first query. The chat models perform best in question and answer exercises. For example, "*What are my available health plans?*" or "*What is the health plus option?*".
 
-Queries that require data analysis would probably fail, such as "*which product contributes most to the revenue?*". Queries that require information about all of your data will also likely fail, such as "*how many documents have I uploaded?*". Remember that the search engine looks for chunks having exact or similar terms, phrases, or construction to the query. And while the model might understand the question, if search results are chunks from the data set, it's not the right information to answer that kind of question.
+Queries that require data analysis would probably fail, such as "*Which health plan is most popular?*". Queries that require information about all of your data will also likely fail, such as "*How many documents have I uploaded?*". Remember that the search engine looks for chunks having exact or similar terms, phrases, or construction to the query. And while the model might understand the question, if search results are chunks from the data set, it's not the right information to answer that kind of question.
 
 Chats are constrained by the number of documents (chunks) returned in the response (limited to 3-20 in Azure OpenAI Studio playground). As you can imagine, posing a question about "all of the titles" requires a full scan of the entire vector store.
-
-<!--You can experiment with the configuration settings such as temperature and pre-response text to improve the performance of your task. You can read more about each parameter in the [REST API](../reference.md).-->
 
 [!INCLUDE [deploy-web-app](deploy-web-app.md)]
 
