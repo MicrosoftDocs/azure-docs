@@ -11,7 +11,6 @@ ms.custom: engagement-fy23
 
 # Common questions about VMware to Azure replication
 
-
 This article answers common questions that might come up when you deploy disaster recovery of on-premises VMware virtual machines (VMs) to Azure.
 
 >[!NOTE]
