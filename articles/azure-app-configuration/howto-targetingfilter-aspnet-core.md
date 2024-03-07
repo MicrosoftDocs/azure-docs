@@ -16,7 +16,7 @@ Targeting is a feature management strategy that enables developers to progressiv
 
 - The users can be actual user accounts, but they can also be machines, devices, or any uniquely identifiable entities to which you want to roll out a feature.
 
-- The groups are up to your application to define. They can be Microsoft Entra groups, your workloads at different locations, or any common attributes based on which you want to categorize your audience.
+- The groups are up to your application to define. For example, when targeting user accounts, you can use Microsoft Entra groups or groups denoting user locations. When targeting machines, you can group them based on rollout stages. Groups can be any common attributes based on which you want to categorize your audience.
 
 In this article, you learn how to roll out a new feature in an ASP.NET Core web application to specified users and groups, using `TargetingFilter` with Azure App Configuration.
 
@@ -49,11 +49,13 @@ In this section, you will create a web application that allows users to sign in 
     dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
     ```
 
-1. Update the *Program.cs* with the following code.
+1. Update *Program.cs* with the following code.
 
     ``` C#
     // Existing code in Program.cs
     // ... ...
+
+    var builder = WebApplication.CreateBuilder(args);
 
     // Retrieve the connection string
     string connectionString = builder.Configuration.GetConnectionString("AppConfig");
@@ -65,18 +67,11 @@ In this section, you will create a web application that allows users to sign in 
         options.UseFeatureFlags();
     });
 
-    // The rest of existing code in program.cs
-    // ... ...
-    ```
-
-    ``` C#
-    // Existing code in Program.cs
-    // ... ...
-
     // Add Azure App Configuration middleware to the container of services.
     builder.Services.AddAzureAppConfiguration();
+
     // Add feature management to the container of services.
-    builder.Services.AddFeatureManagement()
+    builder.Services.AddFeatureManagement();
 
     // The rest of existing code in program.cs
     // ... ...
@@ -85,6 +80,8 @@ In this section, you will create a web application that allows users to sign in 
     ``` C#
     // Existing code in Program.cs
     // ... ...
+    
+    var app = builder.Build();
 
     // Use Azure App Configuration middleware for dynamic configuration refresh.
     app.UseAzureAppConfiguration();
@@ -103,7 +100,7 @@ In this section, you will create a web application that allows users to sign in 
     <h1>This is the beta website.</h1>
     ```
 
-1. Open the *HomeController.cs* under the *Controllers* directory and update it with the following code.
+1. Open *HomeController.cs* under the *Controllers* directory and update it with the following code.
 
     ``` C#
     public IActionResult Beta()
@@ -153,7 +150,7 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
    dotnet add package Microsoft.FeatureManagement.AspNetCore
    ```
 
-1. Add a *TestTargetingContextAccessor.cs* file.
+1. Add *ExampleTargetingContextAccessor.cs* file.
 
     ```csharp
     using Microsoft.AspNetCore.Http;
@@ -164,12 +161,12 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
 
     namespace TestFeatureFlags
     {
-        public class TestTargetingContextAccessor : ITargetingContextAccessor
+        public class ExampleTargetingContextAccessor : ITargetingContextAccessor
         {
-            private const string TargetingContextLookup = "TestTargetingContextAccessor.TargetingContext";
+            private const string TargetingContextLookup = "ExampleTargetingContextAccessor.TargetingContext";
             private readonly IHttpContextAccessor _httpContextAccessor;
 
-            public TestTargetingContextAccessor(IHttpContextAccessor httpContextAccessor)
+            public ExampleTargetingContextAccessor(IHttpContextAccessor httpContextAccessor)
             {
                 _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
             }
@@ -198,11 +195,18 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     }
     ```
 
-1. Add `TestTargetingContextAccessor` created in the earlier step and `TargetingFilter` to the service collection by calling the `WithTargeting` method. The `TargetingFilter` will use the `TestTargetingContextAccessor` to determine the targeting context every time that the feature flag is evaluated.
+1. Open `Program.cs` and add the `ExampleTargetingContextAccessor` created in the earlier step and `TargetingFilter` to the service collection by calling the `WithTargeting` method after the existing line of `AddFeatureManagement`. The `TargetingFilter` will use the `ExampleTargetingContextAccessor` to determine the targeting context every time that the feature flag is evaluated.
 
     ```csharp
-    services.AddFeatureManagement()
-            .WithTargeting<TestTargetingContextAccessor>();
+    // Existing code in Program.cs
+    // ... ...
+
+    // Add feature management to the container of services.
+    builder.Services.AddFeatureManagement()
+                    .WithTargeting<ExampleTargetingContextAccessor>();
+
+    // The rest of existing code in program.cs
+    // ... ...
     ```
     
     > [!NOTE]
