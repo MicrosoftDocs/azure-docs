@@ -44,12 +44,12 @@ The aggregate stage JSON configuration defines the details of the stage. To auth
 
 You can define multiple **Properties** configurations in one aggregate stage. For example, calculate the sum of temperature and calculate the average of pressure.  
 
-Input path<sup>1</sup>:
+<sup>1</sup>Input path:
 
 - The data type of the value of the input path property must be compatible with the type of [function](#functions) defined.
 - You can provide the same input path across multiple aggregation configurations to calculate multiple functions over the same input path property. Make sure the output paths are different to avoid overwriting the results.  
 
-Output path<sup>2</sup>:
+<sup>2</sup>Output path:
 
 - Output paths can be the same as or different from the input path. Use different output paths if you're calculating multiple aggregations on the same input path property.
 - Configure distinct output paths to avoid overwriting aggregate values.

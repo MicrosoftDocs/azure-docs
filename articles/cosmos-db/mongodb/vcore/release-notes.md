@@ -1,30 +1,42 @@
 ---
-title: Change log for Azure Cosmos DB API for MongoDB vcore
-description: Notifies our customers of updates pushed to the product
-author: avijitgupta
-ms.author: avijitgupta
-ms.reviewer: gahllevy
+title: Service release notes
+titleSuffix: Azure Cosmos DB for MongoDB vCore
+description: Includes a list of all feature updates, grouped by release date, for the Azure Cosmos DB for MongoDB vCore service.
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: avijitgupta
 ms.service: cosmos-db
-ms.subservice: mongodb
+ms.subservice: mongodb-vcore
 ms.topic: release-notes
 ms.date: 03/07/2024
+#Customer intent: As a database administrator, I want to review the release notes, so I can understand what new features are released for the service.
 ---
 
-# Change log for Azure Cosmos DB for MongoDB vcore
+# Release notes for Azure Cosmos DB for MongoDB vCore
 
-The Change log for the API for MongoDB is meant to inform you about our feature updates. This document covers more granular updates and complements [Azure Updates](https://azure.microsoft.com/updates/).
+This article contains release notes for the API for MongoDB vCore. These release notes are composed of feature release dates, and feature updates.
 
-## 3 March 2024: Enhancements to `Explain` plan and Vector filtering abilities
+## Latest release: March 03, 2024
 
-* Azure Cosmos DB for MongoDB vCore allows filtering by metadata columns while performing vector searches. 
-* `Explain` plan now offer different modes
-	* allShardsQueryPlan: Introduces a new explain mode to view the query plan for all shards involved in the query execution, offering a comprehensive perspective for distributed queries.
-	* allShardsExecution: Presents an another explain mode to inspect the execution details across all shards involved in the query, providing users with comprehensive information for better optimization. 
-* Free Tier support added to East US 2
-* Ability for building indexes in background (Private Preview)
+This release contains enhancements to the **Explain** plan and various vector filtering abilities.
 
-## Next steps
+- The API for MongoDB vCore allows filtering by metadata columns while performing vector searches.
 
-* Learn how to [use Studio 3T](../connect-using-mongochef.md) with Azure Cosmos DB for MongoDB.
-* Learn how to [use Robo 3T](../connect-using-robomongo.md) with Azure Cosmos DB for MongoDB.
-* Explore MongoDB [samples](../nodejs-console-app.md) with Azure Cosmos DB for MongoDB.
+- The `Explain` plan offers two different modes
+
+  | | Description |
+  | --- | --- |
+  | **`allShardsQueryPlan`** | This mode is a new explain mode to view the query plan for all shards involved in the query execution. This mode offers a comprehensive perspective for distributed queries. |
+  | **`allShardsExecution`** | This mode presents an alternative explain mode to inspect the execution details across all shards involved in the query. This mode provides you with comprehensive information to use in performance optimization. |
+
+- Free tier support is available in more regions. These regions now include **East US 2**. For more information, see [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/mongodb/).
+
+- The ability to build indexes in the background is now available in preview.
+
+## Previous releases
+
+*There are currently no previous releases.*
+
+## Related content
+
+- [Azure updates for Azure Cosmos DB for MongoDB vCore](https://azure.microsoft.com/updates?category=databases&query=Cosmos%20DB%20MongoDB).
