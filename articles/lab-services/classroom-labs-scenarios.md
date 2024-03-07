@@ -7,7 +7,7 @@ ms.service: lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: conceptual
-ms.date: 02/28/2024
+ms.date: 03/07/2024
 #customer intent: As a training specialist, I want to learn how organizational roles map to permissions, so that I can determine the roles and responsibilities for setting up a training environment for my enterprise.
 ---
 
@@ -15,7 +15,7 @@ ms.date: 02/28/2024
 
 In this article, you learn about the different features and steps for using Azure Lab Services for conducting classes. Azure Lab Services supports educators, such as teachers, professors, training specialists, trainers, and teaching assistants. An educator can quickly and easily create an online lab to provision preconfigured learning environments for the trainees.
 
-:::image type="content" source="./media/classroom-labs-scenarios/classroom.png" alt-text="Conceptual artwork that shows a teacher and students in a classroom, using Azure Lab Services.":::
+:::image type="content" source="./media/classroom-labs-scenarios/classroom.png" alt-text="Conceptual artwork that shows a teacher and students in a classroom, using Azure Lab Services." lightbox="./media/classroom-labs-scenarios/classroom.png":::
 
 Each trainee can use identical and isolated environments for the training. Educators can apply policies to ensure that the training environments are available to each trainee only when they need them. The environments contain enough resources, such as virtual machines, required for the training.
 
@@ -48,7 +48,7 @@ Get started as an administrator with the [Quickstart: set up the resources for c
 
 Get started as an educator with the [Tutorial: set up a lab for classroom training](./tutorial-setup-lab.md).
 
-:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario1.png" alt-text="Diagram that shows lab creation steps where admins create the lab plan and educators create the lab.":::
+:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario1.png" alt-text="Diagram that shows lab creation steps where admins create the lab plan and educators create the lab." lightbox="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario1.png":::
 
 The following table shows the corresponding mapping of organization roles to Microsoft Entra roles:
 
@@ -71,7 +71,7 @@ Get started as an administrator with the [Quickstart: create and connect to a la
 
 Get started as an educator and [add students to a lab](./how-to-manage-lab-users.md), or [create a lab schedule](./how-to-create-schedules.md).
 
-:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario2.png" alt-text="Diagram that shows lab creation steps where admins own the entire process.":::
+:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario2.png" alt-text="Diagram that shows lab creation steps where admins own the entire process." lightbox="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario2.png":::
 
 The following table shows the corresponding mapping of organization roles to Microsoft Entra roles:
 
@@ -88,7 +88,7 @@ In this scenario, the educator manages their Azure subscription and manages the 
 
 Get started as an administrator with the [Quickstart: create and connect to a lab](./quick-create-connect-lab.md) and then [add students to a lab](./how-to-manage-lab-users.md), and [create a lab schedule](./how-to-create-schedules.md).
 
-:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario3.png" alt-text="Diagram that shows lab creation steps where educators own the entire process.":::
+:::image type="content" source="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario3.png" alt-text="Diagram that shows lab creation steps where educators own the entire process." lightbox="./media/classroom-labs-scenarios/lab-services-process-education-roles-scenario3.png":::
 
 The following table shows the corresponding mapping of organization roles to Microsoft Entra roles:
 

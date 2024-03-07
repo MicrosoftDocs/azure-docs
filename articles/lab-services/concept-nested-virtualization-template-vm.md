@@ -6,7 +6,7 @@ ms.service: lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: conceptual
-ms.date: 02/28/2024
+ms.date: 03/07/2024
 #customer intent: As a lab administrator, I want to create networks within a virtual lab in order to cover scenarios where multiple virtual machines interact within or across networks.
 ---
 
