@@ -11,7 +11,7 @@ ms.author: jianleishen
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
-# Quickstart: Create an Azure Data Factory and pipeline by using the REST API
+# Quickstart: Create an Azure Data Factory and pipeline by using the REST API 
 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
