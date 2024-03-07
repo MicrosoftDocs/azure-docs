@@ -37,7 +37,7 @@ The following SAP Notes are related to SAP on Azure regarding the area covered i
 | [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
 | [1597355] |Swap-space recommendation for Linux |
 
-As a pre-read to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) plus other guides in the [SAP workload on Azure documentation](./get-started.md). 
+As a preread to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) plus other guides in the [SAP workload on Azure documentation](./get-started.md). 
 
 
 ## IBM Db2 for Linux, UNIX, and Windows Version Support
@@ -64,7 +64,7 @@ Using disks based on Azure Page BLOB Storage or Managed Disks, the statements ma
 
 As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](../../virtual-machines/sizes.md) and [here (Windows)](../../virtual-machines/sizes.md).
 
-As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single mounted disk. Whereas you always should separate the data files and transaction log files on different disks/VHDs.
+As long as the current IOPS quota per disk is sufficient, it's possible to store all the database files on one single mounted disk. Whereas you always should separate the data files and transaction log files on different disks/VHDs.
 
 For performance considerations, also refer to chapter 'Data Safety and Performance Considerations for Database Directories' in SAP installation guides.
 
@@ -72,16 +72,16 @@ Alternatively, you can use Windows Storage Pools (only available in Windows Serv
 
 <!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-For Azure M-Series VM, the latency writing into the transaction logs can be reduced by factors, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
+For Azure M-Series VM, you can reduce by factors the latency writing into the transaction logs, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
 
 IBM Db2 LUW 11.5 released support for 4-KB sector size. Though you need to enable the usage of 4-KB sector size with 11.5 by the configurations setting of db2set DB2_4K_DEVICE_SUPPORT=ON as documented in:
 
 - [Db1 11.5 performance variable](https://www.ibm.com/docs/en/db2/11.5?topic=variables-performance)
 - [Db2 registry and environment variables](https://www.ibm.com/docs/en/db2/11.5?topic=variables-registry-environment)
 
-For older Db2 versions, a 512-Byte sector size must be used. Premium SSD disks are 4-KB native and have 512-Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512-Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../virtual-machines/disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512-Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
+For older Db2 versions, a 512 Byte sector size must be used. Premium SSD disks are 4-KB native and have 512 Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512 Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../virtual-machines/disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512 Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
 
-On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512-Byte. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see [New-StoragePool](/powershell/module/storage/new-storagepool).
+On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 Byte. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see [New-StoragePool](/powershell/module/storage/new-storagepool).
 
 ## Recommendation on VM and disk structure for IBM Db2 deployment
 
@@ -150,7 +150,7 @@ The configuration could look like shown here
 ![Example of Db2 configuration using ANF](./media/dbms_guide_ibm/anf-configuration-example.png)
 
 
-The performance tier and the size of the ANF hosted volumes must be chosen based on the performance requirements. However, we recommend taking the Ultra performance level for the data and the log volume. It is not supported to mix block storage and shared storage types for the data and log volume.
+The performance tier and the size of the ANF hosted volumes must be chosen based on the performance requirements. However, we recommend taking the Ultra performance level for the data and the log volume. It isn't supported to mix block storage and shared storage types for the data and log volume.
 
 As of mount options, mounting those volumes could look like (you need to replace ```<SID>``` and ```<sid>``` by the SID of your SAP system):
 
@@ -207,7 +207,7 @@ To increase the number of targets to write to, two options can be used/combined 
 * Using more than one target directory to write the backup to
 
 >[!NOTE]
->Db2 on Windows does not support the Windows VSS technology. As a result, the application consistent VM backup of Azure Backup Service can't be leveraged for VMs the Db2 DBMS is deployed in.
+>Db2 on Windows doesn't support the Windows VSS technology. As a result, the application consistent VM backup of Azure Backup Service can't be leveraged for VMs the Db2 DBMS is deployed in.
 
 ### High Availability and Disaster Recovery
 
@@ -223,20 +223,20 @@ Db2 high availability disaster recovery (HADR) with pacemaker is supported. Both
 
 #### Windows Cluster Server
 
-Microsoft Cluster Server (MSCS) is not supported.
+Microsoft Cluster Server (MSCS) isn't supported.
 
-Db2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure does not differ from any setup that is done on-premises. It is not recommended to rely on IP resolution only.
+Db2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure doesn't differ from any setup that is done on-premises. It isn't recommended to rely on IP resolution only.
 
-Do not use Geo-Replication for the storage accounts that store the database disks. For more information, see the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). 
+Don't use Geo-Replication for the storage accounts that store the database disks. For more information, see the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). 
 
 ### Accelerated Networking
-For Db2 deployments on Windows, it is highly recommended to use the Azure functionality of Accelerated Networking as described in the document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider recommendations made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). 
+For Db2 deployments on Windows, it's highly recommended to use the Azure functionality of Accelerated Networking as described in the document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider recommendations made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). 
 
 
 ### Specifics for Linux deployments
-As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single disk. Whereas you always should separate the data files and transaction log files on different disks.
+As long as the current IOPS quota per disk is sufficient, it's possible to store all the database files on one single disk. Whereas you always should separate the data files and transaction log files on different disks.
 
-If the IOPS or I/O throughput of a single Azure VHD is not sufficient, you can use LVM (Logical Volume Manager) or MDADM as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) to create one large logical device over multiple disks.
+If the IOPS or I/O throughput of a single Azure VHD isn't sufficient, you can use LVM (Logical Volume Manager) or MDADM as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) to create one large logical device over multiple disks.
 For the disks containing the Db2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB.
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
