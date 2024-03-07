@@ -47,6 +47,8 @@ Virtual network encryption has the following requirements:
 
 General Availability (GA) of Azure Virtual Network encryption is available in the following regions:
 
+- East Asia
+
 - East US
 
 - East US 2
@@ -66,8 +68,6 @@ General Availability (GA) of Azure Virtual Network encryption is available in th
 - UAE North
 
 - UK South
-
-- Southeast Asia
 
 - Swiss North
 
