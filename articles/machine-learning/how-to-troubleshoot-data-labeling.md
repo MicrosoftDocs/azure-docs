@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot automated ML experiments
 titleSuffix: Azure Machine Learning
-description: Learn how to troubleshoot and resolve issues in your automated machine learning experiments.
+description: Learn how to troubleshoot and resolve issues in your data labeling project.
 author: kvijaykannan
 ms.author: vkann
 ms.reviewer: sgilley
