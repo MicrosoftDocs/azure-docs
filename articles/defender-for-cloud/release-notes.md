@@ -35,7 +35,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 March 13, 2024
 
-We're announcing the general availability (GA) of [Pemrissions Management](permissions-management.md) in Defender for Cloud.
+We're announcing the general availability (GA) of [Permissions Management](permissions-management.md) in Defender for Cloud.
 
 
 ### Enhanced AWS and GCP recommendations with automated remediation scripts
