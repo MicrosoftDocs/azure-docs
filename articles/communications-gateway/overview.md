@@ -5,18 +5,24 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: overview
-ms.date: 02/16/2024
+ms.date: 3/31/2024
 ms.custom: template-overview
 ---
 
 # What is Azure Communications Gateway?
 
-Azure Communications Gateway enables Microsoft Teams calling through the Operator Connect, Teams Phone Mobile and Microsoft Teams Direct Routing programs and Zoom calling through the Zoom Phone Cloud Peering program. It provides Voice and IT integration with these communications services across both fixed and mobile networks. It's certified as part of the Operator Connect Accelerator program.
+Azure Communications Gateway provides quick, reliable and secure integration with multiple services for telecommunications operators:
+
+- Microsoft Teams calling through the Operator Connect, Teams Phone Mobile and Microsoft Teams Direct Routing programs
+- Zoom calling through the Zoom Phone Cloud Peering program
+- Fraudulent and scam call detection with Azure Operator Call Protection Preview
+
+It provides Voice and IT integration with these communications services across both fixed and mobile networks. It's certified as part of the Operator Connect Accelerator program.
 
 [!INCLUDE [communications-gateway-tsp-restriction](includes/communications-gateway-tsp-restriction.md)]
 
 :::image type="complex" source="media/azure-communications-gateway-overview.svg" alt-text="Diagram that shows Azure Communications Gateway between Microsoft Phone System, Zoom Phone, and your networks. Your networks can be fixed and/or mobile.":::
-    Diagram that shows how Azure Communications Gateway connects to the Microsoft Phone System, Zoom Phone and to your fixed and mobile networks. Microsoft Teams clients connect to Microsoft Phone System. Zoom clients connect to Zoom Phone. Your fixed network connects to PSTN endpoints. Your mobile network connects to Teams Phone Mobile users. Azure Communications Gateway connects Microsoft Phone System, Zoom Phone and your fixed and mobile networks.
+    Diagram that shows how Azure Communications Gateway connects to the Microsoft Phone System, Zoom Phone, Azure Operator Call Protection and to your fixed and mobile networks. Microsoft Teams clients connect to Microsoft Phone System. Zoom clients connect to Zoom Phone. Your fixed network connects to PSTN endpoints. Your mobile network connects to Teams Phone Mobile users. Azure Communications Gateway connects Microsoft Phone System, Zoom Phone, Azure Operator Call Protection and your fixed and mobile networks.
 :::image-end:::
 
 Azure Communications Gateway provides advanced SIP, RTP, and HTTP interoperability functions (including SBC function certified by Microsoft Teams and Zoom) so that you can integrate with your chosen communications services quickly, reliably and in a secure manner.
@@ -78,6 +84,10 @@ Azure Communications Gateway also automatically integrates with Operator Connect
 Microsoft Teams Direct Routing's multitenant model for carrier telecommunications operators requires inbound messages to Microsoft Teams to indicate the Microsoft tenant associated with your customers. Azure Communications Gateway automatically updates the SIP signaling to indicate  the correct tenant, using information that you provision onto Azure Communications Gateway. This process removes the need for your core network to map between numbers and customer tenants. For more information, see [Identifying the customer tenant for Microsoft Phone System](interoperability-teams-direct-routing.md#identifying-the-customer-tenant-for-microsoft-phone-system).
 
 Microsoft Teams Direct Routing allows a customer admin to assign any phone number to a user, even if you don't assign that number to them. This lack of validation presents a risk of caller ID spoofing. Azure Communications Gateway automatically screens all Direct Routing calls originating from Microsoft Teams. This screening ensures that customers can only place calls from numbers that you assign to them. However, you can disable this screening on a per-customer basis if necessary. For more information, see [Support for caller ID screening](interoperability-teams-direct-routing.md#support-for-caller-id-screening).
+
+## Scam call detection and alerting with Azure Operator Call Protection
+
+Azure Operator Call Protection uses AI to detect fraudulent and scam calls in real time and alert subscribers when they are at risk of being scammed. It helps telecommunications operators protect their customers from unwanted calls. For more information, see [What is Azure Operator Call Protection?](../operator-call-protection/overview.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json).
 
 ## Next steps
 
