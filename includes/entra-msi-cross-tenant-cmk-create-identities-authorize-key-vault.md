@@ -2,13 +2,13 @@
 author: karavar
 ms.author: vakarand
 ms.date: 10/28/2022
-ms.service: active-directory
-ms.subservice: managed-identity
+ms.service: entra-id
+ms.subservice: managed-identities
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: include
 title: Cross-tenant customer-managed key (CMK) configuration - Azure
 description: include file for cross-tenant customer-managed key (CMK) configuration
-services: active-directory
+
 ---
 
 ## Configure cross-tenant customer-managed keys
