@@ -73,6 +73,11 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 1. Connect to App Configuration.
 
     ```csharp
+    // Existing code in Program.cs
+    // ... ...
+
+    var builder = Host.CreateApplicationBuilder(args);
+
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
         options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
@@ -88,7 +93,8 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
         builder.Services.AddSingleton(options.GetRefresher());
     });
 
-    builder.Services.AddFeatureManagement();
+    // The rest of existing code in Program.cs
+    // ... ...
     ```
 
     In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. All settings registered for refresh have a default cache expiration of 30 seconds before a new refresh is attempted. It can be updated by calling the `AzureAppConfigurationRefreshOptions.SetCacheExpiration` method.
@@ -120,6 +126,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
                 {
                     _logger.LogInformation(_configuration["TestApp:Settings:Message"] ?? "No data.");
                 }
+
                 await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
             }
         }
