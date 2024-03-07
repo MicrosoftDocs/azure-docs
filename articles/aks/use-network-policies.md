@@ -67,7 +67,7 @@ Azure Network Policy Manager for Linux uses Linux *IPTables* and Azure Network P
 | Supported networking options             | Azure CNI                  | Azure CNI (Linux, Windows Server 2019 and 2022) and kubenet (Linux) | Azure CNI
 | Compliance with Kubernetes specification | All policy types supported | All policy types supported | All policy types supported
 | Additional features                      | None                       | Extended policy model consisting of Global Network Policy, Global Network Set, and Host Endpoint. For more information on using the `calicoctl` CLI to manage these extended features, see [calicoctl user reference][calicoctl]. | None
-| Support                                  | Supported by Azure support and Engineering team | Calico community support. For more information on additional paid support, see [Project Calico support options][calico-support]. | Supported by Azure support and Engineering team
+| Support                                  | Supported by Azure support and Engineering team | Supported by Azure support and Engineering team | Supported by Azure support and Engineering team
 
 ## Limitations
 
