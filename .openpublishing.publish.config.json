@@ -1120,7 +1120,7 @@
     },
     {
       "path_to_root": "reusable-media",
-      "url": "https://github.com/MicrosoftDocs/reusable-content/blob/main/ce-skilling/azure/media/",
+      "url": "https://github.com/MicrosoftDocs/reusable-content/",
       "branch": "main",
       "branch_mapping": {}
     },
