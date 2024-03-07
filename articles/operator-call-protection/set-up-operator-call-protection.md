@@ -43,15 +43,11 @@ If it's Disabled, update it to Enabled and notify your Microsoft onboarding team
 
 [!INCLUDE [operator-call-protection-sub-ucaas-restriction](includes/operator-call-protection-sub-ucaas-restriction.md)]
 
-> TODO - include warning introduced by https://github.com/MicrosoftDocs/azure-docs-pr/blob/4b86515d3db03f2d81a73eefbe797bf045110ff8/articles/communications-gateway/manage-enterprise-operator-connect.md?plain=1.
-
-<!-- [!INCLUDE [communications-gateway-provisioning-permissions](../communications-gateway/includes/communications-gateway-provisioning-permissions.md)] -->
+[!INCLUDE [communications-gateway-provisioning-permissions](../communications-gateway/includes/communications-gateway-provisioning-permissions.md)]
 
 You should use Azure Communications Gateway's Number Management Portal to provision subscribers.
 
-### [Number Management Portal]
-
-#### Create an Account
+### Create an Account
 
 You must create an *Account* for each group of subscribers that you manage with the Number Management Portal.
 
@@ -62,7 +58,7 @@ You must create an *Account* for each group of subscribers that you manage with 
 1. Select **Enable Azure Operator Call Protection**.
 1. Select **Create**.
 
-#### Manage numbers
+### Manage numbers
 
 1. In the sidebar, locate the **Number Management (Preview)** section and select **Accounts**. Select the **Account name**.
 1. Select **View numbers** to go to the number management page.
