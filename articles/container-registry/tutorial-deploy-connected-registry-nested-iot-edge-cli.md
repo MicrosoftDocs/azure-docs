@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 10/31/2023
 ms.author: memladen
 author: toddysm
-ms.custom: [ignite-fall-2021, mode-other, devx-track-azurecli, kr2b-contr-experiment]
+ms.custom: mode-other, devx-track-azurecli, kr2b-contr-experiment
 ms.service: container-registry
 ---
 

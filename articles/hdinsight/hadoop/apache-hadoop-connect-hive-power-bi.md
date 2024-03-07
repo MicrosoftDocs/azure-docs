@@ -3,7 +3,7 @@ title: Visualize Apache Hive data with Power BI - Azure HDInsight
 description: Learn how to use Microsoft Power BI to visualize Hive data processed by Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive
 ms.date: 06/26/2023
 ---
 

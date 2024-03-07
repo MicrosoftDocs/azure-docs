@@ -49,18 +49,16 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 
 \*\* Microsoft Entra recommendations are available only for subscriptions with [enhanced security features enabled](enable-enhanced-security.md).
 
-
-
 ## Supported operating systems
 
 Defender for Cloud depends on the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) or the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md). Make sure that your machines are running one of the supported operating systems as described on the following pages:
 
 - Azure Monitor Agent
-    - [Azure Monitor Agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#windows)
-    - [Azure Monitor Agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#linux)
+  - [Azure Monitor Agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#windows)
+  - [Azure Monitor Agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#linux)
 - Log Analytics agent
-    - [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#windows)
-    - [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#linux)
+  - [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#windows)
+  - [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#linux)
 
 Also ensure your Log Analytics agent is [properly configured to send data to Defender for Cloud](working-with-log-analytics-agent.md#manual-agent).
 

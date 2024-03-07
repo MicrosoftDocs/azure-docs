@@ -29,17 +29,21 @@ landingContent:
         links:
           - text: Azure CLI
             url: /cli/azure/fleet
+          - text: REST
+            url: /rest/api/fleet
+          - text: PowerShell
+            url: /powershell/module/az.fleet
           - text: .NET
-            url: /dotnet/api/overview/azure/container-service
+            url: /dotnet/api/overview/azure/container-service-fleet
           - text: Python
-            url: /python/api/overview/azure/container-service
+            url: /python/api/overview/azure/container-service-fleet
           - text: Java
-            url: /java/api/overview/azure/containerservice
+            url: /java/api/overview/azure/container-service-fleet
           - text: Node.js
-            url: /javascript/api/overview/azure/container-service
+            url: /javascript/api/overview/azure/container-service-fleet
           - text: Resource Manager template
             url: /azure/templates/microsoft.containerservice/fleets
-
+      
   - title: Get started
     linkLists:
       - linkListType: quickstart

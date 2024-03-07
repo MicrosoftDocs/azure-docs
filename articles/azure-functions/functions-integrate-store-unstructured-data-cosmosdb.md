@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 10/01/2020
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
-ms.custom: devx-track-csharp, mvc, mode-other, ignite-2022
+ms.custom: devx-track-csharp, mvc, mode-other
 ---
 # Store unstructured data using Azure Functions and Azure Cosmos DB
 

@@ -292,8 +292,10 @@
   items:
     - name: Troubleshoot lab creation
       href: troubleshoot-lab-creation.md
-    - name: Troubleshoot lab VM Access
+    - name: Troubleshoot lab VM access
       href: troubleshoot-access-lab-vm.md
+    - name: Troubleshoot lab VM connection
+      href: troubleshoot-connect-lab-vm.md
 - name: Reference
   items:
   - name: .NET

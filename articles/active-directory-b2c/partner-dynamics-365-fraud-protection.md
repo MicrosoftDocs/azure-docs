@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer, and I want to integrate Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C. I need to assess risk during attempts to create fraudulent accounts and sign-ins, and then block or challenge suspicious attempts.
+# Customer intent: I'm a developer, and I want to integrate Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C. I need to assess risk during attempts to create fraudulent accounts and sign-ins, and then block or challenge suspicious attempts.
 ---
 
 # Tutorial: Configure Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C

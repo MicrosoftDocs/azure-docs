@@ -7,7 +7,7 @@ author: dcurwin
 ms.date: 11/22/2023
 ---
 
-# Review resources exempted from recommendations 
+# Review resources exempted from recommendations
 
 In Microsoft Defender for Cloud, you can [exempt protected resources from Defender for Cloud security recommendations](exempt-resource.md). This article describes how to review and work with exempted resources.
 
@@ -24,7 +24,7 @@ In Microsoft Defender for Cloud, you can [exempt protected resources from Defend
 
 1. Select **Add filter** > **Is exempt**.
 
-1. Select **All**, **Yes** or **No**. 
+1. Select **All**, **Yes** or **No**.
 
 1. Select **Apply**.
 
@@ -34,9 +34,9 @@ In Microsoft Defender for Cloud, you can [exempt protected resources from Defend
 
 1. For each resource, the **Reason** column shows why the resource is exempted. To modify the exemption settings for a resource, select the ellipsis in the resource > **Manage exemption**.
 
-You can also find all resources that have been exempted from one or more recommendations on the Inventory page.
+You can also find all resources that are exempted from one or more recommendations on the Inventory page.
 
-**To review exempted resources on the Defender for Cloud's Inventory page**: 
+**To review exempted resources on the Defender for Cloud's Inventory page**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -85,15 +85,13 @@ To view all recommendations that have exemption rules:
     | where StatusDescription contains "Exempt"    
     ```
 
-
 ## Get notified when exemptions are created
 
-To keep track of how users are exempting resources from recommendations, we've created an Azure Resource Manager (ARM) template that deploys a Logic App Playbook, and all necessary API connections to notify you when an exemption has been created.
+To keep track of how users are exempting resources from recommendations, we created an Azure Resource Manager (ARM) template that deploys a Logic App Playbook, and all necessary API connections to notify you when an exemption was created.
 
 - Learn more about the playbook in TechCommunity blog [How to keep track of Resource Exemptions in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580).
-- Locate the ARM template in [Microsoft Defender for Cloud GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
+- Locate the ARM template in [Microsoft Defender for Cloud GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption).
 - [Use this automated process](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json) to deploy all components.
-
 
 ## Next steps
 

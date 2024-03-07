@@ -67,6 +67,26 @@ sections:
         answer: |
           No. At this time you would need to create a new Service Fabric managed cluster resource.
 
+      - question: | 
+          Can I transfer my subscription to a different Microsoft Entra tenant?
+        answer: |
+          No. At this time you would need to create a new Service Fabric managed cluster resource after the subscription has been transferred to a different Microsoft Entra tenant.
+      
+      - question: | 
+          Can I move/migrate my cluster between Microsoft Entra tenants?
+        answer: |
+          No. At this time you would need to create a new Service Fabric managed cluster resource under the new tenant.
+      
+      - question: | 
+          Can I move/migrate my cluster between subscriptions?
+        answer: |
+          No. At this time you would need to create a new Service Fabric managed cluster resource under the new subscription.
+      
+      - question: | 
+          Can I move/migrate my cluster or cluster resources to other resource groups or rename them?
+        answer: |
+          No. At this time you would need to create a new Service Fabric managed cluster resource under the new resource group/name.
+
       - question: |
           I want to enable IPv6, is that possible?
         answer: |

@@ -6,10 +6,10 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: reference
-ms.date: 03/20/2023
+ms.date: 03/05/2024
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-dotnet, ignite-2022
+ms.custom: devx-track-dotnet
 ---
 # Azure Cosmos DB .NET Core SDK v2 for API for NoSQL: Release notes and resources (Legacy)
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
@@ -39,18 +39,14 @@ ms.custom: devx-track-dotnet, ignite-2022
 
 Release history is maintained in the Azure Cosmos DB .NET SDK source repo. For a detailed list of feature releases and bugs fixed in each release, see the [SDK changelog documentation](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)
 
-Because version 3 of the Azure Cosmos DB .NET SDK includes updated features and improved performance, The 2.x of this SDK will be retired on 31 August 2024. You must update your SDK to version 3 by that date. We recommend following the instructions to migrate to Azure Cosmos DB .NET SDK version 3.
 
 ## <a name="recommended-version"></a> Recommended version
 
-Different sub versions of .NET SDKs are available under the 2.x.x version. **The minimum recommended version is 2.18.0**.
+Different sub versions of .NET SDKs are available under the 2.x.x version. Version 2.x of this SDK will be retired on 31 August 2024 and you’ll need to update your SDK to version 3 by that date. Version 3 of the Azure Cosmos DB .NET SDK includes updated features and improved performance. We recommend following the [instructions](migrate-dotnet-v3.md) to migrate to Azure Cosmos DB .NET SDK version 3.
 
-## <a name="known-issues"></a> Known issues
+## FAQ
 
-Below is a list of any known issues affecting the [recommended minimum version](#recommended-version):
-
-| Issue | Impact | Mitigation | Tracking link |
-| --- | --- | --- | --- |
+[!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
 ## See Also
 

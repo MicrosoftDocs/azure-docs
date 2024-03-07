@@ -1,16 +1,14 @@
 ---
-title: Tutorial -  Manage Linux virtual machine configuration in Azure 
+title: Tutorial -  Manage Linux virtual machine configuration in Azure
 description: In this tutorial, you learn how to identify changes and manage package updates on a Linux virtual machine
 author: mgoedtel
 manager: gwallace
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-
 #Customer intent: As an IT administrator, I want to learn about tracking configuration changes and perform software updates so that I can review changes made and install updates on Linux virtual machines.
 ---
 # Tutorial: Monitor changes and update a Linux virtual machine in Azure
@@ -113,7 +111,7 @@ To create a new update deployment, select **Schedule update deployment**. The **
 | Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes and no more than 6 hours |
 | Reboot control| Determines how reboots should be handled. Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
 
-Update Deployments can also be created programmatically. To learn how to create an Update Deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly Update Deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+Update Deployments can also be created programmatically. To learn how to create an Update Deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly Update Deployment.
 
 After you have completed configuring the schedule, click **Create** button and you return to the status dashboard.
 Notice that the **Scheduled** table shows the deployment schedule you created.

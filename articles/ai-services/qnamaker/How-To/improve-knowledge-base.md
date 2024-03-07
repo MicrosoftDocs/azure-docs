@@ -9,7 +9,7 @@ ms.author: jboback
 author: jboback
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
-ms.custom: devx-track-csharp, ignite-fall-2021
+ms.custom: devx-track-csharp
 ---
 
 

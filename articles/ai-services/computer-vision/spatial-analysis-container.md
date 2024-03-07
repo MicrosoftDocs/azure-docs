@@ -9,7 +9,7 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Install and run the Spatial Analysis container (preview)

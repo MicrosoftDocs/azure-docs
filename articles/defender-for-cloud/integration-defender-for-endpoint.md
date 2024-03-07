@@ -64,6 +64,6 @@ A Defender for Endpoint tenant is automatically created, when you use Defender f
 
 - **Moving subscriptions:** If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-## Next Steps
+## Next step
 
-[Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md).
+[Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md)

@@ -7,7 +7,7 @@ ms.topic: reference
 author: markingmyname 
 ms.author: maghan 
 ms.custom: subject-policy-reference
-ms.date: 01/30/2024
+ms.date: 02/06/2024
 ---
 
 # Azure Policy built-in definitions for Azure Database for MySQL

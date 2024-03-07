@@ -2,12 +2,12 @@
 title: Azure Chaos Studio fault and action library
 description: Understand the available actions you can use with Azure Chaos Studio, including any prerequisites and parameters.
 services: chaos-studio
-author: rsgel 
+author: rsgel
 ms.topic: article
 ms.date: 01/02/2024
-ms.author: carlsonr
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Azure Chaos Studio fault and action library
@@ -48,7 +48,7 @@ The faults listed in this article are currently available for use. To understand
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
 | Description | Adds CPU pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. On Windows, the **% Processor Utility** performance counter is used at fault start to determine current CPU percentage, which is subtracted from the `pressureLevel` defined in the fault so that **% Processor Utility** hits approximately the `pressureLevel` defined in the fault parameters. |
-| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
+| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
 | Parameters (key, value)  |
@@ -93,7 +93,7 @@ Known issues on Linux:
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
 | Description | Adds physical memory pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial physical memory pressure is removed at the end of the duration or if the experiment is canceled. |
-| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
+| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:physicalMemoryPressure/1.0 |
 | Parameters (key, value) |  |
@@ -232,7 +232,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Target type | Microsoft-Agent |
 | Supported OS types | Linux |
 | Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. For information on how pressure is applied, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
-| Prerequisites | The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
+| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.1 |
 | Parameters (key, value) |  |
 | workerCount | Number of worker processes to run. Setting `workerCount` to 0 generated as many worker processes as there are number of processors. |
@@ -287,7 +287,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Target type | Microsoft-Agent |
 | Supported OS types | Linux |
 | Description | Runs any stress-ng command by passing arguments directly to stress-ng. Useful when one of the predefined faults for stress-ng doesn't meet your needs. |
-| Prerequisites | The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
+| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | Urn | urn:csci:microsoft:agent:stressNg/1.0 |
 | Parameters (key, value) |  |
 | stressNgArguments | One or more arguments to pass to the stress-ng process. For information on possible stress-ng arguments, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
@@ -633,7 +633,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | Prerequisites | Agent must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0 |
 | Parameters (key, value) |  |
-| destinationFilters | Delimited JSON array of packet filters that define which outbound packets to target for fault injection. Maximum of three. |
+| destinationFilters | Delimited JSON array of packet filters that define which outbound packets to target for fault injection. |
 | address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
@@ -1471,7 +1471,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | ---- | --- |
 | Capability name | IncrementCertificateVersion-1.0 |
 | Target type | Microsoft-KeyVault |
-| Description | Generates a new certificate version and thumbprint by using the Key Vault Certificate client library. Current working certificate is upgraded to this version. |
+| Description | Generates a new certificate version and thumbprint by using the Key Vault Certificate client library. Current working certificate is upgraded to this version. Certificate version is not reverted after the fault duration. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0 |
 | Fault type | Discrete. |
@@ -1816,3 +1816,42 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 ### Limitations
 
 * A maximum of 1000 topic entities can be passed to this fault.
+
+## Change Event Hub State
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | ChangeEventHubState-1.0 |
+| Target type | Microsoft-EventHub |
+| Description | Sets individual event hubs to the desired state within an Azure Event Hubs namespace. You can affect specific event hub names or use “*” to affect all within the namespace. This can help test your messaging infrastructure for maintenance or failure scenarios. This is a discrete fault, so the entity will not be returned to the starting state automatically. |
+| Prerequisites | An Azure Event Hubs namespace with at least one [event hub entity](../event-hubs/event-hubs-create.md). |
+| Urn | urn:csci:microsoft:eventHub:changeEventHubState/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) | |
+| desiredState | The desired state for the targeted event hubs. The possible states are Active, Disabled, and SendDisabled. |
+| eventHubs | A comma-separated list of the event hub names within the targeted namespace. Use "*" to affect all entities within the namespace. |
+
+### Sample JSON
+
+```json
+{
+  "name": "Branch1",
+    "actions": [
+        {
+            "selectorId": "Selector1",
+            "type": "discrete",
+            "parameters": [
+                {
+                    "key": "eventhubs",
+                    "value": "[\"*\"]"
+                },
+                {
+                    "key": "desiredState",
+                    "value": "Disabled"
+                }
+            ],
+            "name": "urn:csci:microsoft:eventHub:changeEventHubState/1.0"
+        }
+    ]
+}
+```

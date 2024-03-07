@@ -2,7 +2,6 @@
 title: Key next steps after accepting your Microsoft Customer Agreement - Azure
 description: This article helps you get started as you begin to manage Azure billing and subscriptions under your new Microsoft Customer Agreement.
 author: bandersmsft
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
@@ -69,7 +68,7 @@ When you move from a pay-as-you-go or an enterprise agreement to a Microsoft Cus
 
 ## Complete outstanding payments
 
-Make sure that you complete any outstanding payments for your older [pay-as-you-go](../understand/download-azure-invoice.md) or [EA](../manage/ea-portal-enrollment-invoices.md) contract subscription invoices. For more information, see [Understand your Microsoft Customer Agreement Invoice in Azure](../understand/mca-understand-your-invoice.md#billing-period).
+Make sure that you complete any outstanding payments for your older [pay-as-you-go](../understand/download-azure-invoice.md) or [EA](../manage/direct-ea-billing-invoice-documents.md) contract subscription invoices. For more information, see [Understand your Microsoft Customer Agreement Invoice in Azure](../understand/mca-understand-your-invoice.md#billing-period).
 
 ## Cancel support plan
 

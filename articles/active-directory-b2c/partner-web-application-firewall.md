@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer configuring Azure Active Directory B2C with Azure Web Application Firewall. I want to enable the WAF service for my B2C tenant with a custom domain, so I can protect my web applications from common exploits and vulnerabilities.
+# Customer intent: I'm a developer configuring Azure Active Directory B2C with Azure Web Application Firewall. I want to enable the WAF service for my B2C tenant with a custom domain, so I can protect my web applications from common exploits and vulnerabilities.
 
 ---
 

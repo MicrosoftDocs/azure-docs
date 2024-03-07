@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 06/27/2023
-ms.custom: template-tutorial, ignite-fall-2021, engagement-fy23
+ms.custom: template-tutorial, engagement-fy23
 ---
 
 # Tutorial: Create a gateway load balancer using the Azure portal
