@@ -46,9 +46,9 @@ Rolling upgrade policy is best suited for production workloads.
 | **MaxSurge** | MaxSurge is currently in preview for Virtual Machine Scale Sets with Flexible Orchestration and Uniform Orchestration. To use this preview feature, register the provider feature using `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute`.<br><br> With MaxSurge enabled, new instances are created  in batches using the latest scale model. Once the batch of new instances are successfully created and marked as healthy, they begin taking traffic. The scale set then deletes instances in batches matching the old scale set model. This continues until all instances are brought up-to-date. rolling upgrades with MaxSurge can help improve service uptime during upgrade events. <br><br>With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances begin taking traffic again, and the next batch begins. This continues until all instances brought up-to-date. |
 
 
-## Setting or updating the Rolling upgrade policy
+## Setting or updating the rolling upgrade policy
 
-Rolling upgrade policy can be configured during scale set creation. Because Rolling upgrade policy requires successfully monitoring application health and there are specific settings that determine how upgrades are completed, it's suggested to first create your scale set using Manual upgrade policy. Once you have confirmed the application health is being successfully reported, update your upgrade policy from Manual to Rolling.
+Rolling upgrade policy can be configured during scale set creation. Because Rolling upgrade policy requires successfully monitoring application health and there are specific settings that determine how upgrades are completed, it's suggested to first create your scale set using manual upgrade policy. Once you have confirmed the application health is being successfully reported, update your upgrade policy from manual to Rolling.
 
 ### [Portal](#tab/portal1)
 
