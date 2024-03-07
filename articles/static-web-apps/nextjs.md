@@ -14,9 +14,11 @@ ms.custom: devx-track-js
 
 Next.js support on Azure Static Web Apps can be categorized as two deployment models:
 
-1. **Hybrid**: Hybrid Next.js sites, which includes support for all Next.js features such as the [App Router](https://nextjs.org/docs/app), the [Pages Router](https://nextjs.org/docs/pages) and [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
+- **Hybrid**: Hybrid Next.js sites, which includes support for all Next.js features such as the [App Router](https://nextjs.org/docs/app), the [Pages Router](https://nextjs.org/docs/pages) and [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
 
-1. **Static**: Static Next.js sites, which use the [Static HTML Export](https://nextjs.org/docs/advanced-features/static-html-export) option of Next.js.
+
+- **Static**: Static Next.js sites, which use the [Static HTML Export](https://nextjs.org/docs/advanced-features/static-html-export) option of Next.js.
+
 
 
 ## Hybrid Next.js applications (preview)

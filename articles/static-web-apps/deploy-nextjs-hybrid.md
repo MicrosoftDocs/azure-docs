@@ -149,8 +149,8 @@ To add server-rendered data in your Next.js project using the App Router, edit a
     }
     ```
 
->[!NOTE]
->This example forces dynamic rendering of this component to demonstrate server-rendering of the server's current time. The App Router model of Next.js recommends caching individual data requests to optimize the performance of your Next.js app. Read more on [data fetching and caching in Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating).
+    >[!NOTE]
+    >This example forces dynamic rendering of this component to demonstrate server-rendering of the server's current time. The App Router model of Next.js recommends caching individual data requests to optimize the performance of your Next.js app. Read more on [data fetching and caching in Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating).
 
 1. Update the `Home` component in _app/pages.tsx_ to render the server-side data. 
 
@@ -251,7 +251,7 @@ This Client Component fetches the API with a `useEffect` React hook to render th
    
 1. The result from the API route is displayed on the page.
 
-:::image type="content" source="media/deploy-nextjs/nextjs-13-home-display.png" alt-text="Display the output from the API route":::
+:::image type="content" source="media/deploy-nextjs/nextjs-13-home-display.png" alt-text="Screenshot showing the display the output from the API route.":::
 
 
 ## Configure the runtime version for Next.js
