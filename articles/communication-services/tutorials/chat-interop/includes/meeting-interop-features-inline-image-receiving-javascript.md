@@ -9,6 +9,16 @@ ms.service: azure-communication-services
 
 In this tutorial, you learn how to enable inline image support using the Azure Communication Services Chat SDK for JavaScript.
 
+Inline images are images that are copied and pasted directly into the send box of the Teams client. For images that were uploaded via the "Upload from this device" menu or via drag-and-drop, such as images dragged directly to the send box in Teams, you need to refer to [this tutorial](./meeting-interop-features-file-attachment.md) to enable it as the part of the file sharing feature. (See the section "Handling Image Attachment.") To copy an image, the Teams user can either use their operating system's context menu to copy the image file and then paste it into the send box of their Teams client or use keyboard shortcuts.
+
+There are 2 parts in this tutorial, you learn what you need to do:
+1. [when receiving an inline image](#handle-received-inline-images-in-new-message-event)
+2. [when sending out an inline image](#handle-sending-inline-images-in-new-message-request)
+
+
+Please note that the ability to send an inline image is currently available in public preview and it's only available for JavaScript only. And for receiving inline images, it's currently general available and available for both JavaScript and C# in a Teams interoperability chat. 
+
+
 ## Sample Code
 Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
 
@@ -24,7 +34,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 1. Be able to render preview images in the message thread
 2. Be able to render full scale image upon click on preview images
 
-## Handle inline images for new messages
+## Handle received inline images in new message event
 
 
 In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we've created an event handler for `chatMessageReceived` event, which would be trigger when we receive a new message from the Teams user. We have also appended incoming message content to `messageContainer` directly upon receiving the `chatMessageReceived` event from the `chatClient` like this:
@@ -321,4 +331,10 @@ Then you should see the new message being rendered along with preview images:
 Upon clicking the preview image by the Azure Communication Services user, an overlay would be shown with the full scale image sent by the Teams user:
 
  :::image type="content" source="./media/meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented.":::
+
+
+ ## Handle sending inline images in new message request
+
+
+ 
 
