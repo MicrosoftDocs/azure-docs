@@ -298,7 +298,7 @@ To configure the network for a 2-node device, follow these steps on the first no
     - **Use switches and NIC teaming**. Use this option when you need port level redundancy through teaming. NIC Teaming allows you to group two physical ports on the device node, Port 3 and Port 4 in this case, into two software-based virtual network interfaces. These teamed network interfaces provide fast performance and fault tolerance in the event of a network interface failure. For more information, see [NIC teaming on Windows Server](/windows-server/networking/windows-server-supported-networking-scenarios#bkmk_nicteam).
     - **Use switches without NIC teaming**. Use this option if you need an extra port for workload traffic and port level redundancy is not required.
 
-    ![Local web UI "Network" page with "Use switches and NIC teaming" option selected](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-topology-1m.png)
+      ![Local web UI "Network" page with "Use switches and NIC teaming" option selected](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-topology-1m.png)
 
 1. Make sure that your node is cabled as per the selected topology.
 1. Select **Apply**.
@@ -455,8 +455,8 @@ For clients connecting via NFS protocol to the two-node device, follow these ste
 
     ![Local web UI "Cluster" page with "Virtual IP Settings" blade configured for NFS on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-file-system-2m.png)
 
-> [!NOTE]
-> Virtual IP settings are required. If you do not configure this IP, you will be blocked when configuring the **Device settings** in the next step.
+   > [!NOTE]
+   > Virtual IP settings are required. If you do not configure this IP, you will be blocked when configuring the **Device settings** in the next step.
 
 ### Configure virtual switches 
 

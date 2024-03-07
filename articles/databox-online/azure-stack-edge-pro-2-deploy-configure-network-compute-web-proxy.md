@@ -296,7 +296,7 @@ To configure the network for a 2-node device, follow these steps on the first no
     - **Use switches and NIC teaming**. Use this option when you need port level redundancy through teaming. NIC Teaming allows you to group two physical ports on the device node, Port 3 and Port 4 in this case, into two software-based virtual network interfaces. These teamed network interfaces provide fast performance and fault tolerance in the event of a network interface failure. For more information, see [NIC teaming on Windows Server](/windows-server/networking/windows-server-supported-networking-scenarios#bkmk_nicteam).
     - **Use switches without NIC teaming**. Use this option if you need an extra port for workload traffic and port level redundancy is not required.
     
-    ![Local web UI "Network" page with "Use switches and NIC teaming" option selected](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-topology-1m.png)
+      ![Local web UI "Network" page with "Use switches and NIC teaming" option selected](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-topology-1m.png)
 
 1. Make sure that your node is cabled as per the selected topology.
 1. Select **Apply**.
@@ -326,7 +326,7 @@ You'll now prepare the second node for clustering. You'll first need to configur
 
 1. Make sure that the second node is cabled as per the topology you selected for the first node. In the **Advanced networking** page, choose and **Apply** the same topology that you selected for the first node.
 
-![Local web UI "Network" page with "Use switches and NIC teaming" option selected on second node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-topology-2.png)
+   ![Local web UI "Network" page with "Use switches and NIC teaming" option selected on second node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-topology-2.png)
 
 1. Select **Back to get started**.
 
