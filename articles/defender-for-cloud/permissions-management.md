@@ -1,8 +1,11 @@
 ---
 title: Permissions Management
-description: Learn about Permissions Management in Microsoft Defender for Cloud.
-ms.topic: conceptual
-ms.date: 02/20/2024
+description: Learn about Permissions Management in Microsoft Defender for Cloud and enhance the security of your cloud infrastructure.
+ms.topic: concept-article
+author: Elazark
+ms.author: elkrieger
+ms.date: 03/07/2024
+#customer intent: As a user, I want to understand how to manage permissions effectively so that I can enhance the security of my cloud infrastructure.
 ---
 
 # Permissions Management
@@ -42,6 +45,6 @@ The integration feature comes as part of Defender CSPM plan and doesn't require 
 | Monitor   | Activity  based, rule-based alerts                           | ❌                  | ✓                      |
 | Monitor   | Context-rich  forensic reports (for example PCI history report, user entitlement &  usage report, etc.) | ❌                  | ✓                      |
 
-## Next steps
+## Related content
 
 Learn how to [enable Permissions Management](enable-permissions-management.md) in Microsoft Defender for Cloud.
