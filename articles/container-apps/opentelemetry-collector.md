@@ -64,7 +64,8 @@ The only configuration detail required from Application Insights is the connecti
 
 # [Azure CLI](#tab/azure-cli)
 
-TODO
+ az containerapp env telemetry app-insights set  --connection-string <YOUR_APP_INSIGHTS_CONNECTION_STRING>
+
 
 ---
 
@@ -101,7 +102,8 @@ Once you have these configuration details, you can configure the collector via y
 
 # [Azure CLI](#tab/azure-cli)
 
-TODO
+ az containerapp env telemetry data-dog set  --site  "<YOUR_DATADOG_SUBDOMAIN>.datadoghq.com" --key <YOUR_DATADOG_KEY> 
+
 
 ---
 
@@ -134,14 +136,18 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
 
 | Name | Description |
 |---|---|
-| `name` |  |
-| `endpoint` |  |
-| `header` |  |
-| `insecure` |  |
+| `name` | The name of your OTLP-configured endpoint |
+| `endpoint` |  The URL to receive the data |
+| `header` | List of any headers used for security |
+| `insecure` |  True/false. If false, include headers to |
 
 # [Azure CLI](#tab/azure-cli)
 
-TODO
+ az containerapp env telemetry otlp add  
+   --name  NAME
+   --endpoint  ENDPOINT
+   --insecure  true/false
+   --headers  HEADERS
 
 ---
 
@@ -257,14 +263,8 @@ The following example show how you might configure your container app to collect
 
 ## Send data from your app to an OTel collector
 
-| Type | Details |
-|---|---|
-| Logs | Define a collector in the `logsConfiguration` destinations array. |
-| Metrics | Define a collector in the `metricsConfiguration` destinations array. |
-| System traces | Define a collector in the `tracesConfiguration` destinations array. |
-| Custom traces| Define custom collector in the `otlpConfigurations` section, and include the name in the `tracesConfiguration` destinations array. |
-| System data | Set `IncludeSystemTelemetry` to `true` in the `openTelemetryConfiguration` section. |
-| Dapr traces | Set `IncludeSystemTelemetry` to `true` in the `openTelemetryConfiguration` section. If you plan to use an OTel collector to send your Dapr data to a custom OTel endpoint, set the `daprAIConnectionString` to `null`. |
+
+For data to be sent to the agent, install the OSS OTEL SDK (link) to your code. The otel agent auto injects environment variables during app runtime to pick up any logs, metrics, or traces produced using the SDK.  See example for details. 
 
 ## OTel collector costs
 
