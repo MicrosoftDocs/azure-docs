@@ -198,7 +198,7 @@ This error indicates an issue with the alert rule scope. This can happen when ed
 ## The service limits for metric alert rules is too small
 
 The allowed number of metric alert rules per subscription is subject to [service limits](../service-limits.md).
-See [Check the number of metric alert rules in use](alerts-manage-alert-rules.md#check-the-number-of-metric-alert-rules) to see how many metric alert rules are currently in use.
+See [Check the number of metric alert rules in use](alerts-manage-alert-rules.md#check-the-number-of-metric-alert-rules-in-use) to see how many metric alert rules are currently in use.
 
 If you've reached the quota limit, the following steps might help resolve the issue:
 
