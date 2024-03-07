@@ -66,7 +66,7 @@ You must create an *Account* for each group of subscribers that you manage with 
     1. Select **Upload numbers**.
     1. In **Add numbers**, add each number individually.
     1. Select **Enable Azure Operator Call Protection**.
-    1. The **Custom SIP header value** is not used by **Azure Operator Call Protection** - leave it blank.
+    1. The **Custom SIP header value** is not used by Azure Operator Call Protection - leave it blank.
     1. Select **Review and upload** and **Upload**.
     1. When the order status is **Complete**, the numbers are available.
 1. To remove numbers:
