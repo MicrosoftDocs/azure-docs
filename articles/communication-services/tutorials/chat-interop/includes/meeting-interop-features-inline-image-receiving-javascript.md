@@ -22,6 +22,11 @@ Please note that the ability to send an inline image is currently available in p
 ## Sample Code
 Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
 
+
+## Handle received inline images in new message event
+
+In this section, we learn how we can render inline images embedded in the message content of new message received event.
+
 ## Prerequisites 
 
 * You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
@@ -29,12 +34,6 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 * You've set up a Teams meeting using your business account and have the meeting URL ready.
 * You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.4.0 or latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
 
-## Goal
-
-1. Be able to render preview images in the message thread
-2. Be able to render full scale image upon click on preview images
-
-## Handle received inline images in new message event
 
 
 In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we've created an event handler for `chatMessageReceived` event, which would be trigger when we receive a new message from the Teams user. We have also appended incoming message content to `messageContainer` directly upon receiving the `chatMessageReceived` event from the `chatClient` like this:
@@ -330,11 +329,147 @@ Then you should see the new message being rendered along with preview images:
 
 Upon clicking the preview image by the Azure Communication Services user, an overlay would be shown with the full scale image sent by the Teams user:
 
- :::image type="content" source="./media/meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented.":::
+:::image type="content" source="./media/meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented.":::
 
 
  ## Handle sending inline images in new message request
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
+In addition to handle messages with inline images, Chat SDK for JavaScript also provides a solution to allow the Communication User to send image attachments or inline images to the Microsoft Teams user in an interoperability chat.
  
+
+## Prerequisites 
+
+* You've gone through the previous section for [handling-received-inline-images-in-new-message-event](#handle-received-inline-images-in-new-message-event)
+* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.6.0-beta.1 or latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
+
+
+Let's take a look of the new API from `ChatThreadClient`:
+
+```js
+var imageAttachment = await chatThreadClient.uploadImage(blob, file.name, {
+  "onUploadProgress": reportProgressCallback
+});
+```
+
+Noticing the API takes in an image blob, file name string, and a function call back that reports upload progress.
+
+Therefore, to send an image to other chat participant, we need to:
+
+1. Upload the image via `uploadImage` API from `ChatThreadClient`, save the returned object to somewhere
+2. Compose the message content and set attachment to the returned object we have saved in previous step
+3. Send the new message via `sendMessage` API from from `ChatThreadClient`
+4. Done!
+
+
+So let's begin to create a new file picker that accepts images like the following:
+
+```html
+<label for="myfile">Attach images:</label>
+<input id="upload" type="file" id="myfile" name="myfile" accept="image/*" multiple>
+<input style="display: none;" id="upload-result"></input>
+```
+
+Next we need to set up a event licenser that will be called when there's a state change:
+
+```
+document.getElementById("upload").addEventListener("change", uploadImages);
+```
+
+Here we need to create a new function that will be called when state changes:
+
+```
+var uploadedImageModels = [];
+
+async function uploadImages(e) {
+  const files = e.target.files;
+  if (files.length === 0) {
+    return;
+  }
+  for (let key in files) {
+    if (files.hasOwnProperty(key)) {
+        await uploadImage(files[key]);
+    }
+  }
+}
+
+
+
+async function uploadImage(file) {
+  const reader = new FileReader();
+  reader.onload = async (e) => {
+    const base64 = e.target.result;
+    const blob = new Blob([base64], { type: "image/png" });
+    const uploadedImageModel = await chatThreadClient.uploadImage(blob, {
+      "name": file.name,
+      "onUploadProgress": (progress) => {
+        console.log(`[${file.name}]uploading: ${progress.loadedBytes}/${progress.totalBytes}`);
+      }
+    });
+    uploadedImageModels.push(uploadedImageModel);
+  };
+  reader.readAsDataURL(file);
+}
+```
+
+Noticing in this example, we have created a `FileReader` which will first read each image as `base64` encoded images, then create a `Blob` before calling the ChatSDK API to upload them. Also notice how we have created a global `uploadedImageModels` to save the data models of uploaded images from the ChatSDK.
+
+Lastly we need to modify the sendMessageButton event listener we have created previously to attach images we have just uploaded.
+
+```js
+sendMessageButton.addEventListener("click", async () => {
+  let message = messagebox.value;
+
+  let attachments = uploadedImageModels;
+  let sendMessageRequest = {
+    content: message,
+    attachments: attachments, // NEW
+  };
+
+
+  let sendMessageOptions = {
+    senderDisplayName: "Jack",
+  };
+  let sendChatMessageResult = await chatThreadClient.sendMessage(
+    sendMessageRequest,
+    sendMessageOptions
+  );
+  let messageId = sendChatMessageResult.id;
+
+  uploadedImageModels = []; // NEW
+
+  messagebox.value = "";
+
+  document.getElementById("upload").value = "";
+  console.log(`Message sent!, message id:${messageId}`);
+});
+
+```
+
+the newly added lines are marked by `// NEW`. 
+
+That's it, now let's run the code and see it in action. 
+
+## Run the code 
+
+Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
+
+```console
+npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+```
+
+## Demo
+
+Open your browser and navigate to `http://localhost:8080/`. Noticing we have a new section in the send box to attach images:
+
+:::image type="content" source="./media/meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message reads: Here are some ideas, let me know what you think! The message also contains two inline images of room interior mockups.":::
+
+Then we cab select images we wanted to attach:
+
+:::image type="content" source="./media/meeting-interop-features-inline-1.png" alt-text="A screenshot of sample app shown an incoming message with inline images being presented.":::
+
+Upon clicking send button, the Teams user should now receive the image we just sent out:
+
+:::image type="content" source="./media/meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented.":::
 
