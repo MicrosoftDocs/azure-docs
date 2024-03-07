@@ -17,6 +17,28 @@ This article shows you how to install the Network Policy engine and create Kuber
 
 You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+### Uninstall Azure Network Policy Manager or Calico (Preview)
+Requirements:
+ - aks-preview Azure CLI extension version 0.5.166 or later. See [Install the aks-preview Azure CLI extension](#Install-the-aks-preview-Azure-CLI-extension).
+ - Azure CLI version 2.54 or later
+ - AKS REST API version 2023-08-02-preview or later
+
+Notes:
+ - The uninstall process does _not_ remove Custom Resource Definitions (CRDs) and Custom Resources (CRs) used by Calico. These all have names ending with either "projectcalico.org" or "tigera.io".
+ These CRDs and associated CRs can be manually deleted _after_ Calico is successfully uninstalled (deleting the CRDs before removing Calico will break the cluster).
+ - The upgrade will not remove any NetworkPolicy resources in the cluster, but after the uninstall these policies will no longer be enforced.
+
+> [!WARNING]
+> The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
+
+To remove Azure Network Policy Manager or Calico from a cluster, run the following command:
+```azurecli
+az aks update
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
+    --network-policy none
+```
+
 ## Overview of Network Policy
 
 All pods in an AKS cluster can send and receive traffic without limitations, by default. To improve security, you can define rules that control the flow of traffic. Back-end applications are often only exposed to required front-end services, for example. Or, database components are only accessible to the application tiers that connect to them.
@@ -68,11 +90,14 @@ With Azure Network Policy Manager for Linux, we don't recommend scaling beyond 2
 
 To see network policies in action, let's create an AKS cluster that supports network policy and then work on adding policies. 
 
-To use Azure Network Policy Manager, you must use the Azure CNI plug-in. Calico could be used with either Azure CNI plug-in or with the Kubenet CNI plug-in.
+To use Azure Network Policy Manager, you must use the Azure CNI plug-in. Calico can be used with either Azure CNI plug-in or with the Kubenet CNI plug-in.
 
 The following example script:
 
-* Creates an AKS cluster with system-assigned identity and enables Azure Network Policy Manager. To use Calico instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
+* Creates an AKS cluster with system-assigned identity and enables Azure Network Policy Manager. To use Calico instead, use the `--network-policy calico` parameter. 
+
+>[!Note}
+> Calico can be used with either the `--network-plugin azure` or `--network-plugin kubenet` parameters.
 
 Instead of using a system-assigned identity, you can also use a user-assigned identity. For more information, see [Use managed identities](use-managed-identity.md).
 
@@ -186,7 +211,7 @@ az aks nodepool add \
 
 ### Create an AKS cluster with Calico enabled
 
-Create the AKS cluster and specify `--network-plugin azure`, and `--network-policy calico`. Calico networking on both Linux and Windows node pools.
+Create the AKS cluster and specify `--network-plugin azure`, and `--network-policy calico`. Specifying `--network-policy calico` enables Calico on both Linux and Windows node pools.
 
 If you plan on adding Windows node pools to your cluster, include the `windows-admin-username` and `windows-admin-password` parameters with that meet the [Windows Server password requirements][windows-server-password]. 
 
@@ -220,28 +245,6 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1
-```
-
-## Uninstall Azure Network Policy Manager or Calico
-Requirements:
- - aks-preview Azure CLI extension version 0.5.166 or later. See [Install the aks-preview Azure CLI extension](#Install-the-aks-preview-Azure-CLI-extension).
- - Azure CLI version 2.54 or later
- - AKS REST API version 2023-08-02-preview or later
-
-Notes:
- - The uninstall process does _not_ remove Custom Resource Definitions (CRDs) and Custom Resources (CRs) used by Calico. These all have names ending with either "projectcalico.org" or "tigera.io".
- These CRDs and associated CRs can be manually deleted _after_ Calico is successfully uninstalled (deleting the CRDs before removing Calico will break the cluster).
- - The upgrade will not remove any NetworkPolicy resources in the cluster, but after the uninstall these policies will no longer be enforced.
-
-> [!WARNING]
-> The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
-
-To remove Azure Network Policy Manager or Calico from a cluster, run the following command:
-```azurecli
-az aks update
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $CLUSTER_NAME \
-    --network-policy none
 ```
 
 ## Install Azure Network Policy Manager or Calico in an existing cluster

@@ -119,7 +119,7 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 > - The cluster does not have any Windows node pools.  
 
 > [!NOTE]
-> When enabling Cilium in a cluster with a different network policy engine (Azure NPM or Calico), the network policy engine will be uninstalled and replaced with Cilium. See [Uninstall Azure Network Policy Manager or Calico](./use-network-policies.md#uninstall-azure-network-policy-manager-or-calico) for more details.
+> When enabling Cilium in a cluster with a different network policy engine (Azure NPM or Calico), the network policy engine will be uninstalled and replaced with Cilium. See [Uninstall Azure Network Policy Manager or Calico](./use-network-policies.md#uninstall-azure-network-policy-manager-or-calico-preview) for more details.
 
 > [!WARNING]
 > The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
