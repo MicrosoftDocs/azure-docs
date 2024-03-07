@@ -3,7 +3,7 @@ title: Configure Apache Ranger policies for Spark SQL in HDInsight with Enterpri
 description: This article describes how to configure Ranger policies for Spark SQL with Enterprise Security Package.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 02/12/2024
+ms.date: 03/07/2024
 ---
 
 # Configure Apache Ranger policies for Spark SQL in HDInsight with Enterprise Security Package
@@ -174,9 +174,9 @@ Let's say that you have the policies defined in the Ranger repo already under th
 
    :::image type="content" source="./media/ranger-policies-for-spark/ambari-config-ranger-security.png" alt-text="Screenshot shows Ambari config ranger security." lightbox="./media/ranger-policies-for-spark/ambari-config-ranger-security.png":::
 
-   You can also open this configuration in **/etc/spark3/conf** by using SSH.
+  or You can also open this configuration in **/etc/spark3/conf** by using SSH.
 
-1. Edit two configurations (**ranger.plugin.spark.service.name** and **ranger.plugin.spark.policy.cache.dir**) to point to the old policy repo **oldclustername_hive**, and then save the configurations.
+  Edit two configurations (**ranger.plugin.spark.service.name** and **ranger.plugin.spark.policy.cache.dir**) to point to the old policy repo **oldclustername_hive**, and then save the configurations.
 
    Ambari:
 
@@ -186,6 +186,10 @@ Let's say that you have the policies defined in the Ranger repo already under th
 
    :::image type="content" source="./media/ranger-policies-for-spark/config-update-xml.png" alt-text="Screenshot that shows a configuration update for service name in XML." lightbox="./media/ranger-policies-for-spark/config-update-xml.png":::
 
+1. Click on edit button for **oldclustername_hive** and add **rangersparklookup** user in the **policy.download.auth.users** and **tag.download.auth.users** list.
+
+  :::image type="content" source="./media/ranger-policies-for-spark/" alt-text="Screenshot that shows edit option for ranger service." lightbox="./media/ranger-policies-for-spark/":::
+  
 1. Restart the Ranger and Spark services from Ambari.
 
 The policies are applied on databases in the Spark catalog. If you want to access the databases in the Hive catalog:
@@ -198,5 +202,4 @@ The policies are applied on databases in the Spark catalog. If you want to acces
 ## Known issues
 
 - Apache Ranger integration with Spark SQL doesn't work if the Ranger admin is down.
-- The Ranger database can be overloaded if more than 20 Spark sessions are started concurrently because of continuous policy pulls.
 - In Ranger audit logs, when you hover over the **Resource** column, it doesn't show the entire query that you ran.
