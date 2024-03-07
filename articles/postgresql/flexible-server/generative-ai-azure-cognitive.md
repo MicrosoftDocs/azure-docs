@@ -324,7 +324,7 @@ For more details on parameters see [Translator API](../../ai-services/translator
 ##### `target_script`
 `text DEFAULT NULL` Specifices script of the input text.
 
-## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about vector similarity search using `pgvector`](./how-to-use-pgvector.md)
+## Next steps
+- [Learn more about Azure Open AI integration](./generative-ai-azure-openai.md)
+- [Learn more about Azure Open AI integration](./generative-ai-azure-ml.md)
