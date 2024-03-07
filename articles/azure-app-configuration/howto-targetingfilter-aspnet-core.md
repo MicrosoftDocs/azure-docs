@@ -73,7 +73,7 @@ In this section, you will create a web application that allows users to sign in 
     // Add feature management to the container of services.
     builder.Services.AddFeatureManagement();
 
-    // The rest of existing code in program.cs
+    // The rest of existing code in Program.cs
     // ... ...
     ```
 
@@ -86,7 +86,7 @@ In this section, you will create a web application that allows users to sign in 
     // Use Azure App Configuration middleware for dynamic configuration refresh.
     app.UseAzureAppConfiguration();
 
-    // The rest of existing code in program.cs
+    // The rest of existing code in Program.cs
     // ... ...
     ```
 
