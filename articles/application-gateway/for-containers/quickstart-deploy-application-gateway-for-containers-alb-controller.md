@@ -24,7 +24,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
     ```azurecli-interactive
     # Sign in to your Azure subscription.
-    SUBSCRIPTION_ID='<your subscription id>'
+    $SUBSCRIPTION_ID='<your subscription id>'
     az login
     az account set --subscription $SUBSCRIPTION_ID
 
