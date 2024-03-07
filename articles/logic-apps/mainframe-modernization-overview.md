@@ -79,7 +79,7 @@ This Azure Logic Apps connector for MQ enables connections between Standard work
 
 Mainframe and midrange systems can host multiple environments that contain programs, data, files, and tools. Over the years, these environments might not have been refactored or were left to grow and reach their limits, despite hardware upgrades. These environments might also have been maintained by multiple developers and IT admins, who follow different programming patterns and techniques, or recruited other parties to help with tasks that require expertise scarce in the market. Along with a shrinking pool of experienced professionals, all these factors create a complex and challenging job of modernizing mainframe and midrange environments.
 
-While this is not a comprehensive list, defining a successful modernization strategy should at least, include ways to handle the following:
+While the following list isn't comprehensive, defining a successful modernization strategy minimally includes ways to handle the following tasks:
 
 - Maintain the current service level indicators and objectives for your environments.
 - Manage coexistence between legacy data along with migrated data.
