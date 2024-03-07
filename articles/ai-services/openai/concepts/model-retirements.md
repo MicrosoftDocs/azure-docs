@@ -33,7 +33,7 @@ Azure OpenAI notifies subscription {role} of active Azure OpenAI Service deploym
 
 To prepare for model retirements and version upgrades, we recommend that customers evaluate their applications with the new models and versions and evaluate their behavior.  We also recommend that customers update their applications to use the new models and versions before the retirement date.
 
-See [How to upgrade to a new model or version](./upgrade-model-version.md) for more information.
+See [How to upgrade to a new model or version](./model-versions.md) for more information.
 
 ## Current Models
 
