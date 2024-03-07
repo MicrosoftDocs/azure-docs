@@ -90,7 +90,7 @@ While this is not a comprehensive list, defining a successful modernization stra
 - Conduct hybrid functional and nonfunctional testing activities.
 - Maintain external dependencies or interfaces.
    
-With this in mind, customers typically chose any of the following paths to conduct mainframe and midranges modernization:
+With these tasks in mind, customers typically choose any of the following paths to conduct mainframe and midrange systems modernization:
 
 - Big bang
 
