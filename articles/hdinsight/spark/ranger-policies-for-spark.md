@@ -174,9 +174,9 @@ Let's say that you have the policies defined in the Ranger repo already under th
 
    :::image type="content" source="./media/ranger-policies-for-spark/ambari-config-ranger-security.png" alt-text="Screenshot shows Ambari config ranger security." lightbox="./media/ranger-policies-for-spark/ambari-config-ranger-security.png":::
 
-  or You can also open this configuration in **/etc/spark3/conf** by using SSH.
+   or You can also open this configuration in **/etc/spark3/conf** by using SSH.
 
-  Edit two configurations (**ranger.plugin.spark.service.name** and **ranger.plugin.spark.policy.cache.dir**) to point to the old policy repo **oldclustername_hive**, and then save the configurations.
+   Edit two configurations (**ranger.plugin.spark.service.name** and **ranger.plugin.spark.policy.cache.dir**) to point to the old policy repo **oldclustername_hive**, and then save the configurations.
 
    Ambari:
 
@@ -186,11 +186,15 @@ Let's say that you have the policies defined in the Ranger repo already under th
 
    :::image type="content" source="./media/ranger-policies-for-spark/config-update-xml.png" alt-text="Screenshot that shows a configuration update for service name in XML." lightbox="./media/ranger-policies-for-spark/config-update-xml.png":::
 
-1. Click on edit button for **oldclustername_hive** and add **rangersparklookup** user in the **policy.download.auth.users** and **tag.download.auth.users** list.
-
-  :::image type="content" source="./media/ranger-policies-for-spark/" alt-text="Screenshot that shows edit option for ranger service." lightbox="./media/ranger-policies-for-spark/":::
-  
 1. Restart the Ranger and Spark services from Ambari.
+
+1. Open the Ranger admin UI and click on edit button under **HADOOP SQL** service.
+
+   :::image type="content" source="./media/ranger-policies-for-spark/ranger-service-edit.png" alt-text="Screenshot that shows edit option for ranger service." lightbox="./media/ranger-policies-for-spark/ranger-service-edit.png":::
+  
+1. For **oldclustername_hive** service, add **rangersparklookup** user in the **policy.download.auth.users** and **tag.download.auth.users** list and click save.
+  
+   :::image type="content" source="./media/ranger-policies-for-spark/add-new-user-rangerlookup.png" alt-text="Screenshot that shows edit option for ranger service." lightbox="./media/ranger-policies-for-spark/add-new-user-rangerlookup.png":::
 
 The policies are applied on databases in the Spark catalog. If you want to access the databases in the Hive catalog:
 
