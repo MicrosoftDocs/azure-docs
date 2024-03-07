@@ -26,7 +26,7 @@ Your secure score is based on the number of security recommendations you complet
 ### [Ensure 'Block Project-wide SSH keys' is enabled for VM instances](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00f8a6a6-cf69-4c11-822e-3ebf4910e545)
 
 **Description**: It's recommended to use Instance specific SSH key(s) instead of using common/shared project-wide SSH key(s) to access Instances.
-Project-wide SSH keys are stored in Compute/Project-meta-data. Project wide SSH keys can be used to login into all the instances within project. Using project-wide SSH keys eases the SSH key management but if compromised, poses the security risk that can affect all the instances within project.
+Project-wide SSH keys are stored in Compute/Project-meta-data. Project wide SSH keys can be used to log in into all the instances within project. Using project-wide SSH keys eases the SSH key management but if compromised, poses the security risk that can affect all the instances within project.
  It's recommended to use Instance specific SSH keys that can limit the attack surface if the SSH keys are compromised.
 
 **Severity**: Medium

@@ -1,11 +1,11 @@
 ---
-title: Permissions management
+title: Permissions Management
 description: Learn about Permissions Management in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.date: 02/20/2024
 ---
 
-# Permissions management
+# Permissions Management
 
 Microsoft Defender for Cloud's integration with Microsoft [Microsoft Entra Permissions Management (CIEM)](/entra/permissions-management/overview) provides a Cloud Infrastructure Entitlement Management (CIEM) security model that helps organizations manage and control user access and entitlements in their cloud infrastructure. CIEM is a critical component of the Cloud Native Application Protection Platform (CNAPP) solution that provides visibility into who or what has access to specific resources. It ensures that access rights adhere to the principle of least privilege (PoLP), where users or workload identities, such as apps and services, receive only the minimum levels of access necessary to perform their tasks. CIEM also helps organizations to monitor and manage permissions across multiple cloud environments, including Azure, AWS, and GCP.
 
@@ -21,7 +21,7 @@ The integration creates recommendations under the Manage Access and Permissions 
 
 ## Known limitations
 
-AWS and GCP accounts that were onboarded to Microsoft Entra Permissions Management before being onboarded to Defender for Cloud cannot be integrated through Microsoft Defender for Cloud.
+AWS and GCP accounts that were onboarded to Microsoft Entra Permissions Management before being onboarded to Defender for Cloud can't be integrated through Microsoft Defender for Cloud.
 
 ## Feature matrix
 
