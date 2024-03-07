@@ -140,6 +140,9 @@ Update a node pool with trusted launch enabled using the [az aks nodepool update
    * **--enable-vtpm**: Enables vTPM and performs attestation by measuring the entire boot chain of your VM.
 
 > [!NOTE]
+> The existing nodepool must be using a trusted launch image in order to enable on an existing node pool. By default, creating a node pool with a TL-compatible configuration and the feature flag registered results in a trusted launch image. Without specifying `--enable-vtpm` or `--enable-secure-boot` parameters, they are disabled by default and you can enable later using `az aks nodepool update` command.
+
+> [!NOTE]
 > Secure Boot requires signed boot loaders, OS kernels, and drivers. If after enabling Secure Boot your nodes don't start, you can verify which boot components are responsible for Secure Boot failures within an Azure Linux Virtual Machine. See [verify Secure Boot failures][verify-secure-boot-failures].
 
 The following example updates the node pool *mynodepool* on the *myAKSCluster* in the *myResourceGroup*, and enables Secure Boot and vTPM:
@@ -211,6 +214,7 @@ In this article, you learned how to enable trusted launch. Learn more about [tru
 [microsoft-defender-for-cloud-overview]: ../defender-for-cloud/defender-for-cloud-introduction.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
 [azure-generation-two-virtual-machines]: ../virtual-machines/generation-2.md
 [verify-secure-boot-failures]: ../virtual-machines/trusted-launch-faq.md#verifying-secure-boot-failures
