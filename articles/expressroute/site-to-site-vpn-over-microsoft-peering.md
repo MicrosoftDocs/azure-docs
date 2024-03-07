@@ -7,7 +7,7 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/03/2023
 ms.author: duau
-ms.custom: seodec18, devx-track-azurepowershell, FY23 content-maintenance
+ms.custom: devx-track-azurepowershell, FY23 content-maintenance
 ---
 
 # Configure a site-to-site VPN over ExpressRoute Microsoft peering

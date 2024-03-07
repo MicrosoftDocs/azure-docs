@@ -176,7 +176,7 @@ Azure Site Recovery also provides default alerts via Azure Monitor, which enable
 
 ### Enable built-in Azure Monitor alerts
 
-To enable built-in Azure Monitor alerts for Azure Site Recovery, for a particular subscription, navigate to **Preview Features** in the [Azure portal](https://ms.portal.azure.com) and register the feature flag **EnableAzureSiteRecoveryAlertToAzureMonitor** for the selected subscription. 
+To enable built-in Azure Monitor alerts for Azure Site Recovery, for a particular subscription, navigate to **Preview Features** in the [Azure portal](https://ms.portal.azure.com) and register the feature flag **EnableAzureSiteRecoveryAlertsToAzureMonitor** for the selected subscription. 
 
 > [!NOTE]
 > We recommended that you wait for 24 hours for the registration to take effect before testing out the feature. 
@@ -273,9 +273,9 @@ With Azure Monitor action groups, you can route alerts to other notification cha
 
 You can use the following interfaces supported by Azure Monitor to manage action groups and alert processing rules:
 
-- [Azure Monitor REST API reference](https://learn.microsoft.com/rest/api/monitor/)
-- [Azure Monitor PowerShell reference](https://learn.microsoft.com/powershell/module/az.monitor)
-- [Azure Monitor CLI reference](https://learn.microsoft.com/cli/azure/monitor)
+- [Azure Monitor REST API reference](/rest/api/monitor/)
+- [Azure Monitor PowerShell reference](/powershell/module/az.monitor)
+- [Azure Monitor CLI reference](/cli/azure/monitor)
 
 ### Suppress notifications during a planned maintenance window
 

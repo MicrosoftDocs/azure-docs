@@ -3,7 +3,7 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 01/31/2024
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template
 zone_pivot_groups: functions-hosting-plan
 ---
@@ -1639,7 +1639,7 @@ These application settings are required for container deployments:
 
 Keep these considerations in mind when working with site and application settings using Bicep files or ARM templates:
  :::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
-+ There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.  
++ There are important considerations for when you should set `WEBSITE_CONTENTSHARE` in an automated deployment. For detailed guidance, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference. 
 ::: zone-end
 :::zone pivot="container-apps,azure-arc,premium-plan,dedicated-plan"  
 + For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) to `false`, since your app content is provided in the container itself. 
@@ -1660,12 +1660,14 @@ Keep the following considerations in mind when working with slot deployments:
 
 +  Don't explicitly set the `WEBSITE_CONTENTSHARE` setting in the deployment slot definition. This setting is generated for you when the app is created in the deployment slot. 
 
-+ When you swap slots, some application settings are considered "sticky," in that they stay with the slot and not with the code being swapped. For more information, see [Manage settings](functions-deployment-slots.md#manage-settings).
++ When you swap slots, some application settings are considered "sticky," in that they stay with the slot and not with the code being swapped. You can define such a _slot setting_ by including `"slotSetting":true` in the specific application setting definition in your template. For more information, see [Manage settings](functions-deployment-slots.md#manage-settings).
 ::: zone-end  
 :::zone pivot="premium-plan,dedicated-plan" 
 ## Secured deployments
 
-You can create your function app in a deployment where one or more of the resources have been secured by integrating with virtual networks. Virtual network integration for your function app is defined by a `Microsoft.Web/sites/networkConfig` resource. This integration depends on both the referenced function app and virtual network resources. You function app might also depend on other private networking resources, such as private endpoints and routes. For more information, see [Azure Functions networking options](functions-networking-options.md).
+You can create your function app in a deployment where one or more of the resources have been secured by integrating with virtual networks. Virtual network integration for your function app is defined by a `Microsoft.Web/sites/networkConfig` resource. This integration depends on both the referenced function app and virtual network resources. Your function app might also depend on other private networking resources, such as private endpoints and routes. For more information, see [Azure Functions networking options](functions-networking-options.md). 
+
+When creating a deployment that uses a secured storage account, you must both explicitly set the `WEBSITE_CONTENTSHARE` setting and create the file share resource named in this setting. Make sure you create a `Microsoft.Storage/storageAccounts/fileServices/shares` resource using the value of `WEBSITE_CONTENTSHARE`, as shown in this example ([ARM template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-private-endpoints-storage-private-endpoints/azuredeploy.json#L467)|[Bicep file](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-private-endpoints-storage-private-endpoints/main.bicep#L351)).  
 
 These projects provide both Bicep and ARM template examples of how to deploy your function apps in a virtual network, including with network access restrictions:
 

@@ -4,7 +4,8 @@ description: "Learn how to create a C# function, then publish the local project 
 ms.topic: quickstart
 ms.date: 01/05/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-ui, vscode-azure-extension-update-complete
+ms.custom: devx-track-csharp, mode-ui, vscode-azure-extension-update-complete, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create a C# function in Azure using Visual Studio Code
@@ -14,6 +15,11 @@ This article creates an HTTP triggered function that runs on .NET 8 in an isolat
 There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+
+This video shows you how to create a C# function in Azure using VS Code.
+> [!VIDEO be75e388-1b74-4051-8a62-132b069a3ec9]
+
+The steps in the video are also described in the following sections.
 
 ## Configure your environment
 
@@ -39,11 +45,13 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |--|--|
     |**Select a language for your function project**|Choose `C#`.|
     | **Select a .NET runtime** | Choose `.NET 8.0 Isolated (LTS)`.|
-    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.<sup>1</sup>|
     |**Provide a function name**|Type `HttpExample`.|
     |**Provide a namespace** | Type `My.Functions`. |
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
     |**Select how you would like to open your project**|Select `Open in current window`.|
+
+    <sup>1</sup> Depending on your VS Code settings, you may need to use the `Change template filter` option to see the full list of templates.
 
 1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=csharp#generated-project-files).
 

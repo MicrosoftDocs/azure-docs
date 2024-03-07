@@ -141,6 +141,16 @@ az devcenter admin devbox-definition update
 --dev-box-definition-name <devBoxDefinitionName> -–dev-center-name <devCenterName> --resource-group <resourceGroupName> –-hibernateSupport Enabled
 ``` 
 
+### Troubleshooting
+
+If you enable hibernation on a Dev Box definition, but the definition reports that hibernation couldn't be enabled:
+- We recommend using the Visual Studio for Dev Box marketplace images, either directly, or as base images for generating your custom image.
+- The Windows + OS optimizations image contains optimized power settings, and they can't be used with hibernation.
+- If you're using a custom Azure Compute Gallery image, enable hibernation on your Azure Compute Gallery image before enabling hibernation on your Dev Box definition.
+- If hibernation can't be enabled on the definition even after you enable it on your gallery image, your custom image likely has a Windows configuration that prevents hibernation. 
+
+For more information, see [Settings not compatible with hibernation](how-to-configure-dev-box-hibernation.md#settings-not-compatible-with-hibernation).
+
 ## Disable hibernation on a dev box definition
 
 If you have issues provisioning new VMs after you enable hibernation on a pool, you can disable hibernation on the dev box definition. You can also disable hibernation when you want to revert the setting to only shutdown dev boxes.

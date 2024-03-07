@@ -3,8 +3,8 @@ title: Key concepts for Azure Load Testing
 description: Learn how Azure Load Testing works, and the key concepts behind it.
 services: load-testing
 ms.service: load-testing
-author: ntrogh
-ms.author: nicktrog
+author: ninallam
+ms.author: ninallam
 ms.topic: conceptual
 ms.date: 11/24/2023
 ms.custom: template-concept 
@@ -84,6 +84,8 @@ A test contains a test plan, which describes the steps to invoke the application
 - [Specify the list of URL endpoints to test](./quickstart-create-and-run-load-test.md).
 
 Azure Load Testing supports all communication protocols that JMeter supports, not only HTTP-based endpoints. For example, you might want to read from or write to a database or message queue in the test script.
+
+Azure Load Testing currently does not support other testing frameworks than Apache JMeter.
 
 The test also specifies the configuration settings for running the load test:
 

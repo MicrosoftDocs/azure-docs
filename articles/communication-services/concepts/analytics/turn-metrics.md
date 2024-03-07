@@ -19,6 +19,8 @@ Azure Communication Services currently provides metrics for all Communication Se
 - Investigate abnormalities in your metric values.
 - Understand your API traffic by using the metrics data that Chat requests emit.
 
+[!INCLUDE [TURN retirment](../../includes/turn-retirement.md)]
+
 ## Where to find metrics
 
 Primitives in Communication Services emit metrics for API requests. To find these metrics, see the **Metrics** tab under your Communication Services resource. You can also create permanent dashboards by using the workbooks tab under your Communication Services resource.

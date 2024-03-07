@@ -3,16 +3,9 @@ title: Microsoft Threat Modeling Tool release notes
 titleSuffix: Azure
 description: Read the release notes for all updates of the Microsoft Threat Modeling Tool. See a download link and system requirements.
 services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-
-ms.assetid: na
 ms.service: information-protection
 ms.subservice: aiplabels
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: jegeib

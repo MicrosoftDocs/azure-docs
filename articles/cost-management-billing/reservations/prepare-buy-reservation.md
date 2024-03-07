@@ -6,10 +6,9 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom:
-  - ignite-2022
   - ignite-2023
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 02/22/2024
 ms.author: banders
 ---
 
@@ -25,7 +24,7 @@ Cloud solution providers can use the Azure portal or [Partner Center](/partner
 
 You can't buy a reservation if you have a custom role that mimics owner role or reservation purchaser role on an Azure subscription. You must use the built-in Owner or built-in Reservation Purchaser role.
 
-Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Add Reserved Instances** option in the EA Portal. Direct EA customers can now disable Reserved Instance setting in [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to Policies menu to change settings.
+Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to Policies menu to change settings.
 
 EA admins must have owner or reservation purchaser access on at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
 
@@ -42,7 +41,7 @@ You have four options to scope a reservation, depending on your needs:
 - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
 - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.
 - **Shared scope** - Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. If a subscription is moved to different billing context, the benefit no longer applies to the subscription. It continues to apply to other subscriptions in the billing context.
-    - For Enterprise Agreement customers, the billing context is the enrollment. The reservation shared scope would include multiple Active Directory tenants in an enrollment.
+    - For Enterprise Agreement customers, the billing context is the enrollment. The reservation shared scope would include multiple Microsoft Entra tenants in an enrollment.
     - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
     - For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
 - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management group scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have at least read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription.
@@ -143,7 +142,7 @@ Notifications are sent to the following users:
 - Customers with Microsoft Customer Agreement (Azure Plan)
     - Notifications are sent to the reservation owners and the reservation administrator.
 - Cloud Solution Provider and new commerce partners
-    - Partner Center Action Center emails are sent to partners. For more information about how partners can update their transactional notifications, see [Action Center preferences](/partner-center/action-center-overview#preferences).
+    - Notifications are sent to the primary contact partner identified by the partner legal information account settings. For more information about how to update the primary contact email address for partner account settings, see [Verify or update your company profile information](/partner-center/update-your-partner-profile#update-your-legal-business-profile).
 - Individual subscription customers with pay-as-you-go rates
     - Emails are sent to users who are set up as account administrators, reservation owners, and the reservation administrator.
 

@@ -4,7 +4,7 @@ description: This article describes how to use the Microsoft Sentinel hunting bo
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 11/09/2021
 ---
 

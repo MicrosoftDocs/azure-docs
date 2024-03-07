@@ -3,8 +3,8 @@ title: Add users to your Azure Dev/Test developer directory tenant
 description: A how-to guide for adding users to your Azure credit subscription and managing their access with role-based controls.
 ms.author: amast
 author: rigel512
-ms.prod: visual-studio-family
-ms.technology: vs-subscriptions
+ms.service: visual-studio-family
+ms.subservice: subscriptions
 ms.topic: how-to 
 ms.date: 10/18/2023
 ms.custom: devtestoffer

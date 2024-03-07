@@ -20,6 +20,9 @@ gstreamer1.0-plugins-ugly
 
 # [RHEL/CentOS](#tab/centos)
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 ```sh
 sudo yum install gstreamer1 \
 gstreamer1-plugins-base \
@@ -29,7 +32,7 @@ gstreamer1-plugins-ugly-free
 ```
 
 > [!NOTE]
-> On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more GStreamer plug-ins need to be installed if the stream media format plug-in isn't in the preceding installed plug-ins. 
+> On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more GStreamer plug-ins need to be installed if the stream media format plug-in isn't in the preceding installed plug-ins.
 
 ---
 

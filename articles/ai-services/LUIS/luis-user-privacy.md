@@ -6,11 +6,11 @@ description: You have full control over viewing, exporting, and deleting their d
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18, references_regions
+ms.custom: references_regions
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 04/08/2020
+ms.date: 01/19/2024
 ---
 
 # Export and delete your customer data in Language Understanding (LUIS) in Azure AI services

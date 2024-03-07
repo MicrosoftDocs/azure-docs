@@ -4,12 +4,12 @@ description: Learn how to back up and recover an Oracle Database instance to an 
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
-ms.reviewer: jjaygbay1 
+ms.reviewer: jjaygbay1
 ---
 
 # Back up and recover Oracle Database on an Azure Linux VM by using Azure Files
@@ -293,7 +293,7 @@ To set up your storage account and file share, run the following commands:
    If you get an error similar to the following example, the Common Internet File System (CIFS) package might not be installed on your Linux host:
 
    ```output
-   mount: wrong fs type, bad option, bad superblock on //orabackup1.file.core.windows.net/orabackup 
+   mount: wrong fs type, bad option, bad superblock on //orabackup1.file.core.windows.net/orabackup
    ```
 
    To check if the CIFS package is installed, run the following command:
@@ -343,7 +343,7 @@ In this section, you use Oracle RMAN to take a full backup of the database and a
     rman target /
     RMAN> configure snapshot controlfile name to '/mnt/orabkup/snapcf_ev.f';
     RMAN> configure channel 1 device type disk format '/mnt/orabkup/%d/Full_%d_%U_%T_%s';
-    RMAN> configure channel 2 device type disk format '/mnt/orabkup/%d/Full_%d_%U_%T_%s'; 
+    RMAN> configure channel 2 device type disk format '/mnt/orabkup/%d/Full_%d_%U_%T_%s';
     ```
 
 2. In this example, you're limiting the size of RMAN backup pieces to 4 GiB. However, the RMAN backup `maxpiecesize` value can go up to 4 TiB, which is the file size limit for Azure standard file shares and premium file shares. For more information, see [Azure Files scalability and performance targets](../../../storage/files/storage-files-scale-targets.md).

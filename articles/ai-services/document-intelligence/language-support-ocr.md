@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 01/19/2024
 ---
 
 # Language support: document analysis
@@ -66,6 +66,521 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ##### Model ID: **prebuilt-read**
 
+### [**Read: printed text**](#tab/read-print)
+
+:::moniker range=">=doc-intel-3.1.0"
+
+The following table lists read model language support for extracting and analyzing **printed** text. </br>
+
+:::row:::
+   :::column span="":::
+  |Language| Code (optional) |
+  |:-----|:----:|
+  |Abaza|`abq`|
+  |Abkhazian|`ab`|
+  |Achinese|`ace`|
+  |Acoli|`ach`|
+  |Adangme|`ada`|
+  |Adyghe|`ady`|
+  |Afar|`aa`|
+  |Afrikaans|`af`|
+  |Akan|`ak`|
+  |Albanian|`sq`|
+  |Algonquin|`alq`|
+  |Angika (Devanagari)|`anp`|
+  |Arabic|`ar`|
+  |Asturian|`ast`|
+  |Asu (Tanzania)|`asa`|
+  |Avaric|`av`|
+  |Awadhi-Hindi (Devanagari)|`awa`|
+  |Aymara|`ay`|
+  |Azerbaijani (Latin)|`az`|
+  |Bafia|`ksf`|
+  |Bagheli|`bfy`|
+  |Bambara|`bm`|
+  |Bashkir|`ba`|
+  |Basque|`eu`|
+  |Belarusian (Cyrillic)|`be`, `be-cyrl`|
+  |Belarusian (Latin)|`be`, `be-latn`|
+  |Bemba (Zambia)|`bem`|
+  |Bena (Tanzania)|`bez`|
+  |Bhojpuri-Hindi (Devanagari)|`bho`|
+  |Bikol|`bik`|
+  |Bini|`bin`|
+  |Bislama|`bi`|
+  |Bodo (Devanagari)|`brx`|
+  |Bosnian (Latin)|`bs`|
+  |Brajbha|`bra`|
+  |Breton|`br`|
+  |Bulgarian|`bg`|
+  |Bundeli|`bns`|
+  |Buryat (Cyrillic)|`bua`|
+  |Catalan|`ca`|
+  |Cebuano|`ceb`|
+  |Chamling|`rab`|
+  |Chamorro|`ch`|
+  |Chechen|`ce`|
+  |Chhattisgarhi (Devanagari)|`hne`|
+  |Chiga|`cgg`|
+  |Chinese Simplified|`zh-Hans`|
+  |Chinese Traditional|`zh-Hant`|
+  |Choctaw|`cho`|
+  |Chukot|`ckt`|
+  |Chuvash|`cv`|
+  |Cornish|`kw`|
+  |Corsican|`co`|
+  |Cree|`cr`|
+  |Creek|`mus`|
+  |Crimean Tatar (Latin)|`crh`|
+  |Croatian|`hr`|
+  |Crow|`cro`|
+  |Czech|`cs`|
+  |Danish|`da`|
+  |Dargwa|`dar`|
+  |Dari|`prs`|
+  |Dhimal (Devanagari)|`dhi`|
+  |Dogri (Devanagari)|`doi`|
+  |Duala|`dua`|
+  |Dungan|`dng`|
+  |Dutch|`nl`|
+  |Efik|`efi`|
+  |English|`en`|
+  |Erzya (Cyrillic)|`myv`|
+  |Estonian|`et`|
+  |Faroese|`fo`|
+  |Fijian|`fj`|
+  |Filipino|`fil`|
+  |Finnish|`fi`|
+   :::column-end:::
+   :::column span="":::
+  |Language| Code (optional) |
+  |:-----|:----:|
+  |`Fon`|`fon`|
+  |French|`fr`|
+  |Friulian|`fur`|
+  |`Ga`|`gaa`|
+  |Gagauz (Latin)|`gag`|
+  |Galician|`gl`|
+  |Ganda|`lg`|
+  |Gayo|`gay`|
+  |German|`de`|
+  |Gilbertese|`gil`|
+  |Gondi (Devanagari)|`gon`|
+  |Greek|`el`|
+  |Greenlandic|`kl`|
+  |Guarani|`gn`|
+  |Gurung (Devanagari)|`gvr`|
+  |Gusii|`guz`|
+  |Haitian Creole|`ht`|
+  |Halbi (Devanagari)|`hlb`|
+  |Hani|`hni`|
+  |Haryanvi|`bgc`|
+  |Hawaiian|`haw`|
+  |Hebrew|`he`|
+  |Herero|`hz`|
+  |Hiligaynon|`hil`|
+  |Hindi|`hi`|
+  |Hmong Daw (Latin)|`mww`|
+  |Ho(Devanagiri)|`hoc`|
+  |Hungarian|`hu`|
+  |Iban|`iba`|
+  |Icelandic|`is`|
+  |Igbo|`ig`|
+  |Iloko|`ilo`|
+  |Inari Sami|`smn`|
+  |Indonesian|`id`|
+  |Ingush|`inh`|
+  |Interlingua|`ia`|
+  |Inuktitut (Latin)|`iu`|
+  |Irish|`ga`|
+  |Italian|`it`|
+  |Japanese|`ja`|
+  |Jaunsari (Devanagari)|`Jns`|
+  |Javanese|`jv`|
+  |Jola-Fonyi|`dyo`|
+  |Kabardian|`kbd`|
+  |Kabuverdianu|`kea`|
+  |Kachin (Latin)|`kac`|
+  |Kalenjin|`kln`|
+  |Kalmyk|`xal`|
+  |Kangri (Devanagari)|`xnr`|
+  |Kanuri|`kr`|
+  |Karachay-Balkar|`krc`|
+  |Kara-Kalpak (Cyrillic)|`kaa-cyrl`|
+  |Kara-Kalpak (Latin)|`kaa`|
+  |Kashubian|`csb`|
+  |Kazakh (Cyrillic)|`kk-cyrl`|
+  |Kazakh (Latin)|`kk-latn`|
+  |Khakas|`kjh`|
+  |Khaling|`klr`|
+  |Khasi|`kha`|
+  |K'iche'|`quc`|
+  |Kikuyu|`ki`|
+  |Kildin Sami|`sjd`|
+  |Kinyarwanda|`rw`|
+  |Komi|`kv`|
+  |Kongo|`kg`|
+  |Korean|`ko`|
+  |Korku|`kfq`|
+  |Koryak|`kpy`|
+  |Kosraean|`kos`|
+  |Kpelle|`kpe`|
+  |Kuanyama|`kj`|
+  |Kumyk (Cyrillic)|`kum`|
+  |Kurdish (Arabic)|`ku-arab`|
+  |Kurdish (Latin)|`ku-latn`|
+  |Kurukh (Devanagari)|`kru`|
+  |Kyrgyz (Cyrillic)|`ky`|
+  |`Lak`|`lbe`|
+  |Lakota|`lkt`|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Latin|`la`|
+  |Latvian|`lv`|
+  |Lezghian|`lex`|
+  |Lingala|`ln`|
+  |Lithuanian|`lt`|
+  |Lower Sorbian|`dsb`|
+  |Lozi|`loz`|
+  |Lule Sami|`smj`|
+  |Luo (Kenya and Tanzania)|`luo`|
+  |Luxembourgish|`lb`|
+  |Luyia|`luy`|
+  |Macedonian|`mk`|
+  |Machame|`jmc`|
+  |Madurese|`mad`|
+  |Mahasu Pahari (Devanagari)|`bfz`|
+  |Makhuwa-Meetto|`mgh`|
+  |Makonde|`kde`|
+  |Malagasy|`mg`|
+  |Malay (Latin)|`ms`|
+  |Maltese|`mt`|
+  |Malto (Devanagari)|`kmj`|
+  |Mandinka|`mnk`|
+  |Manx|`gv`|
+  |Maori|`mi`|
+  |Mapudungun|`arn`|
+  |Marathi|`mr`|
+  |Mari (Russia)|`chm`|
+  |Masai|`mas`|
+  |Mende (Sierra Leone)|`men`|
+  |Meru|`mer`|
+  |Meta'|`mgo`|
+  |Minangkabau|`min`|
+  |Mohawk|`moh`|
+  |Mongolian (Cyrillic)|`mn`|
+  |Mongondow|`mog`|
+  |Montenegrin (Cyrillic)|`cnr-cyrl`|
+  |Montenegrin (Latin)|`cnr-latn`|
+  |Morisyen|`mfe`|
+  |Mundang|`mua`|
+  |Nahuatl|`nah`|
+  |Navajo|`nv`|
+  |Ndonga|`ng`|
+  |Neapolitan|`nap`|
+  |Nepali|`ne`|
+  |Ngomba|`jgo`|
+  |Niuean|`niu`|
+  |Nogay|`nog`|
+  |North Ndebele|`nd`|
+  |Northern Sami (Latin)|`sme`|
+  |Norwegian|`no`|
+  |Nyanja|`ny`|
+  |Nyankole|`nyn`|
+  |Nzima|`nzi`|
+  |Occitan|`oc`|
+  |Ojibwa|`oj`|
+  |Oromo|`om`|
+  |Ossetic|`os`|
+  |Pampanga|`pam`|
+  |Pangasinan|`pag`|
+  |Papiamento|`pap`|
+  |Pashto|`ps`|
+  |Pedi|`nso`|
+  |Persian|`fa`|
+  |Polish|`pl`|
+  |Portuguese|`pt`|
+  |Punjabi (Arabic)|`pa`|
+  |Quechua|`qu`|
+  |Ripuarian|`ksh`|
+  |Romanian|`ro`|
+  |Romansh|`rm`|
+  |Rundi|`rn`|
+  |Russian|`ru`|
+  |`Rwa`|`rwk`|
+  |Sadri (Devanagari)|`sck`|
+  |Sakha|`sah`|
+  |Samburu|`saq`|
+  |Samoan (Latin)|`sm`|
+  |Sango|`sg`|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Sangu (Gabon)|`snq`|
+  |Sanskrit (Devanagari)|`sa`|
+  |Santali(Devanagiri)|`sat`|
+  |Scots|`sco`|
+  |Scottish Gaelic|`gd`|
+  |Sena|`seh`|
+  |Serbian (Cyrillic)|`sr-cyrl`|
+  |Serbian (Latin)|`sr`, s`r-latn`|
+  |Shambala|`ksb`|
+  |Shona|`sn`|
+  |Siksika|`bla`|
+  |Sirmauri (Devanagari)|`srx`|
+  |Skolt Sami|`sms`|
+  |Slovak|`sk`|
+  |Slovenian|`sl`|
+  |Soga|`xog`|
+  |Somali (Arabic)|`so`|
+  |Somali (Latin)|`so-latn`|
+  |Songhai|`son`|
+  |South Ndebele|`nr`|
+  |Southern Altai|`alt`|
+  |Southern Sami|`sma`|
+  |Southern Sotho|`st`|
+  |Spanish|`es`|
+  |Sundanese|`su`|
+  |Swahili (Latin)|`sw`|
+  |Swati|`ss`|
+  |Swedish|`sv`|
+  |Tabassaran|`tab`|
+  |Tachelhit|`shi`|
+  |Tahitian|`ty`|
+  |Taita|`dav`|
+  |Tajik (Cyrillic)|`tg`|
+  |Tamil|`ta`|
+  |Tatar (Cyrillic)|`tt-cyrl`|
+  |Tatar (Latin)|`tt`|
+  |Teso|`teo`|
+  |Tetum|`tet`|
+  |Thai|`th`|
+  |Thangmi|`thf`|
+  |Tok Pisin|`tpi`|
+  |Tongan|`to`|
+  |Tsonga|`ts`|
+  |Tswana|`tn`|
+  |Turkish|`tr`|
+  |Turkmen (Latin)|`tk`|
+  |Tuvan|`tyv`|
+  |Udmurt|`udm`|
+  |Uighur (Cyrillic)|`ug-cyrl`|
+  |Ukrainian|`uk`|
+  |Upper Sorbian|`hsb`|
+  |Urdu|`ur`|
+  |Uyghur (Arabic)|`ug`|
+  |Uzbek (Arabic)|`uz-arab`|
+  |Uzbek (Cyrillic)|`uz-cyrl`|
+  |Uzbek (Latin)|`uz`|
+  |Vietnamese|`vi`|
+  |Volapük|`vo`|
+  |Vunjo|`vun`|
+  |Walser|`wae`|
+  |Welsh|`cy`|
+  |Western Frisian|`fy`|
+  |Wolof|`wo`|
+  |Xhosa|`xh`|
+  |Yucatec Maya|`yua`|
+  |Zapotec|`zap`|
+  |Zarma|`dje`|
+  |Zhuang|`za`|
+  |Zulu|`zu`|
+   :::column-end:::
+:::row-end:::
+
+:::moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+The following table lists read model language support for extracting and analyzing **printed** text. </br>
+
+:::row:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Afrikaans|`af`|
+  |Angika|`anp`|
+  |Arabic|`ar`|
+  |Asturian|`ast`|
+  |Awadhi|`awa`|
+  |Azerbaijani|`az`|
+  |Belarusian (Cyrillic)|`be`, `be-cyrl`|
+  |Belarusian (Latin)|`be-latn`|
+  |Bagheli|`bfy`|
+  |Mahasu Pahari|`bfz`|
+  |Bulgarian|`bg`|
+  |Haryanvi|`bgc`|
+  |Bhojpuri|`bho`|
+  |Bislama|`bi`|
+  |Bundeli|`bns`|
+  |Breton|`br`|
+  |Braj|`bra`|
+  |Bodo|`brx`|
+  |Bosnian|`bs`|
+  |Buriat|`bua`|
+  |Catalan|`ca`|
+  |Cebuano|`ceb`|
+  |Chamorro|`ch`|
+  |Montenegrin (Latin)|`cnr`, `cnr-latn`|
+  |Montenegrin (Cyrillic)|`cnr-cyrl`|
+  |Corsican|`co`|
+  |Crimean Tatar|`crh`|
+  |Czech|`cs`|
+  |Kashubian|`csb`|
+  |Welsh|`cy`|
+  |Danish|`da`|
+  |German|`de`|
+  |Dhimal|`dhi`|
+  |Dogri|`doi`|
+  |Lower Sorbian|`dsb`|
+  |English|`en`|
+  |Spanish|`es`|
+  |Estonian|`et`|
+  |Basque|`eu`|
+  |Persian|`fa`|
+  |Finnish|`fi`|
+  |Filipino|`fil`|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Fijian|`fj`|
+  |Faroese|`fo`|
+  |French|`fr`|
+  |Friulian|`fur`|
+  |Western Frisian|`fy`|
+  |Irish|`ga`|
+  |Gagauz|`gag`|
+  |Scottish Gaelic|`gd`|
+  |Gilbertese|`gil`|
+  |Galician|`gl`|
+  |Gondi|`gon`|
+  |Manx|`gv`|
+  |Gurung|`gvr`|
+  |Hawaiian|`haw`|
+  |Hindi|`hi`|
+  |Halbi|`hlb`|
+  |Chhattisgarhi|`hne`|
+  |Hani|`hni`|
+  |`Ho`|`hoc`|
+  |Croatian|`hr`|
+  |Upper Sorbian|`hsb`|
+  |Haitian|`ht`|
+  |Hungarian|`hu`|
+  |Interlingua|`ia`|
+  |Indonesian|`id`|
+  |Icelandic|`is`|
+  |Italian|`it`|
+  |Inuktitut|`iu`|
+  |Japanese|
+  |Jaunsari|`jns`|
+  |Javanese|`jv`|
+  |Kara-Kalpak (Latin)|`kaa`, `kaa-latn`|
+  |Kara-Kalpak (Cyrillic)|`kaa-cyrl`|
+  |Kachin|`kac`|
+  |Kabuverdianu|`kea`|
+  |Korku|`kfq`|
+  |Khasi|`kha`|
+  |Kazakh (Latin)|`kk`, `kk-latn`|
+  |Kazakh (Cyrillic)|`kk-cyrl`|
+  |Kalaallisut|`kl`|
+  |Khaling|`klr`|
+  |Malto|`kmj`|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Korean|
+  |Kosraean|`kos`|
+  |Koryak|`kpy`|
+  |Karachay-Balkar|`krc`|
+  |Kurukh|`kru`|
+  |Kölsch|`ksh`|
+  |Kurdish (Latin)|`ku`, `ku-latn`|
+  |Kurdish (Arabic)|`ku-arab`|
+  |Kumyk|`kum`|
+  |Cornish|`kw`|
+  |Kirghiz|`ky`|
+  |Latin|`la`|
+  |Luxembourgish|`lb`|
+  |Lakota|`lkt`|
+  |Lithuanian|`lt`|
+  |Maori|`mi`|
+  |Mongolian|`mn`|
+  |Marathi|`mr`|
+  |Malay|`ms`|
+  |Maltese|`mt`|
+  |Hmong `Daw`|`mww`|
+  |Erzya|`myv`|
+  |Neapolitan|`nap`|
+  |Nepali|`ne`|
+  |Niuean|`niu`|
+  |Dutch|`nl`|
+  |Norwegian|`no`|
+  |Nogai|`nog`|
+  |Occitan|`oc`|
+  |Ossetian|`os`|
+  |Panjabi|`pa`|
+  |Polish|`pl`|
+  |Dari|`prs`|
+  |Pushto|`ps`|
+  |Portuguese|`pt`|
+  |K'iche'|`quc`|
+  |Camling|`rab`|
+  |Romansh|`rm`|
+  |Romanian|`ro`|
+  |Russian|`ru`|
+  |Sanskrit|`sa`|
+  |Santali|`sat`|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Sadri|`sck`|
+  |Scots|`sco`|
+  |Slovak|`sk`|
+  |Slovenian|`sl`|
+  |Samoan|`sm`|
+  |Southern Sami|`sma`|
+  |Northern Sami|`sme`|
+  |Lule Sami|`smj`|
+  |Inari Sami|`smn`|
+  |Skolt Sami|`sms`|
+  |Somali|`so`|
+  |Albanian|`sq`|
+  |Serbian (Latin)|`sr`, `sr-latn`|
+  |Sirmauri|`srx`|
+  |Swedish|`sv`|
+  |Swahili|`sw`|
+  |Tetum|`tet`|
+  |Tajik|`tg`|
+  |Thangmi|`thf`|
+  |Turkmen|`tk`|
+  |Tonga|`to`|
+  |Turkish|`tr`|
+  |Tatar|`tt`|
+  |Tuvinian|`tyv`|
+  |Uighur|`ug`|
+  |Urdu|`ur`|
+  |Uzbek (Latin)|`uz`, `uz-latn`|
+  |Uzbek (Cyrillic)|`uz-cyrl`|
+  |Uzbek (Arabic)|`uz-arab`|
+  |Volapük|`vo`|
+  |Walser|`wae`|
+  |Kangri|`xnr`|
+  |Yucateco|`yua`|
+  |Zhuang|`za`|
+  |Chinese (Han (Simplified variant))|`zh`, `zh-hans`|
+  |Chinese (Han (Traditional variant))|`zh-hant`|
+  |Zulu|`zu`|
+  :::column-end:::
+:::row-end:::
+
+:::moniker-end
+
 ### [**Read: handwritten text**](#tab/read-hand)
 
 :::moniker range="doc-intel-4.0.0"
@@ -105,521 +620,6 @@ The following table lists read model language support for extracting and analyzi
 |French  |`fr`|Portuguese |`pt`|
 |German  |`de`|Spanish  |`es`|
 |Italian  |`it`|
-
-:::moniker-end
-
-### [**Read: printed text**](#tab/read-print)
-
-:::moniker range=">=doc-intel-3.1.0"
-
-The following table lists read model language support for extracting and analyzing **printed** text. </br>
-
-:::row:::
-   :::column span="":::
-  |Language| Code (optional) |
-  |:-----|:----:|
-  |Abaza|abq|
-  |Abkhazian|ab|
-  |Achinese|ace|
-  |Acoli|ach|
-  |Adangme|ada|
-  |Adyghe|ady|
-  |Afar|aa|
-  |Afrikaans|af|
-  |Akan|ak|
-  |Albanian|sq|
-  |Algonquin|alq|
-  |Angika (Devanagari)|anp|
-  |Arabic|ar|
-  |Asturian|ast|
-  |Asu (Tanzania)|asa|
-  |Avaric|av|
-  |Awadhi-Hindi (Devanagari)|awa|
-  |Aymara|ay|
-  |Azerbaijani (Latin)|az|
-  |Bafia|ksf|
-  |Bagheli|bfy|
-  |Bambara|bm|
-  |Bashkir|ba|
-  |Basque|eu|
-  |Belarusian (Cyrillic)|be, be-cyrl|
-  |Belarusian (Latin)|be, be-latn|
-  |Bemba (Zambia)|bem|
-  |Bena (Tanzania)|bez|
-  |Bhojpuri-Hindi (Devanagari)|bho|
-  |Bikol|bik|
-  |Bini|bin|
-  |Bislama|bi|
-  |Bodo (Devanagari)|brx|
-  |Bosnian (Latin)|bs|
-  |Brajbha|bra|
-  |Breton|br|
-  |Bulgarian|bg|
-  |Bundeli|bns|
-  |Buryat (Cyrillic)|bua|
-  |Catalan|ca|
-  |Cebuano|ceb|
-  |Chamling|rab|
-  |Chamorro|ch|
-  |Chechen|ce|
-  |Chhattisgarhi (Devanagari)|hne|
-  |Chiga|cgg|
-  |Chinese Simplified|zh-Hans|
-  |Chinese Traditional|zh-Hant|
-  |Choctaw|cho|
-  |Chukot|ckt|
-  |Chuvash|cv|
-  |Cornish|kw|
-  |Corsican|co|
-  |Cree|cr|
-  |Creek|mus|
-  |Crimean Tatar (Latin)|crh|
-  |Croatian|hr|
-  |Crow|cro|
-  |Czech|cs|
-  |Danish|da|
-  |Dargwa|dar|
-  |Dari|prs|
-  |Dhimal (Devanagari)|dhi|
-  |Dogri (Devanagari)|doi|
-  |Duala|dua|
-  |Dungan|dng|
-  |Dutch|nl|
-  |Efik|efi|
-  |English|en|
-  |Erzya (Cyrillic)|myv|
-  |Estonian|et|
-  |Faroese|fo|
-  |Fijian|fj|
-  |Filipino|fil|
-  |Finnish|fi|
-   :::column-end:::
-   :::column span="":::
-  |Language| Code (optional) |
-  |:-----|:----:|
-  |Fon|fon|
-  |French|fr|
-  |Friulian|fur|
-  |Ga|gaa|
-  |Gagauz (Latin)|gag|
-  |Galician|gl|
-  |Ganda|lg|
-  |Gayo|gay|
-  |German|de|
-  |Gilbertese|gil|
-  |Gondi (Devanagari)|gon|
-  |Greek|el|
-  |Greenlandic|kl|
-  |Guarani|gn|
-  |Gurung (Devanagari)|gvr|
-  |Gusii|guz|
-  |Haitian Creole|ht|
-  |Halbi (Devanagari)|hlb|
-  |Hani|hni|
-  |Haryanvi|bgc|
-  |Hawaiian|haw|
-  |Hebrew|he|
-  |Herero|hz|
-  |Hiligaynon|hil|
-  |Hindi|hi|
-  |Hmong Daw (Latin)|mww|
-  |Ho(Devanagiri)|hoc|
-  |Hungarian|hu|
-  |Iban|iba|
-  |Icelandic|is|
-  |Igbo|ig|
-  |Iloko|ilo|
-  |Inari Sami|smn|
-  |Indonesian|id|
-  |Ingush|inh|
-  |Interlingua|ia|
-  |Inuktitut (Latin)|iu|
-  |Irish|ga|
-  |Italian|it|
-  |Japanese|ja|
-  |Jaunsari (Devanagari)|Jns|
-  |Javanese|jv|
-  |Jola-Fonyi|dyo|
-  |Kabardian|kbd|
-  |Kabuverdianu|kea|
-  |Kachin (Latin)|kac|
-  |Kalenjin|kln|
-  |Kalmyk|xal|
-  |Kangri (Devanagari)|xnr|
-  |Kanuri|kr|
-  |Karachay-Balkar|krc|
-  |Kara-Kalpak (Cyrillic)|kaa-cyrl|
-  |Kara-Kalpak (Latin)|kaa|
-  |Kashubian|csb|
-  |Kazakh (Cyrillic)|kk-cyrl|
-  |Kazakh (Latin)|kk-latn|
-  |Khakas|kjh|
-  |Khaling|klr|
-  |Khasi|kha|
-  |K'iche'|quc|
-  |Kikuyu|ki|
-  |Kildin Sami|sjd|
-  |Kinyarwanda|rw|
-  |Komi|kv|
-  |Kongo|kg|
-  |Korean|ko|
-  |Korku|kfq|
-  |Koryak|kpy|
-  |Kosraean|kos|
-  |Kpelle|kpe|
-  |Kuanyama|kj|
-  |Kumyk (Cyrillic)|kum|
-  |Kurdish (Arabic)|ku-arab|
-  |Kurdish (Latin)|ku-latn|
-  |Kurukh (Devanagari)|kru|
-  |Kyrgyz (Cyrillic)|ky|
-  |Lak|lbe|
-  |Lakota|lkt|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Latin|la|
-  |Latvian|lv|
-  |Lezghian|lex|
-  |Lingala|ln|
-  |Lithuanian|lt|
-  |Lower Sorbian|dsb|
-  |Lozi|loz|
-  |Lule Sami|smj|
-  |Luo (Kenya and Tanzania)|luo|
-  |Luxembourgish|lb|
-  |Luyia|luy|
-  |Macedonian|mk|
-  |Machame|jmc|
-  |Madurese|mad|
-  |Mahasu Pahari (Devanagari)|bfz|
-  |Makhuwa-Meetto|mgh|
-  |Makonde|kde|
-  |Malagasy|mg|
-  |Malay (Latin)|ms|
-  |Maltese|mt|
-  |Malto (Devanagari)|kmj|
-  |Mandinka|mnk|
-  |Manx|gv|
-  |Maori|mi|
-  |Mapudungun|arn|
-  |Marathi|mr|
-  |Mari (Russia)|chm|
-  |Masai|mas|
-  |Mende (Sierra Leone)|men|
-  |Meru|mer|
-  |Meta'|mgo|
-  |Minangkabau|min|
-  |Mohawk|moh|
-  |Mongolian (Cyrillic)|mn|
-  |Mongondow|mog|
-  |Montenegrin (Cyrillic)|cnr-cyrl|
-  |Montenegrin (Latin)|cnr-latn|
-  |Morisyen|mfe|
-  |Mundang|mua|
-  |Nahuatl|nah|
-  |Navajo|nv|
-  |Ndonga|ng|
-  |Neapolitan|nap|
-  |Nepali|ne|
-  |Ngomba|jgo|
-  |Niuean|niu|
-  |Nogay|nog|
-  |North Ndebele|nd|
-  |Northern Sami (Latin)|sme|
-  |Norwegian|no|
-  |Nyanja|ny|
-  |Nyankole|nyn|
-  |Nzima|nzi|
-  |Occitan|oc|
-  |Ojibwa|oj|
-  |Oromo|om|
-  |Ossetic|os|
-  |Pampanga|pam|
-  |Pangasinan|pag|
-  |Papiamento|pap|
-  |Pashto|ps|
-  |Pedi|nso|
-  |Persian|fa|
-  |Polish|pl|
-  |Portuguese|pt|
-  |Punjabi (Arabic)|pa|
-  |Quechua|qu|
-  |Ripuarian|ksh|
-  |Romanian|ro|
-  |Romansh|rm|
-  |Rundi|rn|
-  |Russian|ru|
-  |Rwa|rwk|
-  |Sadri (Devanagari)|sck|
-  |Sakha|sah|
-  |Samburu|saq|
-  |Samoan (Latin)|sm|
-  |Sango|sg|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Sangu (Gabon)|snq|
-  |Sanskrit (Devanagari)|sa|
-  |Santali(Devanagiri)|sat|
-  |Scots|sco|
-  |Scottish Gaelic|gd|
-  |Sena|seh|
-  |Serbian (Cyrillic)|sr-cyrl|
-  |Serbian (Latin)|sr, sr-latn|
-  |Shambala|ksb|
-  |Shona|sn|
-  |Siksika|bla|
-  |Sirmauri (Devanagari)|srx|
-  |Skolt Sami|sms|
-  |Slovak|sk|
-  |Slovenian|sl|
-  |Soga|xog|
-  |Somali (Arabic)|so|
-  |Somali (Latin)|so-latn|
-  |Songhai|son|
-  |South Ndebele|nr|
-  |Southern Altai|alt|
-  |Southern Sami|sma|
-  |Southern Sotho|st|
-  |Spanish|es|
-  |Sundanese|su|
-  |Swahili (Latin)|sw|
-  |Swati|ss|
-  |Swedish|sv|
-  |Tabassaran|tab|
-  |Tachelhit|shi|
-  |Tahitian|ty|
-  |Taita|dav|
-  |Tajik (Cyrillic)|tg|
-  |Tamil|ta|
-  |Tatar (Cyrillic)|tt-cyrl|
-  |Tatar (Latin)|tt|
-  |Teso|teo|
-  |Tetum|tet|
-  |Thai|th|
-  |Thangmi|thf|
-  |Tok Pisin|tpi|
-  |Tongan|to|
-  |Tsonga|ts|
-  |Tswana|tn|
-  |Turkish|tr|
-  |Turkmen (Latin)|tk|
-  |Tuvan|tyv|
-  |Udmurt|udm|
-  |Uighur (Cyrillic)|ug-cyrl|
-  |Ukrainian|uk|
-  |Upper Sorbian|hsb|
-  |Urdu|ur|
-  |Uyghur (Arabic)|ug|
-  |Uzbek (Arabic)|uz-arab|
-  |Uzbek (Cyrillic)|uz-cyrl|
-  |Uzbek (Latin)|uz|
-  |Vietnamese|vi|
-  |Volapük|vo|
-  |Vunjo|vun|
-  |Walser|wae|
-  |Welsh|cy|
-  |Western Frisian|fy|
-  |Wolof|wo|
-  |Xhosa|xh|
-  |Yucatec Maya|yua|
-  |Zapotec|zap|
-  |Zarma|dje|
-  |Zhuang|za|
-  |Zulu|zu|
-   :::column-end:::
-:::row-end:::
-
-:::moniker-end
-
-::: moniker range="doc-intel-3.0.0"
-
-The following table lists read model language support for extracting and analyzing **printed** text. </br>
-
-:::row:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Afrikaans|af|
-  |Angika|anp|
-  |Arabic|ar|
-  |Asturian|ast|
-  |Awadhi|awa|
-  |Azerbaijani|az|
-  |Belarusian (Cyrillic)|be, be-cyrl|
-  |Belarusian (Latin)|be-latn|
-  |Bagheli|bfy|
-  |Mahasu Pahari|bfz|
-  |Bulgarian|bg|
-  |Haryanvi|bgc|
-  |Bhojpuri|bho|
-  |Bislama|bi|
-  |Bundeli|bns|
-  |Breton|br|
-  |Braj|bra|
-  |Bodo|brx|
-  |Bosnian|bs|
-  |Buriat|bua|
-  |Catalan|ca|
-  |Cebuano|ceb|
-  |Chamorro|ch|
-  |Montenegrin (Latin)|cnr, cnr-latn|
-  |Montenegrin (Cyrillic)|cnr-cyrl|
-  |Corsican|co|
-  |Crimean Tatar|crh|
-  |Czech|cs|
-  |Kashubian|csb|
-  |Welsh|cy|
-  |Danish|da|
-  |German|de|
-  |Dhimal|dhi|
-  |Dogri|doi|
-  |Lower Sorbian|dsb|
-  |English|en|
-  |Spanish|es|
-  |Estonian|et|
-  |Basque|eu|
-  |Persian|fa|
-  |Finnish|fi|
-  |Filipino|fil|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Fijian|fj|
-  |Faroese|fo|
-  |French|fr|
-  |Friulian|fur|
-  |Western Frisian|fy|
-  |Irish|ga|
-  |Gagauz|gag|
-  |Scottish Gaelic|gd|
-  |Gilbertese|gil|
-  |Galician|gl|
-  |Gondi|gon|
-  |Manx|gv|
-  |Gurung|gvr|
-  |Hawaiian|haw|
-  |Hindi|hi|
-  |Halbi|hlb|
-  |Chhattisgarhi|hne|
-  |Hani|hni|
-  |Ho|hoc|
-  |Croatian|hr|
-  |Upper Sorbian|hsb|
-  |Haitian|ht|
-  |Hungarian|hu|
-  |Interlingua|ia|
-  |Indonesian|id|
-  |Icelandic|is|
-  |Italian|it|
-  |Inuktitut|iu|
-  |Japanese|
-  |Jaunsari|jns|
-  |Javanese|jv|
-  |Kara-Kalpak (Latin)|kaa, kaa-latn|
-  |Kara-Kalpak (Cyrillic)|kaa-cyrl|
-  |Kachin|kac|
-  |Kabuverdianu|kea|
-  |Korku|kfq|
-  |Khasi|kha|
-  |Kazakh (Latin)|kk, kk-latn|
-  |Kazakh (Cyrillic)|kk-cyrl|
-  |Kalaallisut|kl|
-  |Khaling|klr|
-  |Malto|kmj|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Korean|
-  |Kosraean|kos|
-  |Koryak|kpy|
-  |Karachay-Balkar|krc|
-  |Kurukh|kru|
-  |Kölsch|ksh|
-  |Kurdish (Latin)|ku, ku-latn|
-  |Kurdish (Arabic)|ku-arab|
-  |Kumyk|kum|
-  |Cornish|kw|
-  |Kirghiz|ky|
-  |Latin|la|
-  |Luxembourgish|lb|
-  |Lakota|lkt|
-  |Lithuanian|lt|
-  |Maori|mi|
-  |Mongolian|mn|
-  |Marathi|mr|
-  |Malay|ms|
-  |Maltese|mt|
-  |Hmong Daw|mww|
-  |Erzya|myv|
-  |Neapolitan|nap|
-  |Nepali|ne|
-  |Niuean|niu|
-  |Dutch|nl|
-  |Norwegian|no|
-  |Nogai|nog|
-  |Occitan|oc|
-  |Ossetian|os|
-  |Panjabi|pa|
-  |Polish|pl|
-  |Dari|prs|
-  |Pushto|ps|
-  |Portuguese|pt|
-  |K'iche'|quc|
-  |Camling|rab|
-  |Romansh|rm|
-  |Romanian|ro|
-  |Russian|ru|
-  |Sanskrit|sa|
-  |Santali|sat|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Sadri|sck|
-  |Scots|sco|
-  |Slovak|sk|
-  |Slovenian|sl|
-  |Samoan|sm|
-  |Southern Sami|sma|
-  |Northern Sami|sme|
-  |Lule Sami|smj|
-  |Inari Sami|smn|
-  |Skolt Sami|sms|
-  |Somali|so|
-  |Albanian|sq|
-  |Serbian (Latin)|sr, sr-latn|
-  |Sirmauri|srx|
-  |Swedish|sv|
-  |Swahili|sw|
-  |Tetum|tet|
-  |Tajik|tg|
-  |Thangmi|thf|
-  |Turkmen|tk|
-  |Tonga|to|
-  |Turkish|tr|
-  |Tatar|tt|
-  |Tuvinian|tyv|
-  |Uighur|ug|
-  |Urdu|ur|
-  |Uzbek (Latin)|uz, uz-latn|
-  |Uzbek (Cyrillic)|uz-cyrl|
-  |Uzbek (Arabic)|uz-arab|
-  |Volapük|vo|
-  |Walser|wae|
-  |Kangri|xnr|
-  |Yucateco|yua|
-  |Zhuang|za|
-  |Chinese (Han (Simplified variant))|zh, zh-hans|
-  |Chinese (Han (Traditional variant))|zh-hant|
-  |Zulu|zu|
-  :::column-end:::
-:::row-end:::
 
 :::moniker-end
 
@@ -769,58 +769,6 @@ The [Read model API](concept-read.md) supports **language detection** for the fo
 
 ##### Model ID: **prebuilt-layout**
 
-### [**Layout: handwritten text**](#tab/layout-hand)
-
-:::moniker range="doc-intel-4.0.0"
-
-The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`| Russian (preview) | `ru` |
-|Thai (preview) | `th` | Arabic (preview) | `ar` |
-:::moniker-end
-
-:::moniker range="doc-intel-3.1.0"
-
-##### Model ID: **prebuilt-layout**
-
-The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`|
-
-:::moniker-end
-
-:::moniker range="doc-intel-2.1.0"
-   > [!NOTE]
-   > Document Intelligence v2.1 does not support handwritten text extraction.
-
-:::moniker-end
-
-:::moniker range="doc-intel-3.0.0"
-
-The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`| Russian (preview) | `ru` |
-|Thai (preview) | `th` | Arabic (preview) | `ar` |
-:::moniker-end
-
 ### [**Layout: printed text**](#tab/layout-print)
 
 :::moniker range=">=doc-intel-3.1.0"
@@ -829,320 +777,320 @@ The following table lists the supported languages for printed text:
 
 :::row:::
    :::column span="":::
-      |Language| Code (optional) |
+  |**Language**| **Code (optional)** |
   |:-----|:----:|
-  |Abaza|abq|
-  |Abkhazian|ab|
-  |Achinese|ace|
-  |Acoli|ach|
-  |Adangme|ada|
-  |Adyghe|ady|
-  |Afar|aa|
-  |Afrikaans|af|
-  |Akan|ak|
-  |Albanian|sq|
-  |Algonquin|alq|
-  |Angika (Devanagari)|anp|
-  |Arabic|ar|
-  |Asturian|ast|
-  |Asu (Tanzania)|asa|
-  |Avaric|av|
-  |Awadhi-Hindi (Devanagari)|awa|
-  |Aymara|ay|
-  |Azerbaijani (Latin)|az|
-  |Bafia|ksf|
-  |Bagheli|bfy|
-  |Bambara|bm|
-  |Bashkir|ba|
-  |Basque|eu|
-  |Belarusian (Cyrillic)|be, be-cyrl|
-  |Belarusian (Latin)|be, be-latn|
-  |Bemba (Zambia)|bem|
-  |Bena (Tanzania)|bez|
-  |Bhojpuri-Hindi (Devanagari)|bho|
-  |Bikol|bik|
-  |Bini|bin|
-  |Bislama|bi|
-  |Bodo (Devanagari)|brx|
-  |Bosnian (Latin)|bs|
-  |Brajbha|bra|
-  |Breton|br|
-  |Bulgarian|bg|
-  |Bundeli|bns|
-  |Buryat (Cyrillic)|bua|
-  |Catalan|ca|
-  |Cebuano|ceb|
-  |Chamling|rab|
-  |Chamorro|ch|
-  |Chechen|ce|
-  |Chhattisgarhi (Devanagari)|hne|
-  |Chiga|cgg|
-  |Chinese Simplified|zh-Hans|
-  |Chinese Traditional|zh-Hant|
-  |Choctaw|cho|
-  |Chukot|ckt|
-  |Chuvash|cv|
-  |Cornish|kw|
-  |Corsican|co|
-  |Cree|cr|
-  |Creek|mus|
-  |Crimean Tatar (Latin)|crh|
-  |Croatian|hr|
-  |Crow|cro|
-  |Czech|cs|
-  |Danish|da|
-  |Dargwa|dar|
-  |Dari|prs|
-  |Dhimal (Devanagari)|dhi|
-  |Dogri (Devanagari)|doi|
-  |Duala|dua|
-  |Dungan|dng|
-  |Dutch|nl|
-  |Efik|efi|
-  |English|en|
-  |Erzya (Cyrillic)|myv|
-  |Estonian|et|
-  |Faroese|fo|
-  |Fijian|fj|
-  |Filipino|fil|
-  |Finnish|fi|
+  |Abaza|`abq`|
+  |Abkhazian|`ab`|
+  |Achinese|`ace`|
+  |Acoli|`ach`|
+  |Adangme|`ada`|
+  |Adyghe|`ady`|
+  |Afar|`aa`|
+  |Afrikaans|`af`|
+  |Akan|`ak`|
+  |Albanian|`sq`|
+  |Algonquin|`alq`|
+  |Angika (Devanagari)|`anp`|
+  |Arabic|`ar`|
+  |Asturian|`ast`|
+  |Asu (Tanzania)|`asa`|
+  |Avaric|`av`|
+  |Awadhi-Hindi (Devanagari)|`awa`|
+  |Aymara|`ay`|
+  |Azerbaijani (Latin)|`az`|
+  |Bafia|`ksf`|
+  |Bagheli|`bfy`|
+  |Bambara|`bm`|
+  |Bashkir|`ba`|
+  |Basque|`eu`|
+  |Belarusian (Cyrillic)|`be`, `be-cyrl`|
+  |Belarusian (Latin)|`be`, `be-latn`|
+  |Bemba (Zambia)|`bem`|
+  |Bena (Tanzania)|`bez`|
+  |Bhojpuri-Hindi (Devanagari)|`bho`|
+  |Bikol|`bik`|
+  |Bini|`bin`|
+  |Bislama|`bi`|
+  |Bodo (Devanagari)|`brx`|
+  |Bosnian (Latin)|`bs`|
+  |Brajbha|`bra`|
+  |Breton|`br`|
+  |Bulgarian|`bg`|
+  |Bundeli|`bns`|
+  |Buryat (Cyrillic)|`bua`|
+  |Catalan|`ca`|
+  |Cebuano|`ceb`|
+  |Chamling|`rab`|
+  |Chamorro|`ch`|
+  |Chechen|`ce`|
+  |Chhattisgarhi (Devanagari)|`hne`|
+  |Chiga|`cgg`|
+  |Chinese Simplified|`zh-Hans`|
+  |Chinese Traditional|`zh-Hant`|
+  |Choctaw|`cho`|
+  |Chukot|`ckt`|
+  |Chuvash|`cv`|
+  |Cornish|`kw`|
+  |Corsican|`co`|
+  |Cree|`cr`|
+  |Creek|`mus`|
+  |Crimean Tatar (Latin)|`crh`|
+  |Croatian|`hr`|
+  |Crow|`cro`|
+  |Czech|`cs`|
+  |Danish|`da`|
+  |Dargwa|`dar`|
+  |Dari|`prs`|
+  |Dhimal (Devanagari)|`dhi`|
+  |Dogri (Devanagari)|`doi`|
+  |Duala|`dua`|
+  |Dungan|`dng`|
+  |Dutch|`nl`|
+  |Efik|`efi`|
+  |English|`en`|
+  |Erzya (Cyrillic)|`myv`|
+  |Estonian|`et`|
+  |Faroese|`fo`|
+  |Fijian|`fj`|
+  |Filipino|`fil`|
+  |Finnish|`fi`|
    :::column-end:::
    :::column span="":::
       |Language| Code (optional) |
   |:-----|:----:|
-  |Fon|fon|
-  |French|fr|
-  |Friulian|fur|
-  |Ga|gaa|
-  |Gagauz (Latin)|gag|
-  |Galician|gl|
-  |Ganda|lg|
-  |Gayo|gay|
-  |German|de|
-  |Gilbertese|gil|
-  |Gondi (Devanagari)|gon|
-  |Greek|el|
-  |Greenlandic|kl|
-  |Guarani|gn|
-  |Gurung (Devanagari)|gvr|
-  |Gusii|guz|
-  |Haitian Creole|ht|
-  |Halbi (Devanagari)|hlb|
-  |Hani|hni|
-  |Haryanvi|bgc|
-  |Hawaiian|haw|
-  |Hebrew|he|
-  |Herero|hz|
-  |Hiligaynon|hil|
-  |Hindi|hi|
-  |Hmong Daw (Latin)|mww|
-  |Ho(Devanagiri)|hoc|
-  |Hungarian|hu|
-  |Iban|iba|
-  |Icelandic|is|
-  |Igbo|ig|
-  |Iloko|ilo|
-  |Inari Sami|smn|
-  |Indonesian|id|
-  |Ingush|inh|
-  |Interlingua|ia|
-  |Inuktitut (Latin)|iu|
-  |Irish|ga|
-  |Italian|it|
-  |Japanese|ja|
-  |Jaunsari (Devanagari)|Jns|
-  |Javanese|jv|
-  |Jola-Fonyi|dyo|
-  |Kabardian|kbd|
-  |Kabuverdianu|kea|
-  |Kachin (Latin)|kac|
-  |Kalenjin|kln|
-  |Kalmyk|xal|
-  |Kangri (Devanagari)|xnr|
-  |Kanuri|kr|
-  |Karachay-Balkar|krc|
-  |Kara-Kalpak (Cyrillic)|kaa-cyrl|
-  |Kara-Kalpak (Latin)|kaa|
-  |Kashubian|csb|
-  |Kazakh (Cyrillic)|kk-cyrl|
-  |Kazakh (Latin)|kk-latn|
-  |Khakas|kjh|
-  |Khaling|klr|
-  |Khasi|kha|
-  |K'iche'|quc|
-  |Kikuyu|ki|
-  |Kildin Sami|sjd|
-  |Kinyarwanda|rw|
-  |Komi|kv|
-  |Kongo|kg|
-  |Korean|ko|
-  |Korku|kfq|
-  |Koryak|kpy|
-  |Kosraean|kos|
-  |Kpelle|kpe|
-  |Kuanyama|kj|
-  |Kumyk (Cyrillic)|kum|
-  |Kurdish (Arabic)|ku-arab|
-  |Kurdish (Latin)|ku-latn|
+  |`Fon`|`fon`|
+  |French|`fr`|
+  |Friulian|`fur`|
+  |`Ga`|`gaa`|
+  |Gagauz (Latin)|`gag`|
+  |Galician|`gl`|
+  |Ganda|`lg`|
+  |Gayo|`gay`|
+  |German|`de`|
+  |Gilbertese|`gil`|
+  |Gondi (Devanagari)|`gon`|
+  |Greek|`el`|
+  |Greenlandic|`kl`|
+  |Guarani|`gn`|
+  |Gurung (Devanagari)|`gvr`|
+  |Gusii|`guz`|
+  |Haitian Creole|`ht`|
+  |Halbi (Devanagari)|`hlb`|
+  |Hani|`hni`|
+  |Haryanvi|`bgc`|
+  |Hawaiian|`haw`|
+  |Hebrew|`he`|
+  |Herero|`hz`|
+  |Hiligaynon|`hil`|
+  |Hindi|`hi`|
+  |Hmong Daw (Latin)|`mww`|
+  |Ho(Devanagiri)|`hoc`|
+  |Hungarian|`hu`|
+  |Iban|`iba`|
+  |Icelandic|`is`|
+  |Igbo|`ig`|
+  |Iloko|`ilo`|
+  |Inari Sami|`smn`|
+  |Indonesian|`id`|
+  |Ingush|`inh`|
+  |Interlingua|`ia`|
+  |Inuktitut (Latin)|`iu`|
+  |Irish|`ga`|
+  |Italian|`it`|
+  |Japanese|`ja`|
+  |Jaunsari (Devanagari)|`Jns`|
+  |Javanese|`jv`|
+  |Jola-Fonyi|`dyo`|
+  |Kabardian|`kbd`|
+  |Kabuverdianu|`kea`|
+  |Kachin (Latin)|`kac`|
+  |Kalenjin|`kln`|
+  |Kalmyk|`xal`|
+  |Kangri (Devanagari)|`xnr`|
+  |Kanuri|`kr`|
+  |Karachay-Balkar|`krc`|
+  |Kara-Kalpak (Cyrillic)|`kaa-cyrl`|
+  |Kara-Kalpak (Latin)|`kaa`|
+  |Kashubian|`csb`|
+  |Kazakh (Cyrillic)|`kk-cyrl`|
+  |Kazakh (Latin)|`kk-latn`|
+  |Khakas|`kjh`|
+  |Khaling|`klr`|
+  |Khasi|`kha`|
+  |K'iche'|`quc`|
+  |Kikuyu|`ki`|
+  |Kildin Sami|`sjd`|
+  |Kinyarwanda|`rw`|
+  |Komi|`kv`|
+  |Kongo|`kg`|
+  |Korean|`ko`|
+  |Korku|`kfq`|
+  |Koryak|`kpy`|
+  |Kosraean|`kos`|
+  |Kpelle|`kpe`|
+  |Kuanyama|`kj`|
+  |Kumyk (Cyrillic)|`kum`|
+  |Kurdish (Arabic)|`ku-arab`|
+  |Kurdish (Latin)|`ku-latn`|
    :::column-end:::
    :::column span="":::
       |Language| Code (optional) |
   |:-----|:----:|
-  |Kurukh (Devanagari)|kru|
-  |Kyrgyz (Cyrillic)|ky|
-  |Lak|lbe|
-  |Lakota|lkt|
-  |Latin|la|
-  |Latvian|lv|
-  |Lezghian|lex|
-  |Lingala|ln|
-  |Lithuanian|lt|
-  |Lower Sorbian|dsb|
-  |Lozi|loz|
-  |Lule Sami|smj|
-  |Luo (Kenya and Tanzania)|luo|
-  |Luxembourgish|lb|
-  |Luyia|luy|
-  |Macedonian|mk|
-  |Machame|jmc|
-  |Madurese|mad|
-  |Mahasu Pahari (Devanagari)|bfz|
-  |Makhuwa-Meetto|mgh|
-  |Makonde|kde|
-  |Malagasy|mg|
-  |Malay (Latin)|ms|
-  |Maltese|mt|
-  |Malto (Devanagari)|kmj|
-  |Mandinka|mnk|
-  |Manx|gv|
-  |Maori|mi|
-  |Mapudungun|arn|
-  |Marathi|mr|
-  |Mari (Russia)|chm|
-  |Masai|mas|
-  |Mende (Sierra Leone)|men|
-  |Meru|mer|
-  |Meta'|mgo|
-  |Minangkabau|min|
-  |Mohawk|moh|
-  |Mongolian (Cyrillic)|mn|
-  |Mongondow|mog|
-  |Montenegrin (Cyrillic)|cnr-cyrl|
-  |Montenegrin (Latin)|cnr-latn|
-  |Morisyen|mfe|
-  |Mundang|mua|
-  |Nahuatl|nah|
-  |Navajo|nv|
-  |Ndonga|ng|
-  |Neapolitan|nap|
-  |Nepali|ne|
-  |Ngomba|jgo|
-  |Niuean|niu|
-  |Nogay|nog|
-  |North Ndebele|nd|
-  |Northern Sami (Latin)|sme|
-  |Norwegian|no|
-  |Nyanja|ny|
-  |Nyankole|nyn|
-  |Nzima|nzi|
-  |Occitan|oc|
-  |Ojibwa|oj|
-  |Oromo|om|
-  |Ossetic|os|
-  |Pampanga|pam|
-  |Pangasinan|pag|
-  |Papiamento|pap|
-  |Pashto|ps|
-  |Pedi|nso|
-  |Persian|fa|
-  |Polish|pl|
-  |Portuguese|pt|
-  |Punjabi (Arabic)|pa|
-  |Quechua|qu|
-  |Ripuarian|ksh|
-  |Romanian|ro|
-  |Romansh|rm|
-  |Rundi|rn|
-  |Russian|ru|
+  |Kurukh (Devanagari)|`kru`|
+  |Kyrgyz (Cyrillic)|`ky`|
+  |`Lak`|`lbe`|
+  |Lakota|`lkt`|
+  |Latin|`la`|
+  |Latvian|`lv`|
+  |Lezghian|`lex`|
+  |Lingala|`ln`|
+  |Lithuanian|`lt`|
+  |Lower Sorbian|`dsb`|
+  |Lozi|`loz`|
+  |Lule Sami|`smj`|
+  |Luo (Kenya and Tanzania)|`luo`|
+  |Luxembourgish|`lb`|
+  |Luyia|`luy`|
+  |Macedonian|`mk`|
+  |Machame|`jmc`|
+  |Madurese|`mad`|
+  |Mahasu Pahari (Devanagari)|`bfz`|
+  |Makhuwa-Meetto|`mgh`|
+  |Makonde|`kde`|
+  |Malagasy|`mg`|
+  |Malay (Latin)|`ms`|
+  |Maltese|`mt`|
+  |Malto (Devanagari)|`kmj`|
+  |Mandinka|`mnk`|
+  |Manx|`gv`|
+  |Maori|`mi`|
+  |Mapudungun|`arn`|
+  |Marathi|`mr`|
+  |Mari (Russia)|`chm`|
+  |Masai|`mas`|
+  |Mende (Sierra Leone)|`men`|
+  |Meru|`mer`|
+  |Meta'|`mgo`|
+  |Minangkabau|`min`|
+  |Mohawk|`moh`|
+  |Mongolian (Cyrillic)|`mn`|
+  |Mongondow|`mog`|
+  |Montenegrin (Cyrillic)|`cnr-cyrl`|
+  |Montenegrin (Latin)|`cnr-latn`|
+  |Morisyen|`mfe`|
+  |Mundang|`mua`|
+  |Nahuatl|`nah`|
+  |Navajo|`nv`|
+  |Ndonga|`ng`|
+  |Neapolitan|`nap`|
+  |Nepali|`ne`|
+  |Ngomba|`jgo`|
+  |Niuean|`niu`|
+  |Nogay|`nog`|
+  |North Ndebele|`nd`|
+  |Northern Sami (Latin)|`sme`|
+  |Norwegian|`no`|
+  |Nyanja|`ny`|
+  |Nyankole|`nyn`|
+  |Nzima|`nzi`|
+  |Occitan|`oc`|
+  |Ojibwa|`oj`|
+  |Oromo|`om`|
+  |Ossetic|`os`|
+  |Pampanga|`pam`|
+  |Pangasinan|`pag`|
+  |Papiamento|`pap`|
+  |Pashto|`ps`|
+  |Pedi|`nso`|
+  |Persian|`fa`|
+  |Polish|`pl`|
+  |Portuguese|`pt`|
+  |Punjabi (Arabic)|`pa`|
+  |Quechua|`qu`|
+  |Ripuarian|`ksh`|
+  |Romanian|`ro`|
+  |Romansh|`rm`|
+  |Rundi|`rn`|
+  |Russian|`ru`|
    :::column-end:::
    :::column span="":::
       |Language| Code (optional) |
   |:-----|:----:|
-  |Rwa|rwk|
-  |Sadri (Devanagari)|sck|
-  |Sakha|sah|
-  |Samburu|saq|
-  |Samoan (Latin)|sm|
-  |Sango|sg|
-  |Sangu (Gabon)|snq|
-  |Sanskrit (Devanagari)|sa|
-  |Santali(Devanagiri)|sat|
-  |Scots|sco|
-  |Scottish Gaelic|gd|
-  |Sena|seh|
-  |Serbian (Cyrillic)|sr-cyrl|
-  |Serbian (Latin)|sr, sr-latn|
-  |Shambala|ksb|
-  |Shona|sn|
-  |Siksika|bla|
-  |Sirmauri (Devanagari)|srx|
-  |Skolt Sami|sms|
-  |Slovak|sk|
-  |Slovenian|sl|
-  |Soga|xog|
-  |Somali (Arabic)|so|
-  |Somali (Latin)|so-latn|
-  |Songhai|son|
-  |South Ndebele|nr|
-  |Southern Altai|alt|
-  |Southern Sami|sma|
-  |Southern Sotho|st|
-  |Spanish|es|
-  |Sundanese|su|
-  |Swahili (Latin)|sw|
-  |Swati|ss|
-  |Swedish|sv|
-  |Tabassaran|tab|
-  |Tachelhit|shi|
-  |Tahitian|ty|
-  |Taita|dav|
-  |Tajik (Cyrillic)|tg|
-  |Tamil|ta|
-  |Tatar (Cyrillic)|tt-cyrl|
-  |Tatar (Latin)|tt|
-  |Teso|teo|
-  |Tetum|tet|
-  |Thai|th|
-  |Thangmi|thf|
-  |Tok Pisin|tpi|
-  |Tongan|to|
-  |Tsonga|ts|
-  |Tswana|tn|
-  |Turkish|tr|
-  |Turkmen (Latin)|tk|
-  |Tuvan|tyv|
-  |Udmurt|udm|
-  |Uighur (Cyrillic)|ug-cyrl|
-  |Ukrainian|uk|
-  |Upper Sorbian|hsb|
-  |Urdu|ur|
-  |Uyghur (Arabic)|ug|
-  |Uzbek (Arabic)|uz-arab|
-  |Uzbek (Cyrillic)|uz-cyrl|
-  |Uzbek (Latin)|uz|
-  |Vietnamese|vi|
-  |Volapük|vo|
-  |Vunjo|vun|
-  |Walser|wae|
-  |Welsh|cy|
-  |Western Frisian|fy|
-  |Wolof|wo|
-  |Xhosa|xh|
-  |Yucatec Maya|yua|
-  |Zapotec|zap|
-  |Zarma|dje|
-  |Zhuang|za|
-  |Zulu|zu|
+  |`Rwa`|`rwk`|
+  |Sadri (Devanagari)|`sck`|
+  |Sakha|`sah`|
+  |Samburu|`saq`|
+  |Samoan (Latin)|`sm`|
+  |Sango|`sg`|
+  |Sangu (Gabon)|`snq`|
+  |Sanskrit (Devanagari)|`sa`|
+  |Santali(Devanagiri)|`sat`|
+  |Scots|`sco`|
+  |Scottish Gaelic|`gd`|
+  |Sena|`seh`|
+  |Serbian (Cyrillic)|`sr-cyrl`|
+  |Serbian (Latin)|`sr`, `sr-latn`|
+  |Shambala|`ksb`|
+  |Shona|`sn`|
+  |Siksika|`bla`|
+  |Sirmauri (Devanagari)|`srx`|
+  |Skolt Sami|`sms`|
+  |Slovak|`sk`|
+  |Slovenian|`sl`|
+  |Soga|`xog`|
+  |Somali (Arabic)|`so`|
+  |Somali (Latin)|`so-latn`|
+  |Songhai|`son`|
+  |South Ndebele|`nr`|
+  |Southern Altai|`alt`|
+  |Southern Sami|`sma`|
+  |Southern Sotho|`st`|
+  |Spanish|`es`|
+  |Sundanese|`su`|
+  |Swahili (Latin)|`sw`|
+  |Swati|`ss`|
+  |Swedish|`sv`|
+  |Tabassaran|`tab`|
+  |Tachelhit|`shi`|
+  |Tahitian|`ty`|
+  |Taita|`dav`|
+  |Tajik (Cyrillic)|`tg`|
+  |Tamil|`ta`|
+  |Tatar (Cyrillic)|`tt-cyrl`|
+  |Tatar (Latin)|`tt`|
+  |Teso|`teo`|
+  |Tetum|`tet`|
+  |Thai|`th`|
+  |Thangmi|`thf`|
+  |Tok Pisin|`tpi`|
+  |Tongan|`to`|
+  |Tsonga|`ts`|
+  |Tswana|`tn`|
+  |Turkish|`tr`|
+  |Turkmen (Latin)|`tk`|
+  |Tuvan|`tyv`|
+  |Udmurt|`udm`|
+  |Uighur (Cyrillic)|`ug-cyrl`|
+  |Ukrainian|`uk`|
+  |Upper Sorbian|`hsb`|
+  |Urdu|`ur`|
+  |Uyghur (Arabic)|`ug`|
+  |Uzbek (Arabic)|`uz-arab`|
+  |Uzbek (Cyrillic)|`uz-cyrl`|
+  |Uzbek (Latin)|`uz`|
+  |Vietnamese|`vi`|
+  |Volapük|`vo`|
+  |Vunjo|`vun`|
+  |Walser|`wae`|
+  |Welsh|`cy`|
+  |Western Frisian|`fy`|
+  |Wolof|`wo`|
+  |Xhosa|`xh`|
+  |Yucatec Maya|`yua`|
+  |Zapotec|`zap`|
+  |Zarma|`dje`|
+  |Zhuang|`za`|
+  |Zulu|`zu`|
    :::column-end:::
 :::row-end:::
 
@@ -1154,183 +1102,183 @@ The following table lists layout model language support for extracting and analy
 
 :::row:::
    :::column span="":::
-      |Language| Code (optional) |
+  |**Language**| **Code (optional)**|
   |:-----|:----:|
-  |Afrikaans|af|
-  |Angika|anp|
-  |Arabic|ar|
-  |Asturian|ast|
-  |Awadhi|awa|
-  |Azerbaijani|az|
-  |Belarusian (Cyrillic)|be, be-cyrl|
-  |Belarusian (Latin)|be-latn|
-  |Bagheli|bfy|
-  |Mahasu Pahari|bfz|
-  |Bulgarian|bg|
-  |Haryanvi|bgc|
-  |Bhojpuri|bho|
-  |Bislama|bi|
-  |Bundeli|bns|
-  |Breton|br|
-  |Braj|bra|
-  |Bodo|brx|
-  |Bosnian|bs|
-  |Buriat|bua|
-  |Catalan|ca|
-  |Cebuano|ceb|
-  |Chamorro|ch|
-  |Montenegrin (Latin)|cnr, cnr-latn|
-  |Montenegrin (Cyrillic)|cnr-cyrl|
-  |Corsican|co|
-  |Crimean Tatar|crh|
-  |Czech|cs|
-  |Kashubian|csb|
-  |Welsh|cy|
-  |Danish|da|
-  |German|de|
-  |Dhimal|dhi|
-  |Dogri|doi|
-  |Lower Sorbian|dsb|
-  |English|en|
-  |Spanish|es|
-  |Estonian|et|
-  |Basque|eu|
-  |Persian|fa|
-  |Finnish|fi|
-  |Filipino|fil|
+  |Afrikaans|`af`|
+  |Angika|`anp`|
+  |Arabic|`ar`|
+  |Asturian|`ast`|
+  |Awadhi|`awa`|
+  |Azerbaijani|`az`|
+  |Belarusian (Cyrillic)|`be`, `be-cyrl`|
+  |Belarusian (Latin)|`be-latn`|
+  |Bagheli|`bfy`|
+  |Mahasu Pahari|`bfz`|
+  |Bulgarian|`bg`|
+  |Haryanvi|`bgc`|
+  |Bhojpuri|`bho`|
+  |Bislama|`bi`|
+  |Bundeli|`bns`|
+  |Breton|`br`|
+  |Braj|`bra`|
+  |Bodo|`brx`|
+  |Bosnian|`bs`|
+  |Buriat|`bua`|
+  |Catalan|`ca`|
+  |Cebuano|`ceb`|
+  |Chamorro|`ch`|
+  |Montenegrin (Latin)|`cnr`, `cnr-latn`|
+  |Montenegrin (Cyrillic)|`cnr-cyrl`|
+  |Corsican|`co`|
+  |Crimean Tatar|`crh`|
+  |Czech|`cs`|
+  |Kashubian|`csb`|
+  |Welsh|`cy`|
+  |Danish|`da`|
+  |German|`de`|
+  |Dhimal|`dhi`|
+  |Dogri|`doi`|
+  |Lower Sorbian|`dsb`|
+  |English|`en`|
+  |Spanish|`es`|
+  |Estonian|`et`|
+  |Basque|`eu`|
+  |Persian|`fa`|
+  |Finnish|`fi`|
+  |Filipino|`fil`|
    :::column-end:::
    :::column span="":::
       |Language| Code (optional) |
   |:-----|:----:|
-  |Fijian|fj|
-  |Faroese|fo|
-  |French|fr|
-  |Friulian|fur|
-  |Western Frisian|fy|
-  |Irish|ga|
-  |Gagauz|gag|
-  |Scottish Gaelic|gd|
-  |Gilbertese|gil|
-  |Galician|gl|
-  |Gondi|gon|
-  |Manx|gv|
-  |Gurung|gvr|
-  |Hawaiian|haw|
-  |Hindi|hi|
-  |Halbi|hlb|
-  |Chhattisgarhi|hne|
-  |Hani|hni|
-  |Ho|hoc|
-  |Croatian|hr|
-  |Upper Sorbian|hsb|
-  |Haitian|ht|
-  |Hungarian|hu|
-  |Interlingua|ia|
-  |Indonesian|id|
-  |Icelandic|is|
-  |Italian|it|
-  |Inuktitut|iu|
+  |Fijian|`fj`|
+  |Faroese|`fo`|
+  |French|`fr`|
+  |Friulian|`fur`|
+  |Western Frisian|`fy`|
+  |Irish|`ga`|
+  |Gagauz|`gag`|
+  |Scottish Gaelic|`gd`|
+  |Gilbertese|`gil`|
+  |Galician|`gl`|
+  |Gondi|`gon`|
+  |Manx|`gv`|
+  |Gurung|`gvr`|
+  |Hawaiian|`haw`|
+  |Hindi|`hi`|
+  |Halbi|`hlb`|
+  |Chhattisgarhi|`hne`|
+  |Hani|`hni`|
+  |`Ho`|`hoc`|
+  |Croatian|`hr`|
+  |Upper Sorbian|`hsb`|
+  |Haitian|`ht`|
+  |Hungarian|`hu`|
+  |Interlingua|`ia`|
+  |Indonesian|`id`|
+  |Icelandic|`is`|
+  |Italian|`it`|
+  |Inuktitut|`iu`|
   |Japanese|
-  |Jaunsari|jns|
-  |Javanese|jv|
-  |Kara-Kalpak (Latin)|kaa, kaa-latn|
-  |Kara-Kalpak (Cyrillic)|kaa-cyrl|
-  |Kachin|kac|
-  |Kabuverdianu|kea|
-  |Korku|kfq|
-  |Khasi|kha|
-  |Kazakh (Latin)|kk, kk-latn|
-  |Kazakh (Cyrillic)|kk-cyrl|
-  |Kalaallisut|kl|
-  |Khaling|klr|
-  |Malto|kmj|
+  |Jaunsari|`jns`|
+  |Javanese|`jv`|
+  |Kara-Kalpak (Latin)|`kaa`, `kaa-latn`|
+  |Kara-Kalpak (Cyrillic)|`kaa-cyrl`|
+  |Kachin|`kac`|
+  |Kabuverdianu|`kea`|
+  |Korku|`kfq`|
+  |Khasi|`kha`|
+  |Kazakh (Latin)|`kk`, `kk-latn`|
+  |Kazakh (Cyrillic)|`kk-cyrl`|
+  |Kalaallisut|`kl`|
+  |Khaling|`klr`|
+  |Malto|`kmj`|
    :::column-end:::
    :::column span="":::
       |Language| Code (optional) |
   |:-----|:----:|
   |Korean|
-  |Kosraean|kos|
-  |Koryak|kpy|
-  |Karachay-Balkar|krc|
-  |Kurukh|kru|
-  |Kölsch|ksh|
-  |Kurdish (Latin)|ku, ku-latn|
-  |Kurdish (Arabic)|ku-arab|
-  |Kumyk|kum|
-  |Cornish|kw|
-  |Kirghiz|ky|
-  |Latin|la|
-  |Luxembourgish|lb|
-  |Lakota|lkt|
-  |Lithuanian|lt|
-  |Maori|mi|
-  |Mongolian|mn|
-  |Marathi|mr|
-  |Malay|ms|
-  |Maltese|mt|
-  |Hmong Daw|mww|
-  |Erzya|myv|
-  |Neapolitan|nap|
-  |Nepali|ne|
-  |Niuean|niu|
-  |Dutch|nl|
-  |Norwegian|no|
-  |Nogai|nog|
-  |Occitan|oc|
-  |Ossetian|os|
-  |Panjabi|pa|
-  |Polish|pl|
-  |Dari|prs|
-  |Pushto|ps|
-  |Portuguese|pt|
-  |K'iche'|quc|
-  |Camling|rab|
-  |Romansh|rm|
-  |Romanian|ro|
-  |Russian|ru|
-  |Sanskrit|sa|
-  |Santali|sat|
+  |Kosraean|`kos`|
+  |Koryak|`kpy`|
+  |Karachay-Balkar|`krc`|
+  |Kurukh|`kru`|
+  |Kölsch|`ksh`|
+  |Kurdish (Latin)|`ku`, `ku-latn`|
+  |Kurdish (Arabic)|`ku-arab`|
+  |Kumyk|`kum`|
+  |Cornish|`kw`|
+  |Kirghiz|`ky`|
+  |Latin|`la`|
+  |Luxembourgish|`lb`|
+  |Lakota|`lkt`|
+  |Lithuanian|`lt`|
+  |Maori|`mi`|
+  |Mongolian|`mn`|
+  |Marathi|`mr`|
+  |Malay|`ms`|
+  |Maltese|`mt`|
+  |Hmong `Daw`|`mww`|
+  |Erzya|`myv`|
+  |Neapolitan|`nap`|
+  |Nepali|`ne`|
+  |Niuean|`niu`|
+  |Dutch|`nl`|
+  |Norwegian|`no`|
+  |Nogai|`nog`|
+  |Occitan|`oc`|
+  |Ossetian|`os`|
+  |Panjabi|`pa`|
+  |Polish|`pl`|
+  |Dari|`prs`|
+  |Pushto|`ps`|
+  |Portuguese|`pt`|
+  |K'iche'|`quc`|
+  |Camling|`rab`|
+  |Romansh|`rm`|
+  |Romanian|`ro`|
+  |Russian|`ru`|
+  |Sanskrit|`sa`|
+  |Santali|`sat`|
    :::column-end:::
    :::column span="":::
       |Language| Code (optional) |
   |:-----|:----:|
-  |Sadri|sck|
-  |Scots|sco|
-  |Slovak|sk|
-  |Slovenian|sl|
-  |Samoan|sm|
-  |Southern Sami|sma|
-  |Northern Sami|sme|
-  |Lule Sami|smj|
-  |Inari Sami|smn|
-  |Skolt Sami|sms|
-  |Somali|so|
-  |Albanian|sq|
-  |Serbian (Latin)|sr, sr-latn|
-  |Sirmauri|srx|
-  |Swedish|sv|
-  |Swahili|sw|
-  |Tetum|tet|
-  |Tajik|tg|
-  |Thangmi|thf|
-  |Turkmen|tk|
-  |Tonga|to|
-  |Turkish|tr|
-  |Tatar|tt|
-  |Tuvinian|tyv|
-  |Uighur|ug|
-  |Urdu|ur|
-  |Uzbek (Latin)|uz, uz-latn|
-  |Uzbek (Cyrillic)|uz-cyrl|
-  |Uzbek (Arabic)|uz-arab|
-  |Volapük|vo|
-  |Walser|wae|
-  |Kangri|xnr|
-  |Yucateco|yua|
-  |Zhuang|za|
-  |Chinese (Han (Simplified variant))|zh, zh-hans|
-  |Chinese (Han (Traditional variant))|zh-hant|
-  |Zulu|zu|
+  |Sadri|`sck`|
+  |Scots|`sco`|
+  |Slovak|`sk`|
+  |Slovenian|`sl`|
+  |Samoan|`sm`|
+  |Southern Sami|`sma`|
+  |Northern Sami|`sme`|
+  |Lule Sami|`smj`|
+  |Inari Sami|`smn`|
+  |Skolt Sami|`sms`|
+  |Somali|`so`|
+  |Albanian|`sq`|
+  |Serbian (Latin)|`sr`, `sr-latn`|
+  |Sirmauri|`srx`|
+  |Swedish|`sv`|
+  |Swahili|`sw`|
+  |Tetum|`tet`|
+  |Tajik|`tg`|
+  |Thangmi|`thf`|
+  |Turkmen|`tk`|
+  |Tonga|`to`|
+  |Turkish|`tr`|
+  |Tatar|`tt`|
+  |Tuvinian|`tyv`|
+  |Uighur|`ug`|
+  |Urdu|`ur`|
+  |Uzbek (Latin)|`uz`, `uz-latn`|
+  |Uzbek (Cyrillic)|`uz-cyrl`|
+  |Uzbek (Arabic)|`uz-arab`|
+  |Volapük|`vo`|
+  |Walser|`wae`|
+  |Kangri|`xnr`|
+  |Yucateco|`yua`|
+  |Zhuang|`za`|
+  |Chinese (Han (Simplified variant))|`zh`, `zh-hans`|
+  |Chinese (Han (Traditional variant))|`zh-hant`|
+  |Zulu|`zu`|
   :::column-end:::
 :::row-end:::
 
@@ -1423,6 +1371,58 @@ The following table lists layout model language support for extracting and analy
 :::row-end:::
 :::moniker-end
 
+### [**Layout: handwritten text**](#tab/layout-hand)
+
+:::moniker range="doc-intel-4.0.0"
+
+The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`| Russian (preview) | `ru` |
+|Thai (preview) | `th` | Arabic (preview) | `ar` |
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
+##### Model ID: **prebuilt-layout**
+
+The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
+
+:::moniker-end
+
+:::moniker range="doc-intel-2.1.0"
+   > [!NOTE]
+   > Document Intelligence v2.1 does not support handwritten text extraction.
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`| Russian (preview) | `ru` |
+|Thai (preview) | `th` | Arabic (preview) | `ar` |
+:::moniker-end
+
 ---
 
 ## General document
@@ -1430,12 +1430,12 @@ The following table lists layout model language support for extracting and analy
 :::moniker range="doc-intel-4.0.0"
 
 > [!IMPORTANT]
-> Starting with Document Intelligence **v4.0:2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
+> Starting with Document Intelligence **v4.0:2023-10-31-preview** and going forward, the general document model (prebuilt-document) is being added to layout (prebuilt-layout). To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
 
-| Feature   | version| Model ID |
+| Key value pairs   | version| Model ID |
 |----------  |---------|--------|
-|Layout model with **`features=keyValuePairs`** specified.|&bullet; v4:2023-10-31-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
-|General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-document`**|
+|**Layout model** with query string **`features=keyValuePairs`** specified.|&bullet; v4:2023-10-31-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
+|General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)|**`prebuilt-document`**|
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
@@ -1446,9 +1446,9 @@ The following table lists layout model language support for extracting and analy
 
 The following table lists general document model language support. </br>
 
-| Model ID| Language—Locale code | Default |
+| Model `ID`| Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|**prebuilt-document**| English (United States)—en-US| English (United States)—en-US|
+|**prebuilt-document**| English (United States)—en-`US`| English (United States)—en-`US`|
 :::moniker-end
 
 ---

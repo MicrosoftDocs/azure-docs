@@ -8,7 +8,6 @@ metadata:
   description: Azure Managed Applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
   ms.service: managed-applications
   ms.topic: landing-page
-  ms.collection: na
   author: davidsmatlak
   ms.author: davidsmatlak
   ms.date: 04/24/2023

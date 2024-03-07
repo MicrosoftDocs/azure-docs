@@ -7,7 +7,6 @@ ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: conceptual
 ms.date: 09/12/2022
-ms.reviewer: 
 ---
 
 # Proximity placement groups

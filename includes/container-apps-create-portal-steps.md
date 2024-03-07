@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: include
-ms.date: 05/13/2022
+ms.date: 01/10/2024
 ms.author: cshoe
 ---
 
@@ -44,15 +44,17 @@ Next, create an environment for your container app.
     | Setting | Value |
     |--|--|
     | Environment name | Enter **my-environment**. |
+    | Environment type | Select **Consumption only**. |
     | Zone redundancy | Select **Disabled** |
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.
+1. Select **Azure Log Analytics** as the *Logs Destination*.
 1. Select the **Create new** link in the *Log Analytics workspace* field and enter the following values.
 
     | Setting | Value |
     |--|--|
     | Name | Enter **my-container-apps-logs**. |
   
-    The *Location* field is pre-filled with *Central US* for you.
+    The *Location* field is prefilled with *Central US* for you.
 
 1. Select **OK**.

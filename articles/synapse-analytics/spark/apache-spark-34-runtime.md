@@ -53,7 +53,6 @@ The following table lists all the default level packages for Java/Scala and thei
 | com.fasterxml.jackson                  | jackson-module-scala_2.12                   | 2.13.4                      |
 | com.github.joshelser                   | dropwizard-metrics-hadoop-metrics2-reporter | 0.1.2                       |
 | com.github.luben                       | zstd-jni                                    | 1.5.2-1                     |
-| com.github.luben                       | zstd-jni                                    | 1.5.2-1                     |
 | com.github.vowpalwabbit                | vw-jni                                      | 9.3.0                       |
 | com.github.wendykierp                  | JTransforms                                 | 3.1                         |
 | com.google.code.findbugs               | jsr305                                      | 3.0.0                       |

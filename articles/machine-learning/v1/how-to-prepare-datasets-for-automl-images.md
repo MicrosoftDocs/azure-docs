@@ -7,7 +7,7 @@ ms.author: rvadthyavath
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: UpdateFrequency5, template-how-to, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, template-how-to, sdkv1
 ms.date: 10/13/2021
 ---
 
@@ -43,7 +43,7 @@ It helps to create, manage, and monitor data labeling tasks for
 + Object detection (bounding box)
 + Instance segmentation (polygon)
 
-If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure Machine Learning TabularDataset](../how-to-create-image-labeling-projects.md#export-the-labels), which can then be used directly with automated ML for training computer vision models.
+If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure Machine Learning TabularDataset](../how-to-manage-labeling-projects.md#export-the-labels), which can then be used directly with automated ML for training computer vision models.
 
 ## Use conversion scripts
 

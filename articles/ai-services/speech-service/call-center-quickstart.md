@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 09/20/2022
+ms.date: 1/18/2024
 ms.author: eur
 ms.devlang: csharp
 ---

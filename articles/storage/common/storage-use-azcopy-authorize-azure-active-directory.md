@@ -322,7 +322,7 @@ If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth
 To enable AzCopy to use that token, type the following command, and then press the ENTER key.
 
 ```PowerShell
-set AZCOPY_AUTO_LOGIN_TYPE=PSCRED
+$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
 ```
 
 For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).

@@ -96,6 +96,7 @@ New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "<VMSS location>" `
   -VMScaleSetName "myScaleSet" `
+  -OrchestrationMode "Flexible" `
   -ScaleInPolicy “OldestVM”
 ```
 
@@ -112,6 +113,7 @@ az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
+  --orchestration-mode flexible \
   --image Ubuntu2204 \
   --admin-username <azureuser> \
   --generate-ssh-keys \

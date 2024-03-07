@@ -241,6 +241,8 @@ items:
         href: expose-sap-process-orchestration-on-azure.md
       - name: Enable SAP Principal Propagation for live OData feeds with Power Query
         href: expose-sap-odata-to-power-query.md
+      - name: SAP front-end printing with Universal Print
+        href: universal-print-sap-frontend.md
   - name: Reference
     items:
     - name: REST API

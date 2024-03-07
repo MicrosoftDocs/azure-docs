@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 01/18/2024
 ---
 
 # Create an index alias in Azure AI Search
@@ -37,7 +37,7 @@ You can create an alias using the preview REST API, the preview SDKs, or through
 You can use the [Create or Update Alias (REST preview)](/rest/api/searchservice/preview-api/create-or-update-alias) to create an index alias.
 
 ```http
-POST /aliases?api-version=2021-04-30-preview
+POST /aliases?api-version=2023-10-01-preview
 {
     "name": "my-alias",
     "indexes": ["hotel-samples-index"]
@@ -58,7 +58,7 @@ Follow the steps below to create an index alias in the Azure portal.
 ### [**.NET SDK**](#tab/sdk)
 
 
-In the preview [.NET SDK](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.5) for Azure AI Search, you can use the following syntax to create an index alias. 
+Using one of the beta packages from the [Azure SDK for .NET](https://www.nuget.org/packages/Azure.Search.Documents/), you can use the following syntax to create an index alias. 
 
 ```csharp
 // Create a SearchIndexClient
@@ -69,7 +69,7 @@ SearchAlias myAlias = new SearchAlias("my-alias", "hotel-quickstart-index");
 adminClient.CreateAlias(myAlias);
 ```
 
-Index aliases are also supported in the latest preview SDKs for [Java](https://search.maven.org/artifact/com.azure/azure-search-documents/11.6.0-beta.1/jar), [Python](https://pypi.org/project/azure-search-documents/11.4.0b1/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.8).
+Index aliases are also supported in the latest preview SDKs for [Java](https://central.sonatype.com/artifact/com.azure/azure-search-documents/versions), [Python](https://pypi.org/project/azure-search-documents/#history), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents?activeTab=versions).
 
 ---
 
@@ -80,7 +80,7 @@ Once you've created your alias, you're ready to start using it. Aliases can be u
 In the query below, instead of sending the request to `hotel-samples-index`, you can instead send the request to `my-alias` and it will be routed accordingly. 
 
 ```http
-POST /indexes/my-alias/docs/search?api-version=2021-04-30-preview
+POST /indexes/my-alias/docs/search?api-version=2023-10-01-preview
 {
     "search": "pool spa +airport",
     "searchMode": any,
@@ -102,12 +102,13 @@ If you expect to make updates to a production index, specify an alias rather tha
 Now, whenever you need to update your application to point to a new index, all you need to do is update the mapping in your alias. PUT is required for updates as described in [Create or Update Alias (REST preview)](/rest/api/searchservice/preview-api/create-or-update-alias).
 
 ```http
-PUT /aliases/my-alias?api-version=2021-04-30-preview
+PUT /aliases/my-alias?api-version=2023-10-01-preview
 {
     "name": "my-alias",
     "indexes": ["hotel-samples-index2"]
 }
 ```
+
 After you make the update to the alias, requests will automatically start to be routed to the new index.
 
 > [!NOTE]

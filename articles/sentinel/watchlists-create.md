@@ -13,7 +13,7 @@ Watchlists in Microsoft Sentinel allow you to correlate data from a data source 
 
 Upload a watchlist file from a local folder or from your Azure Storage account. To create a watchlist file, you have the option to download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.
 
-Local file uploads are currently limited to files of up to 3.8 MB in size. If you have large watchlist file that's up to 500 MB in size, upload the file to your Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
+Local file uploads are currently limited to files of up to 3.8 MB in size. A file that's over 3.8 MB in size and up to 500 MB is considered a [large watchlist](#create-a-large-watchlist-from-file-in-azure-storage-preview) Upload the file to an Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
 
 When you create a watchlist, the watchlist name and alias must each be between 3 and 64 characters. The first and last characters must be alphanumeric. But you can include whitespaces, hyphens, and underscores in between the first and last characters.
 

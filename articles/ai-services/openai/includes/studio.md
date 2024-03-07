@@ -2,12 +2,10 @@
 title: 'Quickstart: Use Azure OpenAI Service via the Azure OpenAI Studio'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
-#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 11/15/2023
-keywords: 
 ---
 
 ## Prerequisites

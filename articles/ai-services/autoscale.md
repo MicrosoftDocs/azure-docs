@@ -1,5 +1,5 @@
 ---
-title: Auto-scale AI services limits
+title: Autoscale AI services limits
 description: Learn how to use the autoscale feature for Azure AI services to dynamically adjust the rate limit of your service.
 author: PatrickFarley
 ms.author: pafarley
@@ -7,16 +7,16 @@ ms.service: azure-ai-services
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 06/27/2022
+ms.date: 01/20/2024
 ---
 
-# Auto-scale AI services limits
+# Autoscale AI services limits
 
 This article provides guidance for how customers can access higher rate limits on their Azure AI services resources.
 
 ## Overview
 
-Each Azure AI services resource has a preconfigured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics.
+Each Azure AI services resource has a pre-configured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics.
 
 ## Get started with the autoscale feature
 

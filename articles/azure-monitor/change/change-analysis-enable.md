@@ -4,9 +4,8 @@ description: Use Change Analysis in Azure Monitor to track and troubleshoot issu
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
-ms.date: 11/17/2023 
+ms.date: 11/17/2023
 ms.subservice: change-analysis
-ms.custom: ignite-2022
 ---
 
 # Enable Change Analysis

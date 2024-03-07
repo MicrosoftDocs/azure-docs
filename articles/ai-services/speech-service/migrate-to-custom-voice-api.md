@@ -6,15 +6,18 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/30/2023
+ms.date: 1/21/2024
 ms.author: eur
 ---
 
-# Migrate to custom voice REST API
+# Migrate to custom voice REST API (Preview)
 
-The custom voice REST API is a new version of the text to speech REST API. It's used to deploy and use custom neural voice models. The custom voice REST API is currently in preview. 
+The custom voice REST API is a new version of the text to speech REST API. You can deploy and use custom neural voice models with the API. 
 
-In this article, you'll learn how to migrate code from the v3 text to speech REST API to the custom voice REST API.
+> [!NOTE]
+> The custom voice REST API is currently in preview. 
+
+In this article, you learn how to migrate code from the v3 text to speech REST API to the custom voice REST API.
 
 This article retains information about the v3 text to speech REST API for reference. But you should use the custom voice REST API for new development.
 
@@ -28,7 +31,7 @@ This article retains information about the v3 text to speech REST API for refere
 
 ### Suspend and resume endpoint via REST API
 
-This section will show you how to [get](#get-endpoint), [suspend](#suspend-endpoint), or [resume](#resume-endpoint) a custom neural voice endpoint via REST API.
+This section shows you how to [get](#get-endpoint), [suspend](#suspend-endpoint), or [resume](#resume-endpoint) a custom neural voice endpoint via REST API.
 
 
 #### Get endpoint
@@ -41,10 +44,10 @@ The possible `status` property values are:
 
 | Status | Description |
 | ------------- | ------------------------------------------------------------ |
-| `NotStarted` | The endpoint hasn't yet been deployed, and it's not available for speech synthesis. |
+| `NotStarted` | The endpoint isn't deployed and it's not available for speech synthesis. |
 | `Running` | The endpoint is in the process of being deployed or resumed, and it's not available for speech synthesis. |
-| `Succeeded` | The endpoint is active and available for speech synthesis. The endpoint has been deployed or the resume operation succeeded. |
-| `Failed` | The endpoint deploy or suspend operation failed. The endpoint can only be viewed or deleted in [Speech Studio](https://aka.ms/custom-voice-portal).|
+| `Succeeded` | The endpoint is active and available for speech synthesis. The endpoint is deployed or the resume operation succeeded. |
+| `Failed` | The endpoint deployment or suspend operation failed. The endpoint can only be viewed or deleted in [Speech Studio](https://aka.ms/custom-voice-portal).|
 | `Disabling` | The endpoint is in the process of being suspended, and it's not available for speech synthesis. |
 | `Disabled` | The endpoint is inactive, and it's not available for speech synthesis. The suspend operation succeeded or the resume operation failed. |
 
@@ -98,7 +101,7 @@ Response body example:
 
 #### Suspend endpoint
 
-You can suspend an endpoint to limit spend and conserve resources that aren't in use. You won't be charged while the endpoint is suspended. When you resume an endpoint, you can use the same endpoint URL in your application to synthesize speech. 
+You can suspend an endpoint to limit spend and conserve resources that aren't in use. You aren't charged while the endpoint is suspended. When you resume an endpoint, you can use the same endpoint URL in your application to synthesize speech. 
 
 You suspend an endpoint with its unique deployment ID. The endpoint status must be `Succeeded` before you can suspend it.
 
@@ -138,7 +141,7 @@ When you resume an endpoint, you can use the same endpoint URL that you used bef
 
 You resume an endpoint with its unique deployment ID. The endpoint status must be `Disabled` before you can resume it.
 
-Use the [get endpoint](#get-endpoint) operation to poll and track the status progression from `Disabled`, to `Running`, and finally to `Succeeded`. If the resume operation failed, the endpoint status will be `Disabled`. 
+Use the [get endpoint](#get-endpoint) operation to poll and track the status progression from `Disabled`, to `Running`, and finally to `Succeeded`. If the resume operation failed, the endpoint status is `Disabled`. 
 
 ##### Resume endpoint example
 
@@ -195,11 +198,11 @@ The HTTP status code for each response indicates success or common errors.
 | HTTP status code | Description       | Possible reason |
 | ---------------- | ----------------- | ------------- |
 | 200              | OK                | The request was successful. |
-| 202              | Accepted          | The request has been accepted and is being processed. |
+| 202              | Accepted          | The request was accepted and is being processed. |
 | 400              | Bad Request       | The value of a parameter is invalid, or a required parameter is missing, empty, or null. One common issue is a header that is too long. |
 | 401              | Unauthorized      | The request isn't authorized. |
-| 429              | Too Many Requests | You've exceeded the quota or rate of requests allowed for your Speech resource. |
-| 502              | Bad Gateway       | Network or server-side issue. May also indicate invalid headers.|
+| 429              | Too Many Requests | You exceeded the quota or rate of requests allowed for your Speech resource. |
+| 502              | Bad Gateway       | Network or server-side issue. This status code might indicate invalid headers.|
 
 ## Next steps
 

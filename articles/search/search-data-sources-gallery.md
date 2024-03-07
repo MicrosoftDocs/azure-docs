@@ -1,7 +1,7 @@
 ---
 title: Data sources gallery
 titleSuffix: Azure AI Search
-description: Lists all of the supported data sources for importing into an Azure AI Search index.
+description: Lists data source connectors for importing into an Azure AI Search index.
 author: HeidiSteen
 ms.author: heidist
 
@@ -10,12 +10,12 @@ ms.custom:
   - ignite-2023
 ms.topic: conceptual
 layout: LandingPage
-ms.date: 10/17/2022
+ms.date: 01/11/2024
 ---
 
 # Data sources gallery
 
-Find a data connector from Microsoft or a partner to simplify data ingestion into a search index. This article has the following sections:
+Find a data connector from Microsoft or a partner that works with [an indexer](search-indexer-overview.md) to simplify data ingestion into a search index. This article has the following sections:
 
 + [Generally available data sources by Azure AI Search](#ga)
 + [Preview data sources by Azure AI Search](#preview)
@@ -2373,7 +2373,7 @@ BA Insight's SharePoint Connector allows you to connect to SharePoint 2019, fetc
 
 by [Accenture](https://www.accenture.com)
 
-The SharePoint connector will crawl content from any SharePoint site collection URL. The connector will retrieve Sites, Lists, Folders, List Items and Attachments, as well as other pages (in .aspx format). Supports SharePoint running in the Microsoft O365 offering.
+The SharePoint connector will crawl content from any SharePoint site collection URL. The connector will retrieve Sites, Lists, Folders, List Items and Attachments, as well as other pages (in .aspx format). Supports SharePoint running in the Microsoft 365 offering.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/SharePoint+Online+Connector)
 

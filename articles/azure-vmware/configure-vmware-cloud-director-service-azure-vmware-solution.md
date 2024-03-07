@@ -28,7 +28,7 @@ In this article, learn how to configure [VMware Cloud Director](https://docs.vmw
 
 - VMware Reverse proxy VM is deployed within the Azure VMware solution SDDC and requires outbound connectivity to your VMware Cloud director Service Instance. [Plan how you would provide this internet connectivity.](concepts-design-public-internet-access.md) 
 
-- Public IP on NSX-T edge can be used to provide outbound access for the VMware Reverse proxy VM as shown in this article. Learn more on, [How to configure a public IP in the Azure portal](enable-public-ip-nsx-edge.md#configure-a-public-ip-in-the-azure-portal) and [Outbound Internet access for VMs](enable-public-ip-nsx-edge.md#outbound-internet-access-for-vms)
+- Public IP on NSX-T edge can be used to provide outbound access for the VMware Reverse proxy VM as shown in this article. Learn more on, [How to configure a public IP in the Azure portal](enable-public-ip-nsx-edge.md#set-up-a-public-ip-address-or-range) and [Outbound Internet access for VMs](enable-public-ip-nsx-edge.md#outbound-internet-access-for-vms)
  
 - VMware Reverse proxy can acquire an IP address through either DHCP or manual IP configuration.
 - Optionally create a dedicated Tier-1 router for the reverse proxy VM segment.

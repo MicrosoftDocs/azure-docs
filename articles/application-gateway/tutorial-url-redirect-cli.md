@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli, devx-track-linux
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
 ---
 
@@ -42,11 +42,11 @@ A resource group is a logical container into which Azure resources are deployed 
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## Create network resources 
+## Create network resources
 
 Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip).
 
@@ -104,7 +104,7 @@ az network application-gateway create \
 
 ### Add backend pools and ports
 
-You can add backend address pools named *imagesBackendPool* and *videoBackendPool* to your application gateway by using [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool). You add the frontend ports for the pools using [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port). 
+You can add backend address pools named *imagesBackendPool* and *videoBackendPool* to your application gateway by using [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool). You add the frontend ports for the pools using [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -241,7 +241,7 @@ Replace \<azure-user> and \<password> with a user name and password of your choi
 for i in `seq 1 3`; do
   if [ $i -eq 1 ]
   then
-    poolName="appGatewayBackendPool" 
+    poolName="appGatewayBackendPool"
   fi
   if [ $i -eq 2 ]
   then

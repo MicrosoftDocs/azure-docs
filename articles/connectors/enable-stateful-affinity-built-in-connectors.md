@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, edwardhe, azla
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 06/13/2023
+ms.date: 01/10/2024
 ---
 
 # Enable stateful mode for stateless built-in connectors in Azure Logic Apps
@@ -17,6 +17,7 @@ In Standard logic app workflows, the following built-in, service provider-based 
 
 - Azure Service Bus
 - SAP
+- IBM MQ
 
 To run these connector operations in stateful mode, you must enable this capability. This how-to guide shows how to enable stateful mode for these connectors.
 
@@ -59,8 +60,18 @@ To run these connector operations in stateful mode, you must enable this capabil
 
 After you enable virtual network integration for your logic app, you must update your logic app's underlying website configuration (**<*logic-app-name*>.azurewebsites.net**) by using one the following methods:
 
+- [Azure portal](#azure-portal) (bearer token not required)
 - [Azure Resource Management API](#azure-resource-management-api) (bearer token required)
 - [Azure PowerShell](#azure-powershell) (bearer token *not* required)
+
+### Azure portal
+
+To configure virtual network private ports using the Azure portal, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), find and open your Standard logic app resource.
+1. On the logic app menu, under **Settings**, select **Configuration**.
+1. On the **Configuration** page, select **General settings**.
+1. Under **Platform settings**, in the **VNet Private Ports** box, enter the ports that you want to use.
 
 ### Azure Resource Management API
 
@@ -191,3 +202,4 @@ Resource scale-in events might cause the loss of context for built-in connectors
 
 - [Connect to Azure Service Bus](connectors-create-api-servicebus.md)
 - [Connect to SAP](../logic-apps/logic-apps-using-sap-connector.md)
+- [Connect to IBM MQ](connectors-create-api-mq.md)

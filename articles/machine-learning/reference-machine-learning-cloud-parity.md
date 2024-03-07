@@ -13,7 +13,6 @@ author: Anurzeuii
 ms.date: 05/09/2022
 ms.custom:
   - references_regions
-  - event-tier1-build-2022
   - ignite-2023
 ---
 

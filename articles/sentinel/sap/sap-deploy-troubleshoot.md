@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications deployment troubleshooting
 description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel solution for SAP® applications deployment.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: troubleshooting
 ms.date: 01/09/2023
 ---

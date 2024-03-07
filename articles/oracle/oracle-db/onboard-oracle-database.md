@@ -30,13 +30,13 @@ For more information on creating identity federation using Azure's identity serv
 ## Step 1: Purchase Oracle Database@Azure in the Azure portal 
 
 1.  Sign in to your Azure account.
-2.  Navigate to the Marketplace service in the Azure portal. See [What is Azure Marketplace?](https://learn.microsoft.com/marketplace/azure-marketplace-overview) in the Azure documentation for more information on Azure Marketplace.
+2.  Navigate to the Marketplace service in the Azure portal. See [What is Azure Marketplace?](/marketplace/azure-marketplace-overview) in the Azure documentation for more information on Azure Marketplace.
 
     Alternately, if you received an email from Azure with a link to your private offer, you can select the link to go to your offer in the Azure portal. Skip to step 4 if you selected a link to your offer and are viewing it in the Azure portal.
 
 3.  In Azure Marketplace, under **Management**, select **Private Offer Management**.
 4.  In the list of private offers, select the **View + accept** button in the row for the Oracle Database@Azure offer.
-5.  Review the offer details, then accept and subscribe to the private offer. For more information on private offers in the Azure Marketplace, see [Private offers in Azure Marketplace](https://learn.microsoft.com/marketplace/private-offers-in-azure-marketplace)
+5.  Review the offer details, then accept and subscribe to the private offer. For more information on private offers in the Azure Marketplace, see [Private offers in Azure Marketplace](/marketplace/private-offers-in-azure-marketplace)
 
     To accept and subscribe to the private offer:
 

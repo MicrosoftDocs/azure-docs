@@ -11,9 +11,9 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2
-ms.date: 09/13/2023
+ms.date: 10/24/2023
 
-#Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
+#Customer intent: As an ML pro, I want to understand what an online endpoint is and why I need it.
 ---
 
 # Online endpoints and deployments for real-time inference
@@ -244,6 +244,12 @@ Monitoring for Azure Machine Learning endpoints is possible via integration with
 * **Application insights**: Curated environments include the integration with Application Insights, and you can enable/disable it when you create an online deployment. Built-in metrics and logs are sent to Application insights, and you can use its built-in features such as Live metrics, Transaction search, Failures, and Performance for further analysis.
 
 For more information on monitoring, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
+
+### Secret injection in online deployments (preview)
+
+Secret injection in the context of an online deployment is a process of retrieving secrets (such as API keys) from secret stores, and injecting them into your user container that runs inside an online deployment. Secrets will eventually be accessible via environment variables, thereby providing a secure way for them to be consumed by the inference server that runs your scoring script or by the inferencing stack that you bring with a BYOC (bring your own container) deployment approach.
+
+There are two ways to inject secrets. You can inject secrets yourself, using managed identities, or you can use the secret injection feature. To learn more about the ways to inject secrets, see [Secret injection in online endpoints (preview)](concept-secret-injection.md).
 
 
 ## Next steps

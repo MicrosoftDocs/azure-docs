@@ -470,7 +470,7 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 <tr><td><code>$skip</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$sort</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$sortByCount</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td><code>$unionWith</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$unionWith</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 <tr><td><code>$unset</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$unwind</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$shardedDataDistribution</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>

@@ -6,9 +6,8 @@ author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 01/04/2024
+ms.date: 02/14/2024
 ms.author: banders
 ---
 
@@ -54,7 +53,7 @@ You can purchase savings from the [Azure portal](https://portal.azure.com/) and 
 
 ## How to find products covered under a savings plan
 
-The complete list of savings plan eligible products is found in your price sheet, which can be downloaded from the [Azure portal](https://portal.azure.com). The EA portal price sheet doesn't include savings plan pricing. After you download the file, filter `Price Type` by `Savings Plan` to see the one-year and three-year prices.
+The complete list of savings plan eligible products is found in your price sheet, which can be downloaded from the [Azure portal](https://portal.azure.com). After you download the file, filter `Price Type` by `Savings Plan` to see the one-year and three-year prices.
 
 ## How is a savings plan billed?
 

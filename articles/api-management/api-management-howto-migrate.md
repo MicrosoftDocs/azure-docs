@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 08/20/2021
 ms.author: danlep
 ms.custom: subject-moving-resources
-#customerintent: As an Azure service administrator, I want to move my service resources to another Azure region.
+# Customer intent: As an Azure service administrator, I want to move my service resources to another Azure region.
 ---
 
 # How to move Azure API Management across regions

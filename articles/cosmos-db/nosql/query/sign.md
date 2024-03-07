@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the positive (+1), zero (0), or negative (-1) sign of the specified nume
 
 ## Syntax
 
-```sql
+```nosql
 SIGN(<numeric_expr>)  
 ```
 
@@ -38,7 +39,7 @@ Returns a numeric expression.
 
 The following example returns the sign of various numbers from -2 to 2.  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/sign/query.sql" highlight="2-6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/sign/query.sql" highlight="2-6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/sign/result.json":::
 

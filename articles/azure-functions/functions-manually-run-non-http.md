@@ -2,7 +2,7 @@
 title: Manually run a non HTTP-triggered Azure Functions
 description: Use an HTTP request to run a non-HTTP triggered Azure Functions
 ms.topic: article
-ms.date: 11/29/2023
+ms.date: 01/15/2024
 ---
 
 # Manually run a non HTTP-triggered function
@@ -83,7 +83,9 @@ In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of yo
 
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman body settings." border="true":::
 
-   The `<TRIGGER_INPUT>` you supply depends on the type of trigger. For services that use JSON payloads, such as Azure Service Bus, the test JSON payload should be escaped and serialized as a string. If you don't want to pass input data to the function, you must still supply an empty dictionary `{}` as the body of the POST request. For more information, see the reference article for the specific non-HTTP trigger. 
+   The specific `<TRIGGER_INPUT>` you supply depends on the type of trigger, but it can only be a string, numeric, or boolean value. For services that use JSON payloads, such as Azure Service Bus, the test JSON payload should be escaped and serialized as a string. 
+
+    If you don't want to pass input data to the function, you must still supply an empty dictionary `{}` as the body of the POST request. For more information, see the reference article for the specific non-HTTP trigger. 
 
 1. Select **Send**.
         
@@ -94,6 +96,8 @@ In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of yo
 1. Next, return to your function in the Azure portal. Review the logs and you see messages coming from the manual call to the function.
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="View the logs to see the master key test results." border="true":::
+
+The way that you access data sent to the trigger depends on the type of trigger and your function language. For more information, see the reference examples for your [specific trigger](functions-triggers-bindings.md).    
 
 ## Next steps
 

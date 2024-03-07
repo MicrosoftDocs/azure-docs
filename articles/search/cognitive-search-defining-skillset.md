@@ -1,32 +1,32 @@
 ---
 title: Create a skillset
 titleSuffix: Azure AI Search
-description: A skillset defines data extraction, natural language processing, and image analysis steps. A skillset is attached to indexer. It's used to enrich and extract information from source data for use in Azure AI Search.
+description: A skillset defines steps for content extraction, natural language processing, and image analysis. A skillset is attached to indexer. It's used to enrich and extract information from source data for indexing in Azure AI Search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 07/14/2022
+ms.date: 01/10/2024
 ---
 
 # Create a skillset in Azure AI Search
 
 ![indexer stages](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "indexer stages")
 
-A skillset defines the operations that extract and enrich data to make it searchable. It executes after text and images are extracted, and after [field mappings](search-indexer-field-mappings.md) are processed.
+A skillset defines operations that generate textual content and structure from documents that contain images or unstructured text. Examples are OCR for images, entity recognition for undifferentiated text, and text translation. A skillset executes after text and images are extracted from an external data source, and after [field mappings](search-indexer-field-mappings.md) are processed.
 
-This article explains how to create a skillset with the [Create Skillset (REST API)](/rest/api/searchservice/create-skillset), but the same concepts and steps apply to other programming languages. 
+This article explains how to create a skillset using [REST APIs](/rest/api/searchservice/create-skillset), but the same concepts and steps apply to other programming languages. 
 
 Rules for skillset definition include:
 
-+ A skillset must have a unique name within the skillset collection. When you define a skillset, you're creating a top-level resource that can be used by any indexer.
-+ A skillset must contain at least one skill. A typical skillset has three to five. The maximum is 30.
++ A unique name within the skillset collection. A skillset is a top-level resource that can be used by any indexer.
++ At least one skill. Three to five skills are typical. The maximum is 30.
 + A skillset can repeat skills of the same type (for example, multiple Shaper skills).
 + A skillset supports chained operations, looping, and branching.
 
-Indexers drive skillset execution. You'll need an [indexer](search-howto-create-indexers.md), [data source](search-data-sources-gallery.md), and [index](search-what-is-an-index.md) before you can test your skillset.
+Indexers drive skillset execution. You need an [indexer](search-howto-create-indexers.md), [data source](search-data-sources-gallery.md), and [index](search-what-is-an-index.md) before you can test your skillset.
 
 > [!TIP]
 > Enable [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to reuse the content you've already processed and lower the cost of development.

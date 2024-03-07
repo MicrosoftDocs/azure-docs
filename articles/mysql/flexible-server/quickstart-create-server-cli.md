@@ -43,7 +43,7 @@ Select the specific subscription under your account using [az account set](/cli/
 az account set --subscription <subscription id>
 ```
 
-## Create a Azure Database for MySQL flexible server instance
+## Create an Azure Database for MySQL flexible server instance
 
 Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the `az group create` command and then create your Azure Database for MySQL flexible server instance inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `eastus2` location.
 

@@ -3,7 +3,6 @@ title: Developer portal - Frequently asked questions
 titleSuffix: Azure API Management
 description: Frequently asked questions about the developer portal in API Management. The developer portal is a customizable website where API consumers can explore your APIs.
 services: api-management
-documentationcenter: API Management
 author: dlepow
 
 ms.service: api-management

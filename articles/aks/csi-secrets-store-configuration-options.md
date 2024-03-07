@@ -1,11 +1,11 @@
 ---
 title: Azure Key Vault provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) configuration and troubleshooting options
 description: Learn configuration and troubleshooting options for the Azure Key Vault provider for Secrets Store CSI Driver in Azure Kubernetes Service (AKS).
-author: nickomang 
+author: nickomang
 ms.author: nickoman
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 10/19/2023
-ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
+ms.custom: template-how-to, devx-track-azurecli, linux-related-content
 ---
 
 # Azure Key Vault provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) configuration and troubleshooting options
@@ -83,7 +83,7 @@ You might want to create a Kubernetes secret to mirror your mounted secrets cont
     metadata:
       name: azure-sync
     spec:
-      provider: azure                             
+      provider: azure
       secretObjects:                              # [OPTIONAL] SecretObjects defines the desired state of synced Kubernetes secret objects
       - data:
         - key: username                           # data field to populate
@@ -110,7 +110,7 @@ You might want to create a Kubernetes secret to mirror your mounted secrets cont
     spec:
       containers:
         - name: busybox
-          image: registry.k8s.io/e2e-test-images/busybox:1.29-1 
+          image: registry.k8s.io/e2e-test-images/busybox:1.29-1
           command:
             - "/bin/sleep"
             - "10000"
@@ -204,7 +204,7 @@ Metrics are served from port 8095, but this port isn't exposed outside the pod b
 
 ## Troubleshooting
 
-For troubleshooting steps, see [Azure Key Vault provider for Secrets Store CSI Driver troubleshooting](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/).
+For troubleshooting steps, see [Troubleshoot Azure Key Vault Provider for Secrets Store CSI Driver][troubleshoot-csi].
 
 ## Next steps
 
@@ -221,6 +221,7 @@ To learn more about the Azure Key Vault provider for Secrets Store CSI Driver, s
 [az-aks-addon-update]: /cli/azure/aks#az-aks-addon-update
 [az-aks-addon-disable]: /cli/azure/aks#az-aks-addon-disable
 [az-aks-addon-enable]: /cli/azure/aks#az-aks-addon-enable
+[troubleshoot-csi]: /troubleshoot/azure/azure-kubernetes/troubleshoot-key-vault-csi-secrets-store-csi-driver
 
 <!-- LINKS EXTERNAL -->
 [reloader]: https://github.com/stakater/Reloader

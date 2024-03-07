@@ -7,7 +7,7 @@ ms.author: jacodel
 manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: how-to
-ms.date: 09/06/2022
+ms.date: 01/19/2024
 ---
 
 # Get started with the local inference SDK for Azure AI Personalizer

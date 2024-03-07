@@ -9,7 +9,6 @@ metadata:
   description: Get the most advanced set of governance capabilities of any major cloud provider.
   ms.service: governance
   ms.topic: hub-page
-  ms.collection: collection
   author: davidsmatlak
   ms.author: davidsmatlak
   ms.date: 01/05/2024
@@ -18,7 +17,7 @@ highlightedContent:
   items:
     - title: Governance overview
       itemType: overview
-      url: ./azure-management.md
+      url: ./management-groups/azure-management.md
     - title: Governance YouTube channel
       itemType: video
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ

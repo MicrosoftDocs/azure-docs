@@ -4,10 +4,7 @@ description: In this tutorial, Azure Content Delivery Network (CDN) is added to 
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: 
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/27/2023
 ms.author: duau
@@ -260,4 +257,4 @@ What you learned:
 Learn how to optimize CDN performance in the following articles:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Optimize Azure CDN for the type of content delivery.](cdn-optimization-overview.md)

@@ -6,7 +6,6 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: halkazwini
 ms.custom: devx-track-azurepowershell
@@ -21,9 +20,6 @@ ms.custom: devx-track-azurepowershell
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 Learn how to use connection troubleshoot to verify whether a direct TCP connection from a virtual machine to a given endpoint can be established.
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Before you begin
 

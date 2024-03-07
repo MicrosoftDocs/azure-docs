@@ -1,9 +1,24 @@
 {
-  "redirections": [
-      {
-          "source_path_from_root": "/articles/spatial-anchors/unity-overview.md",
-          "redirect_url": "/azure/spatial-anchors/quickstarts/get-started-unity-hololens",
-          "redirect_document_id": false
-      }
-  ]
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/spatial-anchors/unity-overview.md",
+            "redirect_url": "/azure/spatial-anchors/quickstarts/get-started-unity-hololens",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/spatial-anchors/concepts/create-locate-anchors-cpp-ndk.md",
+            "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-cpp-ndk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/spatial-anchors/concepts/create-locate-anchors-cpp-winrt.md",
+            "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-cpp-winrt",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/spatial-anchors/concepts/create-locate-anchors-unity.md",
+            "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-unity",
+            "redirect_document_id": false
+        }
+    ]
 }

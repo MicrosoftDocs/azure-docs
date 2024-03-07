@@ -6,7 +6,6 @@ tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 07/28/2023
 ms.reviewer: yutlin
-ms.custom: seodec18
 ms.author: msangapu
 author: msangapu-msft
 ---
@@ -24,9 +23,6 @@ The following table lists the options for you to add certificates in App Service
 | Import a certificate from Key Vault | Useful if you use [Azure Key Vault](../key-vault/index.yml) to manage your [PKCS12 certificates](https://wikipedia.org/wiki/PKCS_12). See [Private certificate requirements](#private-certificate-requirements). |
 | Upload a private certificate | If you already have a private certificate from a third-party provider, you can upload it. See [Private certificate requirements](#private-certificate-requirements). |
 | Upload a public certificate | Public certificates aren't used to secure custom domains, but you can load them into your code if you need them to access remote resources. |
-
-> [!NOTE]
-> After you upload a certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system combination, internally called a *webspace*. That way, the certificate is accessible to other apps in the same resource group and region combination. Certificates uploaded or imported to App Service are shared with App Services in the same deployment unit. 
 
 ## Prerequisites
 
@@ -56,6 +52,9 @@ To secure a custom domain in a TLS binding, the certificate has more requirement
 > [!NOTE]
 > **Elliptic Curve Cryptography (ECC) certificates** work with App Service but aren't covered by this article. For the exact steps to create ECC certificates, work with your certificate authority.
 
+> [!NOTE]
+> After you upload a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system combination, internally called a *webspace*. That way, the certificate is accessible to other apps in the same resource group and region combination. Private certificates uploaded or imported to App Service are shared with App Services in the same deployment unit. 
+
 ## Create a free managed certificate
 
 The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. Without any action from you, this TLS/SSL server certificate is fully managed by App Service and is automatically renewed continuously in six-month increments, 45 days before expiration, as long as the prerequisites that you set up stay the same. All the associated bindings are updated with the renewed certificate. You create and bind the certificate to a custom domain, and let App Service do the rest.
@@ -75,6 +74,7 @@ The free certificate comes with the following limitations:
 - Isn't exportable.
 - Isn't supported in an App Service Environment (ASE).
 - Only supports alphanumeric characters, dashes (-), and periods (.).
+- Only custom domains of length up to 64 characters are supported. 
 
 ### [Apex domain](#tab/apex)
 - Must have an A record pointing to your web app's IP address.
@@ -249,6 +249,11 @@ You're now ready upload the certificate to App Service.
 ## Upload a public certificate
 
 Public certificates are supported in the *.cer* format.
+
+> [!NOTE]
+> After you upload a public certificate to an app, it is only accessible by the app it is uploaded to. Public certificates must be uploaded to each individual web app that needs access. For App Service Environment specific scenarios, refer to [the documentation for certificates and the App Service Environment](../app-service/environment/overview-certificates.md)
+>
+> You can upload up to 1000 public certificates per App Service Plan.
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<app-name>**.
 

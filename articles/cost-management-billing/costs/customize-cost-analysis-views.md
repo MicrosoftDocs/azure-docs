@@ -99,6 +99,13 @@ If you'd like to view a running total of charges on either a daily or monthly ba
 
 If you'd like to view the total for the entire period (no granularity), select **None**. Selecting no granularity is helpful when grouping costs by a specific attribute in either a chart or table.
 
+| Granularity | Description |
+|-------------|-------------|
+| None        | Shows the total cost for the entire date range. |
+| Daily       | Shows cost per day (UTC). |
+| Monthly     | Shows cost per calendar month (UTC). |
+| Accumulated | Shows the running total for each day including the total of all previous days in the selected date range. |
+
 ## Visualize costs in a chart
 
 Cost analysis supports the following chart types:

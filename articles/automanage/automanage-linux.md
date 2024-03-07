@@ -4,13 +4,15 @@ description: Learn about Azure Automanage for virtual machines best practices fo
 author: mmccrory
 ms.service: automanage
 ms.collection: linux
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 12/10/2021
 ms.author: memccror
 ---
 
 # Azure Automanage for Machines Best Practices - Linux
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 These Azure services are automatically onboarded for you when you use Automanage Machine Best Practices Profiles on a Linux VM. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 

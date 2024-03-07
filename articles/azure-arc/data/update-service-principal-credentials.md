@@ -4,8 +4,8 @@ description: Update credential for a service principal
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to

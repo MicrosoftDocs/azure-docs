@@ -179,7 +179,7 @@ the page.
     |Region  |Select **East US**.|
     |Availability Options  |Select **Availability zones**.|
     |Availability zone  |Select **1**.| 
-    |Image  |Select **Ubuntu Server 18.04LTS - Gen1**.| 
+    |Image  |Select **Ubuntu Server 22.04 LTS**.| 
     |Azure Spot instance  |Select **No**.| 
     |Size   |Choose VM size or take default setting.| 
     |**Administrator account**||
@@ -252,7 +252,7 @@ data factory from the resources list.
 4. Select + **New** under **Managed private endpoints**.
 5. Select the **Private Link Service** tile from the list and select **Continue**.
 6. Enter the name of private endpoint and select **myPrivateLinkService** in private link service list.
-7. Add the `<FQDN>,<port>` of your target on-premises SQL Server. By default, port is 1433.
+7. Add the `<FQDN>` of your target on-premises SQL Server.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-6.png" alt-text="Screenshot that shows the private endpoint settings.":::
 

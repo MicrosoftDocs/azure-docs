@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 04/30/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building a single-page application, I want to configure Azure AD B2C authentication in my application, so that users can sign up, sign in, and access protected resources using the OIDC PKCE flow.
+
 ---
 
 # Configure authentication in a sample single-page application by using Azure AD B2C

@@ -2,7 +2,6 @@
 title: Enable accelerated networking for Azure VM disaster recovery with Azure Site Recovery
 description: Describes how to enable Accelerated Networking with Azure Site Recovery for Azure virtual machine disaster recovery
 services: site-recovery
-documentationcenter: ''
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
@@ -13,6 +12,9 @@ ms.custom: engagement-fy23
 
 ---
 # Accelerated Networking with Azure virtual machine disaster recovery
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 Accelerated Networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 

@@ -71,6 +71,13 @@ A Conda dependency YAML file can define many session-level Conda packages in a s
 - [Azure Synapse Runtime for Apache Spark 3.3](../synapse-analytics/spark/apache-spark-33-runtime.md#python-libraries-normal-vms)
 - [Azure Synapse Runtime for Apache Spark 3.2](../synapse-analytics/spark/apache-spark-32-runtime.md#python-libraries-normal-vms)
 
+> [!IMPORTANT]
+> Azure Synapse Runtime for Apache Spark: Announcements
+> * Azure Synapse Runtime for Apache Spark 3.2:
+>   * EOLA Announcement Date: July 8, 2023
+>   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
+> * For continued support and optimal performance, we advise that you migrate to
+
 > [!NOTE]
 > For a session-level Conda package:
 > - the *Cold start* will need about ten to fifteen minutes.

@@ -2,15 +2,12 @@
 title: Operating system compatibility matrix for SAP HANA (Large Instances)| Microsoft Docs
 description: The compatibility matrix represents the compatibility of different versions of operating system with different hardware types (Large Instances).
 services: virtual-machines-linux
-documentationcenter:
 author: ju-shim
 manager: hrushib
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 05/18/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017

@@ -111,7 +111,7 @@ az aks create --resource-group <resource_group> --name <name> --location <locati
 You can disable cost analysis at any time using `az aks update`.
 
 ```azurecli-interactive
-az aks update --name myAKSCluster --resource-group myResourceGroup –-disable-cost-analysis
+az aks update --name myAKSCluster --resource-group myResourceGroup --disable-cost-analysis
 ```
 
 > [!NOTE]
