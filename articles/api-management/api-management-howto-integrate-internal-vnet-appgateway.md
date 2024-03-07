@@ -527,9 +527,14 @@ Ensure that the health status of each back-end pool is Healthy. If you need to t
 
 ## Create DNS records to access API Management endpoints from the internet
 
-After the gateway is created, configure communication to API Management from the internet. Create DNS A-records that map each of the API Management endpoint host names that you configured to the application gateway's static public IP address. In this article, example host names are `api.contoso.net`, `portal.contoso.net`, and `management.contoso.net`.
+After the application gateway is created, configure communication to API Management from the internet. Create DNS A-records that map each of the API Management endpoint host names that you configured to the application gateway's static public IP address. In this article, example host names are `api.contoso.net`, `portal.contoso.net`, and `management.contoso.net`.
 
-For testing purposes, you might update the hosts file on your local machine with entries that map the application gateway's public IP address to the API Management endpoint host names.
+## Connectivity verification
+
+For quick testing purposes, consider temporarily amending your computer's hosts file with entries that map the application gateway's public IP address to the API Management endpoint host names:
+
+1. Modify the hosts files. For example, if the application gateway's public IP is `172.203.129.101`, the entry may be `172.203.129.101 api.contoso.net`.
+1. Execute a curl command against API Management's status endpoint (the same path that was used for the health probe earlier): `curl -v https://api.contoso.net/status-0123456789abcdef` This should return a `200 Service Operational` status, which indicates successful communication to API Management through Application Gateway.
 
 ## Summary
 
