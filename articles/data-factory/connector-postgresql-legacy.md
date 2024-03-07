@@ -1,7 +1,7 @@
 ---
-title: Copy data From PostgreSQL
+title: Copy data From PostgreSQL using legacy
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 03/07/2024
 ms.author: jianleishen
 ---
-# Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
+# Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics (legacy)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
->The new PostgreSQL connector provides improved native PostgreSQL support. If you are using the legacy PostgreSQL connector in your solution, supported as-is for backward compatibility only, refer to [PostgreSQL connector (legacy)](connector-postgresql-legacy.md) article.
+>The service has released a new PostgreSQL connector which provides better native PostgreSQL support, refer to [PostgreSQL connector](connector-postgresql.md) article on details. This legacy PostgreSQL connector is kept supported as-is for backward compatibility, while for any new workload, please use the new connector.
 
 ## Supported capabilities
 
@@ -59,11 +59,11 @@ Use the following steps to create a linked service to PostgreSQL in the Azure po
 
 2. Search for Postgre and select the PostgreSQL connector.
 
-    :::image type="content" source="media/connector-postgresql/postgresql-connector.png" alt-text="Select the PostgreSQL connector.":::    
+    :::image type="content" source="media/connector-postgresql-legacy/postgresql-legacy-connector.png" alt-text="Select the PostgreSQL connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-postgresql/configure-postgresql-linked-service.png" alt-text="Configure a linked service to PostgreSQL.":::
+    :::image type="content" source="media/connector-postgresql-legacy/configure-postgresql-legacy-linked-service.png" alt-text="Configure a linked service to PostgreSQL.":::
 
 ## Connector configuration details
 
@@ -75,20 +75,16 @@ The following properties are supported for PostgreSQL linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to: **PostgreSqlV2** | Yes |
-| server | The name of your PostgreSQL Server. | Yes |
-| port | The port number to connect to the PostgreSQL server. | No |
-| database | Your PostgreSQL database name. | Yes |
-| username | Your user name. Not required if using IntegratedSecurity. | Yes |
-| password | The password to connect with. Not required if using IntegratedSecurity. | Yes |
-| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: Fail the connection if the server doesn't support SSL.<br/>- **Verify-ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2)**(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
+| type | The type property must be set to: **PostgreSql** | Yes |
+| connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL. <br/>You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
-More properties you can set per your case:
+A typical connection string is `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. More properties you can set per your case:
 
 | Property | Description | Options | Required |
 |:--- |:--- |:--- |:--- |
-| Additional properties| Specify the additional connection properties. Options:<br/> - **Schema**: Sets the schema search path. <br/> - **Pooling**: Whether connection pooling should be used. <br/> - **Connection Timeout**: The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. <br/> - **Command Timeout**: The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. <br/> - **Trust Server Certificate**: Whether to trust the server certificate without validating it. <br/> - **SSL Certificate**: Location of a client certificate to be sent to the server.<br/> - **SSL Key**: Location of a client key for a client certificate to be sent to the server.<br/> - **SSL Password**: Password for a key for a client certificate. <br/> - **Read Buffer Size**: Determines the size of the internal buffer Npgsql uses when reading. Increasing may improve performance if transferring large values from the database.<br/> - **Log Parameters**:When enabled, parameter values are logged when commands are executed.<br/> - **Timezone**: Gets or sets the session timezone. <br/> - **Encoding**: Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. | Schema / Pooling / Connection Timeout / Command Timeout / Trust Server Certificate / SSL Certificate / SSL Key / SSL Password / Read Buffer Size / Log Parameters / Timezone / Encoding | No |
+| EncryptionMethod (EM)| The method the driver uses to encrypt data sent between the driver and the database server. E.g.,  `EncryptionMethod=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | No |
+| ValidateServerCertificate (VSC) | Determines whether the driver validates the certificate that is sent by the database server when SSL encryption is enabled (Encryption Method=1). E.g.,  `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | No |
 
 > [!NOTE]
 > In order to have full SSL verification via the ODBC connection when using the Self Hosted Integration Runtime you must use an ODBC type connection instead of the PostgreSQL connector explicitly, and complete the following configuration:
@@ -103,18 +99,9 @@ More properties you can set per your case:
 {
     "name": "PostgreSqlLinkedService",
     "properties": {
-        "type": "PostgreSqlV2",
+        "type": "PostgreSql",
         "typeProperties": {
-            "server": "<server>",
-            "port": 5432,
-            "database": "<database>",
-            "username": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            },
-            "sslmode": <sslmode>,
-            "authenticationType": "Basic"
+            "connectionString": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -130,22 +117,43 @@ More properties you can set per your case:
 {
     "name": "PostgreSqlLinkedService",
     "properties": {
-        "type": "PostgreSqlV2",
+        "type": "PostgreSql",
+        "typeProperties": {
+            "connectionString": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+If you were using PostgreSQL linked service with the following payload, it is still supported as-is, while you are suggested to use the new one going forward.
+
+**Previous payload:**
+
+```json
+{
+    "name": "PostgreSqlLinkedService",
+    "properties": {
+        "type": "PostgreSql",
         "typeProperties": {
             "server": "<server>",
-            "port": 5432,
             "database": "<database>",
             "username": "<username>",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>",
-                    "type": "LinkedServiceReference"
-                },
-                "secretName": "<secretName>"
+                "type": "SecureString",
+                "value": "<password>"
             }
-            "sslmode": <sslmode>,
-            "authenticationType": "Basic"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -163,7 +171,7 @@ To copy data from PostgreSQL, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **PostgreSqlV2Table** | Yes |
+| type | The type property of the dataset must be set to: **PostgreSqlTable** | Yes |
 | schema | Name of the schema. |No (if "query" in activity source is specified)  |
 | table | Name of the table. |No (if "query" in activity source is specified)  |
 | tableName | Name of the table with schema. This property is supported for backward compatibility. Use `schema` and `table` for new workload. | No (if "query" in activity source is specified) |
@@ -175,7 +183,7 @@ To copy data from PostgreSQL, the following properties are supported:
     "name": "PostgreSQLDataset",
     "properties":
     {
-        "type": "PostgreSqlV2Table",
+        "type": "PostgreSqlTable",
         "typeProperties": {},
         "schema": [],
         "linkedServiceName": {
@@ -198,7 +206,7 @@ To copy data from PostgreSQL, the following properties are supported in the copy
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **PostgreSqlV2Source** | Yes |
+| type | The type property of the copy activity source must be set to: **PostgreSqlSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | No (if "tableName" in dataset is specified) |
 
 > [!NOTE]
@@ -225,7 +233,7 @@ To copy data from PostgreSQL, the following properties are supported in the copy
         ],
         "typeProperties": {
             "source": {
-                "type": "PostgreSqlV2Source",
+                "type": "PostgreSqlSource",
                 "query": "SELECT * FROM \"MySchema\".\"MyTable\""
             },
             "sink": {
@@ -238,73 +246,10 @@ To copy data from PostgreSQL, the following properties are supported in the copy
 
 If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
 
-## Data type mapping for PostgreSQL
-
-When copying data from PostgreSQL, the following mappings are used from PostgreSQL data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
-
-|PostgreSql data type | Interim service data type | Interim service data type (for the legacy driver version) |
-|:---|:---|:---|
-|SmallInt|Int16|Int16|
-|Integer|Int32|Int32|
-|BigInt|Int64|Int64|
-|Decimal (Precision <= 28)|Decimal|Decimal|
-|Decimal (Precision > 28)|Unsupport |String|
-|Numeric|Decimal|Decimal|
-|Real|Single|Single|
-|Double|Double|Double|
-|SmallSerial|Int16|Int16|
-|Serial|Int32|Int32|
-|BigSerial|Int64|Int64|
-|Money|Decimal|String|
-|Char|String|String|
-|Varchar|String|String|
-|Text|String|String|
-|Bytea|Byte[]|Byte[]|
-|Timestamp|DateTime|DateTime|
-|Timestamp with time zone|DateTime|String|
-|Date|DateTime|DateTime|
-|Time|TimeSpan|TimeSpan|
-|Time with time zone|DateTimeOffset|String|
-|Interval|TimeSpan|String|
-|Boolean|Boolean|Boolean|
-|Point|String|String|
-|Line|String|String|
-|Iseg|String|String|
-|Box|String|String|
-|Path|String|String|
-|Polygon|String|String|
-|Circle|String|String|
-|Cidr|String|String|
-|Inet|String|String|
-|Macaddr|String|String|
-|Macaddr8|String|String|
-|Tsvector|String|String|
-|Tsquery|String|String|
-|UUID|Guid|Guid|
-|Json|String|String|
-|Jsonb|String|String|
-|Array|String|String|
-|Bit|Byte[]|Byte[]|
-|Bit varying|Byte[]|Byte[]|
-|XML|String|String|
-|IntArray|String|String|
-|TextArray|String|String|
-|NumbericArray|String|String|
-|DateArray|String|String|
-|Range|String|String|
-|Bpchar|String|String|
-
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the PostgreSQL linked service
-
-Here are steps that help you upgrade your PostgreSQL linked service:
-
-1. Create a new PostgreSQL linked service and configure it by referring to [Linked service properties](connector-postgresql.md#linked-service-properties).
-
-1. The data type mapping for the latest PostgreSQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](connector-postgresql.md#data-type-mapping-for-postgresql).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
