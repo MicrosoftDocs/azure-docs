@@ -52,7 +52,7 @@ Apache Airflow on Astro offers a comprehensive suite of developer tools that fac
 
 Key links to get started:
 
--
+- [Astro CLI](https://docs.astronomer.io/astro/cli/overview)
 
 ## Next steps
 
