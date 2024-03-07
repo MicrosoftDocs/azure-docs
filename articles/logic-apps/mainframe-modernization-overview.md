@@ -65,7 +65,7 @@ This Azure Logic Apps "connector" for Host Files provides a thin wrapper around 
 
 #### IBM i
 
-This Azure Logic Apps connector for IBM i lets Standard workflows interact and integrate with COBOL and RPG programs running on IBM i systems using TCP/IP. If you need to access IBM i environments using LU6.2, you need to use Host Integration Server (HIS). For more information, see [Integrate COBOL and RPG programs on IBM midranges with Standard workflows in Azure Logic Apps using the IBM i connector](../connectors/integrate-ibmi-apps-dpc.md).
+This Azure Logic Apps connector for IBM i lets Standard workflows interact and integrate with COBOL and RPG programs running on IBM i systems using TCP/IP. If you need to access IBM i environments using LU6.2, you need to use Host Integration Server (HIS). For more information, see [Integrate COBOL and RPG programs on IBM midranges with Standard workflows in Azure Logic Apps using the IBM i connector](../connectors/integrate-ibmi-apps-distributed-program-calls.md).
 
 #### IBM Information Management System (IMS)
 
