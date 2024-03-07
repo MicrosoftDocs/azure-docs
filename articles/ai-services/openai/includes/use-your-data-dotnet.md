@@ -5,7 +5,7 @@ author: travisw
 ms.author: travisw
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 08/29/2023
+ms.date: 03/07/2024
 ---
 
 [!INCLUDE [Set up required variables](./use-your-data-common-variables.md)]
@@ -24,10 +24,10 @@ using static System.Environment;
 
 string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+string deploymentName = GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT_ID");
 string searchEndpoint = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
 string searchKey = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
 string searchIndex = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
-string deploymentName = GetEnvironmentVariable("AZURE_OPEN_AI_DEPLOYMENT_ID");
 
 
 var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
@@ -130,10 +130,10 @@ using static System.Environment;
 
 string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+string deploymentName = GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT_ID");
 string searchEndpoint = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
 string searchKey = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
 string searchIndex = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
-string deploymentName = GetEnvironmentVariable("AZURE_OPEN_AI_DEPLOYMENT_ID");
 
 
 var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
