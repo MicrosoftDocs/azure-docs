@@ -56,22 +56,23 @@ Get cluster endpoint(host or fqdn) on Azure portal.
 ## Testing
  
 ### Preparation
-1. Download Flink cli from https://aka.ms/hdionaksflink117clilinux in local Windows machine.
+#### Download Flink CLI
+
+1. Download Flink CLI from https://aka.ms/hdionaksflink117clilinux in local Windows machine.
  
-1. Install  Windows Subsystem for Linux to make this work on local Windows machine.
+#### Install  Windows Subsystem for Linux to make this work on local Windows machine.
  
-   1. Step1:
-       Open Windows command and run (replace JAVA_HOME and flink-cli path with your own) to download flink-cli:
+1. Step1:
+   Open Windows command and run (replace JAVA_HOME and flink-cli path with your own) to download flink-cli:
     
-        ```
-        Windows Subsystem for Linux --distribution Ubuntu 
-        export JAVA_HOME=/mnt/c/Work/99_tools/zulu11.56.19-ca-jdk11.0.15-linux_x64
-        cd <folder>
-        wget https://hdiconfigactions.blob.core.windows.net/hiloflink17blob/flink-cli.tgz
-        tar -xvf flink-cli.tgz
-        ```
-  
-   1. Step2:
+   ```
+   Windows Subsystem for Linux --distribution Ubuntu 
+   export JAVA_HOME=/mnt/c/Work/99_tools/zulu11.56.19-ca-jdk11.0.15-linux_x64
+   cd <folder>
+   wget https://hdiconfigactions.blob.core.windows.net/hiloflink17blob/flink-cli.tgz
+   tar -xvf flink-cli.tgz
+   ```    
+1. Step2:
       Set endpoint, tenant ID, and port 443 in flink-conf.yaml 
       ```
       user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli$ cd conf
@@ -86,8 +87,7 @@ Get cluster endpoint(host or fqdn) on Azure portal.
       azure.tenant.id: <tenant ID>
       rest.port: 443
       ```
-    
-   1. Step3:
+ 1. Step3:
       Allowlist Local Windows public IP with port 443 with VPN enabled into HDInsight on AKS cluster Subnet's Network security inbound.
     
       :::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/allow-public-ip.png" alt-text="Screenshot showing how to allow public IP address." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/allow-public-ip.png":::
@@ -154,7 +154,7 @@ Get cluster endpoint(host or fqdn) on Azure portal.
           
          Jars in Azure Data Lake Storage gen2 in Azure portal: 
          
-          :::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png" alt-text="Screenshot showing jar files in Azure portal." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png":::
+         :::image type="image" source="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png" alt-text="Screenshot showing jar files in Azure portal." border="true" lightbox="./media/start-sql-client-cli-in-gateway-mode/jar-files-in-azure-portal.png":::
           
    1. Step6:
           
@@ -211,7 +211,6 @@ Get cluster endpoint(host or fqdn) on Azure portal.
          | +I |       10003 | 2023-07-16 10:11:09.000000 |           3 |                          Sally |     25.00000 |
           
          ```
-       
-   
+    
 ### Reference
 [Apache Flink® Command-Line Interface (CLI) on HDInsight on AKS clusters](./use-flink-cli-to-submit-jobs.md)
