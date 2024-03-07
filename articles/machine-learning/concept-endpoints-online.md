@@ -109,10 +109,12 @@ The following diagram shows an online endpoint that has two deployments, _blue_ 
 
 To deploy a model, you must have:
 
-- Model files (or the name and version of a model that's already registered in your workspace).
-- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output.
-- An environment in which your model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
-- Settings to specify the instance type and scaling capacity.
+- __Model files__ (or the name and version of a model that's already registered in your workspace).
+- A __scoring script__, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output.
+- An __environment__ in which your model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
+- Settings to specify the __instance type__ and __scaling capacity__.
+
+### Key attributes of a deployment
 
 The following table describes the key attributes of a deployment:
 
@@ -123,9 +125,14 @@ The following table describes the key attributes of a deployment:
 | Model          | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification. For more information on how to track and specify the path to your model, see [Identify model path with respect to `AZUREML_MODEL_DIR`](#identify-model-path-with-respect-to-azureml_model_dir).                                                                                                                                                                                                                                    |
 | Code path      | The path to the directory on the local development environment that contains all the Python source code for scoring the model. You can use nested directories and packages.                                                                                                                                                                                                                    |
 | Scoring script | The relative path to the scoring file in the source code directory. This Python code must have an `init()` function and a `run()` function. The `init()` function will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
-| Environment    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. __Note:__ Microsoft regularly patches the base images for known security vulnerabilities. You'll need to redeploy your endpoint to use the patched image. If you provide your own image, you're responsible for updating it. For more information, see [Image patching](concept-environments.md#image-patching).                                                                                                                                                                                                            |
+| Environment <sup>1</sup>    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. __Note:__ Microsoft regularly patches the base images for known security vulnerabilities. You'll need to redeploy your endpoint to use the patched image. If you provide your own image, you're responsible for updating it. For more information, see [Image patching](concept-environments.md#image-patching).                                                                                                                                                                                                            |
 | Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
 | Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployments](#virtual-machine-quota-allocation-for-deployment).                                |
+
+<sup>1</sup> Some things to note about the Environment:
+
+    - The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you use a registered model or container image in Azure Container Registry for deployment and remove the model or the container image, the deployments relying on these assets can fail when re-imaging happens. If you remove the model or the container image, ensure that the dependent deployments are re-created or updated with an alternative model or container image.
+    - The container registry that the environment refers to can be private only if the endpoint identity has the permission to access it via Microsoft Entra authentication and Azure RBAC. For the same reason, private Docker registries other than Azure Container Registry are not supported.
 
 To learn how to deploy online endpoints using the CLI, SDK, studio, and ARM template, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
 

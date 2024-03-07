@@ -228,11 +228,7 @@ cd azureml-examples
 
 ## Define the endpoint
 
-To define an endpoint, specify the following:
-
-* __Endpoint name__: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
-* __Authentication mode__: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
-* Optionally, you can add a description and tags to your endpoint.
+To define an online endpoint, specify the __endpoint name__ and __authentication mode__. For more information on managed online endpoints, see [Online endpoints](concept-endpoints-online.md#online-endpoints).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -256,13 +252,13 @@ The reference for the endpoint YAML format is described in the following table. 
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `$schema`   | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding code snippet in a browser.                                                                                                                   |
 | `name`      | The name of the endpoint.                                               |
-| `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. To get the most recent token, use the `az ml online-endpoint get-credentials` command. |
+| `auth_mode` | Use `key` for key-based authentication.<br>Use `aml_token` for Azure Machine Learning token-based authentication. To get the most recent token, use the `az ml online-endpoint get-credentials` command.<br>A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate clients for online endpoints](how-to-authenticate-online-endpoint.md). |
 
 # [Python](#tab/python)
 
 ### Configure an endpoint
 
-In this article, we first define the name of the online endpoint.
+First define the name of the online endpoint, then configure the endpoint.
 
 ```python
 # Define an endpoint name
@@ -281,13 +277,13 @@ endpoint = ManagedOnlineEndpoint(
 )
 ```
 
-For the authentication mode, we've used `key` for key-based authentication. To use Azure Machine Learning token-based authentication, use `aml_token`.
+The previous code uses `key` for key-based authentication. To use Azure Machine Learning token-based authentication, use `aml_token`. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate clients for online endpoints](how-to-authenticate-online-endpoint.md).
 
 # [Studio](#tab/azure-studio)
 
 ### Configure an endpoint
 
-When you deploy to Azure, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
+When you deploy to Azure from the studio, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
 
 # [ARM template](#tab/arm)
 
@@ -307,19 +303,10 @@ To define the endpoint and deployment, this article uses the Azure Resource Mana
 
 ## Define the deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. To deploy a model, you must have:
+A deployment is a set of resources required for hosting the model that does the actual inferencing. For this example, you deploy a scikit-learn model that does regression and use a scoring script _score.py_  to execute the model upon a given input request.
 
-- __Model files__ (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
-- A __scoring script__, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. In this example, we have a *score.py* file.
-- An __environment__ in which your model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
-- Settings to specify the __instance type__ and __scaling capacity__.
+To learn about the key attributes of a deployment, see [Online deployments](concept-endpoints-online.md#online-deployments).
 
-To learn more about the key attributes of a deployment, see [Online deployments](concept-endpoints-online.md#online-deployments).
-
-
-> [!WARNING]
-> - The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you used a registered model or container image in Azure Container Registry for deployment and removed the model or the container image, the deployments relying on these assets can fail when reimaging happens. If you removed the model or the container image, ensure the dependent deployments are re-created or updated with alternative model or container image.
-> - The container registry that the environment refers to can be private only if the endpoint identity has the permission to access it via Microsoft Entra authentication and Azure RBAC. For the same reason, private Docker registries other than Azure Container Registry are not supported.
 
 ### Configure a deployment
 
@@ -327,12 +314,11 @@ Your deployment configuration uses the location of the model that you wish to de
 
 # [Azure CLI](#tab/azure-cli)
 
-The following snippet shows the *endpoints/online/managed/sample/blue-deployment.yml* file, with all the required inputs to configure a deployment:
+The following snippet shows the *endpoints/online/managed/sample/__blue-deployment.yml__* file, with all the required inputs to configure a deployment:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
-> [!NOTE]
-> In the _blue-deployment.yml_ file, we've specified the following deployment attributes:
+The _blue-deployment.yml_ file we've specified the following deployment attributes:
 > * `model` - In this article, we specify the model properties inline using the `path` (where to upload files from). The CLI automatically uploads the model files and registers the model with autogenerated name.
 > * `environment` - In this article, we have inline definitions that include the `path` (where to upload files from). The CLI automatically uploads the files and registers the environment. We'll use `environment.docker.image` for the image. The `conda_file` dependencies will be installed on top of the image.
 
