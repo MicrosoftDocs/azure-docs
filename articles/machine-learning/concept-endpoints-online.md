@@ -125,14 +125,14 @@ The following table describes the key attributes of a deployment:
 | Model          | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification. For more information on how to track and specify the path to your model, see [Identify model path with respect to `AZUREML_MODEL_DIR`](#identify-model-path-with-respect-to-azureml_model_dir).                                                                                                                                                                                                                                    |
 | Code path      | The path to the directory on the local development environment that contains all the Python source code for scoring the model. You can use nested directories and packages.                                                                                                                                                                                                                    |
 | Scoring script | The relative path to the scoring file in the source code directory. This Python code must have an `init()` function and a `run()` function. The `init()` function will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
-| Environment <sup>1</sup>    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. __Note:__ Microsoft regularly patches the base images for known security vulnerabilities. You'll need to redeploy your endpoint to use the patched image. If you provide your own image, you're responsible for updating it. For more information, see [Image patching](concept-environments.md#image-patching).                                                                                                                                                                                                            |
+| Environment<sup>1</sup>    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. __Note:__ Microsoft regularly patches the base images for known security vulnerabilities. You'll need to redeploy your endpoint to use the patched image. If you provide your own image, you're responsible for updating it. For more information, see [Image patching](concept-environments.md#image-patching).                                                                                                                                                                                                            |
 | Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
 | Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployments](#virtual-machine-quota-allocation-for-deployment).                                |
 
 <sup>1</sup> Some things to note about the Environment:
 
-    - The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you use a registered model or container image in Azure Container Registry for deployment and remove the model or the container image, the deployments relying on these assets can fail when re-imaging happens. If you remove the model or the container image, ensure that the dependent deployments are re-created or updated with an alternative model or container image.
-    - The container registry that the environment refers to can be private only if the endpoint identity has the permission to access it via Microsoft Entra authentication and Azure RBAC. For the same reason, private Docker registries other than Azure Container Registry are not supported.
+> - The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you use a registered model or container image in Azure Container Registry for deployment and remove the model or the container image, the deployments relying on these assets can fail when re-imaging happens. If you remove the model or the container image, ensure that the dependent deployments are re-created or updated with an alternative model or container image.
+> - The container registry that the environment refers to can be private only if the endpoint identity has the permission to access it via Microsoft Entra authentication and Azure RBAC. For the same reason, private Docker registries other than Azure Container Registry are not supported.
 
 To learn how to deploy online endpoints using the CLI, SDK, studio, and ARM template, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
 
@@ -284,6 +284,15 @@ The following table highlights key aspects about the online deployment options:
 
 ## Online endpoint debugging
 
+We *highly recommend* that you test-run your endpoint locally to validate and debug your code and configuration before you deploy to Azure. Azure CLI and Python SDK support local endpoints and deployments, while Azure Machine Learning studio and ARM template don't.
+
+#### Limitations of local endpoints
+
+Local endpoints have the following limitations:
+- They do *not* support traffic rules, authentication, or probe settings.
+- They support only one deployment per endpoint.
+- They support local model files and environment with local conda file only. If you want to test registered models, first download them using [CLI](/cli/azure/ml/model#az-ml-model-download) or [SDK](/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations#azure-ai-ml-operations-modeloperations-download), then use `path` in the deployment definition to refer to the parent folder. If you want to test registered environments, check the context of the environment in Azure Machine Learning studio and prepare a local conda file to use. 
+
 Azure Machine Learning provides various ways to debug online endpoints locally and by using container logs.
 
 #### Local debugging with the Azure Machine Learning inference HTTP server
@@ -291,11 +300,17 @@ Azure Machine Learning provides various ways to debug online endpoints locally a
 You can debug your scoring script locally by using the Azure Machine Learning inference HTTP server. The HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred.
 You can also use Visual Studio Code to debug with the Azure Machine Learning inference HTTP server.
 
+> [!TIP]
+> You can use the Azure Machine Learning inference HTTP server Python package to debug your scoring script locally **without Docker Engine**. Debugging with the inference server helps you to debug the scoring script before deploying to local endpoints so that you can debug without being affected by the deployment container configurations.
+
 To learn more about debugging with the HTTP server, see [Debugging scoring script with Azure Machine Learning inference HTTP server](how-to-inference-server-http.md).
 
 #### Local debugging
 
 For **local debugging**, you need a local deployment; that is, a model that is deployed to a local Docker environment. You can use this local deployment for testing and debugging before deployment to the cloud. To deploy locally, you'll need to have the [Docker Engine](https://docs.docker.com/engine/install/) installed and running. Azure Machine Learning then creates a local Docker image that mimics the Azure Machine Learning image. Azure Machine Learning will build and run deployments for you locally and cache the image for rapid iterations.
+
+> [!TIP]
+> Docker Engine typically starts when the computer starts. If it doesn't, you can [troubleshoot Docker Engine](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
 
 The steps for local debugging typically include:
 
@@ -303,7 +318,7 @@ The steps for local debugging typically include:
 - Invoking the local endpoint for inferencing
 - Reviewing the logs for output of the invoke operation
 
-To learn more about local debugging, see [Deploy and debug locally by using local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+To learn more about local debugging, see [Deploy and debug locally by using a local endpoint](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-a-local-endpoint).
 
 #### Local debugging with Visual Studio Code (preview)
 
