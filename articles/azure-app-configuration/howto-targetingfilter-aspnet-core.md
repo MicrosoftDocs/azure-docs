@@ -27,7 +27,7 @@ In this article, you learn how to roll out a new feature in an ASP.NET Core web 
 
 ## Create a web application with authentication and feature flags
 
-In this section, you will create a web application that allows users to sign in and use the **Beta** feature flag you created before. Most of steps is very similar to what you have done in [Quickstart](./quickstart-feature-flag-aspnet-core.md).
+In this section, you will create a web application that allows users to sign in and use the **Beta** feature flag you created before. Most of the steps are very similar to what you have done in [Quickstart](./quickstart-feature-flag-aspnet-core.md).
 
 1. Create a web application that authenticates against a local database using the following command.
 
@@ -42,7 +42,7 @@ In this section, you will create a web application that allows users to sign in 
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Store the connection string for you App Configuration store.
+1. Store the connection string for your App Configuration store.
 
     ```dotnetcli
     dotnet user-secrets init
