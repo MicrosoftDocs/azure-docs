@@ -1088,6 +1088,12 @@ JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan t
 
 ## Tomcat Baseline Configuration On App Services
 
+Java developers can customize the server settings, troubleshoot issues, and deploy applications to Tomcat with confidence if they know about the server.xml file and configuration details of Tomcat. Some of these may be:
+* Customizing Tomcat configuration: By understanding the server.xml file and Tomcat's configuration details, developers can fine-tune the server settings to match the needs of their applications.
+* Debugging: When an application is deployed on a Tomcat server, developers need to know the server configuration to debug any issues that may arise. This includes checking the server logs, examining the configuration files, and identifying any errors that might be occurring.
+* Troubleshooting Tomcat issues: Inevitably, Java developers will encounter issues with their Tomcat server, such as performance problems or configuration errors. By understanding the server.xml file and Tomcat's configuration details, developers can quickly diagnose and troubleshoot these issues, which can save time and effort.
+* Deploying applications to Tomcat: To deploy a Java web application to Tomcat, developers need to know how to configure the server.xml file and other Tomcat settings. Understanding these details is essential for deploying applications successfully and ensuring that they run smoothly on the server.
+
 As you provision an App Service with Tomcat to host your Java workload (a WAR file or a JAR file), there are certain settings that you get out of the box for Tomcat configuration. You can refer to the [Official Apache Tomcat Documentation](https://tomcat.apache.org/) for detailed information, including the default configuration for Tomcat Web Server.
 
 Additionally, there are certain transformations that are further applied on top of the server.xml for Tomcat distribution upon start. These are transformations to the Connector, Host, and Valve settings.
