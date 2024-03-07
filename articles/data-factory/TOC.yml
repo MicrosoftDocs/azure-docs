@@ -511,6 +511,8 @@ items:
       href: connector-microsoft-access.md
     - name: Microsoft Fabric Lakehouse
       href: connector-microsoft-fabric-lakehouse.md
+    - name: Microsoft Fabric Warehouse
+      href: connector-microsoft-fabric-warehouse.md
     - name: MongoDB
       href: connector-mongodb.md
       items:
@@ -1229,6 +1231,9 @@ items:
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
         displayName: troubleshooting
+      - name: Google Ads
+        href: connector-troubleshoot-google-ads.md
+        displayName: troubleshooting      
       - name: Hive
         href: connector-troubleshoot-hive.md
         displayName: troubleshooting

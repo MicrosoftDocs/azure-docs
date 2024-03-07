@@ -49,7 +49,7 @@ Your current setup and operational needs dictate the most relevant path through 
 - **Memory Isolation**: VM level isolation with unique memory encryption key per VM.
 - **Programming model**: Zero to minimal changes for containerized applications. Support is limited to containers that are Linux based (containers using a Linux base image for the container).
 
-You can find more information on [Getting started with CVM worker nodes with a lift and shift workload to CVM node pool.](../aks/use-cvm.md)
+You can find more information on [Getting started with CVM worker nodes with a lift and shift workload to CVM node pool.](../aks/use-cvm.md).
 
 ### Confidential Containers on AKS
 
@@ -58,7 +58,7 @@ You can find more information on [Getting started with CVM worker nodes with a l
 - **Programming model**: Zero to minimal changes for containerized applications (containers using a Linux base image for the container).
 - **Ideal Workloads**: Applications with sensitive data processing, multi-party computations, and regulatory compliance requirements.
 
-You can find more information on [Getting started with CVM worker nodes with a lift and shift workload to CVM node pool.](../aks/use-cvm.md)
+You can find more information at [Confidential Containers with Azure Kubernetes Service](../aks/confidential-containers-overview.md).
 
 ### Confidential Computing Nodes with Intel SGX
 

@@ -205,12 +205,16 @@ items:
       items:
       - name: About distributed apps
         href: develop/concept-about-distributed-apps.md
+      - name: Dapr apps
+        items:
+        - name: Deploy Dapr
+          href: develop/howto-deploy-dapr.md
+        - name: Develop Dapr apps
+          href: develop/howto-develop-dapr-apps.md
+        - name: Build an event-driven app with Dapr
+          href: develop/tutorial-event-driven-with-dapr.md
       - name: About the MQ state store protocol 
         href: develop/concept-about-state-store-protocol.md
-      - name: Develop Dapr apps
-        href: develop/howto-develop-dapr-apps.md
-      - name: Build event-driven apps with Dapr
-        href: develop/tutorial-event-driven-with-dapr.md
       - name: Develop MQTTnet apps
         href: develop/howto-develop-mqttnet-apps.md
 

@@ -3,12 +3,12 @@ title: How to use autolabeling in custom text classification
 titleSuffix: Azure AI services
 description: Learn how to use autolabeling in custom text classification.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 # How to use autolabeling for Custom Text Classification

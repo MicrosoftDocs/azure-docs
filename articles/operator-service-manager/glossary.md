@@ -8,6 +8,7 @@ ms.topic: glossary
 ms.service: azure-operator-service-manager
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Glossary: Azure Operator Service Manager

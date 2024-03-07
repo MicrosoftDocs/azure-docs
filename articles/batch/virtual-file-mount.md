@@ -9,6 +9,9 @@ ms.date: 08/22/2023
 
 # Mount a virtual file system on a Batch pool
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Azure Batch supports mounting cloud storage or an external file system on Windows or Linux compute nodes in Batch pools. When a compute node joins the pool, the virtual file system mounts and acts as a local drive on that node. This article shows you how to mount a virtual file system on a pool of compute nodes by using the [Batch Management Library for .NET](/dotnet/api/overview/azure/batch).
 
 Mounting the file system to the pool makes accessing data easier and more efficient than requiring tasks to get their own data from a large shared data set. Consider a scenario where multiple tasks need access to a common set of data, like rendering a movie. Each task renders one or more frames at once from the scene files. By mounting a drive that contains the scene files, it's easier for each compute node to access the shared data.

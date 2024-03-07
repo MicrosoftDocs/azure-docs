@@ -274,16 +274,28 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
-    - name: REST API v4.0
+  - name: REST APIs
+    items:
+    - name: 2023-10-31-preview (v4.0)
       href: /rest/api/aiservices/operation-groups?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
-    - name: REST API v3.1
+    - name: 2023-07-31 (v3.1)
       href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP
-    - name: REST API v3.0
+    - name: 2022-08-31 (v3.0)
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     - name: Error codes v4.0, v3.1, and v3.0
       href: v3-error-guide.md
-    - name: REST API v2.1
+    - name: v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
+  - name: SDKs (2023-10-31-preview)
+    items:
+    - name: C# / .NET
+      href: /dotnet/api/overview/azure/ai.documentintelligence-readme?view=azure-dotnet-preview&preserve-view=true
+    - name: Java
+      href: /java/api/overview/azure/ai-documentintelligence-readme?view=azure-java-preview&preserve-view=true
+    - name: JavaScript
+      href: /javascript/api/overview/azure/ai-document-intelligence-rest-readme?view=azure-node-preview&preserve-view=true
+    - name: Python
+      href: /python/api/overview/azure/ai-documentintelligence-readme?view=azure-python-preview&preserve-view=true    
 - name: Resources
   items:
   - name: Enterprise readiness

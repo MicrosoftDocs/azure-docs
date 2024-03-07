@@ -7,7 +7,6 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: allensu
 ---

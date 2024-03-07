@@ -3,7 +3,7 @@ title: Configure Azure IoT Edge device settings
 description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/20/2023
+ms.date: 02/06/2024
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -11,9 +11,11 @@ services: iot-edge
 
 # Configure IoT Edge device settings
 
-This article shows settings and options for configuring the IoT Edge *config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the *config.toml* file has several options. Not all options are mandatory, as they apply to specific scenarios.
+This article shows settings and options for configuring the IoT Edge */etc/aziot/config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the *config.toml* file has several options. Not all options are mandatory, as they apply to specific scenarios.
 
 A template containing all options can be found in the *config.toml.edge.template* file within the */etc/aziot* directory on an IoT Edge device. You can copy the contents of the whole template or sections of the template into your *config.toml* file. Uncomment the sections you need. Be aware not to copy over parameters you have already defined.
+
+If you change a device's configuration, use `sudo iotedge config apply` to apply the changes.
 
 ## Global parameters
 

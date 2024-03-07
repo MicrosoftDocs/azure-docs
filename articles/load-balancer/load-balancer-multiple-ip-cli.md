@@ -6,7 +6,6 @@ services: virtual-network
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 05/30/2023
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurecli

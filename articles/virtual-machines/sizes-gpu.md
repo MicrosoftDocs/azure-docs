@@ -5,7 +5,6 @@ author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 10/27/2022
 ms.author: vikancha
 ---

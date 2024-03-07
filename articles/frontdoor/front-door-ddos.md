@@ -5,7 +5,6 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 10/23/2023
 ms.author: duau
 ---

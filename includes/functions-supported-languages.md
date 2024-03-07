@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/23/2024
+ms.date: 02/05/2024
 ms.author: glenga
 ms.custom:
   - include file
@@ -80,8 +80,8 @@ The following table shows the language versions supported for Node.js functions.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| [Node.js 20](https://endoflife.date/nodejs) | Preview | April 30, 2026 |
-| [Node.js 18](https://endoflife.date/nodejs) | GA | April 2025|
+| [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
+| [Node.js 18](https://endoflife.date/nodejs) | GA | April 30, 2025|
 | [Node.js 16](https://endoflife.date/nodejs) | GA | September 11, 2023<sup>\*</sup> |
 | [Node.js 14](https://endoflife.date/nodejs) | GA | April 30, 2023<sup>\*</sup> |
 
@@ -107,9 +107,6 @@ The following table shows the language versions supported for Python functions. 
 | Python 3.10 | GA | October 2026 |
 | Python 3.9 | GA | October 2025 |
 | Python 3.8 | GA | October 2024 |
-| Python 3.7 | GA | June 27, 2023<sup>\*</sup> |
-
-<sup>\*</sup>Support on Functions extended until September 30, 2023.
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md#python-version).
 ::: zone-end

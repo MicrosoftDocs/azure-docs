@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Disks for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli, linux-related-content
-ms.date: 11/28/2023
+ms.date: 03/05/2024
 ---
 
 # Create and use a volume with Azure Disks in Azure Kubernetes Service (AKS)
@@ -35,7 +35,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 This section provides guidance for cluster administrators who want to provision one or more persistent volumes that include details of Azure Disk storage for use by a workload. A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Disk storage container.
 
-### Dynamic provisioning parameters
+### Storage class parameters for dynamic PersistentVolumes
+
+The following table includes parameters you can use to define a custom storage class for your PersistentVolumeClaim.
 
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
@@ -225,7 +227,9 @@ For more information on using Azure tags, see [Use Azure tags in Azure Kubernete
 
 This section provides guidance for cluster administrators who want to create one or more persistent volumes that include details of Azure Disks storage for use by a workload.
 
-### Static provisioning parameters
+### Static provisioning parameters for PersistentVolume
+
+The following table includes parameters you can use to define a PersistentVolume.
 
 |Name | Meaning | Available Value | Mandatory | Default value|
 |--- | --- | --- | --- | ---|

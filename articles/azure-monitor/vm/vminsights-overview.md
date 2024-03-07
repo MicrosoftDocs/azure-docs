@@ -47,5 +47,4 @@ Access VM insights for all your virtual machines and virtual machine scale sets 
 ## Next steps
 
 - [Enable and configure VM insights](./vminsights-enable-overview.md).
-- [Migrate machines with VM insights from Log Analytics agent to Azure Monitor Agent](../vm/vminsights-enable-overview.md#migrate-from-log-analytics-agent-to-azure-monitor-agent).
 

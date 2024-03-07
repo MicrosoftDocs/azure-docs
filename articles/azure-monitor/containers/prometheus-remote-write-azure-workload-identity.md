@@ -5,6 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.author: edbaynash
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 09/10/2023
 ms.reviewer: rapadman
 ---

@@ -144,8 +144,10 @@ To request an exception from the Azure Machine Learning product team, use the st
 | Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>2</sup> | - | All types of endpoints <sup>3</sup> |
 | Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>2</sup> | - | All types of endpoints <sup>3</sup> |
 | Number of endpoints per subscription | 100 | Yes | All types of endpoints <sup>3</sup> |
+| Number of endpoints per cluster | 60 | - | Kubernetes online endpoint |
 | Number of deployments per subscription | 500 | Yes | All types of endpoints <sup>3</sup>|
 | Number of deployments per endpoint | 20 | Yes | All types of endpoints <sup>3</sup> |
+| Number of deployments per cluster | 100 | - | Kubernetes online endpoint |
 | Number of instances per deployment | 50 <sup>4</sup> | Yes | Managed online endpoint |
 | Max request time-out at endpoint level | 180 seconds | - | Managed online endpoint |
 | Max request time-out at endpoint level | 300 seconds | - | Kubernetes online endpoint |

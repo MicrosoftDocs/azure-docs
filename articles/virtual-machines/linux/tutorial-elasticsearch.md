@@ -1,12 +1,11 @@
 ---
-title: Deploy ElasticSearch on a development virtual machine in Azure 
+title: Deploy ElasticSearch on a development virtual machine in Azure
 description: Install the Elastic Stack (ELK) onto a development Linux VM in Azure
 services: virtual-machines
 author: rloutlaw
 manager: justhe
 ms.service: virtual-machines
 ms.collection: linux
-ms.workload: infrastructure-services
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ms.topic: how-to

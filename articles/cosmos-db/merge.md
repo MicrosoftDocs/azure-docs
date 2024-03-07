@@ -7,8 +7,11 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: dech
 ms.service: cosmos-db
+ms.custom: devx-track-azurecli
 ms.date: 04/28/2023
 ---
+
+
 
 # Merge partitions in Azure Cosmos DB (preview)
 
@@ -131,34 +134,6 @@ $parameters = @{
 Invoke-AzCosmosDBSqlContainerMerge @parameters
 ```
 
-For **shared-throughput databases**, use `Invoke-AzCosmosDBSqlDatabaseMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
-
-
-
-```azurepowershell-interactive
-$parameters = @{
-    ResourceGroupName = "<resource-group-name>"
-    AccountName = "<cosmos-account-name>"
-    Name = "<cosmos-database-name>"
-    WhatIf = $true
-}
-Invoke-AzCosmosDBSqlDatabaseMerge @parameters
-```
-
-Start the merge by running the same command without the `-WhatIf` parameter.
-
-
-
-```azurepowershell-interactive
-$parameters = @{
-    ResourceGroupName = "<resource-group-name>"
-    AccountName = "<cosmos-account-name>"
-    Name = "<cosmos-database-name>"
-}
-Invoke-AzCosmosDBSqlDatabaseMerge @parameters
-
-```
-
 #### [API for NoSQL](#tab/nosql/azure-cli)
 
 For **provisioned throughput** containers, start the merge by using [`az cosmosdb sql container merge`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-merge).
@@ -230,33 +205,6 @@ $parameters = @{
     Name = "<cosmos-container-name>"
 }
 Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
-```
-
-For **shared-throughput** databases, use `Invoke-AzCosmosDBMongoDBDatabaseMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
-
-
-
-```azurepowershell-interactive
-$parameters = @{
-    ResourceGroupName = "<resource-group-name>"
-    AccountName = "<cosmos-account-name>"
-    Name = "<cosmos-database-name>"
-    WhatIf = $true
-}
-Invoke-AzCosmosDBMongoDBDatabaseMerge @parameters
-```
-
-Start the merge by running the same command without the `-WhatIf` parameter.
-
-
-
-```azurepowershell-interactive
-$parameters = @{
-    ResourceGroupName = "<resource-group-name>"
-    AccountName = "<cosmos-account-name>"
-    Name = "<cosmos-database-name>"
-}
-Invoke-AzCosmosDBMongoDBDatabaseMerge @parameters
 ```
 
 #### [API for MongoDB](#tab/mongodb/azure-cli)

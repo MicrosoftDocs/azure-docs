@@ -6,7 +6,6 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: halkazwini
 ---

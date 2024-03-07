@@ -6,7 +6,6 @@ cloud: gov
 
 ms.service: azure-government
 ms.topic: article
-ms.workload: azure-government
 ms.date: 08/31/2021
 ---
 
@@ -110,5 +109,3 @@ Make sure that any virtual machine extensions your solution template relies on a
 
 - Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 - Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
-
-

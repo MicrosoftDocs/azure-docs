@@ -64,6 +64,7 @@ After a developer team lead is assigned the DevCenter Project Admin role, they c
 
 - Create dev box pools and add appropriate dev box definitions.
 - Control costs by using auto-stop schedules.
+- Use a configuration script that invokes setup tasks from a catalog attached to the dev center. The setup tasks execute during the creation of a dev box to install and customize software specific to the project.
 
 ### Developer scenarios
 

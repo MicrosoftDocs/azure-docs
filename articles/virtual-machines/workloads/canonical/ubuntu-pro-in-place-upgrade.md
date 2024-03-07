@@ -23,6 +23,10 @@ their servers from Ubuntu 18.04 LTS now that it's reached End of Life (EOL).
 > software updates, or security patches for this version. Customers wishing to continue using Ubuntu
 > 18.04 LTS need to upgrade to Ubuntu Pro for continued supportability.
 
+## Limitations
+- Only Ubuntu images **published by Canonical** can be converted to "UBUNTU_PRO"
+- Images published by other vendors or custom images are not supported
+
 ## What's Ubuntu Pro?
 
 Ubuntu Pro is a cross-cloud OS, optimized for Azure, and security maintained for 10 years. The
@@ -51,9 +55,11 @@ packages.
 - Portability: Ubuntu is available in all regions with content mirrors to reduce the need to go across regions or out to the Internet for updates
 - Consistent experience across platforms: from edge to multicloud, Ubuntu provides the same experience regardless of the platform. It ensures consistency of your CI/CD pipelines and management mechanisms.
 
-> [!NOTE]
+> [!IMPORTANT]
 > This document provides instructions to upgrade Ubuntu Server (16.04 or higher) to
-> Ubuntu Pro. Converting to Ubuntu Pro is an irreversible process.
+> Ubuntu Pro.
+> 
+> Converting to Ubuntu Pro is an **irreversible** process.
 
 ## Convert to Ubuntu Pro using the Azure CLI
 
@@ -99,7 +105,7 @@ You can create a new VM using the Ubuntu Server images and apply Ubuntu Pro at t
 The following command enables Ubuntu Pro on a virtual machine in Azure:
 
 ```Azure CLI
-az vm update -g myResourceGroup -n myVmName --license-type UBUNTU_PRO
+az vm create -g myResourceGroup -n myVmName --license-type UBUNTU_PRO --image ubuntu2204
 ```
 
 Execute these commands inside the VM:

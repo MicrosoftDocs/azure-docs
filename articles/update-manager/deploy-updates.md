@@ -2,7 +2,7 @@
 title: Deploy updates and track results in Azure Update Manager
 description: This article details how to use Azure Update Manager in the Azure portal to deploy updates and view results for supported machines.
 ms.service: azure-update-manager
-ms.date: 11/20/2023
+ms.date: 02/26/2024
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -150,10 +150,11 @@ After your scheduled deployment starts, you can see its status on the **History*
 
 :::image type="content" source="./media/deploy-updates/updates-history-inline.png" alt-text="Screenshot that shows update history." lightbox="./media/deploy-updates/updates-history-expanded.png":::
 
-**Windows update history** currently doesn't show the updates that are installed from Azure Update Management. To view a summary of the updates applied on your machines, go to **Update Manager** > **Manage** > **History**.
+Currently, the **Windows update history** for a VM doesn't show the updates that are installed from Azure Update Manager. To view a summary of the updates applied on your machines, go to **Azure Update Manager** > **Manage** > **History** in [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
-> The **Windows update history** currently doesn't show the updates summary that are installed from Azure Update Management. To view a summary of the updates applied on your machines, go to **Update manager** > **Manage** > **History**. 
+> - To view a summary of the updates applied on your machines, go to **Azure Update Manager** > **Manage** > **History** in [Azure portal](https://portal.azure.com).
+> - Alternatively, go to **Control Panel** > **Programs** > **Programs and Features** > **Installed Updates** to view the installed CBS updates. This view only shows history of CBS updates [Servicing stack updates - Windows Deployment](https://learn.microsoft.com/windows/deployment/update/servicing-stack-updates) which can be uninstalled.
  
 A list of the deployments created are shown in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Operation ID**, which is listed along with **Status**, **Updates Installed** and **Time** details. You can filter the results listed in the grid.
 

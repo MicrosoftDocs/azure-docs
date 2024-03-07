@@ -4,7 +4,7 @@ description: Guidance overview on migration from Automation Update Management to
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 02/14/2024
 ms.author: sudhirsneha
 ---
 
@@ -85,7 +85,7 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
 
 **B. Run the script** 
 
-   Download and run the PowerShell script `MigrationPrerequisiteScript` locally. This script takes AutomationAccountResourceId of the Automation account to be migrated as the input.
+   Download and run the PowerShell script [`MigrationPrerequisiteScript`](https://github.com/azureautomation/Preqrequisite-for-Migration-from-Azure-Automation-Update-Management-to-Azure-Update-Manager/blob/main/MigrationPrerequisites.ps1) locally. This script takes AutomationAccountResourceId of the Automation account to be migrated as the input.
     
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/run-script.png" alt-text="Screenshot that shows how to download and run the script." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/run-script.png":::
 
@@ -117,7 +117,7 @@ This step involves using an automation runbook to migrate all the machines and s
 
 **Follow these steps:**
 
-1. Import migration runbook from the runbooks gallery and publish. Search for **azure automation update** from browse gallery, and import the migration runbook named **Migrate from Azure Automation Update Management to Azure Update Manager** and publish the runbook.
+1. Import [migration runbook](https://github.com/azureautomation/Migrate-from-Azure-Automation-Update-Management-to-Azure-Update-Manager/blob/main/Migration.ps1) from the runbooks gallery and publish. Search for **azure automation update** from browse gallery, and import the migration runbook named **Migrate from Azure Automation Update Management to Azure Update Manager** and publish the runbook.
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-automation-update-management.png" alt-text="Screenshot that shows how to migrate from Automation Update Management." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-automation-update-management.png":::
 

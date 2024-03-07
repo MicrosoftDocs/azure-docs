@@ -61,6 +61,7 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 | [Dataverse](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Dynamics 365](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Dynamics CRM](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
+| [Fabric Lakehouse](connector-microsoft-fabric-lakehouse.md#mapping-data-flow-properties) | | ✓/✓ |
 | [SFTP](connector-sftp.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[Delimited text](format-delimited-text.md#mapping-data-flow-properties) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/✓ <br>✓/✓ <br>✓/✓ <br>✓/✓<br>✓/✓|
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 | [SQL Server](connector-sql-server.md) | | ✓/✓ |

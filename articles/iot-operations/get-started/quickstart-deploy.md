@@ -36,6 +36,8 @@ Review the prerequisites based on the environment you use to host the Kubernetes
 
 For this quickstart, we recommend GitHub Codespaces as a quick way to get started in a virtual environment without installing new tools. Or, use Azure Kubernetes Service (AKS) Edge Essentials to create a cluster on Windows devices or K3s on Ubuntu Linux devices.
 
+As part of this quickstart, you create a cluster in either Codespaces, AKS Edge Essentias, or Linux. If you want to reuse a cluster that you've deployed Azure IoT Operations to before, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
+
 # [Virtual](#tab/codespaces)
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -86,6 +88,8 @@ Azure IoT Operations is a suite of data services that run on Kubernetes clusters
 ## Connect a Kubernetes cluster to Azure Arc
 
 Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. For this quickstart, use GitHub Codespaces, AKS Edge Essentials on Windows, or K3s on Ubuntu Linux.
+
+In this section, you create a new cluster and connect it to Azure Arc. If you want to reuse a cluster that you've deployed Azure IoT Operations to before, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
 # [Virtual](#tab/codespaces)
 

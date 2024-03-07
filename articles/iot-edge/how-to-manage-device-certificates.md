@@ -252,7 +252,18 @@ To prevent errors when certificates expire, remember to manually update the file
 
 ### Example: Use device identity certificate files from PKI provider
 
-Request a TLS client certificate and a private key from your PKI provider. Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the critical field that needs to match.
+Request a TLS client certificate and a private key from your PKI provider.
+
+Device identity certificate requirements:
+
+- Standard client certificate extensions:
+    extendedKeyUsage = clientAuth
+    keyUsage = critical, digitalSignature
+- Key identifiers to help distinguish between issuing CAs with the same CN for CA certificate rotation.
+    - subjectKeyIdentifier = hash
+    - authorityKeyIdentifier = keyid:always,issuer:always
+
+Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the important field that must match.
 
 Example device identity certificate:
 

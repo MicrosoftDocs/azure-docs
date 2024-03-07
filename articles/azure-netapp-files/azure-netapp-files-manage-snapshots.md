@@ -1,10 +1,9 @@
 ---
 title: Create an on-demand snapshot using Azure NetApp Files | Microsoft Docs
-description: Describes how to create on-demand snapshots with Azure NetApp Files.  
+description: Describes how to create on-demand snapshots with Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 10/25/2021
 ms.author: anfdocs

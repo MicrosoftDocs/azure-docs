@@ -5,7 +5,6 @@ description: Learn about subnet extension in Azure.
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 04/06/2023
 ms.author: allensu
 ---

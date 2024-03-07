@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 01/03/2024
+ms.date: 02/05/2024
 ---
 
 # Tag support for Azure resources
@@ -1327,7 +1327,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | flexibleServers | Yes | Yes |
 > | getPrivateDnsZoneSuffix | No | No |
 > | serverGroups | Yes | Yes |
-> | serverGroupsv2 | Yes | Yes |
+> | serverGroupsv2 | Yes | No |
 > | servers | Yes | Yes |
 > | servers / advisors | No | No |
 > | servers / keys | No | No |
@@ -1340,7 +1340,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / topQueryStatistics | No | No |
 > | servers / virtualNetworkRules | No | No |
 > | servers / waitStatistics | No | No |
-> | serversv2 | Yes | Yes |
+> | serversv2 | Yes | No |
 
 ## Microsoft.DelegatedNetwork
 

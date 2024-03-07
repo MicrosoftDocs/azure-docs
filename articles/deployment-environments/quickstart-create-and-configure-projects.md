@@ -1,7 +1,7 @@
 ---
-title: Create and configure an Azure Deployment Environments project
+title: Create a project in Azure Deployment Environments
 titleSuffix: Azure Deployment Environments
-description: Learn how to create a project in Azure Deployment Environments and associate the project with a dev center.
+description: Learn how to create a project for a dev center Azure Deployment Environments. In a project, you can define environment types and environments  that are specific to a software development project.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
@@ -10,9 +10,11 @@ ms.topic: quickstart
 ms.date: 12/01/2023
 ---
 
-# Quickstart: Create and configure an Azure Deployment Environments project
+# Quickstart: Create and configure a project in Azure Deployment Environments
 
-This quickstart shows you how to create a project in Azure Deployment Environments, then associate the project with the dev center you created in [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md). After you complete this quickstart, developers can use the developer portal to create environments to deploy their applications.
+This quickstart shows you how to create a project in Azure Deployment Environments, then associate the project with the dev center you created in [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md). After you complete this quickstart, developers can use the developer portal to create environments in the project to deploy their applications.
+
+A project contains the specific configuration for environment types and environment definitions related to a development project. For example, you might create a project for the implementation of an ecommerce application, which has a development, staging, and production environment. For another project, you might define a different configuration.
 
 The following diagram shows the steps to configure a project associated with a dev center for Deployment Environments in the Azure portal.
 
