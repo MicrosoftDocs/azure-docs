@@ -18,7 +18,7 @@ Before you restore data in an archived log, see [Start an investigation by searc
 
 ## Restore archived log data
 
-To restore archived log data in Microsoft Sentinel, specify  the table and time range for the data you want to restore. Within a few minutes, the log data is available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full KQL.
+To restore archived log data in Microsoft Sentinel, specify  the table and time range for the data you want to restore. Within a few minutes, the log data is available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full Kusto Query Language (KQL).
 
 You can restore archived data directly from the **Search** page or from a saved search.
 
@@ -41,7 +41,7 @@ You can restore archived data directly from the **Search** page or from a saved 
 
 View the status and results of the log data restore by going to the **Restoration** tab. You can view the restored data when the status of the restore job shows **Data Available**.
 
-1. In your Microsoft Sentinel, select **Search** > **Restoration**.
+1. In Microsoft Sentinel, select **Search** > **Restoration**.
 
    :::image type="content" source="media/restore/restoration-tab.png" alt-text="Screenshot of the restoration tab on the search page.":::
 
