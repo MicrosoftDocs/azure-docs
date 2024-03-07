@@ -1,12 +1,12 @@
 ---
 title: "What is Azure Arc site manager (preview)?"
-description: "Describes how you can use Azure Arc sites and site manager to monitor and manage physical resources in edge scenarios."
+description: "Describes how you can use Azure Arc sites and site manager to monitor and manage physical and logical resources, forcused on edge scenarios."
 author: kgremban
 ms.author: kgremban
 ms.service: azure-arc
 # ms.subservice: site-manager
 ms.topic: overview #Don't change
-ms.date: 02/27/2024
+ms.date: 03/06/2024
 ms.custom: references_regions
 
 #customer intent: As a <role>, I want <what> so that <why>.
@@ -15,13 +15,21 @@ ms.custom: references_regions
 
 # What is Azure Arc site manager (preview)?
 
-Azure Arc site manager (preview) is a unified dashboard that simplifies the tasks of securing, monitoring, and governing all resources associated with your edge operations.
+Azure Arc site manager (preview) is a unified plane that simplifies the tasks monitoring, governing, and providing extended functionality for all resources grouped to represent a "site" within a resource group.
 
 ## Sites
 
-A *site* is an abstract concept that helps you group together resources that are geographically colocated. Sites layer on top of Azure subscriptions and resource groups, creating a unified dashboard for viewing and managing resources.
+A *site* is an abstract concept that helps you group together resources that are often geographically colocated but can also be logically grouped. Arc sites layer on top of Azure resource groups or subscriptions, creating a unified dashboard for viewing and managing resources with extended site functionality.
 
-Sites have a 1:1 relationship with resource groups and subscription. Any given site can only have one resource group or subscription, and any given resource group or subscription can only be in one site. However, resource groups within a subscription can belong to different sites. In this way, you can create a hierarchy of related sites.
+Arc sites have a 1:1 relationship with resource groups and subscriptions. Any given site can only have one resource group and one subscription, and any given resource group or subscription can only be in one site. However, resource groups within a subscription can belong to different sites. In this way, you can create a hierarchy of related sites.
+
+## Mapping
+
+Resource Group <- 1:1 -> Site
+
+Subscription <- 1:1 -> Site
+
+Subscription <- 1:M -> Resource Group
 
 ## Supported resource types
 
@@ -47,4 +55,4 @@ Site manager only provides health status aggregation for the supported resource 
 
 ## Supported regions
 
-Site manager supports resources that are deployed in any of the Azure regions in the United States (US), Australia (AUS), and Europe (EU).
+Site manager supports resources that are deployed in any of the Azure regions in Azure Global.

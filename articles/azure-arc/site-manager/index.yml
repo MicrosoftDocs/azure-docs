@@ -23,5 +23,11 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Azure Arc sites?
+          - text: What is Azure Arc site manager?
             url: overview.md
+  - title: Getting started
+      linkLists:
+        - linkListType: quickstart
+          links:
+            - text: How do I get started with Azure Arc site manager?
+              url: quickstart.md

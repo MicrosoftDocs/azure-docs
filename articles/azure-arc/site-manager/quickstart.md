@@ -1,188 +1,63 @@
 ---
-title: "Quickstart: [verb] * [noun]"
+title: "Quickstart: Creating a Arc Site"
 description: "[Article description]."
 author: kgremban
 ms.author: kgremban
 ms.service: azure-arc
 #ms.subservice: site-manager
 ms.topic: quickstart  #Don't change
-ms.date: 02/16/2024
+ms.date: 03/06/2024
 
-#customer intent: As a <role>, I want <what> so that <why>.
+#customer intent: As a admin who manages my sites as resource groups in Azure, I want to represent them as Arc Sites and so that I can benefit from logical representation and extended functionality in Arc for my resources under my resource groups.
 
 ---
   
-<!-- --------------------------------------
-
-- Use this template with pattern instructions for:
-
-Quickstart
-
-- Use the Quickstart pattern when you want to show a user 
-how to complete a task to get started with a product or 
-service in their own environment.
-
-- Before you sign off or merge:
-
-Remove all comments except the customer intent.
-
-- Feedback:
-
-https://aka.ms/patterns-feedback
-
--->
-
-# Quickstart: [verb] * [noun]
+# Quickstart: Creating a Arc Site in Azure Arc site manager
  
-<!-- Required: Article headline - H1
 
-Identify the product or service and the feature area
-the quickstart covers.
+The purpose of this quickstart is to enable starting with Azure Arc site manager and guides on how to create a intiial site for resources currently grouped within a single resource group. In this quickstart you will create your first site. Once you create your first Arc site, you will be ready to view your resources within Arc, and conduct functions, depending on the specific resources, such as Inventory, Connectivity status, Updates, and Alerts.
 
--->
+For full status on which resources support what functions within Arc sites, please view the overview.md here.
 
-[Introduce and explain the purpose of the article.]
-
-<!-- Required: Introductory paragraphs (no heading)
-
-Write a brief introduction that can help the user determine 
-whether the article is relevant for them. Begin with a 
-sentence that says, "In this quickstart, you . . . ."
-
--->
-
-If you don't have a service subscription, create a free
-trial account . . .
-
-<!-- Required: Free account links (no heading)
-
-Because quickstarts are intended to help new customers
-use a product or service, include a link to a 
-free trial before the first H2.
-
--->
+If you don't have a service subscription, create a free trial account in Azure here.
 
 ## Prerequisites
 
-<!-- Optional: Prerequisites - H2
+* Azure Portal Access
+* Internet Connectivity
+* Subscription
+* Resource Group or Subscription with at-least 1 resource for Site
 
-If included, "Prerequisites" must be the first H2 in the article.
+## Open Azure Arc site manager
 
-List any items that are needed for the quickstart,
-such as permissions or software.
+Navigate to Azure Arc site manager either via the "Azure Arc" pane in Azure in which "Site manager" will be displayed on the left side. Alternatively, you can also search for "Azure Arc site manager" in the Azure Portal or "Sites - Azure Arc".
 
-If the user needs to sign in to a portal to do
-the quickstart, provide instructions and a link.
+Once you locate "Azure Arc site manager", click to open the main page.
 
--->
+## Create your site
 
-## Open [Cloud Shell, Azure CLI, or PowerShell]
+1. Click the blue box icon that says "Create a site"
+2. Fill in the details for your first site. While these details may change, at the time of this article the required details are:
+    * Site scope: subscription or resource group
+     *Note:* The scope can be defined only at the time of creating a site and cannot be modified later. By defining the scope for a site, all the resources in the scope can be viewed and managed from site manager.
+    * Site name: custom name for site
+    * Display name: custom display name for site
+    * Subscription: subscription for the site to be created under
+    * Address: Physical address for a site
+3. Once these details are provided, click "Review + create" and you will be brough to a summary page to review and confirm the site details prior to creation.
+4. Click "Create" to create your site.
 
-<!-- Optional: Open a demo environment - H2
 
-If you want to refer to using Azure Cloud Shell,
-the Azure CLI, or Azure PowerShell, include the
-instructions as a first step, after the "Prerequisites" section if prerequisites are included.
+## View and Delete your newly created site
 
-Include information about Cloud Shell only if all commands can 
-run in Cloud Shell.
+1. Navigate to the "Sites" tab at the top of Azure Arc site manager.
+2. Here you should find your newly created site.
+3. To manage your site, you can click the site to navigate to the specific site’s resource page and perform the delete action. If you wish to delete your site, you can also do so from within the created site.
 
-Use include files if they are available.
+    *Note:* Deleting a site does not affect the resources or the resource group and subscription in its scope. After a site is deleted, the resources of that site cannot be viewed or managed from site manager.
+    *Note:* A new site can be created for the resource group or the subscription after the original site is deleted.
+4. To view insights on your site, you can navigate to the "Overview" tab at the top of site manager.
 
---->
+## Related content
 
-## [verb] * [noun]
-
-[Introduce a task and its role in completing the process.]
-
-<!-- Required: Tasks to complete in the process - H2
-
-In one or more numbered H2 sections, describe tasks that 
-the user completes in the process the quickstart describes.
-
--->
-
-1. Procedure step
-1. Procedure step
-1. Procedure step
-
-<!-- Required: Steps to complete the tasks - H2
-
-Use ordered lists to describe how to complete tasks in 
-the process. Be consistent when you describe how to
-use a method or tool to complete the task.
-
-Code requires specific formatting. Here are a few useful 
-examples of commonly used code blocks. Make sure to 
-use the interactive functionality when possible.
-
-For the CLI-based or PowerShell-based procedures,
-don't use bullets or numbering.
-
-Here is an example of a code block for Java:
-
-```java
-cluster = Cluster.build(new File("src/site.yaml")).create();
-...
-client = cluster.connect();
-```
-
-Here's a code block for the Azure CLI:
-
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM 
---image win2016datacenter --admin-username azureuser 
---admin-password myPassword12
-```
-
-This is a code block for Azure PowerShell:
-
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName 
-myResourceGroup -Name mycontainer 
--Image mcr.microsoft.com/windows/servercore/iis:nanoserver 
--OsType Windows -IpAddressType Public
-```
--->
-
-## Clean up resources
-
-<!-- Optional: Steps to clean up resources - H2
-
-Provide steps the user takes to clean up resources that
-were created to complete the article.
-
--->
-
-## Next step -or- Related content
-<!-- 
-> [!div class="nextstepaction"]
-> [Next sequential article title](link.md)
-
--or-
-
-- [Related article title](link.md)
-- [Related article title](link.md)
-- [Related article title](link.md) -->
-
-<!-- Optional: Next step or Related content - H2
-
-Consider adding one of these H2 sections (not both):
-
-A "Next step" section that uses 1 link in a blue box 
-to point to a next, consecutive article in a sequence.
-
--or- 
-
-If the quickstart is not part of a sequence, use a 
-"Related content" section that lists links to 
-1 to 3 articles the user might find helpful.
-
--->
-
-<!--
-
-Remove all comments except the customer intent
-before you sign off or merge to the main branch.
-
--->
+- [Azure Arc](https://azure.microsoft.com/en-us/products/azure-arc/)

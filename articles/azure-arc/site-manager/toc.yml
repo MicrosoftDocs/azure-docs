@@ -8,11 +8,14 @@
   items:
   - name: Quickstart
     href: quickstart.md
-- name: Tutorials
+- name: How to Create, Use, Delete, and Modify a Arc site
   items:
-  - name: Tutorial
-    href: tutorial.md
-- name: How-to guides
+  - name: How to Create, Use, Delete, and Modify a Arc site
+    href: how-to-crud-site.md
+
+- name: Reference
   items:
-  - name: How-to
-    href: how-to.md
+  - name: Azure Arc
+    href: https://learn.microsoft.com/en-us/azure/azure-arc/
+  - name: Azure CLI
+    href: https://learn.microsoft.com/en-us/cli/azure/connectedmachine

@@ -1,5 +1,5 @@
 ---
-title: "[verb] * [noun]"
+title: "How to CRUD a site"
 description: "[Article description]."
 author: kgremban
 ms.author: kgremban
@@ -12,105 +12,66 @@ ms.date: 02/16/2024
 
 ---
 
-<!-- --------------------------------------
+# Create a site
 
-- Use this template with pattern instructions for:
-
-How To
-
-- Before you sign off or merge:
-
-Remove all comments except the customer intent.
-
-- Feedback:
-
-https://aka.ms/patterns-feedback
-
--->
-
-# "[verb] * [noun]"
-
-<!-- Required: Article headline - H1
-
-Identify the product or service and the task the
-article describes.
-
--->
-
-[Introduce and explain the purpose of the article.]
-
-<!-- Required: Introductory paragraphs (no heading)
-
-Write a brief introduction that can help the user
-determine whether the article is relevant for them
-and to describe the task the article covers.
-
--->
+This how to will guide you through how to create, modify, and delete a site.
 
 ## Prerequisites
 
-<!-- Optional: Prerequisites - H2
+* Azure Portal Access
+* Internet Connectivity
+* Subscription
+* Resource Group or Subscription with at-least 1 resource for Site
 
-If included, "Prerequisites" must be the first H2 in the article.
+## Open Azure Arc site manager
 
-List any items that are needed for the integration,
-such as permissions or software.
+Navigate to Azure Arc site manager either via the "Azure Arc" pane in Azure in which "Site manager" will be displayed on the left side. Alternatively, you can also search for "Azure Arc site manager" in the Azure Portal or "Sites - Azure Arc".
 
-If you need to sign in to a portal to do the quickstart, 
-provide instructions and a link.
+Once you locate "Azure Arc site manager", click to open the main page.
 
--->
+## Create your site
 
-## "[verb] * [noun]"
+1. Click the blue box icon that says "Create a site"
+2. Fill in the details for your first site. While these details may change, at the time of this article the required details are:
+    * Site scope: subscription or resource group
+     *Note:* The scope can be defined only at the time of creating a site and cannot be modified later. By defining the scope for a site, all the resources in the scope can be viewed and managed from site manager.
+    * Site name: custom name for site
+    * Display name: custom display name for site
+    * Subscription: subscription for the site to be created under
+    * Address: Physical address for a site
+3. Once these details are provided, click "Review + create" and you will be brough to a summary page to review and confirm the site details prior to creation.
+4. Click "Create" to create your site.
 
-[Introduce the procedure.]
+## View and Delete your site
 
-1. Procedure step
-1. Procedure step
-1. Procedure step
+1. Navigate to the "Sites" tab at the top of Azure Arc site manager.
+2. Here you should find your created sites.
+3. To manage your site, you can click the site to navigate to the specific site’s resource page and perform the delete action. If you wish to delete your site, you can also do so from within the created site.
 
-<!-- Required: Steps to complete the task - H2
+    *Note:* Deleting a site does not affect the resources or the resource group and subscription in its scope. After a site is deleted, the resources of that site cannot be viewed or managed from site manager.
 
-In one or more H2 sections, organize procedures. A section
-contains a major grouping of steps that help the user complete
-a task.
+    *Note:* A new site can be created for the resource group or the subscription after the original site is deleted.
+4. To view insights on your site, you can navigate to the "Overview" tab at the top of site manager.
 
-Begin each section with a brief explanation for context, and
-provide an ordered list of steps to complete the procedure.
+## View and Modify your site
 
-If it applies, provide sections that describe alternative tasks or
-procedures.
+1. Navigate to the "Sites" tab at the top of Azure Arc site manager.
+2. Here you should find your created sites.
+3. To manage your site, you can click the site to navigate to the specific site’s resource page.
 
--->
+## Use your site
 
-## Next step -or- Related content
-<!-- 
-> [!div class="nextstepaction"]
-> [Next sequential article title](link.md)
+From within your site, you have the ability to certain function listed below:
+* View resources
+* Modify resources (modifications will effect the resources elsewhere as well)
+* View connectivity status (when supported by resources)
+* View update status (when supported by resources)
+* View alerts (when supported by resources)
 
--or-
+To access these functions:
+1. Navigate to the "Sites" tab at the top of Azure Arc site manager.
+2. You can click the site to navigate to the specific site’s resource page and perform the respective above actions. Some of these actions should also present themselves in the "Overview" at the top of site manager as well, which will provide a overview for many sites once multiple are created.
 
-* [Related article title](link.md)
-* [Related article title](link.md)
-* [Related article title](link.md) -->
+## Related content
 
-<!-- Optional: Next step or Related content - H2
-
-Consider adding one of these H2 sections (not both):
-
-A "Next step" section that uses 1 link in a blue box 
-to point to a next, consecutive article in a sequence.
-
--or- 
-
-A "Related content" section that lists links to 
-1 to 3 articles the user might find helpful.
-
--->
-
-<!--
-
-Remove all comments except the customer intent
-before you sign off or merge to the main branch.
-
--->
+- [Azure Arc](https://azure.microsoft.com/en-us/products/azure-arc/)
