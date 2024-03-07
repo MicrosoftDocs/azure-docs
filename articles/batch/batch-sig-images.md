@@ -84,32 +84,25 @@ Follow these guidelines when creating VMs:
 - For faster pool provisioning, use the [ReadWrite disk cache setting](../virtual-machines/premium-storage-performance.md#disk-caching) for the VM's OS disk.
 
 ### Create an Azure Compute Gallery
-
+ 
 You need to create an Azure Compute Gallery to make your custom image available. Select this gallery when creating image in the following steps. To learn how to create an Azure Compute Gallery for your images, see [Create an Azure Compute Gallery](../virtual-machines/create-gallery.md).
-
-### Create a VM snapshot
-
-A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for [VMs](../virtual-machines/snapshot-copy-managed-disk.md).
-
-### Create an image from one or more snapshots
-
-To create a managed image from a snapshot, use Azure command-line tools such as the [az image create](/cli/azure/image) command. Create an image by specifying an OS disk snapshot and optionally one or more data disk snapshots.
-
+ 
+### Create an image
+ 
 To create an image from a VM in the portal, see [Capture an image of a VM](../virtual-machines/capture-image-portal.md).
-
-To create an image which requires purchase plan, see [Supply Azure Marketplace purchase plan information when creating images](../virtual-machines/marketplace-images.md).
+ 
+To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md).
 
 > [!NOTE]
-> If the base image does not require a purchase plan, the purchase plan information must be left empty. In other words, specifying a purchase plan is not required.
+> If the base image has purchase plan information, ensure that the gallery image has identical purchase plan information as the base image. For more information on creating image which has purchase plan, refer to [Supply Azure Marketplace purchase plan information when creating images](../virtual-machines/marketplace-images.md).
 >
-> If the base image requires purchase plan, ensure that the correct plan information is provided when you create it.
+> If the base image does not have purchase plan information, avoid specifying any purchase plan information for the gallery image.
 > 
 > For the purchase plan information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties) VMs.
 > 
 > Use Azure PowerShell [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition) or Azure CLI  [az sig image-definition show](/cli/azure/sig/image-definition#az-sig-image-definition-show) to check whether the gallery image has correct plan information.
-
-To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md).
-
+ 
+ 
 ## Create a pool from a Shared Image using the Azure CLI
 
 To create a pool from your Shared Image using the Azure CLI, use the `az batch pool create` command. Specify the Shared Image ID in the `--image` field. Make sure the OS type and SKU matches the versions specified by `--node-agent-sku-id`
