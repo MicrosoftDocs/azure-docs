@@ -73,7 +73,7 @@ sections:
              No. Azure's billing relationship is directly with the service provider. Service providers are responsible for generating specific bills for their tenants.
 
       - question: |
-         If I'm replicating to Azure, do we need to run virtual machines in Azure at always?
+         If I'm replicating to Azure, do we always need to run virtual machines in Azure?
         answer: |
              No, Data is replicated to Azure storage in your subscription. When you perform a test failover (disaster recovery drill) or an actual failover, Site Recovery automatically creates virtual machines in your subscription.
 
@@ -109,7 +109,7 @@ sections:
       - question: |
          Do I also incur charges for the cache storage account when using Site Recovery?
         answer: |
-             Yes, there are extra charges for cache storage account usage when replicating virtual machines using Site Recovery. The cache storage account costs remains same when the replica storage is of type managed disks or unmanaged disks.  
+             Yes, there are extra charges for cache storage account usage when replicating virtual machines using Site Recovery. The cache storage account costs remain the same when the replica storage is of type managed disks or unmanaged disks.  
 
       - question: |
          I have been an Azure Site Recovery user for over a month. Do I still get the first 31 days free for every protected instance?
@@ -225,7 +225,7 @@ sections:
          Is disaster recovery supported for physical servers?
         answer: |
               Yes, Site Recovery supports disaster recovery of on-premises physical servers running Windows and Linux to Azure. Learn about requirements for disaster recovery to [Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
-              The physical servers runs as virtual machines in Azure after failover. Failback from Azure to an on-premises physical server isn't currently supported. You can only fail back to a VMware virtual machine. 
+              The physical servers run as virtual machines in Azure after failover. Failback from Azure to an on-premises physical server isn't currently supported. You can only fail back to a VMware virtual machine. 
 
       - question: |
           Can I move the Recovery Services vault across subscriptions?
