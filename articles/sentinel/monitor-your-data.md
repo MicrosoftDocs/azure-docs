@@ -3,9 +3,10 @@ title: Visualize your data using workbooks in Microsoft Sentinel | Microsoft Doc
 description: Learn how to visualize your data using workbooks in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 03/07/2024
 ms.author: yelevin
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Visualize and monitor your data by using workbooks in Microsoft Sentinel

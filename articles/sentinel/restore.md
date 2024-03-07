@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 03/03/2024
 ms.author: cwatson
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Restore archived logs from search
