@@ -74,7 +74,7 @@ This list will be updated as more regions become available. The following region
 
 ## Supported SKUs
 
-This feature is supported on all SKUs supported by [Accelerated Networking](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview) except the Dv5 VM family, which isn't yet supported during limited GA.
+This feature is supported on all SKUs supported by [Accelerated Networking](https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview) except the Dv5 VM family, which isn't yet supported during limited GA.
 
 ## Supported enablement methods
 
