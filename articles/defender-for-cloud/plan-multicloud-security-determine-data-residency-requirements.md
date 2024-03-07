@@ -42,7 +42,7 @@ Agents are used in the Defender for Servers plan as follows:
 - Defender for Cloud leverages the Connected Machine agent to install extensions (such as Microsoft Defender for Endpoint) that are needed for [Defender for Servers](./defender-for-servers-introduction.md) functionality.
 - [Log analytics agent/Azure Monitor Agent (AMA)](../azure-monitor/agents/agents-overview.md) is needed for some [Defender for Service Plan 2](./defender-for-servers-introduction.md) functionality.
   - The agents can be provisioned automatically by Defender for Cloud.
-  - When you enable auto-provisioning, you specify where to store collected data. Either in the default Log Analytics workspace created by Defender for Cloud, or in any other workspace in your subscription. [Learn more](/azure/defender-for-cloud/enable-data-collection?tabs=autoprovision-feature).
+  - When you enable auto-provisioning, you specify where to store collected data. Either in the default Log Analytics workspace created by Defender for Cloud, or in any other workspace in your subscription. [Learn more](enable-data-collection.md?tabs=autoprovision-feature).
   - If you select to continuously export data, you can drill into and configure the types of events and alerts that are saved. [Learn more](./continuous-export.md?tabs=azure-portal).
 - Log Analytics workspace:
   - You define the Log Analytics workspace you use at the subscription level. It can be either a default workspace, or a custom-created workspace.
