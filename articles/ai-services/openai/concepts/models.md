@@ -102,7 +102,7 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 
 > [!IMPORTANT]
 >
-> - `gpt-4` version 0125-preview replaces version 1106-preview. Deployments of `gpt-4` version 1106-preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded on March 8th, 2024 and will complete upgrades within 2 weeks. Deployments of `gpt-4` version 1106-preview set to "No autoupgrade" will stop working starting March 8th, 2024. If you have a deployment of `gpt-4` version 1106-preview, you can test version `0125-preview` in the available regions below.
+> - `gpt-4` versions 1106-Preview and 0125-Preview will be upgraded with a stable version of `gpt-4` in the future. The deployment upgrade of `gpt-4` 1106-Preview to `gpt-4` 0125-Preview scheduled for March 8, 2024 is no longer taking place.  Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded after the stable version is released.  For each deployment, a model version upgrade takes place with no interruption in service for API calls.  Upgrades are staged by region and the full upgrade process is expected to take 2 weeks. Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "No autoupgrade" will not be upgraded and will stop operating when the preview version is upgraded in the region.
 
 |  Model ID  | Max Request (tokens) | Training Data (up to)  |
 |  --- |  :--- | :---: |
