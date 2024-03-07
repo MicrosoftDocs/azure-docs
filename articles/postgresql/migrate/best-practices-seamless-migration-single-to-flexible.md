@@ -44,9 +44,7 @@ To get an idea of the downtime required for migrating your server, we strongly r
 ## Set up Online migration (preview) parameters
 
 > [!NOTE]
-> For Online migrations using Single servers running PostgreSQL 9.5 and 9.6, we explicitly have to allow replication connection. To enable that, add a firewall entry to allowlist connection from target. Make sure the firewall rule name has `_replrule` suffix. The suffic isn't required for Single servers running PostgreSQL 10 and 11. **Online migrations preview** is currently available in all public clouds and in China regions. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
-
-:::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
+> For Online migrations using Single servers running PostgreSQL 9.5 and 9.6, we explicitly have to allow replication connection. To enable that, add a firewall entry to allowlist connection from target. Make sure the firewall rule name has `_replrule` suffix. The suffic isn't required for Single servers running PostgreSQL 10 and 11. The Single to Flex Migration tool is available in all Azure regions and supports **Offline** and **Online** migration mode. **Offline migration** is generally available and **Online migration** is in preview across all regions.
 
 For Online migration, the Azure replication support should be set to Logical under the Replication settings of the Single server page in the Azure portal. In addition, the server parameters `max_wal_senders` and `max_replication_slots` values should be equal to the number of Databases that need to be migrated. They can also be configured in the command line using the following commands:
 
