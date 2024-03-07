@@ -1,17 +1,17 @@
 ---
-title: Use labs for trainings
+title: Organizational role concepts for trainings
 titleSuffix: Azure Lab Services
 description: This article describes how to use Azure DevTest Labs for creating labs on Azure for training scenarios.
 services: lab-services
 ms.service: lab-services
 author: RoseHJM
 ms.author: rosemalcolm
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/07/2024
 #customer intent: As a training specialist, I want to learn how organizational roles map to permissions, so that I can determine the roles and responsibilities for setting up a training environment for my enterprise.
 ---
 
-# Use labs for trainings in Azure Lab Services
+# Organizational role concepts for trainings in Azure Lab Services
 
 In this article, you learn about the different features and steps for using Azure Lab Services for conducting classes. Azure Lab Services supports educators, such as teachers, professors, training specialists, trainers, and teaching assistants. An educator can quickly and easily create an online lab to provision preconfigured learning environments for the trainees.
 
@@ -19,7 +19,7 @@ In this article, you learn about the different features and steps for using Azur
 
 Each trainee can use identical and isolated environments for the training. Educators can apply policies to ensure that the training environments are available to each trainee only when they need them. The environments contain enough resources, such as virtual machines, required for the training.
 
-## Use cases
+## Map organizational roles to permissions
 
 Labs meet the following requirements for conducting training in any virtual environment:
 
@@ -29,8 +29,6 @@ Labs meet the following requirements for conducting training in any virtual envi
 - You can control cost by ensuring that trainees can't get more VMs than they need for the training and also shutdown VMs when they aren't in use
 - You can easily share the training lab with each trainee
 - You can reuse the training lab again and again
-
-## Map organizational roles to permissions
 
 Azure Lab Services uses Azure Role-Based Access (Azure RBAC) to manage access to Azure Lab Services. For more information, see the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles). Azure RBAC lets you clearly separate roles and responsibilities for creating and managing labs across different teams and people in your organization.
 
