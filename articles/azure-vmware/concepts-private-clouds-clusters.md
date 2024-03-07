@@ -3,7 +3,7 @@ title: Concepts - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 3/4/2024
+ms.date: 3/6/2024
 ms.custom: engagement-fy23
 ---
 
@@ -55,50 +55,54 @@ When planning your Azure VMware Solution design, use the following table to unde
 
 The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the following table. Customer quota for Azure VMware Solution is assigned by Azure region, and you are not able to specify the Availability Zone during private cloud provisioning. An auto selection algorithm is used to balance deployments across the Azure region. If you have a particular Availability Zone you want to deploy to, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "special placement policy" for your subscription, Azure region, Availability Zone, and SKU type. This policy remains in place until you request it be removed or changed.
 
+*SKUs* marked in *italics* are of limited availability due to customer consumption and quota may not be available upon request.
+
 | Azure region | Availability Zone | SKU   | Multi-AZ SDDC |
 | :---         | :---:             | :---: | :---:         |
 | Australia East | AZ01 | AV36P | Yes |
 | Australia East | AZ02 | AV36 | No |
 | Australia East | AZ03 | AV36P | Yes |
-| Australia South East | N/A | AV36 | No |
+| Australia South East | AZ01 | AV36 | No |
 | Brazil South | AZ02 | AV36 | No |
-| Canada Central | AZ02 | AV36, AV36P | No |
+| Canada Central | AZ02 | AV36, *AV36P* | No |
 | Canada East | N/A | AV36 | No |
 | Central US | AZ01 | AV36P | No |
-| Central US | AZ02 | AV36 | No |
+| Central US | AZ02 | *AV36* | No |
+| Central US | AZ03 | AV36P | No |
 | East Asia | AZ01 | AV36 | No |
 | East US | AZ01 | AV36P | No |
-| East US | AZ02 | AV36P | No |
+| East US | AZ02 | *AV36P* | No |
 | East US | AZ03 | AV36, AV36P, AV64 | No |
-| East US 2 | AZ01 | AV36, AV64 | No |
-| East US 2 | AZ02 | AV36P, AV52, AV64 | No |
+| East US 2 | AZ01 | *AV36*, AV64 | No |
+| East US 2 | AZ02 | AV36P, *AV52*, AV64 | No |
 | France Central | AZ01 | AV36 | No |
+| Germany West Central | AZ01 | AV36P | Yes |
 | Germany West Central | AZ02 | AV36 | Yes |
 | Germany West Central | AZ03 | AV36, AV36P | Yes |
-| Japan East | N/A | AV36 | No |
-| Japan West | N/A | AV36 | No |
-| North Central US | AZ01 | AV36 | No |
+| Japan East | AZ02 | *AV36* | No |
+| Japan West | AZ01 | *AV36* | No |
+| North Central US | AZ01 | *AV36* | No |
 | North Central US | AZ02 | AV36P | No |
 | North Europe | AZ02 | AV36, AV64 | No |
 | Qatar Central | AZ03 | AV36P | No |
 | South Africa North | AZ03 | AV36 | No |
 | South Central US | AZ01 | AV36, AV64 | No |
-| South Central US | AZ02 | AV36P, AV52, AV64 | No |
-| South East Asia | AZ02 | AV36 | No |
+| South Central US | AZ02 | *AV36P*, AV52, AV64 | No |
+| South East Asia | AZ02 | *AV36* | No |
 | Sweden Central | AZ01 | AV36 | No |
-| Switzerland North | AZ01 | AV36, AV64 | No |
-| Switzerland West | N/A | AV36, AV64 | No |
+| Switzerland North | AZ01 | *AV36*, AV64 | No |
+| Switzerland West | AZ01 | *AV36*, AV64 | No |
 | UK South | AZ01 | AV36, AV36P, AV52, AV64 | Yes |
-| UK South | AZ02 | AV36, AV64 | Yes |
+| UK South | AZ02 | *AV36*, AV64 | Yes |
 | UK South | AZ03 | AV36P, AV64 | No |
 | UK West | AZ01 | AV36 | No |
-| West Europe | AZ01 | AV36, AV36P, AV52 | Yes |
-| West Europe | AZ02 | AV36 | Yes |
+| West Europe | AZ01 | *AV36*, AV36P, AV52 | Yes |
+| West Europe | AZ02 | *AV36* | Yes |
 | West Europe | AZ03 | AV36P, AV64 | Yes |
 | West US | AZ01 | AV36, AV36P | No |
 | West US 2 | AZ01 | AV36 | No |
-| West US 2 | AZ02 | AV36P | No |
-| West US 3 | AZ01 | AV36P | No |
+| West US 2 | AZ02 | *AV36P* | No |
+| West US 3 | AZ01 | *AV36P* | No |
 | US Gov Arizona | AZ02 | AV36P | No |
 | US Gov Virginia | AZ03 | AV36 | No |
 
