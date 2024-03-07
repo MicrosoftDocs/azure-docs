@@ -99,37 +99,34 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private static IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
         private readonly IConfigurationRefresher _refresher;
 
         public Worker(ILogger<Worker> logger, IConfiguration configuration, IConfigurationRefresher refresher)
         {
-            _logger = logger;
-            _configuration = configuration;
-            _refresher = refresher;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            _refresher = refresher ?? throw new ArgumentNullException(nameof(refresher));
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                if (_refresher != null)
-                {
-                    // Intentionally not await TryRefreshAsync to avoid blocking the execution.
-                    _refresher.TryRefreshAsync(stoppingToken);
-                }
+                // Intentionally not await TryRefreshAsync to avoid blocking the execution.
+                _refresher.TryRefreshAsync(stoppingToken);
 
                 if (_logger.IsEnabled(LogLevel.Information))
                 {
                     _logger.LogInformation(_configuration["TestApp:Settings:Message"] ?? "No data.");
                 }
-                await Task.Delay(1000, stoppingToken);
+                await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
             }
         }
     }
     ```
 
-    Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid phantom requests sent to App Configuration even when your application is idle. You can include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` every time the background service is executed. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal, even if it's called frequently.
+    Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid requests sent to App Configuration even when your application is idle. You can include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` every time the background service is executed. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal, even if it's called frequently.
 
 ## Build and run the app locally
 
