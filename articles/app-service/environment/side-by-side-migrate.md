@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the side-by-side migration
 description: Overview of the side-by-side migration feature for migration to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 3/1/2024
+ms.date: 3/6/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -128,15 +128,21 @@ The platform creates your new App Service Environment v3 in a different subnet t
 - The subnet must not have any locks applied to it. If there are locks, they must be removed before migration. The locks can be readded if needed once migration is complete. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
 - There must not be any Azure Policies blocking migration or related actions. If there are policies that block the creation of App Service Environments or the modification of subnets, they must be removed before migration. The policies can be readded if needed once migration is complete. For more information on Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md).
 
-### Generate IP addresses for your new App Service Environment v3
+### Generate outbound IP addresses for your new App Service Environment v3
 
-The platform creates the [the new IP addresses](networking.md#addresses). While these IPs are getting created, activity with your existing App Service Environment isn't interrupted, however, you can't scale or make changes to your existing environment. This process takes about 15 minutes to complete.
+The platform creates the [the new outbound IP addresses](networking.md#addresses). While these IPs are getting created, activity with your existing App Service Environment isn't interrupted, however, you can't scale or make changes to your existing environment. This process takes about 15 minutes to complete.
 
-When completed, the new inbound and outbound IPs that your future App Service Environment v3 uses are created. These new IPs have no effect on your existing environment. The IPs used by your existing environment continue to be used up until you redirect customer traffic and complete the migration in the final step.
+When completed, the new outbound IPs that your future App Service Environment v3 uses are created. These new IPs have no effect on your existing environment.
 
-You don't see the new IPs at this stage. You see them once migration is complete but before you make the [DNS change to redirect customer traffic to your new App Service Environment v3](#redirect-customer-traffic-and-complete-migration). You have a chance to update any resources that are dependent on the new IPs before you redirect traffic to your new App Service Environment v3.
+You receive the new inbound IP address once migration is complete but before you make the [DNS change to redirect customer traffic to your new App Service Environment v3](#redirect-customer-traffic-and-complete-migration). You don't get the inbound IP at this point in the process because there are dependencies on App Service Environment v3 resources that get created during the migration step. You have a chance to update any resources that are dependent on the new inbound IP before you redirect traffic to your new App Service Environment v3.
 
 This step is also where you decide if you want to enable zone redundancy for your new App Service Environment v3. Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
+
+### Update dependent resources with new outbound IPs
+
+The new outbound IPs are created and given to you before you start the actual migration. The new default outbound to the internet public addresses are given so you can adjust any external firewalls, DNS routing, network security groups, and any other resources that rely on these IPs before completing the migration. **It's your responsibility to update any and all resources that will be impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.** You might experience downtime after the migration step if you have dependencies on the outbound IPs and fail to make all necessary updates. This is because once the migration completes, even though traffic still goes to your App Service Environment v2 front ends, your underlying compute is your new App Service Environment v3. 
+
+This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3 including the port change for the Azure Load Balancer health probe, which now uses port 80.
 
 ### Delegate your App Service Environment subnet
 
@@ -173,22 +179,19 @@ Side-by-side migration requires a three to six hour service window for App Servi
 - The new App Service Environment v3 is created in the subnet you selected.
 - Your new App Service plans are created in the new App Service Environment v3 with the corresponding Isolated v2 tier.
 - Your apps are created in the new App Service Environment v3.
+- The underlying compute for your apps is moved to the new App Service Environment v3. Your App Service Environment v2 front ends are still serving traffic. The migration process doesn't redirect to the App Service Environment v3 front ends until you complete the final step of the migration.
 
-When this step completes, your application traffic is still going to your old App Service Environment and the IPs that were assigned to it. However, you also now have an App Service Environment v3 with all of your apps.
+When this step completes, your application traffic is still going to your old App Service Environment front ends and the inbound IP that was assigned to it. However, you also now have an App Service Environment v3 with all of your apps.
 
-### Get the new IP addresses for your new App Service Environment v3 and update dependent resources
+### Get the inbound IP address for your new App Service Environment v3 and update dependent resources
 
-The new default outbound to the internet public addresses are given so you can adjust any external firewalls, DNS routing, network security groups, and any other resources that rely on these IPs before completing the migration. The new inbound IP address is given so that you can set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md). Don't move on to the next step until you account for these changes. There's downtime if you don't update dependent resources with the new IPs. **It's your responsibility to update any and all resources that are impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.** This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3 including the port change for the Azure Load Balancer health probe, which now uses port 80.
+The new inbound IP address is given so that you can set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md). Don't move on to the next step until you account for these changes. There's downtime if you don't update dependent resources with the new inbound IP. **It's your responsibility to update any and all resources that are impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.**
 
 ### Redirect customer traffic and complete migration
 
-The final step is to redirect traffic to your new App Service Environment v3 and complete the migration. The platform does this change for you, but only when you initiate it. Before you do this step, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. Your App Service Environment v2 frontends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration.
+The final step is to redirect traffic to your new App Service Environment v3 and complete the migration. The platform does this change for you, but only when you initiate it. Before you do this step, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration.
 
-Once you're ready to redirect traffic, you can complete the final step of the migration. This step updates internal DNS records to point to the load balancer IP address of your new App Service Environment v3 and the frontends that were created during the migration. Changes are effective immediately. This step also shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment.
-
-> [!IMPORTANT]
-> During the preview, in some cases there may be up to 20 minutes of downtime when you complete the final step of the migration. This downtime is due to the DNS change. The downtime is expected to be removed once the feature is generally available. If you have a requirement for zero downtime, you should wait until the side-by-side migration feature is generally available. During preview, however, you can still use the side-by-side migration feature to migrate your dev environments to App Service Environment v3 to learn about the migration process and see how it impacts your workloads.
->
+Once you're ready to redirect traffic, you can complete the final step of the migration. This step updates internal DNS records to point to the load balancer IP address of your new App Service Environment v3 and the front ends that were created during the migration. Changes are effective immediately. This step also shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment.
 
 If you discover any issues with your new App Service Environment v3, don't run the command to redirect customer traffic. This command also initiates the deletion of your App Service Environment v2. If you find an issue, you can revert all changes and return to your old App Service Environment v2. The revert process takes 3 to 6 hours to complete. There's no downtime associated with this process. Once the revert process completes, your old App Service Environment is back online and your new App Service Environment v3 is deleted. You can then attempt the migration again once you resolve any issues.
 
