@@ -25,6 +25,8 @@ Prompt flow provides a few different large language model APIs:
 
 > [!NOTE]
 > We removed the `embedding` option from the LLM tool API setting. You can use an embedding API with the [embedding tool](embedding-tool.md).
+> Only key-based authentication is supported for Azure OpenAI connection.
+> Please don't use non-ascii characters in resource group name of Azure OpenAI resource, prompt flow didn't support this case.
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 ---
-title: What is Azure Operator 5G Core?
-description: Azure Operator 5G Core is a carrier-grade, Any-G, hybrid mobile packet core with fully integrated network functions that run both on-premises and in-cloud.
+title: What is Azure Operator 5G Core Preview?
+description: Azure Operator 5G Core Preview is a carrier-grade, Any-G, hybrid mobile packet core with fully integrated network functions that run both on-premises and in-cloud.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
@@ -10,9 +10,9 @@ ms.date: 02/21/2024
 
 ---
 
-# What is Azure Operator 5G Core? 
+# What is Azure Operator 5G Core Preview? 
 
-Azure Operator 5G Core is a carrier-grade, Any-G, hybrid mobile packet core with fully integrated network functions that run both on-premises and in-cloud. Service providers can deploy resilient networks with high performance and at high capacity while maintaining low latency. Azure Operator 5G Core is ideal for Tier 1 consumer networks, mobile network operators (MNO), virtual network operators (MVNOs), enterprises, IoT, fixed wireless access (FWA), and satellite network operators (SNOs). 
+Azure Operator 5G Core Preview is a carrier-grade, Any-G, hybrid mobile packet core with fully integrated network functions that run both on-premises and in-cloud. Service providers can deploy resilient networks with high performance and at high capacity while maintaining low latency. Azure Operator 5G Core is ideal for Tier 1 consumer networks, mobile network operators (MNO), virtual network operators (MVNOs), enterprises, IoT, fixed wireless access (FWA), and satellite network operators (SNOs). 
  
 The power of Azure's global footprint ensures global coverage and operating infrastructure at scale, coupled with Microsoft’s Zero Trust security framework to provide secure and reliable connectivity to cloud applications.  
   
@@ -114,4 +114,4 @@ The table shows which versions of Azure Kubernetes/Nexus Azure Kubernetes K8s ar
 
 ## Related content
 
-- [Centralized Lifecycle Management in Azure Operator 5G Core](concept-centralized-lifecycle-management.md)
+- [Centralized Lifecycle Management in Azure Operator 5G Core Preview](concept-centralized-lifecycle-management.md)

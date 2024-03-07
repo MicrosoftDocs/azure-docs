@@ -19,7 +19,7 @@
     href: search-get-started-text.md
   - name: Semantic reranking
     href: search-get-started-semantic.md
-  - name: Retrieval Augmented Generation (RAG)
+  - name: Chat with your data (Azure OpenAI Studio)
     href: search-get-started-retrieval-augmented-generation.md
   - name: Portal
     items:

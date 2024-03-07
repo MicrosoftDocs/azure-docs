@@ -3,7 +3,7 @@ title: Cloud Security Posture Management (CSPM)
 description: Learn more about CSPM in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 02/11/2024
+ms.date: 02/28/2024
 ---
 
 # Cloud security posture management (CSPM)
@@ -91,6 +91,10 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
 ## Azure cloud support
 
 For commercial and national cloud coverage, review the [features supported in Azure cloud environments](support-matrix-cloud-environment.md).
+
+## Support for Resource type in AWS and GCP
+
+For multicloud support of resource types (or services) in our foundational multicloud CSPM tier, see the [table of multicloud resource and service types for AWS and GCP](multicloud-resource-types-support-foundational-cspm.md).
 
 ## Next steps
 

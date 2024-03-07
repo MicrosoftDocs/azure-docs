@@ -1,6 +1,6 @@
 ---
-title: Configure network functions in Azure Operator 5G Core
-description: This tutorial outlines the process to configure specific network functions--including SMF, UPF, AMF, NRF, and NSSF--in Azure Operator 5G Core.
+title: Configure network functions in Azure Operator 5G Core Preview
+description: This tutorial outlines the process to configure specific network functions--including SMF, UPF, AMF, NRF, and NSSF--in Azure Operator 5G Core Preview.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
@@ -42,6 +42,6 @@ Use the procedure described in [NSSF Configuration](https://manuals.metaswitch.c
 
 ## Related content
 
-- [Quickstart: Configure a network function in Azure Operator 5G Core](quickstart-configure-network-function.md)
+- [Quickstart: Configure a network function in Azure Operator 5G Core Preview](quickstart-configure-network-function.md)
 - [Quickstart: Deploy a network function on Azure Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
 

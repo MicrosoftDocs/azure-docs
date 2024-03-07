@@ -131,6 +131,15 @@ If the user is assigned the role, there might be a problem with the registration
 az provider register --namespace Microsoft.ApiCenter
 ```
 
+### Unable to sign in to portal
+
+If users who have been assigned the **Azure API Center Data Reader** role can't complete the sign-in flow after selecting **Sign in** in the API Center portal, there might be a problem with the configuration of the Microsoft Entra ID identity provider.
+
+In the Microsoft Entra app registration, review and, if needed, update the **Redirect URI** settings:
+
+* Platform: **Single-page application (SPA)**
+* URI: `https://<api-center-name>.portal.<region>.azure-apicenter.ms`. This value must be the URI shown for the Microsoft Entra ID provider for your API Center portal.
+
 ### Unable to select Azure API Center permissions in Microsoft Entra app registration
 
 If you're unable to request API permissions to Azure API Center in your Microsoft Entra app registration for the API Center portal, check that you are searching for **Azure API Center** (or application ID `c3ca1a77-7a87-4dba-b8f8-eea115ae4573`). 

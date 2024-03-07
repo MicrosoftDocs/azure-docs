@@ -5,7 +5,7 @@ services: site-recovery
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/31/2024
+ms.date: 02/27/2024
 ms.author: ankitadutta
 ---
 
@@ -81,7 +81,7 @@ By default, the following occurs:
 
 In most cases, Azure Site Recovery doesn't replicate the complete data to the source region. The amount of data replicated depends on the following conditions:
 
-1. If the source VM data is deleted, corrupted, or inaccessible for some reason, such as a resource group change or delete, a complete initial replication will happen during reprotection because there's no data available on the source region to use. In this case, the reprotection time taken will be at least as long as the initial replication time taken from the primary to the disaster recovery location.
+1. Azure Site Recovery doesn't support reprotection if the source virtual machine's data is deleted, corrupted, or inaccessible for some reason. For example, a resource group change or deletion. Alternatively, you can disable the previous disaster recovery protection and enable a new protection from the current region.
 2.	If the source VM data is accessible, then differentials are computed by comparing both the disks and only the differences are transferred. 
    In this case, the **reprotection  time** is greater than or equal to the `checksum calculation time + checksum differentials transfer time + time taken to process the recovery points from Azure Site Recovery agent + auto scale time`.
 

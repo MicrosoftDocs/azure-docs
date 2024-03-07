@@ -1,8 +1,8 @@
 ---
 title: Switch to the new version
-description: Learn to switch to the new version of VMware vSphere and use its capabilities
+description: Learn how to switch to the new version of Azure Arc-enabled VMware vSphere and use its capabilities.
 ms.topic: how-to 
-ms.date: 11/15/2023
+ms.date: 02/28/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
@@ -16,13 +16,20 @@ manager: jsuri
 
 On August 21, 2023, we rolled out major changes to **Azure Arc-enabled VMware vSphere**. By switching to the new version, you can use all the Azure management services that are available for Arc-enabled Servers.
 
+If you onboarded to Azure Arc-enabled VMware vSphere before **August 21, 2023**, and your VMs were Azure-enabled, you'll encounter the following breaking changes:
+
+- For the VMs with Arc agents, starting from **February 27, 2024**, you'll no longer be able to perform any Azure management service-related operations.  
+- From **March 15, 2024**, you'll no longer be able to perform any operations on the VMs, except the **Remove from Azure** operation. 
+
+To continue using these machines, follow these instructions to switch to the new version.
+
 > [!NOTE]
 > If you're new to Arc-enabled VMware vSphere, you'll be able to leverage the new capabilities by default. To get started with the new version, see [Quickstart: Connect VMware vCenter Server to Azure Arc by using the helper script](quick-start-connect-vcenter-to-arc-using-script.md). 
 
 
 ## Switch to the new version (Existing customer)
 
-If you've onboarded to **Azure Arc-enabled VMware** before August 21, 2023, for VMs that are Azure-enabled, follow these steps to switch to the new version: 
+If you onboarded to **Azure Arc-enabled VMware** before August 21, 2023, for VMs that are Azure-enabled, follow these steps to switch to the new version: 
 
 >[!Note]
 >If you had enabled guest management on any of the VMs, remove [VM extensions](/azure/azure-arc/vmware-vsphere/remove-vcenter-from-arc-vmware#step-1-remove-vm-extensions) and [disconnect agents](/azure/azure-arc/vmware-vsphere/remove-vcenter-from-arc-vmware#step-2-disconnect-the-agent-from-azure-arc).

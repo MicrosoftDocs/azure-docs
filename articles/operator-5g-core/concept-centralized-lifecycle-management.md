@@ -1,19 +1,19 @@
 ---
-title: Centralized lifecycle management in Azure Operator 5G Core
-description: Outlines the benefit of Azure Operator 5G Core's centralized lifecycle management feature.
+title: Centralized lifecycle management in Azure Operator 5G Core Preview
+description: Outlines the benefit of Azure Operator 5G Core's (preview) centralized lifecycle management feature.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 02/21/2024
+ms.date: 02/27/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
 
-# Centralized Lifecycle Management in Azure Operator 5G Core
+# Centralized Lifecycle Management in Azure Operator 5G Core Preview
  
-The Azure Operator 5G Core Resource Provider (RP) is responsible for the lifecycle management (LCM) of the following Azure Operator 5G Core network functions:
+The Azure Operator 5G Core (preview) Resource Provider (RP) is responsible for the lifecycle management (LCM) of the following Azure Operator 5G Core network functions:
 - Access and Mobility Management Function (AMF)
 - Session Management Function (SMF)
 - User Plane Function (UPF)

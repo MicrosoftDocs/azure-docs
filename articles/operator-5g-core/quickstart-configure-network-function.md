@@ -1,5 +1,5 @@
 ---
-title: Configure a network function in Azure Operator 5G Core
+title: Configure a network function in Azure Operator 5G Core Preview
 description: Learn the high-level process for configuring a network function.
 author: HollyCl
 ms.author: HollyCl
@@ -9,9 +9,9 @@ ms.date: 02/22/2024
 
 ---
 
-# Quickstart: Configure a network function in Azure Operator 5G Core
+# Quickstart: Configure a network function in Azure Operator 5G Core Preview
 
-Azure Operator 5G Core supports  direct configuration of the first party packet core network functions deployed on Azure and Nexus by:
+Azure Operator 5G Core Preview supports  direct configuration of the first party packet core network functions deployed on Azure and Nexus by:
 
    - enabling SSH access to port 22 of network configuration management pods directly. 
    - enabling configuration of network functions through CLI or by NETCONF to port 830, or by RESTCONF to port 443. 

@@ -18,7 +18,9 @@ The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependenc
 
 ### Operating system
 
-The Azure VM Dependency agent extension for Linux can be run against the supported operating systems listed in the [Supported operating systems](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) section of the Azure Monitor for VMs deployment article.
+Because the Azure VM Dependency agent works at the kernel level, operating system support is also dependent on the kernel version. As of Dependency agent version 9.10.* the agent supports * kernels.  The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
+
+[!INCLUDE [dependency-agent-linux-versions](../../azure-monitor/includes/vm-insights-dependency-agent-linux-versions.md)]
 
 ## Extension schema
 

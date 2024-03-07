@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 # Use the Azure portal to manage shares on Azure Stack Edge Pro FPGA 
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article describes how to manage shares on your Azure Stack Edge Pro FPGA device. You can manage the Azure Stack Edge Pro FPGA device via the Azure portal or via the local web UI. Use the Azure portal to add, delete, refresh shares, or sync storage key for storage account associated with the shares.
 

@@ -1,6 +1,6 @@
 ---
-title: Observability and analytics in Azure Operator 5G Core
-description: Learn how observability and analytics are used in Azure Operator 5G Core
+title: Observability and analytics in Azure Operator 5G Core Preview
+description: Learn how observability and analytics are used in Azure Operator 5G Core Preview
 author: SarahBoris
 ms.author: sboris
 ms.service: azure-operator-5g-core
@@ -10,9 +10,9 @@ ms.date: 02/21/2024
 
 ---
 
-# Observability and analytics in Azure Operator 5G Core
+# Observability and analytics in Azure Operator 5G Core Preview
 
-Observability has three pillars: metrics, tracing, and logs. AO5GC bundles these observability tools to help you identify, investigate, and resolve problems. In addition, AO5GC alerts provide notifications based on metrics and logs.
+Observability has three pillars: metrics, tracing, and logs. Azure Operator 5G Core Preview bundles these observability tools to help you identify, investigate, and resolve problems. In addition, Azure Operator 5G Core alerts provide notifications based on metrics and logs.
 
 ## Observability overview
 
@@ -205,5 +205,5 @@ Jaeger tracing uses the following workflow:
 1. The Jaeger collector stores the traces in Elastic backend storage (fed-elastic). 
 
 ## Related content
-- [What is Azure Operator 5G Core?](overview-product.md)
-- [Quickstart: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS)](quickstart-deploy-observability.md)
+- [What is Azure Operator 5G Core Preview?](overview-product.md)
+- [Quickstart: Deploy Azure Operator 5G Core observability (preview) on Azure Kubernetes Services (AKS)](quickstart-deploy-observability.md)

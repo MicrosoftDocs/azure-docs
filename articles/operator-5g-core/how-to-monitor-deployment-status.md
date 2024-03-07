@@ -1,6 +1,6 @@
 ---
-title: Monitoring the deployment status of Azure Operator 5G Core
-description: Monitor the deployment status of your Azure Operator 5G Core and its components
+title: Monitoring the deployment status of Azure Operator 5G Core Preview
+description: Monitor the deployment status of your Azure Operator 5G Core Preview and its components
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
@@ -8,9 +8,9 @@ ms.topic: how-to #required; leave this attribute/value as-is.
 ms.date: 02/21/2024
 ---
 
-# Monitor the  status of your Azure Operator 5G Core deployment
+# Monitor the  status of your Azure Operator 5G Core Preview deployment
 
-Azure Operator 5G Core provides network function health check information using the Azure portal. 
+Azure Operator 5G Core Preview provides network function health check information using the Azure portal. 
 
 ## View health check information
 
@@ -25,5 +25,5 @@ You can also view the status of pods in each cluster.
 
 ## Related content
 
-- [Observability and analytics in Azure Operator 5G Core](concept-observability-analytics.md)
-- [Perform health and configuration checks post-deployment in Azure Operator 5G Core](how-to-perform-checks-post-deployment.md)
+- [Observability and analytics in Azure Operator 5G Core Preview](concept-observability-analytics.md)
+- [Perform health and configuration checks post-deployment in Azure Operator 5G Core Preview](how-to-perform-checks-post-deployment.md)
