@@ -83,7 +83,7 @@ The following are the fields extracted from a contract in the JSON output respon
 | ValidDate | Date | Valid from date | 01/16 |
 | ExpirationDate | Date | Expiration date| 01/19 |
 | CardVerificationValue | String | Card verification value (CVV) | 764 |
-| CustomerServicePhoneNumbers | Array | List of support numbers | +1 (987) 123-456 |
+| CustomerServicePhoneNumbers | Array | List of support numbers | +1 (555) 123-4567 |
 
 The bank cards key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
