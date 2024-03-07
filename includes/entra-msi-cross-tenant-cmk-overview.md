@@ -2,13 +2,13 @@
 author: karavar
 ms.author: vakarand
 ms.date: 11/07/2023
-ms.service: active-directory
-ms.subservice: managed-identity
+ms.service: entra-id
+ms.subservice: managed-identities
 ms.custom: has-azure-ad-ps-ref
 ms.topic: include
 title: Cross tenant customer-managed key (CMK) overview - Azure
 description: include file for cross-tenant customer-managed key (CMK) overview
-services: active-directory
+
 ---
 
 ## About cross-tenant customer-managed keys

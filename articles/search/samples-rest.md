@@ -19,7 +19,7 @@ Learn about the REST API samples that demonstrate the functionality and workflow
 
 REST is the definitive programming interface for Azure AI Search, and all operations that can be invoked programmatically are available first in REST, and then in SDKs. For this reason, most examples in the documentation use the REST APIs to demonstrate or explain important concepts.
 
-REST samples are usually developed and tested on the [Postman app](https://www.postman.com/downloads/), but you can use any client that supports HTTP calls. [Here's a quickstart](search-get-started-rest.md) that explains how to formulate the HTTP request from end-to-end in Postman.
+You can use any client that supports HTTP calls. [Here's a quickstart](search-get-started-rest.md) that explains how to formulate the HTTP request using Visual Studio Code with a REST client.
 
 ## Doc samples
 
@@ -27,7 +27,7 @@ Code samples from the Azure AI Search team demonstrate features and workflows. M
 
 | Samples | Description |
 |---------|---------|
-| [Quickstart](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart) | Source code for [Quickstart: Create a search index using REST APIs](search-get-started-rest.md). This sample  covers the basic workflow for creating, loading, and querying a search index using sample data. |
+| [Quickstart](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart) | Source code for [Quickstart: Text search using REST](search-get-started-rest.md). This sample  covers the basic workflow for creating, loading, and querying a search index using sample data. |
 | [Quickstart-vectors](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors) | Source code for [Quickstart: Vector search using REST APIs](search-get-started-vector.md). This sample  covers the basic workflow for indexing and querying vector data. |
 | [Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Tutorial) | Source code for [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md). This sample  shows you how to create a skillset that iterates over Azure blobs to extract information and infer structure.|
 | [Debug-sessions](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Debug-sessions) | Source code for [Tutorial: Diagnose, repair, and commit changes to your skillset](cognitive-search-tutorial-debug-sessions.md). This sample  shows you how to use a skillset debug session in the Azure portal. REST is used to create the objects used during debug.|
