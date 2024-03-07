@@ -56,9 +56,9 @@ Get cluster endpoint(host or fqdn) on Azure portal.
 ## Testing
  
 ### Preparation
-1. Download Flink cli from https://aka.ms/hdionaksflink117clilinux in Local Windows machine.
+1. Download Flink cli from https://aka.ms/hdionaksflink117clilinux in local Windows machine.
  
-1. Install  Windows Subsystem for Linux to make this work on my local Windows Machine.
+1. Install  Windows Subsystem for Linux to make this work on local Windows machine.
  
 **Step1:** 
 Open Windows command and run (replace JAVA_HOME and flink-cli path with your own) to download flink-cli:
