@@ -12,7 +12,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an developer, I want understand how to develop highly available distributed applications for my IoT Operations solution.
 ---
 
-# Develop highly available applications using Azure IoT MQ Preview
+# Develop highly available applications with Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

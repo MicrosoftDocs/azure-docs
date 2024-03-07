@@ -12,7 +12,7 @@ ms.date: 10/23/2023
 #CustomerIntent: As an operator, I want to configure an Azure IoT Data Processor pipeline MQ source stage so that I can read messages from Azure IoT MQ for processing.
 ---
 
-# Configure an Azure IoT Data Processor Preview pipeline MQ source stage
+# Configure an MQ source stage in an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

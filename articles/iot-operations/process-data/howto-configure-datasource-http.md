@@ -12,7 +12,7 @@ ms.date: 10/23/2023
 #CustomerIntent: As an operator, I want to configure an HTTP endpoint source stage so that I can read messages from an HTTP endpoint for processing.
 ---
 
-# Configure an Azure IoT Data Processor Preview pipeline HTTP endpoint source stage
+# Configure an HTTP endpoint source stage in an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
