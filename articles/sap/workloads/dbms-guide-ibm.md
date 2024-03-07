@@ -48,7 +48,7 @@ For information about supported SAP products and Azure VM types, refer to SAP No
 ## IBM Db2 for Linux, UNIX, and Windows Configuration Guidelines for SAP Installations in Azure VMs
 ### Storage Configuration
 For an overview of Azure storage types for SAP workload, consult the article [Azure Storage types for SAP workload](./planning-guide-storage.md)
-All database files must be stored on mounted disks of Azure block storage (Windows: NTFS, Linux: xfs, if [supported](https://www.ibm.com/support/pages/file-systems-recommended-db2-linux-unix-and-windows) for the DB2 version, or ext3).  
+All database files must be stored on mounted disks of Azure block storage (Windows: NTFS, Linux: xfs, [supported](https://www.ibm.com/support/pages/file-systems-recommended-db2-linux-unix-and-windows) for the DB2 versions higher than 11.1, or ext3).  
   
 Remote shared volumes like the Azure services in the listed scenarios are **NOT** supported for Db2 database files: 
 
@@ -60,7 +60,7 @@ Remote shared volumes like the Azure services in the listed scenarios are suppor
  
 * Hosting Linux guest OS based Db2 data and log files on NFS shares hosted on Azure NetApp Files is supported!
 
-Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply to deployments with the Db2 DBMS as well.
+If you are using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply to deployments with the Db2 DBMS as well.
 
 As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](../../virtual-machines/sizes.md) and [here (Windows)](../../virtual-machines/sizes.md).
 
@@ -81,7 +81,7 @@ IBM Db2 LUW 11.5 released support for 4-KB sector size. Though you need to enabl
 
 For older Db2 versions, a 512 Byte sector size must be used. Premium SSD disks are 4-KB native and have 512 Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512 Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../virtual-machines/disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512 Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
 
-On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 Byte. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see [New-StoragePool](/powershell/module/storage/new-storagepool).
+On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 Bytes. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see [New-StoragePool](/powershell/module/storage/new-storagepool).
 
 ## Recommendation on VM and disk structure for IBM Db2 deployment
 
@@ -145,7 +145,7 @@ The usage of NFS v4.1 volumes based on Azure NetApp Files (ANF) is supported wit
 
 A fifth potential volume could be an ANF volume that you use for more long-term backups that you use to snapshot and store the snapshots in Azure Blob store.
 
-The configuration could look like shown here
+The configuration could look like shown here:
 
 ![Example of Db2 configuration using ANF](./media/dbms_guide_ibm/anf-configuration-example.png)
 
@@ -246,7 +246,7 @@ For the disks containing the Db2 storage paths for your sapdata and saptmp direc
 All other general areas like Azure Availability Sets or SAP monitoring apply as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) for deployments of VMs with the IBM Database as well.
 
 ## Next steps
-Read the article 
+Read the article: 
 
 - [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md)
 
