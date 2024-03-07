@@ -27,7 +27,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 
 In this section, we learn how we can render inline images embedded in the message content of new message received event.
 
-## Prerequisites 
+### Prerequisites 
 
 * You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
 * Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
@@ -310,7 +310,7 @@ loadingImageOverlay.addEventListener('click', () => {
 Now we've concluded all the changes we need to render inline images for messages coming from real time notifications.
 
 
-## Run the code 
+### Run the code 
 
 Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
 
@@ -318,7 +318,7 @@ Webpack users can use the `webpack-dev-server` to build and run your app. Run th
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-## Demo
+### Demo
 Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID. Send some inline images from Teams client like this:
 
 :::image type="content" source="./media/meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message reads: Here are some ideas, let me know what you think! The message also contains two inline images of room interior mockups.":::
@@ -339,7 +339,7 @@ Upon clicking the preview image by the Azure Communication Services user, an ove
 In addition to handle messages with inline images, Chat SDK for JavaScript also provides a solution to allow the Communication User to send image attachments or inline images to the Microsoft Teams user in an interoperability chat.
  
 
-## Prerequisites 
+### Prerequisites 
 
 * You've gone through the previous section for [handling-received-inline-images-in-new-message-event](#handle-received-inline-images-in-new-message-event)
 * You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.6.0-beta.1 or latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
@@ -451,7 +451,7 @@ the newly added lines are marked by `// NEW`.
 
 That's it, now let's run the code and see it in action. 
 
-## Run the code 
+### Run the code 
 
 Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
 
@@ -459,17 +459,21 @@ Webpack users can use the `webpack-dev-server` to build and run your app. Run th
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-## Demo
+### Demo
 
 Open your browser and navigate to `http://localhost:8080/`. Noticing we have a new section in the send box to attach images:
 
-:::image type="content" source="./media/meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message reads: Here are some ideas, let me know what you think! The message also contains two inline images of room interior mockups.":::
+:::image type="content" source="./media/meeting-interop-features-inline-4.png" alt-text="A screenshot of Teams client shown a sent message reads: Here are some ideas, let me know what you think! The message also contains two inline images of room interior mockups.":::
 
 Then we cab select images we wanted to attach:
 
-:::image type="content" source="./media/meeting-interop-features-inline-1.png" alt-text="A screenshot of sample app shown an incoming message with inline images being presented.":::
+:::image type="content" source="./media/meeting-interop-features-inline-5.png" alt-text="A screenshot of sample app shown an incoming message with inline images being presented.":::
+
+:::image type="content" source="./media/meeting-interop-features-inline-6.png" alt-text="A screenshot of sample app shown an incoming message with inline images being presented.":::
 
 Upon clicking send button, the Teams user should now receive the image we just sent out:
 
-:::image type="content" source="./media/meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented.":::
+:::image type="content" source="./media/meeting-interop-features-inline-7.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented.":::
+
+:::image type="content" source="./media/meeting-interop-features-inline-8.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented.":::
 
