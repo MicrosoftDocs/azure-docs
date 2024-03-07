@@ -67,10 +67,10 @@ In this section, you will create a web application that allows users to sign in 
         options.UseFeatureFlags();
     });
 
-    // Add Azure App Configuration middleware to the container of services.
+    // Add Azure App Configuration middleware to the container of services
     builder.Services.AddAzureAppConfiguration();
 
-    // Add feature management to the container of services.
+    // Add feature management to the container of services
     builder.Services.AddFeatureManagement();
 
     // The rest of existing code in Program.cs
@@ -83,7 +83,7 @@ In this section, you will create a web application that allows users to sign in 
     
     var app = builder.Build();
 
-    // Use Azure App Configuration middleware for dynamic configuration refresh.
+    // Use Azure App Configuration middleware for dynamic configuration refresh
     app.UseAzureAppConfiguration();
 
     // The rest of existing code in Program.cs
@@ -201,7 +201,7 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     // Existing code in Program.cs
     // ... ...
 
-    // Add feature management to the container of services.
+    // Add feature management to the container of services
     builder.Services.AddFeatureManagement()
                     .WithTargeting<ExampleTargetingContextAccessor>();
 
