@@ -4,7 +4,6 @@ description: Get started with your deployments by learning how to quickly create
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: workloads
-ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/1/2021
 ms.author: jushiman

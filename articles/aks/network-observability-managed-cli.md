@@ -78,6 +78,13 @@ az group create \
     --name myResourceGroup \
     --location eastus
 ```
+> [!NOTE]
+>For Kubernetes version 1.29 or higher, network observability is enabled with the [AMA metrics profile](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration) and the AFEC flag (NetworkObservabilityPreview) until it reaches general availability.
+>
+>Starting with Kubernetes version 1.29, the --enable-network-observability tag is no longer required when creating or updating an Azure Kubernetes Service (AKS) cluster.
+>
+>For AKS clusters running Kubernetes version 1.28 or earlier, enabling network observability requires the --enable-network-observability tag during cluster creation or update.
+>
 
 ## Create AKS cluster
 
@@ -232,57 +239,19 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 > [!NOTE]
 > The following section requires deployments of Azure managed Prometheus and Grafana.
 
->[!WARNING]
-> File should only be named as **`prometheus-config`**. Do not add any extensions like .yaml or .txt.
-
-1. Use the following example to create a file named **`prometheus-config`**. Copy the code in the example into the file created.
-
-    ```yaml
-    global:
-      scrape_interval: 30s
-    scrape_configs:
-      - job_name: "cilium-pods"
-        kubernetes_sd_configs:
-          - role: pod
-        relabel_configs:
-          - source_labels: [__meta_kubernetes_pod_container_name]
-            action: keep
-            regex: cilium-agent
-          - source_labels:
-              [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
-            separator: ":"
-            regex: ([^:]+)(?::\d+)?
-            target_label: __address__
-            replacement: ${1}:${2}
-            action: replace
-          - source_labels: [__meta_kubernetes_pod_node_name]
-            action: replace
-            target_label: instance
-          - source_labels: [__meta_kubernetes_pod_label_k8s_app]
-            action: replace
-            target_label: k8s_app
-          - source_labels: [__meta_kubernetes_pod_name]
-            action: replace
-            regex: (.*)
-            target_label: pod
-        metric_relabel_configs:
-          - source_labels: [__name__]
-            action: keep
-            regex: (.*)
-    ```
-
-1. To create the `configmap`, use the following example:
-
-    ```azurecli-interactive
-    kubectl create configmap ama-metrics-prometheus-config \
-        --from-file=./prometheus-config \
-        --namespace kube-system
-    ```
-
 1. Azure Monitor pods should restart themselves, if they don't, rollout restart with following command:
     
     ```azurecli-interactive
-    kubectl rollout restart deploy -n kube-system ama-metrics
+    kubectl get po -owide -n kube-system | grep ama-
+    ```
+
+    ```output
+    ama-metrics-5bc6c6d948-zkgc9          2/2     Running   0 (21h ago)   26h
+    ama-metrics-ksm-556d86b5dc-2ndkv      1/1     Running   0 (26h ago)   26h
+    ama-metrics-node-lbwcj                2/2     Running   0 (21h ago)   26h
+    ama-metrics-node-rzkzn                2/2     Running   0 (21h ago)   26h
+    ama-metrics-win-node-gqnkw            2/2     Running   0 (26h ago)   26h
+    ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
     ```
 
 1. Once the Azure Monitor pods have been deployed on the cluster, port forward to the `ama` pod to verify the pods are being scraped. Use the following example to port forward to the pod:

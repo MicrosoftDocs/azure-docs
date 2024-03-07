@@ -204,8 +204,6 @@ The cold tier is now generally available in all public and Azure Government regi
 
 ### Limitations and known issues
 
-- The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
-- [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
 
 ### Required versions of REST, SDKs, and tools

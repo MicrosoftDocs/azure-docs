@@ -3,12 +3,11 @@ title: Azure Key Vault moving a vault to a different subscription | Microsoft Do
 description: Guidance on moving a key vault to a different subscription.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a key vault administrator, I want to move my vault to another subscription.

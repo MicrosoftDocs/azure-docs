@@ -22,7 +22,7 @@ Get started with [integrated vectorization (preview)](vector-search-integrated-v
 In this preview version of the wizard:
 
 + Source data is blob only, using the default parsing mode (one search document per blob).
-+ Index schema is nonconfigurable. Source fields include `content` (chunked and vectorized), `metadata_storage_name` for title, and a `metadata_storage_path` for the document key.
++ Index schema is nonconfigurable. Source fields include `content` (chunked and vectorized), `metadata_storage_name` for title, and a `metadata_storage_path` for the document key which is populated as `parent_id` in the Index.
 + Vectorization is Azure OpenAI only (text-embedding-ada-002), using the [HNSW](vector-search-ranking.md) algorithm with defaults.
 + Chunking is nonconfigurable. The effective settings are:
 

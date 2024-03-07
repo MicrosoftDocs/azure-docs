@@ -3,11 +3,9 @@ title: Azure CLI Script Sample - Restrict web traffic | Microsoft Docs
 description: Azure CLI Script Sample - Create an application gateway with a web application firewall and a virtual machine scale set that uses OWASP rules to restrict traffic.
 services: application-gateway
 author: greg-lindsay
-tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: greglin
 ms.custom: mvc, devx-track-azurecli

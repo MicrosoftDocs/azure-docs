@@ -4,7 +4,6 @@ description: Learn how to mount SMB volumes for Windows virtual machines.
 author: b-ahibbard
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 08/18/2022
 ---

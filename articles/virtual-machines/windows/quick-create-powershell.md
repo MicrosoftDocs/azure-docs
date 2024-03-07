@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 04/04/2023
 ms.author: jushiman
 ms.custom: mvc, devx-track-azurepowershell, mode-api
@@ -52,7 +51,7 @@ New-AzVm `
     -OpenPorts 80,3389
 ```
 
-Cost information isn't presented during the virtual machine creation process for PowerShell like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
+Cost information isn't presented during the virtual machine creation process for PowerShell like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../cost-optimization-plan-to-manage-costs.md).
 
 ## Install web server
 

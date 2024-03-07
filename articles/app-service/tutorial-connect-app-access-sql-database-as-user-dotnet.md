@@ -4,7 +4,6 @@ description: Secure database connectivity with Microsoft Entra authentication fr
 author: cephalin
 
 ms.service: app-service
-ms.workload: identity
 ms.author: cephalin
 ms.devlang: csharp
 ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity

@@ -4,7 +4,7 @@ description: Learn what services are supported by availability zones and underst
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 03/07/2024
 ms.author: anaharris
 author: anaharris
 ms.reviewer: asinghal
@@ -37,7 +37,10 @@ The following regions currently support availability zones:
 | US Gov Virginia | West Europe  | | | China North 3 |
 | West US 2 | Sweden Central | | | |
 | West US 3 | Switzerland North | | | |
-||Poland Central ||||
+| Mexico Central* | Poland Central ||||
+||Spain Central* ||||
+
+
 
 
 \* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
@@ -92,7 +95,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure SQL Managed Instance](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql&preserve-view=true) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
-| [Azure Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
+| [Azure Load Balancer](reliability-load-balancer.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
 | [Azure Storage account](migrate-storage.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
@@ -188,8 +191,10 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure NetApp Files](../azure-netapp-files/use-availability-zones.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | Azure Red Hat OpenShift | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Managed Instance for Apache Cassandra](../managed-instance-apache-cassandra/create-cluster-portal.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure SignalR](../azure-signalr/availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Spring Apps](reliability-spring-apps.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Azure Storage: Ultra Disk | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| [Azure Web PubSub](../azure-web-pubsub/concept-availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Microsoft Fabric](reliability-fabric.md) |  ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 
 ### ![An icon that signifies this service is non-regional.](media/icon-always-available.svg) Non-regional services (always-available services)

@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
-ms.date: 11/15/2023
+ms.date: 2/8/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -46,7 +46,7 @@ Follow these steps to deploy a chat model and test it without your data.
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Go to your project or [create a new project](../how-to/create-projects.md) in Azure AI Studio.
-1. Select **Build** from the top menu and then select **Deployments** > **Create**.
+1. Select **Build** from the top menu and then select **Deployments** > **Create** > **Real-time endpoint**.
     
     :::image type="content" source="../media/tutorials/chat-web-app/deploy-create.png" alt-text="Screenshot of the deployments page without deployments." lightbox="../media/tutorials/chat-web-app/deploy-create.png":::
 
@@ -126,14 +126,6 @@ Follow these steps to add your data to the playground to help the assistant answ
 
    :::image type="content" source="../media/tutorials/chat-web-app/chat-with-data.png" alt-text="Screenshot of the assistant's reply with grounding data." lightbox="../media/tutorials/chat-web-app/chat-with-data.png":::
 
-### Remarks about adding your data
-
-Although it's beyond the scope of this tutorial, to understand more about how the model uses your data, you can export the playground setup to prompt flow. 
-
-:::image type="content" source="../media/tutorials/chat-web-app/prompt-flow-open.png" alt-text="Screenshot of the chat playground with the open in prompt flow button in view." lightbox="../media/tutorials/chat-web-app/prompt-flow-open.png":::
-
-Following through from there you can see the graphical representation of how the model uses your data to construct the response. For more information about prompt flow, see [prompt flow](../how-to/prompt-flow.md).
-
 ## Deploy your web app
 
 Once you're satisfied with the experience in Azure AI Studio, you can deploy the model as a standalone web application. 
@@ -177,7 +169,7 @@ To deploy the web app:
     - **Resource group**: Select a resource group in which to deploy the web app. You can use the same resource group as the Azure AI hub resource.
     - **Location**: Select a location in which to deploy the web app. You can use the same location as the Azure AI hub resource.
     - **Pricing plan**: Choose a pricing plan for the web app.
-    - **Enable chat history in the web app**: For the tutorial, make sure this box isn't selected.
+    - **Enable chat history in the web app**: For the tutorial, the chat history box isn't selected. If you enable the feature, your users will have access to their individual previous queries and responses. For more information, see [chat history remarks](#chat-history).
     - **I acknowledge that web apps will incur usage to my account**: Selected
 
 1. Wait for the app to be deployed, which might take a few minutes. 
@@ -224,6 +216,32 @@ You're almost there! Now you can test the web app.
 ## Clean up resources
 
 To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true).
+
+## Remarks
+
+### Remarks about adding your data
+
+Although it's beyond the scope of this tutorial, to understand more about how the model uses your data, you can export the playground setup to prompt flow. 
+
+:::image type="content" source="../media/tutorials/chat-web-app/prompt-flow-open.png" alt-text="Screenshot of the chat playground with the open in prompt flow button in view." lightbox="../media/tutorials/chat-web-app/prompt-flow-open.png":::
+
+Following through from there you can see the graphical representation of how the model uses your data to construct the response. For more information about prompt flow, see [prompt flow](../how-to/prompt-flow.md).
+
+### Chat history
+
+With the chat history feature, your users will have access to their individual previous queries and responses.
+
+You can enable chat history when you [deploy the web app](#deploy-the-web-app). Select the **Enable chat history in the web app** checkbox.
+
+:::image type="content" source="../media/tutorials/chat-web-app/deploy-web-app-chat-history.png" alt-text="Screenshot of the option to enable chat history when deploying a web app." lightbox="../media/tutorials/chat-web-app/deploy-web-app-chat-history.png":::
+
+> [!IMPORTANT]
+> Enabling chat history will create a [Cosmos DB instance](/azure/cosmos-db/introduction) in your resource group, and incur [additional charges](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/) for the storage used.
+> Deleting your web app does not delete your Cosmos DB instance automatically. To delete your Cosmos DB instance, along with all stored chats, you need to navigate to the associated resource in the Azure portal and delete it.
+
+Once you've enabled chat history, your users will be able to show and hide it in the top right corner of the app. When the history is shown, they can rename, or delete conversations. As they're logged into the app, conversations will be automatically ordered from newest to oldest, and named based on the first query in the conversation.
+
+If you delete the Cosmos DB resource but keep the chat history option enabled on the studio, your users will be notified of a connection error, but can continue to use the web app without access to the chat history.
 
 ## Next steps
 

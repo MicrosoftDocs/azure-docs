@@ -17,7 +17,7 @@ AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/servi
 resources, and creates and applies Application Gateway config based on the status of the Kubernetes cluster.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Outline
 
@@ -61,12 +61,6 @@ Gateway should that become necessary
     kubectl create serviceaccount --namespace kube-system tiller-sa
     kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
     helm init --tiller-namespace kube-system --service-account tiller-sa
-    ```
-
-    - *Kubernetes RBAC disabled* AKS cluster
-
-    ```bash
-    helm init
     ```
 
 2. Add the AGIC Helm repository:

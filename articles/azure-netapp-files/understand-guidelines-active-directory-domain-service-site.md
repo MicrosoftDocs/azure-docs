@@ -4,7 +4,6 @@ description: Proper Active Directory Domain Services (AD DS) design and planning
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 02/21/2023
 ms.author: anfdocs

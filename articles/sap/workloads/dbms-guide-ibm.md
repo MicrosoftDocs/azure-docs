@@ -3,12 +3,10 @@ title: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload | Microso
 description: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 keywords: 'Azure, Db2, SAP, IBM'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
 ms.date: 08/24/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017

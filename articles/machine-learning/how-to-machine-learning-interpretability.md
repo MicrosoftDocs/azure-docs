@@ -10,7 +10,7 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: lgayhardt
 ms.custom: responsible-ml, mktng-kw-nov2021, build-2023, devx-track-python
-ms.date: 11/04/2022
+ms.date: 02/29/2024
 ---
 
 # Model interpretability
@@ -103,7 +103,7 @@ Interpret-Community serves as the host for the following supported explainers, a
 |Mimic Explainer (Global Surrogate)| Mimic Explainer is based on the idea of training [global surrogate models](https://christophm.github.io/interpretable-ml-book/global.html) to mimic opaque-box models. A global surrogate model is an intrinsically interpretable model that's trained to approximate the predictions of *any opaque-box model* as accurately as possible. Data scientists can interpret the surrogate model to draw conclusions about the opaque-box model. You can use one of the following interpretable models as your surrogate model: LightGBM (LGBMExplainableModel), Linear Regression (LinearExplainableModel), Stochastic Gradient Descent explainable model (SGDExplainableModel), or Decision Tree (DecisionTreeExplainableModel).|Model-agnostic|
 |Permutation Feature Importance Explainer| Permutation Feature Importance (PFI) is a technique used to explain classification and regression models that's inspired by [Breiman's Random Forests paper](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (see section 10). At a high level, the way it works is by randomly shuffling data one feature at a time for the entire dataset and calculating how much the performance metric of interest changes. The larger the change, the more important that feature is. PFI can explain the overall behavior of *any underlying model* but doesn't explain individual predictions. |Model-agnostic|
 
-Besides the interpretability techniques described above, we support another SHAP-based explainer, called Tabular Explainer. Depending on the model, Tabular Explainer uses one of the supported SHAP explainers:
+Besides the interpretability techniques described in the previous section, we support another SHAP-based explainer, called Tabular Explainer. Depending on the model, Tabular Explainer uses one of the supported SHAP explainers:
 
 * Tree Explainer for all tree-based models
 * Deep Explainer for deep neural network (DNN) models
@@ -128,13 +128,13 @@ The `azureml.interpret` package of the SDK supports models that are trained with
 * `iml.datatypes.DenseData`
 * `scipy.sparse.csr_matrix`
 
-The explanation functions accept both models and pipelines as input. If a model is provided, it must implement the prediction function `predict` or `predict_proba` that conforms to the Scikit convention. If your model doesn't support this, you can wrap it in a function that generates the same outcome as `predict` or `predict_proba` in Scikit and use that wrapper function with the selected explainer. 
+The explanation functions accept both models and pipelines as input. If a model is provided, it must implement the prediction function `predict` or `predict_proba` that conforms to the Scikit convention. If your model doesn't support this, you can wrap it in a function that generates the same outcome as `predict` or `predict_proba` in Scikit and use that wrapper function with the selected explainer.
 
-If you provide a pipeline, the explanation function assumes that the running pipeline script returns a prediction. When you use this wrapping technique, `azureml.interpret` can support models that are trained via PyTorch, TensorFlow, and Keras deep learning frameworks as well as classic machine learning models.
+If you provide a pipeline, the explanation function assumes that the running pipeline script returns a prediction. When you use this wrapping technique, `azureml.interpret` can support models that are trained via PyTorch, TensorFlow, Keras deep learning frameworks, and classic machine learning models.
 
 ## Local and remote compute target
 
-The `azureml.interpret` package is designed to work with both local and remote compute targets. If you run the package locally, the SDK functions won't contact any Azure services. 
+The `azureml.interpret` package is designed to work with both local and remote compute targets. If you run the package locally, the SDK functions won't contact any Azure services.
 
 You can run the explanation remotely on Azure Machine Learning Compute and log the explanation info into the Azure Machine Learning Run History Service. After this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning studio for analysis.
 

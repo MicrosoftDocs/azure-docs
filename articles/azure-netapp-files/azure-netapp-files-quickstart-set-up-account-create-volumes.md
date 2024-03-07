@@ -4,7 +4,6 @@ description: Quickstart - Describes how to quickly set up Azure NetApp Files and
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: quickstart
 ms.date: 02/21/2023
 ms.custom: devx-track-azurecli, subject-armqs, mode-ui, devx-track-azurepowershell

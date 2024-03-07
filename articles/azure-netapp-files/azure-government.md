@@ -4,7 +4,6 @@ description: Learn how to connect to Azure Government to use Azure NetApp Files 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 11/02/2023

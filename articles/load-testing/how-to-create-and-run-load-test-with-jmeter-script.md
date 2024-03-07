@@ -6,8 +6,8 @@ services: load-testing
 ms.service: load-testing
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-author: ntrogh
-ms.author: nicktrog
+author: ninallam
+ms.author: ninallam
 ms.date: 10/23/2023
 adobe-target: true
 ---

@@ -6,7 +6,6 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 12/04/2023
 ms.author: mbender
 ms.custom: template-concept

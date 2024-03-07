@@ -6,7 +6,6 @@ ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart
 ms.date: 04/04/2023
-ms.workload: infrastructure-services
 ms.custom: template-quickstart, devx-track-azurepowershell
 ---
 

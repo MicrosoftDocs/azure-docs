@@ -217,6 +217,10 @@ The streamed logs look like this:
 
 Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes --os linux'](/cli/azure/webapp#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
 
+> [!NOTE]
+> Container should target x86-x64 architecture, ARM64 is not supported.
+>
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

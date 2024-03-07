@@ -4,7 +4,6 @@ description: How to use the Intel SGX device plugin and Intel SGX quote helper d
 author: angarg05
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: article
 ms.date: 11/01/2021
 ms.author: ananyagarg

@@ -68,9 +68,9 @@ Currently, there are two category groups:
 - **All**: Every resource log offered by the resource.
 - **Audit**: All resource logs that record customer interactions with data or the settings of the service. Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective depending on your use case. As mentioned above, what's collected is dynamic, and Microsoft may change it over time as new resource log categories become available.
 
-The "Audit" category is a subset of "All", but the Azure portal and REST API consider them separate settings. Selecting "All" does collect all audit logs regardless of if the "Audit" category is also selected.  
+The "Audit" category group is a subset of the "All" category group, but the Azure portal and REST API consider them separate settings. Selecting the "All" category group does collect all audit logs even if the "Audit" category group is also selected.  
 
-The following image shows the logs category groups on the add diagnostics settings page.
+The following image shows the logs category groups on the **Add diagnostics settings** page.
 
 :::image type="content" source="./media/diagnostic-settings/audit-category-group.png" alt-text="A screenshot showing the logs category groups."::: 
 
@@ -92,7 +92,7 @@ To ensure the security of data in transit, all destination endpoints are configu
 | [Log Analytics workspace](../logs/workspace-design.md) | Metrics are converted to log form. This option might not be available for all resource types. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries, alerts, and visualizations with existing log data.
 | [Azure Storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to a Storage account is useful for audit, static analysis, or back up. Compared to using Azure Monitor Logs or a Log Analytics workspace, Storage is less expensive, and logs can be kept there indefinitely.  | 
 | [Azure Event Hubs](../../event-hubs/index.yml) | When you send logs and metrics to Event Hubs, you can stream data to external systems such as third-party SIEMs and other Log Analytics solutions.  |
-| [Azure Monitor partner integrations](../../partner-solutions/overview.md)| Specialized integrations can be made between Azure Monitor and other non-Microsoft monitoring platforms. Integration is useful when you're already using one of the partners.  |
+| [Azure Monitor partner solutions](../../partner-solutions/overview.md)| Specialized integrations can be made between Azure Monitor and other non-Microsoft monitoring platforms. Integration is useful when you're already using one of the partners.  |
 
 ## Activity log settings
 
@@ -105,7 +105,7 @@ This section discusses requirements and limitations.
 
 ### Time before telemetry gets to destination
 
-After you set up a diagnostic setting, data should start flowing to your selected destination(s) within 90 minutes. When sending logs to a Log Analytics workspace, the table will be created automatically if it doesn't already exist. The table is only created when the first log records are received. If you get no information within 24 hours, then you might be experiencing one of the following issues:
+After you set up a diagnostic setting, data should start flowing to your selected destination(s) within 90 minutes. When sending logs to a Log Analytics workspace, the table is created automatically if it doesn't already exist. The table is only created when the first log records are received. If you get no information within 24 hours, then you might be experiencing one of the following issues:
 
 - No logs are being generated.
 - Something is wrong in the underlying routing mechanism.
@@ -130,9 +130,9 @@ The following table provides unique requirements for each destination including 
 | Destination | Requirements |
 |:---|:---|
 | Log Analytics workspace | The workspace doesn't need to be in the same region as the resource being monitored.|
-| Storage account | Don't use an existing storage account that has other, non-monitoring data stored in it. Spliting the types of data up allow you better control access to the data. If you're archiving the activity log and resource logs together, you might choose to use the same storage account to keep all monitoring data in a central location.<br><br>To prevent modification of the data, send it to immutable storage. Set the immutable policy for the storage account as described in [Set and manage immutability policies for Azure Blob Storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.<br><br> Diagnostic settings can't access storage accounts when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in storage accounts so that the Azure Monitor diagnostic settings service is granted access to your storage account.<br><br>[Azure DNS zone endpoints (preview)](../../storage/common/storage-account-overview.md#azure-dns-zone-endpoints-preview) and [Azure Premium LRS](../../storage/common/storage-redundancy.md#locally-redundant-storage) (locally redundant storage) storage accounts aren't supported as a log or metric destination.|
+| Storage account | Don't use an existing storage account that has other, nonmonitoring data stored in it. Splitting the types of data up allow you better control access to the data. If you're archiving the activity log and resource logs together, you might choose to use the same storage account to keep all monitoring data in a central location.<br><br>To prevent modification of the data, send it to immutable storage. Set the immutable policy for the storage account as described in [Set and manage immutability policies for Azure Blob Storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.<br><br> Diagnostic settings can't access storage accounts when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in storage accounts so that the Azure Monitor diagnostic settings service is granted access to your storage account.<br><br>[Azure DNS zone endpoints (preview)](../../storage/common/storage-account-overview.md#azure-dns-zone-endpoints-preview) and [Azure Premium LRS](../../storage/common/storage-redundancy.md#locally-redundant-storage) (locally redundant storage) storage accounts aren't supported as a log or metric destination.|
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in Event Hubs so that the Azure Monitor diagnostic settings service is granted access to your Event Hubs resources.|
-| Partner integrations | The solutions vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
+| Partner solutions | The solutions vary by partner. Check the [Azure Native ISV Services documentation](../../partner-solutions/overview.md) for details.|
 
 > [!CAUTION]
 > If you want to store diagnostic logs in a Log Analytics workspace, there are two points to consider to avoid seeing duplicate data in Application Insights:

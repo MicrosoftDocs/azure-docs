@@ -136,11 +136,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/nosql/sdk-java-v2.md",
-      "redirect_url": "/previous-versions/azure/cosmos-db/nosql/sdk-java-v2",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-java.md",
       "redirect_url": "/azure/cosmos-db/nosql/sdk-java-v2",
       "redirect_document_id": true
@@ -6266,8 +6261,38 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/mongodb/mongodb-faq.yml",
+      "redirect_url": "/azure/cosmos-db/mongodb/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/cassandra/cassandra-faq.yml",
+      "redirect_url": "/azure/cosmos-db/cassandra/faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/gremlin-api-faq.yml",
+      "redirect_url": "/azure/cosmos-db/gremlin/faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/table/table-api-faq.yml",
+      "redirect_url": "/azure/cosmos-db/table/faq",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/vector-search.md",
       "redirect_url": "/azure/cosmos-db/vector-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/table/how-to-use-php.md",
+      "redirect_url": "/previous-versions/azure/cosmos-db/table/how-to-use-php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/table/how-to-use-ruby.md",
+      "redirect_url": "/previous-versions/azure/cosmos-db/table/how-to-use-ruby",
       "redirect_document_id": false
     }
   ]

@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/04/2024
+ms.date: 02/16/2024
 ms.author: banders
 ---
 
@@ -42,7 +42,7 @@ Microsoft might drop the current Enterprise Agreement price for individual Azure
 
 ### Current effective pricing
 
-Customer and channel partners can view their current pricing for an enrollment by logging into the [Azure Enterprise portal](https://ea.azure.com/). Then view the price sheet page for that enrollment. Direct EA customers can now view and download **price sheet** in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). See [view price sheet](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
+Customer and channel partners can view their current pricing for an enrollment by signing in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Then view the price sheet page for that enrollment. Direct EA customers can now view and download **price sheet** in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). See [view price sheet](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
 
 If you purchase Azure indirectly through one of our channel partners, you must get your pricing updates from your channel partner unless they enabled markup pricing to be displayed for your enrollment.
 
@@ -62,8 +62,8 @@ When regionalization of a service is first introduced, baseline price protection
 
 ### Enterprise Dev/Test
 
-Enterprise administrators can enable account owners to create subscriptions based on the Enterprise Dev/Test offer. The account owner must set up the Enterprise Dev/Test subscriptions that are needed for the underlying  subscribers. This configuration allows active Visual Studio subscribers to run development and testing workloads on Azure at special Enterprise Dev/Test rates. For more information, see [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
+Enterprise administrators can create subscriptions. They can also enable account owners to create subscriptions based on the Enterprise Dev/Test offer. The account owner must set up the Enterprise Dev/Test subscriptions that are needed for the underlying  subscribers. This configuration allows active Visual Studio subscribers to run development and testing workloads on Azure at special Enterprise Dev/Test rates. For more information, see [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ## Next steps
 
-- For more information, see [Enterprise enrollment invoices](ea-portal-enrollment-invoices.md).
+- Learn more about EA administrative tasks at [EA Billing administration on the Azure portal](direct-ea-administration.md).

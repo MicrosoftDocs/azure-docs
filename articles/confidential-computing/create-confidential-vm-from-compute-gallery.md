@@ -5,7 +5,6 @@ author: lakmeedee
 ms.author: dejv
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 07/14/2022
 ms.custom: mode-arm
