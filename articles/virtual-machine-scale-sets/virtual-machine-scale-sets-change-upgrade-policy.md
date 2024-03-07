@@ -5,18 +5,16 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 02/06/2024
+ms.date: 03/07/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 ---
 # Change the Upgrade Policy on Virtual Machine Scale Sets
 
 > [!IMPORTANT]
-> **Upgrade Policies for Virtual Machine Scale Sets with Flexible Orchestration are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
+> Automatic, Manual and Rolling Upgrade Policy is available for Virtual Machine Scale sets with Uniform Orchestration. 
 >
-> If using Rolling Upgrade Policy, see **[Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)** for more information. 
->
-> Upgrade Policies for Virtual Machine Scale Sets with Uniform Orchestration are generally available (GA). 
+>**Manual Upgrade Policy is currently available for Virtual Machine Scale Sets with Flexible Orchestration and is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
 
 The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. Depending on your scenario, you may want to use a particular Upgrade Policy when setting up and developing your workload and once you're ready to move to production, change it to another Upgrade Policy mode. 
 
@@ -54,7 +52,7 @@ If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtua
 ```ARM
 "properties": {
         "upgradePolicy": {
-            "mode": "Automatic",
+            "mode": "manual",
         }
     }
 ```

@@ -5,15 +5,14 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 02/06/2024
+ms.date: 03/07/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 ---
 # Configure Rolling Upgrades on Virtual Machine Scale Sets
 
-> [!IMPORTANT]
+> [!NOTE]
 > Rolling Upgrade Policy is only available for Virtual Machine Scale Sets with Uniform Orchestration.
-
 
 Rolling Upgrade Policy is the safest way to apply updates to instances in a Virtual Machine Scale Set. Performing updates in batches ensures that your scale set maintains a set number of instances available to take traffic, meaning you don't need to take down your entire workload to make a change. 
 
@@ -25,6 +24,13 @@ Rolling Upgrade Policy is best suited for production workloads.
 - If using a Rolling Upgrade Policy, the scale set must have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
 
 - If using Rolling Upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Ensure you have enough quota and address space in your subnet to accommodate these new VMs before enabling MaxSurge. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
+
+>[!IMPORTANT]
+> MaxSurge is currently in preview for Virtual Machine Scale Sets. To use this preview feature, register the provider feature using Azure Cloud Shell. 
+>
+> `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute
+>
+>Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 
 ## Concepts
 

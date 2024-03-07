@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 02/06/2024
+ms.date: 03/07/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 ---
@@ -15,8 +15,6 @@ ms.custom: upgradepolicy
 > Automatic, Manual and Rolling Upgrade Policy are available for Virtual Machine Scale Sets with Uniform Orchestration Mode. 
 >
 >**If using Virtual Machine scale Sets with Flexible Orchestration mode, only Manual Upgrade Policy is supported. Manual Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
->
-> If using Rolling Upgrade Policy, see **[Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)** for more information. 
 
 The Upgrade Policy can be set during scale set creation or changed post deployment. If you don't explicitly set the Upgrade Policy, it defaults to Manual. To change the Upgrade Policy of an existing scale set deployment, see [Changing the Upgrade Policy](virtual-machine-scale-sets-change-upgrade-policy.md).
 
@@ -29,7 +27,7 @@ If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtua
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/pick-upgrade-policy.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
 
 ### [CLI](#tab/cli)
-When creating a new scale set using Azure CLI, use [az vmss create](/cli/azure/vmss#az-vmss-create) and the `-upgrade-policy-mode` parameter. Choose `Automatic` or `Manual`. 
+When creating a new scale set using Azure CLI, use [az vmss create](/cli/azure/vmss#az-vmss-create) and the `-upgrade-policy-mode` to set the upgrade policy mode.  
 
 If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
 
@@ -47,7 +45,7 @@ az vmss create \
 ```
 
 ### [PowerShell](#tab/powershell)
-When creating a new scale set using Azure PowerShell, use [New-AzVmss](/powershell/module/az.compute/new-azvmss) and the `-UpgradePolicyMode` parameter. Choose `"Automatic"` or `"Manual"`". 
+When creating a new scale set using Azure PowerShell, use [New-AzVmss](/powershell/module/az.compute/new-azvmss) and the `-UpgradePolicyMode` parameter to set the upgrade policy mode.
 
 If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
 
@@ -65,7 +63,7 @@ New-AzVmss `
 ```
 
 ### [ARM Template](#tab/template)
-When using an ARM template, add the upgradePolicy to the properties section of your template with the upgrade policy of "Automatic" or "Manual".
+When using an ARM template, add the upgradePolicy to the properties section of your template to set the upgrade policy mode. 
 
 If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
 
