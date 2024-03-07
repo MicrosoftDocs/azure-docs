@@ -13,7 +13,7 @@ ms.date: 03/06/2024
 
 # Access a lab virtual machine in Azure Lab Services
 
-This article describes how you can access your lab virtual machines (VMs) in Azure Lab Services. Use Teams, Canvas, or the Azure Lab Services website to view, start, stop, and connect to a lab virtual machine.
+This article shows you how to access your lab virtual machines (VMs) in Azure Lab Services. Use Teams, Canvas, or the Azure Lab Services website to view, start, stop, and connect to a lab virtual machine.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ To access your lab in Teams:
 
     :::image type="content" source="./media/how-to-access-lab-virtual-machine/teams-view-lab.png" alt-text="Screenshot of lab in Teams after you publish it." lightbox="./media/how-to-access-lab-virtual-machine/teams-view-lab.png":::
 
-    You might see a message that the lab isn't available. This error can occur when the lab isn't published yet, or if the Teams membership information still needs to synchronize.
+    You might see a message that the lab isn't available. This error can occur when the lab isn't published yet or if the Teams membership information still needs to synchronize.
 
 # [Canvas](#tab/canvas)
 
@@ -91,20 +91,20 @@ When you access your lab, either through the Azure Lab Services website, Microso
 
 For each lab VM, you can view the following information:
 
-- Lab name: this name is assigned by the lab creator.
-- Operating system: an icon represents the operating system of the lab VM.
-- Quota hours: a progress bar shows your assigned and consumed quota hours. Learn more about the [quota hours](#view-quota-hours).
-- Lab VM status: indicates whether the lab VM is starting, running, or stopped.
+- Lab name. The lab creator assigns this name.
+- Operating system. An icon represents the operating system of the lab VM.
+- Quota hours. A progress bar shows your assigned and consumed quota hours. Learn more about the [quota hours](#view-quota-hours).
+- Lab VM status. Indicates whether the lab VM is starting, running, or stopped.
 
 You can also perform specific actions on the lab VM:
 
-- Start or stop the lab VM: learn more about [starting and stopping a lab VM](#start-or-stop-the-lab-vm).
-- Connect to the lab VM: select the computer icon to connect to the lab VM with remote desktop or SSH. Learn more about [connecting to the lab VM](./connect-virtual-machine.md).
-- Redeploy or reimage the lab VM: learn more how you [redeploy or reimage the lab VM](./how-to-reset-and-redeploy-vm.md) when you experience problems.
+- Start or stop the lab VM. Learn more about [starting and stopping a lab VM](#start-or-stop-the-lab-vm).
+- Connect to the lab VM. Select the computer icon to connect to the lab VM with remote desktop or SSH. Learn more about [connecting to the lab VM](./connect-virtual-machine.md).
+- Redeploy or reimage the lab VM. Learn more how you can [redeploy or reimage the lab VM](./how-to-reset-and-redeploy-vm.md) when you experience problems.
 
 ## View quota hours
 
-Quota hours are the extra time allotted to you outside of the [scheduled time](./classroom-labs-concepts.md#schedule) for the lab. For example, the time outside of classroom time, to complete homework.
+Quota hours are the extra time allotted to you outside of the [scheduled time](./classroom-labs-concepts.md#schedule) for the lab. For example, the time outside of classroom time to complete homework.
 
 On the lab VM tile, you can view your consumption of [quota hours](how-to-manage-lab-users.md#set-quotas-for-users) in the progress bar. The progress bar color and the message give an indication of the usage:
 

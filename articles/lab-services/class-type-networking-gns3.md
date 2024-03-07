@@ -8,14 +8,14 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/06/2024
-#customer intent: As an instructor, I want to create lab virtual machines with GNS3 so that students can start to learn about networking with GNS3 in a standard configuration.
+#customer intent: As an educator, I want to create lab virtual machines with GNS3 so that students can learn about networking with GNS3 in a standard configuration.
 ---
 
 # Set up a lab to teach a networking class with GNS3 in Azure Lab Services
 
 This article shows you how to set up a class to emulate, configure, test, and troubleshoot networks with GNS3 software in Azure Lab Services.
 
-This article has two sections. The first section covers how to create the lab. The second section covers how to create the template machine with nested virtualization enabled and with GNS3 installed and configured.
+This article has two sections. The first section covers how to create the lab. The second section covers how to configure the template machine with nested virtualization enabled and with GNS3 installed and configured.
 
 ## Prerequisites
 
@@ -59,15 +59,15 @@ If you create a lab template VM with an account without administrator privileges
 
 1. To install GNS3 on Windows, follow the detailed instructions on [the GNS3 website](https://docs.gns3.com/docs/getting-started/installation/windows).
 
-1. Make sure to select **GNS3 VM** in the **Choose Components** page:
+    1. Make sure to select **GNS3 VM** in the **Choose Components** page:
 
-    :::image type="content" source="./media/class-type-networking-gns3/gns3-select-vm.png" alt-text="Screenshot that shows the Choose Components page in the GNS3 installation wizard, with the GNS3 VM option selected." lightbox="./media/class-type-networking-gns3/gns3-select-vm.png":::
+        :::image type="content" source="./media/class-type-networking-gns3/gns3-select-vm.png" alt-text="Screenshot that shows the Choose Components page in the GNS3 installation wizard, with the GNS3 VM option selected." lightbox="./media/class-type-networking-gns3/gns3-select-vm.png":::
 
-1. On the **GNS3 VM** page, select the **Hyper-V** option:
+    1. On the **GNS3 VM** page, select the **Hyper-V** option:
 
-    :::image type="content" source="./media/class-type-networking-gns3/gns3-vm-hyper-v.png" alt-text="Screenshot that shows the GNS3 VM page in the GNS3 installation wizard, with the Hyper-V option selected." lightbox="./media/class-type-networking-gns3/gns3-vm-hyper-v.png":::
+        :::image type="content" source="./media/class-type-networking-gns3/gns3-vm-hyper-v.png" alt-text="Screenshot that shows the GNS3 VM page in the GNS3 installation wizard, with the Hyper-V option selected." lightbox="./media/class-type-networking-gns3/gns3-vm-hyper-v.png":::
 
-    When you select the Hyper-V option, the installer downloads the PowerShell script and VHD files to create the GNS3 VM in the Hyper-V manager.
+        When you select the Hyper-V option, the installer downloads the PowerShell script and VHD files to create the GNS3 VM in the Hyper-V manager.
 
 1. Continue the installation with the default values.
 
@@ -82,11 +82,11 @@ To create the GNS 3 VM:
 
 1. Connect to the template VM by using Remote Desktop.
 
-1. Extract all files in the *GNS3.VM.Hyper-V.2.2.17.zip* file. If the template VM has a non-admin account for lab users, extract the files in a location accessible to the non-admin account.
+1. Extract all files in the *GNS3.VM.Hyper-V.2.2.x.zip* file. If the template VM has a non-admin account for lab users, extract the files in a location accessible to the non-admin account.
 
 1. Right-select the *create-vm.ps1* PowerShell script, and then select **Run with PowerShell**.
 
-1. When the `Execution Policy Change` request shows, enter **Y** to execute the script.
+1. When the `Execution Policy Change` request appears, enter **Y** to execute the script.
 
     :::image type="content" source="./media/class-type-networking-gns3/powershell-execution-policy-change.png" alt-text="Screenshot that shows the PowerShell command line, asking for an Execution Policy change." lightbox="./media/class-type-networking-gns3/powershell-execution-policy-change.png":::
 
@@ -120,13 +120,13 @@ After you install GNS3 and add the GNS3 VM, configure GNS 3 to use the Hyper-V v
 
 Next, you can add appliances for the class. To install appliances from the GNS3 marketplace, follow the detailed steps from [the GNS3 documentation](https://docs.gns3.com/docs/using-gns3/beginners/install-from-marketplace).
 
-If the template VM has a non-admin account for lab users, install the appliances to a location accessible to the account. Optionally, you can set the preferences for the admin and non-admin user to look for appliances and projects in a location accessible by both users.
+If the template VM has a non-admin account for lab users, install the appliances to a location accessible to the account. Optionally, you can set the preferences for the administrator and non-admin user to look for appliances and projects in a location accessible by both users.
 
 ### Prepare to publish template
 
-Now that you set up the template virtual machine, verify the following key points before you publish the template:
+After you set up the template virtual machine, verify the following key points before you publish the template:
 
-- Make sure that the GNS3 VM is shut down or turned off. Publishing while the VM is still running, corrupts the virtual machine.
+- Make sure that the GNS3 VM is shut down or turned off. Publishing while the VM is still running corrupts the virtual machine.
 - Stop GNS3. Publishing while GNS3 is running can lead to unintended side effects.
 - Clean up any installation files or other unnecessary files from the template VM.
 

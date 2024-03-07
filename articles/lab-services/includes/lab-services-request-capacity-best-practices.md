@@ -1,8 +1,6 @@
 ---
 ms.service: lab-services
 ms.topic: include
-author: ntrogh
-ms.author: nicktrog
 ms.date: 12/01/2022
 ---
 

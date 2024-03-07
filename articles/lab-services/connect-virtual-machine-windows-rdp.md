@@ -8,7 +8,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/06/2024
-#customer intent: As a learner, I want to connect to virtual machines in a lab by using RDP in order to use the lab resources. 
+#customer intent: As a student, I want to connect to virtual machines in a lab by using RDP in order to use the lab resources. 
 ---
 
 # Connect to a VM using Remote Desktop Protocol on Windows
@@ -43,7 +43,7 @@ To connect to a lab VM in Azure Lab Services:
 
 The RDP client software has various settings for optimizing your connection experience. The default settings optimize your experience based on your network connection. Typically, you don't need to change the default settings.
 
-Learn more about the [RDP client's **Experience** settings](/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings).
+Learn more about the [RDP client's Experience settings](/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings).
 
 If you're using a Linux lab VM with a graphical desktop and the RDP client, the following settings might help to optimize performance:
 
