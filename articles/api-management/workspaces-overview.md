@@ -22,7 +22,7 @@ In API Management, *workspaces* allow decentralized API development teams to man
 > * Workspaces are a preview feature of API Management and subject to certain [limitations](#preview-limitations).
 > * Workspaces are supported in API Management REST API version 2022-09-01-preview or later.
 > * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
-> * See [upcoming breaking changes](./breaking-changes/workspaces-breaking-changes-april-2024.md) for workspaces.
+> * See [upcoming breaking changes](./breaking-changes/workspaces-breaking-changes-june-2024.md) for workspaces.
 
 ## Example scenario overview
 
@@ -140,4 +140,4 @@ Therefore, the following sample scenarios aren't currently supported in workspac
 ## Related content
 
 * [Create a workspace](how-to-create-workspace.md)
-* [Workspaces breaking changes - April 2024](breaking-changes/workspaces-breaking-changes-april-2024.md)
+* [Workspaces breaking changes - June 2024](breaking-changes/workspaces-breaking-changes-june-2024.md)
