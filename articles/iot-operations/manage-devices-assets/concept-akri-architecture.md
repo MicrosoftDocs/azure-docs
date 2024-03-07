@@ -9,8 +9,7 @@ ms.custom:
   - ignite-2023
 ms.date: 10/26/2023
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in
-# the Azure IoT Akri architecture so that I understand how it works to enable device and asset discovery for my edge solution.
+# CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Akri architecture so that I understand how it works to enable device and asset discovery for my edge solution.
 ---
 
 # Azure IoT Akri Preview architecture

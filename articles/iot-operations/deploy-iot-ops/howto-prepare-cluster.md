@@ -184,4 +184,4 @@ az iot ops verify-host
 
 ## Next steps
 
-Now that you have an Azure Arc-enabled Kubernetes cluster, you can [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
