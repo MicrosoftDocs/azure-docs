@@ -1,111 +1,77 @@
 ---
-title: 'REST Tutorial: AI on Azure blobs'
+title: 'Tutorial: Skillsets using REST'
 titleSuffix: Azure AI Search
-description: Step through an example of text extraction and natural language processing over content in Blob Storage using Postman and the Azure AI Search REST APIs.
+description: Use the Search REST APIs to create skillsets. This skillset applies AI transformations and analyses to create searchable content from images and unstructured text.
+
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
-ms.date: 09/13/2023
+ms.date: 03/06/2024
 ---
 
-# Tutorial: Use REST and AI to generate searchable content from Azure blobs
+# REST Tutorial: Use skillsets to generate searchable content in Azure AI Search
 
-If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios.
+In this tutorial, learn how to call REST APIs that create an [AI enrichment pipeline](cognitive-search-concept-intro.md) for content extraction and transformations during indexing.
 
-In this REST tutorial, you'll learn how to:
+Skillsets add AI processing to raw content, making that content more uniform and searchable. Once you know how skillsets work, you can support a broad range of transformations: from image analysis, to natural language processing, to customized processing that you provide externally.
+
+This tutorial helps you learn how to:
 
 > [!div class="checklist"]
-> * Set up a development environment.
-> * Define a pipeline that uses OCR, language detection, entity recognition, and key phrase extraction.
-> * Execute the pipeline to invoke transformations, and to create and load a search index.
-> * Explore results using full text search and a rich query syntax.
+> + Define objects in an enrichment pipeline
+> + Build a skillset that invokes OCR, language detection, entity recognition, and key phrase extraction
+> + Execute the pipeline to invoke transformations, and to create and load a search index
+> + Check the results using full text search
 
 If you don't have an Azure subscription, open a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Overview
 
-This tutorial uses Postman and the [Azure AI Search REST APIs](/rest/api/searchservice/) to create a data source, index, indexer, and skillset.
+This tutorial uses a REST client and the [Azure AI Search REST APIs](/rest/api/searchservice/) to create a data source, index, indexer, and skillset.
 
-The indexer connects to Azure Blob Storage and retrieves the content, which you must load in advance. The indexer then invokes a [skillset](cognitive-search-working-with-skillsets.md) for specialized processing, and ingests the enriched content into a [search index](search-what-is-an-index.md).
+The [indexer](search-indexer-overview.md) drives each step in the pipeline, starting with content extraction of sample data (unstructured text and images) in a blob container on Azure Storage.
 
-The skillset is attached to an [indexer](search-indexer-overview.md). It uses built-in skills from Microsoft to find and extract information. Steps in the pipeline include Optical Character Recognition (OCR) on images, language detection, key phrase extraction, and entity recognition (organizations, locations, people). New information created by the pipeline is stored in new fields in an index. Once the index is populated, you can use those fields in queries, facets, and filters.
+Once content is extracted, the [skillset](cognitive-search-working-with-skillsets.md) executes built-in skills from Microsoft to find and extract information. These skills include Optical Character Recognition (OCR) on images, language detection on text, key phrase extraction, and entity recognition (organizations). New information created by the skillset is sent to fields in an [index](search-what-is-an-index.md). Once the index is populated, you can use the fields in queries, facets, and filters.
 
 ## Prerequisites
 
-* [Postman app](https://www.postman.com/downloads/)
-* [Azure Storage](https://azure.microsoft.com/services/storage/)
-* [Azure AI Search](https://azure.microsoft.com/services/search/)
-* [Sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media)
++ [Visual Studio Code](https://code.visualstudio.com/download) with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+
++ [Azure Storage](/azure/storage/common/storage-account-create)
+
++ [Azure AI Search](search-create-app-portal.md)
+
++ [Sample data files (mixed media)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media)
+
++ [Sample REST file](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/skillset-tutorial)
 
 > [!NOTE]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-## Download files
+### Upload sample data to Azure Storage
 
-The sample data consists of 14 files of mixed content type that you'll upload to Azure Blob Storage in a later step.
+1. In Azure Storage, create a new container and name it *cog-search-demo*.
 
-1. Get the files from [azure-search-sample-data/ai-enrichment-mixed-media/](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media) and copy them to your local computer.
-
-1. Next, get the source code, a Postman collection file, for this tutorial. Source code can be found at [azure-search-postman-samples/tree/main/Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Tutorial).
-
-## 1 - Create services
-
-This tutorial uses Azure AI Search for indexing and queries, Azure AI services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Azure AI services, so the only services you need to create are search and storage.
-
-If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
-
-### Start with Azure Storage
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **+ Create Resource**.
-
-1. Search for *storage account* and select Microsoft's Storage Account offering.
-
-   ![Create Storage account](media/cognitive-search-tutorial-blob/storage-account.png "Create Storage account")
-
-1. In the Basics tab, the following items are required. Accept the defaults for everything else.
-
-   + **Resource group**. Select an existing one or create a new one, but use the same group for all services so that you can manage them collectively.
-
-   + **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*.
-
-   + **Location**. If possible, choose the same location used for Azure AI Search and Azure AI services. A single location voids bandwidth charges.
-
-   + **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
-
-1. Select **Review + Create** to create the service.
-
-1. Once it's created, select **Go to the resource** to open the Overview page.
-
-1. Select **Blobs** service.
-
-1. Select **+ Container** to create a container and name it *cog-search-demo*.
-
-1. Select *cog-search-demo* and then select **Upload** to open the folder where you saved the download files. Select all of the files. Select **Upload**.
+1. [Upload the sample data files](/azure/storage/blobs/storage-quickstart-blobs-portal).
 
    :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Screenshot of the files in File Explorer." border="true":::
 
-1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure AI Search.
+1. Get a storage connection string so that you can formulate a connection in Azure AI Search.
 
-   1. Browse back to the Overview page of your storage account (we used *blobstragewestus* as an example).
+   1. On the left, select **Access keys**.
 
-   1. In the left navigation pane, select **Access keys** and copy one of the connection strings.
-
-   The connection string is a URL similar to the following example:
+   1. Copy the connection string for either key one or key two. The connection string is similar to the following example:
 
       ```http
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
-1. Save the connection string to Notepad. You'll need it later when setting up the data source connection.
-
 ### Azure AI services
 
-AI enrichment is backed by Azure AI services, including Language service and Azure AI Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Azure AI services (in the same region as Azure AI Search) so that you can [attach it to a skillset](cognitive-search-attach-cognitive-services.md).
-
-For this exercise, however, you can skip resource provisioning because Azure AI Search can connect to Azure AI services execute 20 transactions per indexer run, free of charge. Since this tutorial uses 14 transactions, the free allocation is sufficient. For larger projects, plan on provisioning Azure AI services at the pay-as-you-go S0 tier.
+AI enrichment is backed by Azure AI services, including Language service and Azure AI Vision for natural language and image processing. For small workloads like this tutorial, you can use the free allocation of twenty transactions per indexer. For larger workloads, [attach an Azure AI Services multi-region resource to a skillset](cognitive-search-attach-cognitive-services.md) for pay-as-you-go pricing.
 
 ### Azure AI Search
 
@@ -113,31 +79,27 @@ The third component is Azure AI Search, which you can [create in the portal](sea
 
 You can use the Free tier to complete this walkthrough.
 
-### Copy an admin api-key and URL for Azure AI Search
+### Copy a key and URL
 
-To interact with your Azure AI Search service you'll need the service URL and an access key.
+For this tutorial, connections to Azure AI Search require an endpoint and an API key. You can get these values from the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
+1. Sign in to the [Azure portal](https://portal.azure.com), navigate to the search service **Overview** page, and copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-1. In **Settings** > **Keys**, get an admin key for full rights on the service. You can copy either the primary or secondary key.
+1. Under **Settings** > **Keys**, copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one.
 
-   ![Get the service name and admin key](media/search-get-started-javascript/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Screenshot of the URL and API keys in the Azure portal.":::
 
-All HTTP requests to a search service require an API key. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+A valid API key establishes trust, on a per request basis, between the application sending the request and the search service handling it.
 
-## 2 - Set up Postman
+## Set up your REST file
 
-1. Start Postman, import the collection, and set up the environment variables. If you're unfamiliar with this tool, see [Quickstart: Text search using REST](search-get-started-rest.md).
+1. Start Visual Studio Code and open the skillset-tutorial.rest file. See [Quickstart: Text search using REST](search-get-started-rest.md) if you need help with the REST client.
 
-1. You'll need to provide a search service name, an admin API key, an index name, a connection string to your Azure Storage account, and the container name.
+1. Provide values for the variables: search service endpoint, search service admin API key, an index name, a connection string to your Azure Storage account, and the blob container name.
 
-   :::image type="content" source="media/cognitive-search-tutorial-blob/postman-setup.png" alt-text="Screenshot of the Variables page in Postman." border="true":::
+## Create the pipeline
 
-The request methods used in this collection are **PUT** and **GET**. You'll use the methods to create a data source, a skillset, an index, and an indexer.
-
-## 3 - Create the pipeline
-
-In Azure AI Search, enrichment occurs during indexing (or data ingestion). This part of the walkthrough creates four objects: data source, index definition, skillset, indexer.
+AI enrichment is indexer-driven. This part of the walkthrough creates four objects: data source, index definition, skillset, indexer.
 
 ### Step 1: Create a data source
 
@@ -516,7 +478,7 @@ Call [Create Indexer](/rest/api/searchservice/create-indexer) to drive the pipel
     }
     ```
 
-1. Send the request. Postman should return a status code of 201 confirming successful processing.
+1. Send the request. You should see a status code of 201 confirming successful processing.
 
    Expect this step to take several minutes to complete. Even though the data set is small, analytical skills are computation-intensive.
 
@@ -531,7 +493,7 @@ The ```"dataToExtract":"contentAndMetadata"``` statement tells the indexer to au
 
 When content is extracted, you can set ```imageAction``` to extract text from images found in the data source. The ```"imageAction":"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both embedded images (think of an image inside a PDF) and standalone image files, for instance a JPG file.
 
-## 4 - Monitor indexing
+## Monitor indexing
 
 Indexing and enrichment commence as soon as you submit the Create Indexer request. Depending on which cognitive skills you defined, indexing can take a while.
 
@@ -545,7 +507,7 @@ Warnings are common in some scenarios and do not always indicate a problem. For 
 
 In this sample, there is a PNG file that contains no text. All five of the text-based skills (language detection, entity recognition of locations, organizations, people, and key phrase extraction) fail to execute on this file. The resulting notification shows up in execution history.
 
-## 5 - Search
+## Search
 
 Now that you've created an index that contains AI-generated content, call [Search Documents](/rest/api/searchservice/search-documents) to run some queries to see the results.
 
