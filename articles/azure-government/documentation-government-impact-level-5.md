@@ -278,8 +278,7 @@ For Internet of Things services availability in Azure Government, see [Products 
 
 ### [Azure IoT Hub](../iot-hub/index.yml)
 
-- IoT Hub supports encryption of data at rest with customer-managed keys, also known as *bring your own key* (BYOK). Azure IoT Hub provides encryption of data at rest and in transit. By default, Azure IoT Hub uses Microsoft-managed keys to encrypt the data. Customer-managed key support enables you to encrypt data at rest by using an [encryption key that you manage via Azure Key Vault](../iot-hub/iot-hub-customer-managed-keys.md).
-
+- Azure IoT Hub provides encryption of data at rest and in transit. Azure IoT Hub uses Microsoft-managed keys to encrypt the data.
 
 ## Management and governance
 

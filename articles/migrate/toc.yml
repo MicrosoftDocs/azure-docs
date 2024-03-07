@@ -323,7 +323,13 @@ items:
   - name: Assess
     items:
     - name: Troubleshoot assessment
-      href: troubleshoot-assessment.md
+      items:
+        - name: Common Issues
+          href: troubleshoot-assessment.md
+        - name: Supported Scenarios
+          href: troubleshoot-assessment-supported-scenarios.md
+        - name: FAQ
+          href: troubleshoot-assessment-faq.md
   - name: Migrate
     items:
     - name: Troubleshoot replication issues in agentless VMware migration

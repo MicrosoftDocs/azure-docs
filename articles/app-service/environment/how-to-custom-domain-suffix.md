@@ -19,7 +19,7 @@ If you don't have an App Service Environment, see [How to Create an App Service 
 > This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
 > 
 
-The custom domain suffix defines a root domain that can be used by the App Service Environment. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. For ILB App Service Environments, the default root domain is *appserviceenvironment.net*. However, since an ILB App Service Environment is internal to a customer's virtual network, customers can use a root domain in addition to the default one that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. An app in this virtual network could be reached by accessing *APP-NAME.internal-contoso.com*.
+The custom domain suffix defines a root domain that can be used by the App Service Environment. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. For ILB App Service Environments, the default root domain is *appserviceenvironment.net*. However, since an ILB App Service Environment is internal to a customer's virtual network, customers can use a root domain in addition to the default one that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of *internal.contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. An app in this virtual network could be reached by accessing *APP-NAME.internal.contoso.com*.
 
 The custom domain suffix is for the App Service Environment. This feature is different from a custom domain binding on an App Service. For more information on custom domain bindings, see [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md).
 
@@ -63,7 +63,7 @@ The certificate for custom domain suffix must be stored in an Azure Key Vault. T
 
 :::image type="content" source="./media/custom-domain-suffix/key-vault-networking.png" alt-text="Screenshot of a sample networking page for key vault to allow custom domain suffix feature.":::
 
-Your certificate must be a wildcard certificate for the selected custom domain name. For example, *internal-contoso.com* would need a certificate covering **.internal-contoso.com*. If the certificate used by the custom domain suffix contains a Subject Alternate Name (SAN) entry for scm, for example **.scm.internal-contoso.com*, the scm site will also available using the custom domain suffix.
+Your certificate must be a wildcard certificate for the selected custom domain name. For example, *internal.contoso.com* would need a certificate covering **.internal.contoso.com*. If the certificate used by the custom domain suffix contains a Subject Alternate Name (SAN) entry for scm, for example **.scm.internal.contoso.com*, the scm site will also available using the custom domain suffix.
 
 If you rotate your certificate in Azure Key Vault, the App Service Environment will pick up the change within 24 hours.
 
@@ -170,7 +170,7 @@ If you want to use your own DNS server, add the following records:
 
 To configure DNS in Azure DNS private zones:
 
-1. Create an Azure DNS private zone named for your custom domain. In the example below, the custom domain is *internal-contoso.com*.
+1. Create an Azure DNS private zone named for your custom domain. In the example below, the custom domain is *internal.contoso.com*.
 1. Create an A record in that zone that points * to the inbound IP address used by your App Service Environment.
 1. Create an A record in that zone that points @ to the inbound IP address used by your App Service Environment.
 :::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-dns-configuration.png" alt-text="Screenshot of a sample DNS configuration for your custom domain suffix.":::

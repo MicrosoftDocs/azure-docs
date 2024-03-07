@@ -27,13 +27,13 @@ For more information, see [Deploy Azure IoT Operations extensions](./howto-deplo
 
 ## Configure service principal and Azure Key Vault upfront
 
-If the Azure account executing the `az iot ops init` command does not have permissions to query the Microsoft Graph and create service principals, you can prepare these upfront and use extra arguments when running the CLI command as described in [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli).
+If the Azure account executing the `az iot ops init` command doesn't have permissions to query the Microsoft Graph and create service principals, you can prepare these upfront and use extra arguments when running the CLI command as described in [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli).
 
 ### Configure service principal for interacting with Azure Key Vault via Microsoft Entra ID
 
 Follow these steps to create a new Application Registration that will be used by the AIO application to authenticate to Key Vault.
 
-First, register an application with Microsoft Entra ID.
+First, register an application with Microsoft Entra ID:
 
 1. In the Azure portal search bar, search for and select **Microsoft Entra ID**.
 
@@ -51,11 +51,11 @@ First, register an application with Microsoft Entra ID.
 
 1. Select **Register**.
 
-   When your application is created, you are directed to its resource page.
+   When your application is created, you're directed to its resource page.
 
 1. Copy the **Application (client) ID** from the app registration overview page. You'll use this value as an argument when running Azure IoT Operations deployment with the `az iot ops init` command.
 
-Next, give your application permissions for key vault.
+Next, give your application permissions for key vault:
 
 1. On the resource page for your app, select **API permissions** from the **Manage** section of the app menu.
 
@@ -69,7 +69,7 @@ Next, give your application permissions for key vault.
 
 1. Select **Add permissions**.
 
-Create a client secret that will be added to your Kubernetes cluster to authenticate to your key vault.
+Create a client secret that will be added to your Kubernetes cluster to authenticate to your key vault:
 
 1. On the resource page for your app, select **Certificates & secrets** from the **Manage** section of the app menu.
 
@@ -79,9 +79,9 @@ Create a client secret that will be added to your Kubernetes cluster to authenti
 
 1. Copy the **Value** from your new secret. You'll use this value later when you run `az iot ops init`.
 
-Retrieve the service principal Object Id
+Retrieve the service principal Object ID:
 
-1. On the **Overview** page for your app, under the section **Essentials**, click on the **Application name** link under **Managed application in local directory**. This opens the Enterprise Application properties. Copy the Object Id to use when you run `az iot ops init`.
+1. On the **Overview** page for your app, under the section **Essentials**, click on the **Application name** link under **Managed application in local directory**. This opens the Enterprise Application properties. Copy the Object ID to use when you run `az iot ops init`.
 
 ### Create an Azure Key Vault
 
@@ -95,13 +95,13 @@ If you have an existing key vault, you can change the permission model by execut
 ```bash
 az keyvault update --name "<your unique key vault name>" --resource-group "<the name of the resource group>" --enable-rbac-authorization false 
 ```
-You will need the Key Vault resource ID when you run `az iot ops init`. To retrieve the resource ID, run:
+You'll need the Key Vault resource ID when you run `az iot ops init`. To retrieve the resource ID, run:
 
 ```bash
 az keyvault show --name "<your unique key vault name>" --resource-group "<the name of the resource group>" --query id  -o tsv
 ```
 
-### Set service principal access policy in Azue Key Vault
+### Set service principal access policy in Azure Key Vault
 
 The newly created service principal needs **Secret** `list` and `get` access policy for the Azure IoT Operations to work with the secret store. 
 
@@ -113,7 +113,7 @@ az keyvault set-policy --name "<your unique key vault name>" --resource-group "<
 
 ### Pass service principal and Key Vault arguments to Azure IoT Operations deployment
 
-When following the guide [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli), you will need to pass in additional flags to the `az iot ops init` command in order to use the pre-configured service principal and key vault.
+When following the guide [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli), you'll need to pass in additional flags to the `az iot ops init` command in order to use the pre-configured service principal and key vault.
 
 The following example shows how to prepare the cluster for Azure IoT Operations without fully deploying it by using `--no-deploy` flag. You can also run the command without this argument for a default Azure IoT Operations deployment.
 
@@ -156,7 +156,12 @@ Once you have the secret store set up on your cluster, you can create and add Az
 
 1. Save your changes and apply them to your cluster. If you use k9s, your changes are automatically applied.
 
-The CSI driver updates secrets according to a polling interval, so a new secret won't be updated on the pods until the next polling interval. If you want the secrets to be updated immediately, update the pods for that component. For example, for the Azure IoT Data Processor component, update the `aio-dp-reader-worker-0` and `aio-dp-runner-worker-0` pods.
+The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the next polling interval. To update a component immediately, restart the pods for the component. For example, to restart the Data Processor component, run the following commands:
+
+```console
+kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations
+kubectl delete pod aio-dp-runner-worker-0 -n azure-iot-operations
+```
 
 ## Azure IoT MQ secrets
 

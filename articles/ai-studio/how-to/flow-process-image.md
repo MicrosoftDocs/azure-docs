@@ -1,32 +1,28 @@
 ---
-title: Process images in prompt flow (preview)
-titleSuffix: Azure Machine Learning
-description: Learn how to incorporate images into prompt flow.
-services: machine-learning
-ms.service: machine-learning
-ms.subservice: prompt-flow
+title: Process images in prompt flow
+titleSuffix: Azure AI Studio
+description: Learn how to use images in prompt flow.
+ms.service: azure-ai-studio
 ms.topic: how-to
-ms.author: jinzhong
-author: zhongj
-ms.reviewer: lagayhar
-ms.date: 02/05/2024
+ms.date: 2/26/2024
+ms.reviewer: jinzhong
+ms.author: lagayhar
+author: lgayhardt
 ---
 
-# Process images in prompt flow (preview)
+# Process images in prompt flow
+
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
 Multimodal Large Language Models (LLMs), which can process and interpret diverse forms of data inputs, present a powerful tool that can elevate the capabilities of language-only systems to new heights. Among the various data types, images are important for many real-world applications. The incorporation of image data into AI systems provides an essential layer of visual understanding. 
 
-In this article, you'll learn:
+In this article, you learn:
 > [!div class="checklist"]
 > - How to use image data in prompt flow
 > - How to use built-in GPT-4V tool to analyze image inputs.
 > - How to build a chatbot that can process image and text inputs.
 > - How to create a batch run using image data.  
 > - How to consume online endpoint with image data.
-
-> [!IMPORTANT]
-> Prompt flow image support is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Image type in prompt flow
 
@@ -38,10 +34,10 @@ To use image data in prompt flow authoring page:
    :::image type="content" source="../media/prompt-flow/how-to-process-image/add-image-type-input.png" alt-text="Screenshot of flow authoring page showing adding flow input as Image type." lightbox = "../media/prompt-flow/how-to-process-image/add-image-type-input.png":::
 2. Preview the image. If the image isn't displayed correctly, delete the image and add it again.
    :::image type="content" source="../media/prompt-flow/how-to-process-image/flow-input-image-preview.png" alt-text="Screenshot of flow authoring page showing image preview flow input." lightbox = "../media/prompt-flow/how-to-process-image/flow-input-image-preview.png":::
-3. You might want to **preprocess the image using Python tool** before feeding it to LLM, for example, you can resize or crop the image to a smaller size.
+3. You might want to preprocess the image using the [Python tool](./prompt-flow-tools/python-tool.md) before feeding it to the LLM. For example, you can resize or crop the image to a smaller size.
    :::image type="content" source="../media/prompt-flow/how-to-process-image/process-image-using-python.png" alt-text="Screenshot of using python tool to do image preprocessing." lightbox = "../media/prompt-flow/how-to-process-image/process-image-using-python.png":::
     > [!IMPORTANT]
-    > To process image using Python function, you need to use the `Image` class, import it from `promptflow.contracts.multimedia` package. The Image class is used to represent an Image type within prompt flow. It is designed to work with image data in byte format, which is convenient when you need to handle or manipulate the image data directly.
+    > To process images using a Python function, you need to use the `Image` class that you import from the `promptflow.contracts.multimedia` package. The `Image` class is used to represent an `Image` type within prompt flow. It is designed to work with image data in byte format, which is convenient when you need to handle or manipulate the image data directly.
     >
     > To return the processed image data, you need to use the `Image` class to wrap the image data. Create an `Image` object by providing the image data in bytes and the [MIME type](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) `mime_type`. The MIME type lets the system understand the format of the image data, or it can be `*` for unknown type.
 
@@ -51,7 +47,7 @@ If the Image object from Python node is set as the flow output, you can preview 
 
 ## Use GPT-4V tool
 
-Azure OpenAI GPT-4 Turbo with Vision tool and OpenAI GPT-4V are built-in tools in prompt flow that can use OpenAI GPT-4V model to answer questions based on input images. You can find the tool by selecting **More tool** in the flow authoring page.
+The [Azure OpenAI GPT-4 Turbo with Vision tool](./prompt-flow-tools/azure-open-ai-gpt-4v-tool.md) and OpenAI GPT-4V are built-in tools in prompt flow that can use OpenAI GPT-4V model to answer questions based on input images. You can find the tool by selecting **+ More tools** in the flow authoring page.
 
 Add the [Azure OpenAI GPT-4 Turbo with Vision tool](./prompt-flow-tools/azure-open-ai-gpt-4v-tool.md) to the flow. Make sure you have an Azure OpenAI connection, with the availability of GPT-4 vision-preview models.
 
@@ -65,11 +61,11 @@ You can assign a value to the image input through the following ways:
 
 - Reference from the flow input of Image type.
 - Reference from other node's output of Image type.
-- Upload, drag, paste an image, or specify an image URL or the relative image path.
+- Upload, drag, or paste an image, or specify an image URL or the relative image path.
 
 ## Build a chatbot to process images
 
-In this section, you'll learn how to build a chatbot that can process image and text inputs.
+In this section, you learn how to build a chatbot that can process image and text inputs.
 
 Assume you want to build a chatbot that can answer any questions about the image and text together. You can achieve this by following the steps below:
 
@@ -120,13 +116,13 @@ If the batch run outputs contain images, you can check the **flow_outputs datase
 
 You can [deploy a flow to an online endpoint for real-time inference](./flow-deploy.md).
 
-Currently the **Test** tab in the deployment detail page does not support image inputs or outputs.
+Currently the **Test** tab in the deployment detail page doesn't support image inputs or outputs.
 
 For now, you can test the endpoint by sending request including image inputs.
 
 To consume the online endpoint with image input, you should represent the image by using the format `{"data:<mime type>;<representation>": "<value>"}`. In this case, `<representation>` can either be `url` or `base64`.
 
-If the flow generates image output, it will be returned with `base64` format, for example, `{"data:<mime type>;base64": "<base64 string>"}`.
+If the flow generates image output, it is returned with `base64` format, for example, `{"data:<mime type>;base64": "<base64 string>"}`.
 
 ## Next steps
 

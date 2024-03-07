@@ -85,5 +85,8 @@ The following example is for a JSON format response returned by the tool, which 
     }
   }
 ]
-
 ```
+
+## Deploying to an online endpoint
+
+When you deploy a flow containing the vector index lookup tool to an online endpoint, there's an extra step to set up permissions. During deployment through the web pages, there's a choice between System-assigned and User-assigned Identity types. Either way, using the Azure portal (or a similar functionality), add the "AzureML Data Scientist" role of Azure Machine learning studio to the identity assign to the endpoint.
