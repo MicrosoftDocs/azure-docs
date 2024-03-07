@@ -19,7 +19,7 @@ General information about running SAP Business Suite on IBM Db2 for LUW is avail
 
 For more information and updates about SAP on Db2 for LUW on Azure, see SAP Note [2233094]. 
 
-Various articles on SAP workload on Azure have been published. We recommend beginning with [Get started with SAP on Azure VMs](./get-started.md) and then read about other areas of interest.
+There are various articles for SAP workload on Azure. We recommend beginning with [Get started with SAP on Azure VMs](./get-started.md) and then read about other areas of interest.
 
 The following SAP Notes are related to SAP on Azure regarding the area covered in this document:
 
@@ -37,13 +37,13 @@ The following SAP Notes are related to SAP on Azure regarding the area covered i
 | [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
 | [1597355] |Swap-space recommendation for Linux |
 
-As a preread to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) plus other guides in the [SAP workload on Azure documentation](./get-started.md). 
+As a preread to this document, review [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) plus other guides in the [SAP workload on Azure documentation](./get-started.md). 
 
 
 ## IBM Db2 for Linux, UNIX, and Windows Version Support
 SAP on IBM Db2 for LUW on Microsoft Azure Virtual Machine Services is supported as of Db2 version 10.5.
 
-For information about supported SAP products and Azure VM types, refer to SAP Note [1928533].
+For information about supported SAP products and Azure VM(Virtual Machines) types, refer to SAP Note [1928533].
 
 ## IBM Db2 for Linux, UNIX, and Windows Configuration Guidelines for SAP Installations in Azure VMs
 ### Storage Configuration
@@ -68,7 +68,7 @@ As long as the current IOPS quota per disk is sufficient, it's possible to store
 
 For performance considerations, also refer to chapter 'Data Safety and Performance Considerations for Database Directories' in SAP installation guides.
 
-Alternatively, you can use Windows Storage Pools (only available in Windows Server 2012 and higher)  as described [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) or LVM or mdadm on Linux to create one large logical device over multiple disks.
+Alternatively, you can use Windows Storage Pools, which are only available in Windows Server 2012 and higher as described [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). On Linux you can use LVM or mdadm to create one large logical device over multiple disks.
 
 <!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
