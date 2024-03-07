@@ -94,7 +94,7 @@ With these tasks in mind, customers typically choose any of the following paths 
 
 - Big bang
 
-  This approach is largely based on the waterfall software delivery model but with iterations in phases. This is more adopted by customers with small mainframes or midranges, low complexity environments: low numbers of lines of code, low applications density and well known legacy programming languages and systems.  
+  This approach is largely based on the waterfall software delivery model but with iterations in phases. The big bang approach is adopted more by customers with small mainframe or midrange systems and low complexity environments due to a low number of lines of code, low application density, and well-known legacy systems or programming languages.
 
 - Agile waves
 
