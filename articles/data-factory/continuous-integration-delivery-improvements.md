@@ -14,10 +14,10 @@ ms.date: 07/20/2023
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-## Overview
-
 > [!NOTE]
 > Synapse Analytics also supports CI/CD. Refer to the [Synapse Analytics CI/CD documentation](/azure/synapse-analytics/cicd/continuous-integration-delivery) for more information.
+
+## Overview
 
 Continuous integration is the practice of testing each change made to your codebase automatically. As early as possible, continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
