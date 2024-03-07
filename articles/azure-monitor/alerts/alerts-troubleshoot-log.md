@@ -182,9 +182,10 @@ This error message is returned when trying to update or delete rules created wit
 1. Edit or delete the rule programmatically using the Log Analytics [REST API](./api-alerts.md).
 2. Recommended: [Upgrade your alert rules to use Scheduled Query Rules API](./alerts-log-api-switch.md) (legacy API is on a deprecation path).
 
-## Alert rule quota was reached
+## Alert rule service limit was reached
 
 For details about the number of log search alert rules per subscription and maximum limits of resources, see [Azure Monitor service limits](../service-limits.md).
+See [Check the total number of log alert rules in use](alerts-manage-alert-rules.md#check-the-number-of-log-alert-rules-in-use) to see how many metric alert rules are currently in use.
 If you've reached the quota limit, the following steps might help resolve the issue.
 
 1. Delete or disable log search alert rules that aren’t used anymore.
@@ -196,22 +197,6 @@ If you've reached the quota limit, the following steps might help resolve the is
     - The resource type for the quota increase, such as **Log Analytics** or **Application Insights**
     - The requested quota limit
 
-### Check the current usage of log alert rules
-
-#### Check the number of log alert rules in use in the Azure portal
-
-1. On the Alerts screen in Azure Monitor, select **Alert rules**.
-1. In the **Subscription** dropdown control, filter to the subscription you want. (Make sure you don't filter to a specific resource group, resource type, or resource.)
-1. In the **Signal type** dropdown control, select **Log Search**.
-1. Verify that the **Status** dropdown control is set to **Enabled**.
-
-The total number of log search alert rules is displayed above the rules list.
-
-### Use the API to check the number of log alert rules in use
-
-- PowerShell - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule)
-- CLI: [az monitor scheduled-query list](/cli/azure/monitor/scheduled-query#az-monitor-scheduled-query-list)
-- REST API - [List by subscription](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/list-by-subscription)
 
 ## Next steps
 
