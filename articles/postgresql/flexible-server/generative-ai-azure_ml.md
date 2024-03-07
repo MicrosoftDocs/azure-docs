@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 
 # Integrate Azure Database for PostgreSQL with Azure Machine Learning Services (Preview)
 
-Azure AI extension gives the ability to invoke machine learning models deployed on  [Azure Machine learning online endpoints](../../machine-learning/concept-endpoints-online) from within SQL.
+Azure AI extension gives the ability to invoke any machine learning models deployed on  [Azure Machine learning online endpoints](../../machine-learning/concept-endpoints-online) from within SQL. These maybe models from the Azure ML catalog or custom models that have been trained and deployed.
 
 1. [Enable and configure](generative-ai-azure-overview.md#enable-the-azure_ai-extension) the `azure_ai` extension.
 1. Create a machine learning workspace and [deploy a model with an online endpoint](../../machine-learning/how-to-deploy-online-endpoints.md) using CLI, Python or Azure ML Studio
@@ -19,7 +19,7 @@ Azure AI extension gives the ability to invoke machine learning models deployed 
 
 
 ## Configure Azure ML endpoint 
-In the Azure Machine learning Studio , under **Endpoints** > **Pick your endpoint** > **Consume** you can find the endpoint URI and Key for the online endpoint. Use these values enable `azure_ai` extension.
+In the Azure Machine learning Studio , under **Endpoints** > **Pick your endpoint** > **Consume** you can find the endpoint URI and Key for the online endpoint. Use these values to configure the `azure_ai` extension to use the online inferencing endpoint.
 
 ```postgresql
 select azure_ai.set_setting('azure_ml.scoring_endpoint','<URI>'); 
@@ -45,6 +45,10 @@ azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_e
 
 ##### `deployment_name`
 `text` name of the deployment corresponding to the model deployed on the Azure machine learning online inference endpoint
+
+#### Return type
+`jsonb` scoring output for the model that was invoked in JSONB.
+
 
 ## Next steps
 - [Learn more about Azure Open AI integration](./generative-ai-azure-openai.md)
