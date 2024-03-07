@@ -1,5 +1,5 @@
 ---
-title: Document Intelligence support for Incremental Classifier Training.
+title: Document Intelligence support for incremental classifier training
 titleSuffix: Azure AI services
 description: Incrementally train custom classifiers by adding new samples to existing classes or adding new classes.
 author: laujan
@@ -74,7 +74,7 @@ The incremental classifier build request is similar to the [classify document bu
 }
 ```
 
-#### POST Response
+#### POST response
 
 All Document Intelligence APIs are asynchronous, polling the returned operation location provides a status on the build operation. Classifiers are fast to train and your classifier can be ready to use in a minute or two.
 

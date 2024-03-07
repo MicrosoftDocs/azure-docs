@@ -54,7 +54,7 @@ Document Intelligence supports more sophisticated and modular analysis capabilit
 >
 > Not all add-on capabilities are supported by all models. For more information, *see* [model data extraction](concept-model-overview.md#analysis-features).
 
-The following add-on capability isavailable for`2024-02-29-preview`, `2024-02-29-preview`, and later releases:
+The following add-on capabilities are available for`2024-02-29-preview`, `2024-02-29-preview`, and later releases:
 
 * [`keyValuePairs`](#key-value-pairs)
 
@@ -81,20 +81,24 @@ Add-On* - Query fields are priced differently than the other add-on features. Se
 
 ## High resolution extraction
 
-The task of recognizing small text from large-size documents, like engineering drawings, is a challenge. Often the text is mixed with other graphical elements and has varying fonts, sizes and orientations. Moreover, the text can be broken into separate parts or connected with other symbols. Document Intelligence now supports extracting content from these types of documents with the `ocr.highResolution` capability. You get improved quality of content extraction from A1/A2/A3 documents by enabling this add-on capability.
+The task of recognizing small text from large-size documents, like engineering drawings, is a challenge. Often the text is mixed with other graphical elements and has varying fonts, sizes, and orientations. Moreover, the text can be broken into separate parts or connected with other symbols. Document Intelligence now supports extracting content from these types of documents with the `ocr.highResolution` capability. You get improved quality of content extraction from A1/A2/A3 documents by enabling this add-on capability.
 
 ### REST API
 
 ::: moniker range="doc-intel-4.0.0"
-```REST
-https://{your resource}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=ocrHighResolution
+
+```bash
+{your-resource-endpoint}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=ocrHighResolution
 ```
+
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
-```REST
-https://{your resource}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=ocrHighResolution
+
+```bash
+{your-resource-endpoint}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=ocrHighResolution
 ```
+
 :::moniker-end
 
 ## Formula extraction
@@ -132,15 +136,19 @@ The `ocr.formula` capability extracts all identified formulas, such as mathemati
    ### REST API
 
 ::: moniker range="doc-intel-4.0.0"
-```REST
-https://{your resource}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=formulas
+
+```bash
+{your-resource-endpoint}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=formulas
 ```
+
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
-```REST
-https://{your resource}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=formulas
+
+```bash
+{your-resource-endpoint}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=formulas
 ```
+
 :::moniker-end
 
 ## Font property extraction
@@ -186,15 +194,19 @@ The `ocr.font` capability extracts all font properties of text extracted in the 
 ### REST API
 
 ::: moniker range="doc-intel-4.0.0"
-```REST
-https://{your resource}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=styleFont
+
+```bash
+  {your-resource-endpoint}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=styleFont
 ```
+
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
-```REST
-https://{your resource}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=styleFont
+
+```bash
+  {your-resource-endpoint}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=styleFont
 ```
+
 :::moniker-end
 
 ## Barcode property extraction
@@ -222,15 +234,19 @@ The `ocr.barcode` capability extracts all identified barcodes in the `barcodes` 
 ### REST API
 
 ::: moniker range="doc-intel-4.0.0"
-```REST
-https://{your resource}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=barcodes
+
+```bash
+{your-resource-endpoint}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=barcodes
 ```
+
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
-```REST
-https://{your resource}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=barcodes
+
+```bash
+{your-resource-endpoint}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=barcodes
 ```
+
 :::moniker-end
 
 ## Language detection
@@ -255,15 +271,19 @@ Adding the `languages` feature to the `analyzeResult` request predicts the detec
 ### REST API
 
 ::: moniker range="doc-intel-4.0.0"
-```REST
-https://{your resource}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=languages
+
+```bash
+{your-resource-endpoint}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=languages
 ```
+
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
-```REST
-https://{your resource}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=languages
+
+```bash
+{your-resource-endpoint}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=languages
 ```
+
 :::moniker-end
 
 :::moniker range="doc-intel-4.0.0"
@@ -278,8 +298,8 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 ### REST API
 
-```REST
-https://{your resource}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=keyValuePairs
+```bash
+{your-resource-endpoint}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=keyValuePairs
 ```
 
 ## Query Fields
@@ -298,7 +318,7 @@ Query fields are an add-on capability to extend the schema extracted from any pr
 
 > [!NOTE]
 >
-> Document Intelligence Studio query field extraction is currently available with the Layout and Prebuilt models `2024-02-29-preview` `2023-10-31-preview` API and later releases except for the ```us.tax.*``` models (W2, 1098s and 1099s models).
+> Document Intelligence Studio query field extraction is currently available with the Layout and Prebuilt models `2024-02-29-preview` `2023-10-31-preview` API and later releases except for the `US tax` models (W2, 1098s, and 1099s models).
 
 ### Query field extraction
 
@@ -308,7 +328,7 @@ For query field extraction, specify the fields you want to extract and Document 
 
     :::image type="content" source="media/studio/query-fields.png" alt-text="Screenshot of the query fields button in Document Intelligence Studio.":::
 
-* You can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate`" as part of the `analyze document` request.
+* You can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate` as part of the `analyze document` request.
 
    :::image type="content" source="media/studio/query-field-select.png" alt-text="Screenshot of query fields selection window in Document Intelligence Studio.":::
 
@@ -318,8 +338,8 @@ For query field extraction, specify the fields you want to extract and Document 
 
 ### REST API
 
-```REST
-https://{your resource}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=queryFields&queryFields=TERMS
+```bash
+{your-resource-endpoint}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=queryFields&queryFields=TERMS
 ```
 
 :::moniker-end
@@ -328,9 +348,8 @@ https://{your resource}.cognitiveservices.azure.com/documentintelligence/documen
 
 > [!div class="nextstepaction"]
 > Learn more:
-> [**Read model**](concept-read.md) [**Layout model**](concept-layout.md).
+> [**Read model**](concept-read.md) [**Layout model**](concept-layout.md)
 
 > [!div class="nextstepaction"]
 > SDK samples:
-> [**python**](/python/api/overview/azure/ai-documentintelligence-readme).
-
+> [**python**](/python/api/overview/azure/ai-documentintelligence-readme)

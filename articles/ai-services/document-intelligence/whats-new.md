@@ -901,7 +901,7 @@ The v3.1 API introduces new and updated capabilities:
 
 ### [**C#**](#tab/csharp)
 
-* ***NuGet package version 3.1.0-beta.4**.
+* ***NuGet package version 3.1.0-beta.4***.
 
 * [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#310-beta4-2021-04-06).
 

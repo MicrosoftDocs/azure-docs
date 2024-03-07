@@ -576,7 +576,7 @@ sections:
           How can I set up containers with shared storage?
         answer: |
 
-          The containers use "Mounts:Shared" property while starting up for specifying the shared storage to store the processing files. You can refer the following [documentation](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/containers/install-run?view=doc-intel-3.0.0&tabs=custom#create-a-folder-for-storing-internal-processing-shared-between-the-containers) to see the use of this property.
+          The containers use "Mounts:Shared" property while starting up for specifying the shared storage to store the processing files. You can refer the following [documentation](containers/install-run?view=doc-intel-3.0.0&tabs=custom#create-a-folder-for-storing-internal-processing-shared-between-the-containers) to see the use of this property.
           
   - name: Security and Privacy
     questions:

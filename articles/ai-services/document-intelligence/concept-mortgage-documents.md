@@ -29,7 +29,7 @@ The Document Intelligence Mortgage model uses powerful Optical Character Recogni
 * Form 1008
 * Mortgage closing disclosure
 
-## Automated Mortgage documents processing
+## Automated mortgage documents processing
 
 Automated mortgage  card processing is the process of extracting key  fields from bank cards. Historically, bank card analysis process is achieved manually and, hence, very time consuming. Accurate extraction of key data from bank cards s is typically the first and one of the most critical steps in the contract automation process.
 
@@ -48,7 +48,7 @@ Document Intelligence v4.0 (2024-02-29-preview) supports the following tools, ap
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-## Try Mortgage document data extraction
+## Try mortgage document data extraction
 
 To see how data extraction works for the mortgage documents service, you need the following resources:
 
@@ -91,7 +91,7 @@ The following are the fields extracted from a 1003 EULA form in the JSON output 
 
 The 1003 EULA key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
-## Field extraction Form 1008
+## Field extraction form 1008
 
 The following are the fields extracted from a 1008 form in the JSON output response.
 

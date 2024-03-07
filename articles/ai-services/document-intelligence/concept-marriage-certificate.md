@@ -23,7 +23,7 @@ monikerRange: '>=doc-intel-4.0.0'
 
 The Document Intelligence Marriage Certificate model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields from Marriage Certificates. Marriage certificates  can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as Spouse names, Issue date, and marriage place; and returns a structured JSON data representation. The model currently supports English-language document formats.
 
-## Automated Marriage Certificate processing
+## Automated marriage certificate processing
 
 Automated marriage certificate processing is the process of extracting key  fields from Marriage certificates. Historically, the marriage certificate analysis process is achieved manually and, hence, very time consuming. Accurate extraction of key data from marriage certificates is typically the first and one of the most critical steps in the marriage certificate automation process.
 

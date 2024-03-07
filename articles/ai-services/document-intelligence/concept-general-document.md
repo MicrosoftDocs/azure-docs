@@ -19,7 +19,7 @@ ms.author: lajanuar
 :::moniker range="doc-intel-4.0.0"
 
 > [!IMPORTANT]
-> Starting with `Document Intelligence versions **2024-02-29-preview, 2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
+> Starting with Document Intelligence versions **2024-02-29-preview, 2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
 
 | Feature   | version| Model ID |
 |----------  |---------|--------|

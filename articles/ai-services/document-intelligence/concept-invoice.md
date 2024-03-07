@@ -10,6 +10,7 @@ ms.custom:
 ms.topic: conceptual
 ms.date: 02/29/2024
 ms.author: lajanuar
+ms.custom: references_regions
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -243,8 +244,6 @@ Following are the line items extracted from an invoice in the JSON output respon
 | TaxRate | Number | Tax Rate associated with each line item. | 10% | |
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
-
-:::moniker-end
 
 :::moniker range="<=doc-intel-3.1.0"
 

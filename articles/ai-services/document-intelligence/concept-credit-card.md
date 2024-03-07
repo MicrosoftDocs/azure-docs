@@ -1,5 +1,5 @@
 ---
-title: Document Intelligence Credit/Debit Card model
+title: Document Intelligence credit debit card model
 titleSuffix: Azure AI services
 description: Use Document Intelligence credit/debit card model extract key fields from credit and debit cards.
 author: laujan
@@ -17,13 +17,13 @@ monikerRange: '>=doc-intel-4.0.0'
 <!-- markdownlint-disable MD049 -->
 <!-- markdownlint-disable MD001 -->
 
-# Document Intelligence Credit/Debit Card model
+# Document Intelligence credit card model
 
 **This content applies to:** ![checkmark](media/yes-icon.png) **v4.0 (preview)** ![checkmark](media/yes-icon.png)
 
 The Document Intelligence credit/debit card model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields from credit and debit cards. Credit cards and debit cards can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as Card Number, Issuing Bank, and Expiration Date; and returns a structured JSON data representation. The model currently supports English-language document formats.
 
-## Automated Credit/Debit Card processing
+## Automated card processing
 
 Automated Credit/Debit card processing is the process of extracting key  fields from bank cards. Historically, bank card analysis process is achieved manually and, hence, very time consuming. Accurate extraction of key data from bank cards s is typically the first and one of the most critical steps in the contract automation process.
 
@@ -42,7 +42,7 @@ Document Intelligence v4.0 (2024-02-29-preview) supports the following tools, ap
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-## Try Credit/Debit card document data extraction
+## Try credit card data extraction
 
 To see how data extraction works for the Credit/Debit card service, you need the following resources:
 
@@ -79,7 +79,7 @@ The following are the fields extracted from a contract in the JSON output respon
 | IssuingBank | String | The name of the bank that issued the card| Woodgrove Bank |
 | PaymentNetwork | String |The payment network that processes the card transaction| VISA |
 | CardHolderName | String |The name of the person who owns the card| JOHN SMITH |
-| CardHolderCompanyName | The name of the company that the card is associated with | CONTOSO SOFTWARE |
+| CardHolderCompanyName | String| The name of the company that the card is associated with | Contoso, Ltd. |
 | ValidDate | Date | Valid from date | 01/16 |
 | ExpirationDate | Date | Expiration date| 01/19 |
 | CardVerificationValue | String | Card verification value (CVV) | 764 |
