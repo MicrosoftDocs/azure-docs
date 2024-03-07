@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 12/15/2023
+ms.date: 02/29/2024
 ms.author: luzhan
 monikerRange: '>=doc-intel-3.1.0'
 ---
@@ -33,7 +33,7 @@ Text data chunking strategies play a key role in optimizing the RAG response and
 
 * **Fixed-sized chunking**. Most chunking strategies used in RAG today are based on fix-sized text segments known as chunks. Fixed-sized chunking is quick, easy, and effective with text that doesn't have a strong semantic structure such as logs and data. However it isn't recommended for text that requires semantic understanding and precise context. The fixed-size nature of the window can result in severing words, sentences, or paragraphs impeding comprehension and disrupting the flow of information and understanding.
 
-* **Semantic chunking**. This method divides the text into chunks based on semantic understanding. Division boundaries are focused on sentence subject and use significant computational algorithmically-complex resources. However, it has the distinct advantage of maintaining semantic consistency within each chunk.  It's useful for text summarization, sentiment analysis, and document classification tasks.
+* **Semantic chunking**. This method divides the text into chunks based on semantic understanding. Division boundaries are focused on sentence subject and use significant computational algorithmically complex resources. However, it has the distinct advantage of maintaining semantic consistency within each chunk. It's useful for text summarization, sentiment analysis, and document classification tasks.
 
 ## Semantic chunking with Document Intelligence Layout model
 
@@ -57,13 +57,13 @@ Markdown is a structured and formatted markup language and a popular input for e
 
 ## Get started
 
-The Document Intelligence Layout model **2023-10-31-preview** supports the following development options:
+The Document Intelligence Layout model **2024-02-29-preview** and **2023-10-31-preview** supports the following development options:
 
-* [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio)
+* [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio).
 
-* [REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&branch=main&tabs=HTTP&preserve-view=true)
+* [REST API](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP).
 
-* [.NET &bull; Java &bull; JavaScript &bull; Python programming language SDKs.](sdk-overview-v4-0.md#supported-programming-languages)
+* [.NET &bull; Java &bull; JavaScript &bull; Python programming language client libraries (SDKs).](sdk-overview-v4-0.md#supported-programming-languages)
 
 **Ready to begin?**
 
@@ -73,13 +73,13 @@ You can follow the [Document Intelligence Studio quickstart](quickstarts/try-doc
 
 * Start with the [Layout model](https://documentintelligence.ai.azure.com/studio/layout). You need to select the following **Analyze options** to use RAG in the studio:
 
-  **Required**
+  `**Required**`
 
-  * Run analysis range → **Current document**
-  * Page range → **All pages**
-  * Output format style → **Markdown**
+  * Run analysis range → **Current document**.
+  * Page range → **All pages**.
+  * Output format style → **Markdown**.
 
-  **Optional**
+  `**Optional**`
 
   * You can also select relevant optional detection parameters.
 
@@ -93,7 +93,7 @@ You can follow the [Document Intelligence Studio quickstart](quickstarts/try-doc
 
 ### SDK or REST API
 
-* Follow the [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md) for your preferred programming language SDK or REST API. Use the Layout model to extract content and structure from your documents.
+* You can follow the [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md) for your preferred programming language SDK or REST API. Use the Layout model to extract content and structure from your documents.
 
 * You can also check out GitHub repos for code samples and tips for analyzing a document in markdown output format.
 
@@ -107,9 +107,9 @@ You can follow the [Document Intelligence Studio quickstart](quickstarts/try-doc
 
 ## Build document chat with semantic chunking
 
-* [Azure OpenAI on your data](../openai/concepts/use-your-data.md) enables you to run supported chat on your documents.  Azure OpenAI on your data applies the Document Intelligence Layout model to extract and parse document data by chunking long text based on tables and paragraphs. You can also customize your chunking strategy using [Azure OpenAI sample scripts](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) located in our GitHub repo.
+* [Azure OpenAI on your data](../openai/concepts/use-your-data.md) enables you to run supported chat on your documents. Azure OpenAI on your data applies the Document Intelligence Layout model to extract and parse document data by chunking long text based on tables and paragraphs. You can also customize your chunking strategy using [Azure OpenAI sample scripts](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) located in our GitHub repo.
 
-* Azure AI Document Intelligence is now integrated with [LangChain](https://python.langchain.com/docs/integrations/document_loaders/azure_document_intelligence) as one of its document loaders. You can use it to easily load the data and output to Markdown format. For more information, see our [sample code ](https://github.com/microsoft/Form-Recognizer-Toolkit/blob/main/SampleCode/Python/sample_rag_langchain.ipynb) that shows a simple demo for RAG pattern with Azure AI Document Intelligence as document loader and Azure Search as retriever in LangChain.
+* Azure AI Document Intelligence is now integrated with [LangChain](https://python.langchain.com/docs/integrations/document_loaders/azure_document_intelligence) as one of its document loaders. You can use it to easily load the data and output to Markdown format. For more information, see our [sample code](https://github.com/microsoft/Form-Recognizer-Toolkit/blob/main/SampleCode/Python/sample_rag_langchain.ipynb) that shows a simple demo for RAG pattern with Azure AI Document Intelligence as document loader and Azure Search as retriever in LangChain.
 
 * The chat with your data solution accelerator [code sample](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) demonstrates an end-to-end baseline RAG pattern sample. It uses Azure AI Search as a retriever and Azure AI Document Intelligence for document loading and semantic chunking.
 
@@ -119,7 +119,7 @@ If you're looking for a specific section in a document, you can use semantic chu
 
 ```python
 
-# Using SDK targeting 2023-10-31-preview, make sure your resource is in one of these regions: East US, West US2, West Europe
+# Using SDK targeting 2024-02-29-preview or 2023-10-31-preview, make sure your resource is in one of these regions: East US, West US2, West Europe
 # pip install azure-ai-documentintelligence==1.0.0b1
 # pip install langchain langchain-community azure-ai-documentintelligence
 
