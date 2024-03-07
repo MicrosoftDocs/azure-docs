@@ -14,11 +14,11 @@ ms.date: 03/07/2024
 
 # How to select algorithms for Azure Machine Learning
 
-A common question is *Which machine learning algorithm should I use?* The answer depends primarily on two aspects of your data science scenario:
+If you're wondering which machine learning algorithm to use, the answer depends primarily on two aspects of your data science scenario:
 
 - **What do you want to do with your data?** Specifically, what's the business question you want to answer by learning from your past data?
 
-- **What are the requirements of your data science scenario?** Specifically, what is the accuracy, training time, linearity, number of parameters, and number of features that your solution supports?
+- **What are the requirements of your data science scenario?** What are the features, accuracy, training time, linearity, and number of parameters that your solution supports?
 
 :::image type="content" source="media/how-to-select-algorithms/how-to-select-algorithms.png" alt-text="Diagram that shows considerations for choosing machine learning algorithms.":::
 
