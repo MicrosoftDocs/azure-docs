@@ -7,7 +7,6 @@ ms.date: 03/07/2024
 ms.author: yelevin
 ms.collection: usx-security
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
-ms.collection: usx-security
 ---
 
 # Roles and permissions in Microsoft Sentinel
