@@ -75,7 +75,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 4. In the **Volume group** tab, provide information for creating the volume group:  
 
-### [Without extension 1](#tab/azure-portal)
+### [Without extension 1](#tab/without-extension-1)
 
 * **Proximity placement group (PPG)**:  
     Specifies that the data, log, and shared volumes are to be created close to the VMs.
@@ -91,7 +91,7 @@ Select **Next: Tags**.
 
 [ ![Screenshot that shows the Volume Group tag.](./media/application-volume-group-deploy-first-host/application-volume-group-tag.png) ](./media/application-volume-group-deploy-first-host/application-volume-group-tag.png#lightbox)
 
-### [With extension 1](#tab/azure-portal)
+### [Extension 1](#tab/extension-1)
 
 
 * **Availability option**:
