@@ -17,40 +17,42 @@ You can use log alerts to evaluate resources logs every set frequency by using a
 > This article doesn't discuss cases where the alert rule was triggered, you can see it in the Azure portal, but the notification was not sent. See [troubleshooting alerts](alerts-troubleshoot.md) for cases like these.
 
 ## A log search alert didn't fire when it should have
+If your log search alert didn't fire when it should have, check the following items:
 
 1. **Is the alert rule is in a degraded or unavailable health state?**
 
-View the health status of your log search alert rule:
+    View the health status of your log search alert rule:
+    
+    1. In the [portal](https://portal.azure.com/), select **Monitor**, then **Alerts**.
+    1. From the top command bar, select **Alert rules**. The page shows all your alert rules on all subscriptions.
+    1. Select the log search alert rule that you want to monitor.
+    1. From the left pane, under **Help**, select **Resource health**.
+     
+        :::image type="content" source="media/log-search-alert-health/log-search-alert-resource-health.png" alt-text="Screenshot of the Resource health section in a log search alert rule.":::
 
-1. In the [portal](https://portal.azure.com/), select **Monitor**, then **Alerts**.
-1. From the top command bar, select **Alert rules**. The page shows all your alert rules on all subscriptions.
-1. Select the log search alert rule that you want to monitor.
-1. From the left pane, under **Help**, select **Resource health**.
- 
-    :::image type="content" source="media/log-search-alert-health/log-search-alert-resource-health.png" alt-text="Screenshot of the Resource health section in a log search alert rule.":::
-
-See [Monitor the health of log search alert rules](log-alert-rule-health.md#monitor-the-health-of-log-search-alert-rules) to learn more.  
+    See [Monitor the health of log search alert rules](log-alert-rule-health.md#monitor-the-health-of-log-search-alert-rules) to learn more.  
 
 1. **Check the log ingestion latency.**
 
-Azure Monitor processes terabytes of customers' logs from across the world, which can cause [logs ingestion latency](../logs/data-ingestion-time.md).
+    Azure Monitor processes terabytes of customers' logs from across the world, which can cause [logs ingestion latency](../logs/data-ingestion-time.md).
+    
+    Logs are semi-structured data and are inherently more latent than metrics. If you're experiencing more than a 4-minute delay in fired alerts, you should consider using [metric alerts](alerts-metric-overview.md). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
 
-Logs are semi-structured data and are inherently more latent than metrics. If you're experiencing more than a 4-minute delay in fired alerts, you should consider using [metric alerts](alerts-metric-overview.md). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
-
-To mitigate latency, the system retries the alert evaluation multiple times. After the data arrives, the alert fires, which in most cases don't equal the log record time.
+    To mitigate latency, the system retries the alert evaluation multiple times. After the data arrives, the alert fires, which in most cases don't equal the log record time.
 
 1. **Are the actions muted or was the alert rule configured to resolve automatically?**
 
-A common issue is that you think that the alert didn't fire, but the rule was configured so that the alert would not fire. See the advanced options of the [log search alert rule](./alerts-create-log-alert-rule.md) to verify that both of the following are not selected:
-* The **Mute actions** checkbox: allows you to mute fired alert actions for a set amount of time.
-* **Automatically resolve alerts**: configures the alert to only fire once per condition being met.
-
-:::image type="content" source="media/alerts-troubleshoot-log/LogAlertSuppress.png" lightbox="media/alerts-troubleshoot-log/LogAlertSuppress.png" alt-text="Suppress alerts":::
+    A common issue is that you think that the alert didn't fire, but the rule was configured so that the alert would not fire. See the advanced options of the [log search alert rule](./alerts-create-log-alert-rule.md) to verify that both of the following are not selected:
+    * The **Mute actions** checkbox: allows you to mute fired alert actions for a set amount of time.
+    * **Automatically resolve alerts**: configures the alert to only fire once per condition being met.
+    
+    :::image type="content" source="media/alerts-troubleshoot-log/LogAlertSuppress.png" lightbox="media/alerts-troubleshoot-log/LogAlertSuppress.png" alt-text="Suppress alerts":::
 
 1. **Was the the log search alert rule disabled?**
 
-If a log search alert rule query fails to evaluate continuously for a week, Azure Monitor disables it automatically. 
-The following sections list some reasons why Azure Monitor might disable a log search alert rule. Additionally, there's an example of the [Activity log](../../azure-monitor/essentials/activity-log.md) event that is submitted when a rule is disabled.
+    If a log search alert rule query fails to evaluate continuously for a week, Azure Monitor disables it automatically. 
+
+    The following sections list some reasons why Azure Monitor might disable a log search alert rule. Additionally, there's an example of the [Activity log](../../azure-monitor/essentials/activity-log.md) event that is submitted when a rule is disabled.
 
 ### Activity log example when rule is disabled
 
@@ -117,25 +119,25 @@ The following sections list some reasons why Azure Monitor might disable a log s
 
 1. **Was the alert rule resource moved or deleted?**
 
-If an alert rule resource moves, gets renamed, or is deleted, all log alert rules referring to that resource will break. To fix this issue, alert rules need to be recreated using a valid target resource for the scope.
+    If an alert rule resource moves, gets renamed, or is deleted, all log alert rules referring to that resource will break. To fix this issue, alert rules need to be recreated using a valid target resource for the scope.
 
 1. **Does the alert rule uses a system-assigned managed identity?** 
 
-When you create a log alert rule with system-assigned managed identity, the identity is created without any permissions. After you create the rule, you need to assign the appropriate roles to the rule’s identity so that it can access the data you want to query. For example, you might need to give it a Reader role for the relevant Log Analytics workspaces, or a Reader role and a Database Viewer role for the relevant ADX cluster. See [managed identities](/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information about using managed identities in log alerts.
+    When you create a log alert rule with system-assigned managed identity, the identity is created without any permissions. After you create the rule, you need to assign the appropriate roles to the rule’s identity so that it can access the data you want to query. For example, you might need to give it a Reader role for the relevant Log Analytics workspaces, or a Reader role and a Database Viewer role for the relevant ADX cluster. See [managed identities](/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information about using managed identities in log alerts.
 
 1. **Is the query used in the log search alert rule valid?**
 
-When a log alert rule is created, the query is validated for correct syntax. But sometimes the query provided in the log alert rule can start to fail. Some common reasons are:
+    When a log alert rule is created, the query is validated for correct syntax. But sometimes the query provided in the log alert rule can start to fail. Some common reasons are:
 
-- Rules were created via the API, and the user skipped validation.
-- The query [runs on multiple resources](../logs/cross-workspace-query.md), and one or more of the resources was deleted or moved.
-- The [query fails](../logs/api/errors.md) because:
-    - The logging solution wasn't [deployed to the workspace](../insights/solutions.md#install-a-monitoring-solution), so tables aren't created.
-    - Data stopped flowing to a table in the query for more than 30 days.
-    - [Custom logs tables](../agents/data-sources-custom-logs.md) haven't been created because the data flow hasn't started.
-- Changes in the [query language](/azure/kusto/query/) include a revised format for commands and functions, so the query provided earlier is no longer valid.
-
-[Azure Advisor](../../advisor/advisor-overview.md) warns you about this behavior. It adds a recommendation about the affected log search alert rule. The category used is 'High Availability' with medium impact and a description of 'Repair your log alert rule to ensure monitoring'.
+    - Rules were created via the API, and the user skipped validation.
+    - The query [runs on multiple resources](../logs/cross-workspace-query.md), and one or more of the resources was deleted or moved.
+    - The [query fails](../logs/api/errors.md) because:
+        - The logging solution wasn't [deployed to the workspace](../insights/solutions.md#install-a-monitoring-solution), so tables aren't created.
+        - Data stopped flowing to a table in the query for more than 30 days.
+        - [Custom logs tables](../agents/data-sources-custom-logs.md) haven't been created because the data flow hasn't started.
+    - Changes in the [query language](/azure/kusto/query/) include a revised format for commands and functions, so the query provided earlier is no longer valid.
+    
+    [Azure Advisor](../../advisor/advisor-overview.md) warns you about this behavior. It adds a recommendation about the affected log search alert rule. The category used is 'High Availability' with medium impact and a description of 'Repair your log alert rule to ensure monitoring'.
 
 
 ## A log search alert fired when it shouldn't have
@@ -144,14 +146,15 @@ A configured [log alert rule in Azure Monitor](./alerts-log.md) might be trigger
 
 1. **Was the alert triggered due to latency issues?**
 
-Azure Monitor processes terabytes of customer logs globally, which can cause [logs ingestion latency](../logs/data-ingestion-time.md). There are built-in capabilities to prevent false alerts, but they can still occur on very latent data (over ~30 minutes) and data with latency spikes.
-
-Logs are semi-structured data and are inherently more latent than metrics. If you're experiencing many misfires in fired alerts, consider using [metric alerts](alerts-types.md#metric-alerts). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
-
-Log search alerts work best when you are try to detect specific data in the logs. They are less effective when you are trying to detect lack of data in the logs, like alerting on virtual machine heartbeat. 
-
+    Azure Monitor processes terabytes of customer logs globally, which can cause [logs ingestion latency](../logs/data-ingestion-time.md). There are built-in capabilities to prevent false alerts, but they can still occur on very latent data (over ~30 minutes) and data with latency spikes.
+    
+    Logs are semi-structured data and are inherently more latent than metrics. If you're experiencing many misfires in fired alerts, consider using [metric alerts](alerts-types.md#metric-alerts). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
+    
+    Log search alerts work best when you are try to detect specific data in the logs. They are less effective when you are trying to detect lack of data in the logs, like alerting on virtual machine heartbeat. 
+    
 
 ## Error messages when configuring log search alert rules
+See the following sections for specific error messages and their resolutions.
 
 ### The query couldn't be validated since you need permission for the logs
 
