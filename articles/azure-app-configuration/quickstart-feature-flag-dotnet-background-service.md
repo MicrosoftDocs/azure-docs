@@ -94,6 +94,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 1. Open *Worker.cs* and add a reference to the .NET Feature Management library.
 
     ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
     ```
 
@@ -117,11 +118,8 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                if (_refresher != null)
-                {
-                    // Intentionally not await TryRefreshAsync to avoid blocking the execution.
-                    _refresher.TryRefreshAsync(stoppingToken);
-                }
+                // Intentionally not await TryRefreshAsync to avoid blocking the execution.
+                _refresher.TryRefreshAsync(stoppingToken);
 
                 if (_logger.IsEnabled(LogLevel.Information))
                 {
@@ -134,7 +132,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
                         _logger.LogInformation("[{time}]: Worker running in stable mode.", DateTimeOffset.Now);
                     }
                 }
-                await Task.Delay(1000, stoppingToken);
+                await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
             }
         }
     }
