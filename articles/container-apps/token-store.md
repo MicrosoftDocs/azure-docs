@@ -11,13 +11,21 @@ ms.author: cshoe
 
 # Enable a token store in Azure Container Apps
 
-Token stores are a repository for security tokens associated with your container app. When you use a store, your app is better able to achieve:
+A token store is a repository of security tokens associated with the users of a web application or its APIs. When your application code needs to access user profile data, you can use a token store to contact an authentication providers on the user's behalf.
 
-- **Portability**:  With authentication details stored independently of your application, you can easily switch the user security context as you move from development, to staging, to production.
+Common scenarios for a token store include:
 
-- **Fault tolerance**: With your authentication data isolated from each container, your security profile is stable even if your container experiences problems.
+* Posting to the authenticated user's Facebook timeline
 
-- **Centralized security**: With your security stored together, you can maintain your app's security tokens in a single place.
+* Read the user's corporate data using the Microsoft Graph API
+
+You typically write code to collect, store, and refresh tokens in your application. With the token store, you can [retrieve the list of tokens](/azure/app-service/configure-authentication-oauth-tokens) when you need them, and [tell Container Apps to refresh them](/azure/app-service/configure-authentication-oauth-tokens) when they become invalid.
+
+
+
+The ID tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.
+
+You enable a token store by configuring your container app with an Azure Storage account.
 
 ## Generate a SAS URL
 
