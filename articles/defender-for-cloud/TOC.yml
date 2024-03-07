@@ -206,8 +206,9 @@
       - name: Integration with Defender EASM
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Enabling Permissions Management (Preview)
-        href: enable-permissions-management.md
+      - name: Permissions Management
+        displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
+        href: permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
       - name: Supported resource types for multicloud in Foundational CSPM
@@ -291,6 +292,8 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
+        - name: Enable Permissions Management
+          href: enable-permissions-management.md
     - name: Data-aware security posture
       items:
         - name: Enable data-aware security posture

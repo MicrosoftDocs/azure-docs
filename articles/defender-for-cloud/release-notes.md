@@ -24,10 +24,19 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
+| March 13 | [General availability of Permissions Management in Defender for Cloud](#general-availability-of-permissions-management-in-defender-for-cloud) | 
 | March 13 | [Enhanced AWS and GCP recommendations with automated remediation scripts](#enhanced-aws-and-gcp-recommendations-with-automated-remediation-scripts) |
 | March 6 | [(Preview) Compliance standards added to compliance dashboard](#preview-compliance-standards-added-to-compliance-dashboard)  | 
 | March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
+
+
+### General availability of Permissions Management in Defender for Cloud
+
+March 13, 2024
+
+We're announcing the general availability (GA) of [Permissions Management](permissions-management.md) in Defender for Cloud.
+
 
 ### Enhanced AWS and GCP recommendations with automated remediation scripts
 
