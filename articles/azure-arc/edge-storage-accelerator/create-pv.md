@@ -70,6 +70,8 @@ Note the name (`esa4` in this example), as you need to specify it in the `spec::
    metadata:
        ### CREATE A NAME HERE ###
        name: CREATE_A_NAME_HERE
+       ### USE A NAMESPACE THAT MATCHES YOUR INTENDED CONSUMING POD OR "DEFAULT" ###
+       namespace: INTENDED_CONSUMING_POD_OR_DEFAULT_HERE
    spec:
        capacity:
            ### This storage capacity value is not enforced at this layer. ###

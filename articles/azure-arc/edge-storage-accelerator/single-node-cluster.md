@@ -78,7 +78,13 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
 
    Continue with the remaining steps in [create a single machine cluster](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-2-create-a-single-machine-cluster). Next, [connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
 
-1. Set up Local Path Provisioner storage using:
+1. Check for and install Local Path Provisioner storage if it's not already installed. Check if the local-path storage class is already available on your node by running the following cmdlet:
+
+   ```bash
+   kubectl get StorageClass
+   ```
+
+   If the local-path storage class is not available, run the following command:
 
    ```bash
    kubectl apply -f https://raw.githubusercontent.com/Azure/AKS-Edge/main/samples/storage/local-path-provisioner/local-path-storage.yaml
@@ -86,12 +92,6 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
 
    > [!NOTE]
    > Local-Path-Provisioner and Busybox images are not maintained by Microsoft and are pulled from the Rancher Labs repository. Local-Path-Provisioner and BusyBox are only available as a Linux container image.
-
-   Once the deployment is finished, make sure that the local-path storage class is available on your node by running the following cmdlet:
-
-   ```bash
-   kubectl get StorageClass
-   ```
 
    If everything is correctly configured, you should see the following output:
 
@@ -106,10 +106,22 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
    kubectl edit configmap -n kube-system local-path-config
    ```
 
-1. Increase the maximum number of files using the following command:
+1. Run the following to determine if you set `fs.inotify.max_user_instances` to 1024:
+
+   ```bash
+   sysctl fs.inotify.max_user_instances
+   ```
+
+   After you run this command, if it outputs less than 1024, run the following command to increase the maximum number of files:
 
    ```bash
    Invoke-AksEdgeNodeCommand -NodeType "Linux" -Command 'echo 'fs.inotify.max_user_instances = 1024' | sudo tee -a /etc/sysctl.conf && sudo sysctl -p'
+   ```
+
+1. Install Open Service Mesh (OSM) using the following command:
+
+   ```bash
+   az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
    ```
 
 1. If you run a single-node cluster, disable **ACStor** by creating a file named **config.json** with the following contents:
@@ -128,14 +140,26 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
 
 This section describes how to prepare Linux with Ubuntu if you run a single-node cluster.
 
-1. Increase the number of allowed open files and reload the **sysctl** settings using the following command:
+1. Install Open Service Mesh (OSM) using the following command:
+
+   ```bash
+   az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
+   ```
+
+1. Run the following command to determine if you set `fs.inotify.max_user_instances` to 1024:
+
+   ```bash
+   sysctl fs.inotify.max_user_instances
+   ```
+
+   After you run this command, if it outputs less than 1024, run the following command to increase the maximum number of files and reload the **sysctl** settings:
 
    ```bash
    echo 'fs.inotify.max_user_instances = 1024' | sudo tee -a /etc/sysctl.conf
    sudo sysctl -p
    ```
 
-2. Disable **ACStor** by creating a file named **config.json** with the following contents:
+1. Disable **ACStor** by creating a file named **config.json** with the following contents:
 
    ```json
    {

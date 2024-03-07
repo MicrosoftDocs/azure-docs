@@ -16,7 +16,13 @@ This article describes how to prepare Linux using a multi-node cluster, and assu
 ::: zone pivot="aks"
 ## Prepare Linux with AKS enabled by Azure Arc
 
-If you run a multi-node cluster, you can proceed to [How to install Edge Storage Accelerator](install-edge-storage-accelerator.md).
+1. Install and configure Open Service Mesh (OSM) using the following command:
+
+   ```bash
+   az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
+   kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featureFlags":{"enableWASMStats": false }, "traffic":{"outboundPortExclusionList":[443,2379,2380], "inboundPortExclusionList":[443,2379,2380]}}}' --type=merge
+   ```
+
 ::: zone-end
 
 ::: zone pivot="aks-ee"
@@ -47,6 +53,13 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
    Invoke-AksEdgeNodeCommand -NodeType "Linux" -Command 'echo -e "LimitNOFILE=1048576" | sudo tee -a /etc/systemd/system/containerd.service.d/override.conf'
    ```
 
+1. Install and configure Open Service Mesh (OSM) using the following command:
+
+   ```bash
+   az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
+    kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featureFlags":{"enableWASMStats": false }, "traffic":{"outboundPortEx
+   ```
+
 1. Create a file named **config.json** with the following contents:
 
    ```json
@@ -65,7 +78,20 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
 
 This section describes how to prepare Linux with Ubuntu if you run a multi-node cluster.
 
-1. Increase the number of allowed open files and reload the **sysctl** settings using the following command:
+1. Install and configure Open Service Mesh (OSM) using the following command:
+
+   ```bash
+   az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
+   kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featureFlags":{"enableWASMStats": false }, "traffic":{"outboundPortExclusionList":[443,2379,2380], "inboundPortExclusionList":[443,2379,2380]}}}' --type=merge
+   ```
+
+1. Run the following command to determine if you set `fs.inotify.max_user_instances` to 1024:
+
+   ```bash
+   sysctl fs.inotify.max_user_instances
+   ```
+
+   After you run this command, if it outputs less than 1024, run the following command to increase the maximum number of files and reload the **sysctl** settings:
 
    ```bash
    echo 'fs.inotify.max_user_instances = 1024' | sudo tee -a /etc/sysctl.conf

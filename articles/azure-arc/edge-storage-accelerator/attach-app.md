@@ -75,6 +75,26 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
 
     When the aio-dp-runner-worker-n pods start, they include mounts to ESA. The PVC should convey this in the state.
 
+1. Once you reconfigure your Data Processor workers to have access to the ESA volumes, you must manually update the pipeline configuration to use a local path that corresponds to the mounted location of your ESA volume on the worker PODs.
+
+   In order to modify the pipeline, use `kubectl edit pipeline <name of your pipeline>`
+
+   And in that pipeline replace your output stage with the following:
+
+   ```yml
+   output:
+     batch:
+       path: .payload
+       time: 60s
+     description: An example file output stage
+     displayName: Sample File output
+     filePath: '{{{instanceId}}}/{{{pipelineId}}}/{{{partitionId}}}/{{{YYYY}}}/{{{MM}}}/{{{DD}}}/{{{HH}}}/{{{mm}}}/{{{fileNumber}}}'
+     format:
+       type: jsonStream
+     rootDirectory: /mnt/esa
+     type: output/file@v1
+   ```
+
 ::: zone-end
 
 ::: zone pivot="attach-kubernetes"

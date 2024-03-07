@@ -21,22 +21,6 @@ The article describes how to prepare Linux using AKS enabled by Azure Arc, Edge 
 
 Follow the directions for [creating a cluster for Azure IoT Operations](/azure/iot-operations/get-started/quickstart-deploy?tabs=linux). Use Ubuntu 20.04 on Standard D8s v3 machines with 3 SSDs attached for additional storage.
 
-### Install Open Service Mesh (OSM)
-
-You can install OSM using the following command:
-
-```azurecli
-az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
-```
-
-### Configure Open Service Mesh (OSM)
-
-Configure OSM using the following command:
-
-```azurecli
-kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featureFlags":{"enableWASMStats": false }, "traffic":{"outboundPortExclusionList":[443,2379,2380], "inboundPortExclusionList":[443,2379,2380]}}}' --type=merge
-```
-
 ## Single-node and multi-node clusters
 
 A single-node cluster is commonly used for development or testing purposes due to its simplicity in setup and minimal resource requirements. These clusters offer a lightweight and straightforward environment for developers to experiment with Kubernetes without the complexity of a multi-node setup. Additionally, in situations where resources such as CPU, memory, and storage are limited, a single-node cluster is more practical. Its ease of setup and minimal resource requirements make it a suitable choice in resource-constrained environments.
