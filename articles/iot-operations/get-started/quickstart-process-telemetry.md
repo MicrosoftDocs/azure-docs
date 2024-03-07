@@ -71,7 +71,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | Name          | `input data`                    |
     | Broker        | `tls://aio-mq-dmqtt-frontend:8883` |
     | Authentication| `Service account token (SAT)`                  |
-    | Topic         | `azure-iot-operations/data/opc.tcp/opc.tcp-1/#`                    |
+    | Topic         | `azure-iot-operations/data/#`                    |
     | Data format   | `JSON`                              |
 
 1. Select **Transform** from **Pipeline Stages** as the second stage in this pipeline. Enter the following values and then select **Apply**:
@@ -189,7 +189,7 @@ Create a Data Processor pipeline to process and enrich your data before it sends
     | Display name  | `OPC UA data` |
     | Broker        | `tls://aio-mq-dmqtt-frontend:8883` |
     | Authentication| `Service account token (SAT)` |
-    | Topic         | `azure-iot-operations/data/opc.tcp/opc.tcp-1/thermostat` |
+    | Topic         | `azure-iot-operations/data/thermostat` |
     | Data Format   | `JSON` |
 
 1. To track the last known value (LKV) of the temperature, select **Stages**, and select **Last known values**. Use the information the following tables to configure the stage to track the LKVs of temperature for the messages that only have boiler status messages, then select **Apply**:
@@ -249,7 +249,6 @@ Create a Data Processor pipeline to process and enrich your data before it sends
     | Parameter      | Value                             |
     | -------------- | --------------------------------- |
     | Name           | `processed OPC UA data`                          |
-    | URL            | `https://msit-onelake.pbidedicated.windows.net`  |
     | Authentication | `Service principal`     |
     | Tenant ID      | The tenant ID you made a note of previously when you created the service principal.     |
     | Client ID      | The client ID is the app ID you made a note of previously when you created the service principal.     |
