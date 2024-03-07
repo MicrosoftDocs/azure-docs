@@ -102,7 +102,7 @@ For more information, see the following documentation:
 
    1. In your logic app project, expand the folder with your workflow name.
 
-   1. Open the shortcut menu for the **workflow.json** file, and select **Open Designer**.
+   1. If not already open, open the **workflow.json** file, open the file's shortcut men, and select **Open Designer**.
 
    1. When you're prompted to allow parameterizations for connections when your project loads, select **Yes**.
 
@@ -114,7 +114,11 @@ For more information, see the following documentation:
 
         > [!NOTE]
         >
-        > If you skip this step, you can use only the [built-in connectors that are runtime-hosted](../connectors/built-in.md) until you [enable the Microosft-managed, Azure-hosted connectors](#enable-managed-connectors).
+        > If you skip this step, you can use only the [built-in connectors that are runtime-hosted](../connectors/built-in.md). 
+        > To enable the Microosft-managed, Azure-hosted connectors at a later time, follow these steps:
+        >
+        > 1. Open the shortcut menu for the **workflow.json** file, and select **Use Connectors from Azure**.
+        > 2. 
 
       - The existing Azure resource group that you plan to use for your logic app
 
