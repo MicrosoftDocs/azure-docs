@@ -22,7 +22,7 @@ In Azure AI Search, if you [have vector fields](vector-search-how-to-create-inde
 > + [Query multiple vector fields at once](#multiple-vector-fields)
 > + [Query with integrated vectorization (preview)](#query-with-integrated-vectorization-preview)
 
-This article uses REST examples. For code samples in other languages, see the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) GitHub repository for end-to-end solutions that include vector queries.
+This article uses REST for illustration. For code samples in other languages, see the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) GitHub repository for end-to-end solutions that include vector queries.
 
 ## Prerequisites
 
@@ -82,7 +82,8 @@ The actual response for this POST call to the deployed model includes 1536 embed
 
 In this approach, your application code is responsible for connecting to a model, generating embeddings, and handling the response.
 
-Alternatively, you can try [Query with integrated vectorization](#query-with-integrated-vectorization-preview), currently in public preview.
+> [!TIP]
+> Try [Query with integrated vectorization](#query-with-integrated-vectorization-preview), currently in public preview, to have Azure AI Search handle your query vectorization inputs and outputs.
 
 ## Vector query request
 
@@ -247,7 +248,7 @@ In Azure AI Search, query responses consist of all `retrievable` fields by defau
 
 In a vector query, carefully consider whether you need to vector fields in a response. Vector fields aren't human readable, so if you're pushing a response to a web page, you should choose nonvector fields that are representative of the result. For example, if the query executes against `contentVector`, you could return `content` instead.
 
-If you do want vector fields in the result, here's the basic structure of a response from a pure vector query. The implied `select` for this response includes `title`, `category`, and `contentVector`.
+If you do want vector fields in the result, here's an example of the response structure. `contentVector` is a string array of embeddings, trimmed here for brevity. The search score indicates relevance. Other nonvector fields are included for context.
 
 ```json
 {
@@ -592,13 +593,21 @@ Both "k" and "top" are optional. Unspecified, the default number of results in a
 
 Ranking of results is computed by either:
 
-+ The similarity metric specified in the index `vectorSearch` section for a vector-only query. Valid values are `cosine`, `euclidean`, and `dotProduct`.
++ Similarity metric
 + Reciprocal Rank Fusion (RRF) if there are multiple sets of search results.
+
+### Similarity metric
+
+The similarity metric specified in the index `vectorSearch` section for a vector-only query. Valid values are `cosine`, `euclidean`, and `dotProduct`.
 
 Azure OpenAI embedding models use cosine similarity, so if you're using Azure OpenAI embedding models, `cosine` is the recommended metric. Other supported ranking metrics include `euclidean` and `dotProduct`.
 
-Multiple sets are created if the query targets multiple vector fields, or if the query is a hybrid of vector and full text search, with or without [semantic ranking](semantic-search-overview.md). Within vector search, a vector query can only target one internal vector index. So for [multiple vector fields](#multiple-vector-fields) and [multiple vector queries](#multiple-vector-queries), the search engine generates multiple queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Vector query execution and scoring](vector-search-ranking.md).
+### Using RRF
+
+Multiple sets are created if the query targets multiple vector fields, runs multiple vector queries in parallel, or if the query is a hybrid of vector and full text search, with or without [semantic ranking](semantic-search-overview.md). 
+
+During query execution, a vector query can only target one internal vector index. So for [multiple vector fields](#multiple-vector-fields) and [multiple vector queries](#multiple-vector-queries), the search engine generates multiple queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Relevance scoring using Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
 
 ## Next steps
 
-As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript/JavaScriptVectorDemo).
+As a next step, review vector query code examples in [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript/JavaScriptVectorDemo).

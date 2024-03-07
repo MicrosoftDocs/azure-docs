@@ -9,9 +9,8 @@ ms.topic: conceptual
 The Azure Policy exemptions feature is used to _exempt_ a resource hierarchy or an
 individual resource from evaluation of initiatives or definitions. Resources that are _exempt_ count
 toward overall compliance, but can't be evaluated or have a temporary waiver. For more information,
-see [Understand applicability in Azure Policy](./policy-applicability.md). Azure Policy exemptions  work with
-[Resource Manager modes](./definition-structure.md#resource-manager-modes), Microsoft.Kubneretes.Data, Microsoft.KeyVault.Data and Microsoft.Network.Data and don't work with the other 
-[Resource Provider modes](./definition-structure.md#resource-provider-modes).
+see [Understand applicability in Azure Policy](./policy-applicability.md). Azure Policy exemptions also work with the following
+[Resource Manager modes](./definition-structure.md#resource-manager-modes): Microsoft.Kubernetes.Data, Microsoft.KeyVault.Data and Microsoft.Network.Data. 
 
 You use JavaScript Object Notation (JSON) to create a policy exemption. The policy exemption contains elements for:
 
