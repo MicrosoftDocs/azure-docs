@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 3/6/2024
+ms.date: 3/7/2024
 ms.author: jordanselig
 # zone_pivot_groups: app-service-cli-portal
 ---
@@ -223,6 +223,10 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 ## 10. Get the inbound IP addresses for your new App Service Environment v3 and update dependent resources
 
 You have two App Service Environments at this stage in the migration process. Your apps are running in both environments. You need to update any dependent resources to use the new IP inbound address for your new App Service Environment v3. For internal facing (ILB) App Service Environments, you need to update your private DNS zones to point to the new inbound IP address. You should account for both the old and new inbound IP at this point. You can remove the dependencies on the previous IP address after you complete the next step.
+
+> [!IMPORTANT]
+> During the preview, the new inbound IP might be returned incorrectly due to a known bug. Open a support ticket to receive the correct IP addresses for your App Service Environment v3.
+> 
 
 You can get the new inbound IP address for your new App Service Environment v3 by running the following command. It's your responsibility to make any necessary updates. 
 
