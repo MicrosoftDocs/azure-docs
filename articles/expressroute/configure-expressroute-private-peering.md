@@ -78,7 +78,9 @@ In this tutorial, you learn how to:
     * **IPv4 Secondary subnet**: Enter the subnet for the secondary BGP peer.
     * **Enable IPv4 peering**: Check this box to enable IPv4 peering.  
     * **VLAN ID**: Enter the VLAN ID that you want to use for the private peering.
-    * **Shared key**: Enter an MD5 hash for the shared key. The use of a shared key is optional.
+    * **Shared key**: Enter the Password Phrase for the shared key(unencrypted). The use of a shared key is optional.
+> [!IMPORTANT]
+>  Some vendor uses Password encryption services for securing the passwords on On-prem Router configuration hence the password configured under BGP configuration on on-prem router might be an encrypted password. Kindly use the Password phrase instead of encrypted password under the shared key.
 
 1. Select **Save** to save the private peering configuration.
 
