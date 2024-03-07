@@ -22,7 +22,7 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [API version retirements][api2023] | September 30, 2023 |
 | [Deprecated (legacy) portal retirement][devportal2023] | October 31, 2023 |
 | [Self-hosted gateway v0/v1 retirement][shgwv0v1] | October 1, 2023 |
-| [Workspaces breaking changes][workspaces2024] | April 30, 2024 |
+| [Workspaces breaking changes][workspaces2024] | June 14, 2024 |
 | [stv1 platform retirement][stv12024] | August 31, 2024 |
 | [ADAL-based Microsoft Entra ID or Azure AD B2C identity provider retirement][msal2025] | September 30, 2025 |
 | [CAPTCHA endpoint update][captcha2025] | September 30, 2025 |
@@ -37,4 +37,4 @@ The following table lists all the upcoming breaking changes and feature retireme
 [msal2025]: ./identity-provider-adal-retirement-sep-2025.md
 [captcha2025]: ./captcha-endpoint-change-sep-2025.md
 [metrics2023]: ./metrics-retirement-aug-2023.md
-[workspaces2024]: ./workspaces-breaking-changes-april-2024.md
+[workspaces2024]: ./workspaces-breaking-changes-june-2024.md
