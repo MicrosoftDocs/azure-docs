@@ -5,7 +5,7 @@ author: aahill
 ms.author: aahi
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 08/11/2023
+ms.date: 03/07/2024
 ---
 
 [!INCLUDE [Set up required variables](./use-your-data-common-variables.md)]
@@ -20,26 +20,26 @@ To trigger a response from the model, you should end with a user message indicat
 > There are several parameters you can use to change the model's response, such as `temperature` or `top_p`. See the [reference documentation](../reference.md#completions-extensions) for more information.
 
 ```bash
-curl -i -X POST $AZURE_OPENAI_ENDPOINT/openai/deployments/$AZURE_OPEN_AI_DEPLOYMENT_ID/extensions/chat/completions?api-version=2023-06-01-preview \
+curl -i -X POST $AZURE_OPENAI_ENDPOINT/openai/deployments/$AZURE_OPENAI_DEPLOYMENT_ID/chat/completions?api-version=2024-02-15-preview \
 -H "Content-Type: application/json" \
 -H "api-key: $AZURE_OPENAI_API_KEY" \
 -d \
 '
 {
-    "dataSources": [
+    "data_sources": [
         {
             "type": "AzureCognitiveSearch",
             "parameters": {
                 "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
                 "key": "'$AZURE_AI_SEARCH_API_KEY'",
-                "indexName": "'$AZURE_AI_SEARCH_INDEX'"
+                "index_name": "'$AZURE_AI_SEARCH_INDEX'"
             }
         }
     ],
     "messages": [
         {
             "role": "user",
-            "content": "What are the differences between Azure Machine Learning and Azure AI services?"
+            "content": "Tell me an interesting fact"
         }
     ]
 }
