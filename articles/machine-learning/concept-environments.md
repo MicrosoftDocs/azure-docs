@@ -26,13 +26,13 @@ The following diagram illustrates how you can use a single `Environment` object 
 
 ![Diagram of an environment in machine learning workflow](./media/concept-environments/ml-environment.png)
 
-The environment, compute target and training script together form the job configuration: the full specification of a training job.
+The environment, compute target, and training script together form the job configuration: the full specification of a training job.
 
 ## Types of environments
 
 Environments can broadly be divided into three categories: *curated*, *user-managed*, and *system-managed*.
 
-Curated environments are provided by Azure Machine Learning and are available in your workspace by default. Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks. These pre-created environments also allow for faster deployment time. Curated environments are hosted in [AzureML Registry](concept-machine-learning-registries-mlops.md). For a full list, see the [environments in azureml registry](https://ml.azure.com/registries/azureml/environments).
+Curated environments are provided by Azure Machine Learning and are available in your workspace by default. Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks. These precreated environments also allow for faster deployment time. Curated environments are hosted in [AzureML Registry](concept-machine-learning-registries-mlops.md). For a full list, see the [environments in azureml registry](https://ml.azure.com/registries/azureml/environments).
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target. Also be sure to include any dependencies needed for model deployment. User managed environment can be BYOC (Bring Your Own Container) or Docker Build COntext based that delegates image materialization to AzureML.
 
@@ -60,7 +60,7 @@ For code samples, see the "Manage environments" section of [How to use environme
 
 ## Environment building, caching, and reuse
 
-Azure Machine Learning builds environment definitions into Docker images. It also caches the environments so they can be reused in subsequent training jobs and service endpoint deployments. Running a training script remotely requires the creation of a Docker image. By default, AzureML will manage image build target on available workspace [serverless compute quota](how-to-use-serverless-compute.md) if no dedicated compute set for the workspace.
+Azure Machine Learning builds environment definitions into Docker images. It also caches the environments so they can be reused in subsequent training jobs and service endpoint deployments. Running a training script remotely requires the creation of a Docker image. By default, AzureML manages image build target on available workspace [serverless compute quota](how-to-use-serverless-compute.md) if no dedicated compute set for the workspace.
 
 > [!NOTE]
 > Any network restrictions in AzureML Workspace might require dedicated user managed image build compute setup. Please follow the steps to [secure workspace resources](how-to-secure-workspace-vnet.md).
@@ -101,7 +101,7 @@ The following diagram shows three environment definitions. Two of them have diff
 
 ![Diagram of environment caching and Docker images](./media/concept-environments/environment-caching.png)
 
-Actual cached images in your workspace container registry has names similar to `azureml/azureml_e9607b2514b066c851012848913ba19f` with the hash appearing at the end.
+Actual cached images in your workspace container registry have names similar to `azureml/azureml_e9607b2514b066c851012848913ba19f` with the hash appearing at the end.
 
 >[!IMPORTANT]
 > * If you create an environment with an unpinned package dependency (for example, `numpy`), the environment uses the package version that was *available when the environment was created*. Any future environment that uses a matching definition will use the original version. 
