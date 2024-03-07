@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: include
-ms.date: 04/11/2023
+ms.date: 03/07/2024
 ms.author: pafarley
 ---
 
@@ -17,7 +17,6 @@ ms.author: pafarley
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US or West Europe), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) installed
-
 
 
 ## Analyze image content
@@ -98,7 +97,7 @@ The parameters in the request body are defined in this table:
 | **categories** | Optional | This is assumed to be an array of category names. See the [Harm categories guide](../../concepts/harm-categories.md) for a list of available category names. If no categories are specified, all four categories are used. We use multiple categories to get scores in a single request. | String  |
 | **outputType** | Optional | `"FourSeverityLevels"` or `"EightSeverityLevels"`. Output severities in four or eight levels. The value can be `0,2,4,6` or `0,1,2,3,4,5,6,7`. | String|
 
-### Interpret the API response
+### Output
 
 You should see the image moderation results displayed as JSON data in the console. For example:
 
@@ -129,5 +128,5 @@ The JSON fields in the output are defined here:
 
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
-| **categoriesAnalysis**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both sexual content and violence. [Harm categories](../../concepts/harm-categories.md)| String |
-| **Severity** | The higher the severity of input content, the larger this value is.	  | Integer |
+| **categoriesAnalysis**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when an image is run through the image moderation model, it could be classified as both sexual content and violence. [Harm categories](../../concepts/harm-categories.md)| String |
+| **Severity** | The severity level of the flag in each harm category. [Harm categories](../../concepts/harm-categories.md)  | Integer |

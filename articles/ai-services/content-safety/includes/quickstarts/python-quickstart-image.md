@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: include
-ms.date: 05/03/2023
+ms.date: 03/07/2024
 ms.author: pafarley
 ---
 
