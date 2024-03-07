@@ -133,13 +133,13 @@
     items:
     - name: Overview
       href: virtual-machine-scale-sets-upgrade-policy.md
-    - name: Setting the Upgrade Policy
+    - name: Setting the upgrade policy
       href: virtual-machine-scale-sets-set-upgrade-policy.md
-    - name: Changing the Upgrade Policy
+    - name: Changing the upgrade policy
       href: virtual-machine-scale-sets-change-upgrade-policy.md
-    - name: Configure Rolling Upgrade Policy
+    - name: Configure rolling upgrade policy
       href: virtual-machine-scale-sets-configure-rolling-upgrades.md 
-    - name: Performing Manual Upgrades
+    - name: Performing manual upgrades
       href: virtual-machine-scale-sets-perform-manual-upgrades.md
     - name: Reimage a virtual machine
       href: virtual-machine-scale-sets-reimage-virtual-machine.md
