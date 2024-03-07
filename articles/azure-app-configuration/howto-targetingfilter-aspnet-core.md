@@ -205,7 +205,7 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     builder.Services.AddFeatureManagement()
                     .WithTargeting<ExampleTargetingContextAccessor>();
 
-    // The rest of existing code in program.cs
+    // The rest of existing code in Program.cs
     // ... ...
     ```
     
