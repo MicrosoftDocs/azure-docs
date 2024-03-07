@@ -12,10 +12,6 @@
   items:
   - name: Tutorial
     href: tutorial.md
-- name: Concepts
-  items:
-  - name: Concept
-    href: concept.md
 - name: How-to guides
   items:
   - name: How-to
