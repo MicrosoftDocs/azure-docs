@@ -134,7 +134,7 @@ Organizations that typically choose this approach focus on locking time, migrati
 
 ### Agile waves
 
-An Agile approach is results oriented and focused on building software and not planning deliverables. The first stages of an Agile delivery might be chaotic and complex for the organizational barriers that need to be broken and the migration team alignment. However, when the migration team matures after several sprints of execution, the journey becomes smoother. The goal of this approach is to frequently release features to production and to provide business value sooner than with a big bang approach.
+An Agile approach is results oriented and focused on building software and not planning deliverables. The first stages of an Agile delivery might be chaotic and complex for the organizational barriers that need to break down and to align the migration team. However, after the migration team matures following several sprints of execution, the journey becomes smoother. The goal of this approach is to frequently release features to production and to provide business value sooner than with a big bang approach.
 
 An Agile waves migration typically has the following sprints:
 
