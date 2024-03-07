@@ -47,7 +47,7 @@ To follow the steps described in this article, you must have:
      
     For more information, see [Certificates for the back end](../application-gateway/certificates-for-backend-authentication.md). For testing purposes, optionally generate [self-signed certificates](../application-gateway/self-signed-certificates.md).
   
-* The latest version of Azure PowerShell. If you haven't already, [install Azure PowerShell](/powershell/azure/install-azure-powershell).
+* The latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Scenario
 
@@ -147,7 +147,7 @@ The following example shows how to create a virtual network by using Resource Ma
 1. Set the Application Gateway IP addresses. 
 
     > [!NOTE]
-    > As there will be public and private listeners, we need a public and a private IP address. The static, public IP address must be created whereas the private IP address must be selected from the subnet that is associated with the application gateway. The private IP address below has been selected arbitrarily.
+    > As there will be public and private listeners, we need a public and a private IP address. The static, public IP address must be created whereas the private IP address must be selected from the subnet that is associated with the application gateway. The private IP address has been selected arbitrarily.
 
     ```powershell
     $appGatewayExternalIP = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "pip-ag" -location $location -AllocationMethod Static -Sku Standard -Force
@@ -224,7 +224,7 @@ The following example shows how to create a virtual network by using Resource Ma
 
 The following example shows how to create an API Management instance in a virtual network configured for internal access only.
 
-1. API Management stv2 requires a public IP with a unique `DomainNameLabel`:
+1. API Management stv2 requires a public IP with a unique `DomainNameLabel`.
 
     ```powershell
     $apimPublicIpAddressId = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "pip-apim" -location $location `
@@ -548,6 +548,7 @@ API Management configured in a virtual network provides a single gateway interfa
 ## Next steps
 
 * Set up using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-application-gateway).
+  
 * Learn more about Application Gateway:
 
   * [Application Gateway overview](../application-gateway/overview.md)
