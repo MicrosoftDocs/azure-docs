@@ -7,7 +7,7 @@ keywords: 'Azure, Db2, SAP, IBM'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 03/06/2024
+ms.date: 03/07/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -37,7 +37,7 @@ The following SAP Notes are related to SAP on Azure regarding the area covered i
 | [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
 | [1597355] |Swap-space recommendation for Linux |
 
-As a preread to this document, review [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) plus other guides in the [SAP workload on Azure documentation](./get-started.md). 
+As a preread to this document, review [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). Review other guides in the [SAP workload on Azure](./get-started.md). 
 
 
 ## IBM Db2 for Linux, UNIX, and Windows Version Support
@@ -48,7 +48,7 @@ For information about supported SAP products and Azure VM(Virtual Machines) type
 ## IBM Db2 for Linux, UNIX, and Windows Configuration Guidelines for SAP Installations in Azure VMs
 ### Storage Configuration
 For an overview of Azure storage types for SAP workload, consult the article [Azure Storage types for SAP workload](./planning-guide-storage.md)
-All database files must be stored on mounted disks of Azure block storage (Windows: NTFS, Linux: xfs, [supported](https://www.ibm.com/support/pages/file-systems-recommended-db2-linux-unix-and-windows) for the DB2 versions higher than 11.1, or ext3).  
+All database files must be stored on mounted disks of Azure block storage (Windows: NTFS, Linux: xfs, [supported](https://www.ibm.com/support/pages/file-systems-recommended-db2-linux-unix-and-windows) as of Db2 11.1, or ext3).  
   
 Remote shared volumes like the Azure services in the listed scenarios are **NOT** supported for Db2 database files: 
 
@@ -60,7 +60,7 @@ Remote shared volumes like the Azure services in the listed scenarios are suppor
  
 * Hosting Linux guest OS based Db2 data and log files on NFS shares hosted on Azure NetApp Files is supported!
 
-If you are using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply to deployments with the Db2 DBMS as well.
+If you're using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply to deployments with the Db2 DBMS as well.
 
 As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](../../virtual-machines/sizes.md) and [here (Windows)](../../virtual-machines/sizes.md).
 
@@ -72,7 +72,7 @@ Alternatively, you can use Windows Storage Pools, which are only available in Wi
 
 <!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-For Azure M-Series VM, you can reduce by factors the latency writing into the transaction logs, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
+For Azure M-Series VM, you can reduce by factors the latency writing into the transaction logs, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for one or more VHDs that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
 
 IBM Db2 LUW 11.5 released support for 4-KB sector size. Though you need to enable the usage of 4-KB sector size with 11.5 by the configurations setting of db2set DB2_4K_DEVICE_SUPPORT=ON as documented in:
 
@@ -230,7 +230,7 @@ Db2 high availability disaster recovery (HADR) is supported. If the virtual mach
 Don't use Geo-Replication for the storage accounts that store the database disks. For more information, see the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). 
 
 ### Accelerated Networking
-For Db2 deployments on Windows, it's highly recommended to use the Azure functionality of Accelerated Networking as described in the document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider recommendations made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). 
+For Db2 deployments on Windows, we highly recommend to use the Azure functionality of Accelerated Networking as described in the document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider recommendations made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). 
 
 
 ### Specifics for Linux deployments
@@ -243,7 +243,7 @@ For the disks containing the Db2 storage paths for your sapdata and saptmp direc
 
 
 ### Other
-All other general areas like Azure Availability Sets or SAP monitoring apply as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) for deployments of VMs with the IBM Database as well.
+All other general areas like Azure Availability Sets or SAP monitoring apply for deployments of VMs with the IBM Database as well. These general areas we describe in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md).
 
 ## Next steps
 Read the article: 
