@@ -41,10 +41,10 @@ const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 // Set the Azure and AI Search values from environment variables
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"];
 const azureApiKey = process.env["AZURE_OPENAI_API_KEY"];
+const deploymentId = process.env["AZURE_OPENAI_DEPLOYMENT_ID"];
 const searchEndpoint = process.env["AZURE_AI_SEARCH_ENDPOINT"];
 const searchKey = process.env["AZURE_AI_SEARCH_API_KEY"];
 const searchIndex = process.env["AZURE_AI_SEARCH_INDEX"];
-const deploymentId = process.env["AZURE_OPEN_AI_DEPLOYMENT_ID"];
 
 
 async function main(){
