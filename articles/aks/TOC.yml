@@ -845,7 +845,6 @@
 - name: Support and troubleshooting
   items:
     - name: Support options for AKS
-    
       href: aks-support-help.md
     - name: Troubleshooting documentation for AKS
       href: /troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes
