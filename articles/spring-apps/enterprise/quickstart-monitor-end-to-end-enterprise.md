@@ -106,6 +106,15 @@ You must manually provide the Application Insights connection string to the Orde
    az spring app restart \
        --resource-group ${RESOURCE_GROUP} \
        --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
+       --name payment-service
+   ```
+
+1. If you've configured [single sign-on](quickstart-configure-single-sign-on-enterprise.md), use the following commands to restart applications to reload identity-service app configuration:
+
+   ```azurecli
+   az spring app restart \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --name identity-service
    ```
 
@@ -128,7 +137,8 @@ export GATEWAY_URL=$(az spring gateway show \
 
 export GATEWAY_URL=https://${GATEWAY_URL} 
 
-./gradlew -p azure-spring-apps-enterprise/load-test/traffic-generator gatlingRun-com.vmware.acme.simulation.GuestSimulation
+cd azure-spring-apps-enterprise/load-test/traffic-generator
+./gradlew gatlingRun-com.vmware.acme.simulation.GuestSimulation.java
 ```
 
 Use the following command to get the latest 100 lines of application console logs from the Catalog Service application:
