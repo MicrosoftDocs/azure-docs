@@ -7,7 +7,7 @@ ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
 ms.date: 11/20/2023
 ms.author: madsd
-ms.custom: seodec18, references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli
 ---
 # App Service Environment management addresses
 

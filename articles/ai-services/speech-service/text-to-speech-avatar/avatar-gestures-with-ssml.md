@@ -1,14 +1,14 @@
 ---
 title: Customize avatar gestures with SSML - Speech service
 titleSuffix: Azure AI services
-description: Learn how to edit text to speech avatar gestures with SSML
-author: sally-baolian
+description: Learn how to edit text to speech avatar gestures with SSML.
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: v-baolianzou
-keywords: text to speech avatar batch synthesis
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
 # Customize text to speech avatar gestures with SSML (preview)
@@ -35,21 +35,19 @@ In this example, the avatar will start waving their hand at the left after the w
 
 :::image type="content" source="./media/gesture.png" alt-text="Screenshot of displaying the prebuilt avatar waving their hand at the left." lightbox="./media/gesture.png":::
 
-## Supported pre-built avatar characters, styles and gestures
+## Supported pre-built avatar characters, styles, and gestures
 
 The full list of prebuilt avatar supported gestures provided here can also be found in the text to speech avatar portal.
 
-|  Characters | Styles<sup>1</sup>               | Gestures<sup>2</sup>                    | 
+|  Characters | Styles | Gestures | 
 |------------|-------------------|-----------------------------|
-| Lisa| casual-sitting    | numeric1-left-1<br>numeric2-left-1<br>numeric3-left-1<br>thumbsup-left-1<br>show-front-1<br>show-front-2<br>show-front-3<br>show-front-4<br>show-front-5<br>think-twice-1<br>show-front-6<br>show-front-7<br>show-front-8<br>show-front-9              | 
+| Lisa| casual-sitting | numeric1-left-1<br>numeric2-left-1<br>numeric3-left-1<br>thumbsup-left-1<br>show-front-1<br>show-front-2<br>show-front-3<br>show-front-4<br>show-front-5<br>think-twice-1<br>show-front-6<br>show-front-7<br>show-front-8<br>show-front-9              | 
 |    Lisa         | graceful-sitting  | wave-left-1<br>wave-left-2<br>thumbsup-left<br>show-left-1<br>show-left-2<br>show-left-3<br>show-left-4<br>show-left-5<br>show-right-1<br>show-right-2<br>show-right-3<br>show-right-4<br>show-right-5       | 
 |   Lisa          | graceful-standing |                             | 
 |    Lisa         | technical-sitting | wave-left-1<br>wave-left-2<br>show-left-1<br>show-left-2<br>point-left-1<br>point-left-2<br>point-left-3<br>point-left-4<br>point-left-5<br>point-left-6<br>show-right-1<br>show-right-2<br>show-right-3<br>point-right-1<br>point-right-2<br>point-right-3<br>point-right-4<br>point-right-5<br>point-right-6                      |
 |    Lisa         | technical-standing |                             | 
 
-<sup>1</sup> Only `casual-sitting` style is supported on real-time API.
-
-<sup>2</sup> Gestures are only supported on batch API and not supported on real-time API.      
+Only the `casual-sitting` style is supported via the real-time text to speech API. Gestures are only supported with the batch synthesis API and aren't supported via the real-time API.      
 
 ## Next steps
 

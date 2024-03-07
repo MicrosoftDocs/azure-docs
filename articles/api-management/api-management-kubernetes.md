@@ -6,7 +6,6 @@ author: dlepow
 manager: cfowler
  
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: danlep

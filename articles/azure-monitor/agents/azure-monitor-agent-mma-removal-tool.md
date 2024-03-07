@@ -2,8 +2,8 @@
 title: MMA Discovery and Removal Utility
 description: This article describes a PowerShell script to remove the legacy agent from systems that have migrated to the Azure Monitor Agent.
 ms.topic: conceptual
-author: jeffreywolford
-ms.author: jeffwo
+author: guywi-ms
+ms.author: guywild
 ms.reviewer: jeffwo
 ms.date: 01/09/2024
 ms.custom:

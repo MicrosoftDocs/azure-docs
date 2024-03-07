@@ -4,7 +4,6 @@ description: Describes how to create volume replication peering for Azure NetApp
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 02/23/2023
 ms.author: anfdocs

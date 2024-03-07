@@ -13,7 +13,7 @@ ms.service: azure-migrate
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
+This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix-vmware.md#import-servers-by-using-rvtools-xlsx-preview).
 
 
 In this tutorial, you learn how to:
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, ensure that you have the following prerequisites in place:
 
-- 20,000 servers in a single XLSX file and 35,000 in an Azure Migrate project.
+- Less than 20,000 servers in a single RVTools XLSX file.
 - The file format should be XLSX.
 - File sensitivity is set to **General** or file protection is set to **Any user**.
 - [Operating system names](migrate-support-matrix.md) specified in the RVTools XLSX (preview) file contains and matches the supported names.
@@ -102,4 +102,4 @@ To verify that the servers appear in the Azure portal after importing, follow th
 
 ## Next steps
 
-- Learn on [key benefits and limitations of using RVTools.XLSX](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
+- Learn on [key benefits and limitations of using RVTools.XLSX](migrate-support-matrix-vmware.md#import-servers-by-using-rvtools-xlsx-preview).

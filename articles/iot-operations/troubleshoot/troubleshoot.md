@@ -25,6 +25,15 @@ For general deployment and configuration troubleshooting, you can use the Azure 
 
 - Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The *support create-bundle* command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
+### Linked authorization failed error
+
+If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, it means that you don't have **Microsoft.Authorization/roleAssignments/write** permissions on the resource group that contains your cluster.
+
+To resolve this issue, either request the required permissions or make the following adjustments to your deployment steps:
+
+  * If deploying with an Azure Resource Manager template, set the `deployResourceSyncRules` parameter to `false`.
+  * If deploying with the Azure CLI, include the `--disable-rsync-rules` flag with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
+
 ## Data Processor pipeline deployment status is failed
 
 Your Data Processor pipeline deployment status is showing as **Failed**.
@@ -94,6 +103,15 @@ It's possible a momentary loss of communication with IoT MQ broker pods can paus
 ```bash
 kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
+```
+
+## Data Processor extension fails to uninstall
+
+If the data processor extension fails to uninstall, run the following commands and try the uninstall operation again:
+
+```bash
+kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
+kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
 ```
 
 ## Troubleshoot Layered Network Management

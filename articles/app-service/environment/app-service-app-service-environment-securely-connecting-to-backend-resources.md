@@ -7,8 +7,6 @@ ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18
-
 ---
 # Connect securely to back end resources from an App Service environment
 

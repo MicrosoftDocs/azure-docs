@@ -6,6 +6,7 @@ ms.date: 01/02/2024
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Lock your resources to protect your infrastructure

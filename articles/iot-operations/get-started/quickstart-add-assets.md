@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 10/24/2023
+ms.date: 02/19/2024
 
 #CustomerIntent: As an OT user, I want to create assets in Azure IoT Operations so that I can subscribe to asset data points, and then process the data before I send it to the cloud.
 ---
@@ -133,7 +133,7 @@ Enter the following asset information:
 
 :::image type="content" source="media/quickstart-add-assets/create-asset-details.png" alt-text="Screenshot of Azure IoT Operations asset details page.":::
 
-Scroll down on the **Asset details** page and add any additional information for the asset that you want to include such as:
+Scroll down on the **Asset details** page and configure any additional properties for the asset such as:
 
 - Manufacturer
 - Manufacturer URI
@@ -144,11 +144,13 @@ Scroll down on the **Asset details** page and add any additional information for
 - Serial number
 - Documentation URI
 
-Select **Next** to go to the **Tags** page.
+You can remove the sample properties that are already defined and add your own custom properties
+
+Select **Next** to go to the **Add tags** page.
 
 ### Create OPC UA tags
 
-Add two OPC UA tags on the **Tags** page. To add each tag, select **Add** and then select **Add tag**. Enter the tag details shown in the following table:
+Add two OPC UA tags on the **Add tags** page. To add each tag, select **Add tag or CSV** and then select **Add tag**. Enter the tag details shown in the following table:
 
 | Node ID            | Tag name    | Observability mode |
 | ------------------ | ----------- | ------------------ |
@@ -161,7 +163,7 @@ You can override the default sampling interval and queue size for each tag.
 
 :::image type="content" source="media/quickstart-add-assets/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
 
-Select **Next** to go to the **Events** page and then **Next** to go to the **Review** page.
+Select **Next** to go to the **Add events** page and then **Next** to go to the **Review** page.
 
 ### Review
 

@@ -37,7 +37,7 @@ This type of information is useful during the incident response process. Such as
 ## How to access the threat intelligence report?
 
 1. From Defender for Cloud's menu, open the **Security alerts** page.
-1. Select an alert. 
+1. Select an alert.
 
     The alerts details page opens with more details about the alert. For example, the **Ransomware indicators detected** alert details page:
 
@@ -47,7 +47,7 @@ This type of information is useful during the incident response process. Such as
 
     [![Potentially Unsafe Action alert details page.](media/threat-intelligence-reports/threat-intelligence-report.png)](media/threat-intelligence-reports/threat-intelligence-report.png#lightbox)
 
-    You can optionally download the PDF report. 
+    You can optionally download the PDF report.
 
     >[!TIP]
     > The amount of information available for each security alert will vary according to the type of alert.

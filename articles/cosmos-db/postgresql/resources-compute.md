@@ -5,7 +5,6 @@ ms.author: nlarin
 author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 01/22/2024
 ---

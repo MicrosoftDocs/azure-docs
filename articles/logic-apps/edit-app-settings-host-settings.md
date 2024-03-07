@@ -21,7 +21,7 @@ Your logic app also has *host settings*, which specify the runtime configuration
 
 ## App settings, parameters, and deployment
 
-In *multitenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
+In multitenant Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
 In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between apps and infrastructure. You can use *parameters* to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. You can call and reference your environment variables at runtime by using app settings and parameters. That way, you don't have to redeploy as often.
 
@@ -31,7 +31,7 @@ App settings integrate with Azure Key Vault. You can [directly reference secure 
 >
 > If you use Key Vault, make sure that you store only secrets, such as passwords, credentials, and certificates. 
 > In a logic app workflow, don't use Key Vault to store non-secret values, such as URL paths, that the workflow designer needs to make calls. 
-> The designer can't deference an app setting that references a Key Vault resource type, which results in an 
+> The designer can't dereference an app setting that references a Key Vault resource type, which results in an 
 > error and a failed call. For non-secret values, store them directly in app settings.
 
 For more information about setting up your logic apps for deployment, see the following documentation:

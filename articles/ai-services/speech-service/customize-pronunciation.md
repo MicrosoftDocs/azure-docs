@@ -6,7 +6,7 @@ ms.author: umaheshwari
 ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 1/18/2024
-ms.custom: template-concept, ignite-fall-2021
+ms.custom: template-concept
 ---
 
 # Structured text phonetic pronunciation data

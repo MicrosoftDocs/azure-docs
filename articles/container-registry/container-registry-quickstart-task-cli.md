@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.service: container-registry
-ms.custom: contperf-fy21q1, devx-track-azurecli, mode-other
+ms.custom: devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Build and run a container image using Azure Container Registry Tasks

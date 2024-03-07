@@ -8,7 +8,6 @@ manager: cnovak
 ms.reviewer: orspodek
 ms.topic: conceptual
 ms.date: 09/29/2020
-ms.custom: seodec18
 ---
 
 # Create a new Azure Time Series Insights Gen1 environment in the Azure portal

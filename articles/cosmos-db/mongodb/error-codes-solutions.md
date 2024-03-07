@@ -3,7 +3,6 @@ title: Troubleshoot common errors in Azure Cosmos DB's API for MongoDB
 description: This doc discusses the ways to troubleshoot common issues encountered in Azure Cosmos DB's API for MongoDB.
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 author: gahl-levy

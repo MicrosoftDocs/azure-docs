@@ -2,7 +2,6 @@
 title: Build queries with cloud security explorer in Microsoft Defender for Cloud
 description: Learn how to build queries with cloud security explorer in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.custom: ignite-2022
 ms.date: 11/01/2023
 ---
 

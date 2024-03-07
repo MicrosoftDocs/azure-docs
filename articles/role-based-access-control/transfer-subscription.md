@@ -1,12 +1,10 @@
 ---
 title: Transfer an Azure subscription to a different Microsoft Entra directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Microsoft Entra directory.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.custom: devx-track-azurecli
 ms.date: 01/02/2024
 ms.author: rolyon
@@ -84,6 +82,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | App registrations | Yes | Yes |  |  |
 | Microsoft Dev Box | Yes | No | | You cannot transfer a dev box and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your dev box |
 | Azure Deployment Environments | Yes | No | | You cannot transfer an environment and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your environment |
+| Azure Service Fabric | Yes | No | | You must re-create the cluster. For more information, see [SF Clusters FAQ](../service-fabric/service-fabric-common-questions.md) or [SF Managed Clusters FAQ](../service-fabric/faq-managed-cluster.yml) |
 | Azure Service Bus | Yes | Yes | |You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
 | Azure Synapse Analytics Workspace | Yes | Yes |  | You must update the tenant ID associated with the Synapse Analytics Workspace. If the workspace is associated with a Git repository, you must update the [workspace's Git configuration](../synapse-analytics/cicd/source-control.md#switch-to-a-different-git-repository). For more information, see [Recovering Synapse Analytics workspace after transferring a subscription to a different Microsoft Entra directory (tenant)](../synapse-analytics/how-to-recover-workspace-after-tenant-move.md). |
 

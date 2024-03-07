@@ -4,7 +4,6 @@ description: Firewall settings to secure a custom VNET in Azure Container Apps
 services: container-apps
 author: CaryChai
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
 ms.topic:  reference
 ms.date: 08/29/2023
 ms.author: cachai
@@ -33,9 +32,9 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
-| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `31080` | Allow your Client IPs to access Azure Container Apps when using HTTP. |
-| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `31443` | Allow your Client IPs to access Azure Container Apps when using HTTPS. |
-| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `31080` | Allow your Client IPs to access Azure Container Apps when using HTTP. `31080` is the port on which the Container Apps Environment Edge Proxy responds to the HTTP traffic. It is behind the internal load balancer.  |
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `31443` | Allow your Client IPs to access Azure Container Apps when using HTTPS. `31443` is the port on which the Container Apps Environment Edge Proxy responds to the HTTPS traffic. It is behind the internal load balancer. |
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32767`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
 
 # [Consumption only environment](#tab/consumption-only)
 
@@ -43,7 +42,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 |--|--|--|--|--|--|
 | TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `443` | Allow your Client IPs to access Azure Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
 | TCP | Your client IPs | \* | The `staticIP` of your container app environment | `80`, `443` | Allow your Client IPs to access Azure Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
-| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32767`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
 | TCP | Your container app's subnet | \* | Your container app's subnet | \* | Required to allow the container app envoy sidecar to connect to envoy service. |
 
 ---
@@ -64,6 +63,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | Any | Your container app's subnet | \* | Your container app's subnet | \* |  Allow communication between IPs in your container app's subnet.  |
 | TCP | Your container app's subnet | \* | `AzureActiveDirectory` | `443` | If you're using managed identity, this is required. | 
 | TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Only required when using Azure Monitor. Allows outbound calls to Azure Monitor. |
+| TCP and UDP | Your container app's subnet | \* | `168.63.129.16` | `53` | Enables the environment to use Azure DNS to resolve the hostname. |
 
 # [Consumption only environment](#tab/consumption-only)
 
@@ -79,6 +79,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | UDP | Your container app's subnet | \* | \* | `123` | NTP server. |
 | Any | Your container app's subnet | \* | Your container app's subnet | \* |  Allow communication between IPs in your container app's subnet. |
 | TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Only required when using Azure Monitor. Allows outbound calls to Azure Monitor. |
+| TCP and UDP | Your container app's subnet | \* | `168.63.129.16` | `53` | Enables the environment to use Azure DNS to resolve the hostname. |
 
 ---
 
@@ -89,5 +90,4 @@ The following tables describe how to configure a collection of NSG allow rules. 
 #### Considerations
 
 - If you're running HTTP servers, you might need to add ports `80` and `443`.
-- Adding deny rules for some ports and protocols with lower priority than `65000` might cause service interruption and unexpected behavior.
 - Don't explicitly deny the Azure DNS address `168.63.128.16` in the outgoing NSG rules, or your Container Apps environment won't be able to function.

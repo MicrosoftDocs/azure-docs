@@ -5,7 +5,6 @@ services: virtual-machines
 author: mattmcinnes
 ms.service: virtual-machines
 ms.collection: linux
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 03/28/2023
