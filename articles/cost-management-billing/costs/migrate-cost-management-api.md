@@ -3,7 +3,7 @@ title: Migrate EA to Microsoft Customer Agreement APIs - Azure
 description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/19/2022
+ms.date: 02/22/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -43,6 +43,10 @@ The following items help you transition to MCA APIs.
 ## EA APIs replaced with MCA APIs
 
 EA APIs use an API key for authentication and authorization. MCA APIs use Microsoft Entra authentication.
+
+> [!NOTE]
+> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. Any remaining Enterprise Reporting APIs will stop responding to requests. Customers need to transition to using Microsoft Cost Management APIs before then.
+> To learn more, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
 
 | Purpose | EA API | MCA API |
 | --- | --- | --- |

@@ -199,6 +199,8 @@ items:
     items: 
       - name: Submit a job for queuing and routing
         href: quickstarts/router/get-started-router.md
+      - name: Integrate Azure OpenAI with Job Router
+        href: quickstarts/router/job-router-azure-openai-integration.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
@@ -778,8 +780,12 @@ items:
       href: ./concepts/voice-video-calling/retrieve-support-files.md
     - name: User experience
       href: concepts/voice-video-calling/user-experience.md
-    - name: Known issues
-      href: concepts/known-issues.md
+    - name: Known Issues
+      items:    
+      - name: WebJS calling SDK
+        href: concepts/voice-video-calling/known-issues-webjs.md
+      - name: Call Automation
+        href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Chat
     items:
     - name: Overview

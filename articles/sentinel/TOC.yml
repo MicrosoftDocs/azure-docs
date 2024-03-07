@@ -218,6 +218,14 @@
           href: dynamics-365/dynamics-365-finance-operations-security-content.md
         - name: Deploy solution
           href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
+      - name: Microsoft Power Platform solution
+        items:
+        - name: Overview
+          href: business-applications/power-platform-solution-overview.md 
+        - name: Content overview
+          href: business-applications/power-platform-solution-security-content.md
+        - name: Deploy solution
+          href: business-applications/deploy-power-platform-solution.md
   - name: Integrate Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
@@ -808,12 +816,8 @@
       href: connect-azure-functions-template.md    
     - name: CEF/Syslog        
       items:
-      - name: CEF/Syslog options
-        href: connect-cef-syslog-options.md
-      - name: CEF via AMA
-        href: connect-cef-ama.md        
-      - name: CEF and Syslog
-        href: connect-cef-syslog.md
+      - name: CEF and Syslog via AMA
+        href: connect-cef-syslog-ama.md        
       - name: CEF over Syslog sources (legacy)
         href: connect-common-event-format.md
       - name: Deploy a log forwarder (legacy)
@@ -1158,6 +1162,8 @@
   items:
   - name: Service limits
     href: sentinel-service-limits.md
+  - name: Compare playbooks, workbooks, and notebooks
+    href: resources.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: Management references
@@ -1226,6 +1232,8 @@
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference
       href: dns-ama-fields.md
+    - name: Sample API requests for creating Data Collection Rules (DCRs)
+      href: api-dcr-reference.md
     - name: Microsoft Purview Information Protection reference
       href: microsoft-purview-record-types-activities.md
     - name: Microsoft 365 Defender connector data type support
@@ -1264,8 +1272,6 @@
       href: sentinel-soar-content.md
 - name: Resources
   items:
-  - name: Useful resources
-    href: resources.md
   - name: Sample workspace architecture
     href: sample-workspace-designs.md
   - name: Microsoft Sentinel blog

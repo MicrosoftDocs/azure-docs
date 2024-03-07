@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/21/2024
+ms.date: 03/06/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -27,11 +27,12 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
 ## GPT-4 and GPT-4 Turbo Preview
 
- GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
+ GPT-4 is a large multimodal model (accepting text or image inputs and generating text) that can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
+
+ GPT-4 Turbo with Vision is the version of GPT-4 that accepts image inputs.  It is available as the `vision-preview` model of `gpt-4`.
 
 - `gpt-4`
 - `gpt-4-32k`
-- `gpt-4-vision`
 
 You can see the token context length supported by each model in the [model summary table](#model-summary-table-and-region-availability).
 
@@ -97,12 +98,11 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 > [!NOTE]
 > Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  Version `0613` of `gpt-4` and `gpt-4-32k` will be retired no earlier than September 30, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
-
 GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview previously released as version 1106-preview.  GPT-4 version 0125-preview completes tasks such as code generation more completely compared to gpt-4-1106-preview.  Because of this, depending on the task, customers may find that GPT-4-0125-preview generates more output compared to the gpt-4-1106-preview.  We recommend customers compare the outputs of the new model.  GPT-4-0125-preview also addresses bugs in gpt-4-1106-preview with UTF-8 handling for non-English languages. 
 
 > [!IMPORTANT]
 >
-> - `gpt-4` version 0125-preview replaces version 1106-preview. Deployments of `gpt-4` version 1106-preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded on March 8th, 2024 and will complete upgrades within 2 weeks. Deployments of `gpt-4` version 1106-preview set to "No autoupgrade" will stop working starting March 8th, 2024. If you have a deployment of `gpt-4` version 1106-preview, you can test version `0125-preview` in the available regions below.
+> - `gpt-4` versions 1106-Preview and 0125-Preview will be upgraded with a stable version of `gpt-4` in the future. The deployment upgrade of `gpt-4` 1106-Preview to `gpt-4` 0125-Preview scheduled for March 8, 2024 is no longer taking place.  Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded after the stable version is released.  For each deployment, a model version upgrade takes place with no interruption in service for API calls.  Upgrades are staged by region and the full upgrade process is expected to take 2 weeks. Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "No autoupgrade" will not be upgraded and will stop operating when the preview version is upgraded in the region.
 
 |  Model ID  | Max Request (tokens) | Training Data (up to)  |
 |  --- |  :--- | :---: |
@@ -110,11 +110,11 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 | `gpt-4-32k`(0314)  | 32,768               | Sep 2021         |
 | `gpt-4` (0613)     | 8,192                | Sep 2021         |
 | `gpt-4-32k` (0613) | 32,768               | Sep 2021         |
-| `gpt-4` (1106-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Apr 2023         |
-| `gpt-4` (0125-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
+| `gpt-4` (1106-Preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Apr 2023         |
+| `gpt-4` (0125-Preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
 | `gpt-4` (vision-preview)**<sup>2</sup>**<br>**GPT-4 Turbo with Vision Preview**  | Input: 128,000  <br> Output: 4,096              | Apr 2023       |
 
-**<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (0125-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **0125-preview**. 
+**<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (0125-Preview) or `gpt-4` (1106-Preview). To deploy this model, under **Deployments** select model **gpt-4**. Under version select (0125-Preview) or (1106-Preview).
 
 **<sup>2</sup>** GPT-4 Turbo with Vision Preview = `gpt-4` (vision-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **vision-preview**.
 
@@ -132,9 +132,9 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 |---|:---|:---|  
 | gpt-4 (0314) | | East US <br> France Central <br> South Central US <br> UK South |  
 | gpt-4 (0613) | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | East US <br> East US 2 <br> Japan East <br> UK South |  
-| gpt-4 (1106-preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
-| gpt-4 (0125-preview) | East US <br> North Central US <br> South Central US <br> |
-| gpt-4 (vision-preview) |  Sweden Central <br> West US <br> Japan East| Switzerland North <br> Australia East  |  
+| gpt-4 (1106-Preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
+| gpt-4 (0125-Preview) | East US <br> North Central US <br> South Central US <br> |
+| gpt-4 (vision-preview) |  Sweden Central <br> West US <br> Japan East <br> Switzerland North <br> Australia East|   |  
 
 #### Azure Government regions
 
@@ -142,7 +142,7 @@ The following GPT-4 models are available with [Azure Government](/azure/azure-go
 
 |Model ID | Model Availability |
 |--|--|
-| `gpt-4` (1106-preview) | US Gov Virginia<br>US Gov Arizona |
+| `gpt-4` (1106-Preview) | US Gov Virginia<br>US Gov Arizona |
 
 
 ### GPT-3.5 models
@@ -205,7 +205,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |  Model ID  | Feature Availability | Max Request (characters) |
 |  --- |  --- | :---: |
 | dalle2 | East US | 1,000 |
-| dalle3 | Sweden Central | 4,000 |
+| dall-e-3 | Sweden Central | 4,000 |
 
 ### Fine-tuning models
 
@@ -219,6 +219,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 | `davinci-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
 | `gpt-35-turbo` (0613) | North Central US <br> Sweden Central | 4,096 | Sep 2021 |
 | `gpt-35-turbo` (1106) | North Central US <br> Sweden Central | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo` (0125)  | North Central US <br> Sweden Central  | 16,385 | Sep 2021 |
 
 
 ### Whisper models (Preview)

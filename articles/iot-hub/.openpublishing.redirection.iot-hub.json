@@ -732,162 +732,177 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-troubleshooting.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.experimental.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-troubleshooting.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.experimental.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-c-get-started.md",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md",
+      "redirect_url": "/azure/iot-hub/raspberry-pi-get-started",
       "redirect_document_id": false
     },
     {

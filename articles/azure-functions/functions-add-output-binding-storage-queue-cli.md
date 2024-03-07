@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure Storage using command line tools
 description: Learn how to connect Azure Functions to an Azure Storage queue by adding an output binding to your command line project.
-ms.date: 02/07/2020
+ms.date: 03/04/2024
 ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
@@ -13,13 +13,18 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this article, you integrate an Azure Storage queue with the function and storage account you created in the previous quickstart article. You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no additional costs beyond the few USD cents of the previous quickstart. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
+::: zone pivot="programming-language-javascript"  
+>[!NOTE]
+>This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md?pivots=nodejs-model-v3).  
+::: zone-end   
+
 ## Configure your local environment
 
 ::: zone pivot="programming-language-csharp"  
 Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-node.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-node.md?pivot=nodejs-model-v3). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end   
 ::: zone pivot="programming-language-java"  
 Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-java.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
@@ -58,7 +63,7 @@ For more information on the details of bindings, see [Azure Functions triggers a
 With the queue binding defined, you can now update your function to receive the `msg` output parameter and write messages to the queue.
 
 ::: zone pivot="programming-language-python"     
-[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python-v1-v2.md)]
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-storage-binding-python-v2.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript"  

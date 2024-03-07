@@ -31,7 +31,8 @@ NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, NCasT4_v3, ND, and NDv2-series V
 
 ### NVIDIA GRID drivers
 > [!Note]
-> The Azure NVads A10 v5 VMs only support vGPU 14.1(510.73) or higher driver version.
+> The Azure NVads A10 v5 VMs only support **vGPU 14.1(510.73) or higher** driver version.
+> Nvs_v3 VMs only support **vGPU 16 or lower** driver version.
 >
 
 Microsoft redistributes NVIDIA GRID driver installers for NV, NVv3 and NVads A10 v5-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV-series VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You don't need to set up a NVIDIA vGPU software license server.

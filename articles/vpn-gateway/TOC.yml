@@ -85,7 +85,7 @@
         href: vpn-gateway-delete-vnet-gateway-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-delete-vnet-gateway-powershell.md
-  - name: Site-to-site connections
+  - name: Site-to-site
     items:
     - name: Configure site-to-site connections
       items:
@@ -109,7 +109,7 @@
         href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=/azure/vpn-gateway/toc.json
     - name: VPN over private peering
       href: site-to-site-vpn-private-peering.md
-  - name: VNet-to-VNet connections
+  - name: VNet-to-VNet
     items:
     - name: Configure VNet-to-VNet connections
       items:
@@ -125,7 +125,7 @@
         href: vpn-gateway-connect-different-deployment-models-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-connect-different-deployment-models-powershell.md
-  - name: Point-to-site connections
+  - name: Point-to-site
     items:
     - name: Server configuration
       items:
@@ -181,28 +181,28 @@
         href: vpn-gateway-p2s-advertise-custom-routes.md
       - name: Create custom IPsec policies for point-to-site
         href: create-custom-policies-p2s-ps.md
-    - name: VPN client configuration
+    - name: Client configuration
       items:
       - name: Certificate authentication
         items:
-        - name: VPN client configuration files and workflow
+        - name: Client workflow and configuration files
           items:
-          - name: Windows
+          - name: Windows computers
             href: point-to-site-vpn-client-cert-windows.md
           - name: macOS-iOS
             href: point-to-site-vpn-client-cert-mac.md
           - name: Linux
             href: point-to-site-vpn-client-cert-linux.md
-        - name: Configure VPN clients
+        - name: Configure a VPN client
           items:
+          - name: Windows native VPN client
+            href: point-to-site-vpn-client-certificate-windows-native.md
+          - name: OpenVPN client
+            href: point-to-site-vpn-client-certificate-windows-openvpn-client.md
+          - name: Azure VPN Client
+            href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
           - name: Install client certificates
             href: point-to-site-how-to-vpn-client-install-azure-cert.md
-          - name: Configure Windows native VPN client
-            href: point-to-site-vpn-client-certificate-windows-native.md
-          - name: Configure OpenVPN client
-            href: point-to-site-vpn-client-certificate-windows-openvpn-client.md
-          - name: Configure Azure VPN Client
-            href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
       - name: RADIUS authentication
         items:
         - name: Certificate authentication clients

@@ -22,12 +22,12 @@ using Azure.AI.OpenAI;
 using System.Text.Json;
 using static System.Environment;
 
-string azureOpenAIEndpoint = GetEnvironmentVariable("AOAIEndpoint");
-string azureOpenAIKey = GetEnvironmentVariable("AOAIKey");
-string searchEndpoint = GetEnvironmentVariable("SearchEndpoint");
-string searchKey = GetEnvironmentVariable("SearchKey");
-string searchIndex = GetEnvironmentVariable("SearchIndex");
-string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
+string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+string searchEndpoint = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
+string searchKey = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
+string searchIndex = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
+string deploymentName = GetEnvironmentVariable("AZURE_OPEN_AI_DEPLOYMENT_ID");
 
 
 var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
@@ -128,12 +128,12 @@ using Azure.AI.OpenAI;
 using System.Text.Json;
 using static System.Environment;
 
-string azureOpenAIEndpoint = GetEnvironmentVariable("AOAIEndpoint");
-string azureOpenAIKey = GetEnvironmentVariable("AOAIKey");
-string searchEndpoint = GetEnvironmentVariable("SearchEndpoint");
-string searchKey = GetEnvironmentVariable("SearchKey");
-string searchIndex = GetEnvironmentVariable("SearchIndex");
-string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
+string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+string searchEndpoint = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
+string searchKey = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
+string searchIndex = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
+string deploymentName = GetEnvironmentVariable("AZURE_OPEN_AI_DEPLOYMENT_ID");
 
 
 var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));

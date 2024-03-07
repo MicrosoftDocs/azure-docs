@@ -4,8 +4,7 @@ description: Use the Azure IoT Operations portal or the Azure CLI to manage your
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 10/24/2023
 
 #CustomerIntent: As an OT user, I want configure my IoT Operations environment to so that data can flow from my OPC UA servers through to the MQTT broker.
@@ -52,7 +51,7 @@ When you sign in, the portal displays a list of the Azure Arc-enabled Kubernetes
 
 # [Azure CLI](#tab/cli)
 
-Before you use the `az az iot ops asset` commands, sign in to the subscription that contains your Azure IoT Operations deployment:
+Before you use the `az iot ops asset` commands, sign in to the subscription that contains your Azure IoT Operations deployment:
 
 ```azurecli
 az login

@@ -31,6 +31,11 @@ Both installing and updating the CLI require rerunning the install script. Insta
 curl -L https://aka.ms/hdionaksflinkcliinstalllinux | bash
 ```
 
+If you are using Flink 1.17, you can use the below CLI
+```bash
+curl -L https://aka.ms/hdionaksflink117clilinux | bash
+```
+
 This command installs Flink CLI in the user's home directory (`$HOME/flink-cli`). The script can also be downloaded and run locally. You might have to restart your shell in order for changes to take effect.
 
 ## Run an Apache Flink command to test
