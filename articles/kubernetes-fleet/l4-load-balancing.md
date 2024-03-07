@@ -13,9 +13,9 @@ ms.custom:
 
 # Set up multi-cluster layer 4 load balancing across Azure Kubernetes Fleet Manager member clusters (preview)
 
-After deploying an application across multiple clusters, admins often want to set up load balancing for incoming traffic across these application endpoints on member clusters.
+For applications deployed across multiple clusters, admins often want to route incoming traffic to them across clusters.
 
-In this how-to guide, you'll set up layer 4 load balancing across workloads deployed across a fleet's member clusters.
+You can follow this document to set up layer 4 load balancing for such multi-cluster applications.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -27,7 +27,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 * You must have a fleet resource with member clusters with deployed workload. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](resource-propagation.md).
 
-* These target clusters should be using [Azure CNI networking](../aks/configure-azure-cni.md).
+* These target clusters should be using [Azure CNI (Container Networking Interface) networking](../aks/configure-azure-cni.md).
 
 * The target Azure Kubernetes Service (AKS) clusters on which the workloads are deployed need to be present on either the same [virtual network](../virtual-network/virtual-networks-overview.md) or on [peered virtual networks](../virtual-network/virtual-network-peering-overview.md).
 
@@ -73,7 +73,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     KUBECONFIG=fleet kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-export-service.yaml
     ```
 
-    The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, the service and all its endpoints are synced to the fleet cluster and can then be used to set up multi-cluster load balancing across these endpoints. The output will look similar to the following example:
+    The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, the service and all its endpoints are synced to the fleet cluster and can then be used to set up multi-cluster load balancing across these endpoints. The output looks similar to the following example:
 
     ```console
     deployment.apps/kuard created
@@ -131,8 +131,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 ## Create MultiClusterService to load balance across the service endpoints in multiple member clusters
 
-
-1. Check the member clusters in `eastus` region to see if the service is successfully exported:
+1. Check whether the service is successfully exported for the member clusters in `eastus` region:
 
     ```bash
     KUBECONFIG=aks-member-1 kubectl get serviceexport kuard --namespace kuard-demo
@@ -161,7 +160,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     > [!NOTE]
     > It may take a minute or two for the ServiceExport to be propagated.
 
-1. Apply the MultiClusterService on one of these members to load balance across the service endpoints in these clusters:
+1. Create `MultiClusterService` on one member to load balance across the service endpoints in these clusters:
 
     ```bash
     KUBECONFIG=aks-member-1 kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-mcs.yaml
@@ -180,7 +179,6 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     >      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
     >   ...
     > ```
-
 
     Output looks similar to the following example:
 
@@ -203,7 +201,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
     The `IS-VALID` field should be `true` in the output. Check out the external load balancer IP address (`EXTERNAL-IP`) in the output. It may take a while before the import is fully processed and the IP address becomes available.
 
-1. Run the following command multiple times using the External IP address from above:
+1. Run the following command multiple times using the external load balancer IP address:
 
     ```bash
     curl <a.b.c.d>:8080 | grep addrs 
