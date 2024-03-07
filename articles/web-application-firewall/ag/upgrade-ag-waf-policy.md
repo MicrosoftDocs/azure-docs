@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: how-to
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/25/2023
+ms.date: 03/07/2024
 ms.author: lunowak
 ms.custom:
 ---
