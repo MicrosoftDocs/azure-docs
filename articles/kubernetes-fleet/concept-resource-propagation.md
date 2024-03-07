@@ -14,18 +14,18 @@ ms.topic: conceptual
 
 Platform admins often need to deploy Kubernetes resources into multiple clusters, for example:
 * Roles and role bindings to manage who can access what.
-* An infrastructure application that needs to be on all clusters, e.g., Prometheus, Flux.
+* An infrastructure application that needs to be on all clusters, for example, Prometheus, Flux.
 
 Application developers often need to deploy Kubernetes resources into multiple clusters, for example:
-* Deploy a video serving application into multiple clusters, one per region to offer low latency watching experience.
+* Deploy a video serving application into multiple clusters, one per region, for low latency watching experience.
 * Deploy a shopping cart application into two paired regions for customers to continue to shop during a single region outage.
 * Deploy a batch compute application into clusters with inexpensive spot node pools available.
 
-It is tedious to create and update these Kubernetes resources across tens or even hundreds of clusters, and track their current status in each cluster.
+It's tedious to create and update these Kubernetes resources across tens or even hundreds of clusters, and track their current status in each cluster.
 Azure Kubernetes Fleet Manager (Fleet) provides Kubernetes resource propagation to enable at-scale management of Kubernetes resources.
 
 You can create Kubernetes resources in the hub cluster and propagate them to selected member clusters via Kubernetes Customer Resources: `MemberCluster` and `ClusterResourcePlacement`.
-These custom resources are offered by Fleet based on an [open-source cloud-native multi-cluster solution][fleet-github].
+Fleet supports these custom resources based on an [open-source cloud-native multi-cluster solution][fleet-github].
 
 ## What is `MemberCluster`?
 
