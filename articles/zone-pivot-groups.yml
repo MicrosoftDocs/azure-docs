@@ -2940,6 +2940,15 @@ groups:
   - id: method-template
     title: GitHub Actions template
 # Owner: sidandrews
+- id: azure-cosmos-db-apis-nosql-mongodb
+  title: Azure Cosmos DB APIs
+  prompt: Choose an API
+  pivots:
+  - id: api-nosql
+    title: NoSQL
+  - id: api-mongodb
+    title: MongoDB
+# Owner: sidandrews
 - id: azure-cosmos-db-apis-nosql-mongodb-gremlin-table
   title: Azure Cosmos DB APIs
   prompt: Choose an API

@@ -153,7 +153,7 @@ If you're using a user-assigned managed identity for your custom domain suffix c
     "properties": {
         "zoneRedundant": true,
         "customDnsSuffixConfiguration": {
-            "dnsSuffix": "internal-contoso.com",
+            "dnsSuffix": "internal.contoso.com",
             "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
             "keyVaultReferenceIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-migration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-managed-identity"
         }
@@ -171,7 +171,7 @@ If you're using a system-assigned managed identity for your custom domain suffix
     "location": "westcentralus",
     "properties": {
         "customDnsSuffixConfiguration": {
-            "dnsSuffix": "internal-contoso.com",
+            "dnsSuffix": "internal.contoso.com",
             "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
             "keyVaultReferenceIdentity": "SystemAssigned"
         }
@@ -305,7 +305,7 @@ This step takes three to six hours for v2 to v3 migrations and up to six hours f
 >
 > :::image type="content" source="./media/migration/migration-error-2.png" alt-text="Screenshot that shows the potential error notification after migration starts.":::
 
-At this time, detailed migration statuses are available only when you're using the Azure CLI. For more information, see the [Azure CLI section for migrating to App Service Environment v3](#8-migrate-to-app-service-environment-v3-and-check-status).
+At this time, detailed migration statuses are available only when you're using the Azure CLI. For more information, see the Azure CLI section for migrating to App Service Environment v3. You can check the status of the migration with the CLI even if you use the portal to do the migration.
 
 When migration is complete, you have an App Service Environment v3 resource, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
 

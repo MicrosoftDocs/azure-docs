@@ -55,3 +55,7 @@ items:
     href: how-to-monitor-deployment-status.md
   - name: Perform health and configuration checks post-deployment
     href: how-to-perform-checks-post-deployment.md
+- name: Reference
+  items:
+  - name: REST API Reference
+    href: /rest/api/mobilepacketcore 
