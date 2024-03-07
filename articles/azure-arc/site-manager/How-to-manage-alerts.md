@@ -1,11 +1,11 @@
 ---
-title: "[noun phrase] concept(s) for [product or service]"
+title: "[verb] * [noun]"
 description: "[Article description]."
 author: kgremban
 ms.author: kgremban
 ms.service: azure-arc
-# ms.subservice: site-manager
-ms.topic: concept-article #Don't change.
+#ms.subservice: site-manager
+ms.topic: how-to #Don't change
 ms.date: 02/16/2024
 
 #customer intent: As a <role>, I want <what> so that <why>.
@@ -16,7 +16,7 @@ ms.date: 02/16/2024
 
 - Use this template with pattern instructions for:
 
-Concept
+How To
 
 - Before you sign off or merge:
 
@@ -28,12 +28,12 @@ https://aka.ms/patterns-feedback
 
 -->
 
-# [noun phrase] concept(s)
+# "[verb] * [noun]"
 
 <!-- Required: Article headline - H1
 
-Identify the product, service, or feature the
-article covers.
+Identify the product or service and the task the
+article describes.
 
 -->
 
@@ -43,50 +43,68 @@ article covers.
 
 Write a brief introduction that can help the user
 determine whether the article is relevant for them
-and to describe the concept the article covers.
-
-For definitive concepts, it's better to lead with a
-sentence in the form, "X is a (type of) Y that does Z."
+and to describe the task the article covers.
 
 -->
 
 ## Prerequisites
 
-<!--Optional: Prerequisites - H2
+<!-- Optional: Prerequisites - H2
 
-If this section is needed, make "Prerequisites" your
-first H2 in the article.
+If included, "Prerequisites" must be the first H2 in the article.
 
-Use clear and unambiguous language and use
-an unordered list format. 
+List any items that are needed for the integration,
+such as permissions or software.
 
--->
-
-## [Main idea]
-
-[Describe a main idea.]
-
-<!-- Required: Main ideas - H2
-
-Use one or more H2 sections to describe the main ideas
-of the concept.
-
-Follow each H2 heading with a sentence about how
-the section contributes to the whole. Then, describe 
-the concept's critical features as you define what it is.
+If you need to sign in to a portal to do the quickstart, 
+provide instructions and a link.
 
 -->
 
-## Related content
+## "[verb] * [noun]"
+
+[Introduce the procedure.]
+
+1. Procedure step
+1. Procedure step
+1. Procedure step
+
+<!-- Required: Steps to complete the task - H2
+
+In one or more H2 sections, organize procedures. A section
+contains a major grouping of steps that help the user complete
+a task.
+
+Begin each section with a brief explanation for context, and
+provide an ordered list of steps to complete the procedure.
+
+If it applies, provide sections that describe alternative tasks or
+procedures.
+
+-->
+
+## Next step -or- Related content
 <!-- 
-- [Related article title](link.md)
-- [Related article title](link.md)
-- [Related article title](link.md) -->
+> [!div class="nextstepaction"]
+> [Next sequential article title](link.md)
 
-<!-- Optional: Related content - H2
+-or-
 
-Consider including a "Related content" H2 section that 
-lists links to 1 to 3 articles the user might find helpful.
+* [Related article title](link.md)
+* [Related article title](link.md)
+* [Related article title](link.md) -->
+
+<!-- Optional: Next step or Related content - H2
+
+Consider adding one of these H2 sections (not both):
+
+A "Next step" section that uses 1 link in a blue box 
+to point to a next, consecutive article in a sequence.
+
+-or- 
+
+A "Related content" section that lists links to 
+1 to 3 articles the user might find helpful.
 
 -->
 
