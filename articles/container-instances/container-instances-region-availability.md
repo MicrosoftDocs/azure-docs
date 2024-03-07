@@ -10,7 +10,7 @@ ms.date: 1/19/2023
 ms.custom: references_regions
 
 ---
-# Region Availability & Limits
+# Region availability and limits
 
 This article details the availability and quota limits of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/). 
 
@@ -19,7 +19,7 @@ Values presented are the maximum resources available per deployment of a [contai
 > [!NOTE] 
 > Container groups created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower resource settings, or try your deployment at a later time or in a different region with available resources. 
 
-## Default Quota Limits 
+## Default quota limits 
 
 All Azure services include certain default limits and quotas for resources and features. This section details the default quotas and limits for Azure Container Instances.  
 
@@ -32,7 +32,7 @@ Certain default limits and quotas can be increased. To request an increase of on
 > Deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
 > Using GPU resources (preview) is not fully supported yet and any support is provided on a best-effort basis.
 
-### Unchangeable (Hard) Limits 
+### Unchangeable (hard) limits 
 
 The following limits are default limits that can’t be increased through a quota request. Any quota increase requests for these limits will not be approved.  
 
@@ -45,7 +45,7 @@ The following limits are default limits that can’t be increased through a quot
 | Container instance log size - stopped instance | 16 KB or 1,000 lines | 
 
 
-### Changeable Limits (Eligible for Quota Increases) 
+### Changeable limits (eligible for quota increases) 
 
 | Resource | Actual Limit | 
 | --- | :--- | 
@@ -57,11 +57,11 @@ The following limits are default limits that can’t be increased through a quot
 | Container group deletes per hour | 300<sup>1</sup> | 
 | Container group deletes per 5 minutes | 100<sup>1</sup> | 
 
-## Standard Container Resources 
+## Standard container resources 
 
-### Linux Container Groups 
+### Linux container groups 
 
-By default, the following resources are available general purpose (standard core SKU) containers in general deployments and [Azure virtual network](container-instances-vnet.md) deployments) for Linux & Windows containers. 
+By default, the following resources are available general purpose (standard core SKU) containers in general deployments and [Azure virtual network](container-instances-vnet.md) deployments) for Linux and Windows containers. 
 
 | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | 
 | :---: | :---: | :----: | :-----: | :-------: |
@@ -69,7 +69,7 @@ By default, the following resources are available general purpose (standard core
 
 For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/). 
 
-### Windows Containers 
+### Windows containers 
 
 The following regions and maximum resources are available to container groups with [supported and preview](./container-instances-faq.yml) Windows Server containers. 
 
@@ -90,7 +90,7 @@ The following resources are available in all Azure Regions supported by Azure Co
 | :----: | :-----: | :-------: | 
 | 4 | 16 | 20 | Y | 
 
-## Spot Container Resources (Preview)
+## Spot container resources (preview)
 
 The following maximum resources are available to a container group deployed using [Spot Containers](container-instances-spot-containers-overview.md) (preview). 
 
@@ -101,7 +101,7 @@ The following maximum resources are available to a container group deployed usin
 | :---: | :---: | :----: | :-----: | :-------: |
 | 4 | 16 | N/A | N/A | 50 | 
 
-## Confidential Container Resources (Preview)
+## Confidential container resources (preview)
 
 The following maximum resources are available to a container group deployed using [Confidential Containers](container-instances-confidential-overview.md) (preview).
 
@@ -112,7 +112,7 @@ The following maximum resources are available to a container group deployed usin
 | :---: | :---: | :----: | :-----: | :-------: |
 | 4 | 16 | 4 | 16 | 50 | 
 
-## GPU Container Resources (Preview) 
+## GPU container resources (preview) 
 
 > [!IMPORTANT]
 > K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](../aks/aks-migration.md).
