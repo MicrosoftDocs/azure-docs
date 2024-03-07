@@ -373,13 +373,13 @@ So let's begin to create a new file picker that accepts images like the followin
 
 Next we need to set up a event licenser that will be called when there's a state change:
 
-```
+```js
 document.getElementById("upload").addEventListener("change", uploadImages);
 ```
 
 Here we need to create a new function that will be called when state changes:
 
-```
+```js
 var uploadedImageModels = [];
 
 async function uploadImages(e) {
