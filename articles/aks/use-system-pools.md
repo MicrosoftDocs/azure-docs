@@ -48,7 +48,8 @@ System node pools have the following restrictions:
 * System pools osType must be Linux.
 * User node pools osType may be Linux or Windows.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
-* System node pools require a VM SKU of at least 2 vCPUs and 4 GB memory. But burstable-VM(B series) isn't recommended.
+* System node pools require a VM SKU of at least 2 vCPUs and 4GB memory. 
+* [B series VMs][b-series-vm] are not supported for system node pools. 
 * A minimum of two nodes 4 vCPUs is recommended (for example, Standard_DS4_v2), especially for large clusters (Multiple CoreDNS Pod replicas, 3-4+ add-ons, etc.).
 * Spot node pools require user node pools.
 * Adding another system node pool or changing which node pool is a system node pool *does not* automatically move system pods. System pods can continue to run on the same node pool, even if you change it to a user node pool. If you delete or scale down a node pool running system pods that were previously a system node pool, those system pods are redeployed with preferred scheduling to the new system node pool.
@@ -352,8 +353,9 @@ In this article, you learned how to create and manage system node pools in an AK
 [tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/sizes.md
-[use-multiple-node-pools]: create-node-pools.md
+[use-multiple-node-pools]: use-multiple-node-pools.md
 [maximum-pods]: azure-cni-overview.md#maximum-pods-per-node
+[b-series-vm]: ../virtual-machines/sizes-b-series-burstable.md
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
 [start-stop-nodepools]: ./start-stop-nodepools.md
 [node-affinity]: operator-best-practices-advanced-scheduler.md#node-affinity

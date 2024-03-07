@@ -3015,7 +3015,7 @@ SQL.MySQL_SuspiciousIpAnomaly)
 ## Alerts for Resource Manager
 
 > [!NOTE]
-> Alerts with a **delegated access** indication are triggered due to activity of third-party service providers. learn more about [service providers activity indications](/azure/defender-for-cloud/defender-for-resource-manager-usage).
+> Alerts with a **delegated access** indication are triggered due to activity of third-party service providers. learn more about [service providers activity indications](defender-for-resource-manager-usage.md).
 
 [Further details and notes](defender-for-resource-manager-introduction.md)
 
