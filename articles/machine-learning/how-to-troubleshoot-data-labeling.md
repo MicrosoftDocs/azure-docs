@@ -15,6 +15,8 @@ ms.topic: troubleshooting
 
 # Troubleshoot data labeling projects
 
+Only datasets created on blob datastores can be used. This issue is a known limitation of the current release.
+
 If you have errors creating a data labeling project try the following troubleshooting steps.
 
 ## Add Storage Blob Data Contributor access to the workspace identity
@@ -77,6 +79,6 @@ When your workspace is secured with a virtual network, use these steps to set th
 1. Select the datastore you're using to access data in your labeling project.
 1. On the top toolbar, select **Update authentication**.
 1. Toggle on the entry for "Use workspace managed identity for data preview and profiling in Azure Machine Learning studio."
+Related resources
 
-
-
+For information on how to troubleshoot project management issues, see [Troubleshoot project management issues](how-to-manage-labeling-projects.md#troubleshoot-issues).

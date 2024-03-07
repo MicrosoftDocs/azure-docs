@@ -306,11 +306,11 @@ You can also add users and customize the permissions so that they can access lab
 
 ## Troubleshoot issues
 
-Use these tips if you see any of the following issues:
+Use these tips if you see any of the following issues while managing your project:
 
 |Issue |Resolution |
 |---------|---------|
-|Only datasets created on blob datastores can be used.|This issue is a known limitation of the current release.|
+
 |Removing data from the dataset your project uses causes an error in the project.|Don't remove data from the version of the dataset you used in a labeling project. Create a new version of the dataset to use to remove data.|
 |After a project is created, the project status is *Initializing* for an extended time.|Manually refresh the page. Initialization should complete at roughly 20 data points per second. No automatic refresh is a known issue.|
 |Newly labeled items aren't visible in data review.|To load all labeled items, select the **First** button. The **First** button takes you back to the front of the list, and it loads all labeled data.|
