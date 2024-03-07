@@ -43,7 +43,9 @@ If it's Disabled, update it to Enabled and notify your Microsoft onboarding team
 
 [!INCLUDE [operator-call-protection-sub-ucaas-restriction](includes/operator-call-protection-sub-ucaas-restriction.md)]
 
-[!INCLUDE [communications-gateway-provisioning-permissions](../communications-gateway/includes/communications-gateway-provisioning-permissions.md)]
+> TODO - include warning introduced by https://github.com/MicrosoftDocs/azure-docs-pr/blob/4b86515d3db03f2d81a73eefbe797bf045110ff8/articles/communications-gateway/manage-enterprise-operator-connect.md?plain=1.
+
+<!-- [!INCLUDE [communications-gateway-provisioning-permissions](../communications-gateway/includes/communications-gateway-provisioning-permissions.md)] -->
 
 You should use Azure Communications Gateway's Number Management Portal to provision subscribers.
 
