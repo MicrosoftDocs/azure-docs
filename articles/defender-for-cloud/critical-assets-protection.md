@@ -29,7 +29,7 @@ Defender for Cloud now has business criticality concept added to its security po
 
     :::image type="content" source="media/critical-assets-protection/resource-criticality-tile.png" alt-text="Screenshot of the resource criticality tile." lightbox="media/critical-assets-protection/resource-criticality-tile.png":::
 
-1. The **Critical asset management** pane opens. Select **Open Microsoft Defender portal."
+1. The **Critical asset management** pane opens. Select **Open Microsoft Defender portal.**"
 
     :::image type="content" source="media/critical-assets-protection/critical-asset-management-pane.png" alt-text="Screenshot of the critical asset management pane." lightbox="media/critical-assets-protection/critical-asset-management-pane.png":::
 

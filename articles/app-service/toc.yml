@@ -431,6 +431,8 @@
       href: resources-kudu.md
     - name: gRPC configuration
       href: configure-grpc.md
+    - name: Recommended services (preview)
+      href: recommended-services.md      
     - name: App Service on Azure Arc (preview)
       items:
         - name: Azure Arc hosting overview
@@ -483,41 +485,6 @@
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Deployment Scripts
           href: ../automation/automation-runbook-gallery.md
-    - name: Troubleshooting
-      items:
-        - name: Create or delete web apps FAQ 
-          href: /troubleshoot/azure/app-service/create-delete-resources-faq?toc=/azure/app-service/toc.json
-        - name: App performance FAQs
-          href: /troubleshoot/azure/app-service/web-apps-performance-faqs?toc=/azure/app-service/toc.json
-        - name: App Service Compliance with PCI Standards
-          href: /troubleshoot/azure/app-service/app-service-compliance-wit?toc=/azure/app-service/toc.json
-        - name: Back up and restore app services
-          href: /troubleshoot/azure/app-service/backing-up-restoring-and-cloning-microsoft-azure-app-services?toc=/azure/app-service/toc.json
-        - name: Built-in Linux containers FAQs
-          href: /troubleshoot/azure/app-service/faqs-app-service-linux?toc=/azure/app-service/toc.json
-        - name: Deployment FAQs for Web Apps
-          href: /troubleshoot/azure/app-service/web-apps-deployment-faqs?toc=/azure/app-service/toc.json
-        - name: FAQs about scaling web apps
-          href: /troubleshoot/azure/app-service/scaling-web-app-faq?toc=/azure/app-service/toc.json
-        - name: Open-source technologies FAQs for Web Apps
-          href: /troubleshoot/azure/app-service/web-apps-open-source-technologies-faqs?toc=/azure/app-service/toc.json
-        - name: Troubleshoot temporary storage
-          href: /troubleshoot/azure/app-service/temporary-storage-for-azure-app-service?toc=/azure/app-service/toc.json
-        - name: Troubleshoot instance-related issues
-          href:  /troubleshoot/azure/app-service/troubleshoot-instance-related-issues-on-azure-app-service?toc=/azure/app-service/toc.json
-        - name: Troubleshoot intermittent outbound connection errors
-          href: troubleshoot-intermittent-outbound-connection-errors.md
-        - name: Troubleshoot with Visual Studio
-          href: troubleshoot-dotnet-visual-studio.md
-        - name: Troubleshoot Node.js app
-          href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
-        - name: Troubleshoot HTTP 502 & 503
-          href: troubleshoot-http-502-http-503.md
-        - name: Troubleshoot performance issues
-          href: troubleshoot-performance-degradation.md
-        - name: Troubleshoot domain and certificate issues
-          href: troubleshoot-domain-ssl-certificates.md
-
     - name: IP address change
       items:
       - name: Inbound IP address

@@ -250,7 +250,7 @@ How you configure a NetApp account with customer-managed keys with the Azure CLI
         --key-name <key> \
         --keyvault-resource-id <key-vault> \   
         --user-assigned-identity $user_assigned_identity
-     ```
+    ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
