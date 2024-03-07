@@ -213,7 +213,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
        --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME}
    ```
 
-1. Use the following commands to set an access policy of `get list` on Key Vault for the Identity Service application:
+1. If you've configured [single sign-on](quickstart-configure-single-sign-on-enterprise.md), use the following commands to set an access policy of `get list` on Key Vault for the Identity Service application:
 
    ```azurecli
    export IDENTITY_SERVICE_APP_IDENTITY=$(az spring app show \
@@ -235,7 +235,7 @@ After granting access to read secrets from Key Vault, use the following steps to
 1. Use the following command to retrieve the URI for Key Vault to be used in updating applications:
 
    ```azurecli
-   export KEYVAULT_URI=$(az keyvault show --name ${KEY_VAULT_NAME} | jq -r '.properties.vaultUri')
+   export KEYVAULT_URI=$(az keyvault show --name ${KEY_VAULT_NAME} --resource-group ${RESOURCE_GROUP} | jq -r '.properties.vaultUri')
    ```
 
 1. Use the following command to retrieve the URL for Spring Cloud Gateway to be used in updating applications:
@@ -313,7 +313,7 @@ After granting access to read secrets from Key Vault, use the following steps to
        --env "CART_PORT=8080" "KEYVAULT_URI=${KEYVAULT_URI}" "AUTH_URL=https://${GATEWAY_URL}"
    ```
 
-1. Use the following command to update the Identity Service environment and configuration pattern to access Key Vault:
+1. If you've configured [single sign-on](quickstart-configure-single-sign-on-enterprise.md), use the following command to update the Identity Service environment and configuration pattern to access Key Vault:
 
    ```azurecli
    az spring app update \
