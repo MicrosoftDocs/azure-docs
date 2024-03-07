@@ -37,17 +37,43 @@ You must complete the following procedures.
 Navigate to your Azure Communications Gateway resource and find the "Call Protection" tab.
 If it's Disabled, update it to Enabled and notify your Microsoft onboarding team.
 
-> TODO: Replace this picture with the actual one.
-
-![Azure Operator Call Protection on the Azure Communications Gateway resource](media/portal2.png)
+![Azure Operator Call Protection on the Azure Communications Gateway resource](media/enable-azure-operator-call-protection-on-existing.png)
 
 ## Provision subscribers
 
 [!INCLUDE [operator-call-protection-sub-ucaas-restriction](includes/operator-call-protection-sub-ucaas-restriction.md)]
 
-Provision your chosen subscribers with Azure Operator Call Protection using the [Number Management Portal](../communications-gateway/manage-enterprise-operator-connect.md).
+[!INCLUDE [communications-gateway-provisioning-permissions](../communications-gateway/includes/communications-gateway-provisioning-permissions.md)]
 
-> TODO - more context needed for the NMP usage. Andy has asked James Silk for more information.
+You should use Azure Communications Gateway's Number Management Portal to provision subscribers.
+
+### [Number Management Portal]
+
+#### Create an Account
+
+You must create an *Account* for each group of subscribers that you manage with the Number Management Portal.
+
+1. From the overview page for your Communications Gateway resource, find the **Number Management (Preview)** section in the sidebar.
+1. Select **Accounts**.
+1. Select **Create account**.
+1. Fill in an **Account name**.
+1. Select **Enable Azure Operator Call Protection**.
+1. Select **Create**.
+
+#### Manage numbers
+
+1. In the sidebar, locate the **Number Management (Preview)** section and select **Accounts**. Select the **Account name**.
+1. Select **View numbers** to go to the number management page.
+1. To upload new numbers:
+    1. Select **Upload numbers**.
+    1. In **Add numbers**, add each number individually.
+    1. Select **Enable Azure Operator Call Protection**.
+    1. Select **Review and upload** and **Upload**.
+    1. When the order status is **Complete**, the numbers are available.
+1. To remove numbers:
+    1. Select the numbers.
+    1. Select **Delete numbers**.
+    1. When the order status is **Complete**, the numbers have been removed.
 
 ## Carry out integration testing and request changes
 
@@ -64,7 +90,7 @@ Work with your onboarding team to produce a network architecture plan where an e
 - If you need changes to the configuration of devices in your core network, you must make those changes.
 
 > [!NOTE]
-> Remove Azure Operator Call Protection support from a subscriber by updating your network routing routing, then removing the subscribers using the [Number Management Portal](../communications-gateway/manage-enterprise-operator-connect.md#manage-numbers-for-the-enterprise)
+> Remove Azure Operator Call Protection support from a subscriber by updating your network routing, then removing the subscribers using the [manage number](#manage-numbers) section.
 
 ## Test raising a ticket
 
