@@ -75,7 +75,7 @@ The following shows an example configuration for the stage:
 | Name | `input data` |
 | Broker | `tls://aio-mq-dmqtt-frontend:8883` |
 | Authentication | `Service Account Token (SAT)` |
-| Topic | `azure-iot-operations/data/opc.tcp/opc.tcp-1/#` |
+| Topic | `azure-iot-operations/data/#` |
 | Data format | `JSON` |
 
 This example shows the topic used in the [Quickstart: Use Data Processor pipelines to process data from your OPC UA assets](../get-started/quickstart-process-telemetry.md). This configuration then generates messages that look like the following example:

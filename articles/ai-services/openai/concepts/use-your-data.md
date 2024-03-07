@@ -129,7 +129,7 @@ Mapping these fields correctly helps ensure the model has better response and ci
 
 ### Search filter (API)
 
-If you want to implement additional value-based criteria for query execution, you can set up a search filter using the `filter` parameter in the [REST API](../references/azure-search.md).
+If you want to implement additional value-based criteria for query execution, you can set up a [search filter](/azure/search/search-filters) using the `filter` parameter in the [REST API](../references/azure-search.md).
 
 
 # [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
