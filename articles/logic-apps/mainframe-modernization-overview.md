@@ -98,7 +98,7 @@ With these tasks in mind, customers typically choose any of the following paths 
 
 - Agile waves
 
-  This approach follows the Agile principles of software engineering. It is more adopted by customers with larger mainframes or midranges, complex environments: high number of lines of code, high applications density, least known systems and programming languages and high number of dependencies and interfaces. 
+  This approach follows the Agile principles of software engineering. The Agile waves approach is adopted more by customers with larger mainframe or midrange systems and high complexity environments due to a high number of lines of code, high application density, lesser-known systems or programming languages, and a high number of dependencies and interfaces. 
 
 The choice between these paths depends on your organization's needs and scenarios. Each path has benefits and drawbacks to consider. The following sections provide more information about these modernization approaches.
 
