@@ -4,9 +4,9 @@ titleSuffix: Microsoft Sentinel
 description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can manage your custom content and deploy it to Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 03/07/2024
 ms.author: austinmc
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal.
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to know how to connect my source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to know how to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 ---
 
@@ -14,10 +14,9 @@ appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender por
 
 When creating custom content, you can manage it from your own Microsoft Sentinel workspaces, or an external source control repository. This article describes how to create and manage connections between Microsoft Sentinel and GitHub or Azure DevOps repositories. Managing your content in an external repository allows you to make updates to that content outside of Microsoft Sentinel, and have it automatically deployed to your workspaces. For more information, see [Update custom content with repository connections](ci-cd-custom-content.md).
 
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
->
-> The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
+> [!IMPORTANT]
+> - The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - [!INCLUDE [unified-soc-preview](includes/unified-soc-preview-without-alert.md)]
 
 ## Prerequisites and scope
 
