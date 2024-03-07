@@ -56,7 +56,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select the **provider backup peering location** as the next closest to your network location. A peering service will be active via the backup peering location only in the event of failure of primary peering service location for disaster recovery. If **None** is selected, internet is the default failover route in the event of primary peering service location failure.
 
-1. Under the **Prefixes** section, select **Create new prefix**. In **Name**, enter a name for the prefix resource. Enter the prefixes that are associated with the service provider in **Prefix**. In **Prefix key**, enter the prefix key that was given to you by your provider (ISP or IXP). This key allows Microsoft to validate the prefix and provider who have allocated your IP prefix. If your provider is a Route Server partner, you can create all of your prefixes with the same Peering Service prefix key.
+1. Under the **Prefixes** section, select **Create new prefix**. In **Name**, enter a name for the prefix resource. Enter the prefixes that are associated with the service provider in **Prefix**. In **Prefix key**, enter the prefix key that was given to you by your provider (ISP or IXP). This key allows Microsoft to validate the prefix and provider who allocated your IP prefix. If your provider is a Route Server partner, you can create all of your prefixes with the same Peering Service prefix key.
 
     :::image type="content" source="./media/azure-portal/peering-service-configuration.png" alt-text="Screenshot of the Configuration tab of Create a peering service connection in Azure portal."::: 
 
@@ -70,7 +70,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     :::image type="content" source="./media/azure-portal/peering-service-prefix-validation.png" alt-text="Screenshot shows the validation status of the prefixes." lightbox="./media/azure-portal/peering-service-prefix-validation.png":::
 
-If the validation fails, one of the following error messages is displayed:
+If the validation fails, you might see one of the following error messages:
 
    - Invalid Peering Service prefix, the prefix should be valid format, only IPv4 prefix is supported currently.
    - Prefix wasn't received from Peering Service provider, contact Peering Service provider.
@@ -104,7 +104,7 @@ Review the [Technical requirements for Peering Service prefixes](../internet-pee
 
     :::image type="content" source="./media/azure-portal/peering-service-delete.png" alt-text="Screenshot of deleting a Peering Service in Azure portal.":::
 
-## Modifying the primary or backup peering location
+## Modify the primary or backup peering location
 
 If you would like to change the primary or backup peering location in your Peering Service, reach out to peeringservice@microsoft.com. Provide the resource ID of the peering service to modify, and the new primary and backup locations you'd like to be configured.
 
