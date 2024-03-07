@@ -57,7 +57,7 @@ In Azure Cosmos DB, a database is similar to a namespace. A database is simply a
 
 An Azure Cosmos DB container is where data is stored. Unlike most relational databases, which scale up with larger sizes of virtual machines, Azure Cosmos DB scales out.
 
-Data is stored on one or more servers called *partitions*. To increase throughput or storage, you add more partitions. This relationship provides a virtually unlimited amount of throughput and storage for a container.
+Data is stored on one or more servers called *partitions*. To increase partitions, you increase throughput, or they grow automatically as storage increases. This relationship provides a virtually unlimited amount of throughput and storage for a container.
 
 When you create a container, you need to supply a partition key. The partition key is a property that you select from your items to help Azure Cosmos DB distribute the data efficiently across partitions. Azure Cosmos DB uses the value of this property to route data to the appropriate partition to be written, updated, or deleted. You can also use the partition key in the `WHERE` clause in queries for efficient data retrieval.
 
@@ -75,7 +75,7 @@ When you create a container, you configure throughput in one of the following mo
 > [!NOTE]
 > You can't switch between dedicated and shared throughput. Containers that you created in a shared throughput database can't be updated to have dedicated throughput. To change a container from shared to dedicated throughput, you must create a new container and copy data to it.
 
-Containers are schema agnostic. Items within a container can have arbitrary schemas or different entities, as long as they share the same partition key. For example, an item that represents a customer and one or more items that represent all their orders can be placed in the *same container*.
+Containers are schema agnostic. Items within a container can have arbitrary schemas or different entities, as long as they share the same partition key. For example, a container can contain an item or document that has customer profile information, along with one or more items or documents that represent all of the customer's sales orders. You can put similar information for all customers in the *same container*.
 
 By default, all data that you add to a container is automatically indexed without requiring explicit indexing. You can customize the indexing for a container by configuring its [indexing policy](index-overview.md).
 
@@ -85,7 +85,7 @@ Azure Cosmos DB provides a built-in capability for change data capture called [c
 
 You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md), and [merge procedures](how-to-manage-conflicts.md) for your container.
 
-Data within a container must have a unique `id` property value for each logical partition key's value. This property can be useful when you want to have a unique constraint within your container.
+Each document within a container must have an `id` property that's unique within a logical key's property value for that container. You can use this combination of properties to provide a unique constraint within a container, without having to explicitly define one.
 
 You can also specify a [unique key constraint](unique-keys.md) on your Azure Cosmos DB container that uses one or more properties. A unique key constraint ensures the uniqueness of one or more values per logical partition key. If you create a container by using a unique key policy, you can't create any new or updated items with values that duplicate the values that the unique key constraint specifies.
 
@@ -137,7 +137,7 @@ Every Azure Cosmos DB item has the following system-defined properties. Dependin
 |Arbitrary user-defined properties | User defined | User-defined properties in API-native representation (including JSON, BSON, and CQL) | Yes | Yes | Yes | Yes | Yes |
 
 > [!NOTE]
-> Uniqueness of the `id` property is enforced within each logical partition. Multiple documents can have the same `id` property with different partition key values.
+> Uniqueness of the `id` property is enforced within each logical partition. Multiple documents can have the same `id` property value with different partition key values.
 
 ### Operations on items
 
