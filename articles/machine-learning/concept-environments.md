@@ -36,8 +36,6 @@ Curated environments are provided by Azure Machine Learning and are available in
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target. Also be sure to include any dependencies needed for model deployment. User managed environment can be BYOC (Bring Your Own Container) or Docker Build COntext based that delegates image materialization to AzureML.
 
-You're also responsible for specifying the correct location for the Python executable. It is also possible to use a [custom Docker base image](./how-to-deploy-custom-container.md#enable-azure-container-registry-acr)
-
 You use system-managed environments when you want [conda](https://conda.io/docs/) to manage the Python environment for you. A new conda environment is materialized from your conda specification on top of a base docker image.
 
 ## Create and manage environments
