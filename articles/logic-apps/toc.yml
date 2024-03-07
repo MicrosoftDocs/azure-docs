@@ -344,7 +344,7 @@ items:
     - name: IBM Host File
       href: ../connectors/integrate-host-files-ibm-mainframe.md
     - name: IBM i
-      href: ../connectors/integrate-ibmi-apps-dpc.md
+      href: ../connectors/integrate-ibmi-apps-distributed-program-calls.md
     - name: IBM IMS
       href: ../connectors/integrate-ims-apps-ibm-mainframe.md
     - name: IBM Informix
