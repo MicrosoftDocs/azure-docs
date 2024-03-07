@@ -8,7 +8,7 @@ ms.reviewer: avijitgupta
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: release-notes
-ms.date: 03/06/2024
+ms.date: 03/07/2024
 #Customer intent: As a database administrator, I want to review the release notes, so I can understand what new features are released for the service.
 ---
 
