@@ -29,6 +29,11 @@ The integration instruments popular Python libraries in your code, letting you a
 
 Logging telemetry is also collected with your logs that use the standard Python logging library.
 
+## Prerequisites
+
+* Python version must be 3.11 or below.
+* App Service must be deployed as code. Custom containers are not supported.
+
 ## Enable Application Insights
 
 The easiest way to monitor Python applications on Azure App Services is through the Azure portal.
@@ -44,7 +49,7 @@ For a complete list of supported autoinstrumentation scenarios, see [Supported e
 
 Toggle on monitoring for your Python apps in Azure App Service with no code changes required.
 
-Application Insights for Python integrates with Azure App Service on Linux for both code-based and custom containers, and with App Service on Windows for code-based apps.
+Application Insights for Python integrates with code-based Linux Azure App Service.
 
 The integration is in public preview. It adds the Python SDK, which is in GA.
 
