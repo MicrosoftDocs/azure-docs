@@ -409,7 +409,7 @@ All configuration items must be set up before you create the application gateway
       -Name "allowlistcert1" -CertificateFile $trustedRootCertCerPath
     ```
 
-1. Configure HTTP backend settings for the application gateway, including a timeout limit for back-end requests, after which they're canceled. This value is different from the probe timeout.
+1. Configure HTTP backend settings for the application gateway, including a timeout limit for backend requests, after which they're canceled. This value is different from the probe timeout.
 
     ```powershell
     $apimPoolGatewaySetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolGatewaySetting" `
