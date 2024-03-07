@@ -11,7 +11,7 @@ items:
     - name: Models
       href: ./concepts/models.md
     - name: Model retirements
-      href: ./concepts/models-retirements.md
+      href: ./concepts/model-retirements.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
     - name: What's new
