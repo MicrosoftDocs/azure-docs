@@ -4,10 +4,10 @@ description: Use the Azure IoT Operations portal or the Azure CLI to manage your
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
+ms.date: 03/01/2024
 ms.custom:
   - ignite-2023
   - devx-track-azurecli
-ms.date: 02/19/2024
 
 #CustomerIntent: As an OT user, I want configure my IoT Operations environment to so that data can flow from my OPC UA servers through to the MQTT broker.
 ---
@@ -18,14 +18,14 @@ ms.date: 02/19/2024
 
 An _asset_ in Azure IoT Operations Preview is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can have properties, tags, and events that describe its behavior and characteristics.
 
-_OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
+_OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets. 
 
 An _asset endpoint_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to OPC UA connector modules. This connection enables an OPC UA connector to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the Azure IoT OPC UA Broker (preview) instance and Azure IoT MQ (preview) instance. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards telemetry to the OPC UA Broker instance.
 
 This article describes how to use the Azure IoT Operations (preview) portal and the Azure CLI to:
 
 - Define asset endpoints
-- Add assets, and define tags and events.
+- Add assets, and define tags and events
 
 These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQ broker and Azure IoT Data Processor (preview) pipelines.
 
@@ -140,17 +140,17 @@ To configure the asset endpoint to use a transport authentication certificate, c
 
 # [Azure IoT Operations portal](#tab/portal)
 
-1. Follow the steps in [Configure OPC UA transport authentication](howto-configure-opcua-authentication-options.md#configure-opc-ua-transport-authentication) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
-2. In Azure IoT Operations portal, select **Use transport authentication certificate** for the **Transport authentication** field and enter the certificate thumbprint.
+1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#how-to-handle-the-opc-ua-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
+2. In Azure IoT Operations Experience portal, select **Use transport authentication certificate** for the **Transport authentication** field and enter the certificate thumbprint.
 
 # [Azure CLI](#tab/cli)
 
-1. Follow the steps in [Configure OPC UA transport authentication](howto-configure-opcua-authentication-options.md#configure-opc-ua-transport-authentication) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
+1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#how-to-handle-the-opc-ua-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
 
 1. Use a command like the following example to create your asset endpoint:
 
     ```azurecli
-    az iot ops asset endpoint create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --cluster {your cluster name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password" --cert secret=aio-opc-ua-broker-client-certificate thumbprint=000000000000000000 password=aio-opc-ua-broker-client-certificate-password
+    az iot ops asset endpoint create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --cluster {your cluster name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password"
     ```
 
 To learn more, see [az iot ops asset](/cli/azure/iot/ops/asset).
