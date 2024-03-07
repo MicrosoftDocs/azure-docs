@@ -30,7 +30,7 @@ Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft De
    :::image type="content" source="media/search-jobs/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-criteria.png":::
 
    #### [Defender portal](#tab/defender-portal)
-   :::image type="content" source="media/search-jobs/search-job-defender-portal.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-criteria.png":::
+   :::image type="content" source="media/search-jobs/search-job-defender-portal.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-defender-portal.png":::
 
 1. Select the **Start**  to open the advanced Kusto Query Language (KQL) editor and preview of the results for a set time range.
 
