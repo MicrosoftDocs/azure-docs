@@ -7,7 +7,7 @@ keywords: 'Azure, Db2, SAP, IBM'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 08/24/2022
+ms.date: 03/06/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -48,7 +48,8 @@ For information about supported SAP products and Azure VM types, refer to SAP No
 ## IBM Db2 for Linux, UNIX, and Windows Configuration Guidelines for SAP Installations in Azure VMs
 ### Storage Configuration
 For an overview of Azure storage types for SAP workload, consult the article [Azure Storage types for SAP workload](./planning-guide-storage.md)
-All database files must be stored on mounted disks of Azure block storage (Windows: NTFS, Linux: xfs or ext3). 
+All database files must be stored on mounted disks of Azure block storage (Windows: NTFS, Linux: xfs, if [supported](https://www.ibm.com/support/pages/file-systems-recommended-db2-linux-unix-and-windows) for the DB2 version, or ext3).  
+  
 Remote shared volumes like the Azure services in the listed scenarios are **NOT** supported for Db2 database files: 
 
 * [Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service) for all guest OS
