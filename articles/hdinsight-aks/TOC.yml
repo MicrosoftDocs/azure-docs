@@ -180,7 +180,7 @@ items:
     - name: Table API and SQL
       href: ./flink/flink-table-api-and-sql.md
     - name: SQL gateway
-      href: ./flink/start-sql-client-cli-in-gateway-mode.md  
+      href: ./flink/start-sql-client-cli-gateway-mode.md  
   - name: How-to guides
     items:
     - name: General
