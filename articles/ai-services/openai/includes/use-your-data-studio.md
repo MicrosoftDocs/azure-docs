@@ -29,6 +29,7 @@ The **Advanced settings** on the left are [runtime parameters](../concepts/use-y
 
 
 - When **Limit responses to your data** is enabled, the model attempts to only rely on your documents for responses. This is set to true by default.
+
 :::image type="content" source="../media/quickstarts/studio-advanced-settings.png" alt-text="Screenshot of the advanced settings.":::
 
 Send your first query. The chat models perform best in question and answer exercises. For example, "*What are my available health plans?*" or "*What is the health plus option?*".
