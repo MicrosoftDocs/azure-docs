@@ -3,7 +3,7 @@ title: Manage your alert rules
 description: Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 author: AbbyMSFT
 ms.author: abbyweisberg
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 01/14/2024
 ms.reviewer: harelbr
@@ -119,6 +119,16 @@ Metric alert rules have these dedicated PowerShell cmdlets:
 - [List By Subscription](/rest/api/monitor/metricalerts/listbysubscription): Get a list of metric alert rules in a specific subscription.
 - [Update](/rest/api/monitor/metricalerts/update): Update a metric alert rule.
 - [Delete](/rest/api/monitor/metricalerts/delete): Delete a metric alert rule.
+
+## Delete metric alert rules defined on a deleted resource
+
+When you delete an Azure resource, associated metric alert rules aren't deleted automatically. To delete alert rules associated with a resource that's been deleted:
+
+1. Open the resource group in which the deleted resource was defined.
+1. In the list that displays the resources, select the **Show hidden types** checkbox.
+1. Filter the list by Type == **microsoft.insights/metricalerts**.
+1. Select the relevant alert rules and select **Delete**.
+
 
 ## Manage log search alert rules using the CLI
 

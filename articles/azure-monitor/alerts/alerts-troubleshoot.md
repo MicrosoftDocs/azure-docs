@@ -22,7 +22,7 @@ If the alert fires as intended, but the proper notifications don't perform as ex
 
 Otherwise, use the information in the rest of this article to troubleshoot your issue.
 
-## I didn't receive expected email
+## I didn't receive the expected email
 
 If you can see a fired alert in the Azure portal, but didn't receive the email that you configured, follow these steps:
 

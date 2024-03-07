@@ -13,11 +13,12 @@ This article discusses common questions about Azure Monitor [metric alerts](aler
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
 
-## Metric alert wasn't fired when it should
+## Metric alert didn't fire when it should have
 
-If you believe a metric alert should have fired but it didn't fire and it isn't found in the Azure portal, try the following steps:
+If you believe a metric alert should have fired but it didn't, it isn't listed in the Azure portal, try the following steps:
 
-1. **Configuration:** Review the metric alert rule configuration:
+1. **Review the metric alert rule configuration**
+
     - Check that **Aggregation type** and **Aggregation granularity (Period)** are configured as expected. **Aggregation type** determines how metric values are aggregated. To learn more, see [Azure Monitor Metrics aggregation and display explained](../essentials/metrics-aggregation-explained.md#aggregation-types). **Aggregation granularity (Period)** controls how far back the evaluation aggregates the metric values each time the alert rule runs. 
     - Check that **Threshold value** or **Sensitivity** are configured as expected.
     - For an alert rule that uses Dynamic Thresholds, check if advanced settings are configured. **Number of violations** might filter alerts, and **Ignore data before** can affect how the thresholds are calculated.
@@ -25,18 +26,26 @@ If you believe a metric alert should have fired but it didn't fire and it isn't 
        > [!NOTE]
        > Dynamic thresholds require at least 3 days and 30 metric samples before they become active.
 
-1. **Fired but no notification:** Review the [fired alerts list](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) to see if you can locate the fired alert. If you can see the alert in the list but have an issue with some of its actions or notifications, see [Troubleshooting problems in Azure Monitor alerts](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
+1. **Check if the alert fired but didn't send the notification**
 
-1. **Already active:** Check if there's already a fired alert on the metric time series for which you expected to get an alert. Metric alerts are stateful, which means that once an alert is fired on a specific metric time series, more alerts on that time series won't be fired until the issue is no longer observed. This design choice reduces noise. The alert is resolved automatically when the alert condition isn't met for three consecutive evaluations.
+Review the [fired alerts list](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) to see if you can locate the fired alert. If you can see the alert in the list but have an issue with some of its actions or notifications, see [Troubleshooting problems in Azure Monitor alerts](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
 
-1. **Dimensions used:** If you've selected some [dimension values for a metric](./alerts-metric-overview.md#using-dimensions), the alert rule monitors each individual metric time series (as defined by the combination of dimension values) for a threshold breach. To also monitor the aggregate metric time series, without any dimensions selected, configure another alert rule on the metric without selecting dimensions.
+1. **Check if the alert is already active**
 
-1. **Aggregation and time granularity:** If you're visualizing the metric by using [metrics charts](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics), ensure that:
+Check if there's already a fired alert on the metric time series for which you expected to get an alert. Metric alerts are stateful, which means that once an alert is fired on a specific metric time series, more alerts on that time series won't be fired until the issue is no longer observed. This design choice reduces noise. The alert is resolved automatically when the alert condition isn't met for three consecutive evaluations.
+
+1. **Check the dimensions used**
+
+If you've selected some [dimension values for a metric](./alerts-metric-overview.md#using-dimensions), the alert rule monitors each individual metric time series (as defined by the combination of dimension values) for a threshold breach. To also monitor the aggregate metric time series, without any dimensions selected, configure another alert rule on the metric without selecting dimensions.
+
+1. **Check the aggregation and time granularity** 
+
+If you're visualizing the metric by using [metrics charts](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics), ensure that:
 
    * The selected **Aggregation** in the metric chart is the same as **Aggregation type** in your alert rule.
    * The selected **Time granularity** is the same as **Aggregation granularity (Period)** in your alert rule, and isn't set to **Automatic**.
 
-### Metric alert is not triggered every time my condition is met
+## The metric alert is not triggered every time my condition is met
 
 Metric alerts are stateful by default, so other alerts aren't fired if there's already a fired alert on a specific time series. To make a specific metric alert rule stateless and get alerted on every evaluation<sup>1</sup> in which the alert condition is met, use one of these options:
 
@@ -51,7 +60,7 @@ Metric alerts are stateful by default, so other alerts aren't fired if there's a
 > [!NOTE]
 > Making a metric alert rule stateless prevents fired alerts from becoming resolved. So, even after the condition isn't met anymore, the fired alerts remain in a fired state until the 30-day retention period.
 
-## Metric alert rule with dynamic threshold doesn't fire enough
+## A metric alert rule with dynamic threshold doesn't fire enough
 
 You may encounter an alert rule that uses dynamic thresholds doesn't fire or isn't sensitive enough, even though it's configured with high sensitivity. This can happen when the metric's distribution is highly irregular. Consider one of the following solutions to fix the issue:
  - Move to monitoring a complementary metric that's suitable for your scenario, if applicable. For example, check for changes in success rate rather than failure rate.
@@ -59,7 +68,7 @@ You may encounter an alert rule that uses dynamic thresholds doesn't fire or isn
  - Check if there has been a drastic change in the metric behavior in the last 10 days, such as an outage. An abrupt change can affect the upper and lower thresholds calculated for the metric and make them broader. Wait a few days until the outage is no longer taken into the thresholds calculation. You can also edit the alert rule to use the **Ignore data before** option in the **Advanced settings**.
  - If your data has weekly seasonality, but not enough history is available for the metric, the calculated thresholds can result in having broad upper and lower bounds. For example, the calculation can treat weekdays and weekends in the same way and build wide borders that don't always fit the data. This issue should resolve itself after enough metric history is available. Then, the correct seasonality is detected and the calculated thresholds update accordingly.
 
-## Metric alert fired when it shouldn't have
+## A metric alert fired when it shouldn't have
 
 If you believe your metric alert shouldn't have fired but it did, the following steps might help resolve the issue.
 
@@ -88,13 +97,13 @@ If you believe your metric alert shouldn't have fired but it did, the following 
     - Edit the alert rule in the Azure portal. See if the **Automatically resolve alerts** checkbox under the **Alert rule details** section is cleared.
     - Review the script used to deploy the alert rule or retrieve the alert rule definition. Check if the `autoMitigate` property is set to `false`.
 
-## Metric alert rule with dynamic threshold fires too much or is too noisy
+## A metric alert rule with dynamic thresholds fires too much or is too noisy
 
 If an alert rule that uses dynamic thresholds is too noisy or fires too much, you may need to reduce the sensitivity of your dynamic thresholds alert rule. Use one of the following options:
  - **Threshold sensitivity:** Set the sensitivity to **Low** to be more tolerant for deviations.
  - **Number of violations (under Advanced settings):** Configure the alert rule to trigger only if several deviations occur within a certain period of time. This setting makes the rule less susceptible to transient deviations.
 
-## Metric alert rule with dynamic thresholds is showing values that aren't within the range of expected values 
+## A metric alert rule with dynamic thresholds is showing values that aren't within the range of expected values 
 
 When a metric value exhibits large fluctuations, dynamic thresholds may build a wide model around the metric values, which can result in a lower or higher boundary than expected. This scenario can happen when:
  - The sensitivity is set to low.
@@ -102,7 +111,7 @@ When a metric value exhibits large fluctuations, dynamic thresholds may build a 
 
     Consider making the model less sensitive by choosing a higher sensitivity or selecting a larger **Lookback period**. You can also use the **Ignore data before** option to exclude a recent irregularity from the historical data used to build the model.
 
-## Issues configuring Metric alert rules
+## Issues configuring metric alert rules
 
 ### Can't find the metric to alert on
 
@@ -136,22 +145,7 @@ If you want to alert on [specific dimension values of a metric](./alerts-metric-
 - If you want to alert on all possible values of a dimension and even include future values, choose the **Select all current and future values** option.
 - Custom metrics dimensions of Application Insights resources are turned off by default. To turn on the collection of dimensions for these custom metrics, see [Log-based and pre-aggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
-### Dynamic Thresholds is currently not available for this metric warning
-
-Dynamic thresholds are supported for most metrics, but not all.
-Refer to [Metrics not supported by dynamic thresholds](alerts-dynamic-thresholds.md#metrics-not-supported-by-dynamic-thresholds) for the list of metrics.
-
-### The metric isn't available for the selected scope. This might happen if the metric only applies to a specific version or SKU error
-
-Review the metric description in [Supported metrics with Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index) to check if it's only available in specific versions or editions of the resource or this specific type.
-
-For example, in SQL Database resources or Storage file services, there are specific metrics only supported on specific versions of the resource.
-
-### There are no available signals to display. Try changing the scope of this alert rule error
-
-This error indicates an issue with the alert rule scope. This can happen when editing an alert rule scoped to a resource type that supports multi-resource configuration (like Virtual machine or SQL database), and trying to add another resource of the same type, but from a different region. Alerting on multiple resources of the same type from different regions is not supported in Metric alerts.
-
-### Define an alert rule on a custom metric that isn't emitted yet
+### You want to configure an alert rule on a custom metric that isn't emitted yet
 
 When you create a metric alert rule, the metric name is validated against the [Metric Definitions API](/rest/api/monitor/metricdefinitions/list) to make sure it exists. In some cases, you want to create an alert rule on a custom metric even before it's emitted. An example is when you use a Resource Manager template to create an Application Insights resource that will emit a custom metric, along with an alert rule that monitors that metric.
 
@@ -178,6 +172,23 @@ To avoid a deployment failure when you try to validate the custom metric's defin
 > [!NOTE]
 > Using the `skipMetricValidation` parameter might also be required when you define an alert rule on an existing custom metric that hasn't been emitted in several days.
 
+### Warnings and errors
+
+#### Dynamic thresholds is currently not available for this metric warning
+
+Dynamic thresholds are supported for most metrics, but not all.
+Refer to [Metrics not supported by dynamic thresholds](alerts-dynamic-thresholds.md#metrics-not-supported-by-dynamic-thresholds) for the list of metrics.
+
+#### The metric isn't available for the selected scope. This might happen if the metric only applies to a specific version or SKU error
+
+Review the metric description in [Supported metrics with Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index) to check if it's only available in specific versions or editions of the resource or this specific type.
+
+For example, in SQL Database resources or Storage file services, there are specific metrics only supported on specific versions of the resource.
+
+#### There are no available signals to display. Try changing the scope of this alert rule error
+
+This error indicates an issue with the alert rule scope. This can happen when editing an alert rule scoped to a resource type that supports multi-resource configuration (like Virtual machine or SQL database), and trying to add another resource of the same type, but from a different region. Alerting on multiple resources of the same type from different regions is not supported in Metric alerts.
+
 ## Set the alert rule's period and frequency
 
 Choose an **Aggregation granularity (Period)** that's larger than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation of added time series in the following cases:
@@ -185,22 +196,6 @@ Choose an **Aggregation granularity (Period)** that's larger than the **Frequenc
 - **Metric alert rule that monitors multiple dimensions:** When a new dimension value combination is added.
 - **Metric alert rule that monitors multiple resources:** When a new resource is added to the scope.
 - **Metric alert rule that monitors a metric that isn't emitted continuously (sparse metric):** When the metric is emitted after a period longer than 24 hours in which it wasn't emitted.
-
-## How to process data for a metric alert rule in a specific region
-
-You can make sure that an alert rule is processed in a specified region if your metric alert rule is defined with a scope of that region and if it monitors a custom metric.
-
-The following regions are currently supported for regional processing of metric alert rules:
-
-- North Europe
-- West Europe
-- Sweden Central
-- Germany West Central
-
-To enable regional data processing in one of these regions, select the specified region in the **Details** section of the [Create an alert rule wizard](./alerts-create-new-alert-rule.md).
-
-> [!NOTE]
-> We're continually adding more regions for regional data processing.
 
 ## Metric alert rules quota too small
 
@@ -227,63 +222,11 @@ To check the current usage of metric alert rules, follow the next steps.
    1. Verify that the **Status** dropdown box is set to **Enabled**.
    1. The total number of metric alert rules are displayed above the alert rules list.
     
-#### With the API
+#### Using the API
 
    - **PowerShell**: [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
    - **REST API**: [List by subscription](/rest/api/monitor/metricalerts/listbysubscription)
    - **Azure CLI**: [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
-
-## No permissions to create metric alert rules
-
-To create a metric alert rule, you must have the following permissions:
-
-  - Read permission on the target resource of the alert rule.
-  - Write permission on the resource group in which the alert rule is created. If you're creating the alert rule from the Azure portal, the alert rule is created by default in the same resource group in which the target resource resides.
-  - Read permission on any action group associated to the alert rule, if applicable.
-
-## Considerations when creating an alert rule that contains multiple criteria
-   - You can only select one value per dimension within each criterion.
-   - You can't use an asterisk (\*) as a dimension value.
-   - When metrics that are configured in different criteria support the same dimension, a configured dimension value must be explicitly set in the same way for all those metrics. For a Resource Manager template example, see [Create a metric alert with a Resource Manager template](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria).
-
-
-## Naming restrictions for metric alert rules
-
-Consider the following restrictions for metric alert rule names:
-
-- Metric alert rule names can't be changed (renamed) after they're created.
-- Metric alert rule names must be unique within a resource group.
-- Metric alert rule names can't contain the following characters: * # & + : < > ? @ % { } \ /
-- Metric alert rule names can't end with a space or a period.
-- The combined resource group name and alert rule name can't exceed 252 characters.
-
-> [!NOTE]
-> If the alert rule name contains characters that aren't alphabetic or numeric, for example, spaces, punctuation marks, or symbols, these characters might be URL-encoded when retrieved by certain clients.
-
-## Restrictions when you use dimensions in a metric alert rule with multiple conditions
-
-Metric alerts support alerting on multi-dimensional metrics and support defining multiple conditions, up to five conditions per alert rule.
-
-Consider the following constraints when you use dimensions in an alert rule that contains multiple conditions:
-
-- You can only select one value per dimension within each condition.
-- You can't use the option to **Select all current and future values**. Select the asterisk (\*).
-- When metrics that are configured in different conditions support the same dimension, a configured dimension value must be explicitly set in the same way for all those metrics in the relevant conditions.
-For example:
-    - Consider a metric alert rule that's defined on a storage account and monitors two conditions:
-        * Total **Transactions** > 5
-        * Average **SuccessE2ELatency** > 250 ms
-    - You want to update the first condition and only monitor transactions where the **ApiName** dimension equals `"GetBlob"`.
-    - Because both the **Transactions** and **SuccessE2ELatency** metrics support an **ApiName** dimension, you'll need to update both conditions, and have them specify the **ApiName** dimension with a `"GetBlob"` value.
-
-## Metric alert rules still defined on a deleted resource
-
-When you delete an Azure resource, associated metric alert rules aren't deleted automatically. To delete alert rules associated with a resource that's been deleted:
-
-1. Open the resource group in which the deleted resource was defined.
-1. In the list that displays the resources, select the **Show hidden types** checkbox.
-1. Filter the list by Type == **microsoft.insights/metricalerts**.
-1. Select the relevant alert rules and select **Delete**.
 
 ## Next steps
 
