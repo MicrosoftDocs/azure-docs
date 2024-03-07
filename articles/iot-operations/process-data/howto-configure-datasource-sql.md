@@ -31,7 +31,7 @@ In the source stage, you define:
 
 ## Prepare the SQL Server database
 
-Before you can read from a your SQL Server database, you need to grant access to the database from the pipeline. You can use `Username/Password`, `Managed identity`, or `Service principal` to authenticate the pipeline to the database. The advantage of using a managed identity is that you don't need to manage the lifecycle of the service principal or the password details. The managed identity is automatically managed by Azure and is tied to the lifecycle of the resource it's assigned to.
+Before you can read from your SQL Server database, you need to grant access to the database from the pipeline. You can use `Username/Password`, `Managed identity`, or `Service principal` to authenticate the pipeline to the database. The advantage of using a managed identity is that you don't need to manage the lifecycle of the service principal or the password details. The managed identity is automatically managed by Azure and is tied to the lifecycle of the resource it's assigned to.
 
 # [Service principal](#tab/serviceprincipal)
 
