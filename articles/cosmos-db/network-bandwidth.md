@@ -60,9 +60,9 @@ Here's a list of commonly asked questions for this service:
 
   Yes. Azure Cosmos DB includes 5 GB of network bandwidth per month.  
 
-- **Will I still see the previous meters on my bill after Azure Cosmos DB moves to the new meters?**
+- **Will the previous meters still be on my bill after Azure Cosmos DB moves to the new meters?**
 
-  It depends on your situation. You might continue to see previous meters on your Azure bill as the other Azure services continue to use them. You might see Azure Cosmos DB bandwidth billing disabled for a short period during the transition. You aren't double charged during the transition.
+  It depends on your situation. You might continue to see previous meters on your Azure bill as the other Azure services continue to use them. Azure Cosmos DB bandwidth billing might be disabled for a short period during the transition. You aren't double charged during the transition.
 
 - **Will a region failover affect my egress data?**
 

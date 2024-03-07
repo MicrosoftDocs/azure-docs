@@ -32,7 +32,7 @@ For replicating your data and throughput across multiple Azure regions, you can 
 
 Currently, you can create a maximum of 50 Azure Cosmos DB accounts under an Azure subscription. You can increase this limit by making a support request.
 
-You can manage a virtually unlimited amount of data and provisioned throughput through a single Azure Cosmos DB account. To manage your data and provisioned throughput, you create one or more databases within your account and then create one or more containers to store your data.
+You can manage a virtually unlimited amount of data and provisioned throughput by using a single Azure Cosmos DB account. To manage your data and provisioned throughput, you create one or more databases within your account and then create one or more containers to store your data.
 
 The following image shows the hierarchy of elements in an Azure Cosmos DB account.
 
@@ -57,9 +57,9 @@ In Azure Cosmos DB, a database is similar to a namespace. A database is simply a
 
 An Azure Cosmos DB container is where data is stored. Unlike most relational databases, which scale up with larger sizes of virtual machines, Azure Cosmos DB scales out.
 
-Data is stored on one or more servers, called *partitions*. To increase throughput or storage, you add more partitions. This relationship provides a virtually unlimited amount of throughput and storage for a container.
+Data is stored on one or more servers called *partitions*. To increase throughput or storage, you add more partitions. This relationship provides a virtually unlimited amount of throughput and storage for a container.
 
-When you create a container, you need to supply a partition key. The partition key is a property that you select from your items to help Azure Cosmos DB distribute the data efficiently across partitions. Azure Cosmos DB uses the value of this property to route data to the appropriate partition to be written, updated, or deleted. You can also use the partition key in the `WHERE` clause in queries, for efficient data retrieval.
+When you create a container, you need to supply a partition key. The partition key is a property that you select from your items to help Azure Cosmos DB distribute the data efficiently across partitions. Azure Cosmos DB uses the value of this property to route data to the appropriate partition to be written, updated, or deleted. You can also use the partition key in the `WHERE` clause in queries for efficient data retrieval.
 
 The underlying storage mechanism for data in Azure Cosmos DB is called a *physical partition*. Physical partitions can have a throughput amount up to 10,000 Request Units per second, and they can store up to 50 GB of data. Azure Cosmos DB abstracts this partitioning concept with a logical partition, which can store up to 20 GB of data.
 
@@ -73,7 +73,7 @@ When you create a container, you configure throughput in one of the following mo
   Shared throughput can be a good option when all of the containers in the database have similar requests and storage needs, or when you don't need predictable performance on the data. To learn more, see [Provision standard (manual) throughput on a database in Azure Cosmos DB](how-to-provision-database-throughput.md).
 
 > [!NOTE]
-> You can't go between dedicated and shared throughput. Containers that you created in a shared throughput database can't be updated to have dedicated throughput. To change a container from shared to dedicated throughput, you must create a new container and copy data to it.
+> You can't switch between dedicated and shared throughput. Containers that you created in a shared throughput database can't be updated to have dedicated throughput. To change a container from shared to dedicated throughput, you must create a new container and copy data to it.
 
 Containers are schema agnostic. Items within a container can have arbitrary schemas or different entities, as long as they share the same partition key. For example, an item that represents a customer and one or more items that represent all their orders can be placed in the *same container*.
 
@@ -85,7 +85,7 @@ Azure Cosmos DB provides a built-in capability for change data capture called [c
 
 You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md), and [merge procedures](how-to-manage-conflicts.md) for your container.
 
-Data within a container must have a unique `id` property value for each logical partition key value. This property can be useful when you want to have a unique constraint within your container.
+Data within a container must have a unique `id` property value for each logical partition key's value. This property can be useful when you want to have a unique constraint within your container.
 
 You can also specify a [unique key constraint](unique-keys.md) on your Azure Cosmos DB container that uses one or more properties. A unique key constraint ensures the uniqueness of one or more values per logical partition key. If you create a container by using a unique key policy, you can't create any new or updated items with values that duplicate the values that the unique key constraint specifies.
 
@@ -113,11 +113,11 @@ An Azure Cosmos DB container has a set of system-defined properties. Depending o
 |`TimeToLive` | User configurable | Automatic deletion of an item from a container after a set time period. For details, see [Time to live](time-to-live.md). | Yes | No | No | No | Yes |
 |`changeFeedPolicy` | User configurable | Policy for reading changes made to items in a container. For details, see [Change feed](change-feed.md). | Yes | No | No | No | Yes |
 |`uniqueKeyPolicy` | User configurable | Policy for ensuring the uniqueness of one or more values in a logical partition. For more information, see [Unique key constraints](unique-keys.md). | Yes | No | No | No | Yes |
-|`AnalyticalTimeToLive` | User configurable | Automatic deletion of an item a container after a set time period, in the context of an analytical store. For details, see [Analytical store](analytical-store-introduction.md). | Yes | No | Yes | No | No |
+|`AnalyticalTimeToLive` | User configurable | Automatic deletion of an item from a container after a set time period, in the context of an analytical store. For details, see [Analytical store](analytical-store-introduction.md). | Yes | No | Yes | No | No |
 
 ## Azure Cosmos DB items
 
-Depending on which API you use, individual data entities can be represented in many different ways:
+Depending on which API you use, individual data entities can be represented in various ways:
 
 | Azure Cosmos DB entity | API for NoSQL | API for Cassandra | API for MongoDB | API for Gremlin | API for Table |
 | --- | --- | --- | --- | --- | --- |
@@ -149,7 +149,7 @@ Azure Cosmos DB items support the following operations. You can use any of the A
 
 ## Next steps
 
-Learn how to manage your Azure Cosmos DB account and other concepts:
+Learn about how to manage your Azure Cosmos DB account and other concepts:
 
 - [Manage an Azure Cosmos DB account by using the Azure portal](how-to-manage-database-account.md)
 - [Distribute your data globally with Azure Cosmos DB](distribute-data-globally.md)
