@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 03/07/2024
 
 #CustomerIntent: As an administrator, I want to learn how to create and manage a Peering Service connection using the Azure portal so I can enhance the connectivity to Microsoft services over the public internet.
 ---
@@ -50,11 +50,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Configure the Peering Service connection
 
-1. On the **Configuration** page, select your **Country** and **State/Province** where the Peering Service must be enabled. 
+1. On the **Configuration** page, select the **Provider** that you're using to enable the Peering Service. For more information, see [Peering Service partners](location-partners.md)
 
-1. Select the **Provider** that you're using to enable the Peering Service. For more information, see [Peering Service partners](./location-partners.md)
-
-1. Select the **provider primary peering location** closest to your network location. This is the peering service location between Microsoft and the Partner.
+1. Select the **provider primary peering location** closest to your network location. This peering location is between Microsoft and the Partner.
 
 1. Select the **provider backup peering location** as the next closest to your network location. A peering service will be active via the backup peering location only in the event of failure of primary peering service location for disaster recovery. If **None** is selected, internet is the default failover route in the event of primary peering service location failure.
 
@@ -68,7 +66,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     :::image type="content" source="./media/azure-portal/peering-service-create.png" alt-text="Screenshot of the Review + create tab of Create a peering service connection in Azure portal.":::
 
-1. After you create a Peering Service connection, additional validation is performed on the included prefixes. You can review the validation status under the **Prefixes** section of your Peering Service. 
+1. After you create a Peering Service connection, more validation is performed on the included prefixes. You can review the validation status under the **Prefixes** section of your Peering Service. 
 
     :::image type="content" source="./media/azure-portal/peering-service-prefix-validation.png" alt-text="Screenshot shows the validation status of the prefixes." lightbox="./media/azure-portal/peering-service-prefix-validation.png":::
 
@@ -108,7 +106,7 @@ Review the [Technical requirements for Peering Service prefixes](../internet-pee
 
 ## Modifying the primary or backup peering location
 
-If you would like to change the primary or backup peering location in your Peering Service, reach out to peeringservice@microsoft.com to request this. Give the resource ID of the peering service to modify, and the new primary and backup locations you'd like to be configured.
+If you would like to change the primary or backup peering location in your Peering Service, reach out to peeringservice@microsoft.com. Provide the resource ID of the peering service to modify, and the new primary and backup locations you'd like to be configured.
 
 ## Related content
 
