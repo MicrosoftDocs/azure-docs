@@ -33,8 +33,6 @@
       items:
       - name: Create a rule
         href: core/tutorial-create-telemetry-rules.md
-      - name: Explore an Azure IoT Central industrial scenario
-        href: core/tutorial-industrial-end-to-end.md
       - name: Explore the IoT Central APIs
         href: core/tutorial-use-rest-api.md
     - name: Create industry specific demo apps
@@ -110,8 +108,7 @@
       href: core/concepts-faq-scalability-availability.md
     - name: What are IoT Central's scale limits?
       href: core/concepts-quotas-limits.md
-    - name: How do I move between aPaaS and PaaS solutions?
-      href: core/concepts-faq-apaas-paas.md
+
 - name: How-to guides
   items:
     - name: Create an application
@@ -209,8 +206,6 @@
           href: core/howto-manage-jobs-with-rest-api.md
         - name: Manage applications
           href: core/howto-manage-iot-central-with-rest-api.md
-        - name: Manage dashboards  
-          href: core/howto-manage-dashboards-with-rest-api.md
         - name: File upload
           href: core/howto-upload-file-rest-api.md
           
@@ -270,8 +265,6 @@
       href: https://devices.cloudrail.com/documentation?service=AzureIoTCentral#azureiotcentral1
     - name: Ignition
       href: https://docs.chariot.io/display/CLD80/Publishing+Data+to+Azure+IoT+Central
-    - name: Omnio
-      href: https://www.omnio.net/contact
 
   - name: Azure IoT services
     items:

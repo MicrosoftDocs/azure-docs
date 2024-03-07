@@ -1282,6 +1282,7 @@
   "articles/mysql/.openpublishing.redirection.mysql.json",
   "articles/network-watcher/.openpublishing.redirection.network-watcher.json",
   "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
+  "articles/operator-insights/.openpublishing.redirection.operator-insights.json",
   "articles/operator-nexus/.openpublishing.redirection.operator-nexus.json",
   "articles/peering-service/.openpublishing.redirection.peering-service.json",
   "articles/postgresql/.openpublishing.redirection.postgresql.json",

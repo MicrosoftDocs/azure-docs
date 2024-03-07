@@ -13,7 +13,7 @@ manager: nitinme
 
 # Abuse Monitoring
 
-Azure OpenAI Service detects and mitigates instances of recurring content and/or behaviors that suggest use of the service in a manner that may violate the [Code of Conduct](/legal/cognitive-services/openai/code-of-conduct?context=/azure/ai-services/openai/context/context) or other applicable product terms. Details on how data is handled can be found on the [Data, Privacy and Security page](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context).
+Azure OpenAI Service detects and mitigates instances of recurring content and/or behaviors that suggest use of the service in a manner that may violate the [Code of Conduct](/legal/cognitive-services/openai/code-of-conduct?context=/azure/ai-services/openai/context/context) or other applicable product terms. Details on how data is handled can be found on the [Data, Privacy and Security page](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context). Apply for modified abuse monitoring using this form: [Azure OpenAI Limited Access Review: Modified Abuse Monitoring](https://ncv.microsoft.com/3a140V2W0l).
 
 ## Components of abuse monitoring
 

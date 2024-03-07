@@ -43,7 +43,7 @@ If you want resources in the same region, start with:
 
 ## Generate an embedding for an improvised query
 
-The Postman collection assumes that you already have a vector query. Here's some Python code for generating an embedding that you can paste into the "values" property of a vector query.
+The following Python code generates an embedding that you can paste into the "values" property of a vector query.
 
 ```python
 !pip install openai==0.28.1

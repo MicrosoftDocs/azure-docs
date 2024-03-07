@@ -212,47 +212,45 @@ The semantic schema of a document type is described via the fields it contains. 
 
 * Currency: Currency amount with optional currency unit. A value, for example: ```InvoiceTotal: $123.45```
 
-    ```json
-    {
-        "amount": 123.45,
-        "currencySymbol": "$"
-    }
-        ```
+  ```json
+  {
+      "amount": 123.45,
+      "currencySymbol": "$"
+  }
+  ```
 
 * Address: Parsed address. For example: ```ShipToAddress: 123 Main St., Redmond, WA 98052```
 
-```json
-    {
-    "poBox": "PO Box 12",
-    "houseNumber": "123",
-    "streetName": "Main St.",
-    "city": "Redmond",
-    "state": "WA",
-    "postalCode": "98052",
-    "countryRegion": "USA",
-    "streetAddress": "123 Main St."
-    }
-
-```
+  ```json
+  {
+  "poBox": "PO Box 12",
+  "houseNumber": "123",
+  "streetName": "Main St.",
+  "city": "Redmond",
+  "state": "WA",
+  "postalCode": "98052",
+  "countryRegion": "USA",
+  "streetAddress": "123 Main St."
+  }
+  ```
 
 #### Structured types
 
 * Array: List of fields of the same type
 
-```json
-"Items": {
-    "type": "array",
-    "valueArray": [
-
-    ]
-}
-
-```
+  ```json
+  "Items": {
+      "type": "array",
+      "valueArray": [
+  
+      ]
+  }
+  ```
 
 * Object: Named list of subfields of potentially different types
 
-```json
-"InvoiceTotal": {
+  ```json
+  "InvoiceTotal": {
     "type": "currency",
     "valueCurrency": {
         "currencySymbol": "$",
@@ -281,8 +279,8 @@ The semantic schema of a document type is described via the fields it contains. 
             "length": 7
         }
     ]
-}
-```
+  }
+  ```
 
 ## Next steps
 

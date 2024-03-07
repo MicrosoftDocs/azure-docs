@@ -135,7 +135,7 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
 
     ```console
     export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
-   ```
+    ```
 
 1. Print the value of the environment variable to validate that it's set properly with the command below.
 

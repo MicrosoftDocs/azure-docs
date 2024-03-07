@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 02/22/2024
+ms.date: 03/04/2024
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -24,7 +24,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group isn't supported.
 * If you're making use of infrastructure nodes, don't run any undesignated workloads on them as this can affect the Service Level Agreement and cluster stability. Also, it's recommended to have three infrastructure nodes; one in each availability zone. See [Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster](howto-infrastructure-nodes.md) for more information.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use an RHEL compute node.
-* Don't attempt to remove or replace a master node. These are high risk operations that can cause issues with etcd, permanent network loss, and loss of access and manageability by ARO SRE. If you feel that a master node should be replaced or removed, contact support before making any changes.
+* Don't attempt to remove or replace a master node. That's a high risk operation that can cause issues with etcd, permanent network loss, and loss of access and manageability by ARO SRE. If you feel that a master node should be replaced or removed, contact support before making any changes.
 
 ### Operators
 
@@ -35,12 +35,12 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't add taints that would prevent any default OpenShift components from being scheduled.
 * To avoid disruption resulting from cluster maintenance, in-cluster workloads should be configured with high availability practices, including but not limited to pod affinity and anti-affinity, pod disruption budgets, and adequate scaling.
 * Don't run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it causes extra resource usage and stability issues that can affect the entire cluster.
-* Running custom workloads (including operators installed from Operator Hub or additional operators provided by Red Hat) in infrastructure nodes isn't supported.
+* Running custom workloads (including operators installed from Operator Hub or other operators provided by Red Hat) in infrastructure nodes isn't supported.
 
 ### Logging and monitoring
 
 * Don't remove or modify the default cluster Prometheus service, except to modify scheduling of the default Prometheus instance.
-* Don't remove or modify the default cluster Alertmanager svc, default receiver, or any default alerting rules, except to add additional receivers to notify external systems.
+* Don't remove or modify the default cluster Alertmanager svc, default receiver, or any default alerting rules, except to add other receivers to notify external systems.
 * Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).
 
 ### Network and security
@@ -56,13 +56,13 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't override any of the cluster's MachineConfig objects (for example, the kubelet configuration) in any way.
 * Don't set any unsupportedConfigOverrides options. Setting these options prevents minor version upgrades.
 * Don't place policies within your subscription or management group that prevent SREs from performing normal maintenance against the Azure Red Hat OpenShift cluster. For example, don't require tags on the Azure Red Hat OpenShift RP-managed cluster resource group.
-* Don't circumvent the deny assignment that is configured as part of the service, or perform administrative tasks that are normally prohibited by the deny assignment.
+* Don't circumvent the deny assignment that is configured as part of the service, or perform administrative tasks normally prohibited by the deny assignment.
 * OpenShift relies on the ability to automatically tag Azure resources. If you have configured a tagging policy, don't apply more than 10 user-defined tags to resources in the managed resource group.
 
 
 ## Incident management
 
-An incident is an event that results in a degradation or outage Azure Red Hat OpenShift services. An incident can be raised by a customer or Customer Experience and Engagement (CEE) member through a [support case](openshift-service-definitions.md#support), directly by the centralized monitoring and alerting system, or directly by a member of the ARO Site Reliability Engineer (SRE) team.
+An incident is an event that results in a degradation or outage Azure Red Hat OpenShift services. Incidents are raised by a customer or Customer Experience and Engagement (CEE) member through a [support case](openshift-service-definitions.md#support), directly by the centralized monitoring and alerting system, or directly by a member of the ARO Site Reliability Engineer (SRE) team.
 
 Depending on the impact on the service and customer, the incident is categorized in terms of severity.
 
@@ -271,3 +271,10 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |NC24sV3|Standard_NC24s_v3|24|448|
 |NC24rsV3|Standard_NC24rs_v3|24|448|
 |NC64asT4v3|Standard_NC64as_T4_v3|64|440|
+|ND96asr_v4*|Standard_ND96asr_v4|96|900|
+|ND96amsr_A100_v4*|Standard_ND96amsr_A100_v4|96|1924|
+|NC24ads_A100_v4*|Standard_NC24ads_A100_v4|24|220|
+|NC48ads_A100_v4*|Standard_NC48ads_A100_v4|48|440|
+|NC96ads_A100_v4*|Standard_NC96ads_A100_v4|96|880|
+
+\*Day-2 only (i.e., not supported as an install-time option)

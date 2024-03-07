@@ -121,14 +121,14 @@ For other Defender for Cloud quickstart templates, see these [community contribu
 
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-    # [CLI](#tab/CLI)
+   # [CLI](#tab/CLI)
 
     ```azurecli
     az group create --name exampleRG --location eastus
     az deployment group create --resource-group exampleRG --template-file main.bicep --parameters automationName=<automation-name> logicAppName=<logic-name> logicAppResourceGroupName=<group-name> alertSettings={alert-settings}
     ```
 
-    # [PowerShell](#tab/PowerShell)
+   # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus

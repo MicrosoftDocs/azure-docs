@@ -9386,6 +9386,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/docker/index.yml",
+            "redirect_url": "/dotnet/architecture/microservices/container-docker-introduction/docker-defined",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vs-azure-tools-docker-edit-and-refresh.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-edit-and-refresh",
             "redirect_document_id": false
