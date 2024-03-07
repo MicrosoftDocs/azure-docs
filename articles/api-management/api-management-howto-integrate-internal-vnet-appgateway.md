@@ -106,7 +106,6 @@ $gatewayCertPfxPassword = "certificatePassword123"            # Password for api
 $portalCertPfxPassword = "certificatePassword123"             # Password for portal.contoso.net pfx certificate
 $managementCertPfxPassword = "certificatePassword123"         # Password for management.contoso.net pfx certificate
 
-
 # These variables may be changed.
 $resGroupName = "rg-apim-agw"                                 # Resource group name that will hold all assets
 $location = "West US"                                         # Azure region that will hold all assets
@@ -144,7 +143,10 @@ Resource Manager requires that all resource groups specify a location. This loca
 
 The following example shows how to create a virtual network by using Resource Manager. The virtual network in this example consists of separate subnets for Application Gateway and API Management.
 
-1. Create the Application Gateway public IP and set the private IP addresses prior to creating the NSG as we need both IPs to be added to the NSG. Note that the internal IP address is arbitrary.
+1. Set the Application Gateway IP addresses. 
+
+    > [!NOTE]
+    > As there will be public and private listeners, we need a public and a private IP address. The static, public IP address must be created whereas the private IP address must be selected from the subnet that is associated with the application gateway. The private IP address below has been selected arbitrarily.
 
     ```powershell
     $appGatewayExternalIP = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "pip-ag" -location $location -AllocationMethod Static -Sku Standard -Force
@@ -404,7 +406,7 @@ All configuration items must be set up before you create the application gateway
     ```powershell
     $trustedRootCert = New-AzApplicationGatewayTrustedRootCertificate `
       -Name "allowlistcert1" -CertificateFile $trustedRootCertCerPath
-
+    ```
 
 1. Configure HTTP backend settings for the application gateway, including a timeout limit for back-end requests, after which they're canceled. This value is different from the probe timeout.
 
