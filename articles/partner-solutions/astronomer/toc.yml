@@ -10,7 +10,7 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an Apache Airflow Deployment on Astro
+  - name: Create an Apache Airflow deployment on Astro
     href: astronomer-create.md
 - name: How to
   items:

@@ -36,28 +36,22 @@ landingContent:
         links:
           - text: Troubleshooting Apache Airflow on Astro 
             url: astronomer-troubleshoot.md
-      - linkListType: overview
-        links:
-          - text: Astro resources and developer tools 
-            url: astronomer-tools.md
   #Card
-  - title: SDKs and command-lines
+  - title: SDKs and tools
     linkLists:
       - linkListType: reference 
         links:
-#          - text: Python
-#            url: /python/api/overview/azure/astro
-#          - text: JavaScript
-#            url: /javascript/api/overview/azure/astro
-#          - text: .NET
-#            url: /dotnet/api/overview/azure/astro
-#          - text: Java
-#            url: /java/api/overview/azure/astro
-#          - text: CLI
-#            url: /cli/azure/service-page/astro
-#          - text: Azure PowerShell
-#            url: /powershell/module/az.astro
-           - text: Astro developer tools 
-             url: astronomer-tools.md#developer-tools
+        - text: CLI
+          url: /cli/azure/service-page/astronomer
+        - text: Go
+          url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/astro/armastro@v0.1.0#section-readme
+        - text: Java
+          url: /java/api/overview/azure/astro
+        - text: JavaScript
+          url: https://www.npmjs.com/package/@azure/arm-astro/v/1.0.0-beta.1
+        - text: Python
+          url: /python/api/overview/azure/liftr-astronomer
+        - text: Astro developer tools 
+          url: astronomer-tools.md#developer-tools
 
   
