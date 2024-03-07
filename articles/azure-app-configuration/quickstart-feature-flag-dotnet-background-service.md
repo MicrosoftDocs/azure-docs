@@ -68,6 +68,11 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 1. Connect to App Configuration. Register configuration and feature management services.
 
     ```csharp
+    // Existing code in Program.cs
+    // ... ...
+
+    var builder = Host.CreateApplicationBuilder(args);
+
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
         options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
@@ -78,6 +83,9 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     });
 
     builder.Services.AddFeatureManagement();
+
+    // The rest of existing code in Program.cs
+    // ... ...
     ```
 
     > [!TIP]
@@ -132,6 +140,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
                         _logger.LogInformation("[{time}]: Worker running in stable mode.", DateTimeOffset.Now);
                     }
                 }
+                
                 await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
             }
         }
@@ -185,6 +194,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     ```
 
 1. After the build successfully completes, run the following command to run the app locally.
+
 
     ```dotnetcli
     dotnet run
