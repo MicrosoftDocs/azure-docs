@@ -75,7 +75,7 @@ This Azure Logic Apps connector for IMS uses the IBM IMS Connect component, whic
 
 This Azure Logic Apps connector for MQ enables connections between Standard workflows and IBM MQ servers on premises or in Azure. Microsoft also provides IBM MQ integration capabilities with Host Integration Server and BizTalk Server. For more information, see [Connect to an IBM MQ server from a workflow in Azure Logic Apps](../connectors/connectors-create-api-mq.md).
 
-## The Challenges involved with mainframe and midranges modernization
+## Challenges for mainframe and midrange systems modernization
 
 Mainframes and Midranges host multiple environments that contain programs, data, files and tools. Over the years, these environments, may have not been refactored or left them to grow to reach their limits, despite the hardware upgrades. Those environments might have also been maintained by multiple developers and IT admins, following different programming patterns, techniques or incorporating third parties to aid in tasks that require expertise scarce in the market. All of this, added to a shriking pool of experienced professionals, makes of mainframes and midranges, complex environments to modernize.
 
