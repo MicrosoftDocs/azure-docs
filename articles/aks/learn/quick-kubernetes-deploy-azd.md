@@ -97,7 +97,12 @@ The Azure Development Template contains all the code needed to create the servic
 
 ## Create resources for your cluster
 
-The step can take longer depending on your internet speed.
+AZD runs all the hooks inside of the `azd-hooks` folder to pre-register, provision, then deploy these services. 
+
+- **Store front**: Web application for customers to view products and place orders.
+- **Product service**: Shows product information.
+- **Order service**: Places orders.
+- **Rabbit MQ**: Message queue for an order queue.
 
 1. Create all your resources with the `azd up` command.
 

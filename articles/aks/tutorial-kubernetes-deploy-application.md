@@ -170,7 +170,7 @@ AZD doesn't require a container registry step since it's in the template.
     service/store-front created
     ```
 
-2. Check the deployment is successful by viewing the pods with `kubectl`
+2. Check the deployment is successful by viewing the pods with `kubectl`.
 
     ```console
     kubectl get pods
@@ -178,13 +178,13 @@ AZD doesn't require a container registry step since it's in the template.
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-Deployment in AZD in broken down into multiple stages represented by hooks. By default, azd deploys with all hooks.
+1. Deployment in AZD in broken down into multiple stages represented by hooks. By default, azd deploys with all hooks.
 
     ```azurecli-interactive
     azd up
     ```
 
-When you first run azd up, you're prompted to select which Subscription and Region to host your Azure resources.
+2. When you first run azd up, you're prompted to select which Subscription and Region to host your Azure resources.
 
     ```output
     ? Select an Azure Subscription to use:  [Use arrows to move, type to filter]
@@ -193,7 +193,7 @@ When you first run azd up, you're prompted to select which Subscription and Regi
     > 43. (US) East US 2 (eastus2)
     ```
 
-You can update these variables for `AZURE_LOCATION` and `AZURE_SUBSCRIPTION_ID` from inside the `.azure/<your-env-name>/.env` file.
+3. You can update these variables for `AZURE_LOCATION` and `AZURE_SUBSCRIPTION_ID` from inside the `.azure/<your-env-name>/.env` file.
 
 ---
 
