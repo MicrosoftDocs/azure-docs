@@ -2,7 +2,7 @@
  title: include file
  description: include file
  author: rolyon
- ms.service: active-directory
+ ms.service: entra-id
  ms.topic: include
  ms.date: 08/22/2023
  ms.author: rolyon
