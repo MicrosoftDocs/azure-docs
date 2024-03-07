@@ -44,7 +44,7 @@ To get an idea of the downtime required for migrating your server, we strongly r
 ## Set up Online migration (preview) parameters
 
 > [!NOTE]
-> For Online migrations using Single servers running PostgreSQL 9.5 and 9.6, we explicitly have to allow replication connection. To enable that, add a firewall entry to allowlist connection from target. Make sure the firewall rule name has `_replrule` suffix. The suffic isn't required for Single servers running PostgreSQL 10 and 11. The Single to Flex Migration tool is available in all Azure regions and supports **Offline** and **Online** migration mode. **Offline migration** is generally available and **Online migration** is in preview across all regions.
+> For Online migrations using Single servers running older versions of PostgreSQL 9.5 and 9.6, we explicitly have to allow the replication connection. Please raise a support ticket for help adding the firewall rule so that connection can be established with the target Flexible server. The additional step of adding a firewall rule isn't required for Single servers running PostgreSQL 10 and 11. The Single to Flex Migration tool is available in all Azure regions and supports **Offline** and **Online** migration mode. **Offline migration** is generally available and **Online migration** is in preview across all regions.
 
 For Online migration, the Azure replication support should be set to Logical under the Replication settings of the Single server page in the Azure portal. In addition, the server parameters `max_wal_senders` and `max_replication_slots` values should be equal to the number of Databases that need to be migrated. They can also be configured in the command line using the following commands:
 
