@@ -34,7 +34,7 @@ Environments can broadly be divided into three categories: *curated*, *user-mana
 
 Curated environments are provided by Azure Machine Learning and are available in your workspace by default. Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks. These precreated environments also allow for faster deployment time. Curated environments are hosted in [AzureML Registry](concept-machine-learning-registries-mlops.md). For a full list, see the [environments in azureml registry](https://ml.azure.com/registries/azureml/environments).
 
-In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target. Also be sure to include any dependencies needed for model deployment. User managed environment can be BYOC (Bring Your Own Container) or Docker Build COntext based that delegates image materialization to AzureML.
+In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target. Also be sure to include any dependencies needed for model deployment. User managed environment can be BYOC (Bring Your Own Container) or Docker Build Context based that delegates image materialization to AzureML.
 
 You use system-managed environments when you want [conda](https://conda.io/docs/) to manage the Python environment for you. A new conda environment is materialized from your conda specification on top of a base docker image.
 
