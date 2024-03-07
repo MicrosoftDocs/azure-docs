@@ -20,13 +20,13 @@ With Advisor, you can:
 
 You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **All services** menu.
 
-The Advisor dashboard displays personalized and automated recommendations for all your subscriptions. The recommendations are divided into five categories: 
+The Advisor dashboard displays personalized recommendations for all your subscriptions. The recommendations are divided into five categories: 
 
-* **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
-* **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
 * **Reliability (formerly called High Availability)**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor Reliability recommendations](advisor-high-availability-recommendations.md).
-* **Operational Excellence**: To help you achieve process and workflow efficiency, resource manageability and deployment best practices. For more information, see [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md).
+* **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
 * **Performance**: To improve the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-performance-recommendations.md).
+* **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
+* **Operational Excellence**: To help you achieve process and workflow efficiency, resource manageability and deployment best practices. For more information, see [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md).
 
 You can apply filters to display recommendations for specific subscriptions and resource types.
 
@@ -58,14 +58,6 @@ Azure Advisor also includes your recommendations from [Microsoft Defender for Cl
 ### Can I postpone or dismiss a recommendation?
 
 To postpone or dismiss a recommendation, select the **Postpone**  or **Dismiss** link, and the recommendation is moved to the Postponed/Dismissed tab on the recommendation list page.
-
-### How do I adopt or resolve a recommendation?
-
-Once a recommendation is *Active*, it becomes visible to engineers and authorized users who can take the recommended action.
-
-### After I resolved the recommendation, why is it still showing in my list?
-
-Once you resolve a recommendation and mark it as *Completed*, it takes Advisor 24 hours to remove the recommendation from your list.
 
 ## Next steps
 
