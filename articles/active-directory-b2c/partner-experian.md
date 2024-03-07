@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm an Azure AD B2C administrator, and I want to integrate Experian CrossCore with Azure AD B2C. I need to verify user identification and perform risk analysis based on user attributes during sign-up.
+# Customer intent: I'm an Azure AD B2C administrator, and I want to integrate Experian CrossCore with Azure AD B2C. I need to verify user identification and perform risk analysis based on user attributes during sign-up.
 ---
 # Tutorial: Configure Experian with Azure Active Directory B2C
 

@@ -11,7 +11,7 @@ ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C 
 
-#customer intent: As an application developer using header-based authentication, I want to migrate my legacy application to Azure Active Directory B2C with Grit app proxy. I want to enable modern authentication experiences, enhance security, and save on licensing costs.
+# Customer intent: As an application developer using header-based authentication, I want to migrate my legacy application to Azure Active Directory B2C with Grit app proxy. I want to enable modern authentication experiences, enhance security, and save on licensing costs.
 ---
 
 # Configure Grit's biometric authentication with Azure Active Directory B2C

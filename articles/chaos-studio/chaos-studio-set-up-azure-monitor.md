@@ -5,11 +5,14 @@ services: chaos-studio
 author: nikhilkaul-msft
 ms.topic: how-to
 ms.date: 09/27/2023
-ms.author: nikhilkaul
+ms.author: abbyweisberg
+ms.reviewer: nikhilkaul
 ms.service: chaos-studio
 ms.custom: ignite-fall-2023
 ---
+
 # How-to: Configure your experiment to emit Experiment Fault Events to Azure Monitor
+
 In this guide, we'll show you the steps needed to integrate an Experiment to emit telemetry to Azure Monitor. These events show the start and stop of each fault as well as the type of fault executed and the resource the fault was executed against. You can overlay this data on top of your existing Azure Monitor or external monitoring dashboards.
 
 ## Prerequisites

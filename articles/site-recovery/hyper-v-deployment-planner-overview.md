@@ -136,7 +136,7 @@ If you have previous version of the deployment planner, do either of the followi
 
 ## Version history
 The latest Azure Site Recovery Deployment Planner tool version is 2.5.
-Refer to [Azure Site Recovery Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
+Refer to [Azure Site Recovery Deployment Planner Version History](/azure/site-recovery/site-recovery-deployment-planner-history) page for the fixes that are added in each update.
 
 
 ## Next steps

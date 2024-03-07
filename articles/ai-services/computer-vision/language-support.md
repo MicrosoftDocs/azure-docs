@@ -6,9 +6,8 @@ description: This article provides a list of natural languages supported by Azur
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 12/27/2022
+ms.date: 02/27/2024
 ms.author: pafarley
 ---
 
@@ -128,7 +127,7 @@ The following table lists the OCR supported languages for print text by the most
 |Kazakh (Latin) | `kk-latn`|Zhuang | `za` |
 |Khaling | `klr`|Zulu  | `zu` |
 
-## Image analysis
+## Analyze image
 
 Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API can return results in other languages, specified with the `language` query parameter. Other actions return results in English regardless of what language is specified, and others throw an exception for unsupported languages. Actions are specified with the `visualFeatures` and `details` query parameters; see the [Overview](overview-image-analysis.md) for a list of all the actions you can do with image analysis. Languages for tagging are only available in API version 3.2 or later.
 
@@ -186,3 +185,112 @@ Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.micro
 |Chinese Simplified |`zh`|✅ | ✅| ✅|||||| |✅|✅||
 |Chinese Simplified |`zh-Hans`| | ✅| |||||| ||||
 |Chinese Traditional |`zh-Hant`| | ✅| |||||| ||||
+
+## Multimodal embeddings
+
+The latest [Multimodal embeddings](./concept-image-retrieval.md) model supports vector search in many languages. The original model supports English only. Images that are vectorized in the English-only model are not compatible with text searches in the multi-lingual model.
+
+| Language  | Language code | `2023-04-15` model | `2022-04-11` model|
+|-----------------------|---------------| -- |--  |
+| Akrikaans             | `af`          | ✅ |  |
+| Amharic               | `am`          | ✅ |  |
+| Arabic                | `ar`          | ✅ |  |
+| Armenian              | `hy`          | ✅ |  |
+| Assamese              | `as`          | ✅ |  |
+| Asturian              | `ast`         | ✅ |  |
+| Azerbaijani           | `az`          | ✅ |  |
+| Belarusian            | `be`          | ✅ |  |
+| Bengali               | `bn`          | ✅ |  |
+| Bosnian               | `bs`          | ✅ |  |
+| Bulgarian             | `bg`          | ✅ |  |
+| Burmese               | `my`          | ✅ |  |
+| Catalan               | `ca`          | ✅ |  |
+| Cebuano               | `ceb`         | ✅ |  |
+| Chinese Simpl         | `zho`         | ✅ |  |
+| Chinese Trad          | `zho`         | ✅ |  |
+| Croatian              | `hr`          | ✅ |  |
+| Czech                 | `cs`          | ✅ |  |
+| Danish                | `da`          | ✅ |  |
+| Dutch                 | `nl`          | ✅ |  |
+| English               | `en`          | ✅ | ✅ |
+| Estonian              | `et`          | ✅ |  |
+| Filipino (Tagalog)    | `tl`          | ✅ |  |
+| Finnish               | `fi`          | ✅ |  |
+| French                | `fr`          | ✅ |  |
+| Fulah                 | `ff`          | ✅ |  |
+| Galician              | `gl`          | ✅ |  |
+| Ganda                 | `lg`          | ✅ |  |
+| Georgian              | `ka`          | ✅ |  |
+| German                | `de`          | ✅ |  |
+| Greek                 | `el`          | ✅ |  |
+| Gujarati              | `gu`          | ✅ |  |
+| Hausa                 | `ha`          | ✅ |  |
+| Hebrew                | `he`          | ✅ |  |
+| Hindi                 | `hi`          | ✅ |  |
+| Hungarian             | `hu`          | ✅ |  |
+| Icelandic             | `is`          | ✅ |  |
+| Igbo                  | `ig`          | ✅ |  |
+| Indonesian            | `id`          | ✅ |  |
+| Irish                 | `ga`          | ✅ |  |
+| Italian               | `it`          | ✅ |  |
+| Japanese              | `ja`          | ✅ |  |
+| Javanese              | `jv`          | ✅ |  |
+| Kabuverdianu          | `kea`         | ✅ |  |
+| Kamba                 | `kam`         | ✅ |  |
+| Kannada               | `kn`          | ✅ |  |
+| Kazakh                | `kk`          | ✅ |  |
+| Khmer                 | `km`          | ✅ |  |
+| Korean                | `ko`          | ✅ |  |
+| Kyrgyz                | `ky`          | ✅ |  |
+| Lao                   | `lo`          | ✅ |  |
+| Latvian               | `lv`          | ✅ |  |
+| Lingala               | `ln`          | ✅ |  |
+| Lithuanian            | `lt`          | ✅ |  |
+| Luo                   | `luo`         | ✅ |  |
+| Luxembourgish         | `lb`          | ✅ |  |
+| Macedonian            | `mk`          | ✅ |  |
+| Malay                 | `ms`          | ✅ |  |
+| Malayalam             | `ml`          | ✅ |  |
+| Maltese               | `mt`          | ✅ |  |
+| Maori                 | `mi`          | ✅ |  |
+| Marathi               | `mr`          | ✅ |  |
+| Mongolian             | `mn`          | ✅ |  |
+| Nepali                | `ne`          | ✅ |  |
+| Northern Sotho        | `ns`          | ✅ |  |
+| Norwegian             | `no`          | ✅ |  |
+| Nyanja                | `ny`          | ✅ |  |
+| Occitan               | `oc`          | ✅ |  |
+| Oriya                 | `or`          | ✅ |  |
+| Oromo                 | `om`          | ✅ |  |
+| Pashto                | `ps`          | ✅ |  |
+| Persian               | `fa`          | ✅ |  |
+| Polish                | `pl`          | ✅ |  |
+| Portuguese (Brazil)   | `pt`          | ✅ |  |
+| Punjabi               | `pa`          | ✅ |  |
+| Romanian              | `ro`          | ✅ |  |
+| Russian               | `ru`          | ✅ |  |
+| Serbian               | `sr`          | ✅ |  |
+| Shona                 | `sn`          | ✅ |  |
+| Sindhi                | `sd`          | ✅ |  |
+| Slovak                | `sk`          | ✅ |  |
+| Slovenian             | `sl`          | ✅ |  |
+| Somali                | `so`          | ✅ |  |
+| Sorani Kurdish        | `ku`          | ✅ |  |
+| Spanish (Latin American) | `es`       | ✅ |  |
+| Swahili               | `sw`          | ✅ |  |
+| Swedish               | `sv`          | ✅ |  |
+| Tajik                 | `tg`          | ✅ |  |
+| Tamil                 | `ta`          | ✅ |  |
+| Telugu                | `te`          | ✅ |  |
+| Thai                  | `th`          | ✅ |  |
+| Turkish               | `tr`          | ✅ |  |
+| Ukrainian             | `uk`          | ✅ |  |
+| Umbundu               | `umb`         | ✅ |  |
+| Urdu                  | `ur`          | ✅ |  |
+| Uzbek                 | `uz`          | ✅ |  |
+| Vietnamese            | `vi`          | ✅ |  |
+| Welsh                 | `cy`          | ✅ |  |
+| Wolof                 | `wo`          | ✅ |  |
+| Xhosa                 | `xh`          | ✅ |  |
+| Yoruba                | `yo`          | ✅ |  |
+| Zulu                  | `zu`          | ✅ |  |

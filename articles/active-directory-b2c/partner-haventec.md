@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer integrating Haventec Authenticate with Azure AD B2C. I need instructions to configure integration, so I can enable single-step, multi-factor passwordless authentication for my web and mobile applications.
+# Customer intent: I'm a developer integrating Haventec Authenticate with Azure AD B2C. I need instructions to configure integration, so I can enable single-step, multi-factor passwordless authentication for my web and mobile applications.
 ---
 
 # Tutorial: Configure Haventec Authenticate with Azure Active Directory B2C for single-step, multi-factor passwordless authentication

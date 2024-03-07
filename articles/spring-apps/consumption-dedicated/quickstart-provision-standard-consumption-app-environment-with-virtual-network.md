@@ -88,8 +88,6 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
    - Select the names for **Virtual network** and for **Infrastructure subnet** from the dropdown menus or use **Create new** as needed.
    - Set **Virtual IP** to **External**. You can set the value to **Internal** if you prefer to use only internal IP addresses available in the virtual network instead of a public static IP.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-app-environment-with-virtual-network/create-azure-container-apps-environment-virtual-network.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps environment page with the Networking tab selected." lightbox="media/quickstart-provision-standard-consumption-app-environment-with-virtual-network/create-azure-container-apps-environment-virtual-network.png":::
-
    >[!NOTE]
    > The subnet associated with an Azure Container Apps environment requires a CIDR prefix of `/23` or higher.
 

@@ -29,13 +29,13 @@ Licensing Azure Virtual Desktop works differently for internal and external comm
 > [!IMPORTANT]
 > Per-user access pricing can only be used for external commercial purposes, not internal purposes. Per-user access pricing isn't a way to enable guest user accounts with Azure Virtual Desktop. Check if your Azure Virtual Desktop solution is is applicable for per-user access pricing by reviewing [our licensing documentation](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#Documents).
 
-## Eligible licenses for internal commercial purposes to use Azure Virtual Desktop
+## Eligible licenses to use Azure Virtual Desktop
 
-If you're providing Azure Virtual Desktop access for internal commercial purposes, you must purchase one of the following eligible licenses for each user that accesses Azure Virtual Desktop. The license you need also depends on whether you're using a Windows client operating system or a Windows Server operating system for your session hosts.
+You must provide an eligible license for each user that accesses Azure Virtual Desktop. The license you need also depends on whether you're using a Windows client operating system or a Windows Server operating system for your session hosts, and whether it's for internal or external commercial purposes. The following table shows the eligible licensing methods for each scenario:
 
 [!INCLUDE [Operating systems and user access rights](includes/include-operating-systems-user-access-rights.md)]
 
-## Per-user access pricing for external commercial purposes to use Azure Virtual Desktop
+### Per-user access pricing for external commercial purposes to use Azure Virtual Desktop
 
 Per-user access pricing lets you pay for Azure Virtual Desktop access rights for external commercial purposes. You must enroll in per-user access pricing to build a compliant deployment for external users.
 
@@ -76,7 +76,7 @@ Here's a summary of the two types of licenses for Azure Virtual Desktop you can 
 | Access rights | Internal purposes only. It doesn't grant permission for external commercial purposes, not even identities you create in your own Microsoft Entra tenant. | External commercial purposes only. It doesn't grant access to members of your own organization or contractors for internal business purposes. |
 | Billing | Licensing channels. | Pay-as-you-go through an Azure meter, billed to an Azure subscription. |
 | User behavior | Fixed cost per user each month regardless of user behavior. | Cost per user each month depends on user behavior. |
-| Other products | Dependent on the license. | Only includes access rights to Azure Virtual Desktop and [FSlogix](/fslogix/overview-what-is-fslogix).<br /><br />Per-user access pricing only supports Windows Enterprise and Windows Enterprise multi-session client operating systems for session hosts. Windows Server isn't supported with per-user access pricing. |
+| Other products | Dependent on the license. | Only includes access rights to Azure Virtual Desktop and [FSlogix](/fslogix/overview-what-is-fslogix). |
 
 ## Next steps
 

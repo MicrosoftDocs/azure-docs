@@ -1,7 +1,7 @@
 ---
 title: 'How to use studio UI to debug pipeline failure'
 titleSuffix: Azure Machine Learning
-description: Learn how to debug compare pipeline failure with pipeline UI in studio. 
+description: Learn how to debug compare pipeline failure with pipeline UI in studio.
 ms.reviewer: lagayhar
 author: likebupt
 ms.author: keli19
@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/27/2023
-ms.custom: designer, event-tier1-build-2022
+ms.custom: designer
 ---
 
 # How to use pipeline UI to debug Azure Machine Learning pipeline failures

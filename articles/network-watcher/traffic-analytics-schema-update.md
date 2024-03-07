@@ -1,4 +1,4 @@
-﻿---
+---
 title: Traffic analytics schema update - March 2020
 titleSuffix: Azure Network Watcher
 description: Learn how to use queries to replace the deprecated fields in the Traffic Analytics schema with the new ones.
@@ -7,7 +7,6 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 06/20/2023
 ms.custom: template-how-to, kr2b-contr-experiment, engagement-fy23
 ---

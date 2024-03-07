@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 10/17/2022
-ms.custom: devx-track-dotnet, ignite-2022, devguide-csharp, cosmos-db-dev-journey
+ms.custom: devx-track-dotnet, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Get started with Azure Cosmos DB for MongoDB using .NET

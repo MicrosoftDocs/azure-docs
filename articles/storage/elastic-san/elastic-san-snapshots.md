@@ -1,19 +1,24 @@
 ---
-title: Backup Azure Elastic SAN Preview volumes
-description: Learn about snapshots for Azure Elastic SAN Preview, including how to create and use them.
+title: Backup Azure Elastic SAN volumes (preview)
+description: Learn about snapshots (preview) for Azure Elastic SAN, including how to create and use them.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 02/13/2024
 ms.author: rogarana
 ---
 
-# Snapshot Azure Elastic SAN Preview volumes
+# Snapshot Azure Elastic SAN volumes (preview)
 
-Azure Elastic SAN Preview volume snapshots are incremental point-in-time backups of your volumes. The first snapshot you take is a full copy of your volume but every subsequent snapshot consists only of the changes since the last snapshot. Snapshots of your volumes don't have any separate billing, but they reside in your elastic SAN and consume the SAN's capacity. Snapshots can't be used to change the state of an existing volume, you can only use them to either deploy a new volume or export the data to a managed disk snapshot.
+Azure Elastic SAN volume snapshots (preview) are incremental point-in-time backups of your volumes. The first snapshot you take is a full copy of your volume but every subsequent snapshot consists only of the changes since the last snapshot. Snapshots of your volumes don't have any separate billing, but they reside in your elastic SAN and consume the SAN's capacity. Snapshots can't be used to change the state of an existing volume, you can only use them to either deploy a new volume or export the data to a managed disk snapshot.
 
 You can take as many snapshots of your volumes as you like, as long as there's available capacity in your elastic SAN. Snapshots persist until either the volume itself is deleted or the snapshots are deleted. Snapshots don't persist after the volume is deleted. If you need your data to persist after deleting a volume, [export your volume's snapshot to a managed disk snapshot](#export-volume-snapshot).
+
+
+## Limitations
+
+- If a volume is larger than 4 TiB, export of a volume snapshot to a disk snapshot is not supported.
 
 ## General guidance
 
@@ -149,13 +154,3 @@ Currently, you can only export snapshots using the Azure portal. The Azure Power
 1. Navigate to your elastic SAN and select **Volume snapshots**.
 1. Select a volume group, then select the snapshot you'd like to export.
 1. Select Export and fill out the details, then select **Export**.
-
-
-## Create volumes from disk snapshots
-
-Currently, you can only use the Azure portal to create Elastic SAN volumes from managed disks snapshots. The Azure PowerShell module and the Azure CLI can't be used to create Elastic SAN volumes from managed disk snapshots. Managed disk snapshots must be in the same region as your elastic SAN to create volumes with them.
-
-1. Navigate to your SAN and select **volumes**.
-1. Select **Create volume**.
-1. For **Source type** select **Disk snapshot** and fill out the rest of the values.
-1. Select **Create**.

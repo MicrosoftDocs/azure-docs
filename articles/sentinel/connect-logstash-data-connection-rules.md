@@ -392,6 +392,7 @@ After you retrieve the required values:
 
 |Field  |Description  |Default value |
 |---------|---------|---------|
+|`azure_cloud` |Used to specify the name of the Azure cloud that is being used, Available values are: `AzureCloud`, `AzureChinaCloud`, and `AzureUSGovernment`. | `AzureCloud` |
 |`key_names` |An array of strings. Provide this field if you want to send a subset of the columns to Log Analytics. |None (field is empty) |
 |`plugin_flush_interval` |Defines the maximal time difference (in seconds) between sending two messages to Log Analytics.  |`5` |
 |`retransmission_time` |Sets the amount of time in seconds for retransmitting messages once sending failed. |`10` |
@@ -443,6 +444,29 @@ Restart Logstash with the updated output plugin configuration and see that data 
 To monitor the connectivity and activity of the Microsoft Sentinel output plugin, enable the appropriate Logstash log file. See the [Logstash Directory Layout](https://www.elastic.co/guide/en/logstash/current/dir-layout.html#dir-layout) document for the log file location.
 
 If you are not seeing any data in this log file, generate and send some events locally (through the input and filter plugins) to make sure the output plugin is receiving data. Microsoft Sentinel will support only issues relating to the output plugin.
+
+
+### Network security
+Define network settings and enable network isolation for Microsoft Sentinel Logstash output plugin.
+
+#### Virtual network service tags
+
+Microsoft Sentinel output plugin supports [Azure virtual network service tags](/azure/virtual-network/service-tags-overview). Both *AzureMonitor* and *AzureActiveDirectory* tags are required. 
+
+Azure Virtual Network service tags can be used to define network access controls on [network security groups](/azure/virtual-network/network-security-groups-overview#security-rules), [Azure Firewall](/azure/firewall/service-tags), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure Virtual Network service tags cannot be used, the firewall requirements are given below.
+
+#### Firewall requirements
+
+The following table lists the firewall requirements for scenarios where Azure virtual network service tags can't be used.
+
+| Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
+|------|------|------|---------|--------|--------|
+| Azure Commercial |https://login.microsoftonline.com |Authorization server (the Microsoft identity platform)|Port 443 |Outbound|Yes |
+| Azure Commercial |`https://<data collection endpoint name>.<Azure cloud region>.ingest.monitor.azure.com`| Data collection Endpoint|Port 443 |Outbound|Yes |
+| Azure Government |https://login.microsoftonline.us |Authorization server (the Microsoft identity platform)|Port 443 |Outbound|Yes |
+| Azure Government |Replace '.com' above with '.us'	| Data collection Endpoint|Port 443 |Outbound|Yes |
+| Microsoft Azure operated by 21Vianet |https://login.chinacloudapi.cn |Authorization server (the Microsoft identity platform)|Port 443 |Outbound|Yes |
+| Microsoft Azure operated by 21Vianet |Replace '.com' above with '.cn'	| Data collection Endpoint|Port 443 |Outbound|Yes |
 
 ## Limitations
 

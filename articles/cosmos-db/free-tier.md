@@ -1,10 +1,9 @@
 ---
-title: Azure Cosmos DB free tier 
-description: Use Azure Cosmos DB free tier to get started, develop, test your applications. With free tier, you'll get the first 1000 RU/s and 25 GB of storage in the account for free. 
+title: Azure Cosmos DB free tier
+description: Use Azure Cosmos DB free tier to get started, develop, test your applications. With free tier, you'll get the first 1000 RU/s and 25 GB of storage in the account for free.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/08/2022
 ---
@@ -43,8 +42,8 @@ To keep your account free of charge, your account shouldn't have any more RU/s o
 For example, the following are some options that don’t result in any monthly charge:
 
 * One database with a max of 1000 RU/s provisioned throughput.
-* Two containers one with a max of 400 RU/s and other with a max of 600 RU/s provisioned throughput.
-* Account with two regions with a single region that has one container with a max of 500 RU/s provisioned throughput.
+* Two containers, one with a max of 400 RU/s, and other with a max of 600 RU/s provisioned throughput.
+* Account with two regions that has one container with a max of 500 RU/s provisioned throughput.
 
 ## Create an account with free tier
 

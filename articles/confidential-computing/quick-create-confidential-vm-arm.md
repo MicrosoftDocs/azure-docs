@@ -4,7 +4,6 @@ description: Learn how to quickly create and deploy an Azure confidential virtua
 author: RunCai
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai

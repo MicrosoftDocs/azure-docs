@@ -4,9 +4,8 @@ description: Learn which versions of the MySQL server are supported in Azure Dat
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: code-sidd 
+author: code-sidd
 ms.author: sisawant
-ms.custom: event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 

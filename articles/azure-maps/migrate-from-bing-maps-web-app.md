@@ -1738,6 +1738,7 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Load a map]: #load-a-map
 [Localization support in Azure Maps]: supported-languages.md
 [Localizing the map]: #localizing-the-map
+[Microsoft Entra ID]: /entra/fundamentals/whatis
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
 [OpenLayers plugin]: /samples/azure-samples/azure-maps-OpenLayers/azure-maps-OpenLayers-plugin
 [OpenLayers]: https://openlayers.org/

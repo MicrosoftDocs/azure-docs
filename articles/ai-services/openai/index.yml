@@ -48,6 +48,8 @@ landingContent:
              url: use-your-data-quickstart.md
            - text: Whisper (preview)
              url: whisper-quickstart.md
+           - text: Text to speech (preview)
+             url: text-to-speech-quickstart.md
       - linkListType: tutorial
         links:
          - text: Embeddings

@@ -1,15 +1,18 @@
 ---
 title: Accelerated Networking overview
 description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
-author: steveesp
+author: EllieMelissa
 ms.service: virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/18/2023
-ms.author: steveesp
+ms.author: ealume
 ---
 
 # Accelerated Networking overview
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 This article describes the benefits, constraints, and supported configurations of Accelerated Networking. Accelerated Networking enables [single root I/O virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-) on supported virtual machine (VM) types, greatly improving networking performance. This high-performance data path bypasses the host, which reduces latency, jitter, and CPU utilization for the most demanding network workloads.
 
@@ -43,6 +46,8 @@ Accelerated Networking has the following benefits:
 - You can't enable Accelerated Networking on a running VM. You can enable Accelerated Networking on a supported VM only when the VM is stopped and deallocated.
 
 - You can't deploy virtual machines (classic) with Accelerated Networking through Azure Resource Manager.
+
+- The Azure platform does not update the Mellanox NIC drivers in the VM. For VMs running Linux and FreeBSD, customers are encouraged to stay current with the latest kernel updates offered by the distribution. For VMs running Windows, customers should apply updated drivers from the Nvidia support page if any issues are later encountered with the driver delivered with the Marketplace image or applied to a custom image.
 
 ### Supported regions
 

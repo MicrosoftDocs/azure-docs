@@ -5,7 +5,7 @@ description: Learn how to manage an Azure Machine Learning compute instance. Use
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: compute
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 author: jesscioffi
 ms.author: jcioffi

@@ -34,14 +34,13 @@ You can select an image by providing a publicly accessible image URL, or by read
 
 ### Image URL
 
-Create a [URL](https://docs.oracle.com/javase/8/docs/api/java/net/URL.html) object for the image you want to analyze.
+Create an `imageUrl` string to hold the publicly accessible URL of the image you want to analyze.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_url)]
 
-
 ### Image buffer
 
-Alternatively, you can pass in the image as a data array using a **BinaryData** object. For example, read from a local image file you want to analyze.
+Alternatively, you can pass in the image as memory buffer using a [BinaryData](/java/api/com.azure.core.util.binarydata) object. For example, read from a local image file you want to analyze.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_file)]
 
@@ -49,11 +48,8 @@ Alternatively, you can pass in the image as a data array using a **BinaryData** 
 
 The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the [available visual features](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures), but for practical usage you likely need fewer.
 
-
 > [!IMPORTANT]
 > The visual features [Captions](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-caption) and [DenseCaptions](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-dense-captions) are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
-
-
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_features)]
 
@@ -67,7 +63,6 @@ To use a custom model, create the [ImageAnalysisOptions](/java/api/com.azure.ai.
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/custom-model/ImageAnalysis.java?name=model_name)]
 -->
 
-
 ## Select analysis options
 
 Use an [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.models.imageanalysisoptions) object to specify various options for the Analyze API call.
@@ -78,16 +73,13 @@ Use an [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.models
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_options)]
 
+## Call the analyzeFromUrl method
 
+This section shows you how to make an analysis call to the service.
 
+Call the [analyzeFromUrl](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisclient#method-summary) method on the [ImageAnalysisClient](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisclient) object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can use a [ImageAnalysisAsyncClient](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisasyncclient) object instead, and call its [analyzeFromUrl](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisasyncclient#method-summary) method which is non-blocking.
 
-## Call the Analyze API
-
-This section shows you how to make an analysis call to the service. 
-
-Call the [analyze](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisclient#method-summary) method on the [ImageAnalysisClient](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisclient) object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can use a [ImageAnalysisAsyncClient](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisasyncclient) object instead, and call its [analyze](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisasyncclient#method-summary) method which is non-blocking.
-
-Use the input objects created in the above sections. To analyze from an image buffer instead of URL, replace `imageURL` in the method call with `imageData`.
+To analyze from an image buffer instead of URL, call the [analyze](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisclient#method-summary) method instead, and pass in the `imageData` as the first argument.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_call)]
 
@@ -104,7 +96,7 @@ The code is similar to the standard model case. The only difference is that resu
 
 ## Get results from the service
 
-The following code shows you how to parse the results of the various Analyze operations.
+The following code shows you how to parse the results from the **analyzeFromUrl** and **analyze** operations.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_results)]
 

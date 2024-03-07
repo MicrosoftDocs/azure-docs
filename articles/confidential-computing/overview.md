@@ -8,7 +8,7 @@ ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 06/09/2023
 ms.author: jushiman #ananyagarg #sgallagher
-ms.custom: ignite-fall-2021, inspire-july-2022
+ms.custom: inspire-july-2022
 ---
 
 # What is confidential computing?

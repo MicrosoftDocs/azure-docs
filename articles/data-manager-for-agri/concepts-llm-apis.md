@@ -24,7 +24,7 @@ Our LLM capability enables seamless selection of APIs mapped to farm operations 
 
 ## Prerequisites
 - An instance of [Azure Data Manager for Agriculture](quickstart-install-data-manager-for-agriculture.md)
-- An instance of [Azure Open AI](../ai-services/openai/how-to/create-resource.md) created in your Azure subscription.
+- An instance of [Azure OpenAI](../ai-services/openai/how-to/create-resource.md) created in your Azure subscription.
 - You need [Azure Key Vault](../key-vault/general/quick-create-portal.md)
 - You need [Azure Container Registry](../container-registry/container-registry-get-started-portal.md)
 

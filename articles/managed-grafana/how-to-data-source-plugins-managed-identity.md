@@ -10,7 +10,7 @@ ms.date: 12/08/2023
 
 # How to manage data sources in Azure Managed Grafana
 
-In this guide, you learn about data sources supported in each Azure Managed Grana plan and learn how to add, manage and remove these data sources.
+In this guide, you learn about data sources supported in each Azure Managed Grafana plan and learn how to add, manage and remove these data sources.
 
 ## Prerequisites
 

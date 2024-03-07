@@ -2,12 +2,12 @@
 title: Monitor Azure Cosmos DB
 description: Learn how to monitor the performance and availability of Azure Cosmos DB. You can monitor your data with client-side and server-side metrics.
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/08/2023
-ms.custom: subject-monitoring, ignite-2022
+ms.custom: subject-monitoring
 ---
 
 # Monitor Azure Cosmos DB

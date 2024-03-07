@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm an Azure AD B2C administrator, and I want to integrate Jumio with Azure AD B2C. I need to enable real-time automated ID verification for user accounts and protect customer data.
+# Customer intent: I'm an Azure AD B2C administrator, and I want to integrate Jumio with Azure AD B2C. I need to enable real-time automated ID verification for user accounts and protect customer data.
 ---
 
 # Tutorial for configuring Jumio with Azure Active Directory B2C

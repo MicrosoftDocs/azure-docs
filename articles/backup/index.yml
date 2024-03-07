@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-abhmallick 
-  ms.date: 12/25/2023
+  ms.date: 02/01/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -63,6 +63,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Cross Region Restore for Azure PostgreSQL Database
+            url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup
           - text: Vaulted backup and Cross Region Restore for support for AKS (preview)
             url: azure-kubernetes-service-backup-overview.md
           - text: Back up database instance snapshots
@@ -158,7 +160,7 @@ landingContent:
           - text: Manage MARS Agent backups by using the Azure Backup service
             url: backup-azure-manage-mars.md
           - text: Cross Region Restore support for MARS agent (preview)
-            url: about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview
+            url: about-restore-microsoft-azure-recovery-services.md#cross-region-restore
           - text: MARS agent support matrix
             url: backup-support-matrix-mars-agent.md
           - text: FAQ - MARS agent

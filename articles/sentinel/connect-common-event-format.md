@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Get CEF-formatted logs from your device or appliance into Microsoft Sentinel

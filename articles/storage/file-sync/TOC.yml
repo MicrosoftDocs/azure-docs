@@ -31,6 +31,8 @@
     href: file-sync-server-endpoint-delete.md
   - name: Modify Azure File Sync topology
     href: file-sync-modify-sync-topology.md
+  - name: Replace an Azure File Sync server
+    href: file-sync-replace-server.md
 - name: Cloud tiering
   items:
   - name: Cloud tiering overview
