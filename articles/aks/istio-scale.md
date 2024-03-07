@@ -8,7 +8,7 @@ ms.author: shalierxia
 ---
 
 # **Istio service mesh add-on performance**
-The Istio-based service mesh add-on is logically split into control plane (`istiod`) and data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies. This document provides an analysis of the add-on’s control and data plane performance across network plugins available in Azure Kubernetes Service (AKS) - Kubenet, Azure CNI, Azure CNI Dynamic IP Allocation, and Azure CNI Overlay. Additionally, it showcases testing the Cilium network data plane with the latter two network plugins.
+The Istio-based service mesh add-on is logically split into control plane (`istiod`) and data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies. This document provides an analysis of the add-on’s control and data plane performance across network plugins available in Azure Kubernetes Service (AKS) - Kubenet, Azure CNI, Azure CNI Dynamic IP Allocation, and Azure CNI Overlay. Additionally, it showcases testing the Cilium network data plane v1.12.10 with the latter two network plugins.
 
 ## Control Plane Performance
 [Istiod’s CPU and memory requirements][control-plane-performance] correlate with the rate of deployment and configuration changes and the number of proxies connected. To determine Istiod’s performance in revision asm-1-18, a single `istiod` instance with the default settings: `2 vCPU` and `2 GB` memory is used with horizontal pod autoscaling disabled. The scenarios tested were:
@@ -22,7 +22,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 #### Sidecar Capacity and Istiod CPU and Memory
 
 |**Azure CNI**|||||
-|-------------|-----------------------------|--------------------|----------------------|--------------|
+|-----------------|---------------------------------|------------------------|--------------------------|------------------|
 |   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              15000 |                 17.3 |           11 |
 |          25 | 41.7                        |              15000 |                 20.4 |           13 |
@@ -30,7 +30,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 
 |**Azure CNI Dynamic IP**|||||
-|-------------|-----------------------------|--------------------|----------------------|--------------|
+|-----------------|---------------------------------|------------------------|--------------------------|------------------|
 |   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              35000 |                 41.1 |           13 |
 |          25 | 50.0                        |              30000 |                 42.6 |           12 |
@@ -38,7 +38,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 
 |**Azure CNI Dynamic IP with Cilium**|||||
-|-------------|-----------------------------|--------------------|----------------------|--------------|
+|-----------------|---------------------------------|------------------------|--------------------------|------------------|
 |   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              20000 |                 23.1 |           11 |
 |          25 | 31.2                        |              15000 |                 20.5 |           11 |
@@ -46,7 +46,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 
 |**Kubenet**|||||
-|-------------|-----------------------------|--------------------|----------------------|--------------|
+|-----------------|---------------------------------|------------------------|--------------------------|------------------|
 |   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              35000 |                 40.7 |           14 |
 |          25 | 50.0                        |              30000 |                 41.7 |           14 |
@@ -54,7 +54,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 
 |**Azure CNI Overlay**|||||
-|-------------|-----------------------------|--------------------|----------------------|--------------|
+|-----------------|---------------------------------|------------------------|--------------------------|------------------|
 |   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              35000 |                 40.9 |           14 |
 |          25 | 50.0                        |              30000 |                 42.9 |           12 |
@@ -62,7 +62,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 
 |**Azure CNI Overlay with Cilium**|||||
-|-------------|-----------------------------|--------------------|----------------------|--------------|
+|-----------------|---------------------------------|------------------------|--------------------------|------------------|
 |   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              15000 |                 17.1 |           10 |
 |          25 | 41.7                        |              10000 |                 12.9 |            8 |
@@ -73,14 +73,14 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars `istiod` can manage with 1,000 services. Each service had `N` sidecars contributing to the overall maximum sidecar count. The API Server resource usage was observed to determine if there's any significant stress from the add-on.
 
 |**Sidecar Capacity**||||||
-|-------------|------------------------|------------------------------------|-----------|---------------------|---------------------------------|
+|-----------------|----------------------------|----------------------------------------|---------------|-------------------------|-------------------------------------|
 |   **Azure CNI** |   **Azure CNI Dynamic IP** |   **Azure CNI Dynamic IP with Cilium** |   **Kubenet** |   **Azure CNI Overlay** |   **Azure CNI Overlay with Cilium** |
 |       15000 |                  20000 |                              20000 |     20000 |               20000 |                           15000 |
 
 
 |**CPU and Memory**|||||||
-|------------------------|-------------|------------------------|------------------------------------|-----------|---------------------|---------------------------------|
-| **Resource**               |   **Azure CNI** |   **Azure CNI Dynamic IP** |   **Azure CNI Dynamic IP with Cilium** |   **Kubenet** |   **Azure CNI Overlay** |   **Azure CNI Overlay with Cilium** |
+|------------------------|-----------------|----------------------------|--------------------------------------|--------------|-----------------------|-----------------------------------|
+| **Resource**           |   **Azure CNI** |   **Azure CNI Dynamic IP** | **Azure CNI Dynamic IP with Cilium** |  **Kubenet** | **Azure CNI Overlay** | **Azure CNI Overlay with Cilium** |
 | API Server Memory (GB) |         4.8 |                    9   |                                9   |       7.6 |                 7.4 |                             6.9 |
 | API Server CPU         |         3.6 |                    4.4 |                                4.5 |       3.6 |                 4.3 |                             4.3 |
 | Istiod Memory (GB)     |        33.7 |                   41.8 |                               43.9 |      40.9 |                42.8 |                            32.1 |
@@ -90,7 +90,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 ## Data Plane Performance
 Various factors impact [sidecar performance][data-plane-performance] such as request size, number of proxy worker threads, and number of client connections. Additionally, any request flowing through the mesh traverses the client-side proxy and then the server-side proxy. Therefore, latency and resource consumption are measured to determine the data plane performance.
 
-[Fortio][fortio] was used to create the load. The test was conducted with the [Istio benchmark repository][istio-benchmark] that was modified for use with the add-on. The test involved a 1 KB payload, 1000 QPS, 2 proxy workers, utilized `http/1.1` protocol and mutual TLS enabled at various client connections. 
+[Fortio][fortio] was used to create the load. The test was conducted with the [Istio benchmark repository][istio-benchmark] that was modified for use with the add-on. The test involved a 1 KB payload, 1000 QPS, 2 proxy workers, utilized `http/1.1` protocol and mutual TLS enabled at various client connections.
 
 #### CPU and Memory
 The memory and CPU usage for both the client and server proxy for 16 client connections and 1000 QPS across all network plugin scenarios is roughly 0.4 v CPU and 72 MB. 
@@ -105,7 +105,7 @@ The following analysis evaluates the impact of adding sidecar proxies to the dat
 
 [ ![Diagram that compares P99 latency for AKS network plugins.](./media/aks-istio-addon/latency-graphs/latency-p99__1000qps.png) ](./media/aks-istio-addon/latency-graphs/latency-p99__1000qps.png#lightbox)
 
-
+> *Has latency variation ± 0.5 ms
 ## Service Entry
 Istio features a custom resource definition known as a ServiceEntry that enables adding other services into the Istio’s internal service registry. A [ServiceEntry][serviceentry] allows services already in the mesh to route or access the services specified. However, the configuration of multiple ServiceEntries with the `resolution` field set to DNS can cause a [heavy load on DNS servers][understanding-dns]. The following suggestions can help reduce the load:
 
