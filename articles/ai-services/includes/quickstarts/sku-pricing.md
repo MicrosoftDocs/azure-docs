@@ -31,7 +31,7 @@ The following tables provide information about products and pricing for Azure AI
 
 | Service            | Kind                 |
 |--------------------|----------------------|
-| Speech Services    | `SpeechServices`     |
+| Speech    | `SpeechServices`     |
 
 #### Language
 

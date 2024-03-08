@@ -20,7 +20,9 @@ ms.custom:
 
 This quickstart shows you how to use an Azure Resource Manager template (ARM template) to create a resource in Azure AI services.
 
-Azure AI services is a cloud-based portfolio of AI services that helps developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. Azure AI services is available through REST APIs and client library SDKs in popular development languages. It enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
+Azure AI services is a cloud-based portfolio of AI services. It helps developers build cognitive intelligence into applications without needing direct skills or knowledge of AI or data science.
+
+Azure AI services is available through REST APIs and client library SDKs in popular development languages. It enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
 By creating an Azure AI services resource, you can:
 
@@ -36,7 +38,7 @@ By creating an Azure AI services resource, you can:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
+The template that you use in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json":::
 
@@ -65,7 +67,7 @@ One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/ac
 
     :::image type="content" source="media/arm-template/universal-key-portal-template.png" alt-text="Screenshot that shows the pane for resource creation.":::
 
-3. Select **Review + Create**, and then select **Create**. When deployment is successful, the **Go to resource** button is highlighted.
+3. Select **Review + Create**, and then select **Create**. When deployment is successful, the **Go to resource** button is available.
 
 # [Azure CLI](#tab/CLI)
 
@@ -112,7 +114,7 @@ az cognitiveservices account list -g $resourceGroupName
 
 ## Clean up resources
 
-If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources that the group contains.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or the resource group. Deleting the resource group also deletes any other resources that the group contains.
 
 # [Azure portal](#tab/portal)
 
