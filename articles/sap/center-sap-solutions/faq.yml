@@ -46,8 +46,8 @@ sections:
                 Azure Center for SAP solutions supports the following capabilities at this time.
 
                 - Deployment of infrastructure for SAP S4/HANA systems
-                - Automated Software installation of SAP S/4/HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 
-                - Installation of S/4/HANA manually or through other tools on an infrastructure deployed by ACSS 
+                - Automated Software installation of SAP S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 
+                - Installation of SAP S/4HANA manually or through other tools on an infrastructure deployed by ACSS 
                 - Registration of an existing Windows and Linux based ABAP/NetWeaver SAP system on Azure
                 - Monitoring the health and status of an SAP system
                 - Creating a new Azure Monitor for SAP solutions provider or integrating an existing one
@@ -73,7 +73,7 @@ sections:
         answer: | 
                 The following feature is still in preview: 
 
-                - *Architecture Visualization* - The feature helps customers visualize the architecture of the SAP S/4/HANA system being deployed and can be downloaded for documentation purposes.  
+                - *Architecture Visualization* - The feature helps customers visualize the architecture of the SAP S/4HANA system being deployed and can be downloaded for documentation purposes.  
 
       - question:  Which regions support Azure Virtual Instance for SAP solutions as part of Azure Center for SAP solutions?
         answer: | 
@@ -135,9 +135,9 @@ sections:
                 - Register Appropriate resource providers that you have registered. (Compute, Network, Storage, Workloads, Capacity). 
                 - Sufficient virtual machine quota in the region(s) used for the deployment. Additionally, minimum 4 cores of Standard_D4ds_v4 or Standard_E4s_v3 SKU are required for the deployment to succeed. 
                 
-      - question:  What resources are created in customer’s subscription when you deploy an SAP S/4/HANA system through Azure Center for SAP solutions?
+      - question:  What resources are created in customer’s subscription when you deploy an SAP S/4HANA system through Azure Center for SAP solutions?
         answer: | 
-                When you deploy and install an SAP S/4/HANA system with ACSS, ACSS creates the following logical Azure resources: 
+                When you deploy and install an SAP S/4HANA system with ACSS, ACSS creates the following logical Azure resources: 
                 - Virtual Instance for SAP solutions                
                 - Central service instance for SAP solutions
                 - App server instance for SAP solutions
@@ -149,7 +149,7 @@ sections:
 
       - question:  How do I log on to an SAP system after deploying it from ACSS? 
         answer: | 
-                Once you have deployed and installed an SAP S/4/HANA system through ACSS, you can use the [SAP master password](/azure/sap/center-sap-solutions/manage-virtual-instance#find-sap-and-hana-passwords) and HANA database [username](/azure/sap/center-sap-solutions/manage-virtual-instance#connect-to-hana-database) and password available in the Managed resource group key vault to log on to the SAP GUI or and connect to the SAP HANA database.  
+                Once you have deployed and installed an SAP S/4HANA system through ACSS, you can use the [SAP master password](/azure/sap/center-sap-solutions/manage-virtual-instance#find-sap-and-hana-passwords) and HANA database [username](/azure/sap/center-sap-solutions/manage-virtual-instance#connect-to-hana-database) and password available in the Managed resource group key vault to log on to the SAP GUI or and connect to the SAP HANA database.  
 
       - question:  How do I find the instance number(s) for SAP instances deployed through ACSS? 
         answer: | 
