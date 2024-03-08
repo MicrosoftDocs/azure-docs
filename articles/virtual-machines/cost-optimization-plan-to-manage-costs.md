@@ -56,8 +56,8 @@ When you create or use virtual machines resources, you might get charged for the
     - The price also changes based on your [VM size](sizes.md).
     - The price also changes based on the region where your virtual machine is located.
     - As virtual machine instances go through different states, they're [billed differently](states-billing.md).
-- **Storage** - You're charged for it based on the disk size in GB and the transactions per hour.
-    - For more information about transactions, see the [transactions section of the Understanding billing page for storage](../storage/files/understanding-billing.md#what-are-transactions).
+- **Storage** - Pricing changes based on multiple factors, including disk types, transactions, and configurations.
+    - For more information about Disk Storage billing, see [Understand Azure Disk Storage billing](disks-understand-billing.md).
 - **Virtual network** - You're charged for it based on the number of GBs of data transferred.
 - **Bandwidth** - You're charged for it based on the number of GBs of data transferred.
 - **Azure Monitor** - You're charged for it based on the number of GBs of data ingested.
