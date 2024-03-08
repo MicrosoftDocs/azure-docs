@@ -194,7 +194,7 @@ Let's say that you have the policies defined in the Ranger repo already under th
   
 1. For **oldclustername_hive** service, add **rangersparklookup** user in the **policy.download.auth.users** and **tag.download.auth.users** list and click save.
   
-   :::image type="content" source="./media/ranger-policies-for-spark/add-new-user-rangerlookup.png" alt-text="Screenshot that shows how to add user in Ranger service." lightbox="./media/ranger-policies-for-spark/add-new-user-rangerlookup.png":::
+   :::image type="content" source="./media/ranger-policies-for-spark/add-new-user-ranger-lookup.png" alt-text="Screenshot that shows how to add user in Ranger service." lightbox="./media/ranger-policies-for-spark/add-new-user-ranger-lookup.png":::
 
 The policies are applied on databases in the Spark catalog. If you want to access the databases in the Hive catalog:
 
