@@ -15,7 +15,7 @@ ms.date: 03/07/2024
 
 In search solutions, strings that have complex patterns or special characters can be a challenge to work with because the [default analyzer](search-analyzers.md) strips out or misinterprets meaningful parts of a pattern, resulting in a poor search experience when users can't find the information they want. Phone numbers are a good example of strings that are hard to analyze. They come in a variety of formats, and they include special characters that the default analyzer ignores. 
 
-Using phone numbers as its subject, this tutorial takes a close look at the problems of patterned data, and shows you to solve that problem using a [custom analyzer](index-add-custom-analyzers). The approach outlined here can be used as-is for phone numbers, or adapted for fields having the same characteristics (patterned, with special characters), such as URLs, emails, postal codes, and dates.
+With phone numbers as its subject, this tutorial takes a close look at the problems of patterned data, and shows you to solve that problem using a [custom analyzer](index-add-custom-analyzers.md). The approach outlined here can be used as-is for phone numbers, or adapted for fields having the same characteristics (patterned, with special characters), such as URLs, emails, postal codes, and dates.
 
 In this tutorial, you use a REST client and the [Azure AI Search REST APIs](/rest/api/searchservice/) to:
 
@@ -53,7 +53,7 @@ A valid API key establishes trust, on a per request basis, between the applicati
 
 1. Open a new text file in Visual Studio Code.
 
-1. Set variables to the search endpoint and the API key you collected in the previous step..
+1. Set variables to the search endpoint and the API key you collected in the previous step.
 
    ```http
    @baseUrl = PUT-YOUR-SEARCH-SERVICE-URL-HERE
@@ -62,7 +62,7 @@ A valid API key establishes trust, on a per request basis, between the applicati
 
 1. Save the file with a `.rest` file extension.
 
-1. Paste in the following example to create a simple index called `phone-numbers-index` with two fields: `id` and `phone_number`. We haven't defined an analyzer yet, so the `standard.lucene` analyzer is used by default.
+1. Paste in the following example to create a small index called `phone-numbers-index` with two fields: `id` and `phone_number`. We haven't defined an analyzer yet, so the `standard.lucene` analyzer is used by default.
 
     ```http
     ### Create a new index
@@ -159,7 +159,7 @@ A valid API key establishes trust, on a per request basis, between the applicati
       api-key: {{apiKey}}
     ```
 
-  The query returns **three out of four expected results**, but also returns **two unexpected results**:
+    The query returns **three out of four expected results**, but also returns **two unexpected results**:
 
     ```json
     {
@@ -214,7 +214,7 @@ If you find these results confusing, you're not alone. In the next section, let'
 
 ## How analyzers work
 
-To understand these search results, we need to understand what the analyzer is doing. From there, we can test the default analyzer using the [Analyze Text API](/rest/api/searchservice/test-analyzer), providing a foundation for designing an analyzer that better meets our needs.
+To understand these search results, we need to understand what the analyzer is doing. From there, we can test the default analyzer using the [Analyze API](/rest/api/searchservice/indexes/analyze), providing a foundation for designing an analyzer that better meets our needs.
 
 An [analyzer](search-analyzers.md) is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Different analyzers manipulate text in different ways depending on the scenario. For this scenario, we need to build an analyzer tailored to phone numbers.
 
@@ -245,11 +245,11 @@ If the query terms don't match the terms in your inverted index, results won't b
 > [!Note]
 > [Partial term queries](search-query-partial-matching.md) are an important exception to this rule. These queries (prefix query, wildcard query, regex query) bypass the lexical analysis process unlike regular term queries. Partial terms are only lowercased before being matched against terms in the index. If an analyzer isn't configured to support these types of queries, you'll often receive unexpected results because matching terms don't exist in the index.
 
-## Test analyzers using the Analyze Text API
+## Test analyzers using the Analyze API
 
-Azure AI Search provides an [Analyze Text API](/rest/api/searchservice/test-analyzer) that allows you to test analyzers to understand how they process text.
+Azure AI Search provides an [Analyze API](/rest/api/searchservice/indexes/analyze) that allows you to test analyzers to understand how they process text.
 
-The Analyze Text API is called using the following request:
+The Analyze API is called using the following request:
 
 ```http
 POST {{baseUrl}}/indexes/phone-numbers-index/analyze?api-version=2023-11-01  HTTP/1.1
@@ -422,7 +422,7 @@ With our character filters, tokenizer, and token filters in place, we're ready t
 ]
 ```
 
-Using the Analyse API for testing, given the following inputs, our analyzer produces the outputs in the following table.
+From the Analyze API, given the following inputs, outputs from the custom analyzer are shown in the following table.
 
 |Input|Output|  
 |-|-|  
@@ -441,7 +441,7 @@ All of the tokens in the output column exist in the index. If our query includes
         api-key: {{apiKey}}
     ```
 
-1. Recreate the the index using the new analyzer. This index schema adds a custom analyzer definition, and a custom analyzer assignment on the phone number field.
+1. Recreate the index using the new analyzer. This index schema adds a custom analyzer definition, and a custom analyzer assignment on the phone number field.
 
   ```http
     ### Create a new index
@@ -640,7 +640,7 @@ Depending on your requirements, this may be a more efficient approach to the pro
 
 ## Takeaways
 
-This tutorial demonstrated the process for building and testing a custom analyzer. You created an index, indexed data, and then queried against the index to see what search results were returned. From there, you used the Analyze Text API to see the lexical analysis process in action.
+This tutorial demonstrated the process for building and testing a custom analyzer. You created an index, indexed data, and then queried against the index to see what search results were returned. From there, you used the Analyze API to see the lexical analysis process in action.
 
 While the analyzer defined in this tutorial offers an easy solution for searching against phone numbers, this same process can be used to build a custom analyzer for any scenario that shares similar characteristics.
 

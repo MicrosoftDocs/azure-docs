@@ -56,7 +56,7 @@ The index schema is organized around hotels content. Sample data consists of vec
 
 1. Open a new text file in Visual Studio Code.
 
-1. Set variables to the search endpoing and API ke you collected earlier.
+1. Set variables to the search endpoint and the API key you collected earlier.
 
    ```http
    @baseUrl = PUT-YOUR-SEARCH-SERVICE-URL-HERE
