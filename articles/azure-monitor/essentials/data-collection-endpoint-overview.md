@@ -12,9 +12,15 @@ ms.reviwer: nikeist
 
 # Data collection endpoints in Azure Monitor
 
-A data collection endpoint (DCE) is a connection that the [Logs ingestion API](../logs/logs-ingestion-api-overview.md) uses to send collected data for processing and ingestion into Azure Monitor. [Azure Monitor Agent](../agents/agents-overview.md) also uses data collection endpoints to receive configuration files from Azure Monitor and to send collected log data for processing and ingestion. 
+A data collection endpoint (DCE) is a connection where data sources send collected data for processing and ingestion into Azure Monitor. DCEs are required for the following scenarios. 
+
+- Private link
+- NSP
+- Workspace replication
 
 This article provides an overview of data collection endpoints and explains how to create and set them up based on your deployment.
+
+
 
 ## Components of a data collection endpoint
 

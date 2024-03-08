@@ -14,6 +14,27 @@ ms.reviwer: nikeist
 - See [Create and edit data collection rules (DCRs) in Azure Monitor](data-collection-rule-create-edit.md) for details working with the JSON described here.
 - See [Sample data collection rules (DCRs) in Azure Monitor](../essentials/data-collection-rule-samples.md) for sample DCRs for different scenarios.
 
+## Properties
+
+| Property | Description |
+|:---|:---|
+| `immutableId` | A unique identifier for the data collection rule. Property and value are automatically created when the DCR is created. |
+| `description` | A description of the data collection rule. |
+| `dataCollectionEndpointId` | Resource ID of the [data collection endpoint (DCE)](data-collection-endpoint-overview.md) used by the DCR. Property not used for DCRs that don't use a DCE. |
+
+
+## `endpoints`
+Contains the URLs of the endpoints for the DCR. This section and its properties are automatically created when the DCR is created.
+
+| Property | Description |
+|:---|:---|
+| `logsIngestion` | URL for ingestion endpoint for log data. |
+| `metricsIngestion` | URL for ingestion endpoint for metric data.  |
+
+**Scenarios**
+- Azure Monitor agent
+- Logs ingestion API
+- Events Hubs
 
 ## `dataCollectionEndpointId` 
 Specifies the [data collection endpoint (DCE)](data-collection-endpoint-overview.md) used by the DCR.
