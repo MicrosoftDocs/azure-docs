@@ -17,7 +17,7 @@ Building a multiple-host SAP HANA database always starts with creating a volume 
 
 ## Steps
 
-1. From your NetApp account, select **Application volume groups**, and click **+Add Group**.  Then in Deployment Type, select **SAP HANA** and click **Next**.   
+1. From your NetApp account, select **Application volume groups**, and select **+Add Group**. In Deployment Type, select **SAP HANA** then **Next**.   
 
 2. In the **SAP HANA** tab for adding a volume group, specify the following information:  
 
@@ -38,32 +38,34 @@ Building a multiple-host SAP HANA database always starts with creating a volume 
     * **Host count**:   
         Specify the number of hosts you want to add to the multiple-host setup.
 
-    Click **Next: Volume Group**.
+    Select **Next: Volume Group**.
 
     [ ![Screenshot that shows the HANA section for adding hosts.](./media/application-volume-group-add-hosts/application-multiple-hosts-sap-hana.png) ](./media/application-volume-group-add-hosts/application-multiple-hosts-sap-hana.png#lightbox)
 
 3. In the **Volume group** tab, provide identical input as you did when you created the first HANA host.  
 
-    Then click **Next** and continue through the **Protocol** and **Tags** sections, providing the same input as the first HANA host. (See Step 4 through Step 6 in [Deploy the first SAP HANA host](application-volume-group-deploy-first-host.md).)   
+    Select **Next** and continue through the **Protocol** and **Tags** sections, providing the same input as the first HANA host. (See Step 4 through Step 6 in [Deploy the first SAP HANA host](application-volume-group-deploy-first-host.md).)   
 
-    Click **Next: Volumes** when you reach the end of the sections. 
+    [!INCLUDE [Extension 1 interface call-out](../includes/extension-one.md)]
+
+    Select **Next: Volumes** when you reach the end of the sections. 
 
     For additional hosts that you add, only the data and the log volumes will be created. The **Volumes** page displays the two volumes in a generic form, using the `{HostId}` as a placeholder. This process simplifies the workflow, because changes are made only once for the data and log volumes for all the hosts that are being created.
 
     > [!NOTE]
     > SAP HANA allows you to add different compute volume types to a multiple-host setup. If you use this setup, you should add only one host for the same compute type at one time.
 
-    Click **Next: Review + Create**.  
+    Select **Next: Review + Create**.  
 
     [ ![Screenshot that shows the Volumes section for adding hosts.](./media/application-volume-group-add-hosts/application-multiple-hosts-volumes.png) ](./media/application-volume-group-add-hosts/application-multiple-hosts-volumes.png#lightbox)
 
 4. In the **Review + Create** tab, the `{HostId}` placeholder is replaced with the individual numbers for each of the volume groups that will be created. 
 
-    You can click **Next Group** to navigate through all volume groups that are being created (one for each host). You can also click a particular volume to view its details.
+    You can select **Next Group** to navigate through all volume groups that are being created (one for each host). You can also select a particular volume to view its details.
 
     [ ![Screenshot that shows the Review and Create section for adding hosts.](./media/application-volume-group-add-hosts/application-multiple-review-create.png) ](./media/application-volume-group-add-hosts/application-multiple-review-create.png#lightbox)
 
-5. After you navigate through the volume groups, click **Create All Groups** to create all the volumes for the HANA hosts you are adding. 
+5. After you navigate through the volume groups, select **Create All Groups** to create all the volumes for the HANA hosts you are adding. 
 
     [ ![Screenshot that shows the Create All Groups button.](./media/application-volume-group-add-hosts/application-multiple-create-groups.png) ](./media/application-volume-group-add-hosts/application-multiple-create-groups.png#lightbox)
 

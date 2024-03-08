@@ -16,9 +16,6 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
 
 ## Before you begin
 
->[!IMPORTANT]
->The following examples assume you haven't registered Application volume group for SAP HANA extension 1. If you have registered for this feature, some of the screens appear differently, showing the additional features.
-
 You should understand the [requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). 
 
 Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** and have at least one HANA virtual machine (VM) in the availability set started. 
@@ -75,7 +72,10 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 4. In the **Volume group** tab, provide information for creating the volume group:  
 
-### [Without extension 1](#tab/without-extension-1)
+    [!INCLUDE [Extension 1 interface call-out](../includes/extension-one.md)]
+
+<detail>
+<summary>Interface without extension 1 enabled</summary>
 
 * **Proximity placement group (PPG)**:  
     Specifies that the data, log, and shared volumes are to be created close to the VMs.
@@ -91,8 +91,10 @@ Select **Next: Tags**.
 
 [ ![Screenshot that shows the Volume Group tag.](./media/application-volume-group-deploy-first-host/application-volume-group-tag.png) ](./media/application-volume-group-deploy-first-host/application-volume-group-tag.png#lightbox)
 
-### [Extension 1](#tab/extension-1)
+</details>
 
+<detail>
+<summary>Extension 1 interface</summary>
 
 * **Availability option**:
     Select either **Availability zone** or **Proximity placement group**. 
@@ -113,7 +115,7 @@ Select **Next: Tags**.
     Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
 
 Select **Next: Tags**. 
----
+</details>
 
 5. In the **Tags** section of the Volume Group tab, you can add tags as needed for the volumes.  
 
