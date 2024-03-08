@@ -347,6 +347,9 @@ You can also check the Event Grid metrics to verify the messages are delivered t
 
 :::image type="content" source="media/tutorial-connect-event-grid/event-grid-metrics.png" alt-text="Screenshot of the metrics view in Azure portal to show successful MQTT messages.":::
 
+> [!TIP]
+> You can check the configurations of topic maps, QoS, message routes with the [CLI extension](https://learn.microsoft.com/en-us/cli/azure/iot/ops?view=azure-cli-latest#az-iot-ops-check-examples) `az iot ops check --detail-level 2`.
+
 ## Next steps
 
 In this tutorial, you learned how to configure IoT MQ for bi-directional MQTT bridge with Azure Event Grid MQTT broker. As next steps, explore the following scenarios:
