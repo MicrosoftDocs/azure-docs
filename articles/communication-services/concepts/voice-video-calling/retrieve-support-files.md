@@ -14,7 +14,7 @@ ms.date:     07/17/2023
 
 In the realm of modern, sandboxed applications, ensuring a smooth user experience is paramount, especially when issues arise. A critical aspect of providing support is the efficient collection of support data, such as log files, and enabling easy feedback mechanisms for users. This document outlines a structured approach to collecting support data from the system. Enabling feedback from customers and sending this crucial information to the server or ticketing system in order to be further triaged and handled by support specialists.
 
-## 1. Collecting Support Data from the System
+## Collecting Support Data from the System
 
 ### Key Developer Actions for Effective Log Collection
 
@@ -26,7 +26,7 @@ In the realm of modern, sandboxed applications, ensuring a smooth user experienc
 
 Utilize the Calling SDK's APIs to automate the retrieval of logs and other support-related information. Support related information includes call IDs, error logs, and performance metrics. For applications using the Azure Communication Services Calling SDK, integrating direct log file access through the API facilitates this process, eliminating the need for users to manually locate and send logs.
 
-## 2. Enabling Feedback from the Customer
+## Enabling Feedback from the Customer
 
 ### Integrating User Feedback Mechanisms
 
@@ -38,7 +38,7 @@ Utilize the Calling SDK's APIs to automate the retrieval of logs and other suppo
 
 It's crucial to design these feedback mechanisms with clear prompts for user consent, ensuring users are fully informed about the data being shared and its purpose. This transparency builds trust and encourages more users to report issues.
 
-## 3. Sending Support and Customer Feedback to the Server or Ticket System
+## Sending Support and Customer Feedback to the Server or Ticket System
 
 ### Structuring the Data Submission Process
 

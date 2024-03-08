@@ -193,7 +193,7 @@ AzureLogger.log = (...args) => {
 };
 ```
 
-### Native SDK (Android/iOS/Web)
+### Native SDK (Android/iOS)
 
 For Android, iOS and Windows the Azure Communication Services Calling SDK Offers access to log files and support information the the SDK's functionality.
 
