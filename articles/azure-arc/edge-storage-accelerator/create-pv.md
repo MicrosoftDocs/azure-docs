@@ -134,7 +134,7 @@ This article describes how to configure workload identity.
    az connectedk8s update -g <resource_group_name> -n <cluster_name> --enable-oidc-issuer
    ```
 
-1. Enable the workload identity webhook. Replace `TenantID` if you're not using an MSFT AIRS subscription:
+1. Enable the workload identity webhook. Replace `TenantID` with your Azure tenant ID:
 
     ```bash
     export PATH_TO_CHART="oci://testpublic.azurecr.io/helm/workload-identity-webhook"
@@ -153,4 +153,5 @@ This article describes how to configure workload identity.
 
 ## Next steps
 
-[Create a persistent volume claim](create-pvc.md)
+- [Create a persistent volume claim](create-pvc.md)
+- [Edge Storage Accelerator overview](overview.md)
