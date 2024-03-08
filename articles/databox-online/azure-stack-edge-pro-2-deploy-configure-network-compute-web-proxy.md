@@ -154,7 +154,7 @@ Follow these steps to add or delete virtual switches.
 
     When you create a virtual switch, the MTU column is populated with its MTU value.
 
-    ![Screenshot of the MTU setting in Advanced networking in local UI.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-value.png)
+    ![Screenshot of the MTU setting in Advanced networking in local UI.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-maximum-transmission-unit.png)
 
 1. The configuration will take a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
 
@@ -492,7 +492,7 @@ After the cluster is formed and configured, you can now create new virtual switc
 
    When you create a virtual switch, the MTU column is populated with its MTU value.
 
-   ![Screenshot of the MTU setting in Advanced networking in local UI.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-value.png)
+   ![Screenshot of the MTU setting in Advanced networking in local UI.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-maximum-transmission-unit.png)
 
 1. The configuration will take a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
 
