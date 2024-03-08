@@ -13,7 +13,7 @@
         - name: Tokens and the Token function
           href: tokens.md
         - name: FAQ
-          href: cassandra-faq.yml
+          href: faq.yml
     - name: Quickstarts
       items:
         - name: Java v4

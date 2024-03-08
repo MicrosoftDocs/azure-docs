@@ -693,37 +693,37 @@ The number of pods should be equal to the number of Linux nodes on the cluster. 
 
 ```output
 User@aksuser:~$ kubectl get ds ama-logs --namespace=kube-system
-NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-ama-logs   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+ama-logs   2         2         2         2            2           <none>          1d
 ```
 
 **Verify that Windows nodes were deployed properly**
 
 ```
-kubectl get ds ama-metrics-win-node --namespace=kube-system
+kubectl get ds ama-logs-windows --namespace=kube-system
 ```
 
 The number of pods should be equal to the number of Windows nodes on the cluster. The output should resemble the following example:
 
 ```output
 User@aksuser:~$ kubectl get ds ama-logs-windows --namespace=kube-system
-NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
-ama-logs-windows           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR     AGE
+ama-logs-windows           2         2         2         2            2       <none>            1d
 ```
 
 
 **Verify deployment of the Container insights solution**
 
 ```
-kubectl get deployment ama-logs-rs -n=kube-system
+kubectl get deployment ama-logs-rs --namespace=kube-system
 ```
 
 The output should resemble the following example:
 
 ```output
-User@aksuser:~$ kubectl get deployment ama-logs-rs -n=kube-system
-NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
-ama-logs-rs   1         1         1            1            3h
+User@aksuser:~$ kubectl get deployment ama-logs-rs --namespace=kube-system
+NAME          READY   UP-TO-DATE   AVAILABLE   AGE
+ama-logs-rs   1/1     1            1           24d
 ```
 
 **View configuration with CLI**

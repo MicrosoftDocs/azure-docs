@@ -11,6 +11,7 @@ content_well_notification:
   - AI-contribution
 zone_pivot_groups: azure-virtual-network-manager-quickstart-options
 
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Terraform

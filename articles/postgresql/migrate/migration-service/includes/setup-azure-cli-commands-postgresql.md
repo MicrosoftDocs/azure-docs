@@ -6,7 +6,7 @@ ms.date: 01/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include
-ms.custom: 
+ms.custom: devx-track-azurecli
 ---
 
 ## Set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server

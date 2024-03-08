@@ -45,4 +45,4 @@ To create an Azure AI project in [Azure AI Studio](https://ai.azure.com), follow
 
 1. Review the project details and then select **Create a project**. 
 
-Once a project is created, you can access the **Tools**, **Components**, and **Settings** assets in the left navigation panel. For a project that uses an Azure AI hub with support for Azure OpenAI, you see the **Playground** navigation option under **Tools**. 
+Once a project is created, you can access the **Tools**, **Components**, and **AI project settings** assets in the left navigation panel. For a project that uses an Azure AI hub with support for Azure OpenAI, you see the **Playground** navigation option under **Tools**. 

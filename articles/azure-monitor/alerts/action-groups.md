@@ -42,6 +42,9 @@ Global requests from clients can be processed by action group services in any re
 1. Configure basic action group settings. In the **Project details** section:
    - Select values for **Subscription** and **Resource group**.
    - Select the region.
+  
+   > [!NOTE]
+   > Service Health Alerts are only supported in public clouds within the global region. For Action Groups to properly function in response to a Service Health Alert the region of the action group must be set as "Global".
 
       | Option | Behavior |
       | ------ | -------- |
