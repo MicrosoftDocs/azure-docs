@@ -198,8 +198,6 @@ Select **Next: Protocols**.
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
     
-    Select **Next: Tags**. 
-
 Select **Next: Protocols**. 
 
 4. In the **Protocols** section of the Volume Group tab, you can modify the **Export Policy**, which should be common to all volumes.
