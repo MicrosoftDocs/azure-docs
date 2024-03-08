@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 08/22/2023
+ms.date: 03/08/2024
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -218,7 +218,7 @@ For V2,
 
 For V1, verify the backend pool target's FQDN is same the Common Name (CN).
 
-**Tips:** To determine the Common Name (CN) of the backend server(s)’ certificate, you can use any of these methods.
+**Tips:** To determine the Common Name (CN) of the backend server(s)’ certificate, you can use any of these methods. Also note, as per [**RFC 6125**](https://www.rfc-editor.org/rfc/rfc6125#section-6.4.4) if a SAN exists the SNI verification is done only against that field. The common name field is matched if there is no SAN in the certificate.
 
 * By using browser or any client:
 Access the backend server directly (not through Application Gateway) and click on the certificate padlock in the address bar to view the certificate details. You will find it under the “Issued To” section.
