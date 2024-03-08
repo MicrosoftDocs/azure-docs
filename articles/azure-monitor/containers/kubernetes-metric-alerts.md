@@ -50,9 +50,9 @@ Download the required files for the template you're working with and deploy usin
 
 ### ARM
 
-- Template file: [https://aka.ms/azureprometheus-recommendedmetricalerts](https://aka.ms/azureprometheus-recommendedmetricalerts)
+Template file: [https://aka.ms/azureprometheus-recommendedmetricalerts](https://aka.ms/azureprometheus-recommendedmetricalerts)
 
-- Parameters:
+Parameters:
 
     | Parameter | Description |
     |:---|:---|
@@ -130,65 +130,61 @@ Set the **enabled** flag to false for the rule group in the ARM template describ
 
 ## Recommended alert rule details
 
-The following table lists the details of each recommended Prometheus alert rule. Source code for each is available in [GitHub](https://aka.ms/azureprometheus-communityalerts).
+The following tables list the details of each recommended alert rule. Source code for each is available in [GitHub](https://aka.ms/azureprometheus-recommendedmetricalerts) along with [troubleshooting guides](https://aka.ms/aks-alerts/community-runbooks) from the Prometheus community.
 
-### Cluster level alerts
+### Prometheus community alert rules
 
-| Alert name | Description | Default threshold |
-|:---|:---|:---|
-| Average PV usage is greater than 80% | Average PV usage is greater than 80% | 80 |
-| KubeDeploymentReplicasMismatch | Deployment has not matched the expected number of replicas. | NA |
-| KubeStatefulSetReplicasMismatch | StatefulSet has not matched the expected number of replicas. | NA |
-| KubeHpaReplicasMismatch | Horizontal Pod Autoscaler has not matched the desired number of replicas for longer than 15 minutes. | NA |
-| KubeHpaMaxedOut | Horizontal Pod Autoscaler has been running at max replicas for longer than 15 minutes. | NA |
-| KubeCPUQuotaOvercommit | Cluster has overcommitted CPU resource requests for Namespaces and cannot tolerate node failure. | 1.5 |
-| KubeMemoryQuotaOvercommit | Cluster has overcommitted memory resource requests for Namespaces. | 1.5 |
-| KubeVersionMismatch | Different semantic versions of Kubernetes components running. | NA |
-| KubeClientErrors | Kubernetes API server client is experiencing errors. | 0.01 |
-| KubePersistentVolumeFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} is only {{ $value \| humanizePercentage }} free. | NA |
-| KubePersistentVolumeInodesFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} only has {{ $value \| humanizePercentage }} free inodes. | NA |
-| KubePersistentVolumeErrors | The persistent volume {{ $labels.persistentvolume }} has status {{ $labels.phase }} | 0 |
+**Cluster level alerts**
 
-### Pod level alerts
-
-| Alert name | Description | Default threshold |
-|:---|:---|:---|
-| KubePodCrashLooping | Pod is in CrashLoop which means the app dies or is unresponsive and Kubernetes tries to restart it automatically. | NA |
-| Job did not complete in time | Number of stale jobs older than six hours is greater than 0 | 0 |
-| Pod container restarted in last 1 hour | Pod container restarted in last 1 hour | NA |
-| Ready state of pods is less than 80% | Ready state of pods is less than 80% | 80 |
-| Number of pods in failed state are greater than 0 | Number of pods in failed state are greater than 0 | 0 |
-| KubePodNotReadyByController | Pod has been in a non-ready state for more than 15 minutes. | NA |
-| KubeStatefulSetGenerationMismatch | StatefulSet generation for {{ $labels.namespace }}/{{ $labels.statefulset }} does not match, this indicates that the StatefulSet has failed but has not been rolled back. | NA |
-| KubeJobNotCompleted | Job is taking more than 1h to complete. | NA |
-| KubeJobFailed | Job failed complete. | NA |
-| Average CPU usage per container is greater than 95% | Average CPU usage per container is greater than 95% | 95 |
-| Average Memory usage per container is greater than 95% | Average Memory usage per container is greater than 95% | 95 |
-| KubeletPodStartUpLatencyHigh | Kubelet Pod startup 99th percentile latency is {{ $value }} seconds on node {{ $labels.node }}. \| 60 |
+| Alert name | Description | Default threshold | Timeframe (minutes) |
+|---|---|---|---|
+| KubeCPUQuotaOvercommit | The CPU resource quota allocated to namespaces exceeds the available CPU resources on the cluster's nodes by more than 50% for the last 5 minutes. | >1.5 | 5 |
+| KubeMemoryQuotaOvercommit | The memory resource quota allocated to namespaces exceeds the available memory resources on the cluster's nodes by more than 50% for the last 5 minutes. | >1.5 | 5 |
+| Number of OOM killed containers is greater than 0 | One or more containers within pods have been killed due to out-of-memory (OOM) events for the last 5 minutes. | >0 | 5 |
+| KubeClientErrors | The rate of client errors (HTTP status codes starting with 5xx) in Kubernetes API requests exceeds 1% of the total API request rate for the last 15 minutes. | >0.01 | 15 |
+| KubePersistentVolumeFillingUp | The persistent volume is filling up and is expected to run out of available space evaluated on the available space ratio, used space, and predicted linear trend of available space over the last 6 hours. These conditions are evaluated over the last 60 minutes. | N/A | 60 |
+| KubePersistentVolumeInodesFillingUp | Less than 3% of the inodes within a persistent volume are available for the last 15 minutes. | <0.03 | 15 |
+| KubePersistentVolumeErrors | One or more persistent volumes are in a failed or pending phase for the last 5 minutes. | >0 | 5 |
+| KubeContainerWaiting | One or more containers within Kubernetes pods are in a waiting state for the last 60 minutes. | >0 | 60 |
+| KubeDaemonSetNotScheduled | One or more pods are not scheduled on any node for the last 15 minutes. | >0 | 15 |
+| KubeDaemonSetMisScheduled | One or more pods are mis scheduled within the cluster for the last 15 minutes. | >0 | 15 |
+| KubeQuotaAlmostFull | The utilization of Kubernetes resource quotas is between 90% and 100% of the hard limits for the last 15 minutes. | >0.9 <1 | 15 |
 
 
+**Node level alerts**
 
-### Node level alerts
+| Alert name | Description | Default threshold | Timeframe (minutes) |
+|---|---|---|---|
+| KubeNodeUnreachable | A node has been unreachable for the last 15 minutes. | 1 | 15 |
+| KubeNodeReadinessFlapping | The readiness status of a node has changed more than 2 times for the last 15 minutes. | 2 | 15 |
 
-| Alert name | Description | Default threshold |
-|:---|:---|:---|
-| Average node CPU utilization is greater than 80% | Average node CPU utilization is greater than 80% | 80 |
-| Working set memory for a node is greater than 80% | Working set memory for a node is greater than 80% | 80 |
-| Number of OOM killed containers is greater than 0 | Number of OOM killed containers is greater than 0 | 0 |
-| KubeNodeUnreachable | Kubernetes node is unreachable and some workloads may be rescheduled. | NA |
-| KubeNodeNotReady | KubeNodeNotReady alert is fired when a Kubernetes node is not in Ready state for a certain period. | NA |
-| KubeNodeReadinessFlapping | The readiness status of node has changed few times in the last 15 minutes. | 2 |
-| KubeContainerWaiting | Pod on container waiting longer than 1 hour | NA |
-| KubeDaemonSetNotScheduled | Pods of DaemonSet are not scheduled. | NA |
-| KubeDaemonSetMisScheduled | DaemonSet pods are misscheduled | 0 |
-| KubeletClientCertificateExpiration | Client certificate for Kubelet on node {{ $labels.node }} expires in {{ $value \| humanizeDuration }}. | NA |
-| KubeletServerCertificateExpiration | Server certificate for Kubelet on node {{ $labels.node }} expires in {{ $value \| humanizeDuration }}. | NA |
-| KubeletClientCertificateRenewalErrors | Kubelet has failed to renew its client certificate. | 0 |
-| KubeletServerCertificateRenewalErrors | Kubelet has failed to renew its server certificate. | 0 |
-| KubeQuotaAlmostFull | Cluster reaches to the allowed limits for given namespace. | Between 0.9 and 1 |
-| KubeQuotaFullyUsed | Namespace {{ $labels.namespace }} is using {{ $value \| humanizePercentage }} of its {{ $labels.resource }} quota | 1 |
-| KubeQuotaExceeded | Namespace {{ $labels.namespace }} is using {{ $value \| humanizePercentage }} of its {{ $labels.resource }} quota. | 1 |
+**Pod level alerts**
 
+| Alert name | Description | Default threshold | Timeframe (minutes) |
+|---|---|---|---|
+| Average PV usage is greater than 80% | The average usage of Persistent Volumes (PVs) on pod exceeds 80% for the last 15 minutes. | >0.8 | 15 |
+| KubeDeploymentReplicasMismatch | There is a mismatch between the desired number of replicas and the number of available replicas for the last 10 minutes. | N/A | 10 |
+| KubeStatefulSetReplicasMismatch | The number of ready replicas in the StatefulSet does not match the total number of replicas in the StatefulSet for the last 15 minutes. | N/A | 15 |
+| KubeHpaReplicasMismatch | The Horizontal Pod Autoscaler in the cluster has not matched the desired number of replicas for the last 15 minutes. | N/A | 15 |
+| KubeHpaMaxedOut | The Horizontal Pod Autoscaler (HPA) in the cluster has been running at the maximum replicas for the last 15 minutes. | N/A | 15 |
+| KubePodCrashLooping | One or more pods is in a CrashLoopBackOff condition, where the pod continuously crashes after startup and fails to recover successfully for the last 15 minutes. | >=1 | 15 |
+| KubeJobStale | At least one Job instance did not complete successfully for the last 6 hours. | >0 | 360 |
+| Pod container restarted in last 1 hour | One or more containers within pods in the Kubernetes cluster have been restarted at least once within the last hour. | >0 | 15 |
+| Ready state of pods is less than 80% | The percentage of pods in a ready state falls below 80% for any deployment or daemonset in the Kubernetes cluster for the last 5 minutes. | <0.8 | 5 |
+| Number of pods in failed state are greater than 0. | One or more pods is in a failed state for the last 5 minutes.  | >0 | 5 |
+| KubePodNotReadyByController | One or more pods are not in a ready state (i.e., in the "Pending" or "Unknown" phase) for the last 15 minutes. | >0 | 15 |
+| KubeStatefulSetGenerationMismatch | The observed generation of a Kubernetes StatefulSet does not match its metadata generation for the last 15 minutes. | N/A | 15 |
+| KubeJobFailed | One or more Kubernetes jobs have failed within the last 15 minutes. | >0 | 15 |
+| Average CPU usage per container is greater than 95% | The average CPU usage per container exceeds 95% for the last 5 minutes. | >0.95 | 5 |
+| Average Memory usage per container is greater than 95% | The average memory usage per container exceeds 95% for the last 5 minutes. | >0.95 | 10 |
+| KubeletPodStartUpLatencyHigh | The 99th percentile of the pod startup latency exceeds 60 seconds for the last 10 minutes. | >60 | 10 |
+
+### Platform metric alert rules
+
+| Alert name | Description | Default threshold | Timeframe (minutes) |
+|---|---|---|---|
+| Node cpu percentage is greater than 95% | The node CPU percentage is greater than 95% for the last 5 minutes. | 95 | 5 |
+| Node memory working set percentage is greater than 100% | The node memory working set percentage is greater than 95% for the last 5 minutes. | 100 | 5 |
 
 
 ## Legacy Container insights metric alerts (preview)
