@@ -102,7 +102,7 @@ You can review the integrations in ARG both on the individual integration or on 
 
 :::image type="content" border="true" source="./media/integration-servicenow/all-integrations.png" alt-text="Screenshot of all integrations.":::
 
-You can review an integration, or all integrations, in [Azure Resource Graph (ARG)](/azure/governance/resource-graph), an Azure service that gives you the ability to query across multiple subscriptions. On the Integrations page, select **Open in ARG** to explore the details in ARG.
+You can review an integration, or all integrations, in [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that gives you the ability to query across multiple subscriptions. On the Integrations page, select **Open in ARG** to explore the details in ARG.
 
 :::image type="content" border="true" source="./media/integration-servicenow/open.png" alt-text="Screenshot of how to open in ARG.":::
 
