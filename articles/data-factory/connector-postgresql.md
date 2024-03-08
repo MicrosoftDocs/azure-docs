@@ -76,19 +76,27 @@ The following properties are supported for PostgreSQL linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **PostgreSqlV2** | Yes |
-| server | The name of your PostgreSQL Server. | Yes |
-| port | The port number to connect to the PostgreSQL server. | No |
-| database | Your PostgreSQL database name. | Yes |
-| username | Your user name. Not required if using IntegratedSecurity. | Yes |
+| server | Specifies the host name - and optionally port - on which PostgreSQL is running. | Yes |
+| port | The TCP port of the PostgreSQL server.| No |
+| database | The PostgreSQL database to connect to. | Yes |
+| username | The username to connect with. Not required if using IntegratedSecurity. | Yes |
 | password | The password to connect with. Not required if using IntegratedSecurity. | Yes |
 | sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: Fail the connection if the server doesn't support SSL.<br/>- **Verify-ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
+| authenticationType | Authentication type for connecting to the database. Only supports **Basic**. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
-
-More properties you can set per your case:
-
-| Property | Description | Options | Required |
-|:--- |:--- |:--- |:--- |
-| Additional properties| Specify the additional connection properties. Options:<br/> - **Schema**: Sets the schema search path. <br/> - **Pooling**: Whether connection pooling should be used. <br/> - **Connection Timeout**: The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. <br/> - **Command Timeout**: The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. <br/> - **Trust Server Certificate**: Whether to trust the server certificate without validating it. <br/> - **SSL Certificate**: Location of a client certificate to be sent to the server.<br/> - **SSL Key**: Location of a client key for a client certificate to be sent to the server.<br/> - **SSL Password**: Password for a key for a client certificate. <br/> - **Read Buffer Size**: Determines the size of the internal buffer Npgsql uses when reading. Increasing may improve performance if transferring large values from the database.<br/> - **Log Parameters**:When enabled, parameter values are logged when commands are executed.<br/> - **Timezone**: Gets or sets the session timezone. <br/> - **Encoding**: Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. | Schema / Pooling / Connection Timeout / Command Timeout / Trust Server Certificate / SSL Certificate / SSL Key / SSL Password / Read Buffer Size / Log Parameters / Timezone / Encoding | No |
+| ***Additional connection properties:*** |  |  |
+| schema | Sets the schema search path. | No |
+| pooling | Whether connection pooling should be used. | No |
+| timeout | The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. | No |
+| commandTimeout | The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. | No |
+| trustServerCertificate | Whether to trust the server certificate without validating it. | No |
+| sslCertificate | Location of a client certificate to be sent to the server. | No |
+| sslKey | Location of a client key for a client certificate to be sent to the server. | No |
+| sslPassword | Password for a key for a client certificate. | No |
+| readBufferSize | Determines the size of the internal buffer Npgsql uses when reading. Increasing may improve performance if transferring large values from the database. | No |
+| logParameters | When enabled, parameter values are logged when commands are executed. | No |
+| timezone | Gets or sets the session timezone. | No |
+| encoding | Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. | No |
 
 > [!NOTE]
 > In order to have full SSL verification via the ODBC connection when using the Self Hosted Integration Runtime you must use an ODBC type connection instead of the PostgreSQL connector explicitly, and complete the following configuration:
@@ -166,7 +174,6 @@ To copy data from PostgreSQL, the following properties are supported:
 | type | The type property of the dataset must be set to: **PostgreSqlV2Table** | Yes |
 | schema | Name of the schema. |No (if "query" in activity source is specified)  |
 | table | Name of the table. |No (if "query" in activity source is specified)  |
-| tableName | Name of the table with schema. This property is supported for backward compatibility. Use `schema` and `table` for new workload. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -176,11 +183,14 @@ To copy data from PostgreSQL, the following properties are supported:
     "properties":
     {
         "type": "PostgreSqlV2Table",
-        "typeProperties": {},
-        "schema": [],
         "linkedServiceName": {
             "referenceName": "<PostgreSQL linked service name>",
             "type": "LinkedServiceReference"
+        },
+        "schema": [],
+        "typeProperties": {
+            "dataset": "<dataset name>",
+            "table": "<table name>"
         }
     }
 }
@@ -302,9 +312,9 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade your PostgreSQL linked service:
 
-1. Create a new PostgreSQL linked service and configure it by referring to [Linked service properties](connector-postgresql.md#linked-service-properties).
+1. Create a new PostgreSQL linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
-1. The data type mapping for the latest PostgreSQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](connector-postgresql.md#data-type-mapping-for-postgresql).
+1. The data type mapping for the latest PostgreSQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](#data-type-mapping-for-postgresql).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
