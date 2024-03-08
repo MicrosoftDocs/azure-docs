@@ -2,7 +2,7 @@
 title: Support matrix for Azure Database for MySQL - Flexible Server retention for long term by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure Database for MySQL - Flexible Server.
 ms.topic: conceptual
-ms.date: 02/16/2024
+ms.date: 03/08/2024
 ms.custom: references_regions
 ms.service: backup
 author: AbhishekMallick-MS
