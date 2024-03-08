@@ -13,7 +13,7 @@ ms.date: 03/07/2024
 
 # Tutorial: Create a custom analyzer for phone numbers
 
-In search solutions, strings that have complex patterns or special characters can be a challenge to work with because the [default analyzer](search-analyzers.md) strips out or misinterprets meaningful parts of a pattern, resulting in a poor search experience when users can't find the information they expected. Phone numbers are a classic example of strings that are hard to analyze. They come in a variety of formats, and they include special characters that the default analyzer ignores. 
+In search solutions, strings that have complex patterns or special characters can be a challenge to work with because the [default analyzer](search-analyzers.md) strips out or misinterprets meaningful parts of a pattern, resulting in a poor search experience when users can't find the information they expected. Phone numbers are a classic example of strings that are hard to analyze. They come in various formats, and they include special characters that the default analyzer ignores. 
 
 With phone numbers as its subject, this tutorial takes a close look at the problems of patterned data, and shows you to solve that problem using a [custom analyzer](index-add-custom-analyzers.md). The approach outlined here can be used as-is for phone numbers, or adapted for fields having the same characteristics (patterned, with special characters), such as URLs, emails, postal codes, and dates.
 
@@ -35,7 +35,7 @@ The following services and tools are required for this tutorial.
 
 ### Download files
 
-Source code for this tutorial is in the [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/custom-analyzers) folder in the [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub repository.
+Source code for this tutorial is the [custom-analyzer.rest](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/custom-analyzers/custom-analyzer.rest) file in the [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub repository.
 
 ### Copy a key and URL
 
@@ -96,7 +96,7 @@ A valid API key establishes trust, on a per request basis, between the applicati
 
 1. Select **Send request**. You should have an `HTTP/1.1 201 Created` response and the response body should include the JSON representation of the index schema.
 
-1. Load data into the index, using documents that contain a variety of phone number formats. This is your test data.
+1. Load data into the index, using documents that contain various phone number formats. This is your test data.
 
     ```http
     ### Load documents
@@ -226,11 +226,11 @@ Analyzers consist of three components:
 + A [**Tokenizer**](#Tokenizers) that breaks the input text into tokens, which become keys in the search index.
 + [**Token filters**](#TokenFilters) that manipulate the tokens produced by the tokenizer.
 
-In the diagram below, you can see how these three components work together to tokenize a sentence:
+In the following diagram, you can see how these three components work together to tokenize a sentence:
 
   :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Diagram of Analyzer process to tokenize a sentence":::
 
-These tokens are then stored in an inverted index, which allows for fast, full-text searches.  An inverted index enables full-text search by mapping all unique terms extracted during lexical analysis to the documents in which they occur. You can see an example in the diagram below:
+These tokens are then stored in an inverted index, which allows for fast, full-text searches.  An inverted index enables full-text search by mapping all unique terms extracted during lexical analysis to the documents in which they occur. You can see an example in the next diagram:
 
   :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Example inverted index":::
 
@@ -242,7 +242,7 @@ All of search comes down to searching for the terms stored in the inverted index
 
   :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Diagram of Analyzer process ranking similarity":::
 
-If the query terms don't match the terms in your inverted index, results won't be returned. To learn more about how queries work, see this article on [full text search](search-lucene-query-architecture.md).
+If the query terms don't match the terms in your inverted index, results aren't returned. To learn more about how queries work, see this article on [full text search](search-lucene-query-architecture.md).
 
 > [!Note]
 > [Partial term queries](search-query-partial-matching.md) are an important exception to this rule. These queries (prefix query, wildcard query, regex query) bypass the lexical analysis process unlike regular term queries. Partial terms are only lowercased before being matched against terms in the index. If an analyzer isn't configured to support these types of queries, you'll often receive unexpected results because matching terms don't exist in the index.
@@ -350,7 +350,7 @@ For phone numbers, we want to remove whitespace and special characters because n
   ]
 ```
 
-The filter above will remove `-` `(` `)` `+` `.` and spaces from the input.
+The filter removes `-` `(` `)` `+` `.` and spaces from the input.
 
 |Input|Output|  
 |-|-|  
@@ -609,7 +609,7 @@ The analyzer described in the previous section is designed to maximize the flexi
 
 The following example shows an alternative analyzer that's more efficient in tokenization, but has drawbacks. 
 
-Given an input of `14255550100`, the analyzer can't logically chunk the phone number. For example, it can't separate the country code, `1`, from the area code, `425`. This discrepancy would lead to the number above not being returned if a user didn't include a country code in their search.
+Given an input of `14255550100`, the analyzer can't logically chunk the phone number. For example, it can't separate the country code, `1`, from the area code, `425`. This discrepancy would lead to the phone number not being returned if a user didn't include a country code in their search.
 
 ```json
 "analyzers": [
@@ -640,13 +640,13 @@ Given an input of `14255550100`, the analyzer can't logically chunk the phone nu
 ]
 ```
 
-You can see in the example below that the phone number is split into the chunks you would normally expect a user to be searching for.
+You can see in the following example that the phone number is split into the chunks you would normally expect a user to be searching for.
 
 |Input|Output|  
 |-|-|  
 |`(321) 555-0199`|`[321, 555, 0199, 321555, 5550199, 3215550199]`|
 
-Depending on your requirements, this may be a more efficient approach to the problem.
+Depending on your requirements, this might be a more efficient approach to the problem.
 
 ## Takeaways
 
