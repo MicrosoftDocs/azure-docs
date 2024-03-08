@@ -242,7 +242,7 @@ See information about [upgrading the mobility services](upgrade-mobility-service
 
 1.  Open command prompt and navigate to the folder where the installer file has been placed. Extract the installer:
       ```cmd
-       Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Program Files (x86)\Microsoft Azure Site Recovery
+       Microsoft-ASR_UA*Windows*release.exe /q /x:'C:\Program Files (x86)\Microsoft Azure Site Recovery'
       ```
 1. Run the below command to launch the installation wizard for the agent .
    ```cmd
