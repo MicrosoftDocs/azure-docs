@@ -11,7 +11,7 @@ ms.date: 11/15/2023
 
 **Pull** delivery supports consuming events using private links. Pull delivery is a feature of Event Grid namespaces. Once you have added a private endpoint connection to a namespace, your consumer application can connect to Event Grid on a private endpoint to receive events. For more information, see [configure private endpoints for namespaces](configure-private-endpoints-pull.md) and [pull delivery overview](pull-delivery-overview.md).
 
-With **push** delivery isn't possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). That is, with push delivery, either in Event Grid basic or Event Grid namespaces, your application can't receive events over private IP space. However, there's a secure alternative using managed identities with public endpoints.
+**push** events delivered to private endpoints [private endpoints](../private-link/private-endpoint-overview.md) currently aren't supported. That is, with push delivery, either in Event Grid basic or Event Grid namespaces or Event Grid System Topics, your application can't receive events over private IP space. However, there's a secure alternative using managed identities with public endpoints and allowing Service Tag traffic on public interfaces of Azure Functions.
 
 ## Use managed identity
 
@@ -29,6 +29,10 @@ To deliver events to event hubs in your Event Hubs namespace using managed ident
 1. [Add the identity to the **Azure Event Hubs Data Sender** role  on the Event Hubs namespace](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal).
 1. [Enable the **Allow trusted Microsoft services to bypass this firewall** setting on your Event Hubs namespace](../event-hubs/event-hubs-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure the event subscription](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) that uses an event hub as an endpoint to use the system-assigned or user-assigned managed identity.
+
+## Use Azure Function with Service tags enabled on the Public Interface
+
+This configuration makes use of the internet accessible interface of the Azure Function. By enabling the Firewall on said interface and adding a Rule specifically for the "Event Grid" service tag, the event will fire and be recieved by the Azure Function.
 
 ## Deliver events to Service Bus using managed identity
 To deliver events to Service Bus queues or topics in your Service Bus namespace using managed identity, follow these steps:
