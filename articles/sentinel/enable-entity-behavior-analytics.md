@@ -2,9 +2,9 @@
 title: Enable entity behavior analytics to detect advanced threats
 description: Enable User and Entity Behavior Analytics in Microsoft Sentinel, and configure data sources
 author: yelevin
+ms.author: yelevin
 ms.topic: how-to
 ms.date: 07/05/2023
-ms.author: yelevin
 ---
 
 # Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel 
@@ -67,4 +67,4 @@ To enable or disable this feature (these prerequisites are not required to use t
 In this article, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. For more information about UEBA:
 
 > [!div class="nextstepaction"]
->>[Configure data retention and archive](configure-data-retention-archive.md)
+>>[Investigate entities with entity pages](entity-pages.md)

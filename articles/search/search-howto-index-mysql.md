@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.custom:
   - kr2b-contr-experiment
   - ignite-2023
-ms.date: 06/10/2022
+ms.date: 02/28/2024
 ---
 
 # Index data from Azure Database for MySQL
@@ -28,7 +28,7 @@ When configured to include a high water mark and soft deletion, the indexer take
 
 ## Prerequisites
 
-- [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
+- [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide scenario feedback. You can access the feature automatically after form submission.
 
 - [Azure Database for MySQL flexible server](../mysql/flexible-server/overview.md).
 
@@ -36,7 +36,7 @@ When configured to include a high water mark and soft deletion, the indexer take
 
 - Read permissions. A *full access* connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Reader** permissions on MySQL.
 
-- A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer.
+- A [REST client](search-get-started-rest.md) to create the data source, index, and indexer.
 
   You can also use the [Azure SDK for .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql). You can't use the portal for indexer creation, but you can manage indexers and data sources once they're created.
 

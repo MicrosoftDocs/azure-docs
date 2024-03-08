@@ -223,7 +223,7 @@ Currently, VNet flow logs aren't billed. However, the following costs apply:
 ## Availability
 
 VNet flow logs can be directly enabled with no access restrictions during the preview in the following regions:
-- Swiss North
+- Switzerland North
 - UK South
 - West Central US
 

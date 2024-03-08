@@ -1,0 +1,44 @@
+- name: Azure Operational Excellence documentation (Preview)
+  href: index.yml
+- name: Overview
+  href: overview.md
+- name: Azure region relocation
+  items:
+  - name: Overview
+    href: overview-relocation.md
+  - name: Relocation guides by service
+    items:
+    - name: Foundational services
+      items:
+      - name: Azure Key Vault
+        href: relocation-key-vault.md
+      - name: Azure Event Hubs
+        href: relocation-event-hub.md
+      - name: Azure Event Hubs Cluster
+        href: relocation-event-hub-cluster.md
+      - name: Azure Virtual Network
+        href: relocation-virtual-network.md 
+      - name: Network Security Groups (NSG)
+        href: relocation-virtual-network-nsg.md
+    - name: Mainstream services
+      items:
+      - name: Azure Database for PostgreSQL
+        href: relocation-postgresql-flexible-server.md
+      - name: Azure Monitor - Log Analytics Workspace
+        href: relocation-log-analytics.md
+      - name: Azure Private Link Service
+        href: relocation-private-link.md  
+      - name: Storage Account
+        href: relocation-storage-account.md
+    - name: Strategic services
+      items:
+      - name: Azure Automation
+        href: relocation-automation.md
+- name: Resources
+  items:
+  - name: Operational Excellence in Microsoft Azure Well-Architected Framework
+    href: /azure/well-architected/operational-excellence/principles
+  - name: Azure Resource Mover Documentation
+    href: /azure/resource-mover/overview
+  
+

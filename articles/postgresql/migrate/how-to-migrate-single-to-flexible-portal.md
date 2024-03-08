@@ -98,9 +98,7 @@ The first tab is **Setup**. Just in case you missed it, allowlist necessary exte
 
 It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform pre-migration validations before running the migration. To learn more about the pre-migration validation refer to this [documentation](./concepts-single-to-flexible.md#pre-migration-validations).
 
-**Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option. **Online migrations preview** is currently available in all public clouds and in China regions. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
-
-:::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
+**Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option. **Offline migration** is generally available and **Online migration** is in preview across all regions.
 
 If **Online** migration preview is selected, it requires Logical replication to be turned on in the source Single server. If it's not turned on, the migration tool automatically turns on logical replication at the source Single server. Replication can also be set up manually under **Replication** tab in the Single server side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
 
@@ -212,9 +210,7 @@ You can see the results of **Validate and Migrate** once the operation is comple
 ### Online migration preview
 
 > [!NOTE]  
-> **Online migrations preview** is currently available in Central US, France Central, Germany West Central, North Central US, South Central US, North Europe, all West US regions, UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
-
-:::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
+> The Single to Flex Migration tool is available in all Azure regions and supports **Offline** and **Online** migration mode. **Offline migration** is generally available and **Online migration** is in preview across all regions.
 
 In case of both **Migrate** as well as **Validate and Migrate**, completion of the Online migration requires another step - a Cutover action is required from the user. After the copy/clone of the base data is complete, the migration moves to `WaitingForUserAction` state and `WaitingForCutoverTrigger` substate. In this state, user can trigger cutover from the portal by selecting the migration.
 

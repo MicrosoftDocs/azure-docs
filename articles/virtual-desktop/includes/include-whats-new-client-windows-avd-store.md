@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 02/20/2024
+ms.date: 03/06/2024
 ---
 
 ## Supported client versions
@@ -12,12 +12,26 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |--|--|--|
 | Public | 1.2.5112 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5248 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Insider | 1.2.5252 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5248 (Insider)
+>[!IMPORTANT]
+>As of March 6, 2024, the public version of the client has rolled back to [version 1.2.5112](#updates-for-version-125112). Version 1.2.5252 has reverted to an Insider version.
 
-*Date published: February 13, 2024* 
+## Updates for version 1.2.5252 (Insider)
 
+*Date published: February 29, 2024*
+
+In this release, we've made the following changes:
+
+- Devices no longer go into idle mode when video playback is active. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+## Updates for version 1.2.5248
+
+*Date published: February 13, 2024*
+
+>[!NOTE]
+>This version was an Insiders version that was replaced by version 1.2.5252 and never released to Public.
 In this release, we've made the following changes:
 
 - Fixed an issue that caused artifacts to appear on the screen during RemoteApp sessions.
@@ -31,7 +45,6 @@ In this release, we've made the following changes:
 
 >[!NOTE]
 >This version was an Insiders version that was replaced by version 1.2.5248 and never released to Public.
-
 In this release, we've made the following changes:
 
 - Fixed the regression that caused a display issue when a user selects monitors for their session. 
