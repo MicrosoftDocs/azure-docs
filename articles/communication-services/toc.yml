@@ -669,7 +669,9 @@ items:
           - name: Security
             href: concepts/interop/guest/security.md
           - name: Known issues
-            href: concepts/interop/guest/limitations.md            
+            href: concepts/interop/guest/limitations.md
+          - name: Troubleshooting VoIP call quality
+            href: concepts/voice-video-calling/troubleshoot-web-voip-quality.md  
       - name: Communication as Teams user
         items:
           - name: Overview

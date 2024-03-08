@@ -4,7 +4,7 @@ description: Overview of the SAP workload zone configuration process within SAP 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 12/14/2023
+ms.date: 3/5/2024
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -21,8 +21,8 @@ The workload zone provides shared services to all of the SAP Systems in the work
 
 - Azure Virtual Network
 - Azure Key Vault
-- Shared Azure Storage Accounts for installation media
-- If Azure NetApp Files are used, the Azure NetApp Files account and capacity pool is hosted in the workload zone.
+- Shared Azure Storage Account for installation media
+- Azure NetApp Files account and capacity pool (optional)
 
 The workload zone is typically deployed in a spoke subscription and the deployment of all the artifacts in the workload zone is done using unique service principal. 
 
@@ -109,6 +109,30 @@ This table contains the networking parameters if Azure NetApp Files is used.
 > | `anf_subnet_arm_id`              | The Azure resource identifier for the `ANF` subnet                   | Required  | When using existing subnets        |
 > | `anf_subnet_address_prefix`      | The address range for the `ANF` subnet                               | Required  | When using `ANF` for deployments   |
 > | `anf_subnet_name`                | The name of the `ANF` subnet                                         | Optional  |                                    |
+
+This table contains the networking parameters if iSCSI devices are hosted from this workload zone.
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                         | Description                                                          | Type      | Notes                              |
+> | -------------------------------- | -------------------------------------------------------------------- | --------- | ---------------------------------- |
+> | `iscsi_subnet_address_prefix`    | The address range for the `iscsi` subnet                             | Mandatory | For green-field deployments        |
+> | `iscsi_subnet_arm_id`	           | The Azure resource identifier for the `iscsi` subnet                 | Mandatory | For brown-field deployments        |
+> | `iscsi_subnet_name`              | The name of the `iscsi` subnet                                       | Optional  |                                    |
+> | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the `iscsi` network security group | Mandatory | For brown-field deployments        |
+> | `iscsi_subnet_nsg_name`          | The name of the `iscsi` network security group                       | Optional  |                                    |
+
+This table contains the networking parameters if Azure Monitor for SAP is hosted from this workload zone.
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                         | Description                                                          | Type      | Notes                              |
+> | -------------------------------- | -------------------------------------------------------------------- | --------- | ---------------------------------- |
+> | `ams_subnet_address_prefix`      | The address range for the `iscsi` subnet                             | Mandatory | For green-field deployments        |
+> | `ams_subnet_arm_id`	             | The Azure resource identifier for the `iscsi` subnet                 | Mandatory | For brown-field deployments        |
+> | `ams_subnet_name`                | The name of the `iscsi` subnet                                       | Optional  |                                    |
+> | `ams_subnet_nsg_arm_id`          | The Azure resource identifier for the `iscsi` network security group | Mandatory | For brown-field deployments        |
+> | `ams_subnet_nsg_name`            | The name of the `iscsi` network security group                       | Optional  |                                    |
+
+
 
 This table contains additional networking parameters.
 
@@ -264,11 +288,6 @@ ANF_service_level         = "Ultra"
 > | `iscsi_count`                    | The number of iSCSI virtual machines                                      | Optional  |                                        |   
 > | `iscsi_image`	                 | Defines the virtual machine image to use (next table)                     | Optional  |                                        |
 > | `iscsi_nic_ips`                  | IP addresses for the iSCSI virtual machines                               | Optional  | Ignored if `iscsi_use_DHCP` is defined |
-> | `iscsi_subnet_address_prefix`    | The address range for the `iscsi` subnet                                  | Mandatory | For green-field deployments            |
-> | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the `iscsi` subnet                      | Mandatory | For brown-field deployments            |
-> | `iscsi_subnet_name`              | The name of the `iscsi` subnet                                            | Optional  |                                        |
-> | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the `iscsi` network security group      | Mandatory | For brown-field deployments            |
-> | `iscsi_subnet_nsg_name`          | The name of the `iscsi` network security group                            | Optional  |                                        |
 > | `iscsi_use_DHCP`                 | Controls whether to use dynamic IP addresses provided by the Azure subnet | Optional  |                                        |
 > | `iscsi_vm_zones`                 | Availability zones for the iSCSI Virtual Machines                         | Optional  |                                        |
 
@@ -284,6 +303,16 @@ ANF_service_level         = "Ultra"
 > | `utility_vm_os_disk_type`        | Defines the type of the OS disk for the Virtual Machine                   | Optional  | Default: Premium_LRS                           |
 > | `utility_vm_size`                | Defines the SKU for the utility virtual machines                          | Optional  | Default: Standard_D4ds_v4                      |
 > | `utility_vm_useDHCP`             | Defines if Azure subnet provided IPs should be used                       | Optional  |                                                |
+
+
+## Azure Monitor parameters
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                         | Description                                                               | Type      | Notes                                          |
+> | -------------------------------- | ------------------------------------------------------------------------- | --------- | ---------------------------------------------- |
+> | `create_ams_instance`            | Defines if an Azure Monitor for SAP instance should be created            | Optional  |                                                |
+> | `ams_instance_name`              | Defines the name of the instance                                          | Optional  |                                                |
+> | `ams_laws_arm_id`                | Defines the ARM resource ID for the Log Analytics Workspace               | Optional  |                                                |
 
 
 

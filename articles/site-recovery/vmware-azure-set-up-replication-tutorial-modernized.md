@@ -61,7 +61,7 @@ Use the following steps to assign the required permissions:
 
 1. In Azure portal, navigate to **Microsoft Entra ID** > **Users** > **User Settings**. In **User settings**, verify that Microsoft Entra users can register applications (set to *Yes* by default).
 
-2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Microsoft Entra App.
+2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. The tenant/global admin must assign the Application Registration role to an account to allow the registration of Microsoft Entra App.
 
 ## Grant required permissions to the vault
 
