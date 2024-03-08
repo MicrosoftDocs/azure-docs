@@ -48,7 +48,7 @@ To create alias records, you must register the **Microsoft.Network** resource pr
 az provider register --namespace Microsoft.Network
 ```
 
-For more information, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/troubleshooting/error-register-resource-provider.md?tabs=azure-portal#solution).  
+For more information, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-portal#solution).  
 
 ## Create the network infrastructure
 
