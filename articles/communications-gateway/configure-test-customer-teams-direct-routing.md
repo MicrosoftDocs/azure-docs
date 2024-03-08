@@ -38,7 +38,7 @@ You must be able to sign in to the Microsoft 365 admin center for your test cust
 Azure Communications Gateway has per-region domain names. You need to set up subdomains of these domain names for your test customer. Microsoft Phone System and Azure Communications Gateway use these subdomains to match calls to tenants.
 
 1. Choose a DNS label to identify the test customer.
-    * The label can be up to 10 characters in length and can only contain letters, numbers, underscores, and dashes.
+    * The label can be up to eight characters in length and can only contain letters, numbers, underscores, and dashes.
     * You must not use wildcard subdomains or subdomains with multiple labels.
     * For example, you could allocate the label `test`.
     > [!IMPORTANT]

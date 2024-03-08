@@ -61,8 +61,8 @@ Each of your customers needs _customer subdomains_ of these per-region domains. 
 For each customer, you must:
 
 1. Choose a suitable subdomain. The label for the subdomain must:
-    - Contain only letters, numbers, underscores and dashes.
-    - Be up to 10 characters in length.
+    - Contain only letters, numbers, underscores, and dashes.
+    - Be up to eight characters in length.
     - Not contain a wildcard or multiple labels separated by `.`.
     > [!IMPORTANT]
     > The full customer subdomain (including the regional subdomains and the base domain) must be a maximum of 48 characters. Microsoft Entra ID does not support domain names of more than 48 characters.
@@ -97,7 +97,7 @@ The following diagram shows the call flow for an INVITE from a number that hasn'
 
 ## Identifying the customer tenant for Microsoft Phone System
 
-The Microsoft Phone System uses the domains in the Contact header of messages to identify the tenant for each message. Azure Communications Gateway automatically rewrites Contact headers on messages towards the Microsoft Phone System. so that they include the appropriate per-customer domain. This process removes the need for your core network to map between numbers and per-customer domains.
+The Microsoft Phone System uses the domains in the Contact header of messages to identify the tenant for each message. Azure Communications Gateway automatically rewrites Contact headers on messages towards the Microsoft Phone System so that they include the appropriate per-customer domain. This process removes the need for your core network to map between numbers and per-customer domains.
 
 You must provision Azure Communications Gateway with each number assigned to a customer for Direct Routing. This provisioning uses Azure Communications Gateway's Provisioning API.
 
