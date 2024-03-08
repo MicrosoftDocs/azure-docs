@@ -30,40 +30,42 @@ With a managed virtual network, inbound access is only allowed through an privat
 1. From the Azure portal, search for `Azure AI Studio` and create a new resource by selecting **+ New Azure AI**
 1. Enter your AI hub name, subscription, resource group, and location details.
 
-    :::image type="content" source="../media/how-to/resource-create-basics.png" alt-text="Screenshot of the option to set Azure AI hub resource basic information." lightbox="../media/how-to/resource-create-basics.png":::
+    :::image type="content" source="../media/how-to/network/ai-hub-basics.png" alt-text="Screenshot of the option to set Azure AI hub resource basic information." lightbox="../media/how-to/network/ai-hub-basics.png":::
 
 1. Select **Next: Resources** to specify resources. Select an existing **Azure AI services** resource or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
 
-    :::image type="content" source="../media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to set resource information." lightbox="../media/how-to/resource-create-resources.png"::: 
+    :::image type="content" source="../media/how-to/network/ai-hub-resources.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to set resource information." lightbox="../media/how-to/network/ai-hub-resources.png"::: 
 
 1. Select **Next: Networking** to configure the managed virtual network that AI Studio uses to secure its AI hub and AI project resources.
     
     1. Select **Private with Internet Outbound**, which allows compute resources to access the public internet for resources such as Python packages.
 
-        :::image type="content" source="../media/how-to/resource-create-networking.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to set network isolation information." lightbox="../media/how-to/resource-create-networking.png":::
+        :::image type="content" source="../media/how-to/network/ai-hub-networking.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to set network isolation information." lightbox="../media/how-to/network/ai-hub-networking.png":::
 
     1. To allow your clients to connect through your Azure Virtual Network to the AI hub, use the following steps to add a private endpoint.
     
-        1. Select **+ Add** from the **Workspace inbound access** section of the **Networking** tab. This opens the **Create private endpoint** form. 
-        1. Enter a unique value in the **Name** field. Select the **Virtual network** that your clients connect to. Select the **Subnet** that the private endpoint connects to.
+        1. Select **+ Add** from the **Workspace inbound access** section of the **Networking** tab. This opens the **Create private endpoint** form.
+        
+            :::image type="content" source="../media/how-to/network/workspace-inbound-access.png" alt-text="Screenshot of the workspace inbound access section." lightbox="../media/how-to/network/workspace-inbound-access.png":::
+
+        1. Enter a unique value in the **Name** field. Select the **Virtual network** (Azure Virtual Network) that your clients connect to. Select the **Subnet** that the private endpoint connects to.
+        
+            :::image type="content" source="../media/how-to/network/ai-hub-create-private-endpoint.png" alt-text="Screenshot of the create private endpoint form." lightbox="../media/how-to/network/ai-hub-create-private-endpoint.png":::
+
         1. Select **Ok** to save the endpoint configuration.
 
-1. Select **Review + create**
+1. Select **Review + create**, then **Create** to create the AI hub.
 
 ## Create an AI project
 
-When you create an AI project from the AI hub, the project is automatically secured by the managed virtual network. No special configuration is required. For more information on creating an AI project, see [Create an Azure AI project](create-projects.md).
+When you create an AI project from the AI hub, the project inherits the network configuration from the AI hub. For more information on creating an AI project, see [Create an Azure AI project](create-projects.md).
 
 > [!TIP]
-> After the AI project is created, AI Studio display an error message if your client can't resolve the DNS name of the AI project. For more information, see the [DNS resolution](#dns-resolution) section.
+> After the AI project is created, AI Studio may display an error message if your client can't resolve the DNS name of the AI project. For more information, see the [DNS resolution](#dns-resolution) section.
 
 ## Create a compute instance
 
-To create a new compute instance, use the following steps:
-
-1. From Azure AI Studio, select **Manage**, the **AI hub** created in the previous section, and then select **Compute instances**.
-1. Select **+ New** to create a new compute instance. Provide a **Compute name**, then continue through the creation process accepting the default values. 
-1. From the **Review** page, select **Create**. The managed virtual network is created when the compute instance is created.
+When you create a compute instance from the AI hub, the compute instance inherits the network configuration from the AI hub. For more information on creating a compute instance, see [Create a compute instance](create-manage-compute.md).
 
 ## Connect to the secured resources
 
@@ -77,16 +79,6 @@ The managed virtual network doesn't directly provide access to your clients. Ins
 
 > [!TIP]
 > When connecting using Azure VPN gateway or ExpressRoute, you may need to use a to enable name resolution for your clients. For more information, see the [DNS resolution](#dns-resolution) section.
-
-### Creating a private endpoint
-
-To connect your Azure Virtual Network to the AI hub, add a private endpoint to the AI hub. You can do this when creating the AI hub (as described in [Create an AI hub](#create-an-ai-hub) section,) or afterwards by following these steps:
-
-1. From the [Azure portal](https://portal.azure.com), navigate to the AI hub that you want to create a private endpoint for.
-1. Select **Networking**, **Private endpoint connections**, and then select **+ Private endpoint**.
-1. From the **Basics** page, provide a **Name** and **Network interface name** for the new endpoint. Select the appropriate **Subscription**, **Resource group**, and **Region**.
-1. From the **Virtual Network** tab, select the **Virtual network** and **Subnet** that the private endpoint connects to. You can also select whether the IP is dynamically or statically allocated.
-1. Continue through the steps and select **Create** to create the private endpoint.
 
 ### DNS resolution
 
