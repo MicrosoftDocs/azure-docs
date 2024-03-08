@@ -11,7 +11,7 @@ ms.date: 11/15/2023
 
 **Pull** delivery supports consuming events using private links. Pull delivery is a feature of Event Grid namespaces. Once you have added a private endpoint connection to a namespace, your consumer application can connect to Event Grid on a private endpoint to receive events. For more information, see [configure private endpoints for namespaces](configure-private-endpoints-pull.md) and [pull delivery overview](pull-delivery-overview.md).
 
-**push** events delivered to private endpoints [private endpoints](../private-link/private-endpoint-overview.md) currently aren't supported. That is, with push delivery, either in Event Grid basic or Event Grid namespaces or Event Grid System Topics, your application can't receive events over private IP space. However, there's a secure alternative using managed identities with public endpoints and allowing Service Tag traffic on public interfaces of Azure Functions.
+**Push** events delivered to private endpoints [private endpoints](../private-link/private-endpoint-overview.md) currently aren't supported. That is, with push delivery, either in Event Grid basic or Event Grid namespaces or Event Grid System Topics, your application can't receive events over a private IP space. However, there's a secure alternative using managed identities with public endpoints or alternatively allowing Service Tag traffic on the public interface of an Azure Function.
 
 ## Use managed identity
 
