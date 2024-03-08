@@ -261,7 +261,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | Property                     | Description                                                  | Required |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | The type property of the Copy activity source must be set to **SnowflakeV2Source**. | Yes      |
-| query          | Specifies the SQL query to read data from Snowflake. If the names of the schema, table and columns contain lower case, quote the object identifier in query e.g. `select * from "schema"."myTable"`.<br>Executing stored procedure is not supported. | No       |
+| query          | Specifies the SQL query to read data from Snowflake. If the names of the schema, table and columns contain lower case, quote the object identifier in query e.g. `select * from "schema"."myTable"`.<br>Executing stored procedure isn't supported. | No       |
 | exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | Yes       |
 | ***Under `exportSettings`:*** |  |  |
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
@@ -275,7 +275,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 
 #### Direct copy from Snowflake
 
-If your sink data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from Snowflake to sink. The service checks the settings and fails the Copy activity run if the following criteria is not met:
+If your sink data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from Snowflake to sink. The service checks the settings and fails the Copy activity run if the following criteria isn't met:
 
 - The **sink linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication. If you want to directly copy data to Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob linked service with SAS authentication against your ADLS Gen2 account, to avoid using [staged copy from Snowflake](#staged-copy-from-snowflake).
 
@@ -291,8 +291,8 @@ If your sink data store and format meet the criteria described in this section, 
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to **utf-8**.
         - `filePattern` in copy activity sink is left as default or set to **setOfObjects**.
-- In copy activity source, `additionalColumns` is not specified.
-- Column mapping is not specified.
+- In copy activity source, `additionalColumns` isn't specified.
+- Column mapping isn't specified.
 
 **Example:**
 
@@ -338,7 +338,7 @@ If your sink data store and format meet the criteria described in this section, 
 
 #### Staged copy from Snowflake
 
-When your sink data store or format is not natively compatible with the Snowflake COPY command, as mentioned in the last section, enable the built-in staged copy using an interim Azure Blob storage instance. The staged copy feature also provides you with better throughput. The service exports data from Snowflake into staging storage, then copies the data to sink, and finally cleans up your temporary data from the staging storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data by using staging.
+When your sink data store or format isn't natively compatible with the Snowflake COPY command, as mentioned in the last section, enable the built-in staged copy using an interim Azure Blob storage instance. The staged copy feature also provides you with better throughput. The service exports data from Snowflake into staging storage, then copies the data to sink, and finally cleans up your temporary data from the staging storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data by using staging.
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
@@ -417,7 +417,7 @@ To copy data to Snowflake, the following properties are supported in the Copy ac
 
 #### Direct copy to Snowflake
 
-If your source data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from source to Snowflake. The service checks the settings and fails the Copy activity run if the following criteria is not met:
+If your source data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from source to Snowflake. The service checks the settings and fails the Copy activity run if the following criteria isn't met:
 
 - The **source linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication. If you want to directly copy data from Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob linked service with SAS authentication against your ADLS Gen2 account, to avoid using  [staged copy to Snowflake](#staged-copy-to-snowflake).
 
@@ -426,20 +426,20 @@ If your source data store and format meet the criteria described in this section
     - For **Parquet** format, the compression codec is **None**, or **Snappy**.
 
     - For **delimited text** format:
-        - `rowDelimiter` is **\r\n**, or any single character. If row delimiter is not “\r\n”, `firstRowAsHeader` need to be **false**, and `skipLineCount` is not specified.
+        - `rowDelimiter` is **\r\n**, or any single character. If row delimiter isn't “\r\n”, `firstRowAsHeader` need to be **false**, and `skipLineCount` isn't specified.
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
         - `quoteChar` is **double quote**, **single quote**, or **empty string** (no quote char).
     - For **JSON** format, direct copy only supports the case that sink Snowflake table only has single column and the data type of this column is **VARIANT**, **OBJECT**, or **ARRAY**.
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to **utf-8**.
-        - Column mapping is not specified.
+        - Column mapping isn't specified.
 
 - In the Copy activity source: 
 
-   -  `additionalColumns` is not specified.
+   -  `additionalColumns` isn't specified.
    - If your source is a folder, `recursive` is set to true.
-   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd`, and `enablePartitionDiscovery` are not specified.
+   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd`, and `enablePartitionDiscovery` aren't specified.
 
 **Example:**
 
@@ -484,7 +484,7 @@ If your source data store and format meet the criteria described in this section
 
 #### Staged copy to Snowflake
 
-When your source data store or format is not natively compatible with the Snowflake COPY command, as mentioned in the last section, enable the built-in staged copy using an interim Azure Blob storage instance. The staged copy feature also provides you with better throughput. The service automatically converts the data to meet the data format requirements of Snowflake. It then invokes the COPY command to load data into Snowflake. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data using staging.
+When your source data store or format isn't natively compatible with the Snowflake COPY command, as mentioned in the last section, enable the built-in staged copy using an interim Azure Blob storage instance. The staged copy feature also provides you with better throughput. The service automatically converts the data to meet the data format requirements of Snowflake. It then invokes the COPY command to load data into Snowflake. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data using staging.
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
