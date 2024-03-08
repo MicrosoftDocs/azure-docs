@@ -18,6 +18,8 @@ In this article, you create an Azure Machine Learning  workspace, launch noteboo
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
+<a name ="create-an-azure-ml-workspace-from-microsoft-sentinel"></a>
+
 ## Prerequisites
 
 We recommend that you learn about Microsoft Sentinel notebooks before completing the steps in this article. See [Use Jupyter notebooks to hunt for security threats](notebooks.md).
