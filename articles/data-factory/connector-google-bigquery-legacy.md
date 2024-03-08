@@ -17,7 +17,7 @@ ms.date: 03/05/2024
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 >[!Important]
->The service has released a new Google BigQuery connector which provides better native Google BigQuery support comparing to this ODBC-based implementation, refer to [Google BigQuery](connector-google-bigquery.md) article on details. This legacy Google BigQuery connector is kept supported as-is for backward compatibility, while for any new workload, please use the new connector.
+>The service has released a new Google BigQuery connector which provides better native Google BigQuery support comparing to this ODBC-based implementation, refer to [Google BigQuery](connector-google-bigquery.md) article on details.
 
 ## Supported capabilities
 
