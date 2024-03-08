@@ -25,15 +25,15 @@ Azure OpenAI Service models are continually refreshed with newer and more capabl
 * Deprecation
 	* When a model is deprecated, it's no longer available for new customers. It continues to be available for use by customers with existing deployments until the model is retired.
 
-### Pre-retirement Notification
+### Preretirement Notification
 
 Azure OpenAI notifies subscription {role} of active Azure OpenAI Service deployments for models with upcoming retirements. We notify customers of upcoming retirements as follows for each deployment:
 
-* At least 60 days before retirement starts
-* At least 30 days before retirement starts
-* At the time of retirement
+* At least 60 days before retirement 
+* At least 30 days before retirement 
+* At retirement
 
-Retirements are usually done on a rolling basis, region by region.
+Retirements are done on a rolling basis, region by region.
 
 ## How to get ready for model retirements and version upgrades
 
@@ -107,8 +107,8 @@ We announced the upcoming in-place upgrade of `gpt-4` version `1106-preview` to 
 
 ### November 30, 2023
 
-The default version of `gpt-4` and `gpt-3-32k` was updated from `0314` to `0613` starting on November 30, 2023. The upgrade of `0314` deployments set for auto-upgrade to `0613` was completed on December 3, 2023.
+The default version of `gpt-4` and `gpt-3-32k` was updated from `0314` to `0613` starting on November 30, 2023. The upgrade of `0314` deployments set for autoupgrade to `0613` was completed on December 3, 2023.
 
 ### July 6, 2023
 
-We announced the deprecation of models with upcoming retirement on July 5, 2024
+We announced the deprecation of models with upcoming retirement on July 5, 2024.
