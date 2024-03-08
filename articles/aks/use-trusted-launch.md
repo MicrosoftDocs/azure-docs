@@ -2,7 +2,7 @@
 title: Trusted launch (preview) with Azure Kubernetes Service (AKS)
 description: Learn how trusted launch (preview) protects the Azure Kubernetes Cluster (AKS) nodes against boot kits, rootkits, and kernel-level malware. 
 ms.topic: article
-ms.date: 03/07/2024
+ms.date: 03/08/2024
 
 ---
 
@@ -75,7 +75,8 @@ az provider register --namespace "Microsoft.ContainerService"
 - Cluster nodes running Windows Server operating system aren't supported.
 - Trusted launch (preview) doesn't support node pools with FIPS enabled or based on ARM64.
 - Availability sets aren't supported, only Virtual Machine Scale Sets.
-- Enable Secure Boot on GPU node pools isn't supported.
+- To enable Secure Boot on GPU node pools, you need to skip installing the GPU driver. For more information, see[Skip GPU driver installation][skip-gpu-driver-install].
+- Ephemeral OS disks can be created with Trusted launch and all regions are supported. However, not all virtual machines sizes are supported. For more information, see [Trusted launch ephemeral OS limitations][tusted-launch-ephemeral-os-limitations].
 
 ## Deploy new cluster
 
@@ -212,3 +213,5 @@ In this article, you learned how to enable trusted launch. Learn more about [tru
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
 [azure-generation-two-virtual-machines]: ../virtual-machines/generation-2.md
 [verify-secure-boot-failures]: ../virtual-machines/trusted-launch-faq.md#verifying-secure-boot-failures
+[tusted-launch-ephemeral-os-limitations]: ../virtual-machines/ephemeral-os-disks.md#trusted-launch-for-ephemeral-os-disks
+[skip-gpu-driver-install]: gpu-cluster.md#skip-gpu-driver-installation-preview
