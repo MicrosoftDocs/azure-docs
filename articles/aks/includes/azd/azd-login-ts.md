@@ -4,22 +4,24 @@ ms.topic: include
 ms.date: 02/21/2024
 ---
 
-### AZD Login on GitHub Codespaces
+### AZD login on GitHub Codespaces
 
 > [!IMPORTANT]
 > Certain Azure security policies cause conflicts when used to sign in with `azd auth login`. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
 
 The workaround requires the Azure CLI for authentication. If you don't have it or aren't using GitHub Codespaces, install the [Azure CLI][install-azure-cli].
 
-1. Inside a terminal, login with Azure CLI
+1. Inside a terminal, login with Azure CLI.
+
     ```azurecli-interactive
     az login --scope https://graph.microsoft.com/.default
     ```
-1. Copy the "localhost" URL from the failed redirect
 
-1. In a new terminal window,  type `curl` and paste your url
+1. Copy the "localhost" URL from the failed redirect.
 
-1. If it works, code for a webpage saying "You have logged into Microsoft Azure!" appears
+1. In a new terminal window,  type `curl` and paste your url.
+
+1. If it works, code for a webpage saying "You have logged into Microsoft Azure!" appears.
 
     ```html
     <!DOCTYPE html>
@@ -59,7 +61,7 @@ The workaround requires the Azure CLI for authentication. If you don't have it o
 
 1. Close the new terminal and open the old terminal. A JSON list of your subscriptions should appear.
 
-1. Copy and note down the subscription_id you want to use. It will be listed as `id`.
+1. Copy and note down the `id` field of the subscription you want to use.
 
 1. Paste it in to the command `az account set -n {sub}`.
 
