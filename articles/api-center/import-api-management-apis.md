@@ -14,7 +14,13 @@ ms.custom: devx-track-azurecli
 
 This article shows how to import (add) APIs from an Azure API Management instance to your [API center](overview.md) using the Azure CLI. Adding APIs from API Management to your API inventory helps make them discoverable and accessible to developers, API program managers, and other stakeholders in your organization.
 
-When you add an API from an API Management instance to your API center:
+This article shows two options for using the Azure CLI to add APIs to your API center from API Management:
+
+* Export an API from API Management to an API definition using the [az apim api export](/cli/azure/apim/api#az-apim-api-export) command. Then, run [az apic api register](/cli/azure/apic/api#az-apic-api-register) to register the API in your API center, using the API definition.
+
+* Bulk-import APIs from API Management to your API center using the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-service-import-from-apim) command.
+
+When you add an API from an API Management instance to your API center using the bulk-import option, the following happens automatically:
 
 * The API's [versions](key-concepts.md#api-version), [definitions](key-concepts.md#api-definition), and [deployment](key-concepts.md#deployment) information are copied to your API center.
 * The API receives a system-generated API name in your API center. It retains its display name (title) from API Management.
@@ -44,12 +50,72 @@ After adding an API from API Management, you can add metadata and documentation 
     > [!NOTE]
     > Azure CLI command examples in this article can run in PowerShell or a bash shell. Where needed because of different variable syntax, separate command examples are provided for the two shells.
 
+## Option 1: Export an API from API Management and register it in your API center
 
-## Add a managed identity in your API center
+First, export an API from your API Management instance to an API definition using the [az apim api export](/cli/azure/apim/api#az-apim-api-export) command. For example:
+
+
+### Export API to a local API definition file
+
+The following example exports the API with identifier *my-api* in the *myAPIManagement* instance of API. The API is exported in OpenApiJson format to a local OpenAPI definition file named *specificationFile.json*.
+
+```azurecli-interactive
+#! /bin/bash
+az apim api export --api-id my-api --resource-group myResourceGroup \
+    --service-name myAPIManagement --export-format OpenApiJsonFile \
+    --file-path /path/to/folder
+```
+
+### Export API to a URL
+
+The following example exports the API with identifier *my-api* in the *myAPIManagement* instance of API. The API is exported in OpenApiJson format to a URL in Azure storage. The URL is available for approximately 5 minutes.
+
+```azurecli-interactive
+link=$(az apim api export --api-id my-api --resource-group myResourceGroup \
+    --service-name myAPIManagement --export-format OpenApiJsonUrl --query properties.value.link --output tsv)
+```
+
+The URL appears in the command output. You can use the link to download the API definition file.
+
+```output
+[...]
+  "name": "my-api",
+  "properties": {
+    "format": "openapi+json-link",
+    "value": {
+      "link": "https://xxxxxxxxxxxxxxxxx.blob.core.windows.net/api-export/My API......."
+    [...]
+    }
+  }
+
+```
+
+### Import local API definition to your API center
+
+Then, use the [az apic api register](/cli/azure/apic/api#az-apic-api-register) command to register the API in your API center, using the API definition.
+
+The following example registers an API in the *myAPICenter* API center from a local OpenAPI definition file named *definitionFile.json*.
+
+```azurecli-interactive
+az apic api register --resource-group myResourceGroup \
+    --service myAPICenter --api-location "/Path/to/definitionFile.json
+```
+
+### Import API definition from a URL to your API center
+
+The following example registers an API in the *myAPICenter* API center from an OpenAPI definition file at a URL whose value is stored in the *$link* variable.
+
+```azurecli-interactive
+
+```
+
+## Option 2: Bulk-import APIs from your API Management instance
+
+### Add a managed identity in your API center
 
 For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access APIs in your API Management instance. You can use either a system-assigned or user-assigned managed identity. If you haven't added a managed identity in your API center, you can add it in the Azure portal or by using the Azure CLI. 
 
-### Add a system-assigned identity
+#### Add a system-assigned identity
 
 #### [Portal](#tab/portal)
 
@@ -67,7 +133,7 @@ az apic service update --name <api-center-name> --resource-group <resource-group
 ```
 ---
 
-### Add a user-assigned identity
+#### Add a user-assigned identity
 
 To add a user-assigned identity, you need to create a user-assigned identity resource, and then add it to your API center.
 
@@ -115,7 +181,7 @@ To add a user-assigned identity, you need to create a user-assigned identity res
     ```
 ---
 
-## Assign the managed identity the API Management Service Reader role
+### Assign the managed identity the API Management Service Reader role
 
 To allow import of APIs, assign your API center's managed identity the **API Management Service Reader** role in your API Management instance. You can use the [portal](../role-based-access-control/role-assignments-portal-managed-identity.md) or the Azure CLI.
 
@@ -195,7 +261,7 @@ To allow import of APIs, assign your API center's managed identity the **API Man
         --scope $scope 
 ---
 
-## Import APIs from your API Management instance
+### Bulk-import APIs from your API Management instance
 
 Use the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-service-import-from-apim) command to import one or more APIs from your API Management instance to your API center. 
 
@@ -204,7 +270,7 @@ Use the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-servi
 >
 > * If your API center has multiple managed identities, the command searches first for a system-assigned identity. If none is found, it picks the first user-assigned identity in the list. 
 
-### Import all APIs from an API Management instance
+#### Import all APIs from an API Management instance
 
 Use a wildcard (`*`) to specify all APIs from the API Management instance. 
 
@@ -229,7 +295,7 @@ Use a wildcard (`*`) to specify all APIs from the API Management instance.
     > [!NOTE]
     > If your API Management instance has a large number of APIs, import to your API center might take some time.
     
-### Import a specific API from an API Management instance
+#### Import a specific API from an API Management instance
 
 Specify an API to import using its name from the API Management instance. 
 
@@ -259,6 +325,7 @@ After importing APIs from API Management, you can view and manage the imported A
 ## Related content
 
 * [Azure CLI reference for API Center](/cli/azure/apic) 
+* [Azure CLI reference for API Management](/cli/azure/apim) 
 * [Manage API inventory with Azure CLI commands](manage-apis-azure-cli.md)
 * [Assign Azure roles to a managed identity](../role-based-access-control/role-assignments-portal-managed-identity.md)
 * [Azure API Management documentation](../api-management/index.yml)
