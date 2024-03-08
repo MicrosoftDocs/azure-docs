@@ -6,39 +6,34 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 3/11/2024
 ms.author: austinmc
-customer-intent: As an SOC administrator, I want to use the SIEM migration experience so I can migrate to Microsoft Sentinel.
 appliesto: Microsoft Sentinel
+
+#customer-intent: As an SOC administrator, I want to use the SIEM migration experience so I can migrate to Microsoft Sentinel.
 ---
 
 # Migrate security monitoring use cases from other SIEM systems to Microsoft Sentinel
 
-The SIEM Migration experience in Microsoft Sentinel helps customers easily migrate Security Monitoring use cases from other Security Information & Event Management (SIEM) systems to Microsoft Sentinel. SIEM Migrations can be an extremely resource intensive, but with automation assistance, the migration process can be simplified. 
+Migrate Security Monitoring use cases from other Security Information & Event Management (SIEM) systems to Microsoft Sentinel using the SIEM Migration experience. SIEM Migrations can be an extremely resource intensive. With automated assistance, the migration process can be simplified. 
 
-What is currently included in SIEM Migration in Microsoft Sentinel? 
-- The experience currently helps customers migrate from Splunk to Microsoft Sentinel. 
-- The experience currently only supports migration of Splunk detections to Microsoft Sentinel Analytics. 
+What features are currently included in the SIEM Migration experience? 
+
+| SIEM | features |
+|----|----|
+|Splunk | - The experience focuses on migrating Splunk security monitoring to Microsoft Sentinel.<br> - The experience only supports migration of Splunk detections to Microsoft Sentinel Analytics.|
 
 ## Prerequisites
 
-Access Requirements 
+You need the following from the source SIEM:
 
-On Splunk, Splunk admin role is required to generate the export with all the Splunk alerts. Learn more about Splunk role-based user access configuration here. 
+|SIEM | requirements |
+|---------|---------|
+| Splunk | - The migration experience is compatible with both Splunk Enterprise and Splunk Cloud editions.<br> - A Splunk admin role is required to generate an export with all the Splunk alerts. For more information, see [Splunk role-based user access](https://docs.splunk.com/Documentation/Splunk/9.1.3/Security/Aboutusersandroles).<br> - Export the historical data from Splunk to the relevant tables in the Log Analytics workspace. For more information, see [Export historical data from Splunk](migration-splunk-historical-data.md) |
 
-On Azure, deployment of Microsoft Sentinel resources (Analytic Rules) requires Sentinel Contributor access. Learn more about Azure RBAC here. 
+You need the following on the target, Microsoft Sentinel:
 
-Splunk instance to export alerts configuration. 
-
-NOTE: The migration is compatible for both Splunk Enterprise and Splunk Cloud editions. 
-
-Analytic Rule dependencies 
-
-Enabling a Microsoft Sentinel Analytic Rule requires dependencies (datatype and parser) that the Analytic rule query logic uses to exist in the Sentinel/Log Analytics workspace. 
-
-Data Availability 
-
-Export the historical data from Splunk in relevant tables in the Log Analytics Workspace. 
-
-Wherever possible, enable log ingestion into Sentinel by either enabling an OOTB data connector if its already available in Microsoft Sentinel content hub (if not available yet, relevant solutions can be installed and managed from Content Hub. Learn more here OR creating a custom ingestion pipeline to ensure logs start and continue to be ingested. Learn more about Data Connector enablement here. 
+- Deployment of resources (Analytics rules) requires the **Microsoft Sentinel Contributor** role. For more information about other roles and permissions supported for Microsoft Sentinel, see [Permissions in Microsoft Sentinel](roles.md).
+- The data type and parser the analytics rule query logic uses must match the tables available in the workspace when enabling the analytics rule. 
+- Ingest security data previously used in your source SIEM into Microsoft Sentinel by enabling an out-of-the-box (OOTB) data connector. If the data connector isn't installed yet, find the relevant solution in **Content hub**. If no data connector exists, create a custom ingestion pipeline. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md) or [Custom data ingestion and transformation](data-transformation.md).
 
 ## Expectations on translation coverage
 
