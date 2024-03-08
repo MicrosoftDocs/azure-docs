@@ -282,6 +282,7 @@ ANF_service_level         = "Ultra"
 > | `management_dns_subscription_id`    | Subscription ID for the subscription that contains the private DNS zone. | Optional |
 > | `use_custom_dns_a_registration`	    | Use an existing private DNS zone.                                        | Optional |
 
+
 ## Other parameters
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -293,6 +294,7 @@ ANF_service_level         = "Ultra"
 > | `Agent_IP`                                   | IP address of the agent.                                                     | Optional |                                       |
 > | `add_Agent_IP`                               | Controls if Agent IP is added to the key vault and storage account firewalls | Optional |                                       |
 > | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets.                                         | Optional |                                       |
+
 
 ## iSCSI parameters
 

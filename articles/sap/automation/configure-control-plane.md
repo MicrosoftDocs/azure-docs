@@ -147,8 +147,8 @@ xxx_vm_image  = {
 This section defines the parameters used for defining the VM authentication.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                         | Description                                         | Type                               |           |
-> | ------------------------------------------------ | --------------------------------------------------- | ---------------------------------- | --------- | 
+> | Variable                                         | Description                                                                              | Type      |
+> | ------------------------------------------------ | ---------------------------------------------------------------------------------------- | --------- | 
 > | `deployer_vm_authentication_type`                | Defines the default authentication for the deployer                                      | Optional  |
 > | `deployer_authentication_username`               | Administrator account name                                                               | Optional  |
 > | `deployer_authentication_password`               | Administrator password                                                                   | Optional  |

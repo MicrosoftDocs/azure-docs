@@ -85,7 +85,7 @@ This section contains the parameters related to the Azure infrastructure.
 > | `custom_disk_sizes_filename`                   | Defines the disk sizing file name, See [Custom sizing](configure-extra-disks.md).                 | Optional   |
 > | `resource_offset`                              | Provides an offset for resource naming.                                                           | Optional   |
 > | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations                              | Optional   |
-> | `user_assigned_identity_id                     | User assigned identity to assign to the virtual machines                                          | Optional   |
+> | `user_assigned_identity_id`                    | User assigned identity to assign to the virtual machines                                          | Optional   |
 > | `vm_disk_encryption_set_id`                    | The disk encryption key to use for encrypting managed disks by using customer-provided keys.      | Optional   |
 > | `use_random_id_for_storageaccounts`            | If defined will append a random string to the storage account name                                | Optional   |
 > |                                                |                                                                                                   |            |          
@@ -101,7 +101,7 @@ This section contains the parameters related to the Azure infrastructure.
 > | `use_spn`                                      | If defined the deployment will be performed using a Service Principal, otherwise an MSI           | Optional   |
 > | `use_private_endpoint`                         | Use private endpoints.                                                                            | Optional   |
 
-the 
+
 The `resource_offset` parameter controls the naming of resources. For example, if you set the `resource_offset` to 1, the first disk will be named `disk1`. The default value is 0.
 
 ## SAP Application parameters
@@ -325,7 +325,7 @@ This section contains the parameters related to the anchor virtual machine.
 > | `anchor_vm_authentication_type`        | Defines the authentication type for the anchor VM (key or password)               | Optional	   |
 > | `anchor_vm_authentication_username`    | Defines the username for the anchor VM                                            | Optional	   |
 > | `anchor_vm_image`	                     | Defines the VM image to use (as shown in the following code sample)               | Optional	   |
-> | `anchor_vm_nic_ips[]`                  | List of IP addresses for the anchor VMs (app subnet)                              | Optional   | |
+> | `anchor_vm_nic_ips[]`                  | List of IP addresses for the anchor VMs (app subnet)                              | Optional    |
 > | `anchor_vm_sku`                        | Defines the VM SKU to use, for example, Standard_D4s_v3                           | Optional    |
 > | `anchor_vm_use_DHCP`                   | Controls whether to use dynamic IP addresses provided by Azure subnet             | Optional    |
 
@@ -355,7 +355,7 @@ By default, the SAP system deployment uses the credentials from the SAP workload
 > | `automation_path_to_public_key`    | Path to existing public key          | Optional    |
 > | `automation_path_to_private_key`   | Path to existing private key         | Optional    |
 
-## Other parameters
+## Miscellaneous parameters
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                       | Description                                                                     | 
@@ -480,8 +480,8 @@ configuration_settings = {
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                                                                  | Type     | Notes                                 |
 > | ------------------------------------ | ---------------------------------------------------------------------- ----- | -------- | ------------------------------------- |
-> | `Agent_IP`                           | IP address of the agent.                                                     | Optional    |
-> | `add_Agent_IP`                       | Controls if Agent IP is added to the key vault and storage account firewalls | Optional    |
+> | `Agent_IP`                           | IP address of the agent.                                                     | Optional |                                       |                                                
+> | `add_Agent_IP`                       | Controls if Agent IP is added to the key vault and storage account firewalls | Optional |                                       |
 
 ## Terraform parameters
 
