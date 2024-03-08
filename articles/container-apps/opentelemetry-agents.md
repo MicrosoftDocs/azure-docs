@@ -43,7 +43,7 @@ The following examples show how to configure your container app to send telemetr
 
 The only configuration detail required from Application Insights is the connection string. Once you have the connection string, you can configure the agent via your container app's ARM template or with Azure CLI commands.
 
-# [ARM template](#tab/)
+# [ARM template](#tab/arm)
 
 ```json
 {
@@ -261,7 +261,7 @@ The following example show how you might configure your container app to collect
 }
 ```
 
-# [CLI](#tab/cli)
+# [CLI](#tab/azure-cli)
 
 Use a combination of commands with `az containerapp env telemetry` that match the type of agent you want to enable. The following table lists the agents you can enable.
 
