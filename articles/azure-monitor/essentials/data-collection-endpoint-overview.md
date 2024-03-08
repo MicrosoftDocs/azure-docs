@@ -84,9 +84,9 @@ Create associations between endpoints to your target machines or resources by us
 ## Sample data collection endpoint
 For a sample DCE, see [Sample data collection endpoint](data-collection-endpoint-sample.md).
 
-
 ## Limitations
-- Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via Azure Monitor Agent aren't currently controlled by DCEs. Data collection endpoints also can't be configured over private links.
+
+- Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via Azure Monitor Agent aren't currently controlled by DCEs.
 
 - Data collection endpoints are where [Logs ingestion API ingestion limits](../service-limits.md#logs-ingestion-api) are applied.
 
