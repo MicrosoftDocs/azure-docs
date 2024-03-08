@@ -75,7 +75,7 @@ Once content is extracted, the [skillset](cognitive-search-working-with-skillset
 
 ### Azure AI services
 
-AI enrichment is backed by Azure AI services, including Language service and Azure AI Vision for natural language and image processing. For small workloads like this tutorial, you can use the free allocation of twenty transactions per indexer. For larger workloads, [attach an Azure AI Services multi-region resource to a skillset](cognitive-search-attach-cognitive-services.md) for pay-as-you-go pricing.
+AI enrichment is backed by Azure AI services, including Language service and Azure AI Vision for natural language and image processing. For small workloads like this tutorial, you can use the free allocation of 20 transactions per indexer. For larger workloads, [attach an Azure AI Services multi-region resource to a skillset](cognitive-search-attach-cognitive-services.md) for pay-as-you-go pricing.
 
 ### Azure AI Search
 
@@ -109,7 +109,7 @@ For this project, install version 11 or later of the `Azure.Search.Documents` an
 
 1. Browse for [Azure.Search.Document](https://www.nuget.org/packages/Azure.Search.Documents).
 
-1. Select the latest version and then click **Install**.
+1. Select the latest version and then select **Install**.
 
 1. Repeat the previous steps to install [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration) and [Microsoft.Extensions.Configuration.Json](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json).
 
@@ -181,7 +181,7 @@ public static void Main(string[] args)
 
 ### Add function to exit the program during failure
 
-This tutorial is meant to help you understand each step of the indexing pipeline. If there is a critical issue that prevents the program from creating the data source, skillset, index, or indexer the program will output the error message and exit so that the issue can be understood and addressed.
+This tutorial is meant to help you understand each step of the indexing pipeline. If there's a critical issue that prevents the program from creating the data source, skillset, index, or indexer the program will output the error message and exit so that the issue can be understood and addressed.
 
 Add `ExitProgram` to `Main` to handle scenarios that require the program to exit.
 
@@ -233,7 +233,7 @@ private static SearchIndexerDataSourceConnection CreateOrUpdateDataSource(Search
 }
 ```
 
-For a successful request, the method will return the data source that was created. If there is a problem with the request, such as an invalid parameter, the method will throw an exception.
+For a successful request, the method returns the data source that was created. If there's a problem with the request, such as an invalid parameter, the method throws an exception.
 
 Now add a line in `Main` to call the `CreateOrUpdateDataSource` function that you've just added.
 
@@ -271,7 +271,7 @@ For more information about skillset fundamentals, see [How to define a skillset]
 
 ### OCR skill
 
-The [`OcrSkill`](/dotnet/api/azure.search.documents.indexes.models.ocrskill) extracts text from images. This skill assumes that a normalized_images field exists. To generate this field, later in the tutorial we'll set the ```"imageAction"``` configuration in the indexer definition to ```"generateNormalizedImages"```.
+The [`OcrSkill`](/dotnet/api/azure.search.documents.indexes.models.ocrskill) extracts text from images. This skill assumes that a normalized_images field exists. To generate this field, later in the tutorial we set the ```"imageAction"``` configuration in the indexer definition to ```"generateNormalizedImages"```.
 
 ```csharp
 private static OcrSkill CreateOcrSkill()
@@ -302,7 +302,7 @@ private static OcrSkill CreateOcrSkill()
 
 ### Merge skill
 
-In this section, you'll create a [`MergeSkill`](/dotnet/api/azure.search.documents.indexes.models.mergeskill) that merges the document content field with the text that was produced by the OCR skill.
+In this section, you create a [`MergeSkill`](/dotnet/api/azure.search.documents.indexes.models.mergeskill) that merges the document content field with the text that was produced by the OCR skill.
 
 ```csharp
 private static MergeSkill CreateMergeSkill()
@@ -341,7 +341,7 @@ private static MergeSkill CreateMergeSkill()
 
 ### Language detection skill
 
-The [`LanguageDetectionSkill`](/dotnet/api/azure.search.documents.indexes.models.languagedetectionskill) detects the language of the input text and reports a single language code for every document submitted on the request. We'll use the output of the **Language Detection** skill as part of the input to the **Text Split** skill.
+The [`LanguageDetectionSkill`](/dotnet/api/azure.search.documents.indexes.models.languagedetectionskill) detects the language of the input text and reports a single language code for every document submitted on the request. We use the output of the **Language Detection** skill as part of the input to the **Text Split** skill.
 
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
@@ -370,7 +370,7 @@ private static LanguageDetectionSkill CreateLanguageDetectionSkill()
 
 ### Text split skill
 
-The below [`SplitSkill`](/dotnet/api/azure.search.documents.indexes.models.splitskill) will split text by pages and limit the page length to 4,000 characters as measured by `String.Length`. The algorithm will try to split the text into chunks that are at most `maximumPageLength` in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than `maximumPageLength`.
+The below [`SplitSkill`](/dotnet/api/azure.search.documents.indexes.models.splitskill) splits text by pages and limits the page length to 4,000 characters as measured by `String.Length`. The algorithm tries to split the text into chunks that are at most `maximumPageLength` in size. In this case, the algorithm does its best to break the sentence on a sentence boundary, so the size of the chunk might be slightly less than `maximumPageLength`.
 
 ```csharp
 private static SplitSkill CreateSplitSkill()
@@ -530,7 +530,7 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 ### Step 3: Create an index
 
-In this section, you define the index schema by specifying which fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using field naming conventions pertinent to your search application.
+In this section, you define the index schema by specifying which fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index aren't required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using field naming conventions pertinent to your search application.
 
 This exercise uses the following fields and field types:
 
@@ -544,13 +544,13 @@ This exercise uses the following fields and field types:
 
 #### Create DemoIndex Class
 
-The fields for this index are defined using a model class. Each property of the model class has attributes which determine the search-related behaviors of the corresponding index field. 
+The fields for this index are defined using a model class. Each property of the model class has attributes that determine the search-related behaviors of the corresponding index field. 
 
-We'll add the model class to a new C# file. Right click on your project and select **Add** > **New Item...**, select "Class" and name the file `DemoIndex.cs`, then select **Add**.
+We'll add the model class to a new C# file. Right select on your project and select **Add** > **New Item...**, select "Class" and name the file `DemoIndex.cs`, then select **Add**.
 
 Make sure to indicate that you want to use types from the `Azure.Search.Documents.Indexes` and `System.Text.Json.Serialization` namespaces.
 
-Add the below model class definition to `DemoIndex.cs` and include it in the same namespace where you'll create the index.
+Add the below model class definition to `DemoIndex.cs` and include it in the same namespace where you create the index.
 
 ```csharp
 using Azure.Search.Documents.Indexes;
@@ -585,7 +585,7 @@ namespace EnrichwithAI
 }
 ```
 
-Now that you've defined a model class, back in `Program.cs` you can create an index definition fairly easily. The name for this index will be `demoindex`. If an index already exists with that name, it will be deleted.
+Now that you've defined a model class, back in `Program.cs` you can create an index definition fairly easily. The name for this index will be `demoindex`. If an index already exists with that name, it's deleted.
 
 ```csharp
 private static SearchIndex CreateDemoIndex(SearchIndexClient indexClient)
@@ -620,7 +620,7 @@ private static SearchIndex CreateDemoIndex(SearchIndexClient indexClient)
 }
 ```
 
-During testing, you may find that you're attempting to create the index more than once. Because of this, check to see if the index that you're about to create already exists before attempting to create it.
+During testing, you might find that you're attempting to create the index more than once. Because of this, check to see if the index that you're about to create already exists before attempting to create it.
 
 Add the following lines to `Main`.
 
@@ -630,7 +630,7 @@ Console.WriteLine("Creating the index...");
 SearchIndex demoIndex = CreateDemoIndex(indexClient);
 ```
 
-Add the following using statement to resolve the disambiguate reference.
+Add the following using statement to resolve the disambiguated reference.
 
 ```csharp
 using Index = Azure.Search.Documents.Indexes.Models;
@@ -776,7 +776,7 @@ private static void CheckIndexerOverallStatus(SearchIndexerClient indexerClient,
 
 `demoIndexerExecutionInfo` represents the current status and execution history of an indexer.
 
-Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files).
+Warnings are common with some source file and skill combinations and don't always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files).
 
 Add the following lines to `Main`.
 
