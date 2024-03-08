@@ -153,7 +153,7 @@ If the recipient needs to restrict, access to their Azure resources, they should
 3. Select the resource.
 4. Select **Settings** to view and update existing secrets on the resource page.
 
-For more information about how a subscription transfer affects reserved instances, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#change-azure-subscription-or-account-ownership).
+For more information about how a subscription transfer affects reserved instances, see [Manage Azure reservations](../reservations/manage-reserved-vm-instance.md#change-billing-subscription-for-an-azure-reservation).
 
 ## Next steps
 
