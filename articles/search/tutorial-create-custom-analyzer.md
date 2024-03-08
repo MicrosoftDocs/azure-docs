@@ -13,7 +13,7 @@ ms.date: 03/07/2024
 
 # Tutorial: Create a custom analyzer for phone numbers
 
-In search solutions, strings that have complex patterns or special characters can be a challenge to work with because the [default analyzer](search-analyzers.md) strips out or misinterprets meaningful parts of a pattern, resulting in a poor search experience when users can't find the information they want. Phone numbers are a good example of strings that are hard to analyze. They come in a variety of formats, and they include special characters that the default analyzer ignores. 
+In search solutions, strings that have complex patterns or special characters can be a challenge to work with because the [default analyzer](search-analyzers.md) strips out or misinterprets meaningful parts of a pattern, resulting in a poor search experience when users can't find the information they expected. Phone numbers are a classic example of strings that are hard to analyze. They come in a variety of formats, and they include special characters that the default analyzer ignores. 
 
 With phone numbers as its subject, this tutorial takes a close look at the problems of patterned data, and shows you to solve that problem using a [custom analyzer](index-add-custom-analyzers.md). The approach outlined here can be used as-is for phone numbers, or adapted for fields having the same characteristics (patterned, with special characters), such as URLs, emails, postal codes, and dates.
 
@@ -33,11 +33,11 @@ The following services and tools are required for this tutorial.
 
 + [Azure AI Search](search-what-is-azure-search.md). [Create](search-create-service-portal.md) or [find an existing Azure AI Search resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-## Download files
+### Download files
 
 Source code for this tutorial is in the [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/custom-analyzers) folder in the [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub repository.
 
-## Copy a key and URL
+### Copy a key and URL
 
 The REST calls in this tutorial require a search service endpoint and an admin API key. You can get these values from the Azure portal.
 
@@ -150,9 +150,9 @@ A valid API key establishes trust, on a per request basis, between the applicati
       }
     ```
 
-1. Let's try a few queries that mimic what a user might type. A user could search for `(425) 555-0100` in any number of formats and still expect results to be returned. Start by searching `(425) 555-0100`:
+1. Let's try a few queries similar to what a user might type. A user could search for `(425) 555-0100` in any number of formats and still expect results to be returned. Start by searching `(425) 555-0100`:
 
-   ```http  
+    ```http  
     ### Search for a phone number
     GET {{baseUrl}}/indexes/phone-numbers-index/docs/search?api-version=2023-11-01&search=(425) 555-0100  HTTP/1.1
       Content-Type: application/json
@@ -212,7 +212,7 @@ A valid API key establishes trust, on a per request basis, between the applicati
 
 If you find these results confusing, you're not alone. In the next section, let's dig into why we're getting these results.
 
-## How analyzers work
+## Review how analyzers work
 
 To understand these search results, we need to understand what the analyzer is doing. From there, we can test the default analyzer using the [Analyze API](/rest/api/searchservice/indexes/analyze), providing a foundation for designing an analyzer that better meets our needs.
 
@@ -443,70 +443,70 @@ All of the tokens in the output column exist in the index. If our query includes
 
 1. Recreate the index using the new analyzer. This index schema adds a custom analyzer definition, and a custom analyzer assignment on the phone number field.
 
-  ```http
+    ```http
     ### Create a new index
     POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
       Content-Type: application/json
       api-key: {{apiKey}}
-
-{
-    "name": "phone-numbers-index-2",  
-    "fields": [
-      {
-          "name": "id",
-          "type": "Edm.String",
-          "key": true,
-          "searchable": true,
-          "filterable": false,
-          "facetable": false,
-          "sortable": true
-      },
-      {
-          "name": "phone_number",
-          "type": "Edm.String",
-          "sortable": false,
-          "searchable": true,
-          "filterable": false,
-          "facetable": false,
-          "analyzer": "phone_analyzer"
-      }
-    ],
-    "analyzers": [
-        {
-          "@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
-          "name": "phone_analyzer",
-          "tokenizer": "keyword_v2",
-          "tokenFilters": [
-          "custom_ngram_filter"
+    
+    {
+        "name": "phone-numbers-index-2",  
+        "fields": [
+          {
+              "name": "id",
+              "type": "Edm.String",
+              "key": true,
+              "searchable": true,
+              "filterable": false,
+              "facetable": false,
+              "sortable": true
+          },
+          {
+              "name": "phone_number",
+              "type": "Edm.String",
+              "sortable": false,
+              "searchable": true,
+              "filterable": false,
+              "facetable": false,
+              "analyzer": "phone_analyzer"
+          }
         ],
-        "charFilters": [
-          "phone_char_mapping"
+        "analyzers": [
+            {
+              "@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
+              "name": "phone_analyzer",
+              "tokenizer": "keyword_v2",
+              "tokenFilters": [
+              "custom_ngram_filter"
+            ],
+            "charFilters": [
+              "phone_char_mapping"
+              ]
+            }
+          ],
+          "charFilters": [
+            {
+              "@odata.type": "#Microsoft.Azure.Search.MappingCharFilter",
+              "name": "phone_char_mapping",
+              "mappings": [
+                "-=>",
+                "(=>",
+                ")=>",
+                "+=>",
+                ".=>",
+                "\\u0020=>"
+              ]
+            }
+          ],
+          "tokenFilters": [
+            {
+              "@odata.type": "#Microsoft.Azure.Search.NGramTokenFilterV2",
+              "name": "custom_ngram_filter",
+              "minGram": 3,
+              "maxGram": 20
+            }
           ]
         }
-      ],
-      "charFilters": [
-        {
-          "@odata.type": "#Microsoft.Azure.Search.MappingCharFilter",
-          "name": "phone_char_mapping",
-          "mappings": [
-            "-=>",
-            "(=>",
-            ")=>",
-            "+=>",
-            ".=>",
-            "\\u0020=>"
-          ]
-        }
-      ],
-      "tokenFilters": [
-        {
-          "@odata.type": "#Microsoft.Azure.Search.NGramTokenFilterV2",
-          "name": "custom_ngram_filter",
-          "minGram": 3,
-          "maxGram": 20
-        }
-      ]
-    }
     ```
 
 <!-- With the custom analyzer defined, recreate the index so that the custom analyzer will be available for testing in the next step. For simplicity, the Postman collection creates a new index named `tutorial-first-analyzer` with the analyzer we defined. -->
