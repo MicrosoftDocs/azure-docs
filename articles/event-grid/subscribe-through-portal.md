@@ -2,7 +2,8 @@
 title: Azure Event Grid subscriptions through portal
 description: This article describes how to create Event Grid subscriptions for the supported sources, such as Azure Blob Storage, by using the Azure portal.
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.custom: build-2023
+ms.date: 11/30/2023
 ---
 
 # Subscribe to events through portal
@@ -11,50 +12,47 @@ This article describes how to create Event Grid subscriptions through the portal
 
 ## Create event subscriptions
 
-To create an Event Grid subscription for any of the supported [event sources](overview.md#event-sources), use the following steps. This article shows how to create an Event Grid subscription for an Azure subscription.
+To create an Event Grid subscription for any of the supported [event sources](concepts.md#event-sources), use the following steps. This article shows how to create an Event Grid subscription for an Azure subscription.
 
 1. Select **All services**.
 
-   ![Select all services](./media/subscribe-through-portal/select-all-services.png)
-
+    :::image type="content" source="./media/subscribe-through-portal/select-all-services.png" alt-text="Screenshot that shows the Azure portal with All Services selected on the left menu.":::
 1. Search for **Event Grid Subscriptions** and select it from the available options.
 
-   ![Screen capture shows Search in the Azure portal with Event Grid Subscriptions selected.](./media/subscribe-through-portal/search.png)
-
+    :::image type="content" source="./media/subscribe-through-portal/search.png" alt-text="Screenshot that shows Event Grid Subscription in the search box in the Azure portal.":::
 1. Select **+ Event Subscription**.
 
-   ![Add subscription](./media/subscribe-through-portal/add-subscription.png)
+    :::image type="content" source="./media/subscribe-through-portal/add-subscription.png" alt-text="Screenshot that shows the select of Add Event Subscription menu on the Event Grid Subscriptions page.":::
+1. On the **Create Event Subscription** page, follow these steps:
+    1. Enter a name for the event subscription. 
+    1. Select the type of event source (**topic type**) on which you want to create a subscription. For example, to subscribe to events for your Azure storage account, select **Storage Accounts**.
+    
+        :::image type="content" source="./media/subscribe-through-portal/azure-subscription.png" alt-text="Screenshot that shows the Create Event Subscription page.":::
+    1. Select the Azure subscription that contains the storage account.
+    1. Select the resource group that has the storage account.
+    1. Then, select the storage account.
 
-1. Select the type of subscription you want to create. For example, to subscribe to events for your Azure subscription, select **Azure Subscriptions** and the target subscription.
+        :::image type="content" source="./media/subscribe-through-portal/create-event-subscription.png" alt-text="Screenshot that shows the Create Event Subscription page with the storage account selected.":::
+1. Select the event types that you want to receive on the event subscription.
 
-   ![Select Azure subscription](./media/subscribe-through-portal/azure-subscription.png)
-
-1. To subscribe to all event types for this event source, keep the **Subscribe to all event types** option checked. Otherwise, select the event types for this subscription.
-
-   ![Select event types](./media/subscribe-through-portal/select-event-types.png)
-
+    :::image type="content" source="./media/subscribe-through-portal/select-event-types.png" alt-text="Screenshot that shows the selection of event types.":::
 1. Provide more details about the event subscription, such as the endpoint for handling events and a subscription name.
 
-   ![Screenshot that shows the "Endpoint Details" and "Event Subscription Details" sections with a subscription name value entered.](./media/subscribe-through-portal/provide-subscription-details.png)
+    :::image type="content" source="./media/subscribe-through-portal/select-end-point.png" alt-text="Screenshot that shows the selection of an endpoint.":::
     
     > [!NOTE]
     > - For a list of supported event handlers, see [Event handlers](event-handlers.md).
     > - If you enable managed identity for a topic or domain, you'll need to add the managed identity to the appropriate role-based access control (RBAC) role on the destination for the messages to be delivered successfully. For more information, see [Supported destinations and Azure roles](add-identity-roles.md#supported-destinations-and-azure-roles).
 1. To enable dead lettering and customize retry policies, select **Additional Features**.
 
-   ![Select additional features](./media/subscribe-through-portal/select-additional-features.png)
-
-1. Select a container to use for storing events that aren't delivered, and set how retries are sent.
-
-   ![Enable dead lettering and retry](./media/subscribe-through-portal/set-deadletter-retry.png)
-
+    :::image type="content" source="./media/subscribe-through-portal/select-additional-features.png" alt-text="Screenshot that shows the Additional features tab of the Create Event Subscription page.":::
 1. When done, select **Create**.
 
 ## Create subscription on resource
 
 Some event sources support creating an event subscription through the portal interface for that resource. Select the event source, and look for **Events** in left pane.
 
-![Provide subscription details](./media/subscribe-through-portal/resource-events.png)
+:::image type="content" source="./media/subscribe-through-portal/resource-events.png" alt-text="Screenshot that shows the Events option on the left menu of the Storage account page on the Azure portal.":::
 
 The portal presents you with options for creating an event subscription that is relevant to that source.
 

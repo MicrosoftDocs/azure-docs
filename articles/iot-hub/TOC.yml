@@ -39,12 +39,21 @@
       href: ../iot-hub-device-update/device-update-raspberry-pi.md
     - name: Test device connectivity
       href: tutorial-connectivity.md
-    - name: Data visualization in Power BI
-      displayName: Stream Analytics
-      href: iot-hub-live-data-visualization-in-power-bi.md
     - name: Create and upload certificates for testing
       displayName: X.509 certificates, root certificate authority (CA), verify certificate, certificate signing request (CSR)
       href: tutorial-x509-test-certs.md
+    - name: Integrate with other services
+      items:
+      - name: Visualize data in Power BI
+        displayName: Stream Analytics
+        href: iot-hub-live-data-visualization-in-power-bi.md
+      - name: Visualize data in App Service web apps
+        displayName: Node.js
+        href: iot-hub-live-data-visualization-in-web-apps.md
+      - name: Monitor and notify with Logic Apps
+        displayName: Service Bus, queue, namespace
+        href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+
 - name: Concepts
   items:
     - name: IoT Hub concepts overview
@@ -69,7 +78,7 @@
       - name: Schedule jobs on multiple devices
         href: iot-hub-devguide-jobs.md
       - name: IoT Hub endpoints
-        displayName: multi-tenant
+        displayName: multitenant
         href: iot-hub-devguide-endpoints.md
       - name: Queries
         items:
@@ -122,7 +131,7 @@
         href: iot-hub-message-enrichments-overview.md
     - name: Message routing
       items:
-      - name: Use message routing to send device-to-cloud messages
+      - name: Route device-to-cloud messages to Azure services
         displayName: endpoints, built-in endpoint, Azure storage, Service Bus Queues, fallback, route
         href: iot-hub-devguide-messages-d2c.md
       - name: Add queries to message routes
@@ -156,17 +165,17 @@
       - name: High availability and disaster recovery
         displayName: HA, DR, availability zone, failover, failback
         href: iot-hub-ha-dr.md
-    - name: Control access to IoT Hub
+    - name: Authentication and authorization
       items:
-        - name: Overview
-          displayName: access control, permissions, Azure Active Directory, Azure AD, identity registry
-          href: iot-hub-devguide-security.md
-        - name: Control access with Azure AD
-          displayName: Active Directory, permissions, security principal, RBAC
-          href: iot-hub-dev-guide-azure-ad-rbac.md
-        - name: Control access with SAS
-          displayName: Shared Access Signatures, permissions, MQTT, AMQP, HTTPS, SASL PLAIN
-          href: iot-hub-dev-guide-sas.md
+      - name: Microsoft Entra ID
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-azure-ad.md
+      - name: Shared access signatures
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-sas.md
+      - name: X.509 certificates
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-x509.md
     - name: IoT Hub SDKs
       items:
         - name: SDK overview
@@ -189,16 +198,6 @@
         - name: TLS support
           displayName: security, Transport Layer Security
           href: iot-hub-tls-support.md
-        - name: Secure using X.509 CA certificates
-          items:
-            - name: X.509 certificate concepts
-              displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
-              href: iot-hub-x509-certificate-concepts.md
-            - name: X.509 CA certificate security concepts
-              displayName: Device Provisioning Service, DPS, Hardware Secure Modules, HSM, self-signed certificate, Public Key Infrastructure, PKI
-              href: iot-hub-x509ca-concept.md
-            - name: X.509 CA certificates for IoT Hub
-              href: iot-hub-x509ca-overview.md
         - name: Virtual networks support
           displayName: Security, Private Link, network isolation, private endpoint
           href: virtual-network-support.md
@@ -209,7 +208,7 @@
           displayName: regulatory, compliance, standards, Azure Security Benchmark, Azure Foundations Benchmark, CMMC, FedRAMP, HIPAA
           href: ./security-controls-policy.md
         - name: IoT security best practices
-          href: ../iot/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
+          href: ../iot/iot-overview-security.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: IoT security architecture
           href: ../iot/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
 - name: How-to guides
@@ -398,6 +397,8 @@
         - name: Query Avro data from a hub route
           displayName: Azure Data Lake, U-SQL
           href: iot-hub-query-avro-data.md
+        - name: Use Raspberry Pi to run samples
+          href: raspberry-pi-get-started.md
     - name: Monitor
       items:
         - name: Monitor IoT Hub
@@ -426,35 +427,7 @@
         - name: Deploy an update
           displayName: device update
           href: ../iot-hub-device-update/deploy-update.md
-    - name: Use real devices
-      items:
-        - name: Use an online simulator
-          displayName: Raspberry Pi, assembly area, coding area, integrated console window, create IoT hub, register new device, Pi web simulator
-          href: iot-hub-raspberry-pi-web-simulator-get-started.md
-        - name: Use a physical device
-          displayName: IoT scenarios, Node.js, C
-          href: iot-hub-get-started-physical.md
-          items:
-            - name: Raspberry Pi with Node.js
-              displayName: BME280 sensor
-              href: iot-hub-raspberry-pi-kit-node-get-started.md
-            - name: Raspberry Pi with C
-              displayName: BME280 sensor
-              href: iot-hub-raspberry-pi-kit-c-get-started.md
-    - name: Extended IoT scenarios
-      items:
-        - name: Messaging with Visual Studio Code
-          href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-        - name: Device management with Visual Studio Code
-          href: iot-hub-device-management-iot-toolkit.md
-        - name: Device management with IoT extension for Azure CLI
-          href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
-        - name: Data visualization in a web app
-          displayName: Node.js, App Service
-          href: iot-hub-live-data-visualization-in-web-apps.md
-        - name: Remote monitoring and notifications with Logic Apps
-          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-    - name: Troubleshoot and problem solution
+    - name: Troubleshoot and resolve problems
       items:
         - name: Troubleshoot device connectivity
           href: iot-hub-troubleshoot-connectivity.md
@@ -524,6 +497,9 @@
     - name: REST APIs
       displayName: REST, /rest/api/iothub/
       href: /rest/api/iothub/
+    - name: Azure IoT Hub extension for Visual Studio Code
+      displayName: VS Code, Visual Studio Code, toolkit, azure-iot-toolkit
+      href: reference-iot-hub-extension.md
     - name: Resource Manager template
       displayName: Microsoft.Devices, IotHubs/certificates, IotHubs/eventHubEndpoints/ConsumerGroups, IotHubs/privateEndpointConnections
       href: /azure/templates/microsoft.devices/iothub-allversions
@@ -537,8 +513,6 @@
         - name: TLS 1.0 and 1.1 deprecation
           displayName: Transport Layer Security 
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
-        - name: Classic IP filter
-          href: iot-hub-ip-filter-classic.md
 - name: Resources
   items:
     - name: Support and help options
@@ -607,8 +581,6 @@
       - name: IoT Hub shared access policy data source
         displayName: Terraform
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub_shared_access_policy
-    - name: Azure Certified Device catalog
-      href: https://devicecatalog.azure.com/
     - name: Azure IoT Developer Center
       href: https://azure.microsoft.com/develop/iot/
     - name: Customer data requests
@@ -617,7 +589,7 @@
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Azure IoT Hub extension for Visual Studio Code
-      displayName:  VS Code, Visual Studio Code, toolkit, azure-iot-toolkit
+      displayName: VS Code, Visual Studio Code, toolkit, azure-iot-toolkit
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     - name: Azure IoT Explorer tool
       displayName: azure-iot-explorer, Plug and Play

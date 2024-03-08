@@ -2,7 +2,7 @@
 title: Resource provider registration errors
 description: Describes how to resolve Azure resource provider registration errors for resources deployed with a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
-ms.custom: devx-track-azurepowershell, devx-track-bicep, devx-track-arm-template
+ms.custom: devx-track-azurepowershell, devx-track-bicep, devx-track-arm-template, devx-track-azurecli
 ms.date: 04/05/2023
 ---
 
@@ -148,19 +148,19 @@ You can see the registration status and register a resource provider namespace t
 
 1. In the search box, enter _subscriptions_. Or if you've recently viewed your subscription, select **Subscriptions**.
 
-    :::image type="content" source="media/error-register-resource-provider/select-subscriptions.png" alt-text="Screenshot that shows how to select a subscription.":::
+    :::image type="content" source="media/error-register-resource-provider/select-subscriptions.png" alt-text="Screenshot of the Azure portal with search box and Subscriptions highlighted.":::
 
 
 1. Select the subscription you want to use to register a resource provider.
 
-    :::image type="content" source="media/error-register-resource-provider/select-subscription-to-register.png" alt-text="Screenshot of link to subscription that's used to register a resource provider.":::
+    :::image type="content" source="media/error-register-resource-provider/select-subscription-to-register.png" alt-text="Screenshot of the Azure portal subscriptions list, highlighting a specific subscription for resource provider registration.":::
 
 1. To see the list of resource providers, under **Settings** select **Resource providers**.
 
-    :::image type="content" source="media/error-register-resource-provider/select-resource-providers.png" alt-text="Screenshot of a subscription's list of resource providers.":::
+    :::image type="content" source="media/error-register-resource-provider/select-resource-providers.png" alt-text="Screenshot of the Azure portal displaying a subscription's settings, highlighting the 'Resource providers' option.":::
 
 1. To register a resource provider, select the resource provider and then select **Register**.
 
-    :::image type="content" source="media/error-register-resource-provider/select-register.png" alt-text="Screenshot of button that registers a selected resource provider.":::
+    :::image type="content" source="media/error-register-resource-provider/select-register.png" alt-text="Screenshot of the Azure portal resource providers list, showing a specific provider selected and the 'Register' button highlighted.":::
 
 ---

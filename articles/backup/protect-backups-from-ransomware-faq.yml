@@ -5,8 +5,8 @@ metadata:
   ms.topic: faq
   ms.service: backup
   ms.date: 03/14/2022
-  author: jyothisuri
-  ms.author: jsuri
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
     
 title: Frequently asked questions - Protect backups from Ransomware
 summary: |
@@ -38,7 +38,7 @@ sections:
             MUA for Azure Backup uses a new resource called the Resource Guard to ensure critical operations, such as disabling soft delete, stopping and deleting backups, or reducing retention of backup policies, are performed only with applicable authorization. For more information, see:
           
             - [How does MUA using Resource Guard works?](multi-user-authorization.md)
-            - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
+            - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management).
           
           - **Set-up alerts and notifications for critical backup operations**.
           
@@ -100,7 +100,7 @@ sections:
             For more information, see:
           
             - [How MUA using Resource Guard works?](multi-user-authorization.md)
-            - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
+            - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management).
           
           
       - question: How to restore a system affected by ransomware?

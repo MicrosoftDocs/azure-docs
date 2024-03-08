@@ -1,9 +1,8 @@
 ---
 title: Connect using SSH to an Azure VM running Windows
 description: Learn how to connect using Secure Shell and sign on to a Windows VM.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/29/2022
 ms.author: migreene
@@ -13,8 +12,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-The [Win32 OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) project makes remote connectivity
-using Secure Shell ubiquitous by providing native support in Windows. The capability is provided in
+The [Win32 OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) project makes remote connectivity with Secure Shell ubiquitous by providing native support in Windows. The capability is provided in
 Windows Server version 2019 and later, and can be added to older versions of Windows using a virtual
 machine (VM) extension.
 
@@ -27,68 +25,9 @@ The examples below use variables. You can set variables in your environment as f
 
 ## Enable SSH
 
-First, you will need to enable SSH in your Windows machine.
+First, you'll need to enable SSH in your Windows machine.
 
-**Windows Server 2019 and newer**
-
-Following the Windows Server documentation page
-[Get started with OpenSSH](/windows-server/administration/openssh/openssh_install_firstuse),
-run the command `Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0`
-to enable the built-in capability, start the service, and open the Windows Firewall port.
-
-You can use the Azure RunCommand extension to complete this task.
-
-# [Azure CLI](#tab/azurecli)
-
-```azurecli-interactive
-az vm run-command invoke -g $myResourceGroup -n $myVM --command-id RunPowerShellScript --scripts "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0"
-```
-
-# [Azure PowerShell](#tab/azurepowershell-interactive)
-
-```azurepowershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -CommandId 'RunPowerShellScript' -ScriptString "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0"
-```
-
-# [ARM template](#tab/json)
-
-```json
-{
-  "type": "Microsoft.Compute/virtualMachines/runCommands",
-  "apiVersion": "2022-03-01",
-  "name": "[concat(parameters('VMName'), '/RunPowerShellScript')]",
-  "location": "[parameters('location')]",
-  "properties": {
-    "source": {
-      "script": "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0",
-    },
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-resource runPowerShellScript 'Microsoft.Compute/virtualMachines/runCommands@2022-03-01' = {
-  name: 'RunPowerShellScript'
-  location: resourceGroup().location
-  parent: virtualMachine
-  properties: {
-    source: {
-      script: 'Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0'
-    }
-  }
-}
-```
-
----
-
-
-**Windows Server 2016 and older**
-
-- Deploy the SSH extension for Windows. The extension provides an automated installation of the
-  Win32 OpenSSH solution, similar to enabling the capability in newer versions of Windows. Use the
-  following examples to deploy the extension.
+Deploy the SSH extension for Windows. The extension provides an automated installation of the Win32 OpenSSH solution, similar to enabling the capability in newer versions of Windows. Use the following examples to deploy the extension.
 
 # [Azure CLI](#tab/azurecli)
 
@@ -207,7 +146,7 @@ resource allowSSH 'Microsoft.Network/networkSecurityGroups/securityRules@2021-08
 
 ## Authentication
 
-You can authenticate to Windows machines using either username and password or SSH keys. Azure does not support provisioning public keys to Windows machines automatically, however you can copy the key using the RunCommand extension.
+You can authenticate to Windows machines using either username and password or SSH keys. Azure doesn't support provisioning public keys to Windows machines automatically, however you can copy the key using the RunCommand extension.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -221,13 +160,13 @@ and making sure the file has correct permissions.
 # [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
-az vm run-command invoke -g $myResourceGroup -n $myVM --command-id RunPowerShellScript --scripts "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys';icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+az vm run-command invoke -g $myResourceGroup -n $myVM --command-id RunPowerShellScript --scripts "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys' -Encoding UTF8;icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
 ```
 
 # [Azure PowerShell](#tab/azurepowershell-interactive)
 
 ```azurepowershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -CommandId 'RunPowerShellScript' -ScriptString "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys';icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -CommandId 'RunPowerShellScript' -ScriptString "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys' -Encoding UTF8;icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
 ```
 
 # [ARM template](#tab/json)
@@ -239,9 +178,10 @@ Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -Command
   "name": "[concat(parameters('VMName'), '/RunPowerShellScript')]",
   "location": "[parameters('location')]",
   "properties": {
+    "timeoutInSeconds":600
     "source": {
-      "script": "MYPUBLICKEY | Add-Content 'C:\\ProgramData\\ssh\\administrators_authorized_keys';icacls.exe 'C:\\ProgramData\\ssh\\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'",
-    },
+      "script": "MYPUBLICKEY | Add-Content 'C:\\ProgramData\\ssh\\administrators_authorized_keys -Encoding UTF8';icacls.exe 'C:\\ProgramData\\ssh\\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+    }
   }
 }
 ```
@@ -254,8 +194,9 @@ resource runPowerShellScript 'Microsoft.Compute/virtualMachines/runCommands@2022
   location: resourceGroup().location
   parent: virtualMachine
   properties: {
+    timeoutInSeconds: 600
     source: {
-      script: "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys';icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+      script: "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys' -Encoding UTF8;icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
     }
   }
 }
@@ -271,7 +212,7 @@ Connect to Windows machines using `Az SSH` commands.
 az ssh vm  -g $myResourceGroup -n $myVM --local-user $myUsername
 ```
 
-It is also possible to create a network tunnel for specific TCP ports through the SSH connection. A good use case for this is Remote Desktop which defaults to port 3389.
+It's also possible to create a network tunnel for specific TCP ports through the SSH connection. A good use case for this is Remote Desktop which defaults to port 3389.
 
 ```azurecli-interactive
 az ssh vm  -g $myResourceGroup -n $myVM --local-user $myUsername -- -L 3389:localhost:3389
@@ -282,7 +223,7 @@ az ssh vm  -g $myResourceGroup -n $myVM --local-user $myUsername -- -L 3389:loca
 1. Go to the [Azure portal](https://portal.azure.com/) to connect to a VM. Search for and select **Virtual machines**.
 2. Select the virtual machine from the list.
 3. Select **Connect** from the left menu.
-4. Select the **SSH** tab. If the VM has a just-in-time policy set, you first need to select the **Request access** button to request access before you can download the RDP file. For more information about the just-in-time policy, see [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md).
+4. Select the option that fits with your preferred way of connecting. The portal helps walk you through the prerequisites for connecting.
 
 
 ## Next steps

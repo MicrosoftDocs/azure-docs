@@ -7,7 +7,6 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Connect applications in Azure Container Apps
@@ -18,7 +17,7 @@ You can call other container apps in the same environment from your application 
 
 - default fully qualified domain name (FQDN)
 - a custom domain name
-- the container app name
+- the container app name, for instance `http://<APP_NAME>` for internal requests
 - a Dapr URL
 
 > [!NOTE]

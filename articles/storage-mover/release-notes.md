@@ -4,14 +4,14 @@ description: Read the release notes for the Azure Storage Mover service, which a
 services: storage-mover
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 4/14/2022
+ms.date: 09/06/2023
 ---
 
 # Release notes for the Azure Storage Mover service
 
-Azure Storage Mover is a hybrid service, which continuously introduces new features and improvements to its cloud service and the agent components. New features often require a matching agent version that supports them. This article provides a summary of key improvements for each service and agent version combination that is released. The article also points out limitations and if possible, workarounds for identified issues.
+Azure Storage Mover is a hybrid service, which continuously introduces new features and improvements to its cloud service and agent components. New features often require a matching agent version that supports them. This article provides a summary of key improvements for each service and agent version combination that is released. The article also points out limitations and if possible, workarounds for identified issues.
 
 ## Supported agent versions
 
@@ -19,8 +19,12 @@ The following Azure Storage Mover agent versions are supported:
 
 | Milestone                    | Version number | Release date       | Status                                                            |
 |------------------------------|----------------|--------------------|-------------------------------------------------------------------|
-| General availability release | 1.0.229        | April 17, 2023     | Supported                                                         |
-| Public preview release       | 0.1.116        | September 15, 2022 | Functioning. No longer supported by Microsoft Azure Support teams.|
+| Important security release   | 3.0.412        | November 30, 2023  | Current                                                           |
+| Major refresh release        | 2.0.358        | November 6, 2023   | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Refresh release              | 2.0.287        | August 5, 2023     | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Refresh release              | 1.1.256        | June 14, 2023      | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| General availability release | 1.0.229        | April 17, 2023     | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Public preview release       | 0.1.116        | September 15, 2022 | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 
 ### Azure Storage Mover update policy
 
@@ -43,10 +47,105 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 
 - Major versions are supported for at least six months from the date of initial release.
 - We guarantee there's an overlap of at least three months between the support of major agent versions.
-- The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Agent versions that have expired, might still be able to update themselves to a supported version but there are no guarantees. 
+- The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Agent versions that have expired, might still be able to update themselves to a supported version but there are no guarantees.
 
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent cannot update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
+
+## 2023 December 1
+
+Major refresh release notes for:
+
+- Service version: December 1, 2023
+- Agent version: 3.0.412
+
+### Agent
+
+- Extended support to the SMB 2.0 protocol (vs. previously SMB 2.1+)
+- Security improvements and bug fixes.
+
+### Limitations
+
+> [!IMPORTANT]
+> Based on the previously described [Azure Storage Mover update policy](#azure-storage-mover-update-policy), agents are automatically updated to the latest version. However, some improvements require a download and [provisioning](agent-deploy.md) of a new agent VM, using the latest agent image from [Microsoft Download Center](https://aka.ms/StorageMover/agent). This is recommended for all customers with agent deployments prior to this release date.
+
+## 2023 November 6
+
+Major refresh release notes for:
+
+- Service version: November 6, 2023
+- Agent version: 2.0.358
+
+### Migration scenarios
+- Migrating your SMB shares to Azure file shares has become generally available.
+- The Storage Mover agent is now supported on VMware ESXi 6.7 hypervisors, as a public preview.
+- Migrating NFS shares to Azure Data Lake Gen2 storage is now available as a public preview.
+
+### Service
+
+- Migrations from NFS shares to Azure storage accounts with the hierarchical namespace service feature (HNS) enabled, are now supported and automatically leverage the ADLS Gen2 REST APIs for migration. This allows the migration of files and folders in a Data Lake compliant way. Full fidelity is preserved in just the same way as with the previously existing blob container migration path. 
+- [Error codes and messages](status-code.md) have been improved.
+
+### Agent
+
+- Changes required for the previously mentioned migration paths.
+- Improved handling and logging of files that fail migration when they contain invalid characters or are in use during a migration.
+- Added support for file and folder security descriptors larger than 8KiB. (ACLs)
+- Avoid a job error condition when the source is an empty SMB share.
+- Improvements to agent-local network configuration like applying a static IP to the agent, or an error listing certain network configuration.
+- Security improvements.
+- The same agent version is now supported to run across Hyper-V and VMware ESXi 6.7 hypervisors.
+
+### Limitations
+
+> [!IMPORTANT]
+> Based on the previously described [Azure Storage Mover update policy](#azure-storage-mover-update-policy), agents are automatically updated to the latest version. However, some improvements require a download and [provisioning](agent-deploy.md) of a new agent VM, using the latest agent image from [Microsoft Download Center](https://aka.ms/StorageMover/agent).
+
+## 2023 August 5
+
+Refresh release notes for:
+
+- Service version: August 5, 2023
+- Agent version: 2.0.287
+
+### Migration scenarios
+Azure Storage mover can migrate your SMB share to Azure file shares (in public preview).
+
+### Service
+
+- [Two new endpoints](endpoint-manage.md) have been introduced.
+- [Error messages](status-code.md) have been improved.
+
+### Agent
+
+- Changes to include handling of SMB sources and the data plane transfer to Az Files
+- Handling SMB credentials via Azure Key Vault.
+
+### Limitations
+
+- Folder ACLs are not updated on incremental transfers.
+- Last modified dates on folders are not preserved.
+
+## 2023 June 14
+
+Refresh release notes for:
+
+- Service version: June 12, 2023
+- Agent version: 1.1.256
+
+### Migration scenarios
+Existing migration scenarios from the GA release remain unchanged. This release contains fixes to small issues and feature optimizations.
+
+### Service
+
+- Fixed a corner-case issue where the *mirror* copy mode may miss changes made in the source since the job was last ran.
+- When moving the storage mover resource in your resource group, an issue was fixed where some properties may have been left behind.
+- Error messages have been improved.
+
+### Agent
+
+- Fixed an issue with registration failing sometimes when a proxy server connection and a private link scope were configured at the same time.
+- Improved the security stance by omitting to transmit a specific user input to the service that is no longer necessary.
 
 ## 2023 April 17
 

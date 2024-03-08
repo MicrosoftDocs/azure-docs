@@ -4,15 +4,10 @@ metadata:
   description: Find answers to common questions about Azure Dedicated Hardware Security Module, such as basic information, interoperability, high availability, and support.
   services: dedicated-hsm
   author: keithp
-  manager: rkarlin
-  tags: azure-resource-manager
-  ms.custom: "mvc, seodec18"
-  ms.service: key-vault
-  ms.workload: identity
-  ms.tgt_pltfrm: na
   ms.topic: faq
-  ms.date: 03/25/2021
-  ms.author: keithp
+  ms.service: dedicated-hsm
+  ms.date: 02/20/2024
+  ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 title: Frequently asked questions (FAQ)
 summary: Find answers to common questions about Microsoft Azure Dedicated HSM.
@@ -31,11 +26,6 @@ sections:
         answer: |
           Azure Dedicated HSM is a cloud-based service that provides HSMs hosted in Azure datacenters that are directly connected to a customer's virtual network. These HSMs are dedicated [Thales Luna 7 HSM](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) network appliances. They are deployed directly to a customers' private IP address space and Microsoft does not have any access to the cryptographic functionality of the HSMs. Only the customer has full administrative and cryptographic control over these devices. Customers are responsible for the management of the device and they can get full activity logs directly from their devices. Dedicated HSMs help customers meet compliance/regulatory requirements such as FIPS 140-2 Level 3, HIPAA, PCI-DSS, and eIDAS and many others.
 
-      - question: |
-          What are the onboarding and use restrictions for Dedicated HSM?
-        answer: |
-          Customers must have an assigned Microsoft Account Manager and meet the monetary requirement of five million ($5M) USD or greater in overall committed Azure revenue annually to qualify for onboarding and use of Azure Dedicated HSM.
-         
       - question: |
           What are the onboarding and use restrictions for Dedicated HSM?
         answer: |

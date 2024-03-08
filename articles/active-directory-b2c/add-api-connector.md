@@ -1,16 +1,19 @@
 ---
 title: Add API connectors to sign up user flows
 description: Configure an API connector to be used in a sign-up user flow.
-services: active-directory-b2c
+
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 12/20/2022
+ms.date: 01/24/2024
 author: garrodonnell
 ms.author: godonnell
 manager: CelesteDG
-ms.custom: "it-pro,b2c-support"
+ms.custom: it-pro, b2c-support
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer or IT administrator, I want to use API connectors to integrate sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems.
+
 ---
 
 # Add an API connector to a sign-up user flow
@@ -127,7 +130,7 @@ These steps only exist for **Sign up and sign in (Recommended)** and **Sign up (
 
 ## After federating with an identity provider during sign-up
 
-An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step is not invoked if a user is registering with a local account.
+An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, and Microsoft Entra ID). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step is not invoked if a user is registering with a local account.
 
 ### Example request sent to the API at this step
 ```http
@@ -156,7 +159,7 @@ The exact claims sent to the API depend on the information is provided by the id
 
 ### Expected response types from the web API at this step
 
-When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+When the web API receives an HTTP request from Microsoft Entra ID during a user flow, it can return these responses:
 
 - Continuation response
 - Blocking response
@@ -217,7 +220,7 @@ The claims that are sent to the API depend on the information is collected from 
 
 ### Expected response types from the web API at this step
 
-When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+When the web API receives an HTTP request from Microsoft Entra ID during a user flow, it can return these responses:
 
 - Continuation response
 - Blocking response
@@ -248,7 +251,7 @@ See an example of a [validation-error response](#example-of-a-validation-error-r
 ## Before sending the token (preview)
 
 > [!IMPORTANT]
-> API connectors used in this step are in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> API connectors used in this step are in preview. For more information about previews, see [Product Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 An API connector at this step is invoked when a token is about to be issued during sign-ins and sign-ups. An API connector for this step can be used to enrich the token with claim values from external sources.
 
@@ -280,7 +283,7 @@ The claims that are sent to the API depend on the information defined for the us
 
 ### Expected response types from the web API at this step
 
-When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+When the web API receives an HTTP request from Microsoft Entra ID during a user flow, it can return these responses:
 
 - Continuation response
 
@@ -574,8 +577,7 @@ To return the promo code claim back to the relying party application, add an out
 ## Test the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the policy files that you changed: *TrustFrameworkExtensions.xml*, and *SignUpOrSignin.xml*. 

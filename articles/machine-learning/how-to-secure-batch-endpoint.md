@@ -9,13 +9,13 @@ ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: larryfrare configured
+ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
 # Network isolation in batch endpoints
 
-When deploying a machine learning model to a batch endpoint, you can secure their communication using private networks. This article explains the requirements to use batch endpoint in an environment secured by private networks.
+You can secure batch endpoints communication using private networks. This article explains the requirements to use batch endpoint in an environment secured by private networks.
 
 ## Securing batch endpoints
 
@@ -37,7 +37,7 @@ The following diagram shows how the networking looks like for batch endpoints wh
 :::image type="content" source="./media/how-to-secure-batch-endpoint/batch-vnet-peering.png" alt-text="Diagram that shows the high level architecture of a secure Azure Machine Learning workspace deployment.":::
 
 > [!CAUTION]
-> Batch Endpoints, as opposite to Online Endpoints, don't use Azure Machine Learning managed VNets. Hence, they don't support the keys `public_network_access` or `egress_public_network_access`. It is not possible to deploy public batch endpoints on private link-enabled workspaces.
+> Batch Endpoints, as opposite to Online Endpoints, don't support the keys `public_network_access` or `egress_public_network_access` when configuring the endpoint. It is not possible to deploy public batch endpoints on private link-enabled workspaces.
 
 ## Securing batch deployment jobs
 
@@ -62,7 +62,7 @@ Consider the following limitations when working on batch endpoints deployed rega
 
 - If you change the networking configuration of the workspace from public to private, or from private to public, such doesn't affect existing batch endpoints networking configuration. Batch endpoints rely on the configuration of the workspace at the time of creation. You can recreate your endpoints if you want them to reflect changes you made in the workspace.
 
-- When working on a private link-enabled workspace, batch endpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI in studio. Use the Azure Machine Learning CLI v2 instead for job creation. For more details about how to use it see [Run batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#run-batch-endpoints-and-access-results).
+- When working on a private link-enabled workspace, batch endpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI in studio. Use the Azure Machine Learning CLI v2 instead for job creation. For more details about how to use it see [Run batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#run-endpoint-and-configure-inputs-and-outputs).
 
 ## Recommended read
 

@@ -1,16 +1,15 @@
 ### YamlMime:Landing
 
 title: Azure confidential ledger 
-summary: Learn how to use Azure confidential ledger 
+summary: Learn how to use Azure confidential ledger.
 metadata:
   title: Azure confidential ledger documentation
-  description: Learn how to use Azure confidential ledger 
-  services: confidential-ledger
+  description: Learn how to use Azure confidential ledger.
   ms.service: confidential-ledger
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 04/15/2021
+  ms.date: 01/30/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -60,6 +59,8 @@ landingContent:
             url: authenticate-ledger-nodes.md
           - text: Create a client certificate
             url: create-client-certificate.md
+          - text: Create a managed application to store blob digests
+            url: create-blob-managed-app.md
           - text: Register the Azure confidential ledger resource provider
             url: register-ledger-resource-provider.md
           - text: Verify write transaction receipts

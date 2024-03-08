@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 10/18/2023
 ms.author: alkohli
 ---
 # Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge Pro GPU device
@@ -115,11 +115,11 @@ In this approach, you create a namespace and a user. You then associate the user
 6. Start a new PowerShell session on your client. You don't need to be connected to the device interface. You can now install `kubectl` on your client using the following command:
 
     ```powershell
-    PS C:\windows\system32> curl https://storage.googleapis.com/kubernetes-release/release/v1.15.2/bin/windows/amd64/kubectl.exe -O kubectl.exe
-    
+    PS C:\windows\system32> curl.exe -LO "https://dl.k8s.io/release/v1.25.0/bin/windows/amd64/kubectl.exe"
+
     PS C:\windows\system32>
     ```
-    For example, if the Kubernetes master node was running v1.15.2, install v1.15.2 on the client.
+    For example, if the Kubernetes master node was running v1.25.0, install v1.25.0 on the client.
 
     > [!IMPORTANT]
     > Download a client that is skewed no more than one minor version from the master. The client version but may lead the master by up to one minor version. For example, a v1.3 master should work with v1.1, v1.2, and v1.3 nodes, and should work with v1.2, v1.3, and v1.4 clients. For more information on Kubernetes client version, see [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). For more information on Kubernetes server version on Azure Stack Edge Pro, go to Get Kubernetes server version.<!-- insert link-->

@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 12/16/2022
+ms.date: 02/14/2024
 ms.custom: template-tutorial, engagement-fy23
 ---
 
@@ -81,6 +81,13 @@ In this section, you'll create a virtual network for the load balancer, NAT gate
 1. Select the **Review + create** tab or select the **Review + create** button.
 
 1. Select **Create**.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
+
 ## Create NAT gateway
 
 In this section, you'll create a NAT gateway and assign it to the subnet in the virtual network you created previously.

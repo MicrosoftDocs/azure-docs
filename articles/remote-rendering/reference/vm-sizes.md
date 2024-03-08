@@ -16,11 +16,22 @@ Azure Remote Rendering is available in two server configurations: `Standard` and
 
 A primitive is either a single triangle (in triangular meshes) or a single point (in point cloud meshes). Triangular meshes can be instantiated together with point clouds, in which case the sum of all points and triangles in the session are counted against the limit.
 
-Remote Rendering with `Standard` size server has a maximum scene size of 20 million primitives. Remote Rendering with `Premium` size doesn't enforce a hard maximum, but performance may be degraded if your content exceeds the rendering capabilities of the service.
+### Standard size
 
-When the renderer on a 'Standard' server size hits this limitation, it switches rendering to a checkerboard background:
+Remote Rendering with `Standard` size server has a maximum scene size of 20 million primitives. When the renderer on a 'Standard' server size hits this limitation, it switches rendering to a checkerboard background:
 
 ![Screenshot shows a grid of black and white squares with a Tools menu.](media/checkerboard.png)
+
+### Premium size
+
+Remote Rendering with `Premium` size doesn't enforce a hard maximum, but performance may be degraded if your content exceeds the rendering capabilities of the service. Furthermore, for triangular meshes (and unlike point clouds), the available amount of graphics memory is a hard limit. It's not possible to map the amount of graphics memory to a specific number of triangles, because there are many contributing factors that depend on the source mesh and settings:
+
+* number and resolution of textures,
+* amount of unique geometry versus sub-mesh instantiation inside the mesh (see also [instancing objects](../how-tos/conversion/configure-model-conversion.md#instancing)),
+* [vertex streams](../how-tos/conversion/configure-model-conversion.md#vertex-format) being used,
+* the [rendering composition mode](../concepts/rendering-modes.md) used with the `Premium` size.
+
+For [point clouds](../overview/features/point-cloud-rendering.md) there's no real limit since point cloud assets use the [data streaming approach](../overview/features/point-cloud-rendering.md#point-cloud-data-streaming). With data streaming, the renderer automatically manages the memory budget on the graphics card, based on the actual visible geometry.
 
 ## Specify the server size
 
@@ -83,7 +94,7 @@ Accordingly, it's possible to write an application that targets the `standard` s
 
 There are two ways to determine the number of primitives of a model or scene that contribute to the budget limit of the `standard` configuration size:
 * On the model conversion side, retrieve the [conversion output json file](../how-tos/conversion/get-information.md), and check the `numFaces` entry in the [*inputStatistics* section](../how-tos/conversion/get-information.md#the-inputstatistics-section). This number denotes the triangle count in triangular meshes and number of points in point clouds respectively.
-* If your application is dealing with dynamic content, the number of rendered primitives can be queried dynamically during runtime. Use a [performance assessment query](../overview/features/performance-queries.md#performance-assessment-queries) and check for the sum of the values in the two members `PolygonsRendered` and `PointsRendered` in the `PerformanceAssessment` struct. The `PolygonsRendered` / `PointsRendered` field will be set to `bad` when the renderer hits the primitive limitation. The checkerboard background is always faded in with some delay to ensure user action can be taken after this asynchronous query. User action can, for instance,  be hiding or deleting model instances.
+* If your application is dealing with dynamic content, the number of rendered primitives can be queried dynamically during runtime. Use a [performance assessment query](../overview/features/performance-queries.md#performance-assessment-queries) and check for the sum of the values in the two members `PolygonsRendered` and `PointsRendered` in the `PerformanceAssessment` struct. The `PolygonsRendered` / `PointsRendered` field is set to `bad` when the renderer hits the primitive limitation. The checkerboard background is always faded in with some delay to ensure user action can be taken after this asynchronous query. User action can, for instance,  be hiding or deleting model instances.
 
 ## Pricing
 

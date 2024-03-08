@@ -7,12 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/24/2019
+ms.date: 02/27/2024
 ms.author: alkohli 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Manage access, power, and connectivity mode for your Azure Stack Edge Pro FPGA
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article describes how to manage the access, power, and connectivity mode for your Azure Stack Edge Pro FPGA. These operations are performed via the local web UI or the Azure portal.
 

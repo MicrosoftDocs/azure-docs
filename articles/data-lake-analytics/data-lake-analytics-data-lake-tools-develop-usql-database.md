@@ -4,7 +4,7 @@ description: Learn how to develop a U-SQL database using Azure Data Lake Tools f
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ---
 # Use a U-SQL database project to develop a U-SQL database for Azure Data Lake
 

@@ -1,9 +1,9 @@
 ---
-title: Transform data inside Azure IoT Central | Microsoft Docs
+title: Transform data inside Azure IoT Central
 description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data in an IoT Central before exporting it.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/15/2022
+ms.date: 06/13/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -36,7 +36,7 @@ The **Data Transformation** panel lets you specify the transformation. In the **
 :::image type="content" source="media/howto-transform-data-internally/transformation-editor.png" alt-text="Screenshot of transformation editor in IoT Central." lightbox="media/howto-transform-data-internally/transformation-editor.png":::
 
 > [!TIP]
-> If you don't know the format of your input message, use `.` as the query to export the message as is to a destination such as a Webhook. Then paste the message received by the webhook into ***1. Add your input message**. Then build a transform query to process this message into your required output format.
+> If you don't know the format of your input message, use `.` as the query to export the message as is to a destination such as a Webhook. Then paste the message received by the webhook into **1. Add your input message**. Then build a transform query to process this message into your required output format.
 
 ## Build a transformation query
 

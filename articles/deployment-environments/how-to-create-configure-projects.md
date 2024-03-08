@@ -1,23 +1,20 @@
 ---
 title: Create and configure a project by using the Azure CLI
 titleSuffix: Azure Deployment Environments
-description: Learn how to create a project in Azure Deployment Environments and associate the project with a dev center using Azure CLI.
+description: Learn how to create a project in Azure Deployment Environments and associate the project with a dev center using the Azure CLI.
 author: renato-marciano
 ms.author: remarcia
 ms.service: deployment-environments
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, build-2023
 ms.topic: quickstart
-ms.date: 04/28/2023
+ms.date: 11/29/2023
 ---
 
 # Create and configure a project by using the Azure CLI
 
-This quickstart shows you how to create a project in Azure Deployment Environments Preview. Then, you associate the project with the dev center you created in [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md).
+This quickstart guide shows you how to create a project in Azure Deployment Environments. Then, you associate the project with the dev center you created in [Create and configure a dev center by using the Azure CLI](how-to-create-configure-dev-center.md).
 
-An enterprise development infrastructure team typically creates projects and provides project access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy applications.
-
-> [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+A platform engineering team typically creates projects and provides project access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications.
 
 ## Prerequisites
 
@@ -34,7 +31,7 @@ To create a project in your dev center:
     az login
     ```
 
-1. Install the Azure Dev Center extension for the CLI.
+1. Install the Azure CLI *devcenter* extension.
 
    ```azurecli
    az extension add --name devcenter --upgrade
@@ -43,13 +40,13 @@ To create a project in your dev center:
 1. Configure the default subscription as the subscription where your dev center resides:
 
    ```azurecli
-   az account set --subscription <name>
+   az account set --subscription <subscriptionName>
    ```
 
 1. Configure the default resource group as the resource group where your dev center resides:
 
    ```azurecli
-   az configure --defaults group=<name>
+   az configure --defaults group=<resourceGroupName>
    ```
 
 1. Configure the default location as the location where your dev center resides. Location of project must match the location of dev center:
@@ -61,14 +58,14 @@ To create a project in your dev center:
 1. Retrieve dev center resource ID:
 
     ```azurecli
-    DEVCID=$(az devcenter admin devcenter show -n <devcenter name> --query id -o tsv)
+    DEVCID=$(az devcenter admin devcenter show -n <devcenterName> --query id -o tsv)
     echo $DEVCID
     ```
 
 1. Create project in dev center:
 
     ```azurecli
-    az devcenter admin project create -n <project name> \
+    az devcenter admin project create -n <projectName> \
     --description "My first project." \
     --dev-center-id $DEVCID
     ```
@@ -76,10 +73,11 @@ To create a project in your dev center:
 1. Confirm that the project was successfully created:
 
     ```azurecli
-    az devcenter admin project show -n <project name>
+    az devcenter admin project show -n <projectName>
     ```
 
-### Assign a managed identity the owner role to the subscription
+### Assign the Owner role to a managed identity
+
 Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types). 
 
 In this quickstart, you assign the Owner role to the system-assigned managed identity that you configured previously: [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
@@ -87,18 +85,18 @@ In this quickstart, you assign the Owner role to the system-assigned managed ide
 1. Retrieve Subscription ID:
 
     ```azurecli
-    SUBID=$(az account show -n <name> --query id -o tsv)
+    SUBID=$(az account show --name <subscriptionName> --query id -o tsv)
     echo $SUBID
     ```
 
-1. Retrieve Object ID of Dev Center's Identity using name of dev center resource:
+1. Retrieve the Object ID of the dev center's identity using the name of the dev center resource:
 
     ```azurecli
-    OID=$(az ad sp list --display-name <devcenter name> --query [].id -o tsv)
-    echo $SUBID
+    OID=$(az ad sp list --display-name <devcenterName> --query [].id -o tsv)
+    echo $OID
     ```
 
-1. Assign dev center the Role of Owner on the Subscription:
+1. Assign the role of Owner to the dev center on the subscription:
 
     ```azurecli
     az role assignment create --assignee $OID \
@@ -110,7 +108,7 @@ In this quickstart, you assign the Owner role to the system-assigned managed ide
 
 To configure a project, add a [project environment type](how-to-configure-project-environment-types.md):
 
-1. Retrieve Role ID for the Owner of Subscription
+1. Retrieve the Role ID for the Owner of the subscription:
 
     ```azurecli
     # Remove group default scope for next command. Leave blank for group.
@@ -120,20 +118,20 @@ To configure a project, add a [project environment type](how-to-configure-projec
     echo $ROID
 
     # Set default resource group again
-    az configure --defaults group=<group name>
+    az configure --defaults group=<resourceGroupName>
     ```
 
-1. Show allowed environment type for project:
+1. Show allowed environment type for the project:
 
     ```azurecli
-    az devcenter admin project-allowed-environment-type list --project <project name> --query [].name
+    az devcenter admin project-allowed-environment-type list --project <projectName> --query [].name
     ```
 
 1. Choose an environment type and create it for the project:
 
     ```azurecli
-    az devcenter admin project-environment-type create -n <available env type> \
-    --project <project name> \
+    az devcenter admin project-environment-type create -n <availableEnvironmentType> \
+    --project <projectName> \
     --identity-type "SystemAssigned" \
     --roles "{\"${ROID}\":{}}" \
     --deployment-target-id "/subscriptions/${SUBID}" \
@@ -141,7 +139,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     ```
 
 > [!NOTE]
-> At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Owner role](how-to-configure-managed-identity.md) for  access to the deployment subscription for each environment type.
+> At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Owner role](how-to-configure-managed-identity.md) for access to the deployment subscription for each environment type.
 
 ## Assign environment access
 
@@ -162,7 +160,7 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
     --scope "/subscriptions/$SUBID"
     ```
 
-1. Optionally, you can assign Dev Environment User:
+1. Optionally, you can assign the Dev Environment User role:
 
     ```azurecli
     az role assignment create --assignee $MYOID \
@@ -171,12 +169,11 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
     ```
 
 
-> [!NOTE]
-> Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a built-in role that has appropriate permissions can create an environment.
+[!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
 ## Next steps
 
-In this quickstart, you created a project and granted project access to your development team. To learn about how your development team members can create environments, advance to the next quickstart.
+In this quickstart, you created a project and granted project access to your development team. To learn how your development team members can create environments, advance to the next quickstart.
 
 > [!div class="nextstepaction"]
-> [Create and access an environment with Azure CLI](how-to-create-access-environments.md)
+> [Create and access an environment by using the Azure CLI](how-to-create-access-environments.md)

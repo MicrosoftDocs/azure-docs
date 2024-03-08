@@ -5,7 +5,6 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 05/08/2023
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
@@ -45,6 +44,8 @@ The dashboard tabs currently available are:
 * Flow Distribution
 * Connection Monitors
 * Metric Definitions 
+
+[!NOTE] Displays on the Flow Distribution tab are not supported for load balancer backend pools configured by IP addresses. These are virtual machine-level metrics and can be seen by from the virtual machines / VMSS resources associated with the IP addresses attached instead.
 
 ### Overview tab
 

@@ -4,7 +4,7 @@ description: PowerShell samples show how to configure a Log Analytics workspace 
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 03/28/2022
+ms.date: 07/02/2023
 ms.reviewer: yossiy
 ms.custom: devx-track-azurepowershell
 
@@ -82,13 +82,13 @@ In the preceding example, `regexDelimiter` was defined as `\\n` for newline. The
 | `yyyy-MM-ddTHH:mm:ss` <br> The T is a literal letter T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## Troubleshooting
-When you create a workspace that was deleted in the last 14 days and is in a [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have a different outcome depending on your workspace configuration. For example:
+When you create a workspace that was deleted in the last 14 days and is in a [soft-delete state](../logs/delete-workspace.md#delete-a-workspace-into-a-soft-delete-state), the operation could have a different outcome depending on your workspace configuration. For example:
 
 - If you provide the same workspace name, resource group, subscription, and region as in the deleted workspace, your workspace will be recovered. The recovered workspace includes data, configuration, and connected agents.
 - A workspace name must be unique per resource group. If you use a workspace name that already exists and is also in soft delete in your resource group, you'll get an error. The error will state "The workspace name 'workspace-name' is not unique" or "conflict." To override the soft delete, permanently delete your workspace, and create a new workspace with the same name, follow these steps to recover the workspace first and then perform a permanent delete:
 
-   * [Recover](../logs/delete-workspace.md#recover-a-workspace) your workspace.
-   * [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace.
+   * [Recover](../logs/delete-workspace.md#recover-a-workspace-in-a-soft-delete-state) your workspace.
+   * [Permanently delete](../logs/delete-workspace.md#delete-a-workspace-permanently) your workspace.
    * Create a new workspace by using the same workspace name.
 
 ## Next steps

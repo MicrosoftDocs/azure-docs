@@ -1,6 +1,6 @@
 ---
 title: Provision throughput on Azure Cosmos DB for MongoDB resources
-description: Learn how to provision container, database, and autoscale throughput in Azure Cosmos DB for MongoDB resources. You will use Azure portal, CLI, PowerShell and various other SDKs. 
+description: Learn how to provision container, database, and autoscale throughput in Azure Cosmos DB for MongoDB resources. You will use Azure portal, CLI, PowerShell and various other SDKs.
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.date: 11/17/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.devlang: csharp
-ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp, ignite-2022, devx-track-azurepowershell, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-csharp, devx-track-azurepowershell, devx-track-arm-template, devx-track-dotnet
 ---
 
 # Provision database, container or autoscale throughput on Azure Cosmos DB for MongoDB resources

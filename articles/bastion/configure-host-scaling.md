@@ -1,11 +1,11 @@
 ---
 title: 'Add scale units for host scaling: Azure portal'
 titleSuffix: Azure Bastion
-description: Learn how to add additional instances (scale units) to Azure Bastion.
+description: Learn how to add more instances (scale units) to Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 05/17/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to configure host scaling using the Azure portal.
 
@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 # Configure host scaling using the Azure portal
 
-This article helps you add additional scale units (instances) to Azure Bastion to accommodate additional concurrent client connections using the Azure portal. For more information about host scaling, see [Configuration settings](configuration-settings.md#instance).
+This article helps you add more scale units (instances) to Azure Bastion to accommodate additional concurrent client connections. The steps in this article use the Azure portal. For more information about host scaling, see [Configuration settings](configuration-settings.md#instance). You can also configure host scaling using [PowerShell](configure-host-scaling-powershell.md).
 
 ## Configuration steps
 
@@ -23,7 +23,7 @@ This article helps you add additional scale units (instances) to Azure Bastion t
 
    :::image type="content" source="./media/configure-host-scaling/select-sku.png" alt-text="Screenshot of Select Tier and Instance count." lightbox="./media/configure-host-scaling/select-sku.png":::
 
-1. Click **Apply** to apply changes.
+1. Select **Apply** to apply changes.
 
    >[!NOTE]
    > Any changes to the host scale units will disrupt active bastion connections.

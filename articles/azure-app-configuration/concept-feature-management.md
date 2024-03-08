@@ -1,12 +1,12 @@
 ---
 title: Understand feature management using Azure App Configuration
 description: Turn features on and off using Azure App Configuration 
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
-ms.custom: devx-track-dotnet, devdivchpfy22
+ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 08/17/2022
+ms.date: 02/20/2024
 ---
 
 # Feature management overview
@@ -74,7 +74,7 @@ To use feature flags effectively, you need to externalize all the feature flags 
 
 Azure App Configuration provides a centralized repository for feature flags. You can use it to define different kinds of feature flags and manipulate their states quickly and confidently. You can then use the App Configuration libraries for various programming language frameworks to easily access these feature flags from your application.
 
-[The feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md) shows how the .NET Core App Configuration provider and Feature Management libraries are used together to implement feature flags for your ASP.NET web application. For more information on feature flags in Azure App Configuration, see the following articles:
+[The feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md) shows how the App Configuration .NET provider and Feature Management libraries are used together to implement feature flags for your ASP.NET web application. For more information on feature flags in Azure App Configuration, see the following articles:
 
 * [Manage feature flags](./manage-feature-flags.md)
 * [Use conditional feature flags](./howto-feature-filters-aspnet-core.md)

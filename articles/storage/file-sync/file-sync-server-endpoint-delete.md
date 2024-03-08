@@ -2,11 +2,10 @@
 title: Deprovision your Azure File Sync server endpoint
 description: Guidance on how to deprovision your Azure File Sync server endpoint based on your use case
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 6/01/2021
+ms.date: 10/02/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Deprovision or delete your Azure File Sync server endpoint
@@ -16,7 +15,7 @@ Removing a server endpoint means stopping sync to and from that server location 
 If it is ok to permanently lose the data that you are currently syncing, you can skip to directly deprovisioning your server endpoint.
 
 > [!Warning]
-> Don't try to resolve sync issues by deprovisioning a server endpoint. For troubleshooting help, see [Troubleshooting Azure File Sync](./file-sync-troubleshoot.md). Permanent data loss may occur if you delete your server endpoint without getting either the server or the cloud side fully in sync with the other. Removing a server endpoint is a destructive operation, and tiered files within the server endpoint will not be "reconnected" to their locations on the Azure file share after the server endpoint is recreated, which will result in sync errors. Also, tiered files that exist outside of the server endpoint namespace may be permanently lost. Tiered files may exist within your server endpoint even if cloud tiering was never enabled.
+> Don't try to resolve sync issues by deprovisioning a server endpoint. For troubleshooting help, see [Troubleshooting Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json). Permanent data loss may occur if you delete your server endpoint without getting either the server or the cloud side fully in sync with the other. Removing a server endpoint is a destructive operation, and tiered files within the server endpoint will not be "reconnected" to their locations on the Azure file share after the server endpoint is recreated, which will result in sync errors. Also, tiered files that exist outside of the server endpoint namespace may be permanently lost. Tiered files may exist within your server endpoint even if cloud tiering was never enabled.
 
 ## Scenario 1: You intend to delete your server endpoint and stop using your local server / VM
 
@@ -76,7 +75,7 @@ Before you recall any files, make sure that you have enough free space locally t
 
 Use the **Invoke-StorageSyncFileRecall** PowerShell cmdlet and specify the **SyncGroupName** parameter to recall all files. 
 ```powershell
-Invoke-StorageSyncFileRecall -SyncGroupName "samplesyncgroupname"
+Invoke-StorageSyncFileRecall -SyncGroupName "samplesyncgroupname" -ThreadCount 4
 ```
 Once this cmdlet has finished running, you can move onto the next section.
 
@@ -86,7 +85,7 @@ Initiating change detection in the cloud ensures that your latest changes have b
 You can initiate change detection with the Invoke-AzStorageSyncChangeDetection cmdlet: 
 
 ```powershell
-Invoke-AzStorageSyncChangeDetection -ResourceGroupName "myResourceGroup" -StorageSyncServiceName "myStorageSyncServiceName" -SyncGroupName "mySyncGroupName" -Path "Data","Reporting\Templates" 
+Invoke-AzStorageSyncChangeDetection -ResourceGroupName "myResourceGroup" -StorageSyncServiceName "myStorageSyncServiceName" -SyncGroupName "mySyncGroupName" -CloudEndpointName "myCloudEndpointGUID"
 ```
 
 This step may take a while to complete. 

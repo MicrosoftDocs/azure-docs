@@ -5,7 +5,7 @@ author: reachnijel
 ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 09/19/2023
 ---
 
 # Hive Warehouse Connector APIs in Azure HDInsight

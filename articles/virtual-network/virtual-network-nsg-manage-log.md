@@ -7,9 +7,8 @@ author: asudbring
 manager: mtillman
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 03/22/2023
-ms.author: allensu 
+ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---

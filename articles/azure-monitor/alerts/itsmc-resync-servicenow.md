@@ -1,11 +1,12 @@
 ---
 title: How to manually fix ServiceNow sync problems 
 description: Reset the connection to ServiceNow so alerts in Microsoft Azure can again call ServiceNow  
+ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 06/19/2023
 ms.reviewer: nolavime
-
 ---
+
 # How to manually fix sync problems
 
 Azure Monitor can connect to third-party IT Service Management (ITSM) providers. ServiceNow is one of those providers.

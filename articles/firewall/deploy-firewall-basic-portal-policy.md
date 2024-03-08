@@ -57,7 +57,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The resource group contains all the resources for the how-to.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Create**.
 4. For **Subscription**, select your subscription.
 1. For **Resource group name**, enter *Test-FW-RG*.

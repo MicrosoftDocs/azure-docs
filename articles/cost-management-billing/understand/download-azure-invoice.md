@@ -4,11 +4,10 @@ description: Learn how to view and download your Azure invoice. You can download
 keywords: billing invoice,invoice download,azure invoice,azure usage
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/24/2023
+ms.date: 02/14/2024
 ms.author: banders
 ---
 
@@ -16,7 +15,7 @@ ms.author: banders
 
 You can download your invoice in the [Azure portal](https://portal.azure.com/) or have it sent in email. Invoices are sent to the person set to receive invoices for the enrollment.
 
-If you're an Azure customer with an Enterprise Agreement (EA customer), only an EA administrator can download and view your organization's invoice. Direct EA administrators can [Download or view their Azure billing invoice](../manage/direct-ea-azure-usage-charges-invoices.md#download-or-view-your-azure-billing-invoice). Indirect EA administrators can use the information at [Azure Enterprise enrollment invoices](../manage/ea-portal-enrollment-invoices.md) to download their invoice.
+If you're an Azure customer with an Enterprise Agreement (EA customer), only an EA administrator can download and view your organization's invoice. Direct EA administrators can [Download or view their Azure billing invoice](../manage/direct-ea-azure-usage-charges-invoices.md#download-or-view-your-azure-billing-invoice). Indirect EA administrators can use the information at [Azure Enterprise enrollment invoices](../manage/direct-ea-billing-invoice-documents.md) to download their invoice.
 
 ## Where invoices are generated
 
@@ -240,9 +239,9 @@ There could be several reasons that you don't see an invoice:
 
     - Some customers have two identities with the same email address - a work account and a Microsoft account. Typically, only one of their identities has permissions to view invoices. If they sign in with the identity that doesn't have permission, they would not see the invoices. Verify that you're using the correct identity to sign in.
 
-- You have signed in to the incorrect Azure Active Directory (Azure AD) tenant. 
+- You have signed in to the incorrect Microsoft Entra tenant. 
 
-    - Your billing account is associated with an Azure AD tenant. If you're signed in to an incorrect tenant, you won't see the invoice for subscriptions in your billing account. Verify that you're signed in to the correct Azure AD tenant. If you aren't signed in the correct tenant, use the following to switch the tenant in the Azure portal:
+    - Your billing account is associated with a Microsoft Entra tenant. If you're signed in to an incorrect tenant, you won't see the invoice for subscriptions in your billing account. Verify that you're signed in to the correct Microsoft Entra tenant. If you aren't signed in the correct tenant, use the following to switch the tenant in the Azure portal:
 
         1. Select your email from the top right of the page.
 

@@ -1,5 +1,7 @@
 ---
 title: Requirements
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Learn what you need to run NC2 on Azure, including Azure, Nutanix, networking, and other requirements. 
 ms.topic: how-to
 ms.subservice: baremetal-nutanix
@@ -15,11 +17,12 @@ The following sections identify the requirements to use Nutanix Clusters on Azur
 ## Azure account requirements
 
 * An Azure account with a new subscription  
-* An Azure Active Directory
+* A Microsoft Entra directory
 
 ## My Nutanix account requirements
 
-For more information, see "NC2 on Azure Subscription and Billing" in [Nutanix Cloud Clusters on Azure Deployment and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf).
+For more information, see "NC2 on Azure Subscription and Billing" in [Nutanix Cloud Clusters on Azure Deployment and User Guide]
+(https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:Nutanix-Cloud-Clusters-Azure).
 
 ## Networking requirements
 
@@ -27,7 +30,7 @@ For more information, see "NC2 on Azure Subscription and Billing" in [Nutanix Cl
 * After a cluster is created, you'll need Virtual IP addresses for both the on-premises cluster and the cluster running in Azure.
 * Outbound internet access on your Azure portal.
 * Azure Directory Service resolves the FQDN:  
-gateway-external-api.console.nutanix.com.
+gateway-external-api.cloud.nutanix.com.
 
 ## Other requirements
 

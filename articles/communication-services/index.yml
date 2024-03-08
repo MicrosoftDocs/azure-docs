@@ -33,7 +33,7 @@ highlightedContent:
     - title: Rest API references
       itemType: reference
       url: /rest/api/communication/
-   # - title: ACS UI Library
+   # - title: Azure Communication Services UI Library
    #   itemType: concept
    #   url: ./concepts/ui-library/ui-library-overview.md
 #------------------------------------------------------------------
@@ -41,19 +41,17 @@ productDirectory:
   title: Communication Channels
   summary: Learn about our core services, which you can combine and integrate to create your own custom communication solutions.
   items:
-  - title: Chat
-    imageSrc: ./media/icons/chat-icon.svg
+  - title: SMS
+    imageSrc: ./media/icons/sms-icon.svg
     links:
-      - url: ./concepts/chat/concepts.md
-        text: Chat concepts
-      - url: ./quickstarts/chat/get-started.md
-        text: Add chat to your app
-      - url: ./quickstarts/chat/quickstart-botframework-integration.md
-        text: Add a bot to your chat app
-      - url: ./concepts/chat/sdk-features.md
-        text: Chat SDK overview
-      - url: ./samples/chat-hero-sample.md
-        text: Get started with the chat hero sample
+      - url: ./concepts/sms/concepts.md
+        text: SMS concepts
+      - url: ./concepts/sms/sdk-features.md
+        text: SMS SDK overview
+      - url: ./quickstarts/sms/send.md
+        text: Send an SMS message
+      - url: ./quickstarts/telephony/get-phone-number.md
+        text: How to set up a phone number
   - title: Email
     imageSrc: ./media/icons/email-icon.svg
     links:
@@ -93,20 +91,32 @@ productDirectory:
         text: Call flow topologies
       - url: ./concepts/voice-video-calling/calling-sdk-features.md
         text: Calling SDK overview
-  - title: SMS
-    imageSrc: ./media/icons/sms-icon.svg
+  - title: Chat
+    imageSrc: ./media/icons/chat-icon.svg
     links:
-      - url: ./concepts/sms/concepts.md
-        text: SMS concepts
-      - url: ./concepts/sms/sdk-features.md
-        text: SMS SDK overview
-      - url: ./quickstarts/sms/send.md
-        text: Send an SMS message
-      - url: ./quickstarts/telephony/get-phone-number.md
-        text: How to set up a phone number
-      - url: ./concepts/sms/sdk-features.md
-        text: SMS SDK overview
-        
+      - url: ./concepts/chat/concepts.md
+        text: Chat concepts
+      - url: ./quickstarts/chat/get-started.md
+        text: Add chat to your app
+      - url: ./quickstarts/chat/quickstart-botframework-integration.md
+        text: Add a bot to your chat app
+      - url: ./concepts/chat/sdk-features.md
+        text: Chat SDK overview
+      - url: ./samples/chat-hero-sample.md
+        text: Get started with the chat hero sample
+  - title: Advanced Messaging
+    imageSrc: ./media/icons/advanced-messaging.svg
+    links:
+      - url: ./concepts/advanced-messaging/whatsapp/whatsapp-overview.md
+        text: Advanced Messaging for WhatsApp overview
+      - url: ./quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
+        text: Try the Advanced Messaging sandbox
+      - url: ./quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md
+        text: Register a WhatsApp business account
+      - url: ./quickstarts/advanced-messaging/whatsapp/get-started.md
+        text: Add Advanced Messaging to your app
+
+
 #------------------------------------------------------------------
 additionalContent:
   sections:
@@ -120,8 +130,15 @@ additionalContent:
         summary: Call Automation provides a new set of APIs to help developers build server-based, intelligent calling workflows.
         url: ./concepts/call-automation/call-automation.md
       - title: UI Library
-        summary: UI Library gives you a library of production-ready UI components to easily build modern communications user experiences using Azure Communication Services.
-        url: ./concepts/ui-library/ui-library-overview.md    
+        summary: UI Library gives you a library of production-ready, fully accessible UI components to easily build modern communications user experiences using Azure Communication Services.
+        url: ./concepts/ui-library/ui-library-overview.md   
+      - title: Job Router
+        summary: Job router allows you to direct each customer interaction to the correct customer service resource with a mix of predefined and runtime rules and policies.
+        url: ./concepts/router/concepts.md
+      - title: Call Diagnostics
+        summary: Our Call Diagnostic tools help you identify, visualize and investigate the causes of poor call quality and reliability. 
+        url: ./concepts/voice-video-calling/call-diagnostics.md
+
     - title: Core Scenarios
       summary: Whether you're just starting or have lots of experience, our prebuilt communications solutions help you arrive at your business goals quickly and effectively.
       items:
@@ -134,7 +151,6 @@ additionalContent:
         - title: Build notifications into your customer journey
           summary: Send important communications to your customers using our SMS, email and push notification services.
           url: ./tutorials/add-chat-push-notifications.md
-      
     - title: Other Resources
       items:
           - title: Support & Help
@@ -157,9 +173,7 @@ additionalContent:
             links:
               - text: Azure
                 url: https://azure.microsoft.com/
-              - text: Azure Cognitive Services 
+              - text: Azure AI services 
                 url: /azure/cognitive-services
               - text: Dynamics 365
                 url: https://dynamics.microsoft.com/
-
-

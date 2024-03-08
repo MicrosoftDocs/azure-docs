@@ -1,5 +1,5 @@
 ---
-title: 4.0 server version supported features and syntax in Azure Cosmos DB for MongoDB 
+title: 4.0 server version supported features and syntax in Azure Cosmos DB for MongoDB
 description: Learn about Azure Cosmos DB for MongoDB 4.0 server version supported features and syntax. Learn about the database commands, query language support, datatypes, aggregation pipeline commands, and operators supported.
 author: seesharprun
 ms.author: sidandrews
@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: release-notes
 ms.date: 10/12/2022
-ms.custom: ignite-2022
 ---
 
 # Azure Cosmos DB for MongoDB (4.0 server version): supported features and syntax
@@ -360,7 +359,7 @@ Azure Cosmos DB for MongoDB supports documents encoded in MongoDB BSON format. T
 
 In an [upgrade scenario](upgrade-version.md), documents written prior to the upgrade to version 4.0+ won't benefit from the enhanced performance until they're updated via a write operation through the 4.0+ endpoint.
 
-16-MB document support raises the size limit for your documents from 2 MB to 16 MB. This limit only applies to collections created after this feature has been enabled. Once this feature is enabled for your database account, it can't be disabled. This feature isn't compatible with the Azure Synapse Link feature and/or Continuous Backup.
+16-MB document support raises the size limit for your documents from 2 MB to 16 MB. This limit only applies to collections created after this feature has been enabled. Once this feature is enabled for your database account, it can't be disabled.
 
 Enabling 16 MB can be done in the features tab in the Azure portal or programmatically by [adding the "EnableMongo16MBDocumentSupport" capability](how-to-configure-capabilities.md).
 

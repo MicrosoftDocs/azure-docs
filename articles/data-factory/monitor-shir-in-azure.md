@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ms.author: jburchel
 ---
 
@@ -18,7 +18,7 @@ By default, the Self Hosted Integration Runtime’s diagnostic and performance t
 
 ## Event logs
 
-When logged on locally to the Self Hosted Integration Runtime, specific events can be viewed using the [event viewer](/windows/win32/eventlog/viewing-the-event-log). The relevant events are captured in two event viewer journals named: **Connectors – Integration Runtime** and **Integration Runtime** respectively. While it’s possible to log on to to the Self Hosted Integration Runtime hosts individually to view these events, it's also possible to stream these events to a Log Analytics workspace in Azure monitor for ease of query and centralization purposes.
+When logged on locally to the Self Hosted Integration Runtime, specific events can be viewed using the [event viewer](/windows/win32/eventlog/viewing-the-event-log). The relevant events are captured in two event viewer journals named: **Connectors - Integration Runtime** and **Integration Runtime** respectively. While it’s possible to log on to the Self Hosted Integration Runtime hosts individually to view these events, it's also possible to stream these events to a Log Analytics workspace in Azure monitor for ease of query and centralization purposes.
 
 ## Performance counters
 
@@ -28,7 +28,7 @@ Performance counters in Windows and Linux provide insight into the performance o
 
 When a deployment requires a more in-depth level of analysis or has reached a certain scale, it becomes impractical to log on to locally to each Self Hosted Integration Runtime host. Therefore, we recommend using Azure Monitor and Azure Log Analytics specifically to collect that data and enable a single pane of glass monitoring for your Self Hosted Integration Runtimes. See the article on [Configuring the SHIR for log analytics collection](how-to-configure-shir-for-log-analytics-collection.md) for instructions on how to instrument your Self Hosted Integration Runtimes for Azure Monitor.
 
-## Next Steps
+## Related content
 
 - [How to configure SHIR for log analytics collection](how-to-configure-shir-for-log-analytics-collection.md)
 - [Review integration runtime concepts in Azure Data Factory.](concepts-integration-runtime.md)

@@ -1,16 +1,16 @@
 ---
 title: Use Bicep to deploy resources to subscription
-description: Describes how to create a Bicep file that deploys resources to the Azure subscription scope. It shows how to create a resource group.
+description: Describes how to create a Bicep file that deploys resources to the Azure subscription scope.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/22/2021
+ms.date: 09/26/2023
 ---
 
 # Subscription deployments with Bicep files
 
-This article describes how to set scope with Bicep when deploying to a subscription.
+To simplify the management of resources, you can deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription.
 
-To simplify the management of resources, you can deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription. You can also create resource groups within the subscription and deploy resources to resource groups in the subscription.
+This article describes how to set the deployment scope to a subscription in a Bicep file.
 
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
@@ -165,12 +165,12 @@ To deploy resources to the target subscription, add those resources with the `re
 targetScope = 'subscription'
 
 // resource group created in target subscription
-resource exampleResource 'Microsoft.Resources/resourceGroups@2020-10-01' = {
+resource exampleResource 'Microsoft.Resources/resourceGroups@2022-09-01' = {
   ...
 }
 ```
 
-For examples of deploying to the subscription, see [Create resource groups](#create-resource-groups) and [Assign policy definition](#assign-policy-definition).
+For examples of deploying to the subscription, see [Create resource groups with Bicep](create-resource-group.md) and [Assign policy definition](#assign-policy-definition).
 
 To deploy resources to a subscription that is different than the subscription from the operation, add a [module](modules.md). Use the [subscription function](bicep-functions-scope.md#subscription) to set the `scope` property. Provide the `subscriptionId` property to the ID of the subscription you want to deploy to.
 
@@ -201,7 +201,7 @@ module exampleModule 'module.bicep' = {
 }
 ```
 
-If the resource group is created in the same Bicep file, use the symbolic name of the resource group to set the scope value. For an example of setting the scope to the symbolic name, see [Create resource group and resources](#create-resource-group-and-resources).
+If the resource group is created in the same Bicep file, use the symbolic name of the resource group to set the scope value. For an example of setting the scope to the symbolic name, see [Create resource group with Bicep](create-resource-group.md).
 
 ### Scope to tenant
 
@@ -229,7 +229,7 @@ targetScope = 'subscription'
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
 // management group created at tenant
-resource managementGroup 'Microsoft.Management/managementGroups@2020-05-01' = {
+resource managementGroup 'Microsoft.Management/managementGroups@2021-04-01' = {
   scope: tenant()
   name: mgName
   properties: {}
@@ -242,69 +242,7 @@ For more information, see [Management group](deploy-to-management-group.md#manag
 
 ## Resource groups
 
-### Create resource groups
-
-To create a resource group, define a [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) resource with a name and location for the resource group.
-
-The following example creates an empty resource group.
-
-```bicep
-targetScope='subscription'
-
-param resourceGroupName string
-param resourceGroupLocation string
-
-resource newRG 'Microsoft.Resources/resourceGroups@2021-01-01' = {
-  name: resourceGroupName
-  location: resourceGroupLocation
-}
-```
-
-### Create resource group and resources
-
-To create the resource group and deploy resources to it, add a module. The module includes the resources to deploy to the resource group. Set the scope for the module to the symbolic name for the resource group you create. You can deploy to up to 800 resource groups.
-
-The following example creates a resource group, and deploys a storage account to the resource group. Notice that the `scope` property for the module is set to `newRG`, which is the symbolic name for the resource group that is being created.
-
-```bicep
-targetScope='subscription'
-
-param resourceGroupName string
-param resourceGroupLocation string
-param storageName string
-param storageLocation string
-
-resource newRG 'Microsoft.Resources/resourceGroups@2021-01-01' = {
-  name: resourceGroupName
-  location: resourceGroupLocation
-}
-
-module storageAcct 'storage.bicep' = {
-  name: 'storageModule'
-  scope: newRG
-  params: {
-    storageLocation: storageLocation
-    storageName: storageName
-  }
-}
-```
-
-The module uses a Bicep file named **storage.bicep** with the following contents:
-
-```bicep
-param storageLocation string
-param storageName string
-
-resource storageAcct 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: storageName
-  location: storageLocation
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}
-```
+For information about creating resource groups, see [Create resource group with Bicep](create-resource-group.md).
 
 ## Azure Policy
 
@@ -319,7 +257,7 @@ param policyDefinitionID string
 param policyName string
 param policyParameters object = {}
 
-resource policyAssign 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
+resource policyAssign 'Microsoft.Authorization/policyAssignments@2022-06-01' = {
   name: policyName
   properties: {
     policyDefinitionId: policyDefinitionID
@@ -335,7 +273,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
 ```bicep
 targetScope = 'subscription'
 
-resource locationPolicy 'Microsoft.Authorization/policyDefinitions@2020-09-01' = {
+resource locationPolicy 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
   name: 'locationpolicy'
   properties: {
     policyType: 'Custom'
@@ -352,7 +290,7 @@ resource locationPolicy 'Microsoft.Authorization/policyDefinitions@2020-09-01' =
   }
 }
 
-resource locationRestrict 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
+resource locationRestrict 'Microsoft.Authorization/policyAssignments@2022-06-01' = {
   name: 'allowedLocation'
   properties: {
     policyDefinitionId: locationPolicy.id
@@ -386,7 +324,7 @@ param roleAssignmentName string = guid(principalId, roleDefinitionId, resourceGr
 
 var roleID = '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/${roleDefinitionId}'
 
-resource newResourceGroup 'Microsoft.Resources/resourceGroups@2019-10-01' = {
+resource newResourceGroup 'Microsoft.Resources/resourceGroups@2022-09-01' = {
   name: resourceGroupName
   location: resourceGroupLocation
   properties: {}
@@ -411,7 +349,7 @@ module assignRole 'role.bicep' = {
 The following example shows the module to apply the lock:
 
 ```bicep
-resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
+resource createRgLock 'Microsoft.Authorization/locks@2020-05-01' = {
   name: 'rgLock'
   properties: {
     level: 'CanNotDelete'
@@ -431,7 +369,7 @@ param roleNameGuid string = newGuid()
 
 param roleDefinitionId string
 
-resource roleNameGuid_resource 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+resource roleNameGuid_resource 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: roleNameGuid
   properties: {
     roleDefinitionId: roleDefinitionId

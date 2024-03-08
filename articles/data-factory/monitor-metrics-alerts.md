@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Data Factory metrics and alerts
@@ -98,6 +98,6 @@ Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alert
 
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image12.png" lightbox="media/monitor-using-azure-monitor/alerts_image12.png" alt-text="Screenshot that shows defining an action group.":::
 
-## Next steps
+## Related content
 
 [Configure diagnostics settings and workspace](monitor-configure-diagnostics.md)

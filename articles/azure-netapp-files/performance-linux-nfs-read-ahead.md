@@ -1,25 +1,19 @@
 ---
 title: Linux NFS read-ahead best practices for Azure NetApp Files - Session slots and slot table entries | Microsoft Docs
-description: Describes filesystem cache and Linux NFS read-ahead best practices for Azure NetApp Files.  
+description: Describes filesystem cache and Linux NFS read-ahead best practices for Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 09/29/2022
 ms.author: anfdocs
 ---
 # Linux NFS read-ahead best practices for Azure NetApp Files
 
-This article helps you understand filesystem cache best practices for Azure NetApp Files.  
+This article helps you understand filesystem cache best practices for Azure NetApp Files.
 
-NFS read-ahead predictively requests blocks from a file in advance of I/O requests by the application. It is designed to improve client sequential read throughput.  Until recently, all modern Linux distributions set the read-ahead value to be equivalent of 15 times the mounted filesystems `rsize`.  
+NFS read-ahead predictively requests blocks from a file in advance of I/O requests by the application. It is designed to improve client sequential read throughput.  Until recently, all modern Linux distributions set the read-ahead value to be equivalent of 15 times the mounted filesystems `rsize`.
 
 The following table shows the default read-ahead values for each given `rsize` mount option.
 
@@ -43,27 +37,27 @@ The following table shows the default read-ahead values for each currently avail
 |     Debian    |     Up to at least 10    |     15 x `rsize`    |
 
 
-## How to work with per-NFS filesystem read-ahead   
+## How to work with per-NFS filesystem read-ahead
 
 NFS read-ahead is defined at the mount point for an NFS filesystem. The default setting can be viewed and set both dynamically and persistently.  For convenience, the following bash script written by Red Hat has been provided for viewing or dynamically setting read-ahead for amounted NFS filesystem.
 
-Read-ahead can be defined either dynamically per NFS mount using the following script or persistently using `udev` rules as shown in this section.  To display or set read-ahead for a mounted NFS filesystem, you can save the following script as a bash file, modify the file’s permissions to make it an executable (`chmod 544 readahead.sh`), and run as shown. 
+Read-ahead can be defined either dynamically per NFS mount using the following script or persistently using `udev` rules as shown in this section.  To display or set read-ahead for a mounted NFS filesystem, you can save the following script as a bash file, modify the file’s permissions to make it an executable (`chmod 544 readahead.sh`), and run as shown.
 
-## How to show or set read-ahead values   
+## How to show or set read-ahead values
 
-To show the current read-ahead value (the returned value is in KiB), run the following command:  
+To show the current read-ahead value (the returned value is in KiB), run the following command:
 
 ```bash
    ./readahead.sh show <mount-point>
 ```
 
-To set a new value for read-ahead, run the following command:   
+To set a new value for read-ahead, run the following command:
 
 ```bash
 ./readahead.sh set <mount-point> [read-ahead-kb]
 ```
- 
-### Example   
+
+### Example
 
 ```bash
 #!/bin/bash
@@ -100,25 +94,25 @@ fi
 
 ## How to persistently set read-ahead for NFS mounts
 
-To persistently set read-ahead for NFS mounts, `udev` rules can be written as follows:    
+To persistently set read-ahead for NFS mounts, `udev` rules can be written as follows:
 
 1. Create and test `/etc/udev/rules.d/99-nfs.rules`:
 
-    ```config
+   ```config
        SUBSYSTEM=="bdi", ACTION=="add", PROGRAM="<absolute_path>/awk -v bdi=$kernel 'BEGIN{ret=1} {if ($4 == bdi) {ret=0}} END{exit ret}' /proc/fs/nfsfs/volumes", ATTR{read_ahead_kb}="15380"
    ```
 
-2. Apply the `udev` rule:   
+2. Apply the `udev` rule:
 
     ```bash
        sudo udevadm control --reload
     ```
 
-## Next steps  
+## Next steps
 
 * [Linux direct I/O best practices for Azure NetApp Files](performance-linux-direct-io.md)
 * [Linux filesystem cache best practices for Azure NetApp Files](performance-linux-filesystem-cache.md)
 * [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)
 * [Linux concurrency best practices](performance-linux-concurrency-session-slots.md)
-* [Azure virtual machine SKUs best practices](performance-virtual-machine-sku.md) 
-* [Performance benchmarks for Linux](performance-benchmarks-linux.md) 
+* [Azure virtual machine SKUs best practices](performance-virtual-machine-sku.md)
+* [Performance benchmarks for Linux](performance-benchmarks-linux.md)

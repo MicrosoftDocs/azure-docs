@@ -2,71 +2,71 @@
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
-ms.date: 11/01/2022
+ms.date: 11/28/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
 # Service Bus access control with Shared Access Signatures
 
-This article discusses *Shared Access Signatures* (SAS), how they work, and how to use them in a platform-agnostic way.
+This article discusses *Shared Access Signatures* (SAS), how they work, and how to use them in a platform-agnostic way with Azure Service Bus. 
 
 SAS guards access to Service Bus based on authorization rules that are configured either on a namespace, or a messaging entity (queue, or topic). An authorization rule has a name, is associated with specific rights, and carries a pair of cryptographic keys. You use the rule's name and key via the Service Bus SDK or in your own code to generate a SAS token. A client can then pass the token to Service Bus to prove authorization for the requested operation.
 
 > [!NOTE]
-> Azure Service Bus supports authorizing access to a Service Bus namespace and its entities using Azure Active Directory (Azure AD). Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities.
+> Azure Service Bus supports authorizing access to a Service Bus namespace and its entities using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there is no need to store the tokens in your code and risk potential security vulnerabilities.
 >
-> Microsoft recommends using Azure AD with your Azure Service Bus applications when possible. For more information, see the following articles:
-> - [Authenticate and authorize an application with Azure Active Directory to access Azure Service Bus entities](authenticate-application.md).
-> - [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](service-bus-managed-service-identity.md)
+> Microsoft recommends using Microsoft Entra ID with your Azure Service Bus applications when possible. For more information, see the following articles:
+> - [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](authenticate-application.md).
+> - [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](service-bus-managed-service-identity.md)
 > 
-> You can disable local or SAS key authentication for a Service Bus namespace and allow only Azure AD authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
+> You can disable local or SAS key authentication for a Service Bus namespace and allow only Microsoft Entra authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
 
 ## Overview of SAS
 
-Shared Access Signatures are a claims-based authorization mechanism using simple tokens. Using SAS, keys are never passed on the wire. Keys are used to cryptographically sign information that can later be verified by the service. SAS can be used similar to a username and password scheme where the client is in immediate possession of an authorization rule name and a matching key. SAS can also be used similar to a federated security model, where the client receives a time-limited and signed access token from a security token service without ever coming into possession of the signing key.
+Shared Access Signatures are a claims-based authorization mechanism using simple tokens. When you use SAS, keys are never passed on the wire. Keys are used to cryptographically sign information that can later be verified by the service. SAS can be used similar to a username and password scheme where the client is in immediate possession of an authorization rule name and a matching key. SAS can also be used similar to a federated security model, where the client receives a time-limited and signed access token from a security token service without ever coming into possession of the signing key.
 
-SAS authentication in Service Bus is configured with named [Shared Access Authorization Policies](#shared-access-authorization-policies) having associated access rights, and a pair of primary and secondary cryptographic keys. The keys are 256-bit values in Base64 representation. You can configure rules at the namespace level, on Service Bus [queues](service-bus-messaging-overview.md#queues) and [topics](service-bus-messaging-overview.md#topics).
+SAS authentication in Service Bus is configured with named [shared access authorization policies](#shared-access-authorization-policies) having associated access rights, and a pair of primary and secondary cryptographic keys. The keys are 256-bit values in Base 64 representation. You can configure rules at the namespace level, on Service Bus [queues](service-bus-messaging-overview.md#queues) and [topics](service-bus-messaging-overview.md#topics).
 
 > [!NOTE]
-> These keys are plain text strings using a Base64 representation, and must not be decoded before they are used.
+> These keys are plain text strings using a Base 64 representation, and must not be decoded before they are used.
 
 The Shared Access Signature token contains the name of the chosen authorization policy, the URI of the resource that shall be accessed, an expiry instant, and an HMAC-SHA256 cryptographic signature computed over these fields using either the primary or the secondary cryptographic key of the chosen authorization rule.
 
-## Shared Access Authorization Policies
+## Shared access authorization policies
 
-Each Service Bus namespace and each Service Bus entity has a Shared Access Authorization policy made up of rules. The policy at the namespace level applies to all entities inside the namespace, irrespective of their individual policy configuration.
+Each Service Bus namespace and each Service Bus entity has a shared access authorization policy made up of rules. The policy at the namespace level applies to all entities in the namespace, irrespective of their individual policy configuration.
 
 For each authorization policy rule, you decide on three pieces of information: **name**, **scope**, and **rights**. The **name** is just that; a unique name within that scope. The scope is easy enough: it's the URI of the resource in question. For a Service Bus namespace, the scope is the fully qualified namespace, such as `https://<yournamespace>.servicebus.windows.net/`.
 
 The rights conferred by the policy rule can be a combination of:
 
-* 'Send' - Confers the right to send messages to the entity
-* 'Listen' - Confers the right to receive (queue, subscriptions) and all related message handling
-* 'Manage' - Confers the right to manage the topology of the namespace, including creating and deleting entities
+* Send - Grants the right to send messages to the entity
+* Listen - Grants the right to receive (queue, subscriptions) and all related message handling
+* Manage - Grants the right to manage the topology of the namespace, including creating and deleting entities
 
-The 'Manage' right includes the 'Send' and 'Receive' rights.
+The **Manage** right includes the Send and Listen rights.
 
-A namespace or entity policy can hold up to 12 Shared Access Authorization rules, providing room for three sets of rules, each covering the basic rights and the combination of Send and Listen. This limit is per entity, meaning the namespace and each entity can have up to 12 Shared Access Authorization rules. This limit underlines that the SAS policy store isn't intended to be a user or service account store. If your application needs to grant access to Service Bus based on user or service identities, it should implement a security token service that issues SAS tokens after an authentication and access check.
+A namespace or entity policy can hold up to 12 Shared Access Authorization rules, providing room for three sets of rules, each covering the basic rights, and the combination of Send and Listen. This limit is per entity, meaning the namespace and each entity can have up to 12 Shared Access Authorization rules. This limit underlines that the SAS policy store isn't intended to be a user or service account store. If your application needs to grant access to Service Bus based on user or service identities, it should implement a security token service that issues SAS tokens after an authentication and access check.
 
-An authorization rule is assigned a *Primary Key* and a *Secondary Key*. These keys are cryptographically strong keys. Don't lose them or leak them - they'll always be available in the [Azure portal][Azure portal]. You can use either of the generated keys, and you can regenerate them at any time. If you regenerate or change a key in the policy, all previously issued tokens based on that key become instantly invalid. However, ongoing connections created based on such tokens will continue to work until the token expires.
+An authorization rule is assigned a *Primary Key* and a *Secondary Key*. These keys are cryptographically strong keys. Don't lose them or leak them - they'll always be available in the [Azure portal]. You can use either of the generated keys, and you can regenerate them at any time. If you regenerate or change a key in the policy, all previously issued tokens based on that key become instantly invalid. However, ongoing connections created based on such tokens continue to work until the token expires.
 
-When you create a Service Bus namespace, a policy rule named **RootManageSharedAccessKey** is automatically created for the namespace. This policy has Manage permissions for the entire namespace. It's recommended that you treat this rule like an administrative **root** account and don't use it in your application. You can create more policy rules in the **Configure** tab for the namespace in the portal, via PowerShell or Azure CLI. 
+When you create a Service Bus namespace, a policy rule named **RootManageSharedAccessKey** is automatically created for the namespace. This policy has Manage permissions for the entire namespace. It's recommended that you treat this rule like an administrative **root** account and don't use it in your application. You can create more policy rules in the **Shared access policies** tab for the namespace in the portal, via PowerShell or Azure CLI. 
 
-It is recommended that you periodically regenerate the keys used in the [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object. The primary and secondary key slots exist so that you can rotate keys gradually. If your application generally uses the primary key, you can copy the primary key into the secondary key slot, and only then regenerate the primary key. The new primary key value can then be configured into the client applications, which have continued access using the old primary key in the secondary slot. Once all clients are updated, you can regenerate the secondary key to finally retire the old primary key.
+We recommend that you periodically regenerate the keys used in the [SharedAccessAuthorizationRule](/dotnet/api/azure.messaging.servicebus.administration.sharedaccessauthorizationrule) object. The primary and secondary key slots exist so that you can rotate keys gradually. If your application generally uses the primary key, you can copy the primary key into the secondary key slot, and only then regenerate the primary key. The new primary key value can then be configured into the client applications, which have continued access using the old primary key in the secondary slot. Once all clients are updated, you can regenerate the secondary key to finally retire the old primary key.
 
-If you know or suspect that a key is compromised and you have to revoke the keys, you can regenerate both the [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) and the [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) of a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), replacing them with new keys. This procedure invalidates all tokens signed with the old keys.
+If you know or suspect that a key is compromised and you have to revoke the keys, you can regenerate both the [PrimaryKey](/dotnet/api/azure.messaging.servicebus.administration.sharedaccessauthorizationrule.primarykey) and the [SecondaryKey](/dotnet/api/azure.messaging.servicebus.administration.sharedaccessauthorizationrule.secondarykey) of a [SharedAccessAuthorizationRule](/dotnet/api/azure.messaging.servicebus.administration.sharedaccessauthorizationrule), replacing them with new keys. This procedure invalidates all tokens signed with the old keys.
 
 ## Best practices when using SAS
 When you use shared access signatures in your applications, you need to be aware of two potential risks:
 
 - If a SAS is leaked, it can be used by anyone who obtains it, which can potentially compromise your Service Bus resources.
-- If a SAS provided to a client application expires and the application is unable to retrieve a new SAS from your service, then application’s functionality may be hindered.
+- If a SAS provided to a client application expires and the application is unable to retrieve a new SAS from your service, then application’s functionality might be hindered.
 
 The following recommendations for using shared access signatures can help mitigate these risks:
 
-- **Have clients automatically renew the SAS if necessary**: Clients should renew the SAS well before expiration, to allow time for retries if the service providing the SAS is unavailable. If your SAS is meant to be used for a few immediate, short-lived operations that are expected to be completed within the expiration period, then it may be unnecessary as the SAS isn't expected to be renewed. However, if you have client that is routinely making requests via SAS, then the possibility of expiration comes into play. The key consideration is to balance the need for the SAS to be short-lived (as previously stated) with the need to ensure that client is requesting renewal early enough (to avoid disruption due to the SAS expiring prior to a successful renewal).
-- **Be careful with the SAS start time**: If you set the start time for SAS to **now**, then due to clock skew (differences in current time according to different machines), failures may be observed intermittently for the first few minutes. In general, set the start time to be at least 15 minutes in the past. Or, don’t set it at all, which will make it valid immediately in all cases. The same generally applies to the expiry time as well. Remember that you may observe up to 15 minutes of clock skew in either direction on any request. 
+- **Have clients automatically renew the SAS if necessary**: Clients should renew the SAS well before expiration, to allow time for retries if the service providing the SAS is unavailable. If your SAS is meant to be used for a few immediate, short-lived operations that are expected to be completed within the expiration period, then it might be unnecessary as the SAS isn't expected to be renewed. However, if you have client that is routinely making requests via SAS, then the possibility of expiration comes into play. The key consideration is to balance the need for the SAS to be short-lived (as previously stated) with the need to ensure that client is requesting renewal early enough (to avoid disruption due to the SAS expiring prior to a successful renewal).
+- **Be careful with the SAS start time**: If you set the start time for SAS to **now**, then due to clock skew (differences in current time according to different machines), you might see failures intermittently for the first few minutes. In general, set the start time to be at least 15 minutes in the past. Or, don’t set it at all, which will make it valid immediately in all cases. The same generally applies to the expiry time as well. Remember that you might observe up to 15 minutes of clock skew in either direction on any request. 
 - **Be specific with the resource to be accessed**: A security best practice is to provide user with the minimum required privileges. If a user only needs read access to a single entity, then grant them read access to that single entity, and not read/write/delete access to all entities. It also helps lessen the damage if a SAS is compromised because the SAS has less power in the hands of an attacker.
 - **Don’t always use SAS**: Sometimes the risks associated with a particular operation against your Service Bus outweigh the benefits of SAS. For such operations, create a middle-tier service that writes to your Service Bus after business rule validation, authentication, and auditing.
 - **Always use HTTPs**: Always use Https to create or distribute a SAS. If a SAS is passed over HTTP and intercepted, an attacker performing a man-in-the-middle attach is able to read the SAS and then use it just as the intended user could have, potentially compromising sensitive data or allowing for data corruption by the malicious user.
@@ -75,7 +75,7 @@ The following recommendations for using shared access signatures can help mitiga
 
 You can configure the Shared Access Authorization Policy on Service Bus namespaces, queues, or topics. Configuring it on a Service Bus subscription is currently not supported, but you can use rules configured on a namespace or topic to secure access to subscriptions. 
 
-![SAS](./media/service-bus-sas/service-bus-namespace.png)
+:::image type="content" source="./media/service-bus-sas/service-bus-namespace.png" alt-text="Diagram that shows an example namespace with a few authorization rules.":::
 
 In this figure, the *manageRuleNS*, *sendRuleNS*, and *listenRuleNS* authorization rules apply to both queue Q1 and topic T1, while *listenRuleQ* and *sendRuleQ* apply only to queue Q1 and *sendRuleT* applies only to topic T1.
 
@@ -113,22 +113,25 @@ A SAS token is valid for all resources prefixed with the `<resourceURI>` used in
 
 ## Regenerating keys
 
-It's recommended that you periodically regenerate the keys used in the Shared Access Authorization Policy. The primary and secondary key slots exist so that you can rotate keys gradually. If your application generally uses the primary key, you can copy the primary key into the secondary key slot, and only then regenerate the primary key. The new primary key value can then be configured into the client applications, which have continued access using the old primary key in the secondary slot. Once all clients are updated, you can regenerate the secondary key to finally retire the old primary key.
+We recommend that you periodically regenerate the keys used in the Shared Access Authorization Policy. The primary and secondary key slots exist so that you can rotate keys gradually. If your application generally uses the primary key, you can copy the primary key into the secondary key slot, and only then regenerate the primary key. The new primary key value can then be configured into the client applications, which have continued access using the old primary key in the secondary slot. Once all clients are updated, you can regenerate the secondary key to finally retire the old primary key.
 
 If you know or suspect that a key is compromised and you have to revoke the keys, you can regenerate both the primary key and the secondary key of a Shared Access Authorization Policy, replacing them with new keys. This procedure invalidates all tokens signed with the old keys.
 
 To regenerate primary and secondary keys in the **Azure portal**, follow these steps:
 
 1. Navigate to the Service Bus namespace in the [Azure portal](https://portal.azure.com).
-2. Select **Shared Access Policies** on the left menu.
-3. Select the policy from the list. In the following example, **RootManageSharedAccessKey** is selected. 
-4. On the **SAS Policy: RootManageSharedAccessKey** page, select **...** from the command bar, and then select **Regenerate Primary Keys** or **Regenerate Secondary Keys**. 
+1. Select **Shared Access Policies** on the left menu.
+1. Select the policy from the list. In the following example, **RootManageSharedAccessKey** is selected. 
+1. To regenerate the primary key, on the **SAS Policy: RootManageSharedAccessKey** page, select **Regenerate primary key** on the command bar. 
+
+    :::image type="content" source="./media/service-bus-sas/regenerate-primary-key.png" alt-text="Screenshot that shows how to regenerate a primary key.":::
+1. To regenerate the secondary key, on the **SAS Policy: RootManageSharedAccessKey** page, select **...** from the command bar, and then select **Regenerate secondary key**. 
 
     :::image type="content" source="./media/service-bus-sas/regenerate-keys.png" alt-text="Screenshot of SAS Policy page with Regenerate options selected.":::
 
-If you are using **Azure PowerShell**, use the [`New-AzServiceBusKey`](/powershell/module/az.servicebus/new-azservicebuskey) cmdlet to regenerate primary and secondary keys for a Service Bus namespace. You can also specify values for primary and secondary keys that are being generated, by using the `-KeyValue` parameter. 
+If you're using **Azure PowerShell**, use the [`New-AzServiceBusKey`](/powershell/module/az.servicebus/new-azservicebuskey) cmdlet to regenerate primary and secondary keys for a Service Bus namespace. You can also specify values for primary and secondary keys that are being generated, by using the `-KeyValue` parameter. 
 
-If you are using **Azure CLI**, use the [`az servicebus namespace authorization-rule keys renew`](/cli/azure/servicebus/namespace/authorization-rule/keys#az-servicebus-namespace-authorization-rule-keys-renew) command to regenerate primary and secondary keys for a Service Bus namespace. You can also specify values for primary and secondary keys that are being generated, by using the `--key-value` parameter. 
+If you're using **Azure CLI**, use the [`az servicebus namespace authorization-rule keys renew`](/cli/azure/servicebus/namespace/authorization-rule/keys#az-servicebus-namespace-authorization-rule-keys-renew) command to regenerate primary and secondary keys for a Service Bus namespace. You can also specify values for primary and secondary keys that are being generated, by using the `--key-value` parameter. 
     
 ## Shared Access Signature authentication with Service Bus
 
@@ -142,7 +145,7 @@ Use the get/update operation on queues or topics in of the [management libraries
 
 ## Use Shared Access Signature authorization
 
-Applications using any of the Service Bus SDK in any of the officially supported languages like .NET, Java, JavaScript and Python can make use of SAS authorization through the connection strings passed to the client constructor.
+Applications using any of the Service Bus SDK in any of the officially supported languages like .NET, Java, JavaScript, and Python can make use of SAS authorization through the connection strings passed to the client constructor.
 
 Connection strings can include a rule name (*SharedAccessKeyName*) and rule key (*SharedAccessKey*) or a previously issued token (*SharedAccessSignature*). When those are present in the connection string passed to any constructor or factory method accepting a connection string, the SAS token provider is automatically created and populated.
 
@@ -165,11 +168,11 @@ If you give a sender or client a SAS token, they don't have the key directly, an
 
 ## Use the Shared Access Signature (at AMQP level)
 
-In the previous section, you saw how to use the SAS token with an HTTP POST request for sending data to the Service Bus. As you know, you can access Service Bus using the Advanced Message Queuing Protocol (AMQP) that is the preferred protocol to use for performance reasons, in many scenarios. The SAS token usage with AMQP is described in the document [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) that is in working draft since 2013 but it's supported by Azure today.
+In the previous section, you saw how to use the SAS token with an HTTP POST request for sending data to the Service Bus. As you know, you can access Service Bus using the Advanced Message Queuing Protocol (AMQP) that is the preferred protocol to use for performance reasons, in many scenarios. The SAS token usage with AMQP is described in the document [AMQP Claim-Based Security Version 1.0](https://docs.oasis-open.org/amqp/amqp-cbs/v1.0/csd01/amqp-cbs-v1.0-csd01.docx) that is in working draft since 2013 but it's supported by Azure today.
 
 Before starting to send data to Service Bus, the publisher must send the SAS token inside an AMQP message to a well-defined AMQP node named **$cbs** (you can see it as a "special" queue used by the service to acquire and validate all the SAS tokens). The publisher must specify the **ReplyTo** field inside the AMQP message; it's the node in which the service replies to the publisher with the result of the token validation (a simple request/reply pattern between publisher and service). This reply node is created "on the fly," speaking about "dynamic creation of remote node" as described by the AMQP 1.0 specification. After checking that the SAS token is valid, the publisher can go forward and start to send data to the service.
 
-The following steps show how to send the SAS token with AMQP protocol using the [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) library. It's useful if you can't use the official Service Bus SDK (for example, on WinRT, .NET Compact Framework, .NET Micro Framework and Mono) developing in C#. This library is useful to help understand how claims-based security works at the AMQP level, as you saw how it works at the HTTP level (with an HTTP POST request and the SAS token sent inside the "Authorization" header). If you don't need such deep knowledge about AMQP, you can use the official Service Bus SDK in any of the supported languages like .NET, Java, JavaScript, Python and Go, which will do it for you.
+The following steps show how to send the SAS token with AMQP protocol using the [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) library. It's useful if you can't use the official Service Bus SDK (for example, on WinRT, .NET Compact Framework, .NET Micro Framework, and Mono) developing in C#. This library is useful to help understand how claims-based security works at the AMQP level, as you saw how it works at the HTTP level (with an HTTP POST request and the SAS token sent inside the "Authorization" header). If you don't need such deep knowledge about AMQP, you can use the official Service Bus SDK in any of the supported languages like .NET, Java, JavaScript, Python, and Go, which will do it for you.
 
 ### C&#35;
 
@@ -213,7 +216,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
         }
     }
 
-    // the sender/receiver may be kept open for refreshing tokens
+    // the sender/receiver might be kept open for refreshing tokens
     cbsSender.Close();
     cbsReceiver.Close();
     session.Close();

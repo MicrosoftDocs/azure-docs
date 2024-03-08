@@ -1,15 +1,15 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Azure Data Box Disk FAQ | Microsoft Docs in data 
+  title: Microsoft Azure Data Box Disk FAQ | Microsoft Docs in data
   description: Contains frequently asked questions and answers for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
   services: databox
-  author: alkohli
+  author: stevenmatthew
   
   ms.service: databox
   ms.subservice: disk
   ms.topic: faq
   ms.date: 05/06/2022
-  ms.author: alkohli
+  ms.author: shaas
   ms.custom: references_regions
 title: "Azure Data Box Disk: Frequently Asked Questions"
 summary: |
@@ -43,7 +43,7 @@ sections:
       - question: |
           How do I get Data Box Disks? 
         answer: |
-          To get Azure Data Box Disks, log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.
+          To get Azure Data Box Disks, sign in to the Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.
 
       - question: |
           What is the maximum amount of data I can transfer with Data Box Disks in one instance?
@@ -58,7 +58,7 @@ sections:
       - question: |
           Which regions can I store data in with Data Box Disks?
         answer: |
-          Data Box Disk is supported for all regions within US, Canada, EU, UK, Australia, Singapore, India, China, Hong Kong, Japan, Korea, and South Africa. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+          Data Box Disk is supported for all regions within US, Canada, EU, UK, Australia, Singapore, India, China, Hong Kong Special Administrative Region, Japan, Korea, and South Africa. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
       - question: |
           How can I import source data present at my location in one country/region to an Azure region in a different country?
@@ -110,7 +110,7 @@ sections:
       - question: |
           How do I get Data Box Disk? 
         answer: |
-          To get Azure Data Box Disk, sign into the Azure portal and create a Data Box Disk order. Provide your contact information and notification details. Once you place an order, based on the availability, Data Box Disk is shipped to you within 10 days. For more information, go to [Order a Data Box](data-box-disk-deploy-ordered.md).
+          To get Azure Data Box Disk, sign in to the Azure portal and create a Data Box Disk order. Provide your contact information and notification details. Once you place an order, based on the availability, Data Box Disk is shipped to you within 10 days. For more information, go to [Order a Data Box](data-box-disk-deploy-ordered.md).
           
       - question: |
           I couldn't create a Data Box Disk order in the Azure portal. Why?
@@ -254,6 +254,8 @@ sections:
           Can I use multiple storage accounts with Data Box Disks?
         answer: |
           No. Only one storage account, general or classic, is currently supported with Data Box Disks. Both hot and cool blob are supported.
+          > [!Note]
+          > Classic storage accounts will not be supported starting **August 1, 2023**.
 
       - question: |
           What is the toolset available for my data with Data Box Disks?
@@ -270,7 +272,7 @@ sections:
       - question: |
           Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
         answer: |
-          Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
+          Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Data Box Disk will transfer file/directory timestamps, attributes, and ACLs to Azure Files. Azure File Sync usage with Data Box disk is now supported.
           
           
   - name: Verify and upload

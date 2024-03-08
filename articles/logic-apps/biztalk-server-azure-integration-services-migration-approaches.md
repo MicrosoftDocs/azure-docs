@@ -8,8 +8,8 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/15/2022
-# As a BizTalk Server customer, I want to learn about migration options, planning considerations, and best practices for moving from BizTalk Server to Azure Integration Services.
+ms.date: 01/04/2024
+# Customer intent: As a BizTalk Server customer, I want to learn about migration options, planning considerations, and best practices for moving from BizTalk Server to Azure Integration Services.
 ---
 
 # Migration approaches for BizTalk Server to Azure Integration Services
@@ -389,7 +389,7 @@ Again, having a naming convention is critical, although the format isn't overly 
 
 `CN-<*connector-name*>-<*logic-app-or-workflow-name*>`
 
-As a concrete example, you might rename a Service Bus connection in an **OrderQueue** logic app or workflow with **CN-ServiceBus-OrderQueue** as the new name. For more information, see the Serverless360 blog post [Logic app best practices, tips, and tricks: #11 connectors naming convention](https://www.serverless360.com/blog/logic-app-best-practices-tips-and-tricks-11-connectors-naming-convention).
+As a concrete example, you might rename a Service Bus connection in an **OrderQueue** logic app or workflow with **CN-ServiceBus-OrderQueue** as the new name. For more information, see the Turbo360 (Formerly Serverless360) blog post [Logic app best practices, tips, and tricks: #11 connectors naming convention](https://www.turbo360.com/blog/logic-app-best-practices-tips-and-tricks-11-connectors-naming-convention).
 
 ### Handle exceptions with scopes and "Run after" options
 

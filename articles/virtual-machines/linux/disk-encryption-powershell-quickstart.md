@@ -4,16 +4,16 @@ description: In this quickstart, you learn how to use Azure PowerShell to create
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.collection: linux
 ms.topic: quickstart
-ms.date: 01/04/2023
-ms.custom: devx-track-azurepowershell, mode-api
+ms.date: 02/20/2024
+ms.custom: devx-track-azurepowershell, mode-api, linux-related-content
 ---
 
 # Quickstart: Create and encrypt a Linux VM in Azure with Azure PowerShell
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to create a Linux virtual machine (VM), create a Key Vault for the storage of encryption keys, and encrypt the VM. This quickstart uses the Ubuntu 16.04 LTS marketplace image from Canonical and a VM Standard_D2S_V3 size. However, any [ADE supported Linux image version](/azure/virtual-machines/linux/disk-encryption-overview#supported-operating-systems) could be used instead of an Ubuntu VM.
 
@@ -37,7 +37,7 @@ $cred = Get-Credential
 New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:18.04-LTS:latest -Size Standard_D2S_V3
 ```
 
-It takes a few minutes for your VM to be deployed. 
+It takes a few minutes for your VM to be deployed.
 
 ## Create a Key Vault configured for encryption keys
 

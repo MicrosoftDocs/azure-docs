@@ -3,11 +3,11 @@ title: "Copy from Google Cloud Storage to Azure Storage with AzCopy"
 description: Use AzCopy to copy data from Google Cloud Storage to Azure Storage. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account.
 services: storage
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Copy data from Google Cloud Storage to Azure Storage by using AzCopy
@@ -16,7 +16,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 ## Choose how you'll provide authorization credentials
 
-- To authorize with Azure Storage, use Azure Active Directory (AD) or a Shared Access Signature (SAS) token.
+- To authorize with Azure Storage, use Microsoft Entra ID or a Shared Access Signature (SAS) token.
 
 - To authorize with Google Cloud Storage, use a service account key.
 
@@ -25,7 +25,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
+> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID.
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 

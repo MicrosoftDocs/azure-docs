@@ -1,18 +1,19 @@
 ---
-title: Enable Enterprise IoT security in Microsoft 365 with Defender for Endpoint - Microsoft Defender for IoT
-description: Learn how to start integrating between Microsoft Defender for IoT and Microsoft Defender for Endpoint in Microsoft 365 Defender.
+title: Get started with enterprise IoT monitoring in Microsoft Defender XDR | Microsoft Defender for IoT
+description: Learn how to get added value for enterprise IoT devices in Microsoft Defender XDR.
 ms.topic: quickstart
-ms.date: 10/19/2022
+ms.date: 09/13/2023
 ms.custom: enterprise-iot
+#CustomerIntent: As a Microsoft 365 administrator, I want to understand how to turn on support for enterprise IoT monitoring in Microsoft Defender XDR and where I can find the added security value so that I can keep my EIoT devices safe.
 ---
 
-# Enable Enterprise IoT security with Defender for Endpoint
+# Get started with enterprise IoT monitoring in Microsoft Defender XDR
 
-This article describes how [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) customers can add an Enterprise IoT plan in Microsoft 365 Defender, providing extra security value for IoT devices.
+This article describes how [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) customers can monitor enterprise IoT devices in their environment, using added security value in Microsoft Defender XDR.
 
-While IoT device inventory is already available for Defender for Endpoint P2 customers, adding an Enterprise IoT plan adds alerts, recommendations, and vulnerability data, purpose-built for IoT devices in your enterprise network.
+While IoT device inventory is already available for Defender for Endpoint P2 customers, turning on enterprise IoT security adds alerts, recommendations, and vulnerability data, purpose-built for IoT devices in your enterprise network.
 
-IoT devices include printers, cameras, VOIP phones, smart TVs, and more. Adding an Enterprise IoT plan means, for example, that you can use a recommendation in Microsoft 365 Defender to open a single IT ticket for patching vulnerable applications across both servers and printers.
+IoT devices include printers, cameras, VOIP phones, smart TVs, and more. Turning on enterprise IoT security means, for example, that you can use a recommendation in Microsoft Defender XDR to open a single IT ticket for patching vulnerable applications across both servers and printers.
 
 ## Prerequisites
 
@@ -20,60 +21,94 @@ Before you start the procedures in this article, read through [Secure IoT device
 
 Make sure that you have:
 
-- A Microsoft Defender for Endpoint P2 license
+- IoT devices in your network, visible in the Microsoft Defender XDR **Device inventory**
 
-- IoT devices in your network, visible in the Microsoft 365 Defender **Device inventory**
+- Access to the Microsoft Defender Portal as a [Security administrator](../../active-directory/roles/permissions-reference.md#security-administrator)
 
-- An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
+- One of the following licenses:
 
-- The following user roles:
+    - A Microsoft 365 E5 (ME5) or E5 Security license
 
-    |Identity management  |Roles required  |
-    |---------|---------|
-    |**In Azure Active Directory**     |   [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant      |
-    |**In Azure RBAC**     | [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration        |
+    - Microsoft Defender for Endpoint P2, with an extra, standalone **Microsoft Defender for IoT - EIoT Device License - add-on** license, available for purchase or trial from the Microsoft 365 admin center.
 
-## Onboard a Defender for IoT plan
+    > [!TIP]
+    > If you have a standalone license, you don't need to toggle on **Enterprise IoT Security** and can skip directly to [View added security value in Microsoft Defender XDR](#view-added-security-value-in-microsoft-defender-xdr).
+    >
 
-1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Settings** \> **Device discovery** \> **Enterprise IoT**.
+    For more information, see [Enterprise IoT security in Microsoft Defender XDR](concept-enterprise.md#enterprise-iot-security-in-microsoft-defender-xdr).
 
-1. Select the following options for your plan:
+## Turn on enterprise IoT monitoring
 
-    - **Select an Azure subscription**: Select the Azure subscription that you want to use for the integration. You'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
+This procedure describes how to turn on enterprise IoT monitoring in Microsoft Defender XDR, and is relevant only for ME5/E5 Security customers.
 
-    - **Price plan**: For the sake of this tutorial, select a **Trial** pricing plan. Microsoft Defender for IoT provides a [30-day free trial](billing.md#free-trial) for evaluation purposes. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
+Skip this procedure if you have one of the following types of licensing plans:
 
-1. Select the **I accept the terms and conditions** option and then select **Save**.
+- Customers with legacy Enterprise IoT pricing plan and an ME5/E5 Security license.
+- Customers with standalone, per-device licenses added on to Microsoft Defender for Endpoint P2. In such cases, the Enterprise IoT security setting is turned on as read-only.
 
-For example:
+**To turn on enterprise IoT monitoring**:
 
-:::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint." lightbox="media/enterprise-iot/defender-for-endpoint-onboard.png":::
+1. In [Microsoft Defender XDR](https://security.microsoft.com/), select **Settings** \> **[Device Discovery](/microsoft-365/security/defender-endpoint/device-discovery)** \> **Enterprise IoT**.
+> [!NOTE]
+> Ensure you have turned on Device Discovery in **Settings** \> **Endpoints** \> **Advanced Features**.
 
-## View added security value in Microsoft 365 Defender
+2. Toggle the Enterprise IoT security option to **On**. For example:
 
-This procedure describes how to view related alerts, recommendations, and vulnerabilities for a specific device in Microsoft 365 Defender. Alerts, recommendations, and vulnerabilities are shown for IoT devices only after you've added an Enterprise IoT plan.
+    :::image type="content" source="media/enterprise-iot/eiot-toggle-on.png" alt-text="Screenshot of Enterprise IoT toggled on in Microsoft Defender XDR.":::
+
+## View added security value in Microsoft Defender XDR
+
+This procedure describes how to view related alerts, recommendations, and vulnerabilities for a specific device in Microsoft Defender XDR, when the **Enterprise IoT security** option is turned on.
 
 **To view added security value**:
 
-1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Assets** \> **Devices** to open the **Device inventory** page.
+1. In [Microsoft Defender XDR](https://security.microsoft.com/), select **Assets** \> **Devices** to open the **Device inventory** page.
 
 1. Select the **IoT devices** tab and select a specific device **IP** to drill down for more details. For example:
 
-    :::image type="content" source="media/enterprise-iot/select-a-device.png" alt-text="Screenshot of the IoT devices tab in Microsoft 365 Defender." lightbox="media/enterprise-iot/select-a-device.png":::
+    :::image type="content" source="media/enterprise-iot/select-a-device.png" alt-text="Screenshot of the IoT devices tab in Microsoft Defender XDR." lightbox="media/enterprise-iot/select-a-device.png":::
 
-1. On the device details page, explore the following tabs to view data added by the Enterprise IoT plan for your device:
+1. On the device details page, explore the following tabs to view data added by the enterprise IoT security for your device:
 
-    - On the **Alerts** tab, check for any alerts triggered by the device.
+    - On the **Alerts** tab, check for any alerts triggered by the device. Simulate alerts in Microsoft 365 Defender for Enterprise IoT using the Raspberry Pi scenario available in the Microsoft 365 Defender [Evaluation & Tutorials](https://security.microsoft.com/tutorials/all) page.
+
+        You can also set up advanced hunting queries to create custom alert rules. For more information, see [sample advanced hunting queries for Enterprise IoT monitoring](#sample-advanced-hunting-queries-for-enterprise-iot). 
 
     - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface.
 
-    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network.
+    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternatively, use [advanced hunting queries](#sample-advanced-hunting-queries-for-enterprise-iot) to collect vulnerabilities across all your devices.
+
+**To hunt for threats**:
+
+On the **Device inventory** page, select **Go hunt** to query devices using tables like the *[DeviceInfo](/microsoft-365/security/defender/advanced-hunting-deviceinfo-table)* table. On the **Advanced hunting** page, query data using other schemas. 
+
+## Sample advanced hunting queries for Enterprise IoT
+
+This section lists sample advanced hunting queries that you can use in Microsoft 365 Defender to help you monitor and secure your IoT devices with Enterprise for IoT security. 
+
+### Find devices by specific type or subtype
+
+Use the following query to identify devices that exist in your corporate network by type of device, such as routers:  
+
+```kusto
+DeviceInfo
+| summarize arg_max(Timestamp, *) by DeviceId
+| where DeviceType == "NetworkDevice" and DeviceSubtype == "Router"  
+```
+
+### Find and export vulnerabilities for your IoT devices
+
+Use the following query to list all vulnerabilities on your IoT devices:
+
+```kusto
+DeviceInfo
+| where DeviceCategory =~ "iot"
+| join kind=inner DeviceTvmSoftwareVulnerabilities on DeviceId
+```
+
+For more information, see [Advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) and [Understand the advanced hunting schema](/microsoft-365/security/defender/advanced-hunting-schema-tables).
 
 ## Next steps
 
-Learn how to set up an Enterprise IoT network sensor (Public preview) and gain more visibility into more IoT segments of your corporate network that aren't otherwise covered by Defender for Endpoint.
-
-Customers that have set up an Enterprise IoT network sensor will be able to see all discovered devices in the **Device inventory** in either Microsoft 365 Defender, or Defender for IoT in the Azure portal.
-
 > [!div class="nextstepaction"]
-> [Enhance device discovery with an Enterprise IoT network sensor](eiot-sensor.md)
+> [Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery)

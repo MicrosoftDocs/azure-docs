@@ -15,23 +15,23 @@ The DropDown element has different options that determine its appearance in the 
 
 When only a single item is allowed for selection, the control appears as:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-1.png" alt-text="Screenshot of the Microsoft.Common.DropDown single selection.":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-1.png" alt-text="Screenshot of the Microsoft.Common.DropDown UI element with single selection enabled.":::
 
 When descriptions are included, the control appears as:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Screenshot of the Microsoft.Common.DropDown single selection with descriptions.":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Screenshot of the Microsoft.Common.DropDown UI element with single selection and item descriptions.":::
 
 When multi-select is enabled, the control adds a **Select all** option and checkboxes for selecting more than one item:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Screenshot of the Microsoft.Common.DropDown multi-select.":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Screenshot of the Microsoft.Common.DropDown UI element with multi-select enabled, including a Select all option.":::
 
 Descriptions can be included with multi-select enabled.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Screenshot that shows how descriptions can be included with multi-select enabled.":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Screenshot of the Microsoft.Common.DropDown UI element with multi-select enabled and item descriptions.":::
 
 When filtering is enabled, the control includes a text box for adding the filtering value.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Screenshot of the Microsoft.Common.DropDown multi-select with descriptions.":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Screenshot of the Microsoft.Common.DropDown UI element with multi-select and filtering enabled.":::
 
 ## Schema
 
@@ -90,7 +90,7 @@ When filtering is enabled, the control includes a text box for adding the filter
 
 In the following example, the `defaultValue` is defined using the values of the `allowedValues` instead of the labels. The default value can contain multiple values when `multiselect` is enabled.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-6.png" alt-text="Screenshot that shows how multiple default values can be included with multi-select enabled":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-6.png" alt-text="Screenshot of the Microsoft.Common.DropDown UI element with multi-select enabled and multiple default values.":::
 
 ```json
 {

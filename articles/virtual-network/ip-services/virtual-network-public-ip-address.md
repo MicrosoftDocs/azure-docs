@@ -3,12 +3,12 @@ title: Create, change, or delete an Azure public IP address
 titleSuffix: Azure Virtual Network
 description:  Manage public IP addresses. Learn how a public IP address is a resource with configurable settings.
 services: virtual-network
-author: asudbring
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 11/16/2022
-ms.author: allensu
 ms.custom: FY23 content-maintenance
 ---
 
@@ -55,15 +55,16 @@ For more detail on the specific attributes of a public IP address during creatio
    |Idle timeout (minutes)|No| The number of minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. If you select IPv6 for **IP Version**, this value is set to 4 minutes, and can't be changed. |
    |DNS name label|No|Must be unique within the Azure location you create the name in across all subscriptions and all customers. Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name. </br></br> Azure appends a default subnet such as **location.cloudapp.azure.com** to the name you provide to create the fully qualified DNS name. If you choose to create both address versions, the same DNS name is assigned to both the IPv4 and IPv6 addresses. Azure's default DNS contains both IPv4 A and IPv6 AAAA name records. </br></br> The default DNS responds with both records during DNS lookup. The client chooses which address (IPv4 or IPv6) to communicate with. You can use the Azure DNS service to configure a DNS name with a custom suffix that resolves to the public IP address. </br></br>For more information, see [Use Azure DNS with an Azure public IP address](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
    |Name (Only visible if you select IP Version of **Both**)|Yes, if you select IP Version of **Both**|The name must be different than the name you entered previously for **Name** in this list. If you create both an IPv4 and an IPv6 address, the portal creates two separate public IP address resources. The deployment creates one IPv4 address and one IPv6 address.|
-   |IP address assignment (Only visible if you select IP Version of **Both**)|Yes, if you select IP Version of **Both**| Same restrictions as IP address assignment above. |
-   |Subscription|Yes|Must exist in the same [subscription](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) as the resource to which you'll associate the public IPs.|
-   |Resource group|Yes|Can exist in the same, or different, [resource group](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource to which you'll associate the public IPs.|
-   |Location|Yes|Must exist in the same [location](https://azure.microsoft.com/regions), also referred to as region, as the resource to which you'll associate the public IPs.|
-   |Availability zone| No | This setting only appears if you select a supported location and IP address type. **Basic** SKU public IPs and **Global** Tier public IPs don't support Availability Zones. You can select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements.</br></br>For a list of supported locations and more information about Availability Zones, see [Availability zones overview](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+   |IP address assignment (Only visible if you select IP Version of **Both**)|Yes, if you select IP Version of **Both**| Same restrictions as IP address assignment previous. |
+   |Subscription|Yes|Must exist in the same [subscription](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) as the resource to which you associate the public IPs.|
+   |Resource group|Yes|Can exist in the same, or different, [resource group](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource to which you associate the public IPs.|
+   |Location|Yes|Must exist in the same [location](https://azure.microsoft.com/regions), also referred to as region, as the resource to which you associate the public IPs.|
+   |Availability zone| No | This setting only appears if you select a supported location and IP address type. **Basic** SKU public IPs and **Global** Tier public IPs don't support Availability Zones. You can select no-zone (default option), a specific zone, or zone-redundant. The choice depends on your specific domain failure requirements.</br></br>For a list of supported locations and more information about Availability Zones, see [Availability zones overview](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## View, modify settings for, or delete a public IP address
 
    - **View/List**: Review settings for a public IP, including the SKU, address, and any association. Associations can be load balancer front-ends, virtual machines, and other Azure resources.
+
    - **Modify**: Modify settings using the information in [create a public IP address](#create-a-public-ip-address). Settings such as the idle timeout, DNS name label, or assignment method. For the full process of upgrading a public IP SKU from basic to standard, see [Upgrade Azure public IP addresses](./public-ip-upgrade-portal.md).
    
    >[!WARNING]
@@ -79,7 +80,7 @@ For more detail on the specific attributes of a public IP address during creatio
 
 |Resource|Azure portal|Azure PowerShell|Azure CLI|
 |---|---|---|---|
-|[Virtual machine](./remove-public-ip-address-vm.md)|Select **Dissociate** to dissociate the IP address from the NIC configuration, then select **Delete**.|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to dissociate the IP address from the NIC configuration; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete|[az network nic ip-config update and using parameter --public-ip-address ''](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) to remove the IP address from the NIC configuration. Use [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) to delete the public IP. |
+|[Virtual machine](./remove-public-ip-address-vm.md)|Select **Dissociate** to dissociate the IP address from the NIC configuration, then select **Delete**.|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to dissociate the IP address from the NIC configuration; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) and with the parameter `--public-ip-address` to remove the IP address from the NIC configuration. Use [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) to delete the public IP. |
 |Load balancer frontend | Browse to an unused public IP address and select **Associate**. Pick the load balancer with the relevant front-end IP configuration to replace the IP. The old IP can be deleted using the same method as a virtual machine.  | Use [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) to associate a new front-end IP config with a public load balancer. Use[Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete a public IP. You can also use [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) to remove a frontend IP config if there are more than one. | Use [az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-update) to associate a new frontend IP config with a public load balancer. Use [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete a public IP. You can also use [az network lb frontend-ip delete](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-delete) to remove a frontend IP config if there are more than one. |
 |Firewall|N/A| [Deallocate](../../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) to deallocate firewall and remove all IP configurations | Use [az network firewall ip-config delete](/cli/azure/network/firewall/ip-config#az-network-firewall-ip-config-delete) to remove IP. Use PowerShell to deallocate first. |
 
@@ -96,13 +97,20 @@ For more information, see [Networking for Azure Virtual Machine Scale Sets](../.
 Learn how to assign a public IP address to the following resources:
 
 - A [Windows](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Virtual Machine on creation. Add IP to an [existing virtual machine](./virtual-network-network-interface-addresses.md#add-ip-addresses).
+
 - [Virtual Machine Scale Set](../../virtual-machine-scale-sets/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+
 - [Public load balancer](./configure-public-ip-load-balancer.md)
+
 - [Cross-region load balancer](../../load-balancer/tutorial-cross-region-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Application Gateway](./configure-public-ip-application-gateway.md)
+
 - [Site-to-site connection using a VPN gateway](configure-public-ip-vpn-gateway.md)
+
 - [NAT gateway](./configure-public-ip-nat-gateway.md)
+
 - [Azure Bastion](./configure-public-ip-bastion.md)
+
 - [Azure Firewall](./configure-public-ip-firewall.md)
 
 ## Region availability

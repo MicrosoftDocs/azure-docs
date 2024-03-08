@@ -1,8 +1,8 @@
 ---
 title: Creating Virtual Machine Restore Points using Azure CLI
 description: Creating Virtual Machine Restore Points using Azure CLI
-author: mamccrea
-ms.author: mamccrea
+author: ju-shim
+ms.author: jushiman
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: tutorial
@@ -41,6 +41,8 @@ Create a VM restore point with the [az restore-point create](/cli/azure/restore-
 ```
 az restore-point create --resource-group "ExampleRg" --collection-name "ExampleRpc" --name "ExampleRp"
 ```
+To create a crash consistent restore point set the optional parameter "consistency-mode" to "CrashConsistent". This feature is currently in preview.
+
 ### Exclude disks when creating a restore point
 Exclude the disks that you do not want to be a part of the restore point with the `--exclude-disks` parameter, as follows:
 ```

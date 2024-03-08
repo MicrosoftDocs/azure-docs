@@ -7,9 +7,7 @@ author: jcocchi
 ms.author: jucocchi
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2022
-tags: connectors
-ms.custom: ignite-2022
+ms.date: 01/04/2024
 ---
 
 # Process and create Azure Cosmos DB documents using Azure Logic Apps
@@ -193,7 +191,7 @@ In a **Logic App (Consumption)** workflow, an Azure Cosmos DB connection require
 | Property | Required | Value | Description |
 |----------|----------|-------|-------------|
 | **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
-| **Authentication Type** | Yes | <*connection-type*> | The authentication type that you want to use. This example uses **Access key**. <p><p>- If you select **Access Key**, provide the remaining required property values to create the connection. <p><p>- If you select **Azure AD Integrated**, no other property values are required, but you have to configure your connection by following the steps for [Azure AD authentication and Azure Cosmos DB connector](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector).  |
+| **Authentication Type** | Yes | <*connection-type*> | The authentication type that you want to use. This example uses **Access key**. <p><p>- If you select **Access Key**, provide the remaining required property values to create the connection. <p><p>- If you select **Microsoft Entra integrated**, no other property values are required, but you have to configure your connection by following the steps for [Microsoft Entra authentication and Azure Cosmos DB connector](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector).  |
 | **Access key to your Azure Cosmos DB account** | Yes | <*access-key*> | The access key for the Azure Cosmos DB account to use for this connection. This value is either a read-write key or a read-only key. <p><p>**Note**: To find the key, go to the Azure Cosmos DB account page. In the navigation menu, under **Settings**, select **Keys**. Copy one of the available key values. |
 | **Account Id** | Yes | <*acccount-ID*> | The name for the Azure Cosmos DB account to use for this connection. |
 |||||

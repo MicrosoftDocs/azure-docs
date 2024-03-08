@@ -9,7 +9,6 @@ metadata:
   ms.topic: faq
   ms.service: cosmos-db
   ms.date: 04/19/2023
-  ms.custom: ignite-2022
 title: Frequently asked questions about the Azure Cosmos DB continuous backup
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
@@ -35,13 +34,13 @@ sections:
         answer: |
           You can identify whether an account is restored and gets the restore details by using the [Azure portal](restore-account-continuous-backup.md#get-the-restore-details-portal), [Azure PowerShell](restore-account-continuous-backup.md#get-the-restore-details-powershell), and the [Azure CLI](restore-account-continuous-backup.md#get-the-restore-details-cli).          
       - question: |
-          What is the use of `instanceId` in the account definition?
+          What is "instanceId" in the account definition?
         answer: |
           [!INCLUDE[](includes/continuous-backup-restore-frequently-asked-questions-instanceid.md)]         
       - question: |
-          Is continuous backup supported for Azure Synapse Link enabled accounts?
+          Is continuous backup supported for Azure Synapse Link-enabled accounts?
         answer: |
-          No. Currently, continuous backup mode and Azure Synapse Link can't coexist in the same database account.
+          The capability to turn on Synapse Link in database accounts with continuous backup enabled is GA now. The opposite situation, to turn on continuous backup in Synapse Link enabled database accounts, is still not supported yet.
 additionalContent: |
   ## Next steps
   

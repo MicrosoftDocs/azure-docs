@@ -3,7 +3,7 @@ title: 'Azure HDInsight: Python samples'
 description: Find Python examples on GitHub for common tasks using the HDInsight SDK for Python.
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 05/30/2022
+ms.date: 06/09/2023
 ms.custom: devx-track-python
 ---
 

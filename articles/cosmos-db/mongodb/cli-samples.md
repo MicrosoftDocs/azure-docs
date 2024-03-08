@@ -7,8 +7,8 @@ ms.subservice: mongodb
 ms.topic: sample
 ms.date: 08/18/2022
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurecli, ignite-2022
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI samples for Azure Cosmos DB for MongoDB

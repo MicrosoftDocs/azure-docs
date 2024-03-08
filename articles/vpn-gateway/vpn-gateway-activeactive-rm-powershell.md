@@ -5,13 +5,13 @@ description: Learn how to configure active-active connections with VPN gateways 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 07/19/2023
 ms.author: cherylmc
 
 ms.custom: devx-track-azurepowershell
 
 ---
-# Configure active-active S2S VPN connections with Azure VPN Gateways
+# Configure active-active S2S VPN connections with Azure VPN gateways
 
 This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and PowerShell. You can also configure an active-active gateway in the Azure portal.
 
@@ -31,15 +31,16 @@ If you already have a VPN gateway, you can:
 You can combine these together to build a more complex, highly available network topology that meets your needs.
 
 > [!IMPORTANT]
-> The active-active mode is available for all SKUs except Basic.
+> The active-active mode is available for all SKUs except Basic or Standard. For more information, see [Configuration settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+>
 
 ## <a name ="aagateway"></a>Part 1 - Create and configure active-active VPN gateways
 
 The following steps configure your Azure VPN gateway in active-active modes. The key differences between the active-active and active-standby gateways:
 
-* You need to create two Gateway IP configurations with two public IP addresses
-* You need set the EnableActiveActiveFeature flag
-* The gateway SKU must be VpnGw1, VpnGw2, VpnGw3, or HighPerformance (legacy SKU).
+* You need to create two Gateway IP configurations with two public IP addresses.
+* You need set the EnableActiveActiveFeature flag.
+* The gateway SKU must not be Basic or Standard.
 
 The other properties are the same as the non-active-active gateways. 
 
@@ -48,7 +49,7 @@ The other properties are the same as the non-active-active gateways.
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 * You need to install the Azure Resource Manager PowerShell cmdlets if you don't want to use Cloud Shell in your browser. See [Overview of Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
 
-### Step 1 - Create and configure VNet1
+### Step 1: Create and configure VNet1
 
 #### 1. Declare your variables
 
@@ -106,7 +107,7 @@ $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWS
 New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
 ```
 
-### Step 2 - Create the VPN gateway for TestVNet1 with active-active mode
+### Step 2: Create the VPN gateway for TestVNet1 with active-active mode
 
 #### 1. Create the public IP addresses and gateway IP configurations
 
@@ -169,7 +170,7 @@ To establish a cross-premises connection, you need to create a Local Network Gat
 
 Before proceeding, make sure you have completed [Part 1](#aagateway) of this exercise.
 
-### Step 1 - Create and configure the local network gateway
+### Step 1: Create and configure the local network gateway
 
 #### 1. Declare your variables
 
@@ -201,7 +202,7 @@ New-AzResourceGroup -Name $RG5 -Location $Location5
 New-AzLocalNetworkGateway -Name $LNGName51 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP51 -AddressPrefix $LNGPrefix51 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP51
 ```
 
-### Step 2 - Connect the VNet gateway and local network gateway
+### Step 2: Connect the VNet gateway and local network gateway
 
 #### 1. Get the two gateways
 
@@ -238,7 +239,7 @@ The connection should be established after a few minutes, and the BGP peering se
 
 :::image type="content" source="./media/vpn-gateway-activeactive-rm-powershell/active-active.png" alt-text="Diagram showing active-active connection." lightbox="./media/vpn-gateway-activeactive-rm-powershell/active-active.png":::
 
-### Step 3 - Connect two on-premises VPN devices to the active-active VPN gateway
+### Step 3: Connect two on-premises VPN devices to the active-active VPN gateway
 
 If you have two VPN devices at the same on-premises network, you can achieve dual redundancy by connecting the Azure VPN gateway to the second VPN device.
 
@@ -293,7 +294,7 @@ Once the connection (tunnels) are established, you'll have dual redundant VPN de
 
 This section creates an active-active VNet-to-VNet connection with BGP. The following instructions continue from the previous steps. You must complete [Part 1](#aagateway) to create and configure TestVNet1 and the VPN Gateway with BGP.
 
-### Step 1 - Create TestVNet2 and the VPN gateway
+### Step 1: Create TestVNet2 and the VPN gateway
 
 It's important to make sure that the IP address space of the new virtual network, TestVNet2, doesn't overlap with any of your VNet ranges.
 
@@ -358,7 +359,7 @@ Create the VPN gateway with the AS number and the "EnableActiveActiveFeature" fl
 New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN -EnableActiveActiveFeature
 ```
 
-### Step 2 - Connect the TestVNet1 and TestVNet2 gateways
+### Step 2: Connect the TestVNet1 and TestVNet2 gateways
 
 In this example, both gateways are in the same subscription. You can complete this step in the same PowerShell session.
 

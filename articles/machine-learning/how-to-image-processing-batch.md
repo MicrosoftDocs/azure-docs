@@ -1,23 +1,23 @@
 ---
-title: "Image processing with batch deployments"
+title: "Image processing with batch model deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy a model in batch endpoints that process images
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
 ms.reviewer: mopeakande
-ms.custom: devplatv2, devx-track-azurecli
+ms.custom: devplatv2, update-code, devx-track-azurecli
 ---
 
-# Image processing with batch deployments
+# Image processing with batch model deployments
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
-Batch Endpoints can be used for processing tabular data, but also any other file type like images. Those deployments are supported in both MLflow and custom models. In this tutorial, we will learn how to deploy a model that classifies images according to the ImageNet taxonomy.
+Batch model deployments can be used for processing tabular data, but also any other file type like images. Those deployments are supported in both MLflow and custom models. In this tutorial, we will learn how to deploy a model that classifies images according to the ImageNet taxonomy.
 
 ## About this sample
 
@@ -39,10 +39,8 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
-* You must have a batch endpoint already created. This example assumes the endpoint is named `imagenet-classifier-batch`. If you don't have one, follow the instructions at [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md).
-* You must have a compute created where to deploy the deployment. This example assumes the name of the compute is `cpu-cluster`. If you don't, follow the instructions at [Create compute](how-to-use-batch-endpoint.md#create-compute).
 
 ## Image classification with batch deployments
 
@@ -52,7 +50,7 @@ In this example, we are going to learn how to deploy a deep learning model that 
 
 First, let's create the endpoint that will host the model:
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 Decide on the name of the endpoint:
 
@@ -68,7 +66,7 @@ __endpoint.yml__
 
 Run the following code to create the endpoint.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_batch_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_endpoint" :::
 
 # [Python](#tab/python)
 
@@ -97,7 +95,7 @@ ml_client.batch_endpoints.begin_create_or_update(endpoint)
 
 ### Registering the model
 
-Batch Endpoint can only deploy registered models so we need to register it. You can skip this step if the model you are trying to deploy is already registered.
+Model deployments can only deploy registered models so we need to register it. You can skip this step if the model you are trying to deploy is already registered.
 
 1. Downloading a copy of the model:
 
@@ -105,7 +103,7 @@ Batch Endpoint can only deploy registered models so we need to register it. You 
     
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_model" :::
     
-    # [Python](#tab/sdk)
+    # [Python](#tab/python)
 
     ```python
     import os
@@ -128,7 +126,7 @@ Batch Endpoint can only deploy registered models so we need to register it. You 
     az ml model create --name $MODEL_NAME --path "model"
     ```
 
-    # [Python](#tab/sdk)
+    # [Python](#tab/python)
 
     ```python
     model_name = 'imagenet-classifier'
@@ -173,7 +171,7 @@ One the scoring script is created, it's time to create a batch deployment for it
    
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deployment-by-file.yml" range="7-10":::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    Let's get a reference to the environment:
    
@@ -189,15 +187,15 @@ One the scoring script is created, it's time to create a batch deployment for it
 
    # [Azure CLI](#tab/cli)
    
-   To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
+   To create a new deployment under the created endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
    
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deployment-by-file.yml":::
   
    Then, create the deployment with the following command:
    
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_batch_deployment_set_default" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_deployment" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    To create a new deployment with the indicated environment and scoring script use the following code:
    
@@ -237,7 +235,7 @@ One the scoring script is created, it's time to create a batch deployment for it
    az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
    ```
    
-   # [Azure Machine Learning SDK for Python](#tab/sdk)
+   # [Azure Machine Learning SDK for Python](#tab/python)
    
    ```python
    endpoint.defaults.deployment_name = deployment.name
@@ -256,7 +254,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_sample_data" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    !wget https://azuremlexampledata.blob.core.windows.net/data/imagenet-1000.zip
@@ -277,7 +275,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_sample_data_asset" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    data_path = "data"
@@ -312,7 +310,11 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
+
+   > [!TIP]
+   > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+
    
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path=imagenet_sample.id)
@@ -332,7 +334,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="show_job_in_studio" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    ml_client.jobs.get(job.name)
@@ -344,9 +346,9 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
    To download the predictions, use the following command:
 
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_scores" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_outputs" :::
 
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
 
    ```python
    ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
@@ -363,10 +365,10 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
     | file                        | class | probabilities | label        |
     |-----------------------------|-------|---------------| -------------|
-    | n02088094_Afghan_hound.JPEG | 161   | 0.994745	    | Afghan hound |
-    | n02088238_basset            | 162	| 0.999397      | basset       |
+    | n02088094_Afghan_hound.JPEG | 161   | 0.994745      | Afghan hound |
+    | n02088238_basset            | 162   | 0.999397      | basset       |
     | n02088364_beagle.JPEG       | 165   | 0.366914      | bluetick     |
-    | n02088466_bloodhound.JPEG   | 164   | 0.926464	    | bloodhound   |
+    | n02088466_bloodhound.JPEG   | 164   | 0.926464      | bloodhound   |
     | ...                         | ...   | ...           | ...          |
     
 
@@ -383,7 +385,7 @@ On those cases, we may want to perform inference on the entire batch of data. Th
 
     __code/score-by-batch/batch_driver.py__
     
-    :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/code/score-by-file/batch_driver.py" :::
+    :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/code/score-by-batch/batch_driver.py" :::
 
     > [!TIP]
     > * Notice that this script is constructing a tensor dataset from the mini-batch sent by the batch deployment. This dataset is preprocessed to obtain the expected tensors for the model using the `map` operation with the function `decode_img`.
@@ -394,15 +396,15 @@ On those cases, we may want to perform inference on the entire batch of data. Th
 
    # [Azure CLI](#tab/cli)
    
-   To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
+   To create a new deployment under the created endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
    
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deployment-by-batch.yml":::
   
    Then, create the deployment with the following command:
    
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_batch_deployment_ht" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_deployment_ht" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    To create a new deployment with the indicated environment and scoring script use the following code:
    

@@ -2,11 +2,8 @@
 title: 'Time Series Insights Gen1 migration to Azure Data Explorer | Microsoft Docs'
 description: How to migrate Azure Time Series Insights Gen 1 environments to Azure Data Explorer.
 ms.service: time-series-insights
-services: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
-manager: 
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 3/15/2022
 ms.custom: tvilutis

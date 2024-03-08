@@ -8,7 +8,6 @@ metadata:
   description: Simplify deployments by packaging artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition.
   ms.service: blueprints
   ms.topic: landing-page
-  ms.collection: collection
   author: mumian
   ms.author: jgao
   ms.date: 08/27/2020
@@ -106,6 +105,6 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.blueprint/#blueprint
           - text: Azure SDK for .NET
-            url: /dotnet/api/overview/azure/blueprint/management/management-blueprint
+            url: /dotnet/api/microsoft.azure.management.blueprint
           - text: REST
             url: /rest/api/blueprints/

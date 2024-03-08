@@ -2,8 +2,7 @@
 title: Best practices for monitoring Azure Queue Storage
 description: Learn best practice guidelines and how to them when using metrics and logs to monitor your Azure Queue Storage. 
 author: normesta
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 08/24/2021
@@ -88,12 +87,12 @@ Open any log entry to view JSON that describes the activity. The following JSON 
 > [!div class="mx-imgBorder"]
 > ![Activity Log JSON](./media/queues-storage-monitoring-scenarios/activity-log-json.png)
 
-The availability of the  "who" information depends on the method of authentication that was used to perform the control plane operation. If the authorization was performed by an Azure AD security principal, the object identifier of that security principal would also appear in this JSON output (For example: `"http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). Because you might not always see other identity-related information such as an email address or name, the object identifier is always the best way to uniquely identify the security principal. 
+The availability of the  "who" information depends on the method of authentication that was used to perform the control plane operation. If the authorization was performed by a Microsoft Entra security principal, the object identifier of that security principal would also appear in this JSON output (For example: `"http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). Because you might not always see other identity-related information such as an email address or name, the object identifier is always the best way to uniquely identify the security principal. 
 
-You can find the friendly name of that security principal by taking the value of the object identifier, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
+You can find the friendly name of that security principal by taking the value of the object identifier, and searching for the security principal in Microsoft Entra ID page of the Azure portal. The following screenshot shows a search result in Microsoft Entra ID.
 
 > [!div class="mx-imgBorder"]
-> ![Search Azure Active Directory](./media/queues-storage-monitoring-scenarios/search-azure-active-directory.png)
+> ![Search Microsoft Entra ID](./media/queues-storage-monitoring-scenarios/search-azure-active-directory.png)
 
 ### Auditing data plane operations
 
@@ -113,14 +112,14 @@ For the "what" portion of your audit, the `Uri` field shows the item was modifie
 
 For the "how" portion of your audit, the `OperationName` field shows which operation was executed. 
 
-For the "who" portion of your audit, `AuthenticationType` shows which type of authentication was used to make a request. This field can show any of the types of authentication that Azure Storage supports including the use of an account key, a SAS token, or Azure Active Directory (Azure AD) authentication. 
+For the "who" portion of your audit, `AuthenticationType` shows which type of authentication was used to make a request. This field can show any of the types of authentication that Azure Storage supports including the use of an account key, a SAS token, or Microsoft Entra authentication. 
 
-If a request was authenticated by using Azure AD, the `RequesterObjectId` field provides the most reliable way to identify the security principal. You can find the friendly name of that security principal by taking the value of the `RequesterObjectId` field, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
+If a request was authenticated by using Microsoft Entra ID, the `RequesterObjectId` field provides the most reliable way to identify the security principal. You can find the friendly name of that security principal by taking the value of the `RequesterObjectId` field, and searching for the security principal in Microsoft Entra ID page of the Azure portal. The following screenshot shows a search result in Microsoft Entra ID.
 
 > [!div class="mx-imgBorder"]
-> ![Search Azure Active Directory-2](./media/queues-storage-monitoring-scenarios/search-azure-active-directory.png)
+> ![Search Microsoft Entra ID-2](./media/queues-storage-monitoring-scenarios/search-azure-active-directory.png)
 
-In some cases, a user principal name or *UPN* might appear in logs. For example, if the security principal is an Azure AD user, the UPN will likely appear. For other types of security principals such as user assigned managed identities, or in certain scenarios such as cross Azure AD tenant authentication, the UPN will not appear in logs. 
+In some cases, a user principal name or *UPN* might appear in logs. For example, if the security principal is a Microsoft Entra user, the UPN will likely appear. For other types of security principals such as user assigned managed identities, or in certain scenarios such as cross Microsoft Entra tenant authentication, the UPN will not appear in logs. 
 
 This query shows all write operations performed by OAuth security principals.
 
@@ -132,7 +131,7 @@ StorageQueueLogs
 | project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
 ```
 
-Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. To learn how to prevent Shared Key and SAS authentication, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=/azure/storage/queues/toc.json&tabs=portal). To get started with Azure AD, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md)
+Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Microsoft Entra ID, and prevent shared key and SAS authentication. To learn how to prevent Shared Key and SAS authentication, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=/azure/storage/queues/toc.json&tabs=portal). To get started with Microsoft Entra ID, see [Authorize access to blobs using Microsoft Entra ID](authorize-access-azure-active-directory.md)
 
 ## Optimize cost for infrequent queries
 
@@ -174,4 +173,3 @@ With Azure Synapse, you can create server-less SQL pool to query log data when y
 - [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 
   
-

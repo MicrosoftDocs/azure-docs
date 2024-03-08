@@ -2,9 +2,9 @@
 title: Troubleshoot extension-based Hybrid Runbook Worker issues in Azure Automation 
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation extension-based Hybrid Runbook Workers.
 services: automation
-ms.date: 04/26/2023
+ms.date: 01/03/2024
 ms.topic: troubleshooting 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Troubleshoot VM extension-based Hybrid Runbook Worker issues in Automation
@@ -25,7 +25,7 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
 
 - Check the error message shown in the Hybrid worker extension status/Detailed Status. It contains error message(s) and respective recommendation(s) to fix the issue.
 
-- Run the troubleshooter tool on the VM and it will generate an output file. Open the output file and verify the errors identified by the troubleshooter tool.
+- Run the troubleshooter tool on the VM and it generates an output file. Open the output file and verify the errors identified by the troubleshooter tool.
   - For windows: you can find the troubleshooter at `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\TroubleShootWindowsExtension.ps1`
   - For Linux: you can find the troubleshooter at `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>/Troubleshooter/LinuxTroubleshooter.py`
 
@@ -40,12 +40,51 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
   Logs are in `C:\HybridWorkerExtensionLogs`.
   - For Linux: Logs are in folders </br>`/var/log/azure/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux` and `/home/hweautomation`.
 
-### Scenario: Job failed to start as the Hybrid Worker was not available when the scheduled job started
+
+### Unable to update Az modules while using the Hybrid Worker
+
+#### Issue
+
+The Hybrid Runbook Worker jobs failed as it was unable to import Az modules.
+
+#### Resolution
+
+As a workaround, you can follow these steps:
+
+1. Go to the folder: C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.1722.0\HybridAgent
+1. Edit the file with the name *Orchestrator.Sandbox.exe.config*
+1. Add the following lines inside the `<assemblyBinding>` tags:
+```xml
+<dependentAssembly>
+  <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+  <bindingRedirect oldVersion="0.0.0.0-13.0.0.0" newVersion="13.0.0.0" />
+</dependentAssembly>
+```
+
+### Scenario: Runbooks go into a suspended state on a Hybrid Runbook Worker when using a custom account on a server with User Account Control (UAC) enabled
+
+#### Issue
+Jobs fail and go into a suspended state on the Hybrid Runbook Worker. The Microsoft-SMA event logs indicate
+`Win32 Process Exited with code [2148734720]` and a corresponding error in Application log when the runbook tries to execute is `.NET Runtime version : 4.0.30319.0` indicating that the application couldn't be started.
+
+#### Cause
+When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership and when user has to elevate permissions, the jobs begin to fail.
+
+#### Resolution
+For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders:
+
+| Folder |Permissions |
+|--- | --- |
+| C:\ProgramData\AzureConnectedMachineAgent\Tokens | Read |
+| C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows | Read and Execute |
+
+
+### Scenario: Job failed to start as the Hybrid Worker wasn't available when the scheduled job started
 
 #### Issue
 Job fails to start on a Hybrid Worker and you see the following error:
 
-*Failed to start, as hybrid worker was not available when scheduled job started, the hybrid worker was last active at mm/dd/yyyy*.
+*Failed to start, as hybrid worker wasn't available when scheduled job started, the hybrid worker was last active at mm/dd/yyyy*.
 
 #### Cause
 This error can occur due to the following reasons:
@@ -68,7 +107,7 @@ Job gets suspended with the following error message:
 #### Cause
 Jobs might get suspended due to any of the following reasons:
 - Each active Hybrid Worker in the group will poll for jobs every 30 seconds to see if any jobs are available. The Worker picks jobs on a first-come, first-serve basis. Depending on when a job was pushed, whichever Hybrid Worker within the Hybrid Worker Group pings the Automation service first picks up the job. A single hybrid worker can generally pick up four jobs per ping (that is, every 30 seconds). If your rate of pushing jobs is higher than four per 30 seconds and no other Worker picks up the job, the job might get suspended. 
-- Hybrid Worker might not be polling as expected every 30 seconds. This could happen if the Worker is not healthy or there are network issues.  
+- Hybrid Worker might not be polling as expected every 30 seconds. This could happen if the Worker isn't healthy or there are network issues.  
 
 #### Resolution
 - If the job limit for a Hybrid Worker exceeds four jobs per 30 seconds, you can add more Hybrid Workers to the Hybrid Worker group for high availability and load balancing. You can also schedule jobs so they do not exceed the limit of four jobs per 30 seconds. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. Ensure that the Hybrid Worker is healthy and gives a heartbeat. 
@@ -118,14 +157,14 @@ for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](../../azur
 You are deploying an extension-based Hybrid Runbook Worker on a VM, and it fails with error: *Invalid Authorization Token*.
 
 ### Cause
-User-assigned managed identity of the VM is enabled, but system-assigned managed identity is not enabled. 
+User-assigned managed identity of the VM is enabled, but system-assigned managed identity isn't enabled. 
 
 ### Resolution
 Follow the steps listed below:
 
 1. [Enable](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm) System-assigned managed identity of the VM. 
 2. [Delete](../extension-based-hybrid-runbook-worker-install.md#delete-a-hybrid-runbook-worker) the Hybrid Worker extension installed on the VM. 
-3. Re-install the Hybrid Worker extension on the VM. 
+3. Reinstall the Hybrid Worker extension on the VM. 
 
 
 ### Scenario: Installation process of Hybrid Worker extension on Windows VM gets stuck
@@ -240,7 +279,7 @@ A runbook running on a Hybrid Runbook Worker fails with the following error mess
 
 #### Cause
 
-This error occurs when you attempt to use a [Run As account](../automation-security-overview.md#run-as-accounts) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
+This error occurs when you attempt to use a Run As account in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
 
 #### Resolution
 

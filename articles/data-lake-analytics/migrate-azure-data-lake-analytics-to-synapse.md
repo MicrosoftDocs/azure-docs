@@ -1,10 +1,10 @@
 ---
-title: Migrate Azure Data Lake Analytics to Azure Synapse Analytics.
-description: This article describes how to migrate from Azure Data Lake Analytics to Azure Synapse Analytics.
+title: Migrate Azure Data Lake Analytics to Azure Synapse Analytics
+description: This article describes how to migrate from Azure Data Lake Analytics to Azure Synapse Analytics. Azure Data Lake Analytics will be retired on 29 February 2024, and current customers need to migrate at this time.
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: migrate-azure-data-lake-analytics-to-synapse
-ms.date: 11/15/2022
+ms.date: 12/20/2023
 ---
 
 # Migrate Azure Data Lake Analytics to Azure Synapse Analytics

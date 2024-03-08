@@ -18,6 +18,8 @@ Real-time Relays solve the problem of NAT (Network Address Translation) traversa
 * STUN (Session Traversal Utilities for NAT) offers a protocol to allow devices to exchange external IPs on the internet. If the clients can see each other, there is typically no need for a relay through a TURN service since the connection can be made peer-to-peer. A STUN server's job is to respond to request for a device's external IP.
 * TURN (Traversal Using Relays around NAT) is an extension of the STUN protocol that also relays the data between two endpoints through a mutually visible server.
 
+[!INCLUDE [TURN retirment](../includes/turn-retirement.md)]
+
 ## Azure Communication Services Network Traversal Overview 	
 
 WebRTC(Web Real-Time Technologies) allow web browsers to stream audio, video, and data between devices without needing to have a gateway in the middle. Some of the common use cases here are voice, video, broadcasting, and screen sharing. To connect two endpoints on the internet, their external IP address is required. External IP is typically not available for devices sitting behind a corporate firewall. The protocols like STUN (Session Traversal Utilities for NAT) and TURN (Traversal Using Relays around NAT)  are used to help the endpoints communicate.

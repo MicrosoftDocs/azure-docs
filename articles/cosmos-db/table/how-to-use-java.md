@@ -3,12 +3,12 @@ title: Use the Azure Tables client library for Java
 description: Store structured data in the cloud using the Azure Tables client library for Java.
 ms.service: cosmos-db
 ms.subservice: table
-ms.devlang: Java
+ms.devlang: java
 ms.topic: sample
 ms.date: 12/10/2020
 author: seesharprun
 ms.author: sidandrews
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # How to use the Azure Tables client library for Java

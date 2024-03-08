@@ -3,12 +3,10 @@ title: Managing Azure Data Factory studio preview experience
 description: Learn more about the Azure Data Factory studio preview experience.
 author: n0elleli
 ms.author: noelleli
-ms.reviewer: 
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ---
 
 # Manage Azure Data Factory studio preview experience
@@ -23,25 +21,25 @@ There are two ways to enable preview experiences.
 
 1. In the banner seen at the top of the screen, you can click **Open settings to learn more and opt in**. 
 
-	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-1.png" alt-text="Screenshot of Azure Data Factory home page with an Opt-in option in a banner at the top of the screen.":::
+	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-1.png" alt-text="Screenshot of Azure Data Factory home page with an Opt-in option in a banner at the top of the screen.":::
 
 2. Alternatively, you can click the **Settings** button. 
 
-	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-2.png" alt-text="Screenshot of Azure Data Factory home page highlighting Settings gear in top right corner.":::
+	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-2.png" alt-text="Screenshot of Azure Data Factory home page highlighting Settings gear in top right corner.":::
 
-   After opening **Settings**, you will see an option to turn on **Azure Data Factory Studio preview update**. 
+   After opening **Settings**, you'll see an option to turn on **Azure Data Factory Studio preview update**. 
 	
-  	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-3.png" alt-text="Screenshot of Settings panel highlighting button to turn on Azure Data Factory Studio preview update.":::
+  	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-3.png" alt-text="Screenshot of Settings panel highlighting button to turn on Azure Data Factory Studio preview update.":::
   
    Toggle the button so that it shows **On** and click **Apply**.
      	
-	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-4.png" alt-text="Screenshot of Settings panel showing Azure Data Factory Studio preview update turned on and the Apply button in the bottom left corner.":::
+	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-4.png" alt-text="Screenshot of Settings panel showing Azure Data Factory Studio preview update turned on and the Apply button in the bottom left corner.":::
   
-   Your data factory will refresh to show the preview features. 
+   Your data factory refreshes to show the preview features. 
   
    Similarly, you can disable preview features with the same steps. Click **Open settings to opt out** or click the **Settings** button and unselect **Azure Data Factory Studio preview update**. 
    
-   	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-5.png" alt-text="Screenshot of Azure Data Factory home page with an Opt-out option in a banner at the top of the screen and Settings gear in the top right corner of the screen.":::
+   	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-5.png" alt-text="Screenshot of Azure Data Factory home page with an Opt-out option in a banner at the top of the screen and Settings gear in the top right corner of the screen.":::
 
 > [!NOTE]
 > Enabling/disabling preview updates will discard any unsaved changes.
@@ -52,9 +50,13 @@ There are two ways to enable preview experiences.
    * [Configuration panel](#configuration-panel)
    * [Transformation settings](#transformation-settings)
    * [Data preview](#data-preview)
+
+   [**CI/CD experimental view**](#cicd-experimental-view)
+   * [Autosave](#auto-save)
 	
    [**Pipeline experimental view**](#pipeline-experimental-view)
    * [Dynamic content flyout](#dynamic-content-flyout)
+   * [Linked service for Web activity] (#linked-service-web-activity)
 
    [**Monitoring experimental view**](#monitoring-experimental-view)
    * [Error message relocation to Status column](#error-message-relocation-to-status-column)
@@ -67,25 +69,25 @@ UI (user interfaces) changes have been made to mapping data flows. These changes
 
 The dataflow authoring experience remains the same as detailed [here](https://aka.ms/adfdataflows), except for certain areas detailed below. 
 
-To see the data-first experimental view, you will need to follow these steps to enable it. By default, users will see the **Classic** style. 
+To see the data-first experimental view, you need to follow these steps to enable it. By default, users see the **Classic** style. 
 
 > [!NOTE]
-> To enable the data-first view, you will need to enable the preview experience in your settings and you will need an active Data flow debug session. 
+> To enable the data-first view, you'll need to enable the preview experience in your settings and you'll need an active Data flow debug session. 
 
 In your data flow editor, you can find several canvas tools on the right side like the **Search** tool, **Zoom** tool, and **Multi-select** tool. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-28.png" alt-text="Screenshot of the data flow editing canvas.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-28.png" alt-text="Screenshot of the data flow editing canvas.":::
 
-You will see a new icon under the **Multi-select** tool. This is how you can toggle between the **Classic** and the **Data-first** views. 
+You'll see a new icon under the **Multi-select** tool. This is how you can toggle between the **Classic** and the **Data-first** views. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-29.png" alt-text="Screenshot of data flow canvas options with button to switch views highlighted.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-29.png" alt-text="Screenshot of data flow canvas options with button to switch views highlighted.":::
 
 #### Configuration panel
 
 The configuration panel for transformations has now been simplified. Previously, the configuration panel showed settings specific to the selected transformation. 
 Now, for each transformation, the configuration panel will only have **Data Preview** that will automatically refresh when changes are made to transformations. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-6.png" alt-text="Screenshot of the configuration panel with only a Data preview tab.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-6.png" alt-text="Screenshot of the configuration panel with only a Data preview tab.":::
   
 If no transformation is selected, the panel will show the pre-existing data flow configurations: **Parameters** and **Settings**.  
 
@@ -93,11 +95,11 @@ If no transformation is selected, the panel will show the pre-existing data flow
 
 Settings specific to a transformation will now show in a pop-up instead of the configuration panel. With each new transformation, a corresponding pop-up will automatically appear. 
  
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-7.png" alt-text="Screenshot of a pop-up with settings specific to the data flow transformation.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-7.png" alt-text="Screenshot of a pop-up with settings specific to the data flow transformation.":::
   
  You can also find the settings by clicking the gear button in the top right corner of the transformation activity.
  
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-8.png" alt-text="Screenshot of a data flow source transformation with the settings gear in the top right corner highlighted.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-8.png" alt-text="Screenshot of a data flow source transformation with the settings gear in the top right corner highlighted.":::
  
 #### Data preview
 
@@ -105,7 +107,25 @@ If debug mode is on, **Data Preview** in the configuration panel will give you a
 **Data preview** now includes Elapsed time (seconds) to show how long your data preview took to load. 
 Columns can be rearranged by dragging a column by its header. You can also sort columns using the arrows next to the column titles and you can export data preview data using **Export to CSV** on the banner above column headers. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-9.png" alt-text="Screenshot of Data preview with Export button in the top right corner of the banner and Elapsed Time highlighted in the bottom left corner of the screen.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-9.png" alt-text="Screenshot of Data preview with Export button in the top right corner of the banner and Elapsed Time highlighted in the bottom left corner of the screen.":::
+
+### CI/CD experimental view
+
+#### Auto Save
+
+You now have the option to enable **Auto Save** when you have a Git repository configured for your factory. This allows you to save changes to your factory automatically while developing.
+
+To enable **Auto save**, click the toggle button found in the top banner of your screen. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-42.png" alt-text="Screenshot of the Auto Save toggle button in the top banner of the screen.":::
+
+Review the pop-up and click **Yes**.
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-43.png" alt-text="Screenshot of the Auto Save confirmation pop-up.":::
+
+When **Auto Save** is enabled, the toggle button shows as blue.
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-44.png" alt-text="Screenshot of the enabled Auto Save toggle button in the top banner of the screen.":::
 
 ### Pipeline experimental view
 
@@ -131,16 +151,31 @@ A new flyout has been added to make it easier to set dynamic content in your pip
 | ForEach | Items |
 | If/Switch/Until | Expression |
 
-In supported activities, you will see an icon next to the setting. Clicking this will open up the flyout where you can choose your dynamic content. 
+In supported activities, you'll see an icon next to the setting. Clicking this icon opens up the flyout where you can choose your dynamic content. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-32.png" alt-text="Screenshot of the new dynamic content flyout icon.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-32.png" alt-text="Screenshot of the new dynamic content flyout icon.":::
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-33.png" alt-text="Screenshot of the new dynamic content flyout with dynamic content options to choose.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-33.png" alt-text="Screenshot of the new dynamic content flyout with dynamic content options to choose.":::
+
+#### Linked service for Web activity
+
+There are new settings available for the Web activity. 
+
+By default, the **Connection type** will be set to **Inline**, but you can choose to select **Linked service**. Doing so allows you to reference a REST linked service for authentication purposes.
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-45.png" alt-text="Screenshot of the new Web activity settings.":::
+
+After selecting **Linked service**, use the drop-down menu to select an existing linked service or click **New** to create a new linked service. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-46.png" alt-text="Screenshot of the Web activity settings with Linked service selected.":::
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-47.png" alt-text="Screenshot of the fly-out for setting up a new linked service.":::
+
 
 ### Monitoring experimental view
 
 UI (user interfaces) changes have been made to the monitoring page. These changes were made to simplify and streamline your monitoring experience.
-The monitoring experience remains the same as detailed [here](monitor-visually.md), except for items detailed below. 
+The monitoring experience remains the same as detailed [here](monitor-visually.md), except for items detailed in the following section. 
 
 #### Error message relocation to Status column
 
@@ -151,51 +186,51 @@ To make it easier for you to view errors when you see a **Failed** pipeline run,
 
 Find the error icon in the pipeline monitoring page and in the pipeline **Output** tab after debugging your pipeline. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-31.png" alt-text="Screenshot of the new error message location in pipeline debug output.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-31.png" alt-text="Screenshot of the new error message location in pipeline debug output.":::
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-30.png" alt-text="Screenshot of the new error message location in pipeline monitoring details.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-30.png" alt-text="Screenshot of the new error message location in pipeline monitoring details.":::
 
 #### Container view
 
 > [!NOTE]
 > This feature is now generally available in the ADF studio.  
 
-When monitoring your pipeline run, you have the option to enable the container view, which will provide a consolidated view of the activities that ran.
+When monitoring your pipeline run, you have the option to enable the container view, which provides a consolidated view of the activities that ran.
 This view is available in the output of your pipeline debug run and in the detailed monitoring view found in the monitoring tab. 
 
 ##### How to enable the container view in pipeline debug output
 
-In the **Output** tab in your pipeline, there is a new dropdown to select your monitoring view. 
+In the **Output** tab in your pipeline, there's a new dropdown to select your monitoring view. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-35.png" alt-text="Screenshot of the drop-down menu to select the monitoring view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-35.png" alt-text="Screenshot of the drop-down menu to select the monitoring view.":::
 
-Select **Hierarchy** to see the new hierarchy view. If you have iteration or conditional activities, the nested activities will be grouped under parent activity. 
+Select **Hierarchy** to see the new hierarchy view. If you have iteration or conditional activities, the nested activities are grouped under the parent activity.
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-36.png" alt-text="Screenshot of the container monitoring view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-36.png" alt-text="Screenshot of the container monitoring view.":::
 
 Click the button next to the iteration or conditional activity to collapse the nested activities for a more consolidated view. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-37.png" alt-text="Screenshot of the container monitoring  collapsed view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-37.png" alt-text="Screenshot of the container monitoring  collapsed view.":::
 
 ##### How to enable the container view in pipeline monitoring
 
-In the detailed view of your pipeline run, there is a new dropdown to select your monitoring view next to the Status filter. 
+In the detailed view of your pipeline run, there's a new dropdown to select your monitoring view next to the Status filter. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-38.png" alt-text="Screenshot of the drop-down menu to select the monitoring view in pipeline monitoring view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-38.png" alt-text="Screenshot of the drop-down menu to select the monitoring view in pipeline monitoring view.":::
 
-Select **Container** to see the new container view. If you have iteration or conditional activities, the nested activities will be grouped under the parent activity. 
+Select **Container** to see the new container view. If you have iteration or conditional activities, the nested activities are grouped under the parent activity. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-39.png" alt-text="Screenshot of the container monitoring view in pipeline monitoring.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-39.png" alt-text="Screenshot of the container monitoring view in pipeline monitoring.":::
 
 Click the button next to the iteration or conditional activity to collapse the nested activities for a more consolidated view. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-40.png" alt-text="Screenshot of the collapsed container monitoring view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-40.png" alt-text="Screenshot of the collapsed container monitoring view.":::
 
 #### Simplified default monitoring view 
 
 The default monitoring view has been simplified with fewer default columns. You can add/remove columns if you’d like to personalize your monitoring view. Changes to the default will be cached.
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-20.png" alt-text="Screenshot of the new default column view on the monitoring page.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-20.png" alt-text="Screenshot of the new default column view on the monitoring page.":::
 
 **Default columns**
 
@@ -212,24 +247,24 @@ The default monitoring view has been simplified with fewer default columns. You 
 
 You can edit your default view by clicking **Edit Columns**. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-21.png" alt-text="Screenshot of the Edit Columns button in the center of the top row.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-21.png" alt-text="Screenshot of the Edit Columns button in the center of the top row.":::
 
 Add columns by clicking **Add column** or remove columns by clicking the trashcan icon. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-22.png" alt-text="Screenshot of the Add column button and trashcan icon to edit column view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-22.png" alt-text="Screenshot of the Add column button and trashcan icon to edit column view.":::
 
 You can also now view **Pipeline run details** in a new pane in the detailed pipeline monitoring view by clicking **View run detail**.
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-41.png" alt-text="Screenshot of the new Pipeline run details pane in the detailed monitoring view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-41.png" alt-text="Screenshot of the new Pipeline run details pane in the detailed monitoring view.":::
 
 ## Provide feedback
 
-We want to hear from you! If you see this pop-up, please let us know your thoughts by providing feedback on the updates you've tested.  
+We want to hear from you! If you see this pop-up, let us know your thoughts by providing feedback on the updates you tested.  
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-19.png" alt-text="Screenshot of the feedback survey where user can select between one and five stars.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-19.png" alt-text="Screenshot of the feedback survey where user can select between one and five stars.":::
 
 
-## Next steps
+## Related content
 
 - [What's New in Azure Data Factory](whats-new.md)
 - [How to manage Azure Data Factory Settings](how-to-manage-settings.md)

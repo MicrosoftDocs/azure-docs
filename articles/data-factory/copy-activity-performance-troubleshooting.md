@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/25/2022
+ms.date: 01/05/2024
 ---
 
 # Troubleshoot copy activity performance
@@ -49,7 +49,7 @@ The execution details and durations at the bottom of the copy activity monitorin
 | --------------- | ------------------------------------------------------------ |
 | Queue           | The elapsed time until the copy activity actually starts on the integration runtime. |
 | Pre-copy script | The elapsed time between copy activity starting on IR and copy activity finishing executing the pre-copy script in sink data store. Apply when you configure the pre-copy script for database sinks, e.g. when writing data into Azure SQL Database do clean up before copy new data. |
-| Transfer        | The elapsed time between the end of the previous step and the IR transferring all the data from source to sink. <br/>Note the sub-steps under transfer run in parallel, and some operations are not shown now e.g. parsing/generating file format.<br><br/>- **Time to first byte:** The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources.<br>- **Listing source:** The amount of time spent on enumerating source files or data partitions. The latter applies when you configure partition options for database sources, e.g. when copy data from databases like Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Reading from source:** The amount of time spent on retrieving data from source data store.<br/>- **Writing to sink:** The amount of time spent on writing data to sink data store. Note some connectors do not have this metric at the moment, including Azure Cognitive Search, Azure Data Explorer, Azure Table storage, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce/Salesforce Service Cloud. |
+| Transfer        | The elapsed time between the end of the previous step and the IR transferring all the data from source to sink. <br/>Note the sub-steps under transfer run in parallel, and some operations are not shown now e.g. parsing/generating file format.<br><br/>- **Time to first byte:** The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources.<br>- **Listing source:** The amount of time spent on enumerating source files or data partitions. The latter applies when you configure partition options for database sources, e.g. when copy data from databases like Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Reading from source:** The amount of time spent on retrieving data from source data store.<br/>- **Writing to sink:** The amount of time spent on writing data to sink data store. Note some connectors do not have this metric at the moment, including Azure AI Search, Azure Data Explorer, Azure Table storage, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce/Salesforce Service Cloud. |
 
 ## Troubleshoot copy activity on Azure IR
 
@@ -217,6 +217,31 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - To copy large excel file (>100 MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
     
+
+### The OOM Issue of reading large JSON/Excel/XML files
+
+- **Symptoms**: When you read large JSON/Excel/XML files, you meet the out of memory (OOM) issue during the activity execution.
+
+- **Cause**:
+
+    - **For large XML files**:
+    The OOM issue of reading large XML files is by design. The cause is that the whole XML file must be read into memory as it is a single object, then the schema is inferred, and the data is retrieved.
+    - **For large Excel files**:
+    The OOM issue of reading large Excel files is by design. The cause is that the SDK (POI/NPOI) used must read the whole excel file into memory, then infer the schema and get data.
+    - **For large JSON files**:
+    The OOM issue of reading large JSON files is by design when the JSON file is a single object.
+
+- **Recommendation**: Apply one of the following options to solve your issue.
+
+    - **Option-1**: Register an online self-hosted integration runtime with powerful machine (high CPU/memory) to read data from your large file through your copy activity.
+    - **Option-2**: Use optimized memory and big size cluster (for example, 48 cores) to read data from your large file through the mapping data flow activity.
+    - **Option-3**: Split the large file into small ones, then use copy or mapping data flow activity to read the folder.
+    - **Option-4**: If you are stuck or meet the OOM issue during copy the XML/Excel/JSON folder, use the foreach activity + copy/mapping data flow activity in your pipeline to handle each file or subfolder.
+    - **Option-5**: Others:
+        - For XML, use Notebook activity with memory optimized cluster to read data from files if each file has the same schema. Currently, Spark has different implementations to handle XML.
+        - For JSON, use different document forms (for example, **Single document**, **Document per line** and **Array of documents**) in [JSON settings](format-json.md#source-format-options) under mapping data flow source. If the JSON file content is **Document per line**, it consumes very little memory.
+
+
 ## Other references
 
 Here is performance monitoring and tuning references for some of the supported data stores:
@@ -229,7 +254,7 @@ Here is performance monitoring and tuning references for some of the supported d
 * SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance).
 * On-premises file server: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85)).
 
-## Next steps
+## Related content
 See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

@@ -1,10 +1,10 @@
 ---
-title: Export data to Service Bus IoT Central | Microsoft Docs
-description: How to use the new data export to export your IoT data to Service Bus
+title: Export data to Service Bus IoT Central
+description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Service Bus
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/28/2022
+ms.date: 03/05/2024
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: devx-track-azurecli
@@ -30,54 +30,17 @@ Service Bus destinations let you configure the connection with a *connection str
 
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
-This article shows how to create a managed identity in the Azure portal. You can also use the Azure CLI to create a manged identity. To learn more, see [Assign a managed identity access to a resource using Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
-
-# [Connection string](#tab/connection-string)
-
 ### Create a Service Bus queue or topic destination
-
-If you don't have an existing Service Bus namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Service Bus namespace, and queue. It then prints the connection string to use when you configure the data export in IoT Central:
-
-```azurecli-interactive
-# Replace the Service Bus namespace name with your own unique value
-SBNS=your-service-bus-namespace-$RANDOM
-SBQ=exportdata
-RG=centralexportresources
-LOCATION=eastus
-
-az group create -n $RG --location $LOCATION
-az servicebus namespace create --name $SBNS --resource-group $RG -l $LOCATION
-
-# This example uses a Service Bus queue. You can use a Service Bus topic.
-az servicebus queue create --name $SBQ --resource-group $RG --namespace-name $SBNS
-az servicebus queue authorization-rule create --queue-name $SBQ --resource-group $RG --namespace-name $SBNS --name SendRule --rights Send
-
-CS=$(az servicebus queue authorization-rule keys list --queue-name $SBQ --resource-group $RG --namespace-name $SBNS --name SendRule --query "primaryConnectionString" -o tsv)
-
-echo "Service bus connection string: $CS"
-```
-
-To create the Service Bus destination in IoT Central on the **Data export** page:
-
-1. Select **+ New destination**.
-
-1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
-
-1. Select **Connection string** as the authorization type.
-
-1. Paste in the connection string for your Service Bus resource, and enter the case-sensitive queue or topic name if necessary.
-
-1. Select **Save**.
 
 # [Managed identity](#tab/managed-identity)
 
-### Create a Service Bus queue or topic destination
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
 
 If you don't have an existing Service Bus namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Service Bus namespace, and queue. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your Service Bus queue:
 
 ```azurecli-interactive
 # Replace the Service Bus namespace name with your own unique value
-SBNS=your-event-hubs-namespace-$RANDOM
+SBNS=your-service-bus-namespace-$RANDOM
 
 # Replace the IoT Central app name with the name of your
 # IoT Central application.
@@ -118,6 +81,43 @@ To create the Service Bus destination in IoT Central on the **Data export** page
 
 1. Select **Save**.
 
+If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshooting.md).
+
+# [Connection string](#tab/connection-string)
+
+If you don't have an existing Service Bus namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Service Bus namespace, and queue. It then prints the connection string to use when you configure the data export in IoT Central:
+
+```azurecli-interactive
+# Replace the Service Bus namespace name with your own unique value
+SBNS=your-service-bus-namespace-$RANDOM
+SBQ=exportdata
+RG=centralexportresources
+LOCATION=eastus
+
+az group create -n $RG --location $LOCATION
+az servicebus namespace create --name $SBNS --resource-group $RG -l $LOCATION
+
+# This example uses a Service Bus queue. You can use a Service Bus topic.
+az servicebus queue create --name $SBQ --resource-group $RG --namespace-name $SBNS
+az servicebus queue authorization-rule create --queue-name $SBQ --resource-group $RG --namespace-name $SBNS --name SendRule --rights Send
+
+CS=$(az servicebus queue authorization-rule keys list --queue-name $SBQ --resource-group $RG --namespace-name $SBNS --name SendRule --query "primaryConnectionString" -o tsv)
+
+echo "Service bus connection string: $CS"
+```
+
+To create the Service Bus destination in IoT Central on the **Data export** page:
+
+1. Select **+ New destination**.
+
+1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
+
+1. Select **Connection string** as the authorization type.
+
+1. Paste in the connection string for your Service Bus resource, and enter the case-sensitive queue or topic name if necessary.
+
+1. Select **Save**.
+
 ---
 
 [!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
@@ -132,7 +132,7 @@ To create the Service Bus destination in IoT Central on the **Data export** page
 
 [!INCLUDE [iot-central-data-export-audit-logs](../../../includes/iot-central-data-export-audit-logs.md)]
 
-For Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
+For Service Bus, IoT Central exports new messages data to your Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
 
 ## Next steps
 

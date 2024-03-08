@@ -1,13 +1,10 @@
 ---
 title:  Machine Learning in Azure Synapse Analytics 
 description: An Overview of machine learning capabilities in Azure Synapse Analytics.
-
-services: synapse-analytics 
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: overview 
-ms.reviewer: sngun, garye
-
+ms.reviewer: sngun
 ms.date: 08/31/2022
 author: nelgson
 ms.author: negust
@@ -59,7 +56,7 @@ In addition to MLlib, popular libraries such as [Scikit Learn](https://scikit-le
 
 ### Train models with Azure Machine Learning automated ML
 
-Another way to train machine learning models, that does not require much prior familiarity with machine learning, is to use automated ML. [Automated ML](../../machine-learning/concept-automated-ml.md) is a feature that automatically trains a set of machine learning models and allows the user to select the best model based on specific metrics. Thanks to a seamless integration with Azure Machine Learning from Azure Synapse Notebooks, users can easily leverage automated ML in Synapse with passthrough Azure Active Directory authentication.  This means that you only need to point to your Azure Machine Learning workspace and do not need to enter any credentials. The tutorial, [Train a model in Python with automated machine learning](../spark/apache-spark-azure-machine-learning-tutorial.md), describes how to train models using Azure Machine Learning automated ML on Synapse Spark Pools.
+Another way to train machine learning models, that does not require much prior familiarity with machine learning, is to use automated ML. [Automated ML](../../machine-learning/concept-automated-ml.md) is a feature that automatically trains a set of machine learning models and allows the user to select the best model based on specific metrics. Thanks to a seamless integration with Azure Machine Learning from Azure Synapse Notebooks, users can easily leverage automated ML in Synapse with passthrough Microsoft Entra authentication.  This means that you only need to point to your Azure Machine Learning workspace and do not need to enter any credentials. The tutorial, [Train a model in Python with automated machine learning](../spark/apache-spark-azure-machine-learning-tutorial.md), describes how to train models using Azure Machine Learning automated ML on Synapse Spark Pools.
 
 ## Model deployment and scoring
 

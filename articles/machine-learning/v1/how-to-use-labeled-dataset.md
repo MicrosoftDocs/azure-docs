@@ -1,14 +1,14 @@
 ---
 title: Create and explore datasets with labels
 titleSuffix: Azure Machine Learning
-description: Learn how to export data labels from your Azure Machine Learning labeling projects and use them for machine learning tasks.  
-author: kvijaykannan 
-ms.author: vkann 
+description: Learn how to export data labels from your Azure Machine Learning labeling projects and use them for machine learning tasks.
+author: kvijaykannan
+ms.author: vkann
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: UpdateFrequency5, data4ml, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, data4ml, sdkv1
 ms.date: 08/17/2022
 #Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---
@@ -30,7 +30,7 @@ Azure Machine Learning datasets with labels are referred to as labeled datasets.
 
 ## Export data labels 
 
-When you complete a data labeling project, you can [export the label data from a labeling project](../how-to-create-image-labeling-projects.md#export-the-labels). Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. 
+When you complete a data labeling project, you can [export the label data from a labeling project](../how-to-manage-labeling-projects.md#export-the-labels). Doing so, allows you to capture both the reference to the data and its labels, and export them in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. 
 
 Use the **Export** button on the **Project details** page of your labeling project.
 
@@ -65,7 +65,7 @@ pip install azureml-dataprep
 In the following code, the `animal_labels` dataset is the output from a labeling project previously saved to the workspace.
 The exported dataset is a [TabularDataset](/python/api/azureml-core/azureml.data.tabular_dataset.tabulardataset). 
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```Python
 import azureml.core

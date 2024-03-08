@@ -3,7 +3,7 @@ title: Default Python packages in Azure Automation
 description: List of default Python packages in Automation service.
 ms.date: 03/15/2023
 ms.topic: reference
-ms.custom: subject-python-package-reference
+ms.custom: subject-python-package-reference, devx-track-python
 ---
 # Default Python packages
 
@@ -115,4 +115,3 @@ azure_mgmt_billing |  0.2.0 |
 |sqlite_bro |  0.9.1 |
 |urllib3 |  1.25.7 |
 |wheel |  0.34.2 |
-

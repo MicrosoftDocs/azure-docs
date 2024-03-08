@@ -37,7 +37,7 @@ Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an Open
 
 During this tutorial, you'll create a resource group, which contains the virtual network for the cluster. To do this, you'll need Contributor and User Access Administrator permissions or Owner permissions, either directly on the virtual network or on the resource group or subscription containing it.
 
-You'll also need sufficient Azure Active Directory permissions (either a member user of the tenant, or a guest assigned with role **Application administrator**) for the tooling to create an application and service principal on your behalf for the cluster. See [Member and guests](../active-directory/fundamentals/users-default-permissions.md#member-and-guest-users) and [Assign administrator and non-administrator roles to users with Azure Active Directory](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) for more details.
+You'll also need sufficient Microsoft Entra permissions (either a member user of the tenant, or a guest assigned with role **Application administrator**) for the tooling to create an application and service principal on your behalf for the cluster. See [Member and guests](../active-directory/fundamentals/users-default-permissions.md#member-and-guest-users) and [Assign administrator and non-administrator roles to users with Microsoft Entra ID](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) for more details.
 
 ### Register the resource providers
 
@@ -77,7 +77,7 @@ You'll also need sufficient Azure Active Directory permissions (either a member 
    > [!NOTE] 
    > ARO pull secret doesn't change the cost of the RH OpenShift license for ARO.
 
-A Red Hat pull secret enables your cluster to access Red Hat container registries along with other content. This step is optional but recommended. The field `cloud.openshift.com` is removed from your secret even if your pull-secret contains that field. This field enables an extra monitoring feature, which sends data to RedHat and is thus disabled by default. To enable this feature, see https://docs.openshift.com/container-platform/4.11/support/remote_health_monitoring/enabling-remote-health-reporting.html . 
+A Red Hat pull secret enables your cluster to access Red Hat container registries, along with other content such as operators from [OperatorHub](https://operatorhub.io/). This step is optional but recommended. If you decide to add the pull secret later, follow [this guidance](howto-add-update-pull-secret.md). The field `cloud.openshift.com` is removed from your secret even if your pull-secret contains that field. This field enables an extra monitoring feature, which sends data to RedHat and is thus disabled by default. To enable this feature, see https://docs.openshift.com/container-platform/4.11/support/remote_health_monitoring/enabling-remote-health-reporting.html .
 
 1. [Navigate to your Red Hat OpenShift cluster manager portal](https://console.redhat.com/openshift/install/azure/aro-provisioned) and sign-in.
 

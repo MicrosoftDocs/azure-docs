@@ -4,7 +4,7 @@ description: This PowerShell script sets and gets share synchronization settings
 author: sidontha
 ms.service: data-share
 ms.topic: article
-ms.date: 10/31/2022
+ms.date: 12/19/2023
 ms.author: sidontha 
 ms.custom: devx-track-azurepowershell
 ---
@@ -14,7 +14,6 @@ ms.custom: devx-track-azurepowershell
 This PowerShell script sets and gets share synchronization settings.
 
 ## Sample script
-
 
 ```powershell
 # Set variables with your own values
@@ -37,7 +36,7 @@ Get-AzDataShareSynchronizationSetting -ResourceGroupName $resourceGroupName -Acc
 
 ## Script explanation
 
-This script uses the following commands: 
+This script uses the following commands: =
 
 | Command | Notes |
 |---|---|
@@ -49,4 +48,4 @@ This script uses the following commands:
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
-Additional Azure Data Share PowerShell script samples can be found in the [Azure Data Share PowerShell samples](../../samples-powershell.md).
+Other Azure Data Share PowerShell script samples can be found in the [Azure Data Share PowerShell samples](../../samples-powershell.md).

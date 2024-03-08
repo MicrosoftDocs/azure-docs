@@ -7,21 +7,21 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: how-to
 ms.date: 04/11/2023
-ms.custom: template-concept, ignite-2022
+ms.custom: template-concept, linux-related-content
 ---
- 
+
 # Use sample application for guest attestation
 
 The [*guest attestation*](guest-attestation-confidential-vms.md) feature helps you to confirm that a confidential VM runs on a hardware-based trusted execution environment (TEE) with security features enabled for isolation and integrity.
 
 Sample applications for use with the guest attestation APIs are [available on GitHub](https://github.com/Azure/confidential-computing-cvm-guest-attestation).
 
-Depending on your [type of scenario](guest-attestation-confidential-vms.md#scenarios), you can reuse the sample code in your client program or workload code. 
+Depending on your [type of scenario](guest-attestation-confidential-vms.md#scenarios), you can reuse the sample code in your client program or workload code.
 
 ## Prerequisites
 
 - An Azure subscription.
-- An Azure [confidential VM](quick-create-confidential-vm-portal-amd.md) or a [VM with trusted launch enabled](../virtual-machines/trusted-launch-portal.md). You can use a Ubuntu Linux VM or Windows VM.
+- An Azure [confidential VM](quick-create-confidential-vm-portal.md) or a [VM with trusted launch enabled](../virtual-machines/trusted-launch-portal.md). You can use a Ubuntu Linux VM or Windows VM.
 
 ## Use sample application
 
@@ -36,17 +36,17 @@ To use a sample application in C++ for use with the guest attestation APIs, foll
 1. Install the `build-essential` package. This package installs everything required for compiling the sample application.
 
     ```bash
-    sudo apt-get install build-essential 
+    sudo apt-get install build-essential
     ```
 
 1. Install the `libcurl4-openssl-dev` and `libjsoncpp-dev` packages.
 
     ```bash
-    sudo apt-get install libcurl4-openssl-dev 
+    sudo apt-get install libcurl4-openssl-dev
     ```
 
     ```bash
-    sudo apt-get install libjsoncpp-dev 
+    sudo apt-get install libjsoncpp-dev
     ```
 
 1. Download the attestation package from <https://packages.microsoft.com/repos/azurecore/pool/main/a/azguestattestation1/>.
@@ -69,6 +69,6 @@ To use a sample application in C++ for use with the guest attestation APIs, foll
 
 ## Next steps
 
-- [Learn how to use Microsoft Defender for Cloud integration with confidential VMs with guest attestation installed](guest-attestation-defender-for-cloud.md) 
+- [Learn how to use Microsoft Defender for Cloud integration with confidential VMs with guest attestation installed](guest-attestation-defender-for-cloud.md)
 - [Learn more about the guest attestation feature](guest-attestation-confidential-vms.md)
 - [Learn about Azure confidential VMs](confidential-vm-overview.md)

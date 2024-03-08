@@ -1,11 +1,9 @@
 ---
 title: Use Azure Key Vault in templates
 description: Learn how to use Azure Key Vault to pass secure parameter values during Azure Resource Manager template (ARM template) deployment.
-author: mumian
-ms.date: 03/01/2021
+ms.date: 06/23/2023
 ms.topic: tutorial
-ms.author: jgao
-ms.custom: seodec18, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Integrate Azure Key Vault in your ARM template deployment
@@ -143,12 +141,12 @@ By using the static ID method, you don't need to make any changes to the templat
 
     ```json
     "adminPassword": {
-        "reference": {
-            "keyVault": {
-                "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
-            },
-            "secretName": "vmAdminPassword"
-        }
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+        },
+        "secretName": "vmAdminPassword"
+      }
     },
     ```
 

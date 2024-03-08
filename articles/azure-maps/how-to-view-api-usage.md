@@ -1,5 +1,6 @@
 ---
-title: View Azure Maps API usage metrics | Microsoft Azure Maps
+title: View Azure Maps API usage metrics
+titleSuffix: Microsoft Azure Maps
 description: Learn how to view Azure Maps API usage metrics, such as total requests, total errors, and availability. See how to filter data and split results.
 author: eriklindeman
 ms.author: eriklind
@@ -11,7 +12,7 @@ services: azure-maps
 
 # View Azure Maps API usage metrics
 
-This article shows you how to view the API usage metrics, for your Azure Maps account, in the [Azure portal](https://portal.azure.com). The metrics are shown in a convenient graph format along a customizable time duration.
+This article shows you how to view the API usage metrics, for your Azure Maps account, in the [Azure portal]. The metrics are shown in a convenient graph format along a customizable time duration.
 
 ## View metric snapshot
 
@@ -23,7 +24,7 @@ Continue to the next section if you need to customize these graphs for your part
 
 ## View detailed metrics
 
-1. Sign in to your Azure subscription in the [portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Click the **All resources** menu item on the left-hand side and navigate to your *Azure Maps Account*.
 
@@ -53,11 +54,16 @@ Continue to the next section if you need to customize these graphs for your part
 ## Next steps
 
 Learn more about the Azure Maps APIs you want to track usage for:
-> [!div class="nextstepaction"]	
-> [Azure Maps Web SDK How-To](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]	
-> [Azure Maps Android SDK How-To](how-to-use-android-map-control-library.md)
+> [!div class="nextstepaction"]
+> [Azure Maps Web SDK How-To]
 
 > [!div class="nextstepaction"]
-> [Azure Maps REST API documentation](/rest/api/maps)
+> [Azure Maps Android SDK How-To]
+
+> [!div class="nextstepaction"]
+> [Azure Maps REST API documentation]
+
+[Azure portal]: https://portal.azure.com
+[Azure Maps Web SDK How-To]: how-to-use-map-control.md
+[Azure Maps Android SDK How-To]: how-to-use-android-map-control-library.md
+[Azure Maps REST API documentation]: /rest/api/maps

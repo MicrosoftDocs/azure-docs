@@ -2,27 +2,27 @@
 title: Kubernetes monitoring with Container insights | Microsoft Docs
 description: This article describes how you can view and analyze the performance of a Kubernetes cluster with Container insights.
 ms.topic: conceptual
-ms.date: 08/29/2022
+ms.date: 05/17/2023
 ms.reviewer: viviandiec
 ---
 
 # Monitor your Kubernetes cluster performance with Container insights
 
-With Container insights, you can use the performance charts and health status to monitor the workload of Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or another environment from two perspectives. You can monitor directly from the cluster. You can also view all clusters in a subscription from Azure Monitor. Viewing Azure Container Instances is also possible when you're monitoring a specific AKS cluster.
+Use the workbooks, performance charts, and health status in Container insights to monitor the workload of Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or another environment.
 
 This article helps you understand the two perspectives and how Azure Monitor helps you quickly assess, investigate, and resolve detected issues.
 
-For information about how to enable Container insights, see [Onboard Container insights](container-insights-onboard.md).
 
-Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows clusters discovered across all environments that aren't monitored by the solution. 
 
-With this view, you can immediately understand cluster health. From here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time.
+## Workbooks
 
-The main differences in monitoring a Windows Server cluster with Container insights compared to a Linux cluster are described in [Features of Container insights](container-insights-overview.md#features-of-container-insights) in the overview article.
+Workbooks combine text, log queries, metrics, and parameters into rich interactive reports that you can use to analyze cluster performance. For a description of the workbooks available for Container insights and how to access them, see [Workbooks in Container insights](container-insights-reports.md). 
+
 
 ## Multi-cluster view from Azure Monitor
+Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters deployed across resource groups in your subscriptions. It also shows clusters discovered across all environments that aren't monitored by the solution. With this view, you can immediately understand cluster health and then drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring from the view.
 
-To view the health status of all Kubernetes clusters deployed, select **Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.
+To access the multi-cluster view, select **Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.
 
 :::image type="content" source="./media/container-insights-analyze/azmon-containers-multiview.png" alt-text="Screenshot that shows an Azure Monitor multi-cluster dashboard example." lightbox="media/container-insights-analyze/azmon-containers-multiview.png":::
 
@@ -61,21 +61,9 @@ The following table provides a breakdown of the calculation that controls the he
 
 | Monitored cluster |Status |Availability |
 |-------|-------|-----------------|
-|**User pod**| | |
-| |Healthy |100% |
-| |Warning |90 - 99% |
-| |Critical |<90% |
-| |Unknown |If not reported in last 30 minutes |
-|**System pod**| | |
-| |Healthy |100% |
-| |Warning |N/A |
-| |Critical |<100% |
-| |Unknown |If not reported in last 30 minutes |
-|**Node** | | |
-| |Healthy |>85% |
-| |Warning |60 - 84% |
-| |Critical |<60% |
-| |Unknown |If not reported in last 30 minutes |
+|**User pod**| Healthy<br>Warning<br>Critical<br>Unknown |100%<br>90 - 99%<br><90%<br>Not reported in last 30 minutes |
+|**System pod**| Healthy<br>Warning<br>Critical<br>Unknown |100%<br>N/A<br>100%<br>Not reported in last 30 minutes |
+|**Node** | Healthy<br>Warning<br>Critical<br>Unknown | >85%<br>60 - 84%<br><60%<br>Not reported in last 30 minutes |
 
 From the list of clusters, you can drill down to the **Cluster** page by selecting the name of the cluster. Then go to the **Nodes** performance page by selecting the rollup of nodes in the **Nodes** column for that specific cluster. Or, you can drill down to the **Controllers** performance page by selecting the rollup of the **User pods** or **System pods** column.
 
@@ -158,7 +146,7 @@ Azure Container Instances virtual nodes that run the Linux OS are shown after th
 
 From an expanded node, you can drill down from the pod or container that runs on the node to the controller to view performance data filtered for that controller. Select the value under the **Controller** column for the specific node.
 
-:::image type="content" source="./media/container-insights-analyze/drill-down-node-controller.png" alt-text="Screenshot that shows the drill-down from node to controller in the performance view." lightbox="media/container-insights-analyze/drill-down-node-controller.png" border="false":::
+:::image type="content" source="./media/container-insights-analyze/drill-down-node-controller.png" alt-text="Screenshot that shows the drill-down from node to controller in the performance view." lightbox="media/container-insights-analyze/drill-down-node-controller.png":::
 
 Select controllers or containers at the top of the page to review the status and resource utilization for those objects. To review memory utilization, in the **Metric** dropdown list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value.
 
@@ -220,7 +208,7 @@ The row hierarchy starts with a controller. When you expand a controller, you vi
 
 Select the value under the **Node** column for the specific controller.
 
-:::image type="content" source="./media/container-insights-analyze/drill-down-controller-node.png" alt-text="Screenshot that shows an example drill-down from controller to node in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png" border="false":::
+:::image type="content" source="./media/container-insights-analyze/drill-down-controller-node.png" alt-text="Screenshot that shows an example drill-down from controller to node in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png":::
 
 The information that's displayed when you view controllers is described in the following table.
 
@@ -240,10 +228,10 @@ The icons in the status field indicate the online status of the containers.
 
 | Icon | Status |
 |--------|-------------|
-| ![Ready running status icon.](./media/container-insights-analyze/containers-ready-icon.png) | Running (Ready)|
-| ![Waiting or Paused status icon.](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|
-| ![Last reported running status icon.](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded for more than 30 minutes|
-| ![Successful status icon.](./media/container-insights-analyze/containers-green-icon.png) | Successfully stopped or failed to stop|
+| :::image type="content" source="./media/container-insights-analyze/containers-ready-icon.png" alt-text="Ready running status icon.":::|
+| :::image type="content" source="./media/container-insights-analyze/containers-waiting-icon.png" alt-text="Waiting or Paused status icon."::: | Waiting or Paused|
+| :::image type="content" source="./media/container-insights-analyze/containers-grey-icon.png" alt-text="Last reported running status icon."::: | Last reported running but hasn't responded for more than 30 minutes|
+| :::image type="content" source="./media/container-insights-analyze/containers-green-icon.png" alt-text="Successful status icon."::: | Successfully stopped or failed to stop|
 
 The status icon displays a count based on what the pod provides. It shows the worst two states. When you hover over the status, it displays a rollup status from all pods in the container. If there isn't a ready state, the status value displays **(0)**.
 
@@ -257,7 +245,7 @@ Here you can view the performance health of your AKS and Container Instances con
 
 From a container, you can drill down to a pod or node to view performance data filtered for that object. Select the value under the **Pod** or **Node** column for the specific container.
 
-:::image type="content" source="./media/container-insights-analyze/drill-down-container-node.png" alt-text="Screenshot that shows an example drill-down from node to containers in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png" border="false":::
+:::image type="content" source="./media/container-insights-analyze/drill-down-container-node.png" alt-text="Screenshot that shows an example drill-down from node to containers in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png":::
 
 The information that's displayed when you view containers is described in the following table.
 
@@ -277,19 +265,21 @@ The icons in the status field indicate the online statuses of pods, as described
 
 | Icon | Status |
 |--------|-------------|
-| ![Ready running status icon.](./media/container-insights-analyze/containers-ready-icon.png) | Running (Ready)|
-| ![Waiting or Paused status icon.](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|
-| ![Last reported running status icon.](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|
-| ![Terminated status icon.](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|
-| ![Failed status icon.](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |
+| :::image type="content" source="./media/container-insights-analyze/containers-ready-icon.png" alt-text="Ready running status icon.":::|
+| :::image type="content" source="./media/container-insights-analyze/containers-waiting-icon.png" alt-text="Waiting or Paused status icon."::: | Waiting or Paused|
+| :::image type="content" source="./media/container-insights-analyze/containers-grey-icon.png" alt-text="Last reported running status icon."::: | Last reported running but hasn't responded in more than 30 minutes|
+| :::image type="content" source="./media/container-insights-analyze/containers-terminated-icon.png" alt-text="Terminated status icon."::: | Successfully stopped or failed to stop|
+| :::image type="content" source="./media/container-insights-analyze/containers-failed-icon.png" alt-text="Failed status icon."::: | Failed state |
 
 ## Monitor and visualize network configurations
 
 Azure Network Policy Manager includes informative Prometheus metrics that you can use to monitor and better understand your network configurations. It provides built-in visualizations in either the Azure portal or Grafana Labs. For more information, see [Monitor and visualize network configurations with Azure npm](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
 
-## Workbooks
+## Frequently asked questions
 
-Workbooks combine text, log queries, metrics, and parameters into rich interactive reports that you can use to analyze cluster performance. For a description of the workbooks available for Container insights, see [Workbooks in Container insights](container-insights-reports.md).
+This section provides answers to common questions.
+
+[!INCLUDE [container-insights-faq-what-does-other-processes-represent](../includes/container-insights-faq-what-does-other-processes-represent.md)]
 
 ## Next steps
 

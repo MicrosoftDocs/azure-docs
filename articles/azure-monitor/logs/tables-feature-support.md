@@ -1,14 +1,13 @@
 ---
-title: Tables that support ingestion-time transformations in Azure Monitor Logs (preview)
-description: Reference for tables that support ingestion-time transformations in Azure Monitor Logs (preview).
+title: Tables that support ingestion-time transformations in Azure Monitor Logs
+description: Reference for tables that support ingestion-time transformations in Azure Monitor Logs.
 ms.topic: reference
 author: bwren
 ms.author: bwren
-ms.tgt_pltfrm: na
 ms.date: 07/10/2022
 ---
 
-# Tables that support transformations in Azure Monitor Logs (preview)
+# Tables that support transformations in Azure Monitor Logs
 
 The following list identifies the tables in a [Log Analytics workspace](log-analytics-workspace-overview.md) that support [transformations](../essentials/data-collection-transformations.md).
 
@@ -31,19 +30,33 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [AADRiskyUsers](/azure/azure-monitor/reference/tables/aadriskyusers) | |
 | [AADServicePrincipalSignInLogs](/azure/azure-monitor/reference/tables/aadserviceprincipalsigninlogs) | |
 | [AADUserRiskEvents](/azure/azure-monitor/reference/tables/aaduserriskevents) | |
+| ABAPAuditLog | |
 | [ABSBotRequests](/azure/azure-monitor/reference/tables/absbotrequests) | |
 | [ACSAuthIncomingOperations](/azure/azure-monitor/reference/tables/acsauthincomingoperations) | |
 | [ACSBillingUsage](/azure/azure-monitor/reference/tables/acsbillingusage) | |
-| [ACRConnectedClientList](/azure/azure-monitor/reference/tables/acrconnectedclientlist) | |
-| [ACRConnectedClientList](/azure/azure-monitor/reference/tables/acrconnectedclientlist) | |
-| [ACSCallDiagnostics](/azure/azure-monitor/reference/tables/acscalldiagnostics) | |
-| [ACSCallSummary](/azure/azure-monitor/reference/tables/acscallsummary) | |
 | [ACSChatIncomingOperations](/azure/azure-monitor/reference/tables/acschatincomingoperations) | |
 | [ACSSMSIncomingOperations](/azure/azure-monitor/reference/tables/acssmsincomingoperations) | |
 | [ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/adassessmentrecommendation) | |
+| [AddonAzureBackupAlerts](/azure/azure-monitor/reference/tables/addonazurebackupalerts) | |
+| [AddonAzureBackupJobs](/azure/azure-monitor/reference/tables/addonazurebackupjobs) | |
+| [AddonAzureBackupPolicy](/azure/azure-monitor/reference/tables/addonazurebackuppolicy) | |
+| [AddonAzureBackupProtectedInstance](/azure/azure-monitor/reference/tables/addonazurebackupprotectedinstance) | |
+| [AddonAzureBackupStorage](/azure/azure-monitor/reference/tables/addonazurebackupstorage) | |
 | [ADFActivityRun](/azure/azure-monitor/reference/tables/adfactivityrun) | |
+| [ADFAirflowSchedulerLogs](/azure/azure-monitor/reference/tables/adfairflowschedulerlogs) | |
+| [ADFAirflowTaskLogs](/azure/azure-monitor/reference/tables/adfairflowtasklogs) | |
+| [ADFAirflowWebLogs](/azure/azure-monitor/reference/tables/adfairflowweblogs) | |
+| [ADFAirflowWorkerLogs](/azure/azure-monitor/reference/tables/adfairflowworkerlogs) | |
 | [ADFPipelineRun](/azure/azure-monitor/reference/tables/adfpipelinerun) | |
+| [ADFSandboxActivityRun](/azure/azure-monitor/reference/tables/adfsandboxactivityrun) | |
+| [ADFSandboxPipelineRun](/azure/azure-monitor/reference/tables/adfsandboxpipelinerun) | |
 | [ADFSSignInLogs](/azure/azure-monitor/reference/tables/adfssigninlogs) | |
+| [ADFSSISIntegrationRuntimeLogs](/azure/azure-monitor/reference/tables/adfssisintegrationruntimelogs) | |
+| [ADFSSISPackageEventMessageContext](/azure/azure-monitor/reference/tables/adfssispackageeventmessagecontext) | |
+| [ADFSSISPackageEventMessages](/azure/azure-monitor/reference/tables/adfssispackageeventmessages) | |
+| [ADFSSISPackageExecutableStatistics](/azure/azure-monitor/reference/tables/adfssispackageexecutablestatistics) | |
+| [ADFSSISPackageExecutionComponentPhases](/azure/azure-monitor/reference/tables/adfssispackageexecutioncomponentphases) | |
+| [ADFSSISPackageExecutionDataStatistics](/azure/azure-monitor/reference/tables/adfssispackageexecutiondatastatistics) | |
 | [ADFTriggerRun](/azure/azure-monitor/reference/tables/adftriggerrun) | |
 | [ADPAudit](/azure/azure-monitor/reference/tables/adpaudit) | |
 | [ADPDiagnostics](/azure/azure-monitor/reference/tables/adpdiagnostics) | |
@@ -51,28 +64,35 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [ADReplicationResult](/azure/azure-monitor/reference/tables/adreplicationresult) | |
 | [ADSecurityAssessmentRecommendation](/azure/azure-monitor/reference/tables/adsecurityassessmentrecommendation) | |
 | [ADTDigitalTwinsOperation](/azure/azure-monitor/reference/tables/adtdigitaltwinsoperation) | |
-| [ADTEventRoutesOperation](/azure/azure-monitor/reference/tables/adteventroutesoperation) | |
 | [ADTModelsOperation](/azure/azure-monitor/reference/tables/adtmodelsoperation) | |
 | [ADTQueryOperation](/azure/azure-monitor/reference/tables/adtqueryoperation) | |
 | [ADXCommand](/azure/azure-monitor/reference/tables/adxcommand) | |
+| [ADXJournal](/azure/azure-monitor/reference/tables/adxjournal) | |
 | [ADXQuery](/azure/azure-monitor/reference/tables/adxquery) | |
+| [ADXTableDetails](/azure/azure-monitor/reference/tables/adxtabledetails) | |
+| [ADXTableUsageStatistics](/azure/azure-monitor/reference/tables/adxtableusagestatistics) | |
 | [AegDeliveryFailureLogs](/azure/azure-monitor/reference/tables/aegdeliveryfailurelogs) | |
 | [AegPublishFailureLogs](/azure/azure-monitor/reference/tables/aegpublishfailurelogs) | |
-| [AEWAuditLogs](/azure/azure-monitor/reference/tables/aewauditlogs) | |
-| [AgriFoodApplicationAuditLogs](/azure/azure-monitor/reference/tables/agrifoodapplicationauditlogs) | |
-| [AgriFoodApplicationAuditLogs](/azure/azure-monitor/reference/tables/agrifoodapplicationauditlogs) | |
-| [AgriFoodFarmManagementLogs](/azure/azure-monitor/reference/tables/agrifoodfarmmanagementlogs) | |
-| [AgriFoodFarmManagementLogs](/azure/azure-monitor/reference/tables/agrifoodfarmmanagementlogs) | |
-| [AgriFoodFarmOperationLogs](/azure/azure-monitor/reference/tables/agrifoodfarmoperationlogs) | |
-| [AgriFoodInsightLogs](/azure/azure-monitor/reference/tables/agrifoodinsightlogs) | |
-| [AgriFoodJobProcessedLogs](/azure/azure-monitor/reference/tables/agrifoodjobprocessedlogs) | |
-| [AgriFoodModelInferenceLogs](/azure/azure-monitor/reference/tables/agrifoodmodelinferencelogs) | |
-| [AgriFoodProviderAuthLogs](/azure/azure-monitor/reference/tables/agrifoodproviderauthlogs) | |
-| [AgriFoodSatelliteLogs](/azure/azure-monitor/reference/tables/agrifoodsatellitelogs) | |
-| [AgriFoodWeatherLogs](/azure/azure-monitor/reference/tables/agrifoodweatherlogs) | |
+| [AirflowDagProcessingLogs](/azure/azure-monitor/reference/tables/airflowdagprocessinglogs) | |
 | [Alert](/azure/azure-monitor/reference/tables/alert) | |
 | [AlertEvidence](/azure/azure-monitor/reference/tables/alertevidence) | |
+| [AlertInfo](/azure/azure-monitor/reference/tables/alertinfo) | |
+| [AmlComputeClusterEvent](/azure/azure-monitor/reference/tables/amlcomputeclusterevent) | |
+| [AmlComputeCpuGpuUtilization](/azure/azure-monitor/reference/tables/amlcomputecpugpuutilization) | |
+| [AmlComputeInstanceEvent](/azure/azure-monitor/reference/tables/amlcomputeinstanceevent) | |
+| [AmlComputeJobEvent](/azure/azure-monitor/reference/tables/amlcomputejobevent) | |
+| [AmlDataLabelEvent](/azure/azure-monitor/reference/tables/amldatalabelevent) | |
+| [AmlDataSetEvent](/azure/azure-monitor/reference/tables/amldatasetevent) | |
+| [AmlDataStoreEvent](/azure/azure-monitor/reference/tables/amldatastoreevent) | |
+| [AmlDeploymentEvent](/azure/azure-monitor/reference/tables/amldeploymentevent) | |
+| [AmlEnvironmentEvent](/azure/azure-monitor/reference/tables/amlenvironmentevent) | |
+| [AmlInferencingEvent](/azure/azure-monitor/reference/tables/amlinferencingevent) | |
+| [AmlModelsEvent](/azure/azure-monitor/reference/tables/amlmodelsevent) | |
 | [AmlOnlineEndpointConsoleLog](/azure/azure-monitor/reference/tables/amlonlineendpointconsolelog) | |
+| [AmlPipelineEvent](/azure/azure-monitor/reference/tables/amlpipelineevent) | |
+| [AmlRunEvent](/azure/azure-monitor/reference/tables/amlrunevent) | |
+| [AmlRunStatusChangedEvent](/azure/azure-monitor/reference/tables/amlrunstatuschangedevent) | |
+| [Anomalies](/azure/azure-monitor/reference/tables/anomalies) | |
 | [ApiManagementGatewayLogs](/azure/azure-monitor/reference/tables/apimanagementgatewaylogs) | |
 | [AppAvailabilityResults](/azure/azure-monitor/reference/tables/appavailabilityresults) | |
 | [AppBrowserTimings](/azure/azure-monitor/reference/tables/appbrowsertimings) | |
@@ -83,21 +103,37 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [AppMetrics](/azure/azure-monitor/reference/tables/appmetrics) | |
 | [AppPageViews](/azure/azure-monitor/reference/tables/apppageviews) | |
 | [AppPerformanceCounters](/azure/azure-monitor/reference/tables/appperformancecounters) | |
+| [AppPlatformIngressLogs](/azure/azure-monitor/reference/tables/appplatformingresslogs) | |
+| [AppPlatformLogsforSpring](/azure/azure-monitor/reference/tables/appplatformlogsforspring) | |
 | [AppPlatformSystemLogs](/azure/azure-monitor/reference/tables/appplatformsystemlogs) | |
 | [AppRequests](/azure/azure-monitor/reference/tables/apprequests) | |
+| [AppServiceAntivirusScanAuditLogs](/azure/azure-monitor/reference/tables/appserviceantivirusscanauditlogs) | |
 | [AppServiceAppLogs](/azure/azure-monitor/reference/tables/appserviceapplogs) | |
 | [AppServiceAuditLogs](/azure/azure-monitor/reference/tables/appserviceauditlogs) | |
 | [AppServiceConsoleLogs](/azure/azure-monitor/reference/tables/appserviceconsolelogs) | |
+| [AppServiceEnvironmentPlatformLogs](/azure/azure-monitor/reference/tables/appserviceenvironmentplatformlogs) | |
 | [AppServiceFileAuditLogs](/azure/azure-monitor/reference/tables/appservicefileauditlogs) | |
 | [AppServiceHTTPLogs](/azure/azure-monitor/reference/tables/appservicehttplogs) | |
+| [AppServiceIPSecAuditLogs](/azure/azure-monitor/reference/tables/appserviceipsecauditlogs) | |
 | [AppServicePlatformLogs](/azure/azure-monitor/reference/tables/appserviceplatformlogs) | |
 | [AppSystemEvents](/azure/azure-monitor/reference/tables/appsystemevents) | |
 | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) | |
-| [ATCExpressRouteCircuitIpfix](/azure/azure-monitor/reference/tables/atcexpressroutecircuitipfix) | |
+| [ASimAuditEventLogs](/azure/azure-monitor/reference/tables/asimauditeventlogs) | |
+| [ASimAuthenticationEventLogs](/azure/azure-monitor/reference/tables/asimauthenticationeventlogs) | |
+| [ASimDhcpEventLogs](/azure/azure-monitor/reference/tables/asimdhcpeventlogs) | |
+| [ASimDnsActivityLogs](/azure/azure-monitor/reference/tables/asimdnsactivitylogs) | |
+| ASimDnsAuditLogs | |
+| [ASimFileEventLogs](/azure/azure-monitor/reference/tables/asimfileeventlogs) | |
+| [ASimNetworkSessionLogs](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) | |
+| [ASimProcessEventLogs](/azure/azure-monitor/reference/tables/asimprocesseventlogs) | |
+| [ASimRegistryEventLogs](/azure/azure-monitor/reference/tables/asimregistryeventlogs) | |
+| [ASimUserManagementActivityLogs](/azure/azure-monitor/reference/tables/asimusermanagementactivitylogs) | |
+| [ASimWebSessionLogs](/azure/azure-monitor/reference/tables/asimwebsessionlogs) | |
 | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) | |
 | [AutoscaleEvaluationsLog](/azure/azure-monitor/reference/tables/autoscaleevaluationslog) | |
 | [AutoscaleScaleActionsLog](/azure/azure-monitor/reference/tables/autoscalescaleactionslog) | |
 | [AWSCloudTrail](/azure/azure-monitor/reference/tables/awscloudtrail) | |
+| [AWSCloudWatch](/azure/azure-monitor/reference/tables/awscloudwatch) | |
 | [AWSGuardDuty](/azure/azure-monitor/reference/tables/awsguardduty) | |
 | [AWSVPCFlow](/azure/azure-monitor/reference/tables/awsvpcflow) | |
 | [AzureAssessmentRecommendation](/azure/azure-monitor/reference/tables/azureassessmentrecommendation) | |
@@ -116,36 +152,67 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [CloudAppEvents](/azure/azure-monitor/reference/tables/cloudappevents) | |
 | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) | |
 | [ComputerGroup](/azure/azure-monitor/reference/tables/computergroup) | |
-| [ConfigurationData](/azure/azure-monitor/reference/tables/configurationdata) | Partial support – some of the data is ingested through internal services that aren't supported.|
+| [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) | |
+| [ConfigurationData](/azure/azure-monitor/reference/tables/configurationdata) | Partial support – some of the data is ingested through internal services that aren't supported. |
 | [ContainerImageInventory](/azure/azure-monitor/reference/tables/containerimageinventory) | |
 | [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) | |
 | [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) | |
 | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) | |
 | [ContainerNodeInventory](/azure/azure-monitor/reference/tables/containernodeinventory) | |
+| [ContainerRegistryLoginEvents](/azure/azure-monitor/reference/tables/containerregistryloginevents) | |
+| [ContainerRegistryRepositoryEvents](/azure/azure-monitor/reference/tables/containerregistryrepositoryevents) | |
 | [ContainerServiceLog](/azure/azure-monitor/reference/tables/containerservicelog) | |
 | [CoreAzureBackup](/azure/azure-monitor/reference/tables/coreazurebackup) | |
 | [DatabricksAccounts](/azure/azure-monitor/reference/tables/databricksaccounts) | |
 | [DatabricksClusters](/azure/azure-monitor/reference/tables/databricksclusters) | |
 | [DatabricksDBFS](/azure/azure-monitor/reference/tables/databricksdbfs) | |
+| [DatabricksFeatureStore](/azure/azure-monitor/reference/tables/databricksfeaturestore) | |
+| [DatabricksGenie](/azure/azure-monitor/reference/tables/databricksgenie) | |
+| [DatabricksGlobalInitScripts](/azure/azure-monitor/reference/tables/databricksglobalinitscripts) | |
 | [DatabricksInstancePools](/azure/azure-monitor/reference/tables/databricksinstancepools) | |
 | [DatabricksJobs](/azure/azure-monitor/reference/tables/databricksjobs) | |
+| [DatabricksMLflowAcledArtifact](/azure/azure-monitor/reference/tables/databricksmlflowacledartifact) | |
+| [DatabricksMLflowExperiment](/azure/azure-monitor/reference/tables/databricksmlflowexperiment) | |
 | [DatabricksNotebook](/azure/azure-monitor/reference/tables/databricksnotebook) | |
+| [DatabricksRemoteHistoryService](/azure/azure-monitor/reference/tables/databricksremotehistoryservice) | |
 | [DatabricksSecrets](/azure/azure-monitor/reference/tables/databrickssecrets) | |
 | [DatabricksSQLPermissions](/azure/azure-monitor/reference/tables/databrickssqlpermissions) | |
 | [DatabricksSSH](/azure/azure-monitor/reference/tables/databricksssh) | |
 | [DatabricksWorkspace](/azure/azure-monitor/reference/tables/databricksworkspace) | |
+| [DataverseActivity](/azure/azure-monitor/reference/tables/dataverseactivity) | |
+| DefenderForSqlAlerts  | |
+| DefenderForSqlTelemetry | |
+| [DeviceEvents](/azure/azure-monitor/reference/tables/deviceevents) | |
+| [DeviceFileCertificateInfo](/azure/azure-monitor/reference/tables/devicefilecertificateinfo) | |
+| [DeviceFileEvents](/azure/azure-monitor/reference/tables/devicefileevents) | |
+| [DeviceImageLoadEvents](/azure/azure-monitor/reference/tables/deviceimageloadevents) | |
+| [DeviceInfo](/azure/azure-monitor/reference/tables/deviceinfo) | |
+| [DeviceLogonEvents](/azure/azure-monitor/reference/tables/devicelogonevents) | |
+| [DeviceNetworkEvents](/azure/azure-monitor/reference/tables/devicenetworkevents) | |
 | [DeviceNetworkInfo](/azure/azure-monitor/reference/tables/devicenetworkinfo) | |
+| [DeviceProcessEvents](/azure/azure-monitor/reference/tables/deviceprocessevents) | |
+| [DeviceRegistryEvents](/azure/azure-monitor/reference/tables/deviceregistryevents) | |
+| [DeviceTvmSecureConfigurationAssessment](/azure/azure-monitor/reference/tables/devicetvmsecureconfigurationassessment) | |
+| [DeviceTvmSecureConfigurationAssessmentKB](/azure/azure-monitor/reference/tables/devicetvmsecureconfigurationassessmentkb) | |
+| [DeviceTvmSoftwareInventory](/azure/azure-monitor/reference/tables/devicetvmsoftwareinventory) | |
+| [DeviceTvmSoftwareVulnerabilities](/azure/azure-monitor/reference/tables/devicetvmsoftwarevulnerabilities) | |
+| [DeviceTvmSoftwareVulnerabilitiesKB](/azure/azure-monitor/reference/tables/devicetvmsoftwarevulnerabilitieskb) | |
 | [DnsEvents](/azure/azure-monitor/reference/tables/dnsevents) | |
 | [DnsInventory](/azure/azure-monitor/reference/tables/dnsinventory) | |
+| DummyHydrationFact | |
+| [DynamicEventCollection](/azure/azure-monitor/reference/tables/dynamiceventcollection) | |
 | [Dynamics365Activity](/azure/azure-monitor/reference/tables/dynamics365activity) | |
 | [EmailAttachmentInfo](/azure/azure-monitor/reference/tables/emailattachmentinfo) | |
 | [EmailEvents](/azure/azure-monitor/reference/tables/emailevents) | |
 | [EmailPostDeliveryEvents](/azure/azure-monitor/reference/tables/emailpostdeliveryevents) | |
 | [EmailUrlInfo](/azure/azure-monitor/reference/tables/emailurlinfo) | |
-| [Event](/azure/azure-monitor/reference/tables/event) | Partial support . Data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported. Data arriving from Diagnostics Extension  is collected through Azure storage. This path isn’t supported. | 
+| [Event](/azure/azure-monitor/reference/tables/event) | Partial support . Data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported. Data arriving from Diagnostics Extension  is collected through Azure storage. This path isn’t supported. |
 | [ExchangeAssessmentRecommendation](/azure/azure-monitor/reference/tables/exchangeassessmentrecommendation) | |
+| [ExchangeOnlineAssessmentRecommendation](/azure/azure-monitor/reference/tables/exchangeonlineassessmentrecommendation) | |
 | [FailedIngestion](/azure/azure-monitor/reference/tables/failedingestion) | |
 | [FunctionAppLogs](/azure/azure-monitor/reference/tables/functionapplogs) | |
+| [GCPAuditLogs](/azure/azure-monitor/reference/tables/gcpauditlogs) | |
+| [GoogleCloudSCC](/azure/azure-monitor/reference/tables/googlecloudscc) | |
 | [HDInsightAmbariClusterAlerts](/azure/azure-monitor/reference/tables/hdinsightambariclusteralerts) | |
 | [HDInsightAmbariSystemMetrics](/azure/azure-monitor/reference/tables/hdinsightambarisystemmetrics) | |
 | [HDInsightHadoopAndYarnLogs](/azure/azure-monitor/reference/tables/hdinsighthadoopandyarnlogs) | |
@@ -155,10 +222,9 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [HDInsightHiveAndLLAPLogs](/azure/azure-monitor/reference/tables/hdinsighthiveandllaplogs) | |
 | [HDInsightHiveAndLLAPMetrics](/azure/azure-monitor/reference/tables/hdinsighthiveandllapmetrics) | |
 | [HDInsightHiveTezAppStats](/azure/azure-monitor/reference/tables/hdinsighthivetezappstats) | |
-| [HDInsightJupyterNotebookEvents](/azure/azure-monitor/reference/tables/hdinsightjupyternotebookevents) | |
+| [HDInsightKafkaLogs](/azure/azure-monitor/reference/tables/hdinsightkafkalogs) | |
 | [HDInsightKafkaMetrics](/azure/azure-monitor/reference/tables/hdinsightkafkametrics) | |
 | [HDInsightOozieLogs](/azure/azure-monitor/reference/tables/hdinsightoozielogs) | |
-| [HDInsightRangerAuditLogs](/azure/azure-monitor/reference/tables/hdinsightrangerauditlogs) | |
 | [HDInsightSecurityLogs](/azure/azure-monitor/reference/tables/hdinsightsecuritylogs) | |
 | [HDInsightSparkApplicationEvents](/azure/azure-monitor/reference/tables/hdinsightsparkapplicationevents) | |
 | [HDInsightSparkBlockManagerEvents](/azure/azure-monitor/reference/tables/hdinsightsparkblockmanagerevents) | |
@@ -170,7 +236,12 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [HDInsightSparkStageEvents](/azure/azure-monitor/reference/tables/hdinsightsparkstageevents) | |
 | [HDInsightSparkStageTaskAccumulables](/azure/azure-monitor/reference/tables/hdinsightsparkstagetaskaccumulables) | |
 | [HDInsightSparkTaskEvents](/azure/azure-monitor/reference/tables/hdinsightsparktaskevents) | |
+| [HealthStateChangeEvent](/azure/azure-monitor/reference/tables/healthstatechangeevent) | |
 | [HuntingBookmark](/azure/azure-monitor/reference/tables/huntingbookmark) | |
+| [IdentityDirectoryEvents](/azure/azure-monitor/reference/tables/identitydirectoryevents) | |
+| [IdentityInfo](/azure/azure-monitor/reference/tables/identityinfo) | |
+| [IdentityLogonEvents](/azure/azure-monitor/reference/tables/identitylogonevents) | |
+| [IdentityQueryEvents](/azure/azure-monitor/reference/tables/identityqueryevents) | |
 | [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) | Partial support – some of the data is ingested through internal services that aren't supported. |
 | [IntuneAuditLogs](/azure/azure-monitor/reference/tables/intuneauditlogs) | |
 | [IntuneDevices](/azure/azure-monitor/reference/tables/intunedevices) | |
@@ -180,24 +251,43 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [KubeMonAgentEvents](/azure/azure-monitor/reference/tables/kubemonagentevents) | |
 | [KubeNodeInventory](/azure/azure-monitor/reference/tables/kubenodeinventory) | |
 | [KubePodInventory](/azure/azure-monitor/reference/tables/kubepodinventory) | |
+| [KubePVInventory](/azure/azure-monitor/reference/tables/kubepvinventory) | |
 | [KubeServices](/azure/azure-monitor/reference/tables/kubeservices) | |
 | [LAQueryLogs](/azure/azure-monitor/reference/tables/laquerylogs) | |
+| [LinuxAuditLog](/azure/azure-monitor/reference/tables/linuxauditlog) | |
 | [McasShadowItReporting](/azure/azure-monitor/reference/tables/mcasshadowitreporting) | |
 | [MCCEventLogs](/azure/azure-monitor/reference/tables/mcceventlogs) | |
 | [MicrosoftAzureBastionAuditLogs](/azure/azure-monitor/reference/tables/microsoftazurebastionauditlogs) | |
 | [MicrosoftDataShareReceivedSnapshotLog](/azure/azure-monitor/reference/tables/microsoftdatasharereceivedsnapshotlog) | |
 | [MicrosoftDataShareSentSnapshotLog](/azure/azure-monitor/reference/tables/microsoftdatasharesentsnapshotlog) | |
-| [MicrosoftDataShareShareLog](/azure/azure-monitor/reference/tables/microsoftdatasharesharelog) | |
+| [MicrosoftGraphActivityLogs](/azure/azure-monitor/reference/tables/microsoftgraphactivitylogs) | |
 | [MicrosoftHealthcareApisAuditLogs](/azure/azure-monitor/reference/tables/microsofthealthcareapisauditlogs) | |
+| [MicrosoftPurviewInformationProtection](/azure/azure-monitor/reference/tables/microsoftpurviewinformationprotection) | |
+| [NetworkAccessTraffic](/azure/azure-monitor/reference/tables/networkaccesstraffic) | |
+| [NetworkMonitoring](/azure/azure-monitor/reference/tables/networkmonitoring) | |
+| [NTAIpDetails](/azure/azure-monitor/reference/tables/ntaipdetails) | |
+| [NTANetAnalytics](/azure/azure-monitor/reference/tables/ntanetanalytics) | |
+| [NTATopologyDetails](/azure/azure-monitor/reference/tables/ntatopologydetails) | |
 | [NWConnectionMonitorPathResult](/azure/azure-monitor/reference/tables/nwconnectionmonitorpathresult) | |
 | [NWConnectionMonitorTestResult](/azure/azure-monitor/reference/tables/nwconnectionmonitortestresult) | |
 | [OfficeActivity](/azure/azure-monitor/reference/tables/officeactivity) | |
-| [Perf](/azure/azure-monitor/reference/tables/perf) | Partial support – only windows perf data is currently supported. | 
+| [Perf](/azure/azure-monitor/reference/tables/perf) | Partial support – only windows perf data is currently supported. |
+| [PowerAppsActivity](/azure/azure-monitor/reference/tables/powerappsactivity) | |
+| [PowerAutomateActivity](/azure/azure-monitor/reference/tables/powerautomateactivity) | |
+| [PowerBIActivity](/azure/azure-monitor/reference/tables/powerbiactivity) | |
 | [PowerBIDatasetsWorkspace](/azure/azure-monitor/reference/tables/powerbidatasetsworkspace) | |
-| [HDInsightRangerAuditLogs](/azure/azure-monitor/reference/tables/hdinsightrangerauditlogs) | |
+| [PowerPlatformAdminActivity](/azure/azure-monitor/reference/tables/powerplatformadminactivity) | |
+| [PowerPlatformConnectorActivity](/azure/azure-monitor/reference/tables/powerplatformconnectoractivity) | |
+| [PowerPlatformDlpActivity](/azure/azure-monitor/reference/tables/powerplatformdlpactivity) | |
+| ProcessInvestigator | |
+| [ProjectActivity](/azure/azure-monitor/reference/tables/projectactivity) | |
+| [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus) | |
 | [PurviewScanStatusLogs](/azure/azure-monitor/reference/tables/purviewscanstatuslogs) | |
+| RomeDetectionEvent | |
 | [SCCMAssessmentRecommendation](/azure/azure-monitor/reference/tables/sccmassessmentrecommendation) | |
 | [SCOMAssessmentRecommendation](/azure/azure-monitor/reference/tables/scomassessmentrecommendation) | |
+| [SecureScoreControls](/azure/azure-monitor/reference/tables/securescorecontrols) | |
+| [SecureScores](/azure/azure-monitor/reference/tables/securescores) | |
 | [SecurityAlert](/azure/azure-monitor/reference/tables/securityalert) | |
 | [SecurityBaseline](/azure/azure-monitor/reference/tables/securitybaseline) | |
 | [SecurityBaselineSummary](/azure/azure-monitor/reference/tables/securitybaselinesummary) | |
@@ -207,7 +297,9 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [SecurityIoTRawEvent](/azure/azure-monitor/reference/tables/securityiotrawevent) | |
 | [SecurityNestedRecommendation](/azure/azure-monitor/reference/tables/securitynestedrecommendation) | |
 | [SecurityRecommendation](/azure/azure-monitor/reference/tables/securityrecommendation) | |
+| [SecurityRegulatoryCompliance](/azure/azure-monitor/reference/tables/securityregulatorycompliance) | |
 | [SentinelHealth](/azure/azure-monitor/reference/tables/sentinelhealth) | |
+| ServiceMap | |
 | [SfBAssessmentRecommendation](/azure/azure-monitor/reference/tables/sfbassessmentrecommendation) | |
 | [SfBOnlineAssessmentRecommendation](/azure/azure-monitor/reference/tables/sfbonlineassessmentrecommendation) | |
 | [SharePointOnlineAssessmentRecommendation](/azure/azure-monitor/reference/tables/sharepointonlineassessmentrecommendation) | |
@@ -215,10 +307,25 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [SigninLogs](/azure/azure-monitor/reference/tables/signinlogs) | |
 | [SPAssessmentRecommendation](/azure/azure-monitor/reference/tables/spassessmentrecommendation) | |
 | [SQLAssessmentRecommendation](/azure/azure-monitor/reference/tables/sqlassessmentrecommendation) | |
+| [SqlAtpStatus](/azure/azure-monitor/reference/tables/sqlatpstatus) | |
 | [SQLSecurityAuditEvents](/azure/azure-monitor/reference/tables/sqlsecurityauditevents) | |
+| [SqlThreatProtectionLoginAudits](/azure/azure-monitor/reference/tables/sqlthreatprotectionloginaudits) | |
+| [SqlVulnerabilityAssessmentResult](/azure/azure-monitor/reference/tables/sqlvulnerabilityassessmentresult) | |
+| [SqlVulnerabilityAssessmentScanStatus](/azure/azure-monitor/reference/tables/sqlvulnerabilityassessmentscanstatus) | |
+| [StorageBlobLogs](/azure/azure-monitor/reference/tables/storagebloblogs) | |
+| [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs) | |
+| StorageInsightsAccountPropertiesDaily | |
+| StorageInsightsDailyMetrics | |
+| StorageInsightsHourlyMetrics | |
+| StorageInsightsMonthlyMetrics | |
+| StorageInsightsWeeklyMetrics | |
+| [StorageQueueLogs](/azure/azure-monitor/reference/tables/storagequeuelogs) | |
+| [StorageTableLogs](/azure/azure-monitor/reference/tables/storagetablelogs) | |
 | [SucceededIngestion](/azure/azure-monitor/reference/tables/succeededingestion) | |
 | [SynapseBigDataPoolApplicationsEnded](/azure/azure-monitor/reference/tables/synapsebigdatapoolapplicationsended) | |
 | [SynapseBuiltinSqlPoolRequestsEnded](/azure/azure-monitor/reference/tables/synapsebuiltinsqlpoolrequestsended) | |
+| [SynapseDXFailedIngestion](/azure/azure-monitor/reference/tables/synapsedxfailedingestion) | |
+| [SynapseDXSucceededIngestion](/azure/azure-monitor/reference/tables/synapsedxsucceededingestion) | |
 | [SynapseGatewayApiRequests](/azure/azure-monitor/reference/tables/synapsegatewayapirequests) | |
 | [SynapseIntegrationActivityRuns](/azure/azure-monitor/reference/tables/synapseintegrationactivityruns) | |
 | [SynapseIntegrationPipelineRuns](/azure/azure-monitor/reference/tables/synapseintegrationpipelineruns) | |
@@ -229,21 +336,43 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [SynapseSqlPoolRequestSteps](/azure/azure-monitor/reference/tables/synapsesqlpoolrequeststeps) | |
 | [SynapseSqlPoolSqlRequests](/azure/azure-monitor/reference/tables/synapsesqlpoolsqlrequests) | |
 | [SynapseSqlPoolWaits](/azure/azure-monitor/reference/tables/synapsesqlpoolwaits) | |
-| [Syslog](/azure/azure-monitor/reference/tables/syslog) | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported. | 
+| [Syslog](/azure/azure-monitor/reference/tables/syslog) | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported. |
 | [ThreatIntelligenceIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) | |
+| [TSIIngress](/azure/azure-monitor/reference/tables/tsiingress) | |
+| [UCClient](/azure/azure-monitor/reference/tables/ucclient) | |
+| [UCClientReadinessStatus](/azure/azure-monitor/reference/tables/ucclientreadinessstatus) | |
+| [UCClientUpdateStatus](/azure/azure-monitor/reference/tables/ucclientupdatestatus) | |
+| [UCDeviceAlert](/azure/azure-monitor/reference/tables/ucdevicealert) | |
+| [UCDOAggregatedStatus](/azure/azure-monitor/reference/tables/ucdoaggregatedstatus) | |
+| [UCDOStatus](/azure/azure-monitor/reference/tables/ucdostatus) | |
+| [UCServiceUpdateStatus](/azure/azure-monitor/reference/tables/ucserviceupdatestatus) | |
+| [UCUpdateAlert](/azure/azure-monitor/reference/tables/ucupdatealert) | |
 | [Update](/azure/azure-monitor/reference/tables/update) | Partial support – some of the data is ingested through internal services that aren't supported. |
 | [UpdateRunProgress](/azure/azure-monitor/reference/tables/updaterunprogress) | |
 | [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) | |
-| [UserAccessAnalytics](/azure/azure-monitor/reference/tables/useraccessanalytics) | |
-| [UserPeerAnalytics](/azure/azure-monitor/reference/tables/userpeeranalytics) | |
+| [UrlClickEvents](/azure/azure-monitor/reference/tables/urlclickevents) | |
+| [W3CIISLog](/azure/azure-monitor/reference/tables/w3ciislog) | |
+| [WaaSDeploymentStatus](/azure/azure-monitor/reference/tables/waasdeploymentstatus) | |
+| [WaaSInsiderStatus](/azure/azure-monitor/reference/tables/waasinsiderstatus) | |
+| [WaaSUpdateStatus](/azure/azure-monitor/reference/tables/waasupdatestatus) | |
 | [Watchlist](/azure/azure-monitor/reference/tables/watchlist) | |
+| [WebPubSubConnectivity](/azure/azure-monitor/reference/tables/webpubsubconnectivity) | |
+| [WebPubSubHttpRequest](/azure/azure-monitor/reference/tables/webpubsubhttprequest) | |
+| [WebPubSubMessaging](/azure/azure-monitor/reference/tables/webpubsubmessaging) | |
+| [WindowsClientAssessmentRecommendation](/azure/azure-monitor/reference/tables/windowsclientassessmentrecommendation) | |
 | [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent) | |
 | [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall) | |
+| [WindowsServerAssessmentRecommendation](/azure/azure-monitor/reference/tables/windowsserverassessmentrecommendation) | |
 | [WireData](/azure/azure-monitor/reference/tables/wiredata) | Partial support – some of the data is ingested through internal services that aren't supported. |
 | [WorkloadDiagnosticLogs](/azure/azure-monitor/reference/tables/workloaddiagnosticlogs) | |
+| [WUDOAggregatedStatus](/azure/azure-monitor/reference/tables/wudoaggregatedstatus) | |
+| [WUDOStatus](/azure/azure-monitor/reference/tables/wudostatus) | |
 | [WVDAgentHealthStatus](/azure/azure-monitor/reference/tables/wvdagenthealthstatus) | |
 | [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) | |
+| [WVDConnectionNetworkData](/azure/azure-monitor/reference/tables/wvdconnectionnetworkdata) | |
 | [WVDConnections](/azure/azure-monitor/reference/tables/wvdconnections) | |
 | [WVDErrors](/azure/azure-monitor/reference/tables/wvderrors) | |
 | [WVDFeeds](/azure/azure-monitor/reference/tables/wvdfeeds) | |
+| [WVDHostRegistrations](/azure/azure-monitor/reference/tables/wvdhostregistrations) | |
 | [WVDManagement](/azure/azure-monitor/reference/tables/wvdmanagement) | |
+

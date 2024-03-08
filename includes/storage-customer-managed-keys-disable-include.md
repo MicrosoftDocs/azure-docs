@@ -3,9 +3,9 @@ title: "include file"
 description: "include file"
 services: storage
 author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.topic: "include"
-ms.date: 03/10/2023
+ms.date: 06/07/2023
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -39,7 +39,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 To switch from customer-managed keys back to Microsoft-managed keys with Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) and set the `--encryption-key-source parameter` to `Microsoft.Storage`, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```azurecli
-az storage account update
+az storage account update \
     --name <storage-account> \
     --resource-group <resource_group> \
     --encryption-key-source Microsoft.Storage

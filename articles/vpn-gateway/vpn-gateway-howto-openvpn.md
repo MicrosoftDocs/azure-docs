@@ -21,7 +21,7 @@ This article helps you set up **OpenVPN® Protocol** on Azure VPN Gateway. This 
 
   * [PowerShell - Create point-to-site](vpn-gateway-howto-point-to-site-rm-ps.md)
 
-* If you already have a VPN gateway, verify that it doesn't use the Basic SKU. The Basic SKU isn't supported for OpenVPN. For more information about SKUs, see [VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). To resize a Basic SKU, see [Resize a legacy gateway](vpn-gateway-about-skus-legacy.md#resource-manager).
+* If you already have a VPN gateway, verify that it doesn't use the Basic SKU. The Basic SKU isn't supported for OpenVPN. For more information about SKUs, see [VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). To resize a Basic SKU, see [Resize a legacy gateway](vpn-gateway-about-skus-legacy.md).
 
 ## Portal
 

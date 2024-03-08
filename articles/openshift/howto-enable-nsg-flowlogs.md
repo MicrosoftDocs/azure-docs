@@ -62,13 +62,13 @@ metadata:
   name: cluster
 spec:
   azEnvironment: "AzurePublicCloud"
-  resourceId: "subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedHatOpenShift/openShiftClusters/{clusterID}"
+  resourceId: "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedHatOpenShift/openShiftClusters/{clusterID}"
   nsgFlowLogs:
     enabled: true
-    networkWatcherID: "subscriptions/{subscriptionID}/resourceGroups/{networkWatcherRG}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}"
+    networkWatcherID: "/subscriptions/{subscriptionID}/resourceGroups/{networkWatcherRG}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}"
     flowLogName: "{flowlogName}"
     retentionDays: {retentionDays}
-    storageAccountResourceId: "subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
+    storageAccountResourceId: "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
     version: {version}  
 ```
 See [Tutorial: Log network traffic to and from a virtual machine using the Azure portal](../network-watcher/network-watcher-nsg-flow-logging-portal.md) for possible values for `version` and `retentionDays`.

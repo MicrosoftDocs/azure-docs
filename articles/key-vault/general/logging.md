@@ -3,12 +3,11 @@ title: Azure Key Vault logging | Microsoft Docs
 description: Learn how to monitor access to your key vaults by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
 ---
@@ -85,7 +84,7 @@ The following table lists the **operationName** values and corresponding REST AP
 
 | operationName | REST API command |
 | --- | --- |
-| **Authentication** |Authenticate via Azure Active Directory endpoint |
+| **Authentication** |Authenticate via Microsoft Entra endpoint |
 | **VaultGet** |[Get information about a key vault](/rest/api/keyvault/keyvault/vaults) |
 | **VaultPut** |[Create or update a key vault](/rest/api/keyvault/keyvault/vaults) |
 | **VaultDelete** |[Delete a key vault](/rest/api/keyvault/keyvault/vaults) |
@@ -95,7 +94,7 @@ The following table lists the **operationName** values and corresponding REST AP
 | **VaultRecover** |Recover deleted vault|
 | **VaultGetDeleted** |[Get deleted vault](/rest/api/keyvault/keyvault/vaults/get-deleted) |
 | **VaultListDeleted** |[List deleted vaults](/rest/api/keyvault/keyvault/vaults/list-deleted) |
-| **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
+| **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published.  It is logged regardless if an Event Grid subscription exists. |
 
 # [Keys](#tab/Keys)
 
@@ -120,8 +119,8 @@ The following table lists the **operationName** values and corresponding REST AP
 | **KeyRecover** |[Recover a key](/rest/api/keyvault/keys/recover-deleted-key) |
 | **KeyGetDeleted** |[Get deleted key](/rest/api/keyvault/keys/get-deleted-key) |
 | **KeyListDeleted** |[List the deleted keys in a vault](/rest/api/keyvault/keys/get-deleted-keys) |
-| **KeyNearExpiryEventGridNotification** |Key near expiry event published |
-| **KeyExpiredEventGridNotification** |Key expired event published |
+| **KeyNearExpiryEventGridNotification** |Key near expiry event published.  It is logged regardless if an Event Grid subscription exists. |
+| **KeyExpiredEventGridNotification** |Key expired event published.  It is logged regardless if an Event Grid subscription exists. |
 | **KeyRotate** |[Rotate key](/rest/api/keyvault/keys/rotate-key) |
 | **KeyRotateIfDue** |Scheduled automated key rotation operation based on defined rotation policy |
 | **KeyRotationPolicyGet** |[Get Key Rotation Policy](/rest/api/keyvault/keys/get-key-rotation-policy) |
@@ -144,8 +143,8 @@ The following table lists the **operationName** values and corresponding REST AP
 | **SecretRecover** |[Recover a secret](/rest/api/keyvault/secrets/recover-deleted-secret) |
 | **SecretGetDeleted** |[Get deleted secret](/rest/api/keyvault/secrets/get-deleted-secret) |
 | **SecretListDeleted** |[List the deleted secrets in a vault](/rest/api/keyvault/secrets/get-deleted-secrets) |
-| **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
-| **SecretExpiredEventGridNotification** |Secret expired event published |
+| **SecretNearExpiryEventGridNotification** |Secret near expiry event published.  It is logged regardless if an Event Grid subscription exists. |
+| **SecretExpiredEventGridNotification** |Secret expired event published.  It is logged regardless if an Event Grid subscription exists. |
 
 # [Certificates](#tab/Cerificates)
 
@@ -181,8 +180,8 @@ The following table lists the **operationName** values and corresponding REST AP
 | **CertificatePendingMerge** | The merger of the certificate is pending |
 | **CertificatePendingUpdate** | The update of the certificate is pending |
 | **CertificatePendingDelete** |Delete pending certificate |
-| **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
-| **CertificateExpiredEventGridNotification** |Certificate expired event published |
+| **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published. It is logged regardless if an Event Grid subscription exists. |
+| **CertificateExpiredEventGridNotification** |Certificate expired event published. It is logged regardless if an Event Grid subscription exists. |
 
 ---
 

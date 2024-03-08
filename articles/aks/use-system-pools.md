@@ -2,7 +2,7 @@
 title: Use system node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 11/22/2022
+ms.date: 12/26/2023
 ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -38,7 +38,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 ## System and user node pools
 
-For a system node pool, AKS automatically assigns the label **kubernetes.azure.com/mode: system** to its nodes. This causes AKS to prefer scheduling system pods on node pools that contain this label. This label doesn't prevent you from scheduling application pods on system node pools. However, we recommend you isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally killing system pods.
+For a system node pool, AKS automatically assigns the label **kubernetes.azure.com/mode: system** to its nodes. This causes AKS to prefer scheduling system pods on node pools that contain this label. This label doesn't prevent you from scheduling application pods on system node pools. However, we recommend you isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally deleting system pods.
 
 You can enforce this behavior by creating a dedicated system node pool. Use the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools.
 
@@ -48,7 +48,8 @@ System node pools have the following restrictions:
 * System pools osType must be Linux.
 * User node pools osType may be Linux or Windows.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
-* System node pools require a VM SKU of at least 2 vCPUs and 4 GB memory. But burstable-VM(B series) isn't recommended.
+* System node pools require a VM SKU of at least 2 vCPUs and 4GB memory. 
+* [B series VMs][b-series-vm] are not supported for system node pools. 
 * A minimum of two nodes 4 vCPUs is recommended (for example, Standard_DS4_v2), especially for large clusters (Multiple CoreDNS Pod replicas, 3-4+ add-ons, etc.).
 * Spot node pools require user node pools.
 * Adding another system node pool or changing which node pool is a system node pool *does not* automatically move system pods. System pods can continue to run on the same node pool, even if you change it to a user node pool. If you delete or scale down a node pool running system pods that were previously a system node pool, those system pods are redeployed with preferred scheduling to the new system node pool.
@@ -106,7 +107,7 @@ New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCoun
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. This prevents rogue application pods from accidentally killing system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools.
+You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. This prevents rogue application pods from accidentally deleting system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools.
 
 The following command adds a dedicated node pool of mode type system with a default count of three nodes.
 
@@ -122,7 +123,7 @@ az aks nodepool add \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. Adding more system node pools prevents rogue application pods from accidentally killing system pods. Enforce the behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools.
+You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. Adding more system node pools prevents rogue application pods from accidentally deleting system pods. Enforce the behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools.
 
 The following command adds a dedicated node pool of mode type system with a default count of three nodes.
 
@@ -326,7 +327,7 @@ In this article, you learned how to create and manage system node pools in an AK
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
-[aks-taints]: use-multiple-node-pools.md#setting-node-pool-taints
+[aks-taints]: manage-node-pools.md#set-node-pool-taints
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
@@ -353,7 +354,8 @@ In this article, you learned how to create and manage system node pools in an AK
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
-[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node
+[maximum-pods]: azure-cni-overview.md#maximum-pods-per-node
+[b-series-vm]: ../virtual-machines/sizes-b-series-burstable.md
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
-[start-stop-nodepools]: start-stop-nodepools.md
+[start-stop-nodepools]: ./start-stop-nodepools.md
 [node-affinity]: operator-best-practices-advanced-scheduler.md#node-affinity

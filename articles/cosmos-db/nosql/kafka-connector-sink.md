@@ -123,7 +123,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 ## Confirm data written to Azure Cosmos DB
 
-Sign into the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account. Check that the three records from the “hotels” topic are created in your account.
+Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account. Check that the three records from the “hotels” topic are created in your account.
 
 ## Cleanup
 
@@ -272,6 +272,38 @@ This error is likely caused by data in the source topic being serialized in eith
 ```json
 "value.converter": "io.confluent.connect.avro.AvroConverter",
 "value.converter.schema.registry.url": "http://schema-registry:8081",
+```
+
+### Gateway mode support
+```connect.cosmos.connection.gateway.enabled``` is a configuration option for the Cosmos DB Kafka Sink Connector that enhances data ingestion by utilizing the Cosmos DB gateway service. This service acts as a front-end for Cosmos DB, offering benefits such as load balancing, request routing, and protocol translation. By leveraging the gateway service, the connector achieves improved throughput and scalability when writing data to Cosmos DB. For more information, see [connectivity modes](/azure/cosmos-db/nosql/sdk-connection-modes).
+
+```json
+"connect.cosmos.connection.gateway.enabled": true
+```
+
+### Bulk mode support
+```connect.cosmos.sink.bulk.enabled``` property determines whether the bulk write feature is enabled for writing data from Kafka topics to Azure Cosmos DB. 
+
+When this property is set to `true` (by default), it enables the bulk write mode, allowing Kafka Connect to use the bulk import API of Azure Cosmos DB for performing efficient batch writes utilizing ```CosmosContainer.executeBulkOperations()``` method. Bulk write mode significantly improves the write performance and reduces the overall latency when ingesting data into Cosmos DB in comparison with non-bulk mode when ```CosmosContainer.upsertItem()``` method is used.
+
+Bulk mode is enabled by default. To disable the `connect.cosmos.sink.bulk.enabled` property, you need to set it to `false` in the configuration for the Cosmos DB sink connector. Here's an example configuration property file:
+
+```json
+"name": "my-cosmosdb-connector",
+"connector.class": "io.confluent.connect.azure.cosmosdb.CosmosDBSinkConnector",
+"tasks.max": 1,
+"topics": "my-topic"
+"connect.cosmos.endpoint": "https://<cosmosdb-account>.documents.azure.com:443/"
+"connect.cosmos.master.key": "<cosmosdb-master-key>"
+"connect.cosmos.database": "my-database"
+"connect.cosmos.collection": "my-collection"
+"connect.cosmos.sink.bulk.enabled": false
+```
+
+By enabling the `connect.cosmos.sink.bulk.enabled` property, you can leverage the bulk write functionality in Kafka Connect for Azure Cosmos DB to achieve improved write performance when replicating data from Kafka topics to Azure Cosmos DB.
+
+```json
+"connect.cosmos.sink.bulk.enabled": true
 ```
 
 ### Read non-Avro data with AvroConverter

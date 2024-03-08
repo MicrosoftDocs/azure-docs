@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: service-bus-messaging
  ms.topic: include
- ms.date: 10/20/2022
+ ms.date: 11/28/2023
  ms.author: spelluru
  ms.custom: include file
 ---

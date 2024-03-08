@@ -1,9 +1,10 @@
 ---
 title: Create a Grafana dashboard with Azure Managed Grafana
 description: Learn how to create and configure Azure Managed Grafana dashboards.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: managed-grafana
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/07/2023
 ---

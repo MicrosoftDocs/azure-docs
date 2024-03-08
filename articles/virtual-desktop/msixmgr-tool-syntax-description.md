@@ -1,187 +1,208 @@
 ---
 title: MSIXMGR tool parameters - Azure Virtual Desktop
-description: This article contains the command line syntax to help you understand and get the most from the MSIXMGR tool. In this article, we'll show you the syntax of all the parameters used by the MSIXMGR tool.
-author: fiza-microsoft
-ms.author: fizaazmi
-ms.topic: concept-article
-ms.date: 04/04/2023
+description: Learn about the command line parameters and syntax you can use with the MSIXMGR tool.
+ms.topic: conceptual
+author: dknappettmsft
+ms.author: daknappe
+ms.date: 12/13/2023
 ---
 
 # MSIXMGR tool parameters
 
-This article contains the command line syntax to help you understand and get the most from the MSIXMGR tool. In this article, we'll show you the syntax of all the parameters used by the MSIXMGR tool.  
+This article contains the command line parameters and syntax you can use with the MSIXMGR tool.
 
-## Prerequisites:
+## Prerequisites
 
-Before you can follow the instructions in this article, you'll need to do the following things:
+To use the MSIXMGR tool, you need:
 
-- [Download the MSIXMGR tool](https://aka.ms/msixmgr)
-- Get an MSIX-packaged application (.MSIX file)
-- Get administrative permissions on the machine where you'll create the MSIX image 
-- [Set up MSIXMGR tool](app-attach-msixmgr.md)
+- [Download the MSIXMGR tool](https://aka.ms/msixmgr).
+- Get an MSIX-packaged application (`.msix` file).
+- A Windows device with administrative permissions to create the MSIX image.
 
-## Parameters
-
-### -AddPackage or -p
+## -AddPackage
 
 Add the package at specified file path.
 
 ```
--AddPackage [Path to the MSIX package]
+-AddPackage <Path to the MSIX package>
 ```
 
-#### Example
+or
 
 ```
-msixmgr.exe -AddPackage "C:\SomeDirectory\myapp.msix"
+-p <Path to the MSIX package>
 ```
 
-|Optional parameters|Description|Example|
-| -------- | -------- | -------- |
-|-quietUX|Installs MSIX package silently, without any user interaction|`msixmgr.exe -AddPackage C:\SomeDirectory\myapp.msix -quietUX`|
+Here's an example of using the `-AddPackage` parameter:
 
-### -RemovePackage or -x
+```cmd
+msixmgr.exe -AddPackage "C:\MSIX\myapp.msix"
+```
+
+## -RemovePackage
 
 Remove the package with specified package full name.
 
 ```
--RemovePackage [Package name]
+-RemovePackage <Package name>
 ```
 
-#### Example
+or
 
 ```
+-x <Package name>
+```
+
+Here's an example of using the `-RemovePackage` parameter. You can find the package full name by running the PowerShell cmdlet [Get-AppxPackage](/powershell/module/appx/get-appxpackage).
+
+```cmd
 msixmgr.exe -RemovePackage myapp_0.0.0.1_x64__8wekyb3d8bbwe
 ```
 
-|Optional parameters|Description|Example|
-| -------- | -------- | -------- |
-|-quietUX|Uninstalls MSIX package silently, without any user interaction|`msixmgr.exe -RemovePackage myapp_0.0.0.1_x64__8wekyb3d8bbwe -quietUX`|
-
-### -FindPackage
+## -FindPackage
 
 Find a package with specific package full name.
 
 ```
--FindPackage [Package name]
+-FindPackage <Package name>
 ```
 
-#### Example
+Here's an example of using the `-FindPackage` parameter. You can find the package full name by running the PowerShell cmdlet [Get-AppxPackage](/powershell/module/appx/get-appxpackage).
 
-```
+```cmd
 msixmgr.exe -FindPackage myapp_0.0.0.1_x64__8wekyb3d8bbwe
 ```
 
-### -ApplyACLs
+## -ApplyACLs
 
-Applies ACLs to a package folder (an unpacked package).
+Apply ACLs to a package folder (an unpacked package). You also need to specify the following required subparameters:
 
-```
--ApplyACLs -packagePath [Path to the package folder]
-```
-
-#### Example:
+| Required parameter | Description |
+|--|--|
+| `-packagePath` | The path to the package to unpack OR the path to a directory containing multiple packages to unpack |
 
 ```
-msixmgr.exe -ApplyACLs -packagePath "C:\SomeDirectory\name_version_arch_pub"
+-ApplyACLs -packagePath <Path to the package folder>
 ```
 
-### -Unpack
+Here's an example of using the `-ApplyACLs` parameter:
 
-Unpacks package (`.appx`, `.msix`, `.appxbundle`, `.msixbundle`) and extract its contents to a folder.
-
-```
--Unpack -packagePath [Path to package to unpack OR path to a directory containing multiple packages to unpack] -destination [Directory to place the resulting package folder(s) in]
+```cmd
+msixmgr.exe -ApplyACLs -packagePath "C:\MSIX\myapp_0.0.0.1_x64__8wekyb3d8bbwe"
 ```
 
-#### Example
+## -Unpack
 
-To unpack a package into a directory:
+Unpack a package in one of the file formats `.appx`, `.msix`, `.appxbundle`, or `.msixbundle`, and extract its contents to a folder. You also need to specify the following required subparameters:
 
-```
-msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp"
-```
-
-To unpack a package into a VHDX disk image:
-
-> [!NOTE]
-> If you're using VHD or VHDX, we recommend the size is four times the size of MSIX package.
+| Required parameter | Description |
+|--|--|
+| `-destination` | The directory to place the resulting package folder(s) in. |
+| `-fileType` | The type of file to unpack packages to. Valid file types include `.vhd`, `.vhdx`, `.cim`. This parameter is only required when unpacking to CIM files. |
+| `-packagePath` | The path to the package to unpack OR the path to a directory containing multiple packages to unpack. |
+| `-rootDirectory` | Specifies root directory on image to unpack packages to. This parameter is only required when unpacking to new and existing CIM files. |
 
 ```
-msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -vhdSize 200 -filetype VHDX -rootDirectory apps
+-Unpack -packagePath <Path to package to unpack OR path to a directory containing multiple packages to unpack> -destination <Directory to place the resulting package folder(s) in> -fileType <VHD | VHDX | CIM> -rootDirectory <Root directory on image to unpack packages to>
 ```
 
-To unpack a package into a CIM disk image:
+Here's some examples of using the `-Unpack` parameter:
+
+- To unpack a package into a directory:
+
+   ```cmd
+   msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp"
+   ```
+
+- To unpack a package into a VHDX disk image:
+
+   ```cmd
+   msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp\myapp.vhdx" -applyACLs -create -filetype VHDX -rootDirectory apps
+   ```
+
+- To unpack a package into a CIM disk image:
+
+   ```cmd
+   msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp\myapp.cim" -applyACLs -create -filetype CIM -rootDirectory apps
+   ```
+
+Here are the optional parameters you can use with the `-Unpack` parameter:
+
+| Optional parameter | Description | Example |
+|--|--|--|
+| `-applyACLs` | Applies ACLs to the resulting package folder(s) and their parent folder. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -applyACLs` |
+| `-create` | Creates a new image with the specified file type and unpacks the packages to that image. Requires the `-filetype` parameter. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType VHDX` |
+| `-fileType` | The type of file to unpack packages to. Valid file types include `VHD`, `VHDX`, `CIM`. This parameter is required when unpacking to CIM files. Requires the `-create` parameter. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType CIM -rootDirectory apps` |
+| `-rootDirectory` | Specifies the root directory on image to unpack packages to. This parameter is required when unpacking to new and existing CIM files. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -filetype CIM -rootDirectory apps` |
+| `-validateSignature` | Validates a package's signature file before unpacking package. This parameter requires that the package's certificate is installed on the machine.<br /><br />For more information, see [Certificate Stores](/windows-hardware/drivers/install/certificate-stores). | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\Myapp" -validateSignature -applyACLs` |
+| `-vhdSize` | The desired size of the `.vhd` or `.vhdx` file in MB. Must be between 5 MB and 2040000 MB. Use only for `.vhd` or `.vhdx` files. Requires the `-create` and `-filetype` parameters. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -create -fileType VHDX -vhdSize 500` |
+
+## -MountImage
+
+Mount a VHD, VHDX, or CIM image. You also need to specify the following required subparameters:
+
+| Required parameter | Description |
+|--|--|
+| `-fileType` | The type of file to unpack packages to. Valid file types include `VHD`, `VHDX`, `CIM`. |
+| `-imagePath` | The path to the image file to mount. |
 
 ```
-msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -filetype CIM -rootDirectory apps
+-MountImage -imagePath <Path to the MSIX image> -fileType <VHD | VHDX | CIM>
 ```
 
-|Optional parameters|Description|Example|
-| -------- | -------- | -------- |
-|-applyacls|Applies ACLs to the resulting package folder(s) and their parent folder. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs` |
-|-create|Creates a new image with the specified -filetype and unpacks the packages to that image. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType VHDX -vhdSize 200` |
-|-fileType|The type of file to unpack packages to. Valid file types include `VHD`, `VHDX`, `CIM`. This is a required parameter when unpacking to CIM files. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType CIM -rootDirectory apps` |
-|-rootDirectory|Specifies root directory on image to unpack packages to. Required parameter for unpacking to new and existing CIM files. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -filetype CIM -rootDirectory apps` |
-|-validateSignature|Validates a package's signature file before unpacking package. This parameter will require that the package's certificate is installed on the machine.<br /><br />For more information, see [Certificate Stores](/windows-hardware/drivers/install/certificate-stores).|`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\Myapp" -validateSignature -applyACLs`|
+Here's an example of using the `-MountImage` parameter:
 
-### -MountImage
-
-Mounts the VHD, VHDX, or CIM image.
-
-```
--MountImage -imagePath [Path to the MSIX image] -fileType [VHD | VHDX | CIM]
+```cmd
+msixmgr.exe -MountImage -imagePath "C:\MSIX\myapp.cim" -fileType CIM
 ```
 
-#### Example
+Here are the optional parameters you can use with the `-MountImage` parameter:
+
+| Optional parameter | Description | Example |
+|--|--|--|
+| `-readOnly` | Boolean (true of false) indicating whether the image should be mounted as read only. If not specified, the image is mounted as read-only by default. | `msixmgr.exe -MountImage -imagePath "C:\MSIX\myapp.cim" -filetype CIM -readOnly false` |
+
+## -UnmountImage
+
+Unmount a VHD, VHDX, or CIM image. You also need to specify the following required subparameters:
+
+| Required parameter | Description |
+|--|--|
+| `-fileType` | The type of file to unpack packages to. Valid file types include `VHD`, `VHDX`, `CIM`. |
+| `-imagePath` | The path to the image file to mount. |
 
 ```
-msixmgr.exe -MountImage -imagePath "C:\SomeDirectory\myapp.cim" -fileType CIM
+-UnmountImage -imagePath <Path to the MSIX image> -fileType <VHD | VHDX | CIM>
 ```
 
-|Optional parameters|Description|Example|
-| -------- | -------- | -------- |
-|-readOnly|Boolean (true of false) indicating whether the image should be mounted as read only. If not specified, the image is mounted as read-only by default. |`msixmgr.exe -MountImage -imagePath "C:\SomeDirectory\myapp.cim" -filetype CIM -readOnly false`|
+Here's an example of using the `-UnmountImage` parameter:
 
-### -UnmountImage
-
-Unmounts the VHD, VHDX, or CIM image.
-
-```
--UnmountImage -imagePath [Path to the MSIX image] -fileType [VHD | VHDX | CIM]
+```cmd
+msixmgr.exe -UnmountImage -imagePath "C:\MSIX\myapp.vhdx" -fileType VHDX
 ```
 
-#### Example:
+Here are the optional parameters you can use with the `-UnmountImage` parameter:
 
-```
-msixmgr.exe -UnmountImage -imagePath "C:\SomeDirectory\myapp.vhdx" -fileType VHDX
-```
+| Optional parameter | Description | Example |
+|--|--|--|
+| `-volumeId` | The GUID of the volume (specified without curly braces) associated with the image to unmount. This parameter is optional only for CIM files. You can find volume ID by running the PowerShell cmdlet [Get-Volume](/powershell/module/storage/get-volume). | `msixmgr.exe -UnmountImage -volumeId 199a2f93-99a8-11ee-9b0d-4c445b63adac -filetype CIM` |
 
-|Optional parameters|Description|Example|
-| -------- | -------- | -------- |
-|-volumeId|Specifies GUID (specified without curly braces) associated with image to unmount. This is an optional parameter only for CIM files. |`msixmgr.exe -UnmountImage -volumeId 0ea000fe-0021-465a-887b-6dc94f15e86e -filetype CIM`|
+## -quietUX
 
-### -?
+Suppresses user interaction when running the MSIXMGR tool. This parameter is optional and can be used with any other parameter.
 
-Display help text at the command prompt.
+Here's an example of using the `-quietUX` parameter with the `-AddPackage` parameter:
 
-#### Example:
-
-```
-msixmgr.exe -?
+```cmd
+msixmgr.exe -AddPackage "C:\MSIX\myapp.msix" -quietUX
 ```
 
 ## Next steps
 
 To learn more about MSIX app attach, check out these articles:
 
-- [Using the MSIXMGR tool](app-attach-msixmgr.md)
+- [Create an MSIX image to use with app attach](app-attach-create-msix-image.md)
 - [What's new in the MSIXMGR tool](whats-new-msixmgr.md)
-- [What is MSIX app attach?](what-is-app-attach.md)
-- [Set up MSIX app attach with the Azure portal](app-attach-azure-portal.md)
-- [Set up MSIX app attach using PowerShell](app-attach-powershell.md)
-- [Create PowerShell scripts for MSIX app attach](app-attach.md)
-- [Prepare an MSIX image for Azure Virtual Desktop](app-attach-image-prep.md)
-- [Set up a file share for MSIX app attach](app-attach-file-share.md)
-
-If you have questions about MSIX app attach, see our [App attach FAQ](app-attach-faq.yml) and [App attach glossary](app-attach-glossary.md).
+- [MSIX app attach and app attach](app-attach-overview.md)
+- [Add and manage MSIX app attach and app attach applications](app-attach-setup.md)
+- [Test MSIX packages for app attach](app-attach-test-msix-packages.md)

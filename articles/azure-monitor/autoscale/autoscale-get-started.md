@@ -1,12 +1,9 @@
 ---
 title: Get started with autoscale in Azure
 description: "Learn how to scale your resource web app, cloud service, virtual machine, or Virtual Machine Scale Set in Azure."
-author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 04/10/2023
-ms.subservice: autoscale
-ms.reviewer: akkumari
+ms.date: 11/29/2023
 ---
 # Get started with autoscale in Azure
 
@@ -78,7 +75,7 @@ Follow the steps below to create your first autoscale setting.
 
     :::image type="content" source="./media/autoscale-get-started/instance-limits.png" lightbox="./media/autoscale-get-started/instance-limits.png" alt-text="A screenshot showing the configure tab of the autoscale setting page with configured rules.":::
 
-You have  successfully created your first scale setting to autoscale your web app based on CPU usage. When CPU usage is greater than 70%, an additional instance is added, up to a maximum of 3 instances. When CPU usage is below 20%, an instance is removed up to a minimum of 1 instance. By default there will be 1 instance.
+You have successfully created your first scale setting to autoscale your web app based on CPU usage. When CPU usage is greater than 70%, an additional instance is added, up to a maximum of 3 instances. When CPU usage is below 20%, an instance is removed up to a minimum of 1 instance. By default there will be 1 instance.
 
 ## Scheduled scale conditions
 
@@ -124,7 +121,7 @@ You have now defined a scale condition for a specific day. When CPU usage is gre
 
 ### View the history of your resource's scale events
 
-Whenever your resource is scaled up or down, an event is logged in the activity log. You can view the history of the scale events in the **Run history** tab.
+Whenever your resource has any scaling event, it's logged in the activity log. You can view the history of the scale events in the **Run history** tab.
 
 :::image type="content" source="./media/autoscale-get-started/run-history.png" lightbox="./media/autoscale-get-started/run-history.png" alt-text="A screenshot showing the run history tab in autoscale settings.":::
 
@@ -138,7 +135,7 @@ You can make changes in JSON directly, if necessary. These changes will be refle
 
 ### Cool-down period effects
 
-Autoscale uses a cool-down period with is the amount of time to wait after a scale operation before scaling again. For example, if the cooldown  is 10 minutes, Autoscale won't attempt to scale again until 10 minutes after the previous scale action. The cooldown period allows the metrics to stabilize and avoids scaling more than once for the same condition.  For more information, see  [Autoscale evaluation steps](autoscale-understanding-settings.md#autoscale-evaluation).
+Autoscale uses a cool-down period. This period is the amount of time to wait after a scale operation before scaling again. The cool-down period allows the metrics to stabilize and avoids scaling more than once for the same condition. Cool-down applies to both scale-in and scale-out events.  For example, if the cooldown is set to 10 minutes and Autoscale has just scaled-in, Autoscale won't attempt to scale again for another 10 minutes in either direction.  For more information, see  [Autoscale evaluation steps](autoscale-understanding-settings.md#autoscale-evaluation).
 
 ### Flapping
 

@@ -6,7 +6,7 @@ author: n0elleli
 ms.service: data-factory
 ms.subservice:
 ms.topic: troubleshooting
-ms.date: 04/06/2023
+ms.date: 01/05/2024
 ms.author: noelleli
 ms.custom:
 ---
@@ -70,7 +70,7 @@ The debug cluster isn't available from a warm pool. There will be a wait time in
  
 ## Issue: Trouble in tracking delete operations.
 
-Currently CDC resource supports delete operations for following sink types – Azure SQL Database & Delta. To achieve this in the column mapping page, select **keys** column that can be used to determine if a row from the source matches a row from the sink. 
+Currently CDC resource supports delete operations for following sink types - Azure SQL Database & Delta. To achieve this in the column mapping page, select **keys** column that can be used to determine if a row from the source matches a row from the sink. 
 
 ## Issue: My CDC resource fails when target SQL table has identity columns.
 
@@ -108,6 +108,6 @@ SET IDENTITY_INSERT dbo.TableName ON;
 Currently, Self-hosted integration runtime isn't supported in the CDC resource. If trying to connect to an on-premise source, use Azure integration runtime with managed virtual network. 
 
 
-## Next steps
+## Related content
 - [Learn more about the change data capture resource](concepts-change-data-capture-resource.md)
 - [Set up a change data capture resource](how-to-change-data-capture-resource.md)

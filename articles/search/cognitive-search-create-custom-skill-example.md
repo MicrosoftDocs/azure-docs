@@ -1,13 +1,15 @@
 ---
 title: 'Custom skill example using Bing Entity Search API'
-titleSuffix: Azure Cognitive Search
-description: Demonstrates using the Bing Entity Search service in a custom skill mapped to an AI-enriched indexing pipeline in Azure Cognitive Search.
-author: LiamCavanagh
-ms.author: liamca
+titleSuffix: Azure AI Search
+description: Demonstrates using the Bing Entity Search service in a custom skill mapped to an AI-enriched indexing pipeline in Azure AI Search.
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/01/2022
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
 # Example: Create a custom skill using the Bing Entity Search API
@@ -312,7 +314,7 @@ Of course, you may rename the file from `Function1.cs` to `BingEntitySearch.cs`.
 
 ## Test the function from Visual Studio
 
-Press **F5** to run the program and test function behaviors. In this case, we'll use the function below to look up two entities. Use Postman or Fiddler to issue a call like the one shown below:
+Press **F5** to run the program and test function behaviors. In this case, we'll use the function below to look up two entities. Use a REST client to issue a call like the one shown below:
 
 ```http
 POST https://localhost:7071/api/EntitySearch

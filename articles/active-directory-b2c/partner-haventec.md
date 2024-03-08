@@ -6,11 +6,12 @@ author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: I'm a developer integrating Haventec Authenticate with Azure AD B2C. I need instructions to configure integration, so I can enable single-step, multi-factor passwordless authentication for my web and mobile applications.
 ---
 
 # Tutorial: Configure Haventec Authenticate with Azure Active Directory B2C for single-step, multi-factor passwordless authentication
@@ -25,7 +26,7 @@ The Authenticate integration includes the following components:
 
 * **Azure AD B2C** - authorization server that verifies user credentials
   * Also known as the identity provider (IdP)
-* **Web and mobile applications** - Open ID Connect (OIDC) mobile or web applications protected by Authenticate and Azure AD B2C
+* **Web and mobile applications** - OpenID Connect (OIDC) mobile or web applications protected by Authenticate and Azure AD B2C
 * **Haventec Authenticate service** - external IdP for the Azure AD B2C tenant
 
 The following diagram illustrates sign-up and sign-in user flows in the Haventec Authenticate integration.
@@ -50,7 +51,8 @@ Use the following instructions to prepare for and integrate Azure AD B2C with Au
 
 To get started, you need:
 
-* An Azure AD subscription
+* An Azure subscription
+
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD B2C tenant linked to the Azure subscription
   * see, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
@@ -130,5 +132,3 @@ For the following instructions, Haventec is a new OIDC identity provider in the 
 
 * Go to docs.haventec.com for [Haventec Documentation](https://docs.haventec.com/)
 * [Azure AD B2C custom policy overview](custom-policy-overview.md)
-
-

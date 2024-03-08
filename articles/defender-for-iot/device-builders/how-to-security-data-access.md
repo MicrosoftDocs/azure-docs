@@ -143,7 +143,7 @@ SecurityRecommendation
 Get the number of distinct active security recommendations, grouped by IoT Hub, device, recommendation severity, and type.
 
 ```
-// Get the number of distinct active security recommendations, grouped by by
+// Get the number of distinct active security recommendations, grouped by
 //   IoT hub, device, recommendation severity and type
 //
 SecurityRecommendation

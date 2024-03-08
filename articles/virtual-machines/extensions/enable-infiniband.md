@@ -1,16 +1,20 @@
 ---
 title: Enable InfiniBand on HPC VMs - Azure Virtual Machines | Microsoft Docs
-description: Learn how to enable InfiniBand on Azure HPC VMs. 
+description: Learn how to enable InfiniBand on Azure HPC VMs.
 ms.service: virtual-machines
 ms.subservice: hpc
+ms.custom: linux-related-content
 ms.topic: article
 ms.date: 04/12/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 
 # Enable InfiniBand
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -20,7 +24,7 @@ There are various ways to enable InfiniBand on the capable VM sizes.
 
 ## VM Images with InfiniBand drivers
 
-See [VM Images](../configure.md#vm-images) for a list of supported VM Images on the Marketplace, which come pre-loaded with InfiniBand drivers (for SR-IOV or non-SR-IOV VMs) or can be configured with the appropriate drivers for [RDMA capable VMs](../sizes-hpc.md#rdma-capable-instances).  The [CentOS-HPC](../configure.md#centos-hpc-vm-images) and [Ubuntu-HPC](../configure.md#ubuntu-hpc-vm-images) VM images in the Marketplace are the easiest way to get started.
+See [VM Images](../configure.md#vm-images) for a list of supported VM Images on the Marketplace, which come pre-loaded with InfiniBand drivers (for SR-IOV or non-SR-IOV VMs) or can be configured with the appropriate drivers for [RDMA capable VMs](../sizes-hpc.md#rdma-capable-instances).  The [Ubuntu-HPC](../configure.md#ubuntu-hpc-vm-images) and [AlmaLinux-HPC](../configure.md#ubuntu-hpc-vm-images) VM images in the marketplace are the easiest way to get started.
 
 ## InfiniBand Driver VM Extensions
 
@@ -59,6 +63,9 @@ For Windows, download and install the [Mellanox OFED for Windows drivers](https:
 
 ## Enable IP over InfiniBand (IB)
 If you plan to run MPI jobs, you typically don't need IPoIB. The MPI library will use the verbs interface for IB communication (unless you explicitly use the TCP/IP channel of MPI library). But if you have an app that uses TCP/IP for communication and you want to run over IB, you can use IPoIB over the IB interface. Use the following commands (for RHEL/CentOS) to enable IP over InfiniBand.
+
+> [!IMPORTANT]
+> To avoid issues, ensure you aren't running older versions of Microsoft Azure Linux Agent (waagent). We recommend using at least [version 2.4.0.2](https://github.com/Azure/WALinuxAgent/releases/tag/v2.4.0.2) before enabling IP over IB.
 
 ```bash
 sudo sed -i -e 's/# OS.EnableRDMA=n/OS.EnableRDMA=y/g' /etc/waagent.conf

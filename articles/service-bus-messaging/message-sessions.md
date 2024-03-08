@@ -2,7 +2,7 @@
 title: Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 ms.topic: article
-ms.date: 02/14/2023
+ms.date: 02/23/2024
 ---
 
 # Message sessions
@@ -29,19 +29,19 @@ For samples, use links in the [Next steps](#next-steps) section.
 
 ### Session features
 
-Sessions provide concurrent de-multiplexing of interleaved message streams while preserving and guaranteeing ordered delivery.
+Sessions provide concurrent demultiplexing of interleaved message streams while preserving and guaranteeing ordered delivery.
 
-![A diagram showing how the Sessions feature preserves ordered delivery.][1]
+:::image type="content" source="./media/message-sessions/sessions.png" alt-text="Diagram that shows how the Sessions feature preserves an ordered delivery.":::
 
-A session receiver is created by a client accepting a session. When the session is accepted and held by a client, the client holds an exclusive lock on all messages with that session's **session ID** in the queue or subscription. It will also hold exclusive locks on all messages with the **session ID** that will arrive later.
+A session receiver is created by a client accepting a session. When the session is accepted and held by a client, the client holds an exclusive lock on all messages with that session's **session ID** in the queue or subscription. It holds exclusive locks on all messages with the **session ID** that arrive later.
 
 The lock is released when you call close methods on the receiver or when the lock expires. There are methods on the receiver to renew the locks as well. Instead, you can use the automatic lock renewal feature where you can specify the time duration for which you want to keep getting the lock renewed. The session lock should be treated like an exclusive lock on a file, meaning that the application should close the session as soon as it no longer needs it and/or doesn't expect any further messages.
 
-When multiple concurrent receivers pull from the queue, the messages belonging to a particular session are dispatched to the specific receiver that currently holds the lock for that session. With that operation, an interleaved message stream in one queue or subscription is cleanly de-multiplexed to different receivers and those receivers can also live on different client machines, since the lock management happens service-side, inside Service Bus.
+When multiple concurrent receivers pull from the queue, the messages belonging to a particular session are dispatched to the specific receiver that currently holds the lock for that session. With that operation, an interleaved message stream in one queue or subscription is cleanly demultiplexed to different receivers and those receivers can also live on different client machines, since the lock management happens service-side, inside Service Bus.
 
 The previous illustration shows three concurrent session receivers. One Session with `SessionId` = 4 has no active, owning client, which means that no messages are delivered from this specific session. A session acts in many ways like a sub queue.
 
-The session lock held by the session receiver is an umbrella for the message locks used by the *peek-lock* settlement mode. Only one receiver can have a lock on a session. A receiver may have many in-flight messages, but the messages will be received in order. Abandoning a message causes the same message to be served again with the next receive operation.
+The session lock held by the session receiver is an umbrella for the message locks used by the *peek-lock* settlement mode. Only one receiver can have a lock on a session. A receiver might have many in-flight messages, but the messages are received in order. Abandoning a message causes the same message to be served again with the next receive operation.
 
 ### Message session state
 
@@ -51,7 +51,7 @@ The session state facility enables an application-defined annotation of a messag
 
 From the Service Bus perspective, the message session state is an opaque binary object that can hold data of the size of one message, which is 256 KB for Service Bus Standard, and 100 MB for Service Bus Premium. The processing state relative to a session can be held inside the session state, or the session state can point to some storage location or database record that holds such information.
 
-The methods for managing session state, SetState and GetState, can be found on the session receiver object. A session that had previously no session state returns a null reference for GetState. The previously set session state can be cleared by passing null to the SetState method on the receiver.
+The methods for managing session state, `SetState` and `GetState`, can be found on the session receiver object. A session that had previously no session state returns a null reference for `GetState`. The previously set session state can be cleared by passing null to the `SetState` method on the receiver.
 
 Session state remains as long as it isn't cleared up (returning **null**), even if all messages in a session are consumed.
 
@@ -65,7 +65,7 @@ The definition of delivery count per message in the context of sessions varies s
 |----------|---------------------------------------------|
 | Session is accepted, but the session lock expires (due to timeout) | Yes |
 | Session is accepted, the messages within the session aren't completed (even if they're locked), and the session is closed | No |
-| Session is accepted, messages are completed, and then the session is explicitly closed | N/A (It's the standard flow. Here messages are removed from the session) |
+| Session is accepted, messages are completed, and then the session is explicitly closed | N/A (It's the standard flow. Here, messages are removed from the session) |
 
 ## Request-response pattern
 The [request-reply pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) is a well-established integration pattern that enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. This pattern typically needs a short-lived queue or topic for the application to send responses to. In this scenario, sessions provide a simple alternative solution with comparable semantics. 
@@ -76,7 +76,7 @@ Multiple applications can send their requests to a single request queue, with a 
 > The application that sends the initial requests should know about the session ID and use it to accept the session so that the session on which it is expecting the response is locked. It's a good idea to use a GUID that uniquely identifies the instance of the application as a session id. There should be no session handler or a timeout specified on the session receiver for the queue to ensure that responses are available to be locked and processed by specific receivers.
 
 ## Sequencing vs. sessions
-[Sequence number](message-sequencing.md) on its own guarantees the queuing order and the extractor order of messages, but not the processing order, which requires sessions. 
+[Sequence number](message-sequencing.md) on its own guarantees the queuing order and the extraction order of messages, but not the processing order, which requires sessions. 
  
 Say, there are three messages in the queue and two consumers. 
 1. Consumer 1 picks up message 1.
@@ -88,6 +88,9 @@ Say, there are three messages in the queue and two consumers.
 So, the messages are processed in this order: message 2, message 3, and message 1. If you need message 1, 2, and 3 to be processed in order, you need to use sessions.
 
 If messages just need to be retrieved in order, you don't need to use sessions. If messages need to be processed in order, use sessions. The same session ID should be set on messages that belong together, which could be message 1, 4, and 8 in a set, and 2, 3, and 6 in another set. 
+
+## Message expiration
+For session-enabled queues or topics' subscriptions, messages are locked at the session level. If the time-to-live (TTL) for any of the messages expires, all messages related to that session are either dropped or dead-lettered based on the dead-lettering enabled on messaging expiration setting on the entity. In other words, if there's a single message in the session that has passed the TTL, all the messages in the session are expired. The messages expire only if there's an active listener. For more information, see [Message expiration](message-expiration.md).
 
 ## Next steps
 You can enable message sessions while creating a queue using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable message sessions](enable-message-sessions.md). 
@@ -109,6 +112,9 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
     - [Continually read through all available sessions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/samples/v7/javascript/advanced/sessionRoundRobin.js)
     - [Use session state](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/samples/v7/javascript/advanced/sessionState.js)
 
+## Related articles
+
+- [A blog post describing techniques for reordering messages that arrive out of order](https://particular.net/blog/you-dont-need-ordered-delivery)
  
-[1]: ./media/message-sessions/sessions.png
+
 

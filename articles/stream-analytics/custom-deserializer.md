@@ -4,11 +4,15 @@ description: This doc demonstrates how to create a custom .NET deserializer for 
 author: ahartoon
 ms.author: anboisve
 ms.service: stream-analytics
+ms.custom: devx-track-dotnet
 ms.topic: tutorial
-ms.date: 01/12/2023
+ms.date: 02/26/2024
 ---
 
 # Custom .NET deserializers for Azure Stream Analytics in Visual Studio (Preview)
+
+> [!IMPORTANT]
+> Custom .net deserializer for Azure Stream Analytics will be retired on 30th September 2024. After that date, it won't be possible to use the feature. Please transition to a [JSON, AVRO, or CSV built-in deserializer](./stream-analytics-parsing-json.md) by that date.
 
 Azure Stream Analytics has [built-in support for three data formats](stream-analytics-parsing-json.md): JSON, CSV, and Avro. With custom .NET deserializers, you can read data from other formats such as [Protocol Buffer](https://developers.google.com/protocol-buffers/), [Bond](https://github.com/Microsoft/bond) and other user defined formats for both cloud and edge jobs.
 

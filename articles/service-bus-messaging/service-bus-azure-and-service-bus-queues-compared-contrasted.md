@@ -2,8 +2,7 @@
 title: Compare Azure Storage queues and Service Bus queues
 description: Analyzes differences and similarities between two types of queues offered by Azure.
 ms.topic: article
-ms.custom: ignite-2022
-ms.date: 10/25/2022
+ms.date: 11/27/2023
 ---
 
 # Storage queues and Service Bus queues - compared and contrasted
@@ -12,9 +11,9 @@ This article analyzes the differences and similarities between the two types of 
 ## Introduction
 Azure supports two types of queue mechanisms: **Storage queues** and **Service Bus queues**.
 
-**Storage queues** are part of the [Azure Storage](https://azure.microsoft.com/services/storage/) infrastructure. They allow you to store large numbers of messages. You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. For more information, see [What are Azure Storage queues](../storage/queues/storage-queues-introduction.md).
+**Storage queues** are part of the [Azure Storage](https://azure.microsoft.com/services/storage/) infrastructure. They allow you to store large numbers of messages. You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size. A queue might contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. For more information, see [What are Azure Storage queues](../storage/queues/storage-queues-introduction.md).
 
-**Service Bus queues** are part of a broader [Azure messaging](https://azure.microsoft.com/services/service-bus/) infrastructure that supports queuing, publish/subscribe, and more advanced integration patterns. They're designed to integrate applications or application components that may span multiple communication protocols, data contracts, trust domains, or network environments. For more information about Service Bus queues/topics/subscriptions, see the [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
+**Service Bus queues** are part of a broader [Azure messaging](https://azure.microsoft.com/services/service-bus/) infrastructure that supports queuing, publish/subscribe, and more advanced integration patterns. They're designed to integrate applications or application components that might span multiple communication protocols, data contracts, trust domains, or network environments. For more information about Service Bus queues/topics/subscriptions, see the [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
 
 
 ## Technology selection considerations
@@ -69,7 +68,7 @@ This section compares some of the fundamental queuing capabilities provided by S
 
 ### Additional information
 * Messages in Storage queues are typically first-in-first-out, but sometimes they can be out of order. For example, when the visibility-timeout duration of a message expires because a client application crashed while processing a message. When the visibility timeout expires, the message becomes visible again on the queue for another worker to dequeue it. At that point, the newly visible message might be placed in the queue to be dequeued again.
-* The guaranteed FIFO pattern in Service Bus queues requires the use of messaging sessions. If the application crashes while it's processing a message received in the **Peek & Lock** mode, the next time a queue receiver accepts a messaging session, it will start with the failed message after the message's time-to-live (TTL) period expires.
+* The guaranteed FIFO pattern in Service Bus queues requires the use of messaging sessions. If the application crashes while it's processing a message received in the **Peek & Lock** mode, the next time a queue receiver accepts a messaging session, it will start with the failed message after the session's lock duration expires.
 * Storage queues are designed to support standard queuing scenarios, such as the following ones:
     - Decoupling application components to increase scalability and tolerance for failures
     - Load leveling
@@ -119,23 +118,23 @@ This section compares advanced capabilities provided by Storage queues and Servi
 * The duplication detection feature of Service Bus queues automatically removes duplicate messages sent to a queue or topic, based on the value of the message ID property.
 
 ## Capacity and quotas
-This section compares Storage queues and Service Bus queues from the perspective of [capacity and quotas](service-bus-quotas.md) that may apply.
+This section compares Storage queues and Service Bus queues from the perspective of [capacity and quotas](service-bus-quotas.md) that might apply.
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
 | Maximum queue size |500 TB<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |1 GB to 80 GB<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section) |
-| Maximum message size |64 KB<br/><br/>(48 KB when using Base64 encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |256 KB or 100 MB<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
+| Maximum message size |64 KB<br/><br/>(48 KB when using Base 64 encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |256 KB or 100 MB<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
 | Maximum message TTL |Infinite (api-version 2017-07-27 or later) |TimeSpan.MaxValue |
 | Maximum number of queues |Unlimited |10,000<br/><br/>(per service namespace) |
 | Maximum number of concurrent clients |Unlimited |5,000 |
 
 ### Additional information
 * Service Bus enforces queue size limits. The maximum queue size is specified when creating a queue. It can be between 1 GB and 80 GB. If the queue's size reaches this limit, additional incoming messages will be rejected and the caller receives an exception. For more information about quotas in Service Bus, see [Service Bus Quotas](service-bus-quotas.md).
-* In the Standard messaging tier, you can create Service Bus queues and topics in 1 (default), 2, 3, 4, or 5-GB sizes. When enabling partitioning in the Standard tier, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB.  You can see the maximum size of your partitioned queue or topic in the [Azure portal][Azure portal].
+* In the Standard messaging tier, you can create Service Bus queues and topics in 1 (default), 2, 3, 4, or 5-GB sizes. When enabling partitioning in the Standard tier, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB.  You can see the maximum size of your partitioned queue or topic in the [Azure portal].
 * With Storage queues, if the content of the message isn't XML-safe, then it must be **Base64** encoded. If you **Base64**-encode the message, the user payload can be up to 48 KB, instead of 64 KB.
 * With Service Bus queues, each message stored in a queue is composed of two parts: a header and a body. The total size of the message can't exceed the maximum message size supported by the service tier.
 * When clients communicate with Service Bus queues over the TCP protocol, the maximum number of concurrent connections to a single Service Bus queue is limited to 100. This number is shared between senders and receivers. If this quota is reached, requests for additional connections will be rejected and an exception will be received by the calling code. This limit isn't imposed on clients connecting to the queues using REST-based API.
-* If you require more than 10,000 queues in a single Service Bus namespace, you can contact the Azure support team and request an increase. To scale beyond 10,000 queues with Service Bus, you can also create additional namespaces using the [Azure portal][Azure portal].
+* If you require more than 10,000 queues in a single Service Bus namespace, you can contact the Azure support team and request an increase. To scale beyond 10,000 queues with Service Bus, you can also create additional namespaces using the [Azure portal].
 
 ## Management and operations
 This section compares the management features provided by Storage queues and Service Bus queues.
@@ -172,18 +171,18 @@ This section discusses the authentication and authorization features supported b
 ### Additional information
 * Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access aren't supported. 
 * Using shared access signature (SAS) authentication, you can create a shared access authorization rule on a queue that can give users a write-only, read-only, or full access. For more information, see [Azure Storage - SAS authentication](../storage/common/storage-sas-overview.md) and [Azure Service Bus - SAS authentication](service-bus-sas.md).
-* Both queues support authorizing access using Azure Active Directory (Azure AD). Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities. For more information, see [Azure Storage - Azure AD authentication](../storage/queues/assign-azure-role-data-access.md) and [Azure Service Bus - Azure AD authentication](service-bus-authentication-and-authorization.md#azure-active-directory). 
+* Both queues support authorizing access using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there's no need to store the tokens in your code and risk potential security vulnerabilities. For more information, see [Azure Storage - Microsoft Entra authentication](../storage/queues/assign-azure-role-data-access.md) and [Azure Service Bus - Microsoft Entra authentication](service-bus-authentication-and-authorization.md#azure-active-directory). 
 
 ## Conclusion
-By gaining a deeper understanding of the two technologies, you can make a more informed decision on which queue technology to use, and when. The decision on when to use Storage queues or Service Bus queues clearly depends on many factors. These factors may depend heavily on the individual needs of your application and its architecture. 
+By gaining a deeper understanding of the two technologies, you can make a more informed decision on which queue technology to use, and when. The decision on when to use Storage queues or Service Bus queues clearly depends on many factors. These factors depend heavily on the individual needs of your application and its architecture. 
 
-You may prefer to choose Storage queues for reasons such as the following ones:
+You might prefer to choose Storage queues for reasons such as the following ones:
 
 - If your application already uses the core capabilities of Microsoft Azure 
 - If you require basic communication and messaging between services 
 - Need queues that can be larger than 80 GB in size
 
-Service Bus queues provide many advanced features such as the following ones. So, they may be a preferred choice if you're building a hybrid application or if your application otherwise requires these features.
+Service Bus queues provide many advanced features such as the following ones. So, they might be a preferred choice if you're building a hybrid application or if your application otherwise requires these features.
 
 - [Sessions](message-sessions.md)
 - [Transactions](service-bus-transactions.md)
@@ -197,7 +196,7 @@ Service Bus queues provide many advanced features such as the following ones. So
 The following articles provide more guidance and information about using Storage queues or Service Bus queues.
 
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to Use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md)
+* [How to Use the Queue Storage Service](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 * [Best practices for performance improvements using Service Bus brokered messaging](service-bus-performance-improvements.md)
 
 [Azure portal]: https://portal.azure.com

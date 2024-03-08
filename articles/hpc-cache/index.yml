@@ -7,8 +7,7 @@ metadata:
   title: Microsoft Azure HPC Cache 
   description: Learn how to create and use Azure HPC Cache to solve the latency problem between your compute resources and storage. Azure HPC Cache is for file-based read-heavy workloads, and can create an aggregated virtual file system that incorporates Azure Blob storage and on-premises hardware filers.
   ms.service: hpc-cache 
-  ms.topic: landing-page 
-  ms.collection: collection
+  ms.topic: landing-page
   author: ekpgh
   ms.author: rohogue
   ms.date: 07/08/2021

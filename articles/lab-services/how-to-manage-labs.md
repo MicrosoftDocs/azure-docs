@@ -6,7 +6,7 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
-ms.date: 01/21/2023
+ms.date: 07/04/2023
 ---
 
 # Manage labs in Azure Lab Services
@@ -15,12 +15,18 @@ This article describes how to create and delete labs. It also shows you how to v
 
 ## Prerequisites
 
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
+
 - One or more labs. To create a lab, see [Tutorial: Create a lab](tutorial-setup-lab.md).
-- Permission to edit the lab.  To give educators permission to add and create labs, see [Add a user to the Lab Creator role](quick-create-resources.md#add-a-user-to-the-lab-creator-role).  For more role options, see [Lab Services built-in roles](administrator-guide.md#rbac-roles).
 
 ## View all labs
 
+# [Lab Services website](#tab/lab-services-website)
+
 1. Navigate to Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
+
 1. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab plan, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts.
 
     [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
@@ -35,6 +41,44 @@ This article describes how to create and delete labs. It also shows you how to v
 
 > [!NOTE]
 > If you're granted access but are unable to view the labs from other people, you might select *All labs* instead of *My labs* in the **Show** filter.
+
+# [Teams](#tab/teams)
+
+To access your lab in Teams:
+
+1. Sign into Microsoft Teams with your organizational account.
+
+1. Select the team and channel that contain the lab.
+
+1. Select the **Azure Lab Services** tab.
+
+    Confirm that you see all labs for the lab plan that's associated with the Teams channel.
+
+    :::image type="content" source="./media/how-to-manage-labs/teams-view-labs.png" alt-text="Screenshot that shows the list of labs in Microsoft Teams.":::
+
+# [Canvas](#tab/canvas)
+
+1. Sign into Canvas, and select your course.
+
+1. Select **Azure Lab Services** from the course navigation menu.
+
+    Confirm that you see all labs for the lab plan that's associated with the course.
+
+    :::image type="content" source="./media/how-to-manage-labs/canvas-view-labs.png" alt-text="Screenshot that shows the list of labs in Canvas.":::
+
+---
+
+## Use a non-organizational account as a lab creator
+
+You can access the Azure Lab Services website to create and manage labs without an organizational account (a guest account). In this case, you need a Microsoft account, or a GitHub or non-Microsoft email account that is linked to a Microsoft account.
+
+### Use a non-Microsoft email account
+
+[!INCLUDE [Use non-Microsoft account](./includes/lab-services-non-microsoft-account.md)]
+
+### Use a GitHub Account
+
+[!INCLUDE [Use GitHub account](./includes/lab-services-github-account.md)]
 
 ## Delete a lab
 
@@ -57,5 +101,5 @@ To switch to a different group, select the left drop-down and choose the lab pla
 See the following articles:
 
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
-- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- [As a lab owner, configure and control usage of a lab](how-to-manage-lab-users.md)
 - [As a lab user, access labs](how-to-use-lab.md)

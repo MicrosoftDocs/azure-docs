@@ -4,8 +4,8 @@ description: Learn how to add an artifact to a virtual machine in a lab in Azure
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/11/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 09/30/2023
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Add artifacts to DevTest Labs VMs
@@ -30,7 +30,7 @@ To add artifacts during VM creation:
 1. On the **Add artifacts** page, select the arrow next to each artifact you want to add to the VM.
 1. On each **Add artifact** pane, enter any required and optional parameter values, and then select **OK**. The artifact appears under **Selected artifacts**, and the number of configured artifacts updates.
 
-   ![Screenshot that shows adding artifacts on the Add artifacts screen.](media/add-artifact-vm/devtestlab-add-artifacts-blade-selected-artifacts.png)
+   :::image type="content" source="./media/add-artifact-vm/devtestlab-add-artifacts-blade-selected-artifacts.png" alt-text="Screenshot that shows adding artifacts on the Add artifacts pane.":::
 
 1. You can change the artifacts after adding them.
 
@@ -49,7 +49,7 @@ To install artifacts on an existing VM:
 1. On the VM page, select **Artifacts** in the top menu bar or left navigation.
 1. On the **Artifacts** page, select **Apply artifacts**.
 
-   ![Screenshot that shows the Artifacts screen for an existing V M.](media/add-artifact-vm/artifacts.png)
+   :::image type="content" source="./media/add-artifact-vm/artifacts.png" alt-text="Screenshot that shows Artifacts pane for an existing V M.":::
 
 1. On the **Add artifacts** page, select and configure artifacts the same as for a new VM.
 1. When you're done adding artifacts, select **Install**. The artifacts install on the VM immediately.

@@ -2,7 +2,6 @@
 title: Enhance remote management security in Azure | Microsoft Docs
 description: "This article discusses steps for enhancing remote management security while administering Microsoft Azure environments, including cloud services, virtual machines, and custom applications."
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
 
@@ -10,8 +9,6 @@ ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/03/2023
 ms.author: terrylan
 
@@ -91,7 +88,7 @@ On a hardened workstation, the administrator runs a standard user account (which
 You can enforce all this by using [Group Policy Objects](../../active-directory-domain-services/manage-group-policy.md) (GPOs) in Active Directory Domain Services (AD DS) and applying them through your (local) management domain to all management accounts.
 
 ### Managing services, applications, and data
-Azure cloud services configuration is performed through either the Azure portal or SMAPI, via the Windows PowerShell command-line interface or a custom-built application that takes advantage of these RESTful interfaces. Services using these mechanisms include Azure Active Directory (Azure AD), Azure Storage, Azure Websites, and Azure Virtual Network, and others.
+Azure cloud services configuration is performed through either the Azure portal or SMAPI, via the Windows PowerShell command-line interface or a custom-built application that takes advantage of these RESTful interfaces. Services using these mechanisms include Microsoft Entra ID, Azure Storage, Azure Websites, and Azure Virtual Network, and others.
 
 Virtual Machine deployed applications provide their own client tools and interfaces as needed, such as the Microsoft Management Console (MMC), an enterprise management console (such as Microsoft System Center or Windows Intune), or another management application Microsoft SQL Server Management Studio, for example. These tools typically reside in an enterprise environment or client network. They may depend on specific network protocols, such as Remote Desktop Protocol (RDP), that require direct, stateful connections. Some may have web-enabled interfaces that shouldn't be openly published or accessible via the Internet.
 
@@ -103,7 +100,7 @@ In general, helping to secure administrator workstations for use with the cloud 
 ### Authentication
 You can use Azure logon restrictions to constrain source IP addresses for accessing administrative tools and audit access requests. To help Azure identify management clients (workstations and/or applications), you can configure both SMAPI (via customer-developed tools such as Windows PowerShell cmdlets) and the Azure portal to require client-side management certificates to be installed, in addition to TLS/SSL certificates. We also recommend that administrator access require multi-factor authentication.
 
-Some applications or services that you deploy into Azure may have their own authentication mechanisms for both end-user and administrator access, whereas others take full advantage of Azure AD. Depending on whether you're federating credentials via Active Directory Federation Services (AD FS), using directory synchronization or maintaining user accounts solely in the cloud, using [Microsoft Identity Manager](/microsoft-identity-manager/) (part of Azure AD Premium) helps you manage identity lifecycles between the resources.
+Some applications or services that you deploy into Azure may have their own authentication mechanisms for both end-user and administrator access, whereas others take full advantage of Microsoft Entra ID. Depending on whether you're federating credentials via Active Directory Federation Services (AD FS), using directory synchronization or maintaining user accounts solely in the cloud, using [Microsoft Identity Manager](/microsoft-identity-manager/) (part of Microsoft Entra ID P1 or P2) helps you manage identity lifecycles between the resources.
 
 ### Connectivity
 Several mechanisms are available to help secure client connections to your Azure virtual networks. Two of these mechanisms, site-to-site VPN (S2S) and [point-to-site VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) (P2S), enable the use of industry standard IPsec (S2S) for encryption and tunneling. When Azure is connecting to public-facing Azure services management such as the Azure portal, Azure requires Hypertext Transfer Protocol Secure (HTTPS).
@@ -161,7 +158,7 @@ Don't assume that because a workstation has been locked down that other common s
 | Don't store account passwords unencrypted or un-hashed in application storage (such as in spreadsheets, SharePoint sites, or file shares). |Establish security management principles and system hardening policies, and apply them to your development environment. |
 | Don't share accounts and passwords between administrators, or reuse passwords across multiple user accounts or services, particularly those for social media or other nonadministrative activities. |Create a dedicated Microsoft account to manage your Azure subscription, an account that is not used for personal email. |
 | Don't email configuration files. |Configuration files and profiles should be installed from a trusted source (for example, an encrypted USB flash drive), not from a mechanism that can be easily compromised, such as email. |
-| Don't use weak or simple logon passwords. |Enforce strong password policies, expiration cycles (changeon-first-use), console timeouts, and automatic account lockouts. Use a client password management system with multi-factor authentication for password vault access. |
+| Don't use weak or simple logon passwords. |Enforce strong password policies, expiration cycles (change-on-first-use), console timeouts, and automatic account lockouts. Use a client password management system with multi-factor authentication for password vault access. |
 | Don't expose management ports to the Internet. |Lock down Azure ports and IP addresses to restrict management access. |
 | - | Use firewalls, VPNs, and NAP for all management connections. |
 
@@ -189,6 +186,6 @@ Using a hardened workstation configuration for administering your Azure cloud se
 ## Next steps
 The following resources are available to provide more general information about Azure and related Microsoft services:
 
-* [Securing Privileged Access](/windows-server/identity/securing-privileged-access/securing-privileged-access) - get the technical details for designing and building a secure administrative workstation for Azure management
+* Securing Privileged Access - get the technical details for designing and building a secure administrative workstation for Azure management
 * [Microsoft Trust Center](https://microsoft.com/trustcenter/cloudservices/azure) - learn about Azure platform capabilities that protect the Azure fabric and the workloads that run on Azure
 * [Microsoft Security Response Center](https://www.microsoft.com/msrc) - where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to [secure@microsoft.com](mailto:secure@microsoft.com)

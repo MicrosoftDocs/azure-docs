@@ -20,16 +20,16 @@ In this article, you'll configure the built-in container image registry for an A
 
 ## Before you begin
 
-This article assumes you have an existing ARO cluster (see [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md)). If you would like to configure Azure AD integration, make sure to create the cluster with the `--pull-secret` argument to `az aro create`.
+This article assumes you have an existing ARO cluster (see [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md)). If you would like to configure Microsoft Entra integration, make sure to create the cluster with the `--pull-secret` argument to `az aro create`.
 
 > [!NOTE]
-> [Configuring Azure AD Authentication](./configure-azure-ad-ui.md#configure-openshift-openid-authentication) for your cluster is the easiest way to interact with the internal registry from outside the cluster.
+> [Configuring Microsoft Entra authentication](./configure-azure-ad-ui.md#configure-openshift-openid-authentication) for your cluster is the easiest way to interact with the internal registry from outside the cluster.
 
 Once you have your cluster, [connect to the cluster](./tutorial-connect-cluster.md) by authenticating as the `kubeadmin` user.
 
 ## Configure authentication to the registry
 
-For any identity (a cluster user, Azure AD user, or ServiceAccount) to access the internal registry, it must be granted permissions inside the cluster:
+For any identity (a cluster user, Microsoft Entra user, or ServiceAccount) to access the internal registry, it must be granted permissions inside the cluster:
 
 As `kubeadmin`, execute the following commands:
    ```bash
@@ -39,7 +39,7 @@ As `kubeadmin`, execute the following commands:
    ```
 
 > [!Note]
-> For cluster users and Azure AD users - this will be the same name you use to authenticate into the cluster. For OpenShift ServiceAccounts, format the name as `system:serviceaccount:<project>:<name>`
+> For cluster users and Microsoft Entra users - this will be the same name you use to authenticate into the cluster. For OpenShift ServiceAccounts, format the name as `system:serviceaccount:<project>:<name>`
 
 ## Access the registry
 

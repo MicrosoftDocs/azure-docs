@@ -20,7 +20,7 @@ Azure Edge Hardware Center is a new Azure service that lets you order a variety 
 Edge Hardware Center offers the following benefits:
 
 - **Place bulk orders of hardware** - You can order multiple units of a particular type of device or hardware at once by putting a quantity while placing your order.
-- **Ship multiple devices or hardware to different locations at the same time** - You can now ship hardware to multiple locations (within one country/region) through just one order. Add multiple addresses in the “Shipping + Quantity” tab to achieve this.
+- **Ship multiple devices or hardware to different locations at the same time** - You can now ship hardware to multiple locations (within one country/region) through just one order. Add multiple addresses in the "Shipping + Quantity" tab to achieve this.
 - **Save addresses for future orders** - You can save your frequently used addresses while placing an order. For subsequent orders, you can then select a shipping address from your address book.
 - **Stay updated with your order status** - You can view the order status updates for each of the order items. You can also choose to get notified through email when your order moves to next stage. You can add one or more people in the notification list.
 
@@ -56,7 +56,7 @@ For more information, see [Create an Azure Stack Edge resource after you place t
 
 You can track the status of your order by going to the order item resource within Edge Hardware Center. For more information, see [Track the Edge Hardware Center order](azure-edge-hardware-center-manage-order.md#track-order). 
 
-You can also [Cancel the order](azure-edge-hardware-center-manage-order.md#cancel-order) or [Return hardware](azure-edge-hardware-center-manage-order.md#return-hardware ) once you are done.
+You can also [Cancel the order](azure-edge-hardware-center-manage-order.md#cancel-order) or [Return hardware](azure-edge-hardware-center-manage-order.md#return-hardware) once you are done.
 
 You can also enable alerts to receive email notifications if the order status changes. The email notifications are enabled when the order is placed.
 

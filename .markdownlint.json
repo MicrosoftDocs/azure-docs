@@ -44,7 +44,6 @@
         "names": [
             ".NET",
             "ASP.NET",
-            "Azure",
             "JavaScript",
             "NuGet",
             "PowerShell",
@@ -56,5 +55,11 @@
     "MD045": false,
     "MD046": false,
     "MD047": false,
-    "MD048": true
+    "MD048": true,
+    "MD049": true,
+    "MD050": true,
+    "MD051": false,
+    "MD052": true,
+    "MD053": true
 }
+    

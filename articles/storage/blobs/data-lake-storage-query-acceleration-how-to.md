@@ -4,13 +4,13 @@ titleSuffix: Azure Storage
 description: Use query acceleration to retrieve a subset of data from your storage account.
 author: normesta
 
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 06/09/2022
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-azurepowershell
 ---
 
@@ -26,6 +26,8 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 - A **general-purpose v2** storage account. see [Create a storage account](../common/storage-account-create.md).
 
+- Double encryption is not supported.
+- If you are querying a JSON file, each record size in this file should be smaller than 1MB.
 - Choose a tab to view any SDK-specific prerequisites.
 
   ### [PowerShell](#tab/azure-powershell)

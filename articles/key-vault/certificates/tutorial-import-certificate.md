@@ -3,13 +3,12 @@ title: Tutorial - Import a certificate in Key Vault using Azure portal | Microso
 description: Tutorial showing how to import a certificate in Azure Key Vault
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2022
+ms.date: 01/30/2024
 ms.author: sebansal 
 ms.devlang: azurecli
 ---
@@ -32,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a key vault
 
@@ -43,6 +42,8 @@ Create a key vault using one of these three methods:
 - [Create a key vault using Azure PowerShell](../general/quick-create-powershell.md)
 
 ## Import a certificate to your key vault
+> [!NOTE]
+> By default, imported certificates have exportable private keys. You can use the SDK, Azure CLI, or PowerShell to define policies that prevent the private key from being exported.
 
 To import a certificate to the vault, you need to have a PEM or PFX certificate file to be on disk. If the certificate is in PEM format, the PEM file must contain the key as well as x509 certificates. This operation requires the certificates/import permission.
 

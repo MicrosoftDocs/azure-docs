@@ -151,7 +151,7 @@ To view the details of a configuration and monitor the devices running it, use t
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
 
-2. Select **Configurations ** in Device management.
+2. Select **Configurations** in Device management.
 
 3. Inspect the configuration list. For each configuration, you can view the following details:
 

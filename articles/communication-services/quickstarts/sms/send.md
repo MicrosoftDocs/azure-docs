@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Send an SMS message
 titleSuffix: Azure Communication Services
-description: "In this quickstart, you'll learn how to send an SMS message by using Azure Communication Services. See code examples in C#, JavaScript, Java, and Python."
+description: "In this quickstart, you learn how to send an SMS message by using Azure Communication Services. See code examples in C#, JavaScript, Java, and Python."
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
@@ -10,17 +10,15 @@ ms.date: 05/25/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.custom:
-   - tracking-python
-   - devx-track-js
-   - mode-other
-   - kr2b-contr-experiment
+ms.custom: tracking-python, devx-track-js, mode-other, kr2b-contr-experiment, devx-track-extended-java, devx-track-python
 zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 ---
 # Quickstart: Send an SMS message
 
 > [!IMPORTANT]
-> SMS capabilities depend on the phone number you use and the country that you're operating within as determined by your Azure billing address. For more information, visit the [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md) documentation.
+> SMS capabilities depend on the phone number you use and the country/region that you're operating within as determined by your Azure billing address. For more information, see [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md).
+
+[!INCLUDE [Survey Request](../../includes/survey-request.md)]
 
 <br/>
 
@@ -60,11 +58,11 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Toll-free verification
 
-If you have a new toll-free number and want to send [high volume of SMS messages](../../concepts/sms/sms-faq.md#what-happens-if-i-dont-verify-my-toll-free-numbers) or send SMS messages to Canadian phone numbers, please visit [here](../../concepts/sms/sms-faq.md#how-do-i-submit-a-toll-free-verification) to learn how to verify your toll-free number. 
+If you have a new toll-free number and want to send a [high volume of SMS messages](../../concepts/sms/sms-faq.md#what-happens-if-i-dont-verify-my-toll-free-numbers) or send SMS messages to Canadian phone numbers, see [SMS FAQ > How do I submit a toll-free verification](../../concepts/sms/sms-faq.md#how-do-i-submit-a-toll-free-verification) to learn how to verify your toll-free number. 
 
 ## Next steps
 
-In this quickstart, you learned how to send SMS messages by using Communication Services.
+In this quickstart, you learned how to send SMS messages using Azure Communication Services.
 
 > [!div class="nextstepaction"]
 > [Receive and reply to SMS](./receive-sms.md)
@@ -74,3 +72,5 @@ In this quickstart, you learned how to send SMS messages by using Communication 
 
 > [!div class="nextstepaction"]
 > [Phone number types](../../concepts/telephony/plan-solution.md)
+
+For more information, see [Quickstart: Look up operator information for a phone number](../telephony/number-lookup.md).

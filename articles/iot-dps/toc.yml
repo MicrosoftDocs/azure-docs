@@ -70,7 +70,7 @@ items:
       href: concepts-control-access-dps.md
     - name: Control access to DPS with SAS
       href: how-to-control-access.md
-    - name: Control access to DPS with Azure AD (preview)
+    - name: Control access to DPS with Microsoft Entra ID (preview)
       href: concepts-control-access-dps-azure-ad.md
   - name: Roles and operations
     href: concepts-roles-operations.md
@@ -257,12 +257,8 @@ items:
     - name: DPS shared access policy data source
       displayName: Terraform
       href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub_dps_shared_access_policy
-  - name: Azure Certified for IoT device catalog
-    href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
-  - name: Customer data requests
-    href: iot-dps-customer-data-requests.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Azure IoT Explorer tool

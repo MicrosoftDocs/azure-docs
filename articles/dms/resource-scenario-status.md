@@ -2,13 +2,15 @@
 title: Supported database migration scenarios
 titleSuffix: Azure Database Migration Service
 description: Learn which migration scenarios are currently supported for Azure Database Migration Service and their availability status.
-author: croblesm
-ms.author: roblescarlos
-ms.reviewer: craigg, randolphwest
+author: abhims14
+ms.author: abhishekum
+ms.reviewer: randolphwest
 ms.date: 04/27/2022
 ms.service: dms
 ms.topic: troubleshooting
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - sql-migration-content
 ---
 
 # Azure Database Migration Service supported scenarios
@@ -81,9 +83,9 @@ The following table describes the current status of Database Migration Service s
 | | Amazon RDS SQL | Yes | GA|
 | | Oracle | No | |
 | **Azure Cosmos DB** | MongoDB | Yes | GA |
-| **Azure Database for MySQL - Flexible Server** | Azure Database for MySQL - Single Server | Yes | Preview |
-| | MySQL | Yes  | Preview |
-| | Amazon RDS MySQL | Yes  | Preview |
+| **Azure Database for MySQL - Flexible Server** | Azure Database for MySQL - Single Server | Yes | GA |
+| | MySQL | Yes  | GA |
+| | Amazon RDS MySQL | Yes  | GA |
 | **Azure Database for PostgreSQL - Single Server** | PostgreSQL | Yes | GA |
 | | Azure Database for PostgreSQL - Single Server <sup>2</sup> | Yes | GA |
 | | Amazon RDS PostgreSQL | Yes | GA |

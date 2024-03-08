@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 author: reachnijel
 ms.author: nijelsf
-ms.date: 07/18/2022
+ms.date: 09/19/2023
 ---
 
 # Find the host names of cluster nodes
 
-HDInsight cluster is created with public DNS `clustername.azurehdinsight.net`. When you SSH to individual nodes or set connection to cluster nodes with in the same custom virtual network, you need to use host name, or fully qualified domain names (FQDN) of cluster nodes.
+HDInsight cluster is created with public DNS `clustername.azurehdinsight.net`. When you SSH to individual nodes or set up a connection to cluster nodes within the same custom virtual network, you need to use the host name or fully qualified domain names (FQDN) of cluster nodes.
 
 In this article, you learn how to get the host names of cluster nodes. You can get it manually through Ambari Web UI or automatically through Ambari REST API.
 

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: devx-track-python, has-adal-ref, event-tier1-build-2022
+ms.custom: devx-track-python, has-adal-ref
 
 author: likebupt
 ms.author: keli19
@@ -16,7 +16,7 @@ ms.date: 06/15/2021
 
 This article describes the Execute Python Script component in Azure Machine Learning designer.
 
-Use this component to run Python code. For more information about the architecture and design principles of Python, see [how run Python code in Azure Machine Learning designer](../how-to-designer-python.md).
+Use this component to run Python code. For more information about the architecture and design principles of Python, see [how run Python code in Azure Machine Learning designer](../v1/how-to-designer-python.md).
 
 With Python, you can perform tasks that existing components don't support, such as:
 

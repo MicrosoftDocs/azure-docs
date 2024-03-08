@@ -1,7 +1,6 @@
 ---
 title: Use the extended Spark history server to debug apps 
 description: Use the extended Spark history server to debug and diagnose Spark applications in Azure Synapse Analytics.
-services: synapse-analytics 
 author: juluczni
 ms.author: juluczni
 ms.service: synapse-analytics 
@@ -209,5 +208,5 @@ Input/output data using Resilient Distributed Datasets (RDDs) doesn't show in th
 ## Next steps
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [.NET for Apache Spark documentation](/dotnet/spark)
+- [.NET for Apache Spark documentation](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 

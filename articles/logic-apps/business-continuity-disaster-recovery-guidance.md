@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 01/10/2024
 ---
 
 # Business continuity and disaster recovery for Azure Logic Apps

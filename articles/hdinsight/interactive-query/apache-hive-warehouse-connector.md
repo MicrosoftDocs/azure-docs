@@ -5,7 +5,7 @@ author: reachnijel
 ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 12/09/2022
+ms.date: 01/04/2024
 ---
 
 # Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight
@@ -16,7 +16,7 @@ The Hive Warehouse Connector allows you to take advantage of the unique features
 
 Apache Hive offers support for database transactions that are Atomic, Consistent, Isolated, and Durable (ACID). For more information on ACID and transactions in Hive, see [Hive Transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive also offers detailed security controls through Apache Ranger and Low Latency Analytical Processing (LLAP) not available in Apache Spark.
 
-Apache Spark, has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with HDInsight 4.0, Apache Spark 2.3.1 & above, and Apache Hive 3.1.0 have separate metastore catalogs, which make interoperability difficult. 
+Apache Spark has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with HDInsight 4.0, Apache Spark 2.3.1 & above, and Apache Hive 3.1.0 have separate metastore catalogs, which make interoperability difficult. 
 
 The Hive Warehouse Connector (HWC) makes it easier to use Spark and Hive together. The HWC library loads data from LLAP daemons to Spark executors in parallel. This process makes it more efficient and adaptable than a standard JDBC connection from Spark to Hive. This brings out two different execution modes for HWC: 
 > - Hive JDBC mode via HiveServer2
@@ -199,7 +199,7 @@ Once you build the scala/java code along with the dependencies into an assembly 
     /<APP_JAR_PATH>/myHwcAppProject.jar
     ```
 
-This utility is also used when we have written the entire application in pySpark and packaged into py files (Python), so that we can submit the entire code to Spark cluster for execution.
+This utility is also used when we have written the entire application in pySpark and packaged into `.py` files (Python), so that we can submit the entire code to Spark cluster for execution.
 
 For Python applications, pass a .py file in the place of `/<APP_JAR_PATH>/myHwcAppProject.jar`, and add the below configuration (Python .zip) file to the search path with `--py-files`.
 

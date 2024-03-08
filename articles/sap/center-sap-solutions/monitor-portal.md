@@ -1,18 +1,18 @@
 ---
-title: Monitor SAP system from the Azure portal (preview)
+title: Monitor SAP system from the Azure portal
 description: Learn how to monitor the health and status of your SAP system, along with important SAP metrics, using the Azure Center for SAP solutions within the Azure portal.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 10/19/2022
-author: lauradolan
-ms.author: ladolan
+author: sagarkeswani
+ms.author: sagarkeswani
 #Customer intent: As a developer, I want to set up monitoring for my Virtual Instance for SAP solutions, so that I can monitor the health and status of my SAP system in Azure Center for SAP solutions.
 ---
 
-# Monitor SAP system from Azure portal (preview)
+# Monitor SAP system from Azure portal 
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
+
 
 In this how-to guide, you'll learn how to monitor the health and status of your SAP system with *Azure Center for SAP solutions* through the Azure portal. The following capabilities are available for your *Virtual Instance for SAP solutions* resource:
 
@@ -173,7 +173,7 @@ You can also set up or register Azure Monitor for SAP solutions to monitor SAP p
 
 1. In the sidebar menu for the VIS, under **Monitoring**, select **Azure Monitor for SAP solutions**.
 
-1. Select whether you want to [create a new Azure Monitor for SAP solutions instance](#create-new-Azure Monitor for SAP solutions-resource), or [register an existing Azure Monitor for SAP solutions instance](#register-existing-Azure Monitor for SAP solutions-resource). If you don't see this option, you've already configured this setting.
+1. Select whether you want to [create a new Azure Monitor for SAP solutions instance](#create-new-azure-monitor-for-sap-solutions-resource), or [register an existing Azure Monitor for SAP solutions instance](#register-existing-azure-monitor-for-sap-solutions-resource). If you don't see this option, you've already configured this setting.
 
     :::image type="content" source="media/monitor-portal/monitoring-setup.png" lightbox="media/monitor-portal/monitoring-setup.png" alt-text="Screenshot of Azure Monitor for SAP solutions page inside a VIS resource in the Azure portal, showing the option to create or register a new instance.":::
 
@@ -221,7 +221,7 @@ To register an existing Azure Monitor for SAP solutions resource, select the ins
 
    :::image type="content" source="media/monitor-portal/ams-registration.png" lightbox="media/monitor-portal/ams-registration.png" alt-text="Screenshot of Azure Monitor for SAP solutions registration page, showing the selection of an existing Azure Monitor for SAP solutions resource.":::
 
-## Unregister Azure Monitor for SAP solutions from VIS
+### Unregister Azure Monitor for SAP solutions from VIS
 
 > [!NOTE]
 > This operation only unregisters the Azure Monitor for SAP solutions resource from the VIS. To delete the Azure Monitor for SAP solutions resource, you need to delete the Azure Monitor for SAP solutions instance.
@@ -235,6 +235,26 @@ To remove the link between your Azure Monitor for SAP solutions resource and you
 1. On the Azure Monitor for SAP solutions page, select **Delete** to unregister the resource.
 
 1. Wait for the confirmation message, **Azure Monitor for SAP solutions has been unregistered successfully**.
+
+## Troubleshooting issues with Health and Status on VIS
+If an error appears on a successfully registered or deployed Virtual Instance for SAP solutions resource indicating that service is unable to fetch health and status data, then use the guidance provided here to fix problem.
+
+### Error - Unable to fetch health and status data from primary SAP Central services VM
+**Possible causes:** 
+1. The SAP central services VM might not be running.
+2. The monitoring VM extension might not be running or encountered an unexpected failure on the central services VM.
+3. The storage account in the managed resource group isn't reachable from the Central service VM(s) or the storage account or underlying container/blob required by the monitoring service may have been deleted.
+4. The Central Service VM(s) system assigned managed identity doesn't have ‘Storage Blob Data Owner’ access on the managed RG or this managed identity may have been disabled.
+5. The sapstartsrv process might not be running for the SAP instance or for SAP hostctrl agent on the primary Central service VM.
+6. The monitoring VM extension couldn't execute the script to fetch health and status information due to policies or restrictions in place on the VM.
+
+**Solution:** 
+1. If the SAP Central services VM is not running, then bring up the virtual machine and SAP services on the VM. Once this is done, wait for a few minutes and check if the Health and Status shows up on the VIS resource.
+2. Navigate to the SAP Central Services VM on Azure Portal and check if the status of **Microsoft.Workloads.MonitoringExtension** on the Extensions + applications tab shows **Provisioning Succeeded**. If not, raise a support ticket.
+3. Navigate to the VIS resource and go to the Managed Resource Group from the Essentials section on Overview. Check if a Storage Account exists in this resource group. If it exists, then check if your virtual network allows connectivity from the SAP central services VM to this storage account. Enable connectivity if needed. If the storage account doesn't exist, then you will have to delete the VIS resource and register the system again.
+4. Check if the SAP central services VM system assigned managed identity has the ‘Storage Blob Data Owner’ access on the managed resource group of the VIS. If not, provide the necessary access. If the system assigned managed identity doesn't exist, then you will have to delete the VIS and re-register the system.
+5. Ensure sapstartsrv process for the SAP instance and SAP Hostctrl is running on the Central Services VM.
+6. If everything mentioned above is in place, then log a support ticket. 
 
 ## Next steps
 

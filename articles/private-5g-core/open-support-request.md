@@ -6,20 +6,18 @@ author: robswain
 ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 05/31/2023
 ms.custom: template-how-to
 ---
 
 # Get support for your Azure Private 5G Core service
 
-If you need help or notice problems with Azure Private 5G Core (AP5GC), you can raise a support request (also known as a support ticket). This article describes how to raise support requests for Azure Private 5G Core.
+If you need help or notice problems with Azure Private 5G Core (AP5GC), while you are using a release that is within its [Support lifetime](support-lifetime.md) you can raise a support request (also known as a support ticket). This article describes how to raise support requests for Azure Private 5G Core.
 
 > [!IMPORTANT]
-> You must always set **Service type** to **Azure Private 5G Core** when raising a support request for any issues related to AP5GC, even if the issue involves another Azure service. Selecting the wrong service type will cause your request to be delayed.
+> You must always set **Service type** to **Azure Private 5G Core** when raising a support request for any issues related to AP5GC, even if the issue involves another Azure service. Selecting the wrong service type may cause your request to be delayed.
 
 Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan, such as Microsoft Unified Support or Premier Support.
-
-For general information on raising support requests, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Prerequisites
 
@@ -36,7 +34,7 @@ You must have an **Owner**, **Contributor**, or **Support Request Contributor** 
 
 1. Concisely describe your problem or the change you need in the **Summary** box.
 1. Select an **Issue type** from the drop-down menu.
-1. Select your **Subscription** from the drop-down menu. Choose the subscription where you're noticing the problem or need a change. The support engineer assigned to your case will only be able to access resources in the subscription you specify. If the issue applies to multiple subscriptions, you can mention other subscriptions in your description, or by sending a message later. However, the support engineer will only be able to work on subscriptions to which you have access.
+1. Select your **Subscription** from the drop-down menu. Choose the subscription where you're noticing the problem or need a change. The support representative assigned to your case will only be able to access resources in the subscription you specify. If the issue applies to multiple subscriptions, you can mention other subscriptions in your description, or by sending a message later. However, the support representative will only be able to work on subscriptions to which you have access.
 
     > [!NOTE]
     > The remaining steps will vary depending on which options you select. For example, you won't be prompted to select a resource for a billing enquiry.
@@ -59,6 +57,9 @@ If you're still unable to resolve the issue, continue creating your support requ
 In this section, we collect more details about the problem or the change and how to contact you. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
 
 You should always collect diagnostics as soon as possible after encountering an issue and submit them with your support request using the **File upload** option. See [Gather diagnostics using the Azure portal](/azure/private-5g-core/gather-diagnostics).
+
+> [!TIP]
+> If you try to upload a large file over a slow internet connection, the upload may time out. In this case, submit your request without attaching the file. Your support  representative will provide a Secure File Exchange link to upload your file(s). See [How to securely transfer files to Microsoft Support](/troubleshoot/azure/general/secure-file-exchange-transfer-files) for more information.
 
 ## 5. Review and create your support request
 

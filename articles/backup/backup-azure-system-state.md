@@ -1,12 +1,12 @@
 ---
-title: Back up Windows system state to Azure
+title: Back up Windows system state to Azure by using Azure Backup
 description: Learn how to back up the system state of Windows Server computers to Azure.
 ms.topic: how-to
-ms.date: 01/20/2023
-author: jyothisuri
-ms.author: jsuri
+ms.date: 02/27/2024
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ms.service: backup
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 ---
 
 # Back up Windows system state to Azure
@@ -23,16 +23,16 @@ When you create a Recovery Services vault, ensure that you configure the storage
 
 To set the storage redundancy for the vault, follow these steps:
 
-1. From the **Recovery Services vaults** pane, select the new vault.
+1. From the **Recovery Services vaults** blade, select the new vault.
 
-    ![Screenshot shows how to select the new vault from the list of Recovery Services vault.](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Screenshot shows how to select the new vault from the list of Recovery Services vault.](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-list.png)
 
-    When you select the vault, the **Recovery Services vault** pane narrows, and the Settings pane (*which has the name of the vault at the top*) and the vault details pane open.
+    When you select the vault, the **Recovery Services vault** blade narrows, and the Settings blade (*which has the name of the vault at the top*) and the vault details blade open.
 
     ![Screenshot show how to view the storage configuration for new vault.](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
-2. On the new vault's **Settings** pane, use the vertical slide to scroll down to the Manage section, and select **Backup Infrastructure**.
+2. On the new vault's **Settings** blade, use the vertical slide to scroll down to the Manage section, and select **Backup Infrastructure**.
 
-3. On the **Backup Infrastructure** pane, select **Backup Configuration** to open the **Backup Configuration** pane.
+3. On the **Backup Infrastructure** blade, select **Backup Configuration** to open the **Backup Configuration** blade.
 
     ![Screenshot shows how to set the storage configuration for new vault.](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 
@@ -48,13 +48,13 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 
 To configure the vault, follow these steps:
 
-1. On the Recovery Services vault pane (for the vault you just created), in the Getting Started section, select **Backup**, then on the **Getting Started with Backup** pane, select **Backup goal**.
+1. On the Recovery Services vault blade (for the vault you just created), in the Getting Started section, select **Backup**, then on the **Getting Started with Backup** blade, select **Backup goal**.
 
     ![Screenshot shows how to open the backup settings.](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-    The **Backup Goal** pane opens.
+    The **Backup Goal** blade opens.
 
-    ![Screenshot shows how to open the backup goal pane.](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
+    ![Screenshot shows how to open the backup goal blade.](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
 2. From the **Where is your workload running?** drop-down menu, select **On-premises**.
 
@@ -64,11 +64,11 @@ To configure the vault, follow these steps:
 
     ![Screenshot shows how to configure files and folders.](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    After you select **OK**, a checkmark appears next to **Backup goal**, and the **Prepare infrastructure** pane opens.
+    After you select **OK**, a checkmark appears next to **Backup goal**, and the **Prepare infrastructure** blade opens.
 
     ![Screenshot shows how to prepare infrastructure.](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
-4. On the **Prepare infrastructure** pane, select **Download Agent for Windows Server or Windows Client**.
+4. On the **Prepare infrastructure** blade, select **Download Agent for Windows Server or Windows Client**.
 
     ![Screenshot shows how to start downloading the agent for Windows client.](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
@@ -84,7 +84,7 @@ To configure the vault, follow these steps:
 
     You don't need to install the agent yet. You can install the agent after you've downloaded the vault credentials.
 
-6. On the **Prepare infrastructure** pane, select **Download**.
+6. On the **Prepare infrastructure** blade, select **Download**.
 
     ![Screenshot shows how to download vault credentials.](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
@@ -153,17 +153,17 @@ To schedule the backup job, follow these steps:
 
     ![Screenshot shows how to schedule a Windows Server backup.](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
-3. On the **Getting started** page of the Schedule Backup Wizard, select **Next**.
+3. On the **Getting started** blade of the Schedule Backup Wizard, select **Next**.
 
-4. On the **Select Items to Backup** page, select **Add Items**.
+4. On the **Select Items to Backup** blade, select **Add Items**.
 
 5. Select **System State** and then select **OK**.
 
 6. Select **Next**.
 
-7. Select the required Backup frequency and the retention policy for your System State backups in the subsequent pages.
+7. Select the required Backup frequency and the retention policy for your System State backups in the subsequent blades.
 
-8. On the Confirmation page, review the information, and then select **Finish**.
+8. On the Confirmation blade, review the information, and then select **Finish**.
 
 9. After the wizard finishes creating the backup schedule, select **Close**.
 
@@ -177,9 +177,9 @@ To back up Windows Server System State for the first time, follow these steps:
 
     ![Screenshot shows how to start backup of Windows Server.](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Select **System State** on the **Select Backup Item** screen that appears and select **Next**.
+3. Select **System State** on the **Select Backup Item** blade that appears and select **Next**.
 
-4. On the Confirmation page, review the settings that the Back Up Now Wizard will use to back up the machine. Then select **Back Up**.
+4. On the Confirmation blade, review the settings that the Back Up Now Wizard will use to back up the machine. Then select **Back Up**.
 
 5. Select **Close** to close the wizard. If you close the wizard before the backup process finishes, the wizard continues to run in the background.
     > [!NOTE]

@@ -3,6 +3,7 @@ title: Azure Communication Services - Chat events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for chat Events.
 ms.topic: conceptual
 ms.date: 10/15/2021
+author: VikramDhumal
 ms.author: vikramdh
 ---
 
@@ -13,26 +14,28 @@ Azure Communication Services emits chat events only when Azure Communication Ser
 
 ## Event types
 
+Azure Communication Services emits chat events on two different levels: **User-level** and **Thread-level**. User-level events pertain to a specific user on the chat thread and are delivered once per user. Thread-level events pertain to the entire chat thread and and delivered once per thread. For example: if there are 10 users in a thread, there will be one thread-level event and 10 user-level events, one for each user, when a message is received in a thread.
+
 Azure Communication Services emits the following chat event types:
 
-| Event type                                                  | Description                                                                                    |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Microsoft.Communication.ChatMessageReceived                 | Published when a message is received for a user in a chat thread that she is member of.        |
-| Microsoft.Communication.ChatMessageEdited                   | Published when a message is edited in a chat thread that the user is member of.                |
-| Microsoft.Communication.ChatMessageDeleted                  | Published when a message is deleted in a chat thread that the user is member of.               |
-| Microsoft.Communication.ChatThreadCreatedWithUser           | Published when the user is added as member at the time of creation of a chat thread.           |
-| Microsoft.Communication.ChatThreadWithUserDeleted           | Published when a chat thread is deleted which the user is member of.                           |
-| Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser  | Published when a chat thread's properties are updated that the user is member of.              |
-| Microsoft.Communication.ChatParticipantAddedToThreadWithUser|  Published for a user when a new  participant is added to a chat thread, that the user is part of.|
-| Microsoft.Communication.ChatParticipantRemovedFromThreadWithUser |  Published for a user when a participant is removed from a chat thread, that the user is part of. |
-| Microsoft.Communication.ChatThreadCreated  | Published when a chat thread is created  |
-| Microsoft.Communication.ChatThreadDeleted| Published when a chat thread is deleted  |
-| Microsoft.Communication.ChatThreadParticipantAdded | Published when a new participant is added to a chat thread  |
-| Microsoft.Communication.ChatThreadParticipantRemoved | Published when a new participant is added to a chat thread.  |  
-| Microsoft.Communication.ChatMessageReceivedInThread | Published when a message is received in a chat thread  |    
-| Microsoft.Communication.ChatThreadPropertiesUpdated| Published when a chat thread's properties like topic are updated.|    
-| Microsoft.Communication.ChatMessageEditedInThread | Published when a message is edited in a chat thread |  
-| Microsoft.Communication.ChatMessageDeletedInThread | Published when a message is deleted in  a chat thread  |  
+| Event type                                                  | Level | Description                                                                                    |
+| ----------------------------------------------------------- | ---------| ------------------------------------------------------------------------------------- |
+| [Microsoft.Communication.ChatMessageReceived](#microsoftcommunicationchatmessagereceived-event)                 | `User` |Published when a message is received in a chat thread with a specific user        |
+| [Microsoft.Communication.ChatMessageEdited](#microsoftcommunicationchatmessageedited-event)                   | `User` |Published when a message is edited in a chat thread with a specific user                |
+| [Microsoft.Communication.ChatMessageDeleted](#microsoftcommunicationchatmessagedeleted-event)                  | `User` |Published when a message is deleted in a chat thread with a specific user               |
+| [Microsoft.Communication.ChatThreadCreatedWithUser](#microsoftcommunicationchatthreadcreatedwithuser-event)           | `User` |Published when a chat thread is created with a specific user           |
+| [Microsoft.Communication.ChatThreadWithUserDeleted](#microsoftcommunicationchatthreadwithuserdeleted-event)           | `User` |Published when a chat thread containing a specific user is deleted                           |
+| [Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser](#microsoftcommunicationchatthreadpropertiesupdatedperuser-event)  | `User` |Published when the chat thread's properties are updated for a specific user          |
+| [Microsoft.Communication.ChatParticipantAddedToThreadWithUser](#microsoftcommunicationchatparticipantaddedtothreadwithuser-event)|  `User` |Published when a participant is added to a chat thread with a specific user |
+| [Microsoft.Communication.ChatParticipantRemovedFromThreadWithUser](#microsoftcommunicationchatparticipantremovedfromthreadwithuser-event) |  `User` |Published when a participant is removed from a chat thread with a specific user  |
+| [Microsoft.Communication.ChatThreadCreated](#microsoftcommunicationchatthreadcreated-event)  | `Thread` |Published when a chat thread is created  |
+| [Microsoft.Communication.ChatThreadDeleted](#microsoftcommunicationchatthreaddeleted-event)| `Thread` | Published when a chat thread is deleted  |
+| [Microsoft.Communication.ChatThreadParticipantAdded](#microsoftcommunicationchatthreadparticipantadded-event) | `Thread` | Published when a new participant is added to a chat thread  |
+| [Microsoft.Communication.ChatThreadParticipantRemoved](#microsoftcommunicationchatthreadparticipantremoved-event) | `Thread` | Published when a new participant is added to a chat thread.  |  
+| [Microsoft.Communication.ChatMessageReceivedInThread](#microsoftcommunicationchatmessagereceivedinthread-event) |  `Thread` |Published when a message is received in a chat thread  |    
+| [Microsoft.Communication.ChatThreadPropertiesUpdated](#microsoftcommunicationchatthreadpropertiesupdated-event)| `Thread` | Published when a chat thread's properties are updated.|    
+| [Microsoft.Communication.ChatMessageEditedInThread](#microsoftcommunicationchatmessageeditedinthread-event) |  `Thread` |Published when a message is edited in a chat thread |  
+| [Microsoft.Communication.ChatMessageDeletedInThread](#microsoftcommunicationchatmessagedeletedinthread-event) |  `Thread` |Published when a message is deleted in  a chat thread  |  
 
 ## Event responses
 
@@ -265,7 +268,7 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-### Microsoft.Communication.ChatParticipantAddedToThreadWithUser  event 
+### Microsoft.Communication.ChatParticipantAddedToThreadWithUser event 
 ```json
 [{
     "id": "049a5a7f-6cd7-43c1-b352-df9e9e6146d1",
@@ -383,60 +386,6 @@ This section contains an example of what that data would look like for each even
     "metadataVersion": "1",
     "eventTime": "2021-02-19T00:28:29.559726Z"
   }]
-```
-
-### Microsoft.Communication.ChatMemberAddedToThreadWithUser event
-
-```json
-[{
-  "id": "4abd2b49-d1a9-4fcc-9cd7-170fa5d96443",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/{thread-id}/memberAdded/{rawId}/recipient/{rawId}",
-  "data": {
-    "time": "2020-09-18T00:47:13.1867087Z",
-    "addedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f1",
-    "memberAdded": {
-      "displayName": "John Smith",
-      "memberId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe"
-    },
-    "createTime": "2020-09-18T00:46:41.559Z",
-    "version": 1600390033176,
-    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
-    "transactionId": "pVIjw/pHEEKUOUJ2DAAl5A.1.1.1.1.1818361951.1.1",
-    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
-  },
-  "eventType": "Microsoft.Communication.ChatMemberAddedToThreadWithUser",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2020-09-18T00:47:13.2342692Z"
-}]
-```
-
-### Microsoft.Communication.ChatMemberRemovedFromThreadWithUser event
-
-```json
-[{
-  "id": "b3701976-1ea2-4d66-be68-4ec4fc1b4b96",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/{thread-id}/memberRemoved/{rawId}/recipient/{rawId}",
-  "data": {
-    "time": "2020-09-18T00:47:51.1461742Z",
-    "removedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f1",
-    "memberRemoved": {
-      "displayName": "John",
-      "memberId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe"
-    },
-    "createTime": "2020-09-18T00:46:41.559Z",
-    "version": 1600390071131,
-    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
-    "transactionId": "G9Y+UbjVmEuxAG3O4bEyvw.1.1.1.1.1819803816.1.1",
-    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
-  },
-  "eventType": "Microsoft.Communication.ChatMemberRemovedFromThreadWithUser",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2020-09-18T00:47:51.2244511Z"
-}]
 ```
 
 ### Microsoft.Communication.ChatThreadCreated event

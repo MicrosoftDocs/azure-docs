@@ -2,11 +2,11 @@
 title: Restore SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to restore SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 07/18/2023
 ms.service: backup
 ms.custom: devx-track-azurecli
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore SQL databases in an Azure VM using Azure CLI
@@ -24,11 +24,11 @@ In this article, you'll learn how to:
 
 This article assumes you've an SQL database running on Azure VM that's backed-up using Azure Backup. If you've used [Back up an SQL database in Azure using CLI](backup-azure-sql-backup-cli.md) to back up your SQL database, then you're using the following resources:
 
-* A resource group named *SQLResourceGroup*
-* A vault named *SQLVault*
-* Protected container named *VMAppContainer;Compute;SQLResourceGroup;testSQLVM*
-* Backed-up database/item named *sqldatabase;mssqlserver;master*
-* Resources in the *westus2* region
+* A resource group named `SQLResourceGroup`.
+* A vault named `SQLVault`.
+* Protected container named `VMAppContainer;Compute;SQLResourceGroup;testSQLVM`.
+* Backed-up database/item named `sqldatabase;mssqlserver;master`.
+* Resources in the `westus` region.
 
 >[!Note]
 >See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
@@ -144,7 +144,7 @@ Name                                  Operation    Status      Item Name        
 be7ea4a4-0752-4763-8570-a306b0a0106f  Restore      InProgress  master [testSQLVM]  				  AzureWorkload             2022-06-21T03:51:06.898981+00:00  0:00:05.652967
 ```
 
-The response provides you the job name. You can use this job name to track the job status using [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
+The response provides you with the job name. You can use this job name to track the job status using [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
 
 ## Restore and overwrite
 
@@ -199,7 +199,7 @@ Name                                  Operation    Status      Item Name        
 1730ec49-166a-4bfd-99d5-93027c2d8480  Restore      InProgress  master [testSQLVM]  				AzureWorkload             2022-06-21T04:04:11.161411+00:00  0:00:03.118076
 ```
 
-The response provides you the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
+The response provides you with the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
 
 ## Restore to a secondary region
 
@@ -359,10 +359,42 @@ The output appears as:
 }
 ```
 
-The response provides you the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
+The response provides you with the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
 
 > [!NOTE]
 > If you don't want to restore the entire chain but only a subset of files, follow the steps as documented [here](restore-sql-database-azure-vm.md#partial-restore-as-files).
+
+## Cross Subscription Restore
+
+With Cross Subscription Restore (CSR), you have the flexibility of restoring to any subscription and any vault under your tenant if restore permissions are available. By default, CSR is enabled on all Recovery Services vaults (existing and newly created vaults). 
+
+>[!Note]
+>- You can trigger Cross Subscription Restore from Recovery Services vault.
+>- CSR is supported only for streaming based backup and is not supported for snapshot-based backup.
+>- Cross Regional Restore (CRR) with CSR is not supported.
+
+
+```azurecli
+az backup vault create
+
+```
+
+Add the parameter `cross-subscription-restore-state` that enables you to set the CSR state of the vault during vault creation and updating.
+
+```azurecli
+az backup recoveryconfig show
+
+```
+
+Add the parameter `--target-subscription-id` that enables you to provide the target subscription as the input while triggering Cross Subscription Restore for SQL or HANA datasources.
+
+**Example**:
+
+```azurecli
+   az backup vault create -g {rg_name} -n {vault_name} -l {location} --cross-subscription-restore-state Disable
+   az backup recoveryconfig show --restore-mode alternateworkloadrestore --backup-management-type azureworkload -r {rp} --target-container-name {target_container} --target-item-name {target_item} --target-resource-group {target_rg} --target-server-name {target_server} --target-server-type SQLInstance --target-subscription-id {target_subscription} --target-vault-name {target_vault} --workload-type SQLDataBase --ids {source_item_id}
+
+```
 
 ## Next steps
 

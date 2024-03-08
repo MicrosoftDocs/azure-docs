@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Accessing user information in Azure Static Web Apps
@@ -59,7 +59,9 @@ async function getUserInfo() {
   return clientPrincipal;
 }
 
+(async () => {
 console.log(await getUserInfo());
+})();
 ```
 
 ## API functions
@@ -74,7 +76,7 @@ The following example function shows how to read and return user information.
 
 ```javascript
 module.exports = async function (context, req) {
-  const header = req.headers['x-ms-client-principal'];
+  const header = req.headers.get('x-ms-client-principal');
   const encoded = Buffer.from(header, 'base64');
   const decoded = encoded.toString('ascii');
 

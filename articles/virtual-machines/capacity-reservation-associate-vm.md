@@ -38,7 +38,7 @@ In the request body, include the `capacityReservationGroup` property:
       "vmSize": "Standard_D2s_v3" 
     }, 
     … 
-   "CapacityReservation":{ 
+   "capacityReservation":{ 
     "capacityReservationGroup":{ 
         "id":"subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}" 
     } 
@@ -84,7 +84,7 @@ az vm create
 --name myVM 
 --location eastus 
 --size Standard_D2s_v3 
---image UbuntuLTS 
+--image Ubuntu2204 
 --capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}
 ```
 

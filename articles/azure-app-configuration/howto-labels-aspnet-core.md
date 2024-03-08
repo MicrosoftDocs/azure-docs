@@ -4,11 +4,11 @@ titleSuffix: Azure App Configuration
 description: This article describes how to use labels to retrieve app configuration values for the environment in which the app is currently running.
 ms.service: azure-app-configuration
 ms.devlang: csharp
-author: mcleanbyron
+author: maud-lv
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 3/12/2020
-ms.author: mcleans
+ms.date: 02/20/2024
+ms.author: malev
 
 ---
 # Use labels to provide per-environment configuration values.
@@ -42,69 +42,18 @@ using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
 Load configuration values with the label corresponding to the current environment by passing the environment name into the `Select` method:
 
-### [.NET Core 5.x](#tab/core5x)
-
 ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-            config.AddAzureAppConfiguration(options =>
-                options
-                    .Connect(settings.GetConnectionString("AppConfig"))
-                    // Load configuration values with no label
-                    .Select(KeyFilter.Any, LabelFilter.Null)
-                    // Override with any configuration values specific to current hosting env
-                    .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
-            );
-        })
-        .UseStartup<Startup>());
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+            options.Connect(builder.Configuration.GetConnectionString("AppConfig"))
+                // Load configuration values with no label
+                .Select(KeyFilter.Any, LabelFilter.Null)
+                // Override with any configuration values specific to current hosting env
+                .Select(KeyFilter.Any, builder.Environment.EnvironmentName);
+    });
 ```
-
-### [.NET Core 3.x](#tab/core3x)
-
-```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-            config.AddAzureAppConfiguration(options =>
-                options
-                    .Connect(settings.GetConnectionString("AppConfig"))
-                    // Load configuration values with no label
-                    .Select(KeyFilter.Any, LabelFilter.Null)
-                    // Override with any configuration values specific to current hosting env
-                    .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
-            );
-        })
-        .UseStartup<Startup>());
-```
-
-### [.NET Core 2.x](#tab/core2x)
-
-```csharp
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-        .ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-            config.AddAzureAppConfiguration(options =>
-                options
-                    .Connect(settings.GetConnectionString("AppConfig"))
-                    // Load configuration values with no label
-                    .Select(KeyFilter.Any, LabelFilter.Null)
-                    // Override with any configuration values specific to current hosting env
-                    .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
-            );
-        })
-        .UseStartup<Startup>();
-```
----
-
 
 > [!IMPORTANT]
 > The preceding code snippet uses the Secret Manager tool to load App Configuration connection string. For information storing the connection string using the Secret Manager, see [Quickstart for Azure App Configuration with ASP.NET Core](quickstart-aspnet-core-app.md).

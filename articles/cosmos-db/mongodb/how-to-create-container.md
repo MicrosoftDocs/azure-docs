@@ -1,6 +1,6 @@
 ---
 title: Create a collection in Azure Cosmos DB for MongoDB
-description: Learn how to create a collection in Azure Cosmos DB for MongoDB by using Azure portal, .NET, Java, Node.js, and other SDKs. 
+description: Learn how to create a collection in Azure Cosmos DB for MongoDB by using Azure portal, .NET, Java, Node.js, and other SDKs.
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.date: 04/07/2022
 author: gahl-levy
 ms.author: gahllevy
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli, ignite-2022, devx-track-arm-template
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-arm-template, devx-track-dotnet, devx-track-extended-java
 ---
 
 # Create a collection in Azure Cosmos DB for MongoDB

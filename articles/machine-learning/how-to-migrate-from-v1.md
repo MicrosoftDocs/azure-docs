@@ -8,9 +8,9 @@ ms.subservice: core
 ms.topic: how-to
 author: balapv
 ms.author: balapv
-ms.date: 09/23/2022
+ms.date: 02/22/2024
 ms.reviewer: sgilley
-ms.custom: devplatv2, ignite-2022
+ms.custom: devplatv2, devx-track-python
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
@@ -32,7 +32,7 @@ You should use v2 if you're starting a new machine learning project or workflow.
 * Responsible AI dashboard
 * Registry of assets
 
-A new v2 project can reuse existing resources like workspaces and compute and existing assets like models and environments created using v1. 
+A new v2 project can reuse existing v1 resources like workspaces and compute and existing assets like models and environments created using v1. 
 
 Some feature gaps in v2 include:
 
@@ -46,12 +46,6 @@ You should then ensure the features you need in v2 meet your organization's requ
 > [!IMPORTANT]
 > New features in Azure Machine Learning will only be launched in v2.
 
-## Should I upgrade existing code to v2
-
-You can reuse your existing assets in your v2 workflows. For instance a model created in v1 can be used to perform Managed Inferencing in v2.
-
-Optionally, if you want to upgrade specific parts of your existing code to v2, please refer to the comparison links provided in the details of each resource or asset in the rest of this document.
-
 ## Which v2 API should I use?
 
 In v2 interfaces via REST API, CLI, and Python SDK are available. The interface you should use depends on your scenario and preferences.
@@ -62,15 +56,25 @@ In v2 interfaces via REST API, CLI, and Python SDK are available. The interface 
 |CLI|Recommended for automation with CI/CD or per personal preference. Allows quick iteration with YAML files and straightforward separation between Azure Machine Learning and ML model code.|
 |Python SDK|Recommended for complicated scripting (for example, programmatically generating large pipeline jobs) or per personal preference. Allows quick iteration with YAML files or development solely in Python.|
 
-## Can I use v1 and v2 together?
+## Mapping of Python SDK v1 to v2
 
-v1 and v2 can co-exist in a workspace. You can reuse your existing assets in your v2 workflows. For instance a model created in v1 can be used to perform Managed Inferencing in v2. Resources like workspace, compute, and datastore work across v1 and v2, with exceptions. A user can call the v1 Python SDK to change a workspace's description, then using the v2 CLI extension change it again. Jobs (experiments/runs/pipelines in v1) can be submitted to the same workspace from the v1 or v2 Python SDK. A workspace can have both v1 and v2 model deployment endpoints. 
+See each of the following articles for a comparison code mapping for SDK v1 vs v2.
 
-### Using v1 and v2 code together
-We do not recommend using the v1 and v2 SDKs together in the same code. It is technically possible to use v1 and v2 in the same code because they use different Azure namespaces. However, there are many classes with the same name across these namespaces (like Workspace, Model) which can cause confusion and make code readability and debuggability challenging. 
+|Resources and assets  |Article  |
+|---------|---------|
+|Workspace     |  [Workspace management in SDK v1 and SDK v2](migrate-to-v2-resource-workspace.md)  |
+|Datastore     |   [Datastore management in SDK v1 and SDK v2](migrate-to-v2-resource-datastore.md)      |
+|Data     |   [Data assets in SDK v1 and v2](migrate-to-v2-assets-data.md)      |
+|Compute     |  [Compute management in SDK v1 and SDK v2](migrate-to-v2-resource-compute.md)       |
+|Training     | [Run a script](migrate-to-v2-command-job.md) |
+|Training     | [Local runs](migrate-to-v2-local-runs.md) |
+|Training     | [Hyperparameter tuning](migrate-to-v2-execution-hyperdrive.md) |
+|Training     | [Parallel Run](migrate-to-v2-execution-parallel-run-step.md) |
+|Training     | [Pipelines](migrate-to-v2-execution-pipeline.md) |
+|Training     | [AutoML](migrate-to-v2-execution-automl.md) |
+| Models | [Model management in SDK v1 and SDK v2](migrate-to-v2-assets-model.md) |
+| Deployment | [Upgrade deployment endpoints to SDK v2](migrate-to-v2-deploy-endpoints.md) |
 
-> [!IMPORTANT]
-> If your workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md?view=azureml-api-2&preserve-view=true) for details.
 
 ## Resources and assets in v1 and v2
 
@@ -100,26 +104,25 @@ Object storage datastore types created with v1 are fully available for use in v2
 
 For a comparison of SDK v1 and v2 code, see [Datastore management in SDK v1 and SDK v2](migrate-to-v2-resource-datastore.md).
 
+### Data (datasets in v1)
+
+Datasets are renamed to data assets. *Backwards compatibility* is provided, which means you can use V1 Datasets in V2. When you consume a V1 Dataset in a V2 job you will notice they are automatically mapped into V2 types as follows:
+
+* V1 FileDataset = V2 Folder (`uri_folder`)
+* V1 TabularDataset = V2 Table (`mltable`)
+
+It should be noted that *forwards compatibility* is **not** provided, which means you **cannot** use V2 data assets in V1.
+
+This article talks more about handling data in v2 - [Read and write data in a job](how-to-read-write-data-v2.md?view=azureml-api-2&preserve-view=true)
+
+For a comparison of SDK v1 and v2 code, see [Data assets in SDK v1 and v2](migrate-to-v2-assets-data.md).
+
+
 ### Compute
 
 Compute of type `AmlCompute` and `ComputeInstance` are fully available for use in v2.
 
 For a comparison of SDK v1 and v2 code, see [Compute management in SDK v1 and SDK v2](migrate-to-v2-resource-compute.md).
-
-### Endpoint and deployment (endpoint and web service in v1)
-
-With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now consiered as **legacy**. For new model deployments, we recommend upgrading to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md?view=azureml-api-2&preserve-view=true). The following table guides our recommendation:
-
-|Endpoint type in v2|Upgrade from|Notes|
-|-|-|-|
-|Local|ACI|Quick test of model deployment locally; not for production.|
-|Managed online endpoint|ACI, AKS|Enterprise-grade managed model deployment infrastructure with near real-time responses and massive scaling for production.|
-|Managed batch endpoint|ParallelRunStep in a pipeline for batch scoring|Enterprise-grade managed model deployment infrastructure with massively parallel batch processing for production.|
-|Azure Kubernetes Service (AKS)|ACI, AKS|Manage your own AKS cluster(s) for model deployment, giving flexibility and granular control at the cost of IT overhead.|
-|Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-premises, giving flexibility and granular control at the cost of IT overhead.|
-
-For a comparison of SDK v1 and v2 code, see [Upgrade deployment endpoints to SDK v2](migrate-to-v2-deploy-endpoints.md).
-For migration steps from your existing ACI web services to managed online endpoints, see our [upgrade guide article](migrate-to-v2-managed-online-endpoints.md) and [blog](https://aka.ms/acimoemigration).
 
 ### Jobs (experiments, runs, pipelines in v1)
 
@@ -141,24 +144,27 @@ You can continue to use designer to build pipelines using classic prebuilt compo
 
 You cannot build a pipeline using both existing designer classic prebuilt components and v2 custom components.
 
-### Data (datasets in v1)
-
-Datasets are renamed to data assets. *Backwards compatibility* is provided, which means you can use V1 Datasets in V2. When you consume a V1 Dataset in a V2 job you will notice they are automatically mapped into V2 types as follows:
-
-* V1 FileDataset = V2 Folder (`uri_folder`)
-* V1 TabularDataset = V2 Table (`mltable`)
-
-It should be noted that *forwards compatibility* is **not** provided, which means you **cannot** use V2 data assets in V1.
-
-This article talks more about handling data in v2 - [Read and write data in a job](how-to-read-write-data-v2.md?view=azureml-api-2&preserve-view=true)
-
-For a comparison of SDK v1 and v2 code, see [Data assets in SDK v1 and v2](migrate-to-v2-assets-data.md).
 
 ### Model
 
 Models created from v1 can be used in v2. 
 
 For a comparison of SDK v1 and v2 code, see [Model management in SDK v1 and SDK v2](migrate-to-v2-assets-model.md)
+
+### Endpoint and deployment (endpoint and web service in v1)
+
+With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now considered as **legacy**. For new model deployments, we recommend upgrading to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md?view=azureml-api-2&preserve-view=true). The following table guides our recommendation:
+
+|Endpoint type in v2|Upgrade from|Notes|
+|-|-|-|
+|Local|ACI|Quick test of model deployment locally; not for production.|
+|Managed online endpoint|ACI, AKS|Enterprise-grade managed model deployment infrastructure with near real-time responses and massive scaling for production.|
+|Managed batch endpoint|ParallelRunStep in a pipeline for batch scoring|Enterprise-grade managed model deployment infrastructure with massively parallel batch processing for production.|
+|Azure Kubernetes Service (AKS)|ACI, AKS|Manage your own AKS cluster(s) for model deployment, giving flexibility and granular control at the cost of IT overhead.|
+|Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-premises, giving flexibility and granular control at the cost of IT overhead.|
+
+For a comparison of SDK v1 and v2 code, see [Upgrade deployment endpoints to SDK v2](migrate-to-v2-deploy-endpoints.md).
+For migration steps from your existing ACI web services to managed online endpoints, see our [upgrade guide article](migrate-to-v2-managed-online-endpoints.md) and [blog](https://aka.ms/acimoemigration).
 
 ### Environment
 
@@ -207,6 +213,25 @@ The solution accelerator for MLOps with v2 is being developed at https://github.
 A key paradigm with v2 is serializing machine learning entities as YAML files for source control with `git`, enabling better GitOps approaches than were possible with v1. For instance, you could enforce policy by which only a service principal used in CI/CD pipelines can create/update/delete some or all entities, ensuring changes go through a governed process like pull requests with required reviewers. Since the files in source control are YAML, they're easy to diff and track changes over time. You and your team may consider shifting to this paradigm as you upgrade to v2.
 
 You can obtain a YAML representation of any entity with the CLI via `az ml <entity> show --output yaml`. Note that this output will have system-generated properties, which can be ignored or deleted.
+
+## Should I upgrade existing v1 code to v2
+
+You can reuse your existing v1 assets in your v2 workflows. For instance a model created in v1 can be used to perform Managed Inferencing in v2.
+
+Optionally, if you want to upgrade specific parts of your existing v1 code to v2, please refer to the comparison links provided in this document.
+
+## Can I use v1 and v2 together?
+
+v1 and v2 can co-exist in a workspace. You can reuse your existing assets in your v2 workflows. For instance a model created in v1 can be used to perform Managed Inferencing in v2. Resources like workspace, compute, and datastore work across v1 and v2, with exceptions. A user can call the v1 Python SDK to change a workspace's description, then using the v2 CLI extension change it again. Jobs (experiments/runs/pipelines in v1) can be submitted to the same workspace from the v1 or v2 Python SDK. A workspace can have both v1 and v2 model deployment endpoints. 
+
+### Using v1 and v2 code together
+
+We do not recommend using the v1 and v2 SDKs together in the same code. It is technically possible to use v1 and v2 in the same code because they use different Azure namespaces. However, there are many classes with the same name across these namespaces (like Workspace, Model) which can cause confusion and make code readability and debuggability challenging. 
+
+> [!IMPORTANT]
+> If your workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md?view=azureml-api-2&preserve-view=true) for details.
+
+
 
 ## Next steps
 

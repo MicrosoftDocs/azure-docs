@@ -1,9 +1,29 @@
 {
-  "redirections": [
-    {
-      "source_path_from_root": "/articles/azure-app-configuration/howto-backup-config-store.md",
-      "redirect_url": "/articles/azure-app-configuration/concept-geo-replication.md",
-      "redirect_document_id": false
-    }
-  ]
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/howto-backup-config-store.md",
+            "redirect_url": "/azure/azure-app-configuration/concept-geo-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/integrate-azure-managed-service-identity.md",
+            "redirect_url": "/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/howto-integrate-ci-cd-pipeline.md",
+            "redirect_url": "/azure/azure-app-configuration/integrate-ci-cd-pipeline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/policy-samples.md",
+            "redirect_url": "/azure/azure-app-configuration/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
+            "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
+            "redirect_document_id": false
+        }
+    ]
 }

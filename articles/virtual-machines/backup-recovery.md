@@ -1,12 +1,12 @@
 ---
-title: Overview backup options for VMs 
+title: Overview backup options for VMs
 description: Overview backup options for Azure virtual machines.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual
 ms.date: 01/12/2023
-ms.author: cynthn
+ms.author: jushiman
 ---
 
 
@@ -55,4 +55,4 @@ Learn more about [working with VM restore points](virtual-machines-create-restor
 ## Next steps
 You can try out Azure Backup by following the [Azure Backup quickstart](../backup/quick-backup-vm-portal.md).
 
-You can also plan and implement reliability for your virtual machine configuration. For more information see [Virtual Machine Reliability](./virtual-machines-reliability.md).
+You can also plan and implement reliability for your virtual machine configuration. For more information see [Virtual Machine Reliability](./reliability-virtual-machines.md).

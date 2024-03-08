@@ -17,7 +17,7 @@ ms.subservice: data
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
 
 > [!IMPORTANT]
-> The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
+> The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/overview.md#frequently-asked-questions)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
 ## Pre-requisites
 
@@ -88,7 +88,7 @@ Communication Services offers the following types of logs that you can enable:
 | `Method` | The method used in the request. |
 |`NumberType`| The type of number, the SMS message is being sent from. It can be either **LongCodeNumber** or **ShortCodeNumber** or **DynamicAlphaSenderID**|
 |`MessageID`|Represent the unique messageId generated for every outgoing and incoming message. This can be found in the SMS API response object|
-|`Country`|Represent the countries where the SMS messages were sent to or received from|
+|`Country`|Represent the countries/regions where the SMS messages were sent to or received from|
 
 #### Example SMS sent log
 
@@ -182,4 +182,4 @@ Communication Services offers the following types of logs that you can enable:
 
 ```
 
- (see also [FAQ](../../../../azure-monitor/faq.yml)). 
+ (see also [FAQ](../../../../azure-monitor/overview.md#frequently-asked-questions)). 

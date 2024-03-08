@@ -2,14 +2,17 @@
 title: Application Insights logging with .NET
 description: Learn how to use Application Insights with the ILogger interface in .NET.
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 01/31/2024
 ms.devlang: csharp
-ms.reviewer: casocha
+ms.custom: devx-track-dotnet
+ms.reviewer: mmcc
 ---
 
 # Application Insights logging with .NET
 
 In this article, you learn how to capture logs with Application Insights in .NET apps by using the [`Microsoft.Extensions.Logging.ApplicationInsights`][nuget-ai] provider package. If you use this provider, you can query and analyze your logs by using the Application Insights tools.
+
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 [nuget-ai]: https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights
 [nuget-ai-ws]: https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService
@@ -243,13 +246,48 @@ namespace ConsoleApp
 
 For more information, see [What Application Insights telemetry type is produced from ILogger logs? Where can I see ILogger logs in Application Insights?](#what-application-insights-telemetry-type-is-produced-from-ilogger-logs-where-can-i-see-ilogger-logs-in-application-insights).
 
+## Logging scopes
+
+`ApplicationInsightsLoggingProvider` supports [log scopes](/dotnet/core/extensions/logging#log-scopes). Scopes are enabled by default. 
+
+If the scope is of type `IReadOnlyCollection<KeyValuePair<string,object>>`, then each key/value pair in the collection is added to the Application Insights telemetry as custom properties. In the following example, logs are captured as `TraceTelemetry` and has `("MyKey", "MyValue")` in properties.
+
+```csharp
+using (_logger.BeginScope(new Dictionary<string, object> { ["MyKey"] = "MyValue" }))
+{
+    _logger.LogError("An example of an Error level message");
+}
+```
+
+If any other type is used as a scope, it's stored under the property `Scope` in Application Insights telemetry. In the following example, `TraceTelemetry` has a property called `Scope` that contains the scope.
+
+```csharp
+    using (_logger.BeginScope("hello scope"))
+    {
+        _logger.LogError("An example of an Error level message");
+    }
+```
+
 ## Frequently asked questions
 
 ### What Application Insights telemetry type is produced from ILogger logs? Where can I see ILogger logs in Application Insights?
 
 `ApplicationInsightsLoggerProvider` captures `ILogger` logs and creates `TraceTelemetry` from them. If an `Exception` object is passed to the `Log` method on `ILogger`, `ExceptionTelemetry` is created instead of `TraceTelemetry`. 
 
-These telemetry items can be found in the same places as any other `TraceTelemetry` or `ExceptionTelemetry` items for Application Insights, including the Azure portal, analytics, or the Visual Studio local debugger.
+**Viewing ILogger Telemetry**
+
+In the Azure Portal:
+1. Go to the Azure Portal and access your Application Insights resource.
+2. Click on the "Logs" section inside Application Insights.
+3. Use Kusto Query Language (KQL) to query ILogger messages, usually stored in the `traces` table.
+   - Example Query: `traces | where message contains "YourSearchTerm"`.
+4. Refine your queries to filter ILogger data by severity, time range, or specific message content.
+
+In Visual Studio (Local Debugger):
+1. Start your application in debug mode within Visual Studio.
+2. Open the "Diagnostic Tools" window while the application runs.
+3. In the "Events" tab, ILogger logs appear along with other telemetry data.
+4. Utilize the search and filter features in the "Diagnostic Tools" window to locate specific ILogger messages.
 
 If you prefer to always send `TraceTelemetry`, use this snippet:
 
@@ -259,7 +297,7 @@ builder.AddApplicationInsights(
 ```
 ### Why do some ILogger logs not have the same properties as others?
 
-Application Insights captures and sends `ILogger` logs by using the same `TelemetryConfiguration` information that's used for every other telemetry. But there's an exception. By default, `TelemetryConfiguration` isn't fully set up when you log from *Program.cs* or *Startup.cs*. Logs from these places won't have the default configuration, so they won't be running all `TelemetryInitializer` instances and `TelemetryProcessor` instances.
+Application Insights captures and sends `ILogger` logs by using the same `TelemetryConfiguration` information that's used for every other telemetry. But there's an exception. By default, `TelemetryConfiguration` isn't fully set up when you log from *Program.cs* or *Startup.cs*. Logs from these places don't have the default configuration, so they aren't running all `TelemetryInitializer` instances and `TelemetryProcessor` instances.
 
 ### I'm using the standalone package Microsoft.Extensions.Logging.ApplicationInsights, and I want to log more custom telemetry manually. How should I do that?
 
@@ -281,7 +319,7 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](../faq.yml).
+> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor.
 
 ### I don't have the SDK installed, and I use the Azure Web Apps extension to enable Application Insights for my ASP.NET Core applications. How do I use the new provider? 
 

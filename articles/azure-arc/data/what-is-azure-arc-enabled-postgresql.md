@@ -7,15 +7,13 @@ ms.subservice: azure-arc-data-postgresql
 author: dhanmm
 ms.author: dhmahaja
 ms.reviewer: mikeray
-ms.date: 11/03/2021
-ms.topic: how-to
+ms.date: 07/19/2023
+ms.topic: conceptual
 ---
 
 # What is Azure Arc-enabled PostgreSQL server
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-
 
 **Azure Arc-enabled PostgreSQL server** is one of the database engines available as part of Azure Arc-enabled data services. 
 
@@ -48,7 +46,7 @@ Microsoft offers PostgreSQL database services in Azure in two ways:
 Azure Arc-enabled PostgreSQL server is the community version of the [PostgreSQL 14](https://www.postgresql.org/) server with a curated set of available extensions. Most PostgreSQL applications workloads should be capable of running against Azure Arc-enabled PostgreSQL server using standard drivers.
 
 
-## Next steps
+## Related content
 
 ### Try it out
 

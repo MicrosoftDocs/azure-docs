@@ -2,11 +2,10 @@
 title: Deploy Azure File Sync
 description: Learn how to deploy Azure File Sync from start to finish using the Azure portal, PowerShell, or the Azure CLI.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/03/2023
 ms.author: kendownie
-ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -307,7 +306,7 @@ if ($osver.Equals([System.Version]::new(10, 0, 20348, 0))) {
         -Uri https://aka.ms/afs/agent/Server2012R2 `
         -OutFile "StorageSyncAgent.msi" 
 } else {
-    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2, Windows Server 2016, and Windows Server 2019")
+    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2, Windows Server 2016, Windows Server 2019 and Windows Server 2022")
 }
 
 # Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.

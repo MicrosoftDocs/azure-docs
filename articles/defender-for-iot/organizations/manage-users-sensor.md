@@ -1,30 +1,36 @@
 ---
 title: Create and manage users on an OT network sensor - Microsoft Defender for IoT
 description: Create and manage on-premises users on a Microsoft Defender for IoT OT network sensor.
-ms.date: 09/28/2022
+ms.date: 12/19/2023
 ms.topic: how-to
 
 ---
 # Create and manage users on an OT network sensor
 
-Microsoft Defender for IoT provides tools for managing on-premises user access in the [OT network sensor](manage-users-sensor.md), and the on-premises management console. Azure users are managed [at the Azure subscription level](manage-users-overview.md) using Azure RBAC.
+Microsoft Defender for IoT provides tools for managing on-premises user access in the OT network sensor, and the legacy on-premises management console. Azure users are managed [at the Azure subscription level](manage-users-overview.md) using Azure RBAC.
 
 This article describes how to manage on-premises users directly on an OT network sensor.
 
 ## Default privileged users
 
-By default, each OT network sensor is installed with the privileged *cyberx*, *support*, and *cyberx_host* users, which have access to advanced tools for troubleshooting and setup.
+By default, each OT network sensor is installed with the privileged *admin* user, which has access to advanced tools for troubleshooting and setup.
 
-When setting up a sensor for the first time, sign in with one of these privileged users, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
+When setting up a sensor for the first time, sign in the *admin* user, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
 
-For more information, see [Install OT monitoring software on OT sensors](how-to-install-software.md) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+For more information, see [Install and set up your OT sensor](how-to-install-software.md) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
+Sensor versions earlier than 23.1.x also include the *cyberx* and *cyberx_host* privileged users. In versions 23.1.x and higher, these users are installed, but not enabled by default.
+
+To enable the *cyberx* and *cyberx_host* users in versions 23.1.x and higher, such as to use them with the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), reset the password. For more information, see [Change a sensor user's password](#change-a-sensor-users-password).
 
 ## Configure an Active Directory connection
 
 We recommend configuring on-premises users on your OT sensor with Active Directory, in order to allow Active Directory users to sign in to your sensor and use Active Directory groups, with collective permissions assigned to all users in the group.
 
 For example, use Active Directory when you have a large number of users that you want to assign Read Only access to, and you want to manage those permissions at the group level.
+
+> [!TIP]
+> When you're ready to start managing your OT sensor settings at scale, define Active Directory settings from the Azure portal. Once you apply settings from the Azure portal, settings on the sensor console are read-only. For more information, see [Configure OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md).
 
 **To integrate with Active Directory**:
 
@@ -39,7 +45,7 @@ For example, use Active Directory when you have a large number of users that you
     |**Domain Controller FQDN**     | The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.contoso.com`. <br><br> If you encounter an issue with the integration using the FQDN, check your DNS configuration. You can also enter the explicit IP of the LDAP server instead of the FQDN when setting up the integration.        |
     |**Domain Controller Port**     | The port where your LDAP is configured. For example, use port 636 for LDAPS (SSL) connections.        |
     |**Primary Domain**     | The domain name, such as `subdomain.contoso.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**        |
-    |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>        When you enter a group name, make sure that you enter the group name exactly as it's defined in your Active Directory configuration on the LDAP server. You'll use these group names when [adding new sensor users](#add-new-ot-sensor-users) with Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.        |
+    |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>        When you enter a group name, make sure that you enter the group name exactly as it's defined in your Active Directory configuration on the LDAP server. Use these group names when [adding new sensor users](#add-new-ot-sensor-users) with Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.        |
 
     > [!IMPORTANT]
     > When entering LDAP parameters:
@@ -61,7 +67,7 @@ For example, use Active Directory when you have a large number of users that you
 
 This procedure describes how to create new users for a specific OT network sensor.
 
-**Prerequisites**: This procedure is available for the *cyberx*, *support*, and *cyberx_host* users, and any user with the **Admin** role.
+**Prerequisites**: This procedure is available for the *admin*, *cyberx*, and *cyberx_host* users, and any user with the **Admin** role.
 
 **To add a user**:
 
@@ -98,7 +104,7 @@ This procedure describes how **Admin** users can change local user passwords. **
 > [!TIP]
 > If you need to recover access to a privileged user account, see [Recover privileged access to a sensor](#recover-privileged-access-to-a-sensor).
 
-**Prerequisites**: This procedure is available only for the *cyberx*, *support*, or *cyberx_host* users, or for users with the **Admin** role.
+**Prerequisites**: This procedure is available only for the *cyberx*, *admin*, or *cyberx_host* users, or for users with the **Admin** role.
 
 **To change a user's password on a sensor**:
 
@@ -121,9 +127,9 @@ This procedure describes how **Admin** users can change local user passwords. **
 
 ## Recover privileged access to a sensor
 
-This procedure descries how to recover privileged access to a sensor, for the *cyberx*, *support*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+This procedure descries how to recover privileged access to a sensor, for the *cyberx*, *admin*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
-**Prerequisites**: This procedure is available only for the *cyberx*, *support*, or *cyberx_host* users.
+**Prerequisites**: This procedure is available only for the *cyberx*, *admin*, or *cyberx_host* users.
 
 **To recover privileged access to a sensor**:
 
@@ -131,7 +137,7 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
     :::image type="content" source="media/manage-users-sensor/reset-privileged-password.png" alt-text="Screenshot of the sensor sign-in screen with the Reset password link.":::
 
-1. In the **Reset password** dialog, from the **Choose user** menu, select the user whose password you're recovering, either **Cyberx**, **Support**, or **CyberX_host**.
+1. In the **Reset password** dialog, from the **Choose user** menu, select the user whose password you're recovering, either **Cyberx**, **Admin**, or **CyberX_host**. <!--check this-->
 
 1. Copy the unique identifier code that's shown in the **Reset password identifier** to the clipboard. For example:
 
@@ -162,7 +168,7 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
 ### Define maximum number of failed sign-ins
 
-Use the OT sensor's CLI access to define the number of maximum failed sign-ins before an OT sensor will prevent the user from signing in again from the same IP address.
+Use the OT sensor's CLI access to define the number of maximum failed sign-ins before an OT sensor prevents the user from signing in again from the same IP address.
 
 For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md).
 
@@ -185,7 +191,7 @@ By default, on-premises users are signed out of their sessions after 30 minutes 
 > [!NOTE]
 > Any changes made to user session timeouts are reset to defaults when you [update the OT monitoring software](update-ot-software.md).
 
-**Prerequisites**: This procedure is available for the *cyberx*, *support*, and *cyberx_host* users only.
+**Prerequisites**: This procedure is available for the *admin*, *cyberx*, and *cyberx_host* users only.
 
 **To control sensor user session timeouts**:
 
@@ -223,7 +229,4 @@ By default, on-premises users are signed out of their sessions after 30 minutes 
 
 ## Next steps
 
-For more information, see:
-
-- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
-- [Audit user activity](track-user-activity.md)
+For more information, see [Audit user activity](track-user-activity.md).

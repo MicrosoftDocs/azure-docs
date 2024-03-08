@@ -2,7 +2,7 @@
 title: Enable Profiler for web apps on an Azure virtual machine
 description: Profile web apps running on an Azure virtual machine or a virtual machine scale set by using Application Insights Profiler
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 09/22/2023
 ms.reviewer: charles.weininger
 ---
 
@@ -10,7 +10,13 @@ ms.reviewer: charles.weininger
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-In this article, you learn how to run Application Insights Profiler on your Azure virtual machine (VM) or Azure virtual machine scale set via three different methods. With any of these methods, you:
+In this article, you learn how to run Application Insights Profiler on your Azure virtual machine (VM) or Azure virtual machine scale set via three different methods:
+
+- Visual Studio and Azure Resource Manager
+- PowerShell
+- Azure Resource Explorer
+
+With any of these methods, you:
 
 - Configure the Azure Diagnostics extension to run Profiler.
 - Install the Application Insights SDK on a VM.
@@ -18,8 +24,6 @@ In this article, you learn how to run Application Insights Profiler on your Azur
 - View Profiler traces via the Application Insights instance in the Azure portal.
 
 ## Prerequisites
-
-You need:
 
 - A functioning [ASP.NET Core application](/aspnet/core/getting-started).
 - An [Application Insights resource](../app/create-workspace-resource.md).
@@ -60,7 +64,7 @@ You need:
 
 You can enable Profiler by any of three ways:
 
-- Within your ASP.NET Core application by using an Azure Resource Manager template and Visual Studio. We recommend this method.
+- Within your ASP.NET Core application by using an Azure Resource Manager template and Visual Studio. **Recommended.**
 - By using a PowerShell command via the Azure CLI.
 - By using Azure Resource Explorer.
 

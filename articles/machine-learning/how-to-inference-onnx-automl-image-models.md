@@ -8,19 +8,16 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.date: 10/18/2021
-ms.custom: sdkv2, event-tier1-build-2022
+ms.date: 02/18/2024
+ms.custom: sdkv2
 ---
 
 # Make predictions with ONNX on computer vision models from AutoML
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"] 
-> * [v1](v1/how-to-inference-onnx-automl-image-models-v1.md?view=azureml-api-1&preserve-view=true) 
-> * [v2 (current version)](how-to-inference-onnx-automl-image-models.md) 
 
-In this article, you will learn how to use Open Neural Network Exchange (ONNX) to make predictions on computer vision models generated from automated machine learning (AutoML) in Azure Machine Learning. 
+In this article, you'll learn how to use Open Neural Network Exchange (ONNX) to make predictions on computer vision models generated from automated machine learning (AutoML) in Azure Machine Learning. 
 
 To use ONNX for predictions, you need to:
  
@@ -34,7 +31,7 @@ To use ONNX for predictions, you need to:
 
 [ONNX Runtime](https://onnxruntime.ai/index.html) is an open-source project that supports cross-platform inference. ONNX Runtime provides APIs across programming languages (including Python, C++, C#, C, Java, and JavaScript). You can use these APIs to perform inference on input images. After you have the model that has been exported to ONNX format, you can use these APIs on any programming language that your project needs. 
 
-In this guide, you'll learn how to use [Python APIs for ONNX Runtime](https://onnxruntime.ai/docs/get-started/with-python.html) to make predictions on images for popular vision tasks. You can use these ONNX exported models across languages.
+In this guide, you learn how to use [Python APIs for ONNX Runtime](https://onnxruntime.ai/docs/get-started/with-python.html) to make predictions on images for popular vision tasks. You can use these ONNX exported models across languages.
 
 ## Prerequisites
 
@@ -285,7 +282,7 @@ onnx_model_path = mlflow_client.download_artifacts(
 
 After the model downloading step, you use the ONNX Runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, this article uses the datasets from [How to prepare image datasets](how-to-prepare-datasets-for-automl-images.md) for each vision task. 
 
-We've trained the models for all vision tasks with their respective datasets to demonstrate ONNX model inference.
+We trained the models for all vision tasks with their respective datasets to demonstrate ONNX model inference.
  
 ## Load the labels and ONNX model files
 
@@ -396,11 +393,11 @@ The output is a tuple of `output_names` and predictions. Here, `output_names` an
   
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
-| `output_names` | `(3*batch_size)` | List of keys | For a batch size of 2, `output_names` will be `['boxes_0', 'labels_0', 'scores_0', 'boxes_1', 'labels_1', 'scores_1']` |
-| `predictions` | `(3*batch_size)` | List of ndarray(float) | For a batch size of 2, `predictions` will take the shape of `[(n1_boxes, 4), (n1_boxes), (n1_boxes), (n2_boxes, 4), (n2_boxes), (n2_boxes)]`. Here, values at each index correspond to same index in `output_names`. |
+| `output_names` | `(3*batch_size)` | List of keys | For a batch size of 2, `output_names` is `['boxes_0', 'labels_0', 'scores_0', 'boxes_1', 'labels_1', 'scores_1']` |
+| `predictions` | `(3*batch_size)` | List of ndarray(float) | For a batch size of 2, `predictions` takes the shape of `[(n1_boxes, 4), (n1_boxes), (n1_boxes), (n2_boxes, 4), (n2_boxes), (n2_boxes)]`. Here, values at each index correspond to same index in `output_names`. |
 
 
-The following table describes boxes, labels and scores returned for each sample in the batch of images.
+The following table describes boxes, labels, and scores returned for each sample in the batch of images.
 
 | Name       | Shape  | Type | Description |
 | -------- |----------|-----|------|
@@ -422,7 +419,7 @@ The input is a preprocessed image, with the shape `(1, 3, 640, 640)` for a batch
 | Input | `(batch_size, num_channels, height, width)` | ndarray(float) | Input is a preprocessed image, with the shape `(1, 3, 640, 640)` for a batch size of 1, and a height of 640 and width of 640.|
         
 ### Output format
-ONNX model predictions contain multiple outputs. The first output is needed to perform non-max suppression for  detections. For ease of use, automated ML displays the output format after the NMS postprocessing step. The output after NMS is a list of boxes, labels, and scores for each sample in the batch. 
+ONNX model predictions contain multiple outputs. The first output is needed to perform nonmax suppression for  detections. For ease of use, automated ML displays the output format after the NMS postprocessing step. The output after NMS is a list of boxes, labels, and scores for each sample in the batch. 
 
 
 | Output name       | Output shape  | Output type | Description |
@@ -453,8 +450,8 @@ The output is a tuple of `output_names` and predictions. Here, `output_names` an
   
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
-| `output_names` | `(4*batch_size)` | List of keys | For a batch size of 2, `output_names` will be `['boxes_0', 'labels_0', 'scores_0', 'masks_0', 'boxes_1', 'labels_1', 'scores_1', 'masks_1']` |
-| `predictions` | `(4*batch_size)` | List of ndarray(float) | For a batch size of 2, `predictions` will take the shape of `[(n1_boxes, 4), (n1_boxes), (n1_boxes), (n1_boxes, 1, height_onnx, width_onnx), (n2_boxes, 4), (n2_boxes), (n2_boxes), (n2_boxes, 1, height_onnx, width_onnx)]`. Here, values at each index correspond to same index in `output_names`. |
+| `output_names` | `(4*batch_size)` | List of keys | For a batch size of 2, `output_names` is `['boxes_0', 'labels_0', 'scores_0', 'masks_0', 'boxes_1', 'labels_1', 'scores_1', 'masks_1']` |
+| `predictions` | `(4*batch_size)` | List of ndarray(float) | For a batch size of 2, `predictions` takes the shape of `[(n1_boxes, 4), (n1_boxes), (n1_boxes), (n1_boxes, 1, height_onnx, width_onnx), (n2_boxes, 4), (n2_boxes), (n2_boxes), (n2_boxes, 1, height_onnx, width_onnx)]`. Here, values at each index correspond to same index in `output_names`. |
 
 | Name       | Shape  | Type | Description |
 | -------- |----------|-----|------|
@@ -1264,7 +1261,7 @@ print(json.dumps(bounding_boxes_batch, indent=1))
 
 # [Multi-class image classification](#tab/multi-class)
 
-Visualize an input image with labels
+Visualize an input image with labels.
 
 ```python
 import matplotlib.image as mpimg
@@ -1304,7 +1301,7 @@ plt.show()
 
 # [Multi-label image classification](#tab/multi-label)
 
-Visualize an input image with labels
+Visualize an input image with labels.
 
 ```python
 import matplotlib.image as mpimg
@@ -1345,7 +1342,7 @@ plt.show()
 
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 
-Visualize an input image with boxes and labels
+Visualize an input image with boxes and labels.
 
 ```python
 import matplotlib.image as mpimg
@@ -1386,7 +1383,7 @@ plt.show()
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-Visualize an input image with boxes and labels
+Visualize an input image with boxes and labels.
 
 ```python
 import matplotlib.image as mpimg
@@ -1427,7 +1424,7 @@ plt.show()
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-Visualize a sample input image with masks and labels
+Visualize a sample input image with masks and labels.
 
 ```python
 import matplotlib.patches as patches

@@ -1,12 +1,13 @@
 ---
 title: Best practices for Azure Service Fabric security
 description: This article provides a set of best practices for Azure Service Fabric security.
-author: unifycloud
-ms.author: tomsh
+author: TerryLanfear
+manager: rkarlin
+ms.author: terrylan
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 08/29/2023
 ---
 # Azure Service Fabric security best practices
 In addition to this article, please also review [Service Fabric security checklist](../../service-fabric/service-fabric-best-practices-security.md) for more information.
@@ -39,11 +40,11 @@ We recommend the following Azure Service Fabric security best practices:
 
 Always use a secure cluster:
 -	Implement cluster security by using certificates.
--	Provide client access (admin and read-only) by using Azure Active Directory (Azure AD).
+-	Provide client access (admin and read-only) by using Microsoft Entra ID.
 
 Use automated deployments:
 -	Use scripts to generate, deploy, and roll over the secrets.
--	Store the secrets in Azure Key Vault and use Azure AD for all other client access.
+-	Store the secrets in Azure Key Vault and use Microsoft Entra ID for all other client access.
 -	Require authentication for human access to the secrets.
 
 Additionally, consider the following configuration options:
@@ -57,10 +58,10 @@ There are three [scenarios](../../service-fabric/service-fabric-cluster-security
 -	Node-to-node security: This scenario secures communication between the VMs and the computers in the cluster. This form of security ensures that only those computers that are authorized to join the cluster can host applications and services in the cluster.
 In this scenario, the clusters that run on Azure, or standalone clusters that run on Windows, can use either [certificate security](../../service-fabric/service-fabric-windows-cluster-x509-security.md) or [Windows security](../../service-fabric/service-fabric-windows-cluster-windows-security.md) for Windows Server machines.
 -	Client-to-node security: This scenario secures communication between a Service Fabric client and the individual nodes in the cluster.
--	Service Fabric role-based access control (Service Fabric RBAC): This scenario uses separate identities (certificates, Azure AD, and so on) for each administrator and user client role that accesses the cluster. You specify the role identities when you create the cluster.
+-	Service Fabric role-based access control (Service Fabric RBAC): This scenario uses separate identities (certificates, Microsoft Entra ID, and so on) for each administrator and user client role that accesses the cluster. You specify the role identities when you create the cluster.
 
 >[!NOTE]
->**Security recommendation for Azure clusters:** Use Azure AD security to authenticate clients and certificates for node-to-node security.
+>**Security recommendation for Azure clusters:** Use Microsoft Entra security to authenticate clients and certificates for node-to-node security.
 
 To configure a standalone Windows cluster, see [Configure settings for a standalone Windows cluster](../../service-fabric/service-fabric-cluster-manifest.md).
 
@@ -95,7 +96,7 @@ To learn more about using X.509 certificates, see [Add or remove certificates fo
 Service Fabric also secures the resources that are used by applications. Resources like files, directories, and certificates are stored under the user accounts when the application is deployed. This feature makes running applications more secure from one another, even in a shared hosted environment.
 
 -	Use an Active Directory domain group or user:
-Run the service under the credentials for an Active Directory user or group account. Be sure to use Active Directory on-premises within your domain and not Azure Active Directory. Access other resources in the domain that have been granted permissions by using a domain user or group. For example, resources such as file shares.
+Run the service under the credentials for an Active Directory user or group account. Be sure to use Active Directory on-premises within your domain and not Microsoft Entra ID. Access other resources in the domain that have been granted permissions by using a domain user or group. For example, resources such as file shares.
 
 -	Assign a security access policy for HTTP and HTTPS endpoints:
 Specify the **SecurityAccessPolicy** property to apply a **RunAs** policy to a service when the service manifest declares endpoint resources with HTTP. Ports allocated to the HTTP endpoints are correctly access-controlled lists for the RunAs user account that the service runs under. When the policy isn't set, http.sys doesn't have access to the service and you can get failures with calls from the client.

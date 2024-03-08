@@ -28,6 +28,8 @@ Azure Firewall Basic includes the following features:
 - Multiple public IP addresses
 - Azure Monitor logging
 - Certifications
+
+To compare Azure Firewall features for all Firewall SKUs, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
  
 ## Built-in high availability
 
@@ -44,6 +46,10 @@ Azure Firewall Availability Zones are available in regions that support Availabi
 ## Application FQDN filtering rules
 
 You can limit outbound HTTP/S traffic or Azure SQL traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require TLS termination.
+
+The following video shows how to create an application rule: <br><br>
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d8dbf4b9-4f75-4c88-b717-c3664b667e8b]
 
 ## Network traffic filtering rules
 

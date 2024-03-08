@@ -2,11 +2,11 @@
 title: Optimize the performance of AzCopy v10 with Azure Storage
 description: This article helps you to optimize the performance of AzCopy v10 with Azure Storage.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 06/02/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
 ---
 
@@ -42,9 +42,11 @@ This command runs a performance benchmark by uploading test data to a specified 
 
 If you prefer to run this test by downloading data, set the `mode` parameter to `download`. For detailed reference docs, see [azcopy benchmark](storage-ref-azcopy-bench.md).
 
-## Optimize for large numbers of small files
+## Optimize for large numbers of files
 
-Throughput can decrease when transferring small files, especially when transferring large numbers of them. To maximize performance, reduce the size of each job. For download and upload operations, increase concurrency, decrease log activity, and turn off features that incur high performance costs.
+Throughput can decrease when transferring large numbers of files. Each copy operation translates to one or more transactions that must be executed in the storage service. When you are transferring a large number of files, consider the number of transactions that need to be executed and any potential impact those transactions can have if other activities are occurring in the storage account at the same time. 
+
+To maximize performance, you can reduce the size of each job by limiting the number of files that are copied in a single job. For download and upload operations, increase concurrency as needed, decrease log activity, and turn off features that incur high performance costs.
 
 #### Reduce the size of each job
 
@@ -78,7 +80,7 @@ File scans on some Linux systems don't execute fast enough to saturate all of th
 
 You can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.
 
-If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `300`, but you can manually set this value higher or lower.
+If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `3000`, but you can manually set this value higher or lower.
 
 | Operating system | Command  |
 |--------|-----------|
@@ -118,6 +120,10 @@ The [sync](storage-ref-azcopy-sync.md) command identifies all files at the desti
 To accomplish this, use the [azcopy copy](storage-ref-azcopy-copy.md) command instead, and set the `--overwrite` flag to `ifSourceNewer`. AzCopy will compare files as they are copied without performing any up-front scans and comparisons. This provides a performance edge in cases where there are a large number of files to compare.
 
 The [azcopy copy](storage-ref-azcopy-copy.md) command doesn't delete files from the destination, so if you want to delete files at the destination when they no longer exist at the source, then use the [azcopy sync](storage-ref-azcopy-sync.md) command with the `--delete-destination` flag set to a value of `true` or `prompt`.
+
+## Use multiple clients to run jobs in parallel
+
+AzCopy performs best when only one instance runs on the client. If you want to transfer files in parallel, then use multiple clients and run only one instance of AzCopy on each one. 
 
 ## See also
 

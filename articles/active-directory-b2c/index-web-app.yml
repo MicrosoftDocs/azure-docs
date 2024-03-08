@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Web app documentation
+title: Azure AD B2C web app documentation
 summary: >
   Choose your target language to learn how to sign in users in your web apps with our quickstarts and how-to guides.
 
@@ -50,9 +50,3 @@ landingContent:
             url: enable-authentication-in-node-web-app-options.md
           - text: Python
             url: enable-authentication-python-web-app-options.md 
-  - title: "Sample"
-    linkLists:
-      - linkListType: sample
-        links:
-          - text: Java 
-            url: https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/1.%20Server-Side%20Scenarios/msal-b2c-web-sample

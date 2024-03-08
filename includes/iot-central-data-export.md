@@ -5,7 +5,7 @@
  author: dominicbetts
  ms.service: iot-central
  ms.topic: include
- ms.date: 11/14/2022
+ ms.date: 05/22/2023
  ms.author: dobett
  ms.custom: include file
 ---
@@ -20,7 +20,10 @@ For example, you can:
 - [Transform the data](../articles/iot-central/core/howto-transform-data-internally.md) streams to modify their shape and content.
 
 > [!TIP]
-> When you turn on data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when data export was off. To retain more historical data, turn on data export early.
+> When you turn on data export, you get only the data from that moment onward. To retain more historical data, turn on data export early. To manually export data from times when data export was turned off, see [How to use the IoT Central REST API to query devices](../articles/iot-central/core/howto-query-with-rest-api.md).
+
+> [!NOTE]
+> In some circumstances it could take up to 60 seconds for the messages to be exported. This time is measured from when IoT Central receives the message from the underlying IoT hub to when the message is delivered to the destination endpoint.
 
 ## Prerequisites
 

@@ -1,66 +1,55 @@
 ---
-title: Contains in Azure Cosmos DB query language
-description: Learn about how the CONTAINS SQL system function in Azure Cosmos DB returns a Boolean indicating whether the first string expression contains the second
-author: ginamr
+title: CONTAINS
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns whether the first string contains the second.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 04/01/2021
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.devlang: nosql
+ms.date: 02/27/2024
+ms.custom: query-reference
 ---
-# CONTAINS (Azure Cosmos DB)
+
+# CONTAINS (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Returns a Boolean indicating whether the first string expression contains the second.  
-  
-## Syntax
-  
-```sql
-CONTAINS(<str_expr1>, <str_expr2> [, <bool_expr>])  
-```  
-  
-## Arguments
-  
-*str_expr1*  
-   Is the string expression to be searched.  
-  
-*str_expr2*  
-   Is the string expression to find.  
+Returns a boolean indicating whether the first string expression contains the second string expression.  
 
-*bool_expr*
-    Optional value for ignoring case. When set to true, CONTAINS will do a case-insensitive search. When unspecified, this value is false.
-  
+## Syntax
+
+```nosql
+CONTAINS(<string_expr_1>, <string_expr_2> [, <bool_expr>])  
+```  
+
+## Arguments
+
+| | Description |
+| --- | --- |
+| **`string_expr_1`** | The first string to search. |
+| **`string_expr_2`** | The second string to find. |
+| **`bool_expr` *(Optional)***  | Optional boolean value for ignoring case. When set to `true`, `CONTAINS` performs a case-insensitive search. When `unspecified`, this value defaults to `false`. |
+
 ## Return types
-  
-  Returns a Boolean expression.  
-  
+
+Returns a boolean expression.  
+
 ## Examples
-  
-  The following example checks if "abc" contains "ab" and if "abc" contains "A".  
-  
-```sql
-SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CONTAINS("abc", "A", true) AS c3
-```  
-  
- Here is the result set.  
-  
-```json
-[
-    {
-        "c1": true,
-        "c2": false,
-        "c3": true
-    }
-]
-```  
+
+The following example checks if various static substrings exist in a string.
+
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/contains/query.sql" highlight="2-7":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/contains/result.json":::
 
 ## Remarks
 
-Learn about [how this string system function uses the index](string-functions.md).
+- This function performs a full scan.
 
-## Next steps
+## Related content
 
-- [String functions Azure Cosmos DB](string-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`CONCAT`](concat.md)

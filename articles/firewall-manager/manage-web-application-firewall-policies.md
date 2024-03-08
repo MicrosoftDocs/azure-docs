@@ -18,7 +18,7 @@ You can centrally create and associate Web Application Firewall (WAF) policies f
 
 ## Associate a WAF policy
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the Azure portal search bar, type **Firewall Manager** and press **Enter**.
 3. On the Azure Firewall Manager page, select **Application Delivery Platforms**.
    :::image type="content" source="media/manage-web-application-firewall-policies/application-delivery-platforms.png" alt-text="Screenshot of Firewall Manager application delivery platforms.":::

@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 05/08/2023
 ms.author: mbender
-ms.custom: template-how-to, contperf-fy21q1, engagement-fy23
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # <a name="outboundrules"></a>Outbound rules Azure Load Balancer
@@ -237,7 +237,7 @@ When only inbound NAT rules are used, no outbound NAT is provided.
 
 - The maximum number of usable ephemeral ports per frontend IP address is 64,000.
 - The range of the configurable outbound idle timeout is 4 to 120 minutes (240 to 7200 seconds).
-- Load balancer doesn't support ICMP for outbound NAT.
+- Load balancer doesn't support ICMP for outbound NAT, the only supported protocols are TCP and UDP.
 - Outbound rules can only be applied to primary IP configuration of a NIC.  You can't create an outbound rule for the secondary IP of a VM or NVA. Multiple NICs are supported.
 - All virtual machines within an **availability set** must be added to the backend pool for outbound connectivity. 
 - All virtual machines within a **virtual machine scale set** must be added to the backend pool for outbound connectivity.

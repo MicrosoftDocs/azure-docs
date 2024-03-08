@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Chaos Studio documentation
-summary: Azure Chaos Studio is an Azure service that helps you measure, understand, and build application and service resilience to real world incidents, such as a region going down or an application failure causing 100% CPU usage on a VM. With Chaos Studio, you can run Chaos Engineering experiments that inject faults against your service then monitor how the service responds to disruptions. Chaos experiments help you to validate architectural choices and improve service reliability. Chaos experiments can be run ad-hoc for running manual BCDR drills and Game Days, or as part of your CI/CD pipeline to programmatically gate code flow. # < 160 chars
+summary: Azure Chaos Studio is an Azure service that helps you measure, understand, and build application and service resilience to real-world incidents, such as a region going down or an application failure causing 100% CPU usage on a VM. With Chaos Studio, you can run chaos engineering experiments that inject faults against your service and then monitor how the service responds to disruptions. Chaos experiments help you to validate architectural choices and improve service reliability. Chaos experiments can be run ad-hoc for running manual BCDR drills and Game Days, or as part of your CI/CD pipeline to programmatically gate code flow. # < 160 chars
 
 metadata:
   title: Azure Chaos Studio documentation - tutorials, API reference
-  description: Learn about Azure Chaos Studio, a solution for building resilience of your services using chaos engineering and fault injection on Azure.
+  description: Learn about Azure Chaos Studio, a solution for building resilience of your services by using chaos engineering and fault injection on Azure.
   ms.service: chaos-studio
   ms.topic: landing-page
   author: johnkemnetz
@@ -26,26 +26,38 @@ landingContent:
             url: chaos-studio-overview.md
           - text: What is chaos engineering?
             url: chaos-studio-chaos-engineering-overview.md
-      - linkListType: concept
-        links:
           - text: Chaos experiments
             url: chaos-studio-chaos-experiments.md
+          - text: Fault and actions
+            url: chaos-studio-faults-actions.md
           - text: Targets and capabilities
             url: chaos-studio-targets-capabilities.md
           - text: Permissions and security
             url: chaos-studio-permissions-security.md
- 
-  # Card (optional)
-  - title: Get started
+          - text: Private networking
+            url: chaos-studio-private-networking.md
+
+  # Card
+  - title: How-to guides
     linkLists:
-      - linkListType: how-to-guide
-        links:
-        - text: Create a chaos experiment that uses a service-direct fault to fail over an Azure Cosmos DB instance
+     - linkListType: how-to-guide
+       links:
+        - text: Use a service-direct fault to fail
           url: chaos-studio-tutorial-service-direct-portal.md
-        - text: Create an experiment that uses an agent-based fault with Azure Chaos Studio
+        - text: Use an agent-based fault
           url: chaos-studio-tutorial-agent-based-portal.md
-        - text: Create an experiment that uses an AKS Chaos Mesh fault with Azure Chaos Studio
+        - text: Use an AKS Chaos Mesh fault
           url: chaos-studio-tutorial-aks-portal.md
+        - text: Shut down all targets in a zone
+          url: chaos-studio-tutorial-dynamic-target-portal.md
+        - text: Induce an outage on an Azure Active Directory instance
+          url: chaos-studio-tutorial-aad-outage-portal.md
+        - text: Take down Virtual Machine Scale Set availability zones
+          url: chaos-studio-tutorial-availability-zone-down-portal.md
+        - text: Emit Experiment Fault Events to Azure Monitor
+          url: chaos-studio-set-up-azure-monitor.md
+        - text: Emit Experiment Fault Events to App Insights
+          url: chaos-studio-set-up-app-insights.md
 
   # Card
   - title: Reference
@@ -60,7 +72,18 @@ landingContent:
           url: /rest/api/chaosstudio
         - text: Python SDK
           url: /python/api/azure-mgmt-chaos/?view=azure-python-preview
+        - text: .NET
+          url: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview
 
+  # Card
+  - title: Quickstart
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Create and run a chaos experiment using Azure Chaos Studio
+          url: chaos-studio-quickstart-azure-portal.md
+
+  # Card
   - title: Samples
     linkLists:
       - linkListType: sample
@@ -71,3 +94,24 @@ landingContent:
           url: sample-template-targets.md
         - text: REST API samples
           url: chaos-studio-samples-rest-api.md
+
+  # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+        - text: Run and manage an experiment
+          url: chaos-studio-run-experiment.md
+        - text: Schedule an experiment
+          url: tutorial-schedule.md
+
+
+# Card
+  - title: Troubleshooting
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Troubleshoot common issues
+          url: troubleshooting.md
+
+

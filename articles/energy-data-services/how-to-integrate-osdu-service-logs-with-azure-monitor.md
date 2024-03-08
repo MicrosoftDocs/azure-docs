@@ -1,5 +1,5 @@
 ---
-title: Integrate OSDU Service Logs with Azure Monitor - Microsoft Azure Data Manager for Energy Preview
+title: Integrate OSDU Service Logs with Azure Monitor - Microsoft Azure Data Manager for Energy
 description: This how-to article shows you how to integrate OSDU service logs with Azure Monitor. This feature helps you better troubleshoot, debug, & monitor the OSDU services.
 author: nitinnms
 ms.author: nitindwivedi
@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Integrate OSDU Service Logs with Azure Monitor
 
-Azure Data Manager for Energy Preview supports exporting OSDU Service Logs to Azure Monitor using a diagnostic setting. This feature helps you better troubleshoot, debug, & monitor the OSDU services. The instructions here are similar to how you would integrate other logs, such as Airflow and Elastic, with Azure Monitor.
+Azure Data Manager for Energy supports exporting OSDU Service Logs to Azure Monitor using a diagnostic setting. This feature helps you better troubleshoot, debug, & monitor the OSDU services. The instructions here are similar to how you would integrate other logs, such as Airflow and Elastic, with Azure Monitor.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Azure Data Manager for Energy Preview supports exporting OSDU Service Logs to Az
 
 ## Enabling diagnostic settings for OSDU service logs integration
 
-1. Open Microsoft Azure Data Manager for Energy Preview *Overview* page.
+1. Open Microsoft Azure Data Manager for Energy *Overview* page.
 1. Select *Diagnostic Settings* from the left panel.
     
     [![Screenshot shows that the list of OSDU services currently supported is visible on the diagnostic settings overview page.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png#lightbox)

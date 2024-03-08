@@ -1,20 +1,20 @@
 ---
-title: Quickstart - Back up a VM with the Azure portal
-description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and backup the VM,  with the Azure portal.
-ms.date: 02/27/2023
+title: Quickstart - Back up a VM with the Azure portal by using Azure Backup
+description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and back up the VM,  with the Azure portal.
+ms.date: 02/26/2024
 ms.topic: quickstart
 ms.devlang: azurecli
-ms.custom: mvc, mode-ui
+ms.custom: mvc, mode-ui, engagement-fy24
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
-# Back up a virtual machine in Azure
+# Quickstart: Back up a virtual machine in Azure
+
+This quickstart describes how to enable backup on an existing Azure VM by using the Azure portal. If you need to create a VM, you can [create a VM with the Azure portal](../virtual-machines/windows/quick-create-portal.md).
 
 Azure backups can be created through the Azure portal. This method provides a browser-based user interface to create and configure Azure backups and all related resources. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure portal.
-
-This quickstart enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure portal](../virtual-machines/windows/quick-create-portal.md).
 
 ## Sign in to Azure
 
@@ -28,13 +28,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To apply a backup policy to your Azure VMs, follow these steps:
 
-1. Go to **Backup center** and click **+Backup** from the **Overview** tab.
+1. Go to **Backup center** and select **+Backup** from the **Overview** tab.
 
    ![Screenshot showing the Backup button.](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-1. Select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then click **Continue**.
+1. On the **Start: Configure Backup** blade, select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then select **Continue**.
 
-   ![Screenshot showing Backup and Backup Goal panes.](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+   ![Screenshot showing Backup and Backup Goal blades.](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
 1. Assign a Backup policy.
 
@@ -55,13 +55,13 @@ Create a simple scheduled daily backup to a Recovery Services vault.
 
       ![Screenshot showing to add virtual machines.](./media/backup-azure-arm-vms-prepare/add-virtual-machines.png)
 
-1. The **Select virtual machines** pane will open. Select the VMs you want to back up using the policy. Then select **OK**.
+1. The **Select virtual machines** blade will open. Select the VMs you want to back up using the policy. Then select **OK**.
 
    * The selected VMs are validated.
    * You can only select VMs in the same region as the vault.
    * VMs can only be backed up in a single vault.
 
-     ![Screenshot showing the Select virtual machines pane.](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+     ![Screenshot showing the Select virtual machines blade.](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
     > All the VMs in the same region and subscription as that of the vault are available to configure backup. When configuring backup, you can browse to the virtual machine name and its resource group, even though you don’t have the required permission on those VMs. If your VM is in soft deleted state, then it won't be visible in this list. If you need to re-protect the VM, then you need to wait for the soft delete period to expire or undelete the VM from the soft deleted list. For more information, see [the soft delete for VMs article](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
@@ -107,7 +107,7 @@ The initial backup will run in accordance with the schedule, but you can run it 
 
 1. Go to **Backup center** and select the **Backup Instances** menu item.
 1. Select **Azure Virtual machines** as the **Datasource type**. Then search for the VM that you have configured for backup.
-1. Right-click the relevant row or select the more icon (…), and then click **Backup Now**.
+1. Right-click the relevant row or select the more icon (…), and then select **Backup Now**.
 1. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
 1. Monitor the portal notifications.
    To  monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs.
@@ -121,7 +121,7 @@ The snapshot phase guarantees the availability of a recovery point stored along 
 
   ![Screenshot showing the backup job status.](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details pane as given below:
+There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details blade as given below:
 
   ![Screenshot showing backup job status sub-tasks.](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
@@ -167,7 +167,7 @@ If you're going to continue on to a Backup tutorial that explains how to restore
 
 4. In the **Type the name of the Backup item** dialog, enter your VM name, such as *myVM*. Select **Stop Backup**.
 
-    Once the VM backup has been stopped and recovery points removed, you can delete the resource group. If you used an existing VM, you may wish to leave the resource group and VM in place.
+    Once the VM backup has been stopped and recovery points removed, you can delete the resource group. If you used an existing VM, you may want to leave the resource group and VM in place.
 
 5. In the menu on the left, select **Resource groups**.
 6. From the list, choose your resource group. If you used the sample VM quickstart commands, the resource group is named *myResourceGroup*.

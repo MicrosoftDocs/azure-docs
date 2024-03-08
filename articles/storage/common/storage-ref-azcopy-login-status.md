@@ -2,11 +2,11 @@
 title: azcopy login status
 description: This article provides reference information for the azcopy login status command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
 ms.date: 05/26/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 
@@ -30,15 +30,15 @@ azcopy login status [flags]
 
 ### Options
 
-`--endpoint`    Prints the Azure Active Directory endpoint that is being used in the current session.
+`--endpoint`    Prints the Microsoft Entra endpoint that is being used in the current session.
 
 `-h`, `--help`    Help for status
 
-`--tenant`    Prints the Azure Active Directory tenant ID that is currently being used in session.
+`--tenant`    Prints the Microsoft Entra tenant ID that is currently being used in session.
 
 ### Options inherited from parent commands
 
-`--aad-endpoint`    (string)    The Azure Active Directory endpoint to use. The default (https://login.microsoftonline.com) is correct for the global Azure cloud. Set this parameter when authenticating in a national cloud. Not needed for Managed Service Identity
+`--aad-endpoint`    (string)    The Microsoft Entra endpoint to use. The default (https://login.microsoftonline.com) is correct for the global Azure cloud. Set this parameter when authenticating in a national cloud. Not needed for Managed Service Identity
 
 `--application-id`    (string)    Application ID of user-assigned identity. Required for service principal auth.
 
@@ -59,9 +59,9 @@ azcopy login status [flags]
 `--service-principal`    Log in via Service Principal Name (SPN) by using a certificate or a secret. The client secret or certificate password must be placed in the appropriate environment variable. 
 Type AzCopy env to see names and descriptions of environment variables.
 
-`--tenant-id`    (string)    The Azure Active Directory tenant ID to use for OAuth device interactive login.
+`--tenant-id`    (string)    The Microsoft Entra tenant ID to use for OAuth device interactive login.
 
-`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Microsoft Entra login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 

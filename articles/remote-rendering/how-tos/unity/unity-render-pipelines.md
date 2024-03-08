@@ -33,5 +33,6 @@ Unlike for the **:::no-loc text="Universal render pipeline":::**, there are no e
 ## Next steps
 
 * [Install the Remote Rendering package for Unity](install-remote-rendering-unity-package.md)
+* [Set up Remote Rendering for Unity](unity-setup.md)
 * [Unity game objects and components](objects-components.md)
 * [Tutorial: View Remote Models](../../tutorials/unity/view-remote-models/view-remote-models.md)

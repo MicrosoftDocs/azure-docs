@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview manifest ingestion concepts
+title: Microsoft Azure Data Manager for Energy manifest ingestion concepts
 description: This article describes manifest ingestion concepts
 author: bharathim
 ms.author: bselvaraj
@@ -10,11 +10,10 @@ ms.custom: template-concept
 ---
 
 # Manifest-based ingestion concepts
-Manifest-based file ingestion provides end-users and systems a robust mechanism for loading metadata about datasets in Azure Data Manager for Energy Preview instance. This metadata is indexed by the system and allows the end-user to search the datasets.
+Manifest-based file ingestion provides end-users and systems a robust mechanism for loading metadata about datasets in Azure Data Manager for Energy instance. This metadata is indexed by the system and allows the end-user to search the datasets.
 
 Manifest-based file ingestion is an opaque ingestion that do not parse or understand the file contents. It creates a metadata record based on the manifest and makes the record searchable.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## What is a Manifest?
 A manifest is a JSON document that has a pre-determined structure for capturing entities defined as 'kind', that is, registered as schemas with the Schema service - [Well-known Schema (WKS) definitions](https://community.opengroup.org/osdu/data/data-definitions/-/blob/master/E-R/README.md#manifest-schemas). 
@@ -41,7 +40,7 @@ Any arrays are ordered. should there be interdependencies, the dependent items m
 
 ## Manifest-based file ingestion workflow
 
-Azure Data Manager for Energy Preview instance has out-of-the-box support for Manifest-based file ingestion workflow. `Osdu_ingest` Airflow DAG is pre-configured in your instance.
+Azure Data Manager for Energy instance has out-of-the-box support for Manifest-based file ingestion workflow. `Osdu_ingest` Airflow DAG is pre-configured in your instance.
 
 ### Manifest-based file ingestion workflow components
 The Manifest-based file ingestion workflow consists of the following components:
@@ -54,7 +53,7 @@ The Manifest-based file ingestion workflow consists of the following components:
 * **Search Service** is used to perform referential integrity check during the manifest ingestion process.
 
 ### Pre-requisites
-Before running the Manifest-based file ingestion workflow, customers must ensure that the user accounts running the workflow have access to the core services (Search, Storage, Schema, Entitlement and Legal) and Workflow service (see [Entitlement roles](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md) for details). As part of Azure Data Manager for Energy Preview instance provisioning, the OSDU&trade; standard schemas and associated reference data are pre-loaded. Customers must ensure that the user account used for ingesting the manifests is included in appropriate owners and viewers ACLs. Customers must ensure that manifests are configured with correct legal tags, owners and viewers ACLs, reference data, etc.
+Before running the Manifest-based file ingestion workflow, customers must ensure that the user accounts running the workflow have access to the core services (Search, Storage, Schema, Entitlement and Legal) and Workflow service (see [Entitlement roles](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md) for details). As part of Azure Data Manager for Energy instance provisioning, the OSDU&trade; standard schemas and associated reference data are pre-loaded. Customers must ensure that the user account used for ingesting the manifests is included in appropriate owners and viewers ACLs. Customers must ensure that manifests are configured with correct legal tags, owners and viewers ACLs, reference data, etc.
 
 ### Workflow sequence
 The following illustration provides the Manifest-based file ingestion workflow:
@@ -69,6 +68,5 @@ Once the validations are successful, the system processes the content into stora
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-Advance to the manifest ingestion tutorial and learn how to perform a manifest-based file ingestion
-> [!div class="nextstepaction"]
-> [Tutorial: Sample steps to perform a manifest-based file ingestion](tutorial-manifest-ingestion.md)
+- [Tutorial: Sample steps to perform a manifest-based file ingestion](tutorial-manifest-ingestion.md)
+- [OSDU Operator Data Loading Quick Start Guide](https://community.opengroup.org/groups/osdu/platform/data-flow/data-loading/-/wikis/home#osdu-operator-data-loading-quick-start-guide)

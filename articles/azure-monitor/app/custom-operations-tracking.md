@@ -3,9 +3,9 @@ title: Track custom operations with Application Insights .NET SDK
 description: Learn how to track custom operations with the Application Insights .NET SDK.
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: devx-track-csharp
-ms.date: 11/26/2019
-ms.reviewer: casocha
+ms.custom: devx-track-csharp, devx-track-dotnet
+ms.date: 10/10/2023
+ms.reviewer: mmcc
 ---
 
 # Track custom operations with Application Insights .NET SDK
@@ -20,9 +20,11 @@ This article provides guidance on how to track custom operations with the Applic
 - Application Insights for web applications (running ASP.NET) version 2.4+.
 - Application Insights for ASP.NET Core version 2.1+.
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 ## Overview
 
-An operation is a logical piece of work run by an application. It has a name, start time, duration, result, and a context of execution like user name, properties, and result. If operation A was initiated by operation B, then operation B is set as a parent for A. An operation can have only one parent, but it can have many child operations. For more information on operations and telemetry correlation, see [Application Insights telemetry correlation](distributed-tracing-telemetry-correlation.md).
+An operation is a logical piece of work run by an application. It has a name, start time, duration, result, and a context of execution like user name, properties, and result. If operation A was initiated by operation B, then operation B is set as a parent for A. An operation can have only one parent, but it can have many child operations. For more information on operations and telemetry correlation, see [Application Insights telemetry correlation](distributed-trace-data.md).
 
 In the Application Insights .NET SDK, the operation is described by the abstract class [OperationTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) and its descendants [RequestTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) and [DependencyTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
@@ -80,6 +82,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
         catch (Exception e)
         {
             requestTelemetry.Success = false;
+            requestTelemetry.ResponseCode;
             telemetryClient.TrackException(e);
             throw;
         }
@@ -129,12 +132,9 @@ The [W3C Trace Context](https://www.w3.org/TR/trace-context/) and [HTTP Protocol
 
 For tracing information, see [Distributed tracing and correlation through Azure Service Bus messaging](../../service-bus-messaging/service-bus-end-to-end-tracing.md#distributed-tracing-and-correlation-through-service-bus-messaging).
 
-> [!IMPORTANT]
-> The WindowsAzure.ServiceBus and Microsoft.Azure.ServiceBus packages are deprecated.
-
 ### Azure Storage queue
 
-The following example shows how to track the [Azure Storage queue](../../storage/queues/storage-dotnet-how-to-use-queues.md) operations and correlate telemetry between the producer, the consumer, and Azure Storage.
+The following example shows how to track the [Azure Storage queue](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) operations and correlate telemetry between the producer, the consumer, and Azure Storage.
 
 The Storage queue has an HTTP API. All calls to the queue are tracked by the Application Insights Dependency Collector for HTTP requests. It's configured by default on ASP.NET and ASP.NET Core applications. With other kinds of applications, see the [Console applications documentation](./console.md).
 
@@ -277,7 +277,7 @@ When you instrument message deletion, make sure you set the operation (correlati
 
 ### Dependency types
 
-Application Insights uses dependency type to customize UI experiences. For queues, it recognizes the following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](./transaction-diagnostics.md):
+Application Insights uses dependency type to customize UI experiences. For queues, it recognizes the following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics):
 
 - `Azure queue` for Azure Storage queues
 - `Azure Event Hubs` for Azure Event Hubs
@@ -413,8 +413,8 @@ Each Application Insights operation (request or dependency) involves `Activity`.
 
 ## Next steps
 
-- Learn the basics of [telemetry correlation](distributed-tracing-telemetry-correlation.md) in Application Insights.
-- Check out how correlated data powers [transaction diagnostics experience](./transaction-diagnostics.md) and [Application Map](./app-map.md).
+- Learn the basics of [telemetry correlation](distributed-trace-data.md) in Application Insights.
+- Check out how correlated data powers [transaction diagnostics experience](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics) and [Application Map](./app-map.md).
 - See the [data model](./data-model-complete.md) for Application Insights types and data model.
 - Report custom [events and metrics](./api-custom-events-metrics.md) to Application Insights.
 - Check out standard [configuration](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) for context properties collection.

@@ -1,12 +1,12 @@
 ---
-title: Azure Custom Script Extension for Windows 
+title: Azure Custom Script Extension for Windows
 description: Learn how to automate Windows virtual machine configuration tasks by using the Custom Script Extension.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.collection: windows
 ms.date: 04/04/2023
 ---
@@ -54,6 +54,8 @@ If your script is on a local server, you might still need to open other firewall
 
 ### Tips
 
+- Output is limited to the last 4,096 bytes.
+- Properly escaping characters will help ensure that strings are parsed correctly. For example, you always need two backslashes to escape a single literal backslash when dealing with file paths. Sample: `{"commandToExecute": "C:\\Windows\\System32\\systeminfo.exe >> D:\\test.txt"}`
 - The highest failure rate for this extension is due to syntax errors in the script. Verify that the script runs without errors. Put more logging into the script to make it easier to find failures.
 - Write scripts that are idempotent, so that running them more than once accidentally doesn't cause system changes.
 - Ensure that the scripts don't require user input when they run.

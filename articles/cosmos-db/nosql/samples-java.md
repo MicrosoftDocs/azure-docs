@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.topic: sample
 ms.date: 08/26/2021
 ms.devlang: java
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, devx-track-extended-java
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ---
@@ -18,7 +18,7 @@ ms.reviewer: mjbrown
 > [!div class="op_single_selector"]
 > * [.NET SDK Examples](samples-dotnet.md)
 > * [Java V4 SDK Examples](samples-java.md)
-> * [Spring Data V3 SDK Examples](samples-java-spring-data.md)
+> * [Spring Data V5 SDK Examples](samples-java-spring-data.md)
 > * [Node.js Examples](samples-nodejs.md)
 > * [Python Examples](samples-python.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -68,7 +68,7 @@ $ git clone https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples.g
 $ cd azure-cosmos-java-sql-api-samples
 ```
 
-You can run the samples using either an IDE (Eclipse, IntelliJ, or VSCODE) or from the command line using Maven.
+You can run the samples using either an IDE (Eclipse, IntelliJ, or VS Code) or from the command line using Maven.
 
 These environment variables must be set
 

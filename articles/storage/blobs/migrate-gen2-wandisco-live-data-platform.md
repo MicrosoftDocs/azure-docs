@@ -8,9 +8,8 @@ ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls
 ms.date: 03/09/2022
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.custom: references_regions
-ms.subservice: data-lake-storage-gen2
 ---
 
 # Migrate on-premises Hadoop data to Azure Data Lake Storage Gen2 with WANdisco LiveData Platform for Azure
@@ -108,8 +107,6 @@ To perform a migration:
 
 Monitor your migration progress through standard Azure tooling including the Azure CLI and Azure portal.
 
-For more detailed instructions, see the [LiveData Migrator for Azure How-To video series](https://fast.wistia.com/embed/channel/qg51p8erky).
-
 ## Bidirectionally replicate data under active change with LiveData Plane for Azure
 
 The second service included in the LiveData Platform is [LiveData Plane for Azure](https://www.wandisco.com/products/livedata-plane-for-azure). LiveData Plane uses WANdisco's coordination engine to keep data consistent across many on-premises Hadoop clusters and Azure Storage by intelligently applying changes to data on all systems, removing the risk of data conflicts at different points of use.
@@ -134,8 +131,6 @@ From [LiveData Platform for Azure's Marketplace page](https://azuremarketplace.m
 - The **Get It Now** button launches the service in your subscription. From there, you may use your own Hadoop cluster or WANdisco's Trial cluster.
 
 - Select **Test Drive** to test LiveData Migrator for Azure in an environment that is preconfigured and hosted for you. This enables you to try LiveData Migrator for Azure before adding it to your subscription, without any cost or risk to your data.
-
-Watch the [Test Drive Demonstration Video](https://fast.wistia.net/embed/channel/qg51p8erky?wchannelid=qg51p8erky&wmediaid=ute6gsc60w) to see the test drive in action.
 
 ## Next Steps
 

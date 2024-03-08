@@ -3,7 +3,7 @@ title: Azure Enterprise REST APIs
 description: This article describes the REST APIs for use with your Azure enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2023
+ms.date: 02/14/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -16,7 +16,7 @@ This article describes the REST APIs for use with your Azure enterprise enrollme
 
 ## Consumption and Usage APIs
 
-Microsoft Enterprise Azure customers can get usage and billing information through REST APIs. The role owner (Enterprise Administrator, Department Administrator, Account Owner) must enable access to the API by generating a key from the Azure EA portal. Then, anyone provided with the enrollment number and key can access the data through the API.
+Microsoft Enterprise Azure customers can get usage and billing information through REST APIs. The role owner (Enterprise Administrator, Department Administrator, Account Owner) must enable access to the API by generating a key from the Azure portal. Then, anyone provided with the enrollment number and key can access the data through the API.
 
 ## Available APIs
 
@@ -50,7 +50,7 @@ In the Manage API Access Keys window, you can perform the following tasks:
 > [!NOTE]
 > 1. If you are on Enrollment Admin, then you can generate the keys from only Usage & Charges blade at enrollment level but not at Accounts & department level.
 > 2. If you are an Department owner only, then you can generate the keys at Department level and at the Account level for which you are an account owner for.
-> 3. If you are Account owner only, then you can generate the keys at Acount level only. 
+> 3. If you are Account owner only, then you can generate the keys at Account level only. 
 
 ### Generate the primary or secondary API key
 
@@ -231,5 +231,4 @@ You might receive 400 and 404 (unavailable) errors returned from an API call whe
 
 ## Next steps
 
-- Azure EA portal administrators should read [Azure EA portal administration](ea-portal-administration.md) to learn about common administrative tasks.
-- If you need help with troubleshooting Azure EA portal issues, see [Troubleshoot Azure EA portal access](ea-portal-troubleshoot.md).
+- Azure EA administrators should read [EA Billing administration on the Azure portal](direct-ea-administration.md).

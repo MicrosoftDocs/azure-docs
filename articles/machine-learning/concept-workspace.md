@@ -1,11 +1,11 @@
 ---
 title: 'What is a workspace?'
 titleSuffix: Azure Machine Learning
-description: The workspace is the top-level resource for Azure Machine Learning. It keeps a history of all training runs, with logs, metrics, output, and a snapshot of your scripts. 
+description: The workspace is the top-level resource for Azure Machine Learning. It keeps a history of all training runs, with logs, metrics, output, and a snapshot of your scripts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: build-2023
 ms.topic: conceptual
 ms.author: deeikele
 author: deeikele
@@ -21,8 +21,6 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 Workspaces are places to collaborate with colleagues to create machine learning artifacts and group related work. For example, experiments, jobs, datasets, models, components, and inference endpoints. This article describes workspaces, how to manage access to them, and how to use them to organize your work.
 
 Ready to get started? [Create a workspace](#create-a-workspace).
-
-:::image type="content" source="./media/concept-workspace/workspace.png" alt-text="Screenshot of the Azure Machine Learning workspace.":::
 
 ## Tasks performed within a workspace 
 
@@ -50,11 +48,11 @@ Besides grouping your machine learning results, workspaces also host resource co
 For machine learning team leads and administrators, workspaces serve as containers for access management, cost management and data isolation. Below are some tips for organizing workspaces:
 
 + **Use [user roles](how-to-assign-roles.md)** for permission management in the workspace between users. For example a data scientist, a machine learning engineer or an admin.
-+ **Assign access to user groups**: By using Azure Active Directory user groups, you don't have to add individual users to each workspace, and to other resources the same group of users requires access to.
++ **Assign access to user groups**: By using Microsoft Entra user groups, you don't have to add individual users to each workspace, and to other resources the same group of users requires access to.
 + **Create a workspace per project**: While a workspace can be used for multiple projects, limiting it to one project per workspace allows for cost reporting accrued to a project level. It also allows you to manage configurations like datastores in the scope of each project.
 + **Share Azure resources**: Workspaces require you to create several [associated resources](#associated-resources). Share these resources between workspaces to save repetitive setup steps.
 + **Enable self-serve**: Pre-create and secure [associated resources](#associated-resources) as an IT admin, and use [user roles](how-to-assign-roles.md) to let data scientists create workspaces on their own.
-+ **Share assets**: You can share assets between workspaces using [Azure Machine Learning registries (preview)](how-to-share-models-pipelines-across-workspaces-with-registries.md).
++ **Share assets**: You can share assets between workspaces using [Azure Machine Learning registries](how-to-share-models-pipelines-across-workspaces-with-registries.md).
 
 ## How is my content stored in a workspace?
 
@@ -102,7 +100,7 @@ To automate workspace creation using your preferred security settings:
 :::moniker range="azureml-api-1"
 * Use the [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) or [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) for prototyping and as part of your [MLOps workflows](concept-model-management-and-deployment.md).
 :::moniker-end
-* Use [REST APIs](how-to-manage-rest.md) directly in scripting environment, for platform integration or in MLOps workfows.
+* Use [REST APIs](how-to-manage-rest.md) directly in scripting environment, for platform integration or in MLOps workflows.
 
 ## Tools for workspace interaction and management
 
@@ -153,4 +151,3 @@ To get started with Azure Machine Learning, see:
 + [Recover a workspace after deletion (soft-delete)](concept-soft-delete.md)
 + [Get started with Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
-+ [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

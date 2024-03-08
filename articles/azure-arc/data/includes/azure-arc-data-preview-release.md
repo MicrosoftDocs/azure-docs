@@ -2,22 +2,25 @@
 author: jkleinschnitz-msft
 ms.author: jameskl
 ms.service: azure-arc
+ms.custom:
+  - ignite-2023
 ms.topic: include
-ms.date: 05/02/2023
+ms.date: 12/12/2023
 ---
 
-At this time, a test or preview build is not available for the next release.
-
 <!--
+At this time, a test or preview build is not available for the next release.
+--->
 
-May 2023 preview release is now available.
+
+March, 2024 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
 |Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
-|Container images tag |`v1.19.0_2023-05-09`|
+|Container images tag |`v1.28.0_2024-03-12`|
 |**CRD names and version:**| |
-|`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1|
+|`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
 |`exporttasks.tasks.arcdata.microsoft.com`| v1beta1, v1, v2|
 |`failovergroups.sql.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
@@ -31,17 +34,17 @@ May 2023 preview release is now available.
 |`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`| v1beta1, v1|
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
-|Azure Resource Manager (ARM) API version|2023-01-15-preview|
-|`arcdata` Azure CLI extension version|1.5.0 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc-enabled Kubernetes helm chart extension version|1.19.0|
+|Azure Resource Manager (ARM) API version|2023-11-01-preview|
+|`arcdata` Azure CLI extension version|1.5.11 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.28.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
+|SQL Database version | 964 |
 
 ### Release notes
 
-- Arc SQL MI GP | Customer-Managed TDE | Preview
-- Arc SQL MI | Configuration Manager | sp_configure support
-- Arc SQL MI | Service-Managed Credential Rotation
-- Arc Data Services | Upgrade to OpenSearch | GA
-- Arc Data Services | Arc Data Controller | az CLI | Improved Arc data controller upgrade reliability
+#### Arc-enabled SQL Server
+Arc SQL Server | Backups | Configure backups at DB level for Arc enabled SQL Server in Portal and CLI | Public Preview
 
--->
+Arc SQL Server | Set feature flags via the Azure CLI | GA
+
+Arc SQL Server | Billing | Support unlimited virtualization benefit for PAYG and Software Assurance customers | GA

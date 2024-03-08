@@ -1,6 +1,6 @@
 # Microsoft Azure Documentation
 
-Welcome to the open-source [documentation](/azure) of [Microsoft Azure](https://azure.microsoft.com). Please review this README file to understand how you can assist in contributing to the Microsoft Azure documentation.
+Welcome to the open-source [documentation](https://learn.microsoft.com/azure/?product=popular) of [Microsoft Azure](https://azure.microsoft.com). Please review this README file to understand how you can assist in contributing to the Microsoft Azure documentation. 
 
 ## Getting Started
 
@@ -20,7 +20,11 @@ To install the necessary tools, follow the instructions for [Install content aut
 
 ## License
 
-Please refer to [LICENSE](LICENSE), [LICENSE-CODE](LICENSE-CODE), and [ThirdPartyNotices](ThirdPartyNotices.md) for all Licensing information.
+For all licensing information, refer to:
+
+- [LICENSE](LICENSE)
+- [LICENSE-CODE](LICENSE-CODE)
+- [ThirdPartyNotices](ThirdPartyNotices.md)
 
 ## Code of Conduct
 

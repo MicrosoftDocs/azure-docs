@@ -4,7 +4,7 @@ description: Follow this quickstart to run a C# app that uses the Batch .NET cli
 ms.topic: quickstart
 ms.date: 04/28/2023
 ms.devlang: csharp
-ms.custom: mvc, devx-track-csharp, mode-api
+ms.custom: mvc, devx-track-csharp, mode-api, devx-track-dotnet
 ---
 
 # Quickstart: Use .NET to create a Batch pool and run a job
@@ -146,7 +146,7 @@ Review the code to understand the steps in the [Azure Batch .NET Quickstart](htt
    }
    ```
 
-1. The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage Batch pools, jobs, and tasks. The Batch client uses shared key authentication. Batch also supports Azure Active Directory (Azure AD) authentication.
+1. The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage Batch pools, jobs, and tasks. The Batch client uses shared key authentication. Batch also supports Microsoft Entra authentication.
 
    ```csharp
    var cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);

@@ -5,7 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.service: azure-migrate
+ms.date: 12/12/2023
+ms.custom: engagement-fy24
 ---
 
 # Business case (preview) overview
@@ -36,9 +38,9 @@ There are three types of migration strategies that you can choose while building
 
 **Migration Strategy** | **Details** | **Assessment insights**
 --- | --- | ---
-**Azure recommended to minimize cost** | You can get the most cost efficient and compatible target recommendation in Azure across Azure IaaS and Azure PaaS targets. |  For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy - minimize cost from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service assessment is picked. <br/><br/>For general servers, sizing and cost comes from Azure VM assessment.
+**Azure recommended to minimize cost** | You can get the most cost efficient and compatible target recommendation in Azure across Azure IaaS and Azure PaaS targets. |  For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy - minimize cost from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service and Azure Kubernetes Service assessments depending on web app readiness and minimum cost. <br/><br/>For general servers, sizing and cost comes from Azure VM assessment.
 **Migrate to all IaaS (Infrastructure as a Service)** | You can get a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Instance to SQL Server on Azure VM* report. <br/><br/>For general servers and servers hosting web apps, sizing and cost comes from Azure VM assessment.
-**Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets. <br/><br/>General servers are recommended with a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy - *Modernize to PaaS* from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service assessment. For general servers, sizing and cost comes from Azure VM assessment. 
+**Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets. <br/><br/>General servers are recommended with a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy - *Modernize to PaaS* from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service and Azure Kubernetes Service assessments, with a preference to App Service. For general servers, sizing and cost comes from Azure VM assessment. 
  
 Although the Business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness, and Azure cost estimates, you can create respective assessments for the servers or workloads.
 
@@ -110,6 +112,7 @@ There are four major reports that you need to review:
     - Potential savings (TCO).
     - Estimated year on year cashflow savings based on the estimated migration completed that year.
     - Savings from unique Azure benefits like Azure Hybrid Benefit.
+    - Savings from Security and Management capabilities.
     - Discovery insights covering the scope of the Business case.
 - **On-premises vs Azure**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
 - **Azure IaaS**: This report covers the Azure and on-premises footprint of the servers and workloads recommended for migrating to Azure IaaS.
@@ -125,21 +128,31 @@ Here's what's included in a business case:
 
 Cost components for running on-premises servers. For TCO calculations, an annual cost is computed for the following heads:
 
- **Cost heads** | **Category** | **Component** | **Logic** |
+**Cost heads** | **Category** | **Component** | **Logic** |
  --- | --- | --- | --- |
 | Compute | Hardware | Server Hardware (Host machines) | Total hardware acquisition cost is calculated using a cost per core linear regression formula: Cost per core = 16.232*(Hyperthreaded core: memory in GB ratio) + 113.87. Hyperthreaded cores = 2*(cores) 
 |     | Software - SQL Server licensing | License cost | Calculated per two core pack license pricing of 2019 Enterprise or Standard. |
+|     | SQL Server - Extended Security Update (ESU) | License cost | Calculated for 3 years after the end of support of SQL server license as follows:<br/><br/> ESU (Year 1) – 75% of the license cost <br/><br/> ESU (Year 2) – 100% of the license cost <br/><br/> ESU (Year 3) – 125% of the license cost <br/><br/> |
 |     |     | Software Assurance | Calculated per year as in settings. |
 |     | Software - Windows Server licensing | License cost | Calculated per two core pack license pricing of Windows Server. |
+|     | Windows Server - Extended Security Update (ESU) | License cost | Calculated for 3 years after the end of support of Windows server license: <br/><br/> ESU (Year 1) – 75% of the license cost <br/><br/> ESU (Year 2) – 100% of the license cost <br/><br/> ESU (Year 3) – 125% of the license cost <br/><br/>|
 |     |     | Software Assurance | Calculated per year as in settings. |
-|     | Virtualization software for servers running in VMware environment | Virtualization Software (VMware license cost + support + management software cost) | License cost for vSphere Standard license + Production support for vSphere Standard license + Management software cost for VSphere Standard + production support cost of management software. _Not included- other hypervisor software cost_ or  _Antivirus / Monitoring Agents_.|
-|     | Virtualization software for servers running in Microsoft Hyper-V environment| Virtualization Software (management software cost + software assurance) | Management software cost for System Center + software assurance. _Not included- other hypervisor software cost_ or  _Antivirus / Monitoring Agents_.|
+|     | Virtualization software for servers running in VMware environment | Virtualization Software (VMware license cost + support) | License cost for vSphere Standard license + Production support for vSphere Standard license. *Not included- other hypervisor software cost* or  *Antivirus / Monitoring Agents*.|
 | Storage | Storage Hardware |     | The total storage hardware acquisition cost is calculated by multiplying the Total volume of storage attached to  per GB cost. Default is USD 2 per GB per month. |
 |     | Storage Maintenance |     | Default is 10% of storage hardware acquisition cost. |
 | Network | Network Hardware and software | Network equipment (Cabinets, switches, routers, load balancers etc.) and software | As an industry standard and used by sellers in Business cases, it's a % of compute and storage cost. Default is 10% of storage and compute cost. |
 |     | Maintenance | Maintenance | Defaulted to 15% of network hardware and software cost. |
-| Facilities | Facilities & Infrastructure | DC Facilities – Lease and Power | Facilities cost hasn't been added by default in the on-premises cost calculations. Any lease/colocation/power cost specified here will be included as part of the Business case. |
+| Security | General Servers | Server security cost | Default is USD 250 per year per server. This is multiplied with number of servers (General servers)|
+|     | SQL Servers | SQL protection cost | Default is USD 1000 per year per server. This is multiplied with number of servers running SQL |
+| Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
+| Management | Management Software licensing | System center Management software | Used for cost of the System center management software that includes monitoring, hardware and virtual machine provisioning, automation, backup and configuration management capabilities. Cost of Microsoft system center management software is added when the system center agents are identified on any of the discovered resources. This is applicable only for windows servers and SQL servers related scenarios and includes Software assurance. |
+|     |    | VMware Vcenter Management software | This is the cost associated with VMware management software i.e. Management software cost for vSphere Standard + production support cost of management software. Not included- other hypervisor software cost or Antivirus/Monitoring Agents. |
+|     |    | Other Management software | This is the cost of the management software for third party management products. |
+|     | Management cost other than software | Monitoring cost | Specify costs other than monitoring software. Default is USD 430 per year per server. This is multiplied with the number of servers. The default used is the cost associated with a monitoring administrator. |
+|     |    | Patch Management cost | Specify costs other than patch management software. Default is USD 430 per year per server. This is multiplied with the number of servers. Default is the cost associated with a patch management administrator. |
+|     |    | Backup cost | Specify costs other than backup software. Default is USD 580 per year per server. This is multiplied with the number of servers. Default used includes the cost per server for a backup administrator and storage required locally for backup. |
+
 
 #### Azure cost
 
@@ -147,14 +160,18 @@ Cost components for running on-premises servers. For TCO calculations, an annual
  --- | --- | --- | --- |
 | Compute | Compute (IaaS) | Azure VM, SQL Server on Azure VM | Compute cost (with AHUB) from Azure VM assessment, Compute cost (with AHUB) from Azure SQL assessment  |
 |     | Compute (PaaS) | Azure SQL MI or Azure SQL DB | Compute cost (with AHUB) from Azure SQL assessment. |
-|     | Compute(PaaS) | Azure App Service | Plan cost from Azure App Service. |
+|     | Compute(PaaS) | Azure App Service or Azure Kubernetes Service | Plan cost from Azure App Service and/or Node pool cost from Azure Kubernetes Service. |
 | Storage | Storage (IaaS) | Azure VM - Managed disks, Server on Azure VM - Managed disk | Storage cost from Azure VM assessment/Azure SQL assessment. |
 |     | Storage (PaaS) | Azure SQL MI or Azure SQL DB - Managed disks | Storage cost from Azure SQL assessment. |
 |     | Storage (PaaS) | N/A | N/A |
 | Network | Network Hardware and software | Network equipment (Cabinets, switches, routers, load balancers etc.) and software | As an industry standard and used by sellers in Business cases, it's a % of compute and storage cost. Default is 10% of storage and compute cost. |
 |     | Maintenance | Maintenance | Defaulted to 15% of network hardware and software cost. |
+| Security | Server security cost | Defender for servers | For servers recommended for Azure VM, if they're ready to run Defender for Server, the Defender for server cost (Plan 2) per server for that region is added |
+|     | SQL security cost | Defender for SQL | For SQL Server instances and DBs recommended for SQL Server on Azure VM, Azure SQL MI or Azure SQL DB, if they're ready to run Defender for SQL, the Defender for SQL per SQL Server instance for that region is added. For DBs recommended to Azure SQL DB, cost is rolled up at instance level. |
+|     | Azure App Service security cost | Defender for App Service | For web apps recommended for App Service or App Service containers, the Defender for App Service cost for that region is added. |
 | Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
+| Management | Azure Management Services | Azure Monitor, Azure Backup and Azure Update Manager | Azure Monitor costs for each server as per listed price in the region assuming collection of logs ingestion for the guest operating system and one custom application is enabled for the server, totaling logs data of 3GB/month. <br/><br/> Azure Backup cost for each server/month is dynamically estimated based on the [Azure Backup Pricing](/azure/backup/azure-backup-pricing), which includes a protected instance fee, snapshot storage and recovery services vault storage. <br/><br/> Azure Update Manager is free for Azure servers. |
 
 ### Year on Year costs
 
@@ -174,11 +191,12 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | Server Depreciation | (Total server hardware acquisition cost)/(Depreciable life) | Depreciable life = 4 years |     |
 | Storage Depreciation | (Total storage hardware acquisition cost)/(Depreciable life) | Depreciable life = 4 years |     |
 | Fit out and Networking Equipment | (Total network hardware acquisition cost)/(Depreciable life) | Depreciable life = 5 years |     |
-| License Amortization | (virtualization cost + Windows Server + SQL Server + Linux OS)/(Depreciable life) | Depreciable life = 5 years | VMware licenses are not retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure).|
+| License Amortization | (virtualization cost + Windows Server + SQL Server + Linux OS)/(Depreciable life) | Depreciable life = 5 years | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure.|
 | **Operating Asset Expense (OPEX) (B)** |     |     |     |
 | Network maintenance | Per year |     |     |
 | Storage maintenance | Per year | Power draw per Server, Average price per KW per month based on location. |     |
-| License Support | License support cost for virtualization + Windows Server + SQL Server + Linux OS |     | VMware licenses are not retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure). |
+| License Support | License support cost for virtualization + Windows Server + SQL Server + Linux OS + Windows server extended security update (ESU) + SQL Server extended security update (ESU) |     | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure. |
+| Security | Per year |  Per server annual security/protection cost.  |  |
 | Datacenter Admin cost | Number of people * hourly cost * 730 hours | Cost per hour based on location. |     |
 
 #### Future state (on-premises + Azure)
@@ -212,6 +230,7 @@ You can override the above values in the assumptions section of the Business cas
 | **Payback period** | The breakeven point for an investment. It's the point in time at which net benefits (benefits minus costs) equal initial investment or cost. |
 | **Capital Expense (CAPEX)** | Up front investments in assets that are capitalized and put into the balance sheet. |
 | **Operating Expense (OPEX)** | Running expenses of a business. |
+| **MDC** | Microsoft Defender for cloud. [Learn more](https://www.microsoft.com/security/business/cloud-security/microsoft-defender-cloud). |
 
 
 ## Next steps

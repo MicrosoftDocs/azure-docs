@@ -6,7 +6,9 @@ ms.date: 09/09/2022
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
-ms.custom: ignite-2022
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 ---
 
 # Set up multi-cluster layer 4 load balancing across Azure Kubernetes Fleet Manager member clusters (preview)
@@ -21,7 +23,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 
-* You must have a Fleet resource with member clusters to which a workload has been deployed. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](configuration-propagation.md)
+* You must have a Fleet resource with member clusters to which a workload has been deployed. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](resource-propagation.md)
 
 * These target clusters should be using [Azure CNI networking](../aks/configure-azure-cni.md).
 
@@ -82,7 +84,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 1. Create the following `ClusterResourcePlacement` in a file called `crp-2.yaml`. Notice we're selecting clusters in the `eastus` region:
 
     ```yaml
-    apiVersion: fleet.azure.com/v1alpha1
+    apiVersion: placement.kubernetes-fleet.io/v1beta1
     kind: ClusterResourcePlacement
     metadata:
       name: kuard-demo
@@ -95,10 +97,11 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
       policy:
         affinity:
           clusterAffinity:
-            clusterSelectorTerms:
-              - labelSelector:
-                  matchLabels:
-                    fleet.azure.com/location: eastus
+            requiredDuringSchedulingIgnoredDuringExecution:
+              clusterSelectorTerms:
+                - labelSelector:
+                    matchLabels:
+                      fleet.azure.com/location: eastus
     ```
 
 1. Apply the `ClusterResourcePlacement`:

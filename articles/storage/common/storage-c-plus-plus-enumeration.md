@@ -4,8 +4,8 @@ description: Learn how to use the listing APIs in Microsoft Azure Storage Client
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 01/23/2017
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.reviewer: dineshm
 ---

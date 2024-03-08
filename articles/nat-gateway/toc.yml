@@ -19,6 +19,8 @@ items:
   - name: ARM template
     displayName: Resource Manager
     href: quickstart-create-nat-gateway-template.md
+  - name: Terraform
+    href: quickstart-create-nat-gateway-terraform.md
 - name: Tutorials
   items:
   - name: Configure dual-stack outbound with a NAT gateway
@@ -35,25 +37,27 @@ items:
     href: tutorial-migrate-outbound-nat.md
   - name: Migrate a virtual machine public IP address
     href: tutorial-migrate-ilip-nat.md
-  - name: Deploy a NAT gateway with DDoS protection
-    href: tutorial-protect-nat-gateway-ddos.md
   expanded: true
 - name: Concepts
   items:
-  - name: Resources
+  - name: NAT gateway resource
     href: nat-gateway-resource.md
-  - name: Metrics and alerts
-    href: nat-metrics.md
-  - name: Resource Health
-    href: resource-health.md
   - name: Availability zones
     href: nat-availability-zones.md
   - name: Security
     items:
     - name: NAT gateway security baseline
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
+  - name: SNAT with NAT gateway
+    href: nat-gateway-snat.md
+  - name: NAT gateway design guidance
+    href: nat-gateway-design.md
 - name: How-to
   items:
+  - name: Metrics and alerts
+    href: nat-metrics.md
+  - name: Resource health
+    href: resource-health.md
   - name: Manage NAT gateway
     href: manage-nat-gateway.md
   - name: Move across regions

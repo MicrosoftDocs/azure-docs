@@ -4,7 +4,7 @@ description: This article is an overview of mutual authentication on Application
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.date: 12/21/2022
+ms.date: 07/29/2023
 ms.topic: conceptual 
 ms.author: greglin
 
@@ -29,7 +29,7 @@ If you're uploading a certificate chain with root CA and intermediate CA certifi
 > [!IMPORTANT]
 > Make sure you upload the entire trusted client CA certificate chain to the Application Gateway when using mutual authentication. 
 
-Each SSL profile can support up to five trusted client CA certificate chains. 
+Each SSL profile can support up to 100 trusted client CA certificate chains.  A single Application Gateway can support a total of 200 trusted client CA certificate chains.
 
 > [!NOTE] 
 > Mutual authentication is only available on Standard_v2 and WAF_v2 SKUs. 

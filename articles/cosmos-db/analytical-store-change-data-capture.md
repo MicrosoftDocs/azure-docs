@@ -7,10 +7,10 @@ ms.author: rosouz
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/03/2023
+ms.date: 11/28/2023
 ---
 
-# Change Data Capture in Azure Cosmos DB analytical store (preview)
+# Change Data Capture in Azure Cosmos DB analytical store
 
 [!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
@@ -29,19 +29,39 @@ In addition to providing incremental data feed from analytical store to diverse 
 - Supports applying filters, projections and transformations on the Change feed via source query
 - Multiple change feeds on the same container can be consumed simultaneously
 - Each change in container appears exactly once in the change data capture feed, and the checkpoints are managed internally for you
-- Changes can be synchronized "from the Beginning” or “from a given timestamp” or “from now”
+- Changes can be synchronized "from the beginning” or “from a given timestamp” or “from now”
 - There's no limitation around the fixed data retention period for which changes are available
 
-> [!IMPORTANT]
-> Please note that if the "Start from beginning" option is selected, the initial load includes a full snapshot of container data in the first run, and changed or incremental data is captured in subsequent runs. Similarly, when the "Start from timestamp" option is selected, the initial load processes the data from the given timestamp, and incremental or changed data is captured in subsequent runs. The `Capture intermediate updates`, `Capture Deletes` and `Capture Transactional store TTLs`, which are found under the [source options](get-started-change-data-capture.md) tab, determine if intermediate updates and deletes are captured in sinks.
+## Efficient incremental data capture with internally managed checkpoints
+
+Each change in Cosmos DB container appears exactly once in the CDC feed, and the checkpoints are managed internally for you. This helps to address the below disadvantages of the common pattern of using custom checkpoints based on the “_ts” value:  
+
+ * The “_ts” filter is applied against the data files which does not always guarantee minimal data scan. The internally managed GLSN based checkpoints in the new CDC capability ensure that the incremental data identification is done, just based on the metadata and so guarantees minimal data scanning in each stream.  
+
+* The analytical store sync process does not guarantee “_ts” based ordering which means that there could be cases where an incremental record’s “_ts” is lesser than the last checkpointed “_ts” and could be missed out in the incremental stream. The new CDC does not consider “_ts” to identify the incremental records and thus guarantees that none of the incremental records are missed. 
 
 ## Features
 
 Change data capture in Azure Cosmos DB analytical store supports the following key features.
 
-### Capturing deletes and intermediate updates
+### Capturing changes from the beginning
 
-The change data capture feature for the analytical store captures deleted records and the intermediate updates. The captured deletes and updates can be applied on Sinks that support delete and update operations. The {_rid} value uniquely identifies the records and so by specifying {_rid} as key column on the Sink side, the update and delete operations would be reflected on the Sink.
+When the `Start from beginning` option is selected, the initial load includes a full snapshot of container data in the first run, and changed or incremental data is captured in subsequent runs. This is limited by the `analytical TTL` property and documents TTL-removed from analytical store are not included in the change feed. Example: Imagine a container with `analytical TTL` set to 31536000 seconds, which is equivalent to 1 year. If you create a CDC process for this container, only documents newer than 1 year will be included in the initial load.
+
+### Capturing changes from a given timestamp
+
+When the `Start from timestamp` option is selected, the initial load processes the data from the given timestamp, and incremental or changed data is captured in subsequent runs. This process is also limited by the `analytical TTL` property.
+
+### Capturing changes from now
+
+When the `Start from timestamp` option is selected, all past operations of the container are not captured. 
+
+
+### Capturing deletes, intermediate updates, and TTLs
+
+The change data capture feature for the analytical store captures deletes, intermediate updates, and TTL operations. The captured deletes and updates can be applied on Sinks that support delete and update operations. The {_rid} value uniquely identifies the records and so by specifying {_rid} as key column on the Sink side, the update and delete operations would be reflected on the Sink. 
+
+Note that TTL operations are considered deletes. Check the [source settings](get-started-change-data-capture.md) section to check mode details and the support for intermediate updates and deletes in sinks.
 
 ### Filter the change feed for a specific type of operation
 
@@ -57,8 +77,6 @@ FROM c
 WHERE Category = 'Urban'
 ```
 
-> [!NOTE]
-> If you would like to enable source-query based change data capture on Azure Data Factory data flows during preview, please email [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com) and share your **subscription Id** and **region**. This is not necessary to enable source-query based change data capture on an Azure Synapse data flow.
 
 ### Multiple CDC processes
 
@@ -67,7 +85,7 @@ You can create multiple processes to consume CDC in analytical store. This appro
 
 ### Throughput isolation, lower latency and lower TCO
 
-Operations on Cosmos DB analytical store don't consume the provisioned RUs and so don't affect your transactional workloads. change data capture with analytical store also has lower latency and lower TCO. The lower latency is attributed to analytical store enabling better parallelism for data processing and reduces the overall TCO enabling you to drive cost efficiencies in these rapidly shifting economic conditions.
+Operations on Cosmos DB analytical store don't consume the provisioned RUs and so don't affect your transactional workloads. Change data capture with analytical store also has lower latency and lower TCO. The lower latency is attributed to analytical store enabling better parallelism for data processing and reduces the overall TCO enabling you to drive cost efficiencies in these rapidly shifting economic conditions.
 
 ## Scenarios
 
@@ -93,7 +111,7 @@ Change data capture capability enables an end-to-end analytical solution providi
 
 The linked service interface for the API for MongoDB isn't available within Azure Data Factory data flows yet. You can use your API for MongoDB's account endpoint with the **Azure Cosmos DB for NoSQL** linked service interface as a work around until the Mongo linked service is directly supported.
 
-In the interface for a new NoSQL linked service, select **Enter Manually** to provide the Azure Cosmos DB account information. Here, use the account's NoSQL document endpoint (ex: `https://<account-name>.documents.azure.com:443/`) instead of the Mongo DB endpoint (ex: `mongodb://<account-name>.mongo.cosmos.azure.com:10255/`)
+In the interface for a new NoSQL linked service, select **Enter Manually** to provide the Azure Cosmos DB account information. Here, use the account's NoSQL document endpoint (Example: `https://<account-name>.documents.azure.com:443/`) instead of the Mongo DB endpoint (Example: `mongodb://<account-name>.mongo.cosmos.azure.com:10255/`)
 
 ## Next steps
 

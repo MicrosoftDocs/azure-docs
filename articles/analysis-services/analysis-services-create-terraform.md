@@ -4,9 +4,12 @@ description: 'In this article, you create an Azure Analysis Services server usin
 ms.topic: quickstart
 ms.service: analysis-services
 ms.date: 4/14/2023
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
+content_well_notification: 
+  - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure Analysis Services server using Terraform
@@ -20,8 +23,6 @@ In this article, you learn how to:
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a random string for the Azure Analysis Services server name using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create an Azure Analysis Services server using [azurerm_analysis_services_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/analysis_services_server)
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

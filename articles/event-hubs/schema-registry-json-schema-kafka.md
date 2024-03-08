@@ -3,9 +3,9 @@ title: Use JSON Schema with Apache Kafka applications
 description: This article provides information on how to use JSON Schema in Schema Registry with Apache Kafka applications.
 ms.topic: how-to
 ms.date: 04/26/2023
-ms.devlang: scala
-author: kasun04
-ms.author: kindrasiri
+ms.devlang: spark-scala
+author: spelluru
+ms.author: spelluru
 ---
 
 # Use JSON Schema with Apache Kafka applications (Preview)
@@ -40,7 +40,7 @@ Note down the following settings that you use in the current quickstart:
 Follow instructions from [Create schemas using Schema Registry](create-schema-registry.md) to create a schema group and a schema. 
 
 1. Create a schema group named **contoso-sg** using the Schema Registry portal. Use *JSON Schema* as the serialization type. 
-1. In that schema group, create a new Avro schema with schema name: ``Microsoft.Azure.Data.SchemaRegistry.example.CustomerInvoice`` using the following schema content. 
+1. In that schema group, create a new JSON schema with schema name: ``Microsoft.Azure.Data.SchemaRegistry.example.CustomerInvoice`` using the following schema content. 
 
     ```json 
     {
@@ -66,9 +66,9 @@ Follow instructions from [Create schemas using Schema Registry](create-schema-re
     ```
 
 ## Register an application to access schema registry 
-You can use Azure Active Directory to authorize your Kafka producer and consumer application to access Azure Schema Registry resources. To enable it, you need to register your client application with an Azure AD tenant from the Azure portal. 
+You can use Microsoft Entra ID to authorize your Kafka producer and consumer application to access Azure Schema Registry resources. To enable it, you need to register your client application with a Microsoft Entra tenant from the Azure portal. 
 
-To register an Azure Active Directory application named  `example-app` see [Register your application with an Azure AD tenant](authenticate-application.md).
+To register a Microsoft Entra application named  `example-app` see [Register your application with a Microsoft Entra tenant](authenticate-application.md).
 
 - tenant.id - sets the tenant ID of the application
 - client.id - sets the client ID of the application
@@ -90,13 +90,13 @@ Add your user account to the **Schema Registry Reader** role at the namespace le
 
 
 ## Update client application configuration of Kafka applications
-You need to update the client configuration of the Kafka producer and consumer applications with the Azure Active directory application details and with the schema registry information. 
+You need to update the client configuration of the Kafka producer and consumer applications with the Microsoft Entra application details and with the schema registry information. 
 
-To update the Kafka Producer configuration, navigate to *azure-schema-registry-for-kafka/tree/master/java/avro/samples/kafka-producer*.
+To update the Kafka Producer configuration, navigate to *azure-schema-registry-for-kafka/tree/master/java/json/samples/kafka-producer*.
 
 1. Update the configuration of the Kafka application in *src/main/resources/app.properties* by following [Kafka Quickstart guide for Event Hubs](event-hubs-quickstart-kafka-enabled-event-hubs.md). 
 
-1. Update the configuration details for the producer in *src/main/resources/app.properties* using schema registry related configuration and Azure Active directory application that you created in the previous step as follows:
+1. Update the configuration details for the producer in *src/main/resources/app.properties* using schema registry related configuration and Microsoft Entra application that you created in the previous step as follows:
 
    ```xml
    schema.group=contoso-sg
@@ -105,7 +105,7 @@ To update the Kafka Producer configuration, navigate to *azure-schema-registry-f
     tenant.id=<>
     client.id=<>
     client.secret=<>
-1. Follow the same instructions and update the *azure-schema-registry-for-kafka/tree/master/java/avro/samples/kafka-consumer* configuration as well. 
+1. Follow the same instructions and update the *azure-schema-registry-for-kafka/tree/master/java/json/samples/kafka-consumer* configuration as well. 
 1. For both Kafka producer and consumer applications, following JSON schema is used: 
       
    ```json
@@ -133,9 +133,9 @@ To update the Kafka Producer configuration, navigate to *azure-schema-registry-f
 
 
 ## Using Kafka producer with JSON schema validation 
-To run the Kafka producer application, navigate to *azure-schema-registry-for-kafka/tree/master/java/avro/samples/kafka-producer*.
+To run the Kafka producer application, navigate to *azure-schema-registry-for-kafka/tree/master/java/json/samples/kafka-producer*.
 
-1. You can run the producer application so that it can produce Avro specific records or generic records. For specific records mode you need to first generate the classes against either the producer schema using the following maven command: 
+1. You can run the producer application so that it can produce JSON Schema specific records or generic records. For specific records mode you need to first generate the classes against either the producer schema using the following maven command: 
    ```shell
    mvn generate-sources
    ```
@@ -163,9 +163,9 @@ To run the Kafka producer application, navigate to *azure-schema-registry-for-ka
    ```
 
 ## Using Kafka consumer with JSON schema validation 
-To run the Kafka consumer application, navigate to *azure-schema-registry-for-kafka/tree/master/java/avro/samples/kafka-consumer*.
+To run the Kafka consumer application, navigate to *azure-schema-registry-for-kafka/tree/master/java/json/samples/kafka-consumer*.
 
-1. You can run the consumer application so that it can consume Avro specific records or generic records. For specific records mode you need to first generate the classes against either the producer schema using the following maven command: 
+1. You can run the consumer application so that it can consume JSON Schema specific records or generic records. For specific records mode you need to first generate the classes against either the producer schema using the following maven command: 
    ```shell
    mvn generate-sources
    ```
@@ -175,7 +175,7 @@ To run the Kafka consumer application, navigate to *azure-schema-registry-for-ka
    mvn clean package
    mvn -e clean compile exec:java -Dexec.mainClass="com.azure.schemaregistry.samples.consumer.App"
    ```
-1. Upon successful execution of the consumer application, it prompts you to choose the producer scenario. For this quickstart, you can choose option *1 - consume Avro SpecificRecords*. 
+1. Upon successful execution of the consumer application, it prompts you to choose the producer scenario. For this quickstart, you can choose option *1 - consume SpecificRecords*. 
 
    ```shell
    Enter case number:
@@ -193,4 +193,3 @@ To run the Kafka consumer application, navigate to *azure-schema-registry-for-ka
 
 ## Clean up resources
 Delete the Event Hubs namespace or delete the resource group that contains the namespace. 
-

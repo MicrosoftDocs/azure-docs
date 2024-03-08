@@ -2,10 +2,10 @@
 title: Test your Event Grid handler locally
 titleSuffix: An Azure Communication Services how-to document
 description: In this how-to document, you can learn how to locally test your Event Grid handler for Azure Communication Services events with Postman.
-author: ddematheu2
+author: tophpalmer
 manager: shahen
 services: azure-communication-services
-ms.author: dademath
+ms.author: chpalm
 ms.date: 02/09/2023
 ms.topic: how-to
 ms.service: azure-communication-services
@@ -20,12 +20,17 @@ Testing Event Grid triggered Azure Functions locally can be complicated. You don
 - Install [Postman](https://www.postman.com/downloads/).
 - Have a running Azure Function that can be triggered by Event Grid. If you don't have one, you can follow the [quickstart](../../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=in-process%2Cextensionv3&pivots=programming-language-javascript) to create one.
 
-The Azure Function can be running either in Azure if you want to test it with some test events or if you want to test the entire flow locally (press `F5` in Visual Studio Code to run it locally). If you want to test the entire flow locally, you need to use [ngrok](https://ngrok.com/) to hook your locally running Azure Function. Configure ngrok by running the command:
+The Azure Function can be running either in Azure if you want to test it with some test events or if you want to test the entire flow locally (press `F5` in Visual Studio Code to run it locally). If you want to test the entire flow with an externally triggered webhook, you need to use [ngrok](https://ngrok.com/) to expose your locally running Azure Function
+to the public, allowing it to be triggered by internet sources (as an example from Azure Event WebHooks). Configure ngrok by running the command:
 
 ```bash
 
 ngrok http 7071
 
+```
+It is worth remembering that exposing development resources publicly might not be considered as secure. That is why you can also run the entire workflow locally without ngrok by invoking requests to:
+```
+http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
 ```
 
 ## Configure Postman
@@ -50,7 +55,7 @@ ngrok http 7071
         "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
         "From": "15555555555",
         "To": "15555555555",
-        "Message": "Great to connect with ACS events",
+        "Message": "Great to connect with Azure Communication Services events",
         "ReceivedTimestamp": "2020-09-18T00:27:45.32Z"
       },
       "eventType": "Microsoft.Communication.SMSReceived",

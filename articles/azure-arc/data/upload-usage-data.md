@@ -4,8 +4,8 @@ description: Upload usage Azure Arc-enabled data services data to Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 05/27/2022
 ms.topic: how-to
@@ -144,7 +144,7 @@ watch -n 1200 ./myuploadscript.sh
 
 You could also use a job scheduler like cron or Windows Task Scheduler or an orchestrator like Ansible, Puppet, or Chef.
 
-## Next steps
+## Related content
 
 [Upload metrics, and logs to Azure Monitor](upload-metrics.md)
 

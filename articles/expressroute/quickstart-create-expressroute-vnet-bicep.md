@@ -4,7 +4,7 @@ description: This quickstart shows you how to create an ExpressRoute circuit usi
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 03/24/2022
+ms.date: 06/30/2023
 ms.topic: quickstart
 ms.service: expressroute
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
@@ -13,6 +13,8 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 # Quickstart: Create an ExpressRoute circuit with private peering using Bicep
 
 This quickstart describes how to use Bicep to create an ExpressRoute circuit with private peering.
+
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using bicep.":::
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -24,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/expressroute-private-peering-vnet).
 
-In this quickstart, you'll create an ExpressRoute circuit with *Equinix* as the service provider. The circuit will be using a *Premium SKU*, with a bandwidth of *50 Mbps*, and the peering location of *Washington DC*. Private peering will be enabled with a primary and secondary subnet of *192.168.10.16/30* and *192.168.10.20/30* respectively. A virtual network will also be created along with a *HighPerformance ExpressRoute gateway*.
+In this quickstart, you create an ExpressRoute circuit with *Equinix* as the service provider. The circuit is using a *Premium SKU*, with a bandwidth of *50 Mbps*, and the peering location of *Washington DC*. Private peering is enabled with a primary and secondary subnet of *192.168.10.16/30* and *192.168.10.20/30* respectively. A virtual network gets created along with a *HighPerformance ExpressRoute gateway*.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/expressroute-private-peering-vnet/main.bicep":::
 

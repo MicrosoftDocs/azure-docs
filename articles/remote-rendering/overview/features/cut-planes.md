@@ -1,8 +1,8 @@
 ---
 title: Cut planes
 description: Explains what cut planes are and how to use them
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp

@@ -1,21 +1,21 @@
 items: 
-- name: Onco Phenotype
+- name: Onco-Phenotype
   href: index.yml
 - name: Overview
   expanded: true
   items:
-    - name: About Onco Phenotype
+    - name: About Onco-Phenotype
       href: overview.md
 - name: Quickstarts
   items:
-     - name: Use the Onco Phenotype model
+     - name: Use the Onco-Phenotype model
        href: get-started.md
 - name: Responsible use of AI
   items:
-    - name: Transparency note for Onco Phenotype
+    - name: Transparency note for Onco-Phenotype
       href: transparency-note.md
     - name: Data, privacy, and security
-      href: ../responsible-ai/data-privacy-security.md
+      href: /azure/azure-health-insights/responsible-ai/data-privacy-security?toc=/azure/azure-health-insights/oncophenotype/toc.json
 - name: Concepts
   items:
      - name: Model configuration

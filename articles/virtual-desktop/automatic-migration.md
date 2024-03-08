@@ -3,17 +3,16 @@ title: Migrate automatically from Azure Virtual Desktop (classic) - Azure
 description: How to migrate automatically from Azure Virtual Desktop (classic) to Azure Virtual Desktop by using the migration module.
 author: Heidilohr
 ms.topic: how-to
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ms.date: 01/31/2022
 ms.author: helohr
-manager: femila
 ---
 
 # Migrate automatically from Azure Virtual Desktop (classic)
 
 The migration module tool lets you migrate your organization from Azure Virtual Desktop (classic) to Azure Virtual Desktop automatically. This article will show you how to use the tool. 
 
-## Requirements
+## Prerequisites
 
 Before you use the migration module, make sure you have the following things ready:
 
@@ -34,7 +33,7 @@ Before you use the migration module, make sure you have the following things rea
 - PowerShell or PowerShell ISE to run the scripts you'll see in this article. The Microsoft.RdInfra.RDPowershell module doesn't work in PowerShell Core.
 
 >[!IMPORTANT]
->Migration only creates service objects in the US geography. If you try to migrate your service objects to another geography, it won't work. Also, if you have more than 500 application groups in your Azure Virtual Desktop (classic) deployment, you won't be able to migrate. You'll only be able to migrate if you rebuild your environment to reduce the number of application groups within your Azure Active Directory (Azure AD) tenant.
+>Migration only creates service objects in the US geography. If you try to migrate your service objects to another geography, it won't work. Also, if you have more than 500 application groups in your Azure Virtual Desktop (classic) deployment, you won't be able to migrate. You'll only be able to migrate if you rebuild your environment to reduce the number of application groups within your Microsoft Entra tenant.
 
 ## Prepare your PowerShell environment
 

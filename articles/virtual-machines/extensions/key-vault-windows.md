@@ -3,12 +3,11 @@ title: Azure Key Vault VM extension for Windows
 description: Learn how to deploy an agent for automatic refresh of Azure Key Vault secrets on virtual machines with a virtual machine extension.
 services: virtual-machines
 author: msmbaldwin
-tags: keyvault
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.topic: article
-ms.date: 04/11/2023
+ms.date: 02/20/2024
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -38,13 +37,14 @@ The Key Vault VM extension supports the following certificate content types:
 > [!NOTE]
 > The Key Vault VM extension downloads all certificates to the Windows certificate store or to the location specified in the `certificateStoreLocation` property in the VM extension settings. 
 
-## Updates in Version 3.0
+## Updates in Version 3.0+
 
 Version 3.0 of the Key Vault VM extension for Windows adds support for the following features:
 
 - Add ACL permissions to downloaded certificates
 - Enable Certificate Store configuration per certificate
 - Export private keys
+- IIS Certificate Rebind support
 
 ## Prerequisites
 
@@ -115,7 +115,7 @@ The following JSON shows the schema for the Key Vault VM extension. Before you c
       "autoUpgradeMinorVersion": true,
       "settings": {
          "secretsManagementSettings": {
-             "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: 3600>,
+             "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: "3600">,
              "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,
              "requireInitialSync": <Initial synchronization of certificates. Example: true>,
              "observedCertificates": <An array of KeyVault URIs that represent monitored certificates, including certificate store location and ACL permission to certificate private key. Example: 
@@ -162,9 +162,10 @@ The following JSON shows the schema for the Key Vault VM extension. Before you c
       "autoUpgradeMinorVersion": true,
       "settings": {
          "secretsManagementSettings": {
-            "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: 3600>,
+            "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: "3600">,
             "certificateStoreName": <The certificate store name. Example: "MY">,
-            "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,"certificateStoreLocation": <The certificate store location, which currently works locally only. Example: "LocalMachine">,
+            "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,
+            "certificateStoreLocation": <The certificate store location, which currently works locally only. Example: "LocalMachine">,
             "requireInitialSync": <Require an initial synchronization of the certificates. Example: true>,
             "observedCertificates": <A string array of KeyVault URIs that represent the monitored certificates. Example: "[https://myvault.vault.azure.net/secrets/mycertificate"]>
          },
@@ -190,8 +191,8 @@ The JSON schema includes the following properties.
 | `apiVersion` | 2022-08-01 | date |
 | `publisher` | Microsoft.Azure.KeyVault | string |
 | `type` | KeyVaultForWindows | string |
-| `typeHandlerVersion` | 3.0 | int |
-| `pollingIntervalInS` | 3600 | string |
+| `typeHandlerVersion` | "3.0" | string |
+| `pollingIntervalInS` | "3600" | string |
 | `linkOnRenewal` (optional) | true | boolean |
 | `requireInitialSync` (optional) | false | boolean |
 | `observedCertificates`  | [{...}, {...}] | string array |
@@ -210,8 +211,8 @@ The JSON schema includes the following properties.
 | `apiVersion` | 2022-08-01 | date |
 | `publisher` | Microsoft.Azure.KeyVault | string |
 | `type` | KeyVaultForWindows | string |
-| `typeHandlerVersion` | 1.0 | int |
-| `pollingIntervalInS` | 3600 | string |
+| `typeHandlerVersion` | "1.0" | string |
+| `pollingIntervalInS` | "3600" | string |
 | `certificateStoreName` | MY | string |
 | `linkOnRenewal` | true | boolean |
 | `certificateStoreLocation`  | LocalMachine or CurrentUser (case sensitive) | string |
@@ -248,7 +249,7 @@ The following JSON snippets provide example settings for an ARM template deploym
       "autoUpgradeMinorVersion": true,
       "settings": {
          "secretsManagementSettings": {
-             "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: 3600>,
+             "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: "3600">,
              "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,
              "observedCertificates": <An array of KeyVault URIs that represent monitored certificates, including certificate store location and ACL permission to certificate private key. Example:
              [
@@ -299,7 +300,7 @@ The following JSON snippets provide example settings for an ARM template deploym
       "autoUpgradeMinorVersion": true,
       "settings": {
          "secretsManagementSettings": {
-            "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: 3600>,
+            "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: "3600">,
             "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,          
             "certificateStoreName": <The certificate store name. Example: "MY">,
             "certificateStoreLocation": <The certificate store location, which currently works locally only. Example: "LocalMachine">,
@@ -574,11 +575,11 @@ By default, Administrators and SYSTEM receive Full Control.
 
 The extension relies on the default behavior of the [PFXImportCertStore API](/windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore). By default, if a certificate has a Provider Name attribute that matches with CAPI1, then the certificate is imported by using CAPI1 APIs. Otherwise, the certificate is imported by using CNG APIs.
 
-#### Does the extension support IIS certificate autobinding?
+#### Does the extension support certificate auto-rebinding?
 
-No. The Azure Key Vault VM extension doesn't support IIS automatic rebinding. The automatic rebinding process requires certificate services lifecycle notifications, and the extension doesn't write a certificate-renewal event (event ID 1001) upon newer versions.
+Yes, the Azure Key Vault VM extension supports certificate auto-rebinding. The Key Vault VM extension does support S-channel binding on certificate renewal when the `linkOnRenewal` property is set to true.
 
-The recommended approach is to use the Key Vault VM extension schema's `linkOnRenewal` property. Upon installation, when the `linkOnRenewal` property is set to `true`, the previous version of a certificate is chained to its successor via the `CERT_RENEWAL_PROP_ID` certificate extension property. The chaining enables the S-channel to pick up the most recent (latest) valid certificate with a matching SAN. This feature enables autorotation of SSL certificates without necessitating a redeployment or binding.
+For IIS, you can configure auto-rebind by enabling automatic rebinding of certificate renewals in IIS. The Azure Key Vault VM extension generates Certificate Lifecycle Notifications when a certificate with a matching SAN is installed. IIS uses this event to auto-rebind the certificate. For more information, see [Certifcate Rebind in IIS](https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html)
 
 ### View extension status
 

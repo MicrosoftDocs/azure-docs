@@ -4,15 +4,12 @@ titleSuffix: Azure App Configuration
 description: Learn how to use JSON content-type for key-values
 services: azure-app-configuration
 author: avanigupta
-ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 03/27/2023
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, devx-track-azurecli
 ms.author: avgupta
-
-
 #Customer intent: I want to store JSON key-values in App Configuration store without losing the data type of each setting.
 ---
 
@@ -134,6 +131,8 @@ az appconfig kv import -s file --format json --path "~/Import.json" --content-ty
 The JSON key-values you created should look like this in App Configuration:
 
 :::image type="content" source="./media/create-json-settings.png" alt-text="Screenshot that shows the Config store containing JSON key-values.":::
+
+To check this, open your App Configuration resource in the Azure portal and go to **Configuration explorer**.
 
 ## Export JSON key-values to a file
 

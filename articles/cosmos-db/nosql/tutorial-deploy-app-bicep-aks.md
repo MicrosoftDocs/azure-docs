@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy an ASP.NET web application using Azure Cosmos DB for No
 description: Learn how to deploy an ASP.NET MVC web application with Azure Cosmos DB for NoSQL, managed identity, and Azure Kubernetes Service by using Bicep.
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: tutorial-develop, mvc, devx-track-azurecli, devx-track-bicep
+ms.custom: tutorial-develop, mvc, devx-track-azurecli, devx-track-bicep, build-2023, build-2023-dataai
 author: sandnair
 ms.author: sandnair
 ms.topic: tutorial
@@ -194,7 +194,7 @@ az aks get-credentials \
 
 ## Connect the AKS pods to Azure Key Vault
 
-Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to associate managed identities for Azure resources and identities in Azure AD with pods. You'll use these identities to grant access to the Azure Key Vault Provider for Secrets Store CSI Driver.
+Microsoft Entra pod-managed identities use AKS primitives to associate managed identities for Azure resources and identities in Microsoft Entra ID with pods. You'll use these identities to grant access to the Azure Key Vault Provider for Secrets Store CSI Driver.
 
 Use the following command to find the values of the tenant ID (`homeTenantId`):
 

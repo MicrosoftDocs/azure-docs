@@ -1,31 +1,32 @@
 --- 
-title: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)"
+title: "Configure Apache Spark jobs in Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: Learn how to submit Apache Spark jobs with Azure Machine Learning
-author: fbsolo-ms1
-ms.author: franksolomon
+author: ynpandey
+ms.author: yogipandey
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
-ms.topic: quickstart 
-ms.date: 02/14/2023
+ms.custom: build-2023, devx-track-python
+ms.topic: how-to 
+ms.date: 05/22/2023
 #Customer intent: As a Full Stack ML Pro, I want to submit a Spark job in Azure Machine Learning.
 ---
 
-# Quickstart: Apache Spark jobs in Azure Machine Learning (preview)
+# Configure Apache Spark jobs in Azure Machine Learning
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-The Azure Machine Learning integration, with Azure Synapse Analytics (preview), provides easy access to distributed computing capability - backed by Azure Synapse - for scaling Apache Spark jobs on Azure Machine Learning.
+The Azure Machine Learning integration, with Azure Synapse Analytics, provides easy access to distributed computing capability - backed by Azure Synapse - for scaling Apache Spark jobs on Azure Machine Learning.
 
-In this quickstart guide, you learn how to submit a Spark job using Azure Machine Learning serverless Spark compute (preview), Azure Data Lake Storage (ADLS) Gen 2 storage account, and user identity passthrough in a few simple steps.
+In this article, you learn how to submit a Spark job using Azure Machine Learning serverless Spark compute, Azure Data Lake Storage (ADLS) Gen 2 storage account, and user identity passthrough in a few simple steps.
 
 For more information about **Apache Spark in Azure Machine Learning** concepts, see [this resource](./apache-spark-azure-ml-concepts.md).
 
 ## Prerequisites
 
 # [CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
@@ -33,7 +34,7 @@ For more information about **Apache Spark in Azure Machine Learning** concepts, 
 - [Install Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public).
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
@@ -44,11 +45,6 @@ For more information about **Apache Spark in Azure Machine Learning** concepts, 
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
-- To enable this feature:
-  1. Navigate to Azure Machine Learning studio UI.
-  2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
-  3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
-  :::image type="content" source="media/quickstart-spark-jobs/how-to-enable-managed-spark-preview.png" lightbox="media/quickstart-spark-jobs/how-to-enable-managed-spark-preview.png" alt-text="Expandable screenshot showing option for enabling Managed Spark preview.":::
 
 ---
 
@@ -132,7 +128,7 @@ That script takes two arguments: `--titanic_data` and `--wrangled_data`. These a
 ## Submit a standalone Spark job
 
 # [CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 > [!TIP]
 > You can submit a Spark job from:
@@ -197,7 +193,7 @@ az ml job create --file <YAML_SPECIFICATION_FILE_NAME>.yaml --subscription <SUBS
 ```
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 > [!TIP]
 > You can submit a Spark job from:
@@ -266,17 +262,16 @@ In the above code sample:
     - `Standard_E64S_V3`
 
 # [Studio UI](#tab/studio-ui)
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+
 First, upload the parameterized Python code `titanic.py` to the Azure Blob storage container for workspace default datastore `workspaceblobstore`. To submit a standalone Spark job using the Azure Machine Learning studio UI:
 
-:::image type="content" source="media/quickstart-spark-jobs/create-standalone-spark-job.png" lightbox="media/quickstart-spark-jobs/create-standalone-spark-job.png" alt-text="Expandable screenshot showing creation of a new Spark job in the Azure Machine Learning studio UI.":::
-
-1. In the left pane, select **+ New**.
+1. Select **+ New**, located near the top right side of the screen.
 2. Select **Spark job (preview)**.
 3. On the **Compute** screen:
 
-    :::image type="content" source="media/quickstart-spark-jobs/create-standalone-spark-job-compute.png" lightbox="media/quickstart-spark-jobs/create-standalone-spark-job-compute.png" alt-text="Expandable screenshot showing compute selection screen for a new Spark job in the Azure Machine Learning studio UI.":::
-
-   1. Under **Select compute type**, select **Spark serverless (Preview)** for serverless Spark compute.
+   1. Under **Select compute type**, select **Spark serverless** for serverless Spark compute.
    2. Select **Virtual machine size**. The following instance types are currently supported:
       - `Standard_E4s_v3`
       - `Standard_E8s_v3`
@@ -328,10 +323,10 @@ First, upload the parameterized Python code `titanic.py` to the Azure Blob stora
 > You might have an existing Synapse Spark pool in your Azure Synapse workspace. To use an existing Synapse Spark pool, please follow the instructions to [attach a Synapse Spark pool in Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 ## Next steps
-- [Apache Spark in Azure Machine Learning (preview)](./apache-spark-azure-ml-concepts.md)
-- [Quickstart: Interactive Data Wrangling with Apache Spark (preview)](./apache-spark-environment-configuration.md)
-- [Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)](./how-to-manage-synapse-spark-pool.md)
-- [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
-- [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)
+- [Apache Spark in Azure Machine Learning](./apache-spark-azure-ml-concepts.md)
+- [Quickstart: Interactive Data Wrangling with Apache Spark](./apache-spark-environment-configuration.md)
+- [Attach and manage a Synapse Spark pool in Azure Machine Learning](./how-to-manage-synapse-spark-pool.md)
+- [Interactive Data Wrangling with Apache Spark in Azure Machine Learning](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
+- [Submit Spark jobs in Azure Machine Learning](./how-to-submit-spark-jobs.md)
 - [Code samples for Spark jobs using Azure Machine Learning CLI](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/spark)
 - [Code samples for Spark jobs using Azure Machine Learning Python SDK](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/spark)

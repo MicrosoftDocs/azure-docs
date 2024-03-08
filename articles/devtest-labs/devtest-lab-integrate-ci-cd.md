@@ -2,7 +2,7 @@
 title: Integrate Azure DevTest Labs into Azure Pipelines
 description: Learn how to integrate Azure DevTest Labs into Azure Pipelines continuous integration and delivery (CI/CD) pipelines.
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 12/28/2021

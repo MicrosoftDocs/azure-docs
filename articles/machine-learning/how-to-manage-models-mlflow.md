@@ -10,21 +10,23 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/08/2022
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to
 ---
 
 # Manage models registries in Azure Machine Learning with MLflow
 
-Azure Machine Learning supports MLflow for model management. Such approach represents a convenient way to support the entire model lifecycle for users familiar with the MLFlow client. The following article describes the different capabilities and how it compares with other options.
+Azure Machine Learning supports MLflow for model management when connected to a workspace. Such approach represents a convenient way to support the entire model lifecycle for users familiar with the MLFlow client. The following article describes the different capabilities and how it compares with other options.
 
 ### Prerequisites
 
-[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
+[!INCLUDE [mlflow-prereqs](includes/machine-learning-mlflow-prereqs.md)]
+
+* Notice that organizational registries are not supported for model management with MLflow.
 
 * Some operations may be executed directly using the MLflow fluent API (`mlflow.<method>`). However, others may require to create an MLflow client, which allows to communicate with Azure Machine Learning in the MLflow protocol. You can create an `MlflowClient` object as follows. This tutorial uses the object `client` to refer to such MLflow client.
 
     ```python
-    using mlflow
+    import mlflow
 
     client = mlflow.tracking.MlflowClient()
     ```
@@ -117,7 +119,7 @@ You can load models directly from the registry to restore the models objects tha
 * `models:/<model-name>/<stage-name>`, to load a specific version in a given stage for a model. View [Model stages](#model-stages) for details.
 
 > [!TIP]
-> For learning about the difference between `mlflow.<flavor>.load_model()` and `mlflow.pyfunc.load_model()`, view [Loading MLflow models back](concept-mlflow-models.md#loading-mlflow-models-back) article.
+> To learn about the difference between `mlflow.<flavor>.load_model()` and `mlflow.pyfunc.load_model()`, view [Workflows for loading MLflow models](concept-mlflow-models.md#workflows-for-loading-mlflow-models).
 
 ## Model stages
 
@@ -229,13 +231,14 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 | Search registered models by name | **&check;** | **&check;** | **&check;** | **&check;**<sup>4</sup> |
 | Search registered models using string comparators `LIKE` and `ILIKE` | **&check;** |  |  | **&check;**<sup>4</sup> |
 | Search registered models by tag |  |  |  | **&check;**<sup>4</sup> |
+| [Organizational registries](how-to-manage-registries.md) support | | | **&check;** | **&check;** |
 
 > [!NOTE]
 > - <sup>1</sup> Use URIs with format `runs:/<ruin-id>/<path>`.
 > - <sup>2</sup> Use URIs with format `azureml://jobs/<job-id>/outputs/artifacts/<path>`.
 > - <sup>3</sup> Registered models are immutable objects in Azure ML.
 > - <sup>4</sup> Use search box in Azure ML Studio. Partial match supported.
-> - <sup>5</sup> Use [registries](how-to-manage-registries.md).
+> - <sup>5</sup> Use [registries](how-to-manage-registries.md) to move models across different workspaces while keeping lineage.
 
 ## Next steps
 

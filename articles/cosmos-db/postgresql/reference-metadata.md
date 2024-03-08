@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 02/18/2022
+ms.date: 10/01/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL system tables and views
@@ -268,6 +268,27 @@ distribution_argument_index |
 colocationid                |
 ```
 
+### Distributed schemas view
+
+Citus 12.0 introduced the concept of [schema-based sharding](concepts-sharding-models.md#schema-based-sharding) and with it the `citus_schemas`` view, which shows which schemas have been distributed in the system. The view only lists distributed schemas, local schemas aren't displayed.
+
+| Name                        | Type         | Description                                                  |
+|-----------------------------|--------------|--------------------------------------------------------------|
+| schema_name                 | regnamespace | Name of the distributed schema                               |
+| colocation_id               | integer      | Colocation ID of the distributed schema                      |
+| schema_size                 | text         | Human readable size summary of all objects within the schema |
+| schema_owner                | name         | Role that owns the schema                                    |
+
+Here’s an example:
+
+```
+ schema_name | colocation_id | schema_size | schema_owner
+-------------+---------------+-------------+--------------
+ userservice |             1 | 0 bytes     | userservice
+ timeservice |             2 | 0 bytes     | timeservice
+ pingservice |             3 | 632 kB      | pingservice
+```
+
 ### Distributed tables view
 
 The `citus_tables` view shows a summary of all tables managed by Azure Cosmos
@@ -333,7 +354,7 @@ the same distribution column values will be placed on the same worker nodes.
 Colocation enables join optimizations, certain distributed rollups, and foreign
 key support. Shard colocation is inferred when the shard counts, replication
 factors, and partition column types all match between two tables; however, a
-custom colocation group may be specified when creating a distributed table, if
+custom colocation group can be specified when creating a distributed table, if
 so desired.
 
 | Name                   | Type | Description                                                                   |
@@ -362,7 +383,7 @@ can use to determine where to move shards.
 | default_strategy               | boolean | Whether rebalance_table_shards should choose this strategy by default. Use citus_set_default_rebalance_strategy to update this column             |
 | shard_cost_function            | regproc | Identifier for a cost function, which must take a shardid as bigint, and return its notion of a cost, as type real                                |
 | node_capacity_function         | regproc | Identifier for a capacity function, which must take a nodeid as int, and return its notion of node capacity as type real                          |
-| shard_allowed_on_node_function | regproc | Identifier for a function that given shardid bigint, and nodeidarg int, returns boolean for whether Azure Cosmos DB for PostgreSQL may store the shard on the node |
+| shard_allowed_on_node_function | regproc | Identifier for a function that given shardid bigint, and nodeidarg int, returns boolean for whether Azure Cosmos DB for PostgreSQL can store the shard on the node |
 | default_threshold              | float4  | Threshold for deeming a node too full or too empty, which determines when the rebalance_table_shards should try to move shards                    |
 | minimum_threshold              | float4  | A safeguard to prevent the threshold argument of rebalance_table_shards() from being set too low                                                  |
 
@@ -375,7 +396,7 @@ SELECT * FROM pg_dist_rebalance_strategy;
 ```
 -[ RECORD 1 ]-------------------+-----------------------------------
 Name                            | by_shard_count
-default_strategy                | true
+default_strategy                | false
 shard_cost_function             | citus_shard_cost_1
 node_capacity_function          | citus_node_capacity_1
 shard_allowed_on_node_function  | citus_shard_allowed_on_node_true
@@ -383,7 +404,7 @@ default_threshold               | 0
 minimum_threshold               | 0
 -[ RECORD 2 ]-------------------+-----------------------------------
 Name                            | by_disk_size
-default_strategy                | false
+default_strategy                | true
 shard_cost_function             | citus_shard_cost_by_disk_size
 node_capacity_function          | citus_node_capacity_1
 shard_allowed_on_node_function  | citus_shard_allowed_on_node_true
@@ -391,14 +412,7 @@ default_threshold               | 0.1
 minimum_threshold               | 0.01
 ```
 
-The default strategy, `by_shard_count`, assigns every shard the same
-cost. Its effect is to equalize the shard count across nodes. The other
-predefined strategy, `by_disk_size`, assigns a cost to each shard
-matching its disk size in bytes plus that of the shards that are
-colocated with it. The disk size is calculated using
-`pg_total_relation_size`, so it includes indices. This strategy attempts
-to achieve the same disk space on every node. Note the threshold of 0.1--it prevents unnecessary shard movement caused by insignificant
-differences in disk space.
+The strategy `by_disk_size` assigns every shard the same cost. Its effect is to equalize the shard count across nodes. The default strategy, `by_disk_size`, assigns a cost to each shard matching its disk size in bytes plus that of the shards that are colocated with it. The disk size is calculated using `pg_total_relation_size`, so it includes indices. This strategy attempts to achieve the same disk space on every node. Note the threshold of `0.1`, it prevents unnecessary shard movement caused by insignificant differences in disk space.
 
 #### Creating custom rebalancer strategies
 
@@ -411,7 +425,7 @@ function.
 
 -   Setting a node capacity exception by hostname pattern:
 
-	```postgresql
+    ```postgresql
     CREATE FUNCTION v2_node_double_capacity(nodeidarg int)
         RETURNS boolean AS $$
         SELECT
@@ -470,7 +484,7 @@ with) the
 [pg\_stat\_statements](https://www.postgresql.org/docs/current/static/pgstatstatements.html)
 view in PostgreSQL, which tracks statistics about query speed.
 
-This view can trace queries to originating tenants in a multi-tenant
+This view can trace queries to originating tenants in a multitenant
 application, which helps for deciding when to do tenant isolation.
 
 | Name          | Type   | Description                                                                      |

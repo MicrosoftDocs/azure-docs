@@ -2,9 +2,8 @@
 title: How to audit Azure Cosmos DB control plane operations
 description: Learn how to audit the control plane operations such as add a region, update throughput, region failover, add a VNet etc. in Azure Cosmos DB
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 08/13/2021
 ---
@@ -40,11 +39,13 @@ You can enable diagnostic logs for control plane operations by using the Azure p
 
 Use the following steps to enable logging on control plane operations:
 
-1. Sign into [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
 
 1. Open the **Diagnostic settings** pane, provide a **Name** for the logs to create.
 
 1. Select **ControlPlaneRequests** for log type and select the **Send to Log Analytics** option.
+
+1. Optionally, send the diagnostic logs to Azure Storage, Azure Event Hubs, Azure Monitor, or a third party.
 
 You can also store the logs in a storage account or stream to an event hub. This article shows how to send logs to log analytics and then query them. After you enable, it takes a few minutes for the diagnostic logs to take effect. All the control plane operations performed after that point can be tracked. The following screenshot shows how to enable control plane logs:
 
@@ -54,7 +55,7 @@ You can also store the logs in a storage account or stream to an event hub. This
 
 After you turn on logging, use the following steps to track down operations for a specific account:
 
-1. Sign into [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open the **Monitor** tab from the left-hand navigation and then select the **Logs** pane. It opens a UI where you can easily run queries with that specific account in scope. Run the following query to view control plane logs:
 

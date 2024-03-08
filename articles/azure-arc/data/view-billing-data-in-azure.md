@@ -35,7 +35,7 @@ In the indirectly connected mode, billing data is periodically exported out of t
 To upload billing data to Azure, the following should happen first:
 
 1. Create an Azure Arc-enabled data service if you don't have one already. For example create one of the following:
-   - [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+   - [Create a SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)
    - [Create an Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
 2. Wait for at least 2 hours since the creation of the data service so that the billing telemetry collection process can collect some billing data.
 3. Follow the steps described in [Upload resource inventory, usage data, metrics and logs to Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md) to get setup with prerequisites for uploading usage/billing/logs data and then proceed to the [Upload usage data to Azure](upload-usage-data.md) to upload the billing data. 

@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Azure Queue Storage client library for Python'
 titleSuffix: Azure Storage
-description: Learn how to use the Azure Queue Storage client library for Python to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
+description: Learn how to use the Azure Queue Storage client library for Python to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You also learn how to delete a queue.
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 12/14/2022
+ms.date: 06/29/2023
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, py-fresh-zinc, passwordless-python
 ---
@@ -25,6 +24,7 @@ Use the Azure Queue Storage client library for Python to:
 - Add messages to a queue
 - Peek at messages in a queue
 - Update a message in a queue
+- Get the queue length
 - Receive messages from a queue
 - Delete messages from a queue
 - Delete a queue
@@ -33,7 +33,7 @@ Use the Azure Queue Storage client library for Python to:
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) 3.6+
+- [Python](https://www.python.org/downloads/) 3.8+
 
 ## Setting up
 
@@ -67,14 +67,14 @@ pip install azure-storage-queue azure-identity
 
 1. Open a new text file in your code editor
 1. Add `import` statements
-1. Create the structure for the program, including very basic exception handling
+1. Create the structure for the program, including basic exception handling
 
     Here's the code:
 
     ```python
     import os, uuid
     from azure.identity import DefaultAzureCredential
-    from azure.storage.queue import QueueServiceClient, QueueClient, QueueMessage
+    from azure.storage.queue import QueueServiceClient, QueueClient, QueueMessage, BinaryBase64DecodePolicy, BinaryBase64EncodePolicy
 
     try:
         print("Azure Queue storage - Python quickstart sample")
@@ -112,9 +112,9 @@ For example, your app can authenticate using your Visual Studio Code sign-in cre
 
 Azure Queue Storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue Storage offers three types of resources:
 
-- The storage account
-- A queue in the storage account
-- Messages within the queue
+- **Storage account**: All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview](../common/storage-account-overview.md)
+- **Queue**: A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
+- **Message**: A message, in any format, of up to 64 KB. A message can remain in the queue for a maximum of 7 days. For version 2017-07-29 or later, the maximum time-to-live can be any positive number, or -1 indicating that the message doesn't expire. If this parameter is omitted, the default time-to-live is seven days.
 
 The following diagram shows the relationship between these resources.
 
@@ -135,6 +135,7 @@ These example code snippets show you how to do the following actions with the Az
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 - [Update a message in a queue](#update-a-message-in-a-queue)
+- [Get the queue length](#get-the-queue-length)
 - [Receive messages from a queue](#receive-messages-from-a-queue)
 - [Delete messages from a queue](#delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
@@ -145,7 +146,7 @@ These example code snippets show you how to do the following actions with the Az
 
 [!INCLUDE [default-azure-credential-sign-in-no-vs](../../../includes/passwordless/default-azure-credential-sign-in-no-vs.md)]
 
-Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step. 
+Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` automatically discovers and uses the account you signed in with in the previous step. 
 
 To authorize using `DefaultAzureCredential`, make sure you've added the **azure-identity** package, as described in [Install the packages](#install-the-packages). Also, be sure to add the following import statement in the *queues-quickstart.py* file:
 
@@ -153,7 +154,7 @@ To authorize using `DefaultAzureCredential`, make sure you've added the **azure-
 from azure.identity import DefaultAzureCredential
 ```
 
-Decide on a name for the queue and create an instance of the [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient) class, using `DefaultAzureCredential` for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
+Decide on a name for the queue and create an instance of the [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient) class, using `DefaultAzureCredential` for authorization. We use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -194,7 +195,7 @@ Add this code inside the `try` block:
     connect_str = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
 ```
 
-Decide on a name for the queue and create an instance of the [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient) class, using the connection string for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
+Decide on a name for the queue and create an instance of the [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient) class, using the connection string for authorization. We use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -213,6 +214,12 @@ Add this code to the end of the `try` block:
 ```
 
 ---
+
+Queue messages are stored as text. If you want to store binary data, set up Base64 encoding and decoding functions before putting a message in the queue.
+
+You can configure Base64 encoding and decoding functions when creating the client object:
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
 
 ### Create a queue
 
@@ -271,9 +278,23 @@ Update the contents of a message by calling the [`update_message`](/python/api/a
         content="Third message has been updated")
 ```
 
+### Get the queue length
+
+You can get an estimate of the number of messages in a queue.
+
+The [get_queue_properties](/python/api/azure-storage-queue/azure.storage.queue.QueueClient#azure-storage-queue-queueclient-get-queue-properties) method returns queue properties including the `approximate_message_count`.
+
+```python
+properties = queue_client.get_queue_properties()
+count = properties.approximate_message_count
+print("Message count: " + str(count))
+```
+
+The result is approximate since messages can be added or removed after the service responds to your request.
+
 ### Receive messages from a queue
 
-Download previously added messages by calling the [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#azure-storage-queue-queueclient-receive-messages) method.
+You can download previously added messages by calling the [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#azure-storage-queue-queueclient-receive-messages) method.
 
 Add this code to the end of the `try` block:
 
@@ -281,14 +302,16 @@ Add this code to the end of the `try` block:
     print("\nReceiving messages from the queue...")
 
     # Get messages from the queue
-    messages = queue_client.receive_messages(messages_per_page=5)
+    messages = queue_client.receive_messages(max_messages=5)
 ```
+
+When calling the `receive_messages` method, you can optionally specify a value for `max_messages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibility_timeout`, which hides the messages from other operations for the timeout period. The default is 30 seconds.
 
 ### Delete messages from a queue
 
 Delete messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
 
-The app pauses for user input by calling `input` before it processes and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
+The app pauses for user input by calling `input` before it processes and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted eventually become visible in the queue again for another chance to process them.
 
 Add this code to the end of the `try` block:
 
@@ -374,5 +397,6 @@ For tutorials, samples, quick starts and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for Python developers](/azure/python/)
 
+- For related code samples using deprecated Python version 2 SDKs, see [Code samples using Python version 2](queues-v2-samples-python.md).
 - To learn more, see the [Azure Storage libraries for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
 - For more Azure Queue Storage sample apps, see [Azure Queue Storage client library for Python - samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

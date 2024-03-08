@@ -8,8 +8,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019, ignite-2022
-ms.date: 11/01/2022
+ms.date: 10/20/2023
 ---
 
 # Sink transformation in mapping data flow
@@ -45,7 +44,7 @@ When using data flows in Azure Synapse workspaces, you will have an additional o
 
 ##  <a name="supported-sinks"></a> Supported sink types
 
-Mapping data flow follows an extract, load, and transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently, the following datasets can be used in a source transformation.
+Mapping data flow follows an extract, load, and transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently, the following datasets can be used in a sink transformation.
 
 | Connector | Format | Dataset/inline |
 | --------- | ------ | -------------- |
@@ -62,6 +61,7 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 | [Dataverse](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Dynamics 365](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Dynamics CRM](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
+| [Fabric Lakehouse](connector-microsoft-fabric-lakehouse.md#mapping-data-flow-properties) | | ✓/✓ |
 | [SFTP](connector-sftp.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[Delimited text](format-delimited-text.md#mapping-data-flow-properties) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/✓ <br>✓/✓ <br>✓/✓ <br>✓/✓<br>✓/✓|
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 | [SQL Server](connector-sql-server.md) | | ✓/✓ |
@@ -177,6 +177,6 @@ sink(input(
 	errorHandlingOption: 'stopOnFirstError') ~> sink1
 ```
 
-## Next steps
+## Related content
 
 Now that you've created your data flow, add a [data flow activity to your pipeline](concepts-data-flow-overview.md).

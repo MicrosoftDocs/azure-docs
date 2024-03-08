@@ -5,9 +5,8 @@ author: bandersmsft
 ms.author: banders
 ms.reviewer: sngun
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 11/17/2023
 ---
 # Understand how the reservation discount is applied to Azure Cosmos DB
 

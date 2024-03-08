@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 10/01/2023
 ---
 
 # Tutorial: Shard data on worker nodes in Azure Cosmos DB for PostgreSQL
@@ -36,7 +36,7 @@ to this one.
 Distributing table rows across multiple PostgreSQL servers is a key technique
 for scalable queries in Azure Cosmos DB for PostgreSQL. Together, multiple nodes can hold
 more data than a traditional database, and in many cases can use worker CPUs in
-parallel to execute queries.
+parallel to execute queries. The concept of hash-distributed tables is also known as [row-based sharding](concepts-sharding-models.md#row-based-sharding).
 
 In the prerequisites section, we created a cluster with
 two worker nodes.

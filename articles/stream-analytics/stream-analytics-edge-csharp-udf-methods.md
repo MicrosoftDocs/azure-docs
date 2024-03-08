@@ -5,11 +5,14 @@ author: ajetasin
 ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 6/09/2021
-ms.custom: "seodec18, devx-track-csharp"
+ms.date: 02/26/2024
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Develop .NET Standard user-defined functions for Azure Stream Analytics jobs (Preview)
+
+> [!IMPORTANT]
+> .Net Standard user-defined functions for Azure Stream Analytics will be retired on 30th September 2024. After that date, it will not be possible to use the feature. Please transition to [JavaScript user-defined functions](./stream-analytics-javascript-user-defined-functions.md) for Azure Stream Analytics.
 
 Azure Stream Analytics offers a SQL-like query language for performing transformations and computations over streams of event data. There are many built-in functions, but some complex scenarios require additional flexibility. With .NET Standard user-defined functions (UDF), you can invoke your own functions written in any .NET standard language (C#, F#, etc.) to extend the Stream Analytics query language. UDFs allow you to perform complex math computations, import custom ML models using ML.NET, and use custom imputation logic for missing data. The UDF feature for Stream Analytics jobs is currently in preview and shouldn't be used in production workloads.
 

@@ -1,19 +1,21 @@
 ---
-title: Use simple Lucene query syntax
-titleSuffix: Azure Cognitive Search
-description: Query examples demonstrating the simple syntax for full text search, filter search, and geo search against an Azure Cognitive Search index.
+title: Examples of simple syntax
+titleSuffix: Azure AI Search
+description: Query examples demonstrating the simple syntax for full text search, filter search, and geo search against an Azure AI Search index.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 01/17/2024
 ---
 
-# Use the "simple" search syntax in Azure Cognitive Search
+# Examples of "simple" search queries in Azure AI Search
 
-In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) invokes the default query parser for full text search. The parser is fast and handles common scenarios, including full text search, filtered and faceted search, and prefix search. This article uses examples to illustrate simple syntax usage in a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
+In Azure AI Search, the [simple query syntax](query-simple-syntax.md) invokes the default query parser for full text search. The parser is fast and handles common scenarios, including full text search, filtered and faceted search, and prefix search. This article uses examples to illustrate simple syntax usage in a [Search Documents (REST API)](/rest/api/searchservice/documents/search-post) request.
 
 > [!NOTE]
 > An alternative query syntax is [Full Lucene](query-lucene-syntax.md), supporting more complex query structures, such as fuzzy and wildcard search. For more information and examples, see [Use the full Lucene syntax](search-query-lucene-examples.md).
@@ -22,7 +24,7 @@ In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) inv
 
 The following queries are based on the hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
 
-Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or another web client.
+Example queries are articulated using the REST API and POST requests. You can paste and run them in a [REST client](search-get-started-rest.md). Or, use the JSON view of [Search Explorer](search-explorer.md) in the Azure portal. In JSON view, you can paste in the query examples shown here in this article.
 
 Request headers must have the following values:
 
@@ -34,7 +36,7 @@ Request headers must have the following values:
 URI parameters must include your search service endpoint with the index name, docs collections, search command, and API version, similar to the following example:
 
 ```http
-https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 ```
 
 Request body should be formed as valid JSON:
@@ -48,20 +50,20 @@ Request body should be formed as valid JSON:
 }
 ```
 
-+ "search" set to `*` is an unspecified query, equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, with all values.
++ "search" set to `*` is an unspecified query, equivalent to null or empty search. It's not especially useful, but it's the simplest search you can do, and it shows all retrievable fields in the index, with all values.
 
 + "queryType" set to "simple" is the default and can be omitted, but it's included to further reinforce that the query examples in this article are expressed in the simple syntax.
 
 + "select" set to a comma-delimited list of fields is used for search result composition, including just those fields that are useful in the context of search results.
 
-+ "count" returns the number of documents matching the search criteria. On an empty search string, the count will be all documents in the index (50 in the case of hotels-sample-index).
++ "count" returns the number of documents matching the search criteria. On an empty search string, the count is all documents in the index (50 in the hotels-sample-index).
 
 ## Example 1: Full text search
 
 Full text search can be any number of standalone terms or quote-enclosed phrases, with or without boolean operators. 
 
 ```http
-POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2023-11-01
 {
     "search": "pool spa +airport",
     "searchMode": "any",
@@ -71,7 +73,7 @@ POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 }
 ```
 
-A keyword search that's composed of important terms or phrases tend to work best. String fields undergo text analysis during indexing and querying, dropping non-essential words like "the", "and", "it". To see how a query string is tokenized in the index, pass the string in an [Analyze Text](/rest/api/searchservice/test-analyzer) call to the index.
+A keyword search that's composed of important terms or phrases tend to work best. String fields undergo text analysis during indexing and querying, dropping nonessential words like "the", "and", "it". To see how a query string is tokenized in the index, pass the string in an [Analyze Text](/rest/api/searchservice/test-analyzer) call to the index.
 
 The "searchMode" parameter controls precision and recall. If you want more recall, use the default "any" value, which returns a result if any part of the query string is matched. If you favor precision, where all parts of the string must be matched, change searchMode to "all". Try the above query both ways to see how searchMode changes the outcome.
 
@@ -116,21 +118,22 @@ Response for the "pool spa +airport" query should look similar to the following 
             "24-hour front desk service"
         ]
     }
+]
 ```
 
-Notice the search score in the response. This is the relevance score of the match. By default, a search service will return the top 50 matches based on this score.
+Notice the search score in the response. This is the relevance score of the match. By default, a search service returns the top 50 matches based on this score.
 
-Uniform scores of "1.0" occur when there is no rank, either because the search was not full text search, or because no criteria was provided. For example, in an empty search (search=`*`), rows come back in arbitrary order. When you include actual criteria, you will see search scores evolve into meaningful values.
+Uniform scores of "1.0" occur when there's no rank, either because the search wasn't full text search, or because no criteria were provided. For example, in an empty search (search=`*`), rows come back in arbitrary order. When you include actual criteria, you'll see search scores evolve into meaningful values.
 
 ## Example 2: Look up by ID
 
-When you return search results in a query, a logical next step is to provide a details page that includes more fields from the document. This example shows you how to return a single document using [Lookup Document](/rest/api/searchservice/lookup-document) by passing in the document ID.
+When returning search results in a query, a logical next step is to provide a details page that includes more fields from the document. This example shows you how to return a single document using [Lookup Document](/rest/api/searchservice/documents/get) by passing in the document ID.
 
 ```http
-GET /indexes/hotels-sample-index/docs/41?api-version=2020-06-30
+GET /indexes/hotels-sample-index/docs/41?api-version=2023-11-01
 ```
 
-All documents have a unique identifier. If you are using the portal, select the index from **Indexes** tab and then look at the field definitions to determine which field is the key. Using REST, the [Get Index](/rest/api/searchservice/get-index) call returns the index definition in the response body.
+All documents have a unique identifier. If you're using the portal, select the index from the **Indexes** tab and then look at the field definitions to determine which field is the key. Using REST, the [Get Index](/rest/api/searchservice/indexes/get) call returns the index definition in the response body.
 
 Response for the above query consists of the document whose key is 41. Any field that is marked as "retrievable" in the index definition can be returned in search results and rendered in your app.
 
@@ -168,27 +171,29 @@ Response for the above query consists of the document whose key is 41. Any field
         "StateProvince": "HI",
         "PostalCode": "96814",
         "Country": "USA"
-    },
+    }
+}
 ```
 
 ## Example 3: Filter on text
 
-[Filter syntax](search-query-odata-filter.md) is an OData expression that you can use by itself or with "search". Used together, "filter" is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
+[Filter syntax](search-query-odata-filter.md) is an OData expression that you can use by itself or with `search`. Used together, `filter` is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
 
-Filters can be defined on any field marked as "filterable" in the index definition. For hotels-sample-index, filterable fields include Category, Tags, ParkingIncluded, Rating, and most Address fields.
+Filters can be defined on any field marked as `filterable` in the index definition. For hotels-sample-index, filterable fields include Category, Tags, ParkingIncluded, Rating, and most Address fields.
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "art tours",
     "queryType": "simple",
     "filter": "Category eq 'Resort and Spa'",
+    "searchFields": "HotelName,Description,Category",
     "select": "HotelId,HotelName,Description,Category",
     "count": true
 }
 ```
 
-Response for the above query is scoped to only those hotels categorized as "Report and Spa", that include the terms "art" or "tours". In this case, there is just one match.
+Response for the above query is scoped to only those hotels categorized as "Report and Spa", and that include the terms "art" or "tours". In this case, there's just one match.
 
 ```json
 {
@@ -205,7 +210,7 @@ Response for the above query is scoped to only those hotels categorized as "Repo
 Filter expressions can include ["search.ismatch" and "search.ismatchscoring" functions](search-query-odata-full-text-search-functions.md), allowing you to build a search query within the filter. This filter expression uses a wildcard on *free* to select amenities including free wifi, free parking, and so forth.
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01
   {
     "search": "",
     "filter": "search.ismatch('free*', 'Tags', 'full', 'any')",
@@ -214,7 +219,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
   }
 ```
 
-Response for the above query matches on 19 hotels that offer free amenities. Notice that the search score is a uniform "1.0" throughout the results. This is because the search expression is null or empty, resulting in verbatim filter matches, but no full text search. Relevance scores are only returned on full text search. If you are using filters without "search", make sure you have sufficient sortable fields so that you can control search rank.
+Response for the above query matches on 19 hotels that offer free amenities. Notice that the search score is a uniform "1.0" throughout the results. This is because the search expression is null or empty, resulting in verbatim filter matches, but no full text search. Relevance scores are only returned on full text search. If you're using filters without `search`, make sure you have sufficient sortable fields so that you can control search rank.
 
 ```json
 "@odata.count": 19,
@@ -262,12 +267,12 @@ Response for the above query matches on 19 hotels that offer free amenities. Not
 
 ## Example 5: Range filters
 
-Range filtering is supported through filters expressions for any data type. The following examples illustrate numeric and string ranges. Data types are important in range filters and work best when numeric data is in numeric fields, and string data in string fields. Numeric data in string fields is not suitable for ranges because numeric strings are not comparable.
+Range filtering is supported through filters expressions for any data type. The following examples illustrate numeric and string ranges. Data types are important in range filters and work best when numeric data is in numeric fields, and string data in string fields. Numeric data in string fields isn't suitable for ranges because numeric strings aren't comparable.
 
 The following query is a numeric range. In hotels-sample-index, the only filterable numeric field is Rating.
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "*",
     "filter": "Rating ge 2 and Rating lt 4",
@@ -300,12 +305,13 @@ Response for this query should look similar to the following example, trimmed fo
         "HotelName": "Twin Dome Motel",
         "Rating": 3.6
     }
+...
 ```
 
 The next query is a range filter over a string field (Address/StateProvince):
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "*",
     "filter": "Address/StateProvince ge 'A*' and Address/StateProvince lt 'D*'",
@@ -314,7 +320,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-Response for this query should look similar to the example below, trimmed for brevity. In this example, it's not possible to sort by StateProvince because the field is not attributed as "sortable" in the index definition.
+Response for this query should look similar to the example below, trimmed for brevity. In this example, it's not possible to sort by StateProvince because the field isn't attributed as "sortable" in the index definition.
 
 ```json
 "@odata.count": 9,
@@ -343,6 +349,7 @@ Response for this query should look similar to the example below, trimmed for br
             "StateProvince": "CA "
         }
     },
+...
 ```
 
 ## Example 6: Geospatial search
@@ -350,7 +357,7 @@ Response for this query should look similar to the example below, trimmed for br
 The hotels-sample index includes a Location field with latitude and longitude coordinates. This example uses the [geo.distance function](search-query-odata-geo-spatial-functions.md#examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (10) to reduce or enlarge the surface area of the query.
 
 ```http
-POST /indexes/v/docs/search?api-version=2020-06-30
+POST /indexes/v/docs/search?api-version=2023-11-01
 {
     "search": "*",
     "filter": "geo.distance(Location, geography'POINT(-122.335114 47.612839)') le 10",
@@ -400,16 +407,16 @@ Response for this query returns all hotels within a 10 kilometer distance of the
 
 Simple syntax supports boolean operators in the form of characters (`+, -, |`) to support AND, OR, and NOT query logic. Boolean search behaves as you might expect, with a few noteworthy exceptions. 
 
-In previous examples, the "searchMode" parameter was introduced as a mechanism for influencing precision and recall, with "searchMode=any" favoring recall (a document that satisfies any of the criteria is considered a match), and "searchMode=all" favoring precision (all criteria must be matched in a document). 
+In previous examples, the `searchMode` parameter was introduced as a mechanism for influencing precision and recall, with `"searchMode": "any"` favoring recall (a document that satisfies any of the criteria is considered a match), and "searchMode=all" favoring precision (all criteria must be matched in a document). 
 
-In the context of a Boolean search, the default "searchMode=any" can be confusing if you are stacking a query with multiple operators and getting broader instead of narrower results. This is particularly true with NOT, where results include all documents "not containing" a specific term or phrase.
+In the context of a Boolean search, the default `"searchMode": "any"` can be confusing if you're stacking a query with multiple operators and getting broader instead of narrower results. This is particularly true with NOT, where results include all documents "not containing" a specific term or phrase.
 
-The following example provides an illustration. Running the following query with searchMode (any), 42 documents are returned: those containing the term "restaurant", plus all documents that do not have the phrase "air conditioning". 
+The following example provides an illustration. Running the following query with searchMode (any), 42 documents are returned: those containing the term "restaurant", plus all documents that don't have the phrase "air conditioning". 
 
-Notice that there is no space between the boolean operator (`-`) and the phrase "air conditioning".
+Notice that there's no space between the boolean operator (`-`) and the phrase "air conditioning".
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "restaurant -\"air conditioning\"",
     "searchMode": "any",
@@ -419,7 +426,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-Changing to "searchMode=all" enforces a cumulative effect on criteria and returns a smaller result set (7 matches) consisting of documents containing the term "restaurant", minus those containing the phrase "air conditioning".
+Changing to `"searchMode": "all"` enforces a cumulative effect on criteria and returns a smaller result set (7 matches) consisting of documents containing the term "restaurant", minus those containing the phrase "air conditioning".
 
 Response for this query would now look similar to the following example, trimmed for brevity.
 
@@ -446,18 +453,19 @@ Response for this query would now look similar to the following example, trimmed
             "restaurant"
         ]
     },
+...
 ```
 
 ## Example 8: Paging results
 
-In previous examples, you learned about parameters that affect search results composition, including "select" that determines which fields are in a result, sort orders, and how to include a count of all matches. This example is a continuation of search result composition in the form of paging parameters that allow you to batch the number of results that appear in any given page. 
+In previous examples, you learned about parameters that affect search results composition, including `select` that determines which fields are in a result, sort orders, and how to include a count of all matches. This example is a continuation of search result composition in the form of paging parameters that allow you to batch the number of results that appear in any given page. 
 
-By default, a search service returns the top 50 matches. To control the number of matches in each page, use "top" to define the size of the batch, and then use "skip" to pick up subsequent batches.
+By default, a search service returns the top 50 matches. To control the number of matches in each page, use `top` to define the size of the batch, and then use `skip` to pick up subsequent batches.
 
-The following example uses a filter and sort order on the Rating field (Rating is both filterable and sortable) because it's easier to see the effects of paging on sorted results. In a regular full search query, the top matches are ranked and paged by "@search.score".
+The following example uses a filter and sort order on the Rating field (Rating is both filterable and sortable) because it's easier to see the effects of paging on sorted results. In a regular full search query, the top matches are ranked and paged by `@search.score`.
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "*",
     "filter": "Rating gt 4",
@@ -468,12 +476,12 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-The query finds 21 matching documents, but because you specified "top", the response returns just the top five matches, with ratings starting at 4.9, and ending at 4.7 with "Lady of the Lake B & B". 
+The query finds 21 matching documents, but because you specified `top`, the response returns just the top five matches, with ratings starting at 4.9, and ending at 4.7 with "Lady of the Lake B & B". 
 
 To get the next 5, skip the first batch:
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "*",
     "filter": "Rating gt 4",
@@ -485,7 +493,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-The response for the second batch skips the first five matches, returning the next five, starting with "Pull'r Inn Motel". To continue with additional batches, you would keep "top" at 5, and then increment "skip" by 5 on each new request (skip=5, skip=10, skip=15, and so forth).
+The response for the second batch skips the first five matches, returning the next five, starting with "Pull'r Inn Motel". To continue with more batches, you would keep `top` at 5, and then increment `skip` by 5 on each new request (skip=5, skip=10, skip=15, and so forth).
 
 ```json
 "value": [
@@ -519,16 +527,14 @@ The response for the second batch skips the first five matches, returning the ne
 
 ## Next steps
 
-Now that you have some practice with the basic query syntax, try specifying queries in code. The following links explain how to set up search queries using the Azure SDKs.
+Now that you have some practice with the basic query syntax, try specifying queries in code. The following link covers how to set up search queries using the Azure SDKs.
 
-+ [Query your index using the .NET SDK](search-get-started-dotnet.md)
-+ [Query your index using the Python SDK](search-get-started-python.md)
-+ [Query your index using the JavaScript SDK](search-get-started-javascript.md)
++ [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md)
 
-Additional syntax reference, query architecture, and examples can be found in the following links:
+More syntax reference, query architecture, and examples can be found in the following links:
 
 + [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
-+ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
++ [How full text search works in Azure AI Search](search-lucene-query-architecture.md)
 + [Simple query syntax](query-simple-syntax.md)
 + [Full Lucene query syntax](query-lucene-syntax.md)
 + [Filter syntax](search-query-odata-filter.md)

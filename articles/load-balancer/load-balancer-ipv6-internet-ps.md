@@ -7,10 +7,9 @@ author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 05/30/2023
 ms.author: mbender
-ms.custom: template-how-to, seodec18, devx-track-azurepowershell
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Get started creating an Internet facing load balancer with IPv6 using PowerShell for Resource Manager
@@ -34,7 +33,7 @@ The following diagram illustrates the load balancing solution being deployed in 
 
 ![Load balancer scenario](./media/load-balancer-ipv6-internet-ps/lb-ipv6-scenario.png)
 
-In this scenario you will create the following Azure resources:
+In this scenario you'll create the following Azure resources:
 
 * an Internet-facing Load Balancer with an IPv4 and an IPv6 Public IP address
 * two load balancing rules to map the public VIPs to the private endpoints
@@ -50,9 +49,9 @@ To deploy a load balancer, you create and configure the following objects:
 
 * Frontend IP configuration - contains public IP addresses for incoming network traffic.
 * Backend address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
-* Load balancing rules - contains rules mapping a public port on the load balancer to port in the back-end address pool.
-* Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
-* Probes - contains health probes used to check availability of virtual machines instances in the back-end address pool.
+* Load balancing rules - contains rules mapping a public port on the load balancer to port in the backend address pool.
+* Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the backend address pool.
+* Probes - contains health probes used to check availability of virtual machines instances in the backend address pool.
 
 For more information, see [Azure Load Balancer components](./components.md).
 
@@ -86,7 +85,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
     New-AzResourceGroup -Name NRP-RG -location "West US"
     ```
 
-## Create a virtual network and a public IP address for the front-end IP pool
+## Create a virtual network and a public IP address for the frontend IP pool
 
 1. Create a virtual network with a subnet.
 
@@ -95,7 +94,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Create Azure Public IP address (PIP) resources for the front-end IP address pool. Be sure to change the value for `-DomainNameLabel` before running the following commands. The value must be unique within the Azure region.
+2. Create Azure Public IP address (PIP) resources for the frontend IP address pool. Be sure to change the value for `-DomainNameLabel` before running the following commands. The value must be unique within the Azure region.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4
@@ -105,16 +104,16 @@ Make sure you have the latest production version of the Azure Resource Manager m
     > [!IMPORTANT]
     > The load balancer uses the domain label of the public IP as prefix for its FQDN. In this example, the FQDNs are *lbnrpipv4.westus.cloudapp.azure.com* and *lbnrpipv6.westus.cloudapp.azure.com*.
 
-## Create a Front-End IP configurations and a Back-End Address Pool
+## Create a Frontend IP configurations and a Backend Address Pool
 
-1. Create front-end address configuration that uses the Public IP addresses you created.
+1. Create frontend address configuration that uses the Public IP addresses you created.
 
     ```azurepowershell-interactive
     $FEIPConfigv4 = New-AzLoadBalancerFrontendIpConfig -Name "LB-Frontendv4" -PublicIpAddress $publicIPv4
     $FEIPConfigv6 = New-AzLoadBalancerFrontendIpConfig -Name "LB-Frontendv6" -PublicIpAddress $publicIPv6
     ```
 
-2. Create back-end address pools.
+2. Create backend address pools.
 
     ```azurepowershell-interactive
     $backendpoolipv4 = New-AzLoadBalancerBackendAddressPoolConfig -Name "BackendPoolIPv4"
@@ -126,7 +125,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
 This example creates the following items:
 
 * a NAT rule to translate all incoming traffic on port 443 to port 4443
-* a load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool.
+* a load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the backend pool.
 * a load balancer rule to allow RDP connection to the VMs on port 3389.
 * a probe rule to check the health status on a page named *HealthProbe.aspx* or a service on port 8080
 * a load balancer that uses all these objects
@@ -153,7 +152,7 @@ This example creates the following items:
     $RDPprobe = New-AzLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
     ```
 
-    For this example, we are going to use the TCP probes.
+    For this example, we're going to use the TCP probes.
 
 3. Create a load balancer rule.
 
@@ -169,7 +168,7 @@ This example creates the following items:
     $NRPLB = New-AzLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
     ```
 
-## Create NICs for the back-end VMs
+## Create NICs for the backend VMs
 
 1. Get the Virtual Network and Virtual Network Subnet, where the NICs need to be created.
 

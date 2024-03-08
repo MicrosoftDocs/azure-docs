@@ -3,8 +3,8 @@ title: Troubleshoot encrypted Azure VM backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up an encrypted VM.
 ms.topic: troubleshooting
 ms.date: 11/9/2021
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot backup failures on encrypted Azure virtual machines
@@ -50,7 +50,7 @@ To resolve this issue, [restore the Key-Vault key or secret](backup-azure-restor
 
 Error message: Backup failed in allocating storage from protection service
 
-Backup operation failed because Azure Key Vault do not have required access to the Recovery Service Vault. [Assign required permissions to the vault to access the encryption key](./encryption-at-rest-with-cmk.md?tabs=portal#assign-user-assigned-managed-identity-to-the-vault-in-preview) and retry the operation. 
+Backup operation failed because Azure Key Vault do not have required access to the Recovery Service Vault. [Assign required permissions to the vault to access the encryption key](./encryption-at-rest-with-cmk.md?tabs=portal#assign-a-user-assigned-managed-identity-to-the-vault-in-preview) and retry the operation. 
 
 
 ## Next steps

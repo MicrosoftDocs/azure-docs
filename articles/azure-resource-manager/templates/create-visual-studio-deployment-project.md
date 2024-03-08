@@ -2,7 +2,7 @@
 title: Create & deploy Visual Studio resource group projects
 description: Use Visual Studio to create an Azure resource group project and deploy the resources to Azure.
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 05/22/2023
 ---
 # Creating and deploying Azure resource groups through Visual Studio
 
@@ -17,21 +17,21 @@ In this section, you create an Azure Resource Group project with a **Web app** t
 1. In Visual Studio, choose **File**>**New**>**Project**.
 1. Select the **Azure Resource Group** project template and **Next**.
 
-    ![Screenshot shows the Create a new project window with Azure Resource Group and the Next button highlighted.](./media/create-visual-studio-deployment-project/create-project.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/create-project.png" alt-text="Screenshot of Create a new project window highlighting Azure Resource Group and Next button.":::
 
 1. Give your project a name. The other default settings are probably fine, but review them to make they work for your environment. When done, select **Create**.
 
-    ![Create project](./media/create-visual-studio-deployment-project/name-project.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/name-project.png" alt-text="Screenshot of the project naming window in Visual Studio.":::
 
 1. Choose the template that you want to deploy to Azure Resource Manager. Notice there are many different options based on the type of project you wish to deploy. For this article, choose the **Web app** template and **OK**.
 
-    ![Choose a template](./media/create-visual-studio-deployment-project/select-project.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/select-project.png" alt-text="Screenshot of the template selection window with Web app template highlighted.":::
 
     The template you pick is just a starting point; you can add and remove resources to fulfill your scenario.
 
 1. Visual Studio creates a resource group deployment project for the web app. To see the files for your project, look at the node in the deployment project.
 
-    ![Show nodes](./media/create-visual-studio-deployment-project/show-items.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/show-items.png" alt-text="Screenshot of the Visual Studio Solution Explorer showing the resource group deployment project files.":::
 
     Since you chose the Web app template, you see the following files:
 
@@ -51,23 +51,23 @@ You can customize a deployment project by modifying the Resource Manager templat
 
 1. The Visual Studio editor provides tools to assist you with editing the Resource Manager template. The **JSON Outline** window makes it easy to see the elements defined in your template.
 
-   ![Show JSON outline](./media/create-visual-studio-deployment-project/show-json-outline.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/show-json-outline.png" alt-text="Screenshot of the JSON Outline window in Visual Studio for the Resource Manager template.":::
 
 1. Select an element in the outline to go to that part of the template.
 
-   ![Navigate JSON](./media/create-visual-studio-deployment-project/navigate-json.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/navigate-json.png" alt-text="Screenshot of the Visual Studio editor with a selected element in the JSON Outline window.":::
 
 1. You can add a resource by either selecting the **Add Resource** button at the top of the JSON Outline window, or by right-clicking **resources** and selecting **Add New Resource**.
 
-   ![Screenshot shows the JSON Outline window with the Add New Resource option highlighted.](./media/create-visual-studio-deployment-project/add-resource.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/add-resource.png" alt-text="Screenshot of the JSON Outline window highlighting the Add New Resource option.":::
 
 1. Select **Storage Account** and give it a name. Provide a name that is no more than 11 characters, and only contains numbers and lower-case letters.
 
-   ![Add storage](./media/create-visual-studio-deployment-project/add-storage.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/add-storage.png" alt-text="Screenshot of the Add New Resource window with Storage Account selected.":::
 
 1. Notice that not only was the resource added, but also a parameter for the type storage account, and a variable for the name of the storage account.
 
-   ![Show outline](./media/create-visual-studio-deployment-project/show-new-items.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/show-new-items.png" alt-text="Screenshot of the JSON Outline window displaying the added Storage Account resource.":::
 
 1. The parameter for the type of storage account is pre-defined with allowed types and a default type. You can leave these values or edit them for your scenario. If you don't want anyone to deploy a **Premium_LRS** storage account through this template, remove it from the allowed types.
 
@@ -86,7 +86,7 @@ You can customize a deployment project by modifying the Resource Manager templat
 
 1. Visual Studio also provides intellisense to help you understand the properties that are available when editing the template. For example, to edit the properties for your App Service plan, navigate to the **HostingPlan** resource, and add a value for the **properties**. Notice that intellisense shows the available values and provides a description of that value.
 
-   ![Show intellisense](./media/create-visual-studio-deployment-project/show-intellisense.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/show-intellisense.png" alt-text="Screenshot of Visual Studio editor showing intellisense suggestions for Resource Manager template.":::
 
    You can set **numberOfWorkers** to 1, and save the file.
 
@@ -135,11 +135,11 @@ For the AzureRM module script, use Visual Studio:
 
 1. On the shortcut menu of the deployment project node, choose **Deploy** > **New**.
 
-    ![New deployment menu item](./media/create-visual-studio-deployment-project/deploy.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/deploy.png" alt-text="Screenshot of the deployment project context menu with Deploy and New options highlighted.":::
 
 1. The **Deploy to Resource Group** dialog box appears. In the **Resource group** dropdown box, choose an existing resource group or create a new one. Select **Deploy**.
 
-    ![Deploy to resource group dialog box](./media/create-visual-studio-deployment-project/show-deployment.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/show-deployment.png" alt-text="Screenshot of the Deploy to Resource Group dialog box in Visual Studio.":::
 
 1. In the **Output** windows, you see the status of the deployment. When the deployment has finished, the last message indicates a successful deployment with something similar to:
 
@@ -155,7 +155,7 @@ Let's check the results.
 
 1. You see all the deployed resources. Notice that the name of the storage account isn't exactly what you specified when adding that resource. The storage account must be unique. The template automatically adds a string of characters to the name you provided to create a unique name.
 
-    ![Show resources](./media/create-visual-studio-deployment-project/show-deployed-resources.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/show-deployed-resources.png" alt-text="Screenshot of the Azure portal displaying the deployed resources in a resource group.":::
 
 ## Add code to project
 
@@ -163,43 +163,43 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
 1. Add a project to your Visual Studio solution. Right-click the solution, and select **Add** > **New Project**.
 
-    ![Add project](./media/create-visual-studio-deployment-project/add-project.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/add-project.png" alt-text="Screenshot of the Add New Project context menu in Visual Studio.":::
 
 1. Add an **ASP.NET Core Web Application**.
 
-    ![Add web app](./media/create-visual-studio-deployment-project/add-app.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/add-app.png" alt-text="Screenshot of the New Project window with ASP.NET Core Web Application selected.":::
 
 1. Give your web app a name, and select **Create**.
 
-    ![Name web app](./media/create-visual-studio-deployment-project/name-web-app.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/name-web-app.png" alt-text="Screenshot of the project naming window for the ASP.NET Core Web Application.":::
 
 1. Select **Web Application** and **Create**.
 
-    ![Select Web application](./media/create-visual-studio-deployment-project/select-project-type.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/select-project-type.png" alt-text="Screenshot of the New ASP.NET Core Web Application window with Web Application selected.":::
 
 1. After Visual Studio creates your web app, you see both projects in the solution.
 
-    ![Show projects](./media/create-visual-studio-deployment-project/show-projects.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/show-projects.png" alt-text="Screenshot of the Visual Studio Solution Explorer displaying both projects in the solution.":::
 
 1. Now, you need to make sure your resource group project is aware of the new project. Go back to your resource group project (ExampleAppDeploy). Right-click **References** and select **Add Reference**.
 
-    ![Screenshot shows the ExampleAppDeploy menu with the Add Reference option highlighted.](./media/create-visual-studio-deployment-project/add-new-reference.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/add-new-reference.png" alt-text="Screenshot of the ExampleAppDeploy context menu highlighting the Add Reference option.":::
 
 1. Select the web app project that you created.
 
-   ![Add reference](./media/create-visual-studio-deployment-project/add-reference.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/add-reference.png" alt-text="Screenshot of the Add Reference window in Visual Studio with the web app project selected.":::
 
    By adding a reference, you link the web app project to the resource group project, and automatically sets some properties. You see these properties in the **Properties** window for the reference. The **Include File Path** has the path where the package is created. Note the folder (ExampleApp) and file (package.zip). You need to know these values because you provide them as parameters when deploying the app.
 
-   ![See reference](./media/create-visual-studio-deployment-project/see-reference.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/see-reference.png" alt-text="Screenshot of the Properties window displaying the reference properties for the web app project.":::
 
 1. Go back to your template (WebSite.json) and add a resource to the template.
 
-    ![Add resource](./media/create-visual-studio-deployment-project/add-resource-2.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/add-resource-2.png" alt-text="Screenshot of the JSON Outline window with the Add New Resource option highlighted.":::
 
 1. This time select **Web Deploy for Web Apps**.
 
-    ![Add web deploy](./media/create-visual-studio-deployment-project/add-web-deploy.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/add-web-deploy.png" alt-text="Screenshot of the Add New Resource window with Web Deploy for Web Apps selected.":::
 
    Save your template.
 
@@ -255,21 +255,21 @@ For the AzureRM module script, use Visual Studio:
 
 1. To redeploy, choose **Deploy**, and the resource group you deployed earlier.
 
-    ![Redeploy project](./media/create-visual-studio-deployment-project/redeploy.png)
+    :::image type="content" source="./media/create-visual-studio-deployment-project/redeploy.png" alt-text="Screenshot of the deployment project context menu with Deploy and the previously used resource group highlighted.":::
 
 1. Select the storage account you deployed with this resource group for the **Artifact storage account**.
 
-   ![Redeploy web deploy](./media/create-visual-studio-deployment-project/redeploy-web-app.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/redeploy-web-app.png" alt-text="Screenshot of the Deploy to Resource Group dialog box with Artifact storage account selected.":::
 
 ## View web app
 
 1. After the deployment has finished, select your web app in the portal. Select the URL to browse to the site.
 
-   ![Browse site](./media/create-visual-studio-deployment-project/browse-site.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/browse-site.png" alt-text="Screenshot of the Azure portal displaying the web app resource with the URL highlighted.":::
 
 1. Notice that you've successfully deployed the default ASP.NET app.
 
-   ![Show deployed app](./media/create-visual-studio-deployment-project/show-deployed-app.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/show-deployed-app.png" alt-text="Screenshot of the deployed default ASP.NET app in a web browser.":::
 
 ## Add operations dashboard
 
@@ -358,11 +358,11 @@ You aren't limited to only the resources that are available through the Visual S
 
 1. After deployment has finished, view your dashboard in the portal. Select **Dashboard** and pick the one you deployed.
 
-   ![Screenshot shows the Dashboard page with an example custom dashboard highlighted.](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/view-custom-dashboards.png" alt-text="Screenshot of the Azure portal Dashboard page highlighting an example custom dashboard.":::
 
 1. You see the customized dashboard.
 
-   ![Custom Dashboard](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
+   :::image type="content" source="./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png" alt-text="Screenshot of the customized operational dashboard in the Azure portal.":::
 
 You can manage access to the dashboard by using Azure role-based access control (Azure RBAC). You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 

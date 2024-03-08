@@ -16,7 +16,7 @@ The example in this article uses the [SqlServer PowerShell module](/powershell/m
 
 ## Authentication
 
-All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The example in this article uses a Service Principal (SPN) to authenticate to Azure Analysis Services. To learn more, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
+All calls must be authenticated with a valid Microsoft Entra ID (OAuth 2) token.  The example in this article uses a Service Principal (SPN) to authenticate to Azure Analysis Services. To learn more, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Prerequisites
 
@@ -156,7 +156,7 @@ Example JSON body:
 
 These parameters are defined in the runbook PowerShell script.  When the web activity is executed, the JSON payload passed is WEBHOOKDATA.
 
-This is deserialized and stored as PowerShell parameters, which are then used by the Invoke-ProcesASDatabase PowerShell command.
+This is deserialized and stored as PowerShell parameters, which are then used by the Invoke-ProcessASDatabase PowerShell command.
 
 ![Deserialized Webhook](./media/analysis-services-refresh-azure-automation/20.png)
 

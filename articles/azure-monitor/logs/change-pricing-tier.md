@@ -2,6 +2,9 @@
 title: Change pricing tier for Log Analytics workspace
 description: Details on how to change pricing tier for Log Analytics workspace in Azure Monitor.
 ms.topic: conceptual
+author: guywild
+ms.author: guywild
+ms.reviewer: Dale.Koetke
 ms.date: 03/25/2022
 ---
  
@@ -9,7 +12,7 @@ ms.date: 03/25/2022
 Each Log Analytics workspace in Azure Monitor can have a different [pricing tier](cost-logs.md#commitment-tiers). This article describes how to change the pricing tier for a workspace and how to track these changes.
 
 > [!NOTE]
-> This article describes how to change the commitment tier for a Log Analytics workspace once you determine which commitment tier you want to use. See [Azure Monitor Logs pricing details](cost-logs.md) for details on how commitment tiers work and [Azure Monitor cost and usage](../usage-estimated-costs.md#log-analytics-workspace) for recommendations on the most cost effective commitment based on your observed Azure Monitor usage.
+> This article describes how to change the commitment tier for a Log Analytics workspace once you determine which commitment tier you want to use. See [Azure Monitor Logs pricing details](cost-logs.md) for details on how commitment tiers work and [Azure Monitor cost and usage](../cost-usage.md#log-analytics-workspace) for recommendations on the most cost effective commitment based on your observed Azure Monitor usage.
 
 ## Permissions required
 To change the pricing tier for a workspace, you must be assigned to one of the following roles: 
@@ -68,4 +71,4 @@ Changes to a workspace's pricing tier are recorded in the [Activity Log](../esse
 ## Next steps
 
 - See [Azure Monitor Logs pricing details](cost-logs.md) for details on how charges are calculated for data in a Log Analytics workspace and different configuration options to reduce your charges.
-- See [Azure Monitor cost and usage](../usage-estimated-costs.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
+- See [Azure Monitor cost and usage](../cost-usage.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.

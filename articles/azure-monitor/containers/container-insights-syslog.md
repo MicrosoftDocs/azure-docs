@@ -2,24 +2,22 @@
 title: Syslog collection with Container Insights
 description: This article describes how to collect Syslog from AKS nodes using Container insights.
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 2/28/2024
 ms.reviewer: damendo
 ---
 
-# Syslog collection with Container Insights (preview)
+# Syslog collection with Container Insights 
 
-Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. Customers can use Syslog for monitoring security and health events, typically by ingesting syslog into SIEM systems like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
-
-> [!IMPORTANT]
-> Syslog collection with Container Insights is a preview feature. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
+Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. This includes the ability to collect logs from control plane components like kubelet. Customers can also use Syslog for monitoring security and health events, typically by ingesting syslog into a SIEM system like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
 
 ## Prerequisites 
 
-- You need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](container-insights-enable-existing-clusters.md?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: Enabling Managed Identity will create a new Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>` 
+- You need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](container-insights-enable-existing-clusters.md?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: Enabling Managed Identity will create a new Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>`
+- Port 28330 should be available on the host node.
 - Minimum versions of Azure components
   - **Azure CLI**: Minimum version required for Azure CLI is [2.45.0 (link to release notes)](/cli/azure/release-notes-azure-cli#february-07-2023). See [How to update the Azure CLI](/cli/azure/update-azure-cli) for upgrade instructions. 
-  - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [ 0.5.125 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05125). See [How to update extensions](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
-  - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](https://learn.microsoft.com/azure/aks/node-image-upgrade) for upgrade help. 
+  - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [0.5.125 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05125). See [How to update extensions](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
+  - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](/azure/aks/node-image-upgrade) for upgrade help. 
 
 ## How to enable Syslog
 
@@ -110,6 +108,15 @@ Navigate to your cluster. Open the _Workbooks_ tab for your cluster and look for
 
 :::image type="content" source="media/container-insights-syslog/syslog-workbook-container-insights-reports-tab.gif" lightbox="media/container-insights-syslog/syslog-workbook-container-insights-reports-tab.gif" alt-text="Video of Syslog workbook being accessed from cluster workbooks tab." border="true":::
 
+### Access using a Grafana dashboard
+
+Customers can use our Syslog dashboard for Grafana to get an overview of their Syslog data. Customers who create a new Azure-managed Grafana instance will have this dashboard available by default. Customers with existing instances or those running their own instance can [import the Syslog dashboard from the Grafana marketplace](https://grafana.com/grafana/dashboards/19866-azure-monitor-container-insights-syslog/). 
+
+> [!NOTE]
+> You will need to have the **Monitoring Reader** role on the Subscription containing the Azure Managed Grafana instance to access syslog from Container Insights. 
+
+:::image type="content" source="media/container-insights-syslog/grafana-screenshot.png" lightbox="media/container-insights-syslog/grafana-screenshot.png" alt-text="Screenshot of Syslog Grafana dashboard." border="false":::
+
 ### Access using log queries
 
 Syslog data is stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in your Log Analytics workspace. You can create your own [log queries](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md) to analyze this data or use any of the [prebuilt queries](../logs/log-query-overview.md).
@@ -127,9 +134,11 @@ The following table provides different examples of log queries that retrieve Sys
 | Query | Description |
 |:--- |:--- |
 | `Syslog` |All Syslogs |
-| `Syslog | where SeverityLevel == "error"` |All Syslog records with severity of error |
-| `Syslog | summarize AggregatedValue = count() by Computer` |Count of Syslog records by computer |
-| `Syslog | summarize AggregatedValue = count() by Facility` |Count of Syslog records by facility |  
+| `Syslog | where SeverityLevel == "error"` | All Syslog records with severity of error |
+| `Syslog | summarize AggregatedValue = count() by Computer` | Count of Syslog records by computer |
+| `Syslog | summarize AggregatedValue = count() by Facility` | Count of Syslog records by facility |  
+| `Syslog | where ProcessName == "kubelet"` | All Syslog records from the kubelet process |
+| `Syslog | where ProcessName == "kubelet" and  SeverityLevel == "error"` | Syslog records from kubelet process with errors |
 
 ## Editing your Syslog collection settings
 
@@ -150,18 +159,14 @@ Select the minimum log level for each facility that you want to collect.
 :::image type="content" source="media/container-insights-syslog/dcr-4.png" lightbox="media/container-insights-syslog/dcr-4.png" alt-text="Screenshot of Configuration panel for Syslog data collection rule." border="false":::
 
 
-## Known limitations
-
-- **Onboarding**. Syslog collection can only be enabled from command line during public preview. 
-- **Container restart data loss**. Agent Container restarts can lead to syslog data loss during public preview. 
 
 ## Next steps
 
 Once setup customers can start sending Syslog data to the tools of their choice
-- Send Syslog to Microsoft Sentinel: https://learn.microsoft.com/azure/sentinel/connect-syslog  
-- Export data from Log Analytics: https://learn.microsoft.com/azure/azure-monitor/logs/logs-data-export?tabs=portal 
+- [Send Syslog to Microsoft Sentinel](/azure/sentinel/connect-syslog)
+- [Export data from Log Analytics](/azure/azure-monitor/logs/logs-data-export?tabs=portal)
 
 Read more  
 - [Syslog record properties](/azure/azure-monitor/reference/tables/syslog)
 
-Share your feedback for the preview here: https://forms.office.com/r/BBvCjjDLTS 
+Share your feedback for this feature here: https://forms.office.com/r/BBvCjjDLTS 

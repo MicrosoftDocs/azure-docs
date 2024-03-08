@@ -7,7 +7,12 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.topic: concept-article
 ms.date: 11/21/2022
-ms.custom: [amqp, mqtt,'Role: Cloud Development','Role: IoT Device']
+ms.custom:
+  - amqp
+  - mqtt
+  - "Role: Cloud Development"
+  - "Role: IoT Device"
+  - ignite-2023
 ---
 
 # Choose a device communication protocol
@@ -19,6 +24,9 @@ IoT Hub allows devices to use the following protocols for device-side communicat
 * [Advanced Message Queuing Protocol (AMQP)](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 * AMQP over WebSockets
 * HTTPS
+
+> [!NOTE]
+> IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md). For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
 
 For information about how these protocols support specific IoT Hub features, see [Device-to-cloud communications guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md).
 
@@ -34,7 +42,7 @@ Consider the following points when you choose your protocol for device-side comm
 
 * **Cloud-to-device pattern**. HTTPS doesn't have an efficient way to implement server push. As such, when you're using HTTPS, devices poll IoT Hub for cloud-to-device messages. This approach is inefficient for both the device and IoT Hub. Under current HTTPS guidelines, each device should poll for messages every 25 minutes or more. Issuing more HTTPS receives results in IoT Hub throttling the requests. MQTT and AMQP support server push when receiving cloud-to-device messages. They enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, MQTT or AMQP are the best protocols to use. For rarely connected devices, HTTPS works as well.
 
-* **Field gateways**. MQTT and HTTPS support only a single device identity (device ID plus credentials) per TLS connection. For this reason, these protocols aren't supported for [field gateway scenarios](iot-hub-devguide-endpoints.md#field-gateways) that require multiplexing messages, using multiple device identities, across either a single connection or a pool of upstream connections to IoT Hub. Such gateways can use a protocol that supports multiple device identities per connection, like AMQP, for their upstream traffic.
+* **Field gateways**. MQTT and HTTPS support only a single device identity (device ID plus credentials) per TLS connection. For this reason, these protocols aren't supported for field gateway scenarios that require multiplexing messages, using multiple device identities, across either a single connection or a pool of upstream connections to IoT Hub. Such gateways can use a protocol that supports multiple device identities per connection, like AMQP, for their upstream traffic.
 
 * **Low resource devices**. The MQTT and HTTPS libraries have a smaller footprint than the AMQP libraries. As such, if the device has limited resources (for example, less than 1 MB of RAM), these protocols might be the only protocol implementation available.
 

@@ -1,9 +1,9 @@
 ---
 title: How to use the IoT Central REST API to manage devices
-description: How to use the IoT Central REST API to add devices in an application
+description: Learn how to use the IoT Central REST API to add, modify, delete, and manage devices in an application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/23/2023
+ms.date: 03/01/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -100,6 +100,15 @@ The response to this request looks like the following example:
 }
 ```
 
+The following table shows how the status value for a device in the UI maps to the values used by the REST API to interact with devices:
+
+| UI Device status | Notes | REST API Get |
+| ---------------- | ----- | ------------ |
+| Waiting for approval | The auto approve option is disabled in the device connection group and the device wasn't added through the UI. <br/> A user must manually approve the device through the UI before it can be used. | `Provisioned: false` <br/> `Enabled: false` |
+| Registered | A device was approved either automatically or manually. | `Provisioned: false` <br/> `Enabled: true` |
+| Provisioned | The device was provisioned and can connect to your IoT Central application. | `Provisioned: true` <br/> `Enabled: true` |
+| Blocked | The device isn't allowed to connect to your IoT Central application. You can block a device that is in any of the other states. | `Provisioned:` depends on `Waiting for approval`/`Registered`/`Provisioned status` <br/> `Enabled: false` |
+
 ### Get device credentials
 
 Use the following request to retrieve credentials of a device from your application:
@@ -126,17 +135,11 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/api/devices/{deviceId}?api-version=2022-07-31
 ```
 
->[!NOTE]
->`{deviceTemplateId}` should be the same as the `@id` in the payload.
-
-The sample request body looks like the following example that updates the `displayName` to the device:
+The following sample request body changes the `enabled` field to `false`:
 
 ```json
 {
-  "displayName": "CheckoutThermostat5",
-  "template": "dtmi:contoso:Thermostat;1",
-  "simulated": true,
-  "enabled": true
+  "enabled": false
 }
 
 ```
@@ -147,11 +150,11 @@ The response to this request looks like the following example:
 {
     "id": "thermostat1",
     "etag": "eyJoZWFkZXIiOiJcIjI0MDAwYTdkLTAwMDAtMDMwMC0wMDAwLTYxYjgxZDIwMDAwMFwiIiwiZGF0YSI6IlwiMzMwMDQ1M2EtMDAwMC0wMzAwLTAwMDAtNjFiODFkMjAwMDAwXCIifQ",
-    "displayName": "CheckoutThermostat5",
+    "displayName": "CheckoutThermostat",
     "simulated": true,
     "provisioned": false,
     "template": "dtmi:contoso:Thermostat;1",
-    "enabled": true
+    "enabled": false
 }
 ```
 
@@ -208,7 +211,7 @@ In the preview version of the API (`api-version=2022-10-31-preview`), you can us
 
 ### maxpagesize
 
-Use the **maxpagesize** to set the result size, the maximum returned result size is 100, the default size is 25.
+Use the **maxpagesize** to set the result size. The maximum returned result size is 100 and the default size is 25.
 
 Use the following request to retrieve a top 10 device from your application:
 
@@ -419,7 +422,7 @@ Use the following request to create a new device group.
 PUT https://{your app subdomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
-When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true
+When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is `true`.
 
 ```json
 {
@@ -439,7 +442,7 @@ The request body has some required fields:
 * `@etag`: ETag used to prevent conflict in device updates.
 * `description`: Short summary of device group.
 
-The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md)
+The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md).
 
 The response to this request looks like the following example:
 
@@ -599,7 +602,7 @@ In this section, you generate the X.509 certificates you need to connect a devic
     > [!TIP]
     > A device ID can contain letters, numbers, and the `-` character.
 
-These commands produce the following root and the device certificate
+These commands produce the following root and the device certificates:
 
 | filename | contents |
 | -------- | -------- |
@@ -686,8 +689,6 @@ Use the following request to set the primary X.509 certificate of the myx509eg e
 ```http
 PUT https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg/certificates/primary?api-version=2022-07-31
 ```
-
-entry - Entry of certificate, either `primary` or `secondary`
 
 Use this request to add either a primary or secondary X.509 certificate to the enrollment group.
 
@@ -954,7 +955,3 @@ The response to this request looks like the following example:
     ]
 }
 ```
-
-## Next steps
-
-Now that you've learned how to manage devices with the REST API, a suggested next step is to [How to control devices with rest api.](howto-control-devices-with-rest-api.md)

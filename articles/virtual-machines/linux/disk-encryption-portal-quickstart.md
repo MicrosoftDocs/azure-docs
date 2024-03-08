@@ -4,10 +4,10 @@ description: In this quickstart, you learn how to use the Azure portal to create
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.topic: quickstart
-ms.date: 01/04/2023
-ms.custom: mode-ui
+ms.date: 02/20/2024
+ms.custom: mode-ui, linux-related-content
 ---
 
 # Quickstart: Create and encrypt a virtual machine with the Azure portal
@@ -70,7 +70,7 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="disks and encryption selection":::
 
-1. Select **Review + create**.  
+1. Select **Review + create**.
 1. After the key vault has passed validation, select **Create**. This will return you to the **Select key from Azure Key Vault** screen.
 1. Leave the **Key** field blank and choose **Select**.
 1. At the top of the encryption screen, click **Save**. A popup will warn you that the VM will reboot. Click **Yes**.
@@ -81,7 +81,7 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 
 ## Next steps
 
-In this quickstart, you created a Key Vault that was enabled for encryption keys, created a virtual machine, and enabled the virtual machine for encryption.  
+In this quickstart, you created a Key Vault that was enabled for encryption keys, created a virtual machine, and enabled the virtual machine for encryption.
 
 > [!div class="nextstepaction"]
 > [Azure Disk Encryption overview](disk-encryption-overview.md)

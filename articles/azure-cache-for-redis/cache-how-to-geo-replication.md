@@ -4,9 +4,9 @@ description: Learn how to use cross-region replication to provide disaster recov
 author: flang-msft
 
 ms.service: cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 02/06/2023
+ms.date: 12/15/2023
 ms.author: franlanglois
 ---
 
@@ -16,7 +16,7 @@ In this article, you learn how to configure passive geo-replication on a pair of
 
 Passive geo-replication links together two Premium tier Azure Cache for Redis instances and creates an _active-passive_ data replication relationship. Active-passive means that there's a pair of caches, primary and secondary, that have their data synchronized. But you can only write to one side of the pair, the primary. The other side of the pair, the secondary cache, is read-only.
 
-Compare _active-passive_ to _active-active_, where you can write to either side of the pair, and it will synchronize with the other side.
+Compare _active-passive_ to _active-active_, where you can write to either side of the pair, and it synchronizes with the other side.
 
 With passive geo-replication, the cache instances are typically located in different Azure regions, though that isn't required. One instance acts as the primary, and the other as the secondary. The primary handles read and write requests, and the primary propagates changes to the secondary.
 
@@ -111,10 +111,9 @@ Once the caches are linked, a URL is generated for each cache that always points
 
 Three URLs are shown:
 
-- **Geo-Primary URL** is a proxy URL with the format of `<cachename>.geo.redis.cache.windows.net`. The URL always points to whichever cache in the geo-replication pair is the current geo-primary. 
+- **Geo-Primary URL** is a proxy URL with the format of `<cachename>.geo.redis.cache.windows.net`. The URL always points to whichever cache in the geo-replication pair is the current geo-primary.
 - **Current Geo Primary Cache** is the direct address of the cache that is currently the geo-primary. The address is `redis.cache.windows.net` not `geo.redis.cache.windows.net`. The address listed in the field changes if a failover is initiated.  
 - **Current Geo Secondary Cache** is the direct address of the cache that is currently the geo-secondary. The address is `redis.cache.windows.net` not `geo.redis.cache.windows.net`.  The address listed in the field changes if a failover is initiated.
-
 
 ## Initiate a failover from geo-primary to geo-secondary
 
@@ -132,22 +131,26 @@ The geo-failover process takes a few minutes to complete.
 
 ### Settings to check before initiating geo-failover
 
-When the failover is initiated, the geo-primary and geo-secondary caches will swap. If the new geo-primary is configured differently from the geo-secondary, it can create problems for your application.
+When the failover is initiated, the geo-primary and geo-secondary caches swap. If the new geo-primary is configured differently from the geo-secondary, it can create problems for your application.
 
 Be sure to check the following items:
 
 - If you’re using a firewall in either cache, make sure that the firewall settings are similar so you have no connection issues.
 - Make sure both caches are using the same port and TLS/SSL settings
-- The geo-primary and geo-secondary caches have different access keys. If a failover is triggered, make sure your application can update the access key it's using to match the new geo-primary.
+- The geo-primary and geo-secondary caches have different access keys. If a failover is triggered, make sure your application can update the access key it's using to match the new geo-primary. Or, use [Microsoft Entra tokens for cache authentication](cache-azure-active-directory-for-authentication.md), which allow you to use the same authentication credential for both the geo-primary and the geo-secondary cache.
 
 ### Failover with minimal data loss
 
 Geo-failover events can introduce data inconsistencies during the transition, especially if the client maintains a connection to the old geo-primary during the failover process. It's possible to minimize data loss in a planned geo-failover event using the following tips:
 
 - Check the geo-replication data sync offset metric. The metric is emitted by the current geo-primary cache. This metric indicates how much data has yet to be replicated to the geo-primary. If possible, only initiate failover if the metric indicates fewer than 14 bytes remain to be written.
-- Run the `CLIENT PAUSE` command in the current geo-primary before initiating failover. Running `CLIENT PAUSE` blocks any new write requests and instead returns timeout failures to the Azure Cache for Redis client. The `CLIENT PAUSE` command requires providing a timeout period in milliseconds. Make sure a long enough timeout period is provided to allow the failover to occur. Setting this to around 30 minutes (1,800,000 milliseconds) is a good place to start. You can always lower this number as needed.
+- Run the `CLIENT PAUSE` command in the current geo-primary before initiating failover. Running `CLIENT PAUSE` blocks any new write requests and instead returns timeout failures to the Azure Cache for Redis client. The `CLIENT PAUSE` command requires providing a timeout period in milliseconds. Make sure a long enough timeout period is provided to allow the failover to occur. Setting the pause value to around 30 minutes (1,800,000 milliseconds) is a good place to start. You can always lower this number as needed.
 
 There's no need to run the CLIENT UNPAUSE command as the new geo-primary does retain the client pause.
+
+>[!NOTE]
+>Using [Microsoft Entra ID based authentication](cache-azure-active-directory-for-authentication.md) for your cache is recommended in geo-failover scenarios because it removes the difficulty of managing different access keys for the geo-primary and the geo-secondary cache.
+>
 
 ## Remove a geo-replication link
 
@@ -193,23 +196,23 @@ No, passive geo-replication is only available in the Premium tier. A more advanc
 
 ### When can I write to the new geo-primary after initiating failover?
 
-When the failover process is initiated, you'll see the link provisioning status update to **Deleting**, which indicates that the previous link is being cleaned up. After this completes, the link provisioning status will update to **Creating**. This indicates that the new geo-primary is up-and-running and attempting to re-establish a geo-replication link to the old geo-primary cache. At this point, you'll be able to immediately connect to the new geo-primary cache instance for both reads and writes. 
+When the failover process is initiated, you see the link provisioning status update to **Deleting**, which indicates that the previous link is being cleaned up. After this completes, the link provisioning status updates to **Creating**. This indicates that the new geo-primary is up-and-running and attempting to re-establish a geo-replication link to the old geo-primary cache. At this point, you're able to immediately connect to the new geo-primary cache instance for both reads and writes.
 
 ### Can I track the health of the geo-replication link?
 
 Yes, there are several [metrics available](cache-how-to-monitor.md#list-of-metrics) to help track the status of the geo-replication. These metrics are available in the Azure portal.
 
-- **Geo Replication Healthy** shows the status of the geo-replication link. The link will show up as unhealthy if either the geo-primary or geo-secondary caches are down. This is typically due to standard patching operations, but it could also indicate a failure situation.
+- **Geo Replication Healthy** shows the status of the geo-replication link. The link show as unhealthy if either the geo-primary or geo-secondary caches are down. This is typically due to standard patching operations, but it could also indicate a failure situation.
 - **Geo Replication Connectivity Lag** shows the time since the last successful data synchronization between geo-primary and geo-secondary.
 - **Geo Replication Data Sync Offset** shows the amount of data that has yet to be synchronized to the geo-secondary cache.
 - **Geo Replication Fully Sync Event Started** indicates that a full synchronization action has been initiated between the geo-primary and geo-secondary caches. This occurs if standard replication can't keep up with the number of new writes.
-- **Geo Replication Full Sync Event Finished** indicates that a full synchronization action has been completed.
+- **Geo Replication Full Sync Event Finished** indicates that a full synchronization action was completed.
 
-There is also a [pre-built workbook](cache-how-to-monitor.md#organize-with-workbooks) called the **Geo-Replication Dashboard** that includes all of the geo-replication health metrics in one view. Using this view is recommended because it aggregates information that is emitted only from the geo-primary or geo-secondary cache instances. 
+There's also a [prebuilt workbook](cache-how-to-monitor.md#organize-with-workbooks) called the **Geo-Replication Dashboard** that includes all of the geo-replication health metrics in one view. Using this view is recommended because it aggregates information that is emitted only from the geo-primary or geo-secondary cache instances.
 
 ### Can I link more than two caches together?
 
-No, you can only link two caches together when using passive geo-replication. [Active geo-replication](cache-how-to-active-geo-replication.md) supports up to five linked caches. 
+No, you can only link two caches together when using passive geo-replication. [Active geo-replication](cache-how-to-active-geo-replication.md) supports up to five linked caches.
 
 ### Can I link two caches from different Azure subscriptions?
 
@@ -225,16 +228,15 @@ Yes, as long as both caches have the same number of shards.
 
 ### Can I use geo-replication with my caches in a VNet?
 
-Yes, geo-replication of caches in VNets is supported with caveats:
+We recommend using using Azure Private Link over VNet injection in most cases. For more information see, [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
 
-- Geo-replication between caches in the same VNet is supported.
-- Geo-replication between caches in different VNets is also supported.
-  - If the VNets are in the same region, you can connect them using [VNet peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN Gateway VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-  - If the VNets are in different regions, geo-replication using VNet peering is not supported. A client VM in VNet 1 (region 1) isn't able to access the cache in VNet 2 (region 2) using its DNS name because of a constraint with Basic internal load balancers. For more information about VNet peering constraints, see [Virtual Network - Peering - Requirements and constraints](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). We recommend using a VPN Gateway VNet-to-VNet connection.
+While it is still technically possible to use VNet injection when geo-replicating your caches, we recommend Azure Private Link.
 
-To configure your VNet effectively and avoid geo-replication issues, you must configure both the inbound and outbound ports correctly. For more information on avoiding the most common VNet misconfiguration issues, see [Geo-replication peer port requirements](cache-how-to-premium-vnet.md#geo-replication-peer-port-requirements).
-  
-Using [this Azure template](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/), you can quickly deploy two geo-replicated caches into a VNet connected with a VPN Gateway VNet-to-VNet connection.
+> [!IMPORTANT]
+> Azure Cache for Redis recommends using Azure Private Link, which simplifies the network architecture and secures the connection between endpoints in Azure. You can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. Azure Private Links is offered on all our tiers, includes Azure Policy support, and simplified NSG rule management. To learn more, see [Private Link Documentation](cache-private-link.md). To migrate your VNet injected caches to Private Link, see [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
+>
+
+For more information about support for geo-replication with VNets, see [Geo-replication using VNet injection with Premium caches](cache-troubleshoot-connectivity.md#geo-replication-using-vnet-injection-with-premium-caches).
 
 ### What is the replication schedule for Redis geo-replication?
 
@@ -264,11 +266,11 @@ Geo-replicated caches and their resource groups can't be deleted while linked un
 
 ### What region should I use for my secondary linked cache?
 
-In general, it's recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, it's recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../availability-zones/cross-region-replication-azure.md).
+In general, we recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, we recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../availability-zones/cross-region-replication-azure.md).
 
 ### Can I configure a firewall with geo-replication?
 
-Yes, you can configure a [firewall](./cache-configure.md#firewall) with geo-replication. For geo-replication to function alongside a firewall, ensure that the secondary cache's IP address is added to the primary cache's firewall rules.
+Yes, you can configure a [firewall](./cache-configure.md#firewall) with geo-replication. For geo-replication to function alongside a firewall, ensure that the secondary cache's IP address is added to the primary cache's firewall rules. However if public network access is disabled on the cache and only Private Endpoint is enabled, then use of Firewall on the cache isn't supported.
 
 ## Next steps
 

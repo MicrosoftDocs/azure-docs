@@ -1,19 +1,22 @@
 ---
 title: Microsoft Azure Data Box Disk system requirements| Microsoft Docs
-description: Learn about the software and networking requirements for your Azure Data Box Disk
+description: Learn about the software and networking requirements for your Azure Data Box Disk 
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
 ms.date: 10/11/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 ::: zone target="docs"
 
 # Azure Data Box Disk system requirements
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 This article describes the important system requirements for your Microsoft Azure Data Box Disk solution and for the clients connecting to the Data Box Disk. We recommend that you review the information carefully before you deploy your Data Box Disk, and then refer back to it as necessary during the deployment and subsequent operation.
 
@@ -66,6 +69,9 @@ For Linux client, the Data Box Disk toolset installs the following required soft
 The client computer containing the data must have a USB 3.0 or later port. The disks connect to this client using the provided cable.
 
 ## Supported storage accounts
+
+> [!Note]
+> Classic storage accounts will not be supported starting **August 1, 2023**.
 
 Here is a list of the supported storage types for the Data Box Disk.
 

@@ -3,8 +3,6 @@ title: Desired State Configuration for Azure overview
 description: Learn how to use the Microsoft Azure extension handler for PowerShell Desired State Configuration (DSC), including prerequisites, architecture, and cmdlets.
 services: virtual-machines
 author: mgoedtel
-manager: evansma
-tags: azure-resource-manager
 keywords: 'dsc'
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines
@@ -12,16 +10,15 @@ ms.subservice: extensions
 ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: na
 ms.date: 03/28/2023
 ms.author: magoedte
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
 # Introduction to the Azure Desired State Configuration extension handler
 
-The Azure Linux Agent for Azure virtual machines (VM) and the associated extensions are part of Microsoft Azure infrastructure services. Azure VM extensions are software components that extend VM functionality and simplify various VM management operations.
+The Azure VM Extension for Azure virtual machines (VM) and the associated extensions are part of Microsoft Azure infrastructure services. Azure VM extensions are software components that extend VM functionality and simplify various VM management operations.
 
 The primary use for the Azure Desired State Configuration (DSC) extension for Windows PowerShell is to bootstrap a VM to the
 [Azure Automation State Configuration (DSC) service](../../automation/automation-dsc-overview.md). This service provides [benefits](/powershell/dsc/managing-nodes/metaConfig#pull-service) that include ongoing management of the VM configuration and integration with other operational tools, such as Azure Monitor. You can use the extension to register your VMs to the service and gain a flexible solution that works across Azure subscriptions.
@@ -58,7 +55,7 @@ This article assumes familiarity with the following concepts:
 
 ## Architecture
 
-The Azure DSC extension uses the Azure Linux Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension accepts a configuration document and a set of parameters. If no file is provided, a [default configuration script](#default-configuration-script) is embedded with the extension. The default configuration script is used only to set metadata in [Local Configuration Manager](/powershell/dsc/managing-nodes/metaConfig).
+The Azure DSC extension uses the Azure VM Extension framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension accepts a configuration document and a set of parameters. If no file is provided, a [default configuration script](#default-configuration-script) is embedded with the extension. The default configuration script is used only to set metadata in [Local Configuration Manager](/powershell/dsc/managing-nodes/metaConfig).
 
 When the extension is called the first time, it installs a version of WMF by using the following logic:
 
@@ -166,7 +163,7 @@ Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $
 
 ## Azure CLI deployment
 
-The Azure CLI can be used to deploy the DSC extension to an existing VM. The following examples show how to deploy a VM on Windows or Linux.
+The Azure CLI can be used to deploy the DSC extension to an existing VM. The following examples show how to deploy a VM on Windows.
 
 For a VM running Windows, use the following command:
 
@@ -177,18 +174,6 @@ az vm extension set \
   --name DSC \
   --publisher Microsoft.Powershell \
   --version 2.77 --protected-settings '{}' \
-  --settings '{}'
-```
-
-For a VM running Linux, use the following command:
-
-```azurecli
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name DSCForLinux \
-  --publisher Microsoft.OSTCExtensions \
-  --version 2.7 --protected-settings '{}' \
   --settings '{}'
 ```
 

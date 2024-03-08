@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  conceptual
-ms.date: 12/06/2022
+ms.date: 08/02/2023
 ms.author: cshoe
 ---
 
@@ -32,13 +32,12 @@ Requests that come in to ports `80` and `443` are internally routed to the appro
 
 ## Security
 
-- HTTP requests are automatically redirected to HTTPs
-- Envoy terminates TLS after crossing its boundary
-    - Envoy sends requests to apps over HTTP in plain text
-- mTLS is only available when using Dapr
-    - When you use Dapr service invocation APIs, mTLS is enabled. However, because Envoy terminates mTLS, inbound calls from Envoy to Dapr-enabled container apps isn't encrypted.
+- HTTP requests are automatically redirected to HTTPS
+    - You can disable this by setting `allowInsecure` to `true` in the ingress configuration
+- TLS terminates at the ingress
+    - You can enable [environment level network encryption](networking.md) for full end-to-end encryption for requests between the ingress and an app and between different apps.
 
-HTTPs, GRPC, and HTTP/2 all follow the same architectural model.
+HTTPS, gRPC, and HTTP/2 all follow the same architectural model.
 
 ## Timeouts
 

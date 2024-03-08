@@ -11,7 +11,17 @@ ms.date: 04/18/2023
 
 This article provides the release notes for the latest updates to the MSIXMGR tool, which you use for expanding MSIX-packaged applications into MSIX images for use with Azure Virtual Desktop.
 
-## Version 1.1.122.0
+## Latest available version
+
+The following table shows the latest available version of the MSIXMGR tool.
+
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public | 1.2.0.0 | [MSIXMGR tool](https://aka.ms/msixmgr) |
+
+## Version 1.2.0.0
+
+*Published: April 18, 2023*
 
 In this release, we've made the following changes:
 
@@ -26,3 +36,4 @@ To learn more about the MSIXMGR tool, check out these articles:
 
 - [Using the MSIXMGR tool](app-attach-msixmgr.md).
 - [MSIXMGR tool parameters](msixmgr-tool-syntax-description.md)
+

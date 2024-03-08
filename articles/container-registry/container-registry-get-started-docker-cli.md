@@ -2,10 +2,11 @@
 title: Push & pull container image
 description: Push and pull Docker images to your private container registry in Azure using the Docker CLI
 ms.topic: article
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.custom: seodec18, H1Hack27Feb2017
+ms.service: container-registry
+ms.custom: H1Hack27Feb2017
 ---
 
 # Push your first image to your Azure container registry using the Docker CLI
@@ -25,7 +26,7 @@ There are [several ways to authenticate](container-registry-authentication.md) t
 
 ### [Azure CLI](#tab/azure-cli)
 
-The recommended method when working in a command line is with the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login). For example, to log in to a registry named *myregistry*, log into the Azure CLI and then authenticate to your registry:
+The recommended method when working in a command line is with the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login). For example, to access a registry named `myregistry`, sign in the Azure CLI and then authenticate to your registry:
 
 ```azurecli
 az login
@@ -58,10 +59,10 @@ Both commands return `Login Succeeded` once completed.
 
 ## Pull a public Nginx image
 
-First, pull a public Nginx image to your local computer. This example pulls an image from Microsoft Container Registry.
+First, pull a public Nginx image to your local computer. This example pulls the [official Nginx image](https://hub.docker.com/_/nginx/).
 
 ```
-docker pull mcr.microsoft.com/oss/nginx/nginx:stable
+docker pull nginx
 ```
 
 ## Run the container locally
@@ -69,7 +70,7 @@ docker pull mcr.microsoft.com/oss/nginx/nginx:stable
 Execute the following [docker run](https://docs.docker.com/engine/reference/run/) command to start a local instance of the Nginx container interactively (`-it`) on port 8080. The `--rm` argument specifies that the container should be removed when you stop it.
 
 ```
-docker run -it --rm -p 8080:80 mcr.microsoft.com/oss/nginx/nginx:stable
+docker run -it --rm -p 8080:80 nginx
 ```
 
 Browse to `http://localhost:8080` to view the default web page served by Nginx in the running container. You should see a page similar to the following:
@@ -85,7 +86,7 @@ To stop and remove the container, press `Control`+`C`.
 Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to create an alias of the image with the fully qualified path to your registry. This example specifies the `samples` namespace to avoid clutter in the root of the registry.
 
 ```
-docker tag mcr.microsoft.com/oss/nginx/nginx:stable myregistry.azurecr.io/samples/nginx
+docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
 For more information about tagging with namespaces, see the [Repository namespaces](container-registry-best-practices.md#repository-namespaces) section of [Best practices for Azure Container Registry](container-registry-best-practices.md).

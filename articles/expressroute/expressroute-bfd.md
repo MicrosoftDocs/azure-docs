@@ -3,13 +3,12 @@ title: 'Azure ExpressRoute: Configure BFD'
 description: This article provides instructions on how to configure BFD (Bidirectional Forwarding Detection) over private-peering of an ExpressRoute circuit.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 06/30/2023
 ms.author: duau
-
 ---
+
 # Configure BFD over ExpressRoute
 
 ExpressRoute supports Bidirectional Forwarding Detection (BFD) both over private and Microsoft peering. When you enable BFD over ExpressRoute, you can speed up the link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers that your ExpressRoute circuit gets configured (CE/PE). You can configure ExpressRoute over your edge routing devices or your Partner Edge routing devices (if you went with managed Layer 3 connection service). This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
@@ -23,7 +22,7 @@ You can enable ExpressRoute circuit either by Layer 2 connections or managed Lay
 
 On the MSEE devices, BGP keep-alive and hold-time are typically configured as 60 and 180 seconds respectively. For that reason when a link failure happens it can take up to three minutes to detect any link failure and switch traffic to alternate connection.
 
-You can control the BGP timers by configuring a lower BGP keep-alive and hold-time on your edge peering device. If the BGP timers aren't the same between the two peering devices, the BGP session will establish using the lower time value. The BGP keep-alive can be set as low as three seconds, and the hold-time as low as 10 seconds. However, setting a very aggressive BGP timer is not recommended because the protocol is process intensive.
+You can control the BGP timers by configuring a lower BGP keep-alive and hold-time on your edge peering device. If the BGP timers aren't the same between the two peering devices, the BGP session establishes using the lower time value. The BGP keep-alive can be set as low as three seconds, and the hold-time as low as 10 seconds. However, setting an aggressive BGP timer isn't recommended because the protocol is process intensive.
 
 In this scenario, BFD can help. BFD provides low-overhead link failure detection in a subsecond time interval. 
 
@@ -35,7 +34,7 @@ In this scenario, BFD can help. BFD provides low-overhead link failure detection
 
 BFD is configured by default under all the newly created ExpressRoute private and Microsoft peering interfaces on the MSEEs. As such, to enable BFD, you only need to configure BFD on both your primary and secondary devices. Configuring BFD is two-step process. You configure the BFD on the interface and then link it to the BGP session.
 
-An example CE/PE (using Cisco IOS XE) configuration is shown below. 
+An example CE/PE (using Cisco IOS XE) configuration is shown as followed: 
 
 ```console
 interface TenGigabitEthernet2/0/0.150

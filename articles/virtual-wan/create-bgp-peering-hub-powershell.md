@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 09/08/2022
+ms.date: 11/21/2023
 ms.author: cherylmc
 ---
 # Configure BGP peering to an NVA - PowerShell

@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
 zone_pivot_groups: acs-azp-java-python-csharp-js
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Configure voice routing programmatically
@@ -44,6 +44,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
+- Learn about [call automation](../../concepts/call-automation/call-automation.md) to build workflows that [route and manage calls](../../how-tos/call-automation/actions-for-call-control.md) to Communication Services.  
 - Learn about [Calling SDK capabilities](../voice-video-calling/getting-started-with-calling.md).
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md).
 - Call to a telephone number by [following a quickstart](./pstn-call.md).

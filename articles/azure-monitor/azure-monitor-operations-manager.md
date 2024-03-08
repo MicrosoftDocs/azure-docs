@@ -43,7 +43,7 @@ If your monitoring of a business application is limited to functionality provide
 - Collect detailed application usage and performance data such as response time, failure rates, and request rates.
 - Collect browser data such as page views and load performance.
 - Detect exceptions and drill into stack trace and related requests.
-- Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing-telemetry-correlation.md) and [smart detection](alerts/proactive-diagnostics.md).
+- Perform advanced analysis using features such as [distributed tracing](app/distributed-trace-data.md) and [smart detection](alerts/proactive-diagnostics.md).
 - Use [metrics explorer](essentials/metrics-getting-started.md) to interactively analyze performance data.
 - Use [log queries](logs/log-query-overview.md) to interactively analyze collected telemetry together with data collected for Azure services and VM insights.
 
@@ -69,7 +69,7 @@ Continue to use management packs for functionality that can't be provided by oth
 > [!NOTE]
 > If you enable VM Insights with the Log Analytics agent instead of the Azure Monitor agent, then no additional agent needs to be installed on the VM. Azure Monitor agent is recommended though because of its significant improvements in monitoring the VM in the cloud. The complexity from maintaining multiple agents is offset by the ability to define monitoring in data collection rules which allow you to configure different data collection for different sets of VMs, similar to your strategy for designing management packs.
 
-### Migrate management pack logic for VM workloads
+## Migrate management pack logic for VM workloads
 There are no migration tools to convert SCOM management packs to Azure Monitor because their logic is fundamentally different than Azure Monitor data collection. Migrating management pack logic will typically focus on analyzing the data collected by SCOM and identifying those monitoring scenarios that can be replicated by Azure Monitor. As you customize Azure Monitor to meet your requirements for different applications and components, then you can start to retire different management packs and legacy agents in SCOM.
 
 Management packs in SCOM contain rules and monitors that combine collection of data and the resulting alert into a single end-to-end workflow. Data already collected by SCOM is rarely used for alerting. Azure Monitor separates data collection and alerts into separate processes. Alert rules access data from Azure Monitor Logs and Azure Monitor Metrics that has already been collected from agents. Also, rules and monitors are typically narrowly focused on specific data such as a particular event or performance counter. Data collection rules in Azure Monitor are typically more broad collecting multiple sets of events and performance counters in a single DCR.

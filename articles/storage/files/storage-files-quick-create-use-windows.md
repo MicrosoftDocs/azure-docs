@@ -2,11 +2,10 @@
 title: Tutorial - Create an SMB Azure file share and connect it to a Windows virtual machine using the Azure portal
 description: This tutorial covers how to create an SMB Azure file share using the Azure portal, connect it to a Windows VM, upload a file to the file share, create a snapshot, and restore the share from the snapshot.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: tutorial
-ms.date: 10/24/2022
+ms.date: 10/09/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file shares so I can determine whether I want to subscribe to the service.
 ---
@@ -47,17 +46,22 @@ Next, create an SMB Azure file share.
 1. When the Azure storage account deployment is complete, select **Go to resource**.
 1. Select **File shares** from the storage account pane.
 
-    ![Screenshot, File shares selected.](./media/storage-files-quick-create-use-windows/click-files.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/click-files.png" alt-text="Screenshot showing how to select file shares from the storage account pane.":::
 
 1. Select **+ File Share**.
 
-    ![Screenshot, + file share selected to create a new file share.](./media/storage-files-quick-create-use-windows/create-file-share.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/create-file-share.png" alt-text="Screenshot showing how to create a new file share.":::
 
-1. Name the new file share *qsfileshare*, enter "1" for the **Quota**, leave **Transaction optimized** selected, and select **Create**. The quota can be a maximum of 5 TiB (100 TiB, with large file shares enabled), but you only need 1 GiB for this.
+1. Name the new file share *qsfileshare* and leave **Transaction optimized** selected for **Tier**.
+1. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**.
+
+   :::image type="content" source="media/storage-files-quick-create-use-windows/create-file-share-backup.png" alt-text="Screenshot showing how to enable or disable file share backup." border="true":::
+
+1. Select **Review + create** and then **Create** to create the file share.
 1. Create a new txt file called *qsTestFile* on your local machine.
 1. Select the new file share, then on the file share location, select **Upload**.
 
-    ![Screenshot of file upload.](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/create-file-share-portal5.png" alt-text="Screenshot showing how to upload a file to the new file share.":::
 
 1. Browse to the location where you created your .txt file > select *qsTestFile.txt* > select **Upload**.
 
@@ -69,16 +73,16 @@ So far, you've created an Azure storage account and a file share with one file i
 1. Under **Popular services** select **Virtual machine**.
 1. In the **Basics** tab, under **Project details**, select the resource group you created earlier.
 
-   ![Screenshot of Basic tab, basic VM information filled out.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png" alt-text="Screenshot of the Basic tab with VM information filled out.":::
 
 1. Under **Instance details**, name the VM *qsVM*.
-1. For **Image** select **Windows Server 2019 Datacenter - Gen2**.
+1. For **Security type**, select **Standard**.
+1. For **Image**, select **Windows Server 2019 Datacenter - x64 Gen2**.
 1. Leave the default settings for **Region**, **Availability options**, and **Size**.
 1. Under **Administrator account**, add a **Username** and enter a **Password** for the VM.
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
 1. Select **Review + create**.
 1. Select **Create**. Creating a new VM will take a few minutes to complete.
-
 1. Once your VM deployment is complete, select **Go to resource**.
 
 ### Connect to your VM
@@ -87,20 +91,22 @@ Now that you've created the VM, connect to it so you can mount your file share.
 
 1. Select **Connect** on the virtual machine properties page.
 
-   ![Screenshot of VM tab, +Connect highlighted.](./media/storage-files-quick-create-use-windows/connect-vm.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/connect-vm.png" alt-text="Screenshot of the VM tab, +Connect is highlighted.":::
 
 1. In the **Connect to virtual machine** page, keep the default options to connect by **IP address** over **port number** *3389* and select **Download RDP file**.
 1. Open the downloaded RDP file and select **Connect** when prompted.
 1. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *localhost\username*, where &lt;username&gt; is the VM admin username you created for the virtual machine. Enter the password you created for the virtual machine, and then select **OK**.
 
-   ![Screenshot of VM login prompt, More choices highlighted.](./media/storage-files-quick-create-use-windows/local-host2.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/local-host2.png" alt-text="Screenshot of the VM log in prompt, more choices is highlighted.":::
+
 
 1. You may receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to create the connection.
 
 ### Map the Azure file share to a Windows drive
 
 1. In the Azure portal, navigate to the *qsfileshare* fileshare and select **Connect**.
-1. Select a drive letter then copy the contents of the second box and paste it in **Notepad**.
+1. Select a drive letter and then **Show script**.
+1. Copy the script and paste it in **Notepad**.
 
    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot that shows the contents of the box that you should copy and paste in Notepad." lightbox="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png":::
 
@@ -110,9 +116,10 @@ Now that you've created the VM, connect to it so you can mount your file share.
 
 Now that you've mapped the drive, create a snapshot.
 
-1. In the portal, navigate to your file share, select **Snapshots**, then select **+ Add snapshot**.
+1. In the portal, navigate to your file share, select **Snapshots**, then select **+ Add snapshot** and then **OK**.
 
-   ![Screenshot of storage account snapshots tab.](./media/storage-files-quick-create-use-windows/create-snapshot.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/create-snapshot.png" alt-text="Screenshot of the storage account snapshots tab.":::
+
 
 1. In the VM, open the *qstestfile.txt* and type "this file has been modified". Save and close the file.
 1. Create another snapshot.
@@ -122,7 +129,7 @@ Now that you've mapped the drive, create a snapshot.
 1. On your file share, select **Snapshots**.
 1. On the **Snapshots** tab, select the first snapshot in the list.
 
-   ![Snapshots tab, first snapshot highlighted.](./media/storage-files-quick-create-use-windows/snapshot-list.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/snapshot-list.png" alt-text="Screenshot of the Snapshots tab, the first snapshot is highlighted.":::
 
 1. Open that snapshot, and select *qsTestFile.txt*.
 
@@ -132,45 +139,46 @@ Now that you've mapped the drive, create a snapshot.
 
     :::image type="content" source="media/storage-files-quick-create-use-windows/restore-share-snapshot.png" alt-text="Screenshot of the snapshot tab, qstestfile is selected, restore is highlighted.":::
 
-1. Select **Overwrite original file**.
+1. Select **Overwrite original file** and then select **OK**.
 
-   ![Screenshot of restore pop up, overwrite original file is selected.](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png" alt-text="Screenshot of the Restore pop up, overwrite original file is selected.":::
 
 1. In the VM, open the file. The unmodified version has been restored.
 
 ## Delete a share snapshot
 
+1. Before you can delete a share snapshot, you'll need to remove any locks on the storage account. Navigate to the storage account you created for this tutorial and select **Settings** > **Locks**. If any locks are listed, delete them.
 1. On your file share, select **Snapshots**.
 1. On the **Snapshots** tab, select the last snapshot in the list and select **Delete**.
 
-   ![Screenshot of the snapshots tab, last snapshot selected, delete button highlighted.](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/portal-snapshots-delete.png" alt-text="Screenshot of the Snapshots tab, the last snapshot is selected and the delete button is highlighted.":::
 
 ## Use a share snapshot in Windows
 
-Just like with on-premises VSS snapshots, you can view the snapshots from your mounted Azure file share by using the Previous Versions tab.
+Just like with on-premises VSS snapshots, you can view the snapshots from your mounted Azure file share by using the **Previous versions** tab.
 
 1. In File Explorer, locate the mounted share.
 
-   ![Screenshot of a mounted share in File Explorer.](./media/storage-files-quick-create-use-windows/snapshot-windows-mount.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/snapshot-windows-mount.png" alt-text="Screenshot of a mounted share in File Explorer.":::
 
 1. Select *qsTestFile.txt* and > right-click and select **Properties** from the menu.
 
-   ![Screenshot of the right-click menu for a selected directory.](./media/storage-files-quick-create-use-windows/snapshot-windows-previous-versions.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/snapshot-windows-previous-versions.png" alt-text="Screenshot of the right click menu for a selected directory.":::
 
 1. Select **Previous Versions** to see the list of share snapshots for this directory.
 
 1. Select **Open** to open the snapshot.
 
-   ![Screenshot of previous Versions tab.](./media/storage-files-quick-create-use-windows/snapshot-windows-list.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/snapshot-windows-list.png" alt-text="Screenshot of the Previous versions tab.":::
 
 ## Restore from a previous version
 
 1. Select **Restore**. This copies the contents of the entire directory recursively to the original location at the time the share snapshot was created.
 
-   ![Screenshot of previous versions, restore button in warning message is highlighted.](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+   :::image type="content" source="media/storage-files-quick-create-use-windows/snapshot-windows-restore.png" alt-text="Screenshot of the Previous versions tab, the restore button in warning message is highlighted.":::
     
     > [!NOTE]
-    > If your file has not changed, you will not see a previous version for that file because that file is the same version as the snapshot. This is consistent with how this works on a Windows file server.
+    > If your file hasn't changed, you won't see a previous version for that file because that file is the same version as the snapshot. This is consistent with how this works on a Windows file server.
 
 ## Clean up resources
 

@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: devx-track-azurecli
 zone_pivot_groups: arm-azure-cli-portal
 ---
 
@@ -39,8 +39,6 @@ You can configure ingress for your container app using the Azure CLI, an ARM tem
 
 ::: zone pivot="azure-cli"
 
-# [Azure CLI](#tab/azure-cli)
-
 This `az containerapp ingress enable` command enables ingress for your container app.  You must specify the target port, and you can optionally set the exposed port if your transport type is `tcp`.
 
 ```azurecli
@@ -63,12 +61,10 @@ az containerapp ingress enable \
 | `--target-port` | targetPort | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
 |`--exposed-port` | exposedPort | (TCP ingress only) An port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
 |`--transport` | transport | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2,  `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
-
+ 
 ::: zone-end
 
 ::: zone pivot="azure-portal"
-
-# [Portal](#tab/portal)
 
 Enable ingress for your container app by using the portal.
 
@@ -79,7 +75,6 @@ You can enable ingress when you create your container app, or you can enable ing
 ### Enabling ingress for your container app:
 
 You can configure ingress when you create your container app by using the Azure portal.
-
 
 1. Set **Ingress** to **Enabled**.
 1. Configure the ingress settings for your container app.
@@ -95,8 +90,6 @@ The **Ingress** settings page for your container app also allows you to configur
 ::: zone-end
 
 ::: zone pivot="azure-resource-manager"
-
-# [ARM template](#tab/arm-template)
 
 Enable ingress for your container app by using the `ingress` configuration property.  Set the `external` property to `true`, and set your `transport` and `targetPort` properties.  
 -`external` property can be set to *true* for external or *false* for internal ingress.
@@ -118,15 +111,11 @@ Enable ingress for your container app by using the `ingress` configuration prope
 }
 ```
 
----
-
 ::: zone-end
 
 ::: zone pivot="azure-cli"
 
 ## Disable ingress
-
-# [Azure CLI](#tab/azure-cli)
 
 Disable ingress for your container app by using the `az containerapp ingress` command.
 
@@ -140,8 +129,6 @@ az containerapp ingress disable \
 
 ::: zone pivot="azure-portal"
 
-# [Portal](#tab/portal)
-
 You can disable ingress for your container app  using the portal.
 
 1. Select **Ingress** from the **Settings** menu of the container app page.
@@ -154,11 +141,96 @@ You can disable ingress for your container app  using the portal.
 
 ::: zone pivot="azure-resource-manager"
 
-# [ARM template](#tab/arm-template)
-
 Disable ingress for your container app by omitting the `ingress` configuration property from `properties.configuration` entirely.
 
----
+::: zone-end
+
+## <a name="use-additional-tcp-ports"></a>Use additional TCP ports
+
+You can expose additional TCP ports from your application. To learn more, see the [ingress concept article](ingress-overview.md#additional-tcp-ports).
+
+> [!NOTE]
+> To use this feature, you must have the container apps CLI extension. Run `az extension add -n containerapp` in order to install the latest version of the container apps CLI extension.
+
+
+::: zone pivot="azure-cli"
+
+Adding additional TCP ports can be done through the CLI by referencing a YAML file with your TCP port configurations.
+
+```azurecli
+az containerapp create \
+    --name <app-name> \
+    --resource-group <resource-group> \
+    --yaml <your-yaml-file>
+```
+
+The following is an example YAML file you can reference in the above CLI command. The configuration for the additional TCP ports is under `additionalPortMappings`.
+
+```yml
+location: northcentralus
+name: multiport-example
+properties:
+  configuration:
+    activeRevisionsMode: Single
+    ingress:
+      additionalPortMappings:
+      - exposedPort: 21025
+        external: false
+        targetPort: 1025
+      allowInsecure: false
+      external: true
+      targetPort: 1080
+      traffic:
+      - latestRevision: true
+        weight: 100
+      transport: http
+  managedEnvironmentId: <env id>
+  template:
+    containers:
+    - image: maildev/maildev
+      name: maildev
+      resources:
+        cpu: 0.25
+        memory: 0.5Gi
+    scale:
+      maxReplicas: 1
+      minReplicas: 1
+  workloadProfileName: Consumption
+type: Microsoft.App/containerApps
+```
+
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+This feature is not supported in the Azure portal.
+
+::: zone-end
+
+::: zone pivot="azure-resource-manager"
+
+The following ARM template provides an example of how you can add additional ports to your container apps. Each additional port should be added under `additionalPortMappings` within the `ingress` section for `configuration` within `properties` for the container app. The following is an example:
+
+```json
+{
+  ...
+  "properties": {
+    ...
+    "configuration": {
+      "ingress": {
+        ...
+        "additionalPortMappings": [
+          {
+            "external": false
+            "targetPort": 80
+            "exposedPort": 12000
+          }
+        ]
+      }
+    }
+  ...
+}
+```
 
 ::: zone-end
 

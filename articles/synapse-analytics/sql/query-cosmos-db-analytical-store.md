@@ -1,5 +1,5 @@
 ---
-title: Query Azure Cosmos DB data using a serverless SQL pool in Azure Synapse Link 
+title: Query Azure Cosmos DB data using a serverless SQL pool in Azure Synapse Link
 description: In this article, you'll learn how to query Azure Cosmos DB by using a serverless SQL pool in Azure Synapse Link.
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -8,7 +8,7 @@ ms.subservice: sql
 ms.date: 05/10/2022
 ms.author: jovanpop
 ms.reviewer: sidandrews, wiassaf
-ms.custom: cosmos-db, event-tier1-build-2022, ignite-2022
+ms.custom: cosmos-db
 ---
 
 # Query Azure Cosmos DB data with a serverless SQL pool in Azure Synapse Link
@@ -64,6 +64,9 @@ The SQL connection string has the following format:
 ```
 
 The region is optional. If omitted, the container's primary region is used.
+
+> [!IMPORTANT]
+> There is another optional parameter in connection string called `endpoint`. The `endpoint` param is needed for accounts that do not match the standard `*.documents.azure.com` format. For example, if your Azure CosmosDB account ends with `.documents.azure.us`, make sure that you add `endpoint=<account name>.documents.azure.us` in the connection string.
 
 The Azure Cosmos DB container name is specified without quotation marks in the `OPENROWSET` syntax. If the container name has any special characters, for example, a dash (-), the name should be wrapped within square brackets (`[]`) in the `OPENROWSET` syntax.
 
@@ -241,6 +244,8 @@ FROM OPENROWSET(
 ```
 
 Do not use `OPENROWSET` without explicitly defined schema because it might impact your performance. Make sure that you use the smallest possible sizes for your columns (for example VARCHAR(100) instead of default VARCHAR(8000)). You should use some UTF-8 collation as default database collation or set it as explicit column collation to avoid [UTF-8 conversion issue](../troubleshoot/reading-utf8-text.md). Collation `Latin1_General_100_BIN2_UTF8` provides best performance when you filter data using some string columns.
+
+When you query the view, you may encounter errors or unexpected results. This probably means that the view references columns or objects that were modified or no longer exist. You need to manually adjust the view definition to align with the underlying schema changes. Have in mind that this can happen both when using automatic schema inference in the view and when explicitly specifying the schema.
 
 ## Query nested objects
 
@@ -433,7 +438,7 @@ FROM OPENROWSET(
 GROUP BY geo_id
 ```
 
-In this example, the number of cases is stored either as `int32`, `int64`, or `float64` values. All values must be extracted to calculate the number of cases per country.
+In this example, the number of cases is stored either as `int32`, `int64`, or `float64` values. All values must be extracted to calculate the number of cases per country/region.
 
 ## Troubleshooting
 

@@ -14,7 +14,7 @@ For Azure Lab Services, cost management can be broken down into two distinct are
 
 ## Estimate the lab costs
 
-Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab will cost for the lab. The estimate uses the number [schedules](classroom-labs-concepts.md#schedule), [quota hours](classroom-labs-concepts.md#quota), [extra quota for individual students](how-to-configure-student-usage.md#set-additional-quotas-for-specific-users), and [lab capacity](how-to-manage-vm-pool.md#set-lab-capacity) when calculating the cost estimate.  Changes to the number of quota hours, schedules or lab capacity will affect the cost estimate value.
+Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab will cost for the lab. The estimate uses the number [schedules](classroom-labs-concepts.md#schedule), [quota hours](classroom-labs-concepts.md#quota), [extra quota for individual students](how-to-manage-lab-users.md#set-additional-quotas-for-specific-users), and [lab capacity](how-to-manage-vm-pool.md#change-lab-capacity) when calculating the cost estimate.  Changes to the number of quota hours, schedules or lab capacity will affect the cost estimate value.
 
 If users don't consume their assigned quota hours, you are only charged for the quota hours that lab users consumed.
 
@@ -44,7 +44,7 @@ The cost analysis is for reviewing the previous month's usage to help you determ
 
 The Cost analysis dashboard allows in-depth cost analysis, including the ability to export to different file types on a schedule. For more information, see [Cost Management + Billing overview](../cost-management-billing/cost-management-billing-overview.md).
 
-You can filter by service or resource type. To see only costs associated with Azure Lab Services, set the **service name** filter equal to **azure lab services**.  If filtering on **resource type**, include `Microsoft.Labservices/labaccounts` resource type.  If using the [August 2022 Update](lab-services-whats-new.md), also include the `Microsoft.LabServices/labs` resource type.
+You can filter by service or resource type. To see only costs associated with Azure Lab Services, set the **service name** filter equal to **azure lab services**.  If filtering on **resource type**, include `Microsoft.Labservices/labaccounts` resource type.  If you're using [lab plans](concept-lab-accounts-versus-lab-plans.md), also include the `Microsoft.LabServices/labs` resource type.
 
 ### Understand the entries
 
@@ -54,7 +54,7 @@ In this example, adding the first and second rows (both start with "aaalab / doc
 
 :::image type="content" source="./media/cost-management-guide/cost-analysis.png" alt-text="Screenshot that shows an example cost analysis for a subscription for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis.png":::
 
-If you're using the [August 2022 Update](lab-services-whats-new.md), the entries in are formatted differently.  The **Resource** column will show entries in the form `{lab name}/{number}` for Azure Lab Services. Some tags are added automatically to each entry when using the August 2022 Update.
+If you're using [lab plans](concept-lab-accounts-versus-lab-plans.md), the entries are formatted differently.  The **Resource** column will show entries in the form `{lab name}/{number}` for Azure Lab Services. Some tags are added automatically to each entry when using lab plans.
 
 | Tag name | Value |
 | -------- | ----- |
@@ -62,7 +62,7 @@ If you're using the [August 2022 Update](lab-services-whats-new.md), the entries
 | ms-labname | Name of the lab. |
 | ms-labplanid | Full resource ID of the lab plan used when creating the lab. |
 
-:::image type="content" source="./media/cost-management-guide/cost-analysis-2.png" alt-text="Screenshot that shows an example cost analysis for a subscription using August 2022 Update for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis-2.png":::
+:::image type="content" source="./media/cost-management-guide/cost-analysis-2.png" alt-text="Screenshot that shows an example cost analysis for a subscription using lab plans for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis-2.png":::
 
 To get the cost for the entire lab, don't forget to include external resources.  Azure Compute Gallery related charges are under the `Microsoft.Compute` namespace.  The advanced networking charges are under the `Microsoft.Network` namespace.
 
@@ -75,7 +75,7 @@ Since cost entries are tied to the lab account, some schools use the lab account
 
 In the cost analysis pane, add a filter based on the resource group name for the class. Then, only the costs for that class will be visible. Grouping by resource group allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-export-acm-data.md) feature of the cost analysis to download the costs of each class in separate files.
 
-In the [August 2022 Update](lab-services-whats-new.md):
+With [lab plans](concept-lab-accounts-versus-lab-plans.md):
 
 - Cost entries are tied to a lab VM, *not* the lab plan.  
 - Cost entries get tagged with the name of the lab the VM is tied to. You can filter by the lab name tag to view total cost across VM in that lab.

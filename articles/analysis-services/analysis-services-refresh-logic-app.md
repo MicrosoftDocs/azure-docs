@@ -17,7 +17,7 @@ To learn more about using REST APIs with Azure Analysis Services, see [Asynchron
 
 ## Authentication
 
-All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The examples in this article will use a Service Principal (SPN) to authenticate to Azure Analysis Services. To learn more, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
+All calls must be authenticated with a valid Microsoft Entra ID (OAuth 2) token.  The examples in this article will use a Service Principal (SPN) to authenticate to Azure Analysis Services. To learn more, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Design the logic app
 
@@ -65,7 +65,7 @@ Configure the HTTP activity as follows:
 |**Headers**     |   Content-Type, application/json <br /> <br />  ![Headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Body**     |   To learn more about forming the request body, see [Asynchronous refresh with the REST API - POST /refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Authentication**     |Active Directory OAuth         |
-|**Tenant**     |Fill in your Azure Active Directory TenantId         |
+|**Tenant**     |Fill in your Microsoft Entra TenantId         |
 |**Audience**     |https://*.asazure.windows.net         |
 |**Client ID**     |Enter your Service Principal Name ClientID         |
 |**Credential Type**     |Secret         |

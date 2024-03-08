@@ -7,7 +7,7 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/03/2023
 ms.author: duau
-ms.custom: seodec18, devx-track-azurepowershell, FY23 content-maintenance
+ms.custom: devx-track-azurepowershell, FY23 content-maintenance
 ---
 
 # Configure a site-to-site VPN over ExpressRoute Microsoft peering
@@ -702,4 +702,4 @@ Total number of prefixes 2
 
 * [Configure Network Performance Monitor for ExpressRoute](how-to-npm.md)
 
-* [Add a site-to-site connection to a VNet with an existing VPN gateway connection](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+* [Add a site-to-site connection to a VNet with an existing VPN gateway connection](../vpn-gateway/add-remove-site-to-site-connections.md)

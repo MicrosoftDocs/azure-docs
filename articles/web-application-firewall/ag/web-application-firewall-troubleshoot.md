@@ -4,7 +4,7 @@ description: This article provides troubleshooting information for Web Applicati
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/21/2022
+ms.date: 10/05/2023
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -19,11 +19,11 @@ The OWASP rulesets are designed to be strict out of the box, and to be tuned to 
 
 ## Understanding WAF logs
 
-The purpose of WAF logs is to show every request that is matched or blocked by the WAF. It's a ledger of all evaluated requests that are matched or blocked. If you notice that the WAF blocks a request that it shouldn't (a false positive), you can do a few things. First, narrow down, and find the specific request. Look through the logs to find the specific URI, timestamp, or transaction ID of the request. When you find the  associated log entries, you can begin to act on the false positives.
+The purpose of WAF logs is to show every request that WAF matches or blocks. It's a ledger of all evaluated requests that are matched or blocked. If you notice that the WAF blocks a request that it shouldn't (a false positive), you can do a few things. First, narrow down, and find the specific request. Look through the logs to find the specific URI, timestamp, or transaction ID of the request. When you find the  associated log entries, you can begin to act on the false positives.
 
-For example, say you have a legitimate traffic containing the string *1=1* that you want to pass through your WAF. If you try the request, the WAF blocks traffic that contains your *1=1* string in any parameter or field. This is a string often associated with a SQL injection attack. You can look through the logs and see the timestamp of the request and the rules that blocked/matched.
+For example, say you have a legitimate traffic containing the string `1=1` that you want to pass through your WAF. If you try the request, the WAF blocks traffic that contains your `1=1` string in any parameter or field. This is a string often associated with a SQL injection attack. You can look through the logs and see the timestamp of the request and the rules that blocked/matched.
 
-In the following example, you can see that four rules are triggered during the same request (using the TransactionId field). The first one says it matched because the user used a numeric/IP URL for the request, which increases the anomaly score by three since it's a warning. The next rule that matched is 942130, which is the one you’re looking for. You can see the *1=1* in the `details.data` field. This further increases the anomaly score by three again, as it's also a warning. Generally, every rule that has the action **Matched** increases the anomaly score, and at this point the anomaly score would be six. For more information, see [Anomaly scoring mode](ag-overview.md#anomaly-scoring-mode).
+In the following example, you can see that four rules are triggered during the same request (using the TransactionId field). The first one says it matched because the user used a numeric/IP URL for the request, which increases the anomaly score by three since it's a warning. The next rule that matched is 942130, which is the one you’re looking for. You can see the `1=1` in the `details.data` field. This further increases the anomaly score by three again, as it's also a warning. Generally, every rule that has the action **Matched** increases the anomaly score, and at this point the anomaly score would be six. For more information, see [Anomaly scoring mode](ag-overview.md#anomaly-scoring-mode).
 
 The final two log entries show the request was blocked because the anomaly score was high enough. These entries have a different action than the other two. They show they actually *blocked* the request. These rules are mandatory and can’t be disabled. They shouldn’t be thought of as rules, but more as core infrastructure of the WAF internals.
 
@@ -132,7 +132,7 @@ The final two log entries show the request was blocked because the anomaly score
 
 ## Fixing false positives
 
-With this information, and the knowledge that rule 942130 is the one that matched the *1=1* string, you can do a few things to stop this from blocking your traffic:
+With this information, and the knowledge that rule 942130 is the one that matched the `1=1` string, you can do a few things to stop this from blocking your traffic:
 
 - Use an exclusion list
 
@@ -146,7 +146,7 @@ To make an informed decision about handling a false positive, it’s important t
 
 One benefit of using an exclusion list is that only a specific part of a request is being disabled. However, this means that a specific exclusion is applicable to all traffic passing through your WAF because it's a global setting. For example, this could lead to an issue if *1=1* is a valid request in the body for a certain app, but not for others. Another benefit is that you can choose between body, headers, and cookies to be excluded if a certain condition is met, as opposed to excluding the whole request.
 
-Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there's a token that gets passed when authenticating using Azure Active Directory. This token, *__RequestVerificationToken*, usually get passed in as a Request Cookie. However, in some cases where cookies are disabled, this token is also passed as a request attribute or "arg". If this happens, you need to ensure that *__RequestVerificationToken* is added to the exclusion list as a **Request attribute name** as well.
+Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there's a token that gets passed when authenticating using Microsoft Entra ID. This token, *__RequestVerificationToken*, usually get passed in as a Request Cookie. However, in some cases where cookies are disabled, this token is also passed as a request attribute or `arg`. If this happens, you need to ensure that *__RequestVerificationToken* is added to the exclusion list as a **Request attribute name** as well.
 
 ![Exclusions](../media/web-application-firewall-troubleshoot/exclusion-list.png)
 
@@ -160,7 +160,7 @@ You can create exclusions for WAF in Application Gateway at different scope leve
 
 Another way to get around a false positive is to disable the rule that matched on the input the WAF thought was malicious. Since you've parsed the WAF logs and have narrowed the rule down to 942130, you can disable it in the Azure portal. See [Customize web application firewall rules through the Azure portal](application-gateway-customize-waf-rules-portal.md).
 
-One benefit of disabling a rule is that if you know all traffic that contains a certain condition that will normally be blocked is valid traffic, you can disable that rule for the entire WAF. However, if it’s only valid traffic in a specific use case, you open up a vulnerability by disabling that rule for the entire WAF since it's a global setting.
+One benefit of disabling a rule is that if you know all traffic that contains a certain condition that is normally blocked is valid traffic, you can disable that rule for the entire WAF. However, if it’s only valid traffic in a specific use case, you open up a vulnerability by disabling that rule for the entire WAF since it's a global setting.
 
 If you want to use Azure PowerShell, see [Customize web application firewall rules through PowerShell](application-gateway-customize-waf-rules-powershell.md). If you want to use Azure CLI, see [Customize web application firewall rules through the Azure CLI](application-gateway-customize-waf-rules-cli.md).
 
@@ -291,7 +291,7 @@ With your knowledge of how the CRS rule sets work, and that the CRS ruleset 3.0 
 
 The first entry is logged because the user used a numeric IP address to navigate to the Application Gateway, which can be ignored in this case.
 
-The second one (rule 942130) is the interesting one. You can see in the details that it matched a pattern (1=1), and the field is named **text1**. Follow the same previous steps to exclude the **Request Attribute Name** that **equals** **1=1**.
+The second one (rule 942130) is the interesting one. You can see in the details that it matched a pattern `(1=1)`, and the field is named **text1**. Follow the same previous steps to exclude the **Request Attribute Name** that equals `1=1`.
 
 ## Finding request header names
 
@@ -311,7 +311,7 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
 
 - Disable request body inspection
 
-   By setting **Inspect request body** to off, the request bodies of all traffic won't be evaluated by your WAF. This may be useful if you know that the request bodies aren’t malicious to your application.
+   By setting **Inspect request body** to off, the request bodies of all traffic isn't evaluated by your WAF. This may be useful if you know that the request bodies aren’t malicious to your application.
 
    When you disable this option, only the request body isn't inspected. The headers and cookies remain inspected, unless individual ones are excluded using the exclusion list functionality.
 

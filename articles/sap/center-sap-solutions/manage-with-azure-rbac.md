@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Center for SAP solutions resources with Azure RBAC (preview)
+title: Manage Azure Center for SAP solutions resources with Azure RBAC 
 description: Use Azure role-based access control (Azure RBAC) to manage access to your SAP workloads within Azure Center for SAP solutions.
 author: kalyaninamuduri 
 ms.author: kanamudu 
@@ -10,11 +10,7 @@ ms.date: 02/03/2023
 ms.custom: template-concept 
 ---
 
-# Management of Azure Center for SAP solutions resources with Azure RBAC (preview)
-
-[!INCLUDE [Preview content notice](./includes/preview.md)]
-
-[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
+# Management of Azure Center for SAP solutions resources with Azure RBAC 
 
 [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) enables granular access management for Azure. You can use Azure RBAC to manage Virtual Instance for SAP solutions resources within Azure Center for SAP solutions. For example, you can separate duties within your team and grant only the amount of access that users need to perform their jobs.
 
@@ -204,11 +200,9 @@ To register an existing SAP system and manage that system with Azure Center for 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
 | `Microsoft.Compute/virtualMachines/read` |
-| `Microsoft.Compute/disks/read` |
-| `Microsoft.Compute/disks/write` |
-| `Microsoft.Compute/virtualMachines/write` |
 | `Microsoft.Compute/virtualMachines/extensions/read` |
 | `Microsoft.Compute/virtualMachines/extensions/write` |
+| `Microsoft.Compute/virtualMachines/extensions/delete` |
 | `Microsoft.Compute/virtualMachines/instanceView/read` |
 | `Microsoft.Network/loadBalancers/read` |
 | `Microsoft.Network/loadBalancers/backendAddressPools/read` |
@@ -231,7 +225,6 @@ To view VIS resources, a *user* or *user-assigned managed identity* requires the
 | Built-in roles for *users* | 
 | ------------------------- |
 | **Azure Center for SAP solutions reader** |
-| **Reader** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
@@ -247,6 +240,8 @@ To view VIS resources, a *user* or *user-assigned managed identity* requires the
 | `Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getAvailabilityZoneDetails/action` |
 | `Microsoft.Insights/Metrics/Read` |
 | `Microsoft.ResourceHealth/AvailabilityStatuses/read` |
+| `Microsoft.Advisor/configurations/read` |
+| `Microsoft.Advisor/recommendations/read` |
 
 | Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
@@ -302,6 +297,138 @@ To stop the SAP system from a VIS resource, a *user* and *user-assigned managed 
 | `Microsoft.Compute/virtualMachines/extensions/write` |
 | `Microsoft.Compute/virtualMachines/instanceView/read` |
 
+## Start SAP Central services instance
+To start the SAP Central services instance from a VIS resource, a *user* and *user-assigned managed identity* requires the following role or permissions.
+
+| Built-in roles for *users* | 
+| ------------------------- |
+| **Azure Center for SAP solutions administrator** |
+
+| Minimum permissions for *users* |
+| ------------------------------- |
+| `Microsoft.Workloads/sapVirtualInstances/centralInstances/start/action` |
+
+| Built-in roles for *user-assigned managed identities* |
+| ---------------------------------------------------- |
+| **Azure Center for SAP solutions service role** |
+
+| Minimum permissions for *user-assigned managed identities* |
+| ---------------------------------------------------------- |
+| `Microsoft.Compute/virtualMachines/read` |
+| `Microsoft.Compute/virtualMachines/extensions/read` |
+| `Microsoft.Compute/virtualMachines/extensions/write` |
+| `Microsoft.Compute/virtualMachines/instanceView/read` |
+
+## Stop SAP Central services instance
+To stop the SAP Central services instance from a VIS resource, a *user* and *user-assigned managed identity* requires the following role or permissions.
+
+| Built-in roles for *users* | 
+| ------------------------- |
+| **Azure Center for SAP solutions administrator** |
+
+| Minimum permissions for *users* |
+| ------------------------------- |
+| `Microsoft.Workloads/sapVirtualInstances/centralInstances/stop/action` |
+
+| Built-in roles for *user-assigned managed identities* |
+| ---------------------------------------------------- |
+| **Azure Center for SAP solutions service role** |
+
+| Minimum permissions for *user-assigned managed identities* |
+| ---------------------------------------------------------- |
+| `Microsoft.Compute/virtualMachines/read` |
+| `Microsoft.Compute/virtualMachines/extensions/read` |
+| `Microsoft.Compute/virtualMachines/extensions/write` |
+| `Microsoft.Compute/virtualMachines/instanceView/read` |
+
+## Start SAP Application server instance
+To start the SAP Application server instance from a VIS resource, a *user* and *user-assigned managed identity* requires the following role or permissions.
+
+| Built-in roles for *users* | 
+| ------------------------- |
+| **Azure Center for SAP solutions administrator** |
+
+| Minimum permissions for *users* |
+| ------------------------------- |
+| `Microsoft.Workloads/sapVirtualInstances/applicationInstances/start/action` |
+
+| Built-in roles for *user-assigned managed identities* |
+| ---------------------------------------------------- |
+| **Azure Center for SAP solutions service role** |
+
+| Minimum permissions for *user-assigned managed identities* |
+| ---------------------------------------------------------- |
+| `Microsoft.Compute/virtualMachines/read` |
+| `Microsoft.Compute/virtualMachines/extensions/read` |
+| `Microsoft.Compute/virtualMachines/extensions/write` |
+| `Microsoft.Compute/virtualMachines/instanceView/read` |
+
+## Stop SAP Application server instance
+To stop the SAP Application server instance from a VIS resource, a *user* and *user-assigned managed identity* requires the following role or permissions.
+
+| Built-in roles for *users* | 
+| ------------------------- |
+| **Azure Center for SAP solutions administrator** |
+
+| Minimum permissions for *users* |
+| ------------------------------- |
+| `Microsoft.Workloads/sapVirtualInstances/applicationInstances/stop/action` |
+
+| Built-in roles for *user-assigned managed identities* |
+| ---------------------------------------------------- |
+| **Azure Center for SAP solutions service role** |
+
+| Minimum permissions for *user-assigned managed identities* |
+| ---------------------------------------------------------- |
+| `Microsoft.Compute/virtualMachines/read` |
+| `Microsoft.Compute/virtualMachines/extensions/read` |
+| `Microsoft.Compute/virtualMachines/extensions/write` |
+| `Microsoft.Compute/virtualMachines/instanceView/read` |
+
+## Start SAP HANA Database instance
+To start the SAP HANA Database instance from a VIS resource, a *user* and *user-assigned managed identity* requires the following role or permissions.
+
+| Built-in roles for *users* | 
+| ------------------------- |
+| **Azure Center for SAP solutions administrator** |
+
+| Minimum permissions for *users* |
+| ------------------------------- |
+| `Microsoft.Workloads/sapVirtualInstances/databaseInstances/start/action` |
+
+| Built-in roles for *user-assigned managed identities* |
+| ---------------------------------------------------- |
+| **Azure Center for SAP solutions service role** |
+
+| Minimum permissions for *user-assigned managed identities* |
+| ---------------------------------------------------------- |
+| `Microsoft.Compute/virtualMachines/read` |
+| `Microsoft.Compute/virtualMachines/extensions/read` |
+| `Microsoft.Compute/virtualMachines/extensions/write` |
+| `Microsoft.Compute/virtualMachines/instanceView/read` |
+
+## Stop SAP HANA Database instance
+To stop the SAP HANA Database instance from a VIS resource, a *user* and *user-assigned managed identity* requires the following role or permissions.
+
+| Built-in roles for *users* | 
+| ------------------------- |
+| **Azure Center for SAP solutions administrator** |
+
+| Minimum permissions for *users* |
+| ------------------------------- |
+| `Microsoft.Workloads/sapVirtualInstances/databaseInstances/stop/action` |
+
+| Built-in roles for *user-assigned managed identities* |
+| ---------------------------------------------------- |
+| **Azure Center for SAP solutions service role** |
+
+| Minimum permissions for *user-assigned managed identities* |
+| ---------------------------------------------------------- |
+| `Microsoft.Compute/virtualMachines/read` |
+| `Microsoft.Compute/virtualMachines/extensions/read` |
+| `Microsoft.Compute/virtualMachines/extensions/write` |
+| `Microsoft.Compute/virtualMachines/instanceView/read` |
+
 ## View cost analysis
 
 To view the cost analysis, a *user* requires the following role or permissions.
@@ -333,7 +460,7 @@ To view Quality Insights, a *user* requires the following role or permissions.
 
 | Built-in roles for *users* | 
 | ------------------------- |
-| **Reader** |
+| **Azure Center for SAP solutions reader** |
 
  Minimum permissions for *users* |
 | ------------------------------- |

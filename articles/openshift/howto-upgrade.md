@@ -3,7 +3,7 @@ title: Upgrade an Azure Red Hat OpenShift cluster
 description: Learn how to upgrade an Azure Red Hat OpenShift cluster running OpenShift 4
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 1/10/2021
+ms.date: 6/12/2023
 author: johnmarco
 ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, azure, MUO, managed, upgrade, operator
@@ -25,6 +25,8 @@ This article shows you how to upgrade all components in an OpenShift cluster usi
 * This article assumes you've updated your Azure Red Hat OpenShift pull secret for an existing Azure Red Hat OpenShift 4.x cluster. Including the **cloud.openshift.com** entry from your pull secret enables your cluster to start sending telemetry data to Red Hat.
 
   For more information, see [Add or update your Red Hat pull secret on an Azure Red Hat OpenShift 4 cluster](howto-add-update-pull-secret.md).
+
+* Make sure that the credentials for the service principal used for the cluster are valid/updated before starting the upgrade. For more information, see [Rotate service principal credentials for your Azure Red Hat OpenShift (ARO) Cluster](howto-service-principal-credential-rotation.md).
 
 ## Check for Azure Red Hat OpenShift cluster upgrades
 

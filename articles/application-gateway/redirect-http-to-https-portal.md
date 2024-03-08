@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 05/19/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 
@@ -62,7 +62,7 @@ Export-PfxCertificate `
 
 A virtual network is needed for communication between the resources that you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time that you create the application gateway.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **Create a resource** found on the upper left-hand corner of the Azure portal.
 3. Select **Networking** and then select **Application Gateway** in the Featured list.
 4. Enter these values for the application gateway:
@@ -123,6 +123,9 @@ First, add the listener named *myListener* for port 80.
 7. Ensure the **Target listener** is set to **appGatewayHttpListener**.
 8. For the **Include query string** and **Include path** select *Yes*.
 9. Select **Add**.
+
+> [!NOTE]
+> **appGatewayHttpListener** is the default listener name. For more information, see [Application Gateway listener configuration](configuration-listeners.md).
 
 ## Create a virtual machine scale set
 

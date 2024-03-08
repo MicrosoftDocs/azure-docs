@@ -2,8 +2,8 @@
 title: Create and manage network slices - Azure portal
 titleSuffix: Azure Private 5G Core
 description: With this how-to guide, learn how to create, modify and delete network slices for Azure Private 5G Core through the Azure portal.  
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 09/30/2022

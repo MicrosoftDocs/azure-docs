@@ -1,9 +1,8 @@
 ---
 title: Delete an Azure Migrate project
 description: In this article, learn how you can delete an Azure Migrate project by using the Azure portal.
-author: v-ksreedevan
-ms.author: v-ksreedevan
-ms.manager: abhemraj
+author: MaryMichael-MS
+ms.author: v-michaelar
 ms.topic: how-to
 ms.date: 04/14/2021
 ms.custom: engagement-fy23
@@ -19,7 +18,7 @@ This article describes how to delete an [Azure Migrate](./migrate-services-overv
 Before you delete a project:
 
 - When you delete a project, the project, and discovered machine metadata are deleted.
-- If you've attached a Log Analytics workspace to the Server Assessment tool for dependency analysis, decide whether you want to delete the workspace. 
+- If you attached a Log Analytics workspace to the Server Assessment tool for dependency analysis, decide whether you want to delete the workspace. 
     - The workspace isn't automatically deleted. Delete it manually.
     - Verify what a workspace is used for before you delete it. The same Log Analytics workspace can be used for multiple scenarios.
     - Before you delete the project, you can find a link to the workspace in **Azure Migrate - Servers** > **Azure Migrate - Server Assessment**, under **OMS Workspace**.

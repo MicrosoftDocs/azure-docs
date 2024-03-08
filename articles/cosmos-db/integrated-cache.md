@@ -4,9 +4,8 @@ description: The Azure Cosmos DB integrated cache is an in-memory cache that hel
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 12/27/2023
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
@@ -21,7 +20,7 @@ An integrated cache is automatically configured within the dedicated gateway. Th
 * An item cache for point reads 
 * A query cache for queries
 
-The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. Data is evicted from the cache strictly based on when it was least recently used, regardless of whether it's a point read or query. The cached data within each node depends on the data that was recently [written or read](integrated-cache.md#item-cache) through that specific node. If an item or query is cached on one node, it isn't necessarily cached on the others.
+The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query caches share the same capacity within the integrated cache and the LRU eviction policy applies to both. Data is evicted from the cache strictly based on when it was least recently used, regardless of whether it's a point read or query. The cached data within each node depends on the data that was recently [written or read](integrated-cache.md#item-cache) through that specific node. If an item or query is cached on one node, it isn't necessarily cached on the others.
 
 > [!NOTE]
 > Do you have any feedback about the integrated cache? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team:
@@ -46,6 +45,7 @@ Some workloads shouldn't consider the integrated cache, including:
 
 -	Write-heavy workloads
 -  Rarely repeated point reads or queries
+-  Workloads reading the change feed
 
 ## Item cache
 
@@ -67,12 +67,12 @@ Because each node has an independent cache, it's possible items are invalidated 
 
 ## Query cache
 
-The query cache is used to cache queries. The query cache transforms a query into a key/value lookup where the key is the query text and the value is the query results. The integrated cache doesn't have a query engine, it only stores the key/value lookup for each query. Query results are stored as a set, and the cache doesn't keep track of individual items. A given item can be stored in the query cache multiple times if it appears in the result set of multiple queries. Updates to the underlying items won't be reflected in query results unless the [max integrated cache staleness](#maxintegratedcachestaleness) for the query is reached and the query is served from the backend database.
+The query cache is used to cache queries. The query cache transforms a query into a key/value lookup where the key is the query text and the value is the query results. The integrated cache doesn't have a query engine, it only stores the key/value lookup for each query. Query results are stored as a set, and the cache doesn't keep track of individual items. A given item can be stored in the query cache multiple times if it appears in the result set of multiple queries. Updates to the underlying items aren't reflected in query results unless the [max integrated cache staleness](#maxintegratedcachestaleness) for the query is reached and the query is served from the backend database.
 
 ### Populating the query cache
 
 - If the cache doesn't have a result for that query (cache miss) on the node it was routed through, the query is sent to the backend. After the query is run, the cache will store the results for that query
-- Queries with the same shape but different parameters or request options that affect the results (ex. max item count) will be stored as their own key/value pair
+- Queries with the same shape but different parameters or request options that affect the results (ex. max item count) are stored as their own key/value pair
 
 ### Query cache eviction
 
@@ -107,7 +107,7 @@ The easiest way to configure either session or eventual consistency for all read
 
 The `MaxIntegratedCacheStaleness` is the maximum acceptable staleness for cached point reads and queries, regardless of the selected consistency. The `MaxIntegratedCacheStaleness` is configurable at the request-level. For example, if you set a `MaxIntegratedCacheStaleness` of 2 hours, your request will only return cached data if the data is less than 2 hours old. To increase the likelihood of repeated reads utilizing the integrated cache, you should set the `MaxIntegratedCacheStaleness` as high as your business requirements allow.
 
-It's important to understand that the `MaxIntegratedCacheStaleness`, when configured on a request that ends up populating the cache, doesn't affect how long that request is cached. `MaxIntegratedCacheStaleness` enforces consistency when you try to use cached data. There's no global TTL or cache retention setting, so data is only evicted from the cache if either the integrated cache is full or a new read is run with a lower `MaxIntegratedCacheStaleness` than the age of the current cached entry.
+The `MaxIntegratedCacheStaleness`, when configured on a request that ends up populating the cache, doesn't affect how long that request is cached. `MaxIntegratedCacheStaleness` enforces consistency when you try to read cached data. There's no global TTL or cache retention setting, so data is only evicted from the cache if either the integrated cache is full or a new read is run with a lower `MaxIntegratedCacheStaleness` than the age of the current cached entry.
 
 This is an improvement from how most caches work and allows for the following other customizations:
 
@@ -131,6 +131,12 @@ To better understand the `MaxIntegratedCacheStaleness` parameter, consider the f
 | t = 50 sec | Run Query B with MaxIntegratedCacheStaleness = 20 seconds | Return results from backend database (normal RU charges) and refresh cache |
 
 [Learn to configure the `MaxIntegratedCacheStaleness`.](how-to-configure-integrated-cache.md#adjust-maxintegratedcachestaleness)
+
+## Bypass the integrated cache (Preview)
+
+The integrated cache has a limited storage capacity determined by the dedicated gateway SKU provisioned. By default, all requests from clients configured with the dedicated gateway connection string go through the integrated cache and take up cache space. You can control which items and queries are cached with the bypass integrated cache request option, currently in preview. This request option is useful for item writes or read requests that aren't expected to be frequently repeated. Bypassing the integrated cache for items with infrequent access saves cache space for items with more repeats, increasing RU saving potential and reducing evictions. Requests that bypass the cache are still routed through the dedicated gateway. These requests are served from the backend and cost RUs.
+
+[Learn to bypass the integrated cache.](how-to-configure-integrated-cache.md#bypass-the-integrated-cache-preview)
 
 ## Metrics
 
@@ -160,11 +166,11 @@ The below examples show how to debug some common scenarios:
 
 ### I can’t tell if my application is using the dedicated gateway
 
-Check the `DedicatedGatewayRequests`. This metric includes all requests that use the dedicated gateway, regardless of whether they hit the integrated cache. If your application uses the standard gateway or direct mode with your original connection string, you won't see an error message, but the `DedicatedGatewayRequests` will be zero. If your application uses direct mode with your dedicated gateway connection string, you may still see a small number of `DedicatedGatewayRequests`.
+Check the `DedicatedGatewayRequests`. This metric includes all requests that use the dedicated gateway, regardless of whether they hit the integrated cache. If your application uses the standard gateway or direct mode with your original connection string, you will not see an error message, but the `DedicatedGatewayRequests` will be zero. If your application uses direct mode with your dedicated gateway connection string, you may still see a few `DedicatedGatewayRequests`.
 
 ### I can’t tell if my requests are hitting the integrated cache
 
-Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If both of these values are zero, then requests aren't hitting the integrated cache. Check that you're using the dedicated gateway connection string, [connecting with gateway mode](nosql/sdk-connection-modes.md), and [have set session or eventual consistency](consistency-levels.md#configure-the-default-consistency-level).
+Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If both of these values are zero, then requests aren't hitting the integrated cache. Check that you're using the dedicated gateway connection string, [connecting with gateway mode](nosql/sdk-connection-modes.md), and [are using session or eventual consistency](consistency-levels.md#configure-the-default-consistency-level).
 
 ### I want to understand if my dedicated gateway is too small
 

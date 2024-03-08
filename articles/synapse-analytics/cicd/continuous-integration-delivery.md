@@ -5,24 +5,10 @@ author: liudan66
 ms.service: synapse-analytics
 ms.subservice: cicd
 ms.topic: conceptual
-ms.date: 10/08/2021
+ms.date: 01/25/2024
 ms.author: liud 
 ms.reviewer: pimorano
-ms.search.keywords:  
-    - CICD
-    - Synapse
-    - source control
-ms.search.form: 
-    - CICD
-    - source control 1
-ms.search.features:  
-    - CICD
-    - source control 2
-searchScope: 
-    - Deployment   
-    - CICD
-    - Azure  
-tags: CICD, source control 1
+
 ---
 
 # Continuous integration and delivery for an Azure Synapse Analytics workspace
@@ -42,9 +28,9 @@ To automate the deployment of an Azure Synapse workspace to multiple environment
 - Prepare an Azure DevOps project for running the release pipeline.
 - [Grant any users who will check in code Basic access at the organization level](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), so they can see the repository.
 - Grant Owner permission to the Azure Synapse repository.
-- Make sure that you've created a self-hosted Azure DevOps VM agent or use an Azure DevOps hosted agent.
+- Make sure that you've created a self-hosted Azure DevOps VM agent or use an Azure DevOps hosted agent. 
 - Grant permissions to [create an Azure Resource Manager service connection for the resource group](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
-- An Azure Active Directory (Azure AD) administrator must [install the Azure DevOps Synapse Workspace Deployment Agent extension in the Azure DevOps organization](/azure/devops/marketplace/install-extension).
+- A Microsoft Entra administrator must [install the Azure DevOps Synapse Workspace Deployment Agent extension in the Azure DevOps organization](/azure/devops/marketplace/install-extension).
 - Create or nominate an existing service account for the pipeline to run as. You can use a personal access token instead of a service account, but your pipelines won't work after the user account is deleted.
 
 ### GitHub
@@ -52,11 +38,13 @@ To automate the deployment of an Azure Synapse workspace to multiple environment
 - Create a GitHub repository that contains the Azure Synapse workspace artifacts and the workspace template. 
 - Make sure that you've created a self-hosted runner or use a GitHub-hosted runner.
 
-### Azure Active Directory
+<a name='azure-active-directory'></a>
 
-- If you're using a service principal, in Azure AD, create a service principal to use for deployment. 
+### Microsoft Entra ID
+
+- If you're using a service principal, in Microsoft Entra ID, create a service principal to use for deployment. 
 - If you're using a managed identity, enable the system-assigned managed identity on your VM in Azure as the agent or runner, and then add it to Azure Synapse Studio as Synapse admin.
-- Use the Azure AD admin role to complete these actions.
+- Use the Microsoft Entra admin role to complete these actions.
 
 ### Azure Synapse Analytics
 
@@ -68,14 +56,13 @@ To automate the deployment of an Azure Synapse workspace to multiple environment
 - Set up a blank workspace to deploy to:
 
   1. Create a new Azure Synapse workspace.
-  1. Grant the VM agent and the service principal Contributor permission to the resource group in which the new workspace is hosted.
-  1. In the workspace, don't configure the Git repository connection.
-  1. In the Azure portal, find the new Azure Synapse workspace, and then grant Owner permission to yourself and to the user that will run the Azure DevOps pipeline Azure Synapse workspace. 
-  1. Add the Azure DevOps VM agent and the service principal to the Contributor role for the workspace. (The role should have been inherited, but verify that it is.)
-  1. In the Azure Synapse workspace, go to **Studio** > **Manage** > **Access Control**. Add the Azure DevOps VM agent and the service principal to the workspace admin group.
-  1. Open the storage account that's used for the workspace. On the **Identity and access management** pane, add the VM agent and the service principal to the Storage Blob Data Contributor role.
-  1. Create a key vault in the support subscription, and ensure that both the existing workspace and the new workspace have at least GET and LIST permissions to the vault.
-  1. For the automated deployment to work, ensure that any connection strings that are specified in your linked services are in the key vault.
+  2. Grant the service principal the following permissions to the new Synapse workspace:
+     - Microsoft.Synapse/workspaces/integrationruntimes/write
+     - Microsoft.Synapse/workspaces/operationResults/read
+     - Microsoft.Synapse/workspaces/read
+  3. In the workspace, don't configure the Git repository connection.
+  4. In the Azure Synapse workspace, go to **Studio** > **Manage** > **Access Control**. 4.	In the Azure Synapse workspace, go to Studio > Manage > Access Control. Assign the “Synapse Artifact Publisher” to the service principal. If the deployment pipeline will need to deploy managed private endpoints, then assign the “Synapse Administrator” instead.
+  5. When you use linked services whose connection information is stored in Azure Key Vault, it is recommended to keep separate key vaults for different environments. You can also configure separate permission levels for each key vault. For example, you might not want your team members to have permissions to production secrets. If you follow this approach, we recommend that you to keep the same secret names across all stages. If you keep the same secret names, you don't need to parameterize each connection string across CI/CD environments because the only thing that changes is the key vault name, which is a separate parameter.
 
 ### Other prerequisites
  
@@ -197,9 +184,41 @@ The deployment task supports 3 types of operations,  validate only, deploy and v
           TargetWorkspaceName: '<target workspace name>'    
 ``` 
 
-**Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It is same as the version 1.x. 
-
 **Validate and deploy** can be used to directly deploy the workspace from non-publish branch with the artifact root folder. 
+
+   > [!NOTE]
+   > The deployment task needs to download dependency JS files from this endpoint **web.azuresynapse.net** when the operation type is selected as **Validate** or **Validate and deploy**. Please ensure the endpoint **web.azuresynapse.net** is allowed if network policies are enabled on the VM.
+
+The validate and deploy operation works in both classic and YAML pipeline. The sample YAML file is as below: 
+
+ ```yaml
+    pool:
+      vmImage: ubuntu-latest
+
+    resources:
+      repositories:
+      - repository: <repository name>
+        type: git
+        name: <name>
+        ref: <user/collaboration branch>
+
+    steps:
+      - checkout: <name>
+      - task: Synapse workspace deployment@2
+        continueOnError: true    
+        inputs:
+          operation: 'validateDeploy'
+          ArtifactsFolder: '$(System.DefaultWorkingDirectory)/ArtifactFolder'
+          TargetWorkspaceName: 'target workspace name'
+          azureSubscription: 'target Azure resource manager connection name'
+          ResourceGroupName: 'target workspace resource group'
+          DeleteArtifactsNotInTemplate: true
+          OverrideArmParameters: >
+            -key1 value1
+            -key2 value2
+``` 
+
+**Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It is same as the version 1.x. 
 
 You can choose the operation types based on the use case. Following part is an example of the deploy.
 
@@ -487,6 +506,9 @@ Here's an explanation of how the preceding template is constructed, by resource 
   - The `maxConcurrency` property has a default value and is the `string` type. The default parameter name of the `maxConcurrency` property is  `<entityName>_properties_typeProperties_maxConcurrency`.
   - The `recurrence` property also is parameterized. All properties under the `recurrence` property are set to be parameterized as strings, with default values and parameter names. An exception is the `interval` property, which is parameterized as the `int` type. The parameter name is suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly, the `freq` property is a string and is parameterized as a string. However, the `freq` property is parameterized without a default value. The name is shortened and suffixed, such as `<entityName>_freq`.
 
+  > [!NOTE]
+  > A maximum of 50 triggers is supported currently.
+
 **`linkedServices`**
 
 - Linked services are unique. Because linked services and datasets have a wide range of types, you can provide type-specific customization. In the preceding example, for all linked services of the `AzureDataLakeStore` type, a specific template is applied. For all others (identified through the use of the `*` character), a different template is applied.
@@ -547,7 +569,3 @@ The artifact in synapse can be referenced by another one. If you have parameteri
 ####  10. Failed to fetch the deployment status in notebook deployment 
 
 The notebook you are trying to deploy is attached to a spark pool in the workspace template file, while in the deployment the pool does not exist in the target workspace. If you don't parameterize the pool name, please make sure that having the same name for the pools between environments. 
-
-
-
-

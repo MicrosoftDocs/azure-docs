@@ -8,7 +8,6 @@ metadata:
   description: Azure Managed Applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
   ms.service: managed-applications
   ms.topic: landing-page
-  ms.collection: na
   author: davidsmatlak
   ms.author: davidsmatlak
   ms.date: 04/24/2023
@@ -39,8 +38,12 @@ landingContent:
             url: publish-service-catalog-app.md
           - text: Publish definition with bring your own storage
             url: publish-service-catalog-bring-your-own-storage.md
+          - text: Publish managed app definition with Bicep
+            url: publish-bicep-definition.md
           - text: Deploy service catalog managed app
             url: deploy-service-catalog-quickstart.md
+          - text: Deploy managed app definition with Bicep
+            url: deploy-bicep-definition.md
           - text: Deploy Azure Marketplace managed app
             url: deploy-marketplace-app-quickstart.md
       - linkListType: tutorial

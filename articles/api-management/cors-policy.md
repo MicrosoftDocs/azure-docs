@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 11/18/2022
+ms.date: 01/02/2024
 ms.author: danlep
 ---
 
@@ -59,7 +59,7 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|origin|The value can be either `*` to allow all origins, or a URI that specifies a single origin. The URI must include a scheme, host, and port.|Yes|If the port is omitted in a URI, port 80 is used for HTTP and port 443 is used for HTTPS.|
+|origin|The value can be either `*` to allow all origins, or a URI that specifies a single origin. The URI must include a scheme, host, and port. Do not include quotation marks.|Yes|If the port is omitted in a URI, port 80 is used for HTTP and port 443 is used for HTTPS.|
 
 
 ### allowed-methods attributes

@@ -2,15 +2,15 @@
 title: Configure xID with Azure Active Directory B2C for passwordless authentication
 titleSuffix: Azure AD B2C
 description: Configure Azure Active Directory B2C with xID for passwordless authentication
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: As an Azure AD B2C administrator, I want to configure xID as an identity provider, so users can sign in using xID and authenticate with their digital identity on their device.
 ---
 
 # Configure xID with Azure Active Directory B2C for passwordless authentication
@@ -19,7 +19,8 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) a
 
 ## Prerequisites
 
-* An Azure AD subscription
+* An Azure subscription
+
   * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md)
@@ -122,10 +123,10 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
       <Domain>X-ID</Domain>
       <DisplayName>X-ID</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="X-ID-Oauth2">
+        <TechnicalProfile Id="X-ID-OIDC">
           <DisplayName>X-ID</DisplayName>
           <Description>Login with your X-ID account</Description>
-          <Protocol Name="OAuth2" />
+          <Protocol Name="OpenIdConnect" />
           <Metadata>
             <Item Key="METADATA">https://oidc-uat.x-id.io/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the X-ID Application ID -->
@@ -182,8 +183,8 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
         </InputClaims>
         <OutputClaims>
           <!-- Claims parsed from your REST API -->
-          <OutputClaim ClaimTypeReferenceId="last_name" PartnerClaimType="givenName" />
-          <OutputClaim ClaimTypeReferenceId="first_name" PartnerClaimType="surname" />
+          <OutputClaim ClaimTypeReferenceId="last_name" />
+          <OutputClaim ClaimTypeReferenceId="first_name" />
           <OutputClaim ClaimTypeReferenceId="previous_name" />
           <OutputClaim ClaimTypeReferenceId="year" />
           <OutputClaim ClaimTypeReferenceId="month" />
@@ -227,7 +228,7 @@ Add the new identity provider to the user journey.
 3. Set the value of **TargetClaimsExchangeId** to a friendly name.
 4. Add a **ClaimsExchange** element. 
 5. Set the **ID** to the value of the target claims exchange ID. This change links the xID button to `X-IDExchange` action. 
-6. Update the **TechnicalProfileReferenceId** value to the technical profile ID you created (`X-ID-Oauth2`).
+6. Update the **TechnicalProfileReferenceId** value to the technical profile ID you created (`X-ID-OIDC`).
 7. Add an Orchestration step to call xID UserInfo endpoint to return claims about the authenticated user `X-ID-Userdata`.
 
 The following XML demonstrates the user journey orchestration with xID identity provider.
@@ -245,7 +246,7 @@ The following XML demonstrates the user journey orchestration with xID identity 
 
         <OrchestrationStep Order="2" Type="ClaimsExchange">
           <ClaimsExchanges>
-            <ClaimsExchange Id="X-IDExchange" TechnicalProfileReferenceId="X-ID-Oauth2" />
+            <ClaimsExchange Id="X-IDExchange" TechnicalProfileReferenceId="X-ID-OIDC" />
           </ClaimsExchanges>
         </OrchestrationStep>
 

@@ -1,11 +1,12 @@
 ---
 title: Add a heat map layer to Android maps | Microsoft Azure Maps
 description: Learn how to create a heat map. See how to use the Azure MapsAndroid SDK to add a heat map layer to a map. Find out how to customize heat map layers.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
@@ -31,13 +32,13 @@ You can use heat maps in many different scenarios, including:
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document. Code blocks in this article can be inserted into the maps `onReady` event handler.
+Be sure to complete the steps in the [Quickstart: Create an Android app] document. Code blocks in this article can be inserted into the maps `onReady` event handler.
 
 ## Add a heat map layer
 
 To render a data source of points as a heat map, pass your data source into an instance of the `HeatMapLayer` class, and add it to the map.
 
-The following code sample loads a GeoJSON feed of earthquakes from the past week and renders them as a heat map. Each data point is rendered with a radius of 10 pixels at all zoom levels. To ensure a better user experience, the heat map is below the label layer so the labels stay clearly visible. The data in this sample is from the [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/). This sample loads GeoJSON data from the web using the data import utility code block provided in the [Create a data source](create-data-source-android-sdk.md) document.
+The following code sample loads a GeoJSON feed of earthquakes from the past week and renders them as a heat map. Each data point is rendered with a radius of 10 pixels at all zoom levels. To ensure a better user experience, the heat map is below the label layer so the labels stay clearly visible. The data in this sample is from the [USGS Earthquake Hazards Program]. This sample loads GeoJSON data from the web using the data import utility code block provided in the [Create a data source] document.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -117,7 +118,7 @@ The previous example customized the heat map by setting the radius and opacity o
 - `sourceLayer`: If the data source connected to the layer is a vector tile source, a source layer within the vector tiles must be specified.
 - `visible`: Hides or shows the layer.
 
-This following is an example of a heat map where a liner interpolation expression is used to create a smooth color gradient. The `mag` property defined in the data is used with an exponential interpolation to set the weight or relevance of each data point.
+The following code snippet is an example of a heat map where a liner interpolation expression is used to create a smooth color gradient. The `mag` property defined in the data is used with an exponential interpolation to set the weight or relevance of each data point.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -253,7 +254,7 @@ The following video shows a map running the above code, which scales the radius 
 
 ![Animation showing a map zooming with a heat map layer showing a consistent geospatial size](media/map-add-heat-map-layer-android/android-consistent-zoomable-heat-map-layer.gif)
 
-The `zoom` expression can only be used in `step` and `interpolate` expressions. The following expression can be used to approximate a radius in meters. This expression uses a placeholder `radiusMeters` which you should replace with your desired radius. This expression calculates the approximate pixel radius for a zoom level at the equator for zoom levels 0 and 24, and uses an `exponential interpolation` expression to scale between these values the same way the tiling system in the map works.
+The `zoom` expression can only be used in `step` and `interpolate` expressions. The following expression can be used to approximate a radius in meters. This expression uses a placeholder `radiusMeters`, which you should replace with your desired radius. This expression calculates the approximate pixel radius for a zoom level at the equator for zoom levels 0 and 24, and uses an `exponential interpolation` expression to scale between these values the same way the tiling system in the map works.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -308,7 +309,12 @@ interpolate(
 For more code examples to add to your maps, see the following articles:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-android-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-android-sdk.md)
+> [Use data-driven style expressions]
+
+[Quickstart: Create an Android app]: quick-android-map.md
+[USGS Earthquake Hazards Program]: https://earthquake.usgs.gov
+[Create a data source]: create-data-source-android-sdk.md
+[Use data-driven style expressions]: data-driven-style-expressions-android-sdk.md

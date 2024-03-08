@@ -63,7 +63,7 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
 8. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
 
     1. Start the template VM.
-    1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or a GUI remote desktop.  Additional setup is required to use a GUI remote desktop. For more information, see [Enable graphical remote desktop for Linux virtual machines in Azure Lab Services](how-to-enable-remote-desktop-linux.md).
+    1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using an SSH terminal or a graphical remote desktop.  Additional setup is required to use a graphical remote desktop. For more information, see [Enable graphical remote desktop for Linux virtual machines in Azure Lab Services](how-to-enable-remote-desktop-linux.md).
     1. Select **Reset password** to reset the password for the VM. The VM must be running before the reset password button is available.
     1. Install and configure software on your template VM.
     1. **Stop** the VM.  
@@ -143,5 +143,5 @@ To switch to a different lab account, select the drop-down next to the lab accou
 See the following articles:
 
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
-- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- [As a lab owner, configure and control usage of a lab](how-to-manage-lab-users.md)
 - [As a lab user, access labs](how-to-use-lab.md)

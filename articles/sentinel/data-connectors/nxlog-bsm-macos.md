@@ -3,14 +3,14 @@ title: "NXLog BSM macOS connector for Microsoft Sentinel"
 description: "Learn how to install the connector NXLog BSM macOS to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 06/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # NXLog BSM macOS connector for Microsoft Sentinel
 
-The NXLog [BSM](https://nxlog.co/documentation/nxlog-user-guide/im_bsm.html) macOS data connector uses Sun's Basic Security Module (BSM) Auditing API to read events directly from the kernel for capturing audit events on the macOS platform. This REST API connector can efficiently export macOS audit events to Azure Sentinel in real-time.
+The [NXLog BSM](https://docs.nxlog.co/refman/current/im/bsm.html) macOS data connector uses Sun's Basic Security Module (BSM) Auditing API to read events directly from the kernel for capturing audit events on the macOS platform. This REST API connector can efficiently export macOS audit events to Microsoft Sentinel in real-time.
 
 ## Connector attributes
 
@@ -18,7 +18,8 @@ The NXLog [BSM](https://nxlog.co/documentation/nxlog-user-guide/im_bsm.html) mac
 | --- | --- |
 | **Log Analytics table(s)** | BSMmacOS_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/community-forum/t/819-support-tickets) |
+| **Supported by** | [NXLog](https://nxlog.co/support-tickets/add/support-ticket) |
+
 
 ## Query samples
 
@@ -70,7 +71,7 @@ BSMmacOS_CL
 ## Vendor installation instructions
 
 
-Follow the step-by-step instructions in the *NXLog User Guide* Integration Topic [Microsoft Azure Sentinel](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) to configure this connector.
+Follow the step-by-step instructions in the *NXLog User Guide* Integration Topic [Microsoft Sentinel](https://docs.nxlog.co/userguide/integrate/microsoft-azure-sentinel.html) to configure this connector.
 
 
 

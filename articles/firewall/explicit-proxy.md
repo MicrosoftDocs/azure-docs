@@ -23,24 +23,29 @@ With the Explicit proxy mode (supported for HTTP/S), you can define proxy settin
 
 ## Configuration
 
-Once the feature is enabled, the following screen shows on portal:
+- Once the feature is enabled, the following screen shows on the portal:
 
-:::image type="content" source="media/explicit-proxy/enable-explicit-proxy.png" alt-text="Screenshot showing the Enable explicit proxy setting.":::
+   :::image type="content" source="media/explicit-proxy/enable-explicit-proxy.png" alt-text="Screenshot showing the Enable explicit proxy setting.":::
 
-> [!NOTE]
-> The HTTP and HTTPS ports can't be the same.
+   > [!NOTE]
+   > The HTTP and HTTPS ports can't be the same.
 
-Next, to allow the traffic to pass through the Firewall, create an application rule in the Firewall policy to allow this traffic.
+- Next, to allow the traffic to pass through the Firewall, create an **application** rule in the Firewall policy to allow this traffic.
+   > [!IMPORTANT]
+   > You must use an application rule. A network rule won't work.
 
-To use the Proxy autoconfiguration (PAC) file, select **Enable proxy auto-configuration**.
 
-:::image type="content" source="media/explicit-proxy/proxy-auto-configuration.png" alt-text="Screenshot showing the proxy autoconfiguration file setting.":::
+- To use the Proxy autoconfiguration (PAC) file, select **Enable proxy auto-configuration**.
 
-First, upload the PAC file to a storage container that you create. Then, on the **Enable explicit proxy** page, configure the shared access signature (SAS) URL. Configure the port where the PAC is served from, and then select **Apply** at the bottom of the page.
+   :::image type="content" source="media/explicit-proxy/proxy-auto-configuration.png" alt-text="Screenshot showing the proxy autoconfiguration file setting.":::
 
-The SAS URL must have READ permissions so the firewall can upload the file. If changes are made to the PAC file, a new SAS URL needs to be generated and configured on the firewall **Enable explicit proxy** page.
+- First, upload the PAC file to a storage container that you create. Then, on the **Enable explicit proxy** page, configure the shared access signature (SAS) URL. Configure the port where the PAC is served from, and then select **Apply** at the bottom of the page.
 
-:::image type="content" source="media/explicit-proxy/shared-access-signature.png" alt-text="Screenshot showing generate shared access signature.":::
+   The SAS URL must have READ permissions so the firewall can download the file. If changes are made to the PAC file, a new SAS URL needs to be generated and configured on the firewall **Enable explicit proxy** page.
+
+   :::image type="content" source="media/explicit-proxy/shared-access-signature.png" alt-text="Screenshot showing generate shared access signature.":::
+
 ## Next steps
 
-To learn how to deploy an Azure Firewall, see [Deploy and configure Azure Firewall using Azure PowerShell](deploy-ps.md).
+- To learn more about Explicit proxy, see [Demystifying Explicit proxy: Enhancing Security with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/demystifying-explicit-proxy-enhancing-security-with-azure/ba-p/3873445).
+- To learn how to deploy an Azure Firewall, see [Deploy and configure Azure Firewall using Azure PowerShell](deploy-ps.md).

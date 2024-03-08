@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Migrate from CouchBase to Azure Cosmos DB for NoSQL
@@ -34,14 +34,14 @@ The following are the key features that work differently in Azure Cosmos DB when
 
 * In Azure Cosmos DB, it is not required for the top-level hierarchy to denote the collection because the collection name already exists. This feature makes the JSON structure much simpler. The following is an example that shows differences in the data model between Couchbase and Azure Cosmos DB:
 
-   **Couchbase**: Document ID =  "99FF4444"
+    **Couchbase**: Document ID =  "99FF4444"
 
     ```json
     {
       "TravelDocument":
       {
-       "Country":"India",
-      "Validity" : "2022-09-01",
+        "Country":"India",
+        "Validity" : "2022-09-01",
         "Person":
         {
           "Name": "Manish",
@@ -62,9 +62,9 @@ The following are the key features that work differently in Azure Cosmos DB when
         ]
       }
     }
-   ```
+    ```
 
-   **Azure Cosmos DB**: Refer "ID" within the document as shown below
+    **Azure Cosmos DB**: Refer "ID" within the document as shown below
 
     ```json
     {
@@ -91,9 +91,8 @@ The following are the key features that work differently in Azure Cosmos DB when
           }
         ]
       }
-    
     ```
-         
+
 ## Java SDK support
 
 Azure Cosmos DB has following SDKs to support different Java frameworks:

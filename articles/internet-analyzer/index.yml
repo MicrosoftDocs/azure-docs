@@ -6,10 +6,9 @@ summary: Internet Analyzer is a client-side measurement platform that enables yo
 metadata:
   title: Azure Internet Analyzer documentation (Preview)
   description: Internet Analyzer is a client-side measurement platform that enables you to test how networking infrastructure changes will impact your customers’ performance. Whether you’re migrating from on-premises to Azure or evaluating a new Azure service, Internet Analyzer allows you to learn from your users’ data and Microsoft’s rich analytics to better understand and optimize your network architecture with Azure—before you migrate.
-  services: internet-analyzer
   ms.service: internet-analyzer
   ms.topic: landing-page
-  author: megan-beatty #github alias
+  author: megan-beatty #GitHub alias
   ms.author: mebeatty
   ms.date: 10/16/2019
 

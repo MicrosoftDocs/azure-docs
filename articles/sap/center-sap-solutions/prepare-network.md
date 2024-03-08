@@ -1,18 +1,18 @@
 ---
-title: Prepare network for infrastructure deployment (preview)
+title: Prepare network for infrastructure deployment 
 description: Learn how to prepare a network for use with an S/4HANA infrastructure deployment with Azure Center for SAP solutions through the Azure portal.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 10/19/2022
-author: lauradolan
-ms.author: ladolan
+author: sagarkeswani
+ms.author: sagarkeswani
 #Customer intent: As a developer, I want to create a virtual network so that I can deploy S/4HANA infrastructure in Azure Center for SAP solutions.
 ---
 
-# Prepare network for infrastructure deployment (preview)
+# Prepare network for infrastructure deployment 
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
+
 
 In this how-to guide, you'll learn how to prepare a virtual network to deploy S/4 HANA infrastructure using *Azure Center for SAP solutions*. This article provides general guidance about creating a virtual network. Your individual environment and use case will determine how you need to configure your own network settings for use with a *Virtual Instance for SAP (VIS)* resource.
 
@@ -52,7 +52,7 @@ If internet connectivity isn't possible, allowlist the IP addresses for the foll
 - [SUSE or Red Hat endpoints](#allowlist-suse-or-red-hat-endpoints)
 - [Azure Storage accounts](#allowlist-storage-accounts)
 - [Allowlist Azure Key Vault](#allowlist-key-vault)
-- [Allowlist Azure Active Directory (Azure AD)](#allowlist-azure-ad)
+- [Allowlist Microsoft Entra ID](#allowlist-azure-ad)
 - [Allowlist Azure Resource Manager](#allowlist-azure-resource-manager)
 
 Then, make sure all resources within the virtual network can connect to each other. For example, [configure a network security group](../../virtual-network/manage-network-security-group.md#work-with-network-security-groups) to allow resources within the virtual network to communicate by listening on all ports.
@@ -97,9 +97,11 @@ Azure Center for SAP solutions creates a key vault to store and access the secre
 - Configure a [**AzureKeyVault** service tag](../../virtual-network/service-tags-overview.md#available-service-tags)
 - Configure an [**AzureKeyVault** service tag](../../virtual-network/service-tags-overview.md#available-service-tags) with regional scope. Make sure to configure the tag in the region where you're deploying the infrastructure.
 
-### Allowlist Azure AD
+<a name='allowlist-azure-ad'></a>
 
-Azure Center for SAP solutions uses Azure AD to get the authentication token for obtaining secrets from a managed key vault during SAP installation. To allow access to Azure AD, you can:
+### Allowlist Microsoft Entra ID
+
+Azure Center for SAP solutions uses Microsoft Entra ID to get the authentication token for obtaining secrets from a managed key vault during SAP installation. To allow access to Microsoft Entra ID, you can:
 
 - Allow internet connectivity
 - Configure an [**AzureActiveDirectory** service tag](../../virtual-network/service-tags-overview.md#available-service-tags).
@@ -177,7 +179,7 @@ The configuration process for an example network might include:
     | -------- | ---- | -------- | ------ | ----------- | ------ |
     | 110 | Any | Any | Any | SUSE or Red Hat endpoints | Allow |
     | 115 | Any | Any | Any | Azure Resource Manager  | Allow |
-    | 116 | Any | Any | Any | Azure AD | Allow |
+    | 116 | Any | Any | Any | Microsoft Entra ID | Allow |
     | 117 | Any | Any | Any | Storage accounts | Allow |
     | 118 | 8080 | Any | Any | Key vault | Allow |
     | 119 | Any | Any | Any | virtual network | Allow |

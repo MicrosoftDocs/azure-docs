@@ -1,403 +1,154 @@
 ---
-title: "Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data"
-description: Use a Java code sample from GitHub to learn how to build an app to connect to and query Azure Cosmos DB for NoSQL.
+title: Quickstart - Java client library
+titleSuffix: Azure Cosmos DB for NoSQL
+description: Deploy a Java Spring Web application that uses the client library to interact with Azure Cosmos DB for NoSQL data in this quickstart.
 author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: java
-ms.topic: quickstart
-ms.date: 03/16/2023
-ms.author: sidandrews
-ms.reviewer: mjbrown
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022, passwordless-java, devx-track-azurecli
+ms.custom: devx-track-extended-java, devx-track-extended-azdevcli
+ms.topic: quickstart-sdk
+ms.date: 01/08/2024
+zone_pivot_groups: azure-cosmos-db-quickstart-env
+# CustomerIntent: As a developer, I want to learn the basics of the Java library so that I can build applications with Azure Cosmos DB for NoSQL.
 ---
 
-# Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data
+# Quickstart: Azure Cosmos DB for NoSQL library for Java
+
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-> [!div class="op_single_selector"]
->
-> * [.NET](quickstart-dotnet.md)
-> * [Node.js](quickstart-nodejs.md)
-> * [Java](quickstart-java.md)
-> * [Spring Data](quickstart-java-spring-data.md)
-> * [Python](quickstart-python.md)
-> * [Spark v3](quickstart-spark.md)
-> * [Go](quickstart-go.md)
->
+[!INCLUDE[Developer Quickstart selector](includes/quickstart/dev-selector.md)]
 
-This quickstart guide explains how to build a Java app to manage an Azure Cosmos DB for NoSQL account. You create the Java app using the SQL Java SDK, and add resources to your Azure Cosmos DB account by using the Java application. 
+Get started with the Azure Cosmos DB for NoSQL client library for Java to query data in your containers and perform common operations on individual items. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
-First, create an Azure Cosmos DB for NoSQL account using the Azure portal. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. You can [try Azure Cosmos DB account](https://aka.ms/trycosmosdb) for free without a credit card or an Azure subscription. 
-
-> [!IMPORTANT]  
-> This quickstart is for Azure Cosmos DB Java SDK v4 only. For more information, see the [release notes](sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), [performance tips](performance-tips-java-sdk-v4.md), and [troubleshooting guide](troubleshoot-java-sdk-v4.md). If you currently use an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
-
-> [!TIP]
-> If you work with Azure Cosmos DB resources in a Spring application, consider using [Spring Cloud Azure](/azure/developer/java/spring-framework/) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Cosmos DB, see [Access data with Azure Cosmos DB NoSQL API](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db).
+[API reference documentation](/java/api/overview/azure/cosmos-readme) | [Library source code](https://github.com/azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos) | [Package (Maven)](https://central.sonatype.com/artifact/com.azure/azure-cosmos) | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, you can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
-- [Java Development Kit (JDK) 8](https://www.oracle.com/java/technologies/javase/8u-relnotes.html). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
-- A [Maven binary archive](https://maven.apache.org/download.cgi). On Ubuntu, run `apt-get install maven` to install Maven.
-- [Git](https://www.git-scm.com/downloads). On Ubuntu, run `sudo apt-get install git` to install Git.
+[!INCLUDE[Developer Quickstart prerequisites](includes/quickstart/dev-prereqs.md)]
 
-## Introductory notes
+## Setting up
 
-**The structure of an Azure Cosmos DB account:** For any API or programming language, an Azure Cosmos DB *account* contains zero or more *databases*, a *database* (DB) contains zero or more *containers*, and a *container* contains zero or more items, as shown in the following diagram:
+Deploy this project's development container to your environment. Then, use the Azure Developer CLI (`azd`) to create an Azure Cosmos DB for NoSQL account and deploy a containerized sample application. The sample application uses the client library to manage, create, read, and query sample data.
 
-:::image type="content" source="../media/account-databases-containers-items/cosmos-entities.png" alt-text="Diagram of Azure Cosmos DB account entities.":::
+::: zone pivot="devcontainer-codespace"
 
-For more information, see [Databases, containers, and items in Azure Cosmos DB](../resource-model.md). 
+[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/azure-samples/cosmos-db-nosql-java-quickstart?template=false&quickstart=1&azure-portal=true)
 
-A few important properties are defined at the level of the container, including *provisioned throughput* and *partition key*. The provisioned throughput is measured in request units (RUs), which have a monetary price and are a substantial determining factor in the operating cost of the account. Provisioned throughput can be selected at per-container granularity or per-database granularity, however container-level throughput specification is typically preferred. To learn more about throughput provisioning, see [Introduction to provisioned throughput in Azure Cosmos DB](../set-throughput.md).
+::: zone-end
 
-As items are inserted into an Azure Cosmos DB container, the database grows horizontally by adding more storage and compute to handle requests. Storage and compute capacity are added in discrete units known as *partitions*, and you must choose one field in your documents to be the partition key that maps each document to a partition. Partitions are managed such that each partition is assigned a roughly equal slice out of the range of partition key values. Therefore, you're advised to choose a partition key that's relatively random or evenly distributed. Otherwise, some partitions see substantially more requests (*hot partition*) while other partitions see substantially fewer requests (*cold partition*). To learn more, see [Partitioning and horizontal scaling in Azure Cosmos DB](../partitioning-overview.md).
+::: zone pivot="devcontainer-vscode"
 
-## Create a database account
+[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/cosmos-db-nosql-java-quickstart)
 
-Before you can create a document database, you need to create an API for NoSQL account with Azure Cosmos DB.
+::: zone-end
 
-[!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE[Developer Quickstart setup](includes/quickstart/dev-setup.md)]
 
-## Add a container
+### Install the client library
 
-[!INCLUDE [cosmos-db-create-collection](../includes/cosmos-db-create-collection.md)]
+The client library is available through Maven, as the `azure-spring-data-cosmos` package.
 
-<a id="add-sample-data"></a>
+1. Navigate to the `/src/web` folder and open the **pom.xml** file.
 
-## Add sample data
+1. If it doesn't already exist, add an entry for the `azure-spring-data-cosmos` package.
 
-[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+    ```xml
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-spring-data-cosmos</artifactId>
+    </dependency>
+    ```
 
-## Query your data
+1. Also, add another dependency for the `azure-identity` package if it doesn't already exist.
 
-[!INCLUDE [cosmos-db-create-sql-api-query-data](../includes/cosmos-db-create-sql-api-query-data.md)]
+    ```xml
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+    </dependency>
+    ```
 
-## Clone the sample application
+## Object model
 
-Now let's switch to working with code. Clone an API for NoSQL app from GitHub, set the connection string, and run it. You can see how easy it is to work with data programmatically. 
+| Name | Description |
+| --- | --- |
+| `EnableCosmosRepositories` | This type is a method decorator used to configure a repository to access Azure Cosmos DB for NoSQL. |
+| `CosmosRepository` | This class is the primary client class and is used to manage data within a container. |
+| `CosmosClientBuilder` | This class is a factory used to create a client used by the repository. |
+| `Query` | This type is a method decorator used to specify the query that the repository executes. |
 
-Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
+## Code examples
 
-```bash
-git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
+- [Authenticate the client](#authenticate-the-client)
+- [Get a database](#get-a-database)
+- [Get a container](#get-a-container)
+- [Create an item](#create-an-item)
+- [Get an item](#read-an-item)
+- [Query items](#query-items)
+
+[!INCLUDE[Developer Quickstart sample explanation](includes/quickstart/dev-sample-primer.md)]
+
+### Authenticate the client
+
+[!INCLUDE[Developer Quickstart authentication explanation](includes/quickstart/dev-auth-primer.md)]
+
+First, this sample creates a new class that inherits from `AbstractCosmosConfiguration` to configure the connection to Azure Cosmos DB for NoSQL.
+
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/src/main/java/com/microsoft/learn/azure/cosmosdb/nosql/quickstart/CosmosConfiguration.java" id="repository_configuration":::
+
+Within the configuration class, this sample creates a new instance of the `CosmosClientBuilder` class and configures authentication using a `DefaultAzureCredential` instance.
+
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/src/main/java/com/microsoft/learn/azure/cosmosdb/nosql/quickstart/CosmosConfiguration.java" id="create_client" highlight="6-8":::
+
+### Get a database
+
+In the configuration class, the sample implements a method to return the name of the existing database named *`cosmicworks`*.
+
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/src/main/java/com/microsoft/learn/azure/cosmosdb/nosql/quickstart/CosmosConfiguration.java" id="get_database":::
+
+### Get a container
+
+Use the `Container` method decorator to configure a class to represent items in a container. Author the class to include all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and clearance.
+
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/src/main/java/com/microsoft/learn/azure/cosmosdb/nosql/quickstart/Item.java" id="get_container" highlight="1":::
+
+### Create an item
+
+Create an item in the container using `repository.save`.
+
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/src/main/java/com/microsoft/learn/azure/cosmosdb/nosql/quickstart/StartController.java" id="create_item" highlight="8":::
+
+### Read an item
+
+Perform a point read operation by using both the unique identifier (`id`) and partition key fields. Use `repository.findById` to efficiently retrieve the specific item.
+
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/src/main/java/com/microsoft/learn/azure/cosmosdb/nosql/quickstart/StartController.java" id="read_item" highlight="2":::
+
+### Query items
+
+Perform a query over multiple items in a container by defining a query in the repository's interface. This sample uses the `Query` method decorator to define a method that executes this parameterized query:
+
+```nosql
+SELECT * FROM products p WHERE p.category = @category
 ```
 
-## Review the code
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/src/main/java/com/microsoft/learn/azure/cosmosdb/nosql/quickstart/ItemRepository.java" id="repository_implementation" highlight="3":::
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app](#run-the-app). 
+Fetch all of the results of the query using `repository.getItemsByCategory`. Loop through the results of the query.
 
-## [Passwordless Sync API (Recommended)](#tab/passwordlesssync)
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/src/main/java/com/microsoft/learn/azure/cosmosdb/nosql/quickstart/StartController.java" id="query_items" highlight="1":::
 
-[!INCLUDE [java-default-azure-credential-overview](../../../includes/passwordless/java-default-azure-credential-overview.md)]
+## Related content
 
-[!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
+- [.NET Quickstart](quickstart-dotnet.md)
+- [JavaScript/Node.js Quickstart](quickstart-nodejs.md)
+- [java Quickstart](quickstart-java.md)
+- [Go Quickstart](quickstart-go.md)
 
-## Authenticate using DefaultAzureCredential
+## Next step
 
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
-
-You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by adding the `azure-identity` [dependency](https://mvnrepository.com/artifact/com.azure/azure-identity) to your application. `DefaultAzureCredential` automatically discovers and uses the account you signed into in the previous step.
-
-### Manage database resources using the synchronous (sync) API
-
-* `CosmosClient` initialization: The `CosmosClient` provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncPasswordlessMain.java?name=CreatePasswordlessSyncClient)]
-
-* Use the [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) and [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) commands to create a Cosmos DB NoSQL database and container.
-
-    ```azurecli-interactive
-    # Create a SQL API database
-    az cosmosdb sql database create \
-        --account-name msdocs-cosmos-nosql \
-        --resource-group msdocs \
-        --name AzureSampleFamilyDB
-    ```
-    
-    ```azurecli-interactive
-    # Create a SQL API container
-    az cosmosdb sql container create \
-        --account-name msdocs-cosmos-nosql \
-        --resource-group msdocs \
-        --database-name AzureSampleFamilyDB \
-        --name FamilyContainer \
-        --partition-key-path '/lastName'
-    ```
-
-* Item creation by using the `createItem` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncPasswordlessMain.java?name=CreateItem)]
-
-* Point reads are performed using `readItem` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncPasswordlessMain.java?name=ReadItem)]
-
-* SQL queries over JSON are performed using the `queryItems` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncPasswordlessMain.java?name=QueryItems)]
-
-## Run the app
-
-Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
-
-1. In the git terminal window, `cd` to the sample code folder.
-
-    ```bash
-    cd azure-cosmos-java-getting-started
-    ```
-
-2. In the git terminal window, use the following command to install the required Java packages.
-
-    ```bash
-    mvn package
-    ```
-
-3. In the git terminal window, use the following command to start the Java application. Replace SYNCASYNCMODE with `sync-passwordless` or `async-passwordless`, depending on which sample code you'd like to run. Replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal.
-
-    ```bash
-    mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
-    ```
-
-    The terminal window displays a notification that the `FamilyDB` database was created. 
-
-4. The app references the database and container you created via Azure CLI earlier. 
-
-5. The app performs point reads using object IDs and partition key value (which is `lastName` in our sample).
-
-6. The app queries items to retrieve all families with last name (*Andersen*, *Wakefield*, *Johnson*).
-
-7. The app doesn't delete the created resources. Switch back to the portal to [clean up the resources](#clean-up-resources) from your account so that you don't incur charges.
-
-## [Passwordless Async API](#tab/passwordlessasync)
-
-[!INCLUDE [java-default-azure-credential-overview](../../../includes/passwordless/java-default-azure-credential-overview.md)]
-
-[!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
-
-## Authenticate using DefaultAzureCredential
-
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
-
-You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by adding the [azure-identity dependency](https://mvnrepository.com/artifact/com.azure/azure-identity) to your application. `DefaultAzureCredential` automatically discovers and uses the account you signed-in with in the previous step.
-
-### Managing database resources using the asynchronous (async) API
-
-* Async API calls return immediately, without waiting for a response from the server. The following code snippets show proper design patterns for accomplishing all of the preceding management tasks using async API.
-
-* `CosmosAsyncClient` initialization. The `CosmosAsyncClient` provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute asynchronous requests against the service.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncPasswordlessMain.java?name=CreatePasswordlessAsyncClient)]
-
-* Use the [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) and [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) commands to create a Cosmos DB NoSQL database and container.
-
-    ```azurecli-interactive
-    # Create a SQL API database
-    az cosmosdb sql database create \
-        --account-name msdocs-cosmos-nosql \
-        --resource-group msdocs \
-        --name AzureSampleFamilyDB
-    ```
-    
-    ```azurecli-interactive
-    # Create a SQL API container
-    az cosmosdb sql container create \
-        --account-name msdocs-cosmos-nosql \
-        --resource-group msdocs \
-        --database-name AzureSampleFamilyDB \
-        --name FamilyContainer \
-        --partition-key-path '/lastName'
-    ```
-
-* As with the sync API, item creation is accomplished using the `createItem` method. This example shows how to efficiently issue numerous async `createItem` requests by subscribing to a Reactive Stream that issues the requests and prints notifications. Since this simple example runs to completion and terminates, `CountDownLatch` instances are used to ensure the program doesn't terminate during item creation. **The proper asynchronous programming practice is not to block on async calls. In realistic use cases, requests are generated from a main() loop that executes indefinitely, eliminating the need to latch on async calls.**
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncPasswordlessMain.java?name=CreateItem)]
-   
-* As with the sync API, point reads are performed using `readItem` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncPasswordlessMain.java?name=ReadItem)]
-
-* As with the sync API, SQL queries over JSON are performed using the `queryItems` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncPasswordlessMain.java?name=QueryItems)]
-
-## Run the app
-
-Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
-
-1. In the git terminal window, `cd` to the sample code folder.
-
-    ```bash
-    cd azure-cosmos-java-getting-started
-    ```
-
-2. In the git terminal window, use the following command to install the required Java packages.
-
-    ```bash
-    mvn package
-    ```
-
-3. In the git terminal window, use the following command to start the Java application. Replace SYNCASYNCMODE with `sync-passwordless` or `async-passwordless` depending on which sample code you would like to run, replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal.
-
-    ```bash
-    mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
-    ```
-
-    The terminal window displays a notification that the `AzureSampleFamilyDB` database was created. 
-
-4. The app references the database and container you created via Azure CLI earlier.
-
-5. The app performs point reads using object IDs and partition key value (which is `lastName` in our sample). 
-
-6. The app queries items to retrieve all families with last name (*Andersen*, *Wakefield*, *Johnson*).
-
-7. The app doesn't delete the created resources. Switch back to the portal to [clean up the resources](#clean-up-resources) from your account so that you don't incur charges.
-
-## [Sync API](#tab/sync)
-
-### Managing database resources using the synchronous (sync) API
-
-* `CosmosClient` initialization. The `CosmosClient` provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
-    
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateSyncClient)]
-
-* `CosmosDatabase` creation.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
-
-* `CosmosContainer` creation.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
-
-* Item creation by using the `createItem` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateItem)]
-   
-* Point reads are performed using `readItem` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=ReadItem)]
-
-* SQL queries over JSON are performed using the `queryItems` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
-
-## Run the app
-
-Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
-
-1. In the git terminal window, `cd` to the sample code folder.
-
-    ```bash
-    cd azure-cosmos-java-getting-started
-    ```
-
-2. In the git terminal window, use the following command to install the required Java packages.
-
-    ```bash
-    mvn package
-    ```
-
-3. In the git terminal window, use the following command to start the Java application. Replace SYNCASYNCMODE with `sync` or `async` depending on which sample code you would like to run, replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal.
-
-    ```bash
-    mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
-    ```
-
-    The terminal window displays a notification that the FamilyDB database was created. 
-
-4. The app creates a database with the name `AzureSampleFamilyDB`.
-
-5. The app creates a container with the name `FamilyContainer`.
-
-6. The app performs point reads using object IDs and partition key value (which is `lastName` in our sample).
-
-7. The app queries items to retrieve all families with last name (*Andersen*, *Wakefield*, *Johnson*).
-
-8. The app doesn't delete the created resources. Return to the Azure portal to [clean up the resources](#clean-up-resources) from your account so you don't incur charges.
-
-## [Async API](#tab/async)
-
-### Managing database resources using the asynchronous (async) API
-
-* Async API calls return immediately, without waiting for a response from the server. The following code snippets show proper design patterns for accomplishing all of the preceding management tasks using async API.
-
-* `CosmosAsyncClient` initialization. The `CosmosAsyncClient` provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute asynchronous requests against the service.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateAsyncClient)]
-
-* `CosmosAsyncDatabase` creation.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
-
-* `CosmosAsyncContainer` creation.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
-
-* As with the sync API, item creation is accomplished using the `createItem` method. This example shows how to efficiently issue numerous async `createItem` requests by subscribing to a Reactive Stream that issues the requests and prints notifications. Since this simple example runs to completion and terminates, `CountDownLatch` instances are used to ensure the program doesn't terminate during item creation. **The proper asynchronous programming practice is not to block on async calls. In realistic use cases, requests are generated from a main() loop that executes indefinitely, eliminating the need to latch on async calls.**
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateItem)]
-   
-* As with the sync API, point reads are performed by using `readItem` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=ReadItem)]
-
-* As with the sync API, SQL queries over JSON are performed by using the `queryItems` method.
-
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
-
-## Run the app
-
-Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
-
-1. In the git terminal window, `cd` to the sample code folder.
-
-    ```bash
-    cd azure-cosmos-java-getting-started
-    ```
-
-2. In the git terminal window, use the following command to install the required Java packages.
-
-    ```bash
-    mvn package
-    ```
-
-3. In the git terminal window, use the following command to start the Java application. Replace SYNCASYNCMODE with `sync` or `async` depending on which sample code you would like to run, replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal.
-
-    ```bash
-    mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
-
-    ```
-
-    The terminal window displays a notification that the `FamilyDB` database was created. 
-
-4. The app creates a database with the name `AzureSampleFamilyDB`.
-
-5. The app creates a container with the name `FamilyContainer`.
-
-6. The app performs point reads using object IDs and partition key value (which is `lastName` in our sample).
-
-7. The app queries items to retrieve all families with last name (*Andersen*, *Wakefield*, *Johnson*).
-
-8. The app doesn't delete the created resources. Return to the Azure portal to [clean up the resources](#clean-up-resources) from your account so you don't incur charges.
-
-[!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
-
----
-
-## Review SLAs in the Azure portal
-
-[!INCLUDE [cosmosdb-tutorial-review-slas](../includes/cosmos-db-tutorial-review-slas.md)]
-
-## Clean up resources
-
-[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
-
-## Next steps
-
-In this quickstart, you learned how to create an Azure Cosmos DB for NoSQL account, create a document database and container using Data Explorer, and run a Java app to do the same thing programmatically. You can now import additional data into your Azure Cosmos DB account. 
-
-Are you capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating RUs using vCores or vCPUs](../convert-vcore-to-request-unit.md).
-* If you know typical request rates for your current database workload, learn how to [estimate RUs using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md).
+> [!div class="nextstepaction"]
+> [Tutorial: Build a Java web app](tutorial-java-web-app.md)

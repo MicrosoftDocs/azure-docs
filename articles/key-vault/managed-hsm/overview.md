@@ -2,16 +2,15 @@
 title: Azure Managed HSM Overview - Azure Managed HSM | Microsoft Docs
 description: Azure Managed HSM is a cloud service that safeguards your cryptographic keys for cloud applications.
 services: key-vault
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
-ms.date: 02/28/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 author: msmbaldwin
 ms.collection:
-  - zerotrust-services
+  - zerotrust-extra
 
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Managed HSM is and if it offers anything that could be used in my organization.
 
@@ -59,6 +58,7 @@ The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid 
 
 ## Next steps
 - [Key management in Azure](../../security/fundamentals/key-management.md)
+- For technical details, see [How Managed HSM implements key sovereignty, availability, performance, and scalability without tradeoffs](managed-hsm-technical-details.md)
 - See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
 - [Azure Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline)
 - See [Best Practices using Azure Key Vault Managed HSM](best-practices.md)

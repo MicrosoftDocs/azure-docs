@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a basic internal load balancer using Azure PowerShell
 author: mbender-ms
 ms.author: mbender
-ms.date: 04/10/2023
+ms.date: 06/08/2023
 ms.topic: quickstart
 ms.service: load-balancer
 ms.custom: devx-track-azurepowershell, mode-api
@@ -59,9 +59,9 @@ New-AzPublicIpAddress @publicip
 
 This section details how you can create and configure the following components of the load balancer:
 
-* Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) for the frontend IP pool. This IP receives the incoming traffic on the load balancer
+* Create a frontend IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) for the frontend IP pool. This IP receives the incoming traffic on the load balancer
 
-* Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) for traffic sent from the frontend of the load balancer. This pool is where your backend virtual machines are deployed
+* Create a backend address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) for traffic sent from the frontend of the load balancer. This pool is where your backend virtual machines are deployed
 
 * Create a health probe with [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) that determines the health of the backend VM instances
 
@@ -134,6 +134,12 @@ Create a network security group to define inbound connections to your virtual ne
 
 Create an Azure Bastion host to securely manage the virtual machines in the backend pool.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
+
 ### Create virtual network, network security group and bastion host.
 
 * Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
@@ -145,6 +151,8 @@ Create an Azure Bastion host to securely manage the virtual machines in the back
 * Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)
 
 * Create the NAT gateway resource with [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway)
+
+
 
 ```azurepowershell-interactive
 ## Create backend subnet config ##

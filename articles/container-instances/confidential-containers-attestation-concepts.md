@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: pkhandavilli
 ms.service: container-instances
 services: container-instances
-ms.date: 04/20/2023
+ms.date: 05/23/2023
 ---
 
 # Attestation in Confidential containers on Azure Container Instances 

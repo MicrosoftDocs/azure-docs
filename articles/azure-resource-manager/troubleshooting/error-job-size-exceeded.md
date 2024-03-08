@@ -3,7 +3,7 @@ title: Job size exceeded error
 description: Describes how to troubleshoot errors for job size exceeded or if the template is too large for deployments using a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 04/05/2023
+ms.date: 09/22/2023
 ---
 
 # Resolve errors for job size exceeded
@@ -20,7 +20,7 @@ You get this error when the deployment exceeds an allowed limit. Typically, you 
 
 The deployment job can't exceed 1 MB and that includes metadata about the request. For large templates, the metadata combined with the template might exceed a job's allowed size.
 
-The template can't exceed 4 MB. The 4-MB limit applies to the final state of the template after it has been expanded for resource definitions that use loops to create many instances. The final state also includes the resolved values for variables and parameters.
+The template can't exceed 4 MB, and each resource definition can't exceed 1 MB. The limits apply to the final state of the template after it has been expanded for resource definitions that use loops to create many instances. The final state also includes the resolved values for variables and parameters.
 
 Other template limits are:
 

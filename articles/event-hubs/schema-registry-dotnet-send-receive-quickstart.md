@@ -4,8 +4,9 @@ description: In this quickstart, you create a .NET Core application that sends/r
 ms.topic: quickstart
 ms.date: 04/26/2023
 ms.devlang: csharp
-author: kasun04
-ms.author: kindrasiri
+ms.custom: devx-track-dotnet
+author: spelluru
+ms.author: spelluru
 ---
 
 # Validate using an Avro schema when streaming events using Event Hubs .NET SDKs (AMQP) 

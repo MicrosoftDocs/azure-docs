@@ -3,7 +3,7 @@ title: Migrate on-premises machines with Azure Migrate
 description: This article summarizes how to migrate on-premises machines to Azure, and recommends Azure Migrate.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/27/2020
+ms.date: 12/14/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---

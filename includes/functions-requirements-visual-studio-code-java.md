@@ -2,13 +2,13 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 07/26/2022
+ms.date: 08/02/2023
 ms.author: glenga
 ---
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 11 or 8.
++ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21(Linux).
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 

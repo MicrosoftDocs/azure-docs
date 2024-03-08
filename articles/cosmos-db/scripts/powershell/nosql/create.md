@@ -7,8 +7,8 @@ ms.subservice: nosql
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a database and container for Azure Cosmos DB - API for NoSQL

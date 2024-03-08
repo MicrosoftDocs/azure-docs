@@ -1,7 +1,7 @@
 ---
 title: "Deploy and manage Azure Arc-enabled Kubernetes cluster extensions"
-ms.custom: event-tier1-build-2022, ignite-2022
-ms.date: 04/27/2023
+ms.custom: devx-track-azurecli
+ms.date: 02/08/2024
 ms.topic: how-to
 description: "Create and manage extension instances on Azure Arc-enabled Kubernetes clusters."
 ---
@@ -32,9 +32,6 @@ Before you begin, read the [conceptual overview of Arc-enabled Kubernetes cluste
 * An existing Azure Arc-enabled Kubernetes connected cluster, with at least one node of operating system and architecture type `linux/amd64`. If deploying [Flux (GitOps)](extensions-release.md#flux-gitops), you can use an ARM64-based cluster without a `linux/amd64` node.
   * If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
   * [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
-
-> [!NOTE]
-> Installing Azure Arc extensions on [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) is currently in preview, with support for the Azure Arc-enabled Open Service Mesh, Azure Key Vault Secrets Provider, Flux (GitOps) and Microsoft Defender for Cloud extensions.
 
 ## Create extension instance
 
@@ -85,7 +82,7 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 > [!NOTE]
 > The service is unable to retain sensitive information for more than 48 hours. If Azure Arc-enabled Kubernetes agents don't have network connectivity for more than 48 hours and can't determine whether to create an extension on the cluster, the extension transitions to `Failed` state. Once that happens, you'll need to run `k8s-extension create` again to create a fresh extension Azure resource.
 >
-> Azure Monitor Container Insights is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor Container Insights (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart](../../azure-monitor/containers/container-insights-optout-hybrid.md)  before running `az k8s-extension create`.
+> Azure Monitor Container Insights is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor Container Insights (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart](/azure/azure-monitor/containers/kubernetes-monitoring-disable#remove-container-insights-with-helm) before running `az k8s-extension create`.
 
 ### Required parameters
 
@@ -99,9 +96,6 @@ The following parameters are required when using `az k8s-extension create` to cr
 | `--cluster-name` | Name of the Azure Arc-enabled Kubernetes resource on which the extension instance has to be created |
 | `--resource-group` | The resource group containing the Azure Arc-enabled Kubernetes resource |
 | `--cluster-type` | The cluster type on which the extension instance has to be created. For most scenarios, use `connectedClusters`, which corresponds to Azure Arc-enabled Kubernetes clusters. |
-
-> [!NOTE]
-> When working with [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview, you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 ### Optional parameters
 
@@ -261,7 +255,7 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 |--------------|------------|
 | `--auto-upgrade-minor-version` | Boolean property that specifies whether the extension minor version is automatically upgraded. The default setting is `true`.  If this parameter is set to true, you can't set the `version` parameter, as the version will be dynamically updated. If set to `false`, the extension won't be automatically upgraded, even for patch versions. |
 | `--version` | Version of the extension to be installed (specific version to pin the extension instance to). Must not be supplied if auto-upgrade-minor-version is set to `true`. |
-| `--configuration-settings` | Settings that can be passed into the extension to control its functionality.These are passed in as space-separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-settings-file` can't be used in the same command.  Only the settings that require an update need to be provided. The provided settings will be replaced with the specified values. |
+| `--configuration-settings` | Settings that can be passed into the extension to control its functionality. These are passed in as space-separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-settings-file` can't be used in the same command.  Only the settings that require an update need to be provided. The provided settings will be replaced with the specified values. |
 | `--configuration-settings-file` | Path to the JSON file with `key=value` pairs to be used for passing in configuration settings to the extension. If this parameter is used in the command, then `--configuration-settings` can't be used in the same command. |
 | `--configuration-protected-settings` | Settings that aren't retrievable using `GET` API calls or `az k8s-extension show` commands. Typically used to pass in sensitive settings. These are passed in as space-separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-protected-settings-file` can't be used in the same command. When you update a protected setting, all of the protected settings are expected to be specified. If any of these settings are omitted, those settings will be considered obsolete and deleted.  |
 | `--configuration-protected-settings-file` | Path to a JSON file with `key=value` pairs to be used for passing in sensitive settings to the extension. If this parameter is used in the command, then `--configuration-protected-settings` can't be used in the same command. |
@@ -293,36 +287,10 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 > [!NOTE]
 > The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
 
-> [!IMPORTANT]
-> When working with [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview), you must add `--yes` to the delete command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
-
-## AKS hybrid clusters provisioned from Azure (preview)
-
-You can deploy extensions to AKS hybrid clusters provisioned from Azure. However, there are a few key differences to keep in mind in order to deploy successfully:
-
-* The value for the `--cluster-type` parameter must be `provisionedClusters`.
-* You must add `--cluster-resource-provider microsoft.hybridcontainerservice` to your commands.
-* When deleting an extension instance, you must add `--yes` to the command:
-
-   ```azurecli
-   az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type provisionedClusters --cluster-resource-provider microsoft.hybridcontainerservice --yes
-   ```
-
-In addition, you must be using the latest version of the Azure CLI `k8s-extension` module (version >= 1.3.3). Use the following commands to add or update to the latest version:
-
-```azurecli
-# add if you do not have this installed
-az extension add --name k8s-extension
-
-# update if you do have the module installed
-az extension update --name k8s-extension
-```
-
-> [!IMPORTANT]
-> Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 ## Next steps
 
 * Review the [az k8s-extension CLI reference](/cli/azure/k8s-extension) for a comprehensive list of commands and parameters.
 * Learn more about [how extensions work with Arc-enabled Kubernetes clusters](conceptual-extensions.md).
 * Review the [cluster extensions currently available for Azure Arc-enabled Kubernetes](extensions-release.md).
+* Get help [troubleshooting extension issues](extensions-troubleshooting.md).

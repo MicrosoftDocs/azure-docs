@@ -2,14 +2,16 @@
 title: Read replicas - Azure Database for MariaDB
 description: 'Learn about read replicas in Azure Database for MariaDB: choosing regions, creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
 ms.date: 06/24/2022
 ms.custom: references_regions
 ---
 
 # Read replicas in Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 The read replica feature allows you to replicate data from an Azure Database for MariaDB server to a read-only server. You can replicate from the source server to up to five replicas. Replicas are updated asynchronously using the MariaDB engine's binary log (binlog) file position-based replication technology with global transaction ID (GTID). To learn more about binlog replication, see the [binlog replication overview](https://mariadb.com/kb/en/library/replication-overview/).
 

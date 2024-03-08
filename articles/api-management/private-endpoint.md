@@ -6,7 +6,6 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 03/20/2023
-
 ---
 
 # Connect privately to API Management using an inbound private endpoint
@@ -158,6 +157,7 @@ After the private endpoint is created, it appears in the list on the API Managem
 You can also use the [Private Endpoint Connection - List By Service](/rest/api/apimanagement/current-ga/private-endpoint-connection/list-by-service) REST API to list private endpoint connections to the service instance.
 
 
+
 Note the endpoint's **Connection status**:
 
 * **Approved** indicates that the API Management resource automatically approved the connection. 
@@ -172,15 +172,18 @@ If you have sufficient permissions, approve a private endpoint connection on the
 You can also use the API Management [Private Endpoint Connection - Create Or Update](/rest/api/apimanagement/current-ga/private-endpoint-connection/create-or-update) REST API.
 
 ```rest
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{apimServiceName}privateEndpointConnections/{privateEndpointConnectionName}?api-version=2021-08-01
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{apimServiceName}privateEndpointConnections/{privateEndpointConnectionName}?api-version=2021-08-01
 ```
 
 ### Optionally disable public network access
 
-To optionally limit incoming traffic to the API Management instance only to private endpoints, disable public network access. Use the [API Management Service - Create Or Update](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API.
+To optionally limit incoming traffic to the API Management instance only to private endpoints, disable public network access. Use the [API Management Service - Create Or Update](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API to set the `publicNetworkAccess` property to `Disabled`.
+
+> [!NOTE] 
+> The `publicNetworkAccess` property can only be used to disable public access to API Management instances configured with a private endpoint, not with other networking configurations such as VNet injection.
 
 ```rest
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2021-08-01
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2021-08-01
 Authorization: Bearer {{authToken.response.body.access_token}}
 Content-Type: application/json
 
@@ -239,3 +242,4 @@ To connect to 'Microsoft.ApiManagement/service/my-apim-service', please use the 
 * Learn more about [managing private endpoint connections](../private-link/manage-private-endpoint.md).
 * [Troubleshoot Azure private endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 * Use a [Resource Manager template](https://azure.microsoft.com/resources/templates/api-management-private-endpoint/) to create an API Management instance and a private endpoint with private DNS integration.
+

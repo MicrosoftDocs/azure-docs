@@ -2,11 +2,11 @@
 title: Manage SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to manage SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 11/16/2023
 ms.service: backup
-ms.custom: devx-track-azurecli
-author: jyothisuri
-ms.author: jsuri
+ms.custom: devx-track-azurecli, engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Manage SQL databases in an Azure VM using Azure CLI
@@ -62,7 +62,7 @@ F7c68818-039f-4a0f-8d73-e0747e68a813  Restore (Log)          Completed   master 
 To change the policy underlying the SQL backup configuration, use the [az backup policy set](/cli/azure/backup/policy#az-backup-policy-set) command. The name parameter in this command refers to the backup item whose policy you want to change. Here, replace the policy of the SQL database *sqldatabase;mssqlserver;master* with a new policy *newSQLPolicy*. You can create new policies using the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) command.
 
 ```azurecli-interactive
-az backup item set policy --resource-group SQLResourceGroup \
+az backup item set-policy --resource-group SQLResourceGroup \
     --vault-name SQLVault \
     --container-name VMAppContainer;Compute;SQLResourceGroup;testSQLVM \
     --policy-name newSQLPolicy \

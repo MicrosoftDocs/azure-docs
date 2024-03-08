@@ -3,12 +3,10 @@ title: 'SAP on Azure: Supported Scenarios with Azure VMs'
 description: Azure Virtual Machines supported scenarios with SAP workload
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 01/27/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
@@ -23,15 +21,15 @@ Designing SAP NetWeaver, Business one, `Hybris` or S/4HANA systems architecture 
 ## General platform restrictions
 Azure has various platforms besides so called native Azure VMs that are offered as first party service. [HANA Large Instances](../large-instances/hana-overview-architecture.md), which is in sunset mode is one of those platforms. [Azure VMware Services](https://azure.microsoft.com/products/azure-VMware/) is another of these first party services. Azure VMware Services in general isn't supported by SAP for hosting SAP workload. Refer to [SAP support note #2138865  - SAP Applications on VMware Cloud: Supported Products and VM configurations](https://launchpad.support.sap.com/#/notes/2138865) for more details of VMware support on different platforms.
 
-Besides the on-premises Active Directory, Azure offers a managed Active Directory SaaS service with [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) (traditional AD managed by Microsoft), and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). SAP components hosted on Windows OS are often relying on the usage of Windows Active Directory. In this case the traditional Active Directory as it's hosted on-premises by you, or Azure Active Directory Domain Services (still in testing). But these SAP components can't function with the native Azure Active Directory. Reason is that there are still larger gaps in functionality between Active Directory in its on-premises form or its SaaS form (Azure Active Directory Domain Services) and the native Azure Active Directory. This dependency is the reason why Azure Active Directory accounts aren't supported for applications based on SAP NetWeaver and S/4 HANA on Windows OS. Traditional Active Directory accounts need to be used in such scenarios.
+Besides the on-premises Active Directory, Azure offers a managed Active Directory SaaS service with [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md) (traditional AD managed by Microsoft), and [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md). SAP components hosted on Windows OS are often relying on the usage of Windows Active Directory. In this case the traditional Active Directory as it's hosted on-premises by you, or Microsoft Entra Domain Services (still in testing). But these SAP components can't function with the native Microsoft Entra ID. Reason is that there are still larger gaps in functionality between Active Directory in its on-premises form or its SaaS form (Microsoft Entra Domain Services) and the native Microsoft Entra ID. This dependency is the reason why Microsoft Entra accounts aren't supported for applications based on SAP NetWeaver and S/4 HANA on Windows OS. Traditional Active Directory accounts need to be used in such scenarios.
 
 | AD service | Supported applications based on SAP NetWeaver and S/4 HANA on Windows OS  |  
 | --- | --- | --- | 
 | On-premises Windows Active Directory | Supported | 
-| Azure Active Directory Domain Services | Supported| 
-| Azure Active Directory | Not supported | 
+| Microsoft Entra Domain Services | Supported| 
+| Microsoft Entra ID | Not supported | 
 
-The above doesn't affect the usage of Azure Active Directory accounts for single-sign-on (SSO) scenarios with SAP applications. 
+The above doesn't affect the usage of Microsoft Entra accounts for single-sign-on (SSO) scenarios with SAP applications. 
 
 ## 2-Tier configuration
 An SAP 2-Tier configuration is considered to be built up out of a combined layer of the SAP DBMS and application layer that run on the same server or VM unit. The second tier is considered to be the user interface layer. For a 2-Tier configuration, the DBMS, and SAP application layer share the resources of the Azure VM. As a result, you need to configure the different components in a way that these components don't compete for resources. You also need to be careful to not oversubscribe the resources of the VM. Such a configuration doesn't provide any high availability, beyond the [Azure Service Level agreements](https://azure.microsoft.com/support/legal/sla/) of the different Azure components involved.

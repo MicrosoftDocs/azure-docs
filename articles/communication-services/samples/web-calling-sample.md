@@ -47,7 +47,7 @@ You're now ready to begin placing calls using your Communication Services resour
 
 The Communication Services web Calling SDK allows for **1:1**, **1:N**, and **group** calling.
 
-For 1:1 or 1:N outgoing calls, you can specify multiple Communication Services User Identities to call using comma-separated values. You can can also specify traditional (PSTN) phone numbers to call using comma-separated values.
+For 1:1 or 1:N outgoing calls, you can specify multiple Communication Services User Identities to call using comma-separated values. You can also specify traditional (PSTN) phone numbers to call using comma-separated values.
 
 When calling PSTN phone numbers, specify your alternate caller ID. Click on the "Place call" button to place an outgoing call:
 

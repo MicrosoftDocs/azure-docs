@@ -2,19 +2,16 @@
 title: Restrict network access to PaaS resources - Azure CLI
 description: In this article, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure CLI.
 services: virtual-network
-documentationcenter: virtual-network
 author: asudbring
 manager: mtillman
-tags: azure-resource-manager
-# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
+# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ---
 
 # Restrict network access to PaaS resources with virtual network service endpoints using the Azure CLI
@@ -226,7 +223,7 @@ Create a VM in the *Public* subnet with [az vm create](/cli/azure/vm). If SSH ke
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPublic \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet Public \
   --generate-ssh-keys
@@ -255,7 +252,7 @@ Take note of the **publicIpAddress** in the returned output. This address is use
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPrivate \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet Private \
   --generate-ssh-keys

@@ -3,11 +3,11 @@ title: Quickstart - Azure confidential ledger client library for .NET
 description: Learn how to use Azure Confidential Ledger using the client library for .NET
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 07/15/2022
+ms.date: 01/30/2024
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api
+ms.custom: devx-track-csharp, mode-api, devx-track-dotnet
 ---
 
 # Quickstart: Azure confidential ledger client library for .NET
@@ -26,26 +26,22 @@ Azure confidential ledger client library resources:
 - [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
-You will also need a running confidential ledger, and a registered user with the `Administrator` privileges. You can create a confidential ledger (and an administrator) using the [Azure portal](quickstart-portal.md), the [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
+You also need a running confidential ledger, and a registered user with the `Administrator` privileges. You can create a confidential ledger (and an administrator) using the [Azure portal](quickstart-portal.md), the [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
 
 ## Setup
 
 ### Create new .NET console app
 
 1. In a command shell, run the following command to create a project named `acl-app`:
-
     ```dotnetcli
     dotnet new console --name acl-app
     ```
-
 1. Change to the newly created *acl-app* directory, and run the following command to build the project:
 
     ```dotnetcli
     dotnet build
     ```
-
     The build output should contain no warnings or errors.
-    
     ```console
     Build succeeded.
      0 Warning(s)
@@ -60,7 +56,7 @@ Install the Confidential Ledger client library for .NET with [NuGet][client_nuge
 dotnet add package Azure.Security.ConfidentialLedger --version 1.0.0
 ```
 
-For this quickstart, you'll also need to install the Azure SDK client library for Azure Identity:
+For this quickstart, you also need to install the Azure SDK client library for Azure Identity:
 
 ```dotnetcli
 dotnet add package Azure.Identity
@@ -68,7 +64,7 @@ dotnet add package Azure.Identity
 
 ## Object model
 
-The Azure confidential ledger client library for .NET allows you to create an immutable ledger entry in the service.  The [Code examples](#code-examples) section shows how to create a write to the ledger and retrieve the transaction ID.
+The Azure confidential ledger client library for .NET allows you to create an immutable ledger entry in the service. The [Code examples](#code-examples) section shows how to create a write to the ledger and retrieve the transaction ID.
 
 ## Code examples
 
@@ -86,7 +82,7 @@ using Azure.Security.ConfidentialLedger.Certificate;
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to Azure confidential ledger, which is preferred method for local development.  The name of your confidential ledger is expanded to the key vault URI, in the format "https://\<your-confidential-ledger-name\>.confidential-ledger.azure.com". This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. 
+In this quickstart, logged in user is used to authenticate to Azure confidential ledger, which is preferred method for local development. The name of your confidential ledger is expanded to the key vault URI, in the format "https://\<your-confidential-ledger-name\>.confidential-ledger.azure.com". This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. 
 
 ```csharp
 credential = DefaultAzureCredential()

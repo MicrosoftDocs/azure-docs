@@ -2,14 +2,16 @@
 title: 'Tutorial: Design an Azure Database for MariaDB - Azure portal'
 description: This tutorial explains how to create and manage an Azure Database for MariaDB server and database by using the Azure portal.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: tutorial
 ms.date: 06/24/2022
 ms.custom: mvc
 ---
 
 # Tutorial: Design an Azure Database for MariaDB database by using the Azure portal
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Azure Database for MariaDB is a managed service you can use to run, manage, and scale highly available MySQL databases in the cloud. By using the Azure portal, you can easily manage your server and design a database.
 
@@ -28,7 +30,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Sign in to the Azure portal
 
-In your browser, go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+In your browser, sign in to the [Azure portal](https://portal.azure.com). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MariaDB server
 
@@ -82,7 +84,7 @@ You can now connect to the server by using the mysql command-line tool or MySQL 
 
 Get values for **Server name** (fully qualified) and **Server admin login name** for your Azure Database for MariaDB server from the Azure portal. You use the fully qualified server name to connect to your server by using the mysql command-line tool.
 
-1. In the [Azure portal](https://portal.azure.com/), in the left menu, select **All resources**. Enter the server name and search for your Azure Database for MariaDB server. Select the server name to view the server details.
+1. In the [Azure portal](https://portal.azure.com), in the left menu, select **All resources**. Enter the server name and search for your Azure Database for MariaDB server. Select the server name to view the server details.
 
 2. On the **Overview** page, make a note of the values for **Server name** and **Server admin login name**. You can also select the **copy** button next to each field to copy the value to the clipboard.
 

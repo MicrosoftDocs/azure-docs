@@ -3,7 +3,6 @@ title: Best practices for serverless SQL pool
 description: Recommendations and best practices for working with serverless SQL pool.
 author: filippopovic
 ms.author: fipopovi
-manager: craigg
 ms.reviewer: sngun, wiassaf
 ms.date: 02/15/2023
 ms.service: synapse-analytics
@@ -79,7 +78,7 @@ You can use a performance-optimized parser when you query CSV files. For details
 
 ### Manually create statistics for CSV files
 
-Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns in Parquet files when needed, as well as CSV files when using OPENROWSET. At this moment, statistics aren't automatically created for columns in CSV files when using external tables. Create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
+Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns using sampling and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling is not supported and automatic creation of statistics will not happen with sampling percentage less than 100%. For small tables with estimated low cardinality (number of rows) automatic statistics creation will be triggered with sampling percentage of 100%. That means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0. In case statistics are not automatically created, create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
 
 ## Data types
 
@@ -103,6 +102,8 @@ The data types you use in your query affect performance and concurrency. You can
 ### Check inferred data types
 
 [Schema inference](query-parquet-files.md#automatic-schema-inference) helps you quickly write queries and explore data without knowing file schemas. The cost of this convenience is that inferred data types might be larger than the actual data types. This discrepancy happens when there isn't enough information in the source files to make sure the appropriate data type is used. For example, Parquet files don't contain metadata about maximum character column length. So serverless SQL pool infers it as varchar(8000).
+
+Have in mind that the situation can be different in case of the shareable managed and external Spark tables exposed in the SQL engine as external tables. Spark tables provide different data types than the Synapse SQL engines. Mapping between Spark table data types and SQL types can be found [here](../metadata/table.md#share-spark-tables). 
 
 You can use the system stored procedure [sp_describe_first_results_set](/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true) to check the resulting data types of your query.
 

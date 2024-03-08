@@ -24,21 +24,6 @@
             "source_path_from_root": "/articles/azure-netapp-files/azure-netapp-files-faqs.md",
             "redirect_url": "/azure/azure-netapp-files/faq-nfs",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/install-cloud-backup-virtual-machines.md",
-            "redirect_url": "/azure/azure-vmware",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/backup-azure-netapp-files-datastores-vms.md",
-            "redirect_url": "/azure/azure-vmware/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/restore-azure-netapp-files-vms.md",
-            "redirect_url": "/azure/azure-vmware/",
-            "redirect_document_id": false
         }
     ]
 }

@@ -5,15 +5,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/05/2023
+ms.date: 02/15/2024
 ms.reviewer: Xema Pathak
-
 ---
 
 # Monitor virtual machines with Azure Monitor: Collect data
 This article is part of the guide [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to configure collection of data after you deploy Azure Monitor Agent to your Azure and hybrid virtual machines in Azure Monitor.
 
-This article provides guidance on collecting the most common types of telemetry from virtual machines. The exact configuration that you choose depends on the workloads that you run on your machines. Included in each section are sample log query alerts that you can use with that data.
+This article provides guidance on collecting the most common types of telemetry from virtual machines. The exact configuration that you choose depends on the workloads that you run on your machines. Included in each section are sample log search alerts that you can use with that data.
 
 - For more information about analyzing telemetry collected from your virtual machines, see [Monitor virtual machines with Azure Monitor: Analyze monitoring data](monitor-virtual-machine-analyze.md).
 - For more information about using telemetry collected from your virtual machines to create alerts in Azure Monitor, see [Monitor virtual machines with Azure Monitor: Alerts](monitor-virtual-machine-alerts.md).
@@ -43,9 +42,18 @@ Because your Azure Monitor cost is dependent on how much data you collect, ensur
 
 [!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
 
-A typical virtual machine generates between 1 GB and 3 GB of data per month. This data size depends on the configuration of the machine, the workloads running on it, and the configuration of your DCRs. Before you configure data collection across your entire virtual machine environment, begin collection on some representative machines to better predict your expected costs when deployed across your environment. Use log queries in [Data volume by computer](../logs/analyze-usage.md#data-volume-by-computer) to determine the amount of billable data collected for each machine and adjust accordingly.
+A typical virtual machine generates between 1 GB and 3 GB of data per month. This data size depends on the configuration of the machine, the workloads running on it, and the configuration of your DCRs. Before you configure data collection across your entire virtual machine environment, begin collection on some representative machines to better predict your expected costs when deployed across your environment. Use [Log Analytics workspace insights](../logs/log-analytics-workspace-insights-overview.md) or log queries in [Data volume by computer](../logs/analyze-usage.md#data-volume-by-computer) to determine the amount of billable data collected for each machine and adjust accordingly.
 
-Each data source that you collect might have a different method for filtering out unwanted data. You can use [transformations](../essentials/data-collection-transformations.md) to implement more granular filtering and also to filter data from columns that provide little value. For example, you might have a Windows event that's valuable for alerting, but it includes columns with redundant or excessive data. You can create a transformation that allows the event to be collected but removes this excessive data.
+Evaluate collected data and filter out any that meets the following criteria to reduce your costs. Each data source that you collect may have a different method for filtering out unwanted data. See the sections below for the details each of the common data sources.
+- Not used for alerting.
+- No known forensic or diagnostic value.
+- Not required by regulators.
+- Not used in any dashboards or workbooks.
+
+
+You can also use [transformations](../essentials/data-collection-transformations.md) to implement more granular filtering and also to filter data from columns that provide little value. For example, you might have a Windows event that's valuable for alerting, but it includes columns with redundant or excessive data. You can create a transformation that allows the event to be collected but removes this excessive data.
+
+Filter data as much as possible before it's sent to Azure Monitor to avoid a [potential charge for filtering too much data using transformations](../essentials/data-collection-transformations.md#cost-for-transformations). Use [transformations](../essentials/data-collection-transformations.md) for record filtering using complex logic and for filtering columns with data that you don't require. 
 
 ## Default data collection
 Azure Monitor automatically performs the following data collection without requiring any other configuration.
@@ -60,7 +68,7 @@ Platform metrics for Azure virtual machines include important host metrics such 
 ### Activity log
 The [activity log](../essentials/activity-log.md) is collected automatically. It includes the recent activity of the machine, such as any configuration changes and when it was stopped and started. You can view the platform metrics and activity log collected for each virtual machine host in the Azure portal.
 
-You can [view the activity log](../essentials/activity-log.md#view-the-activity-log) for an individual machine or for all resources in a subscription. [Create a diagnostic setting](../essentials/diagnostic-settings.md) to send this data into the same Log Analytics workspace used by Azure Monitor Agent to analyze it with the other monitoring data collected for the virtual machine. There's no cost for ingestion or retention of activity log data.
+You can [view the activity log](../essentials/activity-log-insights.md#view-the-activity-log) for an individual machine or for all resources in a subscription. [Create a diagnostic setting](../essentials/diagnostic-settings.md) to send this data into the same Log Analytics workspace used by Azure Monitor Agent to analyze it with the other monitoring data collected for the virtual machine. There's no cost for ingestion or retention of activity log data.
 
 ### VM availability information in Azure Resource Graph
 With [Azure Resource Graph](../../governance/resource-graph/overview.md), you can use the same Kusto Query Language used in log queries to query your Azure resources at scale with complex filtering, grouping, and sorting by resource properties. You can use [VM health annotations](../../service-health/resource-health-vm-annotation.md) to Resource Graph for detailed failure attribution and downtime analysis.
@@ -130,7 +138,7 @@ For guidance on creating a DCR to collect performance counters, see [Collect eve
  Destination | Description |
 |:---|:---|
 | Metrics    | Host metrics are automatically sent to Azure Monitor Metrics. You can use a DCR to collect client metrics so that they can be analyzed together with [metrics explorer](../essentials/metrics-getting-started.md) or used with [metrics alerts](../alerts/alerts-create-new-alert-rule.md?tabs=metric). This data is stored for 93 days. |
-| Logs | Performance data stored in Azure Monitor Logs can be stored for extended periods. The data can be analyzed along with your event data by using [log queries](../logs/log-query-overview.md) with [Log Analytics](../logs/log-analytics-overview.md) or [log query alerts](../alerts/alerts-create-new-alert-rule.md?tabs=log). You can also correlate data by using complex logic across multiple machines, regions, and subscriptions.<br><br>Performance data is sent to the following tables:<br>- VM insights: [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics)<br>- Other performance data: [Perf](/azure/azure-monitor/reference/tables/perf) |
+| Logs | Performance data stored in Azure Monitor Logs can be stored for extended periods. The data can be analyzed along with your event data by using [log queries](../logs/log-query-overview.md) with [Log Analytics](../logs/log-analytics-overview.md) or [log search alerts](../alerts/alerts-create-new-alert-rule.md?tabs=log). You can also correlate data by using complex logic across multiple machines, regions, and subscriptions.<br><br>Performance data is sent to the following tables:<br>- VM insights: [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics)<br>- Other performance data: [Perf](/azure/azure-monitor/reference/tables/perf) |
 
 ### Sample log queries
 The following samples use the `Perf` table with custom performance data. For information on performance data collected by VM insights, see [How to query logs from VM insights](../vm/vminsights-log-query.md#performance-records).
@@ -148,6 +156,8 @@ The following samples use the `Perf` table with custom performance data. For inf
 | `Perf | where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" | summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName` | Hourly 70 percentile of every % percent counter for a particular computer |
 | `Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" | summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer` |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
 | `Perf | where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master"` | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2. | 
+| `Perf | where TimeGenerated >ago(5m) | where ObjectName == "Process" and InstanceName != "_Total" and InstanceName != "Idle" | where CounterName == "% Processor Time" | summarize cpuVal=avg(CounterValue) by Computer,InstanceName | join (Perf| where TimeGenerated >ago(5m)| where ObjectName == "Process" and CounterName == "ID Process" | summarize arg_max(TimeGenerated,*) by ProcID=CounterValue ) on Computer,InstanceName | sort by TimeGenerated desc | summarize AvgCPU = avg(cpuVal) by InstanceName,ProcID` |  Average of CPU over last 5 min for each Process ID. |
+
 
 ## Collect text logs
 Some applications write events written to a text log stored on the virtual machine. Create a [custom table and DCR](../agents/data-collection-text-log.md) to collect this data. You define the location of the text log, its detailed configuration, and the schema of the custom table. There's a cost for the ingestion and retention of this data in the workspace.
@@ -182,7 +192,7 @@ Azure Monitor has no ability on its own to monitor the status of a service or da
 
 For different options to enable the Change Tracking solution on your virtual machines, see [Enable Change Tracking and Inventory](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory). This solution includes methods to configure virtual machines at scale. You have to [create an Azure Automation account](../../automation/quickstarts/create-azure-automation-account-portal.md) to support the solution.
 
-When you enable Change Tracking and Inventory, two new tables are created in your Log Analytics workspace. Use these tables for logs queries and log query alert rules.
+When you enable Change Tracking and Inventory, two new tables are created in your Log Analytics workspace. Use these tables for logs queries and log search alert rules.
 
 | Table | Description |
 |:---|:---|
@@ -200,7 +210,7 @@ When you enable Change Tracking and Inventory, two new tables are created in you
     | sort by Computer, SvcName
     ```
 
-- **Alert when a specific service stops.** Use this query in a log alert rule.
+- **Alert when a specific service stops.** Use this query in a log search alert rule.
     
     ```kusto
     ConfigurationData
@@ -211,7 +221,7 @@ When you enable Change Tracking and Inventory, two new tables are created in you
     | summarize AggregatedValue = count() by Computer, SvcName, SvcDisplayName, SvcState, bin(TimeGenerated, 15m)
     ```
 
-- **Alert when one of a set of services stops.** Use this query in a log alert rule.
+- **Alert when one of a set of services stops.** Use this query in a log search alert rule.
 
     ```kusto
     let services = dynamic(["omskd","cshost","schedule","wuauserv","heathservice","efs","wsusservice","SrmSvc","CertSvc","wmsvc","vpxd","winmgmt","netman","smsexec","w3svc","sms_site_vss_writer","ccmexe","spooler","eventsystem","netlogon","kdc","ntds","lsmserv","gpsvc","dns","dfsr","dfs","dhcp","DNSCache","dmserver","messenger","w32time","plugplay","rpcss","lanmanserver","lmhosts","eventlog","lanmanworkstation","wnirm","mpssvc","dhcpserver","VSS","ClusSvc","MSExchangeTransport","MSExchangeIS"]);
@@ -228,7 +238,7 @@ When you enable Change Tracking and Inventory, two new tables are created in you
 Port monitoring verifies that a machine is listening on a particular port. Two potential strategies for port monitoring are described here.
 
 ### Dependency agent tables
-If you're using VM insights with **Processes and dependencies collection** enabled, you can use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) to analyze connections and ports on the machine. The `VMBoundPort` table is updated every minute with each process running on the computer and the port it's listening on. You can create a log query alert similar to the missing heartbeat alert to find processes that have stopped or to alert when the machine isn't listening on a particular port.
+If you're using VM insights with **Processes and dependencies collection** enabled, you can use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) to analyze connections and ports on the machine. The `VMBoundPort` table is updated every minute with each process running on the computer and the port it's listening on. You can create a log search alert similar to the missing heartbeat alert to find processes that have stopped or to alert when the machine isn't listening on a particular port.
 
 - **Review the count of ports open on your VMs to assess which VMs have configuration and security vulnerabilities.**
 
@@ -297,9 +307,11 @@ There's an extra cost for Connection Manager. For more information, see [Network
 ## Run a process on a local machine
 Monitoring of some workloads requires a local process. An example is a PowerShell script that runs on the local machine to connect to an application and collect or process data. You can use [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md), which is part of [Azure Automation](../../automation/automation-intro.md), to run a local PowerShell script. There's no direct charge for Hybrid Runbook Worker, but there's a cost for each runbook that it uses.
 
-The runbook can access any resources on the local machine to gather required data. It can't send data directly to Azure Monitor or create an alert. To create an alert, have the runbook write an entry to a custom log. Then configure that log to be collected by Azure Monitor. Create a log query alert rule that fires on that log entry.
+The runbook can access any resources on the local machine to gather required data. It can't send data directly to Azure Monitor or create an alert. To create an alert, have the runbook write an entry to a custom log. Then configure that log to be collected by Azure Monitor. Create a log search alert rule that fires on that log entry.
 
 ## Next steps
 
 * [Analyze monitoring data collected for virtual machines](monitor-virtual-machine-analyze.md)
 * [Create alerts from collected data](monitor-virtual-machine-alerts.md)
+
+

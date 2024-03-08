@@ -1,9 +1,9 @@
 ---
-title: Create and manage Azure IoT Central dashboards | Microsoft Docs
-description: Learn how to create and manage application and personal dashboards in Azure IoT Central.
+title: Create and manage Azure IoT Central dashboards
+description: Learn how to create and manage application and personal dashboards in Azure IoT Central. Customize dashboards by using tiles.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/03/2022
+ms.date: 03/04/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -87,7 +87,7 @@ This table describes the types of tiles you can add to a dashboard:
 | State chart      |  Plot changes for one or more devices over a time period. For example, you can use this tile to display properties like the temperature changes for a device. |
 | Property         |  Display the current values for properties and cloud properties for one or more devices. For example, you can use this tile to display device properties like the manufacturer or firmware version. |
 | Map (property)   | Display the location of one or more devices on a map.|
-| Map (telemetry)  | Display the location of one or more devices on a map. You can also display up to 100 points of a device's location history. For example, you can display a sampled route of where a device has been in the past week.|
+| Map (telemetry)  | Display the location of one or more devices on a map. You can also display up to 100 points of a device's location history. For example, you can display a sampled route of where a device went in the past week.|
 | Image (static)  | Display a custom image and can be clickable. The URL can be a relative link to another page in the application or an absolute link to an external site.|
 | Label            | Display custom text on a dashboard. You can choose the size of the text. Use a label tile to add relevant information to the dashboard, like descriptions, contact details, or Help.|
 | Markdown         | Clickable tiles that display a heading and description text formatted in Markdown. The URL can be a relative link to another page in the application or an absolute link to an external site.|

@@ -1,28 +1,28 @@
 ---
-title: Webhook actions for log alerts in Azure alerts
-description: This article describes how to configure log alert pushes with webhook action and available customizations.
+title: Sample payloads for Azure Monitor log search alerts using webhook actions
+description: This article describes how to configure log search alert rules with webhook actions and available customizations.
 services: monitoring
-ms.topic: conceptual
-ms.date: 2/23/2022
+ms.author: abbyweisberg
+ms.topic: reference
+ms.date: 11/23/2023
 ms.reviewer: yalavi
 ---
 
-# Webhook actions for log alert rules
+# Sample payloads for log search alerts using webhook actions
 
-[Log alerts](alerts-log.md) support [configuring webhook action groups](./action-groups.md#webhook). In this article, we describe the properties that are available. You can use webhook actions to invoke a single HTTP POST request. The service that's called should support webhooks and know how to use the payload it receives.
+You can use webhook actions in a log search alert rule to invoke a single HTTP POST request. In this article, we describe the properties that are available when you [configure action groups to use webhooks](./action-groups.md). The service that's called must support webhooks and know how to use the payload it receives.
 
 We recommend that you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
 
-For log alert rules that have a custom JSON payload defined, enabling the common alert schema reverts the payload schema to the one described in [Common alert schema](../alerts/alerts-common-schema.md#alert-context-fields-for-log-alerts). If you want to have a custom JSON payload defined, the webhook can't use the common alert schema.
+For log search alert rules that have a custom JSON payload defined, enabling the common alert schema reverts the payload schema to the one described in [Common alert schema](../alerts/alerts-common-schema.md#alert-context-fields-for-log-search-alerts). If you want to have a custom JSON payload defined, the webhook can't use the common alert schema.
 
 Alerts with the common schema enabled have an upper size limit of 256 KB per alert. A bigger alert doesn't include search results. When the search results aren't included, use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
 
-## Sample payloads
-This section shows sample payloads for webhooks for log alerts. The sample payloads include examples when the payload is standard and when it's custom.
+The sample payloads include examples when the payload is standard and when it's custom.
 
-### Log alert for all resources logs (from API version `2021-08-01`)
+## Log search alert for all resources logs (from API version `2021-08-01`)
 
-The following sample payload is for a standard webhook when it's used for log alerts based on resources logs:
+The following sample payload is for a standard webhook when it's used for log search alerts based on resources logs:
 
 ```json
 {
@@ -85,11 +85,12 @@ The following sample payload is for a standard webhook when it's used for log al
 }
 ```
 
-### Log alert for Log Analytics (up to API version `2018-04-16`)
+## Log search alert for Log Analytics (up to API version `2018-04-16`)
+
 The following sample payload is for a standard webhook action that's used for alerts based on Log Analytics:
 
 > [!NOTE]
-> The `"Severity"` field value changes if you've [switched to the current scheduledQueryRules API](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch) from the [legacy Log Analytics Alert API](./api-alerts.md).
+> The `"Severity"` field value changes if you've [switched to the current scheduledQueryRules API](./alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](./api-alerts.md).
 
 ```json
 {
@@ -155,8 +156,9 @@ The following sample payload is for a standard webhook action that's used for al
 }
 ```
 
-### Log alert for Application Insights (up to API version `2018-04-16`)
-The following sample payload is for a standard webhook when it's used for log alerts based on Application Insights resources:
+## Log search alert for Application Insights (up to API version `2018-04-16`)
+
+The following sample payload is for a standard webhook when it's used for log search alerts based on Application Insights resources:
     
 ```json
 {
@@ -222,7 +224,7 @@ The following sample payload is for a standard webhook when it's used for log al
 }
 ```
 
-### Log alert with a custom JSON payload (up to API version `2018-04-16`)
+## Log search alert with a custom JSON payload (up to API version `2018-04-16`)
 
 > [!NOTE]
 > A custom JSON-based webhook isn't supported from API version `2021-08-01`.
@@ -232,7 +234,7 @@ The following table lists default webhook action properties and their custom JSO
 | Parameter | Variable | Description |
 |:--- |:--- |:--- |
 | `AlertRuleName` |#alertrulename |Name of the alert rule. |
-| `Severity` |#severity |Severity set for the fired log alert. |
+| `Severity` |#severity |Severity set for the fired log search alert. |
 | `AlertThresholdOperator` |#thresholdoperator |Threshold operator for the alert rule. |
 | `AlertThresholdValue` |#thresholdvalue |Threshold value for the alert rule. |
 | `LinkToSearchResults` |#linktosearchresults |Link to the Analytics portal that returns the records from the query that created the alert. |
@@ -242,11 +244,11 @@ The following table lists default webhook action properties and their custom JSO
 | `ResultCount` |#searchresultcount |Number of records in the search results. |
 | `Search Interval End time` |#searchintervalendtimeutc |End time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. |
 | `Search Interval` |#searchinterval |Time window for the alert rule, with the format HH:mm:ss. |
-| `Search Interval StartTime` |#searchintervalstarttimeutc |Start time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. 
+| `Search Interval StartTime` |#searchintervalstarttimeutc |Start time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. |
 | `SearchQuery` |#searchquery |Log search query used by the alert rule. |
 | `SearchResults` |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records. "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
 | `Dimensions` |"IncludeDimensions": true|Dimensions value combinations that triggered that alert as a JSON section. "IncludeDimensions": true is added in a custom JSON webhook definition as a top-level property. |
-| `Alert Type`| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](./alerts-unified-log.md#measure).|
+| `Alert Type`| #alerttype | The type of log search alert rule configured as [Metric measurement or Number of results](./alerts-types.md#log-alerts).|
 | `WorkspaceID` |#workspaceid |ID of your Log Analytics workspace. |
 | `Application ID` |#applicationid |ID of your Application Insights app. |
 | `Subscription ID` |#subscriptionid |ID of your Azure subscription used. |
@@ -286,7 +288,7 @@ For example, to create a custom payload that includes only the alert name and th
     }
 ```
 
-The following sample payload is for a custom webhook action for any log alert:
+The following sample payload is for a custom webhook action for any log search alert:
     
 ```json
     {
@@ -312,8 +314,7 @@ The following sample payload is for a custom webhook action for any log alert:
 ```
 
 ## Next steps
-- Learn about [log alerts in Azure alerts](./alerts-unified-log.md).
-- Understand how to [manage log alerts in Azure](alerts-log.md).
+
+- Learn about [Azure Monitor alerts](./alerts-overview.md).
 - Create and manage [action groups in Azure](./action-groups.md).
-- Learn more about [Application Insights](../logs/log-query-overview.md).
 - Learn more about [log queries](../logs/log-query-overview.md).

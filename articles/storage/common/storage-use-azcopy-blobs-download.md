@@ -2,11 +2,11 @@
 title: Download blobs from Azure Blob Storage by using AzCopy v10
 description: This article contains a collection of AzCopy example commands that help you download blobs from Azure Blob Storage. 
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
 ---
 
@@ -21,7 +21,7 @@ To see examples for other types of tasks such as uploading files, synchronizing 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
+> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID.
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
@@ -42,7 +42,7 @@ Download a blob by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'
@@ -68,7 +68,7 @@ Download a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) comm
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive
@@ -119,7 +119,7 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt'--recursive
@@ -151,7 +151,7 @@ azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirec
 
 You can also exclude blobs by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
-The `--include-pattern` and `--exclude-pattern` options apply only to blob names and not to the path.  If you want to copy all of the text files (blobs) that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
+The `--include-pattern` and `--exclude-pattern` options apply only to blob names and not to the path.  If you want to copy all of the text files (blobs) that exist in a directory tree, use the `-recursive` option to get the entire directory tree, and then use the `-include-pattern` and specify `*.txt` to get all of the text files.
 
 #### Download blobs that were modified before or after a date and time
 
@@ -169,7 +169,7 @@ The following examples download files that were modified on or after the specifi
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'
@@ -205,7 +205,7 @@ You can download a [blob snapshot](../blobs/snapshots-overview.md) by referencin
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'

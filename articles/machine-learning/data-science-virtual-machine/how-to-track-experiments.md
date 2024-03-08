@@ -1,10 +1,10 @@
 ---
 title: Experiment tracking and deploying models
-titleSuffix: Azure Data Science Virtual Machine 
+titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to track and log experiments from the Data Science Virtual Machine with Azure Machine Learning and/or MLFlow.
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv1
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
@@ -62,7 +62,7 @@ from sklearn.datasets import load_diabetes
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
-from sklearn.externals import joblib
+import joblib
 
 X, y = load_diabetes(return_X_y = True)
 columns = ['age', 'gender', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
@@ -176,7 +176,7 @@ You should see that the deployment state goes from __transitioning__ to __health
 
 You can test the endpoint using [Postman](https://www.postman.com/), or you can use the Azure Machine Learning SDK:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Webservice

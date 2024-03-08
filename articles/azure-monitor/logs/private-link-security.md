@@ -1,9 +1,9 @@
 ---
 title: Use Azure Private Link to connect networks to Azure Monitor
 description: Set up an Azure Monitor Private Link Scope to securely connect networks to Azure Monitor.
-ms.reviewer: noakuper
+ms.reviewer: mahesh.sundaram
 ms.topic: conceptual
-ms.date: 1/5/2022
+ms.date: 07/25/2023
 ---
 
 # Use Azure Private Link to connect networks to Azure Monitor
@@ -28,7 +28,7 @@ For more information, see [Key benefits of Private Link](../../private-link/priv
 ## How it works: Main principles
 An Azure Monitor private link connects a private endpoint to a set of Azure Monitor resources made up of Log Analytics workspaces and Application Insights resources. That set is called an Azure Monitor Private Link Scope.
 
-![Diagram that shows basic resource topology.](./media/private-link-security/private-link-basic-topology.png)
+:::image type="content" source="./media/private-link-security/private-link-basic-topology.png" lightbox="./media/private-link-security/private-link-basic-topology.png" alt-text="Diagram that shows basic resource topology.":::
 
 An AMPLS:
 

@@ -6,7 +6,7 @@ author: duongau
 manager: kumud
 ms.service: frontdoor
 ms.topic: troubleshooting
-ms.date: 08/20/2021
+ms.date: 10/11/2023
 ms.author: duau
 ---
 
@@ -26,7 +26,7 @@ If you have made a payment and throttling hasn't been removed, you can request t
 
 ## Enterprise agreements
 
-Enterprise Agreement subscriptions don't have any bandwidth restrictions.
+Refer to the bandwidth limit in [Azure Front Door limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits)
 
 ## Other offer types
 

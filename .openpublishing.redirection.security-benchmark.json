@@ -140,7 +140,6 @@
         "redirect_url": "/security/benchmark/azure/v2-cis-benchmark",
         "redirect_document_id": false
     },
-
     {
         "source_path_from_root": "/articles/key-vault/general/security-baseline.md",
         "redirect_url": "/security/benchmark/azure/baselines/key-vault-security-baseline",
@@ -536,7 +535,6 @@
         "redirect_url": "/security/benchmark/azure/baselines/cloud-services-security-baseline",
         "redirect_document_id": false
     },
-
     {
         "source_path_from_root": "/articles/vpn-gateway/security-baseline.md",
         "redirect_url": "/security/benchmark/azure/baselines/vpn-gateway-security-baseline",
@@ -546,7 +544,6 @@
         "source_path_from_root": "/articles/peering-service/security-baseline.md",
         "redirect_url": "/security/benchmark/azure/baselines/peering-service-desktop-security-baseline",
         "redirect_document_id": false
-    },
-
+    }
   ]
 }

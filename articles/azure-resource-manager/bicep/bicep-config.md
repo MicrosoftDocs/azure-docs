@@ -3,14 +3,14 @@ title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 04/28/2023
+ms.date: 02/02/2024
 ---
 
 # Configure your Bicep environment
 
-Bicep supports a configuration file named `bicepconfig.json`. Within this file, you can add values that customize your Bicep development experience. If you don't add this file, Bicep uses default values.
+Bicep supports an optional configuration file named `bicepconfig.json`. Within this file, you can add values that customize your Bicep development experience. This file is merged with the [default configuration file](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json). For more information, see [Understand the merge process](#understand-the-merge-process). To customize configuration, create a configuration file in the same directory or a parent directory of your Bicep files. If there are multiple parent directories containing `bicepconfig.json` files, Bicep uses the configuration from the nearest one. For more information, see [Understand the file resolution process](#understand-the-file-resolution-process).
 
-To customize values, create this file in the directory where you store Bicep files. You can add `bicepconfig.json` files in multiple directories. The configuration file closest to the Bicep file in the directory hierarchy is used.
+To configure Bicep extension settings, see [VS Code and Bicep extension](./install.md#visual-studio-code-and-bicep-extension).
 
 ## Create the config file in Visual Studio Code
 
@@ -18,11 +18,110 @@ You can use any text editor to create the config file.
 
 To create a `bicepconfig.json` file in Visual Studio Code, open the Command Palette (**[CTRL/CMD]**+**[SHIFT]**+**P**), and then select **Bicep: Create Bicep Configuration File**. For more information, see [Create Bicep configuration file](./visual-studio-code.md#create-bicep-configuration-file).
 
-:::image type="content" source="./media/bicep-config/vscode-create-bicep-configuration-file.png" alt-text="Screenshot of how to create Bicep configuration file in VSCode.":::
+:::image type="content" source="./media/bicep-config/vscode-create-bicep-configuration-file.png" alt-text="Screenshot of how to create Bicep configuration file in VS Code.":::
 
 The Bicep extension for Visual Studio Code supports intellisense for your `bicepconfig.json` file. Use the intellisense to discover available properties and values.
 
 :::image type="content" source="./media/bicep-config/bicep-linter-configure-intellisense.png" alt-text="Screenshot of the intellisense support in configuring bicepconfig.json.":::
+
+## Understand the merge process
+
+The `bicepconfig.json` file undergoes a recursive bottom-up merging process with the default configuration file. During the merging process, Bicep examines each path in both configurations. If a path isn't present in the default configuration, the path and its associated value are added in the final result. Conversely, if a path exists in the default configuration with a different value, the value from `bicepconfig.json` takes precedence in the merged result.
+
+Consider a scenario where the default configuration is defined as follows:
+
+```json
+{
+  "cloud": {
+    ...
+    "credentialPrecedence": [
+      "AzureCLI",
+      "AzurePowerShell"
+    ]
+  },
+  "moduleAliases": {
+    "ts": {},
+    "br": {
+      "public": {
+        "registry": "mcr.microsoft.com",
+        "modulePath": "bicep"
+      }
+    }
+  },
+  ...
+}
+```
+
+And the `bicepconfig.json` is defined as follows:
+
+```json
+{
+  "cloud": {
+    "credentialPrecedence": [
+      "AzurePowerShell",
+      "AzureCLI"
+    ]
+  },
+  "moduleAliases": {
+    "br": {
+      "ContosoRegistry": {
+        "registry": "contosoregistry.azurecr.io"
+      },
+      "CoreModules": {
+        "registry": "contosoregistry.azurecr.io",
+        "modulePath": "bicep/modules/core"
+      }
+    }
+  }
+}
+```
+
+The resulting merged configuration would be:
+
+```json
+{
+  "cloud": {
+    ...
+    "credentialPrecedence": [
+      "AzurePowerShell",
+      "AzureCLI"
+    ]
+  },
+  "moduleAliases": {
+    "ts": {},
+    "br": {
+      "public": {
+        "registry": "mcr.microsoft.com",
+        "modulePath": "bicep"
+      },
+      "ContosoRegistry": {
+        "registry": "contosoregistry.azurecr.io"
+      },
+      "CoreModules": {
+        "registry": "contosoregistry.azurecr.io",
+        "modulePath": "bicep/modules/core"
+      }
+    }
+  },
+  ...
+}
+```
+
+In the preceding example, the value of `cloud.credentialPrecedence` is replaced, while the value of `cloud.moduleAliases.ContosoRegistry` and `cloud.moduleAliases.CoreModules` are appended in the merged configuration.
+
+## Understand the file resolution process
+
+The `bicepconfig.json` file can be placed in the same directory or a parent directory of your Bicep files. If there are multiple parent directories containing `bicepconfig.json` files, Bicep uses the configuration file from the nearest one. For instance, in the given folder structure where each folder has a `bicepconfig.json` file:
+
+:::image type="content" source="./media/bicep-config/bicep-config-file-resolve.png" alt-text="A diagram showing resolving `bicepconfig.json` found in multiple parent folders.":::
+
+If you compile `main.bicep` in the `child` folder, the `bicepconfig.json` file in the `child` folder is used. The configuration files in the `parent` folder and the `root` folder are ignored. If the `child` folder doesn't contain a configuration file, Bicep searches for a configuration in the `parent` folder and then the `root` folder. If no configuration file is found in any of the folders, Bicep defaults to using the [default values](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json).
+
+In the context of a Bicep file invoking multiple modules, each module undergoes compilation using the nearest `bicepconfig.json`. Then, the main Bicep file is compiled with its corresponding `bicepconfig.json`. In the following scenario, `modA.bicep` is compiled using the `bicepconfig.json` located in the `A` folder, `modB.bicep` is compiled with the `bicepconfig.json` in the `B` folder, and finally, `main.bicep` is compiled using the `bicepconfig.json` in the `root` folder.
+
+:::image type="content" source="./media/bicep-config/bicep-config-file-resolve-module.png" alt-text="A diagram showing resolving `bicepconfig.json` found in multiple parent folders with the module scenario.":::
+
+In the absence of a `bicepconfig.json` file in the `A` and `B` folders, all three Bicep files are compiled using the `bicepconfig.json` found in the `root` folder. If `bicepconfig.json` isn't present in any of the folders, the compilation process defaults to using the [default values](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json).
 
 ## Configure Bicep modules
 
@@ -34,28 +133,20 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 ## Enable experimental features
 
-You can enable preview features by adding:
+You can enable experimental features by adding the following section to your `bicepconfig.json` file.
+
+Here's an example of enabling features 'compileTimeImports' and 'userDefinedFunctions`. 
 
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "userDefinedTypes": true,
-    "extensibility": true
+    "compileTimeImports": true,
+    "userDefinedFunctions": true
   }
 }
 ```
 
-> [!WARNING]
-> To utilize the experimental features, it's necessary to have the latest version of [Azure CLI](./install.md#azure-cli).
-
-The preceding sample enables 'userDefineTypes' and 'extensibility`. The available experimental features include:
-
-- **extensibility**: Allows Bicep to use a provider model to deploy non-ARM resources. Currently, we only support a Kubernetes provider. See [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
-- **paramsFiles**: Allows for the use of a Bicep-style parameters file with a terser syntax than the JSON equivalent parameters file. Currently, you also need a special build of Bicep to enable this feature, so is it inaccessible to most users. See [Parameters - first release](https://github.com/Azure/bicep/issues/9567).
-- **sourceMapping**: Enables basic source mapping to map an error location returned in the ARM template layer back to the relevant location in the Bicep file.
-- **resourceTypedParamsAndOutputs**: Enables the type for a parameter or output to be of type resource to make it easier to pass resource references between modules. This feature is only partially implemented. See [Simplifying resource referencing](https://github.com/azure/bicep/issues/2245).
-- **symbolicNameCodegen**: Allows the ARM template layer to use a new schema to represent resources as an object dictionary rather than an array of objects. This feature improves the semantic equivalent of the Bicep and ARM templates, resulting in more reliable code generation. Enabling this feature has no effect on the Bicep layer's functionality.
-- **userDefinedTypes**: Allows you to define your own custom types for parameters. See [User-defined types in Bicep](https://aka.ms/bicepCustomTypes).
+For information on the current set of experimental features, see [Experimental Features](https://aka.ms/bicep/experimental-features).
 
 ## Next steps
 

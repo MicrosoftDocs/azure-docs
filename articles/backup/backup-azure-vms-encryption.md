@@ -2,10 +2,10 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 08/28/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Back up and restore encrypted Azure virtual machines
 
@@ -29,7 +29,7 @@ For more information about encryption of managed disks with customer-managed key
 
 Azure Backup supports backup of Azure VMs that have their OS/data disks encrypted with Azure Disk Encryption (ADE). ADE uses BitLocker for encryption of Windows VMs, and the dm-crypt feature for Linux VMs. ADE integrates with Azure Key Vault to manage disk-encryption keys and secrets. Key Vault Key Encryption Keys (KEKs) can be used to add an additional layer of security, encrypting encryption secrets before writing them to Key Vault.
 
-Azure Backup can back up and restore Azure VMs using ADE with and without the Azure AD app, as summarized in the following table.
+Azure Backup can back up and restore Azure VMs using ADE with and without the Microsoft Entra app, as summarized in the following table.
 
 **VM disk type** | **ADE (BEK/dm-crypt)** | **ADE and KEK**
 --- | --- | ---
@@ -101,7 +101,7 @@ In addition, there are a couple of things that you might need to do in some circ
 
 ### Back up ADE encrypted VMs with RBAC enabled key vaults
 
-To enable backups for ADE encrypted VMs using Azure RBAC enabled key vaults, you need to assign Key Vault Administrator role to the Backup Management Service Azure AD app by adding a role assignment in Access Control of key vault.
+To enable backups for ADE encrypted VMs using Azure RBAC enabled key vaults, you need to assign Key Vault Administrator role to the Backup Management Service Microsoft Entra app by adding a role assignment in Access Control of key vault.
 
 :::image type="content" source="./media/backup-azure-vms-encryption/enable-key-vault-encryption-inline.png" alt-text="Screenshot shows the checkbox to enable ADE encrypted key vault." lightbox="./media/backup-azure-vms-encryption/enable-key-vault-encryption-expanded.png":::
 
@@ -152,8 +152,10 @@ The initial backup will run in accordance with the schedule, but you can run it 
 
 Azure Backup needs read-only access to back up the keys and secrets, along with the associated VMs.
 
-- Your Key Vault is associated with the Azure AD tenant of the Azure subscription. If you're a **Member user**, Azure Backup acquires access to the Key Vault without further action.
+- Your Key Vault is associated with the Microsoft Entra tenant of the Azure subscription. If you're a **Member user**, Azure Backup acquires access to the Key Vault without further action.
 - If you're a **Guest user**, you must provide permissions for Azure Backup to access the key vault. You need to have access to key vaults to configure Backup for encrypted VMs.
+
+To provide Azure RBAC permissions on Key Vault, see [this article](../key-vault/general/rbac-guide.md?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
 
 To set permissions:
 

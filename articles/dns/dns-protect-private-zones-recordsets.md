@@ -3,10 +3,10 @@ title: Protecting private DNS Zones and Records - Azure DNS
 description: In this learning path, get started protecting private DNS zones and record sets in Microsoft Azure DNS.
 services: dns
 ms.service: dns
-author: duongau
-ms.author: duau
+author: greg-lindsay
+ms.author: greglin
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -245,7 +245,7 @@ Azure PowerShell
 $lvl = "<lock level>"
 $lnm = "<lock name>"
 $rnm = "<zone name>/<record set name>"
-$rty = "Microsoft.Network/privateDnsZones"
+$rty = "Microsoft.Network/privateDnsZones/<record type>"
 $rsg = "<resource group name>"
 
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rnm -ResourceType $rty -ResourceGroupName $rsg

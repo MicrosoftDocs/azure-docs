@@ -27,11 +27,11 @@ If the virtual network is in a different subscription than the app, you must ens
 
 ## Configure in the Azure portal
 
-1. Go to **Networking** in the App Service portal. Under **Outbound Traffic**, select **VNet integration**.
+1. Go to **Networking** in the App Service portal. Under **Outbound traffic configuration**, select **Virtual network integration**.
 
-1. Select **Add VNet**.
+1. Select **Add virtual network integration**.
 
-    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-app.png" alt-text="Screenshot that shows selecting VNet integration.":::
+    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-app.png" alt-text="Screenshot that shows selecting Virtual network integration.":::
 
 1. The dropdown list contains all the virtual networks in your subscription in the same region. Select an empty pre-existing subnet or create a new subnet.
 
