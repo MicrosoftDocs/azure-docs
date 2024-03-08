@@ -1,6 +1,6 @@
 ---
 title: Add hosts to a multiple-host SAP HANA system using Azure NetApp Files application volume group for SAP HANA | Microsoft Docs
-description: Describes how to add additional HANA hosts after you have created the first host in an SAP HANA multiple-host setup.
+description: Describes how to add more HANA hosts after you've created the first host in an SAP HANA multiple-host setup.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Add hosts to a multiple-host SAP HANA system using application volume group for SAP HANA
 
-Building a multiple-host SAP HANA database always starts with creating a volume group for the first host. You need to have created the first host in an SAP HANA multiple-host setup (see [Deploy the first SAP HANA host](application-volume-group-deploy-first-host.md)). After that, you can add additional HANA hosts by following steps in this article. 
+Building a multiple-host SAP HANA database always starts with creating a volume group for the first host. To begin, you must create the first host in an SAP HANA multiple-host setup (see [Deploy the first SAP HANA host](application-volume-group-deploy-first-host.md)). After that, you can add additional HANA hosts by following steps in this article. 
 
 > [!IMPORTANT]
 > SAP recommends that you size the HANA shared volume to 1 x RAM of a HANA host for every four SAP HANA hosts of a multiple-host SAP HANA database. You might need to adjust the size for the shared volume you created with the initial host to adapt for the required capacity.
@@ -24,17 +24,17 @@ Building a multiple-host SAP HANA database always starts with creating a volume 
     * **SAP ID (SID)**:    
         The three alphanumeric-character SAP HANA system identifier.
     * **Group name**:  
-        The volume group name. For a multiple-host SAP HANA, each host will create its own group.   
-        In the example screenshot below, the group name `SAP-HANA-SH9-{HostId}` is a generic name. `{HostId}` will be replaced with the corresponding numeric host ID for each host you add. `{HostId}` will also be replaced with the numeric host ID for the volume group description. If `{HostId}` is not specified, it is appended to the end for both the group name and description.
+        The volume group name. For a multiple-host SAP HANA, each host creates its own group.   
+        In the example screenshot below, the group name `SAP-HANA-SH9-{HostId}` is a generic name. The corresponding numeric host ID for each host you add replaces `{HostId}`. Also, the numeric host ID for the volume group description replaces `{HostId}`. If `{HostId}` isn't specified, it's appended to the end for both the group name and description.
     * **SAP node memory**:   
-        This value defines the size of the SAP HANA database on the host. It is used to calculate the required volume size and throughput. 
+        This value defines the size of the SAP HANA database on the host and used to calculate the required volume size and throughput. 
     * **Capacity overhead (%)**:   
-        When you use snapshots for data protection, you need to plan for extra capacity. This field will add an additional size (%) for the data volume.  
+        When you use snapshots for data protection, you need to plan for extra capacity. This field adds a size (%) for the data volume.  
         You can estimate this value by using `"change rate per day" X "number of days retention"`.
     * **Multiple-host**:   
-        Select this option to add additional hosts to a multiple-host HANA.
+        Select this option to add more hosts to a multiple-host HANA.
     * **First host ID**:   
-        Specify the number of the first host you want to add. This value is typically "2" if you are adding hosts for the first time.
+        Specify the number of the first host you want to add. This value is typically "2" if you're adding hosts for the first time.
     * **Host count**:   
         Specify the number of hosts you want to add to the multiple-host setup.
 
@@ -50,7 +50,7 @@ Building a multiple-host SAP HANA database always starts with creating a volume 
 
     Select **Next: Volumes** when you reach the end of the sections. 
 
-    For additional hosts that you add, only the data and the log volumes will be created. The **Volumes** page displays the two volumes in a generic form, using the `{HostId}` as a placeholder. This process simplifies the workflow, because changes are made only once for the data and log volumes for all the hosts that are being created.
+    For hosts that you add, only the data and the log volumes are created. The **Volumes** page displays the two volumes in a generic form, using the `{HostId}` as a placeholder. This process simplifies the workflow, because changes are made only once for the data and log volumes for all the hosts that are being created.
 
     > [!NOTE]
     > SAP HANA allows you to add different compute volume types to a multiple-host setup. If you use this setup, you should add only one host for the same compute type at one time.
@@ -65,7 +65,7 @@ Building a multiple-host SAP HANA database always starts with creating a volume 
 
     [ ![Screenshot that shows the Review and Create section for adding hosts.](./media/application-volume-group-add-hosts/application-multiple-review-create.png) ](./media/application-volume-group-add-hosts/application-multiple-review-create.png#lightbox)
 
-5. After you navigate through the volume groups, select **Create All Groups** to create all the volumes for the HANA hosts you are adding. 
+5. After you navigate through the volume groups, select **Create All Groups** to create all the volumes for the HANA hosts you're adding. 
 
     [ ![Screenshot that shows the Create All Groups button.](./media/application-volume-group-add-hosts/application-multiple-create-groups.png) ](./media/application-volume-group-add-hosts/application-multiple-create-groups.png#lightbox)
 
