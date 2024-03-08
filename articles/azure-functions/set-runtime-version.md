@@ -101,16 +101,21 @@ Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP
 ::: zone pivot="platform-windows" 
 ## Change the runtime version
 
-You can change the major version of the runtime used by your function app to another supported version. Because of the potential of breaking changes, you can only change the runtime version before you've created any functions in your function app. 
+You can change the major version of the runtime used by your function app to another supported version. You can move forward to a later major version, downgrade to an earlier supported version, or temporarily pin your app to a specific minor version. 
 
-> [!IMPORTANT]
-> Although the runtime version is determined by the `FUNCTIONS_EXTENSION_VERSION` setting, when possible you should only make this change in the Azure portal and not by changing the setting directly. This is because the portal validates your changes and makes other related changes as needed. 
-> When you need to temporarily pin your function app to a specific minor version, it's OK to set the specific minor version by directly changing the `FUNCTIONS_EXTENSION_VERSION` setting.  
+When setting the runtime version, keep these considerations in mind:
+
++ Although the runtime version is determined by the `FUNCTIONS_EXTENSION_VERSION` setting, when possible you should only make this change in the Azure portal and not by changing the setting directly. This is because the portal validates your changes and makes other related changes as needed.   
++ When you need to temporarily pin your function app to a specific minor version, it's OK to set the specific minor version by directly changing the `FUNCTIONS_EXTENSION_VERSION` setting.  
++ Because of the potential of breaking changes, you can only downgrade the runtime version before you've created any functions in your function app. 
 
 ### [Portal](#tab/portal)
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
+3. To pin your app to a specific minor version or downgrade a new .NET function app to version 1.x, select **Application settings** > **FUNCTIONS_EXTENSION_VERSION**, change **Value** to your required minor version or `~1` for downgrade, and select **OK**.
+
+4. Select **Save** > **Continue** to apply changes and restart the app.
 
 ### [Azure CLI](#tab/azurecli)
 
@@ -122,7 +127,7 @@ az functionapp config appsettings set --name <FUNCTION_APP> \
 --settings FUNCTIONS_EXTENSION_VERSION=<VERSION>
 ```
 
-Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with either a supported major version (`~4` or `~1`) or a specific minor version you temporarily need to target.
+Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with either a supported major version (`~4` or `~1`—.NET-only) or a specific minor version you temporarily need to target.
 
 Choose **Try it** in the previous code example to run the command in [Azure Cloud Shell](../cloud-shell/overview.md). You can also run the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command. When running locally, you must first run [`az login`](/cli/azure/reference-index#az-login) to sign in.
 
@@ -142,7 +147,7 @@ Use the following script to change the Functions runtime:
 Update-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE_GROUP>" -AppSetting @{"FUNCTIONS_EXTENSION_VERSION" = "<VERSION>"} -Force
 ```
 
-Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with either a supported major version (`~4` or `~1`) or a specific minor version you temporarily need to target. You can verify the updated value of the `FUNCTIONS_EXTENSION_VERSION` setting in the returned hash table. 
+Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with either a supported major version (`~4` or `~1`—.NET-only) or a specific minor version you temporarily need to target. You can verify the updated value of the `FUNCTIONS_EXTENSION_VERSION` setting in the returned hash table. 
 
 ---
 
