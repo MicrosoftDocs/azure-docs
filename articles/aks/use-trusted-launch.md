@@ -85,7 +85,7 @@ Perform the following steps to deploy an AKS cluster using the Azure CLI.
 1. Create an AKS cluster using the [az aks create][az-aks-create] command. Before running the command, review the following parameters:
 
    * **--name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
-   * **--resource-group**: Enter the name of an existing resource group that will host the AKS cluster resource.
+   * **--resource-group**: Enter the name of an existing resource group to host the AKS cluster resource.
    * **--enable-secure-boot**: Enables Secure Boot to authenticate an image signed by a trusted publisher.
    * **--enable-vtpm**: Enables vTPM and performs attestation by measuring the entire boot chain of your VM.
 
@@ -109,7 +109,7 @@ Perform the following steps to deploy an AKS cluster using the Azure CLI.
 Deploy a node pool with trusted launch enabled using the [az aks nodepool add][az-aks-nodepool-add] command. Before running the command, review the following parameters:
 
    * **--cluster-name**: Enter the name of the AKS cluster.
-   * **--resource-group**: Enter the name of an existing resource group that will host the AKS cluster resource.
+   * **--resource-group**: Enter the name of an existing resource group to host the AKS cluster resource.
    * **--name**: Enter a unique name for the node pool. The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools, the length must be between 1-11 characters.
    * **--node-count**: The number of nodes in the Kubernetes agent pool. Default is 3.
    * **--enable-secure-boot**: Enables Secure Boot to authenticate image signed by a trusted publisher.
