@@ -53,7 +53,7 @@ Best practices for using hard-coded keys in source files include:
 
 **How API keys are used in the Azure portal**:
 
-+ Key authentication is built in. By default, the portal tries API keys firsty. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
++ Key authentication is built in. By default, the portal tries API keys first. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
 
 ### [**PowerShell**](#tab/azure-ps-use)
 
