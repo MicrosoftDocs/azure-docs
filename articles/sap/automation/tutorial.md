@@ -211,6 +211,7 @@ When you choose a name for your service principal, make sure that the name is un
       --scope /subscriptions/${ARM_SUBSCRIPTION_ID}
     ```
 
+
 > [!IMPORTANT]
 > If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
 
@@ -220,11 +221,12 @@ As a part of the SAP automation framework control plane, you can optionally crea
 
 :::image type="content" source="./media/deployment-framework/webapp-front-page.png" alt-text="Screenshot of Web app front page.":::
 
+
 ### Create an app registration
 
-If you want to use the web app, you must first create an app registration for authentication purposes. Open Cloud Shell and run the following commands:
+If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
 
-Replace LAB with your environment, as necessary.
+Replace LAB with your environment as necessary.
 
 ```bash
 export            env_code="LAB"
@@ -254,10 +256,10 @@ rm manifest.json
 ```
 
 > [!NOTE]
-> Ensure that you're logged on by using a user account that has the required permissions to create application registrations. For more information about App registrations, see [Create an app registration](/cli/azure/ad/app#az-ad-app-create) for more information.
+>Ensure that you are logged on using a user account that has the required permissions to create application registrations. For more information about App registrations, see [Create an app registration](/cli/azure/ad/app#az-ad-app-create) for more information.
 >
 
-Copy down the output details. Make sure to save the values for `App registration ID` and `App registration password`.
+Copy down the output details. Make sure to save the values for `App registration ID`, `App registration password`.
 
 The output maps to the following parameters. You use these parameters in later steps, with automation commands.
 
@@ -338,7 +340,8 @@ code .
     Note the Terraform variable file locations for future edits during deployment.
 
 > [!IMPORTANT]
-> Ensure that the `dns_label` matches your Azure Private DNS.
+> Ensure that the ´dns_label´ matches your Azure Private DNS.
+
 
 ## Deploy the control plane
 
@@ -361,7 +364,7 @@ export       ARM_TENANT_ID="<tenantId>"
 
 ```
 
-If you're running the script from a workstation that isn't part of the deployment network or from Cloud Shell, you can use the following command to set the environment variable for allowing connectivity from your IP address:
+If you're running the script from a workstation that isn't part of the deployment network or from the Azure Cloud Shell, you can use the following command to set the environment variable for allowing connectivity from your IP address:
 
 ```bash
 export TF_VAR_Agent_IP=<your-public-ip-address>
@@ -510,9 +513,9 @@ To connect to the deployer:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Go to the resource group that contains the deployer VM.
+1. Go to the resource group that contains the deployer virtual machine.
 
-1. Connect to the VM by using Azure Bastion.
+1. Connect to the virtual machine by using Azure Bastion.
 
 1. The default username is **azureadm**.
 
@@ -524,7 +527,7 @@ To connect to the deployer:
 
 1. From the list of secrets, select the secret that ends with **-sshkey**.
 
-1. Connect to the VM.
+1. Connect to the virtual machine.
 
 
 The rest of the tasks must be executed on the deployer.
@@ -1051,7 +1054,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ### Playbook: BOM Processing
 
-This playbook downloads the SAP software to the SCS VM.
+This playbook downloads the SAP software to the SCS virtual machine.
 
 You can either run the playbook using the configuration menu or directly from the command line.
 
