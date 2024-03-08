@@ -41,7 +41,7 @@ Follow the steps [here](./quick-start-connect-vcenter-to-arc-using-script.md) to
 
     :::image type="content" source="media/enable-virtual-hardware/perform-virtual-hardware-operations.png" alt-text="Screenshot that shows the page for performing virtual hardware operations." lightbox="media/enable-virtual-hardware/perform-virtual-hardware-operations.png":::
 
-After linking to vCenter, virtual lifecycle operations and power cycle operations are enabled on the machine and the kind property of Hybrid Compute Machine is updated as VMware.
+    After linking to vCenter, virtual lifecycle operations and power cycle operations are enabled on the machine and the kind property of Hybrid Compute Machine is updated as VMware.
 
 ## Link Arc enabled Server machines to vCenter using Azure CLI
 
