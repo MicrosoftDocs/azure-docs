@@ -30,6 +30,8 @@ The script creates the following resources:
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
+:::image type="content" source="./media/quick-create-bicep/virtual-network-qs-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart.":::
+
 ## Prerequisites
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
