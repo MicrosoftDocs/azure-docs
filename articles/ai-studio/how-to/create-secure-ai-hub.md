@@ -13,9 +13,7 @@ ms.topic: how-to
 
 # How to create a secure AI hub and project with a managed virtual network
 
-You can secure your AI hub, AI projects, and managed resources in a managed virtual network. Using a private endpoint, resources in the managed virtual network can securely access other Azure resources such as your Azure Storage Account.
-
-With a managed virtual network, inbound access is only allowed through an private endpoint for your AI hub resource. Outbound access can be configured to allow either all outbound access, or only allowed outbound that you specify. For more information, see [Managed virtual network](configure-managed-network.md).
+You can secure your AI hub, AI projects, and managed resources in a managed virtual network. With a managed virtual network, inbound access is only allowed through a private endpoint for your AI hub resource. Outbound access can be configured to allow either all outbound access, or only allowed outbound that you specify. For more information, see [Managed virtual network](configure-managed-network.md).
 
 > [!IMPORTANT]
 > The managed virtual network doesn't provide inbound connectivity for your clients. For more information, see the [Connect to the AI hub](#connect-to-the-ai-hub) section. 
@@ -23,16 +21,16 @@ With a managed virtual network, inbound access is only allowed through an privat
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-- An Azure Virtual Network (VNet) that you use to securely connect to Azure services. For example, you may use [Azure Bastion](/azure/bastion/bastion-overview), [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](/azure/expressroute/expressroute-introduction) to connect to the VNet from your on-premises network. If you don't have a VNet, you can create one by following the instructions in [Create a virtual network](/azure/virtual-network/quick-create-portal).
+- An Azure Virtual Network that you use to securely connect to Azure services. For example, you might use [Azure Bastion](/azure/bastion/bastion-overview), [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](/azure/expressroute/expressroute-introduction) to connect to the Azure Virtual Network from your on-premises network. If you don't have an Azure Virtual Network, you can create one by following the instructions in [Create a virtual network](/azure/virtual-network/quick-create-portal).
 
 ## Create an AI hub
 
-1. From the Azure portal, search for `Azure AI Studio` and create a new resource by selecting **+ New Azure AI**
+1. From the Azure portal, search for `Azure AI Studio` and create a new resource by selecting **+ New Azure AI**.
 1. Enter your AI hub name, subscription, resource group, and location details.
 
     :::image type="content" source="../media/how-to/network/ai-hub-basics.png" alt-text="Screenshot of the option to set Azure AI hub resource basic information." lightbox="../media/how-to/network/ai-hub-basics.png":::
 
-1. Select **Next: Resources** to specify resources. Select an existing **Azure AI services** resource or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
+1. Select **Next: Resources** to specify resources. Select an existing **Azure AI services** resource or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety, and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
 
     :::image type="content" source="../media/how-to/network/ai-hub-resources.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to set resource information." lightbox="../media/how-to/network/ai-hub-resources.png"::: 
 
@@ -44,7 +42,7 @@ With a managed virtual network, inbound access is only allowed through an privat
 
     1. To allow your clients to connect through your Azure Virtual Network to the AI hub, use the following steps to add a private endpoint.
     
-        1. Select **+ Add** from the **Workspace inbound access** section of the **Networking** tab. This opens the **Create private endpoint** form.
+        1. Select **+ Add** from the **Workspace inbound access** section of the **Networking** tab. The **Create private endpoint** form is displayed.
         
             :::image type="content" source="../media/how-to/network/workspace-inbound-access.png" alt-text="Screenshot of the workspace inbound access section." lightbox="../media/how-to/network/workspace-inbound-access.png":::
 
@@ -69,7 +67,7 @@ When you create a compute instance from the AI hub, the compute instance inherit
 
 ## Connect to the AI hub
 
-The managed virtual network doesn't directly provide access to your clients. Instead, your clients will connect to an Azure Virtual Network that *you* manage. There are multiple methods that you might use to connect clients to the Azure Virtual Network. The following table lists the common ways that clients connect to an Azure Virtual Network:
+The managed virtual network doesn't directly provide access to your clients. Instead, your clients connect to an Azure Virtual Network that *you* manage. There are multiple methods that you might use to connect clients to the Azure Virtual Network. The following table lists the common ways that clients connect to an Azure Virtual Network:
 
 | Method | Description |
 | ----- | ----- |
@@ -78,11 +76,11 @@ The managed virtual network doesn't directly provide access to your clients. Ins
 | [Azure Bastion](/azure/bastion/bastion-overview) | Connects to a virtual machine inside the Azure Virtual Network using your web browser. |
 
 > [!TIP]
-> When connecting using Azure VPN gateway or ExpressRoute, you may need to use a to enable name resolution for your clients. For more information, see the [DNS resolution](#dns-resolution) section.
+> When connecting using Azure VPN gateway or ExpressRoute, you might need to use a to enable name resolution for your clients. For more information, see the [DNS resolution](#dns-resolution) section.
 
 ### DNS resolution
 
-Depending on your network configuration, you may need to configure DNS resolution before your clients can connect to the AI hub, AI project, or compute instances.
+Depending on your network configuration, you might need to configure DNS resolution before your clients can connect to the AI hub, AI project, or compute instances.
 
 > [!TIP]
 > Your clients do not directly connect to the managed virtual network. Instead, they connect to an Azure Virtual Network that you manage. The private endpoint for your AI hub surfaces IP addresses and FQDNs for the AI hub, AI project, and managed compute resources in your Azure Virtual Network.
