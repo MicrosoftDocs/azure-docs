@@ -1,6 +1,6 @@
 ---
 title: Migrate Managed image to Compute gallery
-description: Learn how to legacy Managed image to image version in Azure Compute Gallery.
+description: Learn how to legacy Managed image to image version in Azure compute gallery.
 author: AjKundnani
 ms.service: virtual-machines
 ms.subservice: gallery
