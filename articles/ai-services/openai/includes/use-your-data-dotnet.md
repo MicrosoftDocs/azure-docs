@@ -36,7 +36,7 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
 {
     Messages =
     {
-        new ChatRequestUserMessage("What are the differences between Azure Machine Learning and Azure AI services?"),
+        new ChatRequestUserMessage("What are my available health plans?"),
     },
     AzureExtensionsOptions = new AzureChatExtensionsOptions()
     {
@@ -94,7 +94,7 @@ dotnet run program.cs
 ```output
 Answer from assistant:
 ===
-Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
+The available health plans in the Contoso Electronics plan and benefit packages are the Northwind Health Plus and Northwind Standard plans [^1^].
 ===
 Context information (e.g. citations) from chat extensions:
 ===
@@ -113,7 +113,7 @@ tool: {
     },
     ...
   ],
-  "intent": "[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]"
+  "intent": "[\u0022What are my available health plans?\u0022]"
 }
 ===
 ```
@@ -143,7 +143,7 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
     DeploymentName = deploymentName,
     Messages =
     {
-        new ChatRequestUserMessage("What are the differences between Azure Machine Learning and Azure AI services?"),
+        new ChatRequestUserMessage("What are my available health plans?"),
     },
     AzureExtensionsOptions = new AzureChatExtensionsOptions()
     {

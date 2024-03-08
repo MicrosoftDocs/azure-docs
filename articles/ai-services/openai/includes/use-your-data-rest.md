@@ -39,7 +39,7 @@ curl -i -X POST $AZURE_OPENAI_ENDPOINT/openai/deployments/$AZURE_OPENAI_DEPLOYME
     "messages": [
         {
             "role": "user",
-            "content": "Tell me an interesting fact"
+            "content": "What are my available health plans?"
         }
     ]
 }
@@ -60,7 +60,7 @@ curl -i -X POST $AZURE_OPENAI_ENDPOINT/openai/deployments/$AZURE_OPENAI_DEPLOYME
             "finish_reason": "stop",
             "message": {
                 "role": "assistant",
-                "content": "An interesting fact from the retrieved document is... [doc1].",
+                "content": "The available health plans in the Contoso Electronics plan and benefit packages are the Northwind Health Plus and Northwind Standard plans. [doc1].",
                 "end_turn": true,
                 "context": {
                     "citations": [
@@ -72,7 +72,7 @@ curl -i -X POST $AZURE_OPENAI_ENDPOINT/openai/deployments/$AZURE_OPENAI_DEPLOYME
                             "chunk_id": "0"
                         }
                     ],
-                    "intent": "[\"Interesting facts\"]"
+                    "intent": "[\"Available health plans\"]"
                 }
             }
         }
