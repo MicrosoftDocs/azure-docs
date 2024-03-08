@@ -41,7 +41,7 @@ Instead of potentially time-consuming list queries that return detailed informat
 
 You can integrate Application Insights with your Azure Batch applications to gain deep insights into behaviors and investigate issues in near-real time. Application Insights lets you monitor performance counters and exceptions from compute node VMs and retrieve custom information for the tasks that run on the VMs. You can use Application Insights to instrument your code with custom metrics and tracing.
 
-For a detailed walkthrough and accompanying [code sample](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) that show how to add Application Insights to a Batch .NET solution, instrument application code, monitor the application in the Azure portal, and build custom dashboards, see [Monitor and debug an Azure Batch .NET application with Application Insights](monitor-application-insights.md).
+See [Monitor and debug an Azure Batch .NET application with Application Insights](monitor-application-insights.md) and accompanying [code sample](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) for a detailed walkthrough of how to add Application Insights to a Batch .NET solution, instrument application code, monitor the application in the Azure portal, and build custom dashboards.
 
 > [!NOTE]
 > You might incur costs to use Application Insights. See the [pricing information](https://azure.microsoft.com/pricing/details/application-insights).
@@ -165,7 +165,7 @@ AzureDiagnostics
 
 Because metric delivery can be subject to inconsistencies such as out-of-order delivery, data loss, or duplication, you should avoid alerts that trigger on a single data point. Instead, use thresholds to account for these inconsistencies over a period of time.
 
-For example, you might want to configure a metric alert when your low priority core count falls to a certain level. You could then use this alert to adjust the composition of your pools. For best results, set a period of 10 or more minutes where the alert is triggered if the average low priority core count falls lower than the threshold value for the entire period. This time period allows for metrics to aggregate so that you get more accurate results.
+For example, you might want to configure a metric alert when your low priority core count falls to a certain level. You could then use this alert to adjust the composition of your pools. For best results, set a period of 10 or more minutes where the alert triggers if the average low priority core count falls lower than the threshold value for the entire period. This time period allows for metrics to aggregate so that you get more accurate results.
 
 The following table lists some alert rule triggers for Batch. These alert rules are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Batch monitoring data reference](monitor-batch-reference.md).
 
