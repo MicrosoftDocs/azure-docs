@@ -647,7 +647,6 @@ The next step is to create a Data Processor pipeline that sends the transformed 
           "y": 432
         }
       },
-      "url": "https://msit-onelake.pbidedicated.windows.net",
       "workspace": "",
       "lakehouse": "",
       "table": "OEE",

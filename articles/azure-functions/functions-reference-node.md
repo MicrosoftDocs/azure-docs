@@ -31,8 +31,8 @@ The following table shows each version of the Node.js programming model along wi
 
 | [Programming Model Version](https://www.npmjs.com/package/@azure/functions?activeTab=versions) | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description |
 | ---- | ---- | --- | --- | --- |
-| 4.x | GA | 4.25+ | 20.x (Preview), 18.x | Supports a flexible file structure and code-centric approach to triggers and bindings. |
-| 3.x | GA | 4.x | 20.x (Preview), 18.x, 16.x, 14.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
+| 4.x | GA | 4.25+ | 20.x, 18.x | Supports a flexible file structure and code-centric approach to triggers and bindings. |
+| 3.x | GA | 4.x | 20.x, 18.x, 16.x, 14.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
 | 2.x | n/a | 3.x | 14.x, 12.x, 10.x | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 | 1.x | n/a | 2.x | 10.x, 8.x | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 
@@ -1617,11 +1617,11 @@ Before upgrading your Node.js version, make sure your function app is running on
 Run the Azure CLI [`az functionapp config appsettings set`](/cli/azure/functionapp/config#az-functionapp-config-appsettings-set) command to update the Node.js version for your function app running on Windows:
 
 ```azurecli-interactive
-az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~18 \
+az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~20 \
  --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> 
 ```
 
-This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~18`.
+This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~20`.
 
 # [Azure portal](#tab/azure-portal/windows)
 
@@ -1634,11 +1634,11 @@ Use the following steps to change the Node.js version:
 Run the Azure CLI [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version for your function app running on Linux:
 
 ```azurecli-interactive
-az functionapp config set --linux-fx-version "node|18" --name "<FUNCTION_APP_NAME>" \
+az functionapp config set --linux-fx-version "node|20" --name "<FUNCTION_APP_NAME>" \
  --resource-group "<RESOURCE_GROUP_NAME>"
 ```
 
-This sets the base image of the Linux function app to Node.js version 18.
+This sets the base image of the Linux function app to Node.js version 20.
 
 # [Azure portal](#tab/azure-portal/linux)
 
@@ -1896,7 +1896,7 @@ export default { logHello };
 
 It's recommended to use VS Code for local debugging, which starts your Node.js process in debug mode automatically and attaches to the process for you. For more information, see [run the function locally](./create-first-function-vs-code-node.md#run-the-function-locally).
 
-If you're using a different tool for debugging or want to start your Node.js process in debug mode manually, add `"languageWorkers__node__arguments": "--inspect"` under `Values` in your [local.settings.json](./functions-develop-local.md#local-settings-file). The `--inspect` argument tells Node.js to listen for a debug client, on port 9229 by default. For more information, see the [Node.js debugging guide](https://nodejs.org/en/docs/guides/debugging-getting-started).
+If you're using a different tool for debugging or want to start your Node.js process in debug mode manually, add `"languageWorkers__node__arguments": "--inspect"` under `Values` in your [local.settings.json](./functions-develop-local.md#local-settings-file). The `--inspect` argument tells Node.js to listen for a debug client, on port 9229 by default. For more information, see the [Node.js debugging guide](https://nodejs.org/en/learn/getting-started/debugging).
 
 <a name="considerations-for-javascript-functions"></a>
 

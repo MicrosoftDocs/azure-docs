@@ -68,14 +68,14 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     ```yaml
     containers:
     ...
-   - name: order-service
-     image: <acrName>.azurecr.io/aks-store-demo/order-service:latest
+    - name: order-service
+      image: <acrName>.azurecr.io/aks-store-demo/order-service:latest
     ...
-   - name: product-service
-     image: <acrName>.azurecr.io/aks-store-demo/product-service:latest
+    - name: product-service
+      image: <acrName>.azurecr.io/aks-store-demo/product-service:latest
     ...
-   - name: store-front
-     image: <acrName>.azurecr.io/aks-store-demo/store-front:latest
+    - name: store-front
+      image: <acrName>.azurecr.io/aks-store-demo/store-front:latest
     ...
     ```
 
@@ -100,14 +100,14 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     ```yaml
     containers:
     ...
-   - name: order-service
-     image: <acrName>.azurecr.io/aks-store-demo/order-service:latest
+    - name: order-service
+      image: <acrName>.azurecr.io/aks-store-demo/order-service:latest
     ...
-   - name: product-service
-     image: <acrName>.azurecr.io/aks-store-demo/product-service:latest
+    - name: product-service
+      image: <acrName>.azurecr.io/aks-store-demo/product-service:latest
     ...
-   - name: store-front
-     image: <acrName>.azurecr.io/aks-store-demo/store-front:latest
+    - name: store-front
+      image: <acrName>.azurecr.io/aks-store-demo/store-front:latest
     ...
     ```
 

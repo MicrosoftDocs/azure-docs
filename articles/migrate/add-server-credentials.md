@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 04/13/2023
-ms.custom: engagement-fy23
+ms.date: 03/07/2024
+ms.custom: engagement-fy24
 ---
 
 # Provide server credentials to discover software inventory, dependencies, web apps, and SQL Server instances and databases
@@ -44,7 +44,7 @@ The table below lists the permissions required on the server credentials provide
 Feature | Windows credentials | Linux credentials
 ---| ---| ---
 **Software inventory** | Guest user account | Regular/normal user account (non-sudo access permissions)
-**Discovery of SQL Server instances and databases** | User account that is a member of the sysadmin server role or has [these permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.| _Not supported currently_
+**Discovery of SQL Server instances and databases** | User account that is a member of the sysadmin server role or has [these permissions](migrate-support-matrix-vmware.md?tabs=businesscase&pivots=sql-server-instance-database-discovery-requirements#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.| _Not supported currently_
 **Discovery of ASP.NET web apps** | Domain or non-domain (local) account with administrative permissions | _Not supported currently_
 **Agentless dependency analysis** | Domain or non-domain (local) account with administrative permissions | Sudo user account with permissions to execute ls and netstat commands. If you are providing a sudo user account, ensure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time the sudo command is invoked. <br /><br /> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files, set using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
 
