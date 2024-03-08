@@ -31,7 +31,7 @@ Follow the steps [here](./quick-start-connect-vcenter-to-arc-using-script.md) to
 
 2. The Virtual machines that have Arc agent installed via Arc-enabled Servers route will have **Link to vCenter** status under virtual hardware management.  
 
-3. Select Link to vCenter to open a pane that will list all the machines under the vCenter with Arc agent installed but not linked to the vCenter in Azure Arc.  
+3. Select **Link to vCenter** to open a pane that will list all the machines under vCenter with Arc agent installed but not linked to vCenter in Azure Arc.  
 
 4. Choose all the machines, and select the option to link machines to vCenter.
 
@@ -41,11 +41,11 @@ Follow the steps [here](./quick-start-connect-vcenter-to-arc-using-script.md) to
 
     :::image type="content" source="media/enable-virtual-hardware/perform-virtual-hardware-operations.png" alt-text="Screenshot that shows the page for performing virtual hardware operations." lightbox="media/enable-virtual-hardware/perform-virtual-hardware-operations.png":::
 
-    After linking to vCenter, virtual lifecycle operations and power cycle operations are enabled on the machine and the kind property of Hybrid Compute Machine is updated as VMware.
+    After linking to vCenter, virtual lifecycle operations and power cycle operations are enabled on the machines, and the kind property of Hybrid Compute Machine is updated as VMware.
 
-## Link Arc enabled Server machines to vCenter using Azure CLI
+## Link Arc-enabled Server machines to vCenter using Azure CLI
 
-The following az commands can be used to link Arc enabled Server machines to vCenter at scale.  
+The following az commands can be used to link Arc-enabled Server machines to vCenter at scale.  
 
 **Create VMware resources from the specified Arc for Server machines in the vCenter** 
 
@@ -75,7 +75,7 @@ ARM ID of the vCenter to which the machines will be linked.
 
 **--ids**
 
-One or more resource IDs (space-delimited). It should be a complete resource ID containing all the information of *Resource Id* arguments. You should provide either --ids or other *Resource Id* arguments. 
+One or more resource IDs (space-delimited). It should be a complete resource ID containing all the information of *Resource Id* arguments. You should provide either *--ids* or other *Resource Id* arguments. 
 
 **--name -n**
 
@@ -92,13 +92,13 @@ Name of the resource group that will be scanned for HCRP machines.
 
 Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`. 
 
-### Known issue
+#### Known issue
  
 During the first scan of the vCenter inventory after onboarding to Azure Arc-enabled VMware vSphere, Arc-enabled Servers machines will be discovered under vCenter inventory. If the Arc-enabled Server machines aren't discovered and you try to perform the **Enable in Azure** operation, you'll encounter the following error:<br>
 
 *A machine '/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXXX/resourceGroups/rg-contoso/providers/Microsoft.HybridCompute/machines/testVM1' already exists with the specified virtual machine MoRefId: 'vm-4441'. The existing machine resource can be extended with private cloud capabilities by creating the VirtualMachineInstance resource under it.*
 
-When you encounter this error message, you will be able to perform the **Link to vCenter** operation in 10 minutes. Alternatively, you can use any of the Azure CLI commands listed above to link an existing Arc-enabled Server machine to vCenter.
+When you encounter this error message, you'll be able to perform the **Link to vCenter** operation in 10 minutes. Alternatively, you can use any of the Azure CLI commands listed above to link an existing Arc-enabled Server machine to vCenter.
 
 ## Next steps
 
