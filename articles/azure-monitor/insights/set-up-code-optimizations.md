@@ -30,9 +30,9 @@ Before enabling Code Optimizations for your web app, you need to ensure that it'
 1. In the Application Insights blade for your web application, determine the following:
 
    - **If your web app is already connected to an Application Insights resource:** 
-      - A banner at the top of the blade will read **Your app is connected to Application Insights resource: <NAME-OF-RESOURCE>**.
+      - A banner at the top of the blade will read **Your app is connected to Application Insights resource: {NAME-OF-RESOURCE}**.
    - **If your web app still needs to be connected to an Application Insights resource:**
-      - A banner at the top of the blade will read **Your app will be connected to an auto-created Application Insights resource: <NAME-OF-RESOURCE>**. 
+      - A banner at the top of the blade will read **Your app will be connected to an auto-created Application Insights resource: {NAME-OF-RESOURCE}**. 
 
 1. Click **Apply** at the bottom of the Application Insights pane.
 
