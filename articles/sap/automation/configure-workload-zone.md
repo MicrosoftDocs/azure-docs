@@ -287,7 +287,7 @@ ANF_service_level         = "Ultra"
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                     | Description                                                                  | Type     | Notes                                 |
-> | -------------------------------------------- | ---------------------------------------------------------------------- ----- | -------- | ------------------------------------- |
+> | -------------------------------------------- | ---------------------------------------------------------------------------- | -------- | ------------------------------------- |
 > | `diagnostics_storage_account_arm_id`         | The Azure resource identifier for the diagnostics storage account.           | Required | For brown-field deployments.          |
 > | `place_delete_lock_on_resources`             | Places delete locks on the key vaults and the virtual network                | Optional |                                       |
 > | `witness_storage_account_arm_id`             | The Azure resource identifier for the witness storage account.               | Required | For brown-field deployments.          |

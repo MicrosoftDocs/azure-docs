@@ -483,6 +483,7 @@ configuration_settings = {
 > | `Agent_IP`                           | IP address of the agent.                                                     | Optional |                                       |                                                
 > | `add_Agent_IP`                       | Controls if Agent IP is added to the key vault and storage account firewalls | Optional |                                       |
 
+
 ## Terraform parameters
 
 This section contains the Terraform parameters. These parameters need to be entered manually if you're not using the deployment scripts.
