@@ -25,9 +25,12 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- This article requires version 1.6.1 or later of the Azure Developer CLI. If you're using Azure Cloud Shell, the latest version is already installed there.
+- For ease of use, run this on Bash or PowerShell in the [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 
-- Install the [Azure Developer CLI][azd-install] or download updates. 
+- If you want to use AZD locally, then install the [Azure Developer CLI][azd-install].
+
+- This article requires version 1.6.1 or later of the [Azure Developer CLI][azd-install]. If you're using the [Azure Cloud Shell](/azure/cloud-shell/overview), the latest version is already installed on there.
+
 
 ## Sample Code
 
@@ -92,8 +95,6 @@ The Azure Development Template contains all the code needed to create the servic
     ```
 
 [!INCLUDE [azd-login-ts](../includes/azd/azd-login-ts.md)]
-
-- If you have multiple Azure subscriptions, select the appropriate subscription for billing using the [az account set](/cli/azure/account#az-account-set) command.
 
 ## Create and deploy resources for your cluster
 

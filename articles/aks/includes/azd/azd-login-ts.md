@@ -21,6 +21,10 @@ The workaround requires the Azure CLI for authentication. If you don't have it o
 
 1. In a new terminal window,  type `curl` and paste your url.
 
+    ```azurecli-interactive
+    curl <localhost>
+    ```
+
 1. If it works, code for a webpage saying "You have logged into Microsoft Azure!" appears.
 
     ```html
@@ -63,6 +67,10 @@ The workaround requires the Azure CLI for authentication. If you don't have it o
 
 1. Copy and note down the `id` field of the subscription you want to use.
 
-1. Paste it in to the command `az account set -n {sub}`.
+1. Select your subscription using the [az account set](/cli/azure/account#az-account-set) command.
+
+    ```azurecli-interactive
+    az account set -n <sub>
+    ```
 
 [install-azure-cli]: /cli/azure/install-azure-cli
