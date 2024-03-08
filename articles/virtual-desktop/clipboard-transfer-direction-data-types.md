@@ -29,7 +29,7 @@ To configure the clipboard transfer direction, you need:
 
 - Session hosts running Windows 11 Insider Preview Build 25898 or later (Dev Channel). You must join the [Windows Insider Program](https://support.microsoft.com/en-us/windows/join-the-windows-insider-program-and-manage-insider-settings-ef20bb3d-40f4-20cc-ba3c-a72c844b563c) to activate the Dev Channel Preview Build.
   
-- Host pool RDP properties must allow [clipboard redirection](https://learn.microsoft.com/en-us/azure/virtual-desktop/configure-device-redirections#clipboard-redirection), otherwise it will be completely blocked.
+- Host pool RDP properties must allow [clipboard redirection](configure-device-redirections.md#clipboard-redirection), otherwise it will be completely blocked.
 
 - Depending on the method you use to configure the clipboard transfer direction:
 
