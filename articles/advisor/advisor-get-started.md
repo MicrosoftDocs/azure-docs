@@ -107,7 +107,7 @@ From any Azure Advisor page, select **Configuration** in the left navigation pan
 
 * **Resources**: Uncheck any subscriptions you don't want to receive Advisor recommendations for, select **Apply**. The page refreshes.
 
-* **VM/VMSS right sizing**: You can adjust Advisor virtual machine (VM) and virtual machine scale sets (VMSS) recommendations. Specifically, you can set up a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting filters recommendations but won't change how they're generated.
+* **VM/VMSS right sizing**: You can adjust Advisor virtual machine (VM) and virtual machine scale sets (VMSS) recommendations. Specifically, you can set up a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting filters recommendations but doesn't change how they're generated.
 
 1. Select the subscriptions you’d like to set up a filter for average CPU utilization, and then select **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing and certain privileges are required; for more information on permissions, see [Permissions in Azure Advisor](permissions.md).
 
