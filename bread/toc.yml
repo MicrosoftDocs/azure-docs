@@ -128,15 +128,18 @@ items:
     tocHref: /azure/azure-arc/
     topicHref: /azure/azure-arc/
     items:
-      - name: Azure Arc Data
+      - name: Azure Arc-enabled data services
         tocHref: /azure/azure-arc/data/
         topicHref: /azure/azure-arc/index
-      - name: Azure Arc Kubernetes
+      - name: Azure Arc-enabled Kubernetes
         tocHref: /azure/azure-arc/kubernetes/
         topicHref: /azure/azure-arc/index
-      - name: Azure Arc VMWare
+      - name: Azure Arc-enabled VMWare
         tocHref: /azure/azure-arc/vmware-vsphere/
         topicHref: /azure/azure-arc/index
+      - name: Arc-enabled servers
+        tocHref: /azure/azure-arc/servers/
+        topicHref: /azure/azure-arc/servers/        
       - name: Edge Storage Accelerator
         tocHref: /azure/azure-arc/edge-storage-accelerator/
         topicHref: /azure/azure-arc/edge-storage-accelerator/index      
