@@ -275,7 +275,7 @@ Although skill output can be optionally cached for reuse purposes, it's usually 
 
   After the wizard runs, you can open each object in the Azure portal to view its JSON definition.
 
-+ Try [Debug Sessions](cognitive-search-debug-session.md) to invoke skillset execution over a target document and inspect the enriched document that the skillset creates. You can view and modify input and output settings and values. This tutorial is a good place to start: [utorial: Debug a skillset using Debug Sessions](cognitive-search-tutorial-debug-sessions.md).
++ Try [Debug Sessions](cognitive-search-debug-session.md) to invoke skillset execution over a target document and inspect the enriched document that the skillset creates. You can view and modify input and output settings and values. This tutorial is a good place to start: [Tutorial: Debug a skillset using Debug Sessions](cognitive-search-tutorial-debug-sessions.md).
 
 ## Next steps
 
