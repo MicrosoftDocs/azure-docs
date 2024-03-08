@@ -1,7 +1,7 @@
 ---
 title: Azure App Service monitoring data reference
 description: This article contains important reference material you need when you monitor Azure App Service.
-ms.date: 03/04/2024
+ms.date: 03/07/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: msangapu-msft
@@ -24,10 +24,8 @@ The following tables list the automatically collected platform metrics for App S
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
 | Web apps | [Microsoft.Web/sites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-metrics)
-| Container apps | [Microsoft.Web/containerapps](/azure/azure-monitor/reference/supported-metrics/microsoft-web-containerapps-metrics)
 | App Service Plans | [Microsoft.Web/serverfarms](/azure/azure-monitor/reference/supported-metrics/microsoft-web-serverfarms-metrics)
 | Staging slots | [Microsoft.Web/sites/slots](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-slots-metrics)
-| Static sites | [Microsoft.Web/staticsites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-staticsites-metrics)
 | App Service Environment | [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-metrics)
 | App Service Environment Front-end | [Microsoft.Web/hostingEnvironments/multiRolePools](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-multirolepools-metrics)
 | App Service Environment Worker Pools | [Microsoft.Web/hostingEnvironments/workerPools](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-workerpools-metrics)
@@ -50,18 +48,10 @@ Some metrics in the following namespaces have the listed dimensions:
 - status
 - accountName
 
-**Microsoft.Web/containerapps**
-
-- revisionName
-- deploymentName
-- podName
-- statusCodeCategory
-- statusCode
-
-**Microsoft.Web/serverFarms**<br>
-**Microsoft.Web/sites/slots**<br>
-**Microsoft.Web/hostingEnvironments**<br>
-**Microsoft.Web/hostingenvironments/multirolepools**<br>
+**Microsoft.Web/serverFarms**,<br>
+**Microsoft.Web/sites/slots**,<br>
+**Microsoft.Web/hostingEnvironments**,<br>
+**Microsoft.Web/hostingenvironments/multirolepools,**<br>
 **Microsoft.Web/hostingenvironments/workerpools**
 
 - Instance
@@ -73,7 +63,6 @@ Some metrics in the following namespaces have the listed dimensions:
 - [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/reference/supported-logs/microsoft-web-hostingenvironments-logs)
 - [Microsoft.Web/sites](/azure/azure-monitor/reference/supported-logs/microsoft-web-sites-logs)
 - [Microsoft.Web/sites/slots](/azure/azure-monitor/reference/supported-logs/microsoft-web-sites-slots-logs)
-- [Microsoft.Web/staticsites](/azure/azure-monitor/reference/supported-logs/microsoft-web-staticsites-logs)
 
 The following table lists more information about resource logs you can collect for App Service. 
 
