@@ -139,7 +139,7 @@ To view your cluster on the Azure portal, use the following steps:
    There's also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `az iot ops init` command. You might delete and reinstall the Azure IoT Operations components during testing, but keep the secrets provider extension on your cluster.
 
 > [!TIP]
-> You can run `az iot ops check` to assess health and configurations of deployed AIO workloads.
+> You can run `az iot ops check` to assess health and configurations of deployed AIO workloads. By default, MQ including cloud connectors are assessed and you can [specifiy the service](https://learn.microsoft.com/en-us/cli/azure/iot/ops?view=azure-cli-latest#az-iot-ops-check-examples) with `--ops-service --svc`.
 
 ## Update a deployment
 
