@@ -80,7 +80,7 @@ To perform packet capture using the command line, you must:
 
 1. Run `upftdump` with any parameters that you would usually pass to tcpdump. In particular, `-i` to specify the interface, and `-w` to specify where to write to. Close the UPFT tool when done by pressing <kbd>Ctrl + C</kbd>. The following examples are common use cases:
     - To run capture packets on all interfaces run `upftdump -i any -w any.pcap`
-    - To run capture packets for the N3 interface and the N6 interfac, enter the UPF-PP troublesehooter pod in two separate windows. In one window run `upftdump -i n3trace -w n3.pcap` and in the other window run `upftdump -i n6trace -w n6.pcap`. To pick an individual DN, filter by VLAN ID.
+    - To run capture packets for the N3 interface and the N6 interface, enter the UPF-PP troublesehooter pod in two separate windows. In one window run `upftdump -i n3trace -w n3.pcap` and in the other window run `upftdump -i n6trace -w n6.pcap`. To pick an individual DN, filter by VLAN ID.
 
     > [!IMPORTANT]
     > Packet capture files might be large, particularly when running packet capture on all interfaces. Specify filters when running packet capture to reduce the file size - see the tcpdump documentation for the available filters.

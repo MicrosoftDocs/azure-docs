@@ -85,12 +85,11 @@ You can input all the settings on this page before selecting **Apply** at the bo
     1. Select **Add virtual network** and fill in the side panel:
         - **Virtual switch**: select **vswitch-port3** for N2 and N3. Select **vswitch-port4** for N6.
         - **Name**: *N2*, *N3*, or *N6*.
-        - **VLAN**: VLAN ID
-        - **Network** and **Gateway** should be left blank.
-        - **DNS server** and **DNS suffix** should be left blank.
-    1. Select **Modify** to save the configuration for this virtual network.
-    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes. 
-3. If using Access VLAN or non-VLAN mode, carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+        - **VLAN type**: Trunk VLAN
+        - **Allowed VLAN ID Range**: Fill in the set of VLAN-IDs you want to configure.
+    2. Select **Modify** to save the configuration for this virtual network.
+    3. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes. 
+4. If using Access VLAN or non-VLAN mode, carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
     > [!IMPORTANT]
     > If you are using port 3 for data networks, we recommend that it is used for the lowest expected load.
     1. Select **Add virtual network** and fill in the side panel:
@@ -110,26 +109,26 @@ You can input all the settings on this page before selecting **Apply** at the bo
 :::zone pivot="ase-pro-gpu"
 3. If using the recommended setup of VLAN-trunking mode, carry out the following procedure 3 times:
     1. Select **Add virtual network** and fill in the side panel:
-        - **Virtual switch**: select **vswitch-port3** for N2 and N3. Select **vswitch-port4** for N6.
+        - **Virtual switch**: select **vswitch-port5** for N2 and N3. Select **vswitch-port6** for N6.
         - **Name**: *N2*, *N3*, or *N6*.
-        - **VLAN**: VLAN ID
-        - **Network** and **Gateway** should be left blank.
-        - **DNS server** and **DNS suffix** should be left blank.
-    1. Select **Modify** to save the configuration for this virtual network.
-    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes. 
-3. If using Access VLAN or non-VLAN mode, carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+        - **VLAN type**: Trunk VLAN
+        - **Allowed VLAN ID Range**: Fill in the set of VLAN-IDs you want to configure.
+    2. Select **Modify** to save the configuration for this virtual network.
+    3. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes. 
+4. If using Access VLAN or non-VLAN mode, carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
     > [!IMPORTANT]
     > If you are using port 5 for data networks, we recommend that it is used for the lowest expected load.
     1. Select **Add virtual network** and fill in the side panel:
         - **Virtual switch**: select **vswitch-port5** for N2, N3 and up to four DNs, and select **vswitch-port6** for up to six DNs.
         - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
+        - **VLAN type**: select as appropriate.
         - **VLAN**: VLAN ID, or 0 if not using VLANs
         - **Network** and **Gateway**: Use the correct subnet and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
             - For example, *10.232.44.0/24* and *10.232.44.1*
             - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
-    1. Select **Modify** to save the configuration for this virtual network.
-    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes.
+    2. Select **Modify** to save the configuration for this virtual network.
+    3. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes.
 
 The page should now look like the following image:
 

@@ -144,7 +144,6 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlans-azure-stack-edge-2.png" alt-text="Diagram of layer 3 network topology with V L A N s." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans-azure-stack-edge-2.png":::
 
 - Layer 3 network with 7-10 data networks without VLAN trunking.
-  - With VLAN trunking, all DNs are routed through port 4. 
   - Without VLAN trunking, If you want to deploy more than six VLAN-separated data networks, the additional (up to four) data networks must be deployed on ASE port 3. This requires one shared switch or router that carries both access and core traffic. VLAN tags can be assigned as required to N2, N3 and each of the N6 data networks.
   - No more than six data networks can be configured on the same port.
   - For optimal performance, the data networks with the highest expected load should be configured on port 4.
