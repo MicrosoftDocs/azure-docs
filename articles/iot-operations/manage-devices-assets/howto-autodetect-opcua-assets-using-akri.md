@@ -171,7 +171,7 @@ To configure the custom OPC UA discovery handler with asset detection, first you
 1. To confirm that the Akri instance properly connected to the OPC UA Broker, copy and paste the name of the Akri instance that was the output of the previous step, into the following command: 
 
     ```bash
-    kubectl get akrii <Akri instance name> -n azure-iot-operations -o json
+    kubectl get akrii <AKRI_INSTANCE_NAME> -n azure-iot-operations -o json
     ```
 
     The command output looks like the following example. This example output shows the Akri instance `brokerProperties` values and confirms that the OPC UA Broker is connected.
