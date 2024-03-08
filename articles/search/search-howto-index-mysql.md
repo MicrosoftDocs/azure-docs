@@ -52,24 +52,24 @@ The data source definition specifies the data to index, credentials, and policie
 
 [Create or Update Data Source](/rest/api/searchservice/create-data-source) specifies the definition. Be sure to use a preview REST API version (2020-06-30-Preview or later) when creating the data source.
 
-    ```http
-    {   
-        "name" : "hotel-mysql-ds",
-        "description" : "[Description of MySQL data source]",
-        "type" : "mysql",
-        "credentials" : { 
-            "connectionString" : 
-                "Server=[MySQLServerName].MySQL.database.azure.com; Port=3306; Database=[DatabaseName]; Uid=[UserName]; Pwd=[Password]; SslMode=Preferred;" 
-        },
-        "container" : { 
-            "name" : "[TableName]" 
-        },
-        "dataChangeDetectionPolicy" : { 
-            "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-            "highWaterMarkColumnName": "[HighWaterMarkColumn]"
-        }
+```http
+{   
+    "name" : "hotel-mysql-ds",
+    "description" : "[Description of MySQL data source]",
+    "type" : "mysql",
+    "credentials" : { 
+        "connectionString" : 
+            "Server=[MySQLServerName].MySQL.database.azure.com; Port=3306; Database=[DatabaseName]; Uid=[UserName]; Pwd=[Password]; SslMode=Preferred;" 
+    },
+    "container" : { 
+        "name" : "[TableName]" 
+    },
+    "dataChangeDetectionPolicy" : { 
+        "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+        "highWaterMarkColumnName": "[HighWaterMarkColumn]"
     }
-    ```
+}
+```
 
 **Key points**:
 
@@ -127,24 +127,24 @@ Once the index and data source have been created, you're ready to create the ind
 
 [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
-    ```http
-    {
-        "name" : "hotels-mysql-idxr",
-        "dataSourceName" : "hotels-mysql-ds",
-        "targetIndexName" : "hotels-mysql-ix",
-        "disabled": null,
-        "schedule": null,
-        "parameters": {
-            "batchSize": null,
-            "maxFailedItems": null,
-            "maxFailedItemsPerBatch": null,
-            "base64EncodeKeys": null,
-            "configuration": { }
-            },
-        "fieldMappings" : [ ],
-        "encryptionKey": null
-    }
-    ```
+```http
+{
+    "name" : "hotels-mysql-idxr",
+    "dataSourceName" : "hotels-mysql-ds",
+    "targetIndexName" : "hotels-mysql-ix",
+    "disabled": null,
+    "schedule": null,
+    "parameters": {
+        "batchSize": null,
+        "maxFailedItems": null,
+        "maxFailedItemsPerBatch": null,
+        "base64EncodeKeys": null,
+        "configuration": { }
+        },
+    "fieldMappings" : [ ],
+    "encryptionKey": null
+}
+```
 
 **Key points**:
 
@@ -165,9 +165,22 @@ GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2
 The response includes status and the number of items processed. It should look similar to the following example:
 
 ```json
-    {
-        "status":"running",
-        "lastResult": {
+{
+    "status":"running",
+    "lastResult": {
+        "status":"success",
+        "errorMessage":null,
+        "startTime":"2024-02-21T00:23:24.957Z",
+        "endTime":"2024-02-21T00:36:47.752Z",
+        "errors":[],
+        "itemsProcessed":1599501,
+        "itemsFailed":0,
+        "initialTrackingState":null,
+        "finalTrackingState":null
+    },
+    "executionHistory":
+    [
+        {
             "status":"success",
             "errorMessage":null,
             "startTime":"2024-02-21T00:23:24.957Z",
@@ -178,22 +191,9 @@ The response includes status and the number of items processed. It should look s
             "initialTrackingState":null,
             "finalTrackingState":null
         },
-        "executionHistory":
-        [
-            {
-                "status":"success",
-                "errorMessage":null,
-                "startTime":"2024-02-21T00:23:24.957Z",
-                "endTime":"2024-02-21T00:36:47.752Z",
-                "errors":[],
-                "itemsProcessed":1599501,
-                "itemsFailed":0,
-                "initialTrackingState":null,
-                "finalTrackingState":null
-            },
-            ... earlier history items
-        ]
-    }
+        ... earlier history items
+    ]
+}
 ```
 
 Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order so that the latest execution comes first.
