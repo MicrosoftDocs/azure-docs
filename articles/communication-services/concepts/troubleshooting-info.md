@@ -17,7 +17,7 @@ This document helps you troubleshoot issues that you may experience within your 
 
 ## Getting help
 
-We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this, we have a [dedicated support and help options page](../support.md) which lists your options for support. 
+We encourage developers to submit questions, suggest features, and report problems as issues. To aid in getting help, we have a [dedicated support and help options page](../support.md) that lists your options for support. 
 
 To help you troubleshoot certain types of issues, you may be asked for any of the following pieces of information:
 
@@ -83,7 +83,7 @@ When troubleshooting issues with the Call Automation SDK, like call management o
 - From the header of API response, locate the field `X-Ms-Skype-Chain-Id`.
  
     ![Screenshot of response header showing X-Ms-Skype-Chain-Id.](media/troubleshooting/response-header.png) 
-- From the callback events your application receives after executing an action e.g. `CallConnected` or `PlayFailed`, locate the correlationID.
+- From the callback events your application receives after executing an action. For example `CallConnected` or `PlayFailed`, locate the correlationID.
 
     ![Screenshot of call disconnected event showing correlation ID.](media/troubleshooting/correlation-id-in-callback-event.png)
 
@@ -197,13 +197,13 @@ AzureLogger.log = (...args) => {
 
 For Android, iOS and Windows the Azure Communication Services Calling SDK Offers access to log files and support information the the SDK's functionality.
 
-For Calling Native SDK's please refer to [the log file access tutorials](../tutorials/log-file-retrieval-tutorial.md)
+For Calling Native SDK's, refer to [the log file access tutorials](../tutorials/log-file-retrieval-tutorial.md)
 
 ### UI Libraries (Android, iOS)
 
 If you are using the Azure Communication Services UI Libraries for Android or iOS, user feedback can be solicited through the built in support form.
 
-For more information on how to leverage the support functionality of the Calling UI Support form, please see [the Support Form integration tutorial](../tutorials/collecting-user-feedback/collecting-user-feedback.md). This document will guide you through adding the necessary event handler, and creating a basic client/server implementation for centralized storage of support information. This guide is designed to guide you on your path towards an integration with the support services your organization uses.
+For more information on how to use the support functionality of the Calling UI Support form, see the [Support Form integration tutorial](../tutorials/collecting-user-feedback/collecting-user-feedback.md). This document guides you through adding the necessary event handler, and creating a basic client/server implementation for centralized storage of support information. This guide is designed to guide you on your path towards an integration with the support services your organization uses.
 
 ## Building end to end Support Flows in your ACS Integrations
 
@@ -221,7 +221,7 @@ Whether you are using Calling SDK or Calling UI SDK, providing support to end us
 * **Getting User ID**
 
 ## Getting Directory ID 
-To find your Directory (tenant) ID, follow the steps listed below:
+To find your Directory (tenant) ID, follow these steps:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
 1. From the left-pane, select Microsoft Entra ID.
@@ -230,7 +230,7 @@ To find your Directory (tenant) ID, follow the steps listed below:
     ![Screenshot of how to copy Microsoft Entra tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
 
 ## Getting Application ID 
-To find your Application ID, follow the steps listed below:
+To find your Application ID, follow these steps:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
 1. From the left-pane, select Microsoft Entra ID.
@@ -242,7 +242,7 @@ To find your Application ID, follow the steps listed below:
    The directory (tenant) ID can also be found in the application overview page.
 
 ## Getting User ID
-To find your User ID, follow the steps listed below:
+To find your User ID, follow these steps:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
 1. From the left-pane, select Microsoft Entra ID.
@@ -252,7 +252,7 @@ To find your User ID, follow the steps listed below:
    ![Screenshot of how to copy Microsoft Entra user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
 
 ## Getting immutable resource ID 
-Sometimes you also need to provide immutable resource ID of your Communication Service resource. To find it, follow the steps listed below:
+Sometimes you also need to provide immutable resource ID of your Communication Service resource. To find it, follow these steps:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
 1. Open your Communication Service resource.
@@ -269,14 +269,14 @@ There are two ways to verify your Teams License eligibility to use Azure Communi
 * **Checking your current Teams license via Microsoft Graph API**
 
 #### Verification via Teams web client 
-To verify your Teams License eligibility via Teams web client, follow the steps listed below:
+To verify your Teams License eligibility via Teams web client, follow these steps:
 
 1. Open your browser and navigate to [Teams web client](https://teams.microsoft.com/).
 1. Sign in with credentials that have a valid Teams license. 
 1. If the authentication is successful and you remain in the https://teams.microsoft.com/ domain, then your Teams License is eligible. If authentication fails or you're redirected to the https://teams.live.com/v2/ domain, then your Teams License isn't eligible to use Azure Communication Services support for Teams users. 
 
 #### Checking your current Teams license via Microsoft Graph API
-You can find your current Teams license using [licenseDetails](/graph/api/resources/licensedetails) Microsoft Graph API that returns the licenses assigned to a user. Follow the steps below to use the Graph Explorer tool to view licenses assigned to a user:
+You can find your current Teams license using [licenseDetails](/graph/api/resources/licensedetails) Microsoft Graph API that returns the licenses assigned to a user. Follow these steps to use the Graph Explorer tool to view licenses assigned to a user:
 
 1. Open your browser and navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Sign in to Graph Explorer using the credentials.

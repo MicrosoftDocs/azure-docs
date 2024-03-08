@@ -1,5 +1,5 @@
 ---
-title: Collecting User Feedback in the ACS UI Library
+title: Collecting user feedback in the ACS UI Library
 description: Enabling the Support Form and tooling, and handling support requests
 author:      ahammer # GitHub alias
 ms.author:   adamhammer # Microsoft alias
@@ -10,7 +10,7 @@ ms.subservice: calling
 zone_pivot_groups: acs-programming-languages-support-kotlin-swift
 ---
 
-# Collecting User Feedback
+# Collecting user feedback in the ACS UI Library
 
 ## Introduction
 

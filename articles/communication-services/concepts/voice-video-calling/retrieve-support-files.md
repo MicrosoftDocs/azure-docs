@@ -8,46 +8,46 @@ ms.topic:    conceptual
 ms.date:     07/17/2023
 ---
 
-# Collecting User Feedback in Native Calling Scenarios
+# Collecting user feedback in native calling scenarios
 
 ## Introduction
 
 In the realm of modern, sandboxed applications, ensuring a smooth user experience is paramount, especially when issues arise. A critical aspect of providing support is the efficient collection of support data, such as log files, and enabling easy feedback mechanisms for users. This document outlines a structured approach to collecting support data from the system. Enabling feedback from customers and sending this crucial information to the server or ticketing system in order to be further triaged and handled by support specialists.
 
-## Collecting Support Data from the System
+## Collecting support data from the system
 
-### Key Developer Actions for Effective Log Collection
+### Key developer actions for effective log collection
 
 - **Timely Collection**: Automate the collection of logs immediately after an issue occurs to ensure data relevance and usefulness.
 - **Minimize User Effort**: Design the application to require minimal user interaction for log collection, enhancing the likelihood of issue reporting.
 - **Privacy and Security**: Ensure that the collection and handling of logs prioritize user privacy and data security, adhering to best practices and regulations.
 
-### Implementing Log Collection
+### Implementing log collection
 
 Utilize the Calling SDK's APIs to automate the retrieval of logs and other support-related information. Support related information includes call IDs, error logs, and performance metrics. For applications using the Azure Communication Services Calling SDK, integrating direct log file access through the API facilitates this process, eliminating the need for users to manually locate and send logs.
 
-## Enabling Feedback from the Customer
+## Enabling feedback from the customer
 
-### Integrating User Feedback Mechanisms
+### Integrating user feedback tools
 
 - **"Report an Issue" Feature**: Implement an intuitive interface within the application that prompts users to report issues. Automatically attaching logs and sending them to the support team.
 - **End-of-Call Feedback**: Moments immediately following the call, solicit feedback about call quality and any issues experienced, offering an option to submit logs.
 - **Shake-to-Report**: Introduce a shake-to-report feature, enabling users to easily initiate an issue report by shaking their device.
 
-### Designing for User Consent and Awareness
+### Designing for user content and awareness
 
 It's crucial to design these feedback mechanisms with clear prompts for user consent, ensuring users are fully informed about the data being shared and its purpose. This transparency builds trust and encourages more users to report issues.
 
-## Sending Support and Customer Feedback to the Server or Ticket System
+## Sending support and feedback to a server
 
-### Structuring the Data Submission Process
+### Developing the data submission process
 
 Once feedback is collected, the next step is transmitting this information to a server or ticketing system. This can be achieved by:
 
 - **Automating Data Submission**: Develop the application to automatically send collected data to the designated support system upon user consent.
 - **Ensuring Data Integrity and Security**: Implement secure data transmission methods to protect the confidentiality and integrity of the support data.
 
-### Implementing in Calling SDK and UI Library Applications
+### Implementing in Calling SDK and UI Library applications
 
 For developers utilizing the Calling SDK or the ACS UI Library, consider the following tools and API's:
 

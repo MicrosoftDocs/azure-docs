@@ -14,7 +14,7 @@ ms.subservice: calling
 zone_pivot_groups: acs-programming-languages-support-kotlin-swift
 ---
 
-# Enable Audio Only mode in the UI Library
+# Enable audio only mode in the UI Library
 
 The UI Library allows you to modify the Audio Video mode of a Call for a local user. 
 
