@@ -25,19 +25,16 @@ You can also use the search bar at the top, or the left navigation pane, to find
 :::image type="content" source="./media/advisor-get-started/advisor-overview-page-m.png" alt-text="Screenshot of the Azure Advisor opening **Overview** page." lightbox="./media/advisor-get-started/advisor-overview-page-m.png":::
 
 ## Advisor recommendations overview
+
 See personalized and actionable recommendations.
 
 * The filters at the top focus the recommendations.
-
 * The tiles represent the different recommendation categories.
-
-* The **Get started** takes you to options to learn how to get the most out of Advisor.
-
-:::image type="content" source="./media/advisor-get-started/advisor-get-started-page.png" alt-text="Screenshot of the Azure Advisor **Getting started** page." lightbox="./media/advisor-get-started/advisor-get-started-page.png":::
+* The **Get started** link takes you to options for direct access to Advisor workbooks, recommendations, and the Well Architected Framework main page.
 
 ### Get recommendations
 
-The tiles on the Advisor **Overview** page show the different categories of recommendations per subscription:  
+The tiles on the Advisor **Overview** page show the different categories of recommendations for all the subscriptions that you have access to, by default:  
 
 You can filter the display using the buttons at the top of the page:
 
@@ -56,6 +53,8 @@ Each tile provides information about the recommendations for that category:
 * Your overall score for the category
 * The total number of recommendations for the category, and the specific number per impact
 * The number of impacted resources by the recommendations
+
+For detailed graphics and information on your Advisor score, go to the [**Score**](https://ms.portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/score) page.
 
 ### Get recommendation details and solution options
 
@@ -77,22 +76,7 @@ View recommendation details – such as the recommended actions and impacted res
 
 ### Download recommendations
 
-To download your recommendations from the Advisor score or any recommendation details page, select **Download as CSV** or **Download as PDF** on the action bar at the top. The download option respects any filters you applied to Advisor.  If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation.
-
-## Read your score
-
-See how your system configuration measures against Azure best practices.
-
-:::image type="content" source="./media/advisor-get-started/advisor-score-page-graphs-detail.png" alt-text="Screenshot detail of Azure Advisor workloads score graphs." lightbox="./media/advisor-get-started/advisor-score-page-graphs-detail.png":::
-
-Filter the display using the buttons at the top of the page, in addition to the filters on the **Overview** page, the **Commitments** filter (applicable only to cost recommendations) lets you adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**. Apply changes by clicking **Apply**.
-
-The score graphics:
-
-* The far-left graphic is your overall system Advisor score against Azure best practices. The **Learn more** link opens the [Optimize Azure workloads by using Advisor score](azure-advisor-score.md) page.
-* The middle graphic depicts the trend of your system Advisor score history. Roll over the graphic to activate a slider to see your trend at different points of time. Use the drop-down menu to pick a trend time frame.
-* The far-right graphic shows a breakdown of your best practices Advisor score per category. Select a category bar to open the recommendations page for that category.
-* The tiles show the different categories of recommendations per subscription, to display a specific list of recommendations, select a category tile.
+To download your recommendations from the Advisor score or any recommendation details page, select **Download as CSV** or **Download as PDF** on the action bar at the top. The download option respects any filters you applied to Advisor. If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation.
 
 ## Configure recommendations
 
