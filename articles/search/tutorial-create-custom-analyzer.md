@@ -212,6 +212,8 @@ A valid API key establishes trust, on a per request basis, between the applicati
 
 If you find these results confusing, you're not alone. In the next section, let's dig into why we're getting these results.
 
+<a name="how-analyzers-work"></a>
+
 ## Review how analyzers work
 
 To understand these search results, we need to understand what the analyzer is doing. From there, we can test the default analyzer using the [Analyze API](/rest/api/searchservice/indexes/analyze), providing a foundation for designing an analyzer that better meets our needs.
