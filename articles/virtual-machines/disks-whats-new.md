@@ -52,7 +52,6 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 Azure Backup enabled support on Azure VMs using Ultra Disks and Premium SSD v2 that offers high throughput, high IOPS, and low latency. Azure VM Backup support allows you to ensure business continuity for your virtual machines and to recover from any disasters or ransomware attacks. Enabling backup on VMs using Ultra Disks and Premium SSD v2 is available in all regions where creation of Ultra disks and Premium SSD v2 are supported. To learn more, refer to the [documentation](https://learn.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support) and enable backup on your Azure VMs. 
 
-#### Private Preview: Azure Site Recovery Support for Premium SSD v2
 
 Azure Site Recovery enabled support for Azure VMs using Premium SSD v2 in selected Azure regions. If you are interested in participating in the preview, you can [request access](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRxOsc7Qc-ylHvn9ZP9cSTHFUNlRUT0FSUkFHWTdFRDYzWEo4T05XWERKMC4u) to get started. 
 
