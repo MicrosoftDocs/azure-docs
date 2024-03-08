@@ -106,7 +106,7 @@ Name indicates the name of the Splunk detection.
 
 OOTB Compatibility indicates if the analysis has identified a corresponding Sentinel OOTB that matches the Splunk detection logic. 
 
-:::image type="content" source="media/siem-migration/configure-rules.png" alt-text="Screenshot showing the results of the automatic rule mapping.":::
+:::image type="content" source="media/siem-migration/configure-rules.png" alt-text="Screenshot showing the results of the automatic rule mapping." lightbox="media/siem-migration/configure-rules.png":::
 
 ## Step 5: Deploy the Analytics rules
 
