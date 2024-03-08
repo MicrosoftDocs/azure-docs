@@ -150,15 +150,15 @@ Follow these steps to add or delete virtual switches.
 
     If a virtual network interface is created on the virtual switch, the interface will use the specified MTU setting. If this virtual switch is enabled for compute, the Azure Kubernetes Service VMs and container network interfaces (CNIs) will use the specified MTU as well.
 
-    ![Screenshot of the Add a virtual switch settings on the Advanced networking page in local UI](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch-settings.png)
+    ![Screenshot of the Add a virtual switch settings on the Advanced networking page in local UI.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch-settings.png)
 
     When you create a virtual switch, the MTU column is populated with its MTU value.
 
-    ![Screenshot of the MTU setting in Advanced networking in local UI](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-value.png)
+    ![Screenshot of the MTU setting in Advanced networking in local UI.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-value.png)
 
 1. The configuration will take a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
 
-   ![Screenshot of the Configure compute page in Advanced networking in local UI 3](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
+   ![Screenshot of the Configure compute page in Advanced networking in local UI 3.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 
 1. You can create more than one switch by following the steps described earlier.
 
@@ -219,7 +219,7 @@ After the virtual switches are created, you can enable the switches for Kubernet
     
 1. Select **Apply**.
 
-    ![Configure compute page in Advanced networking in local UI 2](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-2.png)
+    ![Screenshot of Configure compute page in Advanced networking in local UI 2.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-2.png)
 
 1. The configuration takes a couple minutes to apply and you may need to refresh the browser. 
 
@@ -296,19 +296,19 @@ To configure the network for a 2-node device, follow these steps on the first no
     - **Use switches and NIC teaming**. Use this option when you need port level redundancy through teaming. NIC Teaming allows you to group two physical ports on the device node, Port 3 and Port 4 in this case, into two software-based virtual network interfaces. These teamed network interfaces provide fast performance and fault tolerance in the event of a network interface failure. For more information, see [NIC teaming on Windows Server](/windows-server/networking/windows-server-supported-networking-scenarios#bkmk_nicteam).
     - **Use switches without NIC teaming**. Use this option if you need an extra port for workload traffic and port level redundancy is not required.
     
-      ![Local web UI "Network" page with "Use switches and NIC teaming" option selected](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-topology-1m.png)
+      ![Screenshot of local web UI "Network" page with "Use switches and NIC teaming" option selected.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-topology-1m.png)
 
 1. Make sure that your node is cabled as per the selected topology.
 1. Select **Apply**.
 1. You'll see a **Confirm network setting** dialog. This dialog reminds you to make sure that your node is cabled as per the network topology you selected. Once you choose the network cluster topology, you can't change this topology without a device reset. Select **Yes** to confirm the network topology. 
 
-    ![Local web UI "Confirm network setting" dialog](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/confirm-network-setting-1.png)
+    ![Screenshot of local web UI "Confirm network setting" dialog.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/confirm-network-setting-1.png)
 
     The network topology setting takes a few minutes to apply and you see a notification when the settings are successfully applied.
 
 1. Once the network topology is applied, the **Network** page updates. For example, if you selected network topology that uses switches and NIC teaming, you will see that on a device node, a virtual switch **vSwitch1** is created at Port 2 and another virtual switch, **vSwitch2** is created on Port 3 and Port 4. Port 3 and Port 4 are teamed and then on the teamed network interface, two virtual network interfaces are created, **vPort3** and **vPort4**. The same is true for the second device node. The teamed network interfaces are then connected via switches.
 
-    ![Local web UI "Network" page updated](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-settings-updated-1.png)
+    ![Screenshot of local web UI "Network" page updated.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-settings-updated-1.png)
 
 You'll now configure the network and the network topology of the second node. 
 
@@ -326,7 +326,7 @@ You'll now prepare the second node for clustering. You'll first need to configur
 
 1. Make sure that the second node is cabled as per the topology you selected for the first node. In the **Advanced networking** page, choose and **Apply** the same topology that you selected for the first node.
 
-   ![Local web UI "Network" page with "Use switches and NIC teaming" option selected on second node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-topology-2.png)
+   ![Screenshot of local web UI "Network" page with "Use switches and NIC teaming" option selected on second node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-topology-2.png)
 
 1. Select **Back to get started**.
 
@@ -408,7 +408,7 @@ You'll now add the prepared node to the first node and form the cluster. Before 
 
 1. Select **Validate & add**. This step takes a few minutes. 
 
-    ![Local web UI "Add node" page with "Add node" option selected for "Existing" on first node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-node-2m.png)
+    ![Screenshot of local web UI "Add node" page with "Add node" option selected for "Existing" on first node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-node-2m.png)
 
     You see a notification when the node is successfully validated.
 
@@ -424,7 +424,7 @@ For Azure Consistent Services, follow these steps to configure virtual IP.
 
 1. In the local UI on the **Cluster** page, under the **Virtual IP settings** section, select **Azure Consistent Services**. 
 
-    ![Local web UI "Cluster" page with "Azure Consistent Services" selected for "Virtual IP Settings" on first node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-azure-consistent-services-1m.png)
+    ![Screenshot of local web UI "Cluster" page with "Azure Consistent Services" selected for "Virtual IP Settings" on first node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-azure-consistent-services-1m.png)
 
 1. In the **Virtual IP settings** blade, input the following.
 
@@ -442,7 +442,7 @@ For clients connecting via NFS protocol to the two-node device, follow these ste
 
 1. In the local UI on the **Cluster** page, under the **Virtual IP settings** section, select **Network File System**.
 
-    ![Local web UI "Cluster" page with "Network File System" selected for "Virtual IP Settings" on first node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-network-file-system-1m.png)
+    ![Screenshot of local web UI "Cluster" page with "Network File System" selected for "Virtual IP Settings" on first node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-network-file-system-1m.png)
 
 1. In the **Virtual IP settings** blade, input the following.
 
@@ -466,7 +466,7 @@ After the cluster is formed and configured, you can now create new virtual switc
 1. In the  local UI, go to **Advanced networking** page. 
 1. In the **Virtual switch** section, add or delete virtual switches. Select **Add virtual switch** to create a new switch. 
 
-   ![Screenshot of the Add a virtual switch option on the Advanced networking page in local UI](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch.png)
+   ![Screenshot of the Add a virtual switch option on the Advanced networking page in local UI.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch.png)
 
 1. In the **Network settings** blade, if using a new switch, provide the following: 
 
@@ -488,15 +488,15 @@ After the cluster is formed and configured, you can now create new virtual switc
 
     If a virtual network interface is created on the virtual switch, the interface will use the specified MTU setting. If this virtual switch is enabled for compute, the Azure Kubernetes Service VMs and container network interfaces (CNIs) will use the specified MTU as well.
     
-    ![Screenshot of the Add a virtual switch settings on the Advanced networking page in local UI](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch-settings.png)
+    ![Screenshot of the Add a virtual switch settings on the Advanced networking page in local UI.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch-settings.png)
 
    When you create a virtual switch, the MTU column is populated with its MTU value.
 
-   ![Screenshot of the MTU setting in Advanced networking in local UI](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-value.png)
+   ![Screenshot of the MTU setting in Advanced networking in local UI.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-value.png)
 
 1. The configuration will take a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
 
-   ![Screenshot of the Configure compute page in Advanced networking in local UI 3](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
+   ![Screenshot of the Configure compute page in Advanced networking in local UI 3.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 
 1. You can create more than one switch by following the steps described earlier.
 
@@ -558,7 +558,7 @@ After the virtual switches are created, you can enable the switches for Kubernet
     
 1. Select **Apply**.
 
-    ![Configure compute page in Advanced networking in local UI 2](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-2.png)
+    ![Screenshot of configure compute page in Advanced networking in local UI 2.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-2.png)
 
 1. The configuration takes a couple minutes to apply and you may need to refresh the browser.
 

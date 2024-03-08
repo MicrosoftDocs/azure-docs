@@ -163,7 +163,7 @@ Follow these steps to add or delete virtual switches.
 
    When you create a virtual switch, the MTU column is populated with its MTU value.
 
-   ![Screenshot of the MTU setting in Advanced networking in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-value.png)
+   ![Screenshot of the MTU setting in Advanced networking in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-maximum-transmission-unit.png)
 
 1. The configuration will take a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
 
@@ -228,7 +228,7 @@ After the virtual switches are created, you can enable the switches for Kubernet
     
 1. Select **Apply**.
 
-    ![Configure compute page in Advanced networking in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-2.png)
+    ![Screenshot of Configure compute page in Advanced networking in local UI 2.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-2.png)
 
 1. The configuration takes a couple minutes to apply and you may need to refresh the browser. 
 
@@ -298,7 +298,7 @@ To configure the network for a 2-node device, follow these steps on the first no
     - **Use switches and NIC teaming**. Use this option when you need port level redundancy through teaming. NIC Teaming allows you to group two physical ports on the device node, Port 3 and Port 4 in this case, into two software-based virtual network interfaces. These teamed network interfaces provide fast performance and fault tolerance in the event of a network interface failure. For more information, see [NIC teaming on Windows Server](/windows-server/networking/windows-server-supported-networking-scenarios#bkmk_nicteam).
     - **Use switches without NIC teaming**. Use this option if you need an extra port for workload traffic and port level redundancy is not required.
 
-      ![Local web UI "Network" page with "Use switches and NIC teaming" option selected](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-topology-1m.png)
+      ![Screenshot of local web UI "Network" page with "Use switches and NIC teaming" option selected.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-topology-1m.png)
 
 1. Make sure that your node is cabled as per the selected topology.
 1. Select **Apply**.
@@ -494,7 +494,7 @@ After the cluster is formed and configured, you can now create new virtual switc
 
    When you create a virtual switch, the MTU column is populated with its MTU value.
 
-   ![Screenshot of the MTU setting in Advanced networking in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-value.png)
+   ![Screenshot of the MTU setting in Advanced networking in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-maximum-transmission-unit.png)
 
 1. The configuration will take a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
 
