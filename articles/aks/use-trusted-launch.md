@@ -76,7 +76,7 @@ az provider register --namespace "Microsoft.ContainerService"
 - Trusted launch (preview) doesn't support node pools with FIPS enabled or based on ARM64.
 - Availability sets aren't supported, only Virtual Machine Scale Sets.
 - To enable Secure Boot on GPU node pools, you need to skip installing the GPU driver. For more information, see[Skip GPU driver installation][skip-gpu-driver-install].
-- Ephemeral OS disks can be created with Trusted launch and all regions are supported. However, not all virtual machines sizes are supported. For more information, see [Trusted launch ephemeral OS limitations][tusted-launch-ephemeral-os-limitations].
+- Ephemeral OS disks can be created with Trusted launch and all regions are supported. However, not all virtual machines sizes are supported. For more information, see [Trusted launch ephemeral OS sizes][tusted-launch-ephemeral-os-sizes].
 
 ## Deploy new cluster
 
@@ -213,5 +213,5 @@ In this article, you learned how to enable trusted launch. Learn more about [tru
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
 [azure-generation-two-virtual-machines]: ../virtual-machines/generation-2.md
 [verify-secure-boot-failures]: ../virtual-machines/trusted-launch-faq.md#verifying-secure-boot-failures
-[tusted-launch-ephemeral-os-limitations]: ../virtual-machines/ephemeral-os-disks.md#trusted-launch-for-ephemeral-os-disks
+[tusted-launch-ephemeral-os-sizes]: ../virtual-machines/ephemeral-os-disks.md#trusted-launch-for-ephemeral-os-disks
 [skip-gpu-driver-install]: gpu-cluster.md#skip-gpu-driver-installation-preview
