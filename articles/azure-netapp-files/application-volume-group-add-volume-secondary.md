@@ -66,8 +66,6 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
 3.	In the **Volume group** tab, provide information for creating the volume group:  
 
-### [Without extension 1](#tab/without-extension-1)
-
     * **Proximity placement group (PPG)**:  
         Specifies that the data, log, and shared volumes are to be created close to the VMs.
     * **Capacity pool**:  
