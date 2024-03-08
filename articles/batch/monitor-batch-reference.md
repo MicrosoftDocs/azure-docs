@@ -36,56 +36,6 @@ For each ### section, find the resource logs for your service at https://learn.m
 ### Supported resource logs for Microsoft.Batch/batchaccounts
 [!INCLUDE [Microsoft.Batch/batchaccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-batch-batchaccounts-logs-include.md)]
 
-### Service log events
-
-Batch service logs contain events emitted by the Batch service during the lifetime of an individual Batch resource, such as a pool or task. The Batch service emits the following log events:
-
-- [Pool create](batch-pool-create-event.md)
-- [Pool delete start](batch-pool-delete-start-event.md)
-- [Pool delete complete](batch-pool-delete-complete-event.md)
-- [Pool resize start](batch-pool-resize-start-event.md)
-- [Pool resize complete](batch-pool-resize-complete-event.md)
-- [Pool autoscale](batch-pool-autoscale-event.md)
-- [Task start](batch-task-start-event.md)
-- [Task complete](batch-task-complete-event.md)
-- [Task fail](batch-task-fail-event.md)
-- [Task schedule fail](batch-task-schedule-fail-event.md)
-
-Each event emitted by Batch is logged in JSON format. The following example shows the body of a sample **pool create event**:
-
-```json
-{
-    "id": "myPool1",
-    "displayName": "Production Pool",
-    "vmSize": "Standard_F1s",
-    "imageType": "VirtualMachineConfiguration",
-    "cloudServiceConfiguration": {
-        "osFamily": "3",
-        "targetOsVersion": "*"
-    },
-    "networkConfiguration": {
-        "subnetId": " "
-    },
-    "virtualMachineConfiguration": {
-          "imageReference": {
-            "publisher": " ",
-            "offer": " ",
-            "sku": " ",
-            "version": " "
-          },
-          "nodeAgentId": " "
-        },
-    "resizeTimeout": "300000",
-    "targetDedicatedNodes": 2,
-    "targetLowPriorityNodes": 2,
-    "taskSlotsPerNode": 1,
-    "vmFillType": "Spread",
-    "enableAutoScale": false,
-    "enableInterNodeCommunication": false,
-    "isAutoPool": false
-}
-```
-
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 ### Batch Accounts
 microsoft.batch/batchaccounts

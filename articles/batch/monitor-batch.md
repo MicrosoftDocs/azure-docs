@@ -93,11 +93,6 @@ For a complete list of available metrics for Batch, see [Batch monitoring data r
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-For Batch, you can collect the following logs:
-
-- **ServiceLog**: [events emitted by the Batch service](#service-log-events) during the lifetime of an individual resource such as a pool or task.
-- **AllMetrics**: metrics at the Batch account level.
-
 You must explicitly enable diagnostic settings for each Batch account you want to monitor.
 
 When you create a Batch pool, you can install any of the following monitoring-related extensions on the compute nodes to collect and analyze logs:
@@ -108,38 +103,127 @@ When you create a Batch pool, you can install any of the following monitoring-re
 - [Azure Monitor agent for Linux](/azure/azure-monitor/agents/azure-monitor-agent-manage)
 - [Azure Monitor agent for Windows](/azure/azure-monitor/agents/azure-monitor-agent-manage)
 
+For a comparison of the different extensions and agents and the data they collect, see [Compare agents](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview#compare-to-legacy-agents).
+
+For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Batch, see [Batch monitoring data reference](monitor-batch-reference.md#resource-logs).
+
+For Batch, you can collect the following logs:
+
+- **ServiceLog**: [Events emitted by the Batch service](#service-log-events) during the lifetime of an individual resource such as a pool or task.
+- **AllMetrics**: Metrics at the Batch account level.
+
 The following screenshot shows an example diagnostic setting that sends **allLogs** and **AllMetrics** to a Log Analytics workspace.
 
 :::image type="content" source="./media/batch-diagnostics/configure-diagnostic-setting.png" alt-text="Screenshot of the Diagnostic setting page that shows an example." lightbox="./media/batch-diagnostics/configure-diagnostic-setting-lightbox.png":::
 
-For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Batch, see [Batch monitoring data reference](monitor-batch-reference.md#resource-logs).
+
+### Service log events
+
+Batch service logs contain events emitted by the Batch service during the lifetime of an individual Batch resource, such as a pool or task. The Batch service emits the following log events:
+
+- [Pool create](batch-pool-create-event.md)
+- [Pool delete start](batch-pool-delete-start-event.md)
+- [Pool delete complete](batch-pool-delete-complete-event.md)
+- [Pool resize start](batch-pool-resize-start-event.md)
+- [Pool resize complete](batch-pool-resize-complete-event.md)
+- [Pool autoscale](batch-pool-autoscale-event.md)
+- [Task start](batch-task-start-event.md)
+- [Task complete](batch-task-complete-event.md)
+- [Task fail](batch-task-fail-event.md)
+- [Task schedule fail](batch-task-schedule-fail-event.md)
+
+Each event emitted by Batch is logged in JSON format. The following example shows the body of a sample **pool create event**:
+
+```json
+{
+    "id": "myPool1",
+    "displayName": "Production Pool",
+    "vmSize": "Standard_F1s",
+    "imageType": "VirtualMachineConfiguration",
+    "cloudServiceConfiguration": {
+        "osFamily": "3",
+        "targetOsVersion": "*"
+    },
+    "networkConfiguration": {
+        "subnetId": " "
+    },
+    "virtualMachineConfiguration": {
+          "imageReference": {
+            "publisher": " ",
+            "offer": " ",
+            "sku": " ",
+            "version": " "
+          },
+          "nodeAgentId": " "
+        },
+    "resizeTimeout": "300000",
+    "targetDedicatedNodes": 2,
+    "targetLowPriorityNodes": 2,
+    "taskSlotsPerNode": 1,
+    "vmFillType": "Spread",
+    "enableAutoScale": false,
+    "enableInterNodeCommunication": false,
+    "isAutoPool": false
+}
+```
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
+For Batch accounts specifically, the activity log collects events related to account creation and deletion and key management.
+
 [!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
-To analyze count-based Batch metrics like Dedicated Core Count or Low-Priority Node Count, use the **Avg** aggregation. For event-based metrics like Pool Resize Complete Events, use the **Count** aggregation. Avoid using the **Sum** aggregation, which adds up the values of all data points received over the period of the chart.
+When you analyze count-based Batch metrics like Dedicated Core Count or Low-Priority Node Count, use the **Avg** aggregation. For event-based metrics like Pool Resize Complete Events, use the **Count** aggregation. Avoid using the **Sum** aggregation, which adds up the values of all data points received over the period of the chart.
 
 [!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
+### Sample queries
+
+Here are a few sample log queries for Batch:
+
+Pool resizes: Lists resize times by pool and result code (success or failure):
+
+```kusto
+AzureDiagnostics
+| where OperationName=="PoolResizeCompleteEvent"
+| summarize operationTimes=make_list(startTime_s) by poolName=id_s, resultCode=resultCode_s
+```
+
+Task durations: Gives the elapsed time of tasks in seconds, from task start to task complete.
+
+```kusto
+AzureDiagnostics
+| where OperationName=="TaskCompleteEvent"
+| extend taskId=id_s, ElapsedTime=datetime_diff('second', executionInfo_endTime_t, executionInfo_startTime_t) // For longer running tasks, consider changing 'second' to 'minute' or 'hour'
+| summarize taskList=make_list(taskId) by ElapsedTime
+```
+
+Failed tasks per job: Lists failed tasks by parent job.
+
+```kusto
+AzureDiagnostics
+| where OperationName=="TaskFailEvent"
+| summarize failedTaskList=make_list(id_s) by jobId=jobId_s, ResourceId
+```
+
 [!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 [!INCLUDE [horz-monitor-insights-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
+
+### Batch alert rules
 
 Because metric delivery can be subject to inconsistencies such as out-of-order delivery, data loss, or duplication, you should avoid alerts that trigger on a single data point. Instead, use thresholds to account for any inconsistencies such as out-of-order delivery, data loss, and duplication over a period of time.
 
 For example, you might want to configure a metric alert when your low priority core count falls to a certain level. You could then use this alert to adjust the composition of your pools. For best results, set a period of 10 or more minutes where the alert will be triggered if the average low priority core count falls lower than the threshold value for the entire period. This time period allows for metrics to aggregate so that you get more accurate results.
 
-### Batch alert rules
-
-The following table lists some alert rules for Batch. These alert rules are just examples. You can set alerts for any metric, log entry, or activity log entry that's listed in the [Batch monitoring data reference](monitor-batch-reference.md).
+The following table lists some alert rule triggers for Batch. These alert rules are just examples. You can set alerts for any metric, log entry, or activity log entry that's listed in the [Batch monitoring data reference](monitor-batch-reference.md).
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| | | |
-| | | |
+| Metric | Unusable node count | Whenever the Unusable Node Count is greater than 0 |
+| Metric | Task Fail Events | Whenever the total Task Fail Events is greater than dynamic threshold |
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
