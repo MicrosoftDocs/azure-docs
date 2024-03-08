@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 + Optionally, to run the query example that invokes [semantic reranking](semantic-search-overview.md), your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-+ Optionally, an [Azure OpenAI](https://aka.ms/oai/access) resource with a deployment of **text-embedding-ada-002**. The source `.rest` file includes an optional step for generating new text embeddings, but we provide existing embeddings so that you can omit this dependency.
++ Optionally, an [Azure OpenAI](https://aka.ms/oai/access) resource with a deployment of **text-embedding-ada-002**. The source `.rest` file includes an optional step for generating new text embeddings, but we provide pre-generated embeddings so that you can omit this dependency.
 
 ## Copy a key and URL
 
@@ -53,6 +53,17 @@ A valid API key establishes trust, on a per request basis, between the applicati
 [Create Index (REST)](/rest/api/searchservice/create-index) creates a vector index and sets up the physical data structures on your search service. 
 
 The index schema is organized around hotels content. Sample data consists of vector and nonvector names and descriptions of seven fictitious hotels. This schema includes configurations for vector indexing and queries, and for semantic ranking.
+
+1. Open a new text file in Visual Studio Code.
+
+1. Set variables to the search endpoint and the API key you collected earlier.
+
+   ```http
+   @baseUrl = PUT-YOUR-SEARCH-SERVICE-URL-HERE
+   @apiKey = PUT-YOUR-ADMIN-API-KEY-HERE
+   ```
+
+1. Save the file with a `.rest` file extension.
 
 1. Paste in the following example to create the hotels-vector-quickstart index on your search service.
 
@@ -210,7 +221,7 @@ The index schema is organized around hotels content. Sample data consists of vec
     }
     ```
 
-1. Select **Send request**. You should have an `HTTP/1.1 201 Created` response and the response body should include the JSON representation of the index schema. 
+1. Select **Send request**. Recall that you need the REST client to send requests. You should have an `HTTP/1.1 201 Created` response and the response body should include the JSON representation of the index schema. 
 
     **Key points:**
 
