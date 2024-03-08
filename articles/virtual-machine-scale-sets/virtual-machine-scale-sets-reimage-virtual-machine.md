@@ -13,9 +13,9 @@ ms.custom: upgradepolicy
 
 # Reimage a virtual machine
 
-When updating an instance in a Virtual Machine Scale Set, there are some changes that can't be applied to existing instances without performing a reimage. Reimaging a virtual machine in a Virtual Machine Scale Set will replace the old OS disk with a new OS disk. This allows changes to the OS, data disk Profile (such as admin username and password), and [Custom Data](../virtual-machines/custom-data.md) to be applied. To reimage a set of existing instances in a scale set, you must individually reimage each instance. 
+When updating an instance in a Virtual Machine Scale Set, there are some changes that can't be applied to existing instances without performing a reimage. Reimaging a virtual machine in a Virtual Machine Scale Set replaces the old OS disk with a new OS disk. This allows changes to the OS, data disk Profile (such as admin username and password), and [Custom Data](../virtual-machines/custom-data.md) to be applied. To reimage a set of existing instances in a scale set, you must individually reimage each instance. 
 
-If reimaging an virtual machine using an ephemeral OS disk, the instance will be restored it to it's initial state and any local data will be lost. For instances using non-ephemeral OS disks, the retaining of old OS disk depends on the value of delete option of OS disk. For more information, see [set delete options when creating a VM](../virtual-machines/delete.md)
+If reimaging a virtual machine using an ephemeral OS disk, the instance is restored it to it's initial state and any local data is lost. For instances using nonephemeral OS disks, the retaining of old OS disk depends on the value of delete option of OS disk. For more information, see [set delete options when creating a virtual machine](../virtual-machines/delete.md)
 
 Reimaging a virtual machine that was created outside of the scale set and later attached can only be reimaged if the virtual machine OS profile matches the OS profile of the scale set. 
 
