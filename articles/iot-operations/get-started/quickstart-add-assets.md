@@ -55,7 +55,7 @@ When you deployed Azure IoT Operations, you chose to include a built-in OPC PLC 
 
 To add an asset endpoint:
 
-1. Select **Asset endpoints** and then **Create asset endpoint**:
+1. Select **Manage asset endpoints** and then **Create asset endpoint**:
 
     :::image type="content" source="media/quickstart-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations portal.":::
 
@@ -84,22 +84,27 @@ To add an asset endpoint:
 
     When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
 
-To enable the asset endpoint to use an untrusted certificate:
+The following step lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation. To enable the asset endpoint to use an untrusted certificate:
 
 > [!CAUTION]
-> Don't use untrusted certificates in production environments.
+> Don't use untrusted certificates in production environments. To learn more, see [Configure an OPC PLC simulator](../manage-devices-assets/howto-configure-opc-plc-simulator.md).
 
-1. Run the following command on the machine where your cluster is running to apply the configuration to use an untrusted certificate:
+1. Run the following command to enable the use of an untrusted certificate. Replace the two placeholders with your cluster name and resource group name:
 
-    ```console
-    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-ua-connector-0.yaml
+    ```azurecli
+    az k8s-extension update \
+    --version 0.3.0-preview \
+    --name opc-ua-broker \
+    --release-train preview \
+    --cluster-name <cluster-name> \
+    --resource-group <azure-resource-group> \
+    --cluster-type connectedClusters \
+    --auto-upgrade-minor-version false \
+    --config opcPlcSimulation.deploy=true \
+    --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
     ```
 
-    The following snippet shows the YAML file that you applied:
-
-    :::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-ua-connector-0.yaml":::
-
-1. Find the name of your `aio-opc-supervisor` pod by using the following command:
+1. To enable the configuration change to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
 
     ```console
     kubectl get pods -n azure-iot-operations
@@ -177,7 +182,7 @@ Review your asset and tag details and make any adjustments you need before you s
 
 To verify that the thermostat asset you added is publishing data, view the telemetry in the `azure-iot-operations/data` topic:
 
-:::image type="content" source="media/quickstart-add-assets/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
+:::image type="content" source="media/quickstart-add-assets/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry." lightbox="media/quickstart-add-assets/mqttui-output.png":::
 
 If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
 
@@ -199,7 +204,7 @@ The sample tags you added in the previous quickstart generate messages from your
 
 ```json
 {
-    "Timestamp": "2023-08-10T00:54:58.6572007Z", 
+    "Timestamp": "2024-03-08T00:54:58.6572007Z", 
     "MessageType": "ua-deltaframe",
     "payload": {
       "temperature": {
@@ -211,7 +216,7 @@ The sample tags you added in the previous quickstart generate messages from your
         "Value": 7109
       }
     },
-    "DataSetWriterName": "oven",
+    "DataSetWriterName": "thermostat",
     "SequenceNumber": 4660
 }
 ```
