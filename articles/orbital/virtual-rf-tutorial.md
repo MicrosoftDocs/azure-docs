@@ -42,7 +42,7 @@ The DIFI Packet Protocol contains two primary message types: data packets and co
 
 ## Step 1: Use AOGS to schedule a contact and collect Aqua data
 
-First we remove the managed modem, and capture the raw RF data into a pcap file. Execute the steps listed in [Tutorial: Downlink data from NASA's Aqua public satellite](downlink-aqua.md) but during step [Configure a contact profile for an Aqua downlink mission](downlink-aqua.md#configure-a-contact-profile-for-an-aqua-downlink-mission) leave the **Demodulation Configuration** blank and choose UDP for **Protocol**. Lastly, towards the end, instead of the `socat` command (which captures TCP packets), run `sudo tcpdump -i eth0 port 56001 -vvv -p -w /tmp/aqua.pcap` to capture the UDP packets to a pcap file.
+First we remove the managed modem, and capture the raw RF data into a pcap file. Execute the steps listed in [Tutorial: Downlink data from NASA's Aqua public satellite](downlink-aqua.md) but during step [Configure a contact profile for an Aqua downlink mission](downlink-aqua.md#configure-a-contact-profile-to-downlink-from-a-public-satellite) leave the **Demodulation Configuration** blank and choose UDP for **Protocol**. Lastly, towards the end, instead of the `socat` command (which captures TCP packets), run `sudo tcpdump -i eth0 port 56001 -vvv -p -w /tmp/aqua.pcap` to capture the UDP packets to a pcap file.
 
 > [!NOTE]
 > The following three modifications are needed to [Tutorial: Downlink data from NASA's Aqua public satellite](downlink-aqua.md):
