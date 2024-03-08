@@ -61,6 +61,7 @@ This article provides detailed descriptions and requirements for components of A
 - Microsoft.ServiceNetworking/trafficControllers is the namespace adopted by Application Gateway for Containers and may be delegated to a virtual network's subnet.
 - When delegation occurs, provisioning of Application Gateway for Containers resources doesn't happen, nor is there an exclusive mapping to an Application Gateway for Containers association resource.
 - Any number of subnets can have a subnet delegation that is the same or different to Application Gateway for Containers.  Once defined, no other resources, other than the defined service, can be provisioned into the subnet unless explicitly defined by the service's implementation.
+- The NSG for the delegated subnet can only use the default rules for incoming traffic i.e. AllowVNetInBound, AllowAzureLoadBalancerInBound and DenyAllInbound. No other incoming NSG rule is supported.
 
 ### User-assigned managed identity
 
