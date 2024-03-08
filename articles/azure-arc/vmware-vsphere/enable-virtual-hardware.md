@@ -56,12 +56,14 @@ az connectedvmware vm create-from-machines --resource-group contoso-rg --name co
 **Create VMware resources from all Arc for Server machines in the specified resource group belonging to that vCenter**
 
 ```azurecli-interactive
-az connectedvmware vm create-from-machines --resource-group contoso-rg --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter```
+az connectedvmware vm create-from-machines --resource-group contoso-rg --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
+```
 
 **Create VMware resources from all Arc for Server machines in the specified subscription belonging to that vCenter**
 
 ```azurecli-interactive
-az connectedvmware vm create-from-machines --subscription contoso-sub --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter```
+az connectedvmware vm create-from-machines --subscription contoso-sub --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
+```
 
 ### Required Parameters 
 
