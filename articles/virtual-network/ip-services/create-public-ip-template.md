@@ -16,7 +16,7 @@ ms.custom: mode-other
 
 This article shows how to create a public IP address resource within a Resource Manager template.
 
-:::image type="content" source="./media/create-public-ip-portal/public-ip-example-qs-resources.png" alt-text="Diagram of an example use of a public IP address. A public IP address is assigned to a load balancer":::
+:::image type="content" source="./media/create-public-ip-portal/public-ip-example-resources.png" alt-text="Diagram of an example use of a public IP address. A public IP address is assigned to a load balancer":::
 
 **Figure**: Diagram of a public IP address assigned to a public Azure Load Balancer.
 
