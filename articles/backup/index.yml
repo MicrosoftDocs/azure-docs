@@ -65,6 +65,8 @@ landingContent:
         links:
           - text: Azure Files vaulted backup (preview)
             url: azure-file-share-backup-overview.md?tabs=vault-standard
+          - text: Azure Database for MySQL - Flexible Server long-term retention (preview)
+            url: backup-azure-mysql-flexible-server-about.md
           - text: Cross Region Restore for Azure PostgreSQL Database
             url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup
           - text: Vaulted backup and Cross Region Restore for support for AKS (preview)
