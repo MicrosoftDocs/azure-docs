@@ -65,7 +65,7 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
    ]
    ```
 
-   Increase `MemoryInMB` to at least 16384 and `DataSizeInGB` to 40G. Set `ServiceIPRangeSize` to 15. If you intend to run many PODs, you can increase the `CpuCount` as well.
+   Increase `MemoryInMB` to at least 16384 and `DataSizeInGB` to 40G. Set `ServiceIPRangeSize` to 15. If you intend to run many PODs, you can increase the `CpuCount` as well. For example:
 
    ```json
    "Init": {
@@ -82,7 +82,7 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
    ]
    ```
 
-   Continue with the remaining steps in [create a single machine cluster](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-2-create-a-single-machine-cluster). Next, [connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
+   Continue with the remaining steps starting with [create a single machine cluster](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-2-create-a-single-machine-cluster). Next, [connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
 
 1. Check for and install Local Path Provisioner storage if it's not already installed. Check if the local-path storage class is already available on your node by running the following cmdlet:
 
@@ -97,7 +97,7 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
    ```
 
    > [!NOTE]
-   > Local-Path-Provisioner and Busybox images are not maintained by Microsoft and are pulled from the Rancher Labs repository. Local-Path-Provisioner and BusyBox are only available as a Linux container image.
+   > **Local-Path-Provisioner** and **Busybox** images are not maintained by Microsoft and are pulled from the Rancher Labs repository. Local-Path-Provisioner and BusyBox are only available as a Linux container image.
 
    If everything is correctly configured, you should see the following output:
 
@@ -112,7 +112,7 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
    kubectl edit configmap -n kube-system local-path-config
    ```
 
-1. Run the following to determine if you set `fs.inotify.max_user_instances` to 1024:
+1. Run the following command to determine if you set `fs.inotify.max_user_instances` to 1024:
 
    ```bash
    sysctl fs.inotify.max_user_instances

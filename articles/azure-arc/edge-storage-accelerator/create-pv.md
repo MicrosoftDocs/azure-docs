@@ -30,7 +30,7 @@ This article describes how to configure storage key authentication, which is the
 
 ### Storage key authentication configuration
 
-1. Create a file named **add-key.sh**. This file creates a secret named `{YOUR_STORAGE_ACCOUNT}-secret`. This secret is used when you configure your Persistent Volume (PV).
+1. Create a file named **add-key.sh**. This file creates a secret named `{YOUR_STORAGE_ACCOUNT}-secret`. This secret is used when you configure your Persistent Volume (PV):
 
    ```bash
    #!/usr/bin/env bash
@@ -68,9 +68,9 @@ Note the name (`esa4` in this example), as you need to specify it in the `spec::
    apiVersion: v1
    kind: PersistentVolume
    metadata:
-       ### CREATE A NAME HERE ###
+       ### Create a name here ###
        name: CREATE_A_NAME_HERE
-       ### USE A NAMESPACE THAT MATCHES YOUR INTENDED CONSUMING POD OR "DEFAULT" ###
+       ### Use a namespace that matches your intended consuming pod, or "default" ###
        namespace: INTENDED_CONSUMING_POD_OR_DEFAULT_HERE
    spec:
        capacity:
@@ -83,12 +83,12 @@ Note the name (`esa4` in this example), as you need to specify it in the `spec::
        csi:
            driver: edgecache.csi.azure.com
            readOnly: false
-           ### Make sure this volumeid is unique in the cluster. You will need to specify it in the spec::volumeName of the PVC. ###
+           ### Make sure this volumeid is unique in the cluster. You must specify it in the spec::volumeName of the PVC. ###
            volumeHandle: YOUR_NAME_FROM_METADATA_NAME_IN_LINE_4_HERE
            volumeAttributes:
                protocol: edgecache
                edgecache-storage-auth: AccountKey
-               ### FILL IN THE NEXT TWO/THREE VALUES WITH YOUR INFORMATION ###
+               ### Fill in the next two/three values with your information. ###
                secretName: YOUR_SECRET_NAME_HERE
                ### If you use a non-default namespace, uncomment the following line and add your namespace. ###
                #secretNamespace: YOUR_NAMESPACE_HERE

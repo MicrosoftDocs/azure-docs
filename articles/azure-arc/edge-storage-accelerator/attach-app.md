@@ -10,7 +10,7 @@ zone_pivot_groups: attach-app
 
 # Attach your application
 
-This article assumes you created a Persistent Volume (PV) and a Persistent Volume Claim (PVC). For information about creating a PV, see [Create a persistent volume](create-pv.md). For information about PVC guidance, see [Create a Persistent Volume Claim](create-pvc.md).
+This article assumes you created a Persistent Volume (PV) and a Persistent Volume Claim (PVC). For information about creating a PV, see [Create a persistent volume](create-pv.md). For information about PVCs, see [Create a Persistent Volume Claim](create-pvc.md).
 
 ::: zone pivot="attach-iot-op"
 ## Configure the Azure IoT Operations data processor
@@ -41,7 +41,7 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
       name: nfs-volume 
     - mountPath: /var/lib/bluefin/local 
       name: runner-local
-    ### ADD THE NEXT 2 LINES ###
+      ### Add the next 2 lines ###
     - mountPath: /mnt/esa 
       name: esa4 
     
@@ -53,7 +53,7 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
     - name: nfs-volume 
     persistentVolumeClaim: 
       claimName: nfs-provisioner
-    ### ADD THE NEXT 3 LINES ### 
+      ### Add the next 3 lines ### 
     - name: esa4 
       persistentVolumeClaim: 
         claimName: esa4
@@ -65,7 +65,7 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
     kubectl delete statefulset -n azure-iot-operations aio-dp-runner-worker
     ```
 
-    This deletes all aio-dp-runner-worker-n pods. This is an outage-level event.  
+    This deletes all `aio-dp-runner-worker-n` pods. This is an outage-level event.  
 
 1. Create a new statefulSet of aio-dp-runner-worker(s) with the ESA mounts:
 
@@ -73,15 +73,13 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
     kubectl apply -f stateful_worker.yaml -n azure-iot-operations
     ```
 
-    When the aio-dp-runner-worker-n pods start, they include mounts to ESA. The PVC should convey this in the state.
+    When the `aio-dp-runner-worker-n` pods start, they include mounts to ESA. The PVC should convey this in the state.
 
 1. Once you reconfigure your Data Processor workers to have access to the ESA volumes, you must manually update the pipeline configuration to use a local path that corresponds to the mounted location of your ESA volume on the worker PODs.
 
-   In order to modify the pipeline, use `kubectl edit pipeline <name of your pipeline>`
+   In order to modify the pipeline, use `kubectl edit pipeline <name of your pipeline>`. In that pipeline, replace your output stage with the following YAML:
 
-   And in that pipeline replace your output stage with the following:
-
-   ```yml
+   ```yaml
    output:
      batch:
        path: .payload
@@ -131,10 +129,10 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
              volumeMounts:
                ### This name must match the 'volumes.name' attribute in the next section. ###
                - name: blob
-                 ### This mountPath is where the PVC will be attached to the pod's filesystem. ###
+                 ### This mountPath is where the PVC is attached to the pod's filesystem. ###
                  mountPath: "/mnt/blob"
          volumes:
-           ### User-defined 'name' that will be used to link the volumeMounts. This name must match 'volumeMounts.name' as specified in the previous section. ###
+           ### User-defined 'name' that's used to link the volumeMounts. This name must match 'volumeMounts.name' as specified in the previous section. ###
            - name: blob
              persistentVolumeClaim:
                ### This claimName must refer to the PVC resource 'name' as defined in the PVC config. This name must match what your PVC resource was actually named. ###
@@ -165,6 +163,6 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
 
 ## Next steps
 
-After completing these steps, begin monitoring your deployment using Azure Monitor and Kubernetes Monitoring or third-party monitoring with Prometheus and Grafana.
+After you complete these steps, begin monitoring your deployment using Azure Monitor and Kubernetes Monitoring or third-party monitoring with Prometheus and Grafana:
 
 [Third-party monitoring](third-party-monitoring.md)

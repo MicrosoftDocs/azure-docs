@@ -22,9 +22,9 @@ This size does not affect the ceiling of blob storage used in the cloud to suppo
    apiVersion: v1 
    kind: PersistentVolumeClaim 
    metadata:
-       ### CREATE A NAME FOR YOUR PVC ###
+       ### Create a name for your PVC ###
        name: CREATE_A_NAME_HERE
-       ### USE A NAMESPACE THAT MATCHES YOUR INTENDED CONSUMING POD OR "DEFAULT" ###
+       ### Use a namespace that matched your intended consuming pod, or "default" ###
        namespace: INTENDED_CONSUMING_POD_OR_DEFAULT_HERE
    spec: 
        accessModes: 
@@ -34,7 +34,7 @@ This size does not affect the ceiling of blob storage used in the cloud to suppo
                storage: 5Gi 
        storageClassName: esa
        volumeMode: Filesystem
-       ### THIS NAME IS FROM YOUR PV CONFIG ###
+       ### This name is from your PV config ###
        volumeName: INSERT_NAME_FROM_PV
    status: 
        accessModes: 

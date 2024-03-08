@@ -53,11 +53,11 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
    Invoke-AksEdgeNodeCommand -NodeType "Linux" -Command 'echo -e "LimitNOFILE=1048576" | sudo tee -a /etc/systemd/system/containerd.service.d/override.conf'
    ```
 
-1. Install and configure Open Service Mesh (OSM) using the following command:
+1. Install and configure Open Service Mesh (OSM) using the following commands:
 
    ```bash
    az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
-    kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featureFlags":{"enableWASMStats": false }, "traffic":{"outboundPortEx
+   kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featureFlags":{"enableWASMStats": false }, "traffic":{"outboundPortEx
    ```
 
 1. Create a file named **config.json** with the following contents:
@@ -69,7 +69,7 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
    ```
 
    > [!NOTE]
-   > The location/path of this file will later be referenced when installing the Edge Storage Accelerator Arc extension.
+   > The location/path of this file is referenced later, when installing the Edge Storage Accelerator Arc extension.
 
 ::: zone-end
 

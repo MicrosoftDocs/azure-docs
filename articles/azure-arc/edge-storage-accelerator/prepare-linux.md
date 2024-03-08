@@ -19,7 +19,7 @@ The article describes how to prepare Linux using AKS enabled by Azure Arc, Edge 
 
 ### Custom Kubernetes installation on Azure IoT Operations (AIO)
 
-Follow the directions for [creating a cluster for Azure IoT Operations](/azure/iot-operations/get-started/quickstart-deploy?tabs=linux). Use Ubuntu 20.04 on Standard D8s v3 machines with 3 SSDs attached for additional storage.
+Follow the instructions to [create a cluster for Azure IoT Operations](/azure/iot-operations/get-started/quickstart-deploy?tabs=linux). Use Ubuntu 20.04 on Standard D8s v3 machines with 3 SSDs attached for additional storage.
 
 ## Single-node and multi-node clusters
 
@@ -29,16 +29,11 @@ However, single-node clusters come with limitations, mostly in the form of missi
 
 A multi-node Kubernetes configuration is typically used for production, staging, or large-scale scenarios because of its advantages, including high availability, fault tolerance, scalability, and performance. A multi-node cluster also introduces challenges and trade-offs, including complexity, overhead, cost, and efficiency considerations. For example, setting up and maintaining a multi-node cluster requires additional knowledge, skills, tools, and resources (network, storage, compute). The cluster must handle coordination and communication among nodes, leading to potential latency and errors. Additionally, running a multi-node cluster is more resource-intensive and is costlier than a single-node cluster. Optimization of resource usage among nodes is crucial for maintaining cluster and application efficiency and performance.
 
-In summary, a single-node Kubernetes cluster might be suitable for development, testing, and resource-constrained environments, while a multi-node cluster is more appropriate for production deployments, high availability, scalability, and scenarios where distributed applications are a requirement. This choice ultimately depends on your specific needs and goals for your deployment.
-
-See the following instructions to prepare Linux for single-node or multi-node clusters:
-
-- [Single-node clusters](single-node-cluster.md)
-- [Multi-node clusters](multi-node-cluster.md)
+In summary, a [single-node Kubernetes cluster](single-node-cluster.md) might be suitable for development, testing, and resource-constrained environments, while a [multi-node cluster](multi-node-cluster.md) is more appropriate for production deployments, high availability, scalability, and scenarios where distributed applications are a requirement. This choice ultimately depends on your specific needs and goals for your deployment.
 
 ## Next steps
 
-To continue preparing Linux, choose single-node or multi-node clusters:
+To continue preparing Linux, see the following instructions for single-node or multi-node clusters:
 
 - [Single-node clusters](single-node-cluster.md)
 - [Multi-node clusters](multi-node-cluster.md)
