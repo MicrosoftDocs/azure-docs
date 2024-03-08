@@ -33,7 +33,7 @@ The workflow for creating a secondary SAP HANA system is similar to the workflow
 
 This section shows an example of creating a single-host, secondary SAP HANA system.
 
-[!INCLUDE [Extension 1 interface call-out](../includes/extension-one.md)]
+[!INCLUDE [Extension 1 interface call-out](./includes/extension-one.md)]
 
 1. From your NetApp account, select **Application volume groups**, and select **+Add Group**. In Deployment Type, select **SAP HANA** then **Next**. 
 

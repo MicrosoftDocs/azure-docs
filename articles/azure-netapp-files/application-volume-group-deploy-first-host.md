@@ -72,7 +72,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 4. In the **Volume group** tab, provide information for creating the volume group:  
 
-    [!INCLUDE [Extension 1 interface call-out](../includes/extension-one.md)]
+    [!INCLUDE [Extension 1 interface call-out](./includes/extension-one.md)]
 
 <detail>
 <summary>Interface without extension 1 enabled</summary>

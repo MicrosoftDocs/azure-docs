@@ -87,7 +87,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
 3. In the **Volume group** tab, provide information for creating the volume group:
 
-[!INCLUDE [Extension 1 interface call-out](../includes/extension-one.md)]
+[!INCLUDE [Extension 1 interface call-out](./includes/extension-one.md)]
 
     * **Proximity placement group (PPG)**:  
         Specifies that the data and shared volumes are to be created close to the disaster recovery VMs.  
