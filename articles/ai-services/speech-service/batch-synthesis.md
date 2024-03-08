@@ -1,5 +1,5 @@
 ---
-title: Batch synthesis API (Preview) for text to speech - Speech service
+title: Batch synthesis API for text to speech - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use the batch synthesis API for asynchronous synthesis of long-form text to speech.
 author: eric-urban
@@ -10,12 +10,12 @@ ms.date: 1/18/2024
 ms.author: eur
 ---
 
-# Batch synthesis API (Preview) for text to speech
+# Batch synthesis API for text to speech
 
-The Batch synthesis API (Preview) can synthesize a large volume of text input (long and short) asynchronously. Publishers and audio content platforms can create long audio content in a batch. For example: audio books, news articles, and documents. The batch synthesis API can create synthesized audio longer than 10 minutes.
+The Batch synthesis API can synthesize a large volume of text input (long and short) asynchronously. Publishers and audio content platforms can create long audio content in a batch. For example: audio books, news articles, and documents. The batch synthesis API can create synthesized audio longer than 10 minutes.
 
 > [!IMPORTANT]
-> The Batch synthesis API is currently in public preview. Once it's generally available, the Long Audio API will be deprecated. For more information, see [Migrate to batch synthesis API](migrate-to-batch-synthesis.md).
+> The Batch synthesis API is generally available. The Long Audio API will be retired on April 1st, 2027. For more information, see [Migrate to batch synthesis API](migrate-to-batch-synthesis.md).
 
 The batch synthesis API is asynchronous and doesn't return synthesized audio in real-time. You submit text files to be synthesized, poll for the status, and download the audio output when the status indicates success. The text inputs must be plain text or [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) text.
 
@@ -28,34 +28,36 @@ This diagram provides a high-level overview of the workflow.
 
 You can use the following REST API operations for batch synthesis:
 
-| Operation              | Method   | REST API call                                 |
-| ---------------------- | -------- | --------------------------------------------- |
-| [Create batch synthesis](#create-batch-synthesis) | `POST`   | texttospeech/3.1-preview1/batchsynthesis      |
-| [Get batch synthesis](#get-batch-synthesis)    | `GET`    | texttospeech/3.1-preview1/batchsynthesis/{id} |
-| [List batch synthesis](#list-batch-synthesis)   | `GET`    | texttospeech/3.1-preview1/batchsynthesis      |
-| [Delete batch synthesis](#delete-batch-synthesis) | `DELETE` | texttospeech/3.1-preview1/batchsynthesis/{id} |
+| Operation                                         | Method   | REST API call                               |
+| ------------------------------------------------- | -------- | ------------------------------------------- |
+| [Create batch synthesis](#create-batch-synthesis) | `PUT`    | texttospeech/batchsyntheses/YourSynthesisId |
+| [Get batch synthesis](#get-batch-synthesis)       | `GET`    | texttospeech/batchsyntheses/YourSynthesisId |
+| [List batch synthesis](#list-batch-synthesis)     | `GET`    | texttospeech/batchsyntheses                 |
+| [Delete batch synthesis](#delete-batch-synthesis) | `DELETE` | texttospeech/batchsyntheses/YourSynthesisId |
+
+<!-- | [Get operation for status monitor](#get-operation) | `GET`    | texttospeech/operations/YourOperationId     | -->
 
 For code samples, see [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch-synthesis).
 
 ## Create batch synthesis
 
-To submit a batch synthesis request, construct the HTTP POST request body according to the following instructions:
+To submit a batch synthesis request, construct the HTTP PUT request path and body according to the following instructions:
 
-- Set the required `textType` property. 
-- If the `textType` property is set to "PlainText", then you must also set the `voice` property in the `synthesisConfig`. In the example below, the `textType` is set to "SSML", so the `speechSynthesis` isn't set.
-- Set the required `displayName` property. Choose a name that you can refer to later. The display name doesn't have to be unique.
-- Optionally you can set the `description`, `timeToLive`, and other properties. For more information, see [batch synthesis properties](batch-synthesis-properties.md).
+- Set the required `YourSynthesisId` in path. The `YourSynthesisId` have to be unique. It must be 3-64 long, contains only numbers, letters, hyphens, underscores and dots, starts and ends with a letter or number.
+- Set the required `inputKind` property.
+- If the `inputKind` property is set to "PlainText", then you must also set the `voice` property in the `synthesisConfig`. In the example below, the `inputKind` is set to "SSML", so the `synthesisConfig` isn't set.
+- Optionally you can set the `description`, `timeToLiveInHours`, and other properties. For more information, see [batch synthesis properties](batch-synthesis-properties.md).
 
 > [!NOTE]
-> The maximum JSON payload size that will be accepted is 500 kilobytes. Each Speech resource can have up to 200 batch synthesis jobs that are running concurrently.
+> The maximum JSON payload size that will be accepted is 500 kilobytes. Each Speech resource can have up to 200 batch synthesis jobs that are running concurrently. (@TODO)
 
-Make an HTTP POST request using the URI as shown in the following example. Replace `YourSpeechKey` with your Speech resource key, replace `YourSpeechRegion` with your Speech resource region, and set the request body properties as previously described.
+Make an HTTP PUT request using the URI as shown in the following example. Replace `YourSpeechKey` with your Speech resource key, replace `YourSpeechRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: application/json" -d '{
+curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: application/json" -d '{
     "displayName": "batch synthesis sample",
     "description": "my ssml test",
-    "textType": "SSML",
+    "inputKind": "SSML",
     "inputs": [
         {
             "text": "<speak version='\''1.0'\'' xml:lang='\''en-US'\''>
@@ -72,18 +74,18 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: 
         "concatenateResult": false,
         "decompressOutputFiles": false
     },
-}'  "https://YourSpeechRegion.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis"
+}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses?api-version=2024-04-01"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "textType": "SSML",
+  "inputKind": "SSML",
   "synthesisConfig": {},
   "customVoices": {},
   "properties": {
-    "timeToLive": "P31D",
+    "timeToLiveInHours": "P31D",
     "outputFormat": "riff-24khz-16bit-mono-pcm",
     "concatenateResult": false,
     "decompressOutputFiles": false,
@@ -106,62 +108,62 @@ The `status` property should progress from `NotStarted` status, to `Running`, an
 To get the status of the batch synthesis job, make an HTTP GET request using the URI as shown in the following example. Replace `YourSynthesisId` with your batch synthesis ID, replace `YourSpeechKey` with your Speech resource key, and replace `YourSpeechRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourSpeechRegion.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis/YourSynthesisId" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/YourSynthesisId?api-version=2024-04-01" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-    "textType": "SSML",
-    "synthesisConfig": {},
-    "customVoices": {},
-    "properties": {
-      "audioSize": 100000,
-      "durationInTicks": 31250000,
-      "succeededAudioCount": 1,
-      "failedAudioCount": 0,
-      "duration": "PT3.125S",
-      "billingDetails": {
-        "customNeural": 0,
-        "neural": 33
-      },
-      "timeToLive": "P31D",
-      "outputFormat": "riff-24khz-16bit-mono-pcm",
-      "concatenateResult": false,
-      "decompressOutputFiles": false,
-      "wordBoundaryEnabled": false,
-      "sentenceBoundaryEnabled": false
+  "inputKind": "SSML",
+  "synthesisConfig": {},
+  "customVoices": {},
+  "properties": {
+    "audioSize": 100000,
+    "durationInTicks": 31250000,
+    "succeededAudioCount": 1,
+    "failedAudioCount": 0,
+    "duration": "PT3.125S",
+    "billingDetails": {
+      "customNeural": 0,
+      "neural": 33
     },
-    "outputs": {
-      "result": "https://cvoiceprodeus.blob.core.windows.net/batch-synthesis-output/41b83de2-380d-45dc-91af-722b68cfdc8e/results.zip?SAS_Token"
-    },
-    "lastActionDateTime": "2022-11-05T14:00:32.523Z",
-    "status": "Succeeded",
-    "id": "41b83de2-380d-45dc-91af-722b68cfdc8e",
-    "createdDateTime": "2022-11-05T14:00:31.523Z",
-    "displayName": "batch synthesis sample",
-    "description": "my test"
-  }
+    "timeToLiveInHours": "P31D",
+    "outputFormat": "riff-24khz-16bit-mono-pcm",
+    "concatenateResult": false,
+    "decompressOutputFiles": false,
+    "wordBoundaryEnabled": false,
+    "sentenceBoundaryEnabled": false
+  },
+  "outputs": {
+    "result": "https://cvoiceprodeus.blob.core.windows.net/batch-synthesis-output/41b83de2-380d-45dc-91af-722b68cfdc8e/results.zip?SAS_Token"
+  },
+  "lastActionDateTime": "2022-11-05T14:00:32.523Z",
+  "status": "Succeeded",
+  "id": "41b83de2-380d-45dc-91af-722b68cfdc8e",
+  "createdDateTime": "2022-11-05T14:00:31.523Z",
+  "displayName": "batch synthesis sample",
+  "description": "my test"
+}
 ```
 
 From `outputs.result`, you can download a ZIP file that contains the audio (such as `0001.wav`), summary, and debug details. For more information, see [batch synthesis results](#batch-synthesis-results).
 
 ## List batch synthesis
 
-To list all batch synthesis jobs for the Speech resource, make an HTTP GET request using the URI as shown in the following example. Replace `YourSpeechKey` with your Speech resource key and replace `YourSpeechRegion` with your Speech resource region. Optionally, you can set the `skip` and `top` (page size) query parameters in URL. The default value for `skip` is 0 and the default value for `top` is 100.
+To list all batch synthesis jobs for the Speech resource, make an HTTP GET request using the URI as shown in the following example. Replace `YourSpeechKey` with your Speech resource key and replace `YourSpeechRegion` with your Speech resource region. Optionally, you can set the `skip` and `maxpagesize` (up to 100) query parameters in URL. The default value for `skip` is 0 and the default value for `maxpagesize` is 100.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourSpeechRegion.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis?skip=0&top=2" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses?api-version=2024-04-01&skip=0&maxpagesize=2" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "values": [
+  "value": [
     {
-      "textType": "SSML",
+      "inputKind": "SSML",
       "synthesisConfig": {},
       "customVoices": {},
       "properties": {
@@ -174,7 +176,7 @@ You should receive a response body in the following format:
           "customNeural": 0,
           "neural": 33
         },
-        "timeToLive": "P31D",
+        "timeToLiveInHours": "P31D",
         "outputFormat": "riff-24khz-16bit-mono-pcm",
         "concatenateResult": false,
         "decompressOutputFiles": false,
@@ -192,7 +194,7 @@ You should receive a response body in the following format:
       "description": "my test"
     }
     {
-      "textType": "PlainText",
+      "inputKind": "PlainText",
       "synthesisConfig": {
         "voice": "en-US-JennyNeural",
         "style": "chat",
@@ -211,7 +213,7 @@ You should receive a response body in the following format:
           "customNeural": 0,
           "neural": 33
         },
-        "timeToLive": "P31D",
+        "timeToLiveInHours": "P31D",
         "outputFormat": "riff-24khz-16bit-mono-pcm",
         "concatenateResult": false,
         "decompressOutputFiles": false,
@@ -230,29 +232,29 @@ You should receive a response body in the following format:
     },
   ],
   // The next page link of the list of batch synthesis.
-  "@nextLink": "https://{region}.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis?skip=0&top=2"
-} 
+  "nextLink": "https://{region}.api.cognitive.microsoft.com/texttospeech/batchsyntheses?api-version=2024-04-01&skip=0&maxpagesize=2"
+}
 ```
 
 From `outputs.result`, you can download a ZIP file that contains the audio (such as `0001.wav`), summary, and debug details. For more information, see [batch synthesis results](#batch-synthesis-results).
 
-The `values` property in the json response lists your synthesis requests. The list is paginated, with a maximum page size of 100. The `"@nextLink"` property is provided as needed to get the next page of the paginated list. 
+The `value` property in the json response lists your synthesis requests. The list is paginated, with a maximum page size of 100. The `"nextLink"` property is provided as needed to get the next page of the paginated list.
 
 ## Delete batch synthesis
 
-Delete the batch synthesis job history after you retrieved the audio output results. The Speech service keeps batch synthesis history for up to 31 days, or the duration of the request `timeToLive` property, whichever comes sooner. The date and time of automatic deletion (for synthesis jobs with a status of "Succeeded" or "Failed") is equal to the `lastActionDateTime` + `timeToLive` properties.
+Delete the batch synthesis job history after you retrieved the audio output results. The Speech service keeps batch synthesis history for up to 31 days, or the duration of the request `timeToLiveInHours` property, whichever comes sooner. The date and time of automatic deletion (for synthesis jobs with a status of "Succeeded" or "Failed") is equal to the `lastActionDateTime` + `timeToLiveInHours` properties.
 
 To delete a batch synthesis job, make an HTTP DELETE request using the URI as shown in the following example. Replace `YourSynthesisId` with your batch synthesis ID, replace `YourSpeechKey` with your Speech resource key, and replace `YourSpeechRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X DELETE "https://YourSpeechRegion.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis/YourSynthesisId" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X DELETE "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses/YourSynthesisId?api-version=2024-04-01" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
 The response headers include `HTTP/1.1 204 No Content` if the delete request was successful.
 
 ## Batch synthesis results
 
-After you [get a batch synthesis job](#get-batch-synthesis) with `status` of "Succeeded", you can download the audio output results. Use the URL from the `outputs.result` property of the [get batch synthesis](#get-batch-synthesis) response. 
+After you [get a batch synthesis job](#get-batch-synthesis) with `status` of "Succeeded", you can download the audio output results. Use the URL from the `outputs.result` property of the [get batch synthesis](#get-batch-synthesis) response.
 
 To get the batch synthesis results file, make an HTTP GET request using the URI as shown in the following example. Replace `YourOutputsResultUrl` with the URL from the `outputs.result` property of the [get batch synthesis](#get-batch-synthesis) response. Replace `YourSpeechKey` with your Speech resource key.
 
@@ -269,30 +271,30 @@ The summary file contains the synthesis results for each text input. Here's an e
 
 ```json
 {
-  "jobID":  "41b83de2-380d-45dc-91af-722b68cfdc8e",
-  "status":  "Succeeded",
-  "results":  [
+  "jobID": "41b83de2-380d-45dc-91af-722b68cfdc8e",
+  "status": "Succeeded",
+  "results": [
     {
-      "texts":  [
+      "texts": [
         "<speak version='1.0' xml:lang='en-US'>\n\t\t\t\t<voice name='en-US-JennyNeural'>\n\t\t\t\t\tThe rainbow has seven colors.\n\t\t\t\t</voice>\n\t\t\t</speak>"
       ],
-      "status":  "Succeeded",
-      "billingDetails":  {
-        "CustomNeural":  "0",
-        "Neural":  "33"
+      "status": "Succeeded",
+      "billingDetails": {
+        "CustomNeural": "0",
+        "Neural": "33"
       },
-      "audioFileName":  "0001.wav",
-      "properties":  {
-        "audioSize":  "100000",
-        "duration":  "PT3.1S",
-        "durationInTicks":  "31250000"
+      "audioFileName": "0001.wav",
+      "properties": {
+        "audioSize": "100000",
+        "duration": "PT3.1S",
+        "durationInTicks": "31250000"
       }
     }
   ]
 }
 ```
 
-If sentence boundary data was requested (`"sentenceBoundaryEnabled": true`), then a corresponding `[nnnn].sentence.json` file is included in the results. Likewise, if word boundary data was requested (`"wordBoundaryEnabled": true`), then a corresponding `[nnnn].word.json` file is included in the results. 
+If sentence boundary data was requested (`"sentenceBoundaryEnabled": true`), then a corresponding `[nnnn].sentence.json` file is included in the results. Likewise, if word boundary data was requested (`"wordBoundaryEnabled": true`), then a corresponding `[nnnn].word.json` file is included in the results.
 
 Here's an example word data file with both audio offset and duration in milliseconds:
 
@@ -322,7 +324,7 @@ Here's an example word data file with both audio offset and duration in millisec
     "Text": "colors",
     "AudioOffset": 778,
     "Duration": 451
-  },
+  }
 ]
 ```
 
@@ -336,9 +338,9 @@ The latency in batch synthesis depends on various factors, including the complex
 
 The latency for batch synthesis is as follows (approximately):
 
-- The latency of 50% of the synthesized speech outputs is within 10-20 seconds.
+- The latency of 50% of the synthesized speech outputs is within 10-20 seconds. (@TODO)
 
-- The latency of 95% of the synthesized speech outputs is within 120 seconds.
+- The latency of 95% of the synthesized speech outputs is within 120 seconds. (@TODO)
 
 ### Best practices
 
@@ -354,23 +356,25 @@ HTTP 200 OK indicates that the request was successful.
 
 ### HTTP 201 Created
 
-HTTP 201 Created indicates that the create batch synthesis request (via HTTP POST) was successful.
+HTTP 201 Created indicates that the create batch synthesis request (via HTTP PUT) was successful.
 
 ### HTTP 204 error
 
 An HTTP 204 error indicates that the request was successful, but the resource doesn't exist. For example:
-- You tried to get or delete a synthesis job that doesn't exist. 
-- You successfully deleted a synthesis job. 
 
-### HTTP 400 error 
+- You tried to get or delete a synthesis job that doesn't exist.
+- You successfully deleted a synthesis job.
+
+### HTTP 400 error
 
 Here are examples that can result in the 400 error:
+
 - The `outputFormat` is unsupported or invalid. Provide a valid format value, or leave `outputFormat` empty to use the default setting.
 - The number of requested text inputs exceeded the limit of 1,000.
-- The `top` query parameter exceeded the limit of 100.
+- The `maxpagesize` query parameter exceeded the limit of 100. (@TODO)
 - You tried to use an invalid deployment ID or a custom voice that isn't successfully deployed. Make sure the Speech resource has access to the custom voice, and the custom voice is successfully deployed. You must also ensure that the mapping of `{"your-custom-voice-name": "your-deployment-ID"}` is correct in your batch synthesis request.
 - You tried to delete a batch synthesis job that isn't started or hasn't completed running. You can only delete batch synthesis jobs that have a status of "Succeeded" or "Failed".
-- You tried to use a *F0* Speech resource, but the region only supports the *Standard* Speech resource pricing tier. 
+- You tried to use a _F0_ Speech resource, but the region only supports the _Standard_ Speech resource pricing tier.
 - You tried to create a new batch synthesis job that would exceed the limit of 200 active jobs. Each Speech resource can have up to 200 batch synthesis jobs that don't have a status of "Succeeded" or "Failed".
 
 ### HTTP 404 error
@@ -378,13 +382,13 @@ Here are examples that can result in the 400 error:
 The specified entity can't be found. Make sure the synthesis ID is correct.
 
 ### HTTP 429 error
- 
+
 There are too many recent requests. Each client application can submit up to 50 requests per 5 seconds for each Speech resource. Reduce the number of requests per second.
 
 You can check the rate limit and quota remaining via the HTTP headers as shown in the following example:
 
 ```http
-X-RateLimit-Limit: 50
+X-RateLimit-Limit: 50 (@TODO)
 X-RateLimit-Remaining: 49
 X-RateLimit-Reset: 2022-11-11T01:49:43Z
 ```
@@ -395,10 +399,11 @@ HTTP 500 Internal Server Error indicates that the request failed. The response b
 
 ### HTTP error example
 
-Here's an example request that results in an HTTP 400 error, because the `top` query parameter is set to a value greater than 100.
+(@TODO)
+Here's an example request that results in an HTTP 400 error, because the `maxpagesize` query parameter is set to a value greater than 100.
 
 ```console
-curl -v -X GET "https://YourSpeechRegion.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis?skip=0&top=200" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/texttospeech/batchsyntheses?api-version=2024-04-01&skip=0&maxpagesize=200" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
 In this case, the response headers include `HTTP/1.1 400 Bad Request`.
@@ -408,10 +413,10 @@ The response body resembles the following JSON example:
 ```json
 {
   "code": "InvalidRequest",
-  "message": "The top parameter should not be greater than 100.",
+  "message": "The maxpagesize parameter should not be greater than 100.",
   "innerError": {
     "code": "InvalidParameter",
-    "message": "The top parameter should not be greater than 100."
+    "message": "The maxpagesize parameter should not be greater than 100."
   }
 }
 ```
