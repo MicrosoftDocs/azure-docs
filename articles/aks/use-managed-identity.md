@@ -67,7 +67,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor. | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI). | Contributor role for node resource group | No
 | Add-on | Cost analysis | Used to gather cost allocation data | |
-| Workload identity | Microsoft Entra workload ID | Enables applications to access cloud resources securely with Microsoft Entra ID. | N/A | No |
+| Workload identity | Microsoft Entra workload ID | Enables applications to access cloud resources securely with Microsoft Entra workload ID. | N/A | No |
 
 ## Enable managed identities on a new AKS cluster
 
