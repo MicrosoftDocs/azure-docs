@@ -66,7 +66,9 @@ Adopting OpenTelemetry now prevents having to migrate at a later date.
 
 For ASP.NET Core, Java, Node.js, and Python, we recommend using the OpenTelemetry distro. It's one line of code to get started.
 
-For all other .NET scenarios (like classic ASP.NET, Console apps etc.), we recommend using our exporter: `Azure.Monitor.OpenTelemetry.Exporter`.
+For all other .NET scenarios (like classic ASP.NET, Console apps etc.), we recommend using the .NET Azure Monitor OpenTelemetry exporter: `Azure.Monitor.OpenTelemetry.Exporter`.
+
+For more complex Python telemetry scenarios that require advanced configuration, we recommend using the Python [Azure Monitor OpenTelemetry Exporter](/python/api/overview/azure/monitor-opentelemetry-exporter-readme?view=azure-python-preview&preserve-view=true).
 
 ### What's the current release state of features within the Azure Monitor OpenTelemetry Distro?
 

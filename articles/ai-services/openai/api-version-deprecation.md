@@ -5,7 +5,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 02/29/2024
+ms.date: 03/07/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -14,15 +14,19 @@ ms.custom:
 
 # Azure OpenAI API preview lifecycle
 
-This article is to help you understand the support lifecycle for the Azure OpenAI API previews.
+This article is to help you understand the support lifecycle for the Azure OpenAI API previews. New preview APIs target a monthly release cadence. Post April 2, 2024, the latest three preview APIs will remain supported while older APIs will no longer be supported.
+
+> [!NOTE]
+> The `2023-06-01-preview` API will remain supported at this time, as `DALL-E 2` is only available in this API version. `DALL-E 3` is supported in the latest API releases.
 
 ## Latest preview API release
 
-Azure OpenAI API version [2024-02-15-preview](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
+Azure OpenAI API version [2024-03-01-preview](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-03-01-preview/inference.json)
 is currently the latest preview release.
 
 This version contains support for all the latest Azure OpenAI features including:
 
+- [Embeddings `encoding_format` and `dimensions` parameters] [**Added in 2024-03-01-preview**]
 - [Assistants API](./assistants-reference.md). [**Added in 2024-02-15-preview**]
 - [DALL-E 3](./dall-e-quickstart.md). [**Added in 2023-12-01-preview**]
 - [Text to speech](./text-to-speech-quickstart.md). [**Added in 2024-02-15-preview**]

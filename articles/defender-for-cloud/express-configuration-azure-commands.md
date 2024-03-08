@@ -71,20 +71,20 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master --body '{\"properties\": { \"latestScan\": false, \"results\": {\"VA2063\": [[\"AllowAll\",\"0.0.0.0\",\"255.255.255.255\" ]]}}}'
 
 {
-	"id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/Default/baselines/Default",
-	"name": "Default",
-	"properties": {
-	  "results": {
-		"VA2063": [
-		  [
-			"AllowAll",
-			"0.0.0.0",
-			"255.255.255.255"
-		  ]
-		]
-	  }
-	},
-	"type": "Microsoft.Sql/servers/sqlVulnerabilityAssessments/baselines"
+ "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/Default/baselines/Default",
+ "name": "Default",
+ "properties": {
+   "results": {
+  "VA2063": [
+    [
+   "AllowAll",
+   "0.0.0.0",
+   "255.255.255.255"
+    ]
+  ]
+   }
+ },
+ "type": "Microsoft.Sql/servers/sqlVulnerabilityAssessments/baselines"
 }
 ```
 
@@ -259,17 +259,17 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 
 {
     "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/Default/baselines/default/rules/VA2065",
-	"name": "VA2065",
-	"properties": {
-	  "results": [
-		[
-		  "AllowAll",
-		  "0.0.0.0",
-		  "255.255.255.255"
-		]
-	  ]
-	},
-	"type": "Microsoft.Sql/servers/sqlVulnerabilityAssessments/baselines"
+ "name": "VA2065",
+ "properties": {
+   "results": [
+  [
+    "AllowAll",
+    "0.0.0.0",
+    "255.255.255.255"
+  ]
+   ]
+ },
+ "type": "Microsoft.Sql/servers/sqlVulnerabilityAssessments/baselines"
   }
 ```
 
@@ -459,7 +459,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
     "ruleMetadata": {
       "benchmarkReferences": [],
       "category": "SurfaceAreaReduction",
-      "description": "The Azure SQL server-level firewall helps protect your data by preventing all access to your databases until you specify which IP addresses have permission. Server-level firewall rules grant access to all databases that belong to the server based on the originating IP address of each request.\n\nServer-level firewall rules can be created and managed through Transact-SQL as well as through the Azure portal or PowerShell. For more details please see: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure.\n\nThis check enumerates all the server-level firewall rules so that any changes made to them can be identified and addressed.",
+      "description": "The Azure SQL server-level firewall helps protect your data by preventing all access to your databases until you specify which IP addresses have permission. Server-level firewall rules grant access to all databases that belong to the server based on the originating IP address of each request.\n\nServer-level firewall rules can be created and managed through Transact-SQL as well as through the Azure portal or PowerShell. For more details please see: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.\n\nThis check enumerates all the server-level firewall rules so that any changes made to them can be identified and addressed.",
       "queryCheck": {
         "columnNames": [
           "Firewall Rule Name",
@@ -564,7 +564,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
         "ruleMetadata": {
           "benchmarkReferences": [],
           "category": "DataProtection",
-          "description": "SQL Threat Detection provides a layer of security, which detects potential vulnerabilities and anomalous activity in databases, such as SQL injection attacks and unusual behavior patterns. When a potential threat is detected, Threat Detection sends an actionable real-time alert by email and in Azure Security Center, which includes clear investigation and remediation steps for the specific threat. For more information please see https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection.\nThis check verifies that SQL Threat Detection is enabled",
+          "description": "SQL Threat Detection provides a layer of security, which detects potential vulnerabilities and anomalous activity in databases, such as SQL injection attacks and unusual behavior patterns. When a potential threat is detected, Threat Detection sends an actionable real-time alert by email and in Azure Security Center, which includes clear investigation and remediation steps for the specific threat. For more information please see https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection.\nThis check verifies that SQL Threat Detection is enabled",
           "queryCheck": {
             "columnNames": [
               "Violation"
@@ -634,7 +634,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
     "ruleMetadata": {
       "benchmarkReferences": [],
       "category": "SurfaceAreaReduction",
-      "description": "The Azure SQL Database-level firewall helps protect your data by preventing all access to your database until you specify which IP addresses have permission. Database-level firewall rules grant access to the specific database based on the originating IP address of each request.\n\nDatabase-level firewall rules for master and user databases can only be created and managed through Transact-SQL (unlike server-level firewall rules which can also be created and managed using the Azure portal or PowerShell). For more details please see: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure\n\nThis check verifies that each database-level firewall rule does not grant access to more than 255 IP addresses.",
+      "description": "The Azure SQL Database-level firewall helps protect your data by preventing all access to your database until you specify which IP addresses have permission. Database-level firewall rules grant access to the specific database based on the originating IP address of each request.\n\nDatabase-level firewall rules for master and user databases can only be created and managed through Transact-SQL (unlike server-level firewall rules which can also be created and managed using the Azure portal or PowerShell). For more details please see: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure\n\nThis check verifies that each database-level firewall rule does not grant access to more than 255 IP addresses.",
       "queryCheck": {
         "columnNames": [
           "Firewall Rule Name",
@@ -662,92 +662,92 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/scans/$ScanId/scanresults?api-version=2022-02-01-preview
 
 {
-	"value": [
-	  {
-		"id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/scans/VA1020/scanResults/VA1020",
-		"name": "VA1020",
-		"properties": {
-		  "baselineAdjustedResult": null,
-		  "errorMessage": null,
-		  "isTrimmed": false,
-		  "queryResults": [],
-		  "remediation": {
-			"automated": true,
-			"description": "Remove the special user GUEST from all roles.",
-			"portalLink": "",
-			"scripts": []
-		  },
-		  "ruleId": "VA1020",
-		  "ruleMetadata": {
-			"benchmarkReferences": [
-			  {
-				"benchmark": "FedRAMP",
-				"reference": null
-			  }
-			],
-			"category": "AuthenticationAndAuthorization",
-			"description": "The guest user permits access to a database for any logins that are not mapped to a specific database user. This rule checks that no database roles are assigned to the Guest user.",
-			"queryCheck": {
-			  "columnNames": [
-				"Role"
-			  ],
-			  "expectedResult": [],
-			  "query": "SELECT roles.[name] AS [Role]\nFROM sys.database_role_members AS drms\nINNER JOIN sys.database_principals AS roles ON drms.role_principal_id = roles.principal_id\nINNER JOIN sys.database_principals AS users ON drms.member_principal_id = users.principal_id\nWHERE users.[name] = 'guest'"
-			},
-			"rationale": "Database Roles are the basic building block at the heart of separation of duties and the principle of least permission. Granting the Guest user membership to specific roles defeats this purpose.",
-			"ruleId": "VA1020",
-			"ruleType": "NegativeList",
-			"severity": "High",
-			"title": "Database user GUEST should not be a member of any role"
-		  },
-		  "status": "NonFinding"
-		},
-		"type": "Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments/scans/scanResults"
-	  },
-	  {
-		"id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/scans/VA1054/scanResults/VA1054",
-		"name": "VA1054",
-		"properties": {
-		  "baselineAdjustedResult": null,
-		  "errorMessage": null,
-		  "isTrimmed": false,
-		  "queryResults": [],
-		  "remediation": {
-			"automated": false,
-			"description": "Revoke unnecessary permissions granted to PUBLIC",
-			"portalLink": "",
-			"scripts": []
-		  },
-		  "ruleId": "VA1054",
-		  "ruleMetadata": {
-			"benchmarkReferences": [
-			  {
-				"benchmark": "FedRAMP",
-				"reference": null
-			  }
-			],
-			"category": "AuthenticationAndAuthorization",
-			"description": "Every SQL Server login belongs to the public server role. When a server principal has not been granted or denied specific permissions on a securable object, the user inherits the permissions granted to public on that object. This rule displays a GetList of all securable objects or columns that are accessible to all users through the PUBLIC role.",
-			"queryCheck": {
-			  "columnNames": [
-				"Permission",
-				"Schema",
-				"Object"
-			  ],
-			  "expectedResult": [],
-			  "query": "SELECT permission_name AS [Permission]\n ,schema_name AS [Schema]\n ,object_name AS [Object]\nFROM (\n    SELECT objs.TYPE COLLATE database_default AS object_type\n        ,schema_name(schema_id) COLLATE database_default AS schema_name\n        ,objs.name COLLATE database_default AS object_name\n        ,user_name(grantor_principal_id) COLLATE database_default AS grantor_principal_name\n        ,permission_name COLLATE database_default AS permission_name\n        ,perms.TYPE COLLATE database_default AS TYPE\n        ,STATE COLLATE database_default AS STATE\n FROM sys.database_permissions AS perms\n INNER JOIN sys.objects AS objs\n ON objs.object_id = perms.major_id\n  WHERE perms.class = 1 -- objects or columns. Other cases are handled by VA1095 which has different remediation syntax\n  AND grantee_principal_id = DATABASE_PRINCIPAL_ID('public')\n  AND [state] IN (\n   'G'\n   ,'W'\n   )\n  AND NOT (\n   -- These permissions are granted by default to public\n   permission_name = 'EXECUTE'\n   AND schema_name(schema_id) = 'dbo'\n   AND STATE = 'G'\n   AND objs.name IN (\n    'fn_sysdac_is_dac_creator'\n    ,'fn_sysdac_is_currentuser_sa'\n    ,'fn_sysdac_is_login_creator'\n    ,'fn_sysdac_get_username'\n    ,'sp_sysdac_ensure_dac_creator'\n    ,'sp_sysdac_add_instance'\n    ,'sp_sysdac_add_history_entry'\n    ,'sp_sysdac_delete_instance'\n    ,'sp_sysdac_upgrade_instance'\n    ,'sp_sysdac_drop_database'\n    ,'sp_sysdac_rename_database'\n    ,'sp_sysdac_setreadonly_database'\n    ,'sp_sysdac_rollback_committed_step'\n    ,'sp_sysdac_update_history_entry'\n    ,'sp_sysdac_resolve_pending_entry'\n    ,'sp_sysdac_rollback_pending_object'\n    ,'sp_sysdac_rollback_all_pending_objects'\n    ,'fn_sysdac_get_currentusername'\n    )\n   OR permission_name = 'SELECT'\n   AND schema_name(schema_id) = 'sys'\n   AND STATE = 'G'\n   AND objs.name IN (\n    'firewall_rules'\n    ,'database_firewall_rules'\n    ,'ipv6_database_firewall_rules'\n    ,'bandwidth_usage'\n    ,'database_usage'\n    ,'external_library_setup_errors'\n    ,'sql_feature_restrictions'\n    ,'resource_stats'\n    ,'elastic_pool_resource_stats'\n    ,'dm_database_copies'\n    ,'geo_replication_links'\n    ,'database_error_stats'\n    ,'event_log'\n    ,'database_connection_stats'\n    )\n   OR permission_name = 'SELECT'\n   AND schema_name(schema_id) = 'dbo'\n   AND STATE = 'G'\n   AND objs.name IN (\n    'sysdac_instances_internal'\n    ,'sysdac_history_internal'\n    ,'sysdac_instances'\n    )\n   )\n\n ) t"
-			},
-			"rationale": "Database Roles are the basic building block at the heart of separation of duties and the principle of least permission. Granting permissions to principals through the default PUBLIC role defeats this purpose.",
-			"ruleId": "VA1054",
-			"ruleType": "NegativeList",
-			"severity": "Low",
-			"title": "Excessive permissions should not be granted to PUBLIC role on objects or columns"
-		  },
-		  "status": "NonFinding"
-		},
-		"type": "Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments/scans/scanResults"
-	  }
-	]
+ "value": [
+   {
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/scans/VA1020/scanResults/VA1020",
+  "name": "VA1020",
+  "properties": {
+    "baselineAdjustedResult": null,
+    "errorMessage": null,
+    "isTrimmed": false,
+    "queryResults": [],
+    "remediation": {
+   "automated": true,
+   "description": "Remove the special user GUEST from all roles.",
+   "portalLink": "",
+   "scripts": []
+    },
+    "ruleId": "VA1020",
+    "ruleMetadata": {
+   "benchmarkReferences": [
+     {
+    "benchmark": "FedRAMP",
+    "reference": null
+     }
+   ],
+   "category": "AuthenticationAndAuthorization",
+   "description": "The guest user permits access to a database for any logins that are not mapped to a specific database user. This rule checks that no database roles are assigned to the Guest user.",
+   "queryCheck": {
+     "columnNames": [
+    "Role"
+     ],
+     "expectedResult": [],
+     "query": "SELECT roles.[name] AS [Role]\nFROM sys.database_role_members AS drms\nINNER JOIN sys.database_principals AS roles ON drms.role_principal_id = roles.principal_id\nINNER JOIN sys.database_principals AS users ON drms.member_principal_id = users.principal_id\nWHERE users.[name] = 'guest'"
+   },
+   "rationale": "Database Roles are the basic building block at the heart of separation of duties and the principle of least permission. Granting the Guest user membership to specific roles defeats this purpose.",
+   "ruleId": "VA1020",
+   "ruleType": "NegativeList",
+   "severity": "High",
+   "title": "Database user GUEST should not be a member of any role"
+    },
+    "status": "NonFinding"
+  },
+  "type": "Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments/scans/scanResults"
+   },
+   {
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/scans/VA1054/scanResults/VA1054",
+  "name": "VA1054",
+  "properties": {
+    "baselineAdjustedResult": null,
+    "errorMessage": null,
+    "isTrimmed": false,
+    "queryResults": [],
+    "remediation": {
+   "automated": false,
+   "description": "Revoke unnecessary permissions granted to PUBLIC",
+   "portalLink": "",
+   "scripts": []
+    },
+    "ruleId": "VA1054",
+    "ruleMetadata": {
+   "benchmarkReferences": [
+     {
+    "benchmark": "FedRAMP",
+    "reference": null
+     }
+   ],
+   "category": "AuthenticationAndAuthorization",
+   "description": "Every SQL Server login belongs to the public server role. When a server principal has not been granted or denied specific permissions on a securable object, the user inherits the permissions granted to public on that object. This rule displays a GetList of all securable objects or columns that are accessible to all users through the PUBLIC role.",
+   "queryCheck": {
+     "columnNames": [
+    "Permission",
+    "Schema",
+    "Object"
+     ],
+     "expectedResult": [],
+     "query": "SELECT permission_name AS [Permission]\n ,schema_name AS [Schema]\n ,object_name AS [Object]\nFROM (\n    SELECT objs.TYPE COLLATE database_default AS object_type\n        ,schema_name(schema_id) COLLATE database_default AS schema_name\n        ,objs.name COLLATE database_default AS object_name\n        ,user_name(grantor_principal_id) COLLATE database_default AS grantor_principal_name\n        ,permission_name COLLATE database_default AS permission_name\n        ,perms.TYPE COLLATE database_default AS TYPE\n        ,STATE COLLATE database_default AS STATE\n FROM sys.database_permissions AS perms\n INNER JOIN sys.objects AS objs\n ON objs.object_id = perms.major_id\n  WHERE perms.class = 1 -- objects or columns. Other cases are handled by VA1095 which has different remediation syntax\n  AND grantee_principal_id = DATABASE_PRINCIPAL_ID('public')\n  AND [state] IN (\n   'G'\n   ,'W'\n   )\n  AND NOT (\n   -- These permissions are granted by default to public\n   permission_name = 'EXECUTE'\n   AND schema_name(schema_id) = 'dbo'\n   AND STATE = 'G'\n   AND objs.name IN (\n    'fn_sysdac_is_dac_creator'\n    ,'fn_sysdac_is_currentuser_sa'\n    ,'fn_sysdac_is_login_creator'\n    ,'fn_sysdac_get_username'\n    ,'sp_sysdac_ensure_dac_creator'\n    ,'sp_sysdac_add_instance'\n    ,'sp_sysdac_add_history_entry'\n    ,'sp_sysdac_delete_instance'\n    ,'sp_sysdac_upgrade_instance'\n    ,'sp_sysdac_drop_database'\n    ,'sp_sysdac_rename_database'\n    ,'sp_sysdac_setreadonly_database'\n    ,'sp_sysdac_rollback_committed_step'\n    ,'sp_sysdac_update_history_entry'\n    ,'sp_sysdac_resolve_pending_entry'\n    ,'sp_sysdac_rollback_pending_object'\n    ,'sp_sysdac_rollback_all_pending_objects'\n    ,'fn_sysdac_get_currentusername'\n    )\n   OR permission_name = 'SELECT'\n   AND schema_name(schema_id) = 'sys'\n   AND STATE = 'G'\n   AND objs.name IN (\n    'firewall_rules'\n    ,'database_firewall_rules'\n    ,'ipv6_database_firewall_rules'\n    ,'bandwidth_usage'\n    ,'database_usage'\n    ,'external_library_setup_errors'\n    ,'sql_feature_restrictions'\n    ,'resource_stats'\n    ,'elastic_pool_resource_stats'\n    ,'dm_database_copies'\n    ,'geo_replication_links'\n    ,'database_error_stats'\n    ,'event_log'\n    ,'database_connection_stats'\n    )\n   OR permission_name = 'SELECT'\n   AND schema_name(schema_id) = 'dbo'\n   AND STATE = 'G'\n   AND objs.name IN (\n    'sysdac_instances_internal'\n    ,'sysdac_history_internal'\n    ,'sysdac_instances'\n    )\n   )\n\n ) t"
+   },
+   "rationale": "Database Roles are the basic building block at the heart of separation of duties and the principle of least permission. Granting permissions to principals through the default PUBLIC role defeats this purpose.",
+   "ruleId": "VA1054",
+   "ruleType": "NegativeList",
+   "severity": "Low",
+   "title": "Excessive permissions should not be granted to PUBLIC role on objects or columns"
+    },
+    "status": "NonFinding"
+  },
+  "type": "Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments/scans/scanResults"
+   }
+ ]
 }
 ```
 

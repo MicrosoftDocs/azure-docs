@@ -21,9 +21,8 @@ Workspace-based resources:
 > - Are available in all commercial regions and [Azure US Government](../../azure-government/index.yml).
 > - Don't require changing instrumentation keys after migration from a classic resource.
 
-
 > [!IMPORTANT]
-> * On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.
+> * On February 29, 2024, Continuous Export was retired as part of the classic Application Insights resource retirement.
 > 
 > * [Workspace-based Application Insights resources](./create-workspace-resource.md) are not compatible with continuous export. We recommend migrating to  [diagnostic settings](../essentials/diagnostic-settings.md) on classic Application Insights resources before transitioning to a workspace-based Application Insights. This ensures continuity and compatibility of your diagnostic settings.
 >
@@ -198,7 +197,10 @@ Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -Ingesti
 
 ### Azure Resource Manager templates
 
-This section provides templates.
+This section provides templates. 
+
+   > [!CAUTION]
+   > Ensure that you have removed all Continous Export settings from your resource before running the migration templates. See [Prerequisites](#prerequisites) 
 
 #### Template file
 
@@ -289,7 +291,7 @@ This section provides answers to common questions.
 
 Microsoft will begin an automatic phased approach to migrating classic resources to workspace-based resources beginning in May 2024 and this migration will span the course of several months. We can't provide approximate dates that specific resources, subscriptions, or regions will be migrated.
 
-We strongly encourage manual migration to workspace-based resources, which is initiated by selecting the deprecation notice banner in the classic Application Insights resource Overview pane of the Azure portal. This process typically involves a single step of choosing which Log Analytics workspace will be used to store your application data. If you use continuous export, you'll need to additionally migrate to diagnostic settings or disable the feature first.
+We strongly encourage manual migration to workspace-based resources, which is initiated by selecting the retirement notice banner in the classic Application Insights resource Overview pane of the Azure portal. This process typically involves a single step of choosing which Log Analytics workspace will be used to store your application data. If you use continuous export, you'll need to additionally migrate to diagnostic settings or disable the feature first.
 
 If you don't wish to have your classic resource automatically migrated to a workspace-based resource, you may delete or manually migrate the resource.
 

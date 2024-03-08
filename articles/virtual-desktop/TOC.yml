@@ -270,7 +270,7 @@
           - name: Set up golden image in Azure
             displayName: session hosts, virtual machines, vms, vhd, vhdx
             href: set-up-golden-image.md
-          - name: Set up a master VHD image
+          - name: Prepare and customize a VHD image
             displayName: session hosts, virtual machines, vms, vhd, vhdx
             href: set-up-customize-master-image.md
           - name: Install Office on a master VHD image
@@ -320,7 +320,7 @@
       - name: Identity and access management
         items:
         - name: Enforce Microsoft Entra multifactor authentication
-          displayName: identity, multi-factor authentication, multifactor, multi factor, two-factor authentication, two factor
+          displayName: identity, multi-factor authentication, multifactor, multi factor, mfa, two-factor authentication, two factor, 2fa
           href: set-up-mfa.md
         - name: Configure single sign-on using Microsoft Entra ID
           displayName: identity, sso

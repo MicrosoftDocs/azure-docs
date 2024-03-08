@@ -4,6 +4,7 @@ description: Learn how to deploy Azure Operator 5G core Preview using Bicep Scri
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
+ms.custom: devx-track-arm-template, devx-track-azurecli, devx-track-bicep
 ms.topic: how-to #Required; leave this attribute/value as-is
 ms.date: 02/21/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
