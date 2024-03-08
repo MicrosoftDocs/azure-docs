@@ -168,3 +168,17 @@ status:
 Ensure the federated credentials of the managed identity for the ALB Controller pod to make changes to Application Gateway for Containers are configured in Azure. Instructions on how to configure federated credentials can be found in the quickstart guides:
 
 - [Quickstart: Deploy ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#install-the-alb-controller)
+
+### Unable to configure subnet delegation for the Application Gateway for Containers service - _Microsoft.ServiceNetworking/trafficControllers_ 
+
+#### Symptoms
+
+When configuring subnet delegation for the Application Gateway for Containers service - _Microsoft.ServiceNetworking/trafficControllers_ , the following error is returned
+
+```text
+Failed to save subnet 'Subnet01'. Error: 'Network security group Subnet01-nsg does not allow setting 'Inbound' security rules as associated subnet Subnet01 is delegated to Traffic Controller.'
+```
+
+#### Solution
+
+Ensure that the NSG associated with delegated subnet does not have any other inbound rule other than default i.e. AllowVNetInBound, AllowAzureLoadBalancerInBound and DenyAllInbound. No other incoming NSG rule is supported.
