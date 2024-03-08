@@ -44,7 +44,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To create alias records, you must register the **Microsoft.Network** resource provider. If the DNS zone and the alias target resource are in different subscriptions, both subscriptions must be registered. You can register resource providers using Azure CLI, PowerShell, or the Azure portal. See the following example:
 
-```Azure CLI
+```azurecli-interactive
 az provider register --namespace Microsoft.Network
 ```
 
