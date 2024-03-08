@@ -1,6 +1,6 @@
 ---
 title: Access your cluster or network function in Azure Operator 5G Core Preview
-description: Learn how to access your cluster or a netowrk function in Azure Operator 5G Core Preview.
+description: Learn how to access your cluster or a network function in Azure Operator 5G Core Preview.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
@@ -11,7 +11,7 @@ ms.date: 03/07/2024
 ---
 
 # Access your cluster or network function
-TODO: Add your heading
+TODO: Add your heading.
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 
@@ -27,7 +27,7 @@ Example: In this article, you will migrate your user databases from IBM Db2 to S
 
 -->
 
-TODO: Add your introductory paragraph
+TODO: Add your introductory paragraph.
 
 <!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
 
@@ -67,20 +67,20 @@ For portal-based procedures, minimize bullets and numbering.
 -->
 
 ## "\<verb\> * \<noun\>"
-TODO: Add introduction sentence(s)
+TODO: Add introduction sentences
 [Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
+TODO: Add ordered list of procedure steps.
 1. Step 1
 1. Step 2
 1. Step 3
 
 ## Next step
 
-TODO: Add your next step link(s)
+TODO: Add your next step link(s).
 
 ## Related content
 
-TODO: Add your next step link(s)
+TODO: Add your next step link(s).
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the main branch.
