@@ -56,10 +56,10 @@ You need to complete the following tasks prior to deploying Application Gateway 
     If you don't have an existing cluster, use the following commands to create a new AKS cluster with Azure CNI and workload identity enabled.
 
     ```azurecli-interactive
-    AKS_NAME='<your cluster name>'
-    RESOURCE_GROUP='<your resource group name>'
-    LOCATION='northeurope'
-    VM_SIZE='<the size of the vm in AKS>' # The size needs to be available in your location
+    $AKS_NAME='<your cluster name>'
+    $RESOURCE_GROUP='<your resource group name>'
+    $LOCATION='northeurope'
+    $VM_SIZE='<the size of the vm in AKS>' # The size needs to be available in your location
 
     az group create --name $RESOURCE_GROUP --location $LOCATION
     az aks create \
@@ -101,9 +101,9 @@ You need to complete the following tasks prior to deploying Application Gateway 
 1. Create a user managed identity for ALB controller and federate the identity as Workload Identity to use in the AKS cluster.
 
     ```azurecli-interactive
-    RESOURCE_GROUP='<your resource group name>'
-    AKS_NAME='<your aks cluster name>'
-    IDENTITY_RESOURCE_NAME='azure-alb-identity'
+    $RESOURCE_GROUP='<your resource group name>'
+    $AKS_NAME='<your aks cluster name>'
+    $IDENTITY_RESOURCE_NAME='azure-alb-identity'
 
     mcResourceGroup=$(az aks show --resource-group $RESOURCE_GROUP --name $AKS_NAME --query "nodeResourceGroup" -o tsv)
     mcResourceGroupId=$(az group show --name $mcResourceGroup --query id -otsv)
@@ -119,7 +119,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --scope $mcResourceGroupId --role "acdd72a7-3385-48ef-bd42-f606fba81ae7" # Reader role
 
     echo "Set up federation with AKS OIDC issuer"
-    AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
+    $AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
     az identity federated-credential create --name "azure-alb-identity" \
         --identity-name "$IDENTITY_RESOURCE_NAME" \
         --resource-group $RESOURCE_GROUP \
