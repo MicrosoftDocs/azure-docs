@@ -3,7 +3,7 @@ title: Manage an Azure support request
 description: Learn about viewing support requests and how to send messages, upload files, and manage options.
 tags: billing
 ms.topic: how-to
-ms.date: 12/15/2023
+ms.date: 03/08/2024
 ---
 
 # Manage an Azure support request
