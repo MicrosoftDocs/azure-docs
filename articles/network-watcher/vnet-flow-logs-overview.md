@@ -222,18 +222,16 @@ Currently, VNet flow logs aren't billed. However, the following costs apply:
 
 ## Availability
 
-VNet flow logs can be directly enabled with no access restrictions during the preview in the following regions:
-- Switzerland North
-- UK South
-- West Central US
-
-However, you must fill out the [VNet flow logs preview sign-up form](https://aka.ms/VNetflowlogspreviewsignup) to sign up for access to the preview in the following regions:
+VNet flow logs can be directly enabled during the preview in the regions listed below. The earlier requirements to sign up for access are no longer necessary.
 - Central US EUAP
 - East US
 - East US 2
 - East US 2 EUAP
 - West US
 - West US 2
+- Switzerland North
+- UK South
+- West Central US
 
 ## Related content
 
