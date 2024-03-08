@@ -36,7 +36,7 @@ Once the logs are enabled, you can view call insights in your Azure resource. Fo
 
 You can improve audio quality in poor network environments by using video constraints to reduce the number of bandwidth users video streams consume. For more information, see [Video constraints](video-constraints.md). 
 
-You can programmatically validate a client’s readiness to join an Azure Communication Services Call using the Pre-Call API. Access this API through the Calling SDK. The Pre-Call API provides multiple diagnostics including device, connection, and call quality. Pre-Call APIs are available only for Web (JavaScript). We'll be enabling these capabilities across platforms in the future. We welcome your feedback on which platforms you would like to see prioritized. For more information, see [Pre-Call diagnostic](pre-call-diagnostics.md). 
+You can programmatically validate a client’s readiness to join an Azure Communication Services Call using the Pre-Call API. Access this API through the Calling SDK. The Pre-Call API provides multiple diagnostics including device, connection, and call quality. Pre-Call APIs are available only for Web (JavaScript). We welcome your feedback about other platforms you would like to see prioritized. For more information, see [Pre-Call diagnostic](pre-call-diagnostics.md). 
 
 ## Network issues that can cause quality problems 
 
