@@ -59,6 +59,8 @@ az network vnet subnet create \
   --delegations 'Microsoft.ServiceNetworking/trafficControllers'
 ALB_SUBNET_ID=$(az network vnet subnet show --name $ALB_SUBNET_NAME --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --query '[id]' --output tsv)
 ```
+> [!NOTE]
+> The NSG for the delegated subnet can only use the default rules for incoming traffic i.e. AllowVNetInBound, AllowAzureLoadBalancerInBound and DenyAllInbound. No other incoming NSG rule is supported.
 
 ## Delegate permissions to managed identity
 
