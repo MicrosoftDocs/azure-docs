@@ -53,7 +53,7 @@ The gRPC call out stage JSON configuration defines the details of the stage. To 
 | API Response&nbsp;>&nbsp;Metadata | Path | The [Path](concept-configuration-patterns.md#path) to the property in the outgoing message to store the response metadata in. Leave empty if you don't need the response metadata. | No | - | `.payload.gRPCResponseHeader` |
 | API Response&nbsp;>&nbsp;Status | Path | The [Path](concept-configuration-patterns.md#path) to the property in the outgoing message to store the response status in. Leave empty if you don't need the response status. | No | - | `.payload.gRPCResponseStatus` |
 
-**Descriptor<sup>1</sup>**: Because the gRPC call out stage only supports the protobuf format, you use the same format definitions for both request and response. To serialize the request body and deserialize the response body, you need a base 64 encoded descriptor of the .proto file.
+**<sup>1</sup>Descriptor**: Because the gRPC call out stage only supports the protobuf format, you use the same format definitions for both request and response. To serialize the request body and deserialize the response body, you need a base 64 encoded descriptor of the .proto file.
 
 Use the following command to generate the descriptor, replace `<proto-file>` with the name of your .proto file:
 
@@ -63,7 +63,7 @@ protoc --descriptor_set_out=/dev/stdout --include_imports <proto-file> | base64 
 
 Use the output from the previous command as the `descriptor` in the configuration.
 
-**API request&nbsp;>&nbsp;Metadata<sup>2</sup>**: Each element in the metadata array is a key value pair. You can set the key or value dynamically based on the content of the incoming message or as a static string.
+**<sup>2</sup>API request&nbsp;>&nbsp;Metadata**: Each element in the metadata array is a key value pair. You can set the key or value dynamically based on the content of the incoming message or as a static string.
 
 ## Related content
 
