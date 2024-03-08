@@ -84,7 +84,7 @@ The Azure Development Template contains all the code needed to create the servic
 
 1. Authenticate with your credentials on your organization's sign in page.
 
-1. Confirm that it's you trying to connect to Azure CLI. If you encounter any issues, skip to the Troubleshooting section.
+1. Confirm that it's you trying to connect to Azure CLI.
 
 1. Verify the message "Device code authentication completed. Logged in to Azure." appears in your original terminal.
 
