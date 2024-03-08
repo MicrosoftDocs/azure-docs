@@ -181,7 +181,7 @@ az aks nodepool update --cluster-name myCluster --resource-group myResourceGroup
 ```
 
 > [!NOTE]
-> Updates automatically kickoff a node reimage.
+> Updates automatically kickoff a node reimage and this operation can take several minutes per node.
 
 ## Disable vTPM
 
