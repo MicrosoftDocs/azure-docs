@@ -10,7 +10,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to learn how to send MQTT data from the edge to a lakehouse in the cloud.
 ---
 
-# Upload MQTT data to Microsoft Fabric lakehouse using Azure IoT MQ Preview
+# Upload MQTT data from Azure IoT MQ Preview to Microsoft Fabric lakehouse
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

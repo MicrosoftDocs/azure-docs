@@ -12,11 +12,11 @@ ms.date: 11/15/2023
 #CustomerIntent: As an developer, I want to understand how to use MQTTnet to develop distributed apps that talk with Azure IoT MQ.
 ---
 
-# Use MQTTnet to develop distributed application workloads that talk with Azure IoT MQ Preview
+# Use MQTTnet to develop distributed application workloads that connect to Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-[MQTTnet](https://dotnet.github.io/MQTTnet/) is an open-source, high performance .NET library for MQTT based communication. This article uses a Kubernetes service account token to connect to Azure IoT MQ Preview MQTT broker using MQTTnet. You should use service account tokens to connect to in-cluster clients.
+[MQTTnet](https://dotnet.github.io/MQTTnet/) is an open-source, high performance .NET library for MQTT based communication. This article uses a Kubernetes service account token and MQTTnet to connect to Azure IoT MQ Preview. You should use service account tokens to connect to in-cluster clients.
 
 ## Sample code
 

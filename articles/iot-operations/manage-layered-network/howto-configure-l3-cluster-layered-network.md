@@ -11,7 +11,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure level 3 cluster in Azure IoT Layered Network Management Preview service
+# Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
