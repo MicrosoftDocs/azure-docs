@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 ## Create domain users
 
-For information on how to create **sparkuser** domain users, see [Create an HDInsight cluster with ESP](../domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp). In a production scenario, domain users come from your Microsoft Entra tenant.
+For information on how to create `sparkuser` domain users, see [Create an HDInsight cluster with ESP](../domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp). In a production scenario, domain users come from your Microsoft Entra tenant.
 
 ## Create a Ranger policy
 
@@ -61,7 +61,7 @@ In this section, you create two Ranger policies:
    | database | default |
    | table | hivesampletable |
    | column | * |
-   | Select User | sparkuser |  
+   | Select User | `sparkuser` |  
    | Permissions | select |
 
    :::image type="content" source="./media/ranger-policies-for-spark/sample-policy-details.png" alt-text="Screenshot that shows sample details for an access policy." lightbox="./media/ranger-policies-for-spark/sample-policy-details.png":::
@@ -101,7 +101,7 @@ The following example shows how to create a policy to mask a column:
    |Hive Database|default|
    |Hive Table| hivesampletable|
    |Hive Column|devicemake|
-   |Select User|sparkuser|
+   |Select User|`sparkuser`|
    |Access Types|select|
    |Select Masking Option|Hash|
 
@@ -145,7 +145,7 @@ Consider these points:
   In such cases, we recommend that you either:
 
   - Use the Hive catalog for both Hive and Spark.
-  - Maintain different database, table, and column names for both Hive and Spark catalogs so that the policies are not applied to databases across catalogs.
+  - Maintain different database, table, and column names for both Hive and Spark catalogs so that the policies aren't applied to databases across catalogs.
 
 - If you use the Hive catalog for both Hive and Spark, consider the following example.  
 
@@ -194,7 +194,7 @@ Let's say that you have the policies defined in the Ranger repo already under th
   
 1. For **oldclustername_hive** service, add **rangersparklookup** user in the **policy.download.auth.users** and **tag.download.auth.users** list and click save.
   
-   :::image type="content" source="./media/ranger-policies-for-spark/add-new-user-rangerlookup.png" alt-text="Screenshot that shows edit option for ranger service." lightbox="./media/ranger-policies-for-spark/add-new-user-rangerlookup.png":::
+   :::image type="content" source="./media/ranger-policies-for-spark/add-new-user-rangerlookup.png" alt-text="Screenshot that shows how to add user in Ranger service." lightbox="./media/ranger-policies-for-spark/add-new-user-rangerlookup.png":::
 
 The policies are applied on databases in the Spark catalog. If you want to access the databases in the Hive catalog:
 
@@ -206,4 +206,4 @@ The policies are applied on databases in the Spark catalog. If you want to acces
 ## Known issues
 
 - Apache Ranger integration with Spark SQL doesn't work if the Ranger admin is down.
-- In Ranger audit logs, when you hover over the **Resource** column, it doesn't show the entire query that you ran.
+- In Ranger audit logs, when you hover over the **Resource** column, it can't show the entire query that you ran.
