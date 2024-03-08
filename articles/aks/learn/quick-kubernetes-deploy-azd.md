@@ -99,7 +99,7 @@ The Azure Development Template contains all the code needed to create the servic
 
 AZD runs all the hooks inside of the `azd-hooks` folder to pre-register, provision, then deploy these services. 
 
-The AZD template creates a new resource group with an Azure Kubernetes cluster and Azure Keyault. The keyvault is used to store client secrets. Within the cluster, it runs your app's services in the pets namespace. 
+The AZD template creates a new resource group with an Azure Kubernetes cluster and Azure Kevault. The keyvault is used to store client secrets. Within the cluster, it runs your app's services in the pets namespace. 
 
 - **makeline-service**: Processes orders from the queue and completing them.
 - **order-service**: Place orders for products
