@@ -367,10 +367,10 @@ By default, the SAP system deployment uses the credentials from the SAP workload
 ## NFS support
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                             | Type        |
-> | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
-> | `NFS_provider`                     | Defines what NFS back end to use. The options are `AFS` for Azure Files NFS or `ANF` for Azure NetApp files.  |
-> | `sapmnt_volume_size`               | Defines the size (in GB) for the `sapmnt` volume.                        | Optional    |
+> | Variable                           | Description                                                                                                   | Type        |
+> | ---------------------------------- | ------------------------------------------------------------------------------------------------------------- | ----------- |
+> | `NFS_provider`                     | Defines what NFS back end to use. The options are `AFS` for Azure Files NFS or `ANF` for Azure NetApp files.  | Optional    |
+> | `sapmnt_volume_size`               | Defines the size (in GB) for the `sapmnt` volume.                                                             | Optional    |
 
 ### Azure files NFS support
 
