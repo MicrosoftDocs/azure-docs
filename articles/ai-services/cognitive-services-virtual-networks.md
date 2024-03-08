@@ -59,7 +59,7 @@ Virtual networks are supported in [regions where Azure AI services are available
 > - `AzureResourceManager`
 > - `CognitiveServicesManagement`
 > - `CognitiveServicesFrontEnd`
-> - `Storage`
+> - `Storage` (Speech Studio only)
 
 ## Change the default network access rule
 
