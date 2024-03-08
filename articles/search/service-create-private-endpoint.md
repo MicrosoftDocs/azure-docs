@@ -215,7 +215,7 @@ When the search service endpoint is private, some portal features are disabled. 
 
 1. Close the remote desktop connection to *myVM*. 
 
-1. To verify that your service isn't accessible on a public endpoint, open Postman on your local workstation and attempt the first several tasks in the quickstart. If you receive an error that the remote server doesn't exist, you've successfully configured a private endpoint for your search service.
+1. To verify that your service isn't accessible on a public endpoint, open a REST client on your local workstation and attempt the first several tasks in the quickstart. If you receive an error that the remote server doesn't exist, you've successfully configured a private endpoint for your search service.
 
 <a id="portal-access-private-search-service"></a>
 
