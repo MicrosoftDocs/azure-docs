@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/23/2024
+ms.date: 03/08/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
