@@ -4,7 +4,7 @@ description: Learn to record and query data collected using OpenTelemetry in Azu
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.date: 03/07/2024
+ms.date: 03/08/2024
 ms.author: cshoe
 ---
 
@@ -29,9 +29,9 @@ Through simple configuration settings, the Container Apps OTel agent makes it ea
 - Send data to one or multiple destinations
 - Switch collection destinations
 
-This article shows you how to setup and configure an OTel agent for your container app.
+This article shows you how to set up and configure an OTel agent for your container app.
 
-## Set up a agent
+## Set up an agent
 
 Setting up an agent is a two step process. The first step is to create an instance of the destination service to accept data from your container app. For instance, if you want to send data to Azure Application Insights, you first need to create an App Insights instance.
 
@@ -106,7 +106,7 @@ Once you have these configuration details, you can configure the agent via your 
 
 ---
 
-## OLTP endpoint
+## OTLP endpoint
 
 An OpenTelemetry protocol (OTLP) endpoint is a telemetry data destination that consumes OpenTelemery data. You can use existing solutions that support OTLP, or develop your own according to the OpenTelemetry protocol.
 
@@ -135,9 +135,9 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
 
 | Name | Description |
 |---|---|
-| `name` | The name of your OTLP-configured endpoint |
-| `endpoint` |  The URL to receive the data |
-| `header` | List of any headers used for security |
+| `name` | A name you select to identify your OTLP-configured endpoint. |
+| `endpoint` |  The URL of the destination that receives collected data. |
+| `header` | List of security headers. |
 | `insecure` |  True/false. If false, include headers to |
 
 # [Azure CLI](#tab/azure-cli)
@@ -145,12 +145,17 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
 ```azurecli
 az containerapp env telemetry otlp add \  
   --name <ENDPOINT_NAME> \ 
-  --endpoint  <ENDPOINT_URI> \
-  --insecure  <TRUE/FALSE>
+  --endpoint  <ENDPOINT_URL> \
+  --insecure  <IS_INSECURE>
   --headers  <HEADERS>
 ```
 
-TODO
+| Name | Description |
+|---|---|
+| `<ENDPOINT_NAME>` | A name you select to identify your OTLP-configured endpoint. |
+| `<ENDPOINT_URL>` |  The URL of the destination that receives collected data. |
+| `<IS_INSECURE>` | True/false. If false, include headers to |
+| `<HEADERS>` |  List of security headers. |
 
 ---
 
@@ -169,9 +174,9 @@ The OTel agent divides data up into the following categories:
 - Metrics
 - Logs
 
-You can send each type of data to different locations, but you can also choose not to send one of the data categories a agent.
+You can send each type of data to different locations, but you can also choose not to send one of the data categories an agent.
 
-To configure a agent, use the `destinations` array to define which agents your application sends data. Valid keys are either `appInsights`, `dataDog`, or the name of your custom OTLP endpoint.
+To configure an agent, use the `destinations` array to define which agents your application sends data. Valid keys are either `appInsights`, `dataDog`, or the name of your custom OTLP endpoint.
 
 The following example shows how to use an OTLP endpoint named `customDashboard`.
 
@@ -209,7 +214,6 @@ The following example shows how to use an OTLP endpoint named `customDashboard`.
 
 The following example show how you might configure your container app to collect telemetry data using Azure Application Insights, Datadog, and with a custom OTLP agent named `customDashboard`.
 
-
 # [ARM template](#tab/arm)
 
 ```json
@@ -229,7 +233,7 @@ The following example show how you might configure your container app to collect
         "otlpConfigurations": [
           {
             "name": "customDashboard",
-            "endpoint": "<OLTP_ENDPOINT_URI>",
+            "endpoint": "<OTLP_ENDPOINT_URI>",
             "insecure": true
           }
         ]
@@ -259,7 +263,7 @@ The following example show how you might configure your container app to collect
 
 # [CLI](#tab/cli)
 
-Use a combination of commands with `az containerapp env telemetry` that match the type of agent you want to enable. 
+Use a combination of commands with `az containerapp env telemetry` that match the type of agent you want to enable. The following table lists the agents you can enable.
 
 | Command | Description |
 |---|---|
@@ -267,32 +271,27 @@ Use a combination of commands with `az containerapp env telemetry` that match th
 | `data-dog` | Datadog agent |
 | `otlp` | Custom OTLP agent |
 
+Once you select an agent, then you can enable the type of data you want to collect. The following table lists the parameters available to enable or disable different categories of data to collect.
 
+| Parameter | Value |
+|---|---|
+| `--enable-open-telemetry-traces` | `true` or `false` |
+| `--enable-open-telemetry-logs` | `true` or `false` |
+| `--enable-open-telemetry-metrics` | `true` or `false` |
 
-| Parameter | Value | Description |
-|---|---|---|
-| `--enable-open-telemetry-traces` | `true` or `false` |  |
-| `--enable-open-telemetry-logs` | `true` or `false` |  |
-| `--enable-open-telemetry-metrics` | `true` or `false` |  |
+For example, if you wanted to start collecting traces and logs with Application Insights you would use the following command.
 
+```azurecli
 az containerapp env telemetry app-insights set
   --enable-open-telemetry-traces true
   --enable-open-telemetry-logs true
-
-az containerapp env telemetry data-dog set
-  --enable-open-telemetry-traces true
-  --enable-open-telemetry-metrics true
-
-az containerapp env telemetry otlp update
-  --enable-open-telemetry-traces true
-  --enable-open-telemetry-logs true
-  --enable-open-telemetry-metrics true
+```
 
 ---
 
 ## Send data from your app to an OTel agent
 
-For data to be sent to the agent, install the OSS OTEL SDK (link) to your code. The otel agent auto injects environment variables during app runtime to pick up any logs, metrics, or traces produced using the SDK.  See example for details.
+To send data to an agent, install the [OTel SDK](https://opentelemetry.io/ecosystem/integrations/) into your application. The OTel agent automatically injects environment variables when your application runs to pick up logs, metrics, or traces produced while using the SDK.
 
 ## OTel agent costs
 
@@ -306,7 +305,7 @@ For example, if you send data to both Azure App Insights and Datadog, you're res
 
 ### How can I use an OTLP agent with a Dapr Sidecar?  
 
-You can configure Dapr to send traces to App Insights without a agent, but you can choose to use an OTel agent as an alternative.
+You can configure Dapr to send traces to App Insights without an agent, but you can choose to use an OTel agent as an alternative.
 
 By default an OTel agent doesn't include system data, but you can include system level messages (including Dapr telemetry) by setting `includeSystemTelemetry` to `true`.
 
