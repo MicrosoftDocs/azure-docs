@@ -1,6 +1,6 @@
 ---
-title: Create an Azure AI services resource using ARM templates
-description: Create an Azure AI service resource with ARM template.
+title: "Quickstart: Create an Azure AI services resource by using an ARM template"
+description: Learn how to use an Azure Resource Manager template to create an Azure AI services resource.
 keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
 #services: cognitive-services
 author: aahill
@@ -16,23 +16,23 @@ ms.custom:
   - ignite-2023
 ---
 
-# Create an Azure AI services resource using an ARM template
+# Quickstart: Create an Azure AI services resource by using an ARM template
 
-This quickstart shows you how to use an Azure Resource Manager template (ARM template) to create Azure AI services.
+This quickstart shows you how to use an Azure Resource Manager template (ARM template) to create a resource in Azure AI services.
 
-Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
+Azure AI services is a cloud-based portfolio of AI services that helps developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. Azure AI services is available through REST APIs and client library SDKs in popular development languages. It enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
-Create a resource using an Azure Resource Manager template (ARM template). This multi-service resource lets you:
+By creating an Azure AI services resource, you can:
 
-* Access multiple Azure AI services with a single key and endpoint.
-* Consolidate billing from the services you use.
-* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
+* Access multiple AI services in Azure with a single key and endpoint.
+* Consolidate billing from the services that you use.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/cognitive-services).
+* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 ## Review the template
 
@@ -40,7 +40,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json":::
 
-One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is an Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
+One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it's an Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
 
 [!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
@@ -58,21 +58,21 @@ One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/ac
     |---------|---------|
     | **Subscription** | Select an Azure subscription. |
     | **Resource group** | Select **Create new**, enter a unique name for the resource group, and then select **OK**. |
-    | **Region** | Select a region.  For example, **East US** |
-    | **Cognitive Service Name** | Replace with a unique name for your Azure AI services resource. You will need the name in the next section when you validate the deployment. |
-    | **Location** | Replace with the region used above. |
-    | **Sku** | The [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) for your resource. |
+    | **Region** | Select a region (for example, **East US**). |
+    | **Cognitive Service Name** | Replace the value with a unique name for your Azure AI services resource. You'll need the name in the next section when you validate the deployment. |
+    | **Location** | Replace with the region that you selected. |
+    | **Sku** | Select the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) for your resource. |
 
-    :::image type="content" source="media/arm-template/universal-key-portal-template.png" alt-text="Resource creation screen.":::
+    :::image type="content" source="media/arm-template/universal-key-portal-template.png" alt-text="Screenshot that shows the pane for resource creation.":::
 
-3. Select **Review + Create**, then **Create**. After the resource has successfully finished deploying, the **Go to resource** button will be highlighted.
+3. Select **Review + Create**, and then select **Create**. When deployment is successful, the **Go to resource** button is highlighted.
 
 # [Azure CLI](#tab/CLI)
 
-> [!NOTE]
-> `az deployment group` create requires Azure CLI version 2.6 or later. To display the version type `az --version`. For more information, see the [documentation](/cli/azure/deployment/group).
+Run the following script from [your local machine](/cli/azure/install-azure-cli), or run it from a browser by using the **Try it** button. Include a name and location (for example, `centralus`) for a new resource group, and the ARM template will be used to deploy an Azure AI services resource within it. Remember the name that you use. You'll use it later to validate the deployment.
 
-Run the following script via the Azure CLI, either from [your local machine](/cli/azure/install-azure-cli), or from a browser by using the **Try it** button. Enter a name and location (for example `centralus`) for a new resource group, and the ARM template will be used to deploy an Azure AI services resource within it. Remember the name you use. You will use it later to validate the deployment.
+> [!NOTE]
+> The `az deployment group create` command in the script requires Azure CLI version 2.6 or later. To display the version, enter `az --version`. For more information, see the [documentation](/cli/azure/deployment/group).
 
 ```azurecli-interactive
 read -p "Enter a name for your new resource group:" resourceGroupName &&
@@ -87,20 +87,20 @@ read
 ---
 
 > [!TIP]
-> If your subscription doesn't allow you to create an Azure AI services resource, you may need to enable the privilege of that [Azure resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) using the [Azure portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [PowerShell command](../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or an [Azure CLI command](../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). If you are not the subscription owner, ask the *Subscription Owner* or someone with a role of *admin* to complete the registration for you or ask for the **/register/action** privileges to be granted to your account.
+> If your subscription doesn't allow you to create an Azure AI services resource, you might need to enable the privilege of that [Azure resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) by using the [Azure portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), a [PowerShell command](../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or an [Azure CLI command](../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). If you're not the subscription owner, ask the subscription owner or someone with an admin role to complete the registration for you. Or ask for the */register/action* privileges to be granted to your account.
 
 ## Review deployed resources
 
 # [Portal](#tab/portal)
 
-When your deployment finishes, you will be able to select the **Go to resource** button to see your new resource. You can also find the resource group by:
+When your deployment finishes, you can select the **Go to resource** button to see your new resource. You can also find the resource group by:
 
-1. Selecting **Resource groups** from the left navigation menu.
+1. Selecting **Resource groups** from the left pane.
 2. Selecting the resource group name.
 
 # [Azure CLI](#tab/CLI)
 
-Using the Azure CLI, run the following script, and enter the name of the resource group you created earlier.
+Run the following script. Include the name of the resource group that you created earlier.
 
 ```azurecli-interactive
 echo "Enter the resource group where the Azure AI services resource exists:" &&
@@ -110,20 +110,19 @@ az cognitiveservices account list -g $resourceGroupName
 
 ---
 
-
 ## Clean up resources
 
-If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources that the group contains.
 
 # [Azure portal](#tab/portal)
 
-1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
-2. Locate the resource group containing the resource to be deleted
-3. Right-click on the resource group listing. Select **Delete resource group**, and confirm.
+1. On the left pane, select **Resource groups** to display the list of your resource groups.
+2. Locate the resource group that contains the resource to be deleted.
+3. Right-click the resource group, select **Delete resource group**, and then confirm.
 
 # [Azure CLI](#tab/CLI)
 
-Using the Azure CLI, run the following script, and enter the name of the resource group you created earlier.
+Run the following script. Include the name of the resource group that you created earlier.
 
 ```azurecli-interactive
 echo "Enter the resource group name, for deletion:" &&
