@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 01/09/2024
+ms.date: 03/08/2024
 ms.author: danlep 
 ms.custom:
 ---
@@ -23,21 +23,18 @@ API Management also supports using other Azure resources as an API backend, such
 * A [Service Fabric cluster](how-to-configure-service-fabric-backend.md).
 * A custom service. 
 
-API Management supports custom backends so you can manage the backend services of your API. Use custom backends for one or more of the following:
+## Benefits of backends
+
+API Management supports custom backends so you can manage the backend services of your API. A backend resource abstracts information about the backend service, promoting reusability across APIs and improved governance.
+
+Use custom backends for one or more of the following:
 
 * Authorize the credentials of requests to the backend service
+* Take advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication.
 * Protect your backend from too many requests
 * Route or load-balance requests to multiple backends
 
 Configure and manage custom backends in the Azure portal, or using Azure APIs or tools.
-
-## Benefits of backends
-
-A custom backend has several benefits, including:
-
-* Abstracts information about the backend service, promoting reusability across APIs and improved governance.  
-* Easily used by configuring a transformation policy on an existing API.
-* Takes advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication.
 
 ## Reference backend using set-backend-service policy
 
