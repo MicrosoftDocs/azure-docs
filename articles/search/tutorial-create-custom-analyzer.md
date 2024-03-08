@@ -591,7 +591,15 @@ In the index definition, we then specify both an `indexAnalyzer` and a `searchAn
     }
 ```
 
-With this change, you're all set. Delete the index. Recreate it using the new custom analyzer created for query-use only, reload the data, and test the queries again to verify the search works as expected. If you're using the sample file, this step creates the third index named `phone-number-index-3`.
+With this change, you're all set. Here are your next steps: 
+
+1. Delete the index. 
+
+1. Recreate the index after adding the new custom analyzer (`phone_analyzer-search`) and assigning that analyzer to the `phone-number` field's `searchAnalyzer` property.
+
+1. Reload the data.
+
+1. Retest the queries to verify the search works as expected. If you're using the sample file, this step creates the third index named `phone-number-index-3`.
 
 <a name="Alternate"></a>
 
