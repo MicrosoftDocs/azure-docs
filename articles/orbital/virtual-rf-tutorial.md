@@ -1,5 +1,5 @@
 ---
-title: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio - Azure Orbital
+title: Azure Orbital Ground Station - Understand virtual RF through demodulation of Aqua using GNU Radio
 description: Learn how to use virtual RF (vRF) instead of a managed modem. Receive a raw RF signal from NASA's Aqua public satellite and process it in GNU Radio.
 author: 777arc
 ms.service: orbital
@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.custom: ga
 ms.date: 04/21/2023
 ms.author: marclichtman
-# Customer intent: As an Azure Orbital customer I want easy to understand documentation for virtual RF so I don't have to bug the product team to understand how to build my applications.
+# Customer intent: As an Azure Orbital customer I want to understand documentation for virtual RF.
 ---
 
 # Tutorial: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
@@ -201,7 +201,7 @@ On the uplink side, the user must provide a DIFI stream to Azure Orbital through
 * The signal sample rate is set through the DIFI stream (even though a bandwidth is provided as part of the Contact Profile, it's purely for network configuration under the hood)
 * The bit depth is set through the DIFI stream but Azure Orbital expects 8 bits
 * The DIFI stream ID should be set to 0
-* The MTU size should be 1500 for S-Band and up to 3650 for X-Band
+* Similar to the downlink, the MTU size should be 1500 for S-Band and **up to** 3650 for X-Band (your choice)
 * No spectral inversion is used
 * No frequency offset is used
 
