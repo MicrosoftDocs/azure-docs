@@ -95,14 +95,17 @@ The Azure Development Template contains all the code needed to create the servic
 
 - If you have multiple Azure subscriptions, select the appropriate subscription for billing using the [az account set](/cli/azure/account#az-account-set) command.
 
-## Create resources for your cluster
+## Create and deploy resources for your cluster
 
 AZD runs all the hooks inside of the `azd-hooks` folder to pre-register, provision, then deploy these services. 
 
-- **Store front**: Web application for customers to view products and place orders.
-- **Product service**: Shows product information.
-- **Order service**: Places orders.
-- **Rabbit MQ**: Message queue for an order queue.
+The AZD template creates a new resource group with an Azure Kubernetes cluster and Azure Keyault. The keyvault is used to store client secrets. Within the cluster, it runs your app's services in the pets namespace. 
+
+- **makeline-service**: Processes orders from the queue and completing them.
+- **order-service**: Place orders for products
+- **product-service**: Perform create, read, update, or delete operations on products.
+- **store-front**: Web app for customers to view products and place orders
+- **rabbit-mq**: Message queue for an order queue.
 
 1. Create all your resources with the `azd up` command.
 
