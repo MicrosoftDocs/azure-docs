@@ -67,7 +67,7 @@ MSTICPy tools are designed specifically to help with creating notebooks for hunt
 
 ## Find notebooks
 
-From the Azure portal, go to **Microsoft Sentinel** > **Threat management** > **Notebooks**, to see notebooks that Microsoft Sentinel provides. Learn more about using notebooks in threat hunting and investigation by exploring notebook templates like **Credential Scan on Azure Log Analytics** and **Guided Investigation - Process Alerts**.
+In Microsoft Sentinel, select **Notebooks** to see notebooks that Microsoft Sentinel provides. Learn more about using notebooks in threat hunting and investigation by exploring notebook templates like **Credential Scan on Azure Log Analytics** and **Guided Investigation - Process Alerts**.
 
 For more notebooks built by Microsoft or contributed from the community, go to [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks/). Use notebooks shared in the Microsoft Sentinel GitHub repository as useful tools, illustrations, and code samples that you can use when developing your own notebooks.
 
