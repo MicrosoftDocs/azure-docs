@@ -1113,6 +1113,19 @@ Please note that the latest versions of Tomcat will have these server.xml. (8.5.
  
 > [!NOTE]
 > The connectionTimeout, maxThreads and maxConnections settings can be tuned with app settings
+
+Following are example CLI commands that you may use to alter the values of conectionTimeout, maxThreads, or maxConnections:
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name myApp --settings WEBSITE_TOMCAT_CONNECTION_TIMEOUT=120000
+```
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name myApp --settings WEBSITE_CATALINA_MAXTHREADS=100
+```
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name myApp --settings WEBSITE_CATALINA_MAXCONNECTIONS=5000
+```
+* Connector uses the address of the container instead of 127.0.0.1
  
 ### Host
 
@@ -1150,7 +1163,6 @@ On Linux, it has all of the same customization, plus:
                     <xsl:value-of select="'${catalina.valves.showServerInfo}'"/>
                 </xsl:attribute>
  ```
-* Connector uses the address of the container instead of 127.0.0.1
 
 
 ::: zone-end
