@@ -33,9 +33,7 @@ items:
     href: concept-observability-analytics.md
 - name: How-to guides
   items:
-  - name: Access your cluster and/or network function
-    href: how-to-access-cluster.md
-  - name: Configure a netowrk function
+  - name: Configure a network function
     href: how-to-configure-network-function.md
   - name: Deploy a network function on Azure Kubernetes Services or Nexus Azure Kubernetes Service
     href: how-to-deploy-network-functions.md
