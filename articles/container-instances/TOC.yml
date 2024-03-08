@@ -179,7 +179,7 @@
     items:
     - name: Troubleshoot common issues
       href: container-instances-troubleshooting.md
-    - name: Troubleshoot common issues
+    - name: Troubleshoot more issues
       href: /troubleshoot/azure/azure-container-instances/welcome-container-instances
 - name: Reference
   items:
