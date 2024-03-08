@@ -364,7 +364,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 ### Troubleshoot Import Container Images
 #### Symptoms and Causes
 - `The remote server may not be RFC 7233 compliant`
-  - [Distribution-spec](https://github.com/opencontainers/distribution-spec/blob/main/spec.md) allows range header form of `Range: bytes=<start>-<end>`. However, the remote server may still not RFC 7233 compliant.
+  - The [distribution-spec](https://github.com/opencontainers/distribution-spec/blob/main/spec.md) allows range header form of `Range: bytes=<start>-<end>`. However, the remote server may not be RFC 7233 compliant.
 - `Unexpected response status code`
   - Get an unexpected response status code from source repository when doing range query.
 - `Unexpected length of body in response`
