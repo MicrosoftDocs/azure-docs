@@ -34,7 +34,7 @@ See personalized and actionable recommendations.
 
 ### Get recommendations
 
-The tiles on the Advisor **Overview** page show the different categories of recommendations for all the subscriptions that you have access to, by default:  
+The tiles on the Advisor **Overview** page show the different categories of recommendations for all the subscriptions that you have access to, by default.
 
 You can filter the display using the buttons at the top of the page:
 
@@ -54,7 +54,7 @@ Each tile provides information about the recommendations for that category:
 * The total number of recommendations for the category, and the specific number per impact
 * The number of impacted resources by the recommendations
 
-For detailed graphics and information on your Advisor score, go to the [**Score**](https://ms.portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/score) page.
+For detailed graphics and information on your Advisor score, go to the [Optimize Azure workloads by using Advisor score](/azure/advisor/azure-advisor-score) page.
 
 ### Get recommendation details and solution options
 
@@ -76,7 +76,7 @@ View recommendation details – such as the recommended actions and impacted res
 
 ### Download recommendations
 
-To download your recommendations from the Advisor score or any recommendation details page, select **Download as CSV** or **Download as PDF** on the action bar at the top. The download option respects any filters you applied to Advisor. If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation.
+To download your recommendations from any recommendation details page, select **Download as CSV** or **Download as PDF** on the action bar at the top. The download option respects any filters you applied to Advisor. If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation.
 
 ## Configure recommendations
 
