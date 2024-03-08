@@ -55,19 +55,23 @@ After a satellite pass, you should have a file `/tmp/aqua.pcap` of size 10-20 GB
 
 ## Step 2: Extract the IQ samples from the DIFI packets
 
-Next we extract the IQ samples and save them in a more traditional form; a [binary IQ file](https://pysdr.org/content/iq_files.html#binary-files).  The following steps can be performed on any VM/computer that has a copy of the aqua.pcap file you created.  These steps involve using a utility maintained by the DIFI Consortium to extract the IQ samples from the DIFI packets into an IQ file.
+Next we extract the IQ samples and save them in a more traditional form; a [binary IQ file](https://pysdr.org/content/iq_files.html#binary-files).  The following steps can be performed on any VM/computer that has a copy of the aqua.pcap file you created.  These steps involve using a short Python script maintained by the DIFI Consortium to extract the IQ samples from the UDP DIFI packets into an IQ file.
 
-```bash
-cd ~
-git clone https://github.com/DIFI-Consortium/DIFI-Certification.git
-cd DIFI-Certification/DIFI_Validator
-export DIFI_RX_MODE=pcap
-export PCAP_FILE=/tmp/aqua.pcap
-export SAVE_IQ=true
-python drx.py
+1. Download or copy the [following code](https://github.com/DIFI-Consortium/DIFI-Certification/blob/main/difi_to_binary_iq.py) into a new python script.
+2. Edit `filename` to match wherever you saved your pcap (e.g., `/tmp/aqua.pcap`).
+3. Run the Python script using `python3 difi_to_binary_iq.py`, and it should create a new file in the same directory as your pcap, with a `.cs8` extension.  This is the binary IQ file, it contains the digitized RF samples as 8-bit integers and nothing else.  The script may take some time to run, but you will see the file getting larger, and it will be roughly the same size as the pcap file when complete.  You can stop the script before completion (with control-C) and continue the tutorial, you just won't see the entire duration of the contact.
+4. (Optional) If you want to visualize the signal, install Inspectrum using https://github.com/miek/inspectrum/wiki/Build#building-on-debian-based-distros then run Inspectrum using `inspectrum /tmp/aqua.pcap.cs8` (using the path to your new .cs8 file). Once in the Inspectrum GUI, you may have to adjust Power Max and Power Min to see the full dynamic range of the signal.
+
+If you would also like the IQ samples in float32 format instead of int8 (some software only lets you load float32 format), you can use the following Python snippet:
+
+```python
+import numpy as np
+samples = np.fromfile('/tmp/aqua.pcap.cs8', np.int8) / 127.0
+samples = samples.astype(np.float32)
+samples.tofile('/tmp/aqua.pcap.cf32')
 ```
 
-You should see activity in the terminal if it worked, and there should be a new file `/tmp/samples.iq` growing larger as the script runs (it may take several minutes to finish).  This new file is a binary IQ file, containing the raw RF signal.  This drx.py script is essentially stripping off the DIFI header and concatenating many packets worth of IQ samples into one file.  Processing the entire pcap will take a while, but you can feel free to stop it after ~10 seconds, which should save more than enough IQ samples for use in the next step.
+We will use the float32 version for the next step, as it simplifies the GNU Radio flowgraph.
 
 ## Step 3: Demodulate the Aqua signal in GNU Radio
 
@@ -77,7 +81,7 @@ Next we create the actual vRF modem, based on GNU Radio, used to demodulate the 
 
 GNU Radio is a free and open-source software development toolkit that provides signal processing blocks and many example digital signal processing (DSP) applications. It can be used with readily available low-cost RF hardware to create software-defined radios, or without hardware in a simulation-like environment. It's widely used in research, industry, academia, government, and hobbyist environments to support both wireless communications research and real-world radio systems.  In this tutorial, we use GNU Radio to demodulate Aqua (that is, GNU Radio acts as the modem).
 
-Although GNU Radio can be used in headless mode, in this tutorial we1 use GNU Radio's GUI (that is, desktop interface), so you must copy `/tmp/samples.iq` to a VM with X11 forwarding or computer with Ubuntu 20/22 desktop.  The command `scp` can be used to copy the file from a VM on Azure to a local development machine.
+Although GNU Radio can be used in headless mode, in this tutorial we1 use GNU Radio's GUI (that is, desktop interface), so you must copy `/tmp/aqua.pcap.cf32` to a VM with X11 forwarding or computer with Ubuntu 20/22 desktop.  The command `scp` can be used to copy the file from a VM on Azure to a local development machine.
 
 ### Install GNU Radio
 
@@ -106,7 +110,7 @@ A GNU Radio application is called a "flowgraph", and it typically either process
 
 The flowgraph starts by reading in the IQ file, converting it from interleaved 8-bit integers to GNU Radio's complex data type, then it resamples the signal to go from the original 18.75 MHz to 15 MHz, which is an integer number of samples per symbol.  This resample might be a little confusing because in the Contact Profile we specified a bandwidth of 15 MHz.  As discussed more at the end of this tutorial, for X-Band signals the digitizer uses a sample rate that is 1.25 times the specified bandwidth.  It turns out that in this flowgraph we want a 15 MHz sample rate, so that we have exactly two samples per symbol; therefore we must resample from 18.75 MHz to 15 MHz.  Next we have an automatic gain control (AGC) block, to normalize the signal power level.  The root raised cosine (RRC) filter acts as the matched filter.  The Costas loop performs frequency synchronization to remove any small frequency offsets caused by oscillator error or imperfect Doppler correction.  The next three blocks are used because Aqua uses offset QPSK (OQPSK) instead of regular QPSK.  Symbol synchronization is then performed so that the OQPSK symbols are sampled at their peaks.  We can visualize this sampling of QPSK using the Constellation Sink block (an example output is shown).  The remainder of the flowgraph interleaves the real and imaginary portions, and saves them as int8's (chars/bytes) which represent the soft symbols.  While it could convert these soft symbols to 1's and 0's, later processing benefits from having the full symbol values.
 
-Before running the flowgraph, verify that your `/tmp/samples.iq` exists (or if you saved it somewhere else, double click the File Source block and update the path).  Click the play button at the top to run the flowgraph.  If the previous steps were successful, and your Aqua contact was a success, you should see the following power spectral density (PSD) and IQ plot displayed:
+Before running the flowgraph, double click the File Source block and update the path to match wherever you saved `/tmp/aqua.pcap.cf32`.  Click the play button at the top to run the flowgraph.  If the previous steps were successful, and your Aqua contact was a success, you should see the following power spectral density (PSD) and IQ plot displayed:
 
    :::image type="content" source="media/aqua-psd.png" alt-text="Screenshot of the GNU Radio Aqua Power Spectral Density (PSD)." lightbox="media/aqua-psd.png":::
 
@@ -114,7 +118,7 @@ Before running the flowgraph, verify that your `/tmp/samples.iq` exists (or if y
 
 Yours may vary, based on the strength the signal was received.  If no GUI showed up, then check GNU Radio's output in the bottom left for errors.  If the GUI shows up but resembles a horizontal noisy line (with no hump), it means the contact didn't actually receive the Aqua signal.  In this case, double check that autotrack is enabled in your Contact Profile and that the center frequency was entered correctly.
 
-The time it takes GNU Radio to finish is based on how long you let `drx.py` run, combined with your computer/VM CPU power.  As the flowgraph runs, it's demodulating the RF signal in `/tmp/samples.iq` and creating the file `/tmp/aqua_out.bin`, which contains the output of the modem.
+The time it takes GNU Radio to finish is based on how long you let the pcap_to_iq script run, combined with your computer/VM CPU power.  As the flowgraph runs, it's demodulating the RF signal stored in `/tmp/aqua.pcap.cf32` and creating the file `/tmp/aqua_out.bin`, which contains the output of the modem. Feel free to copy this .bin file off the VM.
 
 We end this tutorial here.  If you're interested in decoding the bytes into imagery, you can either use [NASA's tools](satellite-imagery-with-orbital-ground-station.md#step-2-install-nasa-drl-tools) or open source tools such as [altillimity/X-Band-Decoders](https://github.com/altillimity/X-Band-Decoders).
 
