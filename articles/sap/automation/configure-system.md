@@ -190,14 +190,14 @@ The virtual machine and the operating system image are defined by using the foll
 The application tier defines the infrastructure for the application tier, which can consist of application servers, central services servers, and web dispatch servers.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                                 | Type       | Notes  |
-> | ---------------------------------- | --------------------------------------------------------------------------- | -----------| ------ |
-> | `enable_app_tier_deployment`	     | Defines if the application tier is deployed                                 | Optional	  |        |
-> | `app_tier_sizing_dictionary_key`   | Lookup value that defines the VM SKU and the disk layout for the application tier servers | Optional |
-> | `app_disk_sizes_filename`	         | Defines the custom disk size file for the application tier servers          | Optional 	| See [Custom sizing](configure-extra-disks.md). |
-> | `app_tier_authentication_type`     | Defines the authentication type for the application tier virtual machines | Optional	  |       |
-> | `app_tier_use_DHCP`	               | Controls if Azure subnet-provided IP addresses should be used (dynamic)     | Optional	  |       |
-> | `app_tier_dual_nics`	             | Defines if the application tier server will have two network interfaces     | Optional	  |       |
+> | Variable                           | Description                                                                               | Type       | Notes                                          |
+> | ---------------------------------- | ----------------------------------------------------------------------------------------- | ---------- | ---------------------------------------------- |
+> | `enable_app_tier_deployment`	     | Defines if the application tier is deployed                                               | Optional	  |                                                |
+> | `app_tier_sizing_dictionary_key`   | Lookup value that defines the VM SKU and the disk layout for the application tier servers | Optional   |                                                |
+> | `app_disk_sizes_filename`	         | Defines the custom disk size file for the application tier servers                        | Optional 	| See [Custom sizing](configure-extra-disks.md). |
+> | `app_tier_authentication_type`     | Defines the authentication type for the application tier virtual machines                 | Optional	  |                                                |
+> | `app_tier_use_DHCP`	               | Controls if Azure subnet-provided IP addresses should be used (dynamic)                   | Optional	  |                                                |
+> | `app_tier_dual_nics`	             | Defines if the application tier server will have two network interfaces                   | Optional	  |                                                |
 
 ## SAP central services parameters
 
@@ -479,7 +479,7 @@ configuration_settings = {
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                                                                  | Type     | Notes                                 |
-> | ------------------------------------ | ---------------------------------------------------------------------- ----- | -------- | ------------------------------------- |
+> | ------------------------------------ | ---------------------------------------------------------------------------- | -------- | ------------------------------------- |
 > | `Agent_IP`                           | IP address of the agent.                                                     | Optional |                                       |                                                
 > | `add_Agent_IP`                       | Controls if Agent IP is added to the key vault and storage account firewalls | Optional |                                       |
 
