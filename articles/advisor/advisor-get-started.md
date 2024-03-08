@@ -76,7 +76,7 @@ View recommendation details – such as the recommended actions and impacted res
 
 ### Download recommendations
 
-To download your recommendations from any recommendation details page, select **Download as CSV** or **Download as PDF** on the action bar at the top. The download option respects any filters you applied to Advisor. If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation.
+To download your recommendations, select **Download as CSV** or **Download as PDF** on the action bar at the top of any recommendation list or details page. The download option respects any filters you applied to Advisor. If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation.
 
 ## Configure recommendations
 
