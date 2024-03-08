@@ -44,19 +44,19 @@ Your Microsoft account team works with you to collect information about the work
 
 ### Prerequisites to view and triage recommendations
 
-You can manage access to Advisor reviews using built-in roles. The [permissions](/azure/advisor/permissions) vary by role. These roles need to be configured for the subscription that was used to publish the review. 
+You can manage access to Advisor reviews using built-in roles. The [permissions](/azure/advisor/permissions) vary by role. These roles need to be configured for the subscription that was used to publish the review.
 
-| **Name** | **Description** |
+| **Name** | **Description** | **Targeted Subscription** |
 |---|:---:|
-|Advisor Reviews Reader|View reviews for a workload and recommendations linked to them.|
-|Advisor Reviews Contributor|View reviews for a workload and triage (accept or reject) recommendations linked to them.|
+|Advisor Reviews Reader|View reviews for a workload and recommendations linked to them.| You need this role for the 1 subscription your account team used to publish review.|
+|Advisor Reviews Contributor|View reviews for a workload and triage (accept or reject) recommendations linked to them.| You need this role for the 1 subscription your account team used to publish review.|
 
-You can manage access to Advisor personalized recommendations using subscription roles. These roles need to be configured for the subscriptions included in the workload under review. 
+You can manage access to Advisor personalized recommendations using the following roles. These roles need to be configured for the subscriptions included in the workload under a review.
 
 | **Name** | **Description** |
 |---|:---:|
 |Subscription Reader|View reviews for a workload and recommendations linked to them.|
-|Subscription Owner  Subscription Contributor|View reviews for a workload and triage (accept or reject) recommendations linked to them, as well as managing the recommendation lifecycle for reviews (mark as completed, postponed or dismissed, in progress, or not started).|
+|Subscription Owner/Subscription Contributor|View reviews for a workload and triage (accept or reject) recommendations linked to them, as well as managing the recommendation lifecycle for reviews (mark as completed, postponed or dismissed, in progress, or not started).|
 
 You can find detailed instructions on how to assign a role using the Azure portal - [Assign Azure roles using the Azure portal - Azure RBAC](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition). Additional information is available in [Steps to assign an Azure role - Azure RBAC](/azure/role-based-access-control/role-assignments-steps).
 
