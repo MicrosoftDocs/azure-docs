@@ -25,6 +25,7 @@ In this tutorial, you learn how to:
 > * View price sheet information
 > * View usage information
 > * Download CSV reports
+> * View credits
 
 ## Prerequisites
 
@@ -194,6 +195,28 @@ Account owner permissions to view charges extend to account owners and all users
 
 For more information about usage and charges, see [Review usage charges](../manage/direct-ea-azure-usage-charges-invoices.md#review-usage-charges).
 
+## View credits
+
+Credits information is shown on the **Credits + Commitments** page. The page shows:
+
+- Starting balance
+- Ending balance
+- New Credit
+- Credit adjustments
+- Credits applied towards charges
+- Ending credits for your enrollment
+
+To view credit information:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for **Cost Management + Billing** and select it.
+1. For EA administrators, select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.
+1. For partner administrators, select **Billing scopes** from the navigation menu and then select the billing account that you want to work with. Navigate to **Billing profile** and select the billing profile that you want to work with.
+1. In the navigation menu, select **Credits + Commitments**.
+1. The Credits tab shows a breakdown of your credits and a graph showing your balance over time.
+
+For more information, see [View your usage summary details and download reports for EA enrollments](../manage/direct-ea-azure-usage-charges-invoices.md).
+
 ## Next steps
 
 In this tutorial, you learned how to:
@@ -203,6 +226,7 @@ In this tutorial, you learned how to:
 > * View price sheet information
 > * View usage information
 > * Download CSV reports
+> * View credits
 
 Continue to the next article to learn more about getting started with your EA billing account.
 
