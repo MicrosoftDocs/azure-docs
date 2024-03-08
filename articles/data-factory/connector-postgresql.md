@@ -187,9 +187,10 @@ To copy data from PostgreSQL, the following properties are supported:
             "referenceName": "<PostgreSQL linked service name>",
             "type": "LinkedServiceReference"
         },
+        "annotations": [],
         "schema": [],
         "typeProperties": {
-            "dataset": "<dataset name>",
+            "schema": "<dataset name>",
             "table": "<table name>"
         }
     }
