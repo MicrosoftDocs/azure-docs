@@ -323,7 +323,7 @@ Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
 FIPS encryption | No
 Guest/server NFS | No
-Guest/server iSCSI | For Migration - Yes<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
+Guest/server iSCSI | For Migration - Yes, but you must setup replication as a Physical machine.<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> N/A for physical servers
 Guest/server disk > 1 GB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 32,767 GB when replicating to managed disk (9.41 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
