@@ -95,7 +95,7 @@ To help optimize memory management in your Java application, you can ensure [JVM
 
 Memory is measured in gibibytes (Gi) and CPU core pairs. The following table shows the range of resources available to your container app.
 
-| Threshold | CPU cores | Memory in Gibytes (Gi) |
+| Threshold | CPU cores | Memory in Gibibytes (Gi) |
 |---|---|---|
 | Minimum | 0.25 | 0.5 |
 | Maximum | 4 | 8 |
