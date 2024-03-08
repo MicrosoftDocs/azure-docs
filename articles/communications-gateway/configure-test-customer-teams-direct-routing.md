@@ -35,9 +35,9 @@ You must be able to sign in to the Microsoft 365 admin center for your test cust
 
 ## Choose a DNS subdomain label to use to identify the customer
 
-Azure Communications Gateway has per-region domain names. You need to set up subdomains of these domain names for your test customer. Microsoft Phone System and Azure Communications Gateway use these subdomains to match calls to tenants.
+Azure Communications Gateway has _per-region domain names_ for connecting to Microsoft Teams Direct Routing. You need to set up subdomains of these domain names for your test customer. Microsoft Phone System and Azure Communications Gateway use these subdomains to match calls to tenants.
 
-1. Work out the _per-region domain names_. These use the form `1-r<region-number>.<base-domain-name>`. The base domain name is the **Domain** on your Azure Communications Gateway resource in the [Azure portal](https://azure.microsoft.com/).
+1. Work out the per-region domain names for connecting to Microsoft Teams Direct Routing. These use the form `1-r<region-number>.<base-domain-name>`. The base domain name is the **Domain** on your Azure Communications Gateway resource in the [Azure portal](https://azure.microsoft.com/).
 1. Choose a DNS label to identify the test customer.
     - The label must be up to **eight** characters in length and can only contain letters, numbers, underscores, and dashes.
     - You must not use wildcard subdomains or subdomains with multiple labels.
@@ -55,6 +55,9 @@ For example:
 - If you allocate the label `test`, this label combined with the per-region domain names creates the following domain names for your test customer:
     - `test.1-r1.<deployment-id>.commsgw.azure.com`
     - `test.1-r2.<deployment-id>.commsgw.azure.com`
+
+> [!IMPORTANT]
+> The per-region domain names for connecting to Microsoft Teams Direct Routing are different to the per-region domain names for connecting to your network.
 
 > [!TIP]
 > Lab deployments have one per-region domain name. Your test customer therefore also only has one customer-specific per-region domain name.
