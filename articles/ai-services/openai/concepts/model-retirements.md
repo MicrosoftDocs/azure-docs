@@ -16,30 +16,30 @@ recommendations: false
 
 ## Overview
 
-Azure OpenAI Service models are continually refreshed with newer and more capable models.  As part of this process, we deprecate and retire older models.  This document provides information about the models that are currently available, deprecated, and retired.
+Azure OpenAI Service models are continually refreshed with newer and more capable models. As part of this process, we deprecate and retire older models. This document provides information about the models that are currently available, deprecated, and retired.
 
 ### Terminology
 
 * Retirement
-	* When a model is retired, it is no longer available for use.  Azure OpenAI Service deployments of a retired model always return error responses.
+	* When a model is retired, it's no longer available for use. Azure OpenAI Service deployments of a retired model always return error responses.
 * Deprecation
-	* When a model is deprecated, it is no longer available for new customers.  It continues to be available for use by customers with existing deployments until the model is retired.
+	* When a model is deprecated, it's no longer available for new customers. It continues to be available for use by customers with existing deployments until the model is retired.
 
 ### Pre-retirement Notification
 
-Azure OpenAI notifies subscription {role} of active Azure OpenAI Service deployments for models with upcoming retirements.  We notify customers of upcoming retirements as follows:
+Azure OpenAI notifies subscription {role} of active Azure OpenAI Service deployments for models with upcoming retirements. We notify customers of upcoming retirements as follows for each deployment:
 
-* At least 60 days before retirement
-* A reminder 30 days before retirement
-* After the model is retired for each deployment
+* At least 60 days before retirement starts
+* At least 30 days before retirement starts
+* At the time of retirement
 
-Retirements are normally done on a rolling basis, region by region.  We also publish the impending retirement of a model on the What's New page of our documentation.
+Retirements are usually done on a rolling basis, region by region.
 
 ## How to get ready for model retirements and version upgrades
 
-To prepare for model retirements and version upgrades, we recommend that customers evaluate their applications with the new models and versions and evaluate their behavior.  We also recommend that customers update their applications to use the new models and versions before the retirement date.
+To prepare for model retirements and version upgrades, we recommend that customers evaluate their applications with the new models and versions and evaluate their behavior. We also recommend that customers update their applications to use the new models and versions before the retirement date.
 
-See [How to upgrade to a new model or version](./model-versions.md) for more information.
+For more inforation, see [How to upgrade to a new model or version](./model-versions.md).
 
 ## Current Models
 
@@ -59,18 +59,18 @@ These models are currently available for use in Azure OpenAI Service.
 | `gpt-3.5-turbo-instruct` | 0914 | No earlier than Sep 14, 2025 |
 | `text-embedding-ada-002` | 2 | No earlier than April 3, 2025 |
 | `text-embedding-ada-002` | 1 | No earlier than April 3, 2025 |
-| `text-embedding-3-small` |  | No earlier than Feb 2, 2025 |
-| `text-embedding-3-large` |  | No earlier than Feb 2, 2025 |
+| `text-embedding-3-small` | | No earlier than Feb 2, 2025 |
+| `text-embedding-3-large` | | No earlier than Feb 2, 2025 |
 
 
 ## Deprecated Models
 
-These models were deprecated on July 6, 2023 and will be retired on July 5, 2024.  These models are no longer available for new deployments. Deployments created prior to July 6, 2023 remain available to customers until July 5, 2024. We recommend customers migrate their applications to deployments of replacement models prior to the July 5, 2024 retirement.
+These models were deprecated on July 6, 2023 and will be retired on July 5, 2024. These models are no longer available for new deployments. Deployments created before July 6, 2023 remain available to customers until July 5, 2024. We recommend customers migrate their applications to deployments of replacement models before the July 5, 2024 retirement.
 
-If you are an existing customer looking for information about these models, see [Legacy models](./legacy-models.md).
+If you're an existing customer looking for information about these models, see [Legacy models](./legacy-models.md).
 
-|  Model |  Deprecation date  | Retirement date | Suggested replacement |
-|  --------- |  --------------------- | ------------------- | -------------------- | 
+| Model | Deprecation date | Retirement date | Suggested replacement |
+| --------- | --------------------- | ------------------- | -------------------- | 
 | ada | July 6, 2023 | July 5, 2024 | babbage-002 |
 | babbage | July 6, 2023 | July 5, 2024 | babbage-002 |
 | curie | July 6, 2023 | July 5, 2024 | davinci-002 |
@@ -82,22 +82,22 @@ If you are an existing customer looking for information about these models, see 
 | text-davinci-003 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
 | code-cushman-001 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
 | code-davinci-002 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| text-similarity-ada-001 |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-similarity-babbage-001 |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-similarity-curie-001 |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| text-similarity-ada-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| text-similarity-babbage-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| text-similarity-curie-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
 | text-similarity-davinci-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-ada-doc-001 |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-ada-query-001 |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-babbage-doc-001  |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-babbage-query-001  |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-curie-doc-001  |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-curie-query-001 |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-davinci-doc-001 |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-davinci-query-001  |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-ada-code-001  |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-ada-text-001  |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-babbage-code-001 |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-babbage-text-001 |  July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| text-search-ada-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| text-search-ada-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| text-search-babbage-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| text-search-babbage-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| text-search-curie-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| text-search-curie-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| text-search-davinci-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| text-search-davinci-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| code-search-ada-code-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| code-search-ada-text-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| code-search-babbage-code-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| code-search-babbage-text-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
 
 ## Retirement and Deprecation History
 
@@ -107,8 +107,8 @@ We announced the upcoming in-place upgrade of `gpt-4` version `1106-preview` to 
 
 ### November 30, 2023
 
-The default version of `gpt-4` and `gpt-3-32k` was updated from `0314` to `0613` starting on November 30, 2023.  The upgrade of `0314` deployments set for auto-upgrade to `0613` was completed on December 3, 2023.
+The default version of `gpt-4` and `gpt-3-32k` was updated from `0314` to `0613` starting on November 30, 2023. The upgrade of `0314` deployments set for auto-upgrade to `0613` was completed on December 3, 2023.
 
 ### July 6, 2023
 
-We announced the deprecation of models listed below with upcoming retirement on July 5, 2024
+We announced the deprecation of models with upcoming retirement on July 5, 2024
