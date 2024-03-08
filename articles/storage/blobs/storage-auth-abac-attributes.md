@@ -339,6 +339,7 @@ The following table summarizes the available attributes by source:
 | **Request**       | | |
 | | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys); available only for storage accounts where hierarchical namespace is not enabled        |
 | | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key); available only for storage accounts where hierarchical namespace is not enabled |
+| | [Blob list include](#blob-list-include)   | Information that can be included with listing operations, such as metadata, snapshots, or versions. |
 | | [Blob prefix](#blob-prefix)               | Allowed prefix of blobs to be listed                               |
 | | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot       |
 | | [Version ID](#version-id)                 | The version ID of the versioned blob; available only for storage accounts where hierarchical namespace is not enabled                               |
@@ -348,10 +349,11 @@ The following table summarizes the available attributes by source:
 | | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key) |
 | | [Blob path](#blob-path)                   | Path of a virtual directory, blob, folder or file resource         |
 | | [Container name](#container-name)         | Name of a storage container or file system                         |
+| | [Container metadata](#container-metadata) | Metadata key/value pair associated with a container                |
 | | [Encryption scope name](#encryption-scope-name) | Name of the encryption scope used to encrypt data            |
 | | [Is current version](#is-current-version) | Whether the resource is the current version of the blob            |
 | | [Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) | Whether hierarchical namespace is enabled on the storage account |
-
+Restricts information that can be included when listing blobs.
 ### Account name
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -394,6 +396,18 @@ The following table summarizes the available attributes by source:
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:`*keyname*`<$key_case_sensitive$>`<br/>`@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'`<br/>[Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag) |
 > | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
 
+### Blob list include
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Blob list include |
+> | **Description** | Information that can be included with listing operations, such as metadata, snapshots, or versions.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
+> | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include` |
+> | **Attribute source** | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringEqualsIgnoreCase {'metadata', 'snapshots', 'versions'}`<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path) |
+
 ### Blob path
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -435,6 +449,18 @@ The following table summarizes the available attributes by source:
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
+
+### Container metadata
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Container metadata |
+> | **Description** | Metadata key/value pair associated with a container.<br/>Use when you want to check specific metadata for a container.|
+> | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/metadata` |
+> | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/metadata:testKey] StringEquals 'testValue'`<br/>[Example: Read blobs in a container with specific metadata](storage-auth-abac-examples.md#example-read-blobs-in-container-with-specific-metadata) |
 
 ### Encryption scope name
 
