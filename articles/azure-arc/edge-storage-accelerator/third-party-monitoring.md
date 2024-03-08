@@ -14,7 +14,7 @@ This article describes how to monitor your deployment using third-party monitori
 
 ## Metrics
 
-### Configuring an Existing Prometheus Instance for use with Edge Storage Accelerator
+### Configuring an existing Prometheus instance for use with Edge Storage Accelerator
 
 This guidance assumes that you previously worked with and/or configured Prometheus for Kubernetes. If you haven't previously done so, [see this overview](/azure/azure-monitor/containers/kubernetes-monitoring-enable#enable-prometheus-and-grafana) for more information about how to enable Prometheus and Grafana.
 
