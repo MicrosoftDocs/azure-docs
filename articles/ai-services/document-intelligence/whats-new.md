@@ -79,8 +79,8 @@ The Document Intelligence [**2024-02-29-preview**](https://westus.dev.cognitive.
 * [ID model](concept-id-document.md)
   * [Expanded field support](concept-id-document.md#supported-document-types) for European Union IDs and driver license.
 * [🆕 Mortgage documents](concept-mortgage-documents.md)
-  * Extract information from 1003 end-user license agreement.
-  * Extract information from 1008 underwriting.
+  * Extract information from Uniform Residential Loan Application (Form 1003).
+  * Extract information from Uniform Underwriting and Transmittal Summary or Form 1008.
   * Extract information from mortgage closing disclosure.
 * [🆕 Credit/Debit card model](concept-credit-card.md)
   * Extract information from bank cards.
