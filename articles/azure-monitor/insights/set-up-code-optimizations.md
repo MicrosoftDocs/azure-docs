@@ -31,8 +31,13 @@ Before enabling Code Optimizations for your web app, you need to ensure that it'
 
    - **If your web app is already connected to an Application Insights resource:** 
       - A banner at the top of the blade will read **Your app is connected to Application Insights resource: {NAME-OF-RESOURCE}**.
+        
+        :::image type="content" source="media/set-up-code-optimizations/already-enabled-app-insights.png" alt-text="Screenshot of the banner explaining that your app is already connected to App Insights.":::
+
    - **If your web app still needs to be connected to an Application Insights resource:**
       - A banner at the top of the blade will read **Your app will be connected to an auto-created Application Insights resource: {NAME-OF-RESOURCE}**. 
+
+        :::image type="content" source="media/set-up-code-optimizations/need-to-enable-app-insights.png" alt-text="Screenshot of the banner telling you to enable App Insights and the name of the App Insights resource.":::
 
 1. Click **Apply** at the bottom of the Application Insights pane.
 
@@ -42,6 +47,9 @@ Profiler collects traces on your web app for Code Optimizations to analyze. In a
 
 1. Still in the Application Insights blade, under **Instrument your application**, select the **.NET** tab.
 1. Under **Profiler**, select the toggle to turn Profiler on for your web app.
+
+   :::image type="content" source="media/set-up-code-optimizations/enable-profiler.png" alt-text="Screenshot of how to enable Profiler for your web app.":::
+
 1. Verify the Profiler is collecting traces.
    1. Navigate to your Application Insights resource.
    1. From the left menu, select **Investigate** > **Performance**. 
