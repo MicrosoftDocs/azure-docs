@@ -18,7 +18,7 @@ ms.date: 02/06/2024
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!IMPORTANT]
->The service has released a new Snowflake connector which provides better native Snowflake support, refer to [Snowflake connector](connector-snowflake.md) article on details. This legacy Snowflake connector is kept supported as-is for backward compatibility, while for any new workload, please use the new connector.
+>The service has released a new Snowflake connector which provides better native Snowflake support, refer to [Snowflake connector](connector-snowflake.md) article on details.
 
 ## Supported capabilities
 

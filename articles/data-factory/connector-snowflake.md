@@ -633,7 +633,7 @@ For more information about the properties, see [Lookup activity](control-flow-lo
 
 ## Upgrade the Snowflake linked service
 
-To upgrade the Snowflake linked service, create a new Snowflake linked service and configure it by referring to [Linked service properties](connector-snowflake.md#linked-service-properties).
+To upgrade the Snowflake linked service, create a new Snowflake linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
 ## Related content
 
