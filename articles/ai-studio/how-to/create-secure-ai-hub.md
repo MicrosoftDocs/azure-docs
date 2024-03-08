@@ -23,7 +23,7 @@ With a managed virtual network, inbound access is only allowed through an privat
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-- An Azure Virtual Network (VNet) that you use to securely connect to Azure services. For example, you may use [Azure Bastion](/azure/bastion/bastion-overview), [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](/azure/expressroute/expressroute-introduction) to connect to the VNet from your on-premises network. If you don't have a VNet, you can create one by following the instructions in [Create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+- An Azure Virtual Network (VNet) that you use to securely connect to Azure services. For example, you may use [Azure Bastion](/azure/bastion/bastion-overview), [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](/azure/expressroute/expressroute-introduction) to connect to the VNet from your on-premises network. If you don't have a VNet, you can create one by following the instructions in [Create a virtual network](/azure/virtual-network/quick-create-portal).
 
 ## Create an AI hub
 
@@ -67,13 +67,13 @@ When you create an AI project from the AI hub, the project inherits the network 
 
 When you create a compute instance from the AI hub, the compute instance inherits the network configuration from the AI hub. For more information on creating a compute instance, see [Create a compute instance](create-manage-compute.md).
 
-## Connect to the secured resources
+## Connect to the AI hub
 
 The managed virtual network doesn't directly provide access to your clients. Instead, your clients will connect to an Azure Virtual Network that *you* manage. There are multiple methods that you might use to connect clients to the Azure Virtual Network. The following table lists the common ways that clients connect to an Azure Virtual Network:
 
 | Method | Description |
 | ----- | ----- |
-| [Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways.md) | Connects on-premises networks to an Azure Virtual Network over a private connection. Connection is made over the public internet. |
+| [Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) | Connects on-premises networks to an Azure Virtual Network over a private connection. Connection is made over the public internet. |
 | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider. |
 | [Azure Bastion](/azure/bastion/bastion-overview) | Connects to a virtual machine inside the Azure Virtual Network using your web browser. |
 
