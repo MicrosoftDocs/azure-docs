@@ -73,7 +73,7 @@ When you create a container, you configure throughput in one of the following mo
   Shared throughput can be a good option when all of the containers in the database have similar requests and storage needs, or when you don't need predictable performance on the data. To learn more, see [Provision standard (manual) throughput on a database in Azure Cosmos DB](how-to-provision-database-throughput.md).
 
 > [!NOTE]
-> You can't switch between dedicated and shared throughput. Containers that you created in a shared throughput database can't be updated to have dedicated throughput. To change a container from shared to dedicated throughput, you must create a new container and copy data to it.
+> You can't switch between dedicated and shared throughput. Containers that you created in a shared throughput database can't be updated to have dedicated throughput. To change a container from shared to dedicated throughput, you must create a new container and copy data to it. The [container copy](/azure/cosmos-db/container-copy) feature in Azure Cosmos DB can make this process easier.
 
 Containers are schema agnostic. Items within a container can have arbitrary schemas or different entities, as long as they share the same partition key. For example, a container can contain an item or document that has customer profile information, along with one or more items or documents that represent all of the customer's sales orders. You can put similar information for all customers in the *same container*.
 
