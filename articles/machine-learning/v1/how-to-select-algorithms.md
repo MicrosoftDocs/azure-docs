@@ -18,7 +18,7 @@ If you're wondering which machine learning algorithm to use, the answer depends 
 
 - **What do you want to do with your data?** Specifically, what's the business question you want to answer by learning from your past data?
 
-- **What are the requirements of your data science scenario?** What are the features, accuracy, training time, linearity, and number of parameters that your solution supports?
+- **What are the requirements of your data science scenario?** What are the features, accuracy, training time, linearity, and parameters that your solution supports?
 
 :::image type="content" source="media/how-to-select-algorithms/how-to-select-algorithms.png" alt-text="Diagram that shows considerations for choosing machine learning algorithms.":::
 
@@ -35,12 +35,12 @@ If you're wondering which machine learning algorithm to use, the answer depends 
 
 ## Azure Machine Learning Algorithm Cheat Sheet
 
-The [Azure Machine Learning Algorithm Cheat Sheet](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) helps you with the first consideration: **What you want to do with your data?** Look for the task you want to do on the cheat sheet, and then find an [Azure Machine Learning designer](./concept-designer.md?WT.mc_id=docs-article-lazzeri) algorithm for the predictive analytics solution.
-
-The designer provides a comprehensive portfolio of algorithms, such as [Multiclass Decision Forest](../algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri), [Recommendation systems](../algorithm-module-reference/evaluate-recommender.md?WT.mc_id=docs-article-lazzeri), [Neural Network Regression](../algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri), [Multiclass Neural Network](../algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri), and [K-Means Clustering](../algorithm-module-reference/k-means-clustering.md?WT.mc_id=docs-article-lazzeri). Each algorithm is designed to address a different type of machine learning problem. See the [algorithm and component reference](../component-reference/component-reference.md?WT.mc_id=docs-article-lazzeri) for a complete list along with documentation about how each algorithm works and how to tune parameters to optimize the algorithm.
+The [Azure Machine Learning Algorithm Cheat Sheet](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) helps you with the first consideration: **What you want to do with your data?** On the cheat sheet, look for the task you want to do and then find an [Azure Machine Learning designer](./concept-designer.md?WT.mc_id=docs-article-lazzeri) algorithm for the predictive analytics solution.
 
 > [!NOTE]
-> Download the [Machine Learning Algorithm Cheat Sheet](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-july-2021.pdf).
+> You can download the [Machine Learning Algorithm Cheat Sheet](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-july-2021.pdf).
+
+The designer provides a comprehensive portfolio of algorithms, such as [Multiclass Decision Forest](../algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri), [Recommendation systems](../algorithm-module-reference/evaluate-recommender.md?WT.mc_id=docs-article-lazzeri), [Neural Network Regression](../algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri), [Multiclass Neural Network](../algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri), and [K-Means Clustering](../algorithm-module-reference/k-means-clustering.md?WT.mc_id=docs-article-lazzeri). Each algorithm is designed to address a different type of machine learning problem. See the [algorithm and component reference](../component-reference/component-reference.md?WT.mc_id=docs-article-lazzeri) for a complete list along with documentation about how each algorithm works and how to tune parameters to optimize the algorithm.
 
 Along with this guidance, keep other requirements in mind when choosing a machine learning algorithm. Following are additional factors to consider, such as the accuracy, training time, linearity, number of parameters and number of features.
 
@@ -136,7 +136,7 @@ Linear regression algorithms assume that data trends follow a straight line. Thi
 
 Parameters are the knobs that a data scientist gets to turn when setting up an algorithm. They're numbers that affect the algorithm’s behavior, such as error tolerance or number of iterations, or options between variants of how the algorithm behaves. The training time and accuracy of the algorithm can sometimes be sensitive to getting just the right settings. Typically, algorithms with large numbers of parameters require the most trial and error to find a good combination.
 
-Alternatively, there's the [Tune Model Hyperparameters component](../algorithm-module-reference/tune-model-hyperparameters.md?WT.mc_id=docs-article-lazzeri) in the designer: The goal of this component is to determine the optimum hyperparameters for a machine learning model. The component builds and tests multiple models by using different combinations of settings. It compares metrics over all models to get the combinations of settings.
+Alternatively, there's the [Tune Model Hyperparameters component](../algorithm-module-reference/tune-model-hyperparameters.md?WT.mc_id=docs-article-lazzeri) in the designer. The goal of this component is to determine the optimum hyperparameters for a machine learning model. The component builds and tests multiple models by using different combinations of settings. It compares metrics over all models to get the combinations of settings.
 
 While this is a great way to make sure you spanned the parameter space, the time required to train a model increases exponentially with the number of parameters. The upside is that having many parameters typically indicates that an algorithm has greater flexibility. It can often achieve very good accuracy, provided you can find the right combination of parameter settings.
 
