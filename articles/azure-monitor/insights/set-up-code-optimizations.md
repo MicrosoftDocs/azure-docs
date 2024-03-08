@@ -1,0 +1,54 @@
+---
+title: Enable Code Optimizations (Preview)
+description: Learn how to enable and set up Azure Monitor's Code Optimizations feature
+ms.topic: conceptual
+ms.service: azure-monitor
+ms.subservice: optimization-insights
+author: hhunter-ms
+ms.author: hannahhunter
+ms.date: 03/08/2024
+ms.reviewer: ryankahng
+---
+
+# Enable Code Optimizations (Preview)
+
+Enabling Code Optimizations to identify and analyze CPU and memory bottlenecks in your web applications is a simple process in the Azure portal. In this guide, you learn how to:
+
+- Connect your web pp to Application Insights.
+- Enable the Profiler on your web app.
+
+## Demo video
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/vbi9YQgIgC8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Connect your web app to Application Insights
+
+Before enabling Code Optimizations for your web app, you need to ensure that it's connected to an Application Insights resource.
+
+1. In the Azure portal, navigate to your web application.
+1. From the left menu, select **Settings** > **Application Insights**.
+1. In the Application Insights blade for your web application, determine the following:
+
+   - **If your web app is already connected to an Application Insights resource:** 
+      - A banner at the top of the blade will read **Your app is connected to Application Insights resource: <NAME-OF-RESOURCE>**.
+   - **If your web app still needs to be connected to an Application Insights resource:**
+      - A banner at the top of the blade will read **Your app will be connected to an auto-created Application Insights resource: <NAME-OF-RESOURCE>**. 
+
+1. Click **Apply** at the bottom of the Application Insights pane.
+
+## Enable Profiler on your web app
+
+Profiler collects traces on your web app for Code Optimizations to analyze. In a few hours, if Code Optimization notices any performance bottlenecks in your application, you'll be able to see and review Code Optimizations insights. 
+
+1. Still in the Application Insights blade, under **Instrument your application**, select the **.NET** tab.
+1. Under **Profiler**, select the toggle to turn Profiler on for your web app.
+1. Verify the Profiler is collecting traces.
+   1. Navigate to your Application Insights resource.
+   1. From the left menu, select **Investigate** > **Performance**. 
+   1. In the Performance blade, select **Profiler** from the top menu.
+   1. Review the profiler traces colleted from your web app. [If you don't see any traces, see the troubleshooting guide](../profiler/profiler-troubleshooting.md).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [View Code Optimizations results](view-code-optimizations.md)
