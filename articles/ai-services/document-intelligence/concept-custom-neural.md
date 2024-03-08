@@ -69,7 +69,7 @@ Neural models support documents that have the same information, but different pa
 
 With the release of API versions **2024-02-29-preview** and  later, custom neural models will support overlapping fields:
 
-To use the overlapping fields, your dataset needs to contain at least one sample with the expected overlap. To label an overlap, use region labeling to designate each of the spans of content (with the overlap) for each field. Overlap support includes:
+To use the overlapping fields, your dataset needs to contain at least one sample with the expected overlap. To label an overlap, use **region labeling** to designate each of the spans of content (with the overlap) for each field. Labeling an overlap with field selection (highlighting a value) will fail in the studio as region labeling is the only supported labeling tool for indicating field overlaps. Overlap support includes:
 
 * Complete overlap. The same set of tokens are labeled for two different fields.
 * Partial overlap. Some tokens belong to both fields, but there are tokens that are only part of one field or the other.
