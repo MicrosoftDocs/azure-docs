@@ -28,9 +28,9 @@ The script creates the following resources:
 
 - Two subnets: Segments of a virtual network's IP address range where you can place groups of isolated resources.
 
-[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
-
 :::image type="content" source="./media/quick-create-bicep/virtual-network-qs-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart.":::
+
+[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 ## Prerequisites
 
