@@ -27,11 +27,7 @@ Using the Azure portal, the Prometheus rule group will be created in the same re
 
     :::image type="content" source="media/kubernetes-metric-alerts/setup-recommendations.png" lightbox="media/kubernetes-metric-alerts/setup-recommendations.png" alt-text="Screenshot of AKS cluster showing Set up recommendations button.":::
 
-    The available Prometheus and platform alert rules are displayed with the Prometheus rules organized by pod, cluster, and node level. 
-
-    :::image type="content" source="media/kubernetes-metric-alerts/recommended-alert-rules.png" lightbox="media/kubernetes-metric-alerts/recommended-alert-rules.png" alt-text="Screenshot of set up recommended alert rules blade.":::
-
-2.	Toggle a group of Prometheus rules to enable that set of rules. Expand the group to see the individual rules. You can leave the defaults or disable individual rules and edit their name and severity.
+2.  The available Prometheus and platform alert rules are displayed with the Prometheus rules organized by pod, cluster, and node level. Toggle a group of Prometheus rules to enable that set of rules. Expand the group to see the individual rules. You can leave the defaults or disable individual rules and edit their name and severity.
 
     :::image type="content" source="media/kubernetes-metric-alerts/recommended-alert-rules-enable-prometheus.png" lightbox="media/kubernetes-metric-alerts/recommended-alert-rules-enable-prometheus.png" alt-text="Screenshot of enabling Prometheus alert rule.":::
 
@@ -50,9 +46,9 @@ Download the required files for the template you're working with and deploy usin
 
 ### ARM
 
-Template file: [https://aka.ms/azureprometheus-recommendedmetricalerts](https://aka.ms/azureprometheus-recommendedmetricalerts)
+- Template file: [https://aka.ms/azureprometheus-recommendedmetricalerts](https://aka.ms/azureprometheus-recommendedmetricalerts)
 
-Parameters:
+- Parameters:
 
     | Parameter | Description |
     |:---|:---|
@@ -137,7 +133,7 @@ The following tables list the details of each recommended alert rule. Source cod
 **Cluster level alerts**
 
 | Alert name | Description | Default threshold | Timeframe (minutes) |
-|---|---|---|---|
+|:---|:---|:---:|:---:|
 | KubeCPUQuotaOvercommit | The CPU resource quota allocated to namespaces exceeds the available CPU resources on the cluster's nodes by more than 50% for the last 5 minutes. | >1.5 | 5 |
 | KubeMemoryQuotaOvercommit | The memory resource quota allocated to namespaces exceeds the available memory resources on the cluster's nodes by more than 50% for the last 5 minutes. | >1.5 | 5 |
 | Number of OOM killed containers is greater than 0 | One or more containers within pods have been killed due to out-of-memory (OOM) events for the last 5 minutes. | >0 | 5 |
@@ -154,14 +150,14 @@ The following tables list the details of each recommended alert rule. Source cod
 **Node level alerts**
 
 | Alert name | Description | Default threshold | Timeframe (minutes) |
-|---|---|---|---|
+|:---|:---|:---:|:---:|
 | KubeNodeUnreachable | A node has been unreachable for the last 15 minutes. | 1 | 15 |
 | KubeNodeReadinessFlapping | The readiness status of a node has changed more than 2 times for the last 15 minutes. | 2 | 15 |
 
 **Pod level alerts**
 
 | Alert name | Description | Default threshold | Timeframe (minutes) |
-|---|---|---|---|
+|:---|:---|:---:|:---:|
 | Average PV usage is greater than 80% | The average usage of Persistent Volumes (PVs) on pod exceeds 80% for the last 15 minutes. | >0.8 | 15 |
 | KubeDeploymentReplicasMismatch | There is a mismatch between the desired number of replicas and the number of available replicas for the last 10 minutes. | N/A | 10 |
 | KubeStatefulSetReplicasMismatch | The number of ready replicas in the StatefulSet does not match the total number of replicas in the StatefulSet for the last 15 minutes. | N/A | 15 |
@@ -182,7 +178,7 @@ The following tables list the details of each recommended alert rule. Source cod
 ### Platform metric alert rules
 
 | Alert name | Description | Default threshold | Timeframe (minutes) |
-|---|---|---|---|
+|:---|:---|:---:|:---:|
 | Node cpu percentage is greater than 95% | The node CPU percentage is greater than 95% for the last 5 minutes. | 95 | 5 |
 | Node memory working set percentage is greater than 100% | The node memory working set percentage is greater than 95% for the last 5 minutes. | 100 | 5 |
 
