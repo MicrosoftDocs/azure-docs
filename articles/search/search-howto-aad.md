@@ -162,7 +162,7 @@ The following instructions reference an existing C# sample to demonstrate the co
 
    The sample currently uses key-based authentication and the `AzureKeyCredential` to create the `SearchClient` and `SearchIndexClient` but you can make a small change to switch over to role-based authentication. 
 
-1. Update the Azure.Search.Documents Nuget package to version 11.4 or later.
+1. Update the Azure.Search.Documents NuGet package to version 11.4 or later.
 
 1. Import the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) library to get access to other authentication techniques.
 
