@@ -37,6 +37,8 @@ Use the following table to quickly locate an example that fits your ABAC scenari
 | [Read or list blobs in named containers with a path](#example-read-or-list-blobs-in-named-containers-with-a-path) | | | blob prefix | container name</br> blob path |
 | [Write blobs in named containers with a path](#example-write-blobs-in-named-containers-with-a-path) | | | | container name</br> blob path |
 | [Read blobs with a blob index tag and a path](#example-read-blobs-with-a-blob-index-tag-and-a-path) | | | | tags</br> blob path |
+| [Read blobs in container with specific metadata](#example-read-blobs-in-container-with-specific-metadata) | | | | container metadata |
+| [Write or delete blobs in container with specific metadata](#example-write-delete-blobs-in-container-with-specific-metadata) | | | | container metadata |
 | [Read only current blob versions](#example-read-only-current-blob-versions) | | | | isCurrentVersion |
 | [Read current blob versions and a specific blob version](#example-read-current-blob-versions-and-a-specific-blob-version) | | | versionId | isCurrentVersion |
 | [Delete old blob versions](#example-delete-old-blob-versions) | | | versionId | |
@@ -946,6 +948,151 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "AlpineFi
 $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logsAlpine.txt" -Context $bearerCtx
 # Try to get granted blob
 $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/AlpineFile.txt" -Context $bearerCtx
+```
+
+---
+
+## Blob container metadata
+
+### Example: Read blobs in container with specific metadata
+
+This condition allows users to read blobs in storage containers with a specific metadata key/value pair.
+
+You must add this condition to any role assignments that include the following action.
+
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
+
+# [Portal: Visual editor](#tab/portal-visual-editor)
+
+Here are the settings to add this condition using the Azure portal.
+
+> [!div class="mx-tableFixed"]
+> | Condition #1 | Setting |
+> | --- | --- |
+> | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | Attribute | [Container metadata](storage-auth-abac-attributes.md#container-metadata) |
+> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+> | Value | {containerName} |
+
+:::image type="content" source="./media/storage-auth-abac-examples/containers-metadata-read-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read blob in container with specific metadata named containers." lightbox="./media/storage-auth-abac-examples/containers-metadata-read-portal.png":::
+
+# [Portal: Code editor](#tab/portal-code-editor)
+
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
+
+**Storage Blob Data Reader**
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/metadata:testKey] StringEquals 'testValue'
+ )
+)
+
+```
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
+
+# [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition using Azure PowerShell.
+
+```azurepowershell
+$condition = "( `
+ ( `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
+ ) `
+ OR `
+ ( `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/metadata:testKey] StringEquals 'testValue' `
+ ) `
+)"
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
+
+---
+
+## Example: Write or delete blobs in container with specific metadata
+
+This condition allows users to write or delete blobs in storage containers named with a specific metadata key/value pair.
+
+You must add this condition to any role assignments that include the following action.
+
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |  |
+
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
+
+# [Portal: Visual editor](#tab/portal-visual-editor)
+
+Here are the settings to add this condition using the Azure portal.
+
+> [!div class="mx-tableFixed"]
+> | Condition #1 | Setting |
+> | --- | --- |
+> | Actions | [Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Delete a blob](storage-auth-abac-attributes.md#delete-a-blob) |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | Attribute | [Container metadata](storage-auth-abac-attributes.md#container-metadata) |
+> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+> | Value | {containerName} |
+
+:::image type="content" source="./media/storage-auth-abac-examples/containers-metadata-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read blob in container with specific metadata named containers." lightbox="./media/storage-auth-abac-examples/containers-metadata-write-delete-portal.png":::
+
+# [Portal: Code editor](#tab/portal-code-editor)
+
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
+
+**Storage Blob Data Contributor**
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/metadata:testKey] StringEquals 'testValue'
+ )
+)
+
+```
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
+
+# [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition using Azure PowerShell.
+
+```azurepowershell
+$condition = "( `
+ ( `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
+ ) `
+ OR `
+ ( `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/metadata:testKey] StringEquals 'testValue' `
+ ) `
+) `
 ```
 
 ---
