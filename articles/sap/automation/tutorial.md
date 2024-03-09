@@ -349,31 +349,31 @@ For example, choose **West Europe** as the deployment location, with the four-ch
 
 The sample SAP Library configuration file `LAB-SECE-SAP_LIBRARY.tfvars` is in the `${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/LAB-SECE-SAP_LIBRARY` folder.
 
-Set the environment variables for the service principal:
+1. Set the environment variables for the service principal:
 
-```bash
-
-export ARM_SUBSCRIPTION_ID="<subscriptionId>"
-export       ARM_CLIENT_ID="<appId>"
-export   ARM_CLIENT_SECRET="<password>"
-export       ARM_TENANT_ID="<tenantId>"
-
-```
-
-If you're running the script from a workstation that isn't part of the deployment network or from Cloud Shell, you can use the following command to set the environment variable for allowing connectivity from your IP address:
-
-```bash
-export TF_VAR_Agent_IP=<your-public-ip-address>
-```
-
-If you're deploying the configuration web application, you need to also set the following environment variables:
-
-```bash
-
-export TF_VAR_app_registration_app_id=<appRegistrationId>
-export    TF_VAR_webapp_client_secret=<appRegistrationPassword>
-export                  TF_use_webapp=true
-```
+    ```bash
+    
+    export ARM_SUBSCRIPTION_ID="<subscriptionId>"
+    export       ARM_CLIENT_ID="<appId>"
+    export   ARM_CLIENT_SECRET="<password>"
+    export       ARM_TENANT_ID="<tenantId>"
+    
+    ```
+    
+    If you're running the script from a workstation that isn't part of the deployment network or from Cloud Shell, you can use the following command to set the environment variable for allowing connectivity from your IP address:
+    
+    ```bash
+    export TF_VAR_Agent_IP=<your-public-ip-address>
+    ```
+    
+    If you're deploying the configuration web application, you need to also set the following environment variables:
+    
+    ```bash
+    
+    export TF_VAR_app_registration_app_id=<appRegistrationId>
+    export    TF_VAR_webapp_client_secret=<appRegistrationPassword>
+    export                  TF_use_webapp=true
+    ```
 
 1. Create the deployer and the SAP Library and add the service principal details to the deployment key vault by using this script:
     

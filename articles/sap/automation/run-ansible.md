@@ -505,8 +505,8 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 The playbook performs the following tasks:
 
-- Central Services installation.
-- Windows failover cluster configuration.
+- Central Services installation
+- Windows failover cluster configuration
 
 ```bash
 
@@ -736,8 +736,8 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 The playbook performs the following tasks:
 
-- Database high-availability configuration.
-- SQL Server Always On availability group configuration.
+- Database high-availability configuration
+- SQL Server Always On availability group configuration
 
 ```bash
 
@@ -783,7 +783,7 @@ You can run the playbook by using either:
 
 The playbook performs the following task:
 
-- Primary application server installation.
+- Primary application server installation
 
 ```bash
 
@@ -813,7 +813,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 The playbook performs the following task:
 
-- Primary application server installation.
+- Primary application server installation
 
 ```bash
 
