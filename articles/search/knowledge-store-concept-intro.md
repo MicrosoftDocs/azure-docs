@@ -95,7 +95,7 @@ The wizard automates several tasks. Specifically, both shaping and projections (
 
 ### [**REST**](#tab/kstore-rest)
 
-[**Create a knowledge store using REST**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/knowledge-store).
+[**Create a knowledge store using REST**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/knowledge-store).
 
 REST API version `2020-06-30` and higher can be used to create a knowledge store through additions to a skillset.
 

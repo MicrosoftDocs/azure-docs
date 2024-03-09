@@ -21,7 +21,7 @@ In this article, you use the REST API to ingest, enrich, and explore a set of cu
 To make the initial data set available, the hotel reviews are first imported into Azure Blob Storage. Post-processing, the results are saved as a knowledge store in Azure Table Storage.
 
 > [!TIP]
-> This article uses REST for detailed explanations of each step. [Download the REST file](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/knowledge-store) if you want to just run the commands. Alternatively, you can also [create a knowledge store in Azure portal](knowledge-store-create-portal.md).
+> This article uses REST for detailed explanations of each step. [Download the REST file](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/knowledge-store) if you want to just run the commands. Alternatively, you can also [create a knowledge store in Azure portal](knowledge-store-create-portal.md).
 
 ## Prerequisites
 
