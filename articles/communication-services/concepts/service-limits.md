@@ -88,8 +88,8 @@ Sending a high volume of messages has a set of limitations on the number of emai
 |---------|-----|-------------|-------------------|-------------------|
 |Send Email|Per Subscription|1|5|30|
 |Send Email|Per Subscription|60|10|100|
-|Get Email Status|Per Subscription|1|60|60|
-|Get Email Status|Per Subscription|60|200|200|
+|Get Email Status|Per Subscription|1|5|60|
+|Get Email Status|Per Subscription|60|10|200|
 
 ### Size Limits
 
