@@ -56,8 +56,8 @@ You can manage access to Advisor personalized recommendations using the followin
 | **Name** | **Description** |
 |---|:---:|
 |Subscription Reader|View reviews for a workload and recommendations linked to them.|
-|Subscription Owner<br>Subscription Contributor|View reviews for a workload and triage (accept or reject) recommendations linked to them, as well as manage (mark status) the recommendation lifecycle for reviews.|
-|Advisor recommendations contributor|View assessment recommendations, accepted review recommendations, as well as managing the recommendation lifecycle (mark recommendation as completed, postponed or dismissed, in progress, or not started).|
+|Subscription Owner<br>Subscription Contributor|View reviews for a workload, triage (accept or reject) recommendations linked to those reviews, manage (mark status) the recommendation lifecycle for reviews.|
+|Advisor recommendations contributor|View assessment recommendations, accept review recommendations, manage recommendation lifecycle (mark recommendation status).|
 
 You can find detailed instructions on how to assign a role using the Azure portal - [Assign Azure roles using the Azure portal - Azure RBAC](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition). Additional information is available in [Steps to assign an Azure role - Azure RBAC](/azure/role-based-access-control/role-assignments-steps).
 
