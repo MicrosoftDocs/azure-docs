@@ -324,6 +324,9 @@ For more details on parameters see [Translator API](../../ai-services/translator
 ##### `target_script`
 `text DEFAULT NULL` Specifices script of the input text.
 
+#### Return type
+`azure_cognitive.translated_text_result`, a json array of translated texts. Details of the response body can be found in the (../../ai-services/translator/reference/v3-0-translate#response-body)
+
 
 ## Next steps
 - [Learn more about Azure Open AI integration](./generative-ai-azure-openai.md)
