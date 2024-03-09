@@ -88,16 +88,13 @@ This section contains the parameters related to the Azure infrastructure.
 > | `user_assigned_identity_id`                    | User assigned identity to assign to the virtual machines                                          | Optional   |
 > | `vm_disk_encryption_set_id`                    | The disk encryption key to use for encrypting managed disks by using customer-provided keys.      | Optional   |
 > | `use_random_id_for_storageaccounts`            | If defined will append a random string to the storage account name                                | Optional   |
-> |                                                |                                                                                                   |            |          
 > | `use_scalesets_for_deployment`                 | Use Flexible Virtual Machine Scale Sets for the deployment                                        | Optional   |
 > | `scaleset_id`                                  | Azure resource identifier for the virtual machine scale set                                       | Optional   |
-> |                                                |                                                                                                   |            |          
 > | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups.                  |            |
 > | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups.                                            |            |
 > | `use_app_proximityplacementgroups`             | Controls if the app tier virtual machines are placed in a different ppg from the database.        | Optional   |
 > | `app_proximityplacementgroup_arm_ids`          | Specifies the Azure resource identifiers of existing proximity placement groups for the app tier. |            |
 > | `app_proximityplacementgroup_names`            | Specifies the names of the proximity placement groups for the app tier.                           |            |
-> |                                                |                                                                                                   |            |          
 > | `use_spn`                                      | If defined the deployment will be performed using a Service Principal, otherwise an MSI           | Optional   |
 > | `use_private_endpoint`                         | Use private endpoints.                                                                            | Optional   |
 
@@ -202,37 +199,37 @@ The application tier defines the infrastructure for the application tier, which 
 ## SAP central services parameters
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                               | Description                                                              | Type      | Notes  |
-> | -------------------------------------- | ------------------------------------------------------------------------ | ----------| ------ |
-> | `scs_server_count`	                   | Defines the number of SCS servers                                       | Required	|        |
-> | `scs_high_availability`	               | Defines if the central services is highly available                     | Optional	| See [High availability configuration](configure-system.md#high-availability-configuration). |
-> | `scs_server_sku`	                     | Defines the virtual machine SKU to use                                  | Optional  |        |
-> | `scs_server_image`	                   | Defines the virtual machine image to use                                | Required  |        |
-> | `scs_server_zones`	                   | Defines the availability zones of the SCS servers                       | Optional  |        |
-> | `scs_server_app_nic_ips`               | List of IP addresses for the SCS servers (app subnet)                   | Optional  |  |
-> | `scs_server_app_nic_secondary_ips`     | List of secondary IP addresses for the SCS servers (app subnet)         | Optional   |  |
-> | `scs_server_app_admin_nic_ips`         | List of IP addresses for the SCS servers (admin subnet)                 | Optional  |  |
-> | `scs_server_loadbalancer_ips`          | List of IP addresses for the scs load balancer (app subnet)             | Optional  |  |
-> | `scs_server_use_ppg`                   | Controls if the SCS servers are placed in availability sets             | Optional  |         |
-> | `scs_server_use_avset`	               | Controls if the SCS servers are placed in proximity placement groups    | Optional  |         |
-> | `scs_server_tags`	                     | Defines a list of tags to be applied to the SCS servers                 | Optional  |         |
+> | Variable                               | Description                                                              | Type      | Notes                                                                                       |
+> | -------------------------------------- | ------------------------------------------------------------------------ | --------- | ------------------------------------------------------------------------------------------- |
+> | `scs_server_count`	                   | Defines the number of SCS servers                                       | Required	  |                                                                                             |
+> | `scs_high_availability`	               | Defines if the central services is highly available                     | Optional	  | See [High availability configuration](configure-system.md#high-availability-configuration). |
+> | `scs_server_sku`	                     | Defines the virtual machine SKU to use                                  | Optional   |                                                                                             |
+> | `scs_server_image`	                   | Defines the virtual machine image to use                                | Required   |                                                                                             |
+> | `scs_server_zones`	                   | Defines the availability zones of the SCS servers                       | Optional   |                                                                                             |
+> | `scs_server_app_nic_ips`               | List of IP addresses for the SCS servers (app subnet)                   | Optional   |                                                                                             |
+> | `scs_server_app_nic_secondary_ips`     | List of secondary IP addresses for the SCS servers (app subnet)         | Optional   |                                                                                             |
+> | `scs_server_app_admin_nic_ips`         | List of IP addresses for the SCS servers (admin subnet)                 | Optional   |                                                                                             |
+> | `scs_server_loadbalancer_ips`          | List of IP addresses for the scs load balancer (app subnet)             | Optional   |                                                                                             |
+> | `scs_server_use_ppg`                   | Controls if the SCS servers are placed in availability sets             | Optional   |                                                                                             |
+> | `scs_server_use_avset`	               | Controls if the SCS servers are placed in proximity placement groups    | Optional   |                                                                                             |
+> | `scs_server_tags`	                     | Defines a list of tags to be applied to the SCS servers                 | Optional   |                                                                                             |
 
 ## Application server parameters
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                  | Description                                                                  | Type       | Notes  |
 > | ----------------------------------------- | ---------------------------------------------------------------------------- | -----------| ------ |
-> | `application_server_count`	              | Defines the number of application servers                                   | Required	 | |
-> | `application_server_sku`	                | Defines the virtual machine SKU to use                                      | Optional   | |
-> | `application_server_image`	              | Defines the virtual machine image to use                                    | Required   | |
-> | `application_server_zones`	              | Defines the availability zones to which the application servers are deployed| Optional   | |
-> | `application_server_admin_nic_ips`        | List of IP addresses for the application server (admin subnet)              | Optional   |  |
-> | `application_server_app_nic_ips[]`        | List of IP addresses for the application servers (app subnet)               | Optional   | |
-> | `application_server_nic_secondary_ips[]`  | List of secondary IP addresses for the application servers (app subnet)     | Optional   |  |
-> | `application_server_use_ppg`              | Controls if application servers are placed in availability sets             | Optional   | |
-> | `application_server_use_avset`            | Controls if application servers are placed in proximity placement groups    | Optional   | |
-> | `application_server_tags`	                | Defines a list of tags to be applied to the application servers             | Optional   | |
-> | `application_server_vm_avset_arm_ids[]`   | List of Availability Set Resource Ids for the application servers           | Optional   |  |
+> | `application_server_count`	              | Defines the number of application servers                                    | Required	  |        |
+> | `application_server_sku`	                | Defines the virtual machine SKU to use                                       | Optional   |        |
+> | `application_server_image`	              | Defines the virtual machine image to use                                     | Required   |        |
+> | `application_server_zones`	              | Defines the availability zones to which the application servers are deployed | Optional   |        |
+> | `application_server_admin_nic_ips`        | List of IP addresses for the application server (admin subnet)               | Optional   |        |
+> | `application_server_app_nic_ips[]`        | List of IP addresses for the application servers (app subnet)                | Optional   |        |
+> | `application_server_nic_secondary_ips[]`  | List of secondary IP addresses for the application servers (app subnet)      | Optional   |        |
+> | `application_server_use_ppg`              | Controls if application servers are placed in availability sets              | Optional   |        |
+> | `application_server_use_avset`            | Controls if application servers are placed in proximity placement groups     | Optional   |        |
+> | `application_server_tags`	                | Defines a list of tags to be applied to the application servers              | Optional   |        |
+> | `application_server_vm_avset_arm_ids[]`   | List of Availability Set Resource Ids for the application servers            | Optional   |        |
 
 ## Web dispatcher parameters
 
@@ -249,7 +246,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | `webdispatcher_server_use_ppg`             | Controls if web dispatchers are placed in availability sets                    | Optional  |        |
 > | `webdispatcher_server_use_avset`           | Controls if web dispatchers are placed in proximity placement groups           | Optional  |        |
 > | `webdispatcher_server_tags`	               | Defines a list of tags to be applied to the web dispatcher servers             | Optional  |        |
-> | `webdispatcher_server_loadbalancer_ips`    | List of IP addresses for the web load balancer (web/app subnet)                | Optional  |  |
+> | `webdispatcher_server_loadbalancer_ips`    | List of IP addresses for the web load balancer (web/app subnet)                | Optional  |        |
 
 ## Network parameters
 
@@ -265,34 +262,29 @@ Ensure that the virtual network address space is large enough to host all the re
 This section contains the networking parameters.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                         | Description                                                          | Type      | Notes                        |
-> | -------------------------------- | -------------------------------------------------------------------- | --------- | ---------------------------- |
+> | Variable                             | Description                                                          | Type      | Notes                        |
+> | ------------------------------------ | -------------------------------------------------------------------- | --------- | ---------------------------- |
 > | `network_logical_name`               | The logical name of the network                                      | Required  |                              |
-> |                                      |                                                                      |           |                              |
 > | `admin_subnet_name`                  | The name of the `admin` subnet                                       | Optional  |                              |
-> | `admin_subnet_address_prefix`        | The address range for the `admin` subnet                             | Mandatory | For green-field deployments |
-> | `admin_subnet_arm_id`  	  *          | The Azure resource identifier for the `admin` subnet                 | Mandatory | For brown-field deployments |
+> | `admin_subnet_address_prefix`        | The address range for the `admin` subnet                             | Mandatory | For green-field deployments  |
+> | `admin_subnet_arm_id`  	  *          | The Azure resource identifier for the `admin` subnet                 | Mandatory | For brown-field deployments  |
 > | `admin_subnet_nsg_name`              | The name of the `admin` network security group                       | Optional	|                              |
-> | `admin_subnet_nsg_arm_id` *          | The Azure resource identifier for the `admin` network security group | Mandatory | For brown-field deployments |
-> |                                      |                                                                      | Optional  |                              |
+> | `admin_subnet_nsg_arm_id` *          | The Azure resource identifier for the `admin` network security group | Mandatory | For brown-field deployments  |
 > | `db_subnet_name`                     | The name of the `db` subnet                                          | Optional  |                              |
-> | `db_subnet_address_prefix`           | The address range for the `db` subnet                                | Mandatory | For green-field deployments |
-> | `db_subnet_arm_id`	    *            | The Azure resource identifier for the `db` subnet                    | Mandatory | For brown-field deployments |
+> | `db_subnet_address_prefix`           | The address range for the `db` subnet                                | Mandatory | For green-field deployments  |
+> | `db_subnet_arm_id`	    *            | The Azure resource identifier for the `db` subnet                    | Mandatory | For brown-field deployments  |
 > | `db_subnet_nsg_name`                 | The name of the `db` network security group name                     | Optional	|                              |
-> | `db_subnet_nsg_arm_id`  *            | The Azure resource identifier for the `db` network security group    | Mandatory | For brown-field deployments |
-> |                                      |                                                                      | Optional  |                              |
+> | `db_subnet_nsg_arm_id`  *            | The Azure resource identifier for the `db` network security group    | Mandatory | For brown-field deployments  |
 > | `app_subnet_name`                    | The name of the `app` subnet                                         | Optional  |                              |
-> | `app_subnet_address_prefix`          | The address range for the `app` subnet                               | Mandatory | For green-field deployments |
-> | `app_subnet_arm_id`	    *            | The Azure resource identifier for the `app` subnet                   | Mandatory | For brown-field deployments |
+> | `app_subnet_address_prefix`          | The address range for the `app` subnet                               | Mandatory | For green-field deployments  |
+> | `app_subnet_arm_id`	    *            | The Azure resource identifier for the `app` subnet                   | Mandatory | For brown-field deployments  |
 > | `app_subnet_nsg_name`                | The name of the `app` network security group name                    | Optional	|                              |
-> | `app_subnet_nsg_arm_id` *            | The Azure resource identifier for the `app` network security group   | Mandatory | For brown-field deployments |
-> |                                      |                                                                      | Optional  |                              |
+> | `app_subnet_nsg_arm_id` *            | The Azure resource identifier for the `app` network security group   | Mandatory | For brown-field deployments  |
 > | `web_subnet_name`                    | The name of the `web` subnet                                         | Optional  |                              |
-> | `web_subnet_address_prefix`          | The address range for the `web` subnet                               | Mandatory | For green-field deployments |
-> | `web_subnet_arm_id`	    *            | The Azure resource identifier for the `web` subnet                   | Mandatory | For brown-field deployments |
+> | `web_subnet_address_prefix`          | The address range for the `web` subnet                               | Mandatory | For green-field deployments  |
+> | `web_subnet_arm_id`	    *            | The Azure resource identifier for the `web` subnet                   | Mandatory | For brown-field deployments  |
 > | `web_subnet_nsg_name`                | The name of the `web` network security group name                    | Optional	|                              |
-> | `web_subnet_nsg_arm_id` *            | The Azure resource identifier for the `web` network security group   | Mandatory | For brown-field deployments |
-> |                                      |                                                                      | Optional  |                              |
+> | `web_subnet_nsg_arm_id` *            | The Azure resource identifier for the `web` network security group   | Mandatory | For brown-field deployments  |
 > | `deploy_application_security_groups` | Controls application security group deployments                      | Optional  |                              |
 > | `nsg_asg_with_vnet`                  | If true, the network security group will be placed with the VNet     | Optional  |                              |
 
@@ -305,11 +297,11 @@ If you don't want to use the workload zone key vault but another one, you can de
 This section defines the parameters used for defining the key vault information.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                            | Description                                                                    | Type         | Notes                               |
-> | ----------------------------------- | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
-> | `user_keyvault_id`	                | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     |
-> | `spn_keyvault_id`                   | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     |
-> | `enable_purge_control_for_keyvaults` | Disables the purge protection for Azure key vaults                            | Optional     | Only use for test environments. |
+> | Variable                             | Description                                                                    | Type         | Notes                               |
+> | ------------------------------------ | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
+> | `user_keyvault_id`	                 | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     |
+> | `spn_keyvault_id`                    | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     |
+> | `enable_purge_control_for_keyvaults` | Disables the purge protection for Azure key vaults                             | Optional     | Only use for test environments.     |
 
 ### Anchor virtual machine parameters
 
@@ -392,42 +384,37 @@ By default, the SAP system deployment uses the credentials from the SAP workload
 ### Azure NetApp Files support
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                 | Description                                                            | Type         | Notes                       |
-> | -----------------------------------      | -----------------------------------------------------------------------| -----------  | --------------------------- |
-> | `ANF_HANA_use_AVG`                       | Use Application Volume Group for the volumes.                          | Optional     |                             |
-> | `ANF_HANA_use_Zones`                     | Deploy the Azure NetApp Files volume zonally.                          | Optional     |                             |
-> |                                          |                                                                        |              |                             |
-> | `ANF_HANA_data`                          | Create Azure NetApp Files volume for HANA data.                        | Optional     |                             |
+> | Variable                                 | Description                                                            | Type         | Notes                        |
+> | -----------------------------------      | -----------------------------------------------------------------------| -----------  | ---------------------------- |
+> | `ANF_HANA_use_AVG`                       | Use Application Volume Group for the volumes.                          | Optional     |                              |
+> | `ANF_HANA_use_Zones`                     | Deploy the Azure NetApp Files volume zonally.                          | Optional     |                              |
+> | `ANF_HANA_data`                          | Create Azure NetApp Files volume for HANA data.                        | Optional     |                              |
 > | `ANF_HANA_data_use_existing_volume`      | Use existing Azure NetApp Files volume for HANA data.                  | Optional     | Use for pre-created volumes. |
-> | `ANF_HANA_data_volume_count`             | Number of HANA data volumes.                                           | Optional     |                             |
-> | `ANF_HANA_data_volume_name`              | Azure NetApp Files volume name for HANA data.                          | Optional     |                             |
-> | `ANF_HANA_data_volume_size`              | Azure NetApp Files volume size in GB for HANA data.                    | Optional     | Default size is 256.            |
+> | `ANF_HANA_data_volume_count`             | Number of HANA data volumes.                                           | Optional     |                              |
+> | `ANF_HANA_data_volume_name`              | Azure NetApp Files volume name for HANA data.                          | Optional     |                              |
+> | `ANF_HANA_data_volume_size`              | Azure NetApp Files volume size in GB for HANA data.                    | Optional     | Default size is 256.         |
 > | `ANF_HANA_data_volume_throughput`        | Azure NetApp Files volume throughput for HANA data.                    | Optional     | Default is 128 MBs/s.        |
-> |                                          |                                                                        |              |                             |
-> | `ANF_HANA_log`                           | Create Azure NetApp Files volume for HANA log.                         | Optional     |                             |
+> | `ANF_HANA_log`                           | Create Azure NetApp Files volume for HANA log.                         | Optional     |                              |
 > | `ANF_HANA_log_use_existing`              | Use existing Azure NetApp Files volume for HANA log.                   | Optional     | Use for pre-created volumes. |
-> | `ANF_HANA_log_volume_count`              | Number of HANA log volumes.                                            | Optional     |                             |
-> | `ANF_HANA_log_volume_name`               | Azure NetApp Files volume name for HANA log.                           | Optional     |                             |
-> | `ANF_HANA_log_volume_size`               | Azure NetApp Files volume size in GB for HANA log.                     | Optional     | Default size is 128.            |
+> | `ANF_HANA_log_volume_count`              | Number of HANA log volumes.                                            | Optional     |                              |
+> | `ANF_HANA_log_volume_name`               | Azure NetApp Files volume name for HANA log.                           | Optional     |                              |
+> | `ANF_HANA_log_volume_size`               | Azure NetApp Files volume size in GB for HANA log.                     | Optional     | Default size is 128.         |
 > | `ANF_HANA_log_volume_throughput`         | Azure NetApp Files volume throughput for HANA log.                     | Optional     | Default is 128 MBs/s.        |
-> |                                          |                                                                        |              |                             |
-> | `ANF_HANA_shared`                        | Create Azure NetApp Files volume for HANA shared.                      | Optional     |                             |
+> | `ANF_HANA_shared`                        | Create Azure NetApp Files volume for HANA shared.                      | Optional     |                              |
 > | `ANF_HANA_shared_use_existing`           | Use existing Azure NetApp Files volume for HANA shared.                | Optional     | Use for pre-created volumes. |
-> | `ANF_HANA_shared_volume_name`            | Azure NetApp Files volume name for HANA shared.                        | Optional     |                             |
-> | `ANF_HANA_shared_volume_size`            | Azure NetApp Files volume size in GB for HANA shared.                  | Optional     | Default size is 128.            |
+> | `ANF_HANA_shared_volume_name`            | Azure NetApp Files volume name for HANA shared.                        | Optional     |                              |
+> | `ANF_HANA_shared_volume_size`            | Azure NetApp Files volume size in GB for HANA shared.                  | Optional     | Default size is 128.         |
 > | `ANF_HANA_shared_volume_throughput`      | Azure NetApp Files volume throughput for HANA shared.                  | Optional     | Default is 128 MBs/s.        |
-> |                                          |                                                                        |              |                             |
-> | `ANF_sapmnt`                             | Create Azure NetApp Files volume for `sapmnt`.                         | Optional     |                             |
+> | `ANF_sapmnt`                             | Create Azure NetApp Files volume for `sapmnt`.                         | Optional     |                              |
 > | `ANF_sapmnt_use_existing_volume`         | Use existing Azure NetApp Files volume for `sapmnt`.                   | Optional     | Use for pre-created volumes. |
-> | `ANF_sapmnt_volume_name`                 | Azure NetApp Files volume name for `sapmnt`.                           | Optional     |                             |
-> | `ANF_sapmnt_volume_size`                 | Azure NetApp Files volume size in GB for `sapmnt`.                     | Optional     | Default size is 128.            |
+> | `ANF_sapmnt_volume_name`                 | Azure NetApp Files volume name for `sapmnt`.                           | Optional     |                              |
+> | `ANF_sapmnt_volume_size`                 | Azure NetApp Files volume size in GB for `sapmnt`.                     | Optional     | Default size is 128.         |
 > | `ANF_sapmnt_throughput`                  | Azure NetApp Files volume throughput for `sapmnt`.                     | Optional     | Default is 128 MBs/s.        |
 > | `ANF_sapmnt_use_clone_in_secondary_zone` | Create the secondary sapmnt volume as a clone                          | Optional     | Default is 128 MBs/s.        |
-> |                                          |                                                                        |              |                             |
-> | `ANF_usr_sap`                            | Create Azure NetApp Files volume for `usrsap`.                         | Optional     |                             |
+> | `ANF_usr_sap`                            | Create Azure NetApp Files volume for `usrsap`.                         | Optional     |                              |
 > | `ANF_usr_sap_use_existing`               | Use existing Azure NetApp Files volume for `usrsap`.                   | Optional     | Use for pre-created volumes. |
-> | `ANF_usr_sap_volume_name`                | Azure NetApp Files volume name for `usrsap`.                           | Optional     |                             |
-> | `ANF_usr_sap_volume_size`                | Azure NetApp Files volume size in GB for `usrsap`.                     | Optional     | Default size is 128.            |
+> | `ANF_usr_sap_volume_name`                | Azure NetApp Files volume name for `usrsap`.                           | Optional     |                              |
+> | `ANF_usr_sap_volume_size`                | Azure NetApp Files volume size in GB for `usrsap`.                     | Optional     | Default size is 128.         |
 > | `ANF_usr_sap_throughput`                 | Azure NetApp Files volume throughput for `usrsap`.                     | Optional     | Default is 128 MBs/s.        |
 
 ## Oracle parameters
