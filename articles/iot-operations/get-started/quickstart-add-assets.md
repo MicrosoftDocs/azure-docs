@@ -274,7 +274,7 @@ To confirm that Akri connected to the OPC UA Broker, copy and paste the name of 
 
 ```bash
 kubectl get akrii <AKRI_INSTANCE_NAME> -n azure-iot-operations -o json
-    ```
+```
 
 The command output looks like the following example. This example output shows the Akri instance `brokerProperties` values and confirms that the OPC UA Broker is connected.
 
