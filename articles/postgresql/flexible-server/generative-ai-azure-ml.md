@@ -6,7 +6,7 @@ ms.author: denzilr
 ms.date: 3/6/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Integrate Azure Database for PostgreSQL with Azure Machine Learning Services (Preview)
@@ -14,12 +14,12 @@ ms.topic: conceptual
 Azure AI extension gives the ability to invoke any machine learning models deployed on  [Azure Machine Learning online endpoints](../../machine-learning/concept-endpoints-online.md) from within SQL. These maybe models from the Azure Machine Learning catalog or custom models that are trained and deployed.
 
 1. [Enable and configure](generative-ai-azure-overview.md#enable-the-azure_ai-extension) the `azure_ai` extension.
-1. Create a machine learning workspace and [deploy a model with an online endpoint](../../machine-learning/how-to-deploy-online-endpoints.md) using CLI, Python, or Azure Machine Learning Studio.
+1. Create a machine learning workspace and [deploy a model with an online endpoint](../../machine-learning/how-to-deploy-online-endpoints.md) using CLI, Python, or Azure Machine Learning Studio or [deploy an mlflow model to an online endpoint](../../machine-learning/how-to-deploy-mlflow-models-online-endpoints.md)
 1. Ensure the status of the deployment to ensure the model was deployed successfully and invoke the endpoint to ensure the model runs successfully.
 1. Get the [URI](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-scoring-uri-for-the-endpoint) and the  [Key](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-key-or-token-for-data-plane-operations), which are needed to configure the extension to communicate with Azure Machine learning.
 
 > [!NOTE]
-> You can explore various Azure Machine learning [samples and datasets](../../machine-learning/samples-designer.md)
+> You can explore Azure Machine learning [samples](https://github.com/Azure/azureml-examples)
 
 
 ## Configure Azure ML endpoint 
