@@ -272,19 +272,19 @@ Now you can use these resources in the local cluster namespace.
 
 To confirm that Akri connected to the OPC UA Broker, copy and paste the name of the Akri instance from the previous step into the following command: 
 
-    ```bash
-    kubectl get akrii <AKRI_INSTANCE_NAME> -n azure-iot-operations -o json
+```bash
+kubectl get akrii <AKRI_INSTANCE_NAME> -n azure-iot-operations -o json
     ```
 
-    The command output looks like the following example. This example output shows the Akri instance `brokerProperties` values and confirms that the OPC UA Broker is connected.
+The command output looks like the following example. This example output shows the Akri instance `brokerProperties` values and confirms that the OPC UA Broker is connected.
 
-    ```json
-    "spec": {
-    
-            "brokerProperties": {
-                "ApplicationUri": "Boiler #2",
-                "AssetEndpointProfile": "{\"spec\":{\"uuid\":\"opc-ua-broker-opcplc-000000-azure-iot-operation\"……   
-    ```
+```json
+"spec": {
+
+        "brokerProperties": {
+            "ApplicationUri": "Boiler #2",
+            "AssetEndpointProfile": "{\"spec\":{\"uuid\":\"opc-ua-broker-opcplc-000000-azure-iot-operation\"……   
+```
 
 ## How did we solve the problem?
 
