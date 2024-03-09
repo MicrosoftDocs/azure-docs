@@ -3,8 +3,6 @@ title: Azure reservation usage for an individual subscription
 description: Learn how to read your usage to understand how the Azure reservation for your individual subscription with pay-as-you-go rates is applied.
 author: bandersmsft
 ms.reviewer: primittal
-tags: billing
-ms.custom: ignite-2022
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual

@@ -171,11 +171,7 @@ Learn more about networking in AKS in the following articles:
 
 * [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
 * [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
-* [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
-* [Enable the HTTP application routing add-on][aks-http-app-routing]
-* [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-* [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
-* [Create an ingress controller with a static public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
+* [Use the application routing addon in Azure Kubernetes Service (AKS)](app-routing.md)
 
 <!-- LINKS - External -->
 [kubernetes-cni]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
@@ -183,11 +179,6 @@ Learn more about networking in AKS in the following articles:
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [aks-network-concepts]: concepts-network.md
 [aks-network-nsg]: concepts-network.md#network-security-groups
-[aks-ingress-basic]: ingress-basic.md
-[aks-ingress-tls]: ingress-tls.md
-[aks-ingress-static-tls]: ingress-static-ip.md
-[aks-http-app-routing]: http-application-routing.md
-[aks-ingress-internal]: ingress-internal-ip.md
 [deploy-bicep-template]: ../azure-resource-manager/bicep/deploy-cli.md
 [az-group-create]: /cli/azure/group#az_group_create
 [deploy-arm-template]: ../azure-resource-manager/templates/deploy-cli.md

@@ -73,13 +73,13 @@ After you create a vector index, you can add it to a prompt flow from the prompt
 
 1. On the top menu of the prompt flow designer, select **More tools**, and then select **Index Lookup**.
 
-    :::image type="content" source="media/how-to-create-vector-index/vector-lookup.png" alt-text="Screenshot that shows the list of available tools.":::
+    :::image type="content" source="media/how-to-create-vector-index/index-lookup-tool.png" alt-text="Screenshot that shows the list of available tools.":::
 
    The Index Lookup tool is added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas.
 
-    :::image type="content" source="media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot that shows the Vector Index Lookup tool.":::
+    :::image type="content" source="media/how-to-create-vector-index/configure-index-lookup-tool.png" alt-text="Screenshot that shows the Vector Index Lookup tool.":::
 
-1. Select the **mlindex_content** value box, and select your index. The tool should detect the index created in the the "Create a vector index" section of the tutorial. After filling in all the necessary information, select save to close the generate drawer.
+1. Select the **mlindex_content** value box, and select your index. The tool should detect the index created in the "Create a vector index" section of the tutorial. After filling in all the necessary information, select save to close the generate drawer.
 
 1. Enter the queries and query_types to be performed against the index. 
    

@@ -5,7 +5,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 author: varun-dhawan
 ms.author: varundhawan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/16/2024
 ---
 

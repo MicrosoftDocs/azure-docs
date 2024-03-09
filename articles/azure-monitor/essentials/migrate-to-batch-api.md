@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/07/2023
 ms.author: edbaynash
 
-#customer-intent: As a customer, I want to understand how to migrate from the metrics API to the getBatch API
+# Customer intent: As a customer, I want to understand how to migrate from the metrics API to the getBatch API
 ---
 # How to migrate from the metrics API to the getBatch API
 
@@ -16,7 +16,7 @@ Heavy use of the [metrics API](/rest/api/monitor/metrics/list?tabs=HTTP) can res
 ## Request format 
  The metrics:getBatch API request has the following format:
  ```http
-POST /subscriptions/<subscriptionId>/metrics:getBatch?metricNamespace=<resource type namespace>&api-version=2023-03-01-preview
+POST /subscriptions/<subscriptionId>/metrics:getBatch?metricNamespace=<resource type namespace>&api-version=2023-10-01
 Host: <region>.metrics.monitor.azure.com
 Content-Type: application/json
 Authorization: Bearer <token>
@@ -28,7 +28,7 @@ Authorization: Bearer <token>
 
 For example,
 ```http
-POST /subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch?metricNamespace=microsoft.compute/virtualMachines&api-version=2023-03-01-preview
+POST /subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch?metricNamespace=microsoft.compute/virtualMachines&api-version=2023-10-01
 Host: eastus.metrics.monitor.azure.com
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhb...TaXzf6tmC4jhog
@@ -75,25 +75,26 @@ GET https://management.azure.com/subscriptions/12345678-1234-1234-1234-123456789
      to `/subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch`
 
 1. The `metricNamespace` query param is required for metrics:getBatch. For Azure standard metrics, the namespace name is usually the resource type of the resources you've specified. To check the namespace value to use, see the [metrics namespaces API](/rest/api/monitor/metric-namespaces/list?tabs=HTTP)
-1. Update the api-version query parameter as follows: `&api-version=2023-03-01-preview`
+1. Switch from using the `timespan` query param to using `starttime` and `endtime`.  For example, `?timespan=2023-04-20T12:00:00.000Z/2023-04-22T12:00:00.000Z` becomes `?startime=2023-04-20T12:00:00.000Z&endtime=2023-04-22T12:00:00.000Z`.
+1. Update the api-version query parameter as follows: `&api-version=2023-10-01`
 1. The filter query param isn't prefixed with a `$` in the metrics:getBatch API. Change the query param from `$filter=` to `filter=`.
 1.  The metrics:getBatch API is a POST call with a body that contains a comma-separated list of resourceIds in the following format:
     For example:
-    ```http
+    ```json
         {
           "resourceids": [
-            <comma separated list of resource ids>
+            // <comma separated list of resource ids>
           ]
         }
     ```
     
     For example:
-    ```http
-        {
-          "resourceids": [
-            "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount"
-          ]
-        }
+    ```json
+    {
+      "resourceids": [
+        "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount"
+      ]
+    }
     ```
 
   Up to 50 unique resource IDs may be specified in each call. Each resource must belong to the same subscription, region, and be of the same resource type.  
@@ -106,7 +107,7 @@ GET https://management.azure.com/subscriptions/12345678-1234-1234-1234-123456789
 
 The following example shows the converted batch request.
 ```http
-    POST https://westus2.metrics.monitor.azure.com/subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch?timespan=2023-04-20T12:00:00.000Z/2023-04-22T12:00:00.000Z&interval=PT6H&metricNamespace=microsoft.storage%2Fstorageaccounts&metricnames=Ingress,Egress&aggregation=total,average,minimum,maximum&top=10&orderby=total desc&filter=ApiName eq '*'&api-version=2023-03-01-preview
+    POST https://westus2.metrics.monitor.azure.com/subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch?starttime=2023-04-20T12:00:00.000Z&endtime=2023-04-22T12:00:00.000Z&interval=PT6H&metricNamespace=microsoft.storage%2Fstorageaccounts&metricnames=Ingress,Egress&aggregation=total,average,minimum,maximum&top=10&orderby=total desc&filter=ApiName eq '*'&api-version=2023-10-01
         
     {
       "resourceids": [
@@ -123,12 +124,13 @@ The following example shows the converted batch request.
 ## Response Format
 
 The response format of the metrics:getBatch API encapsulates a list of individual metrics call responses in the following format:
-```http
-    {
-        "values": [
-            <One individual metrics response per requested resourceId>
-        ]
-    }
+
+```json
+{
+  "values": [
+      // <One individual metrics response per requested resourceId>
+  ]
+}
 ```
 
 A `resourceid` property has been added to each resources' metrics list in the metrics:getBatch API response.
@@ -137,446 +139,449 @@ A `resourceid` property has been added to each resources' metrics list in the me
 
 ### [Individual response](#tab/individual-response)
 
- ```http
+```json
+{
+  "cost": 11516,
+  "startime": "2023-04-20T12:00:00Z",
+  "endtime": "2023-04-22T12:00:00Z",
+  "interval": "P1D",
+  "value": [
     {
-        "cost": 11516,
-        "timespan": "2023-04-20T12:00:00Z/2023-04-22T12:00:00Z",
-        "interval": "P1D",
-        "value": [
-          {
-            "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount/providers/Microsoft.Insights/metrics/Ingress",
-            "type": "Microsoft.Insights/metrics",
-            "name": {
-              "value": "Ingress",
-              "localizedValue": "Ingress"
-            },
-            "displayDescription": "The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.",
-            "unit": "Bytes",
-            "timeseries": [
-              {
-                "metadatavalues": [
-                  {
-                    "name": {
-                      "value": "apiname",
-                      "localizedValue": "apiname"
-                    },
-                    "value": "EntityGroupTransaction"
-                  }
-                ],
-                "data": [
-                  {
-                    "timeStamp": "2023-04-20T12:00:00Z",
-                    "total": 1737897,
-                    "average": 5891.17627118644,
-                    "minimum": 1674,
-                    "maximum": 10976
-                  },
-                  {
-                    "timeStamp": "2023-04-21T12:00:00Z",
-                    "total": 1712543,
-                    "average": 5946.329861111111,
-                    "minimum": 1674,
-                    "maximum": 10980
-                  }
-                ]
+      "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount/providers/Microsoft.Insights/metrics/Ingress",
+      "type": "Microsoft.Insights/metrics",
+      "name": {
+        "value": "Ingress",
+        "localizedValue": "Ingress"
+      },
+      "displayDescription": "The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.",
+      "unit": "Bytes",
+      "timeseries": [
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
               },
-              {
-                "metadatavalues": [
-                  {
-                    "name": {
-                      "value": "apiname",
-                      "localizedValue": "apiname"
-                    },
-                    "value": "GetBlobServiceProperties"
-                  }
-                ],
-                "data": [
-                  {
-                    "timeStamp": "2023-04-20T12:00:00Z",
-                    "total": 1284,
-                    "average": 321,
-                    "minimum": 321,
-                    "maximum": 321
-                  },
-                  {
-                    "timeStamp": "2023-04-21T12:00:00Z",
-                    "total": 1926,
-                    "average": 321,
-                    "minimum": 321,
-                    "maximum": 321
-                  }
-                ]
-              }
-            ],
-            "errorCode": "Success"
-          },
-          {
-            "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount/providers/Microsoft.Insights/metrics/Egress",
-            "type": "Microsoft.Insights/metrics",
-            "name": {
-              "value": "Egress",
-              "localizedValue": "Egress"
+              "value": "EntityGroupTransaction"
+            }
+          ],
+          "data": [
+            {
+              "timeStamp": "2023-04-20T12:00:00Z",
+              "total": 1737897,
+              "average": 5891.17627118644,
+              "minimum": 1674,
+              "maximum": 10976
             },
-            "displayDescription": "The amount of egress data. This number includes egress to external client from Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.",
-            "unit": "Bytes",
-            "timeseries": [
-              {
-                "metadatavalues": [
-                  {
-                    "name": {
-                      "value": "apiname",
-                      "localizedValue": "apiname"
-                    },
-                    "value": "EntityGroupTransaction"
-                  }
-                ],
-                "data": [
-                  {
-                    "timeStamp": "2023-04-20T12:00:00Z",
-                    "total": 249603,
-                    "average": 846.1118644067797,
-                    "minimum": 839,
-                    "maximum": 1150
-                  },
-                  {
-                    "timeStamp": "2023-04-21T12:00:00Z",
-                    "total": 244652,
-                    "average": 849.4861111111111,
-                    "minimum": 839,
-                    "maximum": 1150
-                  }
-                ]
+            {
+              "timeStamp": "2023-04-21T12:00:00Z",
+              "total": 1712543,
+              "average": 5946.329861111111,
+              "minimum": 1674,
+              "maximum": 10980
+            }
+          ]
+        },
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
               },
-              {
-                "metadatavalues": [
-                  {
-                    "name": {
-                      "value": "apiname",
-                      "localizedValue": "apiname"
-                    },
-                    "value": "GetBlobServiceProperties"
-                  }
-                ],
-                "data": [
-                  {
-                    "timeStamp": "2023-04-20T12:00:00Z",
-                    "total": 3772,
-                    "average": 943,
-                    "minimum": 943,
-                    "maximum": 943
-                  },
-                  {
-                    "timeStamp": "2023-04-21T12:00:00Z",
-                    "total": 5658,
-                    "average": 943,
-                    "minimum": 943,
-                    "maximum": 943
-                  }
-                ]
-              }
-            ],
-            "errorCode": "Success"
-          }
-        ],
-        "namespace": "microsoft.storage/storageaccounts",
-        "resourceregion": "westus2"
-      }
+              "value": "GetBlobServiceProperties"
+            }
+          ],
+          "data": [
+            {
+              "timeStamp": "2023-04-20T12:00:00Z",
+              "total": 1284,
+              "average": 321,
+              "minimum": 321,
+              "maximum": 321
+            },
+            {
+              "timeStamp": "2023-04-21T12:00:00Z",
+              "total": 1926,
+              "average": 321,
+              "minimum": 321,
+              "maximum": 321
+            }
+          ]
+        }
+      ],
+      "errorCode": "Success"
+    },
+    {
+      "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount/providers/Microsoft.Insights/metrics/Egress",
+      "type": "Microsoft.Insights/metrics",
+      "name": {
+        "value": "Egress",
+        "localizedValue": "Egress"
+      },
+      "displayDescription": "The amount of egress data. This number includes egress to external client from Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.",
+      "unit": "Bytes",
+      "timeseries": [
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "EntityGroupTransaction"
+            }
+          ],
+          "data": [
+            {
+              "timeStamp": "2023-04-20T12:00:00Z",
+              "total": 249603,
+              "average": 846.1118644067797,
+              "minimum": 839,
+              "maximum": 1150
+            },
+            {
+              "timeStamp": "2023-04-21T12:00:00Z",
+              "total": 244652,
+              "average": 849.4861111111111,
+              "minimum": 839,
+              "maximum": 1150
+            }
+          ]
+        },
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "GetBlobServiceProperties"
+            }
+          ],
+          "data": [
+            {
+              "timeStamp": "2023-04-20T12:00:00Z",
+              "total": 3772,
+              "average": 943,
+              "minimum": 943,
+              "maximum": 943
+            },
+            {
+              "timeStamp": "2023-04-21T12:00:00Z",
+              "total": 5658,
+              "average": 943,
+              "minimum": 943,
+              "maximum": 943
+            }
+          ]
+        }
+      ],
+      "errorCode": "Success"
+    }
+  ],
+  "namespace": "microsoft.storage/storageaccounts",
+  "resourceregion": "westus2"
+}
 ```
 ### [metrics:getBatch Response](#tab/batch-response)
 
-```http
-    {
-        "values": [
-          {
-            "cost": 11516,
-            "timespan": "2023-04-20T12:00:00Z/2023-04-22T12:00:00Z",
-            "interval": "P1D",
-            "value": [
-              {
-                "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount/providers/Microsoft.Insights/metrics/Ingress",
-                "type": "Microsoft.Insights/metrics",
-                "name": {
-                  "value": "Ingress",
-                  "localizedValue": "Ingress"
-                },
-                "displayDescription": "The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.",
-                "unit": "Bytes",
-                "timeseries": [
-                  {
-                    "metadatavalues": [
-                      {
-                        "name": {
-                          "value": "apiname",
-                          "localizedValue": "apiname"
-                        },
-                        "value": "EntityGroupTransaction"
-                      }
-                    ],
-                    "data": [
-                      {
-                        "timeStamp": "2023-04-20T12:00:00Z",
-                        "total": 1737897,
-                        "average": 5891.17627118644,
-                        "minimum": 1674,
-                        "maximum": 10976
-                      },
-                      {
-                        "timeStamp": "2023-04-21T12:00:00Z",
-                        "total": 1712543,
-                        "average": 5946.329861111111,
-                        "minimum": 1674,
-                        "maximum": 10980
-                      }
-                    ]
-                  },
-                  {
-                    "metadatavalues": [
-                      {
-                        "name": {
-                          "value": "apiname",
-                          "localizedValue": "apiname"
-                        },
-                        "value": "GetBlobServiceProperties"
-                      }
-                    ],
-                    "data": [
-                      {
-                        "timeStamp": "2023-04-20T12:00:00Z",
-                        "total": 1284,
-                        "average": 321,
-                        "minimum": 321,
-                        "maximum": 321
-                      },
-                      {
-                        "timeStamp": "2023-04-21T12:00:00Z",
-                        "total": 1926,
-                        "average": 321,
-                        "minimum": 321,
-                        "maximum": 321
-                      }
-                    ]
-                  }
-                ],
-                "errorCode": "Success"
-              },
-              {
-                "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount/providers/Microsoft.Insights/metrics/Egress",
-                "type": "Microsoft.Insights/metrics",
-                "name": {
-                  "value": "Egress",
-                  "localizedValue": "Egress"
-                },
-                "displayDescription": "The amount of egress data. This number includes egress to external client from Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.",
-                "unit": "Bytes",
-                "timeseries": [
-                  {
-                    "metadatavalues": [
-                      {
-                        "name": {
-                          "value": "apiname",
-                          "localizedValue": "apiname"
-                        },
-                        "value": "EntityGroupTransaction"
-                      }
-                    ],
-                    "data": [
-                      {
-                        "timeStamp": "2023-04-20T12:00:00Z",
-                        "total": 249603,
-                        "average": 846.1118644067797,
-                        "minimum": 839,
-                        "maximum": 1150
-                      },
-                      {
-                        "timeStamp": "2023-04-21T12:00:00Z",
-                        "total": 244652,
-                        "average": 849.4861111111111,
-                        "minimum": 839,
-                        "maximum": 1150
-                      }
-                    ]
-                  },
-                  {
-                    "metadatavalues": [
-                      {
-                        "name": {
-                          "value": "apiname",
-                          "localizedValue": "apiname"
-                        },
-                        "value": "GetBlobServiceProperties"
-                      }
-                    ],
-                    "data": [
-                      {
-                        "timeStamp": "2023-04-20T12:00:00Z",
-                        "total": 3772,
-                        "average": 943,
-                        "minimum": 943,
-                        "maximum": 943
-                      },
-                      {
-                        "timeStamp": "2023-04-21T12:00:00Z",
-                        "total": 5658,
-                        "average": 943,
-                        "minimum": 943,
-                        "maximum": 943
-                      }
-                    ]
-                  }
-                ],
-                "errorCode": "Success"
-              }
-            ],
-            "namespace": "microsoft.storage/storageaccounts",
-            "resourceregion": "westus2",
-            "resourceid": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount"
+```json
+{
+"values": [
+  {
+      "cost": 11516,
+      "starttime": "2023-04-20T12:00:00Z",
+      "endtime": "2023-04-22T12:00:00Z",
+      "interval": "P1D",
+      "value": [
+        {
+          "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount/providers/Microsoft.Insights/metrics/Ingress",
+          "type": "Microsoft.Insights/metrics",
+          "name": {
+            "value": "Ingress",
+            "localizedValue": "Ingress"
           },
-          {
-            "cost": 11516,
-            "timespan": "2023-04-20T12:00:00Z/2023-04-22T12:00:00Z",
-            "interval": "P1D",
-            "value": [
-              {
-                "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample3/providers/Microsoft.Storage/storageAccounts/sample3diag/providers/Microsoft.Insights/metrics/Ingress",
-                "type": "Microsoft.Insights/metrics",
-                "name": {
-                  "value": "Ingress",
-                  "localizedValue": "Ingress"
-                },
-                "displayDescription": "The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.",
-                "unit": "Bytes",
-                "timeseries": [
-                  {
-                    "metadatavalues": [
-                      {
-                        "name": {
-                          "value": "apiname",
-                          "localizedValue": "apiname"
-                        },
-                        "value": "EntityGroupTransaction"
-                      }
-                    ],
-                    "data": [
-                      {
-                        "timeStamp": "2023-04-20T12:00:00Z",
-                        "total": 867509,
-                        "average": 5941.842465753424,
-                        "minimum": 1668,
-                        "maximum": 10964
-                      },
-                      {
-                        "timeStamp": "2023-04-21T12:00:00Z",
-                        "total": 861018,
-                        "average": 5979.291666666667,
-                        "minimum": 1668,
-                        "maximum": 10964
-                      }
-                    ]
+          "displayDescription": "The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.",
+          "unit": "Bytes",
+          "timeseries": [
+            {
+              "metadatavalues": [
+                {
+                  "name": {
+                    "value": "apiname",
+                    "localizedValue": "apiname"
                   },
-                  {
-                    "metadatavalues": [
-                      {
-                        "name": {
-                          "value": "apiname",
-                          "localizedValue": "apiname"
-                        },
-                        "value": "GetBlobServiceProperties"
-                      }
-                    ],
-                    "data": [
-                      {
-                        "timeStamp": "2023-04-20T12:00:00Z",
-                        "total": 1268,
-                        "average": 317,
-                        "minimum": 312,
-                        "maximum": 332
-                      },
-                      {
-                        "timeStamp": "2023-04-21T12:00:00Z",
-                        "total": 1560,
-                        "average": 312,
-                        "minimum": 312,
-                        "maximum": 312
-                      }
-                    ]
-                  }
-                ],
-                "errorCode": "Success"
-              },
-              {
-                "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample3/providers/Microsoft.Storage/storageAccounts/sample3diag/providers/Microsoft.Insights/metrics/Egress",
-                "type": "Microsoft.Insights/metrics",
-                "name": {
-                  "value": "Egress",
-                  "localizedValue": "Egress"
+                  "value": "EntityGroupTransaction"
+                }
+              ],
+              "data": [
+                {
+                  "timeStamp": "2023-04-20T12:00:00Z",
+                  "total": 1737897,
+                  "average": 5891.17627118644,
+                  "minimum": 1674,
+                  "maximum": 10976
                 },
-                "displayDescription": "The amount of egress data. This number includes egress to external client from Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.",
-                "unit": "Bytes",
-                "timeseries": [
-                  {
-                    "metadatavalues": [
-                      {
-                        "name": {
-                          "value": "apiname",
-                          "localizedValue": "apiname"
-                        },
-                        "value": "EntityGroupTransaction"
-                      }
-                    ],
-                    "data": [
-                      {
-                        "timeStamp": "2023-04-20T12:00:00Z",
-                        "total": 124316,
-                        "average": 851.4794520547945,
-                        "minimum": 839,
-                        "maximum": 1150
-                      },
-                      {
-                        "timeStamp": "2023-04-21T12:00:00Z",
-                        "total": 122943,
-                        "average": 853.7708333333334,
-                        "minimum": 839,
-                        "maximum": 1150
-                      }
-                    ]
+                {
+                  "timeStamp": "2023-04-21T12:00:00Z",
+                  "total": 1712543,
+                  "average": 5946.329861111111,
+                  "minimum": 1674,
+                  "maximum": 10980
+                }
+              ]
+            },
+            {
+              "metadatavalues": [
+                {
+                  "name": {
+                    "value": "apiname",
+                    "localizedValue": "apiname"
                   },
-                  {
-                    "metadatavalues": [
-                      {
-                        "name": {
-                          "value": "apiname",
-                          "localizedValue": "apiname"
-                        },
-                        "value": "GetBlobServiceProperties"
-                      }
-                    ],
-                    "data": [
-                      {
-                        "timeStamp": "2023-04-20T12:00:00Z",
-                        "total": 3384,
-                        "average": 846,
-                        "minimum": 846,
-                        "maximum": 846
-                      },
-                      {
-                        "timeStamp": "2023-04-21T12:00:00Z",
-                        "total": 4230,
-                        "average": 846,
-                        "minimum": 846,
-                        "maximum": 846
-                      }
-                    ]
-                  }
-                ],
-                "errorCode": "Success"
-              }
-            ],
-            "namespace": "microsoft.storage/storageaccounts",
-            "resourceregion": "westus2",
-            "resourceid": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample3/providers/Microsoft.Storage/storageAccounts/sample3diag"
-          }
-        ]
-      }
+                  "value": "GetBlobServiceProperties"
+                }
+              ],
+              "data": [
+                {
+                  "timeStamp": "2023-04-20T12:00:00Z",
+                  "total": 1284,
+                  "average": 321,
+                  "minimum": 321,
+                  "maximum": 321
+                },
+                {
+                  "timeStamp": "2023-04-21T12:00:00Z",
+                  "total": 1926,
+                  "average": 321,
+                  "minimum": 321,
+                  "maximum": 321
+                }
+              ]
+            }
+          ],
+          "errorCode": "Success"
+        },
+        {
+          "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount/providers/Microsoft.Insights/metrics/Egress",
+          "type": "Microsoft.Insights/metrics",
+          "name": {
+            "value": "Egress",
+            "localizedValue": "Egress"
+          },
+          "displayDescription": "The amount of egress data. This number includes egress to external client from Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.",
+          "unit": "Bytes",
+          "timeseries": [
+            {
+              "metadatavalues": [
+                {
+                  "name": {
+                    "value": "apiname",
+                    "localizedValue": "apiname"
+                  },
+                  "value": "EntityGroupTransaction"
+                }
+              ],
+              "data": [
+                {
+                  "timeStamp": "2023-04-20T12:00:00Z",
+                  "total": 249603,
+                  "average": 846.1118644067797,
+                  "minimum": 839,
+                  "maximum": 1150
+                },
+                {
+                  "timeStamp": "2023-04-21T12:00:00Z",
+                  "total": 244652,
+                  "average": 849.4861111111111,
+                  "minimum": 839,
+                  "maximum": 1150
+                }
+              ]
+            },
+            {
+              "metadatavalues": [
+                {
+                  "name": {
+                    "value": "apiname",
+                    "localizedValue": "apiname"
+                  },
+                  "value": "GetBlobServiceProperties"
+                }
+              ],
+              "data": [
+                {
+                  "timeStamp": "2023-04-20T12:00:00Z",
+                  "total": 3772,
+                  "average": 943,
+                  "minimum": 943,
+                  "maximum": 943
+                },
+                {
+                  "timeStamp": "2023-04-21T12:00:00Z",
+                  "total": 5658,
+                  "average": 943,
+                  "minimum": 943,
+                  "maximum": 943
+                }
+              ]
+            }
+          ],
+          "errorCode": "Success"
+        }
+      ],
+      "namespace": "microsoft.storage/storageaccounts",
+      "resourceregion": "westus2",
+      "resourceid": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount"
+    },
+    {
+      "cost": 11516,
+      "starttime": "2023-04-20T12:00:00Z",
+      "endtime": "2023-04-22T12:00:00Z",
+      "interval": "P1D",
+      "value": [
+        {
+          "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample3/providers/Microsoft.Storage/storageAccounts/sample3diag/providers/Microsoft.Insights/metrics/Ingress",
+          "type": "Microsoft.Insights/metrics",
+          "name": {
+            "value": "Ingress",
+            "localizedValue": "Ingress"
+          },
+          "displayDescription": "The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.",
+          "unit": "Bytes",
+          "timeseries": [
+            {
+              "metadatavalues": [
+                {
+                  "name": {
+                    "value": "apiname",
+                    "localizedValue": "apiname"
+                  },
+                  "value": "EntityGroupTransaction"
+                }
+              ],
+              "data": [
+                {
+                  "timeStamp": "2023-04-20T12:00:00Z",
+                  "total": 867509,
+                  "average": 5941.842465753424,
+                  "minimum": 1668,
+                  "maximum": 10964
+                },
+                {
+                  "timeStamp": "2023-04-21T12:00:00Z",
+                  "total": 861018,
+                  "average": 5979.291666666667,
+                  "minimum": 1668,
+                  "maximum": 10964
+                }
+              ]
+            },
+            {
+              "metadatavalues": [
+                {
+                  "name": {
+                    "value": "apiname",
+                    "localizedValue": "apiname"
+                  },
+                  "value": "GetBlobServiceProperties"
+                }
+              ],
+              "data": [
+                {
+                  "timeStamp": "2023-04-20T12:00:00Z",
+                  "total": 1268,
+                  "average": 317,
+                  "minimum": 312,
+                  "maximum": 332
+                },
+                {
+                  "timeStamp": "2023-04-21T12:00:00Z",
+                  "total": 1560,
+                  "average": 312,
+                  "minimum": 312,
+                  "maximum": 312
+                }
+              ]
+            }
+          ],
+          "errorCode": "Success"
+        },
+        {
+          "id": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample3/providers/Microsoft.Storage/storageAccounts/sample3diag/providers/Microsoft.Insights/metrics/Egress",
+          "type": "Microsoft.Insights/metrics",
+          "name": {
+            "value": "Egress",
+            "localizedValue": "Egress"
+          },
+          "displayDescription": "The amount of egress data. This number includes egress to external client from Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.",
+          "unit": "Bytes",
+          "timeseries": [
+            {
+              "metadatavalues": [
+                {
+                  "name": {
+                    "value": "apiname",
+                    "localizedValue": "apiname"
+                  },
+                  "value": "EntityGroupTransaction"
+                }
+              ],
+              "data": [
+                {
+                  "timeStamp": "2023-04-20T12:00:00Z",
+                  "total": 124316,
+                  "average": 851.4794520547945,
+                  "minimum": 839,
+                  "maximum": 1150
+                },
+                {
+                  "timeStamp": "2023-04-21T12:00:00Z",
+                  "total": 122943,
+                  "average": 853.7708333333334,
+                  "minimum": 839,
+                  "maximum": 1150
+                }
+              ]
+            },
+            {
+              "metadatavalues": [
+                {
+                  "name": {
+                    "value": "apiname",
+                    "localizedValue": "apiname"
+                  },
+                  "value": "GetBlobServiceProperties"
+                }
+              ],
+              "data": [
+                {
+                  "timeStamp": "2023-04-20T12:00:00Z",
+                  "total": 3384,
+                  "average": 846,
+                  "minimum": 846,
+                  "maximum": 846
+                },
+                {
+                  "timeStamp": "2023-04-21T12:00:00Z",
+                  "total": 4230,
+                  "average": 846,
+                  "minimum": 846,
+                  "maximum": 846
+                }
+              ]
+            }
+          ],
+          "errorCode": "Success"
+        }
+      ],
+      "namespace": "microsoft.storage/storageaccounts",
+      "resourceregion": "westus2",
+      "resourceid": "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample3/providers/Microsoft.Storage/storageAccounts/sample3diag"
+    }
+  ]
+}
 ```
 ---
 
@@ -586,7 +591,7 @@ In the metrics:getBatch error response, the error content is wrapped inside a to
 
 + Metrics API error response
 
-    ```http
+    ```json
     {
       "code": "BadRequest",
       "message": "Metric: Ingress does not support requested dimension combination: apiname2, supported ones are: GeoType,ApiName,Authentication, TraceId: {ab11d9c2-b17e-4f75-8986-b314ecacbe11}"
@@ -595,7 +600,7 @@ In the metrics:getBatch error response, the error content is wrapped inside a to
 
 + Batch API error response:
 
-    ```http
+    ```json
     {
       "error": {
         "code": "BadRequest",

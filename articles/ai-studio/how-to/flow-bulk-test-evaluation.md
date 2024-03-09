@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/24/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -32,7 +32,7 @@ In this article you learn to:
 
 For a batch run and to use an evaluation method, you need to have the following ready:
 
-- A test dataset for batch run. Your dataset should be in one of these formats: `.csv`, `.tsv`, or `.jsonl`. Your data should also include headers that match the input names of your flow. If your flow inputs include a complex structure like a list or dictionary, you're recommended to use `jsonl` format to represent your data. 
+- A test dataset for batch run. Your dataset should be in one of these formats: `.csv`, `.tsv`, or `.jsonl`. Your data should also include headers that match the input names of your flow. If your flow inputs include a complex structure like a list or dictionary, use `jsonl` format to represent your data. 
 - An available runtime to run your batch run. A runtime is a cloud-based resource that executes your flow and generates outputs. To learn more about runtime, see [Runtime](./create-manage-runtime.md).
 
 ## Submit a batch run and use an evaluation method
@@ -100,7 +100,7 @@ You can go to the prompt flow **Runs** tab. Then go to the batch run detail page
 
 ## Check batch run history and compare metrics
 
-In some scenarios, you'll modify your flow to improve its performance. You can submit multiple batch runs to compare the performance of your flow with different versions. You can also compare the metrics calculated by different evaluation methods to see which one is more suitable for your flow.
+In some scenarios, you modify your flow to improve its performance. You can submit more than one batch run to compare the performance of your flow with different versions. You can also compare the metrics calculated by different evaluation methods to see which one is more suitable for your flow.
 
 To check the batch run history of your flow, you can select the **View batch run** button of your flow page. You see a list of batch runs that you have submitted for this flow.
 
@@ -114,7 +114,7 @@ In the "Outputs" table, you can compare the selected batch runs by each line of 
 
 ## Understand the built-in evaluation methods
 
-In prompt flow, we provide multiple built-in evaluation methods to help you measure the performance of your flow output. Each evaluation method calculates different metrics. Now we provide nine built-in evaluation methods available, you can check the following table for a quick reference:
+In prompt flow, we provide multiple built-in evaluation methods to help you measure the performance of your flow output. Each evaluation method calculates different metrics. See the following table for a list of built-in evaluation methods and their descriptions.
 
 | Evaluation Method | Metrics  | Description | Connection Required | Required Input  | Score Value |
 |---|---|---|---|---|---|

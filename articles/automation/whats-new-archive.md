@@ -9,6 +9,9 @@ ms.custom: references_regions
 
 # Archive for What's new in Azure Automation?
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 The primary [What's new in Azure Automation?](whats-new.md) article contains updates for the last six months, while this article contains all the older information.
 
 What's new in Azure Automation? provides you with information about:
@@ -212,7 +215,7 @@ Azure Automation region mapping updated to support Update Management feature in 
 
 **Type:** New feature
 
-Start/Stop VM runbooks have been updated to use Az modules in place of Azure Resource Manager modules. See [Start/Stop VMs during off-hours](automation-solution-vm-management.md) overview for updates to the documentation to reflect these changes.
+Start/Stop VM runbooks have been updated to use Az modules in place of Azure Resource Manager modules. 
 
 ## August 2020
 

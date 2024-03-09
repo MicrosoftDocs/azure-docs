@@ -5,9 +5,14 @@ ms.topic: conceptual
 ms.custom: linux-related-content
 ms.date: 06/01/2023
 ms.reviewer: JeffWo
+ms.author: guywild
+author: guywi-ms
 ---
 
 # Install the Log Analytics agent on Linux computers
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 This article provides details on installing the Log Analytics agent on Linux computers hosted in other clouds or on-premises.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
@@ -121,7 +126,7 @@ Regardless of the installation method used, you need the workspace ID and key fo
 :::image type="content" source="media/log-analytics-agent/workspace-details.png" lightbox="media/log-analytics-agent/workspace-details.png" alt-text="Screenshot that shows workspace details.":::
 
 >[!NOTE]
->While regenerating the [Log Analytics Workspace shared keys](/rest/api/loganalytics/workspace-shared-keys) is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
+>While regenerating the Log Analytics Workspace shared keys is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
 
 ## Agent install package
 

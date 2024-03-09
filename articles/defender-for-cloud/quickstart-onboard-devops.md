@@ -30,7 +30,7 @@ To complete this quickstart, you need:
 |--|--|
 | Release state: | General Availability. |
 | Pricing: | For pricing, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing). |
-| Required permissions: | **Account Administrator** with permissions to sign in to the Azure portal. <br> **Contributor** to create a connector on the Azure subscription. <br> **Project Collection Administrator** on the Azure DevOps Organization. <br> **Basic or Basic + Test Plans Access Level** in Azure DevOps. <br> **Third-party application access via OAuth**, which must be set to `On` on the Azure DevOps Organization. [Learn more about OAuth and how to enable it in your organizations](/azure/devops/organizations/accounts/change-application-access-policies).|
+| Required permissions: | **Account Administrator** with permissions to sign in to the Azure portal. <br> **Contributor** to create a connector on the Azure subscription. <br> **Project Collection Administrator** on the Azure DevOps Organization. <br> **Basic or Basic + Test Plans Access Level** on the Azure DevOps Organization. <br> _Please ensure you have BOTH Project Collection Administrator permissions and Basic Access Level for all Azure DevOps organizations you wish to onboard. Stakeholder Access Level is not sufficient._ <br> **Third-party application access via OAuth**, which must be set to `On` on the Azure DevOps Organization. [Learn more about OAuth and how to enable it in your organizations](/azure/devops/organizations/accounts/change-application-access-policies).|
 | Regions and availability: | Refer to the [support and prerequisites](devops-support.md) section for region support and feature availability.  |
 | Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 
@@ -38,6 +38,9 @@ To complete this quickstart, you need:
 > **Security Reader** role can be applied on the Resource Group/Azure DevOps connector scope to avoid setting highly privileged permissions on a Subscription level for read access of DevOps security posture assessments.
 
 ## Connect your Azure DevOps organization
+
+> [!NOTE]
+> After connecting Azure DevOps to Defender for Cloud, the Microsoft Defender for DevOps Container Mapping extension will be automatically shared and installed on all connected Azure DevOps organizations. This extension allows Defender for Cloud to extract metadata from pipelines, such as a container's digest ID and name. This metadata is used to connect DevOps entities with their related cloud resources. [Learn more about container mapping.](container-image-mapping.md)
 
 To connect your Azure DevOps organization to Defender for Cloud by using a native connector:
 

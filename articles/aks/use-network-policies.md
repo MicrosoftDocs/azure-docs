@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 07/14/2023
+ms.date: 02/12/2024
 ---
 
 # Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)
@@ -60,7 +60,7 @@ Azure Network Policy Manager doesn't support IPv6. Otherwise, Azure Network Poli
 
 ## Scale
 
-With Azure Network Policy Manager for Linux, we don't recommend scaling beyond 250 nodes and 20k pods. If you attempt to scale beyond these limits, you may encounter Out of Memory (OOM) kills. To increase your memory limit, contact us on [aks-acn-github].
+With Azure Network Policy Manager for Linux, we don't recommend scaling beyond 250 nodes and 20k pods. If you attempt to scale beyond these limits, you may encounter Out of Memory (OOM) kills. To increase your memory limit, please create a support ticket.
 
 ## Create an AKS cluster and enable Network Policy
 
@@ -352,7 +352,6 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [calico-support]: https://www.tigera.io/tigera-products/calico/
 [calico-logs]: https://docs.tigera.io/calico/3.25/operations/troubleshoot/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
-[aks-acn-github]: https://github.com/Azure/azure-container-networking/issues
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

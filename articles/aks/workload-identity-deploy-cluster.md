@@ -3,7 +3,7 @@ title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workl
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with a Microsoft Entra Workload ID.
 ms.topic: article
 ms.custom: devx-track-azurecli, linux-related-content
-ms.date: 09/27/2023
+ms.date: 02/22/2024
 ---
 
 # Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster
@@ -142,7 +142,7 @@ metadata:
   name: your-pod
   namespace: "${SERVICE_ACCOUNT_NAMESPACE}"
   labels:
-    azure.workload.identity/use: "true"
+    azure.workload.identity/use: "true"  # Required, only the pods with this label can use workload identity
 spec:
   serviceAccountName: "${SERVICE_ACCOUNT_NAME}"
   containers:

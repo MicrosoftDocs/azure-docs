@@ -58,7 +58,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
   - In Azure portal, navigate to **Microsoft Entra ID** > **Users** > **User Settings**. In **User settings**, verify that Microsoft Entra users can register applications (set to *Yes* by default).
 
-  - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Microsoft Entra App.
+  - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. The Application Developer role **cannot** be used to enable registration of Microsoft Entra App.
 
 
 ## Prepare infrastructure

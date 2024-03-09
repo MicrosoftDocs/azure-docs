@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 01/23/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 
@@ -74,6 +74,8 @@ The **TrustFrameworkPolicy** element contains the following elements:
 | [RelyingParty](relyingparty.md) | 0:1 | A definition of a relying party policy. |
 
 To inherit a policy from another policy, a **BasePolicy** element must be declared under the **TrustFrameworkPolicy** element of the policy file. The **BasePolicy** element is a reference to the base policy from which this policy is derived.
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-custom-policy-occurrence.md)]
 
 The **BasePolicy** element contains the following elements:
 

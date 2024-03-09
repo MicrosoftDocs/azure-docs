@@ -24,7 +24,7 @@ import openai
 openai.api_type = "azure"
 openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(
     engine="gpt-35-turbo", # The deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 model.
@@ -76,7 +76,7 @@ import os
 from openai import AzureOpenAI
 
 client = AzureOpenAI(
-  api_key = os.getenv("AZURE_OPENAI_KEY"),  
+  api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version = "2023-05-15",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
@@ -313,7 +313,7 @@ import openai
 openai.api_type = "azure"
 openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 conversation=[{"role": "system", "content": "You are a helpful assistant."}]
 
@@ -337,7 +337,7 @@ import os
 from openai import AzureOpenAI
 
 client = AzureOpenAI(
-  api_key = os.getenv("AZURE_OPENAI_KEY"),  
+  api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version = "2023-05-15",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 )
@@ -384,7 +384,7 @@ import os
 openai.api_type = "azure"
 openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 system_message = {"role": "system", "content": "You are a helpful assistant."}
 max_response_tokens = 250
@@ -460,7 +460,7 @@ import os
 from openai import AzureOpenAI
 
 client = AzureOpenAI(
-  api_key = os.getenv("AZURE_OPENAI_KEY"),  
+  api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version = "2023-05-15",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 )

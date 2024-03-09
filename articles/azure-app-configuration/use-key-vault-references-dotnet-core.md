@@ -6,7 +6,7 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 07/11/2023
+ms.date: 02/20/2024
 ms.author: malev
 ms.custom: devx-track-csharp, mvc, devx-track-dotnet
 #Customer intent: I want to update my ASP.NET Core application to reference values stored in Key Vault through App Configuration.
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you start this tutorial, install the [.NET SDK](https://dotnet.microsoft.com/download).
+Before you start this tutorial, install the [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -100,8 +100,6 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration` method. Include the `ConfigureKeyVault` option, and pass the correct credential to your Key Vault using the `SetCredential` method. If you have multiple Key Vaults, the same credential will be used for all of them. If your Key Vaults require different credentials, you can set them using `Register` or `SetSecretResolver` methods from the [`AzureAppConfigurationKeyVaultOptions`](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationkeyvaultoptions) class.
 
-     #### [.NET 6.0+](#tab/core6x)
-
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
 
@@ -115,29 +113,6 @@ To add a secret to the vault, you need to take just a few additional steps. In t
                     });
         });
     ```
-
-    #### [.NET Core 3.x](#tab/core3x)
-
-    ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-
-                config.AddAzureAppConfiguration(options =>
-                {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                            .ConfigureKeyVault(kv =>
-                            {
-                                kv.SetCredential(new DefaultAzureCredential());
-                            });
-                });
-            })
-            .UseStartup<Startup>());
-    ```
-    ---
 
 1. When you initialized the connection to App Configuration, you set up the connection to Key Vault by calling the `ConfigureKeyVault` method. After the initialization, you can access the values of Key Vault references in the same way you access the values of regular App Configuration keys.
 

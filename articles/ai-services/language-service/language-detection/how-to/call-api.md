@@ -7,9 +7,9 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 01/16/2024
 ms.author: jboback
-ms.custom: language-service-language-detection, ignite-fall-2021
+ms.custom: language-service-language-detection
 ---
 
 # How to use language detection
@@ -50,13 +50,18 @@ Analysis is performed upon receipt of the request. Using the language detection 
 
 When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
 
-Language detection will return one predominant language for each document you submit, along with it's [ISO 639-1](https://www.iso.org/standard/22109.html) name, a human-readable name, and a confidence score. A positive score of 1 indicates the highest possible confidence level of the analysis.
+Language detection will return one predominant language for each document you submit, along with it's [ISO 639-1](https://www.iso.org/standard/22109.html) name, a human-readable name, a confidence score, script name and script code according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924). A positive score of 1 indicates the highest possible confidence level of the analysis.
+
 
 ### Ambiguous content
 
 In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify an [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country/region code. By default the API uses "US" as the default country hint. To remove this behavior, you can reset this parameter by setting this value to empty string `countryHint = ""` .
 
 For example, "communication" is common to both English and French and if given with limited context the response will be based on the "US" country/region hint. If the origin of the text is known to be coming from France that can be given as a hint.
+
+> [!NOTE] 
+> Ambiguous content can cause confidence scores to be lower.
+> The `countryHint` in the response is only applicable if the confidence score is less than 0.8.
 
 **Input**
 
@@ -76,7 +81,8 @@ For example, "communication" is common to both English and French and if given w
 }
 ```
 
-The language detection model now has additional context to make a better judgment: 
+With the second document, the language detection model has additional context to make a better judgment because it contains the `countryHint` property in the input above. This will return the following output.
+ 
 
 **Output**
 
@@ -129,7 +135,7 @@ If the analyzer can't parse the input, it returns `(Unknown)`. An example is if 
         }
     ],
     "errors": [],
-    "modelVersion": "2021-01-05"
+    "modelVersion": "2023-12-01"
 }
 ```
 
@@ -156,21 +162,106 @@ The resulting output consists of the predominant language, with a score of less 
 
 ```json
 {
-    "documents": [
-        {
-            "id": "1",
-            "detectedLanguage": {
-                "name": "Spanish",
-                "iso6391Name": "es",
-                "confidenceScore": 0.88
-            },
-            "warnings": []
-        }
-    ],
-    "errors": [],
-    "modelVersion": "2021-01-05"
+    "kind": "LanguageDetectionResults",
+    "results": {
+        "documents": [
+            {
+                "id": "1",
+                "detectedLanguage": {
+                    "name": "Spanish",
+                    "iso6391Name": "es",
+                    "confidenceScore": 0.97,
+                    "script": "Latin",
+                    "scriptCode": "Latn"
+                },
+                "warnings": []
+            }
+        ],
+        "errors": [],
+        "modelVersion": "2023-12-01"
+    }
 }
 ```
+
+## Script name and script code
+
+> [!NOTE]
+> * Script detection is currently limited to [select languages](../language-support.md#script-detection).  
+> * The script detection is only available for textual input which is greater than 12 characters in length.
+
+Language detection offers the ability to detect more than one script per language according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924). Specifically, Language Detection returns two script-related properties:
+
+* `script`: The human-readable name of the identified script
+* `scriptCode`: The ISO 15924 code for the identified script
+
+The output of the API includes the value of the `scriptCode` property for documents that are at least 12 characters or greater in length and matches the list of supported languages and scripts. Script detection is designed to benefit users whose language can be transliterated or written in more than one script, such as Kazakh or Hindi language.
+
+Previously, language detection was designed to detect the language of documents in a wide variety of languages, dialects, and regional variants, but was limited by "Romanization". Romanization refers to conversion of text from one writing system to the Roman (Latin) script, and is necessary to detect many Indo-European languages. However, there are other languages which are written in multiple scripts, such as Kazakh, which can be written in Cyrillic, Perso-Arabic, and Latin scripts. There are also other cases in which users may either choose or are required to transliterate their language in more than one script, such as Hindi transliterated in Latin script, due to the limited availability of keyboards which support its Devanagari script.  
+
+Consequently, language detection's expanded support for script detection behaves as follows:
+
+**Input**
+
+```json
+{ 
+    "kind": "LanguageDetection", 
+    "parameters": { 
+        "modelVersion": "latest" 
+    }, 
+    "analysisInput": { 
+        "documents": [ 
+            { 
+                "id": "1", 
+                "text": "आप कहाँ जा रहे हैं?" 
+            }, 
+            { 
+                "id": "2", 
+                "text": "Туған жерім менің - Қазақстаным" 
+            } 
+        ] 
+    } 
+} 
+```
+
+**Output**
+
+The resulting output consists of the predominant language, along with a script name, script code, and confidence score.
+
+```json
+{ 
+    "kind": "LanguageDetectionResults", 
+    "results": { 
+        "documents": [ 
+            { 
+                "id": "1", 
+                "detectedLanguage": { 
+                    "name": "Hindi", 
+                    "iso6391Name": "hi", 
+                    "confidenceScore": 1.0, 
+                    "script": "Devanagari", 
+                    "scriptCode": "Deva" 
+                }, 
+                "warnings": [] 
+            }, 
+            { 
+                "id": "2", 
+                "detectedLanguage": { 
+                    "name": "Kazakh", 
+                    "iso6391Name": "kk", 
+                    "confidenceScore": 1.0, 
+                    "script": "Cyrillic",  
+                    "scriptCode": "Cyrl" 
+                }, 
+                "warnings": [] 
+            } 
+        ], 
+        "errors": [], 
+        "modelVersion": "2023-12-01" 
+    } 
+}
+```
+
+
 
 ## Service and data limits
 

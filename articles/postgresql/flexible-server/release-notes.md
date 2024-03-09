@@ -10,7 +10,7 @@ ms.custom:
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 01/24/2024
+ms.date: 03/3/2024
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -19,8 +19,14 @@ ms.date: 01/24/2024
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Azure Database for PostgreSQL flexible server.
 
+## Release: February 2024
+* Support for [minor versions](./concepts-supported-versions.md) 16.1, 15.5, 14.10, 13.13, 12.17, 11.22 <sup>$</sup>
+
 ## Release: January 2024
 * General availability of [Server logs](./how-to-server-logs-portal.md) including Portal and CLI support.
+* General availability of UAE Central region.
+* General availability of Israel Central region.
+* World wide public preview of [long-term backup retention](concepts-backup-restore.md).
 
 ## Release: December 2023
 * Public preview of [Server logs](./how-to-server-logs-portal.md).
@@ -31,7 +37,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * General availability of PostgreSQL 16 for Azure Database for PostgreSQL flexible server.
 * General availability of [near-zero downtime scaling](./concepts-scaling-resources.md).
 * General availability of [Pgvector 0.5.1](concepts-extensions.md) extension.
-* Public preview of Italy North region.
+* General availability of Italy North region.
 * Public preview of [premium SSD v2](concepts-compute-storage.md).
 * Public preview of [decoupling storage and IOPS](concepts-compute-storage.md).
 * Public preview of [private endpoints](concepts-networking-private-link.md).

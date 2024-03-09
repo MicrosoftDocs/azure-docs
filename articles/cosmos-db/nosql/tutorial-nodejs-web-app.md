@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 03/28/2023
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js
 #Customer intent: As a developer, I want to build a Node.js web application to access and manage API for NoSQL account resources in Azure Cosmos DB, so that customers can better use the service.
 ---
 

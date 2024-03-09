@@ -6,7 +6,6 @@ author: asudbring
 manager: dcscontentpm
 ms.service: virtual-network
 ms.topic: troubleshooting
-ms.workload: infrastructure-services
 ms.date: 12/20/2023
 ms.author: allensu
 ---

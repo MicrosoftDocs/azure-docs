@@ -77,6 +77,9 @@ No. Container insights don't support collection of Kubernetes audit logs.
 **Does Container Insights support pod sandboxing?**
 Yes, Container Insights supports pod sandboxing through support for Kata Containers. See [Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)](../../aks/use-pod-sandboxing.md).
 
+**Is it possible for a single AKS cluster to use multiple Log Analytics workspaces in Container Insights?**
+No. Container insights only accepts one Log Analytics Workspace in Container Insights for each AKS cluster.
+
 ## Next steps
 
 - See [Enable monitoring for Kubernetes clusters](kubernetes-monitoring-enable.md) to enable Managed Prometheus and Container insights on your cluster.

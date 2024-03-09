@@ -1,20 +1,22 @@
 ---
 title: Troubleshooting Azure Monitor alerts and notifications
 description: Common issues with Azure Monitor alerts and possible solutions. 
+ms.author: abbyweisberg
 ms.topic: reference
 ms.date: 9/20/2023
 ms.reviewer: nolavime
 ---
+
 # Troubleshooting problems in Azure Monitor alerts
 
 This article discusses common problems in Azure Monitor alerting and notifications. Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
 
 You can see fired alerts in the Azure portal.
 
-Refer to these articles for troubleshooting information about metric or log alerts that are not behaving as expected:
+Refer to these articles for troubleshooting information about metric or log search alerts that are not behaving as expected:
 
 - [Troubleshoot Azure Monitor metric alerts](alerts-troubleshoot-metric.md)
-- [Troubleshoot Azure Monitor log alerts](alerts-troubleshoot-log.md)
+- [Troubleshoot Azure Monitor log search alerts](alerts-troubleshoot-log.md)
 
 If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
 
@@ -139,7 +141,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     1. **Have the source IP addresses been blocked?**
     
-       Add the [IP addresses](../app/ip-addresses.md) that the webhook is called from to your allowlist.
+       Add the [IP addresses](../ip-addresses.md) that the webhook is called from to your allowlist.
 
     1. **Does your webhook endpoint work correctly?**
 
@@ -150,14 +152,15 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     1. **Did your webhook become unresponsive or return errors?** 
 
-        The webhook response timeout period is 10 seconds. When the HTTP endpoint does not respond or when the following HTTP status codes are returned, the webhook call is retried up to two times:
-        
-    - `408`
-    -  `429`
-    - `503`
-    - `504`
-   
-        One retry occurs after 10 seconds and another retry occurs after 100 seconds. If the second retry fails, the endpoint is not called again for 15 minutes for any action group.
+        Webhook action groups generally follow these rules when called:
+        - When a webhook is invoked, if the first call fails, it is retried at least 1 more time, and up to 5 times (5 retries) at various delay intervals (5, 20, 40 seconds).
+            - The delay between 1st and 2nd attempt is 5 seconds
+            - The delay between 2nd and 3rd attempt is 20 seconds
+            - The delay between 3rd and 4th attempt is 5 seconds
+            - The delay between 4th and 5th attempt is 40 seconds
+            - The delay between 5th and 6th attempt is 5 seconds
+        - After retries attempted to call the webhook fail, no action group calls the endpoint for 15 minutes.
+        - The retry logic assumes that the call can be retried. The status codes: 408, 429, 503, 504, or `HttpRequestException`, `WebException`, or `TaskCancellationException` allow for the call to be retried.
 
 ## Action or notification happened more than once 
 
@@ -228,12 +231,10 @@ If you can see a fired alert in the portal, but a related alert processing rule 
     Here is an example of an alert processing rule adding another action group:
     <!-- convertborder later -->
     :::image type="content" source="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" lightbox="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" alt-text="Screenshot of action repeated in multiple action groups." border="false":::
- 
 
 1. **Does the alert processing rule scope and filter match the fired alert?** 
 
     If you think the alert processing rule should have fired but didn't, or that it shouldn't have fired but it did, carefully examine the alert processing rule scope and filter conditions versus the properties of the fired alert. 
-
 
 ## How to find the alert ID of a fired alert
 
@@ -262,5 +263,6 @@ If you received an error while trying to create, update or delete an [alert proc
     Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
 
 ## Next steps
-- If using a log alert, also see [Troubleshooting Log Alerts](./alerts-troubleshoot-log.md).
+
+- If using a log search alert, also see [Troubleshooting Log Search Alerts](./alerts-troubleshoot-log.md).
 - Go back to the [Azure portal](https://portal.azure.com) to check if you solved your issue with guidance in this article.

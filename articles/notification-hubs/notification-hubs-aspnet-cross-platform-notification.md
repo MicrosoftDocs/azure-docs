@@ -7,7 +7,6 @@ manager: femila
 editor: thsomasu
 
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: csharp
 ms.topic: article

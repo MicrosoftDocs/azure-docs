@@ -10,7 +10,7 @@ ms.author: siarora
 ms.reviewer: larryfr
 ms.date: 09/15/2023
 ms.topic: how-to
-ms.custom: troubleshooting, contperf-fy20q4, contperf-fy21q2, event-tier1-build-2022
+ms.custom: troubleshooting
 ---
 
 # Manage and increase quotas and limits for resources with Azure Machine Learning
@@ -63,6 +63,7 @@ The following limits on assets apply on a *per-workspace* basis.
 | Datasets | 10 million |
 | Runs | 10 million |
 | Models | 10 million|
+| Component | 10 million|
 | Artifacts | 10 million |
 
 In addition, the maximum **run time** is 30 days and the maximum number of **metrics logged per run** is 1 million.
@@ -143,8 +144,10 @@ To request an exception from the Azure Machine Learning product team, use the st
 | Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>2</sup> | - | All types of endpoints <sup>3</sup> |
 | Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>2</sup> | - | All types of endpoints <sup>3</sup> |
 | Number of endpoints per subscription | 100 | Yes | All types of endpoints <sup>3</sup> |
+| Number of endpoints per cluster | 60 | - | Kubernetes online endpoint |
 | Number of deployments per subscription | 500 | Yes | All types of endpoints <sup>3</sup>|
 | Number of deployments per endpoint | 20 | Yes | All types of endpoints <sup>3</sup> |
+| Number of deployments per cluster | 100 | - | Kubernetes online endpoint |
 | Number of instances per deployment | 50 <sup>4</sup> | Yes | Managed online endpoint |
 | Max request time-out at endpoint level | 180 seconds | - | Managed online endpoint |
 | Max request time-out at endpoint level | 300 seconds | - | Kubernetes online endpoint |
@@ -171,6 +174,14 @@ To request an exception from the Azure Machine Learning product team, use the st
 | --- | --- |
 | Steps in a pipeline | 30,000 |
 | Workspaces per resource group | 800 |
+
+
+### Azure Machine Learning job schedules
+[Azure Machine Learning job schedules](how-to-schedule-pipeline-job.md) have the following limits.
+
+| **Resource** | **Limit** |
+| --- | --- |
+| Schedules per region | 100 |
 
 ### Azure Machine Learning integration with Synapse
 
