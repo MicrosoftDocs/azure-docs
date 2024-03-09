@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/12/2023
+ms.date: 03/12/2024
 ms.topic: conceptual
 ms.custom:
   - references_regions
@@ -19,6 +19,12 @@ ms.custom:
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## March 12, 2024
+
+**Image tag**:`v1.28.0_2024-03-12`|
+
+For complete release version information, review [Version log](version-log.md#march-12-2024).
 
 ## February 13, 2024
 
@@ -965,7 +971,7 @@ This release introduces the following features or capabilities:
 
 #### SQL Managed Instance enabled by Azure Arc
 
-- New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for SQL Managed Instance enabled by Azure Arc has the same commands as `az sql mi-arc <command>`. All SQL Managed Instance enabled by Azure Arc commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
+- New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for SQL Managed Instance enabled by Azure Arc has the same commands as `az sql mi-arc <command>`. All commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
 
    To add the extension:
 
