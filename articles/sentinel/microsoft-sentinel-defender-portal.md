@@ -16,7 +16,7 @@ Combine the power of Microsoft Sentinel with Microsoft Defender XDR into the Mic
 
 ## Quick reference
 
-Some Microsoft Sentinel features are integrated with Microsoft Defender XDR in the unified SOC platform like the unified incident queue. Many other Microsoft Sentinel features are available in the **Microsoft Sentinel** section of the Defender portal.
+Some Microsoft Sentinel capabilities are integrated with Microsoft Defender XDR in the unified SOC platform like the unified incident queue. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
 
 :::image type="content" source="media/microsoft-sentinel-defender-portal/sentinel-defender-portal.png" alt-text="Screenshot of the Defender portal left navigation with the Microsoft Sentinel section.":::
 
@@ -40,11 +40,11 @@ The **Threat management** section in the Azure portal includes the features list
 
 |Azure portal  |Defender portal  |
 |---------|---------|
-|Incidents    |         |
+|Incidents    |   Investigation & response > Incidents & alerts       |
 |Workbooks     | Microsoft Sentinel > Threat management> Workbooks      |
 |Hunting     | Microsoft Sentinel > Threat management >  Hunting      |
 |Notebooks     | Microsoft Sentinel > Threat management >  Notebooks         |
-|Entity behavior     |         |
+|Entity behavior     |  **Not available??** OR Microsoft Sentinel > Threat management >  Entity behavior       |
 |Threat intelligence    | Microsoft Sentinel > Threat management >  Threat intelligence        |
 |MITRE ATT&CK|Microsoft Sentinel > Threat management > MITRE ATT&CK  |
 
@@ -54,9 +54,9 @@ The **Content management** section in the Azure portal includes the features lis
 
 |Azure portal  |Defender portal  |
 |---------|---------|
-|Content hub    |         |
-|Repositories     |         |
-|Community   |         |
+|Content hub    |  Microsoft Sentinel > Content management > Content hub      |
+|Repositories     |    Microsoft Sentinel > Content management > Repositories     |
+|Community   |   Not available      |
 
 ### Configuration
 
@@ -64,18 +64,16 @@ The **Configuration** section in the Azure portal includes the features listed i
 
 |Azure portal  |Defender portal  |
 |---------|---------|
-|Workspace manager  |         |
-|Data connectors     |         |
-|Analytics     |         |
-|Watchlists    |         |
-|Automation   |         |
-|Settings   | **System** > **Settings** > **Microsoft Sentinel**        |
+|Workspace manager  |  Not available       |
+|Data connectors     | Microsoft Sentinel > Configuration > Data connectors        |
+|Analytics     |  Microsoft Sentinel > Configuration > Analytics       |
+|Watchlists    |      Microsoft Sentinel > Configuration > Watchlists    |
+|Automation   |   Microsoft Sentinel > Configuration > Automation       |
+|Settings   | System > Settings > Microsoft Sentinel       |
 
 ## New and improved capabilities
 
-Add intro
-
-Do we later indicate what's available in Azure portal?
+The following table describes the new or improved capabilities available in the Defender portal with the integration of  Microsoft Sentinel and Defender XDR.
 
 |Capabilities |Description |
 |---------|---------|
@@ -85,6 +83,6 @@ Do we later indicate what's available in Azure portal?
 |Unified entities| TBD  <br><br>For more information, see  <br>- []()|
 |Unified incidents| Manage and investigate security information and event management (SIEM), and extended detection and response (XDR) incidents from a single place with a unfied queue.<br><br> For more information, see  <br>- []()|
 
-## What's changed
-
 ## Related content
+
+- [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
