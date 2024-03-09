@@ -1,0 +1,61 @@
+---
+title: Monitoring data reference for Azure Logic Apps
+description: This article contains important reference material you need when you monitor Azure Logic Apps.
+ms.date: 03/08/2024
+ms.custom: horz-monitor
+ms.topic: reference
+ms.service: logic-apps
+---
+
+# Azure Logic Apps monitoring data reference
+
+[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+
+See [Monitor Logic Apps](monitor-logic-apps.md) for details on the data you can collect for Azure Logic Apps and how to use it.
+
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+
+### Supported metrics for Microsoft.Logic/IntegrationServiceEnvironments
+The following table lists the metrics available for the Microsoft.Logic/IntegrationServiceEnvironments resource type.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Logic/IntegrationServiceEnvironments](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/logic-integrationserviceenvironments-metrics-include.md)]
+
+### Supported metrics for Microsoft.Logic/Workflows
+The following table lists the metrics available for the Microsoft.Logic/Workflows resource type.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Logic/Workflows](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-logic-workflows-metrics-include.md)]
+
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+
+[!INCLUDE [horz-monitor-ref-no-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-no-metrics-dimensions.md)]
+
+[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+
+### Supported resource logs for Microsoft.Logic/IntegrationAccounts
+[!INCLUDE [Microsoft.Logic/IntegrationAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-logic-integrationaccounts-logs-include.md)]
+
+### Supported resource logs for Microsoft.Logic/Workflows
+[!INCLUDE [Microsoft.Logic/Workflows](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-logic-workflows-logs-include.md)]
+
+[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+
+### Logic Apps
+Microsoft.Logic/workflows
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns)
+- [LogicAppWorkflowRuntime](/azure/azure-monitor/reference/tables/LogicAppWorkflowRuntime#columns)
+
+### Integration Account
+Microsoft.Logic/integrationAccounts
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
+
+[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+- [Microsoft.Logic resource provider operations](/azure/role-based-access-control/permissions/integration#microsoftlogic)
+
+## Related content
+
+- See [Monitor Logic Apps](monitor-logic-apps.md) for a description of monitoring Logic Apps.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
