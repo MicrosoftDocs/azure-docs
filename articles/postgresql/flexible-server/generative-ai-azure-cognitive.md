@@ -26,7 +26,7 @@ Azure AI extension gives the ability to invoke the [language services](../../ai-
 
 ## Configure Azure Cognitive Services endpoint and key 
 
-In the Language resource, under **Resource Management** > **Keys and Endpoints** you can find the endpoint , keys and Location/Region for your language resource. Use the endpoint and key to enable `azure_ai` extension to invoke the model deployment. The Location/Region setting is only required for the translation function.
+In the Language resource, under **Resource Management** > **Keys and Endpoints** you can find the endpoint, keys, and Location/Region for your language resource. Use the endpoint and key to enable `azure_ai` extension to invoke the model deployment. The Location/Region setting is only required for the translation function.
 
 ```postgresql
 select azure_ai.set_setting('azure_cognitive.endpoint','https://<endpoint>.cognitiveservices.azure.com'); 
