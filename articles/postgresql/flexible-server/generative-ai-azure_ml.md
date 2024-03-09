@@ -17,6 +17,9 @@ Azure AI extension gives the ability to invoke any machine learning models deplo
 1. Ensure the status of the deployment to ensure the model was deployed successfully and invoke the endpoint to ensure the model runs successfully.
 1. Get the [URI](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-scoring-uri-for-the-endpoint) and the  [Key](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-key-or-token-for-data-plane-operations), which are needed to configure the extension to communicate with Azure Machine learning.
 
+> [!NOTE]
+> You can explore various Azure Machine learning [samples and datasets](../../machine-learning/samples-designer.md)
+
 
 ## Configure Azure ML endpoint 
 In the Azure Machine Learning Studio , under **Endpoints** > **Pick your endpoint** > **Consume** you can find the endpoint URI and Key for the online endpoint. Use these values to configure the `azure_ai` extension to use the online inferencing endpoint.
