@@ -28,10 +28,10 @@ The **General** section in the Azure portal includes the features listed in the 
 
 |Azure portal  |Defender portal  |
 |---------|---------|
-|Overview    |         |
-|Logs     |         |
-|News & guides     |         |
-|Search     |         |
+|Overview    |  Overview        |
+|Logs     |     Investigation & response > Hunting > Advanced hunting    |
+|News & guides     |  Not available      |
+|Search     | Microsoft Sentinel > Search        |
 
 
 ### Threat management
@@ -41,12 +41,12 @@ The **Threat management** section in the Azure portal includes the features list
 |Azure portal  |Defender portal  |
 |---------|---------|
 |Incidents    |         |
-|Workbooks     |         |
-|Hunting     |         |
-|Notebooks     |         |
+|Workbooks     | Microsoft Sentinel > Threat management> Workbooks      |
+|Hunting     | Microsoft Sentinel > Threat management >  Hunting      |
+|Notebooks     | Microsoft Sentinel > Threat management >  Notebooks         |
 |Entity behavior     |         |
-|Threat intelligence    |         |
-|MITRE ATT&CK||
+|Threat intelligence    | Microsoft Sentinel > Threat management >  Threat intelligence        |
+|MITRE ATT&CK|Microsoft Sentinel > Threat management > MITRE ATT&CK  |
 
 ### Content management
 
@@ -69,7 +69,7 @@ The **Configuration** section in the Azure portal includes the features listed i
 |Analytics     |         |
 |Watchlists    |         |
 |Automation   |         |
-|Settings   |         |
+|Settings   | **System** > **Settings** > **Microsoft Sentinel**        |
 
 ## New and improved capabilities
 
