@@ -4,11 +4,12 @@ description: This article describes how to use the Microsoft Sentinel hunting bo
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.custom: mvc
 ms.date: 11/09/2021
+ms.date: 03/08/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ---
 
-# Keep track of data during hunting with Microsoft Sentinel
+# Keep track of data while hunting in Microsoft Sentinel
 
 Threat hunting typically requires reviewing mountains of log data looking for evidence of malicious behavior. During this process, investigators find events that they want to remember, revisit, and analyze as part of validating potential hypotheses and understanding the full story of a compromise.
 
@@ -34,9 +35,9 @@ Viewing bookmarks from the table enables you to filter, summarize, and join book
 
 ## Add a bookmark
 
-1. In the Azure portal, navigate to **Microsoft Sentinel** > **Threat management** > **Hunting** to run queries for suspicious and anomalous behavior.
-
-1. Select one of the hunting queries and on the right, in the hunting query details, select **Run Query**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Threat management**, select **Hunting**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Hunting**.
+1. Select one of the hunting queries.
+1. In the hunting query details, select **Run Query**.
 
 1. Select **View query results**. For example:
 
