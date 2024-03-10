@@ -19,7 +19,7 @@ ms.custom:
 
 Learn how to use the [Search REST APIs](/rest/api/searchservice) to create, load, and query a search index in Azure AI Search. 
 
-[Download a REST sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/quickstart) to send the requests in this quickstart, or create requests manually using the instructions in this article.
+[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/quickstart) to send the requests in this quickstart, or create requests manually using the instructions in this article.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

@@ -10,15 +10,18 @@ ms.topic: conceptual
 ms.date: 07/20/2023
 ---
 
-# Automated publishing for continuous integration and delivery
+# Automated publishing for continuous integration and delivery (CI/CD)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+> [!NOTE]
+> Synapse Analytics also supports CI/CD. Refer to the [Synapse Analytics CI/CD documentation](/azure/synapse-analytics/cicd/continuous-integration-delivery) for more information.
 
 ## Overview
 
 Continuous integration is the practice of testing each change made to your codebase automatically. As early as possible, continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
-In Azure Data Factory, continuous integration and continuous delivery (CI/CD) means moving Data Factory pipelines from one environment, such as development, test, and production, to another. Data Factory uses [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to store the configuration of your various Data Factory entities, such as pipelines, datasets, and data flows.
+In Azure Data Factory, CI/CD means moving Data Factory pipelines from one environment, such as development, test, and production, to another. Data Factory uses [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to store the configuration of your various Data Factory entities, such as pipelines, datasets, and data flows.
 
 There are two suggested methods to promote a data factory to another environment:
 

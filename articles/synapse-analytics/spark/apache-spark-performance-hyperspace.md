@@ -3,6 +3,7 @@ title: Hyperspace indexes for Apache Spark
 description: Performance optimization for Apache Spark using Hyperspace indexes
 author: ekote
 ms.author: eskot 
+ms.reviewer: wiassaf, sngun
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice: spark
@@ -29,7 +30,7 @@ This document is also available in notebook form, for [Python](https://github.co
 ## Setup
 
 >[!Note]
-> Hyperspace is supported in Azure Synapse Runtime for Apache Spark 3.1 (EOLA), and Azure Synapse Runtime for Apache Spark 3.2 (EOLA). However, it should be noted that Hyperspace is not supported in Azure Synapse Runtime for Apache Spark 3.3 (GA).
+> Hyperspace is supported in Azure Synapse Runtime for Apache Spark 3.1 (unsupported), and Azure Synapse Runtime for Apache Spark 3.2 (End of Support announced). However, it should be noted that Hyperspace is not supported in Azure Synapse Runtime for Apache Spark 3.3 (GA).
 
 To begin with, start a new Spark session. Since this document is a tutorial merely to illustrate what Hyperspace can offer, you will make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. 
 
@@ -765,8 +766,8 @@ spark.DisableHyperspace();
 Results in:
 
 ```console
-res48: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@39fe1ddb  
-res51: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@39fe1ddb
+res48: org.apache.spark.sql.Spark&trade;Session = org.apache.spark.sql.SparkSession@39fe1ddb  
+res51: org.apache.spark.sql.Spark&trade;Session = org.apache.spark.sql.SparkSession@39fe1ddb
 ```
 
 ## Index usage
@@ -827,7 +828,7 @@ deptDFrame.Show(5);
 Results in:
 
 ```console
-res53: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.Spark™Session@39fe1ddb  
+res53: org.apache.spark.sql.Spark&trade;Session = org.apache.spark.sql.Spark&trade;Session@39fe1ddb  
 empDFrame: org.apache.spark.sql.DataFrame = [empId: int, empName: string ... 1 more field]  
 deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]  
 ```
@@ -1429,7 +1430,7 @@ var extraDepartments = new List<GenericRow>()
     new GenericRow(new object[] {50, "Inovation", "Seattle"}),
     new GenericRow(new object[] {60, "Human Resources", "San Francisco"})
 };
-	
+    
 DataFrame extraDeptData = spark.CreateDataFrame(extraDepartments, departmentSchema);
 extraDeptData.Write().Mode("Append").Parquet(deptLocation);
 

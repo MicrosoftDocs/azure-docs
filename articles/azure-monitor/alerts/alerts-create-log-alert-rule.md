@@ -59,7 +59,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
    For limitations:
    * [Cross-service query limitations](../logs/azure-monitor-data-explorer-proxy.md#limitations)
    * [Combine Azure Resource Graph tables with a Log Analytics workspace](../logs/azure-monitor-data-explorer-proxy.md#combine-azure-resource-graph-tables-with-a-log-analytics-workspace)
-   * Not suppported in government clouds
+   * Not supported in government clouds
 
 1. Select **Run** to run the alert.
 1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
