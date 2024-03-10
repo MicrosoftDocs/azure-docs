@@ -12,7 +12,7 @@ Azure Advisor helps you ensure and improve the continuity of your business-criti
 
 ## Check the version of your Check Point network virtual appliance image
 
-Advisor can identify whether your virtual machine is running a version of the Check Point image that has been known to lose network connectivity during platform servicing operations. The Advisor recommendation will help you upgrade to a newer version of the image that addresses this problem. This check will ensure business continuity through better network connectivity.
+Advisor can identify whether your virtual machine is running a version of the Check Point image that has been known to lose network connectivity during platform servicing operations. The Advisor recommendation helps you upgrade to a newer version of the image that addresses this problem. This check ensures business continuity through better network connectivity.
 
 ## Ensure application gateway fault tolerance
 

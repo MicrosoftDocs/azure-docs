@@ -42,7 +42,7 @@ If your log search alert didn't fire when it should have, check the following it
 
 1. **Are the actions muted or was the alert rule configured to resolve automatically?**
 
-    A common issue is that you think that the alert didn't fire, but the rule was configured so that the alert would not fire. See the advanced options of the [log search alert rule](./alerts-create-log-alert-rule.md) to verify that both of the following are not selected:
+    A common issue is that you think that the alert didn't fire, but the rule was configured so that the alert wouldn't fire. See the advanced options of the [log search alert rule](./alerts-create-log-alert-rule.md) to verify that both of the following aren't selected:
     * The **Mute actions** checkbox: allows you to mute fired alert actions for a set amount of time.
     * **Automatically resolve alerts**: configures the alert to only fire once per condition being met.
     
@@ -149,7 +149,7 @@ A configured [log alert rule in Azure Monitor](./alerts-log.md) might be trigger
     
     Logs are semi-structured data and are inherently more latent than metrics. If you're experiencing many misfires in fired alerts, consider using [metric alerts](alerts-types.md#metric-alerts). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
     
-    Log search alerts work best when you are try to detect specific data in the logs. They are less effective when you are trying to detect lack of data in the logs, like alerting on virtual machine heartbeat. 
+    Log search alerts work best when you're trying to detect specific data in the logs. They're less effective when you're trying to detect lack of data in the logs, like alerting on virtual machine heartbeat. 
     
 
 ## Error messages when configuring log search alert rules
@@ -164,9 +164,9 @@ If you receive this error message when creating or editing your alert rule query
 
 See [Manage access to Log Analytics workspaces](../logs/manage-access.md) to learn more about permissions.
 
-### One-minute frequency is not supported for this query
+### One-minute frequency isn't supported for this query
 
-There are some limitations to using a one minute alert rule frequency. When you set the alert rule frequency to one minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations.
+There are some limitations to using a one-minute alert rule frequency. When you set the alert rule frequency to one minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations.
 
 For a list of unsupported scenarios, see [this note](https://aka.ms/lsa_1m_limits). 
 
@@ -174,14 +174,14 @@ For a list of unsupported scenarios, see [this note](https://aka.ms/lsa_1m_limit
 
 This error message can be returned when creating or editing your alert rule query if:
 
-- You are referencing a column that doesn't exist in the table schema.
-- You are referencing a column that wasn't used in a prior project clause of the query.
+- You're referencing a column that doesn't exist in the table schema.
+- You're referencing a column that wasn't used in a prior project clause of the query.
 
 To mitigate this, you can either add the column to the previous project clause or use the [columnifexists](https://learn.microsoft.com/azure/data-explorer/kusto/query/column-ifexists-function) operator.
 
-### ScheduledQueryRules API is not supported for read only OMS Alerts
+### ScheduledQueryRules API isn't supported for read only OMS Alerts
 
-This error message is returned when trying to update or delete rules created with the legacy API version by using the Azure Portal.
+This error message is returned when trying to update or delete rules created with the legacy API version by using the Azure portal.
 
 1. Edit or delete the rule programmatically using the Log Analytics [REST API](./api-alerts.md).
 2. Recommended: [Upgrade your alert rules to use Scheduled Query Rules API](./alerts-log-api-switch.md) (legacy API is on a deprecation path).
