@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/29/2024
+ms.date: 03/08/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -388,7 +388,7 @@ The following settings work only for workflows that start with a recurrence-base
 | `Runtime.Backend.HttpOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP actions only, not triggers. For more information, see [Limitations](#limitations). |
-| `Runtime.Backend.HttpOperation.RequestTimeout` | `00:03:45` <br>(3 min and 45 sec) | Sets the request timeout value for HTTP triggers and actions. |
+| `Runtime.Backend.HttpOperation.RequestTimeout` | `00:03:45` <br>(3 min and 45 sec) <br><br>**Note**: The default value is also the maximum value. | Sets the request timeout value for HTTP triggers and actions. |
 
 <a name="http-webhook"></a>
 

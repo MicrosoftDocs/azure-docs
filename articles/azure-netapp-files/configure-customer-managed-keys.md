@@ -90,7 +90,6 @@ Before creating your first customer-managed key volume, you must set up:
     * The key must be of type RSA.
 * The key vault must have an [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
     * The private endpoint must reside in a different subnet than the one delegated to Azure NetApp Files. The subnet must be in the same VNet as the one delegated to Azure NetApp.
-* You must register the feature before you can use customer-managed keys. 
 
 For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 * [Quickstart: Create a key vault ](../key-vault/general/quick-create-portal.md)
@@ -99,26 +98,6 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 * [More about keys and supported key types](../key-vault/keys/about-keys.md)
 * [Network security groups](../virtual-network/network-security-groups-overview.md)
 * [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md)
-
-## Register the feature 
-
-You must register customer-managed keys before using it for the first time. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAzureKeyVaultEncryption
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAzureKeyVaultEncryption
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Configure a NetApp account to use customer-managed keys
 
