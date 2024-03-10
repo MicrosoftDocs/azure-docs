@@ -41,7 +41,7 @@ Before you design your control plane, consider the following questions:
 * How is outbound internet provided for the virtual machines?
 * Are you going to deploy Azure Firewall for outbound internet connectivity?
 * Are private endpoints required for storage accounts and the key vault?
-* Are you going to use an existing private DNS zone for the virtual machines or will you use the control plane for hosting Private DNS?
+* Are you going to use an existing private DNS zone for the virtual machines or use the control plane for hosting Private DNS?
 * Are you going to use Azure Bastion for secure remote access to the virtual machines?
 * Are you going to use the SAP Deployment Automation Framework configuration web application for performing configuration and deployment activities?
 
@@ -178,7 +178,7 @@ The automation framework uses the workload zone key vault for storing both the a
 
 To create your service principal:
 
-1. Sign in to the [Azure CLI](/cli/azure/) with an account that has permissions to create a service principal.
+1. Sign in to the [Azure CLI](/cli/azure/) with an account that has permissions to create a service principal
 1. Create a new service principal by running the command `az ad sp create-for-rbac`. Make sure to use a description name for `--name`. For example:
 
     ```azurecli
@@ -395,7 +395,7 @@ For more information, see [Configure the SAP system for automation](configure-sy
 
 When you plan a deployment, it's important to consider the overall flow. There are three main steps of an SAP deployment on Azure with the automation framework.
 
-1. Deploy the control plane. This step deploys components to support the SAP automation framework in a specified Azure region. Some parts of this step are to:
+1. Deploy the control plane. This step deploys components to support the SAP automation framework in a specified Azure region.
     1. Create the deployment environment.
     1. Create shared storage for Terraform state files.
     1. Create shared storage for SAP installation media.
