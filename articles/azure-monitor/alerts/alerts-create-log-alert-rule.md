@@ -57,7 +57,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md)
 
    For limitations:
-   * [Cross-service query limitations](https://learn.microsoft.co/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy#limitations)
+   * [Cross-service query limitations](https://learn.microsoft.com/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy#limitations)
    * [Combine Azure Resource Graph tables with a Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy#combine-azure-resource-graph-tables-with-a-log-analytics-workspace) limitations
    * Not suppprted in Gov clouds
 1. Select **Run** to run the alert.

@@ -4,7 +4,7 @@ author: Elazark
 ms.author: elkrieger
 description: This article provides an overview of the supported features and plans for Defender for Cloud in Azure commercial cloud and government clouds.
 ms.topic: limits-and-quotas
-ms.date: 03/03/2024
+ms.date: 03/10/2024
 ---
 
 # Defender for Cloud support for Azure commercial/other clouds
@@ -34,7 +34,7 @@ In the support table, **NA** indicates that the feature isn't available.
 |[Secure score](secure-score-security-controls.md) | GA | GA | GA|
 |[DevOps security posture](concept-devops-environment-posture-management-overview.md) | Preview | NA | NA|
 | **DEFENDER CSPM FEATURES** | | | |
-| [Data security dashboard](data-aware-security-dashboard-overview.md) | Preview | NA | NA |
+| [Data security dashboard](data-aware-security-dashboard-overview.md) | GA | NA | NA |
 | [Attack path](concept-attack-path.md) | GA | NA | NA |
 |**DEFENDER FOR CLOUD PLANS** | | ||
 |[Defender CSPM](concept-cloud-security-posture-management.md)| GA | NA | NA|
