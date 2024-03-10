@@ -375,6 +375,83 @@ az spring application-configuration-service delete \
 
 ---
 
+## Check configuration file in the ConfigMap
+
+The following section shows you how to check the content of config file pulled by Application Configuration Service from upstream Git repositories.
+
+### Assign an Azure role
+First you must have the Azure roles `Azure Spring Apps Application Configuration Service Config File Pattern Reader Role` assigned to you.
+
+#### [Azure portal](#tab/azure-Portal)
+
+Use the following steps to assign an Azure role using the Azure portal:
+
+1. Open the [Azure portal](https://portal.azure.com).
+
+1. Open your Azure Spring Apps service instance.
+
+1. In the navigation pane, select **Access Control (IAM)**.
+
+1. On the **Access Control (IAM)** page, select **Add** and then select **Add role assignment**.
+
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/add-role-assignment.png" alt-text="Screenshot of the Azure portal that shows the Access Control (IAM) page for an Azure Spring Apps instance with the Add role assignment option highlighted." lightbox="media/how-to-enterprise-application-configuration-service/add-role-assignment.png":::
+
+1. On the **Add role assignment** page, in the **Name** list, search for and select the target role and then select **Next**.
+
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service\application-configuration-service-config-pattern-file-reader-role.png" alt-text="Screenshot of the Azure portal that shows the Add role assignment page for an Azure Spring Apps instance with the Azure Spring Apps Application Configuration Service Config File Pattern Reader Role name highlighted." lightbox="media/how-to-enterprise-application-configuration-service\application-configuration-service-config-pattern-file-reader-role.png":::
+
+1. Select **Members** and then search for and select your username.
+
+1. Select **Review + assign**.
+
+#### [Azure CLI](#tab/azure-CLI)
+
+Use the following command to assign an Azure role:
+
+   ```azurecli
+   az role assignment create \
+       --role "Azure Spring Apps Application Configuration Service Config File Pattern Reader Role" \
+       --scope "<service-instance-resource-id>" \
+       --assignee "<your-identity>"
+   ```
+
+---
+
+### Check configuration file in the ConfigMap with Azure CLI
+
+Use the following command to view the content of configuration file by [Pattern](./how-to-enterprise-application-configuration-service.md#pattern):
+
+```azurecli
+az spring application-configuration-service config show \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --config-file-pattern <pattern>
+```
+
+And here is an example output of this command:
+```json
+{
+  "configurationFiles": {
+    "application.properties": [
+      "example.property.application.name: example-service",
+      "example.property.cloud: Azure"
+    ]
+  }
+}
+```
+
+You can also use this command with `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both relative path and absolute path. If not specified, it will take the path of current directory.
+
+## Check configuration file in the container
+After you bind the app to Application Configuration Service, and set the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) for the app deployment accroding to [Use Application Configuration Service with applications](./how-to-enterprise-application-configuration-service?use-application-configuration-service-with-applications) section, you can check the configuration files in the container for each instance of that app deployment with following steps:
+
+1. Connect to one of the instances according to [Connect to an app instance for troubleshooting](./how-to-connect-to-app-instance-for-troubleshooting.md).
+2. Use the command `echo $SPRING_CONFIG_ADDITIONAL_LOCATION` to find the configuration files, and it will show you a list of locations separated by comma. Following is an exmaple, yours may vary.
+   - ```output
+     > echo $SPRING_CONFIG_ADDITIONAL_LOCATION
+     > file:/xxx/xxx/configmap/acs-default-example-service-blue-xxx/,file:/etc/azure-spring-cloud/context/azure-spring-apps.properties,file:/etc/azure-spring-cloud/context/azure-spring-apps-deployment.properties`
+3. Then check the content of configuration file with commands like `cat`.
+
 ## Check logs
 
 The following sections show you how to view application logs by using either the Azure CLI or the Azure portal.
@@ -470,8 +547,8 @@ If the latest changes aren't reflected in the applications, check the following 
   - Confirm that the branch of the desired config file changes is updated.
   - Confirm that the pattern configured in the Application Configuration Service matches the updated config files.
   - Confirm that the application is bound to the Application Configuration Service.
-- Confirm that the `ConfigMap` of the app is updated. If it isn't updated, raise a ticket.
-- Confirm that the `ConfigMap` is mounted to the application as a file by using `web shell`. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
+- Confirm that the `ConfigMap` containing the configuration file for the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) used by the application is updated accroding to [Check configuration file](./how-to-enterprise-application-configuration-service.md#check-configuration-file-in-the-configmap) section. If it isn't updated, raise a ticket.
+- Confirm that the `ConfigMap` is mounted to the application as a file according to [Check configuration file in the container](./how-to-enterprise-application-configuration-service.md#check-configuration-file-in-the-container) section. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
 
 After checking these items, the applications should be able to read the updated configurations. If the applications still aren't updated, raise a ticket.
 
