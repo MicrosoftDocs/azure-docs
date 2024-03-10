@@ -58,7 +58,7 @@ spec:
     placementType: PickAll
     affinity:
         clusterAffinity:
-            requiredDuringSchedulingIgnoredDuringExection:
+            requiredDuringSchedulingIgnoredDuringExecution:
                 clusterSelectorTerms:
                 - labelSelector:
                     matchLabels:

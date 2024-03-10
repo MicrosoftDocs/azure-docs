@@ -103,9 +103,9 @@ In Standard workflows that use the Service Bus built-in operations, you can incr
 }
 ```
 
-To increase the timeout for sending a message, [add the `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` app setting](../logic-apps/edit-app-settings-host-settings.md).
+To increase the timeout for sending a message, [add the **ServiceProviders.ServiceBus.MessageSenderOperationTimeout** app setting](../logic-apps/edit-app-settings-host-settings.md).
 
-### Service Bus triggers
+### Service Bus managed connector triggers
 
 * For the Service Bus managed connector, all triggers are *long-polling*. This trigger type processes all the messages and then waits 30 seconds for more messages to appear in the queue or topic subscription. If no messages appear in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty. The next trigger poll is based on the recurrence interval specified in the trigger's properties.
 
@@ -134,7 +134,62 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
   > To find the optimal value for your scenario, start testing with a value of 1 or 2 for the `maximumWaitingRuns` property. 
   > To change the maximum waiting runs value, review [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
-<a name="permissions-connection-string"></a>
+### Service Bus built-in connector triggers
+
+Currently, configuration settings for the Service Bus built-in trigger are shared between the [Azure Functions host extension](../azure-functions/functions-bindings-service-bus.md#hostjson-settings), which is defined in your logic app's [**host.json** file](../logic-apps/edit-app-settings-host-settings.md), and the trigger settings defined in your logic app's workflow, which you can set up either through the designer or code view. This section covers both settings locations.
+
+* In Standard workflows, some triggers, such as the **When messages are available in a queue** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages. For this type of trigger and where the **Maximum message count** parameter isn't supported, you can still control the number of messages received by using the **maxMessageBatchSize** property in the **host.json** file. To find this file, see [Edit host and app settings for Standard logic apps](../logic-apps/edit-app-settings-host-settings.md).
+
+  
+  ```json
+  "extensions": {
+    "serviceBus": {
+        "maxMessageBatchSize": 25
+    }
+  }
+  ```
+
+* You can also enable concurrency on the Service Bus trigger, either through the designer or in code:
+
+  ```json
+  "runtimeConfiguration": {
+      "concurrency": {
+          "runs": 100
+      }
+  }
+  ```
+
+  When you set up concurrency using a batch, keep the number of concurrent runs larger than the overall batch size. That way, read messages don't go into a waiting state and are always picked up when they're read. In some cases, the trigger can have up to twice the batch size.
+
+* If you enable concurrency, the **SplitOn** limit is reduced to 100 items. This behavior is true for all triggers, not just the Service Bus trigger. Make sure the specified batch size is less than this limit on any trigger where you enable concurrency.
+
+* [Some scenarios exist where the trigger can exceed the concurrency settings](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs-limit). Rather than fail these runs, Azure Logic Apps queues them in a waiting state until they can be started. The [**maximumWaitingRuns** setting](../logic-apps/edit-app-settings-host-settings.md#trigger-concurrency) controls the number of runs allowed in the waiting state:
+
+  ```json
+  "runtimeConfiguration": {
+      "concurrency": {
+          "runs": 100,
+          "maximumWaitingRuns": 50
+      }
+  }
+  ```
+
+  With the Service Bus trigger, make sure that you carefully test these changes so that runs don't wait longer than the message lock timeout. For more information about the default values, see [Concurrency and de-batching limits here](../logic-apps/logic-apps-limits-and-config.md#concurrency-and-debatching).
+
+* If you enable concurrency, a 30-second delay exists between batch reads, by default. This delay slows down the trigger to achieve the following goals:
+
+  - Reduce the number of storage calls sent to check the number of runs on which to apply concurrency.
+
+  - Mimic the behavior of the Service Bus managed connector trigger, which has a 30-second long poll when no messages are found.
+
+  You can change this delay, but make sure that you carefully test any changes to the default value:
+
+  ```json
+  "workflow": {
+      "settings": {
+          "Runtime.ServiceProviders.FunctionTriggers.DynamicListenerEnableDisableInterval": "00:00:30"
+      }
+  }
 
 ## Step 1: Check access to Service Bus namespace
 
@@ -204,7 +259,7 @@ If you use the Service Bus managed connector, you need this endpoint URL if you 
 
 1. On the namespace menu, under **Settings**, select **Properties**.
 
-1. Under **Properties**, nex to **Service bus endpoint**, copy the endpoint URL, and save for later use when you have to provide the service bus endpoint URL.
+1. Under **Properties**, next to the **Service Bus endpoint**, copy the endpoint URL, and save for later use when you have to provide the service bus endpoint URL.
 
 <a name="get-fully-qualified-namespace"></a>
 
