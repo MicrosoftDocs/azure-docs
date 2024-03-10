@@ -1,6 +1,6 @@
 ---
 title: Getting started with Azure App Service
-description: Take the first steps toward working with Azure App Service.
+description: Take the first steps toward working with Azure App Service. PR activity from Microsoft Learn contribute module.
 ms.author: msangapu
 author: msangapu-msft
 ms.topic: overview
