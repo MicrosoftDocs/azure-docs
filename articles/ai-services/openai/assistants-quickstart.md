@@ -4,6 +4,7 @@ titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI assistants with new features like code interpreter and retrieval.
 manager: nitinme
 ms.service: azure-ai-openai
+ms.custom: devx-track-python
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin

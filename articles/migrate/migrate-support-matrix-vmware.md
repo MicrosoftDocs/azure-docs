@@ -6,8 +6,9 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 01/25/2024
-ms.custom: engagement-fy23
+ms.date: 02/27/2024
+ms.custom: engagement-fy24
+zone_pivot_groups: vmware-discovery-requirements
 ---
 
 # Support matrix for VMware discovery
@@ -21,15 +22,8 @@ To assess servers, first, create an Azure Migrate project. The Azure Migrate: Di
 
 As you plan your migration of VMware servers to Azure, see the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
-## Limitations
 
-Requirement | Details
---- | ---
-Project limits | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
-Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br /> This amount is valid for Azure VMware Solution as well.
-Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
-
-Learn more about [assessments](concepts-assessment-calculation.md).
+::: zone pivot="vmware-requirements"
 
 ## VMware requirements
 
@@ -38,12 +32,20 @@ VMware | Details
 vCenter Server | Servers that you want to discover and assess must be managed by vCenter Server version 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses aren't supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
 Permissions | The Azure Migrate: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory, agentless dependency analysis, web apps, and SQL discovery, the account must have privileges for guest operations on VMware virtual machines (VMs).
 
+:::zone-end
+
+::: zone pivot="server-requirements"
+
 ## Server requirements
 
 VMware | Details
 --- | ---
 Operating systems | All Windows and Linux operating systems can be assessed for migration.
 Storage | Disks attached to SCSI, IDE, and SATA-based controllers are supported.
+
+:::zone-end
+
+::: zone pivot="migrate-appliance-requirements"
 
 ## Azure Migrate appliance requirements
 
@@ -54,6 +56,11 @@ Here are more requirements for the appliance:
 - In Azure Government, you must deploy the appliance by using a [script](deploy-appliance-script-government.md).
 - The appliance must be able to access specific URLs in [public clouds](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 
+:::zone-end
+
+
+::: zone pivot="port-access-requirements"
+
 ## Port access requirements
 
 Device | Connection
@@ -61,6 +68,11 @@ Device | Connection
 Azure Migrate appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br /><br /> Inbound connections on port 44368 to remotely access the appliance management app by using the URL `https://<appliance-ip-or-name>:44368`. <br /><br />Outbound connections on port 443 (HTTPS) to send discovery and performance metadata to Azure Migrate and Modernize.
 vCenter Server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br /><br /> The appliance connects to vCenter on port 443 by default. If vCenter Server listens on a different port, you can modify the port when you set up discovery.
 ESXi hosts | For [discovery of software inventory](how-to-discover-applications.md) or [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), the appliance connects to ESXi hosts on TCP port 443 to discover software inventory and dependencies on the servers.
+
+::: zone-end
+
+
+::: zone pivot="software-inventory-requirements"
 
 ## Software inventory requirements
 
@@ -75,6 +87,10 @@ vCenter Server account | To interact with the servers for software inventory, th
 Server access | You can add multiple domain and nondomain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-sudo access) for all Linux servers.
 Port access | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory. <br /><br /> If you use domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /> <br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
 Discovery | Software inventory is performed from vCenter Server by using VMware Tools installed on the servers.<br/><br/> The appliance gathers the information about the software inventory from the server running vCenter Server through vSphere APIs.<br/><br/> Software inventory is agentless. No agent is installed on the server, and the appliance doesn't connect directly to the servers.
+
+::: zone-end
+
+::: zone pivot="sql-server-instance-database-discovery-requirements"
 
 ## SQL Server instance and database discovery requirements
 
@@ -281,6 +297,10 @@ Use the following sample scripts to create a login and provision it with the nec
   --GO
    ```
 
+::: zone-end
+
+::: zone pivot="web-apps-discovery"
+
 ## Web apps discovery requirements
 
 [Software inventory](how-to-discover-applications.md) identifies the web server role existing on discovered servers. If a server has a web server installed, Azure Migrate and Modernize discovers web apps on the server.
@@ -300,6 +320,11 @@ Required privileges | Local admin. | Root or sudo user.
 > [!NOTE]
 > Data is always encrypted at rest and during transit.
 
+::: zone-end
+
+
+::: zone pivot="dependency-analysis-agentless-requirements"
+
 ## Dependency analysis requirements (agentless)
 
 [Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers. You can easily visualize dependencies with a map view in an Azure Migrate project. You can use dependencies to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis.
@@ -316,6 +341,10 @@ Linux server access | A sudo user account with permissions to execute ls and net
 Port access | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running the servers that have dependencies you want to discover. The server running vCenter Server returns an ESXi host connection to download the file containing the dependency data.
 Discovery method |  Dependency information between servers is gathered by using VMware Tools installed on the server running vCenter Server.<br /><br /> The appliance gathers the information from the server by using vSphere APIs.<br /><br /> No agent is installed on the server, and the appliance doesn't connect directly to servers.
 
+::: zone-end
+
+::: zone pivot="dependency-analysis-agent-based-requirements"
+
 ## Dependency analysis requirements (agent-based)
 
 [Dependency analysis](concepts-dependency-visualization.md) helps you identify dependencies between on-premises servers that you want to assess and migrate to Azure. The following table summarizes the requirements for setting up agent-based dependency analysis.
@@ -331,6 +360,19 @@ Cost | The Service Map solution doesn't incur any charges for the first 180 days
 Management | When you register agents to the workspace, use the ID and key provided by the project.<br /><br /> You can use the Log Analytics workspace outside Azure Migrate and Modernize.<br /><br /> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/logs/manage-access.md).<br /><br /> Don't delete the workspace created by Azure Migrate and Modernize unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.
 Internet connectivity | If servers aren't connected to the internet, install the Log Analytics gateway on the servers.
 Azure Government | Agent-based dependency analysis isn't supported.
+
+::: zone-end
+
+## Limitations
+
+Requirement | Details
+--- | ---
+Project limits | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
+Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br /> This amount is valid for Azure VMware Solution as well.
+Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
+
+Learn more about [assessments](concepts-assessment-calculation.md).
+
 
 ## Import servers by using RVTools XLSX (preview)
 
@@ -371,5 +413,5 @@ To get an accurate operating system suitability/readiness in Azure VM and Azure 
 
 ## Next steps
 
-- Review [assessment best practices](best-practices-assessment.md).
-- Learn how to [prepare for a VMware assessment](./tutorial-discover-vmware.md).
+* Review [assessment best practices](best-practices-assessment.md).
+* Learn how to [prepare for a VMware assessment](./tutorial-discover-vmware.md).

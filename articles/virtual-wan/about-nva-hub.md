@@ -132,9 +132,9 @@ NVA in the virtual hub is available in the following regions:
 |---|---|
 | North America| Canada Central, Canada East, Central US, East US, East US 2, South Central US, North Central US, West Central US, West US, West US 2 |
 | South America | Brazil South, Brazil Southeast |
-| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe, Sweden Central|
-| Middle East | UAE North, Qatar Central |
-| Asia | East Asia, Japan East, Japan West, Korea Central, Korea South, Southeast Asia | 
+| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe, Sweden Central, Italy North|
+| Middle East | UAE North, Qatar Central, Israel Central |
+| Asia | East Asia, Japan East, Japan West, Korea Central, Korea South, Southeast Asia |
 | Australia | Australia South East, Australia East, Australia Central, Australia Central 2|
 | Africa | South Africa North |
 | India | South India, West India, Central India |

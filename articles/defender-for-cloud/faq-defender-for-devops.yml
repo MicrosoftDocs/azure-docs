@@ -80,8 +80,13 @@ sections:
       - question: |
           Why am I not able to see GitHub Advanced Security for Azure Devops (GHAzDO) results in Defender for Cloud?
         answer: |
+          Confirm your connectors is properly [authorized](#why-am-i-getting-an-error-while-trying-to-connect-).
+          
           Ensure you are using the same Subscription ID for GHAzDO and Defender for Cloud. If you are still unable to see the results, the issue might be caused by your ADO connector lacking the necessary scope. DevOps security introduced new scopes to Azure DevOps connectors in June. If you created the connector before June and haven't updated it, you won't be able to see GHAzDO results due to missing scope on the connector. You would need to create a new ADO connector, which will automatically include the new scopes.
-
+          
+          Ensure the user permissions for the Microsoft Defender for DevOps have `Advanced Security: view alerts` and `Read` set to `Allow`.  These permissions may have changed if the "Inheritance" toggle was switched off. If the necessary permissions are set to `Not set` or `Deny`, they will need to be manually updated to `Allow` otherwise the GHAzDO findings will not show up in Defender for Cloud recommendations.
+            
+            :::image type="content" source="media/faq-defender-for-devops/devops-user-permissions-set.png" alt-text="Screenshot that shows advanced security permissions." lightbox="media/faq-defender-for-devops/devops-user-permissions-set.png":::
       - question: |
           Is continuous, automatic scanning available?
         answer: |
