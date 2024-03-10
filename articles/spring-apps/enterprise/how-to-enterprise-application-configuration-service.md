@@ -377,7 +377,7 @@ az spring application-configuration-service delete \
 
 ## Check configuration file in the ConfigMap
 
-The following section shows you how to check the content of config file pulled by Application Configuration Service from upstream Git repositories.
+The following section shows you how to check the content of configuration file pulled by Application Configuration Service from upstream Git repositories.
 
 ### Assign an Azure role
 First you must have the Azure roles `Azure Spring Apps Application Configuration Service Config File Pattern Reader Role` assigned to you.
@@ -443,7 +443,7 @@ And here is an example output of this command:
 You can also use this command with `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both relative path and absolute path. If not specified, it will take the path of current directory.
 
 ## Check configuration file in the container
-After you bind the app to Application Configuration Service, and set the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) for the app deployment accroding to [Use Application Configuration Service with applications](./how-to-enterprise-application-configuration-service?use-application-configuration-service-with-applications) section, you can check the configuration files in the container for each instance of that app deployment with following steps:
+After you bind the app to Application Configuration Service, and set the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) for the app deployment accroding to [Use Application Configuration Service with applications](./how-to-enterprise-application-configuration-service.md#use-application-configuration-service-with-applications) section, you can check the configuration files in the container for each instance of that app deployment with following steps:
 
 1. Connect to one of the instances according to [Connect to an app instance for troubleshooting](./how-to-connect-to-app-instance-for-troubleshooting.md).
 2. Use the command `echo $SPRING_CONFIG_ADDITIONAL_LOCATION` to find the configuration files, and it will show you a list of locations separated by comma. Following is an exmaple, yours may vary.
@@ -547,7 +547,7 @@ If the latest changes aren't reflected in the applications, check the following 
   - Confirm that the branch of the desired config file changes is updated.
   - Confirm that the pattern configured in the Application Configuration Service matches the updated config files.
   - Confirm that the application is bound to the Application Configuration Service.
-- Confirm that the `ConfigMap` containing the configuration file for the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) used by the application is updated accroding to [Check configuration file](./how-to-enterprise-application-configuration-service.md#check-configuration-file-in-the-configmap) section. If it isn't updated, raise a ticket.
+- Confirm that the `ConfigMap` containing the configuration file for the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) used by the application is updated accroding to [Check configuration file in the ConfigMap](./how-to-enterprise-application-configuration-service.md#check-configuration-file-in-the-configmap) section. If it isn't updated, raise a ticket.
 - Confirm that the `ConfigMap` is mounted to the application as a file according to [Check configuration file in the container](./how-to-enterprise-application-configuration-service.md#check-configuration-file-in-the-container) section. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
 
 After checking these items, the applications should be able to read the updated configurations. If the applications still aren't updated, raise a ticket.
