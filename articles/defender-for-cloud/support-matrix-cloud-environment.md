@@ -1,6 +1,6 @@
 ---
 title: Support across Azure clouds
-description: Review Defender for Cloud features and plans supported across different clouds
+description: Review Defender for Cloud features and plans supported across different clouds.
 ms.topic: limits-and-quotas
 ms.date: 03/10/2024
 ---
