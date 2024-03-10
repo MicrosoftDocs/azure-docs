@@ -3,7 +3,7 @@ title: Integrate Azure AI Language Services with Azure Database for PostgreSQL
 description: Implement scenarios like sentiment analysis with Cognitive Services and Azure Database for PostgreSQL.
 author: mulander
 ms.author: adamwolk
-ms.date: 2/26/2024
+ms.date: 3/10/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -24,7 +24,7 @@ Azure AI extension gives the ability to invoke the [language services](../../ai-
 > [!NOTE]
 > You will need the key, endpoint and region from the resource you create to connect the extension to the API.
 
-## Configure Azure Cognitive Services endpoint and key 
+## Configure azure_ai extension with Azure Cognitive Services 
 
 In the Language resource, under **Resource Management** > **Keys and Endpoints** you can find the endpoint, keys, and Location/Region for your language resource. Use the endpoint and key to enable `azure_ai` extension to invoke the model deployment. The Location/Region setting is only required for the translation function.
 
@@ -35,9 +35,10 @@ select azure_ai.set_setting('azure_cognitive.subscription_key', '<API Key>');
 select azure_ai.set_setting('azure_cognitive.region', '<API Key>'); 
 ```
 
-### `azure_cognitive.analyze_sentiment`
+## Sentiment Analysis
 [Sentiment analysis](../../ai-services/language-service/sentiment-opinion-mining/overview.md) provides sentiment labels (`negative`,`positive`,`neutral`) and confidence scores for the text passed to the model.
 
+### `azure_cognitive.analyze_sentiment`
 ```postgresql
 azure_cognitive.analyze_sentiment(text text, language text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT TRUE, disable_service_logs boolean DEFAULT false)
 ```
@@ -63,10 +64,10 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 #### Return type
 `azure_cognitive.sentiment_analysis_result` a result record containing the sentiment predictions of the input text. It contains the sentiment, which can be `positive`, `negative`, `neutral`, and `mixed`; and the score for positive, neutral, and negative found in the text represented as a real number between 0 and 1. For example in `(neutral,0.26,0.64,0.09)`, the sentiment is `neutral` with `positive` score at `0.26`, neutral at `0.64` and negative at `0.09`.
 
+## Language detection
+[Language detection in Azure AI](../../ai-services/language-service/language-detection/overview.md) automatically detects the language a document.
 
 ### `azure_cognitive.detect_language`
-[Language detection in Azure AI](../../ai-services/language-service/language-detection/overview.md) detects the language a document is written in. 
-
 ```postgresql
 azure_cognitive.detect_language(text TEXT, timeout_ms INTEGER DEFAULT 3600000, throw_on_error BOOLEAN DEFAULT TRUE, disable_service_logs BOOLEAN DEFAULT FALSE)
 ```
@@ -89,10 +90,10 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 #### Return type
 `azure_cognitive.language_detection_result`, a result containing the detected language name, its two-letter ISO 639-1 representation, and the confidence score for the detection. For example in `(Portuguese,pt,0.97)`, the language is `Portuguese`, and detection confidence is `0.97`.
 
-### `azure_cognitive.extract_key_phrases`
-
+## Key phrase extraction
 [Key phrase extraction in Azure AI](../../ai-services/language-service/key-phrase-extraction/overview.md) extracts the main concepts in a text. 
 
+### `azure_cognitive.extract_key_phrases`
 ```postgresql
 azure_cognitive.extract_key_phrases(text TEXT, language TEXT, timeout_ms INTEGER DEFAULT 3600000, throw_on_error BOOLEAN DEFAULT TRUE, disable_service_logs BOOLEAN DEFAULT FALSE)
 ```
@@ -118,9 +119,10 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 #### Return type
 `text[]`, a collection of key phrases identified in the text. For example, if invoked with a `text` set to `'For more information, see Cognitive Services Compliance and Privacy notes.'`, and `language` set to `'en'`, it could return `{"Cognitive Services Compliance","Privacy notes",information}`.
 
-### `azure_cognitive.linked_entities`
+## Entity linking
 [Entity linking in Azure AI](../../ai-services/language-service/entity-linking/overview.md) identifies and disambiguates the identity of entities found in text linking them to a well-known knowledge base. 
 
+### `azure_cognitive.linked_entities`
 ```postgresql
 azure_cognitive.linked_entities(text text, language text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true, disable_service_logs boolean DEFAULT false)
 ```
@@ -177,9 +179,10 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 #### Return type
 `azure_cognitive.entity[]`, a collection of entities, where each defines the text identifying the entity, category of the entity and confidence score of the match. For example, if invoked with a `text` set to `'For more information, see Cognitive Services Compliance and Privacy notes.'`, and `language` set to `'en'`, it could return `{"(\"Cognitive Services\",Skill,\"\",0.94)"}`.
 
-### `azure_cognitive.recognize_pii_entities`
+## PII detection
 Identifies [personal data](../../ai-services/language-service/personally-identifiable-information/overview.md) found in the input text and categorizes those entities into types.
 
+### `azure_cognitive.recognize_pii_entities`
 ```postgresql
 azure_cognitive.recognize_pii_entities(text text, language text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true, domain text DEFAULT 'none'::text, disable_service_logs boolean DEFAULT true)
 ```
@@ -209,8 +212,11 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 #### Return type
 `azure_cognitive.pii_entity_recognition_result`, a result containing the redacted text, and entities as `azure_cognitive.entity[]`. Each entity contains the nonredacted text, personal data category, subcategory, and a score indicating the confidence that the entity correctly matches the identified substring. For example, if invoked with a `text` set to `'My phone number is +1555555555, and the address of my office is 16255 NE 36th Way, Redmond, WA 98052.'`, and `language` set to `'en'`, it could return `("My phone number is ***********, and the address of my office is ************************************.","{""(+1555555555,PhoneNumber,\\""\\"",0.8)"",""(\\""16255 NE 36th Way, Redmond, WA 98052\\"",Address,\\""\\"",1)""}")`.
 
+## Document summarization
+[Document and conversation summarization](../../ai-services/language-service/summarization/overview.md#document-summarization) uses natural language processing techniques to generate a summary for documents.
+
 ### `azure_cognitive.summarize_abstractive`
-[Document and conversation summarization](../../ai-services/language-service/summarization/overview.md) abstractive summarization produces a summary that might not use the same words in the document but yet captures the main idea. 
+[Document abstractive summarization](../../ai-services/language-service/summarization/overview.md#document-summarization) produces a summary that might not use the same words in the document but yet captures the main idea. 
 
 ```postgresql
 azure_cognitive.summarize_abstractive(text text, language text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true, sentence_count integer DEFAULT 3, disable_service_logs boolean DEFAULT false)
@@ -241,7 +247,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 `text[]`, a collection of summaries with each one not exceeding the defined `sentence_count`. For example, if invoked with a `text` set to `'PostgreSQL features transactions with atomicity, consistency, isolation, durability (ACID) properties, automatically updatable views, materialized views, triggers, foreign keys, and stored procedures. It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users. It was the default database for macOS Server and is also available for Linux, FreeBSD, OpenBSD, and Windows.'`, and `language` set to `'en'`, it could return `{"PostgreSQL is a database system with advanced features such as atomicity, consistency, isolation, and durability (ACID) properties. It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users. PostgreSQL was the default database for macOS Server and is available for Linux, BSD, OpenBSD, and Windows."}`.
 
 ### `azure_cognitive.summarize_extractive`
-[Document and conversation summarization](../../ai-services/language-service/summarization/overview.md) extractive summarization produces a summary extracting key sentences within the document. 
+[Document extractive](../../ai-services/language-service/summarization/how-to/document-summarization.md) summarization produces a summary extracting key sentences within the document. 
 
 ```postgresql
 azure_cognitive.summarize_extractive(text text, language text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true, sentence_count integer DEFAULT 3, sort_by text DEFAULT 'offset'::text, disable_service_logs boolean DEFAULT false)
@@ -276,9 +282,10 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 `azure_cognitive.sentence[]`, a collection of extracted sentences along with their rank score. 
 For example, if invoked with a `text` set to `'PostgreSQL features transactions with atomicity, consistency, isolation, durability (ACID) properties, automatically updatable views, materialized views, triggers, foreign keys, and stored procedures. It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users. It was the default database for macOS Server and is also available for Linux, FreeBSD, OpenBSD, and Windows.'`, and `language` set to `'en'`, it could return `{"(\"PostgreSQL features transactions with atomicity, consistency, isolation, durability (ACID) properties, automatically updatable views, materialized views, triggers, foreign keys, and stored procedures.\",0.16)","(\"It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users.\",0)","(\"It was the default database for macOS Server and is also available for Linux, FreeBSD, OpenBSD, and Windows.\",1)"}`.
 
-### `azure_cognitive.translate`
+## Language Translation
 [Azure AI Text Translation](../../ai-services/translator/text-translation-overview.md) enables quick and accurate translation to target languages in real time. 
 
+### `azure_cognitive.translate`
 ```postgresql
 azure_cognitive.translate(text text, target_language text, timeout_ms integer DEFAULT NULL, throw_on_error boolean DEFAULT true, source_language text DEFAULT NULL, text_type text DEFAULT 'plain', profanity_action text DEFAULT 'NoAction', profanity_marker text DEFAULT 'Asterisk', suggested_source_language text DEFAULT NULL , source_script text DEFAULT NULL , target_script text DEFAULT NULL)
 ```

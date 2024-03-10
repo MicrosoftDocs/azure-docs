@@ -3,7 +3,7 @@ title: Invoke Azure Machine Learning models from Azure Database for PostgreSQL
 description: Real-time scoring with online inference endpoints on Azure Machine Learning from Azure Database for PostgreSQL.
 author: denzilribeiro
 ms.author: denzilr
-ms.date: 3/6/2024
+ms.date: 3/10/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -13,8 +13,9 @@ ms.topic: how-to
 
 Azure AI extension gives the ability to invoke any machine learning models deployed on  [Azure Machine Learning online endpoints](../../machine-learning/concept-endpoints-online.md) from within SQL. These maybe models from the Azure Machine Learning catalog or custom models that are trained and deployed.
 
+## Prerequisites
 1. [Enable and configure](generative-ai-azure-overview.md#enable-the-azure_ai-extension) the `azure_ai` extension.
-1. Create a machine learning workspace and [deploy a model with an online endpoint](../../machine-learning/how-to-deploy-online-endpoints.md) using CLI, Python, or Azure Machine Learning Studio or [deploy an mlflow model to an online endpoint](../../machine-learning/how-to-deploy-mlflow-models-online-endpoints.md)
+1. Create a machine learning workspace and [deploy a model with an online endpoint](../../machine-learning/how-to-deploy-online-endpoints.md) using CLI, Python, or Azure Machine Learning Studio or [deploy an mlflow model to an online endpoint](../../machine-learning/how-to-deploy-mlflow-models-online-endpoints.md).
 1. Ensure the status of the deployment to ensure the model was deployed successfully and invoke the endpoint to ensure the model runs successfully.
 1. Get the [URI](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-scoring-uri-for-the-endpoint) and the  [Key](../../machine-learning/how-to-authenticate-online-endpoint.md#get-the-key-or-token-for-data-plane-operations), which are needed to configure the extension to communicate with Azure Machine learning.
 
@@ -23,7 +24,7 @@ Azure AI extension gives the ability to invoke any machine learning models deplo
 
 
 ## Configure Azure ML endpoint 
-In the Azure Machine Learning Studio , under **Endpoints** > **Pick your endpoint** > **Consume** you can find the endpoint URI and Key for the online endpoint. Use these values to configure the `azure_ai` extension to use the online inferencing endpoint.
+In the Azure Machine Learning Studio, under **Endpoints** > **Pick your endpoint** > **Consume** you can find the endpoint URI and Key for the online endpoint. Use these values to configure the `azure_ai` extension to use the online inferencing endpoint.
 
 ```postgresql
 select azure_ai.set_setting('azure_ml.scoring_endpoint','<URI>'); 
