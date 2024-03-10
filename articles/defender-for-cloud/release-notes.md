@@ -541,7 +541,7 @@ You can now prioritize your security recommendations according to the risk level
 
 By organizing your recommendations based on their risk level (Critical, high, medium, low), you're able to address the most critical risks within your environment and efficiently prioritize the remediation of security issues based on the actual risk such as internet exposure, data sensitivity, lateral movement possibilities, and potential attack paths that could be mitigated by resolving the recommendations.
 
-Learn more about [risk prioritization](implement-security-recommendations.md#group-recommendations-by-risk-level).
+Learn more about [risk prioritization](implement-security-recommendations.md).
 
 ### Attack path analysis new engine and extensive enhancements
 
