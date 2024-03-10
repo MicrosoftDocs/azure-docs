@@ -7,7 +7,7 @@ ms.author: dacurwin
 ms.date: 10/03/2022
 ---
 
-# Determine plan and agents requirments
+# Determine plan and agents requirements
 
 This article is one of a series providing guidance as you design a cloud security posture management (CSPM) and cloud workload protection (CWP) solution across multicloud resources with Microsoft Defender for Cloud.
 
