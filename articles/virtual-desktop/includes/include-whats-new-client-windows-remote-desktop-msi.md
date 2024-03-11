@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 02/29/2024
+ms.date: 03/06/2024
 ---
 
 ## Supported client versions
@@ -14,11 +14,14 @@ The following table lists the current versions available for the public and Insi
 | Public | 1.2.5112 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
 | Insider | 1.2.5252 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
+>[!IMPORTANT]
+>As of March 6, 2024, the public version of the client has rolled back to [version 1.2.5112](#updates-for-version-125112). Version 1.2.5252 has reverted to an Insider version.
+
 ## Updates for version 1.2.5252 (Insider)
 
-*Date published: February 29, 2024*
-
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+*Date published: February 29, 2024*
 
 In this release, we've made the following changes:
 
@@ -31,7 +34,6 @@ In this release, we've made the following changes:
 
 >[!NOTE]
 >This version was an Insiders version that was replaced by version 1.2.5252 and never released to Public.
-
 In this release, we've made the following changes:
 
 - Fixed an issue that caused artifacts to appear on the screen during RemoteApp sessions.
@@ -45,7 +47,6 @@ In this release, we've made the following changes:
 
 >[!NOTE]
 >This version was an Insiders version that was replaced by version 1.2.5248 and never released to Public.
-
 In this release, we've made the following changes:
 
 - Fixed the regression that caused a display issue when a user selects monitors for their session. 
@@ -67,8 +68,6 @@ In this release, we've made the following changes:
 ## Updates for version 1.2.5105
 
 *Published: January 9, 2024*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gq9I), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gxVu), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gnAc)
 
 In this release, we've made the following changes:
 

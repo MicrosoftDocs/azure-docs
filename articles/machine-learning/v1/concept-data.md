@@ -47,7 +47,7 @@ To use the data in your cloud-based storage solution, we recommend this data del
 
 This screenshot shows the recommended workflow:
 
-:::image type="content" source="./media/concept-data/data-concept-diagram.svg" alt-text="Screenshot showing the Azure Storage Service, which flows into a datastore and then into a dataset." lightbox="./media/concept-data/data-concept-diagram.svg":::
+:::image type="content" source="./media/concept-data/data-concept-diagram.png"  lightbox="./media/concept-data/data-concept-diagram.png" alt-text="Screenshot showing the Azure Storage Service, which flows into a datastore and then into a dataset.":::
 
 ## Connect to storage with datastores
 

@@ -42,7 +42,7 @@ To access the data security dashboard in Defender for Cloud, select **Data Secur
 
 **Role** - the minimum required privileged role-based access control role of **Security explorer**.
 
-- Register each relevant Azure subscription to the [Microsoft.Security resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+- Register each relevant Azure subscription to the [Microsoft.Security resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 > [!NOTE]
 > The data security dashboard feature is turned on at the subscription level.
