@@ -1,6 +1,6 @@
 ---
-title: Discover SAP systems with Azure Migrate Discovery and assessment 
-description: Learn how to discover SAP systems with the Azure Migrate Discovery and assessment.
+title: Assess of SAP systems for the migration 
+description: Learn how to assess SAP systems with the Azure Migrate Discovery and assessment.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -11,26 +11,31 @@ ms.custom:
 
 ---
 
-# Tutorial: Discover SAP systems with Azure Migrate: discovery and assessment
+# Tutorial: Assess SAP systems for migration to Azure
 
-As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
+As part of your migration journey to Azure, you assess your on-premises inventory and workloads.
 
-This tutorial explains how you can import the server inventory and workloads, and perform an assessment. You can upload a CSV file with server inventory details and upload it. Azure Migrate uses this information to generate an assessment report, featuring cost, and sizing recommendations based on cost and performance.
+This tutorial explains how you can perform an import-based assessments for your on-premises SAP systems using Azure Migrate to generate an assessment report, featuring cost, and sizing recommendations based on cost and performance. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up an Azure Migrate project.
-> * Import the server inventory and perform an assessment.
+> * Upload CSV with the server details.
+> * Review an assessment.
 
 > [!NOTE]
 > Tutorials show the quickest path for trying out a scenario, and use default options. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+## Prerequisites
 
-## Set up an Azure Migrate project
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+- Before you follow this tutorial to assess your SAP systems for migration to Azure, make sure you've discovered the SAP systems you want to assess using the Azure Migrate, [follow this tutorial](#tutorial-assess-sap-systems-for-migration-to-azure.md)
+- If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
-To set up a migration project, do the following steps:
+## Create an assessment
+
+Create an assessment for the discovered SAP systems as follows:
+
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 1. Under **Services**, select **Azure Migrate**.
 1. Select **Discover, Assess and Migrate**.
@@ -110,5 +115,5 @@ After you added information to the import template file, proceed to import the t
 
 
 ## Next steps
-Assess SAP System for migration.
+[Assess SAP System for migration](#tutorial-assess-sap-systems-for-migration-to-azure).
 
