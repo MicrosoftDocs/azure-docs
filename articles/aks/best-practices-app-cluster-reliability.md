@@ -404,6 +404,9 @@ spec:
 
 For more information, see [Use a standard load balancer in AKS](./load-balancer-standard.md).
 
+> [!TIP]
+> You can also use an [ingress controller](./app-routing.md) or a [service mesh](./istio-deploy-ingress.md) to manage network traffic, with each option providing different features and capabilities.
+
 ### System node pools
 
 #### Use dedicated system node pools
