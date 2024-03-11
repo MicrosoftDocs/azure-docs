@@ -152,6 +152,10 @@
       href: tutorial-scaling.md
 - name: Domains & certificates
   items:
+    - name: Overview
+      href: certificates-overview.md
+    - name: Manage certificates
+      href: certificates-manage.md
     - name: Custom domains & certificates
       items:
         - name: Set up custom domain with a free certificate
