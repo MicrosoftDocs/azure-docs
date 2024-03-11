@@ -143,6 +143,8 @@ items:
       href: discovered-metadata.md
     - name: Dependency analysis overview
       href: concepts-dependency-visualization.md
+    - name: SAP Systems discovey support
+      href: migrate-support-sap-systems.md
   - name: Decide
     items:
     - name: Business case overview
