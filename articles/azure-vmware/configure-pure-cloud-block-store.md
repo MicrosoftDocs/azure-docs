@@ -8,7 +8,7 @@ ms.service: azure-vmware
 ms.date: 3/06/2024
 --- 
 
-# Pure Cloud Block store
+# Pure Cloud Block Store
 
 ## Pure Cloud Block Store for Azure VMware Solution
 
