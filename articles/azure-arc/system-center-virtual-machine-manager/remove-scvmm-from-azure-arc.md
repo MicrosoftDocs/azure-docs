@@ -117,22 +117,22 @@ To run the deboarding script, follow these steps:
 
 - **vmmServerId**: The Azure resource ID of the SCVMM management server resource. </br> For example: */subscriptions/204898ee-cd13-4332-1111-88ca5c11111c/resourceGroups/Synthetics/providers/Microsoft.ScVmm/VMMServers/scvmmserverresource*
 
-- **ApplianceConfigFilePath (optional)**: Path to kubeconfig, output from deploy command. Providing applianceconfigfilepath also deletes the appliance VM running on the vCenter.
+- **ApplianceConfigFilePath (optional)**: Path to kubeconfig, output from deploy command. Providing applianceconfigfilepath also deletes the appliance VM running on the SCVMM management server.
 
 - **Force**: Using the Force flag deletes all the Azure resources without reaching resource bridge. Use this option if resource bridge VM isn't in running state.
 
 ### Remove SCVMM managed resources from Azure manually
 
-If you aren't using the deboarding script, follow these steps to remove the VMware vSphere resources manually:
+If you aren't using the deboarding script, follow these steps to remove the SCVMM resources manually:
 
 >[!NOTE]
->When you enable VMware vSphere resources in Azure, an Azure resource representing them is created. Before you can delete the vCenter resource in Azure, you must delete all the Azure resources that represent your related vSphere resources.
+>When you enable SCVMM resources in Azure, an Azure resource representing them is created. Before you can delete the SCVMM management server resource in Azure, you must delete all the Azure resources that represent your related SCVMM resources.
 
 1. Go to [Azure Arc center in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/overview)
 
-2. Select **SCVMM management server**.
+2. Select **SCVMM management servers**.
 
-3. Search and select the SCVMM management server you remove from Azure Arc.
+3. Search and select the SCVMM management server you want to remove from Azure Arc.
 
 4. Select **Virtual machines** under **SCVMM inventory**.
 
@@ -140,9 +140,9 @@ If you aren't using the deboarding script, follow these steps to remove the VMwa
 
 6. Select **Remove from Azure**.
 
-    This action only removes these resource representations from Azure. The resources continue to remain in your vCenter.
+    This action only removes these resource representations from Azure. The resources continue to remain in your SCVMM management server.
 
-7. Do the steps 4, 5, and 6 for **Clouds**, **VM networks**, and **VM templates** by performing Remove from Azure operation for resources with **Azure Enabled** value as **Yes**.
+7. Do the steps 4, 5, and 6 for **Clouds**, **VM networks**, and **VM templates** by performing **Remove from Azure** operation for resources with **Azure Enabled** value as **Yes**.
 
 8. Once the deletion is complete, select **Overview**.
 
