@@ -401,7 +401,7 @@ All configuration items must be set up before you create the application gateway
       -Interval 60 -Timeout 300 -UnhealthyThreshold 8
     ```
 
-1. Configure the backend certificates' trusted root certificate to verify the authenticity of the backend certificates.
+1. Configure the backend certificates' trusted root certificate. This certificate verifies the authenticity of the backend certificates.
 
     ```powershell
     $trustedRootCert = New-AzApplicationGatewayTrustedRootCertificate `
