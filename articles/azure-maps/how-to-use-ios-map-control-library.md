@@ -14,6 +14,12 @@ services: azure-maps
 
 The Azure Maps iOS SDK is a vector map library for iOS. This article guides you through the processes of installing the Azure Maps iOS SDK and loading a map.
 
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
+
 ## Prerequisites
 
 Be sure to complete the steps in the [Quickstart: Create an iOS app] article.
