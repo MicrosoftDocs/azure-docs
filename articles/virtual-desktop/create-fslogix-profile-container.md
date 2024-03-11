@@ -74,9 +74,6 @@ To get started, you need to set up an Azure NetApp Files account.
     - For **Resource group**, either select an existing resource group from the drop-down menu or create a new one by selecting **Create new**.
     - For **Location**, select the region for your NetApp account from the drop-down menu. This region must be the same region as your session host VMs.
 
-   >[!NOTE]
-   >Azure NetApp Files currently doesn't support mounting of a volume across regions.
-
 10. When you're finished, select **Create** to create your NetApp account.
 
 ## Create a capacity pool
