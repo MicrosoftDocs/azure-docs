@@ -381,6 +381,8 @@
           href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
         - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
           href: appliance-catalog/ys-techsystems-ys-fit2.md
+        - name: DELL XE4 SFF
+          href: appliance-catalog/dell-xe4-sff.md
       - name: Virtual appliances
         items:
         - name: OT sensor (VMware ESXi) 

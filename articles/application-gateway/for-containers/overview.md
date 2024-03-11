@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: overview
-ms.date: 02/27/2024
+ms.date: 03/07/2024
 ms.author: greglin
 ---
 
@@ -136,6 +136,8 @@ For issues, raise a support request via the Azure portal on your Application Gat
 ## Pricing and SLA
 
 For Application Gateway for Containers pricing information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
+
+For Application Gateway for Containers SLA information, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## What's new
 
