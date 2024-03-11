@@ -240,7 +240,7 @@ Creating and loading the index are separate steps. In Azure AI Search, the index
 The URI is extended to include the `docs` collection and `index` operation.
 
 > [!IMPORTANT]
-> The following example isn't runnable code. For readability, we excluded vector values because each one contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/quickstart-vectors) if you want to try this step.
+> The following example isn't runnable code. For readability, we excluded vector values because each one contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart-vectors) if you want to try this step.
 
 ```http
 ### Upload documents
@@ -399,7 +399,7 @@ The vector queries in this section are based on two strings:
 The vector query string is semantically similar to the search string, but includes terms that don't exist in the search index. If you do a keyword search for "classic lodging near running trails, eateries, retail", results are zero. We use this example to show how you can get relevant results even if there are no matching terms.
 
 > [!IMPORTANT]
-> The following examples aren't runnable code. For readability, we excluded vector values because each array contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/quickstart-vectors) if you want to try these queries.
+> The following examples aren't runnable code. For readability, we excluded vector values because each array contains 1536 embeddings, which is too long for this article. Copy runnable code from the [sample on GitHub](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart-vectors) if you want to try these queries.
 
 ### Single vector search
 
