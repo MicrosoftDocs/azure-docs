@@ -35,7 +35,7 @@ The following services and tools are required for this tutorial.
 
 ### Download files
 
-Source code for this tutorial is the [custom-analyzer.rest](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/custom-analyzers/custom-analyzer.rest) file in the [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub repository.
+Source code for this tutorial is the [custom-analyzer.rest](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/custom-analyzers/custom-analyzer.rest) file in the [Azure-Samples/azure-search-rest-samples](https://github.com/Azure-Samples/azure-search-rest-samples) GitHub repository.
 
 ### Copy a key and URL
 
