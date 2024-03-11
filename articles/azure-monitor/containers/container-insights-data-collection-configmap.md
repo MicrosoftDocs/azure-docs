@@ -33,12 +33,7 @@ Specific configuration you can perform with the ConfigMap includes:
 Use the following procedure to configure and deploy your ConfigMap configuration file to your cluster:
 
 1. Download the [template ConfigMap YAML file](https://aka.ms/container-azm-ms-agentconfig) and open it in an editor. If you already have a ConfigMap file, then you can use that one.
-1. Edit the ConfigMap YAML file with your customizations to collect stdout, stderr, and environmental variables:
-
-    - To exclude specific namespaces for stdout log collection, configure the key/value by using the following example:
-    `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
-    - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally. Then follow the steps [here](container-insights-manage-agent.md#disable-environment-variable-collection-on-a-container) to complete configuration for the specific container.
-    - To disable stderr log collection cluster-wide, configure the key/value by using the following example: `[log_collection_settings.stderr] enabled = false`.
+1. Edit the ConfigMap YAML file with your customizations using the settings described in [Data collection settings](#data-collection-settings)
     
 3. Save your changes in the editor.
 
