@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot automated ML experiments
+title: Troubleshoot data labeling projects
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot and resolve issues in your data labeling project.
 author: kvijaykannan
@@ -25,7 +25,7 @@ In many cases, an error creating the project could be due to access issues. To r
 
 1. Select the storage account in the Azure portal.
 
-    1. In [Azure Machine Learning studio](https://ml.studio.com), on the top right banner, select the workspace name.
+    1. In [Azure Machine Learning studio](https://ml.azure.com), on the top right banner, select the workspace name.
     1. At the bottom of the section that appears, select **View all properties in Azure portal**.
 
         :::image type="content" source="media/how-to-troubleshoot-data-labeling/view-all-properties.png" alt-text="Screenshot shows where to access View all properties in Azure portal.":::
