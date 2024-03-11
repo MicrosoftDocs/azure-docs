@@ -146,9 +146,8 @@ For a 30,000 RU/s reservation, in standard provisioned throughput, you should bu
 
 4. From the **Purchase reservations** pane, choose **Azure Cosmos DB** to buy a new reservation.  
 
-5. Fill in the required fields as described in the following table:
+5. Select the correct scope, billing subscription, management group if applicable, resource group if applicable, and the reservation size. The following table explain all options:
 
-   :::image type="content" source="./media/reserved-capacity/fill-reserved-capacity-form.png" alt-text="Fill the reserved capacity form":::
 
    |Field  |Description  |
    |---------|---------|
@@ -157,12 +156,12 @@ For a 30,000 RU/s reservation, in standard provisioned throughput, you should bu
    | Resource Group | Resource group to which the reserved capacity discount is applied. |
    |Term  |   One year or three years.   |
    |Throughput Type   |  Throughput is provisioned as request units. You can buy a reservation for the provisioned throughput for both setups - single region writes as well as multiple region writes. The throughput type has two values to choose from: 100 RU/s per hour and 100 multi-region writes RU/s per hour.|
-   | Reserved Capacity Units| The amount of throughput that you want to reserve. You can calculate this value by determining the throughput needed for all your Azure Cosmos DB resources (for example, databases or containers) per region. You then multiply it by the number of regions that you'll associate with your Azure Cosmos DB database. For example: If you have five regions with 1 million RU/sec in every region, select 5 million RU/sec for the reservation capacity purchase. |
+   | Reserved Capacity Units| The amount of throughput that you want to reserve. You can calculate this value by determining the throughput needed for all your Azure Cosmos DB resources (for example, databases or containers) per region. You then multiply it by the number of regions that you'll associate with your Azure Cosmos DB database. For example: If you have five regions with 1 million RU/sec in every region, select 5 million RU/s for the reservation capacity purchase. |
 
 
-6. After you fill the form, the price required to purchase the reserved capacity is calculated. The output also shows the percentage of discount you get with the chosen options. Next click **Select**
+6. Click on the **Add to cart** button on the bottom righ corner and then on **View Cart** when you are done. The quantities are defined next. Please note that you can add different options to the cart. Example: If you need 1,100,000 RU/s, you should add both the 1,000,000 RU/s and the 100 RU/s options to the cart. 
 
-7. In the **Purchase reservations** pane, review the discount and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions.  
+7. In the **Purchase reservations** pane review the billing frequency, the quantity, the discount, and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions. Example: If you need 1,100,000 RU/s across all regions, you should set the 1,000,000 RU/s option quantity to 1 and the 100 RU/s option quantity to 1000.
 
    :::image type="content" source="./media/reserved-capacity/reserved-capacity-summary.png" alt-text="Reserved capacity summary":::
 
