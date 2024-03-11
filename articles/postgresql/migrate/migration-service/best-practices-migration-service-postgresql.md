@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Best practices for seamless migration into Azure Database for PostgreSQL Preview
+# Best practices for seamless migration into Azure Database for PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
@@ -90,7 +90,7 @@ The following table shows the time it takes to perform migrations for databases 
 > [!IMPORTANT]  
 > Pick a higher SKU for your flexible server to perform faster migrations. Azure Database for PostgreSQL Flexible server supports near zero downtime Compute & IOPS scaling so the SKU can be updated with minimal downtime. You can always change the SKU to match the application needs post-migration.
 
-### Improve migration speed - Parallel migration of tables
+### Improve migration speed - parallel migration of tables
 
 A powerful SKU is recommended for the target, as the PostgreSQL migration service runs out of a container on the Flexible server. A powerful SKU enables more tables to be migrated in parallel. You can scale the SKU back to your preferred configuration after the migration. This section contains steps to improve the migration speed in case the data distribution among the tables needs to be more balanced and/or a more powerful SKU doesn't significantly impact the migration speed.
 
