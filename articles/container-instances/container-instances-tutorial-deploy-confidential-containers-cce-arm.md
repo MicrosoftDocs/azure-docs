@@ -30,9 +30,9 @@ In this tutorial, you learn how to:
 
 In this tutorial, you deploy a Hello World application that generates a hardware attestation report. You start by creating an ARM template with a container group resource to define the properties of this application. You then use this ARM template with the Azure CLI confcom tooling to generate a CCE policy for attestation.
 
-This tutorial uses [this ARM template](https://raw.githubusercontent.com/Azure-Samples/aci-confidential-hello-world/main/template.json?token=GHSAT0AAAAAAB5B6SJ7VUYU3G6MMQUL7KKKY7QBZBA). To view the source code for this application, see [Azure Container Instances Confidential Hello World](https://aka.ms/ccacihelloworld).
+This tutorial uses [this ARM template](https://raw.githubusercontent.com/Azure-Samples/aci-confidential-hello-world/main/template.json?token=GHSAT0AAAAAAB5B6SJ7VUYU3G6MMQUL7KKKY7QBZBA) as an example. To view the source code for this application, see [Azure Container Instances Confidential Hello World](https://aka.ms/ccacihelloworld).
 
-Two properties are added to the Container Instances resource definition to make the container group confidential:
+The example template adds two properties to the Container Instances resource definition to make the container group confidential:
 
 * `sku`: Enables you to select between confidential and standard container group deployments. If you don't add this property to the resource, the container group will be a standard deployment.
 * `confidentialComputeProperties`: Enables you to pass in a custom CCE policy for attestation of your container group. If you don't add this object to the resource, the software components that run within the container group won't be validated.
@@ -176,7 +176,7 @@ With the ARM template that you crafted and the Azure CLI confcom extension, you 
 
 ## Deploy the template
 
-In the following steps, you use the Azure portal to deploy the template. You can also use Azure PowerShell, the Azure CLI, and the REST API. To learn about other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
+In the following steps, you use the Azure portal to deploy the template. You can also use Azure PowerShell, the Azure CLI, or the REST API. To learn about other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
 
 1. Select the **Deploy to Azure** button to sign in to Azure and begin a Container Instances deployment.
 
@@ -228,7 +228,7 @@ In the following steps, you use the Azure portal to review the properties of the
 
     The presence of the attestation report below the Azure Container Instances logo confirms that the container is running on hardware that supports a TEE.
 
-    If you deploy to hardware that doesn't support a TEE (for example, by choosing a region where Container Instances Confidential is not available), no attestation report appears.
+    If you deploy to hardware that doesn't support a TEE (for example, by choosing a region where Container Instances Confidential isn't available), no attestation report appears.
 
 ## Related content
 
