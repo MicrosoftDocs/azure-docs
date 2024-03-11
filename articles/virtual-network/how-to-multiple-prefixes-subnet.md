@@ -96,26 +96,26 @@ In this section, you create a subnet with multiple prefixes.
 
     ```azurecli
     az group create \
-    --name test-rg \
-    --location eastus2
+        --name test-rg \
+        --location eastus2
     ```
 
 1. Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create a virtual network.
 
     ```azurecli
     az network vnet create \
-    --name vnet-1 \
-    --resource-group test-rg \
-    --location eastus2 \
-    --address-prefix 10.0.0.0/16
+        --name vnet-1 \
+        --resource-group test-rg \
+        --location eastus2 \
+        --address-prefix 10.0.0.0/16
     ```
 1. Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a subnet with multiple prefixes.
 
     ```azurecli
     az network vnet subnet create \
-    --name subnet-1 \
-    --vnet-name vnet-1 \
-    --resource-group test-rg \
-    --address-prefixes 10.0.0.0/24 10.0.1.0/24
+        --name subnet-1 \
+        --vnet-name vnet-1 \
+        --resource-group test-rg \
+        --address-prefixes 10.0.0.0/24 10.0.1.0/24
     ```
 ---
