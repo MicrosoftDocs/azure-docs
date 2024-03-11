@@ -218,7 +218,7 @@ For V2,
 
 For V1, verify the backend pool target's FQDN is same the Common Name (CN).
 
-**Tips:** To determine the Common Name (CN) of the backend server(s)’ certificate, you can use any of these methods. Also note, as per [**RFC 6125**](https://www.rfc-editor.org/rfc/rfc6125#section-6.4.4) if a SAN exists the SNI verification is done only against that field. The common name field is matched if there is no SAN in the certificate.
+**Tips:** To determine the Common Name (CN) of the backend server(s)’ certificate, you can use any of these methods. Also note, as per [**RFC 6125**](https://www.rfc-editor.org/rfc/rfc6125#section-6.4.4) if a SAN exists the SNI verification is done only against that field. The common name field is matched if there's no SAN in the certificate.
 
 * By using browser or any client:
 Access the backend server directly (not through Application Gateway) and click on the certificate padlock in the address bar to view the certificate details. You will find it under the “Issued To” section.
@@ -361,10 +361,10 @@ OR </br>
 
 **Message:** The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 in case of v1 SKU, and ports 65200-65535 in case of the v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
 
-**Cause:** For FQDN (Fully Qualified Domain Name)-based backend targets, the Application Gateway caches and uses the last-known-good IP address if it fails to get a response for the subsequent DNS lookup. A PUT operation on a gateway in this state would clear its DNS cache altogether. As a result, there will not be any destination address to which the gateway can reach.
+**Cause:** For FQDN (Fully Qualified Domain Name)-based backend targets, the Application Gateway caches and uses the last-known-good IP address if it fails to get a response for the subsequent DNS lookup. A PUT operation on a gateway in this state would clear its DNS cache altogether. As a result, there won't be any destination address to which the gateway can reach.
 
 **Resolution:**
-Check and fix the DNS servers to ensure it is serving a response for the given FDQN's DNS lookup. You must also check if the DNS servers are reachable through your application gateway's Virtual Network.
+Check and fix the DNS servers to ensure it's serving a response for the given FDQN's DNS lookup. You must also check if the DNS servers are reachable through your application gateway's Virtual Network.
 
 ### Other reasons
 If the backend health is shown as Unknown, the portal view will resemble the following screenshot:
@@ -374,7 +374,7 @@ If the backend health is shown as Unknown, the portal view will resemble the fol
 This behavior can occur for one or more of the following reasons:
 
 1. The NSG on the Application Gateway subnet is blocking inbound access to ports 65503-65534 (v1 SKU) or 65200-65535 (v2 SKU) from “Internet."
-2. The UDR on the Application Gateway subnet is set to the default route (0.0.0.0/0) and the next hop is not specified as "Internet."
+2. The UDR on the Application Gateway subnet is set to the default route (0.0.0.0/0) and the next hop isn't specified as "Internet."
 3. The default route is advertised by an ExpressRoute/VPN connection to a virtual network over BGP.
 4. The custom DNS server is configured on a virtual network that can't resolve public domain names.
 5. Application Gateway is in an Unhealthy state.
