@@ -167,6 +167,7 @@ Now create an event subscription in your API center to trigger the function app 
 1. Select **Azure Function**.
 1. On the **Create Event Subscription** page, do the following:
     1. Enter a descriptive **Name** for the event subscription, and select **Event Grid Schema**.
+    1. In **Topic details**, enter a **System topic name** of your choice.
     1. In **Event Types**, select the following events:
         * **API definition added**
         * **API definition updated**
