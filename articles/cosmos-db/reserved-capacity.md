@@ -123,13 +123,15 @@ This recommendation to purchase a 30,000 RU/s reservation indicates that, among 
 
 ## Buy Azure Cosmos DB reserved capacity
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Devide the reservation size by 100 to calculate the number of units of the 100 RU/s option you need. For the 30,000 RU/s example above, you should buy 300 units of the 100 RU/s option. The maximum quantity is 9999 units, or 999,900 RU/s. For more than this, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for up to 63% discounts.
 
-2. Select **All services** > **Reservations** > **Add**.  
+2. Sign in to the [Azure portal](https://portal.azure.com).
 
-3. From the **Purchase reservations** pane, choose **Azure Cosmos DB** to buy a new reservation.  
+3. Select **All services** > **Reservations** > **Add**.  
 
-4. Fill in the required fields as described in the following table:
+4. From the **Purchase reservations** pane, choose **Azure Cosmos DB** to buy a new reservation.  
+
+5. Fill in the required fields as described in the following table:
 
    :::image type="content" source="./media/reserved-capacity/fill-reserved-capacity-form.png" alt-text="Fill the reserved capacity form":::
 
@@ -143,13 +145,13 @@ This recommendation to purchase a 30,000 RU/s reservation indicates that, among 
    | Reserved Capacity Units| The amount of throughput that you want to reserve. You can calculate this value by determining the throughput needed for all your Azure Cosmos DB resources (for example, databases or containers) per region. You then multiply it by the number of regions that you'll associate with your Azure Cosmos DB database. For example: If you have five regions with 1 million RU/sec in every region, select 5 million RU/sec for the reservation capacity purchase. |
 
 
-5. After you fill the form, the price required to purchase the reserved capacity is calculated. The output also shows the percentage of discount you get with the chosen options. Next click **Select**
+6. After you fill the form, the price required to purchase the reserved capacity is calculated. The output also shows the percentage of discount you get with the chosen options. Next click **Select**
 
-6. In the **Purchase reservations** pane, review the discount and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions.  
+7. In the **Purchase reservations** pane, review the discount and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions.  
 
    :::image type="content" source="./media/reserved-capacity/reserved-capacity-summary.png" alt-text="Reserved capacity summary":::
 
-7. Select **Review + buy** and then **buy now**. You see the following page when the purchase is successful:
+8. Select **Review + buy** and then **buy now**. You see the following page when the purchase is successful:
 
 After you buy a reservation, it's applied immediately to any existing Azure Cosmos DB resources that match the terms of the reservation. If you don’t have any existing Azure Cosmos DB resources, the reservation will apply when you deploy a new Azure Cosmos DB instance that matches the terms of the reservation. In both cases, the period of the reservation starts immediately after a successful purchase.
 
