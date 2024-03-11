@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 02/27/2024
+ms.date: 03/11/2024
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -111,6 +111,17 @@ Install the Moby engine and CLI.
    sudo yum install moby-engine moby-cli
    ```
 
+> [!TIP]
+> If you get errors when you install the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:
+>
+>   ```bash
+>   curl -ssl https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+>   chmod +x check-config.sh
+>   ./check-config.sh
+>   ```
+>
+> In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you're missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you're using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. After you've deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
+
 # [Ubuntu Core snaps](#tab/snaps)
 
 IoT Edge has dependencies on Docker and IoT Identity Service. Install the dependencies using the following commands:
@@ -134,47 +145,26 @@ The following steps show you how to configure your container to use [`local` log
     sudo nano /etc/docker/daemon.json
     ```
 
-    # [Ubuntu Core snaps](#tab/snaps)
-
-    ```bash
-    sudo nano /var/snap/docker/current/config/daemon.json
-    ```
-
-    ---
-
 1. Set the default logging driver to the `local` logging driver as shown in the example.
-   
+
     ```JSON
        {
           "log-driver": "local"
        }
     ```
-1. Restart the container engine for the changes to take effect.
 
-    # [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+1. Restart the container engine for the changes to take effect.
 
     ```bash
     sudo systemctl restart docker
     ```
 
-    # [Ubuntu Core snaps](#tab/snaps)
+# [Ubuntu Core snaps](#tab/snaps)
 
-    ```bash
-    sudo systemctl restart snap.docker.dockerd.service
-    ```
+Currently, the local logging driver setting is not supported for the Docker snap.
 
-    ---
+---
 
-   > [!TIP]
-   > If you get errors when you install the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:
-   >
-   >   ```bash
-   >   curl -ssl https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
-   >   chmod +x check-config.sh
-   >   ./check-config.sh
-   >   ```
-   >
-   > In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you're missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you're using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. After you've deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
 
 ### Install the IoT Edge runtime
 
