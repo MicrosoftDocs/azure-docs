@@ -3,7 +3,7 @@ title: Deployment and cluster reliability best practices for Azure Kubernetes Se
 titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for deployment and cluster reliability for Azure Kubernetes Service (AKS) workloads.
 ms.topic: conceptual
-ms.date: 02/22/2024
+ms.date: 03/11/2024
 ---
 
 # Deployment and cluster reliability best practices for Azure Kubernetes Service (AKS)
@@ -14,7 +14,7 @@ The best practices in this article are organized into the following categories:
 
 | Category | Best practices |
 | -------- | -------------- |
-| [Deployment level best practices](#deployment-level-best-practices) | • [Pod Disruption Budgets (PDBs)](#pod-disruption-budgets-pdbs) <br/> • [Pod CPU and memory limits](#pod-cpu-and-memory-limits) <br/> • [Pre-stop hooks](#pre-stop-hooks) <br/> • [maxUnavailable](#maxunavailable) <br/> • [Pod anti-affinity](#pod-anti-affinity) <br/> • [Readiness and liveness probes](#readiness-and-liveness-probes) <br/> • [Multi-replica applications](#multi-replica-applications) |
+| [Deployment level best practices](#deployment-level-best-practices) | • [Pod Disruption Budgets (PDBs)](#pod-disruption-budgets-pdbs) <br/> • [Pod CPU and memory limits](#pod-cpu-and-memory-limits) <br/> • [Pre-stop hooks](#pre-stop-hooks) <br/> • [maxUnavailable](#maxunavailable) <br/> • [Pod anti-affinity](#pod-anti-affinity) <br/> • [Readiness, liveness, and startup probes](#readiness-liveness-and-startup-probes) <br/> • [Multi-replica applications](#multi-replica-applications) |
 | [Cluster and node pool level best practices](#cluster-and-node-pool-level-best-practices) | • [Availability zones](#availability-zones) <br/> • [Cluster autoscaling](#cluster-autoscaling) <br/> • [Standard Load Balancer](#standard-load-balancer) <br/> • [System node pools](#system-node-pools) <br/> • [Accelerated Networking](#accelerated-networking) <br/> • [Image versions](#image-versions) <br/> • [Azure CNI for dynamic IP allocation](#azure-cni-for-dynamic-ip-allocation) <br/> • [v5 SKU VMs](#v5-sku-vms) <br/> • [Do *not* use B series VMs](#do-not-use-b-series-vms) <br/> • [Premium Disks](#premium-disks) <br/> • [Container Insights](#container-insights) <br/> • [Azure Policy](#azure-policy) |
 
 ## Deployment level best practices
@@ -30,11 +30,11 @@ The following deployment level best practices help ensure high availability and 
 >
 > Use Pod Disruption Budgets (PDBs) to ensure that a minimum number of pods remain available during *voluntary disruptions*, such as upgrade operations or accidental pod deletions.
 
-[Pod Disruption Budgets (PDBs)](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) allow you to define how deployments or replica sets respond during voluntary disruptions, such as upgrade operations or accidental pod deletions. Using PDBs, you can define a minimum or maximum unavailable resource count.
+[Pod Disruption Budgets (PDBs)](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) allow you to define how deployments or replica sets respond during voluntary disruptions, such as upgrade operations or accidental pod deletions. Using PDBs, you can define a minimum or maximum unavailable resource count. PDBs only affect the Eviction API for voluntary disruptions.
 
 For example, let's say you need to perform a cluster upgrade and already have a PDB defined. Before performing the cluster upgrade, the Kubernetes scheduler ensures that the minimum number of pods defined in the PDB are available. If the upgrade would cause the number of available pods to fall below the minimum defined in the PDBs, the scheduler schedules extra pods on other nodes before allowing the upgrade to proceed. If you don't set a PDB, the scheduler doesn't have any constraints on the number of pods that can be unavailable during the upgrade, which can lead to a lack of resources and potential cluster outages.
 
-In the following example PDB definition file, the `minAvailable` field sets the minimum number of pods that must remain available during voluntary disruptions:
+In the following example PDB definition file, the `minAvailable` field sets the minimum number of pods that must remain available during voluntary disruptions. The value can be an absolute number (for example, *3*) or a percentage of the desired number of pods (for example, *10%*).
 
 ```yaml
 apiVersion: policy/v1
@@ -42,7 +42,7 @@ kind: PodDisruptionBudget
 metadata:
    name: mypdb
 spec:
-   minAvailable: 3 # Minimum number of pods that must remain available
+   minAvailable: 3 # Minimum number of pods that must remain available during voluntary disruptions
    selector:
     matchLabels:
       app: myapp
@@ -109,7 +109,7 @@ For more information, see [Assign CPU Resources to Containers and Pods](https://
 
 > **Best practice guidance**
 >
-> Use pre-stop hooks to ensure graceful termination of a container.
+> When applicable, use pre-stop hooks to ensure graceful termination of a container.
 
 A `PreStop` hook is called immediately before a container is terminated due to an API request or management event, such as preemption, resource contention, or a liveness/startup probe failure. A call to the `PreStop` hook fails if the container is already in a terminated or completed state, and the hook must complete before the TERM signal to stop the container is sent. The pod's termination grace period countdown begins before the `PreStop` hook is executed, so the container eventually terminates within the termination grace period.
 
@@ -139,11 +139,11 @@ For more information, see [Container lifecycle hooks](https://kubernetes.io/docs
 
 > **Best practice guidance**
 >
-> Define the maximum number of pods that can be unavailable during a rolling upgrade using the `maxUnavailable` field in your deployment to ensure that a minimum number of pods remain available during the upgrade.
+> Define the maximum number of pods that can be unavailable during a rolling update using the `maxUnavailable` field in your deployment to ensure that a minimum number of pods remain available during the upgrade.
 
-The `maxUnavailable` field specifies the maximum number of pods that can be unavailable during the upgrade process. The value can be an absolute number (for example, *five*) or a percentage of the desired number of pods (for example, *10%*).
+The `maxUnavailable` field specifies the maximum number of pods that can be unavailable during the update process. The value can be an absolute number (for example, *3*) or a percentage of the desired number of pods (for example, *10%*). `maxUnavailable` pertains to the Delete API, which is used during rolling updates.
 
-The following example deployment manifest uses the `maxAvailable` field to set the maximum number of pods that can be unavailable during the upgrade process:
+The following example deployment manifest uses the `maxAvailable` field to set the maximum number of pods that can be unavailable during the update process:
 
 ```yaml
 apiVersion: apps/v1
@@ -199,8 +199,9 @@ spec:
           - key: topology.kubernetes.io/zone
             operator: In
             values:
-            - antarctica-east1
-            - antarctica-west1
+            - 0 # Azure Availability Zone 0
+            - 1 # Azure Availability Zone 1
+            - 2 # Azure Availability Zone 2
       preferredDuringSchedulingIgnoredDuringExecution:
       - weight: 1
         preference:
@@ -225,17 +226,15 @@ For more information, see [Affinity and anti-affinity in Kubernetes](https://kub
 >
 > For more information, see [Best practices for multiple zones](https://kubernetes.io/docs/setup/best-practices/multiple-zones/) and [Overview of availability zones for AKS clusters](./availability-zones.md#overview-of-availability-zones-for-aks-clusters).
 
-### Readiness and liveness probes
+### Readiness, liveness, and startup probes
 
 > **Best practice guidance**
 >
-> Configure readiness and liveness probes to improve resiliency for high load and lower container restarts.
+> Configure readiness, liveness, and startup probes when applicable to improve resiliency for high loads and lower container restarts.
 
 #### Readiness probes
 
 In Kubernetes, the kubelet uses readiness probes to know when a container is ready to start accepting traffic. A pod is considered *ready* when all of its containers are ready. When a pod is *not ready*, it's removed from service load balancers. For more information, see [Readiness Probes in Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes).
-
-For containerized applications that serve traffic, you should verify that your container is ready to handle incoming requests. [Azure Container Instances](../container-instances/container-instances-overview.md) supports readiness probes to include configurations so that your container can't be accessed under certain conditions.
 
 The following example pod definition file shows a readiness probe configuration:
 
@@ -255,19 +254,58 @@ For more information, see [Configure readiness probes](../container-instances/co
 
 In Kubernetes, the kubelet uses liveness probes to know when to restart a container. If a container fails its liveness probe, the container is restarted. For more information, see [Liveness Probes in Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
-Containerized applications can run for extended periods of time, resulting in broken states in need of repair by restarting the container. [Azure Container Instances](../container-instances/container-instances-overview.md) supports liveness probes to include configurations so that your container can be restarted under certain conditions.
-
 The following example pod definition file shows a liveness probe configuration:
 
 ```yaml
-    livenessProbe:
-      exec:
-        command:
-        - cat
-        - /tmp/healthy
+livenessProbe:
+  exec:
+    command:
+    - cat
+    - /tmp/healthy
 ```
 
-For more information, see [Configure liveness probes](../container-instances/container-instances-liveness-probe.md).
+Another kind of liveness probe uses an HTTP GET request. The following example pod definition file shows an HTTP GET request liveness probe configuration:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: liveness-http
+spec:
+  containers:
+  - name: liveness
+    image: registry.k8s.io/liveness
+    args:
+    - /server
+    livenessProbe:
+      httpGet:
+        path: /healthz
+        port: 8080
+        httpHeaders:
+        - name: Custom-Header
+          value: Awesome
+      initialDelaySeconds: 3
+      periodSeconds: 3
+```
+
+For more information, see [Configure liveness probes](../container-instances/container-instances-liveness-probe.md) and [Define a liveness HTTP request](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request).
+
+#### Startup probes
+
+In Kubernetes, the kubelet uses startup probes to know when a container application has started. When you configure a startup probe, readiness and liveness probes don't start until the startup probe succeeds, ensuring the readiness and liveness probes don't interfere with application startup. For more information, see [Startup Probes in Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes).
+
+The following example pod definition file shows a startup probe configuration:
+
+```yaml
+startupProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  failureThreshold: 30
+  periodSeconds: 10
+```
 
 ### Multi-replica applications
 
@@ -386,7 +424,7 @@ Use the autoscaler on node pools to configure the minimum and maximum scale limi
 
 For more information, see [Use the cluster autoscaler on node pools](./cluster-autoscaler.md#use-the-cluster-autoscaler-on-node-pools).
 
-#### At least two nodes per system node pool
+#### At least three nodes per system node pool
 
 > **Best practice guidance**
 >
@@ -414,7 +452,11 @@ For more information, see [Accelerated Networking overview](../virtual-network/a
 >
 > Images shouldn't use the `latest` tag.
 
+#### Container image tags
+
 Using the `latest` tag for [container images](https://kubernetes.io/docs/concepts/containers/images/) can lead to unpredictable behavior and makes it difficult to track which version of the image is running in your cluster. You can minimize these risks by integrating and running scan and remediation tools in your containers at build and runtime. For more information, see [Best practices for container image management in AKS](./operator-best-practices-container-image-management.md).
+
+#### Node image upgrades
 
 AKS provides multiple auto-upgrade channels for node OS image upgrades. You can use these channels to control the timing of upgrades. We recommend joining these auto-upgrade channels to ensure that your nodes are running the latest security patches and updates. For more information, see [Auto-upgrade node OS images in AKS](./auto-upgrade-node-os-image.md).
 
@@ -422,9 +464,9 @@ AKS provides multiple auto-upgrade channels for node OS image upgrades. You can 
 
 > **Best practice guidance**
 >
-> Use the standard tier for product workloads for greater cluster reliability and resources, support for up to 5,000 nodes in a cluster, and Uptime SLA enabled by default.
+> Use the Standard tier for product workloads for greater cluster reliability and resources, support for up to 5,000 nodes in a cluster, and Uptime SLA enabled by default. If you need LTS, consider using the Premium tier.
 
-The standard tier for Azure Kubernetes Service (AKS) provides a financially backed 99.9% uptime [service-level agreement (SLA)](https://www.azure.cn/en-us/support/sla/kubernetes-service/) for your production workloads. The standard tier also provides greater cluster reliability and resources, support for up to 5,000 nodes in a cluster, and Uptime SLA enabled by default. For more information, see [Standard pricing tier for AKS cluster management](./free-standard-pricing-tiers.md).
+The Standard tier for Azure Kubernetes Service (AKS) provides a financially backed 99.9% uptime [service-level agreement (SLA)](https://www.azure.cn/en-us/support/sla/kubernetes-service/) for your production workloads. The standard tier also provides greater cluster reliability and resources, support for up to 5,000 nodes in a cluster, and Uptime SLA enabled by default. For more information, see [Pricing tiers for AKS cluster management](./free-standard-pricing-tiers.md).
 
 ### Azure CNI for dynamic IP allocation
 
