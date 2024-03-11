@@ -61,7 +61,7 @@ This section helps you deploy Bastion as private-only to your virtual network.
 > [!IMPORTANT]
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to your virtual network. If you don't already have a virtual network create on. If you're creating a virtual network for this exercise, you can create the AzureBastionSubnet (from the next step) at the same time you create your virtual network.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your virtual network. If you don't already have one, you can [create a virtual network](../virtual-network/quick-create-portal.md). If you're creating a virtual network for this exercise, you can create the AzureBastionSubnet (from the next step) at the same time you create your virtual network.
 
 1. Create the subnet to which your Bastion resources will be deployed. In the left pane, select **Subnets  -> +Subnet** to add the *AzureBastionSubnet*.
 
