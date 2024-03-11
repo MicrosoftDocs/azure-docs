@@ -122,7 +122,7 @@ While the application setting method is recommended for all languages and all ru
 
 ### C# class libraries
 
-In a class library function, you can also use the `Disable` attribute to prevent the function from being triggered. This attribute lets you customize the name of the setting used to disable the function. Use the version of the attribute that lets you define a constructor parameter that refers to a Boolean app setting, as shown in the following example:
+In a class library function (`In-process` model), you can also use the `Disable` attribute to prevent the function from being triggered. This attribute lets you customize the name of the setting used to disable the function. Use the version of the attribute that lets you define a constructor parameter that refers to a Boolean app setting, as shown in the following example:
 
 ```csharp
 public static class QueueFunctions
@@ -137,6 +137,9 @@ public static class QueueFunctions
     }
 }
 ```
+
+> [!NOTE]
+> [Disable] attribute is not available in Isolated worker model.
 
 This method lets you enable and disable the function by changing the app setting, without recompiling or redeploying. Changing an app setting causes the function app to restart, so the disabled state change is recognized immediately.
 
