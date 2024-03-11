@@ -339,8 +339,8 @@ The following table summarizes the available attributes by source:
 | **Request**       | | |
 | | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys); available only for storage accounts where hierarchical namespace is not enabled        |
 | | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key); available only for storage accounts where hierarchical namespace is not enabled |
-| | [Blob list include](#blob-list-include)   | Information that can be included with listing operations, such as metadata, snapshots, or versions. |
 | | [Blob prefix](#blob-prefix)               | Allowed prefix of blobs to be listed                               |
+| | [List blob include](#list-blob-include)   | Information that can be included with listing operations, such as metadata, snapshots, or versions. |
 | | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot       |
 | | [Version ID](#version-id)                 | The version ID of the versioned blob; available only for storage accounts where hierarchical namespace is not enabled                               |
 | **Resource**      | | |
@@ -396,18 +396,6 @@ Restricts information that can be included when listing blobs.
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:`*keyname*`<$key_case_sensitive$>`<br/>`@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'`<br/>[Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag) |
 > | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
 
-### Blob list include
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Property | Value |
-> | --- | --- |
-> | **Display name** | Blob list include |
-> | **Description** | Information that can be included with listing operations, such as metadata, snapshots, or versions.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
-> | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include` |
-> | **Attribute source** | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
-> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
-> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringEqualsIgnoreCase {'metadata', 'snapshots', 'versions'}`<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path) |
-
 ### Blob path
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -460,7 +448,7 @@ Restricts information that can be included when listing blobs.
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/metadata` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
-> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/metadata:testKey] StringEquals 'testValue'`<br/>[Example: Read blobs in a container with specific metadata](storage-auth-abac-examples.md#example-read-blobs-in-container-with-specific-metadata) |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/metadata:testKey] StringEquals 'testValue'`<br/>[Example: Read blobs in a container with specific metadata](storage-auth-abac-examples.md#example-read-blobs-in-container-with-specific-metadata)<br/>[Example: Write or delete blobs in container with specific metadata](storage-auth-abac-examples.md#example-write-or-delete-blobs-in-container-with-specific-metadata) |
 
 ### Encryption scope name
 
@@ -514,6 +502,18 @@ Restricts information that can be included when listing blobs.
 > | **Applies to** | For copy operations using the following REST operations, this attribute only applies to the destination storage account, and not the source:<br><br>[Copy Blob](/rest/api/storageservices/copy-blob)<br>[Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url)<br>[Put Blob From URL](/rest/api/storageservices/put-blob-from-url)<br>[Put Block From URL](/rest/api/storageservices/put-block-from-url)<br>[Append Block From URL](/rest/api/storageservices/append-block-from-url)<br>[Put Page From URL](/rest/api/storageservices/put-page-from-url)<br><br>For all other read, write, create, delete, and rename operations, it applies to the storage account that is the target of the operation |
 > | **Examples** | `@Environment[isPrivateLink] BoolEquals true`<br/>[Example: Require private link access to read blobs with high sensitivity](storage-auth-abac-examples.md#example-require-private-link-access-to-read-blobs-with-high-sensitivity) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
+
+### List blob include
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | List blob include |
+> | **Description** | Information that can be included with listing operations, such as metadata, snapshots, or versions.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
+> | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include` |
+> | **Attribute source** | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAnyOfAnyValues:StringEqualsIgnoreCase {'metadata', 'snapshots', 'versions'}`<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path) |
 
 ### Private endpoint
 
