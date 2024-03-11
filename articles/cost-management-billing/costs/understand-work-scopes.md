@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/22/2023
+ms.date: 03/11/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -27,6 +27,8 @@ Scopes are where you manage billing data, have roles specific to payments, view 
 To learn more about scopes, watch the [Cost Management setting up hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) video. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
+
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/AzureADNewName).
 
 ## How Cost Management uses scopes
 
