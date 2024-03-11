@@ -97,7 +97,7 @@ You can buy up to 9999 units of the one-million or more options, with the variab
 | 30,000,000 RU/s | 43.4% | 58.3% |
 | 30,000,000 Multi-master RU/s | 48.4% | 63.3% |
 
-Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase these reservations bigger than ope million RU/s.
+Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase any quantity of the reservations above.
 
 ### Existing reservations
 
