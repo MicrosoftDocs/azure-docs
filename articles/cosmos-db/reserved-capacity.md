@@ -61,7 +61,7 @@ Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB 
 
 ### Discounts for reservations smaller than one million RU/s
 
-You can buy up to 9999 units of the 100 RU/s option, with the fixed discounts rates below:
+You can buy up to 9999 units of the 100 RU/s option, 999,990 RU/s ,with the fixed discounts rates below:
 
 |Reservation Size  | One-Year Single Discount  | Three-Years  Discount
 |---------|---------|---------|
