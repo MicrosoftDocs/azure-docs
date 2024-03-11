@@ -39,7 +39,7 @@ The PowerShell module performs the following functions:
 - Logs the upgrade operation for easy audit and failure recovery.
 
 >[!WARNING]
-> Migrating _internal_ Basic Load Balancers where the backend VMs or VMSS instances do not have Public IP Addresses assigned requires additional action for backend pool members to connect to the internet. The recommended approach is to create a NAT Gateway and assign it to the backend pool members' subnet (see: [**Integrate NAT Gateway with Internal Load Balancer**](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md)). Alternatively, Public IP Addresses can be allocated to each Virtual Machine Scale Set or Virtual Machine instance by adding a Public IP Configuration to the Network Profile (see: [**VMSS Public IPv4 Address Per Virtual Machine**](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)) for Virtual Machine Scale Sets or [**Associate a Public IP address with a Virtual Machine**](../virtual-network/ip-services/associate-public-ip-address-vm.md) for Virtual Machines. 
+> Migrating _internal_ Basic Load Balancers where the backend VMs or VMSS instances do not have Public IP Addresses requires additional steps for backend connectivity to the internet. Review [How should I configure outbound traffic for my Load Balancer?](#how-should-i-configure-outbound-traffic-for-my-load-balancer)
 
 >[!NOTE]
 > If the Virtual Machine Scale Set in the Load Balancer backend pool has Public IP Addresses in its network configuration, the Public IP Addresses associated with each Virtual Machine Scale Set instance will change when they are upgraded to Standard SKU. This is because scale set instance-level Public IP addresses cannot be upgraded, only replaced with a new Standard SKU Public IP. All other Public IP addresses will be retained through the migration. 
@@ -80,10 +80,7 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 - Develop inbound and outbound connectivity tests for your traffic
 - Plan for instance-level Public IP changes on Virtual Machine Scale Set instances (see note above)
 - [Recommended] Create Network Security Groups or add security rules to an existing Network Security Group for your backend pool members, allowing the traffic through the Load Balancer and any other traffic which will need to be explicitly allowed on public Standard SKU resources
-- [Recommended] Prepare your [outbound connectivity](../virtual-network/ip-services/default-outbound-access.md), taking one of the following approaches: 
-    - Add a NAT Gateway to your backend member's subnets 
-    - Add Public IP addresses to each backend Virtual Machine or [Virtual Machine Scale Set instance](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine)
-    - Plan to create [Outbound Rules](./outbound-rules.md) for Public Load Balancers with multiple backend pools post-migration
+- [Recommended] Prepare your [outbound connectivity](../virtual-network/ip-services/default-outbound-access.md), taking one of the following approaches described in [How should I configure outbound traffic for my Load Balancer?](#how-should-i-configure-outbound-traffic-for-my-load-balancer)
 
 ### Post-migration steps
 
@@ -272,6 +269,17 @@ At the end of its execution, the upgrade module performs the following validatio
 - The count of inbound NAT pools matches
 - External Standard Load Balancers have a configured outbound rule
 - External Standard Load Balancer backend pool members have associated Network Security Groups
+
+### How should I configure outbound traffic for my Load Balancer?
+
+Standard SKU Load Balancers do not allow default outbound access for their backend pool members. Allowing outbound access to the internet requires additional configuration. For external Load Balancers, you can use [Outbound Rules](./outbound-rules.md) to explicitly enable outbound traffic for your pool members--if you have a single backend pool, we automatically configure an Outbound Rule for you during migration; if you have more than one backend pool, you will need to manually create your Outbound Rules to specify port allocations. 
+
+For internal Load Balancers, Outbound Rules are not an option because there is no Public IP address to SNAT through. This leaves a couple options to consider:
+
+- **NAT Gateway**: NAT Gateways are Azure's [recommended approach](../virtual-network/ip-services/default-outbound-access.md#if-i-need-outbound-access-what-is-the-recommended-way) for outbound traffic in most cases. However, NAT Gateways require that the attached subnet has no basic SKU network resources--meaning you will need to have migrated all your Load Balancers and Public IP Addresses before you can use them. For this reason, we recommend using a two step approach where you first use one of the following approaches for outbound connectivity, then [switch to NAT Gateways](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md) once your basic SKU migrations are complete. 
+- **Network Virtual Appliance**: Route your traffic through a Network Virtual Appliance, such as an Azure Firewall, which will in turn route your traffic to the internet. 
+- **Secondary External Load Balancer**: By adding a secondary external Load Balancer to your backend resources, you can use the external Load Balancer for outbound traffic by configuring outbound rules. If this external Load Balancer does not have any load balancing rules, NAT rules, or inbound NAT pools configured, your backend resources will remain isolated to your internal network for inbound traffic--see [outbound-only load balancer configuration](./egress-only.md). With this option, the external Load Balancer can be configured prior to migrating from basic to standard SKU and migrated at the same time as the internal load balancer using [using the `-MultiLBConfig` parameter](#example-migrate-multiple-related-load-balancers)
+- **Public IP Addresses**: Lastly, Public IP addresses can be added directly to your [Virtual Machines](../virtual-network/ip-services/associate-public-ip-address-vm.md) or [Virtual Machine Scale Set instances](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine). However, this option is not recommended due to the additional security surface area and expense of adding Public IP Addresses.  
 
 ### What happens if my upgrade fails mid-migration?
 
