@@ -42,7 +42,7 @@ In many cases, an error creating the project could be due to access issues. To r
     1. Search for "Storage Blob Data Contributor."
     1. Select **Storage Blob Data Contributor** from the list of roles.
     1. Select **Next**.
-    
+
         :::image type="content" source="media/how-to-troubleshoot-data-labeling/storage-blob-data-contributor.png" alt-text="Screenshot shows Storage Blob Data Contributor role.":::
 
 1. Select members.
@@ -54,7 +54,7 @@ In many cases, an error creating the project could be due to access issues. To r
     1. Select the **Enterprise application** with the workspace identity name.
     1. Select the **Select** button at the bottom of the page.
 
-:::image type="content" source="media/how-to-troubleshoot-data-labeling/select-members.png" alt-text="Screenshot shows selecting members.":::
+        :::image type="content" source="media/how-to-troubleshoot-data-labeling/select-members.png" alt-text="Screenshot shows selecting members.":::
 
 1. Review and assign the role.
     
