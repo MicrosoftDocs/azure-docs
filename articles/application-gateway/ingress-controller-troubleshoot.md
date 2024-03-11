@@ -65,6 +65,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
 spec:
+  ingressClassName: azure-application-gateway
   rules:
     - host: test.agic.contoso.com
       http:

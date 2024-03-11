@@ -24,7 +24,7 @@ The solution is to invoke an analyzer during indexing that preserves a complete 
 If you need to support search scenarios that call for analyzed and non-analyzed content, consider creating two fields in your index, one for each scenario. One field undergoes lexical analysis. The second field stores an intact string, using a content-preserving analyzer that emits whole-string tokens for pattern matching.
 
 > [!TIP]
-> If you are familiar with Postman and REST APIs, [download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/) to query partial terms and special characters described in this article.
+> If you are familiar with Postman and REST APIs, [download the query examples collection](https://github.com/Azure-Samples/azure-search-rest-samples/) to query partial terms and special characters described in this article.
 
 ## About partial term search
 
@@ -229,7 +229,7 @@ The following example illustrates a custom analyzer that provides the keyword to
 
 Once you've defined an index with analyzers and field definitions that support your scenario, load documents that have representative strings so that you can test partial string queries.
 
-If you're familiar with Postman and REST APIs, [download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/) to query partial terms and special characters described in this article. The collection includes REST API requests for index creation and deletion, sample documents and an upload documents request, a test analyzer request, and queries. 
+If you're familiar with Postman and REST APIs, [download the query examples collection](https://github.com/Azure-Samples/azure-search-rest-samples/) to query partial terms and special characters described in this article. The collection includes REST API requests for index creation and deletion, sample documents and an upload documents request, a test analyzer request, and queries. 
 
 The previous sections explained the logic. This section steps through each API you should call when testing your solution. As previously noted, if you use an interactive web test tool such as Postman, you can step through these tasks quickly.
 
