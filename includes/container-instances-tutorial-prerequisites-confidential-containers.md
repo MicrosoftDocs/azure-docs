@@ -15,7 +15,7 @@ To complete this tutorial, you must satisfy the following requirements:
 
 * **Azure CLI**: You must have Azure CLI version 2.44.1 or later installed on your local computer. To find your version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI][azure-cli-install].
 
-* **Azure CLI confcom extension**: You must have the Azure CLI confcom extension version 0.30+ installed to generate confidential computing enforcement policies.
+* **Azure CLI confcom extension**: You must have Azure CLI confcom extension version 0.30+ installed to generate confidential computing enforcement policies.
 
   ```bash
    az extension add -n confcom
