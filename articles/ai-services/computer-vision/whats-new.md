@@ -10,13 +10,13 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.topic: whats-new
-ms.date: 01/19/2024
+ms.date: 03/11/2024
 ms.author: pafarley
 ---
 
 # What's new in Azure AI Vision
 
-Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates. 
+Learn what's new in Azure AI Vision. Check this page to stay up to date with new features, enhancements, fixes, and documentation updates. 
 
 ## February 2024
 
@@ -136,8 +136,8 @@ Vision Studio provides you with a platform to try several service features, and 
 
 ### Responsible AI for Face
 
-#### Face transparency documentation
-* The [transparency documentation](https://aka.ms/faceraidocs) provides guidance to assist our customers to improve the accuracy and fairness of their systems by incorporating meaningful human review to detect and resolve cases of misidentification or other failures, providing support to people who believe their results were incorrect, and identifying and addressing fluctuations in accuracy due to variations in operational conditions.
+#### Face transparency note
+* The [transparency note](https://aka.ms/faceraidocs) provides guidance to assist our customers to improve the accuracy and fairness of their systems by incorporating meaningful human review to detect and resolve cases of misidentification or other failures, providing support to people who believe their results were incorrect, and identifying and addressing fluctuations in accuracy due to variations in operational conditions.
 
 #### Retirement of sensitive attributes
 
