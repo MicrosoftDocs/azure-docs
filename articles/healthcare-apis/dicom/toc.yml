@@ -13,7 +13,7 @@ items:
 - name: Get started
   expanded: true
   items: 
-    - name: Manage medical imaging data
+    - name: Get started with the DICOM service
       href: dicom-data-lake.md
     - name: Deploy the DICOM service with Data Lake Storage
       href: deploy-dicom-services-in-azure-data-lake.md
