@@ -13,7 +13,7 @@ It's well known that Kubernetes can be difficult to understand and use. Througho
 
 Deployment safeguards offers two levels of configuration. `Warning`  will populate warning messages in the code terminal when a cluster isn't following best practices, letting you know your cluster configuration is non-compliant but allowing the request to go through. `Enforcement` will provide enforcement of compliant configurations, denying deployments if they are not following best practices.
 
-Once you set the configuration level to 'Warning' or 'Enforcement' mode, Azure Policy programmatically assesses your clusters at creation/update time and also displays aggregated compliance across your workloads at a per resource level via Azure Policy's compliance dashboard in the [Azure Portal][Azure Policy compliance portal] as well as your CLI/terminal. Running a non-compliant workload indicates that your cluster isn't following best practices and that workloads on your cluster are at risk of experiencing issues caused by your cluster configuration.
+Once you set the configuration level to 'Warning' or 'Enforcement' mode, Azure Policy programmatically assesses your clusters at creation/update time and also displays aggregated compliance across your workloads at a per resource level via Azure Policy's compliance dashboard in the [Azure portal][Azure Policy compliance portal] as well as your CLI/terminal. Running a non-compliant workload indicates that your cluster isn't following best practices and that workloads on your cluster are at risk of experiencing issues caused by your cluster configuration.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
