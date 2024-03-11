@@ -34,7 +34,7 @@ Azure provides two ways to implement network policy. You choose a network policy
 
 To enforce the specified policies, Azure Network Policy Manager for Linux uses Linux *IPTables*. Azure Network Policy Manager for Windows uses *Host Network Service (HNS) ACLPolicies*. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as `IPTable` or `HNS ACLPolicy` filter rules.
 
-## Differences between Azure Network Policy Manager and Calico network policy and their capabilities
+## Compare Azure Network Policy Manager and Calico network policy
 
 | Capability                               | Azure Network Policy Manager                    | Calico network policy                     |
 |------------------------------------------|----------------------------|-----------------------------|
