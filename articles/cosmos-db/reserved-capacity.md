@@ -171,6 +171,7 @@ When you reserve capacity for your Azure Cosmos DB resources, you are reserving 
 ## Limitations
 
  * Currently we don't support reservations for vCore based services.
+ * Currently we don't support reservations for Serverless accounts.
  * Currently we don't support reservations for storage or network.
 
 ## Next steps
