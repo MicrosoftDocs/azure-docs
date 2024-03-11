@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Database for PostgreSQL - Flexible server backup
 description: Troubleshooting information for backing up Azure Database for PostgreSQL - Flexible server.
 ms.topic: troubleshooting
-ms.date: 03/11/2024
+ms.date: 03/12/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -12,57 +12,59 @@ ms.author: v-abhmallick
 
 This article provides the recommended actions to troubleshoot the issues you might encounter during the backup or restore of Azure Database for PostgreSQL - Flexible server.
 
+## Common backup and restore errors 
 
+### PostgreSQLFlexOperationFailedUserError 
 
+**Error code**: PostgreSQLFlexOperationFailedUserError 
 
-## Backup and Restore Errors 
+**Cause**: Resource isn't in a valid state to perform the backup operation because the server isn't ready for long term retention. 
 
-ServerNotReadyForLongTermBackup 
+**Recommended action**: Validate if the PostgreSQL - Flexible server has the following properties in its resource JSON script: `"state": "Ready"`. If not present, wait for the state to change or fix the PostgreSQL - Flexible server properties to make it ready for backup. 
 
-Error Code: PostgreSQLFlexOperationFailedUserError 
+### PostgreSQLFlexOperationFailedUserError 
 
-Possible causes: Resource is not in a valid state to perform the backup operation. 
+**Error code**: PostgreSQLFlexOperationFailedUserError 
 
-Recommended Action: Please validate that the PgFlex server has the following properties in its resource json:- "state": "Ready". If not the case, wait for the state to change or fix the PgFlex server properties to make it ready for backup. 
+**Cause**: Resource group isn't found because the server isn't ready for long term retention.
 
- 
+**Recommended action**: Stop protection for the backup instance to avoid failures. 
 
-ResourceGroupNotFound 
+### PostgreSQLFlexOperationFailedUserError 
 
-Error Code: PostgreSQLFlexOperationFailedUserError 
-Possible causes: Resource group not found. Might have been deleted by the user. 
-Recommended Action: Stop Protection for the backup instance to avoid failures. 
+**Error code**: PostgreSQLFlexOperationFailedUserError 
 
-ResourceNotFound 
+**Cause**: Resource isn't found because the server isn't ready for long term retention.
 
-Error Code: PostgreSQLFlexOperationFailedUserError 
-Possible causes: Resource not found. Might have been deleted by the user. 
-Recommended Action: Stop Protection for the backup instance to avoid failures. 
+**Recommended action**: Stop protection for the backup instance to avoid failures. 
 
-AuthorizationFailed 
+### PostgreSQLFlexOperationFailedUserError 
 
-Error Code: PostgreSQLFlexOperationFailedUserError 
-Possible causes: Required permissions not present to perform the backup operation. 
-Recommended Action: Please assign the appropriate permissions mentioned here and retrigger backup operation. 
+**Error code**: PostgreSQLFlexOperationFailedUserError 
 
-UserErrorMaxConcurrentOperationLimitReached 
+**Cause**: Required permissions aren't present to perform the backup operation. 
 
-Error Code: UserErrorMaxConcurrentOperationLimitReached 
+**Recommended action**: Assign the [appropriate permissions](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup) and retrigger the backup operation. 
 
-Possible causes: 
-Recommended Action: Limit reached on the number of backups that can be performed on a backup instance. Try to trigger a backup once the current running backup job finishes. 
+### UserErrorMaxConcurrentOperationLimitReached 
 
-Restore Errors 
+**Error code**: UserErrorMaxConcurrentOperationLimitReached 
 
-UserErrorMSIMissingPermissions 
+**Cause**: Limit to the number of backups that can be performed on a backup instance has reached to maximum.
 
-Error Code: UserErrorMSIMissingPermissions 
+**Recommended action**: Try to trigger a backup operation once the current backup job is complete. 
 
-Possible causes: Required set of permissions not present to perform the restore operation 
+### UserErrorMSIMissingPermissions 
 
-Recommended Action: Please assign the appropriate permissions mentioned here and retrigger backup operation. 
+**Error code**: UserErrorMSIMissingPermissions 
 
- 
+**Cause**: The required set of permissions aren't present to perform the restore operation.
+
+**Recommended action**: Assign the [appropriate permissions](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup) and retrigger the backup operation. 
+
+## Next steps
+
+- [About Azure Database for PostgreSQL - Flexible server backup (preview)](backup-azure-database-postgresql-flex-overview.md). 
 
  
 
