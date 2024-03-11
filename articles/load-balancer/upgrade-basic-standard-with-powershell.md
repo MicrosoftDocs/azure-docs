@@ -79,7 +79,7 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 - Plan for [application downtime](#how-long-does-the-upgrade-take) during migration
 - Develop inbound and outbound connectivity tests for your traffic
 - Plan for instance-level Public IP changes on Virtual Machine Scale Set instances (see note)
-- [Recommended] Create Network Security Groups or add security rules to an existing Network Security Group for your backend pool members, allowing the traffic through the Load Balancer and any other traffic which will need to be explicitly allowed on public Standard SKU resources
+- [Recommended] Create Network Security Groups or add security rules to an existing Network Security Group for your backend pool members. Allow the traffic through the Load Balancer and any other traffic which will need to be explicitly allowed on public Standard SKU resources
 - [Recommended] Prepare your [outbound connectivity](../virtual-network/ip-services/default-outbound-access.md), taking one of the following approaches described in [How should I configure outbound traffic for my Load Balancer?](#how-should-i-configure-outbound-traffic-for-my-load-balancer)
 
 ### Post-migration steps
@@ -194,14 +194,14 @@ Yes, because the Basic Load Balancer needs to be removed before the new Standard
 
 ### Will the module migrate my frontend IP address to the new Standard Load Balancer?
 
-Yes, for both public and internal load balancers, the module ensures that front end IP addresses are maintained. For public IPs, the IP is converted to a static IP prior to migration (if necessary). For internal front ends, the module attempts to reassign the same IP address freed up when the Basic Load Balancer was deleted; if the private IP isn't available the script fails (see [What happens if my upgrade fails mid-migration?](#what-happens-if-my-upgrade-fails-mid-migration)).
+Yes, for both public and internal load balancers, the module ensures that front end IP addresses are maintained. For public IPs, the IP is converted to a static IP before migration. For internal front ends, the module attempts to reassign the same IP address freed up when the Basic Load Balancer was deleted. If the private IP isn't available the script fails (see [What happens if my upgrade fails mid-migration?](#what-happens-if-my-upgrade-fails-mid-migration)).
 
 ### How long does the Upgrade take?
 
 The upgrade normally takes a few minutes for the script to finish. The following factors may lead to longer upgrade times:
 - Complexity of your load balancer configuration
 - Number of backend pool members
-- Instance count of associated Virtual Machine Scale Sets or Virtual Machines
+- Instance count of associated Virtual Machine Scale Sets or Virtual Machinesf
 - Service Fabric Cluster: Upgrades for Service Fabric Clusters take around an hour in testing
 
 Keep the downtime in mind and plan for failover if necessary.
@@ -230,7 +230,7 @@ The script migrates the following from the Basic Load Balancer to the Standard L
   - All Virtual Machine Scale Set and Virtual Machine network interfaces and IP configurations are migrated to the new Standard Load Balancer
   - If a Virtual Machine Scale Set is using Rolling Upgrade policy, the script will update the Virtual Machine Scale Set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
 - Instance-level Public IP addresses
-    - For both Virtual Machines and Virtual Machine Scale Sets, converts attached Public IPs from Basic to Standard SKU. Note, Scale Set instance Public IPs will change during the upgrade; virtual machine IPs will not. 
+    - For both Virtual Machines and Virtual Machine Scale Sets, converts attached Public IPs from Basic to Standard SKU. Note, Scale Set instance Public IPs change during the upgrade; virtual machine IPs do not. 
 - Tags from the Basic Load Balancer to Standard Load Balancer
 
 **Public Load Balancer:**
@@ -272,7 +272,7 @@ At the end of its execution, the upgrade module performs the following validatio
 
 ### How should I configure outbound traffic for my Load Balancer?
 
-Standard SKU Load Balancers do not allow default outbound access for their backend pool members. Allowing outbound access to the internet requires additional configuration. For external Load Balancers, you can use [Outbound Rules](./outbound-rules.md) to explicitly enable outbound traffic for your pool members--if you have a single backend pool, we automatically configure an Outbound Rule for you during migration; if you have more than one backend pool, you will need to manually create your Outbound Rules to specify port allocations. 
+Standard SKU Load Balancers do not allow default outbound access for their backend pool members. Allowing outbound access to the internet requires more steps. For external Load Balancers, you can use [Outbound Rules](./outbound-rules.md) to explicitly enable outbound traffic for your pool members--if you have a single backend pool, we automatically configure an Outbound Rule for you during migration; if you have more than one backend pool, you will need to manually create your Outbound Rules to specify port allocations. 
 
 For internal Load Balancers, Outbound Rules are not an option because there is no Public IP address to SNAT through. This leaves a couple options to consider:
 
