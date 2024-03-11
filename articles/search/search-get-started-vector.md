@@ -17,7 +17,7 @@ Learn how to use the [Search REST APIs](/rest/api/searchservice) to create, load
 
 In Azure AI Search, a [*vector store*](vector-store.md) has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create the embedding space, and settings on vector field definitions that are used in query requests. The [Create Index](/rest/api/searchservice/indexes/create-or-update) API creates the vector store.
 
-[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/quickstart-vectors) to send the requests in this quickstart, or create requests manually to adapt the instructions for your own data.
+[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart-vectors) to send the requests in this quickstart, or create requests manually to adapt the instructions for your own data.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
