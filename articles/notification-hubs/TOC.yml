@@ -95,7 +95,15 @@
   - name: Security model
     href: notification-hubs-push-notification-security.md
 - name: How-to guides
-  items: 
+  items:
+  - name: FCM migration
+    items:
+    - name: Firebase v1 migration guide
+      href: notification-hubs-gcm-to-fcm.md
+    - name: FCM migration using REST API and Azure portal
+      href: firebase-migration-rest.md
+    - name: FCM migration using Azure SDKs
+      href: firebase-migration-sdk.md
   - name: Change pricing tier
     href: change-pricing-tier.md
   - name: Send cross-platform notifications

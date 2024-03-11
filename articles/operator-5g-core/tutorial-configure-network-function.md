@@ -42,6 +42,6 @@ Use the procedure described in [NSSF Configuration](https://manuals.metaswitch.c
 
 ## Related content
 
-- [Quickstart: Configure a network function in Azure Operator 5G Core Preview](quickstart-configure-network-function.md)
-- [Quickstart: Deploy a network function on Azure Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
+- [Configure a network function in Azure Operator 5G Core Preview](how-to-configure-network-function.md)
+- [Deploy a network function on Azure Kubernetes Services (AKS)](how-to-deploy-network-functions.md)
 

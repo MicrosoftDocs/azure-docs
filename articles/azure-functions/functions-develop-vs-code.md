@@ -11,7 +11,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 11/14/2023
+ms.date: 03/06/2024
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
@@ -158,6 +158,13 @@ An HttpExample.cs class library file, the contents of which vary depending on wh
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
 Files generated depend on the chosen Node.js programming model for Functions:
+
+### [v4](#tab/node-v4)
+
++ A package.json file in the root folder.
+
++ A named .js file in the _src\functions_ folder, which contains both the function definition and your function code.
+
 ### [v3](#tab/node-v3)
 + A package.json file in the root folder.
 
@@ -165,12 +172,6 @@ Files generated depend on the chosen Node.js programming model for Functions:
 
     + The [function.json definition file](functions-reference-node.md#folder-structure)
     + An [index.js file](functions-reference-node.md#exporting-a-function), which contains the function code.
-
-### [v4](#tab/node-v4)
-
-+ A package.json file in the root folder.
-
-+ A named .js file in the _src\functions_ folder, which contains both the function definition and your function code.
 
 ---
 
@@ -223,15 +224,15 @@ The results of this action are that a new Java (.java) file is added to your pro
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 The results of this action depend on the Node.js model version.
 
-### [v3](#tab/node-v3)
-
-A new folder is created in the project. The folder contains a new function.json file and the new JavaScript code file.
-
 ### [v4](#tab/node-v4)
 
 + A package.json file in the root folder.
 
 + A named .js file in the _src\functions_ folder, which contains both the function definition and your function code.
+
+### [v3](#tab/node-v3)
+
+A new folder is created in the project. The folder contains a new function.json file and the new JavaScript code file.
 
 ---
 ::: zone-end
@@ -276,13 +277,13 @@ For example, to add an output binding that writes data to a storage queue you up
 ::: zone pivot="programming-language-javascript"
 For example, the way you define the output binding that writes data to a storage queue depends on your Node.js model version:
 
-### [v3](#tab/node-v3)
-
-[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
-
 ### [v4](#tab/node-v4)
 
 Using the Node.js v4 model, you must manually add a `return:` option in the function definition using the `storageQueue` function on the `output` object, which defines the storage queue to write the `return` output. Output is written when the function completes. 
+
+### [v3](#tab/node-v3)
+
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
 
 --- 
 

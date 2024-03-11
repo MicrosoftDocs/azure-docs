@@ -221,7 +221,7 @@ The application routing add-on creates an Ingress class on the cluster named *we
     deployment.apps/aks-helloworld created
     ```
 
-   ```bash
+    ```bash
     kubectl apply -f service.yaml -n hello-web-app-routing
     ```
 
@@ -345,7 +345,7 @@ The application routing add-on creates an Ingress class on the cluster called *w
     deployment.apps/aks-helloworld created
     ```
 
-   ```bash
+    ```bash
     kubectl apply -f service.yaml -n hello-web-app-routing
     ```
 
@@ -440,7 +440,7 @@ The application routing add-on creates an Ingress class on the cluster called *w
     deployment.apps/aks-helloworld created
     ```
 
-   ```bash
+    ```bash
     kubectl apply -f service.yaml -n hello-web-app-routing
     ```
 

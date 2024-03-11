@@ -21,15 +21,23 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## February 2024
+## March 2024
 
+[Data connectors for Syslog and CEF based on Azure Monitor Agent now generally available (GA)](#data-connectors-for-syslog-and-cef-based-on-azure-monitor-agent-now-generally-available-ga)
+
+### Data connectors for Syslog and CEF based on Azure Monitor Agent now generally available (GA)
+
+Microsoft Sentinel has released two more data connectors based on the Azure Monitor Agent (AMA) to general availability. You can now use these connectors to deploy Data Collection Rules (DCRs) to Azure Monitor Agent-installed machines to collect Syslog messages, including those in Common Event Format (CEF).
+
+To learn more about the Syslog and CEF connectors, see [Ingest Syslog and CEF logs with the Azure Monitor Agent](connect-cef-syslog-ama.md).
+
+## February 2024
 
 - [Microsoft Sentinel solution for Microsoft Power Platform preview available](#microsoft-sentinel-solution-for-microsoft-power-platform-preview-available)
 - [New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)](#new-google-pubsub-based-connector-for-ingesting-security-command-center-findings-preview)
 - [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
 - [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
 - [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
-
 
 ### Microsoft Sentinel solution for Microsoft Power Platform preview available
 
