@@ -560,9 +560,9 @@ To disable autocollection of Micrometer metrics and Spring Boot Actuator metrics
 }
 ```
 
-## JDBC query masking
+## Java Database Connectivity query masking
 
-Literal values in JDBC queries are masked by default to avoid accidentally capturing sensitive data.
+Literal values in Java Database Connectivity (JDBC) queries are masked by default to avoid accidentally capturing sensitive data.
 
 Starting from 3.4.0, this behavior can be disabled. For example:
 
