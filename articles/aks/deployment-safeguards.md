@@ -53,7 +53,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Deployment safeguards policies
 
-Below is the list of deployment safeguard policies. These are the policies that will be active when you enable deployment safeguards. You can see the [currently available deployment safeguards][deployment safeguards-list] in the Azure Portal as an Azure Policy definition, or view them at [Azure Policy built-in definitions for Azure Kubernetes Service][Azure Policy built-in definition docs]. The intention behind this collection is to create a common and generic list of best practices applicable to most users and use cases.
+Below is the list of deployment safeguard policies. These are the policies that will be active when you enable deployment safeguards. You can see the [currently available deployment safeguards][deployment safeguards-list] in the Azure portal as an Azure Policy definition, or view them at [Azure Policy built-in definitions for Azure Kubernetes Service][Azure Policy built-in definition docs]. The intention behind this collection is to create a common and generic list of best practices applicable to most users and use cases.
 
 |  Deployment safeguard policies |
 |--------------|
