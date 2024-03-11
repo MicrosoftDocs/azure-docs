@@ -138,7 +138,7 @@ For a 30,000 RU/s reservation, in standard provisioned throughput, you should bu
 
 ## Buy Azure Cosmos DB reserved capacity
 
-1. Devide the reservation size by 100 to calculate the number of units of the 100 RU/s option you need. The maximum quantity is 9999 units, or 999,900 RU/s. For more than this, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for up to 63% discounts.
+1. Devide the reservation size you want by 100 to calculate the number of units of the 100 RU/s option you need. The maximum quantity is 9999 units, or 999,900 RU/s. For one million RU/s or more, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for up to 63% discounts.
 
 2. Sign in to the [Azure portal](https://portal.azure.com).
 
