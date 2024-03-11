@@ -14,7 +14,7 @@ ms.author: linglingye
 
 # Quickstart: Add feature flags to workloads in Azure Kubernetes Service
 
-In this quickstart, you will add feature management capability to an ASP.NET Core app running in Azure Kubernetes Service (AKS). By leveraging Azure App Configuration and its Kubernetes Provider, you can dynamically control the availability of a new web page in an ASP.NET Core app without restarting or redeploying it.
+In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control the visibility of a new web page in an ASP.NET Core app running in AKS without restarting or redeploying it.
 
 ## Prerequisites
 
@@ -95,7 +95,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
 
 1. Open *_Layout.cshtml* in the *Pages*\\*Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
-    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="22-36" highlight="6-10":::
 
     The `<feature>` tag ensures the *Beta* menu item is shown only when the *Beta* feature flag is enabled.
 
