@@ -11,8 +11,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/operator-5g-core/quickstart-deploy-network-function-cluster.md",
-            "redirect_url": "/azure/operator-5g-core/how-to-deploy-network-function-cluster",
+            "source_path_from_root": "/articles/operator-5g-core/quickstart-deploy-network-functions.md",
+            "redirect_url": "/azure/operator-5g-core/how-to-deploy-network-functions",
             "redirect_document_id": false
         },
         {
