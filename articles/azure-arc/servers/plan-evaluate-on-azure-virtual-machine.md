@@ -43,6 +43,7 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
 
 > [!NOTE]
 > For windows, set the environment variable to override the ARC on an Azure VM installation.
+>
 > ```powershell
 > [System.Environment]::SetEnvironmentVariable("MSFT_ARC_TEST",'true', [System.EnvironmentVariableTarget]::Machine)
 > ```
@@ -65,11 +66,8 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
    For Linux, run the following commands:
 
    ```bash
-   CURRENT_HOSTNAME=$(hostname)
-   sudo service walinuxagent stop
-   sudo waagent -deprovision -force
-   sudo rm -rf /var/lib/waagent
-   sudo hostnamectl set-hostname $CURRENT_HOSTNAME
+   sudo systemctl stop walinuxagent
+   sudo systemctl disable walinuxagent
    ```
 
 3. Block access to the Azure IMDS endpoint.
@@ -100,7 +98,7 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
    For other distributions, consult your firewall docs or configure a generic iptables rule with the following command:
 
    ```bash
-   sudo iptables -A OUTPUT -d 169.254.169.254 -j REJECT
+   sudo iptables -I OUTPUT 1 -d 169.254.169.254 -j REJECT
    ```
 
    > [!NOTE]
