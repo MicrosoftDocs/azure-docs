@@ -15,6 +15,12 @@ This article helps you deploy Bastion as private-only from the Azure portal. Mos
 
 In a private-only Bastion deployment, Bastion doesn't allow outbound access outside of the virtual network. For example, a user that's connected to Azure via ExpressRoute private-peering can securely connect to Bastion using the private IP address of the bastion host. Bastion can then make the connection via the private IP address of the virtual machine that is within the same virtual network as the bastion host.
 
+The following diagram shows the Bastion private-only deployment architecture.
+
+**CHANGE DIAGRAM or REMOVE BEFORE PUBLISHING**
+
+:::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
+
 Private-only Bastion is configured at the time of deployment and requires the Premium SKU Tier. You can't change from a regular Bastion deployment to a private-only deployment. To deploy private-only Bastion to a virtual network that already has a Bastion deployment, first remove Bastion from your virtual network, then deploy Bastion back to the virtual network as private-only. You don't need to delete and recreate the AzureBastionSubnet.
 
 ## Prerequisites
