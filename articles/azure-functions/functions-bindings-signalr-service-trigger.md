@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 01/13/2023
+ms.date: 02/05/2024
 ms.author: zityang
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -84,7 +84,7 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 SignalR trigger isn't currently supported for Java.
 ::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
+::: zone pivot="programming-language-javascript-V3,programming-language-python,programming-language-powershell"
 
 Here's binding data in the *function.json* file:
 
@@ -103,7 +103,7 @@ Here's binding data in the *function.json* file:
 ```
 
 ::: zone-end
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript-V3"
 
 Here's the JavaScript code:
 
@@ -171,7 +171,7 @@ The following table explains the properties of the `SignalRTrigger` attribute.
 
 There isn't currently a supported Java annotation for a SignalR trigger.
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-javascript-V3,programming-language-powershell,programming-language-python"
 
 ## Configuration
 
