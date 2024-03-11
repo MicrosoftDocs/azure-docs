@@ -1,0 +1,75 @@
+---
+title: Working with large directories in NFS Azure file shares
+description: Learn recommendations for working with large directories in NFS Azure file shares mounted on Linux clients, including mount options, commands, and operations.
+author: khdownie
+ms.service: azure-file-storage
+ms.topic: conceptual
+ms.date: 03/11/2024
+ms.author: kendownie
+---
+
+# Working with large directories in NFS Azure file shares
+
+This article provides recommendations for working with NFS directories that contain large numbers of files. Although it's usually a good practice to reduce the number of files in a single directory by spreading the files over multiple directories, there are situations in which large directories can't be avoided. Consider the following suggestions when working with large directories on NFS Azure file shares that are mounted on Linux clients.
+
+## Applies to
+
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![No, this article doesn't apply to standard SMB Azure file shares LRS/ZRS.](../media/icons/no-icon.png) | ![NFS shares are only available in premium Azure file shares.](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![No, this article doesn't apply to standard SMB Azure file shares GRS/GZRS.](../media/icons/no-icon.png) | ![NFS is only available in premium Azure file shares.](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![No, this article doesn't apply to premium SMB Azure file shares.](../media/icons/no-icon.png) | ![Yes, this article applies to premium NFS Azure file shares.](../media/icons/yes-icon.png) |
+
+## Recommended mount options
+
+The following mount options are specific to enumeration and can reduce latency when working with large directories.
+
+### actimeo
+
+Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. We recommend setting `actimeo` between 30 and 60 seconds. Setting a higher value makes the attributes remain valid for a longer time period in the client's attribute cache, allowing operations to get file attributes from the cache instead of fetching them over the wire. This can reduce latency in situations where the cached attributes expire while the operation is still running. Experiment with different values until you get the desired performance benefit.
+
+### nconnect
+
+`Nconnect` is a client-side mount option that allows you to use multiple TCP connections between the client and the Azure Premium Files service for NFSv4.1. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. This can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nconnect).
+
+## Commands and operations
+
+The way commands and operations are specified can also affect performance. Listing all the files in a large directory using the `ls` command is a good example.
+
+> [!NOTE]
+> Some operations such as recursive `ls`, `find`, and `du` need both file names and file attributes, so they combine directory enumerations (to get the entries) with a stat on each entry (to get the attributes). We suggest using a high value for [actimeo](#actimeo) on mount points where such commands are likely to be run.
+
+### Use unaliased ls
+
+In some Linux distributions, the shell automatically sets default options for the `ls` command such as `ls --color=auto`. This changes how `ls` works over the wire and adds more operations to the `ls` execution. To avoid performance degradation, we recommended using unaliased ls. You can do this one of three ways:
+
+- Remove the alias by using the command `unalias ls`. This is only a temporary solution for the current session.
+
+- For a permanent change, you can edit the `ls` alias in the user's `bashrc/bash_aliases` file. In Ubuntu, edit `~/.bashrc` to remove the alias for `ls`.
+
+- Instead of calling `ls`, you can directly call the `ls` binary, for example `/usr/bin/ls`. This allows you to use `ls` without any options that might be in the alias. You can find the location of the binary by running the command `which ls`.
+
+### Prevent ls from sorting its output
+
+When using `ls` with other commands, you can improve performance by preventing `ls` from sorting its output in situations where you don't care about the order that `ls` returns the files. Sorting the output adds significant overhead, as you can see from the performance chart.
+
+For example, instead of running `ls -l | wc -l` to get the total number of files, you can use the `-f` or `-U` options with `ls` to prevent the output from being sorted. The difference is that `-f` will also show hidden files, and `-U` will not.
+
+For example, if you're directly calling the `ls` binary in Ubuntu, you would run `/usr/bin/ls -1f | wc -l` or `/usr/bin/ls -1U | wc -l`.
+
+## File copy and backup operations
+
+When copying data from an NFS file share or backing up from NFS file shares to another location, we recommend using a share snapshot as the source instead of the live file share. Backup applications should run commands on the snapshot directly, because the snapshots aren't affected by any operations on the file share that are happening. For more information, see [NFS file share snapshots](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots).
+
+## Application-level recommendations
+
+When developing applications that will use large directories with NFS file shares, follow these recommendations.
+
+- **Skip file attributes.** If the application only needs the file name and not file attributes like file type or last modified time, you can use multiple calls to system calls such as `getdents64` with a good buffer size. This will get the entries in the specified directory without the file type, making the operation faster by avoiding extra operations that aren't needed.  
+
+- **Interleave stat calls.** If the application needs attributes as well as the files, we recommend interleaving the stat calls along with `getdents64`. This means that instead of getting all entries till EOF with `getdents64` and then doing a statx on all entries returned, it would be more efficient to do statx calls after each `getdents64`.
+
+## See also
+
+- [Improve NFS Azure file share performance](nfs-performance.md)
+- [NFS file shares in Azure Files](files-nfs-protocol.md)
