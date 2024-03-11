@@ -10,7 +10,7 @@ ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.custom: references_regions, devx-track-python, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-computer-vision-40
+zone_pivot_groups: programming-languages-computer-vision
 ---
 
 # Call the Image Analysis 4.0 Analyze API

@@ -10,3 +10,4 @@ ms.custom: "include file"
 ---
 
 Microsoft Sentinel is now available as part of the public preview for the unified security operations platform in the Microsoft Defender portal. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](https://aka.ms/onboard-microsoft-sentinel).
+

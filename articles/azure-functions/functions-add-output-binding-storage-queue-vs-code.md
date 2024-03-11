@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure Storage using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Queue Storage by adding an output binding to your Visual Studio Code project.
-ms.date: 01/31/2023
+ms.date: 03/04/2024
 ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
@@ -18,6 +18,11 @@ In this article, you learn how to use Visual Studio Code to connect Azure Storag
 
 Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
+::: zone pivot="programming-language-javascript"  
+>[!NOTE]
+>This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md?pivots=nodejs-model-v3).  
+::: zone-end  
+
 ## Configure your local environment
 
 Before you begin, you must meet the following requirements:
@@ -29,14 +34,11 @@ Before you begin, you must meet the following requirements:
 ::: zone pivot="programming-language-csharp"
 
 * Install [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
 
 * Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-csharp.md).
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-node.md).
+* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-node.md?pivot=nodejs-model-v3).
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 * Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-java.md).
@@ -99,24 +101,15 @@ In Functions, each type of binding requires a `direction`, `type`, and unique `n
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-In Functions, each type of binding requires a `direction`, `type`, and a unique `name`. The way you define these attributes depends on your Python programming model.
-
-[!INCLUDE [functions-add-storage-binding-python](../../includes/functions-add-storage-binding-python.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
+::: zone pivot="programming-language-python"  
+[!INCLUDE [functions-add-storage-binding-python](../../includes/functions-add-output-binding-python-v2.md)]
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
+::: zone-end  
+::: zone pivot="programming-language-java"  
 [!INCLUDE [functions-add-output-binding-java](../../includes/functions-add-output-binding-java.md)]
-
-::: zone-end
+::: zone-end  
 
 ## Add code that uses the output binding
 
@@ -138,7 +131,7 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python-v1-v2.md)]
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-storage-binding-python-v2.md)]
 
 ::: zone-end
 

@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for SWIFT CSP-CSCF v2022
 description: Details of the SWIFT CSP-CSCF v2022 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/22/2024
+ms.date: 02/27/2024
 ms.topic: sample
 ms.custom: generated
 ---
