@@ -93,7 +93,7 @@ If you encounter an issue with the KeyVault access policy and the Service Princi
 Use optional flags to customize the `az iot ops init` command. To learn more, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
 > [!TIP]
-> You can check the configurations of topic maps, QoS, message routes with the [CLI extension](https://learn.microsoft.com/cli/azure/iot/ops?view=azure-cli-latest#az-iot-ops-check-examples) `az iot ops check --detail-level 2`.
+> You can check the configurations of topic maps, QoS, message routes with the [CLI extension](/cli/azure/iot/ops#az-iot-ops-check-examples) `az iot ops check --detail-level 2`.
 
 ### Configure cluster network (AKS EE)
 
