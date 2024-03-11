@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Logic Apps
 description: This article contains important reference material you need when you monitor Azure Logic Apps.
-ms.date: 03/08/2024
+ms.date: 03/11/2024
 ms.custom: horz-monitor
 ms.topic: reference
 ms.service: logic-apps
@@ -44,10 +44,8 @@ Microsoft.Logic/workflows
 
 - [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)
-- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns). Logs are collected in the **AzureDiagnostics** table under the resource provider name of `MICROSOFT.LOGIC`.
 - [LogicAppWorkflowRuntime](/azure/azure-monitor/reference/tables/LogicAppWorkflowRuntime#columns)
-
-In Azure Monitor, logs are collected in the **AzureDiagnostics** table under the resource provider name of `MICROSOFT.LOGIC`.
 
 ### Integration Account
 Microsoft.Logic/integrationAccounts
