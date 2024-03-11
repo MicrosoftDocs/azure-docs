@@ -11,7 +11,7 @@ ms.author: mbender
 ms.custom: template-concept, references_regions
 ---
 
-# Cross-region (Global) Load Balancer
+# Global Load Balancer
 
 Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant high availability scenarios such as:
 
@@ -157,6 +157,8 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * UDP traffic on port 3 isn't supported on Cross-Region Load Balancer
 
 * Outbound rules aren't supported on Cross-region Load Balancer. For outbound connections, utilize [outbound rules](./outbound-rules.md) on the regional load balancer or [NAT gateway](../nat-gateway/nat-overview.md).
+
+* Regional load balancers can't be upgraded to the global tier. Only new load balancers can be created as the global tier. 
 
 ## Pricing and SLA
 Cross-region load balancer shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) of standard load balancer.

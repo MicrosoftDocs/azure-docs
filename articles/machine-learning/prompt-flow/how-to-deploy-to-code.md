@@ -12,7 +12,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 11/02/2023
+ms.date: 02/22/2024
 ---
 
 # Deploy a flow to online endpoint for real-time inference with CLI
@@ -38,7 +38,7 @@ For managed online endpoints, Azure Machine Learning reserves 20% of your comput
 
 Each flow will have a folder which contains codes/prompts, definition and other artifacts of the flow. If you have developed your flow with UI, you can download the flow folder from the flow details page. If you have developed your flow with CLI or SDK, you should have the flow folder already.
 
-This article will use the [sample flow "basic-chat"](https://github.com/microsoft/promptflow/tree/main/examples/flows/chat/basic-chat) as an example to deploy to Azure Machine Learning managed online endpoint.
+This article will use the [sample flow "basic-chat"](https://github.com/Azure/azureml-examples/tree/main/cli/generative-ai/promptflow/basic-chat) as an example to deploy to Azure Machine Learning managed online endpoint.
 
 > [!IMPORTANT]
 >
@@ -173,14 +173,9 @@ environment_variables:
 
 ### Define the deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. To deploy a flow, you must have:
+A deployment is a set of resources required for hosting the model that does the actual inferencing.
 
-- **Model files (or the name and version of a model that's already registered in your workspace).** In the example, we have a scikit-learn model that does regression.
-- **A scoring script**, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. In this example, we have a score.py file.
-An environment in which your model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
-Settings to specify the instance type and scaling capacity.
-
-Following is a deployment definition example.
+Following is a deployment definition example, in which the `model` section refers to the registered flow model. You can also specify the flow model path in line.
 
 # [Managed online endpoint](#tab/managed)
 
@@ -343,7 +338,7 @@ ENDPOINT_URI=<your-endpoint-uri>
 curl --request POST "$ENDPOINT_URI" --header "Authorization: Bearer $ENDPOINT_KEY" --header 'Content-Type: application/json' --data '{"question": "What is Azure Machine Learning?", "chat_history":  []}'
 ```
 
-Note that you can get your endpoint key and your endpoint URI from the Azure Machine Learning workspace in **Endpoints** > **Consume** > **Basic consumption info**.
+You can get your endpoint key and your endpoint URI from the Azure Machine Learning workspace in **Endpoints** > **Consume** > **Basic consumption info**.
 
 ## Advanced configurations
 
@@ -414,7 +409,7 @@ This section will show you how to use a docker build context to specify the envi
 
 ### Configure concurrency for deployment
 
-When deploying your flow to online deployment, there are two environment variables which you configure for concurrency: `PROMPTFLOW_WORKER_NUM` and `PROMPTFLOW_WORKER_THREADS`. Besides, you'll also need to set the `max_concurrent_requests_per_instance` parameter.
+When deploying your flow to online deployment, there are two environment variables, which you configure for concurrency: `PROMPTFLOW_WORKER_NUM` and `PROMPTFLOW_WORKER_THREADS`. Besides, you'll also need to set the `max_concurrent_requests_per_instance` parameter.
 
 Below is an example of how to configure in the `deployment.yaml` file.
 
@@ -451,9 +446,21 @@ While tuning above parameters, you need to monitor the following metrics to ensu
 You can monitor general metrics of online deployment (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more), and prompt flow deployment specific metrics (token consumption, flow latency, etc.) by adding `app_insights_enabled: true` in the deployment yaml file. Learn more about [metrics of prompt flow deployment](./how-to-deploy-for-real-time-inference.md#view-endpoint-metrics).
 
 
+## Common errors
+
+### Upstream request timeout issue when consuming the endpoint
+
+Such error is usually caused by timeout. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes, which is 300000 ms. Following is example showing how to specify request time out in the deployment yaml file. Learn more about the deployment schema [here](../reference-yaml-deployment-managed-online.md).
+
+```yaml
+request_settings:
+  request_timeout_ms: 300000
+```
+
 ## Next steps
 
 - Learn more about [managed online endpoint schema](../reference-yaml-endpoint-online.md) and [managed online deployment schema](../reference-yaml-deployment-managed-online.md).
 - Learn more about how to [test the endpoint in UI](./how-to-deploy-for-real-time-inference.md#test-the-endpoint-with-sample-data) and [monitor the endpoint](./how-to-deploy-for-real-time-inference.md#view-managed-online-endpoints-common-metrics-using-azure-monitor-optional).
 - Learn more about how to [troubleshoot managed online endpoints](../how-to-troubleshoot-online-endpoints.md).
 - Once you improve your flow, and would like to deploy the improved version with safe rollout strategy, see [Safe rollout for online endpoints](../how-to-safely-rollout-online-endpoints.md).
+- Learn more about [deploy flows to other platforms, such as a local development service, Docker container, Azure APP service, etc.](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html)

@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 02/22/2024
 ms.author: aahi
 
 # SME: Brendan Walsh

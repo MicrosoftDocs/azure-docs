@@ -58,8 +58,8 @@ Due to the differences in SLAs and feature sets, we recommend the following SKUs
 
 | **Workload**                       | **SKUs**               |
 | ---                                | ---                    |
-| **Production, critical workloads** | All Generation1 and Generation2 SKUs, except Basic and VpnGw1 |
-| **Dev-test or proof of concept**   | Basic (**) and VpnGw1                |
+| **Production, critical workloads** | All Generation1 and Generation2 SKUs, except Basic|
+| **Dev-test or proof of concept**   | Basic (**)             |
 |                                    |                        |
 
 (\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature and performance limitations and should not be used for production purposes. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.

@@ -1,8 +1,6 @@
 ---
 title: Sensitive information types supported by Microsoft Defender for Cloud
 description: List table of sensitive information types supported by Microsoft Defender for Cloud
-author: AlizaBernstein
-ms.author: v-bernsteina
 ms.topic: reference
 ms.date: 11/01/2023
 ---
@@ -145,7 +143,7 @@ This article lists all sensitive information types supported by Microsoft Defend
 | [Italy fiscal code](/purview/sit-defn-italy-fiscal-code) | YES |
 | [Italy passport number](/purview/sit-defn-italy-passport-number) | NO |
 | [Italy value added tax number](/purview/sit-defn-italy-value-added-tax-number) | NO |
-| [Japan bank account number](/purview/sit-defn-japan-bank-account-number) | NO
+| [Japan bank account number](/purview/sit-defn-japan-bank-account-number) | NO|
 | [Japan driver's license number](/purview/sit-defn-japan-drivers-license-number) | NO |
 | [Japan My Number - Corporate](/purview/sit-defn-japan-my-number-corporate) | NO |
 | [Japan My Number - Personal](/purview/sit-defn-japan-my-number-personal) | NO |

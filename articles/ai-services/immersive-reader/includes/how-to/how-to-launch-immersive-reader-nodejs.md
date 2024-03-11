@@ -1,18 +1,18 @@
 ---
-author: rwallerms
+author: sharmas
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: include
-ms.date: 03/04/2021
-ms.author: rwaller
+ms.date: 02/21/2024
+ms.author: sharmas
 ---
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up.  You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
-* [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com)
-* An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
+* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/ai-services).
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. Save the output of your session into a text file so you can configure the environment properties.
+* [Node.js](https://nodejs.org) and [Yarn](https://yarnpkg.com).
+* An IDE such as [Visual Studio Code](https://code.visualstudio.com).
 
 ## Create a Node.js web app with Express
 
@@ -24,7 +24,7 @@ express --view=pug myapp
 cd myapp
 ```
 
-Install yarn dependencies, and add dependencies `request` and `dotenv`, which will be used later in the tutorial.
+Install yarn dependencies, and add dependencies `request` and `dotenv`, which are used later in the tutorial.
 
 ```bash
 yarn
@@ -32,22 +32,28 @@ yarn add request
 yarn add dotenv
 ```
 
+Install the axios and qs libraries with the following command:
+
+```bash
+npm install axios qs
+```
+
 <a name='acquire-an-azure-ad-authentication-token'></a>
 
-## Acquire a Microsoft Entra authentication token
+## Set up authentication
 
 Next, write a backend API to retrieve a Microsoft Entra authentication token.
 
-You need some values from the Microsoft Entra auth configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
+You need some values from the Microsoft Entra auth configuration prerequisite step for this part. Refer back to the text file you saved from that session.
 
 ````text
 TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
+ClientId     => Microsoft Entra ApplicationId
+ClientSecret => Microsoft Entra Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI PowerShell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-Once you have these values, create a new file called _.env_, and paste the following code into it, supplying your custom property values from above. Do not include quotation marks or the "{" and "}" characters.
+Create a new file called *.env* in the root of your project. Paste the following code into it, supplying the values given when you created your Immersive Reader resource. Don't include quotation marks or the `{` and `}` characters.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -56,15 +62,15 @@ CLIENT_SECRET={YOUR_CLIENT_SECRET}
 SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
-Be sure not to commit this file into source control, as it contains secrets that should not be made public.
+Be sure not to commit this file into source control, as it contains secrets that shouldn't be made public.
 
-Next, open _app.js_ and add the following to the top of the file. This loads the properties defined in the .env file as environment variables into Node.
+Next, open *app.js* and add the following to the top of the file. This loads the properties defined in the *.env* file as environment variables into Node.
 
 ```javascript
 require('dotenv').config();
 ```
 
-Open the _routes\index.js_ file and replace its content with the following code.
+Open the *routes\index.js* file and replace its content with the following code.
 
 This code creates an API endpoint that acquires a Microsoft Entra authentication token using your service principal password. It also retrieves the subdomain. It then returns an object containing the token and subdomain.
 
@@ -111,14 +117,14 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
 
 ## Launch the Immersive Reader with sample content
 
-1. Open _views\layout.pug_, and add the following code under the `head` tag, before the `body` tag. These `script` tags load the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and jQuery.
+1. Open *views\layout.pug*, and add the following code under the `head` tag, before the `body` tag. These `script` tags load the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and jQuery.
 
     ```pug
     script(src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
-2. Open _views\index.pug_, and replace its content with the following code. This code populates the page with some sample content, and adds a button that launches the Immersive Reader.
+2. Open *views\index.pug*, and replace its content with the following code. This code populates the page with some sample content, and adds a button that launches the Immersive Reader.
 
     ```pug
     extends layout
@@ -168,19 +174,19 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
     npm start
     ```
 
-4. Open your browser and navigate to _http://localhost:3000_. You should see the above content on the page. Select the **Immersive Reader** button to launch the Immersive Reader with your content.
+4. Open your browser and navigate to `http://localhost:3000`. You should see the above content on the page. Select the **Immersive Reader** button to launch the Immersive Reader with your content.
 
 ## Specify the language of your content
 
-The Immersive Reader has support for many different languages. You can specify the language of your content by following the steps below.
+The Immersive Reader has support for many different languages. You can specify the language of your content by following these steps.
 
-1. Open _views\index.pug_ and add the following code below the `p(id=content)` tag that you added in the previous step. This code adds some content Spanish content to your page.
+1. Open *views\index.pug* and add the following code below the `p(id=content)` tag that you added in the previous step. This code adds some content Spanish content to your page.
 
     ```pug
     p(id='content-spanish') El estudio de las formas terrestres de la Tierra se llama geografía física. Los accidentes geográficos pueden ser montañas y valles. También pueden ser glaciares, lagos o ríos.
     ```
 
-2. In the JavaScript code, add the following above the call to `ImmersiveReader.launchAsync`. This code passes the Spanish content into the Immersive Reader.
+2. In *views\index.pug*, add the following code above the call to `ImmersiveReader.launchAsync`. This code passes the Spanish content into the Immersive Reader.
 
     ```pug
     content.chunks.push({
@@ -189,13 +195,13 @@ The Immersive Reader has support for many different languages. You can specify t
     });
     ```
 
-3. Navigate to _http://localhost:3000_ again. You should see the Spanish text on the page, and when you select **Immersive Reader**, it will show up in the Immersive Reader as well.
+3. Navigate to `http://localhost:3000` again. You should see the Spanish text on the page, and when you select **Immersive Reader**, it shows up in the Immersive Reader as well.
 
 ## Specify the language of the Immersive Reader interface
 
 By default, the language of the Immersive Reader interface matches the browser's language settings. You can also specify the language of the Immersive Reader interface with the following code.
 
-1. In _views\index.pug_, replace the call to `ImmersiveReader.launchAsync(token, subdomain, content)` with the code below.
+1. In *views\index.pug*, replace the call to `ImmersiveReader.launchAsync(token, subdomain, content)` with the following code.
 
     ```javascript
     const options = {
@@ -204,13 +210,13 @@ By default, the language of the Immersive Reader interface matches the browser's
     ImmersiveReader.launchAsync(token, subdomain, content, options);
     ```
 
-2. Navigate to _http://localhost:3000_. When you launch the Immersive Reader, the interface will be shown in French.
+2. Navigate to `http://localhost:3000`. When you launch the Immersive Reader, the interface is shown in French.
 
 ## Launch the Immersive Reader with math content
 
 You can include math content in the Immersive Reader by using [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML).
 
-1. Modify _views\index.pug_ to include the following code above the call to `ImmersiveReader.launchAsync`:
+1. Modify *views\index.pug* to include the following code above the call to `ImmersiveReader.launchAsync`:
 
     ```javascript
     const mathML = '<math xmlns="https://www.w3.org/1998/Math/MathML" display="block"> \
@@ -235,9 +241,9 @@ You can include math content in the Immersive Reader by using [MathML](https://d
     });
     ```
 
-2. Navigate to _http://localhost:3000_. When you launch the Immersive Reader and scroll to the bottom, you'll see the math formula.
+2. Navigate to `http://localhost:3000`. When you launch the Immersive Reader and scroll to the bottom, you'll see the math formula.
 
-## Next steps
+## Next step
 
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../../reference.md)
-* View code samples on [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)
+> [!div class="nextstepaction"]
+> [Explore the Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk)

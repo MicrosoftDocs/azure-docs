@@ -3,12 +3,12 @@ title: Language support for key phrase analysis
 titleSuffix: Azure AI services
 description: A list of natural languages supported by the entity linking API
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-entity-linking
 ---
 

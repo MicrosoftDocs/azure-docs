@@ -15,6 +15,8 @@ ms.custom: template-quickstart, mode-ui
 
 In this quickstart, you learn how to create Azure public IP addresses, which you use for public connections to Azure resources. Public IP addresses are available in two SKUs: Basic and Standard. Two tiers of public IP addresses are available: regional and global. You can also set the routing preference of a public IP address when you create it: Microsoft network or Internet.
 
+:::image type="content" source="./media/create-public-ip-portal/public-ip-example-resources.png" alt-text="Diagram of an example use of a public IP address. A public IP address is assigned to a load balancer.":::
+
 ## Prerequisites
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

@@ -258,10 +258,9 @@ The Azure Monitoring Agent for Linux now officially supports various hardening s
 Currently supported hardening standards:
 - SELinux
 - CIS Lvl 1 and 2<sup>1</sup>
-
-On the roadmap
 - STIG
 - FIPs
+- FedRamp
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|
