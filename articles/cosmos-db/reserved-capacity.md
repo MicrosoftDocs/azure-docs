@@ -26,7 +26,6 @@ The size of the reserved capacity purchase should be based on the total amount o
 
 In this example, any provisioned throughput above 10,000 RU/s will be billed using your Pay-as-you-go rate. If provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour will be wasted.
 
-It is possible to buy reservations in multiples of 100 RU/s, enabling savings for all sizes of customers and workloads.
 
 ## Scenarios
 
@@ -66,30 +65,41 @@ Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB 
 
 ### Discounts for reservations smaller than one million RU/s
 
-You can buy up to 9999 units of the 100 RU/s option with the discounts rates below:
+You can buy up to 9999 units of the 100 RU/s option, with the discounts rates below:
 
-|Commitment  |Discount  |
-|---------|---------|
-| One-year | 20% | 
-| Three-years | 30% |
+|Reservation Size  | One-Year Single Discount  | Three-Years  Discount
+|---------|---------|---------|
+| 100 RU/s |  20% | 30% |
+| 100 Multi-master RU/s |  20% | 30% |
 
 ### Discounts for reservations equal or bigger than one million RU/s
 
 You can also buy any of the following options:
 
-|Reservation Size in RU/s  | One-Year Single Region Discount  | Three-Years Single Region Discount | One-Year Multi Regions Discount  | Three-Years Multi Regions Discount | 
-|---------|---------|---------|---------|---------|
-| 1,000,000 | 27.0% | 39.5% | 32.0% | 44.5% |
-| 2,000,000 | 28.5% | 42.3% | 33.5% | 47.3% |
-| 3,000,000 | 29.0% | 43.2% | 34.0% | 48.2% |
-| 4,000,000 | 33.0% | 47.4% | 38.0% | 52.4% |
-| 5,000,000 | 35.4% | 49.9% | 40.4% | 54.9% |
-| 10,000,000 | 40.2% | 55.0% | 45.2% | 60.0% |
-| 12,500,000 | 41.2% | 56.0% | 46.2% | 61.0% |
-| 15,000,000 | 41.8% | 56.6% | 46.8% | 61.6% |
-| 20,000,000 | 42.6% | 57.5% | 47.6% | 62.5% |
-| 25,000,000 | 43.1% | 58.0% | 48.1% | 63.0% |
-| 30,000,000 | 43.4% | 58.3% | 48.4% | 63.3% |
+|Reservation Size | One-Year Discount  | Three-Years Discount |
+|---------|---------|---------|
+| 1,000,000 RU/s | 27.0% | 39.5% | 32.0% | 44.5% |
+| 1,000,000 Multi-master | 32.0% | 44.5% |
+| 2,000,000 RU/s | 28.5% | 42.3% |
+| 2,000,000 Multi-master RU/s | 33.5% | 47.3% |
+| 3,000,000 RU/s | 29.0% | 43.2% |
+| 3,000,000 Multi-master RU/s | 34.0% | 48.2% |
+| 4,000,000 RU/s | 33.0% | 47.4% |
+| 4,000,000 Multi-master RU/s | 38.0% | 52.4% |
+| 5,000,000 RU/s | 35.4% | 49.9% |
+| 5,000,000 Multi-master RU/s |  40.4% | 54.9% |
+| 10,000,000 RU/s | 40.2% | 55.0% | 
+| 10,000,000 Multi-master RU/s | 45.2% | 60.0% |
+| 12,500,000 RU/s | 41.2% | 56.0% |
+| 12,500,000 Multi-master RU/s | 46.2% | 61.0% |
+| 15,000,000 RU/s | 41.8% | 56.6% |
+| 15,000,000 Multi-master RU/s | 46.8% | 61.6% |
+| 20,000,000 RU/s | 42.6% | 57.5% |
+| 20,000,000 Multi-master RU/s | 47.6% | 62.5% |
+| 25,000,000 RU/s | 43.1% | 58.0% |
+| 25,000,000 Multi-master RU/s | 48.1% | 63.0% |
+| 30,000,000 RU/s | 43.4% | 58.3% |
+| 30,000,000 Multi-master RU/s | 48.4% | 63.3% |
 
 Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase these reservations bigger than ope million RU/s.
 
