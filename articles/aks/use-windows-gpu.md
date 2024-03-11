@@ -2,7 +2,7 @@
 title: Use GPUs for Windows node pools on Azure Kubernetes Service (AKS)
 description: Learn how to use Windows GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.date: 02/20/2024
+ms.date: 03/11/2024
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads using a Windows os.
 ---
 
@@ -21,7 +21,7 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 
 ## Limitations
 
-* Updating an existing node pool to add GPU isn't supported.
+* Updating an existing Windows node pool to add GPU isn't supported.
 * Not supported on Kubernetes version 1.28 and below.
 
 ## Before you begin
@@ -39,7 +39,7 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 
 ## Using Windows GPU with automatic driver installation
 
-Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [DirectX device plugin for Kubernetes](https://github.com/aarnaud/k8s-directx-device-plugin), GPU driver installation, and more.
+Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [DirectX device plugin for Kubernetes](https://github.com/aarnaud/k8s-directx-device-plugin), GPU driver installation, and more. When creating a Windows node pool with a supported GPU-enabled VM, these components are automatically installed.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -79,7 +79,7 @@ Using NVIDIA GPUs involves the installation of various NVIDIA software component
 
 ### Create a Windows GPU-enabled node pool (preview)
 
-To create a Windows GPU-enabled node pool, you need to use a supported GPU VM SKU and specify `os-type`. The default Windows `os-sku` is `Windows2022`, but all Windows SKUs are supported.
+To create a Windows GPU-enabled node pool, you need to use a supported GPU-enabled VM size and specify the `os-type` as `Windows`. The default Windows `os-sku` is `Windows2022`, but all Windows `os-sku` options are supported.
 
 1. Create a Windows GPU-enabled node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command.
 
@@ -94,7 +94,6 @@ To create a Windows GPU-enabled node pool, you need to use a supported GPU VM SK
     ```
 
 2. Check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable).
-3. [Run a GPU workload](#run-a-gpu-enabled-workload).
 
 ## Using Windows GPU with manual driver installation
 
@@ -217,7 +216,7 @@ You can deploy a DaemonSet for the Kubernetes DirectX device plugin, which runs 
     kubectl apply -f nvidia-device-plugin-ds.yaml
     ```
 
-4. Now that you successfully installed the NVIDIA device plugin, you can check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable) and [run a GPU workload](#run-a-gpu-enabled-workload).
+4. Now that you successfully installed the NVIDIA device plugin, you can check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable).
 
 ## Confirm that GPUs are schedulable
 
@@ -249,50 +248,6 @@ After creating your cluster, confirm that GPUs are schedulable in Kubernetes.
     [...]
      microsoft.com.directx/gpu:                 1
     [...]
-    ```
-
-## Run a GPU-enabled workload
-
-To see the GPU in action, you can schedule a GPU-enabled workload with the appropriate resource request. In this example, you run a [Tensorflow](https://www.tensorflow.org/) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
-
-1. Create a file named *windows-gpu-workload.yaml* and paste the following YAML manifest, which includes a resource limit of `microsoft.com/directx: 1`:
-
-    > [!NOTE]
-    > If you receive a version mismatch error when calling into drivers, such as "CUDA driver version is insufficient for CUDA runtime version", review the [NVIDIA driver matrix compatibility chart](https://docs.nvidia.com/deploy/cuda-compatibility/index.html).
-
-    ```yaml
-    apiVersion: batch/v1
-    kind: Job
-    metadata:
-      labels:
-        app: windows-gpu-workload
-      name: windows-gpu-workload
-    spec:
-      template:
-        metadata:
-          labels:
-            app: windows-gpu-workload
-        spec:
-          containers:
-          - name: windows-gpu-workload
-            image: mcr.microsoft.com/azuredocs/windows-gpu-workload:gpu
-            args: ["--max_steps", "500"]
-            imagePullPolicy: IfNotPresent
-            resources:
-              limits:
-               microsoft.com/directx: 1
-          restartPolicy: OnFailure
-          tolerations:
-          - key: "sku"
-            operator: "Equal"
-            value: "gpu"
-            effect: "NoSchedule"
-    ```
-
-2. Run the job using the [`kubectl apply`][kubectl-apply] command, which parses the manifest file and creates the defined Kubernetes objects.
-
-    ```console
-    kubectl apply -f windows-gpu-workload.yaml
     ```
 
 ## Use Container Insights to monitor GPU usage
