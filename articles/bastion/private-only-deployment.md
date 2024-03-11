@@ -15,10 +15,6 @@ This article helps you deploy Bastion as private-only from the Azure portal. Mos
 
 In a private-only Bastion deployment, Bastion doesn't allow outbound access outside of the virtual network. For example, a user that's connected to Azure via ExpressRoute private-peering can securely connect to Bastion using the private IP address of the bastion host. Bastion can then make the connection via the private IP address of the virtual machine that is within the same virtual network as the bastion host.
 
-The following diagram shows the architecture of Bastion.
-
-:::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
-
 Private-only Bastion is configured at the time of deployment and requires the Premium SKU Tier. You can't change from a regular Bastion deployment to a private-only deployment. To deploy private-only Bastion to a virtual network that already has a Bastion deployment, first remove Bastion from your virtual network, then deploy Bastion back to the virtual network as private-only. You don't need to delete and recreate the AzureBastionSubnet.
 
 ## Prerequisites
@@ -52,9 +48,9 @@ You can use the following example values when creating this configuration, or yo
 | **Instance count (host scaling)**| **2** or greater |
 | **Assignment**  | **Static** |
 
-## <a name="createhost"></a>Deploy Bastion
+## <a name="createhost"></a>Deploy private-only Bastion
 
-This section helps you deploy Bastion to your virtual network.
+This section helps you deploy Bastion as private-only to your virtual network.
 
 > [!IMPORTANT]
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
@@ -96,7 +92,7 @@ This section helps you deploy Bastion to your virtual network.
 
    When you select Private IP address, the Public IP address settings are automatically removed from the configuration screen.
 
-   :::image type="content" source="./media/private-only-deployment/private-ip-address.png" alt-text="Screenshot of Azure Bastion instance details." lightbox="./media/private-only-deployment/private-ip-address.png":::
+   :::image type="content" source="./media/private-only-deployment/private-ip-address.png" alt-text="Screenshot of Azure Bastion IP address configuration settings." lightbox="./media/private-only-deployment/private-ip-address.png":::
 
 1. When you finish specifying the settings, select **Review + Create**. This step validates the values.
 
