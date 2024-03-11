@@ -84,7 +84,7 @@ You can optionally migrate back to the original VNet and subnet you used in each
 
 The following image shows a high level overview of what happens during migration back to the original VNet and subnet.
 
-:::image type="content" source="media/migrate-stv1-to-stv2-vnet/inplace-oldg-subnet.gif" alt-text="Diagram of in-place migration back to original subnet.":::
+:::image type="content" source="media/migrate-stv1-to-stv2-vnet/inplace-old-subnet.gif" alt-text="Diagram of in-place migration back to original subnet.":::
 
 > [!IMPORTANT]
 > If the VNet and subnet are locked (because other `stv1` platform-based API Management instances are deployed there) or the resource group where the original VNet is deployed has a [resource lock](../azure-resource-manager/management/lock-resources.md), make sure to remove the lock before migrating back to the original VNet and subnet. Wait for lock removal to complete before attempting the migration to the original subnet. [Learn more](api-management-using-with-internal-vnet.md#challenges-encountered-in-reassigning-api-management-instance-to-previous-subnet).
