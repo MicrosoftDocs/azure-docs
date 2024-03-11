@@ -112,19 +112,19 @@ Capabilities on the roadmap:
    - For all OOTB matches, the corresponding solutions with the matched analytics rule is installed, and the matched rules will be deployed as active analytics rules.
    - All custom rules translated to Sentinel analytics rules are deployed as active analytics rules.
 
-1. View the properties of deployed Microsoft Sentinel analytics rules.
+1. View the properties of deployed rules from Microsoft Sentinel **Analytics**.
 
-   - All migrated rules are deployed with the Prefix **[Splunk Migrated]** in the title in the Analytics gallery.
-   - All migrated rules are deployed in a disabled state.
-   - The following properties are retained from the Splunk export wherever possible:
-     `Severity`
-     `queryFrequency`
-     `queryPeriod`
-     `triggerOperator`
-     `triggerThreshold`
+   - All migrated rules are deployed with the Prefix **[Splunk Migrated]**.
+   - All migrated rules are set to disabled.
+   - The following properties are retained from the Splunk export wherever possible:<br>
+     `Severity`<br>
+     `queryFrequency`<br>
+     `queryPeriod`<br>
+     `triggerOperator`<br>
+     `triggerThreshold`<br>
      `suppressionDuration`
 
-1. Review the Splunk migrated rules and enable them from Microsoft Sentinel **Analytics**. 
+1. Enable rules you've reviewed and verified. 
 
 ## Next step
 
