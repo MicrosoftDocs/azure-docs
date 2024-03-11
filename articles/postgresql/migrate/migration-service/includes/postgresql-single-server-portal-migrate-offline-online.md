@@ -1,4 +1,5 @@
 ---
+title: PostgreSQL - Single SErver to Flexible Server portal offline and online
 author: markingmyname
 ms.author: maghan
 ms.date: 03/19/2024
@@ -7,6 +8,8 @@ ms.topic: include
 ---
 
 #### [Offline](#tab/offline)
+
+[!INCLUDE [prerequisites-migration-service-postgresql](includes/prerequisites-migration-service-postgresql-offline.md)]
 
 ## Configure your Azure Database for PostgreSQL Flexible Server
 

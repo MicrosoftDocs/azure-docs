@@ -1,10 +1,10 @@
 ---
-title: "Prerequisites for the migration service in Azure Database for PostgreSQL"
+title: "Prerequisites for the migration service in Azure Database for PostgreSQL (online)"
 description: Providing the prerequisites of the migration service in Azure Database for PostgreSQL
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 01/30/2024
+ms.date: 03/19/2024
 ms.service: postgresql
 ms.topic: include
 ---
