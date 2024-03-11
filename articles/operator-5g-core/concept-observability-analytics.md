@@ -206,4 +206,4 @@ Jaeger tracing uses the following workflow:
 
 ## Related content
 - [What is Azure Operator 5G Core Preview?](overview-product.md)
-- [Quickstart: Deploy Azure Operator 5G Core observability (preview) on Azure Kubernetes Services (AKS)](quickstart-deploy-observability.md)
+- [Quickstart: Deploy Azure Operator 5G Core observability (preview) on Azure Kubernetes Services (AKS)](how-to-deploy-observability.md)
