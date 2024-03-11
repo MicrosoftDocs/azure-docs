@@ -12,15 +12,15 @@ ms.date: 02/13/2024
 recommendations: false
 ---
 
-# Securely use Azure OpenAI on your data
+# Securely use Azure OpenAI On Your Data
 
-Use this article to learn how to use Azure OpenAI on your data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks and private endpoints.
+Use this article to learn how to use Azure OpenAI On Your Data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks, and private endpoints.
 
-This article is only applicable when using [Azure OpenAI on your data with text](/azure/ai-services/openai/concepts/use-your-data). It does not apply to [Azure OpenAI on your data with images](/azure/ai-services/openai/concepts/use-your-image-data).
+This article is only applicable when using [Azure OpenAI On Your Data with text](/azure/ai-services/openai/concepts/use-your-data). It does not apply to [Azure OpenAI On Your Data with images](/azure/ai-services/openai/concepts/use-your-image-data).
 
 ## Data ingestion architecture 
 
-When you use Azure OpenAI on your data to ingest data from Azure blob storage, local files or URLs into Azure AI Search, the following process is used to process the data.
+When you use Azure OpenAI On Your Data to ingest data from Azure blob storage, local files or URLs into Azure AI Search, the following process is used to process the data.
 
 :::image type="content" source="../media/use-your-data/ingestion-architecture.png" alt-text="A diagram showing the process of ingesting data." lightbox="../media/use-your-data/ingestion-architecture.png":::
 
@@ -46,6 +46,61 @@ For the managed identities used in service calls, only system assigned managed i
 When you send API calls to chat with an Azure OpenAI model on your data, the service needs to retrieve the index fields during inference to perform fields mapping automatically if the fields mapping isn't explicitly set in the request. Therefore the service requires the Azure OpenAI identity to have the `Search Service Contributor` role for the search service even during inference.
 
 If an embedding deployment is provided in the inference request, the rewritten query will be vectorized by Azure OpenAI, and both query and vector are sent Azure AI Search for vector search.
+
+## Document-level access control
+
+> [!NOTE] 
+> Document-level access control is supported for Azure AI search only.
+
+Azure OpenAI On Your Data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response will be trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes. To enable document-level access:
+
+1. Follow the steps in the [Azure AI Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) to register your application and create users and groups.
+1. [Index your documents with their permitted groups](/azure/search/search-security-trimming-for-azure-search-with-aad#index-document-with-their-permitted-groups). Be sure that your new [security fields](/azure/search/search-security-trimming-for-azure-search#create-security-field) have the schema below:
+        
+    ```json
+    {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true }
+    ```
+
+    `group_ids` is the default field name. If you use a different field name like `my_group_ids`, you can map the field in [index field mapping](../concepts/use-your-data.md#index-field-mapping).
+
+1. Make sure each sensitive document in the index has the value set correctly on this security field to indicate the permitted groups of the document.
+1. In [Azure OpenAI Studio](https://oai.azure.com/portal), add your data source. in the [index field mapping](../concepts/use-your-data.md#index-field-mapping) section, you can map zero or one value to the **permitted groups** field, as long as the schema is compatible. If the **Permitted groups** field isn't mapped, document level access won't be enabled. 
+
+**Azure OpenAI Studio**
+
+Once the Azure AI Search index is connected, your responses in the studio will have document access based on the Microsoft Entra permissions of the logged in user.
+
+**Web app**
+
+If you are using a published [web app](./use-web-app.md), you need to redeploy it to upgrade to the latest version. The latest version of the web app includes the ability to retrieve the groups of the logged in user's Microsoft Entra account, cache it, and include the group IDs in each API request.
+
+**API**
+
+When using the API, pass the `filter` parameter in each API request. For example:
+
+```json
+{
+    "messages": [
+        {
+            "role": "user",
+            "content": "who is my manager?"
+        }
+    ],
+    "dataSources": [
+        {
+            "type": "AzureCognitiveSearch",
+            "parameters": {
+                "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
+                "key": "'$AZURE_AI_SEARCH_API_KEY'",
+                "indexName": "'$AZURE_AI_SEARCH_INDEX'",
+                "filter": "my_group_ids/any(g:search.in(g, 'group_id1, group_id2'))"
+            }
+        }
+    ]
+}
+```
+* `my_group_ids` is the field name that you selected for **Permitted groups** during [fields mapping](../concepts/use-your-data.md#index-field-mapping).
+* `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
 
 
 ## Resources configuration
@@ -108,6 +163,8 @@ To allow your Azure AI Search to call your Azure OpenAI `preprocessing-jobs` as 
 
 Set `networkAcls.bypass` as `AzureServices` from the management API. For more information, see [Virtual networks article](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#grant-access-to-trusted-azure-services-for-azure-openai).
 
+This step can be skipped only if you have a [shared private link](#create-shared-private-link) for your Azure AI Search resource.
+
 ### Disable public network access
 
 You can disable public network access of your Azure OpenAI resource in the Azure portal. 
@@ -117,7 +174,7 @@ To allow access to your Azure OpenAI service from your client machines, like usi
 
 ## Configure Azure AI Search
 
-You can use basic pricing tier and higher for the configuration below. You don’t have to use S2 pricing tier because the configuration doesn't require [private endpoint support for indexers with a skill set](/azure/search/search-limits-quotas-capacity#shared-private-link-resource-limits). See [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram. The networking for custom skill is *bypass trusted service*, not *private endpoint*.
+You can use basic pricing tier and higher for the configuration below. It's not necessary, but if you use the S2 pricing tier you will see [additional options](#create-shared-private-link) available for selection.
 
 ### Enable managed identity
 
@@ -157,10 +214,27 @@ To allow access to your Azure AI Search resource from your client machines, like
 
 :::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
-The private endpoint resource is provisioned in a Microsoft managed tenant, while the linked resource is in your tenant. You can't access the private endpoint resource by just clicking the **private endpoint** link (in blue font) in the **Private access** tab of the **Networking page**. Instead, click elsewhere on the row, then the **Approve**` button above should be clickable.
+The private endpoint resource is provisioned in a Microsoft managed tenant, while the linked resource is in your tenant. You can't access the private endpoint resource by just clicking the **private endpoint** link (in blue font) in the **Private access** tab of the **Networking page**. Instead, click elsewhere on the row, then the **Approve** button above should be clickable.
 
 Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
+
+### Create shared private link
+
+> [!TIP]
+> If you are using a basic or standard pricing tier, or if it is your first time to setup all of your resources securely, you should skip this advanced topic.
+
+This section is only applicable for S2 pricing tier search resource, because it requires [private endpoint support for indexers with a skill set](/azure/search/search-limits-quotas-capacity#shared-private-link-resource-limits).
+
+To create shared private link from your search resource connecting to your Azure OpenAI resource, see the [search documentation](/azure/search/search-indexer-howto-access-private). Select **Resource type** as `Microsoft.CognitiveServices/accounts` and **Group ID** as `openai_account`.
+
+With shared private link, [step eight](#data-ingestion-architecture) of the data ingestion architecture diagram is changed from **bypass trusted service** to **private endpoint**.
+
+:::image type="content" source="../media/use-your-data/ingestion-architecture-s2.png" alt-text="A diagram showing the process of ingesting data with an S2 search resource." lightbox="../media/use-your-data/ingestion-architecture-s2.png":::
+
+The Azure AI Search shared private link you created is also in a Microsoft managed virtual network, not your virtual network. The difference compared to the other managed private endpoint created [earlier](#disable-public-network-access-1) is that the managed private endpoint `[1]` from Azure OpenAI to Azure Search is provisioned through the [form application](#disable-public-network-access-1), while the managed private endpoint `[2]` from Azure Search to Azure OpenAI is provisioned via Azure portal or REST API of Azure Search.
+
+:::image type="content" source="../media/use-your-data/virtual-network-s2.png" alt-text="A diagram showing the virtual network architecture with S2 search resource." lightbox="../media/use-your-data/virtual-network-s2.png":::
 
 ## Configure Storage Account
 
@@ -191,7 +265,7 @@ So far you have already setup each resource work independently. Next you need to
 | `Search Service Contributor` | Azure OpenAI | Azure AI Search | Inference service queries the index schema for auto fields mapping. Data ingestion service creates index, data sources, skill set, indexer, and queries the indexer status. |
 | `Storage Blob Data Contributor` | Azure OpenAI | Storage Account | Reads from the input container, and writes the preprocess result to the output container. |
 | `Cognitive Services OpenAI Contributor` | Azure AI Search | Azure OpenAI | Custom skill |
-| `Storage Blob Data Contributor` | Azure AI Search | Storage Account | Reads blob and writes knowledge store |
+| `Storage Blob Data Contributor` | Azure AI Search | Storage Account | Reads blob and writes knowledge store. |
 
 
 In the above table, the `Assignee` means the system assigned managed identity of that resource.

@@ -1,7 +1,7 @@
 ---
 title: Vector database
 titleSuffix: Azure Cosmos DB
-description: Vector database extension and retrieval augmented generation (RAG) implementation.
+description: Vector database and retrieval augmented generation (RAG) implementation.
 author: wmwxwa
 ms.author: wangwilliam
 ms.reviewer: sidandrews
@@ -22,9 +22,9 @@ An increasingly popular use case is augmenting your applications with large lang
 - Overcome ChatGPT, GPT-3.5, or GPT-4’s token limits
 - Reduce the costs from frequent fine-tuning on updated data
 
-Some RAG implementation tutorials demonstrate integrating vector databases that are distinct from traditional databases. Instead of adding a separate vector database, you can use our vector database extensions when working with multi-modal data. By doing so, you avoid the extra cost of moving data to a separate database. Moreover, this keeps your vector embeddings and original data together, and you can better achieve data consistency, scale, and performance. The latter reason is why OpenAI built its ChatGPT service on top of Azure Cosmos DB.
+Some RAG implementation tutorials demonstrate integrating vector databases that are distinct from traditional databases. Instead of adding a separate vector database, you can use our integrated vector database when working with multi-modal data. By doing so, you avoid the extra cost of moving data to a separate database. Moreover, this keeps your vector embeddings and original data together, and you can better achieve data consistency, scale, and performance. The latter reason is why OpenAI built its ChatGPT service on top of Azure Cosmos DB.
 
-Here's how to implement our vector database extensions:
+Here's how to implement our integrated vector database:
 
 | | Description |
 | --- | --- |

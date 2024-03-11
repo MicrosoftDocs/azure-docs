@@ -49,7 +49,7 @@ Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to m
 
 ## Step 1 - Validate user input by limiting user input options 
 
-If you know all the possible values that a user can enter for a given input, you can provide a finite set of values that a user must select from. You can use *DropdownSinglSelect*, *CheckboxMultiSelect*, and *RadioSingleSelect* [UserInputType](claimsschema.md#userinputtype) for this purpose. In this article, you'll use a *RadioSingleSelect* input type:
+If you know all the possible values that a user can enter for a given input, you can provide a finite set of values that a user must select from. You can use *DropdownSingleSelect*, *CheckboxMultiSelect*, and *RadioSingleSelect* [UserInputType](claimsschema.md#userinputtype) for this purpose. In this article, you'll use a *RadioSingleSelect* input type:
 
 1. In VS Code, open the file `ContosoCustomPolicy.XML`. 
 

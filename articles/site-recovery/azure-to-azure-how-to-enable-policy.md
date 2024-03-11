@@ -51,6 +51,7 @@ With built-in Azure Policy capabilities, you have a way to enable Site Recovery 
   Classic deployment model | Not supported
   Zone-to-zone DR  | Supported
   Interoperability with other policies applied as default by Azure (if any) | Supported
+  Private endpoint | Not supported. 
 
 > [!NOTE]
 > Site Recovery won't be enabled if an unsupported VM is created within the scope of the policy.
@@ -144,4 +145,4 @@ If the VMs show up as noncompliant, it might be because policy evaluation happen
 
 ## Next steps
 
-[Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
+- [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

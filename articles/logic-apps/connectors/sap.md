@@ -8,7 +8,6 @@ ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/10/2024
-tags: connectors
 ---
 
 # Connect to SAP from workflows in Azure Logic Apps

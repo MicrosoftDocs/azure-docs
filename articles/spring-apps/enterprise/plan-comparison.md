@@ -6,7 +6,7 @@ ms.author: taoxu
 ms.service: spring-apps
 ms.topic: overview
 ms.date: 01/05/2024
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, engagement-fy23, references_regions
+ms.custom: devx-track-java, engagement-fy23, references_regions
 ---
 
 # Compare available plans in Azure Spring Apps

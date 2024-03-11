@@ -2,7 +2,7 @@
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: conceptual
-ms.date: 04/03/2023
+ms.date: 02/29/2024
 ms.devlang: csharp
 ms.custom: linux-related-content
 ---
@@ -24,7 +24,7 @@ This topic explains how to enable user-assigned managed identities on Batch pool
 
 First, [create your user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) in the same tenant as your Batch account. You can create the identity using the Azure portal, the Azure Command-Line Interface (Azure CLI), PowerShell, Azure Resource Manager, or the Azure REST API. This managed identity doesn't need to be in the same resource group or even in the same subscription.
 
-> [!IMPORTANT]
+> [!TIP]
 > A system-assigned managed identity created for a Batch account for [customer data encryption](batch-customer-managed-key.md)
 > cannot be used as a user-assigned managed identity on a Batch pool as described in this document. If you wish to use the same
 > managed identity on both the Batch account and Batch pool, then use a common user-assigned managed identity instead.
@@ -35,6 +35,11 @@ After you've created one or more user-assigned managed identities, you can creat
 
 - [Use the Azure portal to create the Batch pool](#create-batch-pool-in-azure-portal)
 - [Use the Batch .NET management library to create the Batch pool](#create-batch-pool-with-net)
+
+> [!WARNING]
+> In-place updates of pool managed identities are not supported while the pool has active nodes. Existing compute nodes
+> will not be updated with changes. It is recommended to scale the pool down to zero compute nodes before modifying the
+> identity collection to ensure all VMs have the same set of identities assigned.
 
 ### Create Batch pool in Azure portal
 
@@ -100,10 +105,6 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
     parameters: poolParameters,
     cancellationToken: default(CancellationToken)).ConfigureAwait(false);
 ```
-
-> [!IMPORTANT]
-> Managed identities are not updated on existing VMs once a pool has been started. It is recommended to scale the pool down to zero before modifying the identity collection to ensure all VMs
-> have the same set of identities assigned.
 
 ## Use user-assigned managed identities in Batch nodes
 

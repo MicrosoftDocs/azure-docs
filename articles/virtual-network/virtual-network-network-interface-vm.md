@@ -4,7 +4,6 @@ description: Learn how to add network interfaces to or remove network interfaces
 services: virtual-network
 author: asudbring
 manager: mtillman
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 11/16/2022

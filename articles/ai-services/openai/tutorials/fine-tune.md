@@ -324,7 +324,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-12-01-preview"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 )
 
@@ -394,7 +394,7 @@ job_id = response.id
 # The fine-tuning job will take some time to start and complete.
 
 print("Job ID:", response.id)
-print("Status:", response.id)
+print("Status:", response.status)
 print(response.model_dump_json(indent=2))
 ```
 
@@ -619,7 +619,7 @@ import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
 openai.api_version = "2023-05-15"
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(
     engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
@@ -643,7 +643,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-05-15"
 )
 

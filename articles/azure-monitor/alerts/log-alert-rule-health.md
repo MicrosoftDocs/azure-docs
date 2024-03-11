@@ -49,7 +49,7 @@ This table describes the possible resource health status values for a log search
 | Resource health status | Description |Recommended steps|
 |---|---|
 |Available|There are no known issues affecting this log search alert rule.|     |
-|Unknown|This log search alert rule is currently disabled or in an unknown state.|[Log alert was disabled](alerts-troubleshoot-log.md#log-alert-was-disabled).|
+|Unknown|This log search alert rule is currently disabled or in an unknown state.|[Log alert was disabled](alerts-troubleshoot-log.md#log-search-alert-was-disabled).|
 |Unknown reason|This log search alert rule is currently unavailable due to an unknown reason.|Check if the alert rule was recently created. Health status is updated after the rule completes its first evaluation.|
 |Degraded due to unknown reason|This log search alert rule is currently degraded due to an unknown reason.|     |
 |Setting up resource health|Setting up Resource health for this resource.|Check if the alert rule was recently created. Health status is updated after the rule completes its first evaluation.|

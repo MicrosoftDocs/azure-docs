@@ -6,7 +6,6 @@ ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.date: 01/10/2024
-tags: connectors
 ---
 
 # Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps

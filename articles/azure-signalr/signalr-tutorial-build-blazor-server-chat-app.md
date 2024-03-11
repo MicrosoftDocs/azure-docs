@@ -419,7 +419,7 @@ When you deploy the Blazor app to Azure App Service, we recommend that you use [
 1. Add a reference to the Azure SignalR SDK using the following command.
 
    ```dotnetcli
-   dotnet add package Microsoft.Azure.SignalR --version 1.5.1
+   dotnet add package Microsoft.Azure.SignalR
    ```
 
 1. Add a call to `AddAzureSignalR()` in `Startup.ConfigureServices()` as demonstrated below.

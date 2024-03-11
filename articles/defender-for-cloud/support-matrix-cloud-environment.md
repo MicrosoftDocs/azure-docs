@@ -13,7 +13,6 @@ This article indicates which Defender for Cloud features are supported in Azure 
 
 In the support table, **NA** indicates that the feature isn't available.
 
-
 |**Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**|
 |--- | --- | --- | --- |
 |**GENERAL FEATURES** | | ||
