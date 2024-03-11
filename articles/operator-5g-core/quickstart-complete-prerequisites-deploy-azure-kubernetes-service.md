@@ -1,15 +1,16 @@
 ---
+
 title: Prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service
 description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core Preview on the Azure Kubernetes Service
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.custom: devx-track-azurecli
-ms.topic: how-to #required; leave this attribute/value as-is.
+ms.topic: quickstart #required; leave this attribute/value as-is.
 ms.date: 02/22/2024
 ---
 
-# Complete the prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service
+# Quickstart: Complete the prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service
 
 This article shows you how to deploy Azure Operator 5G Core Preview on the Azure Kubernetes Service. The first portion discusses the initial cluster creation; the second shows you how to modify the cluster to add the data plane ports.
 
@@ -49,7 +50,7 @@ User defined routes (UDRs) are added to other virtual networks that point to thi
 
 ## Create the initial cluster
 
-To deploy an AKS cluster, you should have a basic understanding of [Kubernetes concepts](../aks/concepts-clusters-workloads.md) and advanced knowledge of Azure networking, consistent with Azure Networking Certification. 
+To deploy an AKS cluster, you should have a basic understanding of [Kubernetes concepts](../aks/concepts-clusters-workloads.md) and advanced knowledge of Azure networking, consistent with Azure Networking Certification.
 
 - If you don't have an [Azure subscription](../cost-management-billing/manage/create-enterprise-subscription.md), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - If you're unfamiliar with the Azure Cloud Shell, review [What is Azure Cloud Shell?](../cloud-shell/overview.md)
@@ -60,7 +61,7 @@ To deploy an AKS cluster, you should have a basic understanding of [Kubernetes c
 1. In the **Categories** section, select **Containers** > **Azure Kubernetes Service (AKS)**.
 1. On the **Basics** tab:
     - Enter the **Subscription**, **Resource Group**, **Cluster Name**, **Availability Zones**, and **Pricing Tier** based on your Azure Operator 5G Core requirements.
-    -  Disable **Automatic upgrade**.
+    - Disable **Automatic upgrade**.
     - Select **Local accounts with Kubernetes RBAC** for the **Authentication and Authorization** method.
 2. Navigate to the **Add a node pool** tab, then:
     - Delete the sample node pools. Use the VM size based on your sizing, availability, and NFVI capacity requirements to create a new system node pool. Please note that cluster testing was performed using one GBPS dataplane performance. 
@@ -78,7 +79,6 @@ To deploy an AKS cluster, you should have a basic understanding of [Kubernetes c
 1. Note the name of the **Infrastructure Resource group** displayed. This name is required to modify the cluster and add data plane ports.
 1. Select **Review + Create** once validation completes.
   
-
 ## Modify the cluster to add data plane ports
 
 1. Once you successfully created the cluster, navigate to the **settings** section of the AKS cluster and verify that the provisioning status of  **Node pools** is **Succeeded**.
@@ -137,6 +137,7 @@ az aks nodepool add \
    --kubelet-config ./linuxkubeletconfig.json \
    --linux-os-config ./linuxosconfig.json
 ```
+
 The following example command adds the **User** node pool to the cluster:
 
 ```azurecli
@@ -156,6 +157,7 @@ az aks nodepool add \
      --kubelet-config ./linuxkubeletconfig.json \
    --linux-os-config ./linuxosconfig.json
 ```
+
 Example ```linuxkubeletconfig.json``` contents:
 
 ```json
@@ -163,6 +165,7 @@ Example ```linuxkubeletconfig.json``` contents:
 "cpuManagerPolicy": "static",
 }
 ```
+
 Example ```linuxosconfig.json``` contents:
 
 ```json
@@ -178,6 +181,7 @@ Example ```linuxosconfig.json``` contents:
   }
 }
 ```
+
 ## Modify SMF or AMF network function 
 
 For the VIP IPs for AMF from the previous section, depending on your network topology, create a single or multiple Azure LoadBalancer(s) of type **Microsoft.Network/loadBalancers** standard SKU, Regional.
@@ -189,6 +193,7 @@ Frontend IP configuration for this LoadBalancer should come based on the ip conf
 The backend of this load balancer should point to the data plane ports you created for the requisite networks you created. For instance, if you have a data plane port for n26 interface specifically, attach the load balancer backend address pool to that n26 data plane nic port. For example:
 
 ```
+
 "frontendPort": 0,
 "backendPort": 0,
 "enableFloatingIP": true,
@@ -198,6 +203,7 @@ The backend of this load balancer should point to the data plane ports you creat
 "loadDistribution": "SourceIP",
 "disableOutboundSnat": true,
 ```
+
 ## Health probes
 
 For health probes, use the following settings:
@@ -236,5 +242,5 @@ $ az network private-endpoint create --resource-group $RG_NAME --name $PRIVATE_E
 ## Related content
 
 - Learn about the [Deployment order on Azure Kubernetes Services](concept-deployment-order.md).
-- [Deploy Azure Operator 5G Core Preview](how-to-deploy-5g-core.md).
-- [Deploy a network function](quickstart-deploy-network-functions.md).
+- [Deploy Azure Operator 5G Core Preview](quickstart-deploy-5g-core.md).
+- [Deploy a network function](how-to-deploy-network-functions.md).
