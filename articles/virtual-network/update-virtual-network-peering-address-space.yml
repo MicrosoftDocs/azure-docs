@@ -111,4 +111,4 @@ relatedContent:
   - text: Create, change, or delete a virtual network peering
     url: virtual-network-manage-peering.md
   - text: Create, change, or delete a virtual network
-    url: manage-virtual-network.md
+    url: manage-virtual-network.yml
