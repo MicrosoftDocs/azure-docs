@@ -220,7 +220,7 @@ If you would like to create a VM with ultra disks support, make sure the host gr
 1. For the size, select **Change size**. In the list of available sizes, choose one from the Esv3 series, like **Standard E2s v3**. You may need to clear the filter in order to see all of the available sizes.
 1. Complete the rest of the fields on the **Basics** tab as needed.
 1. If you want to specify which host to use for your VM, then at the top of the page, select the **Advanced** tab and in the **Host** section, select *myHostGroup* for **Host group** and *myHost* for the **Host**. Otherwise, your VM will automatically be placed on a host with capacity.
-	![Select host group and host](./media/dedicated-hosts-portal/advanced.png)
+    ![Select host group and host](./media/dedicated-hosts-portal/advanced.png)
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 1. When you see the message that validation has passed, select **Create**.
 
@@ -328,9 +328,9 @@ If you want to manually choose which host to deploy the scale set to, add `--hos
 
 ---
 
-## Add an existing VM
+## Move a VM from multitenant infrastructure to dedicated host or reassign to a different dedicated host (explicitly placed VMs)
 
-You can add an existing VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
+You can assign an existing multitenant VM or on a dedicated host to a different dedicated host, but the VM must first be Stop\Deallocated. Before you reassign a VM to a dedicated host, make sure that the VM configuration is supported:
 
 - The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it couldn't be a Standard_A4_v2.
 - The VM needs to be located in same region as the dedicated host.
@@ -345,7 +345,8 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 1. Open the page for the VM.
 1. Select **Stop** to stop\deallocate the VM.
 1. Select **Configuration** from the left menu.
-1. Select a host group and a host from the drop-down menus.
+1. Select the target host group and a host from the drop-down menus.
+
 1. When you're done, select **Save** at the top of the page.
 1. After the VM has been added to the host, select **Overview** from the left menu.
 1. At the top of the page, select **Start** to restart the VM.
