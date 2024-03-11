@@ -158,8 +158,6 @@ Follow these steps to list additional details about a deny assignment.
 
 1. To see the properties for a deny assignment, select **Properties**.
 
-    ![Deny assignment - Properties](./media/deny-assignments/deny-assignment-properties.png)
-
     :::image type="content" source="./media/deny-assignments/deny-assignment-properties.png" alt-text="Screenshot of Properties page for a deny assignment that lists the properties." lightbox="./media/deny-assignments/deny-assignment-properties.png":::
 
     On the **Properties** page, you can see the deny assignment name, ID, description, and scope. The **Does not apply to children** switch indicates whether the deny assignment is inherited to subscopes. The **System protected** switch indicates whether this deny assignment is managed by Azure. Currently, this is **Yes** in all cases.
