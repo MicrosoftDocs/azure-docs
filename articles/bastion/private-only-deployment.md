@@ -9,26 +9,26 @@ ms.author: cherylmc
 
 ---
 
-# Deploy Bastion as private-only
+# Deploy Bastion as private-only (Preview)
 
-This article helps you deploy Bastion as private-only from the Azure portal. Most Azure Bastion deployments are created using an architecture that allows users to connect through Bastion via public IP address. **Private-only** Bastion deployments don't allow connections via public IP address. Instead, they lock down the workloads end-to-end by creating a non-internet routable deployment of Bastion that allows only private IP address access.
+This article helps you deploy Bastion as private-only from the Azure portal. Most Azure Bastion deployments are created using an architecture that allows users to connect through Bastion via public IP address. **Private-only** Bastion deployments don't allow connections via public IP address. Instead, they lock down the workloads end-to-end by creating a non-internet routable deployment of Bastion that allows only private IP address access. In a private-only Bastion deployment, Bastion doesn't allow outbound access outside of the virtual network.
 
-In a private-only Bastion deployment, Bastion doesn't allow outbound access outside of the virtual network. For example, a user that's connected to Azure via ExpressRoute private-peering can securely connect to Bastion using the private IP address of the bastion host. Bastion can then make the connection via the private IP address of the virtual machine that is within the same virtual network as the bastion host.
+The following diagram shows the Bastion private-only deployment architecture. A user that's connected to Azure via ExpressRoute private-peering can securely connect to Bastion using the private IP address of the bastion host. Bastion can then make the connection via the private IP address of the virtual machine that is within the same virtual network as the bastion host.
 
-The following diagram shows the Bastion private-only deployment architecture.
+:::image type="content" source="./media/private-only-deployment/private-only-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/private-only-deployment/private-only-architecture.png":::
 
-**CHANGE DIAGRAM or REMOVE BEFORE PUBLISHING**
+Items to consider:
 
-:::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
-
-Private-only Bastion is configured at the time of deployment and requires the Premium SKU Tier. You can't change from a regular Bastion deployment to a private-only deployment. To deploy private-only Bastion to a virtual network that already has a Bastion deployment, first remove Bastion from your virtual network, then deploy Bastion back to the virtual network as private-only. You don't need to delete and recreate the AzureBastionSubnet.
+* Private-only Bastion is configured at the time of deployment and requires the Premium SKU Tier.
+* You can't change from a regular Bastion deployment to a private-only deployment.
+* To deploy private-only Bastion to a virtual network that already has a Bastion deployment, first remove Bastion from your virtual network, then deploy Bastion back to the virtual network as private-only. You don't need to delete and recreate the AzureBastionSubnet.
 
 ## Prerequisites
 
 The steps in this article assume you have the following prerequisites:
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A [virtual network](../virtual-network/quick-create-portal.md).
+* A [virtual network](../virtual-network/quick-create-portal.md). You can add the AzureBastionSubnet when you create your virtual network, or using the steps later in this article.
 
 ### <a name="values"></a>Example values
 
@@ -108,4 +108,4 @@ This section helps you deploy Bastion as private-only to your virtual network.
 
 ## Next steps
 
-For more information about configuration settings, see [Azure Bastion configuration settings](configuration-settings.md) and the[Azure Bastion FAQ](bastion-faq.md).
+For more information about configuration settings, see [Azure Bastion configuration settings](configuration-settings.md) and the [Azure Bastion FAQ](bastion-faq.md).
