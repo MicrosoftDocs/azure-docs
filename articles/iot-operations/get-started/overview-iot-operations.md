@@ -23,7 +23,7 @@ Azure IoT Operations:
 * Lets you manage all edge services from the cloud by using Azure Arc.
 * Can integrate customer workloads into the platform to create a unified solution.
 * Supports GitOps configuration as code for deployment and updates.
-* Natively integrates with [Azure Event Hubs](/azure/event-hubs/azure-event-hubs-kafka-overview), [Azure Event Grid's MQTT broker](/azure/event-grid/mqtt-overview), and [Microsoft Fabric](/fabric/) in the cloud.
+* Natively integrates with [Azure Event Hubs](../../event-hubs/azure-event-hubs-kafka-overview.md), [Azure Event Grid's MQTT broker](../../event-grid/mqtt-overview.md), and [Microsoft Fabric](/fabric/) in the cloud.
 
 ## Architecture overview
 
@@ -45,7 +45,7 @@ Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You ca
 
 ## Manage devices and assets
 
-Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations portal](../manage-devices-assets/howto-manage-assets-remotely.md) to manage the devices and assets that you want to connect to.
+Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations portal](../manage-devices-assets/howto-manage-assets-remotely.md?tabs=portal) or the [Azure CLI](../manage-devices-assets/howto-manage-assets-remotely.md?tabs=cli) to manage the devices and assets that you want to connect to.
 
 The [OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri_ to Azure IoT MQ topics.
 

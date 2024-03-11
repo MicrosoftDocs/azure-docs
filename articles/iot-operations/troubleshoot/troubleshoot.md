@@ -105,6 +105,15 @@ kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
 
+## Data Processor extension fails to uninstall
+
+If the data processor extension fails to uninstall, run the following commands and try the uninstall operation again:
+
+```bash
+kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
+kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
+```
+
 ## Troubleshoot Layered Network Management
 
 The troubleshooting guidance in this section is specific to Azure IoT Operations when using an IoT Layered Network Management. For more information, see [How does Azure IoT Operations work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
