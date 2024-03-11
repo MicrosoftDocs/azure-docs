@@ -774,7 +774,7 @@ The setting applies to the following metrics:
 
 * **Default performance counters**: For example, CPU and memory
 * **Default custom metrics**: For example, garbage collection timing
-* **Configured JMX metrics**: [See the JMX metric section](#jmx-metrics)
+* **Configured JMX metrics**: [See the JMX metric section](#java-management-extensions-metrics)
 * **Micrometer metrics**: [See the Autocollected Micrometer metrics section](#autocollected-micrometer-metrics-including-spring-boot-actuator-metrics)
 
 ## Heartbeat
