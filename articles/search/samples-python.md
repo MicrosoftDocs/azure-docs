@@ -61,13 +61,13 @@ A demo repo provides proof-of-concept source code for examples or scenarios show
 
 | Repository | Description |
 |------------|-------------|
-| [azure-search-vector-python-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-vector-image-python-sample.ipynb) | Uses the **azure.search.documents** library in the Azure SDK for Python to create, load, and query a vector store. |
-| [azure-search-integrated-vectorization-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-integrated-vectorization-sample.ipynb) | Extends the vector store workflow to include integrated data chunking and embedding. |
-| [azure-search-vector-image-index-creation-python-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-vector-image-index-creation-python-sample.ipynb) | Demonstrates image embedding. |
-| [azure-search-vector-image-python-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-vector-image-python-sample.ipynb) | Demonstrates image retrieval. |
-| [azure-search-vector-python-huggingface-model-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-vector-python-huggingface-model-sample.ipynb) | Hugging Face integration. |
-| [azure-search-vector-python-langchain-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-vector-python-langchain-sample.ipynb) | LangChain integration. |
-| [azure-search-vector-python-llamaindex-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-vector-python-llamaindex-sample.ipynb) | Llamaindex integration. |
+| [azure-search-vector-python-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/basic-vector-workflow/azure-search-vector-python-sample.ipynb) | Uses the **azure.search.documents** library in the Azure SDK for Python to create, load, and query a vector store. |
+| [azure-search-integrated-vectorization-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/integrated-vectorization/azure-search-integrated-vectorization-sample.ipynb) | Extends the vector store workflow to include integrated data chunking and embedding. |
+| [azure-search-vector-image-index-creation-python-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/multimodal/azure-search-vector-image-index-creation-python-sample.ipynb) | Demonstrates multimodal search over text and images. |
+| [azure-search-custom-vectorization-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/custom-vectorizer/azure-search-custom-vectorization-sample.ipynb) | Demonstrates custom vectorization. |
+| [azure-search-vector-python-huggingface-model-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/community-integration/hugging-face/azure-search-vector-python-huggingface-model-sample.ipynb) | Hugging Face integration. |
+| [azure-search-vector-python-langchain-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/community-integration/langchain/azure-search-vector-python-langchain-sample.ipynb) | LangChain integration. |
+| [azure-search-vector-python-llamaindex-sample.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/community-integration/llamaindex/azure-search-vector-python-llamaindex-sample.ipynb) | Llamaindex integration. |
 | [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) | ChatGPT + Enterprise data with Azure OpenAI Python code showing how to use Azure AI Search with the large language models in Azure OpenAI. For background, see this Tech Community blog post: [Revolutionize your Enterprise Data with ChatGPT](https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/revolutionize-your-enterprise-data-with-chatgpt-next-gen-apps-w/ba-p/3762087). |
 
 ## Other samples
@@ -76,7 +76,7 @@ The following samples are also published by the Azure AI Search team, but aren't
 
 | Repository | Description |
 |------------|-------------|
-| [azure-search-backup-and-restore.ipynb](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-backup-and-restore.ipynb) | Uses the **azure.search.documents** library in the Azure SDK for Python to make a local copy of the retrievable fields of a search index, and then push those fields to a new search index. |
+| [azure-search-backup-and-restore.ipynb](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/index-backup-restore) | Uses the **azure.search.documents** library in the Azure SDK for Python to make a local copy of the retrievable fields of a search index, and then push those fields to a new search index. |
 
 > [!TIP]
 > Try the [Samples browser](/samples/browse/?languages=python&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.

@@ -29,7 +29,7 @@ To complete this walkthrough, make sure you have the following prerequisites:
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - [Git](https://www.git-scm.com/downloads)
 - Linux/MacOS
-- Kafka release (version 1.1.1, Scala version 2.11), available from [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
+- Latest Kafka release available from [kafka.apache.org](https://kafka.apache.org/downloads)
 - Read through the [Event Hubs for Apache Kafka](./azure-event-hubs-kafka-overview.md) introduction article
 
 ## Create an Event Hubs namespace
