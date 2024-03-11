@@ -42,17 +42,16 @@ In this task, create the notebook, load the libraries, and set up your clients.
     from azure.search.documents import SearchClient
     from azure.search.documents.indexes.models import (  
         SearchIndex,  
-        SearchField,  
         SearchFieldDataType,  
         SimpleField,  
         SearchableField,
         ComplexField,
         SearchIndex,  
         SemanticConfiguration,  
-        PrioritizedFields,  
+        SemanticPrioritizedFields,  
         SemanticField,  
-        SemanticSettings,  
-    )
+        SemanticSearch,  
+)
     ```
 
 1. Set the service endpoint and API key from the environment. Because the code builds out the URI for you, specify just the search service name in the service name property.
@@ -114,12 +113,12 @@ In this task, create the notebook, load the libraries, and set up your clients.
         name="my-semantic-config",
         prioritized_fields=PrioritizedFields(
             title_field=SemanticField(field_name="HotelName"),
-            prioritized_keywords_fields=[SemanticField(field_name="Category")],
-            prioritized_content_fields=[SemanticField(field_name="Description")]
+            keywords_fields=[SemanticField(field_name="Category")],
+            content_fields=[SemanticField(field_name="Description")]
         )
     )
     
-    semantic_settings = SemanticSettings(configurations=[semantic_config])
+    semantic_settings = SemanticSearch(configurations=[semantic_config])
     scoring_profiles = []
     suggester = [{'name': 'sg', 'source_fields': ['Tags', 'Address/City', 'Address/Country']}]
     ```
