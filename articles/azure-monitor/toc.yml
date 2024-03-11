@@ -1556,6 +1556,8 @@ items:
     - name: REST API Walkthrough
       displayName: metrics, analyze
       href: essentials/rest-api-walkthrough.md
+    - name: Activity log via REST API
+      href: essentials/rest-activity-log.md
     - name: Migrate to the metrics getBatch API
       href: essentials/migrate-to-batch-api.md
     - name: Migrate from the alertsSummary API
