@@ -34,7 +34,7 @@ It is possible to buy reservations in multiples of 100 RU/s, enabling savings fo
 
 Azure Cosmos DB reserved capacity covers throughput provisioned for your resources. It doesn't cover the storage and networking charges. As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
 
-### Autoscale provisioned throughput
+### Autoscale provisioned throughput scenarios
 
 Reserved capacity is consumed by autoscale database operations at a rate of 100 RU/s x 1.5 x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. 
 
@@ -48,7 +48,7 @@ Examples:
 | 30,000 RU/s | 1.5 | 2 | (30,000 / 1.5) / 2 | 10,000 |
 
 
-### Standard provisioned throughput
+### Standard provisioned throughput scenarios
 
 Reserved capacity is consumed by standard database operations at a rate of 100 RU/s x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. 
 
