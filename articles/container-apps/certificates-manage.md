@@ -7,6 +7,7 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 03/11/2024
 ms.author: cshoe
+zone_pivot_groups: azure-cli-or-portal
 ---
 
 # Manage certificates in Azure Container Apps
@@ -26,6 +27,8 @@ By default, the Container Apps resource provider doesn't have access to your key
 |--|--|--|--|
 | TODO | TODO | Get | Get |
 | TODO | TODO | Get<br/>List<br/>Set<br/>Delete | Get<br/>List |
+
+::: zone pivot="azure-portal"
 
 ### Import a certificate from your vault to your app
 
@@ -57,6 +60,8 @@ By default, the Container Apps resource provider doesn't have access to your key
    > If you update your certificate in Key Vault with a new certificate, Container Apps automatically syncs your certificate within 24 hours.
 
 1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure Container Apps](certificates-manage.md).
+
+::: zone-end
 
 ## Upload a private certificate
 
@@ -110,7 +115,18 @@ Now, export your merged TLS/SSL certificate with the private key that was used t
 
 #### Upload certificate to Container Apps
 
-You're now ready upload the certificate to Container Apps.
+::: zone pivot="azure-cli"
+
+```azurecli
+az containerapp env certificate upload \
+  --certificate-identity/--identity {identityId} \
+  --certificate-akv-url/--akv-url {keyVaultSecretUrl}
+```
+
+::: zone-end
+
+::: zone pivot="azure-portal"
+
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **Container Apps** > **\<app-name>**.
 
@@ -133,3 +149,5 @@ You're now ready upload the certificate to Container Apps.
     TODO: add image
 
 1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure Container Apps](certificates-manage.md).
+
+::: zone-end
