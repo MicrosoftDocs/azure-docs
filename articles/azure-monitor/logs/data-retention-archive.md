@@ -269,7 +269,7 @@ Tables related to Application Insights resources also keep data for 90 days at n
 
 ## Pricing model
 
-The charge for maintaining archived logs is calculated based on the volume of data you archive, in GB, and the number or days for which you archive the data.
+The charge for maintaining archived logs is calculated based on the volume of data you archive, in GB, and the number or days for which you archive the data. Log data that has `_IsBillable == false` is not subject to retention or archive charges. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

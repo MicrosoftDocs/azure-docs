@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -38,7 +39,7 @@ Here's an item that's used in examples throughout this article.
 
 You can construct arrays using static values, as shown in the following example.
 
-```sql
+```nosql
 SELECT
   [p.priceInUSD, p.priceInCAD] AS priceData
 FROM products p
@@ -57,7 +58,7 @@ FROM products p
 
 You can also use the [``ARRAY`` expression](subquery.md#array-expression) to construct an array from a [subquery's](subquery.md) results. This query gets all the distinct categories.
 
-```sql
+```nosql
 SELECT
     p.id,
     ARRAY (SELECT DISTINCT VALUE c.name FROM c IN p.categories) AS categoryNames
@@ -83,7 +84,7 @@ The API for NoSQL provides support for iterating over JSON arrays, with the [``I
 
 As an example, the next query performs iteration over ``tags`` for each item in the container. The output splits the array value and flattens the results into a single array.
 
-```sql
+```nosql
 SELECT
     *
 FROM 
@@ -103,7 +104,7 @@ FROM
 
 You can filter further on each individual entry of the array, as shown in the following example:
 
-```sql
+```nosql
 SELECT VALUE
     p.name
 FROM
@@ -122,7 +123,7 @@ The results are:
 
 You can also aggregate over the result of an array iteration. For example, the following query counts the number of tags:
 
-```sql
+```nosql
 SELECT VALUE
     COUNT(1)
 FROM

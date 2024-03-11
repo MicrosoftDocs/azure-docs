@@ -3,7 +3,6 @@ title: 'Plan and implement an SAP deployment on Azure'
 description: Learn how to plan and implement a deployment of SAP applications on Azure virtual machines.
 author: msftrobiro
 manager: juergent
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

@@ -3,7 +3,6 @@ title: SAP HANA availability on Azure VMs - Overview | Microsoft Docs
 description: Describes SAP HANA operations on Azure native VMs.
 author: msjuergent
 manager: patfilot
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

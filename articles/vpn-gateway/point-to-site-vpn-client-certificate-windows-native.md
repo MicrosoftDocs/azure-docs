@@ -58,3 +58,4 @@ Connect to your virtual network via point-to-site VPN.
 ## Next steps
 
 [Point-to-site configuration steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+[Point-to-site VPN clients: certificate authentication - Windows ](point-to-site-vpn-client-cert-windows.md)

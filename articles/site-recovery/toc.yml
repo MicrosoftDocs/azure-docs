@@ -337,6 +337,8 @@
         href: physical-server-enable-replication.md
       - name: Enable replication for VMware VMs
         href: vmware-azure-enable-replication.md
+      - name: For an added disk
+        href: vmware-azure-enable-replication-added-disk.md
       - name: Exclude disks from replication
         href: vmware-azure-exclude-disk.md
       - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMware VMs
