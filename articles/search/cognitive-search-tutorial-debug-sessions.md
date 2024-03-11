@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 + [Sample PDFs (clinical trials)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/clinical-trials/clinical-trials-pdf-19).
 
-+ [Sample debug-sessions.rest file](https://github.com/Azure-Samples/azure-search-postman-samples/blob/main/Debug-sessions/debug-sessions.rest) used to create the enrichment pipeline.
++ [Sample debug-sessions.rest file](https://github.com/Azure-Samples/azure-search-rest-samples/blob/main/Debug-sessions/debug-sessions.rest) used to create the enrichment pipeline.
 
 > [!NOTE]
 > This tutorial also uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for language detection, entity recognition, and key phrase extraction. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create a billable Azure AI services resource.
