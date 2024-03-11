@@ -217,6 +217,8 @@ items:
           href: ./references/elasticsearch.md
         - name: Data source - Pinecone
           href: ./references/pinecone.md
+        - name: Ingestion API (preview)
+          href: /rest/api/azureopenai/ingestion-jobs
     - name: Azure Resource Manager/Bicep/Terraform
       href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
       displayName: ARM, ARM template, template 

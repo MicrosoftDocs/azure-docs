@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -16,6 +16,8 @@ This article lists the permissions for the Azure resource providers in the Mixed
 
 
 ## Microsoft.MixedReality
+
+Blend your physical and digital worlds to create immersive, collaborative experiences.
 
 Azure service: [Azure Spatial Anchors](/azure/spatial-anchors/)
 

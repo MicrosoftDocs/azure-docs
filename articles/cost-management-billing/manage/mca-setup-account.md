@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 02/26/2024
 ms.author: banders
 ---
 
@@ -67,6 +67,9 @@ Here's an example screenshot showing the Get started experience. We cover each o
 :::image type="content" source="./media/microsoft-customer-agreement-setup-account/setup-billing-account-page.png" alt-text="Screenshot showing the Get started page." lightbox="./media/microsoft-customer-agreement-setup-account/setup-billing-account-page.png" :::
 
 If you don't have the enterprise administrator role for the enterprise agreement or the billing account owner role for the Microsoft Customer Agreement, then use the following information to get the access that you need to complete setup.
+
+>[!NOTE]
+> The Global Administrator role is above the Billing Account Administrator. Global Administrators in a Microsoft Entra ID tenant can add or remove themselves as Billing Account Administrators at any time to the Microsoft Customer Agreement. For more information about elevating access, see [Elevate access to manage billing accounts](elevate-access-global-admin.md).
 
 #### If you're not an enterprise administrator on the enrollment
 

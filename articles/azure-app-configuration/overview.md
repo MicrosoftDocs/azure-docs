@@ -48,12 +48,12 @@ The easiest way to add an App Configuration store to your application is through
 
 |Programming language and framework | How to connect                                                                                                   | Quickstart                                                 |
 |-----------------------------------|------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| .NET Core                         | App Configuration [provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) for .NET Core | .NET Core [quickstart](./quickstart-dotnet-core-app.md)    |
-| ASP.NET Core                      | App Configuration [provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) for .NET Core | ASP.NET Core [quickstart](./quickstart-aspnet-core-app.md) |
+| .NET                              | App Configuration [provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) for .NET      | .NET      [quickstart](./quickstart-dotnet-core-app.md)    |
+| ASP.NET Core                      | App Configuration [provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) for .NET      | ASP.NET Core [quickstart](./quickstart-aspnet-core-app.md) |
 | .NET Framework and ASP.NET        | App Configuration [builder](https://go.microsoft.com/fwlink/?linkid=2074663) for .NET                            | .NET Framework [quickstart](./quickstart-dotnet-app.md)    |
 | Java Spring                       | App Configuration [provider](https://go.microsoft.com/fwlink/?linkid=2180917) for Spring Cloud                   | Java Spring [quickstart](./quickstart-java-spring-app.md)  |
 | JavaScript/Node.js                | App Configuration [provider](https://github.com/Azure/AppConfiguration-JavaScriptProvider) for JavaScript                       | Javascript/Node.js [quickstart](./quickstart-javascript-provider.md)|
-| Python                            | App Configuration [provider](https://pypi.org/project/azure-appconfiguration-provider/) for Python                           | Python [quickstart](./quickstart-python-provider.md))                |
+| Python                            | App Configuration [provider](https://pypi.org/project/azure-appconfiguration-provider/) for Python                           | Python [quickstart](./quickstart-python-provider.md)                |
 | Other                             | App Configuration [REST API](/rest/api/appconfiguration/)                                                        | None                                                       |
 
 ## Next steps

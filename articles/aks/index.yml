@@ -15,7 +15,7 @@ metadata:
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
+# Start card title with a verb 
   # Card (optional)
   - title: About Azure Kubernetes Service (AKS)
     linkLists:
@@ -27,6 +27,8 @@ landingContent:
             url: /azure/architecture/reference-architectures/containers/aks-start-here
       - linkListType: whats-new
         links:
+          - text: Deploy an AI model on AKS with the AI toolchain operator (Preview)
+            url: ai-toolchain-operator.md
           - text: Upgrade multiple AKS clusters using Azure Kubernetes Fleet Manager
             url: /azure/kubernetes-fleet/update-orchestration
           - text: Reduce image pull time with Artifact Streaming on AKS (Preview)

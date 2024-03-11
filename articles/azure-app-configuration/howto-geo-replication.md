@@ -192,7 +192,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 ```
 
 > [!NOTE]
-> The automatic replica discovery support is available if you use version **7.1.0-preview** or later of any of the following packages.
+> The automatic replica discovery support is available if you use version **7.1.0** or later of any of the following packages.
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
