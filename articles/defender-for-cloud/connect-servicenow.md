@@ -36,7 +36,7 @@ To connect a ServiceNow account to a Defender for Cloud account:
 
 1. Select **Add integration** > **ServiceNow**.
 
-   :::image type="content" border="true" source="./media/connect-servicenow/add-servicenow.png" alt-text="Screenshot that shows where the "Add integration" button is and the ServiceNow option." lightbox="media/connect-servicenow/add-servicenow.png":::
+   :::image type="content" border="true" source="./media/connect-servicenow/add-servicenow.png" alt-text="Screenshot that shows where the add integration button is and the ServiceNow option." lightbox="media/connect-servicenow/add-servicenow.png":::
 
 1. Enter a name and select the scope.
 
