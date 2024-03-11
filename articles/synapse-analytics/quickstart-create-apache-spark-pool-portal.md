@@ -42,6 +42,9 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 ## Create new Apache Spark pool
 
+> [!IMPORTANT]
+> Azure Synapse Runtime for Apache Spark 3.1 and 3.2 have reached their end of support. 3.1 had reached its end of support on January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date. 3.2 had reached its end of support as of July 8, 2023, with no further bug or feature fixes, but security fixes may be backported based on risk assessment, and it will be retired and disabled as of July 8, 2024.
+
 1. In the Synapse workspace where you want to create the Apache Spark pool, select **New Apache Spark pool**.
     ![Overview of Synapse workspace with a red box around the command to create a new Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
 2. Enter the following details in the **Basics** tab:
