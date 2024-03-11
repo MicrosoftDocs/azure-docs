@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure HDInsight
 description: This article contains important reference material you need when you monitor Azure HDInsight.
-ms.date: 03/05/2024
+ms.date: 03/11/2024
 ms.custom: horz-monitor
 ms.topic: reference
 ms.service: hdinsight
@@ -32,6 +32,8 @@ Dimensions for the Microsoft.HDInsight/clusters table include:
 - MetricName
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+
+HDInsight doesn't use Azure Monitor resource logs or diagnostic settings. Logs are collected by other methods, including the use of the Log Analytics agent.
 
 ### Log table mapping
 
