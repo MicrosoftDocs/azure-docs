@@ -37,6 +37,7 @@ The Document Intelligence [**2024-02-29-preview**](https://westus.dev.cognitive.
   * **West US2**
   * **West Europe**
 
+* [Layout model](concept-layout.md) now supports [figure detection](concept-layout.md#figures) and [hierarchical document structure analysis (sections and subsections)](concept-layout.md#sections). The AI quality of reading order and logical roles detection is also improved.
 * [Custom extraction models](concept-custom.md#custom-extraction-models)
   * Custom extraction models now support cell, row and table level confidence scores. Learn more about [table, row, and cell confidence](concept-accuracy-confidence.md#table-row-and-cell-confidence).
   * Custom extraction models have AI quality improvements for field extraction.
