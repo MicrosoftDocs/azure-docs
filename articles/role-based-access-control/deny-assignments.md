@@ -93,9 +93,7 @@ To get information about a deny assignment, you must have:
 
 Follow these steps to list deny assignments at the subscription or management group scope.
 
-1. In the Azure portal, select **All services** and then **Management groups** or **Subscriptions**.
-
-1. Select the management group or subscription you want to list.
+1. In the Azure portal, open the selected scope, such as resource group or subscription.
 
 1. Select **Access control (IAM)**.
 
@@ -238,10 +236,6 @@ To list all deny assignments at a subscription scope, use [Get-AzDenyAssignment]
 
 ```azurepowershell
 Get-AzDenyAssignment -Scope /subscriptions/<subscription_id>
-```
-
-```Example
-PS C:\> Get-AzDenyAssignment -Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
 # [REST API](#tab/rest)
