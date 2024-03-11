@@ -33,9 +33,7 @@ Azure Cosmos DB reserved capacity covers throughput provisioned for your resourc
 
 ### Autoscale provisioned throughput scenarios
 
-Reserved capacity is consumed by autoscale database operations at a rate of 100 RU/s x 1.5 x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. 
-
-Examples:
+Reserved capacity is consumed by autoscale database operations at a rate of 100 RU/s x 1.5 x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. Examples:
 
 | Scenario | Autoscale Rate | Regions |Formula | Net RU/s per region|
 |----------|---------|----------|---------|---------|
@@ -47,9 +45,7 @@ Examples:
 
 ### Standard provisioned throughput scenarios
 
-Reserved capacity is consumed by standard database operations at a rate of 100 RU/s x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. 
-
-Examples:
+Reserved capacity is consumed by standard database operations at a rate of 100 RU/s x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. Examples:
 
 | Scenario |  Regions |Formula | Net RU/s per region|
 |----------|----------|---------|---------|
@@ -65,7 +61,7 @@ Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB 
 
 ### Discounts for reservations smaller than one million RU/s
 
-You can buy up to 9999 units of the 100 RU/s option, with the discounts rates below:
+You can buy up to 9999 units of the 100 RU/s option, with the fixed discounts rates below:
 
 |Reservation Size  | One-Year Single Discount  | Three-Years  Discount
 |---------|---------|---------|
@@ -74,7 +70,7 @@ You can buy up to 9999 units of the 100 RU/s option, with the discounts rates be
 
 ### Discounts for reservations equal or bigger than one million RU/s
 
-You can also buy any of the following options:
+You can buy up to 9999 units of the one-million or more options, with the variable discounts rates below:
 
 |Reservation Size | One-Year Discount  | Three-Years Discount |
 |---------|---------|---------|
