@@ -14,8 +14,6 @@ ms.reviewer: jucocchi
 
 Azure Cosmos DB reserved capacity helps you save money by committing to a reservation for Azure Cosmos DB resources for either one year or three years. With Azure Cosmos DB reserved capacity, you can get a discount on the throughput provisioned for Azure Cosmos DB resources. Examples of resources are databases and containers (tables, collections, and graphs).
 
-Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB costs, up to 63% on regular prices, with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the runtime state of your Azure Cosmos DB resources, including performance and availability.
-
 You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [upfront or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). To buy reserved capacity:
 
 * You must be in the Owner role for at least one Enterprise or individual  subscription with pay-as-you-go rates.  
@@ -62,7 +60,11 @@ Examples:
 | 30,000 RU/s | 2 | 30,000 / 2 | 15,000 |
 
 
-## Discounts for reservations smaller than one million RU/s
+## Discounts
+
+Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB costs, up to 63% on regular prices, with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the runtime state of your Azure Cosmos DB resources, including performance and availability.
+
+### Discounts for reservations smaller than one million RU/s
 
 You can buy up to 9999 units of the 100 RU/s option with the discounts rates below:
 
@@ -71,7 +73,7 @@ You can buy up to 9999 units of the 100 RU/s option with the discounts rates bel
 | One-year | 20% | 
 | Three-years | 30% |
 
-## Discounts for reservations equal or bigger than one million RU/s
+### Discounts for reservations equal or bigger than one million RU/s
 
 You can also buy any of the following options:
 
