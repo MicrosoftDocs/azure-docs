@@ -60,16 +60,34 @@ Examples:
 | 30,000 RU/s | 2 | 30,000 / 2 | 15,000 |
 
 
-## Discounts
+## Discounts for reservations smaller than one million RU/s
 
-You can buy up to 9999 units of the 100 RU/s option with the discounts rates below.
+You can buy up to 9999 units of the 100 RU/s option with the discounts rates below:
 
 |Commitment  |Discount  |
 |---------|---------|
 | One-year | 20% | 
 | Three-years | 30% |
 
-Reserervations equal or bigger than 1 million RU/s get up to 68% discount. Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase bigger reservations.
+## Discounts for reservations equal or bigger than one million RU/s
+
+You can also buy any of the following options:
+
+|Reservation Size in RU/s  | One-Year Single Region Discount  | Three-Years Single Region Discount | One-Year Multi Regions Discount  | Three-Years Multi Regions Discount | 
+|---------|---------|---------|---------|---------|
+| 1,000,000 | 27.0% | 39.5% | 32.0% | 44.5% |
+| 2,000,000 | 28.5% | 42.3% | 33.5% | 47.3% |
+| 3,000,000 | 29.0% | 43.2% | 34.0% | 48.2% |
+| 4,000,000 | 33.0% | 47.4% | 38.0% | 52.4% |
+| 5,000,000 | 35.4% | 49.9% | 40.4% | 54.9% |
+| 10,000,000 | 40.2% | 55.0% | 45.2% | 60.0% |
+| 12,500,000 | 41.2% | 56.0% | 46.2% | 61.0% |
+| 15,000,000 | 41.8% | 56.6% | 46.8% | 61.6% |
+| 20,000,000 | 42.6% | 57.5% | 47.6% | 62.5% |
+| 25,000,000 | 43.1% | 58.0% | 48.1% | 63.0% |
+| 30,000,000 | 43.4% | 58.3% | 48.4% | 63.3% |
+
+Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase these reservations bigger than ope million RU/s.
 
 ### Existing reservations
 
