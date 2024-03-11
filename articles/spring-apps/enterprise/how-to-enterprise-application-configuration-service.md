@@ -443,7 +443,7 @@ And here is an example output of this command:
 You can also use this command with `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both relative path and absolute path. If not specified, it will take the path of current directory.
 
 ## Check configuration file in the container
-After you bind the app to Application Configuration Service, and set the [Pattern](#pattern) for the app deployment according to [Use Application Configuration Service with applications](#use-application-configuration-service-with-applications) section, the ConfigMap containing the configuration file for the pattern should be mounted to the application container, you can check the configuration files in each instance of that app deployment with following steps:
+After you bind the app to the Application Configuration Service and set the [Pattern](#pattern) for the app deployment according to [Use Application Configuration Service with applications](#use-application-configuration-service-with-applications) section, the ConfigMap containing the configuration file for the pattern should be mounted to the application container. You can check the configuration files in each instance of that app deployment with following steps:
 
 1. Connect to one of the instances according to [Connect to an app instance for troubleshooting](./how-to-connect-to-app-instance-for-troubleshooting.md).
 2. Use the command `echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH` to find the folders containing the configuration files, it will show a list of locations separated by comma. Following is an example, yours may vary.
@@ -451,7 +451,7 @@ After you bind the app to Application Configuration Service, and set the [Patter
      $ echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH
      /etc/azure-spring-cloud/configmap/acs-default-payment-default-e9d46,/etc/azure-spring-cloud/configmap/acs-default-catalog-default-616f4
      ```
-3. Then check the content of configuration file with commands like `cat`.
+3. Then check the content of the configuration file with commands like `cat`.
 
 ## Check logs
 
