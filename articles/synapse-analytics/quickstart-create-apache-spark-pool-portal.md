@@ -35,49 +35,48 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 1. Navigate to the Synapse workspace where the Apache Spark pool will be created by typing the service name (or resource name directly) into the search bar.
 
     ![Azure portal search bar with Synapse workspaces typed in.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-
-2. From the list of workspaces, type the name (or part of the name) of the workspace to open. For this example, we'll use a workspace named **contosoanalytics**.
-    ![Listing of Synapse workspaces filtered to show those containing the name Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
+   
+1. From the list of workspaces, type the name (or part of the name) of the workspace to open. For this example, we'll use a workspace named **contosoanalytics**.
+![Listing of Synapse workspaces filtered to show those containing the name Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 
 ## Create new Apache Spark pool
 
 > [!IMPORTANT]
-> Azure Synapse Runtime for Apache Spark 3.1 and 3.2 have reached their end of support. 3.1 had reached its end of support on January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date. 3.2 had reached its end of support as of July 8, 2023, with no further bug or feature fixes, but security fixes may be backported based on risk assessment, and it will be retired and disabled as of July 8, 2024.
-
+> Azure Synapse Runtime for Apache Spark 2.4 has been deprecated and officially not supported since 09/29/2023. Given [Spark 3.1](/azure/synapse-analytics/spark/apache-spark-3-runtime) and [Spark 3.2](/azure/synapse-analytics/spark/apache-spark-32-runtime) are also End of Life announced (EOLA), we recommend customers migrate to Spark 3.3. Please refer to [this link](/azure/synapse-analytics/spark/apache-spark-33-runtime) for a migration guide.
 1. In the Synapse workspace where you want to create the Apache Spark pool, select **New Apache Spark pool**.
-    ![Overview of Synapse workspace with a red box around the command to create a new Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
-2. Enter the following details in the **Basics** tab:
+![Overview of Synapse workspace with a red box around the command to create a new Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
+1. Enter the following details in the **Basics** tab:
 
-    |Setting | Suggested value | Description |
-    | :------ | :-------------- | :---------- |
-    | **Apache Spark pool name** | A valid pool name | This is the name that the Apache Spark pool will have. |
-    | **Node size** | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
-    | **Autoscale** | Disabled | We don't need autoscale for this quickstart |
-    | **Number of nodes** | 5 | Use a small size to limit costs for this quickstart |
+ |Setting | Suggested value | Description |
+ | :------ | :-------------- | :---------- |
+ | **Apache Spark pool name** | A valid pool name | This is the name that the Apache Spark pool will have. |
+ | **Node size** | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
+ | **Autoscale** | Disabled | We don't need autoscale for this quickstart |
+ | **Number of nodes** | 5 | Use a small size to limit costs for this quickstart |
 
 
     ![Apache Spark pool create flow - basics tab.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-02.png)
-
-    > [!IMPORTANT]
+   
+       > [!IMPORTANT]
     > Note that there are specific limitations for the names that Apache Spark pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
 
-3. Select **Next: additional settings** and review the default settings. Do not modify any default settings.
-    ![Screenshot that shows the "Create Apache Spark pool" page with the "Additional settings" tab selected.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
+1. Select **Next: additional settings** and review the default settings. Do not modify any default settings.
+![Screenshot that shows the "Create Apache Spark pool" page with the "Additional settings" tab selected.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
-4. Select **Next: tags**. Don't add any tags.
-    ![Apache Spark pool create flow - additional settings tab.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
+1. Select **Next: tags**. Don't add any tags.
+![Apache Spark pool create flow - additional settings tab.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
 5. Select **Review + create**.
 
-6. Make sure that the details look correct based on what was previously entered, and select **Create**.
-    ![Apache Spark pool create flow - review settings tab.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
+1. Make sure that the details look correct based on what was previously entered, and select **Create**.
+![Apache Spark pool create flow - review settings tab.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
-7. At this point, the resource provisioning flow will start, indicating once it's complete.
-    ![Screenshot that shows the "Overview" page with a "Your deployment is complete" message displayed.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
+1. At this point, the resource provisioning flow will start, indicating once it's complete.
+![Screenshot that shows the "Overview" page with a "Your deployment is complete" message displayed.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
 
-8. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created Apache Spark pool.
-    ![Apache Spark pool create flow - resource provisioning.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-07.png)
+1. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created Apache Spark pool.
+![Apache Spark pool create flow - resource provisioning.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-07.png)
 
 9. At this point, there are no resources running, no charges for Spark, you have created metadata about the Spark instances you want to create.
 
@@ -91,10 +90,10 @@ If you want to delete the Apache Spark pool, do the following:
 
 1. Navigate to the Apache Spark pools blade in the workspace.
 2. Select the Apache Spark pool to be deleted (in this case, **contosospark**).
-3. Press **delete**.
- ![Listing of Apache Spark pools, with the recently created pool selected.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
-4. Confirm the deletion, and press **Delete** button.
- ![Confirmation dialog to delete the selected Apache Spark pool.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)
+1. Press **delete**.
+![Listing of Apache Spark pools, with the recently created pool selected.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
+1. Confirm the deletion, and press **Delete** button.
+![Confirmation dialog to delete the selected Apache Spark pool.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)
 5. When the process completes successfully, the Apache Spark pool will no longer be listed in the workspace resources.
 
 ## Next steps
