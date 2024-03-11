@@ -12,7 +12,7 @@ ms.author: aahi
 For best results make sure that example utterances vary in the following ways:
 
 * Utterance length
-* [punctuation](../luis-reference-application-settings.yml#punctuation-normalization)
+* [punctuation](../luis-reference-application-settings.md#punctuation-normalization)
 * Word choice
 * Verb tense (is, was, will be)
 * Word order

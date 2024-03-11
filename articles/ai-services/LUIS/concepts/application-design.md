@@ -54,7 +54,7 @@ If you don't need to identify overall user intention, add all the example user u
 
 ## Create example utterances for each intent
 
-To start, avoid creating too many utterances for each intent. Once you have determined the intents you need for your app, create 15 to 30 example utterances per intent. Each utterance should be different from the previously provided utterances. Include a variety of word counts, word choices, verb tenses, and [punctuation](../luis-reference-application-settings.yml#punctuation-normalization).
+To start, avoid creating too many utterances for each intent. Once you have determined the intents you need for your app, create 15 to 30 example utterances per intent. Each utterance should be different from the previously provided utterances. Include a variety of word counts, word choices, verb tenses, and [punctuation](../luis-reference-application-settings.md#punctuation-normalization).
 
 For more information, see [understanding good utterances for LUIS apps](../concepts/utterances.md).
 

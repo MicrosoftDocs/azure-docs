@@ -99,7 +99,7 @@ If there is a dotted-lined box around the span of text, it indicates the text is
 <!--:::image type="content" source="../media/add-entities/prediction-confirm.png" alt-text="A screenshot showing confirming prediction." lightbox="../media/add-entities/prediction-confirm.png":::-->
 
 > [!Note]
-> You do not need to label for punctuation. Use [application settings](../luis-reference-application-settings.yml) to control how punctuation impacts utterance predictions.
+> You do not need to label for punctuation. Use [application settings](../luis-reference-application-settings.md) to control how punctuation impacts utterance predictions.
 
 
 ## Unlabel entities

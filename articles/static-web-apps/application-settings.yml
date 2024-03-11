@@ -65,7 +65,7 @@ procedureSection:
       Generally, configuring your settings is done infrequently, and isn't required with every build.
   - title: |
       Configure application settings
-    summary: 
+    summary: |
       You can configure application settings via the [Azure portal](https://portal.azure.com) or with the [Azure CLI](#use-the-azure-cli).
 
       ### Use the Azure portal

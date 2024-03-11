@@ -81,7 +81,7 @@ When you import and export the app, choose either `.json` or `.lu`.
 | "phraselists": [],       |  [Phrase lists (feature)](concepts/patterns-features.md#create-a-phrase-list-for-a-concept)   |
 | "regex_features": [],    |  Deprecated, use [machine-learning entities](concepts/entities.md). |
 | "patterns": [],          |  [Patterns improve prediction accuracy](concepts/patterns-features.md) with [pattern syntax](reference-pattern-syntax.md)   |
-| "settings": []           | [App settings](luis-reference-application-settings.yml)|
+| "settings": []           | [App settings](luis-reference-application-settings.md)|
 
 ## Version 6.x
 

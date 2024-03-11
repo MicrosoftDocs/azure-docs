@@ -65,7 +65,7 @@ To edit your LUIS app programmatically, use the [Authoring API](https://go.micro
 
 Use one of the following solutions:
 
-* Ignore [punctuation](luis-reference-application-settings.yml#punctuation-normalization)
+* Ignore [punctuation](luis-reference-application-settings.md#punctuation-normalization)
 * Add the different variations as example utterances to the intent
 * Add the pattern of the example utterance with the [syntax to ignore](concepts/utterances.md#utterance-normalization) the punctuation.
 
