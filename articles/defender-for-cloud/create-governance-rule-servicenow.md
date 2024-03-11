@@ -1,5 +1,5 @@
 ---
-title: Assign an owner to a recommendation or severity level
+title: Create a ticket with governance rules
 description: Learn how to create a governance rule in Defender for Cloud that connects recommendations or severity levels to a specific owner.
 author: dcurwin
 ms.author: dacurwin
@@ -9,7 +9,7 @@ ai-usage: ai-assisted
 #customer intent: As a user, I want to learn how to conncreate a governance rule in Defender for Cloud that automatically assigns an owner to specific recommendation or a recommendation with a severity level in Defender for Cloud to my my ServiceNow account.
 ---
 
-# Assign an owner to a recommendation or severity level
+# Create a ticket with governance rules
 
 With the integration between Defender for Cloud and ServiceNow, you can automatically assign ownership of a specific recommendation or severity level to a specific user in ServiceNow. This integration allows for the creation and viewing of ServiceNow tickets linked to recommendations directly from Defender for Cloud, enabling seamless collaboration between the two platforms and facilitating efficient incident management.
 

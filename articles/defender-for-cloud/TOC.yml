@@ -226,7 +226,7 @@
           - name: Create a ticket in Defender for Cloud 
             displayName: CSPM, cloud security, posture, management, ServiceNow
             href: create-ticket-servicenow.md
-          - name: Assign an owner to a recommendation or severity level
+          - name: Create a ticket with governance rules
             displayName: CSPM, cloud security, posture, management, ServiceNow
             href: create-governance-rule-servicenow.md
       - name: Common questions 
