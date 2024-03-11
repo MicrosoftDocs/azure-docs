@@ -90,5 +90,5 @@ Synchronous replication between the primary and secondary shards guarantees no d
 ## Next steps
 
 - Read more about [feature compatibility with MongoDB](../cosmos-db/mongodb/vcore/compatibility.md).
-- Review options for [migrating from MongoDB to Azure Cosmos DB for MongoDB vCore](../cosmos-db/mongodb/vcoremigration-options.md)
-- Get started by [creating an account](../cosmos-db/mongodb/vcorequickstart-portal.md).
+- Review options for [migrating from MongoDB to Azure Cosmos DB for MongoDB vCore](../cosmos-db/mongodb/vcore/migration-options.md)
+- Get started by [creating an account](../cosmos-db/mongodb/vcore/quickstart-portal.md).
