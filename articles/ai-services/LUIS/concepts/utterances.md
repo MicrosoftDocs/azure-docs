@@ -25,7 +25,7 @@ Collect utterances that you think users will enter. Include utterances, which me
 * Pluralization
 * Stemming
 * Noun and verb choice
-* [Punctuation](../luis-reference-application-settings.md#punctuation-normalization) - using both correct and incorrect grammar
+* [Punctuation](../luis-reference-application-settings.yml#punctuation-normalization) - using both correct and incorrect grammar
 
 ## Choose varied utterances
 
@@ -78,7 +78,7 @@ If you turn on a normalization setting, scores in the  **Test**  pane, batch tes
 
 When you clone a version in the LUIS portal, the version settings are kept in the new cloned version.
 
-Set your app's version settings using the LUIS portal by selecting **Manage**  from the top navigation menu, in the  **Application Settings**  page. You can also use the [Update Version Settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). See the  [Reference](../luis-reference-application-settings.md) documentation for more information.
+Set your app's version settings using the LUIS portal by selecting **Manage**  from the top navigation menu, in the  **Application Settings**  page. You can also use the [Update Version Settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). See the  [Reference](../luis-reference-application-settings.yml) documentation for more information.
 
 ## Word forms
 

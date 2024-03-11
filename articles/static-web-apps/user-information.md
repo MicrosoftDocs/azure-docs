@@ -165,4 +165,4 @@ When a user is logged in, the `x-ms-client-principal` header is added to the req
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](application-settings.md)
+> [Configure app settings](application-settings.yml)

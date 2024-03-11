@@ -138,6 +138,6 @@ If you're not going to use this application, you can delete the Azure Static Web
 ## Related articles
 
 - [Set up authentication and authorization](authentication-authorization.md)
-- [Configure app settings](application-settings.md)
+- [Configure app settings](application-settings.yml)
 - [Enable monitoring](monitor.md)
 - [Azure CLI](https://github.com/Azure/static-web-apps-cli)

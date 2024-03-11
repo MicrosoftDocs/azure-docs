@@ -333,4 +333,4 @@ Following best practices for Next.js server API troubleshooting, add logging to 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](./application-settings.md)
+> [Configure app settings](./application-settings.yml)

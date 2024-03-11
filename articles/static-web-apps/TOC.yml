@@ -61,7 +61,7 @@
   - name: Build configuration
     href: build-configuration.md
   - name: App settings
-    href: application-settings.md
+    href: application-settings.yml
     displayName: environment variables
   - name: Inject custom code at runtime
     href: snippets.md  

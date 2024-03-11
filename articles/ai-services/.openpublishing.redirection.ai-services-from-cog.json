@@ -1021,7 +1021,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/luis/luis-reference-application-settings.md",
+      "source_path_from_root": "/articles/cognitive-services/luis/luis-reference-application-settings.yml",
       "redirect_url": "/azure/ai-services/luis/luis-reference-application-settings",
       "redirect_document_id": true
     },

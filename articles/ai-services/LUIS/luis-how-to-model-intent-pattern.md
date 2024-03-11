@@ -115,7 +115,7 @@ Template utterance examples for this intent would include:
 |Who does {EmployeeListEntity} report to[?]|interchangeable: {EmployeeListEntity} <br> ignore: [?]|
 |Who reports to {EmployeeListEntity}[?]|interchangeable: {EmployeeListEntity} <br> ignore: [?]|
 
-The "_{EmployeeListEntity}_" syntax marks the entity location within the template utterance and which entity it is. The optional syntax, "_[?]_", marks words or [punctuation](luis-reference-application-settings.md) that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
+The "_{EmployeeListEntity}_" syntax marks the entity location within the template utterance and which entity it is. The optional syntax, "_[?]_", marks words or [punctuation](luis-reference-application-settings.yml) that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
 > [!IMPORTANT]
 > While the syntax looks like a regular expression, it is not a regular expression. Only the curly bracket, "_{ }_", and square bracket, "_[ ]_", syntax is supported. They can be nested up to two levels.

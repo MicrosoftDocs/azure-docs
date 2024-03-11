@@ -73,7 +73,7 @@ Prediction scores can use exponent notation, _appearing_ above the 0-1 range, su
 
 ## Application settings
 
-Use [application settings](luis-reference-application-settings.md) to control how diacritics and punctuation impact prediction scores.
+Use [application settings](luis-reference-application-settings.yml) to control how diacritics and punctuation impact prediction scores.
 
 ## Next steps
 
