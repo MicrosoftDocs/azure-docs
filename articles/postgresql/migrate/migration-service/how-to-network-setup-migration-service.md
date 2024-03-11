@@ -114,7 +114,7 @@ To facilitate connectivity between an Azure Database for PostgreSQL - Single Ser
 - Choose the virtual network (VNet) and the specific subnet associated with your Flexible Server.
 - Confirm the settings by clicking "OK".
 
-    :::image type="content" source="media\how-to-network-setup-migration-service\add-vnet-rule-single-server.png" alt-text="Screenshot of adding a vnet rule in single server." lightbox="media\how-to-network-setup-migration-service\add-vnet-rule-single-server.png":::
+    :::image type="content" source="media\how-to-network-setup-migration-service\allow-flexible-server-subnet copy.png" alt-text="Screenshot of adding a vnet rule in single server." lightbox="media\how-to-network-setup-migration-service\allow-flexible-server-subnet copy.png":::
 
 After completing these steps, the Single Server will be configured to accept connections from the Flexible Server's subnet, enabling secure communication between the two servers.
 
