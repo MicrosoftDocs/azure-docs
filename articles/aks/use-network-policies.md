@@ -27,7 +27,7 @@ These Network Policy rules are defined as YAML manifests. Network policies can b
 
 ## Network policy options in AKS
 
-Azure provides two ways to implement Network Policy. You choose a Network Policy option when you create an AKS cluster. The policy option can't be changed after the cluster is created:
+Azure provides two ways to implement Network Policy. You choose a Network Policy option when you create/update an AKS cluster:
 
 * Azure's own implementation, called *Azure Network Policy Manager*.
 * *Calico Network Policies*, an open-source network and network security solution founded by [Tigera][tigera].
@@ -65,10 +65,6 @@ With Azure Network Policy Manager for Linux, we don't recommend scaling beyond 2
 ## Create an AKS cluster and enable Network Policy
 
 To see network policies in action, let's create an AKS cluster that supports network policy and then work on adding policies. 
-
-> [!IMPORTANT]
->
-> The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
 
 To use Azure Network Policy Manager, you must use the [Azure CNI plug-in][azure-cni]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
 
@@ -223,6 +219,48 @@ az aks nodepool add \
     --name npwin \
     --node-count 1
 ```
+
+## Update Network Policy (Preview)
+If you changed your mind on "Network Policy" settings while the AKS is already running in production environment, you can always change it.  
+
+#### Install the aks-preview Azure CLI extension
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### Update Network Policy
+For example, to switch the Network Policy to `none`:  
+
+```azurecli
+az aks update -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --network-policy none
+```
+
+To switch the Network Policy to `calico`:   
+
+```azurecli
+az aks update -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --network-policy calico
+```
+
+To switch the Network Policy to `azure` (Azure Network Policy Manager):  
+
+```azurecli
+az aks update -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --network-policy azure
+```
+
+> [!IMPORTANT]
+> Updating Network Policy will cause all nodepools to be reprovisioned.  
+
 
 ## Verify Network Policy setup
 
