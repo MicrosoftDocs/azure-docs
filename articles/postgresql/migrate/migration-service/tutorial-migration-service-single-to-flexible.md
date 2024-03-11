@@ -57,7 +57,7 @@ After migration, you can perform the following tasks:
 ## Related content
 
 - [Migration service](concepts-migration-service-postgresql.md)
-- [Migrate from AWS RDS](tutorial-migration-service-offline-aws.md)
+- [Migrate from AWS RDS](tutorial-migration-service-aws.md)
 - [Best practices](best-practices-migration-service-postgresql.md)
 - [Known Issues and limitations](concepts-known-issues-migration-service.md)
 - [Network setup](how-to-network-setup-migration-service.md)

@@ -37,7 +37,7 @@ The quickstart to [Create an Azure Database for PostgreSQL flexible server using
 
 ## Migration timeline
 
-Each migration has a maximum lifetime of seven days (168 hours) once it starts and will time out after seven days. You can complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window lasts three days (72 hours) before timing out. In Offline migrations, the applications should stop writing to the Database to prevent data loss. Similarly, for Online migration, keep traffic low throughout the migration.
+Each migration has a maximum lifetime of seven days (168 hours) once it starts and will time out after seven days. You can complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window lasts three days (72 hours) before timing out. In offline migrations, the applications should stop writing to the Database to prevent data loss. Similarly, for Online migration, keep traffic low throughout the migration.
 
 Most nonprod servers (dev, UAT, test, staging) are migrated using offline migrations. Since these servers have less data than the production servers, the migration completes fast. For production server migration, you need to know the time it would take to complete the migration to plan for it in advance.
 
