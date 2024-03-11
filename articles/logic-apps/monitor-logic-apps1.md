@@ -11,12 +11,12 @@ ms.service: logic-apps
 
 [!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-For a walkthrough of monitoring workflow run status, reviewing trigger and workflow run history, and setting up alerts for Azure Logic Apps, see [Monitor workflows](monitor-workflows.md).
+For a detailed walkthrough of monitoring Logic Apps workflow run status, reviewing trigger and workflow run history, and setting up alerts for Azure Logic Apps, see [Monitor workflows](monitor-workflows.md).
 change name to monitor-workflow
 
-For a detailed walkthrough of using Azure Monitor Logs and a Log Analytics workspace to monitor Logic Apps, see [Monitor and collect diagnostic data for workflows in Azure Logic Apps](monitor-workflows-collect-diagnostic-data.md).
+For a walkthrough of setting up Azure Monitor Logs and a Log Analytics workspace to monitor Logic Apps workflows, see [Monitor and collect diagnostic data for workflows in Azure Logic Apps](monitor-workflows-collect-diagnostic-data.md).
 
-To set up diagnostic logging and monitoring for logic apps in Microsoft Defender for Cloud, see [Set up logging to monitor logic apps in Microsoft Defender for Cloud](healthy-unhealthy-resource.md).
+To see how to set up diagnostic logging and monitor logic apps in Microsoft Defender for Cloud, see [Set up logging to monitor logic apps in Microsoft Defender for Cloud](healthy-unhealthy-resource.md).
 
 ### B2B workflow
 
@@ -58,7 +58,19 @@ For a list of available metrics for Logic Apps, see [Logic Apps monitoring data 
 
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Logic Apps, see [Logic Apps monitoring data reference](monitor-logic-apps-reference.md#resource-logs).
+- For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Logic Apps, see [Logic Apps monitoring data reference](monitor-logic-apps-reference.md#resource-logs).
+
+- For a detailed walkthrough of setting up Azure Monitor Logs and a Log Analytics workspace to monitor Logic Apps workflows, see [Monitor and collect diagnostic data for workflows in Azure Logic Apps](monitor-workflows-collect-diagnostic-data.md).
+
+- To learn how to set up diagnostic logging and monitor logic apps in Microsoft Defender for Cloud, see [Set up logging to monitor logic apps in Microsoft Defender for Cloud](healthy-unhealthy-resource.md).
+
+### B2B workflow
+
+To monitor an automated business-to-business (B2B) messaging workflow in an Logic Apps integration account, see the following articles:
+
+- [Set up Azure Monitor logs and collect diagnostics data for B2B messages](monitor-b2b-messages-log-analytics.md).
+
+- [Tracking schemas for monitoring B2B messages](tracking-schemas-as2-x12-custom.md)
 
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -68,54 +80,48 @@ For the available resource log categories, their associated Log Analytics tables
 
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-Total billable executions
+### Sample Kusto queries
+
+Here are some sample queries for analyzing Logic Apps workflow executions.
+
+#### Total executions
 Total billable executions by operation name.
 
-query
-
-Copy
-// Total billable executions
+```kusto
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.LOGIC"
 | where Category == "WorkflowRuntime" 
 | where OperationName has "workflowTriggerStarted" or OperationName has "workflowActionStarted" 
 | summarize dcount(resource_runId_s) by OperationName, resource_workflowName_s
+```
 
-Logic App execution distribution by workflows
-Hourly timechart for Logic App execution, distribution by workflows.
+#### Execution distribution
+Hourly timechart for Logic App execution distribution by workflows.
 
-query
-
-Copy
-// Hourly Time chart for Logic App execution distribution by workflows
+```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.LOGIC"
 | where Category == "WorkflowRuntime"
 | where OperationName has "workflowRunStarted"
 | summarize dcount(resource_runId_s) by bin(TimeGenerated, 1h), resource_workflowName_s
 | render timechart 
+```
 
-Logic App execution distribution by status
-Completed executions by workflow,status and error.
+#### Execution status summary
+Completed executions by workflow, status, and error.
 
-query
-
-Copy
-//logic app execution status summary
+```kusto
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.LOGIC"
 | where OperationName has "workflowRunCompleted"
 | summarize dcount(resource_runId_s) by resource_workflowName_s, status_s, error_code_s
 | project LogicAppName = resource_workflowName_s , NumberOfExecutions = dcount_resource_runId_s , RunStatus = status_s , Error = error_code_s 
+```
 
-Triggered failures count
-Show Action/Trigger failures for all Logic App executions by Resource name.
+#### Triggered failures count
+Action/trigger failures for all Logic App executions by resource name.
 
-query
-
-Copy
-// To create an alert for this query, click '+ New alert rule'
-//Action/Trigger failures for all Logic App executions
+```kusto
 AzureDiagnostics
 | where ResourceProvider  == "MICROSOFT.LOGIC"  
 | where Category == "WorkflowRuntime" 
@@ -125,10 +131,14 @@ AzureDiagnostics
 | extend ResourceCategory = substring(OperationName, 34, strlen(OperationName) - 43) | summarize dcount(resource_runId_s) by code_s, ResourceName, resource_workflowName_s, ResourceCategory, _ResourceId
 | project ResourceCategory, ResourceName , FailureCount = dcount_resource_runId_s , ErrorCode = code_s, LogicAppName = resource_workflowName_s, _ResourceId 
 | order by FailureCount desc 
+```
 
 [!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 [!INCLUDE [horz-monitor-insights-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
+
+> [!NOTE]
+> Available alert signals differ between Consumption and Standard logic apps. For example, Consumption logic apps have many trigger-related signals, such as **Triggers Completed** and **Triggers Failed**, while Standard workflows have the **Workflow Triggers Completed Count** and **Workflow Triggers Failure Rate** signals.
 
 ### Logic Apps alert rules
 
@@ -136,8 +146,8 @@ The following table lists some alert rules for Logic Apps. These alerts are just
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| | | |
-| | | |
+| Metric | Triggers Failed | Whenever the count Triggers Failed is greater than or equal to 1 |
+| Activity Log | Workflow Deleted | Whenever the Activity Log has an event with Category='Administrative', Signal name='Delete Workflow (Workflow)' |
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 

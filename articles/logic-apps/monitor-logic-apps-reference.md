@@ -47,6 +47,8 @@ Microsoft.Logic/workflows
 - [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns)
 - [LogicAppWorkflowRuntime](/azure/azure-monitor/reference/tables/LogicAppWorkflowRuntime#columns)
 
+In Azure Monitor, logs are collected in the **AzureDiagnostics** table under the resource provider name of `MICROSOFT.LOGIC`.
+
 ### Integration Account
 Microsoft.Logic/integrationAccounts
 
