@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/27/2024
+ms.date: 03/10/2024
 ms.author: shaas
 
 # Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
@@ -66,7 +66,6 @@ The following table shows the UNC path to the shares on your Data Box and the co
 | Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob>\<accessTier>\<ContainerName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myFile.txt`</li> |  
 | Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_PageBlob>\<ContainerName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myFile.txt`</li>   |  
 | Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_AzFile>\<ShareName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/myFile.txt`</li>        | 
-<!--| Azure Block blobs (Archive)   | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob_Archive>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      | -->
 
 If using a Windows Server host computer, follow these steps to connect to the Data Box.
 

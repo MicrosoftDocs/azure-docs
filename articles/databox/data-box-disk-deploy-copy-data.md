@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/18/2022
+ms.date: 03/10/2024
 ms.author: shaas
 ---
 
@@ -59,7 +59,7 @@ Before you begin, make sure that:
 
 Review the following considerations before you copy the data to the disks:
 
-- It is your responsibility to ensure that you copy your local data to the folders that correspond to the appropriate data format. For instance, copy block blob data to the folder corrresponding to the appropriate access tier within the *BlockBlob* folder. Frequently used block blobs should be copies to the *Hot* tier's folder within *BlockBlob*. Blobs being archived should be copied to the *BlockBlob_Archive* folder. If the local data format doesn't match the appropriate folder for the chosen storage type, the data upload to Azure fails in a later step.
+- It is your responsibility to ensure that you copy your local data to the folders that correspond to the appropriate data format. For instance, copy block blob data to the folder corrresponding to the appropriate access tier within the *BlockBlob* folder. Frequently used block blobs should be copies to the *Hot* tier's folder within *BlockBlob*. Likewise, blobs being uploaded to the *archive* tier should be copied to the *Archive* folder. If the local data format doesn't match the appropriate folder for the chosen storage type, the data upload to Azure fails in a later step.
 
    > [!IMPORTANT]
    > Data uploaded to the archive tier remains offline and needs to be rehydrated before reading or modifying. Data copied to the archive tier must remain for at least 180 days or be subject to an early deletion charge. Archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts.

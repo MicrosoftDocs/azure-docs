@@ -6,7 +6,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 11/04/2020
+ms.date: 03/10/2024
 ms.author: shaas
 ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
@@ -166,7 +166,7 @@ This step takes roughly 5 minutes.
 
 The time to complete this operation depends upon your data size.
 
-1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, and *DataBoxDiskImport* folders. Within the *BlockBBlob* root folder, you'll find a sub-folder corresponding to each of the available access tiers. 
+1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, and *DataBoxDiskImport* folders. Within the *BlockBlob* root folder, you'll find a sub-folder corresponding to each of the available access tiers. 
 
     Drag and drop data such as VHD/VHDX to *PageBlob* folder, and appropriate data to *AzureFile*. Copy any VHDs that you want to upload as managed disks to a folder under *ManagedDisk*.
 
@@ -178,7 +178,7 @@ The time to complete this operation depends upon your data size.
 
     > [!NOTE]
     > - All the containers, blobs, and files should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
-    > - Ensure that files do not exceed ~4.75 TiB for block blobs, ~8 TiB for page blobs, and ~1 TiB for Azure Files.
+    > - Ensure that files do not exceed ~4.75 TiB for block blobs, ~8 TiB for page blobs, and ~4 TiB for Azure Files.
 
 2. **(Optional but recommended)** After the copy is complete, we strongly recommend that at a minimum you run the `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder and select option 1 to validate the files. We also recommend that time permitting, you use option 2 to also generate checksums for validation (may take time depending upon the data size). These steps minimize the chances of any failures when uploading the data to Azure.
 3. Safely remove the drive.
