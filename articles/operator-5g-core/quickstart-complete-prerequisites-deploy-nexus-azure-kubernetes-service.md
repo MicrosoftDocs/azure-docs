@@ -5,14 +5,14 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.custom: devx-track-azurecli
-ms.topic: how-to #required; leave this attribute/value as-is.
-ms.date: 02/22/2024
+ms.topic: quickstart #required; leave this attribute/value as-is.
+ms.date: 03/07/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Complete the prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service
-This article describes how to provision a Nexus Azure Kubernetes Service (NAKS) cluster by creating: 
+# Quickstart: Complete the prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service
+This article describes how to provision a Nexus Azure Kubernetes Service (NAKS) cluster by creating:
 
 - Network fabric (connectivity) resources
 - Network cloud (compute) resources
@@ -30,10 +30,10 @@ Commands used in this article refer to the following resource groups:
     - Fabric - tenant networking resources (such as networks) 
     - Compute - tenant compute resources (such as VMs, and Nexus AKS clusters) 
 
-
 ## Prerequisites
 
 Before provisioning a NAKS cluster:
+
 - Configure external networks between CEs and PEs (or Telco Edge) that allow connectivity with the provider edge. Configuring access to external services like firewalls and services hosted on Azure (tenant not platform) is outside of the scope of this article.
 - Configure elements on PEs/Telco Edge that aren't controlled by Nexus Network Fabric, such as  Express Route Circuits configuration for tenant workloads connectivity to Azure.
 - Review the [Nexus Kubernetes release calendar](../operator-nexus/reference-nexus-kubernetes-cluster-supported-versions.md) to identify available releases and support plans.
@@ -68,6 +68,7 @@ az networkfabric l3domain create –resource-name $l3Isd \
 ```
 
 To view the new isolation domain in the Azure portal:
+
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to  for **Network Fabric (Operator Nexus)** resource.
 1. Select **network fabric** from the list.
@@ -154,12 +155,13 @@ az networkfabric internalnetwork create –resource-name “$intnwName” \
 ```
 
 To view the fabric ASN  from the Azure portal:
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for the **Network Fabric (Operator Nexus)** resource.
 1. Select **network fabric** from the list.
-1. Review the ASN in properties – **Fabric ASN** or in the **Internal Network** details. 
- 
-### Enable isolation domain 
+1. Review the ASN in properties – **Fabric ASN** or in the **Internal Network** details.
+
+### Enable isolation domain
 
 Use the following commands to enable the ISD:
 
@@ -183,7 +185,7 @@ az networkfabric l3domain show –resource-name “$l3Isd” \
 ```
 
 ### Recommended routing settings
- 
+
 To configure BGP and BFD routing for internal networks, use the default settings. See [Nexus documentation](../operator-nexus/howto-configure-isolation-domain.md) for parameter descriptions.
 
 ## Create L3 networks 
@@ -219,11 +221,11 @@ export ipv6ConnectedPrefix=”<DEFAULT-CNI-IPV6-PREFIX>/<PREFIX-LEN>” // if IP
 --subscription $subscriptionId \ 
 --interface-name “vlan-$vlan”
 ```
- 
-### Trunked networks 
+
+### Trunked networks
 
 A `trunkednetwork` network cloud resource is required if a single port/interface connected to a virtual machine must carry multiple virtual local area networks (VLANs). Tagging is performed at the application layer instead of NIC. A trunk interface can carry VLANs that are a part of different ISDs. 
-You must create a trunked network for both SMF ULB (S11/S5) and UPF iPPE (N3, N6). 
+You must create a trunked network for both SMF ULB (S11/S5) and UPF iPPE (N3, N6).
 
 Use the following commands to create a trunked network:
 
@@ -254,7 +256,7 @@ A Cloud Services Network proxy (CSN proxy) is used to access Azure and internet 
 
 ### Azure Operator Service Manager/Network Function Manager-based Cloud Services Networks endpoints
 
-Add the following egress points for AOSM/NFM based deployment support (HybridNetwork RP, CustomLocation RP reachability, ACR, Arc): 
+Add the following egress points for AOSM/NFM based deployment support (HybridNetwork RP, CustomLocation RP reachability, ACR, Arc):
 
 ```azurecli
 .azurecr.io / port 80 
@@ -349,10 +351,10 @@ az networkcloud cloudservicesnetwork create --cloud-services-network-name $csnNa
     } 
   ]'    07-
 ```
-      
+
 After you create the CSN, verify the `egress-endpoints` from the Azure portal. In the search bar, enter **Cloud Services Networks (Operator Nexus)** resource. Select **Overview**, then navigate to **Enabled egress endpoints** to see the list of endpoints you created.
 
-## Create a Nexus Azure Kubernetes Services Cluster 
+## Create a Nexus Azure Kubernetes Services Cluster
 
 Nexus related resource providers must deploy self-managed resource groups that are used to deploy the necessary resources created by customers. When Nexus AKS clusters are provisioned, they must be Arc-enabled. The Network Cloud resource provider creates its own managed resource group and deploys it in an Azure Arc Kubernetes cluster resource. Following this deployment, this cluster resource is linked to the NAKS cluster resource.   
 
@@ -407,11 +409,13 @@ After the cluster is created, you can enable the Network Function Manager (NFM) 
 ## Access the Nexus Azure Kubernetes Services cluster 
 
  There are several ways to access the Tenant NAKS cluster's API server:
+
 - Directly from the IP address/port (from a jumpbox) 
 - Use the  Azure CLI and connectedk8s proxy option as described under the link to access clusters directly.
-  You must have a custom role assigned to the managed resource group created by the Network Cloud RP. One of the following actions must be enabled in this role: 
-    - Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action 
-    - A user or service provider as a contributor to the managed resource group 
+  You must have a custom role assigned to the managed resource group created by the Network Cloud RP. One of the following actions must be enabled in this role:
+
+  - Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action 
+  - A user or service provider as a contributor to the managed resource group 
 
 ## Prepare  the cluster for workloads via AO5GC resource provider/Azure Operator Service Manager/Network Function Manager 
 
@@ -439,7 +443,7 @@ You must enable the Network Function Operator Kubernetes Arc extension so that A
 
 1. Enter the following command and note  the connected cluster ID: 
    `az connectedk8s show -n <NAKS-CLUSTER-NAME> -g <NAKS-RESOURCE-GRUP>  --query id -o tsv`
-1. Enter the following command and note the cluster extension ID for which to enable the custom location: 
+1. Enter the following command and note the cluster extension ID for which to enable the custom location:
    `az k8s-extension show -c <NAKS-CLUSTER-NAME> -g <NAKS-RESOURCE-GRUP>  -t connectedClusters -n networkfunction-operator`
 
 ### Set the custom location 
@@ -464,5 +468,5 @@ az customlocation create -n <CUSTOM-LOCATION-NAME> \
 ## Related content
 
 - Learn about the [Deployment order](concept-deployment-order.md).
-- [Deploy Azure Operator 5G Core Preview](how-to-deploy-5g-core.md).
-- [Deploy a network function](quickstart-deploy-network-functions.md).
+- [Deploy Azure Operator 5G Core Preview](quickstart-deploy-5g-core.md).
+- [Deploy a network function](how-to-deploy-network-functions.md).
