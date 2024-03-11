@@ -66,6 +66,6 @@ GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef0123
 ```
 
 ## Next steps
-[Stream Azure Monitor activity log data](azure/azure-monitor/essentials/activity-log).
+[Stream Azure Monitor activity log data](/azure/azure-monitor/essentials/activity-log).
 [Azure Activity Log event schema](/azure/azure-monitor/essentials/activity-log-schema).
 

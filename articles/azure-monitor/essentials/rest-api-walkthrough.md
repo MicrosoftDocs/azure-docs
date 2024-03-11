@@ -5,7 +5,8 @@ author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 03/11/2024
 ms.custom: has-adal-ref
-ms.reviewer: edbaynash
+ms.author: edbaynash
+ms.reviewer: priyamishra
 ---
 
 # Azure monitoring REST API walkthrough

@@ -4,7 +4,7 @@ description: Learn about metrics in Azure Monitor, which are lightweight monitor
 author: bwren
 ms.reviewer: priyamishra
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date:   03/10/2024
 ms.author: bwren
 ---
 
@@ -53,7 +53,7 @@ Azure Monitor collects metrics from the following sources. After these metrics a
 - **Kubernetes clusters**: Kubernetes clusters typically send metric data to a local Prometheus server that you must maintain. [Azure Monitor managed service for Prometheus ](prometheus-metrics-overview.md) provides a managed service that collects metrics from Kubernetes clusters and store them in Azure Monitor Metrics.
 
 > [!NOTE]
-> Metrics collected from different sources and by different methods may be aggregated differently. For example, platform metrics are pre-aggregated and stored in a time-series database, while Prometheus metrics are stored as raw data.Resource metrics may also have a different latency than other metrics. This can lead to differences in metric values for a specific sample time. Over time the, and when analyzing the metrics at the same time granularity, these differences disappear.
+> Metrics collected from different sources and by different methods may be aggregated differently. For example, platform metrics are pre-aggregated and stored in a time-series database, while Prometheus metrics are stored as raw data.Resource metrics may also have a different latency than other metrics. This can lead to differences in metric values for a specific sample time. Over time when latency ceases to be an issue, and when analyzing the metrics at the same time granularity, these differences disappear.
 
 ## REST API
 
