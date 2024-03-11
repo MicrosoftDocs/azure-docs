@@ -83,8 +83,8 @@ sections:
         answer: |
           The Azure Maps Android SDKs supports Mercator tile layers, which can have x/y/zoom notation, quad key notation, or EPSG 3857 bounding box notation.
           
-          We plan to create a services module for Java/Android similar to the web SDK module. The Android services module will make it easy to access all Azure Maps services in a Java or Android app.  
-          
+          The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
   - name: Data visualizations  
     questions:
       - question: |
