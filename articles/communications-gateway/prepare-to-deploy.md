@@ -68,14 +68,14 @@ For more information on these options for Teams Phone Mobile, see [Call control 
 
 The connection to Azure Communications Gateway for Azure Operator Call Protection is over SIPREC.  Azure Communications Gateway takes the role of the SIPREC Session Recording Server (SRS).  An element in your network, typically a session border controller (SBC), is set up as a SIPREC Session Recording Client (SRC).
 
-If you plan to route emergency calls through Azure Communications Gateway, read about emergency calling with your chosen communications service:
+If you need to support emergency calls from Microsoft Teams or Zoom clients, read about emergency calling with your chosen communications service:
 
 - [Microsoft Teams Direct Routing](emergency-calls-teams-direct-routing.md)
 - [Operator Connect and Teams Phone Mobile](emergency-calls-operator-connect.md)
 - [Zoom Phone Cloud Peering](emergency-calls-zoom.md)
 
 > [!IMPORTANT]
-> Emergency calls must not be routed to Azure Operator Call Protection
+> You must not route emergency calls from your network to Azure Communications Gateway.
 
 ## Connect your network to Azure
 
