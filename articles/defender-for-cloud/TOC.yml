@@ -192,6 +192,9 @@
       - name: Security policies
         displayName: policies, security, initiative, Microsoft cloud security benchmark, mcsb, recommendation
         href: security-policy-concept.md
+      - name: Risk prioritization
+        displayName: risk, prioritization, security, posture, management, prioritization
+        href: risk-prioritization.md
       - name: Secure score
         displayName: security, posture, secure, score, calculate, control, improve, 
         href: secure-score-security-controls.md

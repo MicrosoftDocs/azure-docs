@@ -323,7 +323,7 @@ Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
 FIPS encryption | No
 Guest/server NFS | No
-Guest/server iSCSI | For Migration - Yes<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
+Guest/server iSCSI | For Migration - Yes, but you must setup replication as a Physical machine.<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> N/A for physical servers
 Guest/server disk > 1 GB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 32,767 GB when replicating to managed disk (9.41 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
@@ -340,6 +340,7 @@ ReFS | Resilient File System is supported with Mobility service version 9.23 or 
 Guest/server EFI/UEFI boot | - Supported for all [Azure Marketplace UEFI operating systems](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace). <br/> - UEFI boot is supported as long as the Secure Boot setting is disabled. [Learn more.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms) <br/> - Windows 2008 R2 SP1 & Windows 2008 SP2 servers with UEFI isn't supported. 
 RAID disk| Hardware RAID disks aren't supported.<br/> Software RAID disks are supported. 
 Storage vMotion | Supported for migration. Not supported for disaster recovery. 
+BIOS | Supported.
 
 ## Replication channels
 

@@ -59,7 +59,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 ## Microsoft Entra ID limits
 
-[!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
+[!INCLUDE [entra-service-limits](../../../includes/entra-service-limits-include.md)]
 
 ## API Center (preview) limits
 
