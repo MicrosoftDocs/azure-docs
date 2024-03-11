@@ -32,7 +32,7 @@ Before you begin, make sure you have the appropriate access and you or someone i
 
 After you or someone in your organization installs the solution that includes the data connector you need, configure the data connector to start ingesting data.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Configuration**, select **Data connectors**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configurations** > **Data connectors**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Data connectors**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configurations** > **Data connectors**.
 1. Search for and select the connector. If you don't see the data connector you want, install the solution associated with it from the **Content Hub**.
 1. Select **Open connector page**.  
 
