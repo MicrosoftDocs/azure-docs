@@ -3,7 +3,6 @@ title: Account Administrator tasks in the Azure portal
 description: Describes how to perform payment operations in Azure portal
 author: bandersmsft
 ms.reviewer: lishepar
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to

@@ -15,6 +15,9 @@ author: ju-shim
 
 # InfiniBand Driver Extension for Linux
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This extension installs InfiniBand OFED drivers on InfiniBand and SR-IOV-enabled ('r' sizes) [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs running Linux. Depending on the VM family, the extension installs the appropriate drivers for the Connect-X NIC. It does not install the InfiniBand ND drivers on the non-SR-IOV enabled [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
 
 Instructions on manual installation of the OFED drivers are available in [Enable InfiniBand on HPC VMs](enable-infiniband.md#manual-installation).

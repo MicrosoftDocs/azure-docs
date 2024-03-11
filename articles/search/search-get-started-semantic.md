@@ -29,9 +29,7 @@ This quickstart walks you through the index and query modifications that invoke 
 
 + Azure AI Search, at Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-+ An API key and search service endpoint:
-
-  Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
++ An API key and search service endpoint. Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
   In **Overview**, copy the URL and save it to Notepad for a later step. An example endpoint might look like `https://mydemo.search.windows.net`.
 

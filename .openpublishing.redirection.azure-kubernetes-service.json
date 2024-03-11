@@ -461,11 +461,6 @@
             "source_path_from_root": "/articles/aks/command-invoke.md",
             "redirect_url": "/azure/aks/access-private-cluster",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/ai-toolchain-operator.md",
-            "redirect_url": "https://azure.microsoft.com/updates/preview-ai-toolchain-operator-addon-for-aks/",
-            "redirect_document_id": false
         }
     ]
 }

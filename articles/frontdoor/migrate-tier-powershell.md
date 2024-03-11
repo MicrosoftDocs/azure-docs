@@ -60,6 +60,9 @@ Azure Front Door Standard and Premium tier bring the latest cloud delivery netwo
 
 ## Prepare for migration
 
+> [!NOTE]
+> * Managed certificate is currently **not supported** for Azure Front Door Standard or Premium in Azure Government Cloud. You need to use BYOC for Azure Front Door Standard or Premium in Azure Government Cloud or wait until this capability is available.
+
 #### [Without WAF and BYOC (Bring your own certificate)](#tab/without-waf-byoc)
 
 Run the [Start-AzFrontDoorCdnProfilePrepareMigration](/powershell/module/az.cdn/start-azfrontdoorcdnprofilepreparemigration) command to prepare for migration. Replace the values for the resource group name, resource ID, profile name with your own values. For *SkuName* use either **Standard_AzureFrontDoor** or **Premium_AzureFrontDoor**. The *SkuName* is based on the output from the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command.

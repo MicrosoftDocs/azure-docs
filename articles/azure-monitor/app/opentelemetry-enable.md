@@ -54,12 +54,9 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### [Python](#tab/python)
 
-- Python Application using Python 3.7+
+- Python Application using Python 3.8+
 
 ---
-
-> [!TIP]
->  We don't recommend using the OTel Community SDK/API with the Azure Monitor OTel Distro since it automatically loads them as dependencies.
 
 ### Install the client library
 
@@ -81,11 +78,12 @@ dotnet add package Azure.Monitor.OpenTelemetry.Exporter
 
 #### [Java](#tab/java)
 
-Download the [applicationinsights-agent-3.4.19.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.19/applicationinsights-agent-3.4.19.jar) file.
+Download the [applicationinsights-agent-3.5.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.5.0/applicationinsights-agent-3.5.0.jar) file.
 
 > [!WARNING]
 >
 > If you are upgrading from an earlier 3.x version, you may be impacted by changing defaults or slight differences in the data we collect. For more information, see the migration section in the release notes.
+> [3.5.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.5.0),
 > [3.4.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.4.0),
 > [3.3.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.3.0),
 > [3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0), and
@@ -190,7 +188,7 @@ var loggerFactory = LoggerFactory.Create(builder =>
 
 Java autoinstrumentation is enabled through configuration changes; no code changes are required.
 
-Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.19.jar"` to your application's JVM args.
+Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.5.0.jar"` to your application's JVM args.
 
 > [!TIP]
 > Sampling is enabled by default at a rate of 5 requests per second, aiding in cost management. Telemetry data may be missing in scenarios exceeding this rate. For more information on modifying sampling configuration, see [sampling overrides](./java-standalone-sampling-overrides.md).
@@ -268,7 +266,7 @@ To paste your Connection String, select from the following options:
 
   B. Set via Configuration File - Java Only (Recommended)
   
-  Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.19.jar` with the following content:
+  Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.5.0.jar` with the following content:
 
    ```json
    {
@@ -300,14 +298,7 @@ Application Insights is now enabled for your application. All the following step
 > [!IMPORTANT]
 > If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](opentelemetry-configuration.md#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
 
-> [!TIP]
-> Sampling is enabled by default at a rate of 5 requests per second, aiding in cost management. Telemetry data may be missing in scenarios exceeding this rate. For more information on modifying sampling configuration, see [sampling overrides](./java-standalone-sampling-overrides.md).
-
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
-
-[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/azure-monitor-app-insights-opentelemetry-faqs.md)]
-
-[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
 
 ## Next steps
 
@@ -362,3 +353,7 @@ As part of using Application Insights instrumentation, we collect and send diagn
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
 ---
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/azure-monitor-app-insights-opentelemetry-faqs.md)]
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]

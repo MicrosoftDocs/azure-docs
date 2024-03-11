@@ -24,9 +24,10 @@ Several other features don't have a direct cost, but you instead pay for the ing
 | Platform Logs | Processing of [diagnostic and auditing information](essentials/resource-logs.md) is charged for [certain services](essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. There's no direct charge when this data is sent to a Log Analytics workspace, but there is a charge for the workspace data ingestion and collection. |
 | Metrics | There is no charge for [standard metrics](essentials/metrics-supported.md) collected from Azure resources. There is a cost for collecting [custom metrics](essentials/metrics-custom-overview.md) and for retrieving metrics from the [REST API](essentials/rest-api-walkthrough.md#retrieve-metric-values). |
 | Prometheus Metrics | Pricing for [Azure Monitor managed service for Prometheus](essentials/prometheus-metrics-overview.md) is based on [data samples ingested](containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)  and [query samples processed](essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Data is retained for 18 months at no extra charge. |
-| Alerts | Alerts are charged based on the type and number of [signals](alerts/alerts-overview.md) used by the alert rule, its frequency, and the type of [notification](alerts/action-groups.md) used in response. For [log alerts](alerts/alerts-unified-log.md) configured for [at scale monitoring](alerts/alerts-unified-log.md#split-by-alert-dimensions), the cost will also depend on the number of time series created by the dimensions resulting from your query. |
+| Alerts | Alerts are charged based on the type and number of [signals](alerts/alerts-overview.md) used by the alert rule, its frequency, and the type of [notification](alerts/action-groups.md) used in response. For [log search alerts](alerts/alerts-types.md#log-alerts) configured for [at scale monitoring](alerts/alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1), the cost will also depend on the number of time series created by the dimensions resulting from your query. |
 | Web tests | There is a cost for [standard web tests](app/availability-standard-tests.md) and [multi-step web tests](app/availability-multistep.md) in Application Insights. Multi-step web tests have been deprecated.
 
+A list of Azure Monitor billing meter names is available [here](cost-meters.md). 
 
 ### Data transfer charges 
 Sending data to Azure Monitor can incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. Data transfer charges for Azure Monitor though are typically very small compared to the costs for data ingestion and retention. You should focus more on your ingested data volume to control your costs.
@@ -52,7 +53,7 @@ To get started analyzing your Azure Monitor charges, open [Cost Management + Bil
 
 :::image type="content" source="media/usage-estimated-costs/010.png" lightbox="media/usage-estimated-costs/010.png" alt-text="Screenshot that shows Azure Cost Management with cost information.":::
 
-To limit the view to Azure Monitor charges, [create a filter](../cost-management-billing/costs/group-filter.md) for the following **Service names**. See [Azure Monitor billing meter names](cost-meters.md) for the different charges that are included in each service.
+To limit the view to Azure Monitor charges, [create a filter](../cost-management-billing/costs/group-filter.md) for the following **Service names**. See [Azure Monitor billing meter names](cost-meters.md) for the different billing meters that are included in each service.
 
 - Azure Monitor
 - Log Analytics

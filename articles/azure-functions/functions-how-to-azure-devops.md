@@ -149,16 +149,14 @@ steps:
 
 Use one of the following samples to create a YAML file to build an app for a specific Python version. Python is only supported for function apps running on Linux.
 
-**Version 3.7**
-
 ```yaml
 pool:
   vmImage: ubuntu-latest
 steps:
 - task: UsePythonVersion@0
-  displayName: "Setting Python version to 3.7 as required by functions"
+  displayName: "Set Python version to 3.9"
   inputs:
-    versionSpec: '3.7'
+    versionSpec: '3.9'
     architecture: 'x64'
 - bash: |
     if [ -f extensions.csproj ]
@@ -166,35 +164,6 @@ steps:
         dotnet build extensions.csproj --output ./bin
     fi
     pip install --target="./.python_packages/lib/site-packages" -r ./requirements.txt
-- task: ArchiveFiles@2
-  displayName: "Archive files"
-  inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
-    includeRootFolder: false
-    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    artifactName: 'drop'
-```
-
-**Version 3.6**
-
-```yaml
-pool:
-  vmImage: ubuntu-latest
-steps:
-- task: UsePythonVersion@0
-  displayName: "Setting Python version to 3.6 as required by functions"
-  inputs:
-    versionSpec: '3.6'
-    architecture: 'x64'
-- bash: |
-    if [ -f extensions.csproj ]
-    then
-        dotnet build extensions.csproj --output ./bin
-    fi
-    pip install --target="./.python_packages/lib/python3.6/site-packages" -r ./requirements.txt
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
@@ -471,16 +440,15 @@ steps:
 
 Use one of the following samples to create a YAML file to build an app for a specific Python version. Python is only supported for function apps running on Linux.
 
-**Version 3.7**
 
 ```yaml
 pool:
   vmImage: ubuntu-latest
 steps:
 - task: UsePythonVersion@0
-  displayName: "Setting Python version to 3.7 as required by functions"
+  displayName: "Set Python version to 3.9"
   inputs:
-    versionSpec: '3.7'
+    versionSpec: '3.9'
     architecture: 'x64'
 - bash: |
     if [ -f extensions.csproj ]
@@ -488,35 +456,6 @@ steps:
         dotnet build extensions.csproj --output ./bin
     fi
     pip install --target="./.python_packages/lib/site-packages" -r ./requirements.txt
-- task: ArchiveFiles@2
-  displayName: "Archive files"
-  inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
-    includeRootFolder: false
-    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    artifactName: 'drop'
-```
-
-**Version 3.6**
-
-```yaml
-pool:
-  vmImage: ubuntu-latest
-steps:
-- task: UsePythonVersion@0
-  displayName: "Setting Python version to 3.6 as required by functions"
-  inputs:
-    versionSpec: '3.6'
-    architecture: 'x64'
-- bash: |
-    if [ -f extensions.csproj ]
-    then
-        dotnet build extensions.csproj --output ./bin
-    fi
-    pip install --target="./.python_packages/lib/python3.6/site-packages" -r ./requirements.txt
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:

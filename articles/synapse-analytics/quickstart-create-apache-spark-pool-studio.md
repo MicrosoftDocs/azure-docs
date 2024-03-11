@@ -47,6 +47,8 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
 ![Azure portal Synapse workspace overview with Launch Synapse Studio highlighted.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
 ## Create the Apache Spark pool in Synapse Studio
+> [!IMPORTANT]
+> Azure Synapse Runtime for Apache Spark 3.1 and 3.2 have reached their end of support. 3.1 had reached its end of support on January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date. 3.2 had reached its end of support as of July 8, 2023, with no further bug or feature fixes, but security fixes may be backported based on risk assessment, and it will be retired and disabled as of July 8, 2024.
 
 1. On the Synapse Studio home page, navigate to the **Management Hub** in the left navigation by selecting the **Manage** icon.
 

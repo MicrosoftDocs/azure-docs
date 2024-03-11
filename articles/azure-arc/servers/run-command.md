@@ -3,6 +3,7 @@ title: How to remotely and securely configure servers using Run command (Preview
 description: Learn how to remotely and securely configure servers using Run Command.
 ms.date: 02/07/2024
 ms.topic: conceptual
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Remotely and securely configure servers using Run command (Preview)
@@ -37,11 +38,11 @@ The Connected Machine agent supports local configurations that allow you to set 
 
 For Windows:
 
-`azcmagent config set extensions.blocklist " microsoft.cplat.core/runcommandhandlerwindows"`
+`azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerwindows"`
 
 For Linux:
 
-`azcmagent config set extensions.blocklist " microsoft.cplat.core/runcommandhandlerlinux"`
+`azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerlinux"`
 
 
 ## Azure CLI
@@ -383,4 +384,3 @@ To disable the Run Command on Azure Arc-enabled servers, open an administrative 
 **Linux**
 
 `sudo azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerlinux"`
-

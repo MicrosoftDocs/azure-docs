@@ -64,9 +64,9 @@ A global standard sku public IP is used for the frontend of the cross-region loa
 
 * Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create the public IP address.
 
-* Create a front-end IP configuration with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig).
+* Create a frontend IP configuration with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig).
 
-* Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
+* Create a backend address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
 
 * Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig).
 
@@ -91,7 +91,7 @@ $fe = @{
 }
 $feip = New-AzLoadBalancerFrontendIpConfig @fe
 
-## Create back-end address pool ##
+## Create backend address pool ##
 $be = @{
     Name = 'myBackEndPool-CR'
 }
@@ -150,14 +150,14 @@ $region2 = @{
 }
 $R2 = Get-AzLoadBalancer @region2
 
-## Place the region one load balancer front-end configuration in a variable ##
+## Place the region one load balancer frontend configuration in a variable ##
 $region1fe = @{
     Name = 'MyFrontEnd-R1'
     LoadBalancer = $R1
 }
 $R1FE = Get-AzLoadBalancerFrontendIpConfig @region1fe
 
-## Place the region two load balancer front-end configuration in a variable ##
+## Place the region two load balancer frontend configuration in a variable ##
 $region2fe = @{
     Name = 'MyFrontEnd-R2'
     LoadBalancer = $R2

@@ -3,7 +3,7 @@ title: Reliability guidance overview for Microsoft Azure products and services
 description: Reliability guidance overview for Microsoft Azure products and services. View Azure service specific reliability guides and Azure Service Manager Retirement guides.
 author: anaharris-ms
 ms.service: reliability
-ms.topic: conceptual
+ms.topic: reliability-article
 ms.date: 03/31/2023
 ms.author: anaharris
 ms.custom: subject-reliability
@@ -28,7 +28,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure Event Hubs| [Availability Zones](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure ExpressRoute| [Designing for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Key Vault|[Azure Key Vault failover within a region](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#failover-within-a-region)| [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#failover-across-regions) |
-|Azure Load Balancer|[Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Create a cross-region Azure Load Balancer](../load-balancer/tutorial-cross-region-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Load Balancer|[Reliability in Load Balancer](./reliability-load-balancer.md)| [Reliability in Load Balancer](./reliability-load-balancer.md)|
 |Azure Public IP|[Azure Public IP - Availability zones](../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone)| [Azure Public IP: Cross-region overview](../load-balancer/cross-region-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Service Bus|[Azure Service Bus - Availability zones](../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Azure Service Bus Geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Service Fabric| [Deploy an Azure Service Fabric cluster across Availability Zones](../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Disaster recovery in Azure Service Fabric](../service-fabric/service-fabric-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
@@ -101,6 +101,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 
 | Product| Availability zone guide | Disaster recovery guide |
 |-------|-------|-------|
+|Azure Application Gateway for Containers | [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md) | [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md)|
 |Azure Chaos Studio | [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)| [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)|
 |Azure Community Training|[Reliability in Community Training](reliability-community-training.md) |[Reliability in Community Training](reliability-community-training.md) |
 |Azure Cosmos DB for MongoDB vCore|[Reliability in Azure Cosmos DB for MongoDB vCore](./reliability-cosmos-mongodb.md)|[Reliability in Azure Cosmos DB for MongoDB vCore](./reliability-cosmos-mongodb.md) |
@@ -109,7 +110,9 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure Data Share| |[Disaster recovery for Azure Data Share](../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Deployment Environments| [Reliability in Azure Deployment Environments](reliability-deployment-environments.md)|[Reliability in Azure Deployment Environments](reliability-deployment-environments.md)|
 |Azure DevOps|| [Azure DevOps Data protection - data availability](/azure/devops/organizations/security/data-protection?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&preserve-view=true&#data-availability)|
+|Azure Elastic SAN|[Availability zone support](reliability-elastic-san.md#availability-zone-support)|[Disaster recovery and business continuity](reliability-elastic-san.md#disaster-recovery-and-business-continuity)|
 |Azure Health Data Services - Azure API for FHIR|| [Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Health Insights|[Reliability in Azure Health Insights](reliability-health-insights.md)|[Reliability in Azure Health Insights](reliability-health-insights.md)|
 |Azure IoT Hub| [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Machine Learning Service|| [Failover for business continuity and disaster recovery](../machine-learning/v1/how-to-high-availability-machine-learning.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure NetApp Files|| [Manage disaster recovery using cross-region replication](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |

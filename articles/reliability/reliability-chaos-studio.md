@@ -3,7 +3,7 @@ title: Reliability in Azure Chaos Studio
 description: Find out about reliability in Azure Chaos Studio.
 author: prasha-microsoft 
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: chaos-studio
 ms.date: 01/23/2024 

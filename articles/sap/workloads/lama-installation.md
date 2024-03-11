@@ -4,7 +4,6 @@ description: Learn how to manage SAP systems on Azure by using SAP LaMa.
 services: virtual-machines-linux,virtual-machines-windows
 author: MSSedusch
 manager: timlt
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

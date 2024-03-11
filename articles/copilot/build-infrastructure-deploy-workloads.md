@@ -1,7 +1,7 @@
 ---
 title: Build infrastructure and deploy workloads using Microsoft Copilot for Azure (preview)
 description: Learn how Microsoft Copilot for Azure (preview) can help you build custom infrastructure for your workloads and provide templates and scripts to help you deploy.
-ms.date: 01/18/2024
+ms.date: 02/26/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
@@ -19,7 +19,7 @@ Throughout a conversation, Microsoft Copilot for Azure (preview) asks you questi
 
 To get help building infrastructure and deploying workloads, start on the [More virtual machines and related solutions](https://portal.azure.com/#view/Microsoft_Azure_SolutionCenter/SolutionGroup.ReactView/groupid/defaultLandingVmBrowse) page in the Azure portal. You can reach this page from **Virtual machines** by selecting the arrow next to **Create**, then selecting **More VMs and related solutions**.
 
-:::image type="content" source="media/build-infrastructure-deploy-workloads/solution-center-blade.png" alt-text="Screenshot of the More VMs and related solutions option from the Virtual machines page in the Azure portal.":::
+:::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-more-vms.png" alt-text="Screenshot of the More VMs and related solutions option from the Virtual machines page in the Azure portal.":::
 
 Once you're there, start the conversation by letting Microsoft Copilot for Azure (preview) know what you want to build and deploy.
 

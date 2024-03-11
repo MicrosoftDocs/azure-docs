@@ -11,6 +11,9 @@ ms.date: 08/01/2023
 ---
 # Collect custom metrics for a Linux VM with the InfluxData Telegraf agent
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This article explains how to deploy and configure the [InfluxData](https://www.influxdata.com/) Telegraf agent on a Linux virtual machine to send metrics to Azure Monitor.
 
 > [!NOTE]
