@@ -147,7 +147,11 @@ az elastic-san volume snapshot delete -g "resourceGroupName" -e "san_name" -v "v
 
 ## Export volume snapshot
 
-Elastic SAN volume snapshots are automatically deleted when the volume is deleted. If you need your snapshot's data to persist beyond deletion, export them to managed disk snapshots. The export process will take time and will depend on the size of the snapshot. You can check how much is left before completion by checking the CompletionPercentage property of the managed disk snapshot. Once you export an elastic SAN snapshot to a managed disk snapshot, the managed disk snapshot begins to incur billing charges. Elastic SAN snapshots don't have any extra billing associated with them, they only consume your elastic SAN's capacity.
+Elastic SAN volume snapshots are automatically deleted when the volume is deleted. For your snapshot's data to persist beyond deletion, export them to managed disk snapshots. Exporting a volume snapshot to a managed disk snapshot takes time, how much time it takes depend on the size of the snapshot. You can check how much is left before completion by checking the `CompletionPercentage` property of the managed disk snapshot.
+
+### Billing implications
+
+Elastic SAN snapshots don't have any extra billing associated with them, they only consume your elastic SAN's capacity. Once you export an elastic SAN snapshot to a managed disk snapshot, the managed disk snapshot begins to incur billing charges.
 
 # [Portal](#tab/azure-portal)
 
