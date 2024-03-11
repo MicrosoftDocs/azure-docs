@@ -40,7 +40,7 @@ In this article, you'll learn how to connect to data sources located outside of 
 > - Directly from key vault. This method is protected by Azure role-based access control and Azure Key Vault access policies on the key vault.
 > - Indirectly, from the Azure Machine Learning workspace. This method is protected by Azure role-based access control on the workspace
 >
-> By default, the Azure Machine Learning Data Scientist built-in role has access to indirectly access credentials through the workspace. This includes the ability to view the secrets stored in the key vault. If you want to prevent viewing of secrets, instead create a custom role where `Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action` is in the `NoAction` of the custom role. For more information, see [Manage roles in your workspace](how-to-assign-roles.md#create-custom-role).
+> By default, the Azure Machine Learning Data Scientist built-in role has access to indirectly access credentials through the workspace. This includes the ability to view the secrets stored in the key vault. If you want to prevent viewing of secrets, instead create a custom role where `Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action` is in the `NoAction` of the custom role. For more information, see [Manage roles in your workspace](how-to-assign-roles.md#data-scientist-restricted).
 
 > [!NOTE]
 > For a successful data import, please verify that you have installed the latest azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).
