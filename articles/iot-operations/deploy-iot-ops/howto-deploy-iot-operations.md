@@ -88,7 +88,7 @@ az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvau
 
 If you don't have **Microsoft.Authorization/roleAssignment/write** permissions in your Azure subscription, include the `--disable-rsync-rules` feature flag.
 
-If you encounter an issue with the KeyVault access policy and the Service Principal (SP) permissions, [pass service principal and KeyVault arguments](https://learn.microsoft.com/azure/iot-operations/deploy-iot-ops/howto-manage-secrets#pass-service-principal-and-key-vault-arguments-to-azure-iot-operations-deployment).
+If you encounter an issue with the KeyVault access policy and the Service Principal (SP) permissions, [pass service principal and KeyVault arguments](howto-manage-secrets.md#pass-service-principal-and-key-vault-arguments-to-azure-iot-operations-deployment).
 
 Use optional flags to customize the `az iot ops init` command. To learn more, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
