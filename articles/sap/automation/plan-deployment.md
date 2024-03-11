@@ -232,7 +232,7 @@ The following table shows the required permissions for the service principals.
 > | Workload Zone SPN                            | SAP library `sapbits` storage account | Reader                                 |                    |
 > | Workload Zone SPN                            | Private DNS zone                      | Private DNS zone contributor           |                    |
 > | Web Application Identity                     | Target subscription                   | Reader                                 |                    |
-> | Cluster Virtual Machine Identity             | Resource group                        | Fencing role                           |
+> | Cluster Virtual Machine Identity             | Resource group                        | Fencing role                           |                    |
 
 ### Firewall configuration
 
