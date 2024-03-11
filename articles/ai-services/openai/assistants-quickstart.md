@@ -8,7 +8,7 @@ ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 02/01/2024
-zone_pivot_groups: openai-quickstart
+zone_pivot_groups: openai-quickstart-assistants
 recommendations: false
 ---
 
