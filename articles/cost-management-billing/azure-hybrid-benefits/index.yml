@@ -22,7 +22,7 @@ highlightedContent:
     - title: Benefits of the Hybrid Licensing offer - Windows Server
       itemType: training
       url: /training/modules/understand-windows-server-iaas-vm-cost-management/5-describe-azure-hybrid-license-benefits
-    - title: SQL Server on Azure Virtual Machines
+    - title: SQL Server in Azure Virtual Machines
       itemType: download
       url: https://msazurecourses.azurewebsites.net/eBooks/SQL%20Server%20on%20Azure%20Virtual%20Machines.pdf
     - title: Explore Azure Hybrid Benefit for SQL VMs
@@ -36,7 +36,7 @@ highlightedContent:
 additionalContent:
   # Supports up to 4 sections
   sections:
-    - title: Windows Server VMs on Azure  # < 60 chars (optional)
+    - title: Windows Server VMs in Azure  # < 60 chars (optional)
       items:
         # Card
         - title: General guidance
@@ -59,7 +59,7 @@ additionalContent:
               url: ../../azure-vmware/sql-server-hybrid-benefit.md
             - text: Overview of Azure Dedicated Hosts for virtual machines
               url: ../../virtual-machines/dedicated-hosts.md
-    - title: SQL Server VMs on Azure  # < 60 chars (optional)
+    - title: SQL Server VMs in Azure  # < 60 chars (optional)
       items:
         # Card
         - title: General guidance
@@ -86,7 +86,7 @@ additionalContent:
               url: ../../azure-vmware/enable-sql-azure-hybrid-benefit.md
             - text: Run SQL Server VM on an Azure Dedicated Host - SQL Server on Azure VMs
               url: /azure/azure-sql/virtual-machines/windows/dedicated-host
-    - title: Linux Server VMs on Azure  # < 60 chars (optional)
+    - title: Linux Server VMs in Azure  # < 60 chars (optional)
       items:
         # Card
         - title: General guidance
