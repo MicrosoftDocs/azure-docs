@@ -27,7 +27,7 @@ Create a blob container in Azure Storage and upload all 14 items.
 
 While in Azure Storage, copy a connection string.
 
-You can use the [`projections.rest`](https://github.com/Azure-Samples/azure-search-postman-samples/blob/main/projections/) file to run the examples in this article.
+You can use the [`projections.rest`](https://github.com/Azure-Samples/azure-search-rest-samples/blob/main/projections/) file to run the examples in this article.
 
 ## Example skillset
 
