@@ -12,7 +12,7 @@ appliesto: Microsoft Sentinel
 
 # Migrate to Microsoft Sentinel with the SIEM migration experience (preview)
 
-Migrate your SIEM to Microsoft Sentinel with the SIEM Migration experience. With the automated assistance the SIEM Migration experience provides, the complexity of a migrating security monitoring use cases is simplified. 
+Migrate your SIEM to Microsoft Sentinel for all your security monitoring use cases. Automated assistance from the SIEM Migration experience simplifies your migration. 
 
 These features are currently included in the SIEM Migration experience: 
 
@@ -108,8 +108,8 @@ Capabilities on the roadmap:
 
 1. Select **Deploy** to start the deployment of analytics rules to your Microsoft Sentinel workspace. 
 
-   The following resources will be deployed:
-   - For all OOTB matches, the corresponding solutions with the matched analytics rule is installed, and the matched rules will be deployed as active analytics rules.
+   The following resources are deployed:
+   - For all OOTB matches, the corresponding solutions with the matched analytics rule is installed, and the matched rules are deployed as active analytics rules.
    - All custom rules translated to Sentinel analytics rules are deployed as active analytics rules.
 
 1. View the properties of deployed rules from Microsoft Sentinel **Analytics**.
