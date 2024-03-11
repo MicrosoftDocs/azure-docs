@@ -99,8 +99,12 @@ You can buy up to 9999 units of the one-million or more options, with the variab
 
 Please [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase any quantity of the reservations above.
 
-### Existing reservations
+## Existing reservations
 
+Existing auto-renew reservations may have these situations:
+
+ * If the reservation size is smaller than one million RU/s, it will be renewed with multiples of the 100 RU/s option, with the same one-year or three-years term.
+ * If the reservation size is equal or bigger than one million RU/s, there are no changes and it will renewed with the same settings.
 
 
 ## Determine the required throughput before purchase
