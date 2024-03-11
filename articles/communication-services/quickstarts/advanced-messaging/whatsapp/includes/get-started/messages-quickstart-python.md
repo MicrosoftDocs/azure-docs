@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: azure-communication-services
 author: shamkh
 manager: camilo.ramirez
@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 02/20/2024
 ms.topic: include
-ms.custom: include file
+ms.custom: Include file
 ms.author: shamkh
 ---
 
@@ -34,7 +34,7 @@ mkdir messages-quickstart && cd messages-quickstart
 
 ### Install the package
 
-You'll need to use the Azure Communication Messages client library for Python [version 1.0.0](https://pypi.org/project/azure-communication-messages) or above.
+You need to use the Azure Communication Messages client library for Python [version 1.0.0](https://pypi.org/project/azure-communication-messages) or above.
 
 From a console prompt, execute the following command:
 
@@ -60,14 +60,14 @@ class MessagesQuickstart(object):
 
 ## Initialize the NotificationMessagesClient
 
-Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints). NotificationMessagesClient is also authenticated using TokenCredentials. For More information see [access-Azure-Communication-Resources-using-TokenCredentials](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#environment-variables).
+Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure Portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints). NotificationMessagesClient is also authenticated using TokenCredentials. For more information see [access-Azure-Communication-Resources-using-TokenCredentials](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#environment-variables).
 Get Azure Communication Resource connection string from Azure Portal as given in screenshot:
 
-:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Primary Key' field in the 'Keys' section.":::
+:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Primary Key' field in the 'Keys' section.":::
 
-Then Get WhatsChannelId from Azure portal as given in screenshot:
+Then Get WhatsChannelId from Azure Portal as given in screenshot:
 
-:::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' field in the 'Advanced Messaging' section.":::
+:::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Channels' field in the 'Advanced Messaging' section.":::
 
 ```python
     # Get a connection string to our Azure Communication Services resource.
@@ -86,9 +86,9 @@ Then Get WhatsChannelId from Azure portal as given in screenshot:
 
 ## Send Template WhatsApp Messages
 
-Messages SDK allows Contoso to send templated WhatsApp mesages to WhatsApp users. To send template messages below details are required:
+Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp users. To send template messages below details are required:
 - WhatsApp Channel ID
-- Receipient Phone Number in E16 format
+- Recipient Phone Number in E16 format
 - Template details
     - Name
     - Language
@@ -132,9 +132,9 @@ Message with message id <GUID> was successful sent to <TOPhonenumber>
 
 ## Send Text WhatsApp Messages
 
-Messages SDK allows Contoso to send text WhatsApp mesages which initiated WhatsApp users initiated. To send text messages below details are required:
+Messages SDK allows Contoso to send text WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
 - WhatsApp Channel ID
-- Receipient Phone Number in E16 format
+- Recipient Phone Number in E16 format
 - Message body to be sent
 
 ```python
@@ -246,6 +246,6 @@ if __name__ == '__main__':
 ```
 
 > [!NOTE]
-> Sending text WhatsApp messages needs to be User-Intiated. For more information see [User Initiated WhatsApp Messages](https://developers.facebook.com/docs/whatsapp/pricing/#opening-conversations).
+> Sending text WhatsApp messages needs to be User-Intiated. For more information, see [User Initiated WhatsApp Messages](https://developers.facebook.com/docs/whatsapp/pricing/#opening-conversations).
 
 
