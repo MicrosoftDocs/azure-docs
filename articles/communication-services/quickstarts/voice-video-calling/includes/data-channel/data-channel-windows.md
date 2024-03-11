@@ -35,7 +35,7 @@ Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pi
 | Name | Description |  
 | - | - | 
 | _DataChannelFailedToStart_ | `GetDataChannelSender()` can fail with this error code, indicating underlying Data Channel is not ready to be used. | 
-| _DataChannelRandomIdNotAvailable_ | `GetDataChannelSender()` can fail with this error code, indicating all available random channel ids have already been used. | 
+| _DataChannelRandomIdNotAvailable_ | `GetDataChannelSender()` can fail with this error code, indicating all available random channel IDs have already been used. | 
 | _DataChannelSenderClosed_ | `SendMessage()` can fail with this error code, indicating the sender has already been closed previously. |
 | _DataChannelMessageSizeOverLimit_ | `SendMessage()` can fail with this error code, indicating the message data size exceeds the limit. You can get the message size limit using `MaxMessageSizeInBytes` in `DataChannelSender`. |
 | _DataChannelMessageFailureForBandwidth_ | `SendMessage()` can fail with this error code, indicating a failure in sending the message due to not enough bandwidth. | 
