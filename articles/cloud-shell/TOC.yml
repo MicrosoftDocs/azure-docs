@@ -15,7 +15,7 @@ items:
 #        href: get-started/new-storage.md
 #      - name: Get started with existing storage account (New UI)
 #        href: get-started/existing-storage.md
-- name: How to use Cloud Shell
+  - name: How to use Cloud Shell
     items:
       - name: Use the window (Classic UI)
         href: using-the-shell-window.md
