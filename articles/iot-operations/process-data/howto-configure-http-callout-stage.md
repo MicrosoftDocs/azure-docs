@@ -16,7 +16,7 @@ ms.date: 10/03/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _HTTP call out_ stage to call an external HTTP endpoint  with an optional request body and receive an optional response. The call out stage lets you incorporate custom data processing logic, such as running machine learning models, into the pipeline processing.
+Use the _HTTP call out_ stage to call an external HTTP endpoint with an optional request body and receive an optional response. The call out stage lets you incorporate custom data processing logic, such as running machine learning models, into the pipeline processing.
 
 - Each partition in a pipeline independently executes the HTTP calls in parallel.
 - HTTP calls are synchronous, the stage waits for the call to return before continuing with further pipeline processing.
@@ -52,7 +52,7 @@ The HTTP call out stage JSON configuration defines the details of the stage. To 
 | API Response&nbsp;>&nbsp;Header | Path | The [Path](concept-configuration-patterns.md#path) to the property in the outgoing message to store the response header in. Leave empty if you don't need the response metadata. | No | - | `.payload.httpResponseHeader` |
 | API Response&nbsp;>&nbsp;Status | Path | The [Path](concept-configuration-patterns.md#path) to the property in the outgoing message to store the response status in. Leave empty if you don't need the response status. | No | - | `.payload.httpResponseStatus` |
 
-**API request&nbsp;>&nbsp;Header<sup>1</sup>**: Each element in the header array is a key value pair. You can set the key or value dynamically based on the content of the incoming message or as a static string.
+**<sup>1</sup>API request&nbsp;>&nbsp;Header**: Each element in the header array is a key value pair. You can set the key or value dynamically based on the content of the incoming message or as a static string.
 
 ### Message formats
 
