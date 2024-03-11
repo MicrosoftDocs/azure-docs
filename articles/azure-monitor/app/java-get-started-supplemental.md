@@ -8,9 +8,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
 ---
 
-# Get started (supplemental)
+# Get Started (Supplemental)
 
-The following sections describe how to get started with Java autoinstrumentation for specific technical environments.
+In the following sections, learn how to get Java autoinstrumentation for specific technical environments.
 
 ## Azure App Service
 
@@ -29,25 +29,22 @@ For more information, see [Use Application Insights Java In-Process Agent in Azu
 > [!NOTE]
 > With Spring Boot Native Image applications, use the [Azure Monitor OpenTelemetry Distro / Application Insights in Spring Boot native image Java application](https://aka.ms/AzMonSpringNative) project instead of the Application Insights Java agent.
 
-### Docker entrypoint
+### Docker entry point
 
-If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.5.0.jar"` to the parameter list somewhere before the `"-jar"` parameter.
-
-For example:
+If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.5.0.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
 
 ```
 ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.5.0.jar", "-jar", "<myapp.jar>"]
 ```
 
-If you're using the *shell* form, add the Java Virtual Machine (JVM) arg `-javaagent:"path/to/applicationinsights-agent-3.5.0.jar"` somewhere before `-jar`.
-
-For example:
+If you're using the *shell* form, add the Java Virtual Machine (JVM) arg `-javaagent:"path/to/applicationinsights-agent-3.5.0.jar"` somewhere before `-jar`, for example:
 
 ```
 ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.5.0.jar" -jar <myapp.jar>
 ```
 
-### Dockerfile
+
+### Docker file
 
 A Dockerfile example:
 
@@ -65,7 +62,7 @@ ENV APPLICATIONINSIGHTS_CONNECTION_STRING="CONNECTION-STRING"
 ENTRYPOINT["java", "-javaagent:applicationinsights-agent-3.5.0.jar", "-jar", "app.jar"]
 ```
 
-In this example, we copy the `applicationinsights-agent-3.5.0.jar` and `applicationinsights.json` files from an `agent` folder (you can choose any folder of your machine). These two files have to be in the same folder in the Docker container.
+In this example, you copy the `applicationinsights-agent-3.5.0.jar` and `applicationinsights.json` files from an `agent` folder (you can choose any folder of your machine). These two files have to be in the same folder in the Docker container.
 
 ### Partner container images
 
@@ -122,7 +119,7 @@ If the file `<tomcat>/bin/setenv.bat` already exists, modify that file and add `
 
 Locate the file `<tomcat>/bin/tomcat8w.exe`. Run that executable and add `-javaagent:path/to/applicationinsights-agent-3.5.0.jar` to the `Java Options` under the `Java` tab.
 
-### JBoss EAP 7
+### JBoss Enterprise Application Platform 7
 
 In Red Hat JBoss Enterprise Application Platform (EAP) 7, you can set up a standalone server or a domain server.
 
@@ -178,7 +175,7 @@ If you're running multiple managed servers on a single host, you need to add `ap
 ...
 ```
 
-The specified `applicationinsights.agent.id` value must be unique. The value creates a subdirectory under the Application Insights directory. Each JVM process needs its own local Application Insights config and local Application Insights log file. Also, if reporting to the central collector, multiple managed servers share the `applicationinsights.properties` file, so the specified `applicationinsights.agent.id` is needed to override the `agent.id` setting in that shared file. The `applicationinsights.agent.rollup.id` can be similarly specified in the server's `system-properties` if you need to override the `agent.rollup.id` setting per managed server.
+The specified `applicationinsights.agent.id` value must be unique. You use the value to create a subdirectory under the Application Insights directory. Each JVM process needs its own local Application Insights config and local Application Insights log file. Also, if reporting to the central collector, multiple managed servers share the `applicationinsights.properties` file, so the specified `applicationinsights.agent.id` is needed to override the `agent.id` setting in that shared file. The `applicationinsights.agent.rollup.id` can be similarly specified in the server's `system-properties` if you need to override the `agent.rollup.id` setting per managed server.
 
 ### Jetty 9
 
@@ -208,24 +205,24 @@ Add `-javaagent:path/to/applicationinsights-agent-3.5.0.jar` to the existing `jv
 ### WebSphere 8
 
 1. Open Management Console.
-1. Go to **Servers** > **WebSphere application servers** > **Application servers**. Choose the appropriate application servers, and then select **Java and Process Management** > **Process definition** >  **Java Virtual Machine**.
+1. Go to **Servers** > **WebSphere application servers** > **Application servers**. Choose the appropriate application servers and select **Java and Process Management** > **Process definition** > **Java Virtual Machine**.
 
-1. For **Generic JVM arguments**, add the following JVM argument.
+1. In `Generic JVM arguments`, add the following JVM argument.
 
-    ```java
+    ```
     -javaagent:path/to/applicationinsights-agent-3.5.0.jar
     ```
 
-1. Select **Save**, and then restart the application server.
+1. Save and restart the application server.
 
 ### OpenLiberty 18
 
-In the server directory  (for example, in `<openliberty>/usr/servers/defaultServer`), create a new file named *jvm.options*. Add this line:
+Create a new file `jvm.options` in the server directory (for example, `<openliberty>/usr/servers/defaultServer`), and add this line:
 
-```java
+```
 -javaagent:path/to/applicationinsights-agent-3.5.0.jar
 ```
 
 ### Others
 
-To learn how to add JVM args, see your application server documentation.
+See your application server documentation on how to add JVM args.
