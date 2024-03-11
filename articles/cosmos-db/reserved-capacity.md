@@ -121,9 +121,12 @@ Here's an example recommendation:
 
 This recommendation to purchase a 30,000 RU/s reservation indicates that, among 3 year reservations, a 30,000 RU/s reservation size will maximize savings. In this case, the recommendation is calculated based on the past 30 days of Azure Cosmos DB usage. If this customer expects that the past 30 days of Azure Cosmos DB usage is representative of future use, they would maximize savings by purchasing a 30,000 RU/s reservation.
 
+For a 30,000 RU/s reservation, in standard provisioned throughput, you should buy 300 units of the 100 RU/s option.
+
+
 ## Buy Azure Cosmos DB reserved capacity
 
-1. Devide the reservation size by 100 to calculate the number of units of the 100 RU/s option you need. For the 30,000 RU/s example above, you should buy 300 units of the 100 RU/s option. The maximum quantity is 9999 units, or 999,900 RU/s. For more than this, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for up to 63% discounts.
+1. Devide the reservation size by 100 to calculate the number of units of the 100 RU/s option you need. The maximum quantity is 9999 units, or 999,900 RU/s. For more than this, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for up to 63% discounts.
 
 2. Sign in to the [Azure portal](https://portal.azure.com).
 
