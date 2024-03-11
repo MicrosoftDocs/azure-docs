@@ -146,7 +146,7 @@ For a 30,000 RU/s reservation, in standard provisioned throughput, you should bu
 
 4. From the **Purchase reservations** pane, choose **Azure Cosmos DB** to buy a new reservation.  
 
-5. Select the correct scope, billing subscription, management group if applicable, resource group if applicable, and the reservation size. The following table explain all options:
+5. Select the correct scope, billing subscription, management group if applicable, resource group if applicable, and the reservation size. The following table explains all options:
 
 
    |Field  |Description  |
