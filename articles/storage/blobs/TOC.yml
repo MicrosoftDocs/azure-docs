@@ -1340,7 +1340,7 @@ items:
           href: migrate-gen2-wandisco-live-data-platform.md
       - name: Migrate from Data Lake Storage Gen1
         items:
-        - name: Migrate using Azure portal
+        - name: Migrate using the Azure portal
           href: data-lake-storage-migrate-gen1-to-gen2-azure-portal.md
         - name: Migration guidelines and patterns
           href: data-lake-storage-migrate-gen1-to-gen2.md
