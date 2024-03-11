@@ -16,7 +16,7 @@ Pure Cloud Block Store, offered by Pure Storage, is one of the external block st
 
 ## Onboarding and support
 
-Pure Storage manages onboarding of Pure Cloud Block Store for Azure VMware Solution. As Pure Cloud Block Store is a customer deployed and managed solution, reach out to Pure Storage for Customer Support.
+Pure Storage manages onboarding of Pure Cloud Block Store for Azure VMware Solution. As Pure Cloud Block Store (CBS) is a customer deployed and managed solution, reach out to Pure Storage for Customer Support.
 
 For more information, see the following resources: 
 
