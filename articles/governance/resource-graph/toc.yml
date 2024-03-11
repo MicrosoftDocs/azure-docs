@@ -68,14 +68,17 @@
   - name: Understanding the query language
     displayName: query language, data explorer, tabular, operators, functions
     href: ./concepts/query-language.md
-  - name: Resource Graph
+  - name: Explore your Azure resources with Resource Graph
+    displayName: vms, public ip
+    href: ./concepts/explore-resources.md
+  - name: Change Analysis
     items:
-    - name: Explore your Azure resources with Resource Graph
-      displayName: vms, public ip
-      href: ./concepts/explore-resources.md
-    - name: Change Analysis
+    - name: Overview
       displayName: vms, public ip
       href: ./concepts/resource-graph-changes.md
+    - name: Properties and best practices
+      displayName: vms, public ip
+      href: ./concepts/changes-resource-spec.md
   - name: Work with large data sets
     displayName: page, first, skip, token
     href: ./concepts/work-with-data.md

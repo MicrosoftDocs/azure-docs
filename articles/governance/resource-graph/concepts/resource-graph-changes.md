@@ -1,11 +1,11 @@
 ---
-title: Explore changes to your Azure resources (Preview)
+title: Analyze changes to your Azure resources (Preview)
 description: Learn to use the Resource Graph Change Analysis tool to explore and analyze changes in your resources.
 ms.date: 03/11/2024
 ms.topic: conceptual
 ---
 
-# Explore changes to your Azure resources (Preview)
+# Analyze changes to your Azure resources (Preview)
 
 Resources change through the course of daily use, reconfiguration, and even redeployment. While most change is by design, sometimes it can break your application. With the power of Azure Resource Graph, Change Analysis goes beyond standard monitoring solutions, alerting you to live site issues, outages, or component failures and explaining the causes behind them. 
 
@@ -75,3 +75,6 @@ With the transition from Azure Monitor to Azure Resource Graph comes a handful o
 
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Change Analysis best practices](./changes-resource-spec.md)
