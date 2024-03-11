@@ -37,6 +37,7 @@ The Document Intelligence [**2024-02-29-preview**](https://westus.dev.cognitive.
   * **West US2**
   * **West Europe**
 
+* [Layout model](concept-layout.md) now supports [figure detection](concept-layout.md#figures) and [hierarchical document structure analysis (sections and subsections)](concept-layout.md#sections). The AI quality of reading order and logical roles detection is also improved.
 * [Custom extraction models](concept-custom.md#custom-extraction-models)
   * Custom extraction models now support cell, row and table level confidence scores. Learn more about [table, row, and cell confidence](concept-accuracy-confidence.md#table-row-and-cell-confidence).
   * Custom extraction models have AI quality improvements for field extraction.
@@ -79,8 +80,8 @@ The Document Intelligence [**2024-02-29-preview**](https://westus.dev.cognitive.
 * [ID model](concept-id-document.md)
   * [Expanded field support](concept-id-document.md#supported-document-types) for European Union IDs and driver license.
 * [🆕 Mortgage documents](concept-mortgage-documents.md)
-  * Extract information from 1003 end-user license agreement.
-  * Extract information from 1008 underwriting.
+  * Extract information from Uniform Residential Loan Application (Form 1003).
+  * Extract information from Uniform Underwriting and Transmittal Summary or Form 1008.
   * Extract information from mortgage closing disclosure.
 * [🆕 Credit/Debit card model](concept-credit-card.md)
   * Extract information from bank cards.
@@ -636,8 +637,8 @@ The v3.1 API introduces new and updated capabilities:
 * Document Intelligence v3.0 **2022-06-30-preview** release presents extensive updates across the feature APIs:
 
   * [**Layout extends structure extraction**](concept-layout.md). Layout now includes added structure elements including sections, section headers, and paragraphs. This update enables finer grain document segmentation scenarios. For a complete list of structure elements identified, _see_ [enhanced structure](concept-layout.md#data-extraction).
-  * [**Custom neural model tabular fields support**](concept-custom-neural.md). Custom document models now support tabular fields. Tabular fields by default are also multi page. To learn more about tabular fields in custom neural models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).
-  * [**Custom template model tabular fields support for cross page tables**](concept-custom-template.md). Custom form models now support tabular fields across pages. To learn more about tabular fields in custom template models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).
+  * [**Custom neural model tabular fields support**](concept-custom-neural.md). Custom document models now support tabular fields. Tabular fields by default are also multi page. To learn more about tabular fields in custom neural models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields-adds-table-row-and-cell-confidence).
+  * [**Custom template model tabular fields support for cross page tables**](concept-custom-template.md). Custom form models now support tabular fields across pages. To learn more about tabular fields in custom template models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields-adds-table-row-and-cell-confidence).
   * [**Invoice model output now includes general document key-value pairs**](concept-invoice.md). Where invoices contain required fields beyond the fields included in the prebuilt model, the general document model supplements the output with key-value pairs. _See_ [key value pairs](concept-invoice.md#key-value-pairs).
   * [**Invoice language expansion**](concept-invoice.md). The invoice model includes expanded language support. _See_ [supported languages](concept-invoice.md#supported-languages-and-locales).
   * [**Prebuilt business card**](concept-business-card.md) now includes Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).

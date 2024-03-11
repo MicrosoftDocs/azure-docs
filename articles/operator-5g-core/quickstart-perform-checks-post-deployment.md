@@ -11,8 +11,6 @@ ms.date: 02/21/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
-
-
 # Perform health and configuration checks post-deployment in Azure Operator 5G Core Preview
 
 After Azure Operator 5G Core Preview is deployed, you can perform health and configuration checks on the deployment. You must enable an ARC extension to monitor your deployment. 
@@ -23,10 +21,10 @@ After Azure Operator 5G Core Preview is deployed, you can perform health and con
 1. Set the subscription: `az account set -s <subscriptionName>`
 1. Run the following commands to install the CLI extensions:
 
-   `az extension add --yes --name connectedk8s` 
+   `az extension add --yes --name connectedk8s`
 
-    `az extension add --yes --name k8s-configuration` 
-    
+    `az extension add --yes --name k8s-configuration`
+
     `az extension add --yes --name k8s-extension`
 
 ## Configure ARC for the Kubernetes/Azure Kubernetes Services Cluster
@@ -77,5 +75,5 @@ To add the namespace to fed-prometheus:
 
 ## Related content
 
-- [Monitor the  status of your Azure Operator 5G Core Preview deployment](how-to-monitor-deployment-status.md)
+- [Monitor the  status of your Azure Operator 5G Core Preview deployment](quickstart-monitor-deployment-status.md)
 - [Observability and analytics in Azure Operator 5G Core Preview](concept-observability-analytics.md)
