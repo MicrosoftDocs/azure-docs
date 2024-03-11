@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot data labeling projects
+title: Troubleshoot data labeling project creation
 titleSuffix: Azure Machine Learning
-description: Learn how to troubleshoot and resolve issues in your data labeling project.
+description: Learn how to troubleshoot and resolve issues when creating your data labeling project.
 author: kvijaykannan
 ms.author: vkann
 ms.reviewer: sgilley
@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.date: 03/07/2024
 ms.topic: troubleshooting
-
+#customer intent: To troubleshoot and resolve issues that occur when creating your data labeling project.
 ---
 
-# Troubleshoot data labeling projects
+# Troubleshoot problems during creation of a data labeling project 
 
-Only datasets created on blob datastores can be used. This issue is a known limitation of the current release.
-
-If you have errors creating a data labeling project try the following troubleshooting steps.
+If you have errors that occur while creating a data labeling project try the following troubleshooting steps.
 
 ## Add Storage Blob Data Contributor access to the workspace identity
 

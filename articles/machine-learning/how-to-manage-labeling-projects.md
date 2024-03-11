@@ -310,6 +310,7 @@ Use these tips if you see any of the following issues while managing your projec
 
 |Issue |Resolution |
 |---------|---------|
+|Only datasets created on blob datastores can be used.|This issue is a known limitation of the current release.|
 |Removing data from the dataset your project uses causes an error in the project.|Don't remove data from the version of the dataset you used in a labeling project. Create a new version of the dataset to use to remove data.|
 |After a project is created, the project status is *Initializing* for an extended time.|Manually refresh the page. Initialization should complete at roughly 20 data points per second. No automatic refresh is a known issue.|
 |Newly labeled items aren't visible in data review.|To load all labeled items, select the **First** button. The **First** button takes you back to the front of the list, and it loads all labeled data.|
@@ -319,7 +320,9 @@ Use these tips if you see any of the following issues while managing your projec
 
 |Issue |Resolution |
 |---------|---------|
-|If you select the Esc key when you label for object detection, a zero-size label is created and label submission fails.|To delete the label, select the **X** delete icon next to the label.|
+|If you select the Esc key when you label for object detection, a zero-size label is created and label submission fails.|To delete the label, select the **X** delete icon next to the label.
+
+If you have problems creating the project, see [Troubleshoot problems during creation of a data labeling project](how-to-troubleshoot-data-labeling.md)
 
 ## Next step
 
