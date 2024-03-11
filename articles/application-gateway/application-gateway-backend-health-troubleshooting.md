@@ -123,7 +123,7 @@ To increase the timeout value, follow these steps:
 **Solution:** If you receive this error, follow these steps:
 
 1. Check whether you can connect to the backend server on the port mentioned in the HTTP settings by using a browser or PowerShell. For example, run the following command: `Test-NetConnection -ComputerName www.bing.com -Port 443`.
-2. If the port mentioned is not the desired port, enter the correct port number for Application Gateway to connect to the backend server.
+2. If the port mentioned isn't the desired port, enter the correct port number for Application Gateway to connect to the backend server.
 3. If you can't connect on the port from your local machine as well, then:
 
    a.  Check the network security group (NSG) settings of the backend server's network adapter and subnet and whether inbound connections to the configured port are allowed. If they aren't, create a new rule to allow the connections. To learn how to create NSG rules, [see the documentation page](../virtual-network/tutorial-filter-network-traffic.md#create-security-rules).
@@ -235,7 +235,7 @@ Run this OpenSSL command by specifying the right certificate filename ` openssl 
 
 ### Backend certificate has expired
 
-**Message:** Backend certificate is invalid. Current date is not within the "Valid from" and "Valid to" date range on the certificate.
+**Message:** Backend certificate is invalid. Current date isn't within the "Valid from" and "Valid to" date range on the certificate.
 
 **Cause:** An expired certificate is deemed unsafe and hence the application gateway marks the backend server with an expired certificate as unhealthy.
 
@@ -256,7 +256,7 @@ For V1 SKU,
 ### The intermediate certificate was not found
 **Message:** The **Intermediate certificate is missing** from the certificate chain presented by the backend server. Ensure the certificate chain is complete and correctly ordered on the backend server.
 
-**Cause:** The intermediate certificate(s) is not installed in the certificate chain on the backend server.
+**Cause:** The intermediate certificate(s) isn't installed in the certificate chain on the backend server.
 
 **Solution:** An Intermediate certificate is used to sign the Leaf certificate and is thus needed to complete the chain. Check with your Certificate Authority (CA) for the necessary Intermediate certificate(s) and install them on your backend server. This chain must start with the Leaf Certificate, then the Intermediate certificate(s), and finally, the Root CA certificate. We recommend installing the complete chain on the backend server, including the Root CA certificate. For reference, look at the certificate chain example under [Leaf must be topmost in chain](application-gateway-backend-health-troubleshooting.md#leaf-must-be-topmost-in-chain).
 
@@ -275,16 +275,16 @@ These images show the difference between the self-signed certificates.
 
 ### Server certificate is not issued by a publicly known CA
 
-**Message:** The backend **Server certificate** is not signed by a well-known Certificate Authority (CA). To use unknown CA certificates, its Root certificate must be uploaded to the Backend Setting of the application gateway.
+**Message:** The backend **Server certificate** isn't signed by a well-known Certificate Authority (CA). To use unknown CA certificates, its Root certificate must be uploaded to the Backend Setting of the application gateway.
 
-**Cause:** You have chosen “well-known CA certificate” in the backend setting, but the Root certificate presented by the backend server is not publicly known. 
+**Cause:** You have chosen “well-known CA certificate” in the backend setting, but the Root certificate presented by the backend server isn't publicly known. 
 
 **Solution:** When a Leaf certificate is issued by a private Certificate Authority (CA), the signing Root CA’s certificate must be uploaded to the application gateway’s associated Backend Setting. This enables your application gateway to establish a trusted connection with that backend server. To fix this, go to the associated backend setting, choose “not a well-known CA” and upload the Root CA certificate (.CER). To identify and download the root certificate, you can follow the same steps as described under [Trusted root certificate mismatch](application-gateway-backend-health-troubleshooting.md#trusted-root-certificate-mismatch-root-certificate-is-available-on-the-backend-server).
 
 ### The Intermediate certificate is NOT signed by a publicly known CA.
-**Message:** The **Intermediate certificate** is not signed by a well-known Certificate Authority (CA). Ensure the certificate chain is complete and correctly ordered on the backend server.
+**Message:** The **Intermediate certificate** isn't signed by a well-known Certificate Authority (CA). Ensure the certificate chain is complete and correctly ordered on the backend server.
 
-**Cause:** You have chosen “well-known CA certificate” in the backend setting, but the Intermediate certificate presented by the backend server is not signed by any publicly known CA.
+**Cause:** You have chosen “well-known CA certificate” in the backend setting, but the Intermediate certificate presented by the backend server isn't signed by any publicly known CA.
 
 **Solution:** When a certificate is issued by a private Certificate Authority (CA), the signing Root CA’s certificate must be uploaded to the application gateway’s associated Backend Setting. This enables your application gateway to establish a trusted connection with that backend server. To fix this, contact your private CA to get the appropriate Root CA certificate (.CER) and upload that .CER file to the Backend Setting of your application gateway by selecting “not a well-known CA”. We also recommend installing the complete chain on the backend server, including the Root CA certificate, for easy verification.
 
@@ -332,9 +332,9 @@ These images show the difference between the self-signed certificates.
 
 ### Leaf must be topmost in chain.
 
-**Message:** The Leaf certificate is not the topmost certificate in the chain presented by the backend server. Ensure the certificate chain is correctly ordered on the backend server.
+**Message:** The Leaf certificate isn't the topmost certificate in the chain presented by the backend server. Ensure the certificate chain is correctly ordered on the backend server.
 
-**Cause:** The Leaf (also known as Domain or Server) certificate is not installed in the correct order on the backend server.
+**Cause:** The Leaf (also known as Domain or Server) certificate isn't installed in the correct order on the backend server.
 
 **Solution:** The certificate installation on the backend server must include an ordered list of certificates comprising the leaf certificate and all its signing certificates (Intermediate and Root CA certificates). This chain must start with the leaf certificate, then the Intermediate certificate(s), and finally, the Root CA certificate. We recommend installing the complete chain on the backend server, including the Root CA certificate. 
 
