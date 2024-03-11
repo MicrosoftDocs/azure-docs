@@ -161,7 +161,7 @@ The following table lists the available settings for the cluster autoscaler prof
 | `max-graceful-termination-sec` | Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. | 600 seconds |
 | `balance-similar-node-groups` | Detects similar node pools and balances the number of nodes between them. | `false` |
 | `expander` | Type of node pool [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) uses in scale up. Possible values include `most-pods`, `random`, `least-waste`, and `priority`. | `random` |
-| `skip-nodes-with-local-storage` | If `true`, cluster autoscaler doesn't delete nodes with pods with local storage, for example, EmptyDir or HostPath. | `true` |
+| `skip-nodes-with-local-storage` | If `true`, cluster autoscaler doesn't delete nodes with pods with local storage, for example, EmptyDir or HostPath. | `false` |
 | `skip-nodes-with-system-pods` | If `true`, cluster autoscaler doesn't delete nodes with pods from kube-system (except for DaemonSet or mirror pods). | `true` |
 | `max-empty-bulk-delete` | Maximum number of empty nodes that can be deleted at the same time. | 10 nodes |
 | `new-pod-scale-up-delay` | For scenarios such as burst/batch scale where you don't want CA to act before the Kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they reach a certain age. | 0 seconds |
