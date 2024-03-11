@@ -15,10 +15,9 @@ sections:
   - name: General
     questions:
       - question: |
-          How can I import a certificate in Azure Key Vault?
+          At least one general question about Customer Lockbox?
         answer: |
-          For a certificate import operation, Azure Key Vault accepts two certificate file formats: PEM and PFX. Although there are PEM files with only the public portion, Key Vault requires and accepts only a PEM or PFX file with a private key. For more information, see [Import a certificate to Key Vault](./tutorial-import-certificate.md).
-           Certificate Authorities may provide with the option to either download certificate individually (root, intermediate, leaf) or download all of them in a single file. When you import certificates into Key Vault, Certificate Authorities allows you to import one or an entire whole chain.
+          The answer.
 
   - name: Alternative email feature (public preview)
     questions:
