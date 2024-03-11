@@ -27,7 +27,7 @@ Before provisioning an Azure Managed Domain, review the following table to deter
 | | [Azure Managed Domains](./add-azure-managed-domains.md) | [Custom Domains](./add-custom-verified-domains.md) | 
 |---|---|---|
 |**Pros:** | - Setup is quick & easy<br/>- No domain verification required<br /> | - Emails are sent from your own domain |
-|**Cons:** | - Sender domain is not personalized and cannot be changed<br/>- Sender usernames can't be personalized and cannot be changed<br/>- High volume sending is limited to 5 emails a minute and 10 an hour.<br />- User Engagement Tracking cannot be enabled  <br /> | - Requires verification of domain records <br /> - Longer setup for verification |
+|**Cons:** | - Sender domain is not personalized and cannot be changed<br/>- Sender usernames can't be personalized and cannot be changed<br/>- High volume sending is limited to 5 requests a minute and 10 an hour.<br />- User Engagement Tracking cannot be enabled  <br /> | - Requires verification of domain records <br /> - Longer setup for verification |
 
 
 ## Provision Azure Managed Domain
