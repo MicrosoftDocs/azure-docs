@@ -11,8 +11,19 @@ ms.collection: usx-security
 
 # Microsoft Sentinel in the Microsoft Defender portal
 
-<!-- add intro - Unify your security operation center by -->
-Combine the power of Microsoft Sentinel with Microsoft Defender XDR into the Microsoft Defender portal, your unified security operations center (SOC) platform.
+Combine the power of Microsoft Sentinel with Microsoft Defender XDR into the Microsoft Defender portal, your unified security operations center (SOC) platform. The Defender portal is enhanced with the following features:
+
+- Advanced hunting that spans Microsoft Sentinel and Microsoft Defender XDR
+- Unified incidents
+- AI
+- Automation
+- Guided experiences
+- Curated threat intelligence
+
+This article describes the Microsoft Sentinel experience in the Microsoft Defender portal.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 
 ## Quick reference
 
