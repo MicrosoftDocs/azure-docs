@@ -156,6 +156,10 @@ You can block all other incoming traffic by using a **Deny All** rule.
 |---|---|---|---|---|---|
 |Any|Any|Internet|Any|Any|Allow|
 
+
+> [!NOTE]
+> Application Gateways that  do not have  [Network Isolation](application-gateway-private-deployment.md#route-table-control)  enabled, will  not allow traffic to be sent between peered VNETs when "Allow traffic to remote virtual network" is disabled
+
 ## Supported user-defined routes
 
 Fine-grain control over the Application Gateway subnet via route table rules is possible in public preview. For more information, see [Private Application Gateway deployment (preview)](application-gateway-private-deployment.md#route-table-control).
