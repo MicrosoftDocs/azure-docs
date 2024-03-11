@@ -1,8 +1,8 @@
 ---
 title:  Enable additional capabilities on Arc-enabled Server machines by linking to vCenter
-description: Enable additional capabilities on Arc-enabled Server machines by linking to vCenter
+description: Enable additional capabilities on Arc-enabled Server machines by linking to vCenter.
 ms.topic: how-to 
-ms.date: 03/08/2024
+ms.date: 03/11/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
@@ -14,7 +14,7 @@ manager: jsuri
 
 If you have VMware machines connected to Azure via Arc-enabled Servers route, you can seamlessly get additional capabilities by deploying resource bridge and connecting vCenter to Azure. The additional capabilities include the ability to perform virtual machine lifecycle operations, such as create, resize, and power cycle operations such as start, stop, and so on. You can get additional capabilities without any disruption, retaining the VM extensions configured on the Arc-enabled Server machines.   
 
-Follow the steps [here](./quick-start-connect-vcenter-to-arc-using-script.md) to deploy the Arc Resource Bridge and connect vCenter to Azure.
+Follow these steps [here](./quick-start-connect-vcenter-to-arc-using-script.md) to deploy the Arc Resource Bridge and connect vCenter to Azure.
 
 >[!IMPORTANT]
 > This article is applicable only if you've installed Arc agents directly in VMware machines before onboarding to Azure Arc-enabled VMware vSphere by deploying Arc resource bridge. 
@@ -29,15 +29,15 @@ Follow the steps [here](./quick-start-connect-vcenter-to-arc-using-script.md) to
 
 1. Navigate to the Virtual machines inventory page of your vCenter in the Azure portal. 
 
-2. The Virtual machines that have Arc agent installed via Arc-enabled Servers route will have **Link to vCenter** status under virtual hardware management.  
+2. The Virtual machines that have Arc agent installed via Arc-enabled Servers route have **Link to vCenter** status under virtual hardware management.  
 
-3. Select **Link to vCenter** to open a pane that will list all the machines under vCenter with Arc agent installed but not linked to vCenter in Azure Arc.  
+3. Select **Link to vCenter** to open a pane that lists all the machines under vCenter with Arc agent installed but not linked to vCenter in Azure Arc.  
 
-4. Choose all the machines, and select the option to link machines to vCenter.
+4. Choose all the machines and select the option to link machines to vCenter.
 
     :::image type="content" source="media/enable-virtual-hardware/link-machine-to-vcenter.png" alt-text="Screenshot that shows the Link to vCenter page." lightbox="media/enable-virtual-hardware/link-machine-to-vcenter.png":::
 
-5.	After linking to vCenter, the virtual hardware status will reflect as **Enabled** for all the VMs, and you can perform [virtual hardware operations](./perform-vm-ops-through-azure.md). 
+5.	After linking to vCenter, the virtual hardware status reflects as **Enabled** for all the VMs, and you can perform [virtual hardware operations](./perform-vm-ops-through-azure.md). 
 
     :::image type="content" source="media/enable-virtual-hardware/perform-virtual-hardware-operations.png" alt-text="Screenshot that shows the page for performing virtual hardware operations." lightbox="media/enable-virtual-hardware/perform-virtual-hardware-operations.png":::
 
@@ -45,7 +45,7 @@ Follow the steps [here](./quick-start-connect-vcenter-to-arc-using-script.md) to
 
 ## Link Arc-enabled Server machines to vCenter using Azure CLI
 
-The following az commands can be used to link Arc-enabled Server machines to vCenter at scale.  
+Use the following az commands to link Arc-enabled Server machines to vCenter at scale.  
 
 **Create VMware resources from the specified Arc for Server machines in the vCenter** 
 
@@ -75,7 +75,7 @@ ARM ID of the vCenter to which the machines will be linked.
 
 **--ids**
 
-One or more resource IDs (space-delimited). It should be a complete resource ID containing all the information of *Resource Id* arguments. You should provide either *--ids* or other *Resource Id* arguments. 
+One or more resource IDs (space-delimited). It must be a complete resource ID containing all the information of *Resource Id* arguments. You must provide either *--ids* or other *Resource Id* arguments. 
 
 **--name -n**
 

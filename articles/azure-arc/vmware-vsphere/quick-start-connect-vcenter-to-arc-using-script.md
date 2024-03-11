@@ -20,7 +20,7 @@ To start using the Azure Arc-enabled VMware vSphere features, you need to connec
 First, the script deploys a virtual appliance called [Azure Arc resource bridge](../resource-bridge/overview.md) in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between vCenter Server and Azure Arc.
 
 > [!IMPORTANT]
-> This article describes a way to connect a generic vCenter Server to Azure Arc. If you're trying to enable Arc for Azure VMware Solution (AVS) private cloud, please follow this guide instead - [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](../../azure-vmware/deploy-arc-for-azure-vmware-solution.md). With the Arc for AVS onboarding process you need to provide fewer inputs and Arc capabilities are better integrated into the AVS private cloud portal experience. 
+> This article describes a way to connect a generic vCenter Server to Azure Arc. If you're trying to enable Arc for Azure VMware Solution (AVS) private cloud, follow this guide instead - [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](../../azure-vmware/deploy-arc-for-azure-vmware-solution.md). With the Arc for AVS onboarding process you need to provide fewer inputs and Arc capabilities are better integrated into the AVS private cloud portal experience. 
 
 ## Prerequisites
 
