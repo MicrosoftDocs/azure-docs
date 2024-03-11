@@ -13,12 +13,12 @@ items:
 - name: Get started
   expanded: true
   items: 
-    - name: Get started with the DICOM service
+    - name: Manage medical imaging data
       href: dicom-data-lake.md
-    - name: Deploy the DICOM service
-      href: deploy-dicom-services-in-azure.md
     - name: Deploy the DICOM service with Data Lake Storage
       href: deploy-dicom-services-in-azure-data-lake.md
+    - name: Deploy the DICOM service with the Azure portal
+      href: deploy-dicom-services-in-azure.md
     - name: Get an access token
       href: get-access-token.md
     - name: Register a client application
