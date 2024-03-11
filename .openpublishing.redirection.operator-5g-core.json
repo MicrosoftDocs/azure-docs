@@ -11,8 +11,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/operator-5g-core/quickstart-deploy-network-functions.md",
-            "redirect_url": "/azure/operator-5g-core/how-to-deploy-network-functions",
+            "source_path_from_root": "/articles/operator-5g-core/quickstart-deploy-observability.md",
+            "redirect_url": "/azure/operator-5g-core/how-to-deploy-observability",
             "redirect_document_id": false
         },
         {
@@ -36,19 +36,14 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/operator-5g-core/quickstart-deploy-network-functions.md",
-            "redirect_url": "/azure/operator-5g-core/how-to-deploy-network-functions",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/operator-5g-core/quickstart-deploy-observability.md",
-            "redirect_url": "/azure/operator-5g-core/how-to-deploy-observability",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/operator-5g-core/how-to-perform-checks-post-deployment.md",
             "redirect_url": "/azure/operator-5g-core/quickstart-perform-checks-post-deployment",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-5g-core/quickstart-deploy-network-functions.md",
+            "redirect_url": "/azure/operator-5g-core/how-to-deploy-network-functions",
+            "redirect_document_id": false
         }
-    ]
+   ]
 }
