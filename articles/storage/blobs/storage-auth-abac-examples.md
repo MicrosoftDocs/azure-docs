@@ -38,14 +38,14 @@ Use the following table to quickly locate an example that fits your ABAC scenari
 | [Write blobs in named containers with a path](#example-write-blobs-in-named-containers-with-a-path) | | | | container name</br> blob path |
 | [Read blobs with a blob index tag and a path](#example-read-blobs-with-a-blob-index-tag-and-a-path) | | | | tags</br> blob path |
 | [Read blobs in container with specific metadata](#example-read-blobs-in-container-with-specific-metadata) | | | | container metadata |
-| [Write or delete blobs in container with specific metadata](#example-write-delete-blobs-in-container-with-specific-metadata) | | | | container metadata |
+| [Write or delete blobs in container with specific metadata](#example-write-or-delete-blobs-in-container-with-specific-metadata) | | | | container metadata |
 | [Read only current blob versions](#example-read-only-current-blob-versions) | | | | isCurrentVersion |
 | [Read current blob versions and a specific blob version](#example-read-current-blob-versions-and-a-specific-blob-version) | | | versionId | isCurrentVersion |
 | [Delete old blob versions](#example-delete-old-blob-versions) | | | versionId | |
 | [Read current blob versions and any blob snapshots](#example-read-current-blob-versions-and-any-blob-snapshots) | | | snapshot | isCurrentVersion |
 | [Read current blob versions and any blob snapshots](#example-read-current-blob-versions-and-any-blob-snapshots) | | | snapshot | isCurrentVersion |
-| [Allow list blob operation to include blob metadata, snapshots, or versions](#example-list-blobs-and-allow-blob-metadata-snapshots-and-versions-to-be-included) | | | include | |
-| [Restrict list blob operation to not include blob metadata](#example-list-blobs-and-restrict-blob-metadata-from-being-included) | | | include | |
+| [Allow list blob operation to include blob metadata, snapshots, or versions](#example-allow-list-blob-operation-to-include-blob-metadata-snapshots-or-versions) | | | include | |
+| [Restrict list blob operation to not include blob metadata](#example-restrict-list-blob-operation-to-not-include-blob-metadata) | | | include | |
 | [Read only storage accounts with hierarchical namespace enabled](#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) | | | | isHnsEnabled |
 | [Read blobs with specific encryption scopes](#example-read-blobs-with-specific-encryption-scopes) | | | | Encryption scope name |
 | [Read or write blobs in named storage account with specific encryption scope](#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) | | | | Storage account name</br> Encryption scope name |
