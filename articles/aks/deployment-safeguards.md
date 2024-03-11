@@ -3,7 +3,7 @@ title: Use deployment safeguards to enforce best practices
 description: Learn how to use deployment safeguards to enforce best practices on an Azure Kubernetes Service (AKS) cluster
 author: nickomang
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 03/11/2024
 ms.author: nickoman
 ---
 
