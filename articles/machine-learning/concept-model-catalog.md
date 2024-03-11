@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: timanghn
 author: tinaem
 ms.reviewer: ssalgado
-ms.date: 12/12/2023
+ms.date: 03/04/2024
 #Customer intent: As a data scientist, I want to learn about machine learning foundation models and how to integrate popular models into azure machine learning.
 ---
 
@@ -17,9 +17,9 @@ ms.date: 12/12/2023
 
 The Model Catalog in Azure Machine Learning studio is the hub for a wide-variety of third-party open source as well as Microsoft developed foundation models pre-trained for various language, speech and vision use-cases. You can evaluate, customize and deploy these models with the native capabilities to build and operationalize open-source foundation Models at scale to easily integrate these pretrained models into your applications with enterprise-grade security and data governance.  
 
-* **Discover:** Review model descriptions, try sample inference and browse code samples to evaluate, finetune or deploy the model.
+* **Discover:** Review model descriptions, try sample inference and browse code samples to evaluate, fine-tune, or deploy the model.
 * **Evaluate:** Evaluate if the model is suited for your specific workload by providing your own test data. Evaluation metrics make it easy to visualize how well the selected model performed in your scenario.
-* **Fine tune:** Customize these models using your own training data. Built-in optimizations that speed up finetuning and reduce the memory and compute needed for fine tuning. Apply the experimentation and tracking capabilities of Azure Machine Learning to organize your training jobs and find the model best suited for your needs.
+* **Fine tune:** Customize these models using your own training data. Built-in optimizations that speed up fine-tuning and reduce the memory and compute needed for fine tuning. Apply the experimentation and tracking capabilities of Azure Machine Learning to organize your training jobs and find the model best suited for your needs.
 * **Deploy:** Deploy pre-trained Foundation Models or fine-tuned models seamlessly to online endpoints for real time inference or batch endpoints for processing large inference datasets in job mode. Apply industry-leading machine learning operationalization capabilities in Azure Machine Learning.
 * **Import:** Open source models are released frequently. You can always use the latest models in Azure Machine Learning by importing models similar to ones in the catalog. For example, you can import models for supported tasks that use the same libraries.
 
@@ -35,7 +35,7 @@ The most popular open source third-party models curated by Azure Machine Learnin
 'Curated by Azure AI' and collections from partners such as Meta, NVIDIA, Mistral AI are all curated collections on the Catalog. 
 
 **Azure OpenAI models, exclusively available on Azure**:
-Fine-tune and deploy Azure OpenAI models via the 'Azure Open AI' collection in the Model Catalog.
+Deploy Azure OpenAI models via the 'Azure Open AI' collection in the Model Catalog.
 
 **Transformers models from the HuggingFace hub**: 
 Thousands of models from the HuggingFace hub are accessible via the 'Hugging Face' collection for real time inference with online endpoints. 
@@ -54,7 +54,7 @@ Thousands of models from the HuggingFace hub are accessible via the 'Hugging Fac
 Feature | Open source models curated by Azure Machine Learning | Transformers models from the HuggingFace hub
 --|--|--
 Inference | Online and batch inference | Online inference
-Evaluation and fine-tuning | Evaluate and fine tune with UI wizards, SDK or CLI | not available
+Evaluation and fine-tuning | Evaluate and fine tune with the UI, SDK or CLI | not available
 Import models | Limited support for importing models using SDK or CLI | not available 
 
 ## Compare attributes of collections

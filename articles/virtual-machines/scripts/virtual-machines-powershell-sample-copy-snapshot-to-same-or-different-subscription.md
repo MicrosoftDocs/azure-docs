@@ -4,7 +4,6 @@ description: Azure PowerShell Script Sample -  Copy (move) snapshot of a managed
 services: virtual-machines-windows
 author: ramankumarlive
 manager: kavithag
-tags: azure-service-management
 ms.custom: devx-track-azurepowershell
 ms.service: virtual-machines
 ms.topic: sample

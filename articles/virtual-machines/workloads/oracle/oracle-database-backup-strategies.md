@@ -14,6 +14,9 @@ ms.reviewer: jjaygbay1
 
 # Backup strategies for Oracle Database on an Azure Linux VM
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 **Applies to:** :heavy_check_mark: Linux VMs
 
 Database backups help protect the database against data loss that's due to storage component failure and datacenter failure. They can also be a means of recovery from human error and a way to clone a database for development or testing purposes.
@@ -43,6 +46,8 @@ Azure Storage services offer the following benefits:
 The Azure Storage platform includes the following data services that are suitable to use as backup media for Oracle Database:
 
 - **Azure Blob Storage**: An object store for text and binary data. It also includes support for big data analytics through Azure Data Lake Storage Gen2.
+
+- **Azure NetApp Files**: Complete networked storage solution including advanced data management capabilities for taking snapshots, cloning, and replicating database volumes.
 
 - **Azure Files**: Managed file shares for cloud or on-premises deployments.
 

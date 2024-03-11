@@ -9,9 +9,9 @@ ms.date: 09/21/2023
 
 # Enable Microsoft Defender for SQL servers on machines
 
-Defender for SQL protects your IaaS SQL Servers by identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases. 
+Defender for SQL protects your IaaS SQL Servers by identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases.
 
-Defender for Cloud populates with alerts when it detects suspicious database activities, potentially harmful attempts to access or exploit SQL machines, SQL injection attacks, anomalous database access, and query patterns. The alerts created by these types of events appear on the [alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).
+Defender for Cloud populates with alerts when it detects suspicious database activities, potentially harmful attempts to access or exploit SQL machines, SQL injection attacks, anomalous database access, and query patterns. The alerts created by these types of events appear on the [alerts reference page](alerts-reference.md#alerts-for-sql-database-and-azure-synapse-analytics).
 
 Defender for Cloud uses vulnerability assessment to discover, track, and assist you in the remediation of potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state and provide details of any security findings.
 
@@ -43,7 +43,7 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
 
 ## Set up Microsoft Defender for SQL servers on machines
 
-The Defender for SQL server on machines plan requires Microsoft Monitoring Agent (MMA) or Azure Monitoring Agent (AMA) to prevent attacks and detect misconfigurations. The plan’s autoprovisioning process is automatically enabled with the plan and is responsible for the configuration of all of the agent components required for the plan to function. This includes installation and configuration of MMA/AMA, workspace configuration, and the installation of the plan’s VM extension/solution. 
+The Defender for SQL server on machines plan requires Microsoft Monitoring Agent (MMA) or Azure Monitoring Agent (AMA) to prevent attacks and detect misconfigurations. The plan’s autoprovisioning process is automatically enabled with the plan and is responsible for the configuration of all of the agent components required for the plan to function. This includes installation and configuration of MMA/AMA, workspace configuration, and the installation of the plan’s VM extension/solution.
 
 Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender for Cloud [updated its strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) and released a SQL Server-targeted Azure Monitoring Agent (AMA) autoprovisioning process to replace the Microsoft Monitoring Agent (MMA) process which is set to be deprecated. Learn more about the [AMA for SQL server on machines autoprovisioning process](defender-for-sql-autoprovisioning.md) and how to migrate to it.
 
@@ -73,7 +73,7 @@ Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender f
 1. **(Optional)** Configure advanced autoprovisioning settings:
     1. Navigate to the **Environment settings** page.
 
-   1. Select **Settings & monitoring**.
+    1. Select **Settings & monitoring**.
       - For customers using the new autoprovisioning process, select **Edit configuration** for the **Azure Monitoring Agent for SQL server on machines** component.
       - For customers using the previous autoprovisioning process, select **Edit configuration** for the **Log Analytics agent/Azure Monitor agent** component.
 
@@ -111,17 +111,18 @@ There are several ways to view Microsoft Defender for SQL alerts in Microsoft De
 
 Alerts are designed to be self-contained, with detailed remediation steps and investigation information in each one. You can investigate further by using other Microsoft Defender for Cloud and Microsoft Sentinel capabilities for a broader view:
 
-  - Enable SQL Server's auditing feature for further investigations. If you're a Microsoft Sentinel user, you can upload the SQL auditing logs from the Windows Security Log events to Sentinel and enjoy a rich investigation experience. [Learn more about SQL Server Auditing](/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?preserve-view=true&view=sql-server-ver15).
+- Enable SQL Server's auditing feature for further investigations. If you're a Microsoft Sentinel user, you can upload the SQL auditing logs from the Windows Security Log events to Sentinel and enjoy a rich investigation experience. [Learn more about SQL Server Auditing](/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?preserve-view=true&view=sql-server-ver15).
 
-  - To improve your security posture, use Defender for Cloud's recommendations for the host machine indicated in each alert to reduce the risks of future attacks.
+- To improve your security posture, use Defender for Cloud's recommendations for the host machine indicated in each alert to reduce the risks of future attacks.
   
-    [Learn more about managing and responding to alerts](managing-and-responding-alerts.md).
+[Learn more about managing and responding to alerts](managing-and-responding-alerts.md).
 
 ## Next steps
 
 For related information, see these resources:
+
 - [How Microsoft Defender for Azure SQL can protect SQL servers anywhere](https://www.youtube.com/watch?v=V7RdB6RSVpc).
-- [Security alerts for SQL Database and Azure Synapse Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Security alerts for SQL Database and Azure Synapse Analytics](alerts-reference.md#alerts-for-sql-database-and-azure-synapse-analytics)
 - [Set up email notifications for security alerts](configure-email-notifications.md)
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)
 - Check out [common questions](faq-defender-for-databases.yml) about Defender for Databases.

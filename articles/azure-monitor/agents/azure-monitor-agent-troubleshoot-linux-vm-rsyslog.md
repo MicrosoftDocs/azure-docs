@@ -10,6 +10,9 @@ ms.reviewer: shseth
 ---
 # Syslog troubleshooting guide for Azure Monitor Agent for Linux
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Overview of Azure Monitor Agent for Linux Syslog collection and supported RFC standards:
 
 - Azure Monitor Agent installs an output configuration for the system Syslog daemon during the installation process. The configuration file specifies the way events flow between the Syslog daemon and Azure Monitor Agent.

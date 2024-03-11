@@ -70,6 +70,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 - All public regions
 - All Azure Government regions
+- All Azure China regions
 
 **Pricing**:
 Trusted launch does not increase existing VM pricing costs.

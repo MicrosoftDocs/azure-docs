@@ -74,7 +74,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### Packet capture
 
-**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [packet capture](network-watcher-packet-capture-overview.md) and [Manage packet captures for virtual machines](packet-capture-vm-portal.md).
+**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [packet capture](packet-capture-overview.md) and [Manage packet captures for virtual machines](packet-capture-vm-portal.md).
 
 ### VPN troubleshoot
 

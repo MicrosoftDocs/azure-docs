@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Price Sheet API.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2023
+ms.date: 02/22/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -14,6 +14,9 @@ ms.reviewer: jojoh
 # Migrate from EA Price Sheet API
 
 EA customers who were previously using the Enterprise Reporting consumption.azure.com API to get their price sheet need to migrate to a replacement Azure Resource Manager API. Instructions to do this are outlined below along with any contract differences between the old API and the new API.
+
+> [!NOTE]
+> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) before then.
 
 ## Assign permissions to an SPN to call the API
 

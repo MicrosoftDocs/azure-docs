@@ -17,4 +17,4 @@ ms.author: v-baolianzou
 
 <sup>2</sup> The neural voice is a multilingual voice in Azure AI Speech. All multilingual voices (except `en-US-JennyMultilingualNeural`) can speak in the language in default locale of the input text without [using SSML](../../speech-synthesis-markup-voice.md#adjust-speaking-languages). However, you can still use the `<lang xml:lang>` element to adjust the speaking accent of each language to set preferred accent such as British accent (`en-GB`) for English. Check the [full list](https://speech.microsoft.com/portal/voicegallery) of supported locales through SSML.
 
-<sup>3</sup> The OpenAI text to speech voices in Azure AI Speech are in public preview and only available in North Central US (`northcentralus`) and Sweden Central (`swedencentral`).
+<sup>3</sup> The OpenAI text to speech voices in Azure AI Speech are in public preview and only available in North Central US (`northcentralus`) and Sweden Central (`swedencentral`). Locales not listed for OpenAI voices aren't supported by design.
