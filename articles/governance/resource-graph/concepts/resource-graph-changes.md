@@ -17,13 +17,13 @@ Change Analysis helps you:
 
 ## Change Analysis architecture
 
-Need some tech here. See current Change Analysis overview section for inspiration.
+[Need: Some tech here. See current Change Analysis overview section for inspiration.]
 
 ## Azure Monitor Change Analysis vs. Azure Resource Graph Change Analysis
 
 Currently in the Azure portal, you'll notice two entries for Change Analysis. 
 
-<!--screenshot-->
+[Need: screenshot]
 
 While this could be confusing, Change Analysis is migrating from an Azure Monitor service to an Azure Resource Graph service. You can expect the following differences:
 
@@ -46,11 +46,11 @@ The Change Analysis (preview) service presented by Resource Graph sets a new dir
 
 ## Supported services
 
-Same as AzMon?
+[Need: Same as AzMon?]
 
 ## Cost
 
-Relevant?
+[Need: Relevant?]
 
 ## Limitations
 

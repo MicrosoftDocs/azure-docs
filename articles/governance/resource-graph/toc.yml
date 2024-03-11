@@ -76,7 +76,7 @@
     - name: Overview
       displayName: vms, public ip
       href: ./concepts/resource-graph-changes.md
-    - name: Properties and best practices
+    - name: Resource change properties
       displayName: vms, public ip
       href: ./concepts/changes-resource-spec.md
   - name: Work with large data sets
