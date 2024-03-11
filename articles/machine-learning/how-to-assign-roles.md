@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: meyetman
 author: meyetman
-ms.date: 01/23/2024
+ms.date: 03/11/2024
 ms.custom: how-to, devx-track-azurecli, devx-track-arm-template
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
@@ -329,6 +329,7 @@ A more restricted role definition without wildcards in the allowed actions. It c
         "Microsoft.MachineLearningServices/workspaces/computes/delete",
         "Microsoft.MachineLearningServices/workspaces/delete",
         "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action",
         "Microsoft.MachineLearningServices/workspaces/listKeys/action",
         "Microsoft.Authorization/*",
         "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read",
