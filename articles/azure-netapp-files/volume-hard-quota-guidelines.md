@@ -1,10 +1,9 @@
 ---
 title: What changing to volume hard quota means for your Azure NetApp Files service | Microsoft Docs
-description: Describes the change to using volume hard quota, how to plan for the change, and how to monitor and manage capacities.   
+description: Describes the change to using volume hard quota, how to plan for the change, and how to monitor and manage capacities.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 09/30/2022
 ms.author: anfdocs

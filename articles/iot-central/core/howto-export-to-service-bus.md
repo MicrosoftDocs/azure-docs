@@ -4,7 +4,7 @@ description: Learn how to use the IoT Central data export capability to continuo
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/22/2023
+ms.date: 03/05/2024
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: devx-track-azurecli
@@ -31,41 +31,6 @@ Service Bus destinations let you configure the connection with a *connection str
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
 ### Create a Service Bus queue or topic destination
-
-# [Connection string](#tab/connection-string)
-
-If you don't have an existing Service Bus namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Service Bus namespace, and queue. It then prints the connection string to use when you configure the data export in IoT Central:
-
-```azurecli-interactive
-# Replace the Service Bus namespace name with your own unique value
-SBNS=your-service-bus-namespace-$RANDOM
-SBQ=exportdata
-RG=centralexportresources
-LOCATION=eastus
-
-az group create -n $RG --location $LOCATION
-az servicebus namespace create --name $SBNS --resource-group $RG -l $LOCATION
-
-# This example uses a Service Bus queue. You can use a Service Bus topic.
-az servicebus queue create --name $SBQ --resource-group $RG --namespace-name $SBNS
-az servicebus queue authorization-rule create --queue-name $SBQ --resource-group $RG --namespace-name $SBNS --name SendRule --rights Send
-
-CS=$(az servicebus queue authorization-rule keys list --queue-name $SBQ --resource-group $RG --namespace-name $SBNS --name SendRule --query "primaryConnectionString" -o tsv)
-
-echo "Service bus connection string: $CS"
-```
-
-To create the Service Bus destination in IoT Central on the **Data export** page:
-
-1. Select **+ New destination**.
-
-1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
-
-1. Select **Connection string** as the authorization type.
-
-1. Paste in the connection string for your Service Bus resource, and enter the case-sensitive queue or topic name if necessary.
-
-1. Select **Save**.
 
 # [Managed identity](#tab/managed-identity)
 
@@ -117,6 +82,41 @@ To create the Service Bus destination in IoT Central on the **Data export** page
 1. Select **Save**.
 
 If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshooting.md).
+
+# [Connection string](#tab/connection-string)
+
+If you don't have an existing Service Bus namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Service Bus namespace, and queue. It then prints the connection string to use when you configure the data export in IoT Central:
+
+```azurecli-interactive
+# Replace the Service Bus namespace name with your own unique value
+SBNS=your-service-bus-namespace-$RANDOM
+SBQ=exportdata
+RG=centralexportresources
+LOCATION=eastus
+
+az group create -n $RG --location $LOCATION
+az servicebus namespace create --name $SBNS --resource-group $RG -l $LOCATION
+
+# This example uses a Service Bus queue. You can use a Service Bus topic.
+az servicebus queue create --name $SBQ --resource-group $RG --namespace-name $SBNS
+az servicebus queue authorization-rule create --queue-name $SBQ --resource-group $RG --namespace-name $SBNS --name SendRule --rights Send
+
+CS=$(az servicebus queue authorization-rule keys list --queue-name $SBQ --resource-group $RG --namespace-name $SBNS --name SendRule --query "primaryConnectionString" -o tsv)
+
+echo "Service bus connection string: $CS"
+```
+
+To create the Service Bus destination in IoT Central on the **Data export** page:
+
+1. Select **+ New destination**.
+
+1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
+
+1. Select **Connection string** as the authorization type.
+
+1. Paste in the connection string for your Service Bus resource, and enter the case-sensitive queue or topic name if necessary.
+
+1. Select **Save**.
 
 ---
 

@@ -2,7 +2,6 @@
 title: Access SMB volumes from Microsoft Entra joined Windows virtual machines
 description: Learn how to access Azure NetApp Files SMB volumes from an on-premises environment using Microsoft Entra ID.
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 author: b-ahibbard
 ms.author: anfdocs

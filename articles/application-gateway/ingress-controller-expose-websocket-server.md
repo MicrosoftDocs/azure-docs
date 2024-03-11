@@ -14,7 +14,7 @@ ms.author: greglin
 As outlined in the Application Gateway v2 documentation - it [provides native support for the WebSocket and HTTP/2 protocols](features.md#websocket-and-http2-traffic). Both Application Gateway and the Kubernetes Ingress don't have a user-configurable setting to selectively enable or disable WebSocket support.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 The following Kubernetes deployment YAML shows the minimum configuration used to deploy a WebSocket server, which is the same as deploying a regular web server:
 ```yaml

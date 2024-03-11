@@ -4,7 +4,6 @@ description: How to create and use an SSH public-private key pair for Linux VMs 
 author: mattmcinnes
 ms.service: virtual-machines
 ms.collection: linux
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 01/02/2024

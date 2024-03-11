@@ -51,7 +51,6 @@ You can configure Microsoft Defender for Storage on your subscriptions in severa
 - [Azure CLI](#azure-cli)
 - [REST API](#rest-api)
 
-
 #### Terraform template
 
 To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using a Terraform template, add this code snippet to your template with your subscription ID as the `parent_id` value:
@@ -196,7 +195,6 @@ You can configure Microsoft Defender for Storage with per-transaction pricing on
 - [PowerShell](#powershell)
 - [Azure CLI](#azure-cli)
 
-
 #### ARM template
 
 To enable Microsoft Defender for Storage for a specific storage account with per-transaction pricing using an ARM template, use [the prepared Azure template](https://azure.microsoft.com/resources/templates/storage-advanced-threat-protection-create/).
@@ -270,12 +268,10 @@ Exclusion of storage accounts from protected subscriptions requires you to:
 1. Add a tag to block inheriting the subscription enablement.
 1. Disable Defender for Storage (classic).
 
-
 > [!NOTE]
 > Consider upgrading to the new Defender for Storage plan if you have storage accounts you would like to exclude from the Defender for Storage classic plan. Not only will you save on costs for transaction-heavy accounts, but you'll also gain access to enhanced security features. Learn more about the [benefits of migrating to the new plan](defender-for-storage-introduction.md).
 >
 > Excluded storage accounts in the Defender for Storage classic are not automatically excluded when you migrate to the new plan.
-
 
 ### Exclude an Azure Storage account protection on a subscription with per-transaction pricing
 
@@ -335,7 +331,6 @@ To exclude an Azure Storage account from Microsoft Defender for Storage (classic
 
     [Learn more about this command](/cli/azure/security/atp/storage).
 
-
 ### Exclude an Azure Databricks Storage account
 
 #### Exclude an active Databricks workspace
@@ -356,7 +351,7 @@ Microsoft Defender for Storage can exclude specific active Databricks workspace 
 
     :::image type="content" source="media/defender-for-storage-exclude/storage-off.png" alt-text="Screenshot showing how to switch the Defender for Storage plan to off.":::
 
-1. Re-enable Defender for Storage (classic) using one of the supported methods (you can’t enable Defender for Storage classic from the Azure portal). 
+1. Re-enable Defender for Storage (classic) using one of the supported methods (you can’t enable Defender for Storage classic from the Azure portal).
 
 The tags are inherited by the Storage account of the Databricks workspace and prevent Defender for Storage from turning on.
 
@@ -383,6 +378,6 @@ The Microsoft Defender for Storage account inherits the tag of the Databricks wo
 
 ## Next steps
 
-- Check out the [alerts for Azure Storage](alerts-reference.md#alerts-azurestorage)
+- Check out the [alerts for Azure Storage](alerts-reference.md#alerts-for-azure-storage)
 - Learn about the [features and benefits of Defender for Storage](defender-for-storage-introduction.md)
 - Check out [common questions](faq-defender-for-storage-classic.yml) about Defender for Storage classic.

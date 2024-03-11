@@ -29,8 +29,6 @@ landingContent:
       links:
         - text: Connect a device to IoT Hub
           url: quickstart-send-telemetry-iot-hub.md
-        - text: Connect a device to IoT Central
-          url: quickstart-send-telemetry-central.md
   - title: Get started with Azure RTOS development
     linkLists:
     - linkListType: quickstart

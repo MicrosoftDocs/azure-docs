@@ -10,7 +10,7 @@ The first step in understanding compliance in Azure is to identify the status of
 This quickstart steps you through the process of creating a policy assignment to identify virtual
 machines that aren't using managed disks.
 
-At the end of this process, you'll successfully identify virtual machines that aren't using managed
+At the end of this process, you identify virtual machines that aren't using managed
 disks. They're _non-compliant_ with the policy assignment.
 
 REST API is used to create and manage Azure resources. This guide uses REST API to create a policy
@@ -22,12 +22,8 @@ assignment and to identify non-compliant resources in your Azure environment.
   account before you begin.
 
 - If you haven't already, install [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool
-  that sends HTTP requests to Azure Resource Manager-based REST APIs. You can also use the "Try It"
-  feature in REST documentation or tooling like PowerShell's
-  [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) or
-  [Postman](https://www.postman.com).
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+  that sends HTTP requests to Azure Resource Manager-based REST APIs. You can also use tooling like PowerShell's
+  [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
 ## Create a policy assignment
 
@@ -63,21 +59,21 @@ Run the following command to create a policy assignment:
 The preceding endpoint and request body uses the following information:
 
 REST API URI:
-- **Scope** - A scope determines what resources or grouping of resources the policy assignment gets
+- **Scope** - A scope determines which resources or group of resources the policy assignment gets
   enforced on. It could range from a management group to an individual resource. Be sure to replace
   `{scope}` with one of the following patterns:
   - Management group: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
   - Subscription: `/subscriptions/{subscriptionId}`
   - Resource group: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Resource: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
-- **Name** - The actual name of the assignment. For this example, _audit-vm-manageddisks_ was used.
+- **Name** - The name of the assignment. For this example, _audit-vm-manageddisks_ was used.
 
 Request Body:
 - **DisplayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
 - **Description** - A deeper explanation of what the policy does or why it's assigned to this scope.
 - **policyDefinitionId** - The policy definition ID, based on which you're using to create the
-  assignment. In this case, it's the ID of policy definition _Audit VMs that do not use managed
+  assignment. In this case, it's the ID of policy definition _Audit VMs that don't use managed
   disks_.
 - **nonComplianceMessages** - Set the message seen when a resource is denied due to non-compliance
   or evaluated to be non-compliant. For more information, see
@@ -85,7 +81,7 @@ Request Body:
 
 ## Identify non-compliant resources
 
-To view the resources that aren't compliant under this new assignment, run the following command to
+To view the non-compliant resources that aren't compliant under this new assignment, run the following command to
 get the resource IDs of the non-compliant resources that are output into a JSON file:
 
 ```http
@@ -118,8 +114,7 @@ Your results resemble the following example:
 }
 ```
 
-The results are comparable to what you'd typically see listed under **Non-compliant resources** in
-the Azure portal view.
+The results are comparable to what you'd typically see listed under **Non-compliant resources** in the Azure portal view.
 
 ## Clean up resources
 
@@ -133,11 +128,9 @@ Replace `{scope}` with the scope you used when you first created the policy assi
 
 ## Next steps
 
-In this quickstart, you assigned a policy definition to identify non-compliant resources in your
-Azure environment.
+In this quickstart, you assigned a policy definition to identify non-compliant resources in your Azure environment.
 
-To learn more about assigning policies to validate that new resources are compliant, continue to the
-tutorial for:
+To learn more about assigning policies to validate that new resources are compliant, continue to the tutorial for:
 
 > [!div class="nextstepaction"]
 > [Creating and managing policies](./tutorials/create-and-manage.md)

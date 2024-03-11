@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -56,7 +56,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project, create one.
 
-1. On the collapsible left menu, select **Settings**.
+1. On the collapsible left menu, select **AI project settings**.
 
 1. In the **Compute instances** section, select **View all**.
 

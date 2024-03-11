@@ -4,7 +4,6 @@ description: Learn how to upgrade your Azure free or Azure for Students Starter 
 keywords: pay as you go upgrade
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual

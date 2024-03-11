@@ -4,10 +4,8 @@ description: Learn how to troubleshoot the issue in which you cannot delete a vi
 services: virtual-network
 author: asudbring
 manager: dcscontentpm
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: troubleshooting
-ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: allensu
 ms.custom: fasttrack-edit

@@ -5,11 +5,9 @@ services: api-management
 author: dlepow
 manager: gwallace
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.date: 05/11/2021
 ms.author: danlep
-
 ---
 
 # Configure local metrics and logs for Azure API Management self-hosted gateway

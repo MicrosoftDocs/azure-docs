@@ -1,10 +1,9 @@
 ---
 title: Delete an Azure NetApp Files volume | Microsoft Docs
-description: Describes how to delete an Azure NetApp Files volume. 
+description: Describes how to delete an Azure NetApp Files volume.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 06/22/2023
 ms.author: anfdocs

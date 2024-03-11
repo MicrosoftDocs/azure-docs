@@ -2,7 +2,7 @@
 title: Send or receive events from Azure Event Hubs using Python
 description: This article provides a walkthrough for creating a Python application that sends/receives events to/from Azure Event Hubs.
 ms.topic: quickstart
-ms.date: 01/08/2023
+ms.date: 02/07/2024
 ms.devlang: python
 ms.custom: mode-api, passwordless-python, devx-track-python
 ---
@@ -16,7 +16,7 @@ If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md
 To complete this quickstart, you need the following prerequisites:
 
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, sign up for a [free trial](https://azure.microsoft.com/free/).
-- Python 3.7 or later, with pip installed and updated.
+- Python 3.8 or later, with pip installed and updated.
 - Visual Studio Code (recommended) or any other integrated development environment (IDE). 
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create an Event Hubs namespace, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md).
 

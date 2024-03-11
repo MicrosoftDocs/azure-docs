@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
 ms.custom:
   - devx-track-python
@@ -18,9 +18,10 @@ ms.custom:
   - devx-track-go
   - ignite-2023
 zone_pivot_groups: programming-languages-ai-services
+#customer intent: As a developer, I want to install the Speech SDK for the language of my choice to implement Speech AI in applications.
 ---
 
-# Install the Speech SDK
+# Quickstart: Install the Speech SDK
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](../includes/quickstarts/platform/csharp.md)]
@@ -54,7 +55,7 @@ zone_pivot_groups: programming-languages-ai-services
 [!INCLUDE [Python include](./../includes/quickstarts/platform/python.md)]
 ::: zone-end
 
-## Next steps
+## Related content
 
 - [Speech to text quickstart](../get-started-speech-to-text.md)
 - [Text to speech quickstart](../get-started-text-to-speech.md)

@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 1/18/2024
+ms.date: 2/7/2024
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -15,6 +15,10 @@ The Azure AI Speech service supports OpenAI text to speech voices in the followi
 
 > [!NOTE]
 > OpenAI text to speech voices are also available in [Azure OpenAI Service](../../../openai/reference.md#text-to-speech). 
+
+#### Personal voice
+
+The personal voice feature now supports `DragonLatestNeural` and `PhoenixLatestNeural` models. These new models enhance the naturalness of synthesized voices, better resembling the speech characteristics of the voice in the prompt. For more details, refer to [Integrate personal voice in your application](../../personal-voice-how-to-use.md#integrate-personal-voice-in-your-application).
 
 ### December 2023 release
 

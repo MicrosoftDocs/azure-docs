@@ -1,10 +1,9 @@
 ---
 title: Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes | Microsoft Docs
-description: Describes the considerations and steps for enabling LDAP with extended groups when you create an NFS volume by using Azure NetApp Files.  
+description: Describes the considerations and steps for enabling LDAP with extended groups when you create an NFS volume by using Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 03/17/2023
 ms.author: anfdocs

@@ -126,8 +126,6 @@ items:
       items:
       - name: Device and Service SDKs
         href: iot-sdks.md
-    - name: Azure Certified for IoT device catalog
-      href: https://catalog.azureiotsolutions.com/
     - name: Azure IoT Tools for VS Code
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     - name: Azure IoT Explorer tool
