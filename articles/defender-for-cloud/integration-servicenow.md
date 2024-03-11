@@ -13,11 +13,11 @@ ai-usage: ai-assisted
 
 ServiceNow is a cloud-based workflow automation and enterprise-oriented solution that enables organizations to manage and track digital workflows within a unified, robust platform. ServiceNow helps to improve operational efficiencies by streamlining and automating routine work tasks and delivers resilient services that help increase your productivity.  
 
-ServiceNow can be integrated with Microsoft Defender for Cloud to allow customers to prioritize remediation of recommendations that affect your business. Defender for Cloud integrates with the ITSM module (incident management). As part of this connection, customers can create/view ServiceNow tickets (linked to recommendations) from Defender for Cloud.
+ServiceNow can be integrated with Microsoft Defender for Cloud to allow customers to prioritize remediation of recommendations that affect your business. Defender for Cloud integrates with the IT Service Management (ITSM) module (incident management). As part of this connection, customers can create/view ServiceNow tickets (linked to recommendations) from Defender for Cloud.
 
 As part of the integration, you can create and monitor tickets in ServiceNow directly from Defender for Cloud:
 
-- **Incident**: An incident is an unplanned interruption of reduction in the quality of an IT service. It can be reported by a user or monitoring system. ServiceNow’s incident management module helps IT teams track and manage incidents, from initial reporting to resolution.
+- **Incident**: An incident is an unplanned interruption of reduction in the quality of an IT service as reported by a user or monitoring system. ServiceNow’s incident management module helps IT teams track and manage incidents, from initial reporting to resolution.
 - **Problem**: A problem is the underlying cause of one or more incidents. It’s often a recurring or persistent issue that needs to be addressed to prevent future incidents.
 - **Change**: A change is a planned alternation or addition to an IT service or its supporting infrastructure. A change management module helps IT teams plan, approve, and execute changes in a controlled and systematic manner. It minimizes the risk of service disruptions and maintains service quality.
 

@@ -4,7 +4,7 @@ description: Learn how to connect ServiceNow with Microsoft Defender for Cloud t
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/28/2024
+ms.date: 03/11/2024
 ai-usage: ai-assisted
 #customer intent: As a user, I want to learn how to connect my ServiceNow account with Microsoft Defender for Cloud so that I can protect my Azure, hybrid, and multicloud machines.
 ---
@@ -36,7 +36,7 @@ To connect a ServiceNow account to a Defender for Cloud account:
 
 1. Select **Add integration** > **ServiceNow**.
 
-   :::image type="content" border="true" source="./media/connect-servicenow/add-servicenow.png" alt-text="Screenshot that shows where the add integration button is and the ServiceNow option." lightbox="media/connect-servicenow/add-servicenow.png":::
+   :::image type="content" border="true" source="./media/connect-servicenow/add-servicenow.png" alt-text="Screenshot that shows where the "Add integration" button is and the ServiceNow option." lightbox="media/connect-servicenow/add-servicenow.png":::
 
 1. Enter a name and select the scope.
 

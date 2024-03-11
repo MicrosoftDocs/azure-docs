@@ -1,17 +1,17 @@
 ---
-title: Create a ticket with governance rules
+title: Create automatic tickets with governance rules
 description: Learn how to create a governance rule in Defender for Cloud that connects recommendations or severity levels to a specific owner.
-author: dcurwin
-ms.author: dacurwin
+author: Elazark
+ms.author: elkrieger
 ms.topic: how-to
-ms.date: 02/28/2024
+ms.date: 03/11/2024
 ai-usage: ai-assisted
-#customer intent: As a user, I want to learn how to conncreate a governance rule in Defender for Cloud that automatically assigns an owner to specific recommendation or a recommendation with a severity level in Defender for Cloud to my my ServiceNow account.
+#customer intent: As a user, I want to learn how to create automatic tickets using governance rules in Defender for Cloud that automatically assigns an owner to specific recommendation or a recommendation with a severity level in Defender for Cloud to my my ServiceNow account.
 ---
 
-# Create a ticket with governance rules
+# Create automatic tickets with governance rules
 
-With the integration between Defender for Cloud and ServiceNow, you can automatically assign ownership of a specific recommendation or severity level to a specific user in ServiceNow. This integration allows for the creation and viewing of ServiceNow tickets linked to recommendations directly from Defender for Cloud, enabling seamless collaboration between the two platforms and facilitating efficient incident management.
+The integration of SeviceNow and Defender for Cloud allow you to create governance rules that automatically assign ownership of a specific recommendations or severity levels to a specific user in ServiceNow. ServiceNow tickets can be created, viewed, and linked to recommendations directly from Defender for Cloud, enabling seamless collaboration between the two platforms and facilitating efficient incident management.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ With the integration between Defender for Cloud and ServiceNow, you can automati
 - The following roles are required:
     - To create an assignment:  Admin permissions to ServiceNow.
 
-## Create a governance rule to assign an owner
+## Assign an owner with a governance rule
 
 You can create a rule to automatically assign an owner to a recommendation in Defender for Cloud. This rule is based on the recommendation's severity or recommendation.
 
