@@ -1584,6 +1584,11 @@
         "source_path_from_root": "/articles/postgresql/migrate/best-practices-seamless-migration-single-to-flexible.md",
         "redirect_url": "/azure/postgresql/migrate/migration-service/best-practices-migration-service-postgresql",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/concepts-single-to-flexible.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/concepts-migration-service-postgresql",
+        "redirect_document_id": false
     }
     ]
 }

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Offline migration from AWS RDS using the migration service with the Azure portal and Azure CLI"
+title: "Tutorial: Migrate from AWS RDS using the migration service with the Azure portal and Azure CLI"
 description: "Learn to migrate seamlessly from AWS RDS to Azure Database for PostgreSQL - Flexible Server using the new migration service in Azure, simplifying the transition while ensuring data integrity and efficient deployment."
 author: apduvuri
 ms.author: adityaduvuri
@@ -11,7 +11,7 @@ ms.topic: tutorial
 #customer intent: As a developer, I want to learn how to migrate from AWS RDS to Azure Database for PostgreSQL using the migration service, so that I can simplify the transition and ensure data integrity.
 ---
 
-# Tutorial: Migrate from AWS RDS PostgreSQL to Azure Database for PostgreSQL using the migration service (offline)
+# Tutorial: Migrate from AWS RDS PostgreSQL to Azure Database for PostgreSQL using the migration service
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 

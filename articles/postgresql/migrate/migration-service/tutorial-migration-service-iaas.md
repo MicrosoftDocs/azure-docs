@@ -12,7 +12,7 @@ ms.topic: tutorial
 # CustomerIntent: As a user, I want to learn how to perform offline migration from on-premises and Azure virtual machines to Azure Database for PostgreSQL - Flexible Server using the migration service in Azure, so that I can simplify the transition and ensure data integrity and efficient deployment.
 ---
 
-# Tutorial: Migrate from on-premises or an Azure VM hosted PostgreSQL to Azure Database for PostgreSQL using the migration service (offline)
+# Tutorial: Migrate from on-premises or an Azure VM hosted PostgreSQL to Azure Database for PostgreSQL using the migration service
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
