@@ -133,6 +133,9 @@ Some common use-cases for **RedisJSON** include applications such as searching p
 
 For more information, see [RedisJSON](https://redis.io/docs/stack/json/).
 
+> [!NOTE]
+> FT.CONFIG Command is not supported for updating any module configuration elements or parameters however these can be done via Management plane API's by specifying the arguments.
+
 ## Next steps
 
 - [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md)
