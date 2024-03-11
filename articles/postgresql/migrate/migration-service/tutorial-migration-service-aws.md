@@ -285,7 +285,7 @@ After migration, you can perform the following tasks:
 ## Related content
 
 - [Migration service](concepts-migration-service-postgresql.md)
-- [Migrate from on-premises and Azure VMs](tutorial-migration-service-offline-iaas.md)
+- [Migrate from on-premises and Azure VMs](tutorial-migration-service-iaas.md)
 - [Best practices](best-practices-migration-service-postgresql.md)
 - [Known Issues and limitations](concepts-known-issues-migration-service.md)
 - [Network setup](how-to-network-setup-migration-service.md)

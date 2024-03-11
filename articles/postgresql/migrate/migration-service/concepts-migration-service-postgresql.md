@@ -70,9 +70,9 @@ The following table lists the various sources supported by the migration service
 | PostgreSQL Source Type | Offline Migration | Online Migration |
 |------------------------|-------------------|------------------| 
 | [Azure Database for PostgreSQL – Single server](../how-to-migrate-single-to-flexible-portal.md) | Supported | Supported |
-| [AWS RDS for PostgreSQL](tutorial-migration-service-offline-aws.md) | Supported | Planned for future release |
-| [On-premises](tutorial-migration-service-offline-iaas.md) | Supported | Planned for future release |
-| [Azure VM](tutorial-migration-service-offline-iaas.md) | Supported | Planned for future release |
+| [AWS RDS for PostgreSQL](tutorial-migration-service-aws.md) | Supported | Planned for future release |
+| [On-premises](tutorial-migration-service-iaas.md) | Supported | Planned for future release |
+| [Azure VM](tutorial-migration-service-iaas.md) | Supported | Planned for future release |
 
 
 :::image type="content" source="media/concepts-migration-service-postgresql/migrate-different-sources-option.png" alt-text="Screenshot of the migration setup showing different sources." lightbox="media/concepts-migration-service-postgresql/migrate-different-sources-option.png":::
@@ -92,8 +92,8 @@ Below are the key benefits of using this service for your PostgreSQL migrations:
 
 Get started with the Single to Flexible migration tool by using any of the following methods:
 
-- [Offline migration from on-premises or IaaS](tutorial-migration-service-offline-iaas.md)
-- [Offline migration from AWS RDS for PostgreSQL](tutorial-migration-service-offline-aws.md)
+- [Offline migration from on-premises or IaaS](tutorial-migration-service-iaas.md)
+- [Offline migration from AWS RDS for PostgreSQL](tutorial-migration-service-aws.md)
 
 ## Additional information
 
@@ -102,7 +102,7 @@ The migration service is a hosted solution where we use binary called [pgcopydb]
 ## Related content
 
 - [Premigration validations](concepts-premigration-migration-service.md)
-- [Migrate from on-premises and Azure VMs](tutorial-migration-service-offline-iaas.md)
-- [Migrate from AWS RDS for PostgreSQL](tutorial-migration-service-offline-aws.md)
+- [Migrate from on-premises and Azure VMs](tutorial-migration-service-iaas.md)
+- [Migrate from AWS RDS for PostgreSQL](tutorial-migration-service-aws.md)
 - [Network setup](how-to-network-setup-migration-service.md)
 - [Known issues and limitations](concepts-known-issues-migration-service.md)

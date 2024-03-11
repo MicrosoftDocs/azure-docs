@@ -41,7 +41,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 1. In the **Overview** tab of the flexible server, on the left menu, scroll down to **Migration** and select it.
 
-    :::image type="content" source="media\tutorial-migration-service-offline-iaas\offline-portal-select-migration-pane.png" alt-text="Screenshot of the migration selection." lightbox="media\tutorial-migration-service-offline-iaas\offline-portal-select-migration-pane.png":::
+    :::image type="content" source="media\tutorial-migration-service-iaas\offline-portal-select-migration-pane.png" alt-text="Screenshot of the migration selection." lightbox="media\tutorial-migration-service-iaas\offline-portal-select-migration-pane.png":::
 
 1. Select the **Create** button to migrate to a flexible server from on-premises or Azure VMs.
 
@@ -52,7 +52,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 1. Select the **Create** button to go through a wizard-based series of tabs to perform a migration.
 
-    :::image type="content" source="media\tutorial-migration-service-offline-iaas\portal-offline-create-migration.png" alt-text="Screenshot of the create migration page." lightbox="media\tutorial-migration-service-offline-iaas\portal-offline-create-migration.png":::
+    :::image type="content" source="media\tutorial-migration-service-iaas\portal-offline-create-migration.png" alt-text="Screenshot of the create migration page." lightbox="media\tutorial-migration-service-iaas\portal-offline-create-migration.png":::
 
 ## Setup
 
@@ -76,7 +76,7 @@ To learn more about the premigration validation, visit [premigration](concepts-p
 
 Select the **Next: Connect to source** button.
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\portal-offline-setup-migration.png" alt-text="Screenshot of the setup migration page." lightbox="media\tutorial-migration-service-offline-iaas\portal-offline-setup-migration.png":::
+:::image type="content" source="media\tutorial-migration-service-iaas\portal-offline-setup-migration.png" alt-text="Screenshot of the setup migration page." lightbox="media\tutorial-migration-service-iaas\portal-offline-setup-migration.png":::
 
 ## Connect to the source
 
@@ -96,7 +96,7 @@ The **Connect to Source** tab prompts you to give details related to the source 
 
 After the successful test connection, select the **Next: Select Migration target** button.
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\portal-offline-connect-source-migration.png" alt-text="Screenshot of connect source migration page." lightbox="media\tutorial-migration-service-offline-iaas\portal-offline-connect-source-migration.png":::
+:::image type="content" source="media\tutorial-migration-service-iaas\portal-offline-connect-source-migration.png" alt-text="Screenshot of connect source migration page." lightbox="media\tutorial-migration-service-iaas\portal-offline-connect-source-migration.png":::
 
 ## Connect to the target
 
@@ -110,7 +110,7 @@ The **select migration target** tab displays metadata for the Flexible Server ta
 
 After the successful test connection, select the **Next: Select Database(s) for Migration**
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\portal-offline-connect-target-migration.png" alt-text="Screenshot of the connect target migration page." lightbox="media\tutorial-migration-service-offline-iaas\portal-offline-connect-target-migration.png":::
+:::image type="content" source="media\tutorial-migration-service-iaas\portal-offline-connect-target-migration.png" alt-text="Screenshot of the connect target migration page." lightbox="media\tutorial-migration-service-iaas\portal-offline-connect-target-migration.png":::
 
 ## Select databases for migration
 
@@ -118,19 +118,19 @@ Under the **Select database for migration** tab, you can choose a list of user d
 
 After selecting the databases, select the **Next: Summary**.
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\portal-offline-fetchdb-migration.png" alt-text="Screenshot of the fetchDB migration page." lightbox="media\tutorial-migration-service-offline-iaas\portal-offline-fetchdb-migration.png":::
+:::image type="content" source="media\tutorial-migration-service-iaas\portal-offline-fetchdb-migration.png" alt-text="Screenshot of the fetchDB migration page." lightbox="media\tutorial-migration-service-iaas\portal-offline-fetchdb-migration.png":::
 
 ## Summary
 
 The **Summary** tab summarizes all the source and target details for creating the validation or migration. Review the details and select the **Start Validation and Migration** button.
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\portal-offline-summary-migration.png" alt-text="Screenshot of the summary migration page." lightbox="media\tutorial-migration-service-offline-iaas\portal-offline-summary-migration.png":::
+:::image type="content" source="media\tutorial-migration-service-iaas\portal-offline-summary-migration.png" alt-text="Screenshot of the summary migration page." lightbox="media\tutorial-migration-service-iaas\portal-offline-summary-migration.png":::
 
 ## Monitor the migration
 
 After you select the **Start Validation and Migration** button, a notification appears in a few seconds to say that the validation or migration creation is successful. You're automatically redirected to the flexible server's **Migration** page. The entry is in the **InProgress** state and **PerformingPreRequisiteSteps** substate. The workflow takes 2-3 minutes to set up the migration infrastructure and check network connections.
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\portal-offline-monitor-migration.png" alt-text="Screenshot of the monitor migration page." lightbox="media\tutorial-migration-service-offline-iaas\portal-offline-monitor-migration.png":::
+:::image type="content" source="media\tutorial-migration-service-iaas\portal-offline-monitor-migration.png" alt-text="Screenshot of the monitor migration page." lightbox="media\tutorial-migration-service-iaas\portal-offline-monitor-migration.png":::
 
 The grid that displays the migrations has these columns: **Name**, **Status**, **Migration mode**, **Migration type**, **Source server**, **Source server type**, **Databases**, **Duration** and **Start time**. The entries are displayed in the descending order of the start time, with the most recent entry on the top. You can use the refresh button to refresh the status of the validation or migration run.
 
@@ -152,7 +152,7 @@ Validation details are available at Instance and Database level.
     - It contains validation of the individual databases related to extensions and collations support in Azure Database for PostgreSQL, a flexible server.
 
 You can see the **validation** and the **migration** status under the migration details page.
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\portal-offline-details-migration.png" alt-text="Screenshot of the details showing validation and migration." lightbox="media\tutorial-migration-service-offline-iaas\portal-offline-details-migration.png":::
+:::image type="content" source="media\tutorial-migration-service-iaas\portal-offline-details-migration.png" alt-text="Screenshot of the details showing validation and migration." lightbox="media\tutorial-migration-service-iaas\portal-offline-details-migration.png":::
 
 Possible migration states include:
 
@@ -198,13 +198,13 @@ In this tutorial, the source PostgreSQL version used is 14.8, and it's installed
 
 We're going to migrate "ticketdb","inventorydb","salesdb" into Azure Database for PostgreSQL flexible server.
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\az-migration-source-cli.png" alt-text="Screenshot of the az migration source page." lightbox="media\tutorial-migration-service-offline-iaas\az-migration-source-cli.png":::
+:::image type="content" source="media\tutorial-migration-service-iaas\az-migration-source-cli.png" alt-text="Screenshot of the az migration source page." lightbox="media\tutorial-migration-service-iaas\az-migration-source-cli.png":::
 
 ## Perform migration using CLI
 
 - Open the command prompt and sign in to the Azure using `az login` command
 
-    :::image type="content" source="media\tutorial-migration-service-offline-iaas\success-az-login-cli.png" alt-text="Screenshot of the az success sign in." lightbox="media\tutorial-migration-service-offline-iaas\success-az-login-cli.png":::
+    :::image type="content" source="media\tutorial-migration-service-iaas\success-az-login-cli.png" alt-text="Screenshot of the az success sign in." lightbox="media\tutorial-migration-service-iaas\success-az-login-cli.png":::
 
 - Edit the below placeholders `<< >>` in the JSON lines and store them in the local machine as `<<filename>>.json` where the CLI is being invoked. In this tutorial, we have saved the file in C:\migration-cli\migration_body.json
 
@@ -236,7 +236,7 @@ We're going to migrate "ticketdb","inventorydb","salesdb" into Azure Database fo
     az postgres flexible-server migration list --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --filter All
     ```
 
-    :::image type="content" source="media\tutorial-migration-service-offline-iaas\list-cli.png" alt-text="Screenshot of list the migration runs in CLI." lightbox="media\tutorial-migration-service-offline-iaas\list-cli.png":::
+    :::image type="content" source="media\tutorial-migration-service-iaas\list-cli.png" alt-text="Screenshot of list the migration runs in CLI." lightbox="media\tutorial-migration-service-iaas\list-cli.png":::
 
 - In the above steps, there are no migrations performed so we start with the new migration by running the following command
 
@@ -252,11 +252,11 @@ We're going to migrate "ticketdb","inventorydb","salesdb" into Azure Database fo
 
 - The status of the migration progress is shown in the CLI.
 
-    :::image type="content" source="media\tutorial-migration-service-offline-iaas\status-migration-cli.png" alt-text="Screenshot of status migration CLI." lightbox="media\tutorial-migration-service-offline-iaas\status-migration-cli.png":::
+    :::image type="content" source="media\tutorial-migration-service-iaas\status-migration-cli.png" alt-text="Screenshot of status migration CLI." lightbox="media\tutorial-migration-service-iaas\status-migration-cli.png":::
 
 - You can also see the status in the Azure Database for PostgreSQL flexible server portal.
 
-    :::image type="content" source="media\tutorial-migration-service-offline-iaas\status-migration-portal.png" alt-text="Screenshot of status migration portal." lightbox="media\tutorial-migration-service-offline-iaas\status-migration-portal.png":::
+    :::image type="content" source="media\tutorial-migration-service-iaas\status-migration-portal.png" alt-text="Screenshot of status migration portal." lightbox="media\tutorial-migration-service-iaas\status-migration-portal.png":::
 ---
 
 ## Post migration
@@ -282,7 +282,7 @@ After migration, you can perform the following tasks:
 ## Related content
 
 - [Migration service](concepts-migration-service-postgresql.md)
-- [Migrate from AWS RDS](tutorial-migration-service-offline-aws.md)
+- [Migrate from AWS RDS](tutorial-migration-service-aws.md)
 - [Best practices](best-practices-migration-service-postgresql.md)
 - [Known Issues and limitations](concepts-known-issues-migration-service.md)
 - [Network setup](how-to-network-setup-migration-service.md)
